@@ -62,7 +62,7 @@ changes:
   - maptweak: "Medical, Virology, and Xenobiology all have sharps bins for disposal of biohazardous glassware."
   - tweak: "There are now three hyposprays in the Medical sublevel, which are equivalent to syringes prior to this update. They take the same amount of time to inject, and have a capacity of 15 units, but are reusable."
   - backend: "Accidentally refactored (almost) all storage items to use the starts_with var instead of overriding fill(). This should make it a lot less complicated to add new storage boxes."
-  - imageadd: "Ports Goonstation sprites for syringes."
+  - imageadd: "Modifies sprites for syringes, done by Geeves."
   - rscadd: "Adds medicine cups to take medicine by mouth in a dignified manner."
   - tweak: "Changes the glycerol recipe. One unit of triglycerides (can be obtained from meat) and two units of any pure alcohol will produce three units of glycerol and two units of acetone. Sulfuric acid is required as a catalyst."
   - rscadd: "Adds a recipe for glucose. Nutriment can be catalysed into glucose by adding sulfuric acid."
