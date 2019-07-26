@@ -680,10 +680,13 @@
 	)
 
 
-/obj/structure/closet/crate/loot/Initialize(mapload, var/_rarity = 1, var/_quantity = 10)
+/obj/structure/closet/crate/loot/Initialize(mapload, var/_rarity, var/_quantity)
 	. = ..()
-	rarity = _rarity
-	quantity = _quantity
+
+	if(_rarity)
+		rarity = _rarity
+	if(_quantity)
+		quantity = _quantity
 
 	spawntypes = list(
 		"1" = STOCK_RARE_PROB * rarity,
