@@ -166,6 +166,12 @@
 			update_material()
 		return 1
 
+	if(!material && can_plate && istype(W, /obj/item/weapon/reagent_containers/glass/beaker/bowl))
+		new /obj/structure/chemkit(loc)
+		qdel(W)
+		qdel(src)
+		return 1
+
 	return ..()
 
 /obj/structure/table/MouseDrop_T(obj/item/stack/material/what)
