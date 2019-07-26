@@ -58,7 +58,7 @@
 
 
 		while (world.time < arrive_time)
-			launching(5)
+			launching(5, /obj/effect/engine_exhaust/pulse)
 			sleep(5)
 
 		play_sound_shuttle(sound_landing, interim, 25)

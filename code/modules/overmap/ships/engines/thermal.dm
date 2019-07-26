@@ -99,3 +99,6 @@
 
 /obj/effect/engine_exhaust/blue
 	icon_state = "exhaust_blue"
+
+/obj/effect/engine_exhaust/pulse
+	icon_state = "pulse"

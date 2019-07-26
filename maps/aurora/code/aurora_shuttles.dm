@@ -118,6 +118,8 @@
 	VS.arrival_message = "Attention, [station_short], we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
 	VS.departure_message = "Your guests are pulling away, [station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 	VS.interim = locate(/area/skipjack_station/transit)
+	VS.area_current = locate(/area/skipjack_station/start)
+	VS.scan_shuttle()
 
 	VS.warmup_time = 0
 	shuttles["Skipjack"] = VS
@@ -147,6 +149,8 @@
 	MS.interim = locate(/area/syndicate_station/transit)
 
 	MS.warmup_time = 0
+	MS.area_current = locate(/area/syndicate_station/start)
+	MS.scan_shuttle()
 	shuttles["Mercenary"] = MS
 
 	// Tau Ceti Foreign Legion

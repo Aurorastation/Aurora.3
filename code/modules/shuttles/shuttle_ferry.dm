@@ -32,7 +32,7 @@
 	dock_target_station = settings[11]
 	dock_target_offsite = settings[12]
 	
-	..()
+	scan_shuttle()
 
 /datum/shuttle/ferry/short_jump(var/area/origin, var/area/destination)
 	if(isnull(location))
