@@ -363,12 +363,25 @@
 	catalysts = list("phoron" = 5)
 	result_amount = 2
 
-/datum/chemical_reaction/spaceacillin
-	name = "Spaceacillin"
-	id = "spaceacillin"
-	result = "spaceacillin"
-	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
+/datum/chemical_reaction/deltamivir
+	name = "Deltamivir"
+	id = "deltamivir"
+	result = "deltamivir"
+	required_reagents = list("cryptobiolin" = 1, "tricordrazine" = 1)
 	result_amount = 2
+
+/datum/chemical_reaction/thetamycin
+	name = "Thetamycin"
+	id = "thetamycin"
+	result = "thetamycin"
+	required_reagents = list("cryptobiolin" = 1, "anti_toxin" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/antihistamine
+	name = "Diphenhydramine"
+	id = "diphenhydramine"
+	result = "diphenhydramine"
+	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
 
 /datum/chemical_reaction/imidazoline
 	name = "imidazoline"
@@ -487,8 +500,25 @@
 	name = "Glycerol"
 	id = "glycerol"
 	result = "glycerol"
-	required_reagents = list("cornoil" = 3, "sacid" = 1)
-	result_amount = 1
+	required_reagents = list("triglyceride" = 1, "ethanol" = 2) // transesterification of triglycerides into butanol and glycerol
+	catalysts = list("sacid" = 5) // using acid as a catalyst
+	result_amount = 3 //each triglyceride has 3 glycerin chains.
+
+/datum/chemical_reaction/glycerol/butanol
+	name = "Glycerol"
+	id = "glycerol-butane"
+	result = "glycerol"
+	required_reagents = list("triglyceride" = 1, "butanol" = 2)
+
+/datum/chemical_reaction/glycerol/on_reaction(var/datum/reagents/holder, var/created_volume)
+	holder.add_reagent("acetone", 2 * created_volume / 3) // closest we can get to biofuel, sorry
+
+/datum/chemical_reaction/glucose
+	name = "Glucose"
+	id = "glucose"
+	result = "glucose"
+	required_reagents = list("nutriment" = 5) // thank you, Gottlieb Kirchhoff
+	catalysts = list("sacid" = 5 )//starch into sugar with sulfuric acid catalyst
 
 /datum/chemical_reaction/sodiumchloride
 	name = "Sodium Chloride"
@@ -605,6 +635,13 @@
 	required_reagents = list("atropine" = 1, "phoron" = 0.1, "inaprovaline" = 1 )
 	result_amount = 2
 
+/datum/chemical_reaction/coughsyrup
+	name = "Cough Syrup"
+	id = "coughsyrup"
+	result = "coughsyrup"
+	required_reagents = list("carbon" = 1, "ammonia" = 1, "water" = 1)
+	result_amount = 3
+
 //Mental Medication
 
 /datum/chemical_reaction/methylphenidate
@@ -697,6 +734,45 @@
 	result = "berserk"
 	required_reagents = list("psilocybin" = 1, "moonshine" = 1)
 	result_amount = 1
+
+/* Makeshift Chemicals and Drugs */
+
+/datum/chemical_reaction/stimm
+	name = "Stimm"
+	id = "stimm"
+	result = "stimm"
+	required_reagents = list("fuel" = 1, "rewriter" = 5)
+	result_amount = 6
+
+/datum/chemical_reaction/lean
+	name = "Lean"
+	id = "lean"
+	result = "lean"
+	required_reagents = list("space_up" = 2, "coughsyrup" = 2, "sugar" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/krokjuice
+	name = "Krok Juice"
+	id = "krok"
+	result = "krok"
+	required_reagents = list("orangejuice" = 2, "fuel" = 1, "iron" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/raskara_dust
+	name = "Raskara Dust"
+	id = "raskara_dust"
+	result = "raskara_dust"
+	required_reagents = list("monoammoniumphosphate" = 1, "cleaner" = 1, "sodiumchloride" = 2) // extinguisher, cleaner, salt
+	required_temperatures_min = list("monoammoniumphosphate" = 400, "cleaner" = 400, "sodiumchloride" = 400) // barely over boiling point of water
+	result_amount = 2
+
+/datum/chemical_reaction/nightjuice
+	name = "Nightlife"
+	id = "night_juice"
+	result = "night_juice"
+	required_reagents = list("methylphenidate" = 1, "epinephrine" = 1, "synaptizine" = 1)
+	required_temperatures_min = list("methylphenidate" = T0C+300, "epinephrine" = T0C+300, "synaptizine" = T0C+300)
+	result_amount = 1 // doesn't make a lot
 
 /* Solidification */
 
@@ -1627,7 +1703,7 @@
 	name = "Garlic Sauce"
 	id = "garlicsauce"
 	result = "garlicsauce"
-	required_reagents = list("garlicjuice" = 1, "cornoil" = 1,)
+	required_reagents = list("garlicjuice" = 1, "cornoil" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/cheesewheel

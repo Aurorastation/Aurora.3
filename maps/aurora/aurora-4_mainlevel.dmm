@@ -5894,7 +5894,7 @@
 /obj/structure/fireaxecabinet{
 	pixel_x = -32
 	},
-/obj/structure/closet/crate/extinguisher_catridges,
+/obj/structure/closet/crate/extinguisher_cartridges,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "alv" = (
@@ -16214,6 +16214,23 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
+"aCU" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "aCV" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -17311,6 +17328,14 @@
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice)
+"aEN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -32260,7 +32285,7 @@
 /area/medical/icu)
 "bdH" = (
 /turf/simulated/wall,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdI" = (
@@ -32286,7 +32311,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdJ" = (
@@ -32308,7 +32333,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdK" = (
@@ -32334,7 +32359,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bdL" = (
@@ -33124,7 +33149,7 @@
 /obj/structure/table/standard,
 /obj/machinery/computer/med_data/laptop,
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfg" = (
@@ -33142,20 +33167,20 @@
 	pixel_y = -4
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfh" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfj" = (
@@ -33175,7 +33200,7 @@
 	req_one_access = list(5)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bfk" = (
@@ -33885,7 +33910,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgu" = (
@@ -33898,7 +33923,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgv" = (
@@ -33908,7 +33933,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgw" = (
@@ -33938,7 +33963,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bgx" = (
@@ -34774,7 +34799,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhP" = (
@@ -34789,7 +34814,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/blue,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhQ" = (
@@ -34800,7 +34825,7 @@
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhR" = (
@@ -34810,7 +34835,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bhS" = (
@@ -35508,25 +35533,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
-"bjc" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/medical_wall{
-	name = "Medication Closet";
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/weapon/reagent_containers/glass/bottle/antitoxin,
-/obj/item/weapon/storage/pill_bottle/dermaline,
-/obj/item/weapon/storage/pill_bottle/tramadol,
-/obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
-	name = "\improper Medical - Exam Room 2"
-	})
 "bjd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -35542,7 +35548,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bje" = (
@@ -35554,7 +35560,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bjf" = (
@@ -35562,7 +35568,7 @@
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/medical,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bjg" = (
@@ -36112,8 +36118,8 @@
 /obj/item/weapon/storage/pill_bottle/tramadol,
 /obj/item/weapon/storage/pill_bottle/dylovene,
 /obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
@@ -36253,7 +36259,7 @@
 	id = "ExamR2"
 	},
 /turf/simulated/floor/plating,
-/area/medical/biostorage{
+/area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
 	})
 "bkn" = (
@@ -36271,27 +36277,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/medical/biostorage{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bko" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/medical_wall{
-	name = "Medication Closet";
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/weapon/reagent_containers/glass/bottle/antitoxin,
-/obj/item/weapon/storage/pill_bottle/dermaline,
-/obj/item/weapon/storage/pill_bottle/tramadol,
-/obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/turf/simulated/floor/tiled/white,
 /area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
+	name = "\improper Medical - Exam Room 2"
 	})
 "bkp" = (
 /obj/machinery/hologram/holopad,
@@ -39101,25 +39088,20 @@
 /area/crew_quarters/heads/cmo)
 "boH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/o2{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/o2,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/machinery/firealarm/north,
+/obj/item/weapon/storage/firstaid/adv{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/toxin,
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
@@ -39135,15 +39117,12 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/item/weapon/storage/box/syringes,
+/obj/item/weapon/storage/firstaid/o2,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 5
@@ -39156,15 +39135,20 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/item/weapon/storage/firstaid/regular{
+	empty = 1;
+	name = "First-Aid (empty)";
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/storage/firstaid/regular{
+	empty = 1;
+	name = "First-Aid (empty)"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boK" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/adv{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/adv,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -39172,6 +39156,12 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Main Storage";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/item/weapon/storage/box/sharps,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boL" = (
@@ -41027,6 +41017,8 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/item/weapon/storage/box/sharps,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/medical/gen_treatment)
 "brR" = (
@@ -43324,6 +43316,7 @@
 /obj/item/roller{
 	pixel_y = 4
 	},
+/obj/item/weapon/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bvr" = (
@@ -44816,8 +44809,8 @@
 /obj/item/weapon/storage/pill_bottle/tramadol,
 /obj/item/weapon/storage/pill_bottle/dylovene,
 /obj/item/weapon/storage/pill_bottle/dylovene,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
+/obj/item/weapon/reagent_containers/syringe/antibiotic,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -46328,10 +46321,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bAg" = (
@@ -47334,8 +47323,6 @@
 	},
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -48254,29 +48241,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bDQ" = (
-/obj/structure/closet/crate/freezer{
-	name = "Various Blood Packs"
-	},
-/obj/item/weapon/reagent_containers/blood/AMinus,
-/obj/item/weapon/reagent_containers/blood/AMinus,
-/obj/item/weapon/reagent_containers/blood/APlus,
-/obj/item/weapon/reagent_containers/blood/APlus,
-/obj/item/weapon/reagent_containers/blood/BMinus,
-/obj/item/weapon/reagent_containers/blood/BMinus,
-/obj/item/weapon/reagent_containers/blood/BPlus,
-/obj/item/weapon/reagent_containers/blood/BPlus,
-/obj/item/weapon/reagent_containers/blood/OPlus,
-/obj/item/weapon/reagent_containers/blood/OPlus,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Cold Storage";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
 /area/medical/surgerywing)
 "bDR" = (
 /obj/structure/table/standard,
@@ -52126,10 +52090,6 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
-"bLf" = (
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "bLg" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -53845,6 +53805,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
+/obj/random/firstaid,
 /turf/simulated/floor/tiled,
 /area/maintenance/medbay)
 "bOB" = (
@@ -55973,7 +55934,7 @@
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTp" = (
@@ -64260,22 +64221,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
-"cng" = (
-/obj/structure/disposalpipe/segment{
+"cmN" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/lawoffice)
 "cnM" = (
 /obj/structure/closet{
@@ -64309,6 +64261,13 @@
 /obj/item/weapon/bedsheet/medical,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"cxh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/meter{
+	name = "Scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "cyq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -64337,17 +64296,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
-"cFV" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
 "cGg" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -64394,20 +64342,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"cUp" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "cVy" = (
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
@@ -64756,11 +64690,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
-"evJ" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/carpet,
-/area/lawoffice)
 "eye" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -64774,6 +64703,14 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"eJC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "eJM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -64845,20 +64782,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"eXN" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
-	},
-/obj/machinery/meter{
-	name = "Scrubbers"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "feo" = (
 /obj/structure/grille/broken,
 /obj/machinery/door/firedoor,
@@ -64889,16 +64812,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"foD" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
+"fnQ" = (
+/obj/structure/banner,
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "fpD" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -64954,14 +64871,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"fDm" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/wood,
-/area/lawoffice)
 "fFb" = (
 /obj/item/ammo_casing/c45/rubber,
 /turf/simulated/floor/plating,
@@ -65068,23 +64977,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
-"fWV" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/wood,
-/area/lawoffice)
 "fXR" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/beret/sec{
@@ -65099,14 +64991,6 @@
 /obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
-"gaq" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "gcr" = (
 /obj/structure/table/standard,
 /obj/structure/cable/green{
@@ -65165,12 +65049,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"gyw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "gBP" = (
 /obj/structure/closet{
 	name = "Patient's Closet"
@@ -65206,6 +65084,7 @@
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
 /obj/random/medical,
+/obj/random/medical,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
 "gIs" = (
@@ -65222,10 +65101,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
-"gMu" = (
-/obj/structure/banner,
-/turf/simulated/floor/wood,
-/area/lawoffice)
 "gNU" = (
 /obj/structure/table/wood,
 /obj/item/weapon/flame/candle{
@@ -65351,15 +65226,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
 /area/maintenance/research_port)
-"hoz" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
-	},
-/obj/machinery/meter{
-	name = "Air supply"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "hqy" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -65416,6 +65282,14 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/rnd/misc_lab)
+"hxj" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "hxQ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -65625,27 +65499,38 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"icZ" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/obj/random/medical,
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medbay)
 "ifx" = (
-/obj/structure/closet/crate/freezer{
-	name = "O- Blood Packs"
-	},
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/item/weapon/reagent_containers/blood/OMinus,
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
-"inu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+"ihp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "ipL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65668,6 +65553,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"ism" = (
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine{
+	anchored = 0;
+	department = "Representative's Office"
+	},
+/turf/simulated/floor/carpet,
+/area/lawoffice)
 "izC" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -65926,13 +65819,16 @@
 /obj/effect/floor_decal/corner/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
-"jKE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/meter{
-	name = "Scrubbers"
+"jMF" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/medical/temp_morgue)
 "jOm" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
@@ -65970,14 +65866,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"kaT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
 "kbF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
@@ -66036,20 +65924,6 @@
 /obj/structure/curtain/medical,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"kgo" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "khX" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
@@ -66152,12 +66026,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
-"kKm" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/lawoffice)
 "kMO" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -66233,6 +66101,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/blue,
 /area/maintenance/medbay)
+"lhb" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "lhs" = (
 /obj/structure/window/phoronreinforced,
 /obj/structure/grille/broken,
@@ -66267,14 +66149,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
-"lmc" = (
-/obj/structure/table/wood,
-/obj/machinery/photocopier/faxmachine{
-	anchored = 0;
-	department = "Representative's Office"
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice)
 "lmd" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -66323,6 +66197,20 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
+"luW" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/machinery/meter{
+	name = "Scrubbers"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "lyh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Maintenance - Atmospherics"
@@ -66660,14 +66548,6 @@
 	roof_type = null
 	},
 /area/maintenance/maintcentral)
-"mGX" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/lawoffice)
 "mIZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -66694,6 +66574,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"mJV" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "mKz" = (
 /turf/simulated/wall,
 /area/maintenance/library)
@@ -66751,6 +66645,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/towel/random,
+/obj/random/medical,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "ndP" = (
@@ -67257,6 +67152,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/chemistry)
+"pTa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "pUs" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -67270,6 +67172,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"pYv" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "pZo" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -67299,6 +67218,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"qqL" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/medical/temp_morgue)
 "qrJ" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -67313,28 +67243,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"qto" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "qtu" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -67377,17 +67285,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
-"qzi" = (
-/obj/machinery/door/firedoor{
-	enable_smart_generation = 0
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "qzz" = (
 /obj/item/weapon/clipboard,
 /obj/item/stack/packageWrap,
@@ -67508,6 +67405,13 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"raK" = (
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(38)
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "rcu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -67720,6 +67624,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"rTr" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/carpet,
+/area/lawoffice)
 "rUQ" = (
 /obj/effect/floor_decal/corner/grey{
 	icon_state = "corner_white";
@@ -67876,13 +67785,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"sOz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/research_port)
 "sQW" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -67923,6 +67825,18 @@
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/plating,
 /area/maintenance/civ)
+"tdO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "tjF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/hologram/holopad,
@@ -68513,6 +68427,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"vKT" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "vMv" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -68535,6 +68460,10 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"vNa" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "vNh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -68550,6 +68479,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/atmos_control)
+"vOH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "vPm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -68586,6 +68521,15 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"waD" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/machinery/meter{
+	name = "Air supply"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "wbf" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -68600,13 +68544,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"wfO" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(38)
-	},
-/turf/simulated/floor/wood,
-/area/lawoffice)
 "whu" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -68621,6 +68558,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
+"whL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/keg,
+/turf/simulated/floor/plating,
+/area/maintenance/civ)
 "wkb" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
@@ -68945,6 +68887,12 @@
 /obj/item/weapon/reagent_containers/blood/empty,
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
+"xIw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "xJi" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
@@ -83826,11 +83774,11 @@ aHx
 asw
 aKU
 aMF
-kgo
+mJV
 aQb
 aRP
 aUW
-inu
+tdO
 aVY
 aXH
 aYT
@@ -87207,7 +87155,7 @@ bbs
 beC
 bbs
 aOv
-gyw
+xIw
 bcY
 bbs
 bbs
@@ -87463,9 +87411,9 @@ beC
 bbs
 bcY
 bbs
-eXN
-hoz
-bLf
+luW
+waD
+vNa
 bbs
 bMw
 bNh
@@ -87720,8 +87668,8 @@ bcY
 bbs
 bcY
 bcY
-cUp
-sOz
+lhb
+pTa
 bcY
 bbs
 bMx
@@ -101779,8 +101727,8 @@ aaO
 aaT
 abk
 abH
-kaT
-jKE
+eJC
+cxh
 acy
 aah
 aaD
@@ -104400,7 +104348,7 @@ bdH
 bff
 bgt
 bhO
-bjc
+bfi
 bkm
 bln
 bmM
@@ -105659,13 +105607,13 @@ agy
 agy
 arY
 atr
-lmc
+ism
 auY
 ayo
 azQ
 awB
 aEJ
-gMu
+fnQ
 awE
 atr
 aKb
@@ -105686,7 +105634,7 @@ bfk
 bgx
 bhT
 bjg
-bko
+bjh
 bjh
 bmR
 bor
@@ -105918,7 +105866,7 @@ arZ
 atr
 hGy
 auY
-evJ
+rTr
 awC
 ayp
 aCV
@@ -106169,7 +106117,7 @@ alc
 xoy
 acV
 adk
-adk
+whL
 acU
 arZ
 atr
@@ -106177,7 +106125,7 @@ auZ
 awD
 awD
 azS
-mGX
+cmN
 aCV
 awE
 aGI
@@ -106217,7 +106165,7 @@ bAn
 bvz
 bCb
 bCc
-bDQ
+bCc
 bvz
 bAn
 bzl
@@ -106429,7 +106377,7 @@ acV
 apy
 acU
 arZ
-wfO
+raK
 awE
 awE
 ayr
@@ -106691,9 +106639,9 @@ avb
 awF
 ays
 awE
-kKm
-fWV
-fDm
+vOH
+aCU
+aEN
 aGK
 atr
 aKd
@@ -106949,7 +106897,7 @@ awG
 ayt
 azU
 aBq
-cng
+pYv
 aEO
 aGL
 atr
@@ -107977,12 +107925,12 @@ awK
 awK
 awK
 aBu
-gaq
+hxj
 aNS
 aNS
-qzi
+vKT
 aNS
-qto
+ihp
 awK
 aPy
 aRe
@@ -109818,7 +109766,7 @@ uVs
 blN
 nJe
 ohn
-ujU
+icZ
 bHG
 nug
 rcu
@@ -110836,7 +110784,7 @@ bsj
 bng
 buD
 bvI
-cFV
+qqL
 byb
 buC
 bAv
@@ -111606,7 +111554,7 @@ brh
 bsm
 bng
 buG
-foD
+jMF
 xhC
 byb
 buC

@@ -3665,7 +3665,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "lB" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/template_noop,
 /area/template_noop)
 "lC" = (
