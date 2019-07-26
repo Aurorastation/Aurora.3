@@ -13,14 +13,14 @@
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in seconds)
 
-	var/list/reagent_ids = list("tricordrazine", "inaprovaline", "spaceacillin")
+	var/list/reagent_ids = list("tricordrazine", "inaprovaline", "deltamivir")
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
 	center_of_mass = null
 
 /obj/item/weapon/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "kelotane", "anti_toxin", "dexalin", "inaprovaline", "tramadol", "spaceacillin")
+	reagent_ids = list("bicaridine", "kelotane", "anti_toxin", "dexalin", "inaprovaline", "tramadol", "deltamivir", "thetamycin")
 
 /obj/item/weapon/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
