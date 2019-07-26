@@ -247,8 +247,8 @@ obj/item/clothing/suit/apron/overalls/blue
 
 
 //Internal Affairs
-/obj/item/clothing/suit/storage/toggle/internalaffairs
-	name = "internal affairs jacket"
+/obj/item/clothing/suit/storage/toggle/liaison
+	name = "liaison jacket"
 	desc = "A smooth black jacket."
 	icon_state = "ia_jacket_open"
 	item_state = "ia_jacket"

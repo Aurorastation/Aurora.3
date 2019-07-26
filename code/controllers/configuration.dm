@@ -167,6 +167,7 @@ var/list/gamemode_cache = list()
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
+	var/sql_ccia_logs = 0		//Defines weather the server saves CCIA Logs to the database aswell
 
 	var/simultaneous_pm_warning_timeout = 100
 
@@ -283,6 +284,9 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+	var/docs_load_docs_from
+	var/docs_image_host
+ 
 	var/ert_base_chance = 10
 	var/ert_green_inc = 1
 	var/ert_yellow_inc = 1
@@ -783,6 +787,9 @@ var/list/gamemode_cache = list()
 
 				if("sql_saves")
 					config.sql_saves = 1
+				
+				if("sql_ccia_logs")
+					config.sql_ccia_logs = 1
 
 				if("client_error_version")
 					config.client_error_version = text2num(value)
@@ -885,6 +892,11 @@ var/list/gamemode_cache = list()
 
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
+
+				if ("docs_load_docs_from")
+					docs_load_docs_from = value
+				if ("docs_image_host")
+					docs_image_host = value
 
 				if ("ert_base_chance")
 					ert_base_chance = text2num(value)

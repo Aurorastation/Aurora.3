@@ -728,6 +728,66 @@
 	new /obj/item/weapon/reagent_containers/toothbrush/red(src)
 	make_exact_fit()
 
+/obj/item/weapon/storage/box/holobadge
+	name = "holobadge box"
+	desc = "A box claiming to contain holobadges."
+
+/obj/item/weapon/storage/box/holobadge/fill()
+	new /obj/item/clothing/accessory/badge/holo(src)
+	new /obj/item/clothing/accessory/badge/holo(src)
+	new /obj/item/clothing/accessory/badge/holo(src)
+	new /obj/item/clothing/accessory/badge/holo(src)
+	new /obj/item/clothing/accessory/badge/holo/cord(src)
+	new /obj/item/clothing/accessory/badge/holo/cord(src)
+
+/obj/item/weapon/storage/box/sol_visa
+	name = "Sol Alliance visa box"
+	desc = "A box full of Sol Aliance temporary visas."
+
+/obj/item/weapon/storage/box/sol_visa/fill()
+	new /obj/item/clothing/accessory/badge/sol_visa(src)
+	new /obj/item/clothing/accessory/badge/sol_visa(src)
+	new /obj/item/clothing/accessory/badge/sol_visa(src)
+	new /obj/item/clothing/accessory/badge/sol_visa(src)
+	new /obj/item/clothing/accessory/badge/sol_visa(src)
+	new /obj/item/clothing/accessory/badge/sol_visa(src)
+
+/obj/item/weapon/storage/box/ceti_visa
+	name = "Republic of Biesel visa box"
+	desc = "A box full of Tau Cetian visas."
+
+/obj/item/weapon/storage/box/ceti_visa/fill()
+	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+
+/obj/item/weapon/storage/box/hadii_card
+	name = "party member card box"
+	desc = "A box full of Hadiist party member cards."
+
+/obj/item/weapon/storage/box/hadii_card/fill()
+	new /obj/item/clothing/accessory/badge/hadii_card(src)
+	new /obj/item/clothing/accessory/badge/hadii_card(src)
+	new /obj/item/clothing/accessory/badge/hadii_card(src)
+	new /obj/item/clothing/accessory/badge/hadii_card(src)
+	new /obj/item/clothing/accessory/badge/hadii_card(src)
+	new /obj/item/clothing/accessory/badge/hadii_card(src)
+
+/obj/item/weapon/storage/box/hadii_manifesto
+	name = "hadiist manifesto card box"
+	desc = "A box full of hadiist manifesto books."
+
+/obj/item/weapon/storage/box/hadii_manifesto/fill()
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+	new /obj/item/pra_manifesto(src)
+
 /obj/item/weapon/storage/box/sharps
 	name = "sharps disposal box"
 	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."

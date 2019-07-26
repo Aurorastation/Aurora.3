@@ -272,10 +272,18 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 /mob/abstract/new_player/proc/IsJobAvailable(rank)
 	var/datum/job/job = SSjobs.GetJob(rank)
-	if(!job)	return 0
-	if(!job.is_position_available()) return 0
-	if(jobban_isbanned(src,rank))	return 0
-	return 1
+	if (!job)
+		return FALSE
+	if (!job.is_position_available())
+		return FALSE
+	if (jobban_isbanned(src,rank))
+		return FALSE
+
+	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
+	if (!(job.type in faction.allowed_role_types))
+		return FALSE
+
+	return TRUE
 
 
 /mob/abstract/new_player/proc/AttemptLateSpawn(rank,var/spawning_at)
@@ -302,8 +310,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
 	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
-
-	UpdateFactionList(character)
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
@@ -488,7 +494,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	return "Human"
 
 /mob/abstract/new_player/get_gender()
-	if(!client || !client.prefs) ..()
+	if(!client || !client.prefs)
+		..()
 	return client.prefs.gender
 
 /mob/abstract/new_player/is_ready()

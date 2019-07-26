@@ -29057,6 +29057,14 @@
 /obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
+"gkl" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "gll" = (
 /turf/simulated/wall,
 /area/medical/patient_wing_library)
@@ -29317,6 +29325,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"hmF" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "hob" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -29454,6 +29469,10 @@
 	c_tag = "Engineering Sublevel - Corridor Camera 4";
 	dir = 2;
 	icon_state = "camera"
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -33118,10 +33137,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 1;
-	icon_state = "alarm0";
-	pixel_y = -22
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -33346,6 +33364,13 @@
 /obj/item/target,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
+"trp" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "tsX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -53595,7 +53620,7 @@ alJ
 agQ
 ahg
 xXX
-ahg
+gkl
 agQ
 aaa
 aaa
@@ -55137,7 +55162,7 @@ fIm
 bhR
 bhR
 amo
-ahg
+hmF
 agQ
 aaa
 aaa
@@ -55388,7 +55413,7 @@ akY
 ahg
 xvi
 ahg
-ahg
+trp
 ahg
 ahg
 ahg

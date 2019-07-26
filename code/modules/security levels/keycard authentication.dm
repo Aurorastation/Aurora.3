@@ -153,13 +153,17 @@
 			if(is_ert_blocked())
 				to_chat(usr, "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>")
 				return
-
 			SSresponseteam.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
-	if(config.ert_admin_call_only) return 1
-	return SSticker.mode && SSticker.mode.ert_disabled
+	if(config.ert_admin_call_only)
+		return 1
+	if(SSticker.mode.ert_disabled)
+		SSticker.mode.announce_ert_disabled()
+		return 1
+	else
+		return 0
 
 var/global/maint_all_access = 0
 

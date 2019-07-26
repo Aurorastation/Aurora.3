@@ -40,7 +40,7 @@ var/global/datum/repository/crew/crew_repository = new()
 	var/tracked = scan()
 	for(var/obj/item/clothing/under/C in tracked)
 		var/turf/pos = get_turf(C)
-		if((C) && (C.has_sensor) && (pos) && (pos.z == z_level) && (C.sensor_mode != SUIT_SENSOR_OFF))
+		if((C) && (C.has_sensor) && (pos) && (pos.z == z_level) && (C.sensor_mode != SUIT_SENSOR_OFF) && !within_jamming_range(C))
 			if(istype(C.loc, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = C.loc
 				if(H.w_uniform != C)
@@ -52,7 +52,7 @@ var/global/datum/repository/crew/crew_repository = new()
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")
 				crewmemberData["rank"] = H.get_authentification_rank(if_no_id="Unknown", if_no_job="No Job")
 				crewmemberData["assignment"] = H.get_assignment(if_no_id="Unknown", if_no_job="No Job")
-
+				
 				if(C.sensor_mode >= SUIT_SENSOR_BINARY)
 					crewmemberData["dead"] = H.stat > UNCONSCIOUS
 

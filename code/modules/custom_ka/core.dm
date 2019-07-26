@@ -28,8 +28,6 @@
 	dispersion = list(0)
 	reliability = 100
 
-	action_button_name = "Wield kinetic accelerator"
-
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
 
 	needspin = FALSE
@@ -43,6 +41,8 @@
 	accuracy_wielded = 0
 	wielded = 0
 	needspin = TRUE
+
+	is_wieldable = TRUE
 
 	var/require_wield = FALSE
 
@@ -70,17 +70,6 @@
 
 	var/can_disassemble_cell = TRUE
 	var/can_disassemble_barrel = TRUE
-
-/obj/item/weapon/gun/custom_ka/verb/wield_accelerator()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
-/obj/item/weapon/gun/custom_ka/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
 
 /obj/item/weapon/gun/custom_ka/can_wield()
 	return 1

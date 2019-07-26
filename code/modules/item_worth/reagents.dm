@@ -744,9 +744,6 @@
 /datum/reagent/nanites
 	value = 9
 
-/datum/reagent/xenomicrobes
-	value = 5
-
 /datum/reagent/estus
 	value = 50
 

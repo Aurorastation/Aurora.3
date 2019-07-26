@@ -149,8 +149,8 @@
 /mob/living/simple_animal/rat/proc/splat()
 	src.health = 0
 	src.death()
-	src.icon_dead = "mouse_[body_color]_splat"
-	src.icon_state = "mouse_[body_color]_splat"
+	src.icon_dead = "rat_[body_color]_splat"
+	src.icon_state = "rat_[body_color]_splat"
 	if(client)
 		client.time_died_as_rat = world.time
 
@@ -273,6 +273,11 @@
 
 /mob/living/simple_animal/rat/dust()
 	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/rat, iconfile = 'icons/mob/npc/rat.dmi')
+
+/mob/living/simple_animal/rat/airlock_crush(var/crush_damage)
+	. = ..()
+	if(crush_damage > health)
+		splat()
 
 /*
  * Mouse types
