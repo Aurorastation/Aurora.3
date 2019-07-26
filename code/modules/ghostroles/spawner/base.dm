@@ -3,6 +3,7 @@
 	var/name = null
 	var/desc = null
 	var/welcome_message = null
+	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name)
@@ -16,7 +17,7 @@
 	var/enabled = TRUE //If the spawnpoint is enabled
 	var/enable_dmessage = TRUE //The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
 	var/respawn_flag = null //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
-	var/jobban_job = null //If this is set to a text, then it will check if the user is banned from that job
+	var/jobban_job = null //If this is set, then it will check if the user is jobbanned from a specific job. Otherwise it will check for the name of the spawner
 
 	//Vars regarding the mob to use
 	var/mob/spawn_mob = null //The mob that should be spawned
@@ -66,7 +67,7 @@
 	if(max_count && count > max_count)
 		return "No more slots are available"
 	//Check if a spawnpoint is available
-	var/turf/T = select_spawnpoint(FALSE)
+	var/T = select_spawnpoint(FALSE)
 	if(!T)
 		return "No spawnpoint available"
 	return FALSE

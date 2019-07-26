@@ -25,7 +25,6 @@
 		if(!G.short_name || !G.name || !G.desc)
 			continue
 		LAZYSET(spawners, G.short_name, G)
-
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawner/G)
 	if(!G.identifier) //If the spawnpoint has no identifier -> Abort
@@ -56,15 +55,15 @@
 				G.spawn_mob()
 			return get_turf(G)
 
-/datum/controller/subsystem/ghostroles/ui_interact(mob/user)
+/datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
-		ui = new(user,src,"misc-ghostspawner",950,700,"Ghostspawner")
+		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", nstate = interactive_state)
 	ui.open()
 
 /datum/controller/subsystem/ghostroles/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
 	if(!newdata)
-		. = newdata = list()
+		. = newdata = list("current_tag"="All")
 	LAZYINITLIST(newdata["spawners"])
 	for(var/s in spawners)
 		var/datum/ghostspawner/G = spawners[s]
@@ -78,8 +77,12 @@
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["enabled"], G.enabled, ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["count"], G.count, ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["max_count"], G.max_count, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["tags"], G.tags, ., newdata)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
 	if(href_list["action"] == "spawn")
 		var/spawner = href_list["spawner"]
 		var/datum/ghostspawner/S = spawners[spawner]
@@ -99,6 +102,7 @@
 		if(!S.post_spawn(M))
 			to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 			return
+		SSvueui.check_uis_for_change(src) //Make sure to update all the UIs so the count is updated
 	if(href_list["action"] == "enable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)
@@ -108,6 +112,7 @@
 		if(!S.enabled)
 			S.enable()
 			to_chat(usr, "Ghost spawner enabled: [S.name]")
+			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
 	if(href_list["action"] == "disable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)
@@ -117,4 +122,5 @@
 		if(S.enabled)
 			S.disable()
 			to_chat(usr, "Ghost spawner disabled: [S.name]")
+			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
 	return

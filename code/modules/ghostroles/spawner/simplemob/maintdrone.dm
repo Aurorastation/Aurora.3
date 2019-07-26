@@ -2,6 +2,7 @@
 	short_name = "maintdrone"
 	name = "Maintenence Drone"
 	desc = "Maintain and Improve the Systems on the Aurora"
+	tags = list("Simple Mobs")
 
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	jobban_job = "Cyborg"
@@ -13,6 +14,9 @@
 	if(!config.allow_drone_spawn)
 		return "Spawning as drone is disabled"
 	return ..()
+
+/datum/ghostspawner/simplemob/maintdrone/select_spawnpoint(var/use)
+	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)

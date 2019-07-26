@@ -1,4 +1,7 @@
-/datum/ghostspawner/human/ert_commander
+/datum/ghostspawner/human/admin
+	tags = list("Admin")
+
+/datum/ghostspawner/human/admin/ert_commander
 	short_name = "ertcommander"
 	name = "ERT Commander"
 	desc = "Command the response team from Central Command"
@@ -19,7 +22,7 @@
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
 
-/datum/ghostspawner/human/legion_commander
+/datum/ghostspawner/human/admin/legion_commander
 	short_name = "legioncommander"
 	name = "TCFL Commander"
 	desc = "Command the TCFL, a walking and talking joke, whos members regularly die before they even arrive at their target."
@@ -40,7 +43,7 @@
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
 
-/datum/ghostspawner/human/cciaagent
+/datum/ghostspawner/human/admin/cciaagent
 	short_name = "cciaagent"
 	name = "CCIA Agent"
 	desc = "Board the Aurora, annoy crew with your interviews and get squashed by your own shuttle."
@@ -62,7 +65,7 @@
 	mob_name_prefix = "CCIAA "
 
 
-/datum/ghostspawner/human/cciaescort
+/datum/ghostspawner/human/admin/cciaescort
 	short_name = "cciaescort"
 	name = "CCIA Escort"
 	desc = "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselvs under their own shuttle."
@@ -87,7 +90,7 @@
 	mob_name_prefix = "Ofc. "
 
 
-/datum/ghostspawner/human/checkpointsec
+/datum/ghostspawner/human/admin/checkpointsec
 	short_name = "checkpointsec"
 	name = "Odin Checkpoint Security"
 	desc = "Secure the Odin checkpoint. Verify the identity of everyone passing through, perform random searches on \"suspicious\" crew."

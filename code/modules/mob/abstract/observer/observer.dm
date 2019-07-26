@@ -926,4 +926,4 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	set category = "Ghost"
 	set name = "Ghost Spawner"
 
-	SSghostroles.ui_interact(src)
+	SSghostroles.vui_interact(src)
