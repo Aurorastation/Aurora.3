@@ -281,6 +281,8 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/check_for_change(var/force = 0)
+	if(!user.client)
+		return
 	if(status > STATUS_DISABLED)
 		var/ret = object.vueui_data_change(data, user, src)
 		if(ret)
