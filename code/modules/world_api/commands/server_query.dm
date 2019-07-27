@@ -27,7 +27,7 @@
 		var/client/C = S
 		if(C.holder.fakekey)
 			continue
-		if(C.holder.rights & R_BAN) // we are doing R_BAN to not count retired admins, since they get R_MOD and R_ADMIN but not R_BAN.
+		if(C.holder.rights & (R_MOD|R_ADMIN))
 			s["admins"]++
 
 	statuscode = 200
@@ -94,7 +94,7 @@
 /datum/topic_command/get_count_ccia/run_command(queryparams)
 	var/n = 0
 	for (var/client/client in clients)
-		if (client.holder && (client.holder.rights & R_CCIAA) && !(client.holder.rights & R_ADMIN))
+		if (client.holder && client.holder.rights == R_CCIAA)
 			n++
 
 	statuscode = 200
@@ -110,7 +110,7 @@
 /datum/topic_command/get_count_mod/run_command(queryparams)
 	var/n = 0
 	for (var/client/client in clients)
-		if (client.holder && (client.holder.rights & R_MOD) && !(client.holder.rights & R_ADMIN))
+		if (client.holder && client.holder.rights == R_MOD)
 			n++
 
 	statuscode = 200
