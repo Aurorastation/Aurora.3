@@ -48,7 +48,7 @@
 	icon_opened = "syndicate1open"
 	anchored = 0
 
-/obj/structure/closet/gimmick/russianr
+/obj/structure/closet/gimmick/russian
 	name = "russian surplus closet"
 	desc = "It's a storage unit for Russian standard-issue surplus."
 	icon_state = "syndicate1"

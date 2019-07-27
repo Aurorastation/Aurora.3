@@ -3665,7 +3665,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "lB" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/template_noop,
 /area/template_noop)
 "lC" = (
@@ -4357,14 +4357,6 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
-"nw" = (
-/obj/structure/lamarr{
-	destroyed = 1;
-	icon_state = "labcageb0";
-	occupied = 0
-	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "nx" = (
@@ -54599,7 +54591,7 @@ mr
 jS
 jl
 in
-nw
+jW
 jW
 aa
 og
