@@ -1034,7 +1034,7 @@
 		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
 		return
 
-		last_special = world.time + 10
+	last_special = world.time + 25
 
 	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
 	var/list/dirs = list()
