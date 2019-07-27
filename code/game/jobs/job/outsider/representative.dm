@@ -1,9 +1,6 @@
 /datum/job/representative
 	title = "Corporate Liaison"
-	flag = LAWYER
 	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
@@ -13,13 +10,7 @@
 	access = list(access_lawyer, access_maint_tunnels, access_heads)
 	minimal_access = list(access_lawyer, access_heads)
 	outfit = /datum/outfit/job/representative
-	alt_titles = list("Tau Ceti Representative","Sol Consular Officer", "PRA Consular Officer")
 	outfit = /datum/outfit/job/representative
-	alt_outfits = list(
-		"Tau Ceti Representative"=/datum/outfit/job/representative/ceti,
-		"Sol Consular Officer"=/datum/outfit/job/representative/sol,
-		"PRA Consular Officer"= /datum/outfit/job/representative/pra
-		)
 
 /datum/outfit/job/representative
 	name = "Corporate Liaison"
