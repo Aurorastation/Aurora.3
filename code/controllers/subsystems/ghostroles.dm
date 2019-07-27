@@ -25,40 +25,69 @@
 		if(!G.short_name || !G.name || !G.desc)
 			continue
 		LAZYSET(spawners, G.short_name, G)
+
 //Adds a spawnpoint to the spawnpoint list
-/datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawner/G)
-	if(!G.identifier) //If the spawnpoint has no identifier -> Abort
-		log_ss("ghostroles","Spawner [G] at [G.x],[G.y],[G.z] has no identifier set")
-		qdel(G)
+/datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
+	if(!P.identifier) //If the spawnpoint has no identifier -> Abort
+		log_ss("ghostroles","Spawner [P] at [P.x],[P.y],[P.z] has no identifier set")
+		qdel(P)
 		return
 
-	if(!(G.identifier in spawnpoints))
-		spawnpoints[G.identifier] = list()
+	if(!(P.identifier in spawnpoints))
+		spawnpoints[P.identifier] = list()
 	
-	spawnpoints[G.identifier].Add(G)
+	spawnpoints[P.identifier].Add(P)
+	update_spawnpoint_status(P)
+
+/datum/controller/subsystem/ghostroles/proc/update_spawnpoint_status(var/obj/effect/ghostspawpoint/P)
+	if(!P || !istype(P))
+		return null
+	//If any of the spawners uses that spawnpoint and is active set the status to available
+	for(var/s in spawners)
+		var/datum/ghostspawner/G = spawners[s]
+		if(!G.is_enabled())
+			continue
+		if(!(P.identifier in G.spawnpoints))
+			continue
+		P.set_available()
+		return TRUE
+	P.set_unavailable()
+	return FALSE
+
+/datum/controller/subsystem/ghostroles/proc/update_spawnpoint_status_by_identifier(var/identifier)
+	if(!identifier) //If no identifier ist set, return false
+		return null
+	if(!length(spawnpoints[identifier])) //If we have no spawnpoints for that identifier, return false
+		return null
 	
-/datum/controller/subsystem/ghostroles/proc/remove_spawnpoints(var/obj/effect/ghostspawner/G)
+	for (var/spawnpoint in spawnpoints[identifier])
+		CHECK_TICK
+		var/obj/effect/ghostspawpoint/P = spawnpoint
+		update_spawnpoint_status(P)
+
+/datum/controller/subsystem/ghostroles/proc/remove_spawnpoints(var/obj/effect/ghostspawpoint/G)
 	spawnpoints[G.identifier].Remove(G)
 	return
 
 //Returns the turf where the spawnpoint is located and updates the spawner to be used
 /datum/controller/subsystem/ghostroles/proc/get_spawnpoint(var/identifier, var/use = TRUE)
 	if(!identifier) //If no identifier ist set, return false
-		return FALSE
-	if(!spawnpoints[identifier] || !length(spawnpoints[identifier])) //If we have no spawnpoints for that identifier, return false
-		return FALSE
+		return null
+	if(!length(spawnpoints[identifier])) //If we have no spawnpoints for that identifier, return false
+		return null
 
 	for (var/spawnpoint in spawnpoints[identifier])
-		var/obj/effect/ghostspawner/G = spawnpoint
-		if(G.is_available())
+		var/obj/effect/ghostspawpoint/P = spawnpoint
+		if(P.is_available())
 			if(use)
-				G.spawn_mob()
-			return get_turf(G)
+				P.set_spawned()
+			return get_turf(P)
 
-/datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user)
+/datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user,var/spawnpoint=null)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
 		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", nstate = interactive_state)
+		ui.data = vueui_data_change(list("spawnpoint"=spawnpoint,"current_tag"="All"),user,ui)
 	ui.open()
 
 /datum/controller/subsystem/ghostroles/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
@@ -70,14 +99,15 @@
 		if(G.cant_see(user))
 			continue
 		LAZYINITLIST(newdata["spawners"][G.short_name])
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["name"], G.name, ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["desc"], G.desc, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["name"], html_encode(G.name), ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["desc"], html_encode(G.desc), ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["enabled"], G.enabled, ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["count"], G.count, ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["max_count"], G.max_count, ., newdata)
 		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["tags"], G.tags, ., newdata)
+		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., newdata)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
@@ -113,6 +143,8 @@
 			S.enable()
 			to_chat(usr, "Ghost spawner enabled: [S.name]")
 			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
+			for(var/i in S.spawnpoints)
+				update_spawnpoint_status_by_identifier(i)
 	if(href_list["action"] == "disable")
 		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
 		if(!S)
@@ -123,4 +155,6 @@
 			S.disable()
 			to_chat(usr, "Ghost spawner disabled: [S.name]")
 			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
+			for(var/i in S.spawnpoints)
+				update_spawnpoint_status_by_identifier(i)
 	return

@@ -387,7 +387,7 @@ var/list/global/slot_flags_enumeration = list(
 				return 0
 		if(slot_in_belt)
 			var/allow = 0
-			if(H.belt && istype(H.belt, /obj/item/weapon/storage/belt))
+			if(istype(H.belt, /obj/item/weapon/storage/belt))
 				var/obj/item/weapon/storage/belt/B = H.belt
 				if(B.can_be_inserted(src,1))
 					allow = 1

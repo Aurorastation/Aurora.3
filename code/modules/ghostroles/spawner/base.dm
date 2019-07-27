@@ -15,6 +15,7 @@
 	var/req_head_whitelist = FALSE //If a head of staff whitelist is required
 	var/req_species_whitelist = null //Name/Datum of the species whitelist that is required, or null
 	var/enabled = TRUE //If the spawnpoint is enabled
+	var/enable_chance = null //If set to a value other than null, has the set chance to become enabled
 	var/enable_dmessage = TRUE //The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
 	var/respawn_flag = null //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	var/jobban_job = null //If this is set, then it will check if the user is jobbanned from a specific job. Otherwise it will check for the name of the spawner
@@ -26,6 +27,12 @@
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	
+/datum/ghostspawner/New()
+	. = ..()
+	if(!jobban_job)
+		jobban_job = name
+	if(!isnull(enable_chance))
+		enabled = prob(enable_chance)
 
 //Return a error message if the user CANT see the ghost spawner. Otherwise FALSE
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu
@@ -56,20 +63,22 @@
 	var/cant_see = cant_see()
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
+	if(!istype(user, /mob/abstract/observer))
+		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
-		return "This spawner is not enabled"
+		return "This spawner is not enabled."
 	if(respawn_flag && !user.MayRespawn(0,respawn_flag))
-		return "You can not respawn at this time"
+		return "You can not respawn at this time."
 	if(!config.enter_allowed)
-		return "There is an administrative lock on entering the game"
+		return "There is an administrative lock on entering the game."
 	if(SSticker.mode && SSticker.mode.explosion_in_progress)
-		return "The station is currently exploding"
+		return "The station is currently exploding."
 	if(max_count && count > max_count)
-		return "No more slots are available"
+		return "No more slots are available."
 	//Check if a spawnpoint is available
 	var/T = select_spawnpoint(FALSE)
 	if(!T)
-		return "No spawnpoint available"
+		return "No spawnpoint available."
 	return FALSE
 
 //Proc executed before someone is spawned in
@@ -113,6 +122,11 @@
 	if(check_rights(req_perms_edit, show_msg=FALSE, user=user))
 		return TRUE
 	return FALSE
+
+/datum/ghostspawner/proc/is_enabled()
+	if(max_count)
+		return enabled && count < max_count
+	return enabled
 
 //Proc to enable the ghostspawner
 /datum/ghostspawner/proc/enable()
