@@ -6,7 +6,6 @@
 	throw_range = 5
 	w_class = 3.0
 	var/mob/affecting = null
-	var/deity_name = "Christ"
 	use_sound = 'sound/bureaucracy/bookopen.ogg'
 	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
@@ -45,15 +44,6 @@
 
 	if (!new_religion)
 		new_religion = religion_name
-
-	var/deity_name = "Space Jesus"
-	var/new_deity = sanitize(input(user, "Would you like to change your deity? Default is Space Jesus.", "Name change", deity_name), MAX_NAME_LEN)
-
-	if ((length(new_deity) == 0) || (new_deity == "Space Jesus") )
-		new_deity = deity_name
-
-	deity_name = new_deity
-	SSticker.Bible_deity_name = new_deity
 
 	var/book_name = "holy bible"
 	book_name = sanitize(input(user, "Would you like the change your bible name? Default is holy bible.", "Book name change", book_name), MAX_NAME_LEN)

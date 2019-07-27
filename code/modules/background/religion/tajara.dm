@@ -3,7 +3,6 @@
 	description = "The worship of the twin Adhomai suns, S'rendarr and Messa has a long-standing tradition among the Tajara people and has archaeologically been regarded, with the \
 	exclusion of other minor sects, as one of the oldest known religion along with the worship of Ma’ta’ke. The religion itself created by Njarir-Arkhan, it has changed hands and forms, \
 	eventually transforming into what it is today. The religion holds onto very traditional values, promoting collectivism, sharing, helping those in need."
-	deity_name = list("S'rendarr", "Messa")
 	book_name = "holy scrolls"
 	book_sprite = "holylight"
 
@@ -15,7 +14,6 @@
 	animals. He was revered as a fierce warrior capable of fighting a platoon of men by himself, but also as a kind soul for the records of his dealings with other tribes show \
 	understanding and kindness. He is upheld to be the ultimate Tajara- powerful, wise, and magnanimous. Followers of Mata'ke himself endeavor to emulate his grandeur, while others \
 	attempt to emulate the other gods."
-	deity_name = list("Ma'ta'ke", "Marryam", "Rredouane", "Shumaila", "Kraszar", "Dhrarmela", "Azubarre")
 	book_name = "ma'ta'ke legends"
 
 /datum/religion/raskara
@@ -23,7 +21,6 @@
 	description = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
 	subverting something S'rendarr and Messa stands for."
-	deity_name = list("Raskara", "Door and Key", "Maggot King", "Black Mirror")
 	book_name = "ma'ta'ke legends"
 
 /datum/religion/raskara/get_id_name()

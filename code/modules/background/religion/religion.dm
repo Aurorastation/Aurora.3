@@ -1,7 +1,6 @@
 /datum/religion
 	var/name
 	var/description
-	var/list/deity_name = list("God")
 	var/book_name = "bible"
 	var/book_sprite = "holybook"
 

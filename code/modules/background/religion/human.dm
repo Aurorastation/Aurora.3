@@ -27,7 +27,6 @@
 /datum/religion/hindu
 	name = RELIGION_HINDU
 	description = "An Indian religion encompassing a variety of traditions, beliefs and spiritual practices. Someone who practices Hinduism is called a Hindu."
-	deity_name = list("Brahma", "Vishnu", "Shiva")
 	book_name = "vedas"
 
 /datum/religion/buddhism
@@ -43,5 +42,4 @@
 	the \"Goddess\". From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
 	by firing squad or ritual suicide. Like Sk'akh, the Goddess can be either male or female and is often called Three of One because the spirits combine into three minor aspects within \
 	the Goddess: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society."
-	deity_name = list("Goddess")
 	book_name = "tribunal codex"
