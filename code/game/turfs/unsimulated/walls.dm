@@ -36,6 +36,11 @@
 		/turf/unsimulated/wall/darkshuttlewall
 	)
 
+/turf/unsimulated/wall/fakeairlock
+	icon = 'icons/obj/doors/Doorele.dmi'
+	icon_state = "door_closed"
+	name = "Airlock"
+	desc = "It opens and closes."
 
 /turf/unsimulated/wall/fakepdoor
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
