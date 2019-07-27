@@ -15,6 +15,9 @@
 	var/manifest_json
 	var/list/manifest
 
+	var/list/citizenships = list()
+	var/list/religions = list()
+
 /datum/controller/subsystem/records/New()
 	records = list()
 	records_locked = list()
@@ -28,6 +31,9 @@
 		excluded_fields[v] = v
 	excluded_fields["cmp_field"] = "cmp_field"
 	excluded_fields["excluded_fields"] = "excluded_fields"
+
+	InitializeCitizenships()
+	InitializeReligions()
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -190,7 +196,7 @@
 		var/isactive = t.phisical_status
 		var/department = 0
 		var/depthead = 0            // Department Heads will be placed at the top of their lists.
-		
+
 		for(var/positionType in positions)
 			var/typesPositions = positions[positionType]
 			if(real_rank in typesPositions)
@@ -236,3 +242,22 @@
 
 /proc/generate_record_id()
 	return add_zero(num2hex(rand(1, 65535)), 4)
+
+
+/datum/controller/subsystem/records/proc/InitializeCitizenships()
+	for (var/type in subtypesof(/datum/citizenship))
+		var/datum/citizenship/citizenship = new type()
+
+		citizenships += citizenship
+
+	if (!citizenships.len)
+		crash_with("No citizenships located in SSjobs.")
+
+/datum/controller/subsystem/records/proc/InitializeReligions()
+	for (var/type in subtypesof(/datum/religion))
+		var/datum/religion/religion = new type()
+
+		religions += religion
+
+	if (!religions.len)
+		crash_with("No citizenships located in SSjobs.")

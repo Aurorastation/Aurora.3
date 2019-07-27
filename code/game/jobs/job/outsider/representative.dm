@@ -17,7 +17,7 @@
 
 /datum/job/representative/get_outfit(mob/living/carbon/human/H, alt_title=null)
 	if(alt_title == "Consular Officer")
-		for (var/datum/citizenship/citizenship in SSjobs.citizenships)
+		for (var/datum/citizenship/citizenship in SSrecords.citizenships)
 			if (citizenship.name == H.citizenship)
 				var/datum/citizenship/C = citizenship
 				return C.consular_outfit
@@ -95,7 +95,7 @@
 /datum/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)
 	var/rep_objectives
 
-	for (var/datum/citizenship/citizenship in SSjobs.citizenships)
+	for (var/datum/citizenship/citizenship in SSrecords.citizenships)
 		if (citizenship.name == H.citizenship)
 			var/datum/citizenship/C = citizenship
 

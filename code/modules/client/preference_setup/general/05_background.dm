@@ -164,7 +164,7 @@
 	return ..()
 
 /datum/category_item/player_setup_item/general/background/proc/show_citizenship_menu(mob/user, selected_citizenship)
-	for (var/datum/citizenship/citizenship in SSjobs.citizenships)
+	for (var/datum/citizenship/citizenship in SSrecords.citizenships)
 		if (citizenship.name == selected_citizenship)
 			var/datum/citizenship/C = citizenship
 
@@ -176,7 +176,7 @@
 			show_browser(user, dat.Join(), "window=citizenshippreview;size=400x500")
 
 /datum/category_item/player_setup_item/general/background/proc/show_religion_menu(mob/user, selected_religion)
-	for (var/datum/religion/religion in SSjobs.religions)
+	for (var/datum/religion/religion in SSrecords.religions)
 		if (religion.name == selected_religion)
 			var/datum/religion/R = religion
 
