@@ -1,4 +1,3 @@
-
 //citizenship defines
 #define CITIZENSHIP_BIESEL "Republic of Biesel"
 #define CITIZENSHIP_SOL "Sol Alliance"

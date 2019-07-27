@@ -11,11 +11,11 @@
 	var/rep_objectives
 
 	switch(mission_level)
-		if("high")
+		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Tajaran employees, to be used as leverage in future diplomatic talks",
 							"Compile a report on suspicious PRA citizens to be forwarded to authorities")
 
-		if("medium")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 1000 credits each",
 							"Have [rand(2,5)] PRA citizens to write down their grievances with the company, and present the report to station command",
 							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")

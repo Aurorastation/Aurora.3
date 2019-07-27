@@ -10,11 +10,11 @@
 	var/rep_objectives
 
 	switch(mission_level)
-		if("high")
+		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Compile and report and audit [rand(1,3)] suspicious indivduals who might be spies or otherwise act hostile against the Republic",
 							"Have [rand(2,6)] crewmembers sign a pledge of loyalty to the Republic")
 
-		if("medium")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Sell [rand(2,5)] Tau Ceti residence visas to foreign employees, 2000 credits each.",
 							"Convince [rand(3,6)] crewmembers of Tau Ceti superiority over the Sol Alliance")
 		else
@@ -49,11 +49,11 @@
 	var/rep_objectives
 
 	switch(mission_level)
-		if("high")
+		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Solarian employees, to be used as leverage in future diplomatic talks",
 							"Convince [rand(1,3)] solarian employees to apply for the solarian armed forces")
 
-		if("medium")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Have [rand(2,5)] amount of Sol citizens write down their grievances with the company, and present the report to station command",
 							"Convince [rand(3,6)] human crewmembers to apply for solarian citizenship")
 		else
