@@ -55,19 +55,18 @@
 	name = "restart_round"
 	description = "Restarts the round"
 	params = list(
-		"senderkey" = list("name"="senderkey","desc"="A display friendly name for the sender.","req"=1,"type"="str"),
-		"senderid" = list("name"="senderid","desc"="The Discord user ID of the sender.","req"=1,"type"="str"),
+		"senderkey" = list("name"="senderkey","desc"="A display friendly name for the sender.","req"=1,"type"="str")
 	)
 
 /datum/topic_command/restart_round/run_command(queryparams)
 	var/senderkey = sanitize(queryparams["senderkey"]) //Identifier of the sender (Ckey / Userid / ...)
 
 	to_world("<font size=4 color='#ff2222'>Server restarting by remote command.</font>")
-	log_and_message_admins("World restart initiated remotely by [senderkey]:<@[queryparams["senderid"]]>.")
+	log_and_message_admins("World restart initiated remotely by [senderkey].")
 	feedback_set_details("end_error","remote restart")
 
 	spawn(50)
-		log_game("Rebooting due to remote command. Initiator: [senderkey]:<@[queryparams["senderid"]]>")
+		log_game("Rebooting due to remote command. Initiator: [senderkey]")
 		world.Reboot("Rebooting due to remote command.")
 
 	statuscode = 200
@@ -79,8 +78,7 @@
 	name = "restart_tgs"
 	description = "Orders an immediate reboot via TGS, including the shutting down of DreamDaemon."
 	params = list(
-		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that authorized the restart","req"=1,"type"="str"),
-		"senderid" = list("name"="senderid","desc"="The Discord user ID of the sender.","req"=1,"type"="str"),
+		"senderkey" = list("name"="senderkey","desc"="Unique id of the person that authorized the restart","req"=1,"type"="str")
 	)
 
 /datum/topic_command/tgs_reboot/run_command(queryparams)
@@ -93,7 +91,7 @@
 		return TRUE
 
 	to_world("<font size=4 color='#ff2222'>Server restarting by remote command.</font>")
-	log_and_message_admins("World restart initiated remotely by [senderkey]:<@[queryparams["senderid"]]>.")
+	log_and_message_admins("World restart initiated remotely by [senderkey].")
 	feedback_set_details("end_error","remote restart")
 
 	world.Reboot("Rebooting due to remote command.", hard_reset = TRUE)
@@ -109,7 +107,6 @@
 	description = "Sends a text to everyone on the server."
 	params = list(
 		"senderkey" = list("name"="senderkey","desc"="A display friendly name for the sender.","req"=1,"type"="str"),
-		"senderid" = list("name"="senderid","desc"="The Discord user ID of the sender.","req"=1,"type"="str"),
 		"text" = list("name"="text","desc"="The text that should be sent","req"=1,"type"="str")
 	)
 
@@ -118,7 +115,7 @@
 	var/text = sanitize(queryparams["text"])
 
 	to_world("<span class=notice><b>[sender] Announces via Remote:</b><p style='text-indent: 50px'>[text]</p></span>")
-	log_admin("Remote announce: [sender]:<@[queryparams["senderid"]]> : [queryparams["text"]]")
+	log_admin("Remote announce: [sender] : [queryparams["text"]]")
 
 	statuscode = 200
 	response = "Text sent"
