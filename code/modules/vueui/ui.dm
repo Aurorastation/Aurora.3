@@ -325,7 +325,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/process()
-	if (!object || !user || status < 0)
+	if (!object || !user || status < 0 || !user.client)
 		close()
 		return
 	update_status()
