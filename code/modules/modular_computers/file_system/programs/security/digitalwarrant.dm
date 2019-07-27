@@ -1,3 +1,13 @@
+var/warrant_uid = 0
+/datum/datacore/var/list/warrants[] = list()
+/datum/data/record/warrant
+	var/warrant_id
+
+/datum/data/record/warrant/New()
+	..()
+	warrant_id = warrant_uid++
+
+
 /datum/computer_file/program/digitalwarrant
 	filename = "digitalwarrant"
 	filedesc = "Warrant Assistant"
@@ -13,25 +23,25 @@
 
 /datum/nano_module/program/digitalwarrant/
 	name = "Warrant Assistant"
-	var/datum/record/warrant/activewarrant
+	var/datum/data/record/warrant/activewarrant
 
 /datum/nano_module/program/digitalwarrant/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	if(activewarrant)
-		data["warrantname"] = activewarrant.name
-		data["warrantcharges"] = activewarrant.notes
-		data["warrantauth"] = activewarrant.authorization
-		data["type"] = activewarrant.wtype
+		data["warrantname"] = activewarrant.fields["namewarrant"]
+		data["warrantcharges"] = activewarrant.fields["charges"]
+		data["warrantauth"] = activewarrant.fields["auth"]
+		data["type"] = activewarrant.fields["arrestsearch"]
 	else
 		var/list/allwarrants = list()
-		for(var/datum/record/warrant/W in SSrecords.warrants)
+		for(var/datum/data/record/warrant/W in data_core.warrants)
 			allwarrants.Add(list(list(
-			"warrantname" = W.name,
-			"charges" = "[copytext(W.notes,1,min(length(W.notes) + 1, 50))]...",
-			"auth" = W.authorization,
-			"id" = W.id,
-			"arrestsearch" = W.wtype
+			"warrantname" = W.fields["namewarrant"],
+			"charges" = "[copytext(W.fields["charges"],1,min(length(W.fields["charges"]) + 1, 50))]...",
+			"auth" = W.fields["auth"],
+			"id" = W.warrant_id,
+			"arrestsearch" = W.fields["arrestsearch"]
 		)))
 		data["allwarrants"] = allwarrants
 
@@ -51,8 +61,8 @@
 
 	if(href_list["editwarrant"])
 		. = 1
-		for(var/datum/record/warrant/W in SSrecords.warrants)
-			if(W.id == text2num(href_list["editwarrant"]))
+		for(var/datum/data/record/warrant/W in data_core.warrants)
+			if(W.warrant_id == text2num(href_list["editwarrant"]))
 				activewarrant = W
 				break
 
@@ -69,41 +79,41 @@
 
 	if(href_list["addwarrant"])
 		. = 1
-		var/datum/record/warrant/W = new()
+		var/datum/data/record/warrant/W = new()
 		var/temp = sanitize(input(usr, "Do you want to create a search-, or an arrest warrant?") as null|anything in list("search","arrest"))
 		if(CanInteract(user, default_state))
 			if(temp == "arrest")
-				W.name = "Unknown"
-				W.notes = "No charges present"
-				W.authorization = "Unauthorized"
-				W.wtype = "arrest"
+				W.fields["namewarrant"] = "Unknown"
+				W.fields["charges"] = "No charges present"
+				W.fields["auth"] = "Unauthorized"
+				W.fields["arrestsearch"] = "arrest"
 			if(temp == "search")
-				W.name = "No location given"
-				W.notes = "No reason given"
-				W.authorization = "Unauthorized"
-				W.wtype = "search"
+				W.fields["namewarrant"] = "No location given"
+				W.fields["charges"] = "No reason given"
+				W.fields["auth"] = "Unauthorized"
+				W.fields["arrestsearch"] = "search"
 			activewarrant = W
 
 	if(href_list["savewarrant"])
 		. = 1
-		SSrecords.update_record(activewarrant)
+		data_core.warrants |= activewarrant
 		activewarrant = null
 
 	if(href_list["deletewarrant"])
 		. = 1
+		data_core.warrants -= activewarrant
 		activewarrant = null
-		SSrecords.remove_record(activewarrant)
 
 	if(href_list["editwarrantname"])
 		. = 1
 		var/namelist = list()
-		for(var/datum/record/general/t in SSrecords.records)
-			namelist += t.name
+		for(var/datum/data/record/t in data_core.general)
+			namelist += t.fields["name"]
 		var/new_name = sanitize(input(usr, "Please input name") as null|anything in namelist)
 		if(CanInteract(user, default_state))
 			if (!new_name)
 				return
-			activewarrant.name = new_name
+			activewarrant.fields["namewarrant"] = new_name
 
 	if(href_list["editwarrantnamecustom"])
 		. = 1
@@ -111,20 +121,20 @@
 		if(CanInteract(user, default_state))
 			if (!new_name)
 				return
-			activewarrant.name = new_name
+			activewarrant.fields["namewarrant"] = new_name
 
 	if(href_list["editwarrantcharges"])
 		. = 1
-		var/new_charges = sanitize(input("Please input charges", "Charges", activewarrant.notes) as null|text)
+		var/new_charges = sanitize(input("Please input charges", "Charges", activewarrant.fields["charges"]) as null|text)
 		if(CanInteract(user, default_state))
 			if (!new_charges)
 				return
-			activewarrant.notes = new_charges
+			activewarrant.fields["charges"] = new_charges
 
 	if(href_list["editwarrantauth"])
 		. = 1
 
-		activewarrant.authorization = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
+		activewarrant.fields["auth"] = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
 
 	if(href_list["back"])
 		. = 1

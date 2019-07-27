@@ -341,9 +341,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		character.buckled.set_dir(character.dir)
 
 	SSticker.mode.handle_latejoin(character)
-	if(SSjobs.ShouldCreateRecords(character.mind))
+	if(SSjobs.ShouldCreateRecords(rank))
 		if(character.mind.assigned_role != "Cyborg")
-			SSrecords.generate_record(character)
+			data_core.manifest_inject(character)
 			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 
 		//Grab some data from the character prefs for use in random news procs.
@@ -459,7 +459,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/proc/ViewManifest()
 	var/dat = "<html><body>"
 	dat += "<h4>Show Crew Manifest</h4>"
-	dat += SSrecords.get_manifest(OOC = 1)
+	dat += data_core.get_manifest(OOC = 1)
 
 	src << browse(dat, "window=manifest;size=370x420;can_close=1")
 

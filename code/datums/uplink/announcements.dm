@@ -42,43 +42,52 @@
 		return 0
 
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
-	var/datum/record/general/random_record
-	if(SSrecords.records.len)
-		random_record = pick(SSrecords.records)
-	else
-		random_record = new(user)
+	var/datum/data/record/random_general_record
+	var/datum/data/record/random_medical_record
+	if(data_core.general.len)
+		random_general_record	= pick(data_core.general)
+		random_medical_record	= find_medical_record("id", random_general_record.fields["id"])
 
-	var/datum/record/general/record = random_record.Copy()
-	
+	var/datum/data/record/general = data_core.CreateGeneralRecord(user)
 	if(I)
-		record.age = I.age
-		record.rank = I.assignment
-		record.real_rank = I.assignment
-		record.name = I.registered_name
-		record.sex = I.sex
+		general.fields["age"] = I.age
+		general.fields["rank"] = I.assignment
+		general.fields["real_rank"] = I.assignment
+		general.fields["name"] = I.registered_name
+		general.fields["sex"] = I.sex
 	else
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
 			H = user
-			record.age = H.age
+			general.fields["age"] = H.age
 		else
-			record.age = initial(H.age)
+			general.fields["age"] = initial(H.age)
 		var/assignment = GetAssignment(user)
-		record.rank = assignment
-		record.real_rank = assignment
-		record.name = user.real_name
-		record.sex = capitalize(user.gender)
+		general.fields["rank"] = assignment
+		general.fields["real_rank"] = assignment
+		general.fields["name"] = user.real_name
+		general.fields["sex"] = capitalize(user.gender)
 
-	record.species = user.get_species()
-	record.security = new(null, record.id)
+	general.fields["species"] = user.get_species()
+	var/datum/data/record/medical = data_core.CreateMedicalRecord(general.fields["name"], general.fields["id"])
+	data_core.CreateSecurityRecord(general.fields["name"], general.fields["id"])
+
+	if(!random_general_record)
+		general.fields["citizenship"]	= random_general_record.fields["citizenship"]
+		general.fields["employer"] 		= random_general_record.fields["employer"]
+		general.fields["fingerprint"] 	= random_general_record.fields["fingerprint"]
+		general.fields["home_system"] 	= random_general_record.fields["home_system"]
+		general.fields["religion"] 		= random_general_record.fields["religion"]
+	if(random_medical_record)
+		medical.fields["b_type"]		= random_medical_record.fields["b_type"]
+		medical.fields["b_dna"]			= random_medical_record.fields["b_type"]
 
 	if(I)
-		record.fingerprint = I.fingerprint_hash
-		record.medical.blood_type = I.blood_type
-		record.medical.blood_dna = I.dna_hash
+		general.fields["fingerprint"] 	= I.fingerprint_hash
+		medical.fields["b_type"]	= I.blood_type
+		medical.fields["b_dna"]		= I.dna_hash
 
-	SSrecords.add_record(record)
-	AnnounceArrivalSimple(record.name, record.rank)
+	AnnounceArrivalSimple(general.fields["name"], general.fields["rank"])
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm

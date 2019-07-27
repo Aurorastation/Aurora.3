@@ -67,9 +67,12 @@
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
 
 	var/medical_cannotfind = 0
-	var/datum/record/general/active		// Datacore record declarations for record software
+	var/datum/data/record/medicalActive1		// Datacore record declarations for record software
+	var/datum/data/record/medicalActive2
 
 	var/security_cannotfind = 0
+	var/datum/data/record/securityActive1		// Could probably just combine all these into one
+	var/datum/data/record/securityActive2
 
 	var/obj/machinery/door/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
@@ -239,8 +242,11 @@
 	set category = "pAI Commands"
 	set name = "Reset Records Software"
 
-	active = null
+	securityActive1 = null
+	securityActive2 = null
 	security_cannotfind = 0
+	medicalActive1 = null
+	medicalActive2 = null
 	medical_cannotfind = 0
 	SSnanoui.update_uis(src)
 	to_chat(usr, "<span class='notice'>You reset your record-viewing software.</span>")

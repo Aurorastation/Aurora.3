@@ -454,7 +454,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	SSrecords.build_records()
+	data_core.manifest()
 
 	Master.RoundStart()
 	real_round_start_time = REALTIMEOFDAY

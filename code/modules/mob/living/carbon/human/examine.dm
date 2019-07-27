@@ -334,9 +334,11 @@
 			perpname = name
 
 		if(perpname)
-			var/datum/record/general/R = SSrecords.find_record("name", perpname)
-			if(istype(R) && istype(R.security))
-				criminal = R.security.criminal
+			for (var/datum/data/record/E in data_core.general)
+				if(E.fields["name"] == perpname)
+					for (var/datum/data/record/R in data_core.security)
+						if(R.fields["id"] == E.fields["id"])
+							criminal = R.fields["criminal"]
 
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
 			msg += "<span class = 'deptradio'>Security records:</span> <a href='?src=\ref[src];secrecord=`'>\[View\]</a>  <a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>\n"
@@ -354,9 +356,11 @@
 		else
 			perpname = src.name
 
-		var/datum/record/general/R = SSrecords.find_record("name", perpname)
-		if(istype(R))
-			medical = R.phisical_status
+		for (var/datum/data/record/E in data_core.general)
+			if (E.fields["name"] == perpname)
+				for (var/datum/data/record/R in data_core.general)
+					if (R.fields["id"] == E.fields["id"])
+						medical = R.fields["p_stat"]
 
 		msg += "<span class = 'deptradio'>Physical status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
 		msg += "<span class = 'deptradio'>Medical records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>\n"

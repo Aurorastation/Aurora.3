@@ -189,11 +189,13 @@
 	return res
 
 
+var/global/list/virusDB = list()
+
 /datum/disease2/disease/proc/name()
 	.= "stamm #[add_zero("[uniqueID]", 4)]"
-	var/datum/record/virus/V = SSrecords.find_record("id", "[uniqueID]", RECORD_VIRUS)
-	if(istype(V))
-		.= V.name
+	if ("[uniqueID]" in virusDB)
+		var/datum/data/record/V = virusDB["[uniqueID]"]
+		.= V.fields["name"]
 
 /datum/disease2/disease/proc/get_basic_info()
 	var/t = ""
@@ -220,15 +222,15 @@
 	return r
 
 /datum/disease2/disease/proc/addToDB()
-	if (SSrecords.find_record("id", "[uniqueID]", RECORD_VIRUS))
+	if ("[uniqueID]" in virusDB)
 		return 0
-	var/datum/record/virus/v = new()
-	v.id = uniqueID
-	v.name = name()
-	v.description = get_info()
-	v.antigen = antigens2string(antigen)
-	v.spread_type = spreadtype
-	SSrecords.add_record(v)
+	var/datum/data/record/v = new()
+	v.fields["id"] = uniqueID
+	v.fields["name"] = name()
+	v.fields["description"] = get_info()
+	v.fields["antigen"] = antigens2string(antigen)
+	v.fields["spread type"] = spreadtype
+	virusDB["[uniqueID]"] = v
 	return 1
 
 proc/virus2_lesser_infection()

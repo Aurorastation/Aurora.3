@@ -19,7 +19,7 @@
 
 /obj/item/weapon/circuitboard/med_data
 	name = T_BOARD("medical records console")
-	build_path = /obj/machinery/computer/records/medical
+	build_path = /obj/machinery/computer/med_data
 
 /obj/item/weapon/circuitboard/pandemic
 	name = T_BOARD("PanD.E.M.I.C. 2200")
@@ -38,11 +38,11 @@
 
 /obj/item/weapon/circuitboard/secure_data
 	name = T_BOARD("security records console")
-	build_path = /obj/machinery/computer/records/security
+	build_path = /obj/machinery/computer/secure_data
 
 /obj/item/weapon/circuitboard/skills
 	name = T_BOARD("employment records console")
-	build_path = /obj/machinery/computer/records/employment
+	build_path = /obj/machinery/computer/skills
 
 /obj/item/weapon/circuitboard/sentencing
 	name = T_BOARD("criminal sentencing console")

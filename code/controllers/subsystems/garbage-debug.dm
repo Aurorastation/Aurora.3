@@ -120,6 +120,7 @@
 
 
 /datum/proc/find_references_in_globals()
+	SearchVar(data_core)
 	SearchVar(all_areas)
 	SearchVar(processing_power_items)
 	SearchVar(med_hud_users)
@@ -370,7 +371,6 @@
 	SearchVar(SSoverlays)
 	SearchVar(SSparallax)
 	SearchVar(SSradio)
-	SearchVar(SSrecords)
 	SearchVar(sun)
 	SearchVar(SScargo)
 	SearchVar(SSticker)
@@ -466,6 +466,8 @@
 	SearchVar(VENDING_WIRE_IDSCAN)
 	SearchVar(same_wires)
 	SearchVar(wireColours)
+	SearchVar(PDA_Manifest)
+	SearchVar(ManifestJSON)
 	SearchVar(accessible_z_levels)
 	SearchVar(base_turf_by_z)
 	SearchVar(newscaster_standard_feeds)
@@ -854,6 +856,7 @@
 	SearchVar(ventcrawl_machinery)
 	SearchVar(can_enter_vent_with)
 	SearchVar(ALL_ANTIGENS)
+	SearchVar(virusDB)
 	SearchVar(all_unit_tests_passed)
 	SearchVar(failed_unit_tests)
 	SearchVar(total_unit_tests)

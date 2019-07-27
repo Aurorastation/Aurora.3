@@ -55,7 +55,7 @@
 					foundVirus++
 
 			for (var/ID in patient.virus2)
-				if(SSrecords.find_record("id", ID, RECORD_VIRUS))
+				if (ID in virusDB)
 					foundVirus = 1
 					break
 
