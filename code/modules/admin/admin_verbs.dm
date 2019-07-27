@@ -98,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/datum/admins/proc/ccannoucment
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -315,7 +316,8 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/cure_traumas,
-	/client/proc/add_traumas
+	/client/proc/add_traumas,
+	/datum/admins/proc/ccannoucment
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
