@@ -85,7 +85,7 @@
 	description = "The Republic of Elyra, or its more official name, The Serene Republic of Elyra, was formed during a large scale colonization and emigration effort from south western \
 	asia and northern africa during the early years of space colonization from Pre-Alliance Earth. It is made up of multiple star systems. It's national motto \
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi."
-	demonym "elyrian"
+	demonym = "elyrian"
 
 /datum/citizenship/eridani
 	name = CITIZENSHIP_ERIDANI
