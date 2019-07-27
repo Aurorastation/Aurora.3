@@ -2673,7 +2673,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "id" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)

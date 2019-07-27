@@ -92,7 +92,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		SSradio.remove_object(src, frequency)
 	return ..()
 
-/obj/machinery/computer/general_air_control/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
+/obj/machinery/computer/general_air_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list("sensors" = list())
 	data["control"] = null
@@ -147,7 +147,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
 	circuit = /obj/item/weapon/circuitboard/air_management/tank_control
 
-/obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
+/obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
 	data["control"] = "tank"
@@ -234,7 +234,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/max_pressure_setting = 10 * ONE_ATMOSPHERE
 	circuit = /obj/item/weapon/circuitboard/air_management/supermatter_core
 
-/obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
+/obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
 	data["control"] = "supermatter"
@@ -345,7 +345,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 	..()
 
-/obj/machinery/computer/general_air_control/fuel_injection/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
+/obj/machinery/computer/general_air_control/fuel_injection/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
 	data["control"] = "injector"
