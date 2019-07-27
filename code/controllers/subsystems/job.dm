@@ -23,6 +23,9 @@
 	var/list/name_factions = list()
 	var/datum/faction/default_faction = null
 
+	var/list/citizenships = list()
+	var/list/religions = list()
+
 	var/safe_to_sanitize = FALSE
 	var/list/deferred_preference_sanitizations = list()
 
@@ -35,6 +38,8 @@
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
 	InitializeFactions()
+	InitializeCitizenships()
+	InitializeReligions()
 
 	ProcessSanitizationQueue()
 
@@ -43,6 +48,8 @@
 	unassigned = SSjobs.unassigned
 	job_debug = SSjobs.job_debug
 	factions = SSjobs.factions
+	citizenships = SSjobs.citizenships
+	religions = SSjobs.religions
 	if (islist(job_debug))
 		job_debug += "NOTICE: Job system Recover() triggered."
 
@@ -640,6 +647,25 @@
 
 	if (!factions.len)
 		crash_with("No factions located in SSjobs.")
+
+
+/datum/controller/subsystem/jobs/proc/InitializeCitizenships()
+	for (var/type in subtypesof(/datum/citizenship))
+		var/datum/citizenship/citizenship = new type()
+
+		citizenships += citizenship
+
+	if (!citizenships.len)
+		crash_with("No citizenships located in SSjobs.")
+
+/datum/controller/subsystem/jobs/proc/InitializeReligions()
+	for (var/type in subtypesof(/datum/religion))
+		var/datum/religion/religion = new type()
+
+		religions += religion
+
+	if (!religions.len)
+		crash_with("No citizenships located in SSjobs.")
 
 /datum/controller/subsystem/jobs/proc/HandleFeedbackGathering()
 	for(var/thing in occupations)

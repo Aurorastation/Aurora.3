@@ -164,10 +164,9 @@
 	return ..()
 
 /datum/category_item/player_setup_item/general/background/proc/show_citizenship_menu(mob/user, selected_citizenship)
-	for(var/citizenship in subtypesof(/datum/citizenship))
-		var/datum/citizenship/picked_citizenship = new citizenship
-		if (picked_citizenship.name == selected_citizenship)
-			var/datum/citizenship/C = picked_citizenship
+	for (var/datum/citizenship/citizenship in SSjobs.citizenships)
+		if (citizenship.name == selected_citizenship)
+			var/datum/citizenship/C = citizenship
 
 			var/list/dat = list("<center><b>[C.name]</center></b>")
 
@@ -177,12 +176,11 @@
 			show_browser(user, dat.Join(), "window=citizenshippreview;size=400x500")
 
 /datum/category_item/player_setup_item/general/background/proc/show_religion_menu(mob/user, selected_religion)
-	for(var/religion in subtypesof(/datum/religion))
-		var/datum/religion/picked_religion = new religion
-		if (picked_religion.name == selected_religion)
-			var/datum/religion/C = picked_religion
+	for (var/datum/religion/religion in SSjobs.religions)
+		if (religion.name == selected_religion)
+			var/datum/religion/R = religion
 
-			var/list/dat = list("<center><b>[C.name]</center></b>")
-			dat += "<br>[C.description]"
-			dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(C.name)]'>Select</a>\]</center>"
+			var/list/dat = list("<center><b>[R.name]</center></b>")
+			dat += "<br>[R.description]"
+			dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(R.name)]'>Select</a>\]</center>"
 			show_browser(user, dat.Join(), "window=religionpreview;size=400x500")

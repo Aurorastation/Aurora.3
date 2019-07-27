@@ -3,7 +3,7 @@
 	var/description
 	var/list/deity_name = list("God")
 	var/book_name = "bible"
-	var/book_sprite = "bible"
+	var/book_sprite = "holybook"
 
 /datum/religion/proc/get_gods_name()
 	var/god_name = pick(deity_name)

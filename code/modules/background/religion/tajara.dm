@@ -17,7 +17,6 @@
 	attempt to emulate the other gods."
 	deity_name = list("Ma'ta'ke", "Marryam", "Rredouane", "Shumaila", "Kraszar", "Dhrarmela", "Azubarre")
 	book_name = "ma'ta'ke legends"
-	book_sprite = "tome"
 
 /datum/religion/raskara
 	name = RELIGION_RASKARA
@@ -26,7 +25,6 @@
 	subverting something S'rendarr and Messa stands for."
 	deity_name = list("Raskara", "Door and Key", "Maggot King", "Black Mirror")
 	book_name = "ma'ta'ke legends"
-	book_sprite = "tome"
 
 /datum/religion/raskara/get_id_name()
 	return RELIGION_MATAKE

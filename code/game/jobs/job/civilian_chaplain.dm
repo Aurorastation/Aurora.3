@@ -39,8 +39,8 @@
 			var/datum/religion/C = picked_religion
 
 			if(C.name == "None" || "Other")
-				verbs += /obj/item/weapon/storage/bible/proc/set_religion
-				return
+				B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
+				return 1
 
 			B.icon_state = C.book_sprite
 			B.name = C.book_name
