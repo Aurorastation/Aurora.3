@@ -78,18 +78,21 @@
 	description = "Rising from the former Coalition of Colonies, the Frontier Alliance is a loose confederation of united \"entities\" within the human frontier. These entities range \
 	from whole colonial systems to travelling super ships to mining and farming outposts. The Frontier’s motto is \"Together We Are\". Though nearly any language can be found in the \
 	Frontier, Tau Ceti Basic and Freespeak are the most common."
+	demonym = "frontiersman"
 
 /datum/citizenship/elyra
 	name = CITIZENSHIP_ELYRA
 	description = "The Republic of Elyra, or its more official name, The Serene Republic of Elyra, was formed during a large scale colonization and emigration effort from south western \
 	asia and northern africa during the early years of space colonization from Pre-Alliance Earth. It is made up of multiple star systems. It's national motto \
 	is \"For Greatness We Strive\". It's official language is Tau Ceti Basic, though several old-earth languages cling to life in small enclaves, such as arabic, persian, and farsi."
+	demonym "elyrian"
 
 /datum/citizenship/eridani
 	name = CITIZENSHIP_ERIDANI
 	description = "Eridani, or the Eridani Corporate Federation, is a dystopic oligarchic republic in the Epsilon Eridani system dominated entirely by a council of mega-corporations \
 	that seek profit and expansion at any cost. It's capital is the planet of Oran, inside a sprawling corporate headquarters the size of a small city. It's citizens are called \
 	Eridanians. The primary languages are Sol Common and Tradeband for the upper class Corporates, and Gutter for the lower class Dregs."
+	demonym = "eridani"
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
@@ -99,3 +102,4 @@
 	Mor’iz’al. All citizens are born with the Mor’iz’al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. Indebted citizens are known \
 	as Ma’zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor. The Empire of Dominia is considered by many to be a threat to the \
 	sovereignty of Frontier systems."
+	demonym = "dominian"

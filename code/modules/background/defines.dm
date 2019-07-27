@@ -33,6 +33,6 @@
 #define RELIGION_QEBLAK "Qeblak"
 #define RELIGION_WEISHII "Weishii"
 
-#define RELIGION_TWINSUNS "S'rendarr & Messa"
+#define RELIGION_TWINSUNS "S'rendarr and Messa"
 #define RELIGION_MATAKE "Ma'ta'ke"
 #define RELIGION_RASKARA "Raskariim"

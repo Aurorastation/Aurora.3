@@ -20,10 +20,9 @@
 		for (var/datum/citizenship/citizenship in SSjobs.citizenships)
 			if (citizenship.name == H.citizenship)
 				var/datum/citizenship/C = citizenship
-
 				return C.consular_outfit
 	else
-		..()
+		. = ..()
 
 /datum/outfit/job/representative
 	name = "Corporate Liaison"
@@ -88,7 +87,6 @@
 	name = "Consular Officer"
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
-	uniform = /obj/item/clothing/under/lawyer/blue
 	head = null
 	suit = null
 	backpack_contents = list(/obj/item/weapon/gun/energy/pistol = 1)
