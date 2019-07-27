@@ -103,6 +103,14 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
+/obj/item/weapon/reagent_containers/inhaler/attackby(obj/item/weapon/W, mob/user)
+	if(W.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
+		flags |= OPENCONTAINER
+		update_icon()
+		return
+	. = ..()
+
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)

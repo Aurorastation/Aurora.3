@@ -285,16 +285,19 @@
 /datum/category_item/player_setup_item/occupation/proc/ResetJobs()
 	pref.job_preferences.Cut()
 
-/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(user, selected_faction)
+/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(mob/user, selected_faction)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/faction_icons)
 
-	var/list/dat = list("<center>")
+	var/list/dat = list("<center><b>")
 
+	var/list/factions = list()
 	for (var/datum/faction/faction in SSjobs.factions)
 		if (faction.name == selected_faction)
-			dat += " [faction.name] "
+			factions += "[faction.name]"
 		else
-			dat += " <a href='?src=\ref[src];faction_preview=[html_encode(faction.name)]'>[faction.name]</a> "
+			factions += "<a href='?src=\ref[src];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
+
+	dat += factions.Join(" | ") + "</b>"
 
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
 
@@ -311,9 +314,10 @@
 	if (faction.is_default)
 		dat += "<br><center><small>This faction is the default faction aboard this installation.</small></center>"
 
-	dat += "<br><br>[faction.description]"
+	dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>Read the Wiki</a></center>"
+	dat += "<br>[faction.description]"
 
-	show_browser(user, dat.Join(), "window=factionpreview")
+	show_browser(user, dat.Join(), "window=factionpreview;size=400x600")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
