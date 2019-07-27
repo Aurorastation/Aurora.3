@@ -31,6 +31,9 @@
 	var/width = 0
 
 /datum/shuttle/proc/init_shuttle()
+	return
+
+/datum/shuttle/proc/scan_shuttle()
 	//Calculating size and integrity
 	var/min_x = INFINITY
 	var/min_y = INFINITY
@@ -128,7 +131,7 @@
 	move(departing, interim)
 
 	while (world.time < arrive_time)
-		launching(5)
+		launching(5, /obj/effect/engine_exhaust/pulse)
 		sleep(5)
 
 	play_sound_shuttle(sound_landing, interim, 25)
@@ -385,7 +388,7 @@
 /datum/shuttle/proc/reset_engines_check()
 	engines_checked = FALSE
 
-/datum/shuttle/proc/launching(var/time)
+/datum/shuttle/proc/launching(var/time, var/obj/effect/engine_exhaust/E = /obj/effect/engine_exhaust/blue)
 	for(var/list/v in exterior_walls_and_engines)
 		var/turf/S = get_turf(locate(v[1], v[2], v[3]))
 		if(!S)
@@ -393,4 +396,4 @@
 		for(var/a in S.contents)
 			if(istype(a, /obj/structure/shuttle/engine/propulsion))
 				var/obj/structure/shuttle/engine/propulsion/P = a
-				new /obj/effect/engine_exhaust/blue(get_step(P, P.dir), P.dir, 250, time)
+				new E(get_step(P, P.dir), P.dir, 250, time)
