@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "You can no longer mine several asteroid turfs at the same time with shovel/drill."
+  - tweak: "You can no longer dig several asteroid turfs at the same time with shovel/drill."
   - tweak: " Digging sand times were reduced. Pickaxe - 2.5 seconds, Drill/BorgDrill - 1 second, Diamond drill - 0.5 seconds."
