@@ -312,7 +312,7 @@
 					new M.stack_type(output.loc)
 			else
 				if(console)
-					console.points -= O.worth*3 //reee wasting our materials!
+					console.points -= O.worth * 1.25 //reee wasting our materials!
 				use_power(500)
 				ores_stored[metal]--
 				sheets++

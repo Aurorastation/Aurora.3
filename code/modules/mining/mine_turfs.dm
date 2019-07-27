@@ -648,18 +648,22 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 			return
 
-	var/static/list/usable_tools = typecacheof(list(
-		/obj/item/weapon/shovel,
-		/obj/item/weapon/pickaxe/diamonddrill,
-		/obj/item/weapon/pickaxe/drill,
-		/obj/item/weapon/pickaxe/borgdrill
-	))
+	var/static/list/usable_tools = list(
+		/obj/item/weapon/shovel = 25,
+		/obj/item/weapon/pickaxe/diamonddrill = 5,
+		/obj/item/weapon/pickaxe/drill = 10,
+		/obj/item/weapon/pickaxe/borgdrill = 10
+	)
 
-	if(is_type_in_typecache(W, usable_tools))
+	var/time = usable_tools[W.type]
+	message_admins(time)
+	if(time)
 		var/turf/T = user.loc
 		if (!(istype(T)))
 			return
 		if(digging)
+			return
+		if(W:digging)
 			return
 		if(dug)
 			if(!GetBelow(src))
@@ -667,11 +671,13 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, "<span class='warning'>You start digging deeper.</span>")
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
-			if(!do_after(user, 60))
+			W:digging = TRUE
+			if(!do_after(user, time + 10))
 				if (istype(src, /turf/unsimulated/floor/asteroid))
 					digging = 0
+				W:digging = FALSE
 				return
-
+			W:digging = FALSE
 			// Turfs are special. They don't delete. So we need to check if it's
 			// still the same turf as before the sleep.
 			if (!istype(src, /turf/unsimulated/floor/asteroid))
@@ -716,10 +722,13 @@ var/list/asteroid_floor_smooth = list(
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
 		digging = 1
-		if(!do_after(user,40))
+		W:digging = TRUE
+		if(!do_after(user, time))
 			if (istype(src, /turf/unsimulated/floor/asteroid))
 				digging = 0
+			W:digging = FALSE
 			return
+		W:digging = FALSE
 
 		// Turfs are special. They don't delete. So we need to check if it's
 		// still the same turf as before the sleep.

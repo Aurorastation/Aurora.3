@@ -72,6 +72,7 @@
 	var/digspeed_unwielded = 30
 	var/digspeed_wielded = 10
 	var/drilling = 0
+	var/digging = FALSE
 
 	action_button_name = "Wield pick/drill"
 
@@ -336,6 +337,7 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = 0
 	edge = 1
+	var/digging = FALSE
 
 /obj/item/weapon/shovel/spade
 	name = "spade"
