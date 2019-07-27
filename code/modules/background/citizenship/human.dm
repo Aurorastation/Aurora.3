@@ -76,7 +76,7 @@
 /datum/citizenship/frontier
 	name = CITIZENSHIP_FRONTIER
 	description = "Rising from the former Coalition of Colonies, the Frontier Alliance is a loose confederation of united \"entities\" within the human frontier. These entities range \
-	from whole colonial systems to travelling super ships to mining and farming outposts. The Frontier’s motto is \"Together We Are\". Though nearly any language can be found in the \
+	from whole colonial systems to travelling super ships to mining and farming outposts. The Frontier's motto is \"Together We Are\". Though nearly any language can be found in the \
 	Frontier, Tau Ceti Basic and Freespeak are the most common."
 	demonym = "frontiersman"
 
@@ -96,10 +96,10 @@
 
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
-	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Dominia in the X’yr Vharn’p system. This autocratic state is ruled by \
+	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Dominia in the X'yr Vharn'p system. This autocratic state is ruled by \
 	His Imperial Majesty Boleslaw Keeser. The Empire of Dominia was proclaimed in 2437 by Unathi raiders who invaded the planet of Moroz, a colony which had been isolated for hundreds \
 	of years. Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, known as the \
-	Mor’iz’al. All citizens are born with the Mor’iz’al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. Indebted citizens are known \
-	as Ma’zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor. The Empire of Dominia is considered by many to be a threat to the \
+	Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. Indebted citizens are known \
+	as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor. The Empire of Dominia is considered by many to be a threat to the \
 	sovereignty of Frontier systems."
 	demonym = "dominian"
