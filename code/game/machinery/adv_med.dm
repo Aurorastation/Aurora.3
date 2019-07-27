@@ -247,6 +247,7 @@
 	var/obj/machinery/bodyscanner/connected
 	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
 	var/collapse_desc = ""
+	var/broken_desc = ""
 	name = "Body Scanner Console"
 	desc = "A control panel for some kind of medical device."
 	icon = 'icons/obj/sleeper.dmi'
@@ -270,16 +271,25 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/body_scanconsole/proc/get_lung_desc()
+/obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!src.connected || !src.connected.occupant)
 		return
 	if (src.connected.occupant.name != src.connected.last_occupant_name || !collapse_desc)
-		var/ldesc = pick("Contains fluid.", "Shows symptoms of collapse.", "Collapsed.", "Shows symptoms of rupture.", "Is ruptured.")
+		var/ldesc = pick("Shows symptoms of collapse.", "Collapsed.", "Pneumothorax detected.")
 		collapse_desc = ldesc
 		src.connected.last_occupant_name = src.connected.occupant.name
-		return ldesc
 
 	return collapse_desc
+
+/obj/machinery/body_scanconsole/proc/get_broken_lung_desc()
+	if (!src.connected || !src.connected.occupant)
+		return
+	if (src.connected.occupant.name != src.connected.last_occupant_name || !broken_desc)
+		var/ldesc = pick("Shows symptoms of rupture.", "Ruptured.", "Extensive damage detected.")
+		broken_desc = ldesc
+		src.connected.last_occupant_name = src.connected.occupant.name
+
+	return broken_desc
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
@@ -391,7 +401,10 @@
 				data["bruteDmg"] = 0
 
 		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
-			wounds += get_lung_desc()
+			if (O.is_broken())
+				wounds += get_broken_lung_desc()
+			else
+				wounds += get_collapsed_lung_desc()
 
 		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."

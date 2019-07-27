@@ -56,6 +56,129 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">27 July 2019</h2>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">Refactored record code in to record subsystem.</li>
+				<li class="rscadd">Added new record consoles for new record code.</li>
+			</ul>
+
+			<h2 class="date">26 July 2019</h2>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Makes it so that you can create a makeshift chemistry workstation allowing for crushing, chopping, and heating reagents. You can add an analyser to it to view the temperature of the reagents.</li>
+				<li class="rscadd">Adds a distillery to turn booze into pure(r) ethanol/butanol and a little bit of water.</li>
+				<li class="rscadd">Adds lean, made from cough syrup, sugar, and space-up. Adds krok juice, made from iron and orange juice. Adds several other drugs coded by BurgerBB in a previous closed PR.</li>
+				<li class="rscadd">Adds cough syrup which prevents coughing from viruses (and spreading viruses via coughing) when in your system.</li>
+				<li class="rscadd">Adds recipes for aforementioned drugs, some using cough syrup.</li>
+				<li class="rscadd">Adds the ability to stop wounds from bleeding using rags.</li>
+				<li class="rscadd">Rags can now be cut from cloth sheets using any sharp object.</li>
+				<li class="rscadd">Rags soaked in reagents will transfer 75% of their reagents as touching and 25% in blood.</li>
+				<li class="rscadd">Alcohol gives pain messages if it's in your blood. This only happens if injected or if it goes through wounds.</li>
+				<li class="rscadd">Certain reagents, like any kind of alcohol, space cleaner, sterilizine, honey, and to a very, VERY small extent water, will disinfect wounds when used on rags.</li>
+				<li class="rscadd">Deflated lungs can be treated, in an emergency, by clicking someone with a syringe with the chest targeted and grab intent enabled. Doing so again will damage the lungs and reverse the treatment.</li>
+				<li class="maptweak">An empty keg has been added to maintenance.</li>
+				<li class="rscadd">Mixing bowls can be printed from the autolathe.</li>
+				<li class="refactor">Spaceacillin has been refactored into several new chemicals. Cough syrup, allergy medicine, antivirals, antibiotics, and paracetamol can do the exact same spaceacillin once could.</li>
+				<li class="rscadd">Antibiotics (thetamycin) are now available for bacterial infections. They have a small chance of causing side effects such as nausea and vomiting.</li>
+				<li class="rscadd">Antivirals (deltamivir) have replaced spaceacillin and do mostly the same thing, save for bacterial wound infections. They have a small chance of causing side effects such as fever, muscle pain, and fatigue.</li>
+				<li class="rscadd">Cough syrup, allergy medication, paracetamol, and medicine cups are now available in NanoMed vendors.</li>
+				<li class="tweak">Some drinks now heal damage as they did before, though at reduced levels.</li>
+				<li class="tweak">Paracetamol now reduces fevers.</li>
+				<li class="maptweak">Medical's supplies have been reduced to a less-excessive level, making chemists less redundant.</li>
+				<li class="tweak">Syringes now begin capped. After use, syringes get dirty and can also transfer viruses between successive uses (on humans); it's recommended to throw them away in the new sharps bins. If they are only used to transfer reagents, they can be used indefinitely. Ported from Virgo.</li>
+				<li class="maptweak">Medical, Virology, and Xenobiology all have sharps bins for disposal of biohazardous glassware.</li>
+				<li class="tweak">There are now three hyposprays in the Medical sublevel, which are equivalent to syringes prior to this update. They take the same amount of time to inject, and have a capacity of 15 units, but are reusable.</li>
+				<li class="backend">Accidentally refactored (almost) all storage items to use the starts_with var instead of overriding fill(). This should make it a lot less complicated to add new storage boxes.</li>
+				<li class="imageadd">Modifies sprites for syringes, done by Geeves.</li>
+				<li class="rscadd">Adds medicine cups to take medicine by mouth in a dignified manner.</li>
+				<li class="tweak">Changes the glycerol recipe. One unit of triglycerides (can be obtained from meat) and two units of any pure alcohol will produce three units of glycerol and two units of acetone. Sulfuric acid is required as a catalyst.</li>
+				<li class="rscadd">Adds a recipe for glucose. Nutriment can be catalysed into glucose by adding sulfuric acid.</li>
+				<li class="tweak">Rats and other simplemobs can now only chew empty boxes or boxes with food in them.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Detached nymph now get all the verbs as regular nymphs.</li>
+				<li class="rscadd">Added new verb to Diona Gestalt that allows to pause any regeneration.</li>
+			</ul>
+
+			<h2 class="date">25 July 2019</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes miners being unable to spawn with aviator-mesons.</li>
+				<li class="bugfix">Fixes Heph-miners spawning with the wrong id card and jumpsuit.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Modified the way the cell charge anomaly works. It no longer uses absurd ranges to charge stuff.</li>
+				<li class="tweak">ZAS might be a tick slower at kicking objects around for large zones. On the flip side, it shouldn't lag the server as consistently anymore.</li>
+				<li class="tweak">VV might take a bit to generate the VV screen for large entries.</li>
+			</ul>
+
+			<h2 class="date">24 July 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed playable xenomorphs.</li>
+				<li class="rscadd">Replaced the IAA job with the Representative job.</li>
+			</ul>
+			<h3 class="author">Alberyk, Kyres1, AmoryBlaine updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Replaces a couple of gun sprites that were references to real life guns, with more futuristic versions.</li>
+				<li class="rscadd">Being hit by a bolter projectile will now produce an animation.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Small mobs can now bite into powerwires.</li>
+				<li class="tweak">Pumps and other atmos machines that contain pumps now interact with small mobs.</li>
+				<li class="tweak">Airlocks now close on small mobs.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Price of mining RIG is increased to 1000 points and amount of supply is reduced to 2 for mining vending machine.</li>
+				<li class="tweak">Diona limb regeneration is now progress based instead of a 10 minute timer. Light contributes low amount to progress, biomass(nutrition) contributes medium amount. Radiation contributes big amount. In comparison Diona will regenerate within 10 minutes with just light and having no biomass stored beforehand. Diona who has decent amount of biomass stored will regenerate within 5 minutes. Consuming food like cow while regenerating will take 2 minutes to regenerate limb. Diona who is in light, has biomass stored and has radiation emitting at it will take 1-1.5 minutes to regenerate limb.</li>
+				<li class="tweak">Status panel now shows stats for Diona like how much biomass, and energy are stored out of maximum. And regeneration process of a limb.</li>
+			</ul>
+			<h3 class="author">Scheveningen updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes an issue with Fade variant hairstyles not appearing correctly in character set-up to be chosen. Thank ya, thank ya very much.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">All factions now have a unique ID card.</li>
+				<li class="rscadd">Added the independent faction. At the moment, NT still retains access to the Freelance Journalist job, because the job's system is literal ass and I need to wait for another PR before redoing it.</li>
+				<li class="tweak">Tweaked the faction selection menu. It now links to the wiki and all.</li>
+				<li class="rscdel">Removed faction specific gear, since it's already present in the job system.</li>
+			</ul>
+
+			<h2 class="date">23 July 2019</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Raised the chance that a ling's shield will block an attack.</li>
+			</ul>
+			<h3 class="author">PoZe updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new paper logos for: [logo_nt] - Regular NT logo, [logo_nt_small] - Small size NT logo, [log_zh] - Zeng-Hu, [logo_idris] - Idris, [logo_eridani] - Eridani, [logo_necro] - Necropolis, [logo_hp] - Hephaestus Industries, [logo_be] - Beisel.</li>
+			</ul>
+
+			<h2 class="date">21 July 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Disabled ert during revolution rounds.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">All wieldable weapons are now wielded via the Wield Firearm verb, or wield-firearm if you have a macro instead of wield-rifle and wield-shotgun. Update your macros!</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a handful of clothing to the Vaurca.</li>
+				<li class="tweak">The Shaper helmet now has proper body parts covered.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removed the ability to join as any job despite faction restrictions when using the mid-round join menu.</li>
+			</ul>
+
 			<h2 class="date">18 July 2019</h2>
 			<h3 class="author">PoZe updated:</h3>
 			<ul class="changes bgimages16">

@@ -1196,7 +1196,7 @@
 /area/derelict/ship)
 "eb" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/structure/reagent_dispensers/xuizikeg,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ec" = (
