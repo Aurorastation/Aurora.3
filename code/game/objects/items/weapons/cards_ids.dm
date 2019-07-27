@@ -164,7 +164,13 @@ var/const/NO_EMAG_ACT = -50
 	..()
 	id_card.age = age
 	id_card.citizenship			= citizenship
-	id_card.religion			= religion
+
+	for (var/datum/religion/set_religion in SSrecords.religions)
+		if (set_religion.name == religion)
+			var/datum/religion/R = set_religion
+			id_card.religion = R.get_records_name()
+
+
 	id_card.mob					= src
 
 /obj/item/weapon/card/id/proc/dat()

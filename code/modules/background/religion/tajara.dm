@@ -6,7 +6,6 @@
 	book_name = "holy scrolls"
 	book_sprite = "holylight"
 
-
 /datum/religion/matake
 	name = RELIGION_MATAKE
 	description = "The second largest religion is the worship of the Snow God Mata'ke and his cohort companion gods, which dates back to ancient Tajaran times. A figure of legend, \
@@ -23,5 +22,5 @@
 	subverting something S'rendarr and Messa stands for."
 	book_name = "ma'ta'ke legends"
 
-/datum/religion/raskara/get_id_name()
+/datum/religion/raskara/get_records_name()
 	return RELIGION_MATAKE

@@ -56,7 +56,7 @@
 	var/faxtext = "<center><br><h2><br><b>Directives Report</h2></b></FONT size><HR></center>"
 	faxtext += "<b><font face='Courier New'>Attention [name], the following directives are to be fulfilled during your stay in the station:</font></b><br><ul>"
 
-	faxtext += "<li>[get_objectives(H, "REPRESENTATIVE_MISSION_LOW")].</li>"
+	faxtext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_LOW)].</li>"
 
 	if(prob(50))
 		faxtext += "<li>[get_objectives(H, REPRESENTATIVE_MISSION_MEDIUM)].</li>"

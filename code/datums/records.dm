@@ -106,7 +106,12 @@
 		species = H.get_species()
 		citizenship = H.citizenship
 		employer = H.employer_faction
-		religion = H.religion
+
+		for (var/datum/religion/set_religion in SSrecords.religions)
+			if (set_religion.name == H.religion)
+				var/datum/religion/R = set_religion
+				src.religion = R.get_records_name()
+
 		ccia_record = H.ccia_record
 		ccia_actions = H.ccia_actions
 		if(H.gen_record && !jobban_isbanned(H, "Records"))

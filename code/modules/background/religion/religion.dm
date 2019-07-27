@@ -4,5 +4,5 @@
 	var/book_name = "bible"
 	var/book_sprite = "holybook"
 
-/datum/religion/proc/get_id_name()
+/datum/religion/proc/get_records_name()
 	return name
