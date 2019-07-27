@@ -50,6 +50,7 @@ main ui datum.
 	object = nobject
 	data = ndata
 	state = nstate
+	LAZYINITLIST(assets)
 
 	if (nactiveui)
 		activeui = nactiveui
@@ -191,11 +192,11 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/send_asset(var/name)
-	if (!QDELETED(user) || !user.client)
+	if (QDELETED(user) || !user.client)
 		return
-	name = ckey(name)
-	if (name in assets)
-		user.client << browse_rsc(assets[name]["img"], "vueuiimg_" + ckey("\ref[assets[name]["img"]]") + ".png")
+	var/asset = assets[ckey(name)]
+	if (asset && !QDELETED(asset["img"]))
+		user.client << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 
 /**
   * Adds / sets dynamic asset for this ui's use
@@ -252,6 +253,8 @@ main ui datum.
 			if(json_href)
 				for(var/hvar in json_href)
 					href_list[hvar] = json_href[hvar]
+		if(href_list["_openurl"])
+			send_link(usr, href_list["_openurl"])
 		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 		topicReturn = object.Topic(href, href_list)
 	if(. || topicReturn)

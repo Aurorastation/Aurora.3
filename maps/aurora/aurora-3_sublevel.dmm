@@ -29139,7 +29139,7 @@
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light_switch{
 	pixel_x = -22;
 	pixel_y = 8
@@ -29709,7 +29709,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/item/device/radio{
 	anchored = 1;
 	broadcasting = 0;
@@ -30020,7 +30020,7 @@
 "jkR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "jlY" = (
@@ -30139,7 +30139,7 @@
 /area/engineering/backup_SMES)
 "jMg" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
