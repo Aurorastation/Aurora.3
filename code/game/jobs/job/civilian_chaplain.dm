@@ -44,7 +44,6 @@
 
 			B.icon_state = C.book_sprite
 			B.name = C.book_name
-			B.deity_name = C.get_gods_name()
 			SSticker.Bible_icon_state = C.book_sprite
 			SSticker.Bible_item_state = C.book_sprite
 			SSticker.Bible_name = C.book_name
