@@ -82,10 +82,10 @@
 
 	var/datum/species/S = all_species[pref.species]
 
-	if(!pref.citizenship in S.allowed_citizenships)
+	if(!(pref.citizenship in S.allowed_citizenships))
 		pref.citizenship	= CITIZENSHIP_BIESEL
 
-	if(!pref.religion in S.allowed_religions)
+	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
 
 	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))

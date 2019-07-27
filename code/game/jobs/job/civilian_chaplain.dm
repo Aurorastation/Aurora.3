@@ -33,10 +33,9 @@
 	if(S && istype(S))
 		B.forceMove(S)
 
-	for(var/religion in subtypesof(/datum/religion))
-		var/datum/religion/picked_religion = new religion
-		if (picked_religion.name == H.religion)
-			var/datum/religion/C = picked_religion
+	for (var/datum/religion/religion in SSrecords.religions)
+		if (religion.name == H.religion)
+			var/datum/religion/C = religion
 
 			if(C.name == "None" || "Other")
 				B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
