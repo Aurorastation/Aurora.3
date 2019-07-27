@@ -18,6 +18,8 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_sounds = list()
+	var/sound_time = TRUE
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
@@ -554,12 +556,36 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return (0)
 	return 1
 
+/mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
+	set name = "Resist"
+	set category = "Abilities"
+
+	if((usr && usr.stat == DEAD) || !make_sound)
+		return
+
+	if(usr && !sound_time)
+		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		return
+
+	playsound(src, pick(emote_sounds), 75, 1)
+	if(client)
+		sound_time = FALSE
+		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+
+/mob/living/simple_animal/proc/reset_sound_time()
+	sound_time = TRUE
+
 /mob/living/simple_animal/say(var/message)
 	var/verb = "says"
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
+	if(emote_sounds.len)
+		var/sound_chance = TRUE
+		if(client) // we do not want people who assume direct control to spam
+			sound_chance = prob(50)
+		make_noise(sound_chance)
 
 	..(message, null, verb)
 

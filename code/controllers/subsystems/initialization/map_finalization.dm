@@ -102,7 +102,8 @@
 	if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
 		log_ss("finalize", "Failed to load '[mfile]'!")
 	else
-		log_ss("atlas", "Loaded space ruin in [(world.time - time)/10] seconds.")
+		log_ss("finalize", "Loaded space ruin on z [world.maxz] in [(world.time - time)/10] seconds.")
+		current_map.restricted_levels.Add(world.maxz)
 	QDEL_NULL(maploader)
 
 /datum/controller/subsystem/finalize/proc/place_dungeon_spawns()

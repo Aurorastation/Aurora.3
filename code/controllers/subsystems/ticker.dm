@@ -224,10 +224,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		//call a transfer shuttle vote
 		spawn(50)
-			if(!round_end_announced) // Spam Prevention. Now it should announce only once.
+			if(!round_end_announced && !config.continous_rounds) // Spam Prevention. Now it should announce only once.
 				to_world("<span class='danger'>The round has ended!</span>")
 				round_end_announced = 1
-			SSvote.autotransfer()
+				SSvote.autotransfer()
 
 	return 1
 
@@ -282,9 +282,9 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		if (!robo.connected_ai)
 			if (robo.stat != 2)
-				to_world("<b>[robo.name] (Played by: [robo.key]) survived as an AI-less borg! Its laws were:</b>")
+				to_world("<b>[robo.name] survived as an AI-less borg! Its laws were:</b>")
 			else
-				to_world("<b>[robo.name] (Played by: [robo.key]) was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
+				to_world("<b>[robo.name] was unable to survive the rigors of being a cyborg without an AI. Its laws were:</b>")
 
 			if(robo) //How the hell do we lose robo between here and the world messages directly above this?
 				robo.laws.show_laws(world)
@@ -454,7 +454,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	data_core.manifest()
+	SSrecords.build_records()
 
 	Master.RoundStart()
 	real_round_start_time = REALTIMEOFDAY
@@ -620,7 +620,6 @@ var/datum/controller/subsystem/ticker/SSticker
 				captainless = FALSE
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
-				UpdateFactionList(player)
 				equip_custom_items(player)
 
 		CHECK_TICK

@@ -699,11 +699,11 @@
 		if ("3")
 			return pickweight(random_stock_common)
 
-/obj/structure/closet/crate/extinguisher_catridges
+/obj/structure/closet/crate/extinguisher_cartridges
 	name = "crate of extinguisher cartridges"
 	desc = "Contains a dozen empty extinguisher cartridges."
 
-/obj/structure/closet/crate/extinguisher_catridges/fill()
+/obj/structure/closet/crate/extinguisher_cartridges/fill()
 	for(var/a = 1 to 12)
 		new /obj/item/weapon/reagent_containers/extinguisher_refill(src)
 
