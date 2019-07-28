@@ -13,7 +13,6 @@
 #define CITIZENSHIP_PRA	"People's Republic of Adhomai"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
-#define CITIZENSHIP_KLAX "K'lax Hive"
 
 #define CITIZENSHIP_NONE "None"
 

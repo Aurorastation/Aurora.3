@@ -26,8 +26,3 @@
 							"Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement")
 
 	return rep_objectives
-
-/datum/citizenship/klax
-	name = CITIZENSHIP_KLAX
-	description = "Koizz pleazzze 2x."
-	demonym = "vaurcasian"

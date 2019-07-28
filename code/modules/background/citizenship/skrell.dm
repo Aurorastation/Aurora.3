@@ -1,9 +1,11 @@
 /datum/citizenship/jargon
 	name = CITIZENSHIP_JARGON
-	description = "A centralized union of solar systems run by councillors of different ranks and positions. They range from running settlements to entire systems, with each being \
-	voted with a popular vote. The highest position within the Federation is the Grand Councillor, managing the Federation at large. The capital of the Federation is located at the \
-	city of Kal'lo on the core planet Jargon IV within the Jargon system. While the majority of Skrell are living within the Jargon Federation, a sizable portion live in independent \
-	nations within the traverse or are living abroad."
+	description = "Home of the Skrell, a centralized union of solar systems run by councilors of different ranks and positions. The capital of the Federation is located at the city of \
+	Kal'lo on the core planet Jargon IV, also known as Querrbalak, within the Jargon system. While the majority of Skrell live within the Jargon Federation, a sizable portion live in \
+	independent nations within the Traverse, or abroad. The quality of life within Federation is considered to be the best in the galaxy (due in part to their technological advances \
+	and the availability of both C'thur and Dionaea as manual labourers), allowing Federation Citizens to focus on less intensive pursuits. A rogue artificial intelligence, \
+	Glorsh-Omega, has traumatized this nation for centuries to come, and the Federation is very wary of humanity, who has acquired AI technology (such as IPCs) after a Federation \
+	tech leak."
 
 /datum/citizenship/jargon/get_objectives(mission_level)
 	var/rep_objectives
