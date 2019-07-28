@@ -397,11 +397,16 @@
 		to_chat(src, "The game appears to have misplaced your mind datum, so we can't show you your notes.")
 		return
 
-	if (length(mind.memory) > MAX_PAPER_MESSAGE_LEN)
-		to_chat(src, "<span class='danger'>You are exceeding the alotted text size for memories.</span>")
+	if (length(mind.memory) >= MAX_PAPER_MESSAGE_LEN)
+		to_chat(src, "<span class='danger'>You have exceeded the alotted text size for memories.</span>")
 		return
 
 	msg = sanitize(msg)
+
+	if (length(mind.memory + msg) >= MAX_PAPER_MESSAGE_LEN)
+		to_chat(src, "<span class='danger'>Your input would exceed the alotted text size for memories. Try again with a shorter message.</span>")
+		return
+
 	mind.store_memory(msg)
 
 /mob/proc/update_flavor_text()
