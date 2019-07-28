@@ -115,7 +115,12 @@
 		new_character.key = key		//now transfer the key to link the client to our new body
 
 /datum/mind/proc/store_memory(new_text)
-	memory += "[new_text]<BR>"
+	. = length(memory + new_text)
+
+	if (. > MAX_PAPER_MESSAGE_LEN)
+		memory = copytext(memory, . - MAX_PAPER_MESSAGE_LEN, .)
+	else
+		memory += "[new_text]<BR>"
 
 /datum/mind/proc/show_memory(mob/recipient)
 	var/output = "<B>[current.real_name]'s Memory</B><HR>"
