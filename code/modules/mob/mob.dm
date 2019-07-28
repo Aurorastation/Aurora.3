@@ -393,26 +393,16 @@
 	set name = "Add Note"
 	set category = "IC"
 
-	msg = sanitize(msg)
-
-	if(mind)
-		mind.store_memory(msg)
-	else
+	if (!mind)
 		to_chat(src, "The game appears to have misplaced your mind datum, so we can't show you your notes.")
+		return
 
-/mob/proc/store_memory(msg as message, popup, sane = 1)
-	msg = copytext(msg, 1, MAX_MESSAGE_LEN)
+	if (length(mind.memory) > MAX_PAPER_MESSAGE_LEN)
+		to_chat(src, "<span class='danger'>You are exceeding the alotted text size for memories.</span>")
+		return
 
-	if (sane)
-		msg = sanitize(msg)
-
-	if (length(memory) == 0)
-		memory += msg
-	else
-		memory += "<BR>[msg]"
-
-	if (popup)
-		memory()
+	msg = sanitize(msg)
+	mind.store_memory(msg)
 
 /mob/proc/update_flavor_text()
 	set src in usr
