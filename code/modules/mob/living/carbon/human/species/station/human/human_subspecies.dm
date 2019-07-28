@@ -87,3 +87,31 @@
 								"You begin to have trouble standing upright.")
 
 		to_chat(H, "<span class='warning'>[pain_message]</span>")
+
+/datum/species/human/vatgrown
+	name = "Vat-Grown Human"
+	name_plural = "Vat-Grown Humans"
+	blurb = "With cloning on the forefront of human scientific advancement, cheap mass production \
+	of bodies is a very real and rather ethically grey industry. Vat-grown humans tend to be paler than \
+	baseline, with no appendix and fewer inherited genetic disabilities, but a weakened metabolism."
+	icobase = 'icons/mob/human_races/human/vatgrown_body.dmi'
+	deform = 'icons/mob/human_races/human/vatgrown_body.dmi'
+	preview_icon = 'icons/mob/human_races/human/vatgrown_preview.dmi'
+	hide_name = FALSE
+
+	examine_color = "#C2AE95"
+
+
+	oxy_mod =       0.8
+	brute_mod =     0.9
+	toxins_mod =    0.75
+	bleed_mod = 	0.75
+
+	has_organ = list(
+		"heart" =    /obj/item/organ/heart,
+		"lungs" =    /obj/item/organ/lungs,
+		"liver" =    /obj/item/organ/liver,
+		"kidneys" =  /obj/item/organ/kidneys,
+		"brain" =    /obj/item/organ/brain,
+		"eyes" =     /obj/item/organ/eyes
+		)
