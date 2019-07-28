@@ -18,6 +18,10 @@ export default {
       type: Object,
       default: null
     },
+    rawParams: {
+      type: Object,
+      default: null
+    },
     pushState: {
       type: Boolean,
       default: false
@@ -33,6 +37,9 @@ export default {
         return
       }
       this.$emit('click')
+      if(this.rawParams) {
+        Utils.sendToTopicRaw(rawParams)
+      }
       if(!this.params) {
         if (this.pushState) {
           Store.pushState()

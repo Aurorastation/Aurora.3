@@ -185,9 +185,13 @@ Example:
 ```
 Parameters:
  - `$slot` - Contents of button.
- - `params` - key value pairs to send to `Topic` of object.
+ - `params` - key value pairs to send to `Topic` of object. Can contain objects or arrays (DM keyed lists and lists respectively).
+ - `raw-params` - key value pairs to send to `Topic`.
  - `icon` - icon that should be used in that button. For available icons look at `\vueui\styles\icons.scss`
  - `push-state` - Boolean determining if current ui state should be pushed on button click. This often results in `vueui_data_change` call right before `Topic` call.
+
+Events:
+ - `click` - Fires when button is clicked.
 
 ### VuiProgress `<vui-progress>`
 Simple progress bar for representing progress of a process or indicate status.
@@ -250,6 +254,7 @@ Parameters:
  - `push-state` - Boolean determining if current ui state should be pushed on input change.
  - `width` - Determines width of input text field.
  - `decimal-places` - How many decimal places are allowed.
+
 Events:
  - `input` - Fires when value changes. Value is number currently entered.
 
@@ -263,5 +268,6 @@ Example:
 Parameters:
  - `input` - Initial array with elements to search.
  - `keys` - Array of strings listing keys to be searched.
+
 Events:
  - `input` - Fires when search text changes. Event value is new sorted array.
