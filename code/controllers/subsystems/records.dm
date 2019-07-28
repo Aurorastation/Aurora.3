@@ -18,6 +18,12 @@
 	var/list/citizenships = list()
 	var/list/religions = list()
 
+/datum/controller/subsystem/records/Initialize()
+	..()
+
+	InitializeCitizenships()
+	InitializeReligions()
+
 /datum/controller/subsystem/records/New()
 	records = list()
 	records_locked = list()
@@ -31,9 +37,6 @@
 		excluded_fields[v] = v
 	excluded_fields["cmp_field"] = "cmp_field"
 	excluded_fields["excluded_fields"] = "excluded_fields"
-
-	InitializeCitizenships()
-	InitializeReligions()
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -261,3 +264,9 @@
 
 	if (!religions.len)
 		crash_with("No citizenships located in SSjobs.")
+
+/datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
+	for (var/datum/religion/set_religion in religions)
+		if (set_religion.name == target_religion)
+			var/datum/religion/R = set_religion
+			return R.get_records_name()

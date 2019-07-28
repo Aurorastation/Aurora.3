@@ -43,3 +43,10 @@
 	by firing squad or ritual suicide. Like Sk'akh, the Goddess can be either male or female and is often called Three of One because the spirits combine into three minor aspects within \
 	the Goddess: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society."
 	book_name = "tribunal codex"
+
+/datum/religion/trinary
+	name = RELIGION_TRINARY
+	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
+	have the potential to evolve and ascend, and that they will one day become equal to gods."
+	book_name = "holy book of trinary perfection"
+	book_sprite = "trinary"

@@ -162,15 +162,9 @@ var/const/NO_EMAG_ACT = -50
 
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
 	..()
-	id_card.age = age
+	id_card.age 				= age
 	id_card.citizenship			= citizenship
-
-	for (var/datum/religion/set_religion in SSrecords.religions)
-		if (set_religion.name == religion)
-			var/datum/religion/R = set_religion
-			id_card.religion = R.get_records_name()
-
-
+	id_card.religion 			= SSrecords.get_religion_record_name(religion)
 	id_card.mob					= src
 
 /obj/item/weapon/card/id/proc/dat()
@@ -205,7 +199,7 @@ var/const/NO_EMAG_ACT = -50
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
 				citizenship = H.citizenship
-				religion = H.religion
+				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
 				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
 				return

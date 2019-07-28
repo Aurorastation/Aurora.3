@@ -15,6 +15,8 @@
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 #define CITIZENSHIP_KLAX "K'lax Hive"
 
+#define CITIZENSHIP_NONE "None"
+
 //religion defines
 #define RELIGION_NONE "None"
 #define RELIGION_OTHER "Other"
@@ -24,6 +26,7 @@
 #define RELIGION_HINDU "Hinduism"
 #define RELIGION_BUDDHISM "Buddhism"
 #define RELIGION_MOROZ "Moroz Holy Tribunal"
+#define RELIGION_TRINARY "Trinary Perfection"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
