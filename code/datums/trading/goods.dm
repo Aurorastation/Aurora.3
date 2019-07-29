@@ -313,6 +313,7 @@ Sells devices, odds and ends, and medical stuff
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Mining Supply Store"
 	possible_origins = list("Astrodia", "Slag. Co.", "Explosive Drills S.A.", "The Shaft Shop")
+	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	possible_wanted_items  = list(
 		/obj/item/weapon/ore                                    = TRADER_SUBTYPES_ONLY,
@@ -371,6 +372,7 @@ Sells devices, odds and ends, and medical stuff
 		"hail_deny"         = "ORIGIN no longer wants to speak to you.",
 		"trade_complete"    = "Good mining and avoid the holes!",
 		"trade_blacklist"   = "I don't want this thing.",
+		"what_want"			= "You got any leftover materials? Specifically"
 		"trade_no_goods"    = "Only cash here!",
 		"trade_not_enough"  = "I need more than that, son.",
 		"how_much"          = "This damn good tool will be VALUE!",
