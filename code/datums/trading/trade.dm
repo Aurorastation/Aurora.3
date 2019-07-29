@@ -51,7 +51,7 @@
 	if(possible_origins && possible_origins.len)
 		origin = pick(possible_origins)
 
-	for(var/i in 3 to 6)
+	for(var/i in 5 to 8)
 		add_to_pool(trading_items, possible_trading_items, force = 1)
 		add_to_pool(wanted_items, possible_wanted_items, force = 1)
 
