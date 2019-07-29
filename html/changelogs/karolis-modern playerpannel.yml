@@ -1,0 +1,4 @@
+author: ChangeMe
+delete-after: True
+changes: 
+  - rscadd: "Added new player panel to make player management easier."
