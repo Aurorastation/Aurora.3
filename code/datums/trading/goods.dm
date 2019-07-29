@@ -217,9 +217,9 @@
 Sells devices, odds and ends, and medical stuff
 */
 /datum/trader/devices
-	name = "Drugstore Employee"
+	name = "Devices Store Employee"
 	name_language = TRADER_DEFAULT_NAME
-	origin = "Drugstore"
+	origin = "Wally's SmartMart"
 	possible_origins = list("Buy 'n Save", "Drug Carnival", "C&B", "Fentles", "Dr. Goods", "Beevees")
 	possible_trading_items = list(
 		/obj/item/device/flashlight                = TRADER_ALL,
