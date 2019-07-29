@@ -181,7 +181,7 @@
 	return
 
 /obj/item/weapon/reagent_containers/blood/attack_self
-	to_chat(user, span("notice", "You [is_open_container ? "close" : "open"] [src].")
+	to_chat(user, span("notice", "You [is_open_container ? "close" : "open"] [src]."))
 	flags ^= OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/blood/secondary
