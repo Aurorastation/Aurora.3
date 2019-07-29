@@ -4,7 +4,7 @@ export default {
   sendToTopicRaw(data) {
     var sendparams = []
     for(var val in data) {
-      sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(this.params[val]))
+      sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(data[val]))
     }
     var r = new XMLHttpRequest()
     var sendUrl = "?" + sendparams.join("&")

@@ -17,6 +17,13 @@
             border-bottom:1px solid #ee0000;
         }
     }
+
+    .tooltip {
+        &.content {
+            background: #ffffff;
+            border: 1px solid darkgrey;
+        }
+    }
 }
 
 .theme-basic-dark {
@@ -37,5 +44,12 @@
     }
     .uiTitleWrapper {
         background-color: #464646;
+    }
+
+    .tooltip {
+        &.content {
+            background: #000000;
+            border: 1px solid darkgrey;
+        }
     }
 }

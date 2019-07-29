@@ -94,3 +94,9 @@ input, textarea, button, select, .button {
 .csserror {
     display: none;
 }
+
+.tooltip {
+    &.label {
+        text-decoration: underline;
+    }
+}
