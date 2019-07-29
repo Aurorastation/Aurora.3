@@ -21,8 +21,11 @@
 	NEW_SS_GLOBAL(SSghostroles)
 	for(var/spawner in subtypesof(/datum/ghostspawner))
 		var/datum/ghostspawner/G = new spawner
-		//Check if we hae name, short_name and desc set
+		//Check if we have name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
+			continue
+		//Check if we have a spawnpoint on the current map
+		if(!G.select_spawnpoint(FALSE))
 			continue
 		LAZYSET(spawners, G.short_name, G)
 
@@ -113,8 +116,8 @@
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
-	if(href_list["action"] == "spawn")
-		var/spawner = href_list["spawner"]
+	if(href_list["spawn"])
+		var/spawner = href_list["spawn"]
 		var/datum/ghostspawner/S = spawners[spawner]
 		if(!S)
 			return
@@ -133,8 +136,8 @@
 			to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 			return
 		SSvueui.check_uis_for_change(src) //Make sure to update all the UIs so the count is updated
-	if(href_list["action"] == "enable")
-		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
+	if(href_list["enable"])
+		var/datum/ghostspawner/S = spawners[href_list["enable"]]
 		if(!S)
 			return
 		if(!S.can_edit(usr))
@@ -145,8 +148,8 @@
 			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
 			for(var/i in S.spawnpoints)
 				update_spawnpoint_status_by_identifier(i)
-	if(href_list["action"] == "disable")
-		var/datum/ghostspawner/S = spawners[href_list["spawner"]]
+	if(href_list["disable"])
+		var/datum/ghostspawner/S = spawners[href_list["disable"]]
 		if(!S)
 			return
 		if(!S.can_edit(usr))
