@@ -53,13 +53,13 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/ninja_uplink			 = TRADER_BLACKLIST, // Ninja item
 		/obj/item/device/onetankbomb			 = TRADER_BLACKLIST, // Not weapons trader
 		/obj/item/device/kinetic_analyzer		 = TRADER_BLACKLIST, // Not KA trader
-		/obj/item/device/camera					 = TRADER_BLACKLIST_SUB // a lot of ai/drone/cyborg/fluff items
+		/obj/item/device/camera					 = TRADER_BLACKLIST_SUB, // a lot of ai/drone/cyborg/fluff items
 		/obj/item/device/uv_light				 = TRADER_BLACKLIST, // CSI item
 		/obj/item/device/nanoquikpay			 = TRADER_BLACKLIST, // eftpos exists
 		/obj/item/device/electronic_assembly	 = TRADER_BLACKLIST_ALL, // Not a circuit trader
 		/obj/item/device/integrated_circuit_printer = TRADER_BLACKLIST_ALL, //Not a circuit trader
 		/obj/item/device/integrated_electronics  = TRADER_BLACKLIST_ALL, // Not a circuit trader
-		/obj/item/device/mine_bot_upgrade		 = TRADER_BLACKLIST_ALL, // Not a mining vendor + drone stuff
+		/obj/item/device/mine_bot_ugprade		 = TRADER_BLACKLIST_ALL, // Not a mining vendor + drone stuff
 		/obj/item/device/mmi					 = TRADER_BLACKLIST_ALL, // Just no to trading cyborg brains
 		/obj/item/device/soulstone				 = TRADER_BLACKLIST, // Wiz item
 		/obj/item/device/firing_pin				 = TRADER_BLACKLIST_ALL, // Not a weapons trader
