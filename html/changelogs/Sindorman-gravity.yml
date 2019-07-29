@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "fallin on asteroid deals 25% less damage than indoors. Priority of limbs damage was also changed, now it is Legs > arms > head."
+  - tweak: "Fall damaged was nerfed: you no longer take remaining damage to the chest if you took limb damage. Priority of limbs damage was also changed, now it is Legs > arms > head."
   - rscadd: "Added new Malf ability to malfunction gravity generator. Ability makes station loose gravity for 3 seconds and push everyone to the groun as if they fell on Z level."

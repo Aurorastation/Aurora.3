@@ -410,8 +410,6 @@
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
-		damage *= 0.75
 	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
@@ -455,9 +453,6 @@
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
 
-	// Gravity is weaker outdoors, than indoors.
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
-		damage *= 0.75
 	var/limb_damage = rand(0,damage/2)
 
 	if(prob(30) && combat_roll >= 1) //landed on their legs
@@ -513,7 +508,8 @@
 			visible_message("\The [src] falls and lands on \the [loc]!",
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	apply_damage(damage - limb_damage, BRUTE, "chest")
+	if(!limb_damage)
+		apply_damage(damage, BRUTE, "chest")
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -553,8 +549,6 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-	if(istype(loc, /turf/unsimulated/floor/asteroid))
-		damage *= 0.75
 
 	take_damage(damage)
 
