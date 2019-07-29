@@ -159,6 +159,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define MAX_MESSAGE_LEN       1024
 #define MAX_PAPER_MESSAGE_LEN 3072
 #define MAX_BOOK_MESSAGE_LEN  9216
+#define MAX_RECORD_LEN		  24576
 #define MAX_LNAME_LEN         64
 #define MAX_NAME_LEN          26
 
