@@ -48,7 +48,7 @@ changes:
   - rscadd: "Gave food merchant purchase lines and flags"
   - tweak: "Electronic store is no longer called Drugstore"
   - tweak: "Removed partially assembled robots from robot store. Now they actually sell robots"
-  - rcsdel: "Removed useless or inobtaineable stuff from ai beacon want list"
+  - rscdel: "Removed useless or inobtaineable stuff from ai beacon want list"
   - rscadd: "Added bulk-buy [boxes] to ai traders"
   - rscdel: "Removed potato batteries from electronics store"
   - tweak: "Made unique traders want their items a lot more. multiplier from 5x to 100x"
