@@ -1,6 +1,6 @@
 /datum/trader/ship/unique
 	trade_flags = TRADER_WANTED_ONLY|TRADER_GOODS
-	want_multiplier = 20
+	want_multiplier = 100
 	typical_duration = 20
 
 /datum/trader/ship/unique/New()
