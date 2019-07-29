@@ -25,6 +25,64 @@
 /datum/trader/ship/unique/what_do_you_want()
 	return get_response("what_want", "I don't want anything!")
 
+/datum/trader/ship/unique/syndicate
+	name = "Cyndie Kate"
+	origin = "Cloaked ship"
+
+	possible_wanted_items = list (
+		/obj/item/weapon/gun/energy/captain					= TRADER_THIS_TYPE.
+		/obj/item/weapon/hand_tele							= TRADER_THIS_TYPE,
+		/obj/item/blueprints								= TRADER_THIS_TYPE,
+		/obj/item/weapon/disk/nuclear						= TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/hypospray/cmo 	= TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/ids					= TRADER_THIS_TYPE,
+		/obj/item/weapon/card/id/captains_spare				= TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/heavysniper/tranq	= TRADER_THIS_TYPE,
+		/obj/item/stack/telecrystal							= TRADER_THIS_TYPE,
+		/obj/item/bluespace_crystal							= TRADER_ALL,
+		/obj/random/telecrystals							= TRADER_THIS_TYPE.
+		/obj/item/device/pin_extractor						= TRADER_THIS_TYPE,
+		/obj/item/weapon/circuitboard/aicore				= TRADER_THIS_TYPE,
+		/obj/item/weapon/aiModule							= TRADER_SUBTYPES_ONLY
+	)
+
+	possible_trading_items = list (
+		/obj/item/weapon/antag_spawner/borg_tele 			= TRADER_THIS_TYPE,
+		/obj/item/weapon/storage/box/syndie_kit				= TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/syndie/c4explosive					= TRADER_ALL,
+		/obj/item/weapon/melee/energy/sword					= TRADER_ALL,
+		/obj/item/weapon/melee/energy/sword/color			= TRADER_BLACKLIST,
+		/obj/item/weapon/melee/energy/axe					= TRADER_THIS_TYPE,
+		/obj/item/weapon/shield/energy						= TRADER_ALL,
+		/obj/item/clothing/gloves/force/syndicate			= TRADER_THIS_TYPE,
+		/obj/item/weapon/card/id/syndicate					= TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/merc							= TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/light/stealth					= TRADER_THIS_TYPE,
+		/obj/item/weapon/rig/light/hacker					= TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/launcher/grenade				= TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/energy/sniperrifle				= TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/autmatic			= TRADER_SUBTYPES_ONLY,
+		/obj/mecha/combat/marauder/mauler					= TRADER_THIS_TYPE,
+		/obj/mecha/working/ripley/deathripley				= TRADER_THIS_TYPE
+	)
+
+	speech = list(
+		"hail_generic"         = "Look, you can't afford the stuff I sell. You'll go get me valuable items from that station nearby, and I'll trade you my stuff. And you better do it fast, I think I might be tracked.",
+		"hail_deny"            = "This is not worth my time.",
+		"trade_complete"       = "Oooh, the commander will LOVE this!",
+		"trade_no_money"       = "Don't waste my time!",
+		"trade_not_enough"     = "Get me the good stuff I need or I'm gone!",
+		"trade_found_unwanted" = "I need high value items, not this garbage!",
+		"how_much"             = "I need VALUABLE items, and I need it FAST.",
+		"what_want"            = "There's a station near you, go there, get some high value and classified items. Or crystals.",
+		"compliment_deny"      = "Shove your compliments, I'm busy!",
+		"compliment_accept"    = "I might just recommend you to my employers...",
+		"insult_good"          = "Heh, you got style.",
+		"insult_bad"           = "I'm marking you for a hit..."
+	)
+
+	mob_transfer_message = "<span class='danger'>You are transported to ORIGIN, and with a sickening thud, you fall unconscious, never to wake again.</span>"
+
 /datum/trader/ship/unique/severance
 	name = "Unknown"
 	origin = "SGS Severance"
