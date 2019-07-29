@@ -92,65 +92,6 @@
 		"insult_bad"           = "Blub feels bad now."
 	)
 
-
-/datum/trader/ship/unique/wizard
-	name = "The Grand Master"
-	origin = "Interdimensional Prison Cell"
-
-	possible_wanted_items = list(
-		/mob/living/simple_animal/construct              = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/melee/cultblade                 = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/culthood                 = TRADER_ALL,
-		/obj/item/clothing/suit/space/cult               = TRADER_ALL,
-		/obj/item/clothing/suit/cultrobes                = TRADER_ALL,
-		/obj/item/clothing/head/helmet/space/cult        = TRADER_ALL,
-		/obj/structure/cult                              = TRADER_SUBTYPES_ONLY,
-		/obj/structure/constructshell                    = TRADER_ALL,
-		/mob/living/simple_animal/familiar               = TRADER_SUBTYPES_ONLY,
-		/mob/living/simple_animal/familiar/pet           = TRADER_BLACKLIST,
-		/mob/living/simple_animal/hostile/mimic          = TRADER_ALL,
-		/obj/item/clothing/head/helmet/space/void/wizard = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/wizard                   = TRADER_ALL,
-		/obj/item/clothing/suit/space/void/wizard        = TRADER_THIS_TYPE,
-		/obj/item/weapon/scrying                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/energy/wizard             = TRADER_THIS_TYPE,
-		/obj/item/phylactery                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/staff                = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand                 = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand/toy             = TRADER_BLACKLIST,
-		/obj/item/device/soulstone                       = TRADER_THIS_TYPE
-	)
-
-	possible_trading_items = list(
-		/obj/item/weapon/contract/wizard/tk              = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/smoke      = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/horsemask  = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/gestalt    = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/fireball   = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/forcewall  = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/charge     = TRADER_THIS_TYPE,
-		/obj/item/toy/figure/wizard                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/staff                           = TRADER_ALL,
-		/obj/machinery/from_beyond                       = TRADER_ALL
-	)
-
-	speech = list(
-		"hail_generic"         = "Hello! Are you here on pleasure or business?",
-		"hail_Golem"           = "Interesting... how incredibly interesting... come! Let us do business!",
-		"hail_deny"            = "I'm sorry, but I REALLY don't want to speak to you.",
-		"trade_complete"       = "Pleasure doing business with you! Just don't feed it after midnight!",
-		"trade_no_money"       = "Cash? Ha! What's cash to a man like me?",
-		"trade_not_enough"     = "Hm, well I do enjoy what you're offering, I prefer a fair trade.",
-		"trade_found_unwanted" = "What? I want oddities! Don't you understand?",
-		"how_much"             = "I want dark things, brooding things... things that go bump in the night. Things that bleed wrong, live wrong, are wrong.",
-		"what_want"            = "Have anything from a broodish cult?",
-		"compliment_deny"      = "Like I haven't heard that one before!",
-		"compliment_accept"    = "Haha! Aren't you nice.",
-		"insult_good"          = "Naughty naughty.",
-		"insult_bad"           = "Now where do you get off talking to me like that?"
-	)
-
-
 /datum/trader/ship/unique/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
