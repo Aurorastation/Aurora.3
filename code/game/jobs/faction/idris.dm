@@ -82,7 +82,7 @@
 	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/representative/idris
-	name = "Corporate Liaison - Idris"
+	name = "Idris Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null

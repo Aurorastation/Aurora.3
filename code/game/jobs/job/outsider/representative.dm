@@ -25,7 +25,7 @@
 		. = ..()
 
 /datum/outfit/job/representative
-	name = "Corporate Liaison"
+	name = "NanoTrasen Corporate Liaison"
 	jobtype = /datum/job/representative
 
 	head = /obj/item/clothing/head/beret/liaison

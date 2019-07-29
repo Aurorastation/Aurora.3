@@ -87,7 +87,7 @@
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/representative/hephaestus
-	name = "Corporate Liaison - Hephaestus"
+	name = "Hephaestus Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/hephaestus
 	head = null
 	suit = null
