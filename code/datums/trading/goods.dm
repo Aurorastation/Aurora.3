@@ -1,4 +1,4 @@
-/datum/trader/ship/toyshop
+/datum/trader/toyshop
 	name = "Toy Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Toy Shop"
@@ -46,7 +46,7 @@
 		/obj/item/weapon/spirit_board         = TRADER_ALL
 	)
 
-/datum/trader/ship/electronics
+/datum/trader/electronics
 	name = "Electronic Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Electronic Shop"
@@ -102,7 +102,7 @@
 
 /* Clothing stores: each a different type. A hat/glove store, a shoe store, and a jumpsuit store. */
 
-/datum/trader/ship/clothingshop
+/datum/trader/clothingshop
 	name = "Clothing Store Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Clothing Store"
@@ -157,7 +157,7 @@
 		/obj/item/clothing/suit/storage/toggle/flannel           = TRADER_ALL
 	)
 
-/datum/trader/ship/clothingshop/shoes
+/datum/trader/clothingshop/shoes
 	possible_origins = list("Foot Safe", "Paysmall", "Popular Footwear", "Grimbly's Shoes", "Right Steps")
 	possible_trading_items = list(
 		/obj/item/clothing/shoes                        = TRADER_SUBTYPES_ONLY,
@@ -174,7 +174,7 @@
 		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
 	)
 
-/datum/trader/ship/clothingshop/hatglovesaccessories
+/datum/trader/clothingshop/hatglovesaccessories
 	possible_origins = list("Baldie's Hats and Accessories", "The Right Fit", "Like a Glove", "Space Fashion")
 	possible_trading_items = list(
 		/obj/item/clothing/accessory                    = TRADER_ALL,
