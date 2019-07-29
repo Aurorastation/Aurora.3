@@ -285,13 +285,6 @@ Sells devices, odds and ends, and medical stuff
 	origin = "Robot Store"
 	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
 	possible_trading_items = list(
-		/obj/item/weapon/secbot_assembly/ed209_assembly = TRADER_THIS_TYPE,
-		/obj/item/weapon/toolbox_tiles                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/toolbox_tiles_sensor           = TRADER_THIS_TYPE,
-		/obj/item/weapon/secbot_assembly                = TRADER_ALL,
-		/obj/item/weapon/farmbot_arm_assembly           = TRADER_THIS_TYPE,
-		/obj/item/weapon/firstaid_arm_assembly          = TRADER_THIS_TYPE,
-		/obj/item/weapon/bucket_sensor                  = TRADER_THIS_TYPE,
 		/obj/item/device/paicard                        = TRADER_THIS_TYPE,
 		/obj/item/weapon/aicard                         = TRADER_THIS_TYPE,
 		/mob/living/bot                                 = TRADER_SUBTYPES_ONLY
