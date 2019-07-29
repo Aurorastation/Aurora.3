@@ -2,7 +2,7 @@
 	name = "Pizza Shop Employee"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Pizzeria"
-	possible_origins = list("Papa Joe's", "Pizza Ship", "Dominator Pizza", "Little Kaezars", "Pizza Planet", "Cheese Louise")
+	possible_origins = list("Papa Joe's", "Mamma Mia", "Dominator Pizza", "Little Kaezars", "Pizza Planet", "Cheese Louise")
 	trade_flags = TRADER_MONEY
 	possible_wanted_items = list() //They are a pizza shop, not a bargainer.
 	possible_trading_items = list(/obj/item/weapon/reagent_containers/food/snacks/sliceable/pizza   = TRADER_SUBTYPES_ONLY)
@@ -31,7 +31,7 @@
 		box.pizza = M
 		box.boxtag = "A special order from [origin]"
 
-/datum/trader/ship/chinese
+/datum/trader/chinese
 	name = "Chinese Restaurant"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Captain Panda Bistro"
@@ -83,7 +83,7 @@
 		"bribe_accept"       = "Oh yes! I think I'll stay a few more minutes, then."
 	)
 
-/datum/trader/ship/chinese/trade(var/list/offers, var/num, var/turf/location)
+/datum/trader/chinese/trade(var/list/offers, var/num, var/turf/location)
 	. = ..()
 	if(.)
 		var/obj/item/weapon/reagent_containers/food/snacks/fortunecookie/cookie = new(location)
