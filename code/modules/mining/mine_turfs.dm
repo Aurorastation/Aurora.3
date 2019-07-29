@@ -656,7 +656,6 @@ var/list/asteroid_floor_smooth = list(
 	)
 
 	var/time = usable_tools[W.type]
-	message_admins(time)
 	if(time)
 		var/turf/T = user.loc
 		if (!(istype(T)))
