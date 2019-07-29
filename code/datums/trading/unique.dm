@@ -30,17 +30,17 @@
 	origin = "Cloaked ship"
 
 	possible_wanted_items = list (
-		/obj/item/weapon/gun/energy/captain					= TRADER_THIS_TYPE.
+		/obj/item/weapon/gun/energy/captain					= TRADER_THIS_TYPE,
 		/obj/item/weapon/hand_tele							= TRADER_THIS_TYPE,
 		/obj/item/blueprints								= TRADER_THIS_TYPE,
 		/obj/item/weapon/disk/nuclear						= TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/hypospray/cmo 	= TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/hypospray		= TRADER_ALL,
 		/obj/item/weapon/storage/box/ids					= TRADER_THIS_TYPE,
 		/obj/item/weapon/card/id/captains_spare				= TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/heavysniper/tranq	= TRADER_THIS_TYPE,
 		/obj/item/stack/telecrystal							= TRADER_THIS_TYPE,
 		/obj/item/bluespace_crystal							= TRADER_ALL,
-		/obj/random/telecrystals							= TRADER_THIS_TYPE.
+		/obj/random/telecrystals							= TRADER_THIS_TYPE,
 		/obj/item/device/pin_extractor						= TRADER_THIS_TYPE,
 		/obj/item/weapon/circuitboard/aicore				= TRADER_THIS_TYPE,
 		/obj/item/weapon/aiModule							= TRADER_SUBTYPES_ONLY
@@ -61,7 +61,7 @@
 		/obj/item/weapon/rig/light/hacker					= TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/launcher/grenade				= TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/energy/sniperrifle				= TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/autmatic			= TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/gun/projectile/automatic			= TRADER_SUBTYPES_ONLY,
 		/obj/mecha/combat/marauder/mauler					= TRADER_THIS_TYPE,
 		/obj/mecha/working/ripley/deathripley				= TRADER_THIS_TYPE
 	)
@@ -131,7 +131,7 @@
 	)
 	possible_trading_items = list(
 		/obj/machinery/power/supermatter = TRADER_ALL,
-		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE
+		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE,
 		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
 	)
 

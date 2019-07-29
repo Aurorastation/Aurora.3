@@ -372,7 +372,7 @@ Sells devices, odds and ends, and medical stuff
 		"hail_deny"         = "ORIGIN no longer wants to speak to you.",
 		"trade_complete"    = "Good mining and avoid the holes!",
 		"trade_blacklist"   = "I don't want this thing.",
-		"what_want"			= "You got any leftover materials? Specifically"
+		"what_want"			= "You got any leftover materials? Specifically",
 		"trade_no_goods"    = "Only cash here!",
 		"trade_not_enough"  = "I need more than that, son.",
 		"how_much"          = "This damn good tool will be VALUE!",
