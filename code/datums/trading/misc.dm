@@ -1,4 +1,4 @@
-/datum/trader/ship/pet_shop
+/datum/trader/pet_shop
 	name = "Pet Shop Owner"
 	name_language = LANGUAGE_SKRELLIAN
 	origin = "Pet Shop"
@@ -59,7 +59,7 @@
 		/obj/item/device/dociler                         = TRADER_THIS_TYPE
 	)
 
-/datum/trader/ship/prank_shop
+/datum/trader/prank_shop
 	name = "Prank Shop Owner"
 	name_language = LANGUAGE_ROOTSONG
 	origin = "Prank Shop"
