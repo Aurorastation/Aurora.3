@@ -131,6 +131,7 @@
 	)
 	possible_trading_items = list(
 		/obj/machinery/power/supermatter = TRADER_ALL,
+		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE
 		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
 	)
 
