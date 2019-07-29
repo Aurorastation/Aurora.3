@@ -451,7 +451,7 @@
 				"<span class='notice'>You tuck into a roll as you hit \the [loc], minimizing damage!</span>")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
+	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
 
 	var/limb_damage = rand(0,damage/2)
 
