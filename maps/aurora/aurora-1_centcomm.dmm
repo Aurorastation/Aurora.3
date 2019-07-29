@@ -7043,7 +7043,7 @@
 /turf/simulated/shuttle/wall/dark,
 /area/shuttle/administration/centcom)
 "aqH" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -7070,7 +7070,7 @@
 	},
 /area/shuttle/administration/centcom)
 "aqL" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -11392,7 +11392,7 @@
 	},
 /area/centcom/control)
 "aAd" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11634,7 +11634,7 @@
 	},
 /area/centcom/control)
 "aAD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12529,7 +12529,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aCn" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -13040,7 +13040,7 @@
 	},
 /area/centcom/holding)
 "aDz" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
@@ -13108,7 +13108,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop";
 	pixel_x = 3;
 	pixel_y = 4
@@ -13737,7 +13737,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "aFn" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -13800,7 +13800,7 @@
 	},
 /area/shuttle/escape/centcom)
 "aFt" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -19179,7 +19179,7 @@
 	},
 /area/centcom/spawning)
 "aQT" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},

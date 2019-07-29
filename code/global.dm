@@ -5,7 +5,6 @@
 
 
 // Items that ask to be called every cycle.
-var/global/datum/datacore/data_core = null
 var/global/list/processing_power_items   = list()
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
