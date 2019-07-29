@@ -3,7 +3,7 @@
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Pizzeria"
 	possible_origins = list("Papa Joe's", "Mamma Mia", "Dominator Pizza", "Little Kaezars", "Pizza Planet", "Cheese Louise")
-	trade_flags = TRADER_MONEY
+	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	possible_wanted_items = list(
 		/obj/item/weapon/material/kitchen/utensil 			= TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
@@ -44,7 +44,7 @@
 	name = "Chinese Restaurant"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Captain Panda Bistro"
-	trade_flags = TRADER_MONEY
+	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	possible_wanted_items = list(
 		/obj/item/weapon/material/kitchen/utensil 			= TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
@@ -147,6 +147,7 @@
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Bakery"
 	possible_origins = list("Cakes By Design", "Corner Bakery Local", "My Favorite Cake & Pastry Cafe", "Mama Joes Bakery", "Sprinkles and Fun")
+	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	speech = list(
 		"hail_generic"       = "Hello, welcome to ORIGIN! We serve baked goods, including pies, cakes and anything sweet!",
