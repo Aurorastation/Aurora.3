@@ -59,11 +59,6 @@ export default {
     players_filtered() {
       return Object.values(this.s.players).filter(x => x)
     }
-  },
-  methods: {
-    openPP(ref) {
-
-    }
   }
 }
 </script>
