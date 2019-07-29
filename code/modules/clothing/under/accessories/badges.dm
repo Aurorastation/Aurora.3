@@ -127,8 +127,8 @@
 	badge_string = "Tau Ceti Temporary Residence"
 
 /obj/item/clothing/accessory/badge/hadii_card
-	name = "party member card"
-	desc = "A card denoting a member of the Hadiist party."
+	name = "honorary party member card"
+	desc = "A card denoting a honorary member of the Hadiist party."
 	icon_state = "hadii-id"
 	slot_flags = SLOT_TIE
 	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
