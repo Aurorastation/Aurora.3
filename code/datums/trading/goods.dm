@@ -57,7 +57,7 @@
 		"hail_deny"         = "Your call has been disconnected.",
 		"trade_complete"    = "Thank you for shopping at ORIGIN, would you like to get the extended warranty as well?",
 		"trade_blacklist"   = "Sir, this is a /electronics/ store.",
-		"trade_no_goods"    = "As much as I'd love to buy that from you, I'm can't.",
+		"trade_no_goods"    = "As much as I'd love to buy that from you, I can't.",
 		"trade_not_enough"  = "Your offer isn't adequate, sir.",
 		"how_much"          = "Your total comes out to VALUE credits.",
 		"compliment_deny"   = "Hahaha! Yeah... funny...",
