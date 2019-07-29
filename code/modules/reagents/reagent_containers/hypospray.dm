@@ -119,16 +119,16 @@
 		to_chat(user, "<span class='notice'>It is empty.</span>")
 
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline
-	name = "autoinjector (inaprovaline)"
-	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/epinephrine
+	name = "autoinjector (epinephrine)"
+	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. For use in cardiac resuscitation. Not indicated for use in allergic reactions."
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
+/obj/item/weapon/reagent_containers/hypospray/autoinjector/epinephrine/Initialize()
 	. =..()
-	reagents.add_reagent("inaprovaline", 5)
+	reagents.add_reagent("epinephrine", 5)
 	update_icon()
 	return
 
