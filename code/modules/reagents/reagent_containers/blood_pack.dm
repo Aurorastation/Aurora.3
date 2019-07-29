@@ -1,19 +1,10 @@
-/obj/item/storage/box/bloodpacks
-	name = "blood packs bags"
+/obj/item/weapon/storage/box/bloodpacks
+	name = "blood packs box"
 	desc = "This box contains blood packs."
 	icon_state = "sterile"
+	starts_with = list(/obj/item/weapon/reagent_containers/blood/empty = 3, /obj/item/weapon/reagent_containers/blood/secondary = 4)
 
-/obj/item/storage/box/bloodpacks/fill()
-	..()
-	new /obj/item/reagent_containers/blood/empty(src)
-	new /obj/item/reagent_containers/blood/empty(src)
-	new /obj/item/reagent_containers/blood/empty(src)
-	new /obj/item/reagent_containers/blood/empty(src)
-	new /obj/item/reagent_containers/blood/empty(src)
-	new /obj/item/reagent_containers/blood/empty(src)
-	new /obj/item/reagent_containers/blood/empty(src)
-
-/obj/item/reagent_containers/blood
+/obj/item/weapon/reagent_containers/blood
 	name = "blood pack"
 	desc = "Contains blood used for transfusion."
 	icon = 'icons/obj/bloodpack.dmi'
@@ -182,10 +173,45 @@
 /obj/item/reagent_containers/blood/ripped
 	name = "ripped blood pack"
 	desc = "It's torn up and useless."
-	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"
 	volume = 0
 
 /obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
 	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
 	return
+
+/obj/item/weapon/reagent_containers/blood/attack_self
+	to_chat(user, span("notice", "You [is_open_container ? "close" : "open"] [src].")
+	flags ^= OPENCONTAINER
+
+/obj/item/weapon/reagent_containers/blood/secondary
+	name = "secondary IV bag"
+	desc = "A small IV bag for use in addition to a primary blood bag or other container."
+	volume = 100
+	icon_state = "secondary"
+	var/name_unlabel
+	var/label
+
+/obj/item/weapon/storage/box/bloodpacks/secondary
+	name = "IV bag box"
+	desc = "This box contains secondary IV bags for intravenous medicine infusion."
+	icon_state = "sterile"
+	starts_with = list(/obj/item/weapon/reagent_containers/blood/secondary = 7)
+
+/obj/item/weapon/reagent_containers/blood/secondary/update_icon()
+	return // don't change the sprite
+
+/obj/item/weapon/reagent_containers/blood/secondary/attackby(obj/item/weapon/P as obj, mob/user as mob)
+	if (istype(P, /obj/item/weapon/pen))
+		label = sanitizeSafe(input(user, "What would you like to label [src]?", "Label", ""), MAX_NAME_LEN)
+		if(!label || !length(label))
+			to_chat(user, span("notice", "You decide not to label [src].")
+			return
+		var/obj/item/i = usr.get_active_hand()
+		if (!istype(i, /obj/item/weapon/pen) || !in_range(user, src)) return //Checks to see if pen is still held or IV bag is in range
+		to_chat(usr, "<span class='notice'>You [name_unlabel) ? 'remove the old label and ' : '']label \the [name_unlabel ? name_unlabel : name] as [label].</span>")
+		if(!name_unlabel)
+			name_unlabel = name
+		name = "[name_unlabel] ([label])"
+		desc = "Contains medicine used for transfusion. Hopefully."
+		return

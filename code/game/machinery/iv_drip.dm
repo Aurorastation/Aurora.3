@@ -3,12 +3,11 @@
 	icon = 'icons/obj/iv_drip.dmi'
 	anchored = 0
 	density = 1
-
-
-/obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null
-/obj/machinery/iv_drip/var/mode = 1 // 1 is injecting, 0 is taking blood.
-/obj/machinery/iv_drip/var/transfer_amount = REM
-/obj/machinery/iv_drip/var/obj/item/reagent_containers/beaker = null
+	var/mob/living/carbon/human/attached = null
+	var/mode = 1 // 1 is injecting, 0 is taking blood.
+	var/list/transfer_amount = list("Primary" = REM, "Secondary" = REM)
+	var/obj/item/weapon/reagent_containers/primary = null // can be any size, is the first one attached
+	var/obj/item/weapon/reagent_containers/secondary = null // must be less than or equal to 120 units in capacity
 
 /obj/machinery/iv_drip/update_icon()
 	if(src.attached)
@@ -18,12 +17,11 @@
 
 	cut_overlays()
 
-	if(beaker)
-		var/datum/reagents/reagents = beaker.reagents
-		if(reagents.total_volume)
+	if(primary)
+		if(primary.reagents.total_volume)
 			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
 
-			var/percent = round((reagents.total_volume / beaker.volume) * 100)
+			var/percent = round((primary.reagents.total_volume / primary.volume) * 100)
 			switch(percent)
 				if(0 to 9)		filling.icon_state = "reagent0"
 				if(10 to 24) 	filling.icon_state = "reagent10"
@@ -33,7 +31,24 @@
 				if(80 to 90)	filling.icon_state = "reagent80"
 				if(91 to INFINITY)	filling.icon_state = "reagent100"
 
-			filling.icon += reagents.get_color()
+			filling.icon += primary.reagents.get_color()
+			add_overlay(filling)
+	
+	if(secondary)
+		if(secondary.reagents.total_volume)
+			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagentsecondary")
+
+			var/percent = round((secondary.reagents.total_volume / secondary.volume) * 100)
+			switch(percent)
+				if(0 to 9)		filling.icon_state = "reagent0s"
+				if(10 to 24) 	filling.icon_state = "reagent10s"
+				if(25 to 49)	filling.icon_state = "reagent25s"
+				if(50 to 74)	filling.icon_state = "reagent50s"
+				if(75 to 79)	filling.icon_state = "reagent75s"
+				if(80 to 90)	filling.icon_state = "reagent80s"
+				if(91 to INFINITY)	filling.icon_state = "reagent100s"
+
+			filling.icon += secondary.reagents.get_color()
 			add_overlay(filling)
 
 /obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
@@ -56,15 +71,25 @@
 	if (istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return
-	if (istype(W, /obj/item/reagent_containers))
-		if(!isnull(src.beaker))
-			to_chat(user, "There is already a reagent container loaded!")
+	if (istype(W, /obj/item/weapon/reagent_containers/food))
+		to_chat(user, "You can't put food on an IV drip.")
+	if (istype(W, /obj/item/weapon/reagent_containers))
+		var/obj/item/weapon/reagent_containers/R = W
+		if(W.is_open_container())
+			to_chat(user, "\The [W] must be closed to put it on an IV drip.")
+		if(!isnull(primary))
+			if(R.maximum_volume > 120)
+				to_chat(user, span("warning", "\The [R] is too big for the secondary slot!"))
+			user.drop_from_inventory(W,src)
+			secondary = W
+			to_chat(user, "You attach \the [W] to \the [src].")
+			update_icon()
 			return
 
 		user.drop_from_inventory(W,src)
-		src.beaker = W
+		primary = W
 		to_chat(user, "You attach \the [W] to \the [src].")
-		src.update_icon()
+		update_icon()
 		return
 	else
 		return ..()
@@ -73,17 +98,16 @@
 /obj/machinery/iv_drip/machinery_process()
 	set background = 1
 
-	if(src.attached)
-
-		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			var/obj/item/organ/external/affecting = src.attached:get_organ(pick(BP_R_ARM, BP_L_ARM))
-			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
+	if(attached)
+		if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
+			var/obj/item/organ/external/affecting = attached:get_organ(pick(BP_R_ARM, BP_L_ARM))
+			attached.visible_message(span("warning", "The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), span("danger", "The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
 			affecting.take_damage(brute = 5, sharp = 1)
-			src.attached = null
-			src.update_icon()
+			attached = null
+			update_icon()
 			return
 
-	if(src.attached && src.beaker)
+	if(attached && primary) // should have primary if you have secondary but let's not take chances
 
 		var/mob/living/carbon/human/T = attached
 
@@ -101,34 +125,45 @@
 
 		// Give blood
 		if(mode)
-			if(src.beaker.volume > 0)
-				src.beaker.reagents.trans_to_mob(src.attached, transfer_amount, CHEM_BLOOD)
+			if(primary.total_volume > 0)
+				primary.reagents.trans_to_mob(attached, primary_transfer_amount, CHEM_BLOOD)
 				update_icon()
+			if(!isnull(secondary) && secondary.total_volume > 0)
+				secondary.reagents.trans_to_mob(attached, secondary_transfer_amount, CHEM_BLOOD)
 
 		// Take blood
 		else
-			var/amount = beaker.reagents.maximum_volume - beaker.reagents.total_volume
+			var/amount = primary.reagents.maximum_volume - primary.reagents.total_volume
 			amount = min(amount, 4)
-			// If the beaker is full, ping
+			// If the primary is full, ping
 			if(amount == 0)
 				if(prob(5)) visible_message("\The [src] pings.")
 				return
 
-			var/datum/reagent/B = T.take_blood(beaker,amount)
+			// If the human is losing too much blood, beep.
+			if(T.get_blood_volume("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
+				visible_message(span("warning", "\The [src] beeps loudly."))
+
+			var/datum/reagent/B = T.take_blood(primary,amount)
 
 			if (B)
-				beaker.reagents.reagent_list |= B
-				beaker.reagents.update_total()
-				beaker.on_reagent_change()
-				beaker.reagents.handle_reactions()
+				primary.reagents.reagent_list |= B
+				primary.reagents.update_total()
+				primary.on_reagent_change()
+				primary.reagents.handle_reactions()
 				update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
 	if (isAI(user))
 		return
-	if(src.beaker)
-		src.beaker.forceMove(get_turf(src))
-		src.beaker = null
+	if(secondary)
+		secondary.forceMove(get_turf(src))
+		secondary = null
+		update_icon()
+		return // remove one at a time
+	if(primary)
+		primary.forceMove(get_turf(src))
+		primary = null
 		update_icon()
 	else
 		return ..()
@@ -140,7 +175,7 @@
 	set src in view(1)
 
 	if(!istype(usr, /mob/living))
-		to_chat(usr, "<span class='warning'>You can't do that.</span>")
+		to_chat(usr, span("warning", "You can't do that."))
 		return
 
 	if(usr.stat)
@@ -154,17 +189,22 @@
 	if (!(user in view(2)) && user!=src.loc) return
 
 	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
-	to_chat(user, "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>")
+	to_chat(user, span("notice", "The transfer rate is set to [src.transfer_amount] u/sec"))
 
-	if(beaker)
-		if(beaker.reagents && beaker.reagents.reagent_list.len)
-			to_chat(usr, "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>")
+	if(primary)
+		if(primary.reagents && primary.reagents.reagent_list.len)
+			to_chat(usr, span("notice", "Attached is \a [primary] with [primary.total_volume] units of liquid."))
 		else
-			to_chat(usr, "<span class='notice'>Attached is an empty [beaker].</span>")
+			to_chat(usr, span("notice", "Attached is an empty [primary]."))
+	if(secondary)
+		if(secondary.reagents && secondary.reagents.reagent_list.len)
+			to_chat(usr, span("notice", "Attached is \a [secondary] with [secondary.reagents.total_volume] units of liquid."))
+		else
+			to_chat(usr, span("notice", "Attached is an empty [secondary]."))
 	else
-		to_chat(usr, "<span class='notice'>No chemicals are attached.</span>")
+		to_chat(usr, span("notice", "No chemicals are attached."))
 
-	to_chat(usr, "<span class='notice'>[attached ? attached : "No one"] is attached.</span>")
+	to_chat(usr, span("notice", "[attached ? attached : "No one"] is attached."))
 
 // Let's doctors set the rate of transfer. Useful if you want to set the rate at the rate of metabolisation.
 // No longer have to take someone to dialysis because they have leftover sleeptox after surgery.
@@ -173,20 +213,14 @@
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
-	if (!ishuman(usr) && !issilicon(usr))
+	if (use_check(usr))
 		return
-	if (usr.stat || usr.restrained() || !Adjacent(usr))
+	var/container = input("Select which transfer rate you want to modify:") as null|anything in list("Primary", "Secondary")
+	if(!container)
 		return
-	set_rate:
-		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
-		if ((0.001 > amount || amount > 4) && amount != 0)
-			to_chat(usr, "<span class='warning'>Entered value must be between 0.001 and 4.</span>")
-			goto set_rate
-		if (transfer_amount == 0)
-			transfer_amount = REM
-			return
-		transfer_amount = amount
-		to_chat(usr, "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>")
+	var/amount = min(input("Set transfer rate as u/sec (between 4 and 0.001)") as num, 4)
+	transfer_amount[container] = max(amount || REM, 0.001)
+	to_chat(usr, span("notice", "Transfer rate set to [transfer_amount[container]] u/sec"))
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
