@@ -418,3 +418,87 @@
 		usr << browse(dat, "window=roundstatus;size=400x500")
 	else
 		alert("The game hasn't started yet!")
+
+var/datum/vueui_module/player_panel/global_player_panel
+/datum/vueui_module/player_panel
+	var/something = TRUE
+
+/datum/vueui_module/player_panel/ui_interact(var/mob/user)
+	if (!usr.client.holder)
+		return
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "admin-player-panel", 640, 480, "Modern player panel", nstate = interactive_state)
+		ui.header = "minimal"
+		ui.auto_update_content = TRUE
+
+	ui.open()
+
+/datum/vueui_module/player_panel/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		. = data = list()
+	if(!user.client.holder)
+		return
+	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
+	VUEUI_SET_CHECK(data["holder_ref"], "\ref[user.client.holder]", ., data)
+	VUEUI_SET_CHECK(data["ismod"], isMod, ., data)
+
+
+	var/list/mobs = sortmobs()
+	
+	LAZYINITLIST(data["players"])
+	if(data["players"].len != mobs.len)
+		data["players"].Cut()
+	for(var/mob/M in mobs)
+		var/ref = "\ref[M]"
+		if(!M.ckey)
+			data["players"][ref] = FALSE
+			continue
+		LAZYINITLIST(data["players"][ref])
+		VUEUI_SET_CHECK(data["players"][ref]["ref"], ref, ., data)
+		VUEUI_SET_CHECK(data["players"][ref]["name"], M.name, ., data)
+		var/real_name = GetMobRealName(M)
+		VUEUI_SET_CHECK(data["players"][ref]["real_name"], real_name, ., data)
+		if(istype(M,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(H.mind?.assigned_role)
+				VUEUI_SET_CHECK(data["players"][ref]["assigment"], H.mind.assigned_role, ., data)
+		else
+			VUEUI_SET_CHECK(data["players"][ref]["assigment"], "NA", ., data)
+		VUEUI_SET_CHECK(data["players"][ref]["key"], M.key, ., data)
+		if(isMod)
+			VUEUI_SET_CHECK(data["players"][ref]["ip"], M.lastKnownIP, ., data)
+		else
+			VUEUI_SET_CHECK(data["players"][ref]["ip"], FALSE, ., data)
+		VUEUI_SET_CHECK(data["players"][ref]["connected"], !!M.client, ., data)
+		if(isMod)
+			var/special_char = is_special_character(M)
+			VUEUI_SET_CHECK(data["players"][ref]["antag"], special_char, ., data)
+		else
+			VUEUI_SET_CHECK(data["players"][ref]["antag"], -1, ., data)
+		if(isMod && M.client?.player_age)
+			var/age = M.client.player_age
+			if(age == "Requires database")
+				age = "NA"
+			VUEUI_SET_CHECK(data["players"][ref]["age"], age, ., data)
+		else
+			VUEUI_SET_CHECK(data["players"][ref]["age"], FALSE, ., data)
+
+/datum/vueui_module/player_panel/proc/GetMobRealName(var/mob/M)
+	if(isAI(M))
+		return "AI"
+	if(isrobot(M))
+		return "Cyborg"
+	if(ishuman(M))
+		return M.real_name
+	if(istype(M, /mob/living/silicon/pai))
+		return "pAI"
+	if(istype(M, /mob/abstract/new_player))
+		return "New Player"
+	if(isobserver(M))
+		return "Ghost"
+	if(issmall(M))
+		return "Monkey"
+	if(isalien(M))
+		return "Alien"
+	return "Unknown"

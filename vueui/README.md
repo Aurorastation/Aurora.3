@@ -239,6 +239,20 @@ Example:
 ```
 Parameters:
  - `label` - Label to display next to contents.
+
+### VuiTooltip `<vui-tooltip>`
+Helper to getting nice tooltips when you hover over text. Works with buttons.
+
+Example:
+```Vue
+<vui-tooltip label="VUI">VueUi UI element<vui-tooltip>
+<vui-tooltip><template v-slot:label>ADV</template>Advanced use of tooltips</vui-tooltip>
+```
+Parameters:
+ - `$slot` - Contents of tooltip
+ - `$slot:label` - Actual content that is always shown. If slot is set, `label` parameter is ignored.
+ - `label` - Actual text that is always shown
+
 ### VuiInputNumeric `<vui-input-numeric>`
 Numeric input helper to help inputting large and small numbers.
 

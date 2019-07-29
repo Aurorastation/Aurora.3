@@ -38,7 +38,7 @@ export default {
       }
       this.$emit('click')
       if(this.rawParams) {
-        Utils.sendToTopicRaw(rawParams)
+        Utils.sendToTopicRaw(this.rawParams)
       }
       if(!this.params) {
         if (this.pushState) {

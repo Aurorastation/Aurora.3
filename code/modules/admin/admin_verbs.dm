@@ -2,6 +2,7 @@
 var/list/admin_verbs_default = list(
 	/datum/admins/proc/show_player_panel,	//shows an interface for individual players, with various links (links require additional flags,
 	/client/proc/player_panel,
+	/client/proc/player_panel_modern,
 	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
@@ -371,6 +372,7 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/player_panel,
+	/client/proc/player_panel_modern,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
@@ -530,6 +532,17 @@ var/list/admin_verbs_cciaa = list(
 		holder.player_panel_new()
 	feedback_add_details("admin_verb","PPN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
+
+/client/proc/player_panel_modern()
+	set name = "Player Panel Modern"
+	set category = "Admin"
+	if(holder)
+		if(!global_player_panel)
+			global_player_panel = new()
+		global_player_panel.ui_interact(usr)
+	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	return
+
 
 /client/proc/check_antagonists()
 	set name = "Check Antagonists"
