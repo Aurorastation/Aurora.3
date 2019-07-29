@@ -470,6 +470,6 @@
 	set_state(TRUE)
 	for(var/mob/living/M in mob_list)
 		var/turf/their_turf = get_turf(M)
-		if(their_turf.loc in localareas)
+		if(their_turf && (their_turf.loc in localareas))
 			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)
