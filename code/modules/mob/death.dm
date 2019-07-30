@@ -87,7 +87,8 @@
 		set_death_time(MINISYNTH, world.time)
 	else if (isliving(src))
 		set_death_time(CREW, world.time)//Crew is the fallback
-	if(mind) mind.store_memory("Time of death: [worldtime2text()]", 0)
+	if(mind)
+		mind.store_memory("Time of death: [worldtime2text()]", 0)
 	living_mob_list -= src
 	dead_mob_list |= src
 
