@@ -39,5 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "You can no longer dig several asteroid turfs at the same time with shovel/drill."
-  - tweak: "Digging sand times were reduced. Pickaxe - 2.5 seconds, Drill/BorgDrill - 1 second, Diamond drill - 0.5 seconds."
+  - tweak: "Digging sand times were reduced. Pickaxe - 0.67 seconds, Drill/BorgDrill - 0.3 second, Diamond drill - instant."
   - tweak: "Reduced fine for accidentally burning ore into sluggs from 3 times to only +25% of what ore was worth."

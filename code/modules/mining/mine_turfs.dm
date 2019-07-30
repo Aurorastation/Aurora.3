@@ -649,10 +649,10 @@ var/list/asteroid_floor_smooth = list(
 			return
 
 	var/static/list/usable_tools = list(
-		/obj/item/weapon/shovel = 25,
-		/obj/item/weapon/pickaxe/diamonddrill = 5,
-		/obj/item/weapon/pickaxe/drill = 10,
-		/obj/item/weapon/pickaxe/borgdrill = 10
+		/obj/item/weapon/shovel = 6.7,
+		/obj/item/weapon/pickaxe/diamonddrill = 0,
+		/obj/item/weapon/pickaxe/drill = 3,
+		/obj/item/weapon/pickaxe/borgdrill = 3
 	)
 
 	var/time = usable_tools[W.type]
