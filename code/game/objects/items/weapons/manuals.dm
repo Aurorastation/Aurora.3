@@ -1427,3 +1427,42 @@
 /obj/item/weapon/book/manual/battlemonsters/New()
 	..()
 	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
+
+/obj/item/weapon/book/manual/pra_manifesto
+	name = "hadiist manifesto"
+	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
+	icon_state ="hadii-manifesto"
+	title = "hadiist manifesto"
+	author = "Al'Mari Hadii"
+	w_class = 2.0
+	dat = {"<html>
+				<head>
+					<style>
+					h1 {font-size: 21px; margin: 15px 0px 5px;}
+					h2 {font-size: 15px; margin: 15px 0px 5px;}
+					li {margin: 2px 0px 2px 15px;}
+					ul {margin: 5px; padding: 0px;}
+					ol {margin: 5px; padding: 0px 15px;}
+					body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+				<h1><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</center></h1>
+
+				<b><center></b><br>\
+				<br>\
+				Written: Late 2432;<br> \
+				First Published: February 2433<br> \
+				Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
+				<small>A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
+				like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate us brings us two inevitable facts:<br>\
+				<br>\
+				1) Revolutionary ideology is already cemented amongst Tajara.<br>\
+				2) It is time for supporters of a classless society to throw off their cloaks and set aside their daggers and pick up the rifle to meet the reactionary bourgeois in the open field.<br>\
+				<br>\
+				To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
+				This is a Revolution that will make the Old Order buckle before the strength of the working class until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
+				This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every man, woman, and kit. The simple fact that no Tajara is born inherently better than another.<br>\
+				</body>
+			</html>
+			"}

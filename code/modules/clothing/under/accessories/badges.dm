@@ -131,5 +131,5 @@
 	desc = "A card denoting a honorary member of the Hadiist party."
 	icon_state = "hadii-id"
 	slot_flags = SLOT_TIE
-	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
+	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
 
