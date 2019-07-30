@@ -110,7 +110,7 @@
 /datum/topic_command/get_count_mod/run_command(queryparams)
 	var/n = 0
 	for (var/client/client in clients)
-		if (client.holder && client.holder.rights == R_MOD)
+		if (client.holder && (client.holder.rights & R_MOD))
 			n++
 
 	statuscode = 200
