@@ -3038,7 +3038,7 @@
 	mix_message = "The ice melts."
 	reaction_sound = ""
 
-/datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between -160.15 degress celcius and -130.15 celcius.
+/datum/chemical_reaction/phoron_salt
 	name = "Phoron Salt"
 	id = "phoron_salt"
 	result = "phoron_salt"
