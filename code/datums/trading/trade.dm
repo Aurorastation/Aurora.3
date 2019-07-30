@@ -122,7 +122,7 @@
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
-		value = round(rand(40,80)/100 * value) //For some reason rand doesn't like decimals.
+		value = round(rand(80,100)/100 * value) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]
 
