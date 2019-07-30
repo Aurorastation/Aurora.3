@@ -28,8 +28,8 @@
 	name = "Tau Ceti Consular Officer"
 
 	uniform = /obj/item/clothing/under/lawyer/blue
+	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
-		/obj/item/clothing/accessory/tc_pin = 1,
 		/obj/item/weapon/storage/box/ceti_visa = 1,
 		/obj/item/weapon/gun/energy/pistol = 1
 	)
@@ -63,8 +63,8 @@
 /datum/outfit/job/representative/consular/sol
 	name = "Sol Consular Officer"
 
+	accessory = /obj/item/clothing/accessory/sol_pin
 	backpack_contents = list(
-		/obj/item/clothing/accessory/sol_pin = 1,
 		/obj/item/weapon/storage/box/sol_visa = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/weapon/gun/projectile/pistol/sol = 1
