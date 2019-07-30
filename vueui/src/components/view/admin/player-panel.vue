@@ -13,10 +13,13 @@
       </div>
       <div class="player" v-for="p in search_results" :key="p.ref">
         <div class="item">
-          <template v-if="p.name == p.real_name">{{p.name}}</template>
+          <template v-if="(p.name == p.real_name) || (p.assigment == 'NA')">{{p.name}}</template>
           <vui-tooltip v-else :label="p.name">{{p.real_name}}</vui-tooltip>
         </div>
-        <div class="item">{{p.assigment}}</div>
+        <div class="item">
+          <template v-if="p.assigment == 'NA'">{{p.real_name}}</template>
+          <template v-else>{{p.assigment}}</template>
+        </div>
         <div class="item">
           <template v-if="!s.ismod">
             {{p.key}}<span v-if="!p.connected"> (DC)</span>
