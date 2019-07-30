@@ -86,7 +86,7 @@
 		"hail_deny"          = "We do not take orders from rude customers.",
 		"trade_complete"     = "Thank you, sir, for your patronage.",
 		"trade_blacklist"    = "No, that is very odd. Why would you trade that away?",
-		"what_want"          = "It's very odd, but I need",
+		"what_want"          = "It's very odd, but I need.",
 		"trade_no_goods"     = "I only accept money transfers.",
 		"trade_not_enough"   = "No, I am sorry, that is not possible. I need to make a living.",
 		"how_much"           = "I give you ITEM, for VALUE credits. No more, no less.",
