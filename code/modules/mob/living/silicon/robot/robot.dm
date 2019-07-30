@@ -20,6 +20,7 @@
 	var/sight_mode = 0
 	var/custom_name = ""
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
+	var/custom_sprite_path = ""
 	var/crisis //Admin-settable for combat module use.
 	var/crisis_override = 0
 	var/malfAImodule = 0
@@ -268,14 +269,14 @@
 
 		if (custom_sprite == 1)
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
-			if("[ckey]-[modtype]" in valid_states)
-				module_sprites["Custom"] = "[src.ckey]-[modtype]"
+			if("[custom_sprite_path]-[modtype]" in valid_states)
+				module_sprites["Custom"] = "[custom_sprite_path]-[modtype]"
 				icon = CUSTOM_ITEM_SYNTH
 				icontype = "Custom"
 			else
 				icontype = module_sprites[1]
 				icon = 'icons/mob/robots.dmi'
-				to_chat(src, "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [ckey]-[modtype]</span>")
+				to_chat(src, "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [custom_sprite_path]-[modtype]</span>")
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
