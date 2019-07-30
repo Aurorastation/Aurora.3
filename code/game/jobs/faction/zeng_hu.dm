@@ -38,6 +38,8 @@
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
 		/datum/job/paramedic,
+		/datum/job/roboticist,
+		/datum/job/xenobiologist,
 		/datum/job/representative
 	)
 

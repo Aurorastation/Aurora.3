@@ -35,6 +35,7 @@
 		/datum/job/roboticist,
 		/datum/job/mining,
 		/datum/job/cargo_tech,
+		/datum/job/qm,
 		/datum/job/representative
 	)
 
@@ -43,7 +44,8 @@
 		/datum/species/skrell,
 		/datum/species/machine,
 		/datum/species/unathi,
-		/datum/species/bug
+		/datum/species/bug,
+		/datum/species/tajaran
 	)
 
 	titles_to_loadout = list(

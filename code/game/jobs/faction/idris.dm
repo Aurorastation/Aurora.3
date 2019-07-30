@@ -37,6 +37,7 @@
 		/datum/job/chef,
 		/datum/job/hydro,
 		/datum/job/cargo_tech,
+		/datum/job/qm,
 		/datum/job/representative
 	)
 
