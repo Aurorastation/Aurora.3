@@ -19,7 +19,7 @@
 		"hail_generic"    = "Hello! Welcome to ORIGIN, may I take your order?",
 		"hail_deny"         = "Beeeep... I'm sorry, your connection has been severed.",
 		"trade_complete"    = "Thank you for choosing ORIGIN!",
-		"what_want"         = "Customers keep stealing these! We need new",
+		"what_want"         = "Customers keep stealing these! We need new.",
 		"trade_no_goods"    = "I'm sorry but we only take cash.",
 		"trade_blacklisted" = "Sir that's... highly illegal.",
 		"trade_not_enough"  = "Uhh... that's not enough money for pizza.",
