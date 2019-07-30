@@ -650,7 +650,7 @@ var/list/asteroid_floor_smooth = list(
 
 	var/static/list/usable_tools = list(
 		/obj/item/weapon/shovel = 6.7,
-		/obj/item/weapon/pickaxe/diamonddrill = 0,
+		/obj/item/weapon/pickaxe/diamonddrill = 0.1,
 		/obj/item/weapon/pickaxe/drill = 3,
 		/obj/item/weapon/pickaxe/borgdrill = 3
 	)
