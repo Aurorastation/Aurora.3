@@ -38,12 +38,12 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Adjusted merchant economy. Cheaper buys, more expensive sells. Traders also start with larger inventory"
+  - balance: "Adjusted merchant economy. Traders also start with larger inventory"
   - tweak: "Less list bloat - multiple traders reclassified as stations - should make getting high-demand stuff easier."
   - tweak: "Adjusted inventory of multiple traders (Food, robot, ai, electronics, vox, mining, blob)"
   - rscadd: "Added options to sell certain items to food and mining merchants. "
   - rscdel: "Deleted machine ai beacons selling plushies for no reason. Deleted Wizard merchant."
   - rscadd: "Added bulk-buy [boxes] to ai traders"
-  - tweak: "Made unique traders REALLY want their items a lot more - twenty times as much in fact." 
+  - tweak: "Made unique traders REALLY want their items a lot more." 
   - spellcheck: "Fixed a few grammatical errors and inconsistensies"
   - rscadd: "Added a completely new trader - Cyndie Kate is willing to trade you highly illegal and dangerous items"

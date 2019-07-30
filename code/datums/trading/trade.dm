@@ -32,7 +32,7 @@
 	what_want			What the person says when they are asked if they want something
 
 	*/
-	var/want_multiplier = 5                                     //How much wanted items are multiplied by when traded for
+	var/want_multiplier = 2                                     //How much wanted items are multiplied by when traded for
 	var/insult_drop = 5                                         //How far disposition drops on insult
 	var/compliment_increase = 5                                 //How far compliments increase disposition
 	var/refuse_comms = 0                                        //Whether they refuse further communication
