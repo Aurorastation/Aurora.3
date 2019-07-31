@@ -245,24 +245,13 @@ var/list/ai_verbs_default = list(
 	return ..()
 
 /mob/living/silicon/ai/proc/setup_icon()
-	var/file = file2text("config/custom_sprites.txt")
-	var/lines = text2list(file, "\n")
-
-	for(var/line in lines)
-	// split & clean up
-		var/list/Entry = text2list(line, ":")
-		for(var/i = 1 to Entry.len)
-			Entry[i] = trim(Entry[i])
-
-		if(Entry.len < 2)
-			continue;
-
-		if(Entry[1] == src.ckey && Entry[2] == src.real_name)
-			icon = CUSTOM_ITEM_SYNTH
-			custom_sprite = 1
-			selected_sprite = new/datum/ai_icon("Custom", "[src.ckey]-ai", "4", "[ckey]-ai-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
-		else
-			selected_sprite = default_ai_icon
+	var/datum/custom_synth/sprite = robot_custom_icons[name]
+	if(istype(sprite) && sprite.synthckey == ckey)
+		custom_sprite = 1
+		icon = CUSTOM_ITEM_SYNTH
+		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]-ai", "4", "[sprite.aichassisicon]-ai-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
+	else
+		selected_sprite = default_ai_icon
 	updateicon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
@@ -634,7 +623,8 @@ var/list/ai_verbs_default = list(
 		var/icon_list[] = list(
 		"default",
 		"floating face",
-		"carp"
+		"carp",
+		"custom"
 		)
 		input = input("Please select a hologram:") as null|anything in icon_list
 		if(input)
@@ -646,6 +636,14 @@ var/list/ai_verbs_default = list(
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo2"))
 				if("carp")
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo4"))
+				if("custom")
+					if(custom_sprite == 1)
+						var/datum/custom_synth/sprite = robot_custom_icons[name]
+						if(istype(sprite) && sprite.synthckey == ckey)
+							holo_icon = getHologramIcon(icon("icons/mob/custom_synths/customhologram.dmi","[sprite.aiholoicon]"))
+					else
+						to_chat(src, "You do not have a custom sprite!")
+						return
 	return
 
 //Toggles the luminosity and applies it by re-entereing the camera.

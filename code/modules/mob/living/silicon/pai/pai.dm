@@ -17,6 +17,8 @@
 	var/userDNA		// The DNA string of our assigned user
 	var/obj/item/device/paicard/card	// The card we inhabit
 	var/obj/item/device/radio/radio		// Our primary radio
+	var/custom_sprite = 0
+	var/custom_sprite_path = ""
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
 	var/global/list/possible_chassis = list(
@@ -25,6 +27,7 @@
 		"Rat" = "rat",
 		"Monkey" = "monkey",
 		"Rabbit" = "rabbit"
+
 		)
 
 	var/global/list/pai_holder_types = list(
@@ -134,6 +137,7 @@
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
+	set_custom_sprite()
 
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
@@ -149,6 +153,17 @@
 	pda.name = "[pda.owner] ([pda.ownjob])"
 	pda.toff = TRUE
 
+
+/mob/living/silicon/pai/proc/set_custom_sprite()
+	var/datum/custom_synth/sprite = robot_custom_icons[name]
+	if(istype(sprite) && sprite.synthckey == ckey)
+		custom_sprite = 1
+		custom_sprite_path = sprite.paiicon
+		possible_chassis["Custom"] = "[custom_sprite_path]"
+		pai_holder_types["Custom"] = /obj/item/weapon/holder/pai/custom
+		icon = CUSTOM_ITEM_SYNTH
+	else
+		return
 /mob/living/silicon/pai/init_id()
 	. = ..()
 	idcard.registered_name = ""
@@ -367,7 +382,7 @@
 	var/choice
 	var/finalized = "No"
 	while(finalized == "No" && src.client)
-
+		set_custom_sprite()
 		choice = input(usr,"What would you like to use for your mobile chassis icon? This decision can only be made once.") as null|anything in possible_chassis
 		if(!choice) return
 

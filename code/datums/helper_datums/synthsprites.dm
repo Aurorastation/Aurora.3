@@ -10,7 +10,6 @@
 
 
 /datum/custom_synth/proc/load_from_json()
-	world << json_encode(robot_custom_icons)
 	var/list/customsynthsprites = list()
 	try
 		customsynthsprites = json_decode(return_file_text("config/customsynths.json"))

@@ -9,10 +9,8 @@ var/list/robot_custom_icons
 		synth.load_from_sql()
 	else if(config.load_customsynths_from == "json")
 		synth.load_from_json()
-	world << json_encode(robot_custom_icons)
 	return 1
 /mob/living/silicon/robot/proc/set_custom_sprite()
-	world << json_encode(robot_custom_icons)
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
 		custom_sprite = 1
