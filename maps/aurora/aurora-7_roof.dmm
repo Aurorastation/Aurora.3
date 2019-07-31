@@ -1791,9 +1791,8 @@
 /area/solar/auxport)
 "dQ" = (
 /obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -1801,8 +1800,9 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
@@ -2139,6 +2139,15 @@
 /obj/structure/cable/yellow{
 	d2 = 8;
 	icon_state = "0-8"
+	},
+/obj/item/stack/cable_coil/yellow{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/stack/cable_coil/yellow,
+/obj/item/stack/cable_coil/yellow{
+	pixel_x = -4;
+	pixel_y = -4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
@@ -2875,6 +2884,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
+"ix" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
 "jn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3698,6 +3715,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
+"Ts" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
 "TV" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3886,6 +3910,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"Zh" = (
+/turf/unsimulated/floor/asteroid/ash,
+/area/space)
 "Zu" = (
 /obj/machinery/door/airlock/glass{
 	name = "Running Track"
@@ -26430,7 +26457,7 @@ aa
 ab
 ab
 ab
-ab
+Zh
 ab
 ab
 aa
@@ -28212,7 +28239,7 @@ dH
 dH
 dH
 dH
-eV
+ix
 dH
 dH
 dH
@@ -28469,7 +28496,7 @@ bb
 bb
 bb
 eQ
-dP
+eV
 eW
 bb
 bb
@@ -31296,7 +31323,7 @@ dH
 dH
 dH
 ah
-dP
+Ts
 ah
 dH
 dH
@@ -31553,7 +31580,7 @@ ag
 fy
 aP
 dV
-dP
+ix
 ad
 ag
 ag
@@ -32067,7 +32094,7 @@ ai
 fB
 bb
 dV
-dP
+ix
 dU
 ai
 ai
@@ -32324,7 +32351,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
