@@ -55,7 +55,8 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/kinetic_analyzer		 = TRADER_BLACKLIST, // Not KA trader
 		/obj/item/device/camera					 = TRADER_BLACKLIST_SUB, // a lot of ai/drone/cyborg/fluff items
 		/obj/item/device/uv_light				 = TRADER_BLACKLIST, // CSI item
-		/obj/item/device/nanoquikpay			 = TRADER_BLACKLIST, // eftpos exists
+		/obj/item/device/eftpos                  = TRADER_BLACKLIST,
+		/obj/item/device/nanoquikpay			 = TRADER_BLACKLIST,
 		/obj/item/device/electronic_assembly	 = TRADER_BLACKLIST_ALL, // Not a circuit trader
 		/obj/item/device/integrated_circuit_printer = TRADER_BLACKLIST_ALL, //Not a circuit trader
 		/obj/item/device/integrated_electronics  = TRADER_BLACKLIST_ALL, // Not a circuit trader
