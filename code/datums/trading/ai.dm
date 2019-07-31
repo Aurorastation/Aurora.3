@@ -30,7 +30,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/kit					 = TRADER_BLACKLIST_ALL, // They're impossible to make or get outside of mining, just annoys traders.
 		/obj/item/device/assembly                = TRADER_BLACKLIST_ALL,
 		/obj/item/device/assembly_holder         = TRADER_BLACKLIST_ALL,
-		/obj/item/device/encryptionkey			 = TRADER_BLACKLIST_ALL, //Why does ai want NT encryption keys?
+		/obj/item/device/encryptionkey			 = TRADER_BLACKLIST_SUB, //Why should ai want NT encryption keys?
 		/obj/item/device/radio                   = TRADER_BLACKLIST_ALL,
 		/obj/item/device/pda                     = TRADER_BLACKLIST_SUB,
 		/obj/item/device/chameleon				 = TRADER_BLACKLIST, // Why should it want a chameleon projector
