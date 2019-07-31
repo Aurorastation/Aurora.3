@@ -533,6 +533,7 @@
 	icon_opened = "tcflcrateopen"
 	icon_closed = "tcflcrate"
 	req_access = list(access_legion)
+	layer = 2.99
 
 
 /obj/structure/closet/crate/secure/phoron
@@ -755,11 +756,20 @@
 	icon_state = "EEcrate"
 	icon_opened = "EEcrateopen"
 	icon_closed = "EEcrate"
+	layer = 2.99
 
 /obj/structure/closet/crate/einstein/booster/fill()
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
 		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
+
+/obj/structure/closet/crate/military
+	name = "military crate"
+	desc = "A heavy crate made out of steel for military purposes."
+	icon_state = "militarycrate"
+	icon_opened = "militarycrateopen"
+	icon_closed = "militarycrate"
+	layer = 2.99
 
 

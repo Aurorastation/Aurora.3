@@ -47,9 +47,9 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
-
 /area/centcom/extraction_shuttle
 	name = "\improper Escape Pods Retrival Shuttle"
+
 /area/centcom/legion_base
 	name = "\improper BLV The Tower, Deck 1"
 	icon_state = "centcom"
@@ -77,7 +77,6 @@
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
-	dynamic_lighting = 0
 	no_light_control = 1
 	centcomm_area = 1
 
@@ -92,7 +91,6 @@
 /area/syndicate_mothership/raider_base
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
-	dynamic_lighting = 1
 
 //THUNDERDOME
 

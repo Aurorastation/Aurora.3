@@ -47,3 +47,5 @@
 	icon_state = "pdoor1"
 	name = "blast door"
 	desc = "That looks like it doesn't open easily."
+
+

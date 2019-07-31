@@ -182,6 +182,14 @@
 /obj/structure/bed/alien/New(var/newloc)
 	..(newloc,"resin")
 
+/obj/structure/bed/campbed
+	name = "camp bed"
+	icon_state = "campbed"
+	base_icon = "campbed"
+	apply_material_color = FALSE
+	can_dismantle = FALSE
+
+
 /*
  * Roller beds
  */
