@@ -35,7 +35,6 @@
 		/obj/item/blueprints								= TRADER_THIS_TYPE,
 		/obj/item/weapon/disk/nuclear						= TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/hypospray		= TRADER_ALL,
-		/obj/item/weapon/storage/box/ids					= TRADER_THIS_TYPE,
 		/obj/item/weapon/card/id/captains_spare				= TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/heavysniper/tranq	= TRADER_THIS_TYPE,
 		/obj/item/stack/telecrystal							= TRADER_THIS_TYPE,
