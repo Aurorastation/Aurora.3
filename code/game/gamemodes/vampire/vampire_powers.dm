@@ -698,7 +698,7 @@
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
 
-	visible_message("<span class='danger'>[src] tears the flesh on their wrist, and holds it up to [T]'s mouth, trying to get \him to drink it!'", "<span class='warning'>You inflict a wound upon yourself, and try to compel them to drink your blood, thus starting the conversion process.</span>")
+	visible_message("<span class='danger'>[src] tears the flesh on their wrist, and holds it up to [T]'s mouth, trying to get \him to drink it!</span>", "<span class='warning'>You inflict a wound upon yourself, and try to compel them to drink your blood, thus starting the conversion process.</span>")
 
 	if (!do_mob(src, T, 50))
 		visible_message("<span class='danger'>[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!</span>", "<span class='danger'>You are interrupted!</span>")
