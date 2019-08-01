@@ -698,25 +698,42 @@
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
 
-	visible_message("<span class='danger'>[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound.</span>", "<span class='warning'>You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process.</span>")
-	to_chat(T, "<span class='warning'>You feel an irresistable desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so.</span>")
+	visible_message("<span class='danger'>[src] tears the flesh on their wrist, and holds it up to [T]'s mouth, trying to get \him to drink it!'", "<span class='warning'>You inflict a wound upon yourself, and try to compel them to drink your blood, thus starting the conversion process.</span>")
 
 	if (!do_mob(src, T, 50))
 		visible_message("<span class='danger'>[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!</span>", "<span class='danger'>You are interrupted!</span>")
 		return
 
-	to_chat(T, "<span class='danger'>Your mind blanks as you finish feeding from [src]'s wrist.</span>")
-	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 1, 1)
+	T.Weaken(1000)
+	T.Stun(1000)
+	T.silent += 1000 //Sit down and make a decision to this option you have been presented with, instead of stalling for resist spam/radio squealing.
+	var/choice = alert(T,"You feel an nearly irresistable desire to drink the blood pooling out of [src]'s wound. You are certain that if you succumb to this thirst, you will not be the same after. This decision consumes all your thoughts and you can take no action or even speak until you make it.","Succumb to the blood bond?","Never!","Drink")
+	if(choice == "Drink")
+		visible_message(T, "<span class='danger'>In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound!</span>")
+		to_chat(T, "<span class='danger'> You feel invigorated by the fresh blood after you finish feeding from [src]'s wrist.</span>")
+		vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 1, 1)
+		
+		T.mind.vampire.master = src
+		vampire.thralls += T
+		to_chat(T, "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>")
+		to_chat(src, "<span class='notice'>You have completed the thralling process. They are now your slave and will obey your commands.</span>")
+		admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
+		T.SetWeakened(0)
+		T.SetStunned(0)
+		T.silent = 0
 
-	T.mind.vampire.master = src
-	vampire.thralls += T
-	to_chat(T, "<span class='notice'>You have been forced into a blood bond by [T.mind.vampire.master], and are thus their thrall. While a thrall may feel a myriad of emotions towards their master, ranging from fear, to hate, to love; the supernatural bond between them still forces the thrall to obey their master, and to listen to the master's commands.<br><br>You must obey your master's orders, you must protect them, you cannot harm them.</span>")
-	to_chat(src, "<span class='notice'>You have completed the thralling process. They are now your slave and will obey your commands.</span>")
-	admin_attack_log(src, T, "enthralled [key_name(T)]", "was enthralled by [key_name(src)]", "successfully enthralled")
+		vampire.use_blood(150)
+		verbs -= /mob/living/carbon/human/proc/vampire_enthrall
+		ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, .proc/finish_vamp_timeout))
+		return
+	
+	visible_message(T, "<span class='danger'>\The [T] spits out the blood in revulsion, convulsing and falling limp!</span>")
+	to_chat(T, "<span class='danger'>Dark powers backlash within your mind as you reject the blood bond, and you find yourself paralyzed and helpless!</span>")
+	T.SetWeakened(25)
+	T.SetStunned(25)
+	T.silent = 30
+	return
 
-	vampire.use_blood(150)
-	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
-	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, .proc/finish_vamp_timeout))
 
 // Gives a lethal disease to the target.
 /mob/living/carbon/human/proc/vampire_diseasedtouch()
