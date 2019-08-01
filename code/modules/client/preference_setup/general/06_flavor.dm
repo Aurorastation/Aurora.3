@@ -178,7 +178,7 @@
 
 				return TOPIC_REFRESH
 			if ("font")
-				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New")
+				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New", "Comic Sans MS")
 				if (!new_font)
 					to_chat(usr, span("notice", "Cancelled."))
 					if (pref.signfont)
