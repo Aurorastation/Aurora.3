@@ -92,6 +92,8 @@
 
 	max_hydration_factor = -1
 
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_NONE)
+
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 

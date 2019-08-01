@@ -37,3 +37,7 @@
 #define RELIGION_TWINSUNS "S'rendarr and Messa"
 #define RELIGION_MATAKE "Ma'ta'ke"
 #define RELIGION_RASKARA "Raskariim"
+
+#define RELIGION_HIVEPANTHEON "Hive Pantheon"
+#define RELIGION_PREIMMINENNCE "Preimminennce"
+#define RELIGION_PILOTDREAM "Pilot Dream"

@@ -89,7 +89,10 @@
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	head = null
 	suit = null
-	backpack_contents = list(/obj/item/weapon/gun/energy/pistol = 1)
+	backpack_contents = list(
+		/obj/item/device/camera = 1,
+		/obj/item/weapon/gun/energy/pistol = 1
+	)
 	implants = null
 
 /datum/outfit/job/representative/consular/get_objectives(var/mob/living/carbon/human/H, var/mission_level)

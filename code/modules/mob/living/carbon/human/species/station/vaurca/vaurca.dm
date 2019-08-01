@@ -115,8 +115,8 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI)
-	allowed_religions = list(RELIGION_NONE, RELIGION_OTHER)
+	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI)
+	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
