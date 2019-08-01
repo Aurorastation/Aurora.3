@@ -30,7 +30,7 @@
 	client.verbs += typesof(/client/verb) // Let's return regular client verbs
 	client.authed = TRUE // We declare client as authed now
 	// Check for bans
-	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id)
+	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
 	if(ban_data)
 		to_chat(c, "You are banned for this server.")
 		to_chat(c, "Reason: [ban_data["reason"]]")
