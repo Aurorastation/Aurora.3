@@ -43,7 +43,6 @@ changes:
   - tweak: "Adjusted inventory of multiple traders (Food, robot, ai, electronics, vox, mining, blob)"
   - rscadd: "Added options to sell certain items to food and mining merchants. "
   - rscdel: "Deleted machine ai beacons selling plushies for no reason. Deleted Wizard merchant."
-  - rscadd: "Added bulk-buy [boxes] to ai traders"
-  - tweak: "Made unique traders REALLY want their items a lot more." 
+  - rscadd: "Added bulk-buy [boxes] to ai traders" 
   - spellcheck: "Fixed a few grammatical errors and inconsistensies"
   - rscadd: "Added a completely new trader - Cyndie Kate is willing to trade you highly illegal and dangerous items"
