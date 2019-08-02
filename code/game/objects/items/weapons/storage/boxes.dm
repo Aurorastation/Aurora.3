@@ -731,14 +731,14 @@
 				/obj/item/clothing/accessory/badge/holo/cord = 2)
 
 /obj/item/weapon/storage/box/sol_visa
-	name = "Sol Alliance visa box"
-	desc = "A box full of Sol Aliance temporary visas."
+	name = "Sol Alliance visa recommendations box"
+	desc = "A box full of Sol Aliance visa recommendation slips."
 	starts_with = list(/obj/item/clothing/accessory/badge/sol_visa = 6)
 
 /obj/item/weapon/storage/box/ceti_visa
-	name = "Republic of Biesel visa box"
-	desc = "A box full of Tau Cetian visas."
-	starts_with = list(/obj/item/clothing/accessory/badge/ceti_visa = 6)
+	name = "TCFL recruitment papers box"
+	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Foreign Legion."
+	starts_with = list(/obj/item/clothing/accessory/badge/tcfl_papers = 6)
 
 /obj/item/weapon/storage/box/hadii_card
 	name = "honorary party member card box"
