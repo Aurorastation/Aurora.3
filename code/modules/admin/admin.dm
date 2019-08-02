@@ -736,9 +736,19 @@ proc/admin_notice(var/message, var/rights)
 		return
 
 	config.dooc_allowed = !( config.dooc_allowed )
-	log_admin("[key_name(usr)] toggled Dead OOC.")
-	message_admins("[key_name_admin(usr)] toggled Dead OOC.", 1)
+	log_and_message_admins("toggled dead (global) OOC. (New state: [config.dooc_allowed])")
 	feedback_add_details("admin_verb","TDOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/toggle_dead_looc()
+	set category = "Server"
+	set desc = "Toggle Dead LOOC."
+	set name = "Toggle Dead LOOC"
+
+	if (!check_rights(R_ADMIN))
+		return
+
+	config.dead_looc_allowed = !config.dead_looc_allowed
+	log_and_message_admins("toggled dead LOOC. (New state: [config.dead_looc_allowed])")
 
 /datum/admins/proc/togglehubvisibility()
 	set category = "Server"

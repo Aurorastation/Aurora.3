@@ -1872,14 +1872,12 @@
 /area/derelict/arrival)
 "fo" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/structure/closet/crate/extinguisher_catridges,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "fp" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/structure/closet/crate/extinguisher_catridges,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "fq" = (
@@ -2442,10 +2440,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/derelict/arrival)
-"gL" = (
-/obj/structure/closet/crate/extinguisher_catridges,
-/turf/simulated/floor,
 /area/derelict/arrival)
 "gM" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -34025,7 +34019,7 @@ fs
 cC
 gr
 gB
-gL
+cK
 cC
 dk
 cC
