@@ -33,6 +33,7 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/detective,
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
