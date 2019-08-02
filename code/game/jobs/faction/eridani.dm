@@ -17,8 +17,8 @@
 	you cannot abide. That being said you're here to make a profit and stuffing
 	someone in a cell is a waste of human resources - think of the money lost in
 	time! Abhorrent! The best thing to do is fine perpetrators and set them back
-	to work. Remember your fine quota still applies, you don't want to miss out on
-	your bonus because you didn't hit target after all, it is a substantial bonus.</li>
+	to work. Remember, your fine quota still applies, you don't want to miss out on
+	your bonus because you didn't hit target. After all, it is a substantial bonus.</li>
 	</ul></p>"}
 	title_suffix = "EPMC"
 
@@ -42,7 +42,9 @@
 		"Security Officer" = /datum/outfit/job/officer/eridani,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
+		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
 		"Paramedic" = /datum/outfit/job/paramedic/eridani,
+		"Emergency Medical Technician" = /datum/outfit/job/paramedic/eridani,
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
 	)
 

@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - tweak: "Tajara are now allowed to be Hephaestus contractors."
   - tweak: "Zeng-Hu contractors are now allowed to be Roboticists and Xenobiologists. Idris and Hephaestus contractors are now allowed to be Quartermasters. Idris contractors are allowed to be Detectives, and Necropolis ones can be Forensic Technicians."
+  - bugfix: "Contractor alt-titles now properly spawn in uniforms."
