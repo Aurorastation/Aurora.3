@@ -60,7 +60,8 @@ var/list/diona_banned_languages = list(
 
 /mob/living/carbon/alien/diona/death()
 	if(client)
-		to_chat(switch_to_gestalt(), span("warning", "You feel tremendous pain as you looe connection to your detached nymph, there is no way to bring it back anymore."))
+		if(gestalt && switch_to_gestalt())
+			to_chat(gestalt, span("warning", "You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
 	..()
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
@@ -591,7 +592,8 @@ var/list/diona_banned_languages = list(
 		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
 	else
 		gestalt.key = key
-		return gestalt
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt()
 	set name = "Merge to Gestalt"
