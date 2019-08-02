@@ -3,7 +3,7 @@
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge
 	name = "small inhaler cartridge"
-	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough areosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
+	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough aerosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "buildpipe"
 	icon_state = "pi_cart_small"
@@ -37,12 +37,19 @@
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
-			flags ^= OPENCONTAINER
+			flags &= ~OPENCONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
 	else
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
+
+/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/weapon/W, mob/user)
+	if(W.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
+		flags |= OPENCONTAINER
+		return
+	. = ..()
 
 /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
 	name = "large inhaler cartridge"
