@@ -26,7 +26,7 @@
 
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language", "Sol Common", "Siik'maas", "Ya'ssa", "Delvahhi", "Nral'Malic", "Sinta'unathi")
+	secondary_langs = list("Encoded Audio Language", "Sol Common")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
