@@ -276,35 +276,3 @@
 	l_ear = /obj/item/device/radio/headset/headset_service
 	r_pocket = /obj/item/weapon/barcodescanner
 	l_hand = /obj/item/weapon/storage/bag/books
-
-
-/datum/job/lawyer
-	title = "Internal Affairs Agent"
-	flag = LAWYER
-	department = "Civilian"
-	department_flag = CIVILIAN
-	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "company officials and Corporate Regulations"
-	selection_color = "#dddddd"
-	economic_modifier = 7
-	access = list(access_lawyer, access_sec_doors, access_maint_tunnels, access_heads)
-	minimal_access = list(access_lawyer, access_sec_doors, access_heads)
-	outfit = /datum/outfit/job/iaa
-
-/datum/outfit/job/iaa
-	name = "Internal Affairs Agent"
-	jobtype = /datum/job/lawyer
-
-	uniform = /obj/item/clothing/under/rank/internalaffairs
-	suit = /obj/item/clothing/suit/storage/toggle/internalaffairs
-	pda = /obj/item/device/pda/lawyer
-	shoes = /obj/item/clothing/shoes/brown
-	glasses = /obj/item/clothing/glasses/sunglasses/big
-	l_ear = /obj/item/device/radio/headset/ia
-	l_hand =  /obj/item/weapon/storage/briefcase
-
-	implants = list(
-		/obj/item/weapon/implant/loyalty
-	)

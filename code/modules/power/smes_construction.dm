@@ -115,7 +115,6 @@
 
 	LAZYINITLIST(component_parts)	// Parent machinery call won't initialize this list if this is a newly constructed SMES.
 
-
 	for (var/i in 1 to cur_coils)
 		component_parts += new /obj/item/weapon/smes_coil(src)
 

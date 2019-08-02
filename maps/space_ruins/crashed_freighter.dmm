@@ -1196,7 +1196,7 @@
 /area/derelict/ship)
 "eb" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/structure/reagent_dispensers/xuizikeg,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ec" = (
@@ -1276,7 +1276,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "en" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eo" = (

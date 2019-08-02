@@ -385,21 +385,21 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	var/mob/living/carbon/human/new_character = new(pick(latejoin))//The mob being spawned.
 
-	var/datum/data/record/record_found			//Referenced to later to either randomize or not randomize the character.
+	var/datum/record/general/locked/record_found			//Referenced to later to either randomize or not randomize the character.
 	if(G_found.mind && !G_found.mind.active)	//mind isn't currently in use by someone/something
 		/*Try and locate a record for the person being respawned through data_core.
 		This isn't an exact science but it does the trick more often than not.*/
 		var/id = md5("[G_found.real_name][G_found.mind.assigned_role]")
-		for(var/datum/data/record/t in data_core.locked)
-			if(t.fields["id"]==id)
-				record_found = t//We shall now reference the record.
+		for(var/datum/record/general/locked/R in SSrecords.records_locked)
+			if(R.nid == id)
+				record_found = R//We shall now reference the record.
 				break
 
 	if(record_found)//If they have a record we can determine a few things.
-		new_character.real_name = record_found.fields["name"]
-		new_character.gender = record_found.fields["sex"]
-		new_character.age = record_found.fields["age"]
-		new_character.b_type = record_found.fields["b_type"]
+		new_character.real_name = record_found.name
+		new_character.gender = record_found.sex
+		new_character.age = record_found.age
+		new_character.b_type = record_found.medical.blood_type
 	else
 		new_character.gender = pick(MALE,FEMALE)
 		var/datum/preferences/A = new()
@@ -421,13 +421,13 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!new_character.mind.assigned_role)	new_character.mind.assigned_role = "Assistant"//If they somehow got a null assigned role.
 
 	//DNA
-	if(record_found)//Pull up their name from database records if they did have a mind.
+	if(record_found && record_found.medical)//Pull up their name from database records if they did have a mind.
 		new_character.dna = new()//Let's first give them a new DNA.
-		new_character.dna.unique_enzymes = record_found.fields["b_dna"]//Enzymes are based on real name but we'll use the record for conformity.
+		new_character.dna.unique_enzymes = record_found.medical.blood_dna //Enzymes are based on real name but we'll use the record for conformity.
 
 		// I HATE BYOND.  HATE.  HATE. - N3X
-		var/list/newSE= record_found.fields["enzymes"]
-		var/list/newUI = record_found.fields["identity"]
+		var/list/newSE= record_found.enzymes
+		var/list/newUI = record_found.identity
 		new_character.dna.SE = newSE.Copy() //This is the default of enzymes so I think it's safe to go with.
 		new_character.dna.UpdateSE()
 		new_character.UpdateAppearance(newUI.Copy())//Now we configure their appearance based on their unique identity, same as with a DNA machine or somesuch.
@@ -459,7 +459,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(!record_found && !player_is_antag(new_character.mind, only_offstation_roles = 1)) //If there are no records for them. If they have a record, this info is already in there. MODE people are not announced anyway.
 			//Power to the user!
 			if(alert(new_character,"Warning: No data core entry detected. Would you like to announce the arrival of this character by adding them to various databases, such as medical records?",,"No","Yes")=="Yes")
-				data_core.manifest_inject(new_character)
+				SSrecords.generate_record(new_character)
 
 			if(alert(new_character,"Would you like an active AI to announce this character?",,"No","Yes")=="Yes")
 				call(/proc/AnnounceArrival)(new_character, new_character.mind.assigned_role)

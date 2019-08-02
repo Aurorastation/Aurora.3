@@ -7,9 +7,6 @@
 #define COLD_DAMAGE_LEVEL_2 1.5
 #define COLD_DAMAGE_LEVEL_3 3
 
-
-
-#define NUM_NYMPHS	6
 /mob/living/carbon/human
 	var/datum/dionastats/DS
 
@@ -19,6 +16,8 @@
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
+	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
+	verbs += /mob/living/carbon/human/proc/pause_regen_process
 	verbs += /mob/living/proc/devour
 
 	spawn(10)
@@ -43,31 +42,31 @@
 
 		topup_nymphs()
 
-/mob/living/carbon/human/proc/topup_nymphs(var/max = 6)
-	var/i = 0
+/mob/living/carbon/human/proc/topup_nymphs()
 	var/added = 0
-	for(var/mob/living/carbon/alien/diona/D in src)
-		i++
-		D.stat = CONSCIOUS
-		D.sync_languages(src)
+	var/list/exclude = list("groin", "l_hand", "r_hand", "l_foot", "r_foot") // becase these are supposed to be whole as their join parts
+	for(var/thing in organs_by_name)
+		if(thing in exclude)
+			continue
 
-	if (i < NUM_NYMPHS)
-		for (i;i < NUM_NYMPHS;i++)
-			add_nymph()
-			added++
-			if (added >= max)
-				return added
+		if(!add_nymph())
+			return added
+		added += 1
 
 	return added
 
 /mob/living/carbon/human/proc/add_nymph()
-	var/turf/T = get_turf(src)
-	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(T)
+	var/count = 0
+	for(var/mob/living/carbon/alien/nymph in contents)
+		count += 1
+	if(count >= 6)
+		return FALSE
+	var/mob/living/carbon/alien/diona/M = new /mob/living/carbon/alien/diona(src)
 	M.gestalt = src
 	M.stat = CONSCIOUS
 	M.update_verbs()
-	spawn(1)
-		M.forceMove(src)
+	M.sync_languages(src)
+	return TRUE
 
 //Environmental Functions
 //================================
@@ -201,7 +200,7 @@
 
 	textbox	= "What shall we name our new collective? Type in a name, or leave blank to cancel. We recall that we were once part of a collective named [mind.name] but it is not necessary to return to that"
 
-	newname = input(src,textbox,"Choosing a name.",suggestion)
+	newname = input(src, textbox, "Choosing a name.", suggestion)
 	if (newname)
 		real_name = newname
 		name = newname
@@ -210,6 +209,95 @@
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
 
+/mob/living/carbon/human/proc/pause_regen_process()
+	set name = "Halt metabolism"
+	set desc = "Allows you to pause any regeneration process."
+	set category = "Abilities"
+
+	if(DS)
+		DS.pause_regen = !DS.pause_regen
+		to_chat(usr, span("notice", "You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
+
+/mob/living/carbon/human/proc/diona_detach_nymph()
+	set name = "Detach nymph"
+	set desc = "Allows you to detach specific nymph, and control it."
+	set category = "Abilities"
+
+	if(nutrition <= 150)
+		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
+		return
+	if(DS.stored_energy <= 60)
+		to_chat(src, span("warning", "You lack energy to perform this action!"))
+		return
+	// Choose our limb to detach
+	var/list/exclude = organs_by_name - list("groin", "chest", "l_arm", "r_arm", "l_leg", "r_leg")
+	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in exclude
+	if(!choice)
+		return
+	var/obj/item/organ/external/O = organs_by_name[choice]
+	if(!O || O.is_stump())
+		to_chat(src, span("warning", "Cannot detach that!"))
+		return
+	
+	// Get rid of our limb and replace with stump
+	var/obj/item/organ/external/stump/stump = new (src, 0, O)
+	O.removed(null, TRUE)
+	organs |= stump
+	stump.update_damages()
+	O.post_droplimb(src)
+	// If we got parent organ - drop it too
+	if(O.parent_organ && O.parent_organ != "chest")
+		var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
+		var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
+		parent.removed(null, TRUE)
+		organs |= parent_stump
+		parent_stump.update_damages()
+		parent.post_droplimb(src)
+		qdel(parent)
+	to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
+	qdel(O)
+
+	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
+	if(!M)
+		return
+	M.forceMove(get_turf(src))
+
+	// Switch control to nymph
+	M.key = src.key
+	teleop = TRUE
+	M.teleop = TRUE
+	src.key = "@[M.key]"
+	src.ajourn = 0
+	DS.nym = WEAKREF(M)
+	M.gestalt = src
+	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
+	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+	verbs += /mob/living/carbon/human/proc/switch_to_nymph
+	M.detached = TRUE
+	M.update_verbs(TRUE)
+
+	update_dionastats() //Re-find the organs in case they were lost or regained
+	nutrition -= REGROW_FOOD_REQ
+	DS.stored_energy -= REGROW_ENERGY_REQ
+	diona_handle_regeneration(DS)
+	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
+
+/mob/living/carbon/human/proc/switch_to_nymph()
+	set name = "Switch to Nymph"
+	set desc = "Allows you to switch control back to your detached Nymph."
+	set category = "Abilities"
+
+	var/mob/living/carbon/alien/diona/nymph = DS.nym.resolve()
+
+	if(!nymph)
+		to_chat(src, span("warning", "You have no nymph!"))
+		return
+	else if(nymph.stat == DEAD)
+		to_chat(src, span("danger", "Your nymph is not responding! Something could have happened to it!"))
+		return
+	else
+		nymph.key = key
+
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
@@ -217,8 +305,6 @@
 
 
 	var/nymphs_to_kill_off = 0
-
-
 
 	//We iterate through all the nymphs and find which one is healthiest and not controlled
 	//The gestalt's player will control that nymph

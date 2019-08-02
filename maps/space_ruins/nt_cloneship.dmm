@@ -2429,10 +2429,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"fK" = (
-/obj/item/toy/plushie/squid/blue,
-/turf/simulated/floor,
-/area/derelict/ship)
 "fO" = (
 /obj/machinery/shield_gen,
 /turf/simulated/floor,
@@ -2466,7 +2462,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "fU" = (
-/obj/effect/decal/remains/mouse,
+/obj/effect/decal/remains/rat,
 /turf/simulated/floor,
 /area/derelict/ship)
 "fV" = (
@@ -3544,7 +3540,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "iX" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "iY" = (
@@ -30906,7 +30902,7 @@ ar
 fq
 fl
 ar
-fK
+fl
 fT
 fj
 ar
