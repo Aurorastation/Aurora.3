@@ -325,6 +325,7 @@
 	color = "#A5F0EE"
 	touch_met = REM * 10
 	taste_description = "sourness"
+	germ_adjust = 10
 
 /datum/reagent/space_cleaner/touch_obj(var/obj/O)
 	O.clean_blood()
@@ -376,6 +377,11 @@
 
 /datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed)
+
+/datum/reagent/space_cleaner/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(prob(10))
+		to_chat(M, span("danger","Your insides are burning!"))
+	M.adjustToxLoss(3 * removed)
 
 /datum/reagent/lube
 	name = "Space Lube"

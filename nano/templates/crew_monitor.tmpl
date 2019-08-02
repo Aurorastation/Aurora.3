@@ -7,12 +7,20 @@ Used In File(s): \code\game\machinery\computer\crew.dm
         width:100%;
     }
 	
+	td.name   {
+        width:150px;
+    }
+	
 	td.living   {
         width:180px;
     }
 	
+	td.area   {
+        width:180px;
+    }
+	
 	td.tracking   {
-        width:40px;
+        width:120px;
     }
 </style>
 
@@ -20,11 +28,11 @@ Used In File(s): \code\game\machinery\computer\crew.dm
 <table class='wideTable'><tbody>
 	{{for data.crewmembers}}
 		{{if value.sensor_type == 1}}
-			<tr><td>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased</span>" : "<span class='good'>Living</span>"}}</td><td><span class="neutral">Not Available</span></td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {}, 'disabled')}}</td>{{/if}}</tr>
+			<tr><td class='name'>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased  </span>" : "<span class='good'>Living  </span>"}}</td><td class='area'><span class="neutral">Not Available</span></td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {}, 'disabled')}}</td>{{/if}}</tr>
 		{{else value.sensor_type == 2}}
-			<tr><td>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased</span>" : "<span class='good'>Living</span>"}} (<span class="oxyloss">{{:value.oxy}}</span>/<span class="toxin">{{:value.tox}}</span>/<span class="burn">{{:value.fire}}</span>/<span class="brute">{{:value.brute}}</span>)</td><td><span class="neutral">Not Available</td></td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {}, 'disabled')}}</td>{{/if}}</tr>
+			<tr><td class='name'>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased  </span>" : "<span class='good'>Living  </span>"}} (<span class="oxyloss">{{:value.oxy}}</span>/<span class="toxin">{{:value.tox}}</span>/<span class="burn">{{:value.fire}}</span>/<span class="brute">{{:value.brute}}</span>)</td><td class='area'><span class="neutral">Not Available</td></td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {}, 'disabled')}}</td>{{/if}}</tr>
 		{{else value.sensor_type == 3}}
-			<tr><td>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased</span>" : "<span class='good'>Living</span>"}} (<span class="oxyloss">{{:value.oxy}}</span>/<span class="toxin">{{:value.tox}}</span>/<span class="burn">{{:value.fire}}</span>/<span class="brute">{{:value.brute}}</span>)</td><td>{{:value.area}}({{:value.x}}, {{:value.y}}, {{:value.z}})</td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {'track' : value.ref})}}</td>{{/if}}</tr>
+			<tr><td class='name'>{{:value.name}} ({{:value.assignment}})</td><td class='living'>{{:value.dead ? "<span class='bad'>Deceased  </span>" : "<span class='good'>Living  </span>"}} (<span class="oxyloss">{{:value.oxy}}</span>/<span class="toxin">{{:value.tox}}</span>/<span class="burn">{{:value.fire}}</span>/<span class="brute">{{:value.brute}}</span>)</td><td class='area'>{{:value.area}}({{:value.x}}, {{:value.y}}, {{:value.z}})</td>{{if data.isAI}}<td class='tracking'>{{:helper.link('Track', null, {'track' : value.ref})}}</td>{{/if}}</tr>
 		{{/if}}
 		{{empty}}
 			{{if data.signal == 0}}

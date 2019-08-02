@@ -118,6 +118,9 @@
 
 	var/flammability_divisor = 10
 
+	var/distillation_point = T0C + 100
+	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
+
 	unaffected_species = IS_MACHINE
 
 	taste_description = "mistakes"
@@ -140,6 +143,8 @@
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
+	if(prob(10*(strength/100)))
+		to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return
@@ -176,6 +181,8 @@
 	glass_desc = "A well-known alcohol with a variety of applications."
 
 	fallback_specific_heat = 0.605
+
+	distillation_point = T0C + 78.37
 
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -229,6 +236,8 @@
 
 	fallback_specific_heat = 0.549
 
+	distillation_point = T0C + 117.7
+
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -267,6 +276,13 @@
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 	return
+
+/datum/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L))
+			L.take_damage(removed * 0.5)
 
 /datum/reagent/iron
 	name = "Iron"

@@ -118,8 +118,8 @@
 /obj/item/clothing/head/helmet/swat/peacekeeper
 	name = "\improper ERT civil protection helmet"
 	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
-	icon_state = "erthelmet_peacekeeper"
-	item_state = "erthelmet_peacekeeper"
+	icon_state = "civilprotection_helmet"
+	item_state = "civilprotection_helmet"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
