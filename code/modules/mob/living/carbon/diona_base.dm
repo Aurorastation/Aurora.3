@@ -59,9 +59,8 @@ var/list/diona_banned_languages = list(
 		sprint_cost_factor = 0
 
 /mob/living/carbon/alien/diona/death()
-	if(client)
-		if(gestalt && switch_to_gestalt())
-			to_chat(gestalt, span("warning", "You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
+	if(client && gestalt && switch_to_gestalt())
+		to_chat(gestalt, span("warning", "You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
 	..()
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
