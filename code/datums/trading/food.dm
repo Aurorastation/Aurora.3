@@ -6,7 +6,7 @@
 	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	possible_wanted_items = list(
-		/obj/item/weapon/material/kitchen/utensil 			= TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
+		/obj/item/weapon/material/kitchen/utensil            = TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
 		/obj/item/weapon/material/kitchen/utensil/fork/fluff = TRADER_BLACKLIST_ALL, // No custom items
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = TRADER_BLACKLIST // No boot knifes
 		)
@@ -47,7 +47,7 @@
 	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	possible_wanted_items = list(
-		/obj/item/weapon/material/kitchen/utensil 			= TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
+		/obj/item/weapon/material/kitchen/utensil            = TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
 		/obj/item/weapon/material/kitchen/utensil/fork/fluff = TRADER_BLACKLIST_ALL, // No custom items
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = TRADER_BLACKLIST // No boot knifes
 		)
@@ -165,7 +165,7 @@
 		"bribe_refusal"      = "Oh ho ho! I'd never think of taking ORIGIN on the road!"
 	)
 	possible_wanted_items = list(
-		/obj/item/weapon/material/kitchen/utensil 			= TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
+		/obj/item/weapon/material/kitchen/utensil            = TRADER_SUBTYPES_ONLY, // Customers keep stealing their cutlery
 		/obj/item/weapon/material/kitchen/utensil/fork/fluff = TRADER_BLACKLIST_ALL, // No custom items
 		/obj/item/weapon/material/kitchen/utensil/knife/boot = TRADER_BLACKLIST // No boot knifes
 		)
