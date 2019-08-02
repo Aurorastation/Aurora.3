@@ -83,7 +83,7 @@
 	else if(health / maxhealth < 0.6)
 		msg += span("warning", "\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += span("notice", "\The [src] is slightly damaged!")	
+		msg += span("notice", "\The [src] is slightly damaged!")
 	else
 		msg += span("good", "\The [src] is not damaged!")
 	to_chat(user, msg)
@@ -156,7 +156,7 @@
 		STOP_PROCESSING(SSfast_process, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-	
+
 	. = ..()
 
 
@@ -356,7 +356,7 @@
 			updateUsrDialog()
 		else
 			to_chat(user, "<span class='notice'>Access denied.</span>")
-	
+
 	else if(I.iswelder())
 		var/obj/item/weapon/weldingtool/WT = I
 		if (!WT.welding)
@@ -499,7 +499,7 @@
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
 			resetting = TRUE
 			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
-	
+
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
 			STOP_PROCESSING(SSprocessing, src)
@@ -570,7 +570,7 @@
 	if(isanimal(L) || issmall(L)) // Animals are not so dangerous
 		return check_anomalies ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
 
-	if(isxenomorph(L) || isalien(L)) // Xenos are dangerous
+	if(isalien(L)) // Xenos are dangerous
 		return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
 
 	if(ishuman(L))	//if the target is a human, analyze threat level
@@ -616,6 +616,7 @@
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popup_[cover_set]", flick_holder)
+	playsound(loc, 'sound/machines/turrets/turret_deploy.ogg', 100, 1)
 	sleep(10)
 	qdel(flick_holder)
 
@@ -637,6 +638,7 @@
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
 	flick_holder.layer = layer + 0.1
 	flick("popdown_[cover_set]", flick_holder)
+	playsound(loc, 'sound/machines/turrets/turret_retract.ogg', 100, 1)
 	sleep(10)
 	qdel(flick_holder)
 
@@ -654,7 +656,10 @@
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
-		set_dir(get_dir(src, target))	//even if you can't shoot, follow the target
+		var/d = get_dir(src, target)	//even if you can't shoot, follow the target
+		if(d != dir)
+			set_dir(d)
+			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
 		shootAt(target)
 		return 1
 	return
@@ -677,12 +682,15 @@
 
 	update_icon()
 	var/obj/item/projectile/A
+	
 	if(emagged || lethal)
 		A = new eprojectile(loc)
 		playsound(loc, eshot_sound, 75, 1)
 	else
 		A = new projectile(loc)
 		playsound(loc, shot_sound, 75, 1)
+	
+	A.accuracy = max(installation.accuracy * 0.25 , installation.accuracy_wielded * 0.25, A.accuracy * 0.25)  // Because turrets should be better at shooting.
 
 	// Lethal/emagged turrets use twice the power due to higher energy beams
 	// Emagged turrets again use twice as much power due to higher firing rates

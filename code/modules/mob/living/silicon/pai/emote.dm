@@ -76,6 +76,31 @@
 			else
 				to_chat(src, "You are not THE LAW, pal.")
 
+		if("meow")
+			message = "<B>[src]</B> meows."
+			playsound(src.loc, 'sound/effects/creatures/cat_meow.ogg', 50, 0)
+			m_type = 1
+
+		if("meow2")
+			message = "<B>[src]</B> meows."
+			playsound(src.loc, 'sound/effects/creatures/cat_meow2.ogg', 50, 0)
+			m_type = 1
+
+		if("squeal")
+			message = "<B>[src]</B> squeals."
+			playsound(src.loc, 'sound/effects/creatures/rat_squeak_loud.ogg', 50, 0)
+			m_type = 1
+
+		if("squeak")
+			message = "<B>[src]</B> squeaks."
+			playsound(src.loc, 'sound/effects/ratsqueek.ogg', 50, 0)
+			m_type = 1
+
+		if("softsqueak")
+			message = "<B>[src]</B> squeaks softly."
+			playsound(src.loc, 'sound/effects/creatures/rat_squeaks_1.ogg', 50, 0)
+			m_type = 1
+
 		if("halt")
 			if (src:secHUD)
 				message = "<B>[src]</B>'s speakers skreech, \"Halt! Security!\"."
@@ -86,7 +111,7 @@
 				to_chat(src, "You are not security.")
 
 		if ("help")
-			to_chat(src, "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt")
+			to_chat(src, "salute, bow, clap, flap, aflap, twitch, twitch_s, nod, beep, ping, \nbuzz, law, halt, meow, meow2, squeal, squeak, softsqueak")
 		else
 			to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
 

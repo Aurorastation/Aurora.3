@@ -111,22 +111,51 @@
 			user.visible_message("<span class='danger'>\The [user] hits [target] with [src]!</span>",)
 			user.do_attack_animation(src)
 			M.IgniteMob()
-		else if(reagents.total_volume)
-			if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
-				user.do_attack_animation(src)
-				user.visible_message(
-					"<span class='danger'>\The [user] smothers [target] with [src]!</span>",
-					"<span class='warning'>You smother [target] with [src]!</span>",
-					"You hear some struggling and muffled cries of surprise"
-					)
+		else if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+			if(LAZYLEN(affecting.wounds))
+				for (var/datum/wound/W in affecting.wounds)
+					if (W.internal)
+						continue
+					if(W.bandaged || W.clamped)
+						continue
+					to_chat(user, span("notice", "You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
+					if(!do_mob(user, M, W.damage/10)) // takes twice as long as a normal bandage
+						to_chat(user, span("notice","You must stand still to bandage wounds."))
+						break
+					for(var/datum/reagent/R in reagents.reagent_list)
+						var/strength = R.germ_adjust * R.volume/4
+						if(istype(R, /datum/reagent/alcohol))
+							var/datum/reagent/alcohol/A = R
+							strength = strength * (A.strength/100)
+						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
+						if (W.germ_level <= 0)
+							W.disinfected = 1//The wound becomes disinfected if fully cleaned
+							break
+					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
+					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
+					user.visible_message(span("notice", "\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."), \
+					                     span("notice", "You bandage \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."))
+					W.bandage()
+					qdel(src) // the rag is used up, it'll be all bloody and useless after
+					break // we can only do one at a time
+			else if(reagents.total_volume)
+				if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+					user.do_attack_animation(src)
+					user.visible_message(
+						span("danger","\The [user] smothers [target] with [src]!"),
+						span("warning","You smother [target] with [src]!"),
+						"You hear some struggling and muffled cries of surprise."
+						)
 
-				//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
-				//^HA HA HA
-				reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
-				update_name()
-			else
-				wipe_down(target, user)
-		return
+					//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
+					//^HA HA HA
+					reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
+					update_name()
+				else
+					wipe_down(target, user)
+			return
 
 	return ..()
 

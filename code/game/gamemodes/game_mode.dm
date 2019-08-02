@@ -234,8 +234,6 @@ var/global/list/additional_antag_types = list()
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
-		spawn(rand(100,150))
-			announce_ert_disabled()
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -248,6 +246,7 @@ var/global/list/additional_antag_types = list()
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
+		feedback_set_details("master_mode","[master_mode]")
 		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
 	return 1
@@ -689,7 +688,7 @@ proc/display_logout_report()
 
 	if(!check_rights(R_ADMIN|R_MOD))
 		return
-	to_chat(src,get_logout_report())	
+	to_chat(src,get_logout_report())
 
 proc/get_nt_opposed()
 	var/list/dudes = list()

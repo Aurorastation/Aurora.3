@@ -210,7 +210,7 @@
 
 /obj/effect/landmark/costume/commie/New()
 	new /obj/item/clothing/under/soviet(src.loc)
-	new /obj/item/clothing/head/ushanka(src.loc)
+	new /obj/item/clothing/head/ushanka/grey(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/imperium_monk/New()
