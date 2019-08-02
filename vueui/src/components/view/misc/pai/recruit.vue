@@ -5,7 +5,7 @@
 
     <vui-group>
       <vui-group-item label="Name:">
-        <input type="text" v-model="name"/>
+        <input type="text" v-model="name">
         <p>
           What you plan to call yourself. Suggestions: Any character name you would choose for a station character OR an AI.
         </p>
@@ -17,7 +17,7 @@
         </p>
       </vui-group-item>
       <vui-group-item label="Preferred Role:">
-        <input type="text" v-model="role"/>
+        <input type="text" v-model="role">
         <p>
           Do you like to partner with sneaky social ninjas? Like to help security hunt down thugs? Enjoy watching an engineer's back while he saves the station yet again? This doesn't have to be limited to just station jobs. Pretty much any general descriptor for what you'd like to be doing works here.
         </p>
