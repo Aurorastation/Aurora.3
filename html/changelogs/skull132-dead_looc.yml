@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - backend: "Enabled the restriction of ghosts' ability to speak in LOOC via config."
