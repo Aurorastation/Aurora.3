@@ -9470,7 +9470,6 @@
 /turf/simulated/shuttle/floor4,
 /area/shuttle/escape/centcom)
 "aBC" = (
-/obj/item/organ/xenos/eggsac,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},

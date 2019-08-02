@@ -15261,7 +15261,6 @@
 	},
 /area/shuttle/escape/centcom)
 "aIE" = (
-/obj/item/organ/xenos/eggsac,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
@@ -21448,7 +21447,7 @@
 	},
 /area/shuttle/escape/centcom)
 "aVZ" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21653,7 +21652,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "aWz" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -24552,7 +24551,7 @@
 /area/centcom/checkpoint/fore)
 "iIs" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
