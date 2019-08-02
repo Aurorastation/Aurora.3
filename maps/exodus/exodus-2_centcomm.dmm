@@ -9469,14 +9469,6 @@
 "aBB" = (
 /turf/simulated/shuttle/floor4,
 /area/shuttle/escape/centcom)
-"aBC" = (
-/obj/item/organ/xenos/eggsac,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aBD" = (
 /obj/structure/mirror/raider{
 	pixel_x = 0;
@@ -22729,7 +22721,7 @@ azz
 alC
 aya
 aya
-aBC
+axz
 axz
 axz
 axz
