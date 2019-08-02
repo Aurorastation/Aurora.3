@@ -87,7 +87,7 @@ var/list/ai_verbs_default = list(
 	var/list/cameraRecords = list()				//For storing what is shown to the cameras
 
 	var/datum/ai_icon/selected_sprite			// The selected icon set
-	var/custom_sprite 	= 0 					// Whether the selected icon is custom
+	var/custom_sprite 	= FALSE 					// Whether the selected icon is custom
 	var/carded
 
 	var/multitool_mode = 0
@@ -247,9 +247,9 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/setup_icon()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
-		custom_sprite = 1
+		custom_sprite = TRUE
 		icon = CUSTOM_ITEM_SYNTH
-		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]-ai", "4", "[sprite.aichassisicon]-ai-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
+		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]", "4", "[sprite.aichassisicon]-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
 	else
 		selected_sprite = default_ai_icon
 	updateicon()
@@ -637,9 +637,9 @@ var/list/ai_verbs_default = list(
 				if("carp")
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo4"))
 				if("custom")
-					if(custom_sprite == 1)
+					if(custom_sprite)
 						var/datum/custom_synth/sprite = robot_custom_icons[name]
-						if(istype(sprite) && sprite.synthckey == ckey)
+						if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
 							holo_icon = getHologramIcon(icon("icons/mob/custom_synths/customhologram.dmi","[sprite.aiholoicon]"))
 					else
 						to_chat(src, "You do not have a custom sprite!")

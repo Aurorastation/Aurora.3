@@ -4,11 +4,10 @@
 //While it might be possible for a ckey to use that custom sprite for several real_names, it seems rather pointless to support it.
 var/list/robot_custom_icons
 /hook/startup/proc/load_robot_custom_sprites()
-	var/datum/custom_synth/synth = new()
 	if(config.load_customsynths_from == "sql")
-		synth.load_from_sql()
+		loadsynths_from_sql()
 	else if(config.load_customsynths_from == "json")
-		synth.load_from_json()
+		loadsynths_from_json()
 	return 1
 /mob/living/silicon/robot/proc/set_custom_sprite()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]

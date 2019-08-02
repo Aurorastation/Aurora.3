@@ -593,17 +593,16 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
 /obj/item/weapon/holder/pai/custom
-	var/spriteloaded = 0
+	var/customsprite = 1
 
-/obj/item/weapon/holder/pai/custom/process()
-
+/obj/item/weapon/holder/pai/custom/sync(mob/living/M)
+	..()
 	set_paiholder()
 
 /obj/item/weapon/holder/pai/custom/proc/set_paiholder()
 
-	if(contained && spriteloaded == 0)
+	if(contained && customsprite == 1)
 		icon = CUSTOM_ITEM_SYNTH
-		spriteloaded = 1
 		icon_state = "[contained.icon_state]-holder"
 		item_state = "[contained.icon_state]"
 	else

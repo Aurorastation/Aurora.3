@@ -1,6 +1,21 @@
+
+/* 
+
+Just some quick documentation about how this works
+
+Synthckey is the players ckey which is represented under the synths name in the json, this is required to have
+synthicon is just the sprites name in the dmi
+ainame currently is not normaly used unless there is a rare case where a synths name is identical to the ai name but needs to be seperated
+aichassisicon is the ai chassis icon sprite name
+aiholoicon is the ai hologram icon sprite name
+paiicon is the pai icon sprite name
+
+*/
+
+
+
 /datum/custom_synth
 	var/synthckey = ""
-	var/synthname = "cyborg"
 	var/synthicon = "robot"
 	var/ainame = ""
 	var/aichassisicon = ""
@@ -9,7 +24,7 @@
 
 
 
-/datum/custom_synth/proc/load_from_json()
+/proc/loadsynths_from_json()
 	var/list/customsynthsprites = list()
 	try
 		customsynthsprites = json_decode(return_file_text("config/customsynths.json"))
@@ -29,10 +44,10 @@
 		synth.paiicon = customsynthsprites[synthsprite]["paiicon"]
 		robot_custom_icons[synthsprite] = synth
 
-/datum/custom_synth/proc/load_from_sql()
+/proc/loadsynths_from_sql()
 	if(!establish_db_connection(dbcon))
 		log_debug("SQL ERROR - Failed to connect. - Falling back to JSON")
-		return load_from_json()
+		return loadsynths_from_json()
 	else
 	
 		var/DBQuery/customsynthsprites = dbcon.NewQuery("SELECT synthckey, synthicon, ainame, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths WHERE deleted_at IS NULL ORDER BY synthckey ASC")
