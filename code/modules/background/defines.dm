@@ -30,6 +30,7 @@
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
 #define RELIGION_AUTAKH "Aut'akh"
+#define RELIGION_SIAKH "Si'akh"
 
 #define RELIGION_QEBLAK "Qeblak"
 #define RELIGION_WEISHII "Weishii"

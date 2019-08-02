@@ -1,6 +1,9 @@
 /datum/citizenship/izweski
 	name = CITIZENSHIP_IZWESKI
-	description = "RAMMING SPEED."
+	description = "The Hegemony is a feudal empire ruled by the Izweski Clan. Underneath the Hegemon, who rules from the homeworld of Moghes, there are colony worlds ruled by Overlords. \
+	Under Overlords land on planets are divided between Lords, with the rest of the feudal hierarchy being beneath them. The Clan system is deeply entrenched in Unathi society, \
+	with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan. Despite an \
+	apocalyptic world war that nearly plunged the species into ruin, the Izweski Hegemony has rebounded and is currently working on making the Hegemony a galactic power."
 	consular_outfit = /datum/outfit/job/representative/consular/izweski
 
 /datum/citizenship/izweski/get_objectives(mission_level)
