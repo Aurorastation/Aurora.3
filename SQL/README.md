@@ -6,6 +6,8 @@ We use [flyway](https://flywaydb.org/) to manage database migrations. To set up 
 
 You'll also need some proficiency with the command line.
 
+diff me dadddy
+
 ----
 
 ### Attribution
