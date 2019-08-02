@@ -5,7 +5,7 @@
 	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other hives. In \
 	Tau Ceti, this has lead to confrontations between them and other hives arriving in the system. The Zo'ra are the most politically developed hive, recently helping in the funding of \
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
-	demonym = "vaurcasian"
+	consular_outfit = /datum/outfit/job/representative/consular/zora
 
 /datum/citizenship/zora/get_objectives(mission_level)
 	var/rep_objectives
@@ -26,3 +26,23 @@
 							"Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement")
 
 	return rep_objectives
+
+/datum/outfit/job/representative/consular/zora
+	name = "Zo'ra Consular Officer"
+
+	uniform = /obj/item/clothing/under/gearharness
+
+	shoes = null
+	glasses = null
+	l_hand =  null
+
+/datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(isvaurca(H))
+		H.set_species("Vaurca Breeder")
+
+		H.unEquip(H.back)
+		H.unEquip(H.shoes)
+		H.unEquip(H.wear_mask)
+
+		H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)

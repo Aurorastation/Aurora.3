@@ -70,6 +70,12 @@
 		/obj/item/weapon/gun/projectile/pistol/sol = 1
 	)
 
+/datum/citizenship/sol_alliance/eridani
+	name = CITIZENSHIP_ERIDANI
+	description = "Eridani, or the Eridani Corporate Federation, is a dystopian oligarchic republic in the Epsilon Eridani system, dominated entirely by a council of mega-corporations \
+	that seek profit and expansion at any cost. It is characterized by a stark class divide, with citizens falling into one into two groups - pristine, inoffensive and rich Corporates, \
+	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
+	workplace of various contractors on board NSS Aurora."
 
 /datum/citizenship/frontier
 	name = CITIZENSHIP_FRONTIER
@@ -86,15 +92,6 @@
 	The Republic has mixed relations with NanoTrasen, due to their own possession of phoron."
 	demonym = "elyrian"
 
-/datum/citizenship/eridani
-	name = CITIZENSHIP_ERIDANI
-	description = "Eridani, or the Eridani Corporate Federation, is a dystopian oligarchic republic in the Epsilon Eridani system, dominated entirely by a council of mega-corporations \
-	that seek profit and expansion at any cost. It is characterized by a stark class divide, with citizens falling into one into two groups - pristine, inoffensive and rich Corporates, \
-	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
-	workplace of various contractors on board NSS Aurora."
-	demonym = "eridani"
-	consular_outfit = /datum/outfit/job/representative/eridani
-
 /datum/citizenship/dominia
 	name = CITIZENSHIP_DOMINIA
 	description = "A heavily religious absolute monarchy with its capital, Nova Luxembourg, on the planet of Dominia in the X'yr Vharn'p system. This autocratic state is ruled by His \
@@ -102,7 +99,6 @@
 	years. Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, \
 	known as the Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. \
 	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
-	demonym = "dominian"
 
 /datum/citizenship/dominia/get_objectives(mission_level)
 	var/rep_objectives
