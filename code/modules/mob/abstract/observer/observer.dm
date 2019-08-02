@@ -925,5 +925,9 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 /mob/abstract/observer/verb/ghost_spawner()
 	set category = "Ghost"
 	set name = "Ghost Spawner"
+	
+	if(!ROUND_IS_STARTED)
+		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		return
 
 	SSghostroles.vui_interact(src)

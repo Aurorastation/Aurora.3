@@ -5,7 +5,6 @@
 /datum/controller/subsystem/ghostroles
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MISC_FIRST
 
 	var/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
@@ -19,15 +18,25 @@
 
 /datum/controller/subsystem/ghostroles/New()
 	NEW_SS_GLOBAL(SSghostroles)
+
+/datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
+	. = ..()
 	for(var/spawner in subtypesof(/datum/ghostspawner))
+		CHECK_TICK
 		var/datum/ghostspawner/G = new spawner
 		//Check if we have name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
+			log_debug("Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
 		if(!G.select_spawnpoint(FALSE))
+			log_debug("Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		LAZYSET(spawners, G.short_name, G)
+	
+	for (var/identifier in spawnpoints)
+		CHECK_TICK
+		update_spawnpoint_status_by_identifier(identifier)
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
@@ -40,7 +49,9 @@
 		spawnpoints[P.identifier] = list()
 	
 	spawnpoints[P.identifier].Add(P)
-	update_spawnpoint_status(P)
+	//Only update the status if the round is started. During initialization that´s taken care of at the end of init.
+	if(ROUND_IS_STARTED)
+		update_spawnpoint_status(P)
 
 /datum/controller/subsystem/ghostroles/proc/update_spawnpoint_status(var/obj/effect/ghostspawpoint/P)
 	if(!P || !istype(P))
