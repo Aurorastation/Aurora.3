@@ -37,12 +37,13 @@
 	l_hand =  null
 
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(isvaurca(H))
-		H.set_species("Vaurca Breeder")
+	if(!visualsOnly)
+		if(isvaurca(H))
+			H.set_species("Vaurca Breeder")
 
-		H.unEquip(H.back)
-		H.unEquip(H.shoes)
-		H.unEquip(H.wear_mask)
+			H.unEquip(H.back)
+			H.unEquip(H.shoes)
+			H.unEquip(H.wear_mask)
 
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
