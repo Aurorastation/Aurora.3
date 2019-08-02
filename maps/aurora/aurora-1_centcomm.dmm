@@ -15265,11 +15265,6 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"aIF" = (
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership/raider_base)
 "aIG" = (
 /obj/structure/mirror/raider{
 	pixel_x = 0;
@@ -27094,9 +27089,9 @@ ahV
 aGz
 aGz
 aIE
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aKq
 aGz
 aGz
@@ -27350,11 +27345,11 @@ aaM
 ahV
 aGz
 aIh
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aJK
-aIF
+aIE
 aKq
 aGz
 aGz
@@ -27608,11 +27603,11 @@ ahV
 aGz
 aGz
 aIG
-aIF
-aIF
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
+aIE
+aIE
 aLl
 aGz
 ahV
@@ -27865,11 +27860,11 @@ aaM
 ahV
 aGz
 aIH
-aIF
+aIE
 aJk
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aLm
 aGz
 ahV
@@ -28122,8 +28117,8 @@ aHi
 aFT
 aFT
 aFT
-aIF
-aIF
+aIE
+aIE
 aJL
 aKr
 aKM
