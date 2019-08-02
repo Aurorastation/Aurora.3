@@ -130,6 +130,8 @@ Pushes data change to client. This also pushes changes to metadata, what include
 Checks with `object.vueui_data_change` if data has changed, if so, then change is pushed. If forcedPush is true, then it pushes change anyways.
 ### `ui.update_status()`
 This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
+### `ui.metadata`
+This is helper variable meant to store references, or other data that is linked to that specific ui. This is just a helper field for keeping track of what goes where.
 ### `href_list["vueui"]`
 This variable provides a way to obtain instance of ui that has invoked this `Topic()` call. Fast and simple way to safetly obtain it using this var is:
 ```DM
