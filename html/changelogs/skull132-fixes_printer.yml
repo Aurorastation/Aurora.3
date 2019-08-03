@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Fixes the integrted circuits printer not being able to print specific components. Sorry it took so long, gents."
