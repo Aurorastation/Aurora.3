@@ -105,7 +105,7 @@
 /datum/controller/subsystem/ghostroles/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list("current_tag"="All")
-	LAZYINITLIST(data["spawners"])
+	data["spawners"] = list()
 	for(var/s in spawners)
 		var/datum/ghostspawner/G = spawners[s]
 		if(G.cant_see(user))
@@ -113,7 +113,7 @@
 			if(data["spawners"][G.short_name])
 				data["spawners"] -= G.short_name
 			continue
-		LAZYINITLIST(data["spawners"][G.short_name])
+		data["spawners"][G.short_name] = list()
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., data)
