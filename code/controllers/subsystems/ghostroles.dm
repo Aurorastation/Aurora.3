@@ -1,5 +1,3 @@
-#define UIDEBUG
-
 /var/datum/controller/subsystem/ghostroles/SSghostroles
 
 /datum/controller/subsystem/ghostroles
@@ -104,24 +102,27 @@
 		ui.data = vueui_data_change(list("spawnpoint"=spawnpoint,"current_tag"="All"),user,ui)
 	ui.open()
 
-/datum/controller/subsystem/ghostroles/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
-	if(!newdata)
-		. = newdata = list("current_tag"="All")
-	LAZYINITLIST(newdata["spawners"])
+/datum/controller/subsystem/ghostroles/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		. = data = list("current_tag"="All")
+	LAZYINITLIST(data["spawners"])
 	for(var/s in spawners)
 		var/datum/ghostspawner/G = spawners[s]
 		if(G.cant_see(user))
+			//if we have this spawner in our data list, then remove it
+			if(data["spawners"][s.short_name])
+				data["spawners"] -= s.short_name
 			continue
-		LAZYINITLIST(newdata["spawners"][G.short_name])
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["name"], html_encode(G.name), ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["desc"], html_encode(G.desc), ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["enabled"], G.enabled, ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["count"], G.count, ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["max_count"], G.max_count, ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["tags"], G.tags, ., newdata)
-		VUEUI_SET_CHECK(newdata["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., newdata)
+		LAZYINITLIST(data["spawners"][G.short_name])
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["can_edit"], G.can_edit(user), ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["max_count"], G.max_count, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["tags"], G.tags, ., data)
+		VUEUI_SET_CHECK(data["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., data)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]

@@ -50,6 +50,10 @@
 		log_debug("GhostSpawner: Unable to select spawnpoint for [short_name]")
 		return FALSE
 
+	//Get the name / age from them first
+	var/mname = get_mob_name(user)
+	var/age = input(user, "Enter your characters age:","Num") as num
+
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(null)
 	
@@ -84,10 +88,6 @@
 		M.client.prefs.randomize_appearance_for(M, FALSE)
 	
 	//Setup the mob age and name
-	var/mname = get_mob_name(M)
-
-	var/age = input(M, "Enter your characters age:","Num") as num
-
 	if(!mname)
 		mname = random_name(M.gender, M.species.name)
 	
@@ -95,7 +95,7 @@
 
 	if(!age)
 		age = rand(35, 50)
-	M.age = Clamp(age, 35, 60) 
+	M.age = Clamp(age, 21, 65) 
 
 	//Setup the outfit
 	if(outfit)

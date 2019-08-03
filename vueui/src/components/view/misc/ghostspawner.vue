@@ -33,23 +33,13 @@ export default {
   },
   computed: {
     tags: function() {
-      let ctags = {}
-      ctags.All = 0
-      let s
-      for (s in this.spawners){
-        ctags.All += 1
-        let spawner = this.spawners[s]
-        let t;
-        for (t in spawner.tags){
-          let tag_name = spawner.tags[t]
-          if(ctags.hasOwnProperty(tag_name)){
-            ctags[tag_name] += 1
-          } else {
-            ctags[tag_name] = 1
-          }
-        }
-      }
-      return ctags
+      let st = this.spawners
+          .flatMap(s => s.tags)
+      let tags = {All: this.spawners.length}
+      st.filter((v, i, a) => a.indexOf(v) === i).forEach(tag => {
+          tags[tag] = st.filter(t => t == tag).length
+      })
+      return tags
     }
   }, methods:{
     showEntry: function(data) {
