@@ -110,8 +110,8 @@
 		var/datum/ghostspawner/G = spawners[s]
 		if(G.cant_see(user))
 			//if we have this spawner in our data list, then remove it
-			if(data["spawners"][s.short_name])
-				data["spawners"] -= s.short_name
+			if(data["spawners"][G.short_name])
+				data["spawners"] -= G.short_name
 			continue
 		LAZYINITLIST(data["spawners"][G.short_name])
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
@@ -147,6 +147,7 @@
 		if(!S.post_spawn(M))
 			to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 			return
+		log_and_message_admins("joined as GhostRole: [S.name]", M)
 		SSvueui.check_uis_for_change(src) //Make sure to update all the UIs so the count is updated
 	if(href_list["enable"])
 		var/datum/ghostspawner/S = spawners[href_list["enable"]]
