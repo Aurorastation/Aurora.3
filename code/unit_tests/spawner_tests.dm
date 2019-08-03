@@ -10,7 +10,11 @@ datum/unit_test/template
 	
 
 datum/unit_test/template/start_test()
-	var/list/ignore_spawners = list(/datum/ghostspawner/human/admin)
+	var/list/ignore_spawners = list(
+		/datum/ghostspawner/human,
+		/datum/ghostspawner/human/admin,
+		/datum/ghostspawner/simplemob
+		)
 	var/failed_checks = 0
 	var/checks = 0
 
