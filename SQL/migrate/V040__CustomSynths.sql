@@ -14,5 +14,5 @@ CREATE TABLE `ss13_customsynths` (
     CONSTRAINT `fk_ss13_custom_synths_ss13_players` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON DELETE CASCADE ON UPDATE CASCADE
 )
 COLLATE='utf8_bin'
-ENGINE=InnoDBa
+ENGINE=InnoDB
 ;
