@@ -376,8 +376,11 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Uncomment to disable the OOC channel by default.
 #DISABLE_OOC
 
-## Uncomment to disable the dead OOC channel by default.
+## Uncomment to disable the dead (global) OOC channel by default.
 #DISABLE_DEAD_OOC
+
+## Uncomment to disable the dead LOOC channel by default.
+#DISABLE_DEAD_LOOC
 
 ## Uncomment to disable ghost chat by default.
 #DISABLE_DSAY
