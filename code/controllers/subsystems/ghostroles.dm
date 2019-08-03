@@ -43,7 +43,7 @@
 		qdel(P)
 		return
 
-	if(!(P.identifier in spawnpoints))
+	if(!spawnpoints[P.identifier])
 		spawnpoints[P.identifier] = list()
 	
 	spawnpoints[P.identifier].Add(P)
