@@ -186,7 +186,7 @@ Example:
 Parameters:
  - `$slot` - Contents of button.
  - `params` - key value pairs to send to `Topic` of object. Can contain objects or arrays (DM keyed lists and lists respectively).
- - `raw-params` - key value pairs to send to `Topic`.
+ - `unsafe-params` - Used to execute a generic `Topic()` call to the game. Requires that you specify the `src` object as a valid reference, otherwise it will not function. **Should not generally be used**, primary use-case is backwards compatibility with older APIs that are spread out over multiple objects.
  - `icon` - icon that should be used in that button. For available icons look at `\vueui\styles\icons.scss`
  - `push-state` - Boolean determining if current ui state should be pushed on button click. This often results in `vueui_data_change` call right before `Topic` call.
 
