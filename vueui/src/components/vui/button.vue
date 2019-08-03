@@ -18,7 +18,7 @@ export default {
       type: Object,
       default: null
     },
-    rawParams: {
+    unsafeParams: {
       type: Object,
       default: null
     },
@@ -37,8 +37,8 @@ export default {
         return
       }
       this.$emit('click')
-      if(this.rawParams) {
-        Utils.sendToTopicRaw(this.rawParams)
+      if(this.unsafeParams) {
+        Utils.sendToTopicRaw(this.unsafeParams)
       }
       if(!this.params) {
         if (this.pushState) {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vui-button :raw-params="{src: s.holder_ref, check_antagonist: 1}">Check antagonists</vui-button>
+    <vui-button :unsafe-params="{src: s.holder_ref, check_antagonist: 1}">Check antagonists</vui-button>
     <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']"/>
     <div class="table">
       <div class="header">
@@ -37,13 +37,13 @@
           <span class="red" v-if="p.antag == 2"><vui-tooltip label="GM">This antag was added by gamemode.</vui-tooltip></span>
         </div>
         <div class="item" style="text-align: right;">
-          <vui-button :raw-params="{src: s.holder_ref, adminplayeropts: p.ref}">PP</vui-button>
-          <vui-button :raw-params="{src: s.holder_ref, mob: p.ref, notes: 'show'}">N</vui-button>
-          <vui-button :raw-params="{src: s.holder_ref, traitor: p.ref}">TP</vui-button>
-          <vui-button :raw-params="{src: s.holder_ref, priv_msg: p.ref}">PM</vui-button>
-          <vui-button :raw-params="{src: s.holder_ref, subtlemessage: p.ref}">SM</vui-button>
-          <vui-button :raw-params="{src: s.holder_ref, adminplayerobservejump: p.ref}">JMP</vui-button>
-          <vui-button :raw-params="{src: s.holder_ref, admin_wind_player: p.ref}">WIND</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, adminplayeropts: p.ref}">PP</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, mob: p.ref, notes: 'show'}">N</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, traitor: p.ref}">TP</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, priv_msg: p.ref}">PM</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, subtlemessage: p.ref}">SM</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, adminplayerobservejump: p.ref}">JMP</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, admin_wind_player: p.ref}">WIND</vui-button>
         </div>
       </div>
     </div>
