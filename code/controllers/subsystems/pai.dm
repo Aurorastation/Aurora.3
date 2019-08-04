@@ -88,7 +88,23 @@
 				p.alertUpdate()
 		ui.close()
 
-/datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob, allowSubmit = TRUE)
+/datum/controller/subsystem/pai/proc/revokeCandidancy(mob/M as mob)
+	var/datum/paiCandidate/candidate
+	if(!istype(M))
+		return FALSE
+	for(var/datum/paiCandidate/c in pai_candidates)
+		if(!istype(c))
+			continue
+		if(c.key == M.key)
+			candidate = c
+			break
+	if(!candidate)
+		return FALSE
+	candidate.ready = FALSE
+	return TRUE
+	
+
+/datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob)
 	var/datum/paiCandidate/candidate
 	for(var/datum/paiCandidate/c in pai_candidates)
 		if(!istype(c) || !istype(M))
@@ -117,7 +133,7 @@
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(M, src)
 	if(!ui)
-		ui = new(user, src, "misc-pai-recruit", 580, 580, "pAI Personality Configuration", list(
+		ui = new(M, src, "misc-pai-recruit", 580, 580, "pAI Personality Configuration", list(
 			"name" = candidate.name,
 			"description" = candidate.description,
 			"role" = candidate.role,

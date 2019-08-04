@@ -855,6 +855,26 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		to_chat(src, "<span class='info'>Your key will be publicly visible again.</span>")
 
+/mob/abstract/observer/verb/submitpai() //Moves the ghost instead of just changing the ghosts's eye -Nodrak
+	set category = "Ghost"
+	set name = "Submit pAI personality"
+	set desc = "Submits pAI personality to pAI candidite pool"
+
+	if(!src.MayRespawn(TRUE))
+		return
+	if(jobban_isbanned(src, "pAI"))
+		to_chat(src, "You are job banned for pAI position.")
+		return
+	SSpai.recruitWindow(src)
+
+/mob/abstract/observer/verb/revokepai() //Moves the ghost instead of just changing the ghosts's eye -Nodrak
+	set category = "Ghost"
+	set name = "Revoke pAI personality"
+	set desc = "Removes you from pAI candidite pool"
+
+	if(SSpai.revokeCandidancy(src))
+		to_chat(src, "You been removed from pAI condidite pool.")
+
 /mob/abstract/observer/canface()
 	return 1
 
@@ -959,3 +979,4 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if((!target) || (!ghost)) return
 	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
 	. += target.extra_ghost_link(ghost)
+
