@@ -48,8 +48,10 @@
 /obj/item/weapon/mop/update_icon()
 	if(reagents.total_volume < 1)
 		icon_state = "mop"
+		item_state = "mop"
 	if(reagents.total_volume > 1)
 		icon_state = "mop_wet"
+		item_state = "mop_wet"
 
 /obj/item/weapon/mop/on_reagent_change()
 	update_icon()

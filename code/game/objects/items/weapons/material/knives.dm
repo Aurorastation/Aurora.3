@@ -30,6 +30,7 @@
 	desc = "The unearthly energies that once powered this blade are now dormant."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
+	item_state = "knife"
 	applies_material_colour = 0
 
 /obj/item/weapon/material/knife/bayonet
