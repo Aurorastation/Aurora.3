@@ -99,6 +99,7 @@
 	years. Imperial society is dominated by the Great and Minor Houses under the Emperor and is very socio-economically stratified due to the so-called blood debt, \
 	known as the Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. \
 	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
+	consular_outfit = /datum/outfit/job/representative/consular/dominia
 
 /datum/citizenship/dominia/get_objectives(mission_level)
 	var/rep_objectives
@@ -116,3 +117,11 @@
 							"Convince [rand(3,6)] crewmembers to apply for a Dominian tourist visa.")
 
 	return rep_objectives
+
+/datum/outfit/job/representative/consular/dominia
+	name = "Empire of Dominia Consular Officer"
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/dominia_honor = 1,
+		/obj/item/weapon/gun/energy/pistol = 1
+	)

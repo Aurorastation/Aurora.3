@@ -750,6 +750,11 @@
 	desc = "A box full of hadiist manifesto books."
 	starts_with = list(/obj/item/weapon/book/manual/pra_manifesto = 6)
 
+/obj/item/weapon/storage/box/dominia_honor
+	name = "dominian honor codex box"
+	desc = "A box full of dominian honor codex ."
+	starts_with = list(/obj/item/weapon/book/manual/dominia_honor = 6)
+
 /obj/item/weapon/storage/box/sharps
 	name = "sharps disposal box"
 	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
