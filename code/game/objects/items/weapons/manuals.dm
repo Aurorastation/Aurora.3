@@ -1518,7 +1518,7 @@
 
 				<a name="III"><h2>Conduct of Women</h2><br></a>
 				Women, while being noted on equal footing as men in matters of honor, cannot avoid the realities of being physically weaker. They must be equally vigorous and stalwart
-				in their conduct, in being polite and upright to all they interact with. It is good - though not necessary - for women to manage a home and family’s affairs. Chastity,
+				in their conduct, in being polite and upright to all they interact with. It is good - though not necessary - for women to manage a home and family's affairs. Chastity,
 				modesty, and attention to detail - these are all traits of a woman of good repute.<BR><BR>
 
 				<a name="IV"><h2>Dueling Etiquette</h2><br></a>
