@@ -28,6 +28,19 @@
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
 	item_state = "black_leather_gloves"
+	species_restricted = null
+
+/obj/item/clothing/gloves/swat/specialist
+	name = "\improper specialist gloves"
+	icon_state = "black_leather"
+	item_state = "specialist"
+	species_restricted = null
+
+/obj/item/clothing/gloves/swat/specialist_alt
+	name = "\improper specialist armguards"
+	icon_state = "specialist_alt"
+	item_state = "specialist_alt"
+	species_restricted = null
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."

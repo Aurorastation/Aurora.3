@@ -116,3 +116,14 @@
 	item_state = "fullgas"
 	w_class = 2.0
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+
+/obj/item/clothing/mask/gas/tactical/specialist
+	name = "specialist mask"
+	icon_state = "specialist_gas"
+	item_state = "specialist_gas"
+
+/obj/item/clothing/mask/gas/tactical/specialist_alt
+	name = "operator mask"
+	icon_state = "specialist_gas_alt"
+	item_state = "specialist_gas_alt"
+

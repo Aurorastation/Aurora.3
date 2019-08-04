@@ -12,6 +12,7 @@
 	icon = 'icons/turf/map_placeholders.dmi'
 	icon_state = "rock"
 	desc = "It's a greyish rock. Exciting."
+	opacity = 1
 	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
 	layer = 2.01
 	var/list/asteroid_can_smooth_with = list(

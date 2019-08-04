@@ -176,6 +176,11 @@
 	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
 	icon_state = "syndiepack"
 
+/obj/item/weapon/storage/backpack/syndie/specialist
+	name = "specialist backpack"
+	desc = "Placeholder"
+	icon_state = "specialist_pack"
+
 /obj/item/weapon/storage/backpack/wizard
 	name = "wizard federation sack"
 	desc = "Perfect for keeping your shining crystal balls inside of."
@@ -269,6 +274,11 @@
 	name = "syndicate satchel"
 	desc = "A satchel in the new age style of a multi-corperate terrorist organisation."
 	icon_state = "satchel-syndie"
+
+/obj/item/weapon/storage/backpack/satchel_syndie/specialist
+	name = "specialist satchel"
+	desc = "Placeholder."
+	icon_state = "specialist_satchel"
 
 /obj/item/weapon/storage/backpack/satchel_wizard
 	name = "wizard federation satchel"
@@ -396,6 +406,11 @@
 	)
 	slowdown = 0
 
+/obj/item/weapon/storage/backpack/duffel/syndie/specialist
+	name = "specialist duffel bag"
+	desc = "Placeholder."
+	icon_state = "specialist_duffel"
+
 /obj/item/weapon/storage/backpack/duffel/wizard
 	name = "wizardly duffel bag"
 	desc = "A fancy blue wizard bag, duffel edition."
@@ -460,6 +475,11 @@
 	name = "syndicate messenger bag"
 	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
 	icon_state = "courierbagsyndie"
+
+/obj/item/weapon/storage/backpack/messenger/syndie/specialist
+	name = "specialist messenger bag"
+	desc = "Placeholder."
+	icon_state = "specialist_messenger"
 
 /obj/item/weapon/storage/backpack/messenger/wizard
 	name = "wizardly messenger bag"

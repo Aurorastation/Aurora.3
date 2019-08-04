@@ -766,7 +766,7 @@
 
 /obj/structure/closet/crate/military
 	name = "military crate"
-	desc = "A heavy crate made out of steel for military purposes."
+	desc = "A heavy crate made out of steel intended for military purposes."
 	icon_state = "militarycrate"
 	icon_opened = "militarycrateopen"
 	icon_closed = "militarycrate"

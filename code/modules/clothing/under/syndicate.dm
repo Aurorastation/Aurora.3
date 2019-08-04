@@ -28,3 +28,15 @@
 	icon_state = "fulltracksuit"
 	item_state = "fulltracksuit"
 	contained_sprite = 1
+
+/obj/item/clothing/under/syndicate/specialist
+	name = "specialist uniform"
+	desc = "This is a uniform intended to be used by some kind of specialist."
+	icon_state = "specialist"
+	item_state = "bl_suit"
+	worn_state = "specialist"
+
+/obj/item/clothing/under/syndicate/specialist/turtleneck
+	name = "specialist turtleneck"
+	icon_state = "specialist_alt"
+	worn_state = "specialist_alt"

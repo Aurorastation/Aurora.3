@@ -105,6 +105,10 @@
 	icon_state = "helmet_tac"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
+/obj/item/clothing/head/helmet/merc/specialist
+	name = "specialist helmet"
+	icon_state = "specialist_helm"
+
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
 	desc = "They're often used by highly trained Swat Members."
