@@ -871,5 +871,6 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
+	SearchVar(global_player_panel)
 
 #endif

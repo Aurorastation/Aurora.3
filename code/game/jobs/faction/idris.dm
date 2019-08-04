@@ -54,7 +54,7 @@
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Cook" = /datum/outfit/job/chef/idris,
-		"Detective" = /datum/outfit/job/chef/idris,
+		"Detective" = /datum/outfit/job/detective/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
