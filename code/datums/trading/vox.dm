@@ -52,7 +52,6 @@
 		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg           = TRADER_SUBTYPES_ONLY,
 		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/scattershot   = TRADER_SUBTYPES_ONLY,
 		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack  = TRADER_BLACKLIST,
-		/obj/item/trash                                                      = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/accessory                                         = TRADER_ALL,
 		/obj/item/clothing/accessory/fluff                                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/accessory/armband/fluff                           = TRADER_BLACKLIST_ALL,
@@ -62,7 +61,6 @@
 		/obj/item/robot_parts/robot_component                                = TRADER_BLACKLIST,
 		/obj/item/weapon/storage/pill_bottle/happy                           = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/pill_bottle/zoom                            = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin   = TRADER_THIS_TYPE
 	)
 
 	mob_transfer_message = "<span class='danger'>You are transported to the ORIGIN. When the transportation dizziness wears off, you find you are surrounded by cackling Vox...</span>"
