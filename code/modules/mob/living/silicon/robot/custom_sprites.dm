@@ -13,7 +13,6 @@ var/list/robot_custom_icons
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
 		custom_sprite = 1
-		custom_sprite_path = sprite.synthicon
 		icon = CUSTOM_ITEM_SYNTH
 		var/list/valid_states = icon_states(icon)
 		if(icon_state == "robot")

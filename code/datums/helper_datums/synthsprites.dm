@@ -47,7 +47,8 @@ paiicon is the pai icon sprite name
 /proc/loadsynths_from_sql()
 	if(!establish_db_connection(dbcon))
 		log_debug("SQL ERROR - Failed to connect. - Falling back to JSON")
-		return loadsynths_from_json()
+		loadsynths_from_json()
+		return
 	else
 	
 		var/DBQuery/customsynthsprites = dbcon.NewQuery("SELECT synthckey, synthicon, ainame, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths WHERE deleted_at IS NULL ORDER BY synthckey ASC")

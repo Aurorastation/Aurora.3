@@ -17,8 +17,7 @@
 	var/userDNA		// The DNA string of our assigned user
 	var/obj/item/device/paicard/card	// The card we inhabit
 	var/obj/item/device/radio/radio		// Our primary radio
-	var/custom_sprite = FALSE
-	var/custom_sprite_path = ""
+
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
 	var/global/list/possible_chassis = list(
@@ -154,9 +153,7 @@
 /mob/living/silicon/pai/proc/set_custom_sprite()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
-		custom_sprite = TRUE
-		custom_sprite_path = sprite.paiicon
-		possible_chassis["Custom"] = "[custom_sprite_path]"
+		possible_chassis["Custom"] = "[sprite.paiicon]"
 		pai_holder_types["Custom"] = /obj/item/weapon/holder/pai/custom
 		icon = CUSTOM_ITEM_SYNTH
 	else
