@@ -58,6 +58,11 @@ var/list/diona_banned_languages = list(
 		sprint_speed_factor = 0.75
 		sprint_cost_factor = 0
 
+/mob/living/carbon/alien/diona/death()
+	if(client && gestalt && switch_to_gestalt())
+		to_chat(gestalt, span("warning", "You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
+	..()
+
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
 	//Converts radiation to stored energy if its needed, and gives messages related to radiation
 	//Rads can be used to heal in place of light energy, that is handled in the regular regeneration proc
@@ -586,6 +591,8 @@ var/list/diona_banned_languages = list(
 		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
 	else
 		gestalt.key = key
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt()
 	set name = "Merge to Gestalt"
