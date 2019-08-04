@@ -345,6 +345,22 @@
 	icon_closed = "trench2"
 	blood_overlay_type = "coat"
 
+/obj/item/clothing/suit/storage/toggle/trench/alt
+	name = "brown trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_brown"
+	item_state = "trenchcoat_brown"
+	icon_open = "trenchcoat_brown_open"
+	icon_closed = "trenchcoat_brown"
+
+/obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	name = "grey trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_grey"
+	item_state = "trenchcoat_grey"
+	icon_open = "trenchcoat_grey_open"
+	icon_closed = "trenchcoat_grey"
+
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"
 	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
@@ -483,6 +499,12 @@
 	desc = "A dark green canvas jacket. Feels sturdy, yet comfortable."
 	icon_state = "militaryjacket_green"
 	item_state = "militaryjacket_green"
+
+/obj/item/clothing/suit/storage/legion
+	name = "tcfl jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
+	icon_state = "tcfljacket"
+	item_state = "tcfljacket"
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"

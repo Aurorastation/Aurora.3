@@ -45,6 +45,7 @@
 	var/mob/living/carbon/alien/diona/master_nymph //nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
 	var/echo = 0 //if it's an echo nymph, which has unique properties
+	var/detached = FALSE
 
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
@@ -163,8 +164,8 @@
 		holder_type = null
 
 	species = all_species[new_species]
-	if(species.default_language)
-		add_language(species.default_language)
+	if(species.language)
+		add_language(species.language)
 
 	if(species.holder_type)
 		holder_type = species.holder_type
@@ -247,7 +248,7 @@
 
 //This function makes sure the nymph has the correct split/merge verbs, depending on whether or not its part of a gestalt
 /mob/living/carbon/alien/diona/proc/update_verbs()
-	if (gestalt)
+	if (gestalt && !detached)
 		if (!(/mob/living/carbon/alien/diona/proc/split in verbs))
 			verbs.Add(/mob/living/carbon/alien/diona/proc/split)
 
@@ -259,7 +260,7 @@
 		verbs.Remove(/mob/living/proc/devour)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/sample)
 	else
-		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs))
+		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs) && !detached)
 			verbs.Add(/mob/living/carbon/alien/diona/proc/merge)
 
 		if (!(/mob/living/carbon/proc/absorb_nymph in verbs))
@@ -375,14 +376,6 @@
 				DIO.master_nymph = D
 		return 1
 	. = ..()
-/mob/living/carbon/alien/diona/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
-		..()
-
-	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife ))
-			harvest(user)
-
 
 /mob/living/carbon/alien/diona/proc/harvest(var/mob/user)
 	var/actual_meat_amount = max(1,(meat_amount*0.75))

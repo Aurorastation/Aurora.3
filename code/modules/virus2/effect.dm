@@ -345,6 +345,9 @@
 	stage = 2
 
 /datum/disease2/effect/cough/activate(var/mob/living/carbon/mob,var/multiplier)
+	if(mob.reagents.has_reagent("coughsyrup"))
+		to_chat(mob, span("notice", "You faintly feel the urge to cough, but manage to suppress it."))
+		return
 	mob.say("*cough")
 	for(var/mob/living/carbon/M in oview(2,mob))
 		mob.spread_disease_to(M)
@@ -399,6 +402,9 @@
 /datum/disease2/effect/sneeze/activate(var/mob/living/carbon/mob, var/multiplier)
 	if (prob(30))
 		to_chat(mob, "<span class='warning'>You feel like you are about to sneeze!</span>")
+	if(mob.reagents.has_reagent("diphenhydramine"))
+		to_chat(mob, span("notice", "You faintly feel the urge to sneeze, but manage to suppress it."))
+		return
 	addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
 
 /datum/disease2/effect/sneeze/proc/do_sneeze(mob/living/carbon/mob, multiplier)

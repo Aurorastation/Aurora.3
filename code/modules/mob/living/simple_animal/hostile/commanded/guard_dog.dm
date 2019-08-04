@@ -22,9 +22,10 @@
 	speak_emote = list("barks", "woofs")
 	emote_hear = list("barks", "woofs")
 	sad_emote = list("whines")
+	emote_sounds = list('sound/effects/creatures/dog_bark.ogg', 'sound/effects/creatures/dog_bark2.ogg', 'sound/effects/creatures/dog_bark3.ogg')
 
 	attacktext = "bitten"
-	attack_sound = 'sound/misc/dog_bark.ogg'
+	attack_sound = 'sound/effects/creatures/dog_bark.ogg'
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -47,6 +48,8 @@
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
 
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
 	set category = "IC"
@@ -57,7 +60,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("[pick(emote_hear)].",0)
-			playsound(src,'sound/misc/dog_bark.ogg',100, 1)
+			playsound(src,'sound/effects/creatures/dog_bark.ogg',100, 1)
 			. = 1
 	else if(usr == master)
 		. = 1 //already friends, but show success anyways
@@ -132,3 +135,5 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
+
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)

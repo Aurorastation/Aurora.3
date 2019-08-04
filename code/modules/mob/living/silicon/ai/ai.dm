@@ -158,6 +158,8 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROOTSONG, 0)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_YA_SSA, 0)
+	add_language(LANGUAGE_DELVAHII, 0)
+
 
 	if(!safety)//Only used by AIize() to successfully spawn an AI.
 		if (!B)//If there is no player/brain inside.
@@ -603,10 +605,10 @@ var/list/ai_verbs_default = list(
 
 		for(var/mob/living/carbon/human/H in human_mob_list)
 			current_mobs[H.real_name] = H
-		for(var/datum/data/record/t in data_core.locked)//Look in data core locked.
-			personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = t.fields["image"]//Pull names, rank, and image.
-			if(current_mobs[t.fields["name"]])
-				personnel_list["[t.fields["name"]]: [t.fields["rank"]]"] = list("mob" = current_mobs[t.fields["name"]], "image" = t.fields["image"])
+		for(var/datum/record/general/t in SSrecords.records_locked)//Look in data core locked.
+			personnel_list["[t.name]: [t.rank]"] = t.photo_front //Pull names, rank, and image.
+			if(current_mobs[t.name])
+				personnel_list["[t.name]: [t.rank]"] = list("mob" = current_mobs[t.name], "image" = t.photo_front)
 
 		if(personnel_list.len)
 			input = input("Select a crew member:") as null|anything in personnel_list

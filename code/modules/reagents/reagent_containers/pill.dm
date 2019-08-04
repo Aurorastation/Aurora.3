@@ -11,6 +11,7 @@
 	w_class = 1
 	slot_flags = SLOT_EARS
 	volume = 60
+	drop_sound = 'sound/items/drop/food.ogg'
 
 	New()
 		..()
@@ -270,3 +271,12 @@
 /obj/item/weapon/reagent_containers/pill/rmt/Initialize()
 	. = ..()
 	reagents.add_reagent("rmt", 15)
+
+/obj/item/weapon/reagent_containers/pill/antihistamine
+	name = "antihistamine"
+	desc = "Contains diphenhydramine, also known as Benadryl. Helps with sneezing, can cause drowsiness."
+	icon_state = "pill19"
+
+/obj/item/weapon/reagent_containers/pill/antihistamine/Initialize()
+	. = ..()
+	reagents.add_reagent("diphenhydramine", 5)

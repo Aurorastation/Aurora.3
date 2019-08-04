@@ -11,15 +11,13 @@
 
 	pump_fail_msg = "<span class='warning'>You cannot work the rifle's bolt without gripping it with both hands!</span>"
 	pump_snd = 'sound/weapons/riflebolt.ogg'
-	has_wield_state = FALSE
+	has_wield_state = TRUE
 
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
-
-	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
 	icon_state = "obrez"
@@ -30,6 +28,7 @@
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 	can_bayonet = FALSE
+	has_wield_state = FALSE
 	if(bayonet)
 		qdel(bayonet)
 		bayonet = null
@@ -48,12 +47,13 @@
 	accuracy = -2
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
+	has_wield_state = FALSE
 
 /obj/item/weapon/gun/projectile/contender
 	name = "pocket rifle"
 	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses 5.56mm rounds."
 	icon_state = "pockrifle"
-	item_state = "obrez"
+	item_state = "pockrifle"
 	caliber = "a556"
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
@@ -81,7 +81,10 @@
 		to_chat(user, "<span class='notice'>You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload.</span>")
 		playsound(user, 'sound/weapons/riflebolt.ogg', 60, 1)
 		icon_state = icon_retracted
+		item_state = icon_retracted
 		retracted_bolt = 1
+		user.update_inv_l_hand()
+		user.update_inv_r_hand()
 		return 1
 
 	else if(retracted_bolt && loaded.len)
@@ -91,6 +94,11 @@
 		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
 
 	icon_state = initial(icon_state)
+	item_state = initial(item_state)
+
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
+
 	retracted_bolt = 0
 
 /obj/item/weapon/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
@@ -229,7 +237,7 @@
 	fire_delay_wielded = 10
 	accuracy_wielded = 2
 
-	action_button_name = "Wield rifle"
+	is_wieldable = TRUE
 
 /obj/item/weapon/gun/projectile/gauss/update_icon()
 	..()
@@ -242,18 +250,3 @@
 
 	update_held_icon()
 	return
-
-/obj/item/weapon/gun/projectile/gauss/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/gauss/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/gauss/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()

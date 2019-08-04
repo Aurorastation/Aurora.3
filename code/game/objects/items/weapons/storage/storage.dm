@@ -36,6 +36,7 @@
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
 	var/use_sound = "rustle"	//sound played when used. null for no sound.
+	var/list/starts_with // for pre-filled items
 
 /obj/item/weapon/storage/Destroy()
 	close_all()
@@ -574,6 +575,13 @@
 
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
+	if(LAZYLEN(starts_with))
+		for(var/t in starts_with)
+			if(!ispath(t))
+				crash_with("[t] in [src]'s starts_with list is not a path!")
+				continue
+			for(var/i=0, i<starts_with[t], i++)
+				new t(src)
 	return
 
 /obj/item/weapon/storage/Initialize(mapload, defer_shrinkwrap = FALSE)

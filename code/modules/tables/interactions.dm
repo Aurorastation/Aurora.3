@@ -100,7 +100,7 @@
 	)
 	LAZYADD(climbers, user)
 
-	if(!do_after(user,50))
+	if(!do_after(user,25))
 		LAZYREMOVE(climbers, user)
 		return
 

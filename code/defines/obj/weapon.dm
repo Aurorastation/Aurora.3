@@ -1,7 +1,7 @@
 /obj/item/weapon/phone
 	name = "red phone"
 	desc = "Should anything ever go wrong..."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
 	force = 3.0
@@ -15,7 +15,7 @@
 /obj/item/weapon/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
 	desc = "A device used to rapidly deploy seeds."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -36,17 +36,6 @@
 	throw_range = 15
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
-
-
-/obj/item/weapon/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "c_tube"
-	throwforce = 1
-	w_class = 2.0
-	throw_speed = 4
-	throw_range = 5
 
 /obj/item/weapon/cane
 	name = "cane"
@@ -313,7 +302,6 @@
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/handcuffs.dmi')
 
 /obj/item/weapon/caution
 	desc = "Caution! Wet Floor!"
@@ -326,6 +314,7 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
@@ -581,7 +570,7 @@
 /obj/item/weapon/anomaly_core
 	name = "anomaly core"
 	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 

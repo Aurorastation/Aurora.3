@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffddff"
-	req_admin_notify = 1
 	economic_modifier = 15
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
@@ -65,7 +64,7 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/science
 
@@ -150,7 +149,7 @@
 	jobtype = /datum/job/intern_sci
 
 	uniform = /obj/item/clothing/under/rank/scientist
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
 	backpack = /obj/item/weapon/storage/backpack/toxins

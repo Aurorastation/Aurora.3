@@ -194,7 +194,7 @@
 /area/derelict/hallway/northwest)
 "aI" = (
 /obj/machinery/artifact,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aJ" = (
 /obj/item/weapon/gun/energy/stunrevolver,
@@ -473,7 +473,7 @@
 /turf/template_noop,
 /area/template_noop)
 "bG" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "bH" = (
 /obj/item/tape/engineering{
@@ -3665,7 +3665,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "lB" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/template_noop,
 /area/template_noop)
 "lC" = (
@@ -4357,14 +4357,6 @@
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/derelict/hallway/southeast)
-"nw" = (
-/obj/structure/lamarr{
-	destroyed = 1;
-	icon_state = "labcageb0";
-	occupied = 0
-	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "nx" = (
@@ -5702,7 +5694,7 @@
 /area/derelict/hallway/southeast)
 "rm" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
@@ -6390,7 +6382,7 @@
 /area/derelict/hallway/southeast)
 "ta" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
@@ -6576,7 +6568,7 @@
 /area/template_noop)
 "tA" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
 "tB" = (
@@ -7556,7 +7548,7 @@
 /area/derelict/hallway/southwest)
 "vO" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -54599,7 +54591,7 @@ mr
 jS
 jl
 in
-nw
+jW
 jW
 aa
 og

@@ -278,7 +278,14 @@
 		t = replacetext(t, "\[/table\]", "")
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
-		t = replacetext(t, "\[logo\]", "")
+		t = replacetext(t, "\[logo_nt\]", "")
+		t = replacetext(t, "\[logo_nt_small\]", "")
+		t = replacetext(t, "\[logo_zh\]", "")
+		t = replacetext(t, "\[logo_idris\]", "")
+		t = replacetext(t, "\[logo_eridani\]", "")
+		t = replacetext(t, "\[logo_necro\]", "")
+		t = replacetext(t, "\[logo_hp\]", "")
+		t = replacetext(t, "\[logo_be\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -323,7 +330,7 @@
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
-		icon_state = "paper_onfire"
+		flick("paper_onfire", src)
 
 		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
 		spawn(20)
@@ -540,7 +547,7 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/weapon/paper/incident/New()
-	info = {"\[center\]\[logo\]\[/center\]
+	info = {"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
 \[barcode\]\[/center\]"}
@@ -552,7 +559,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/weapon/paper/sentencing/New()
-	info = {"\[center\]\[logo\]\[/center\]
+	info = {"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]

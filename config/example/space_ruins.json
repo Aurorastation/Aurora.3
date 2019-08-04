@@ -44,8 +44,6 @@
 		"file_name": "pra_blockade_runner.dmm",
 		"valid maps": ["aurora"],
 		"characteristics": {
-			"Large biomass signals": 100,
-			"Life Form Signals": 20,
 			"Bluespace Signals": 20,
 			"Unrecognizable Signals": 20
 		}
@@ -86,6 +84,22 @@
 			"Unrecognizable Signals": 100,
 			"Life Form Signals": 20,
 			"Bluespace Signals": 20
+		}
+	},
+	"diona gestalt": {
+		"file_name": "diona_gestalt.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Large biomass signals": 100,
+			"Life Form Signals": 20
+		}
+	},
+	"spacehulk": {
+		"file_name": "spacehulk.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Bluespace Signals": 20,
+			"Unrecognizable Signals": 20
 		}
 	}
 }

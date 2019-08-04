@@ -1,11 +1,5 @@
 
 //Hat Station 13
-
-/obj/item/clothing/head/
-	name = "hat"
-	desc = "Apply on head."
-	drop_sound = 'sound/items/drop/hat.ogg'
-
 /obj/item/clothing/head/collectable
 	name = "collectable hat"
 	desc = "A rare collectable hat."
@@ -15,8 +9,7 @@
 	desc = "an ultra rare hat. It commands a certain respect."
 	icon_state = "petehat"
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Resomi" = 'icons/mob/species/resomi/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi'
 		)
 
 /obj/item/clothing/head/collectable/slime

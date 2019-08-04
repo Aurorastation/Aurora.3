@@ -73,6 +73,9 @@
 	antenna["antenna, spiked"] = /obj/item/clothing/head/antenna/spiked
 	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
 	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
+	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
+	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
+	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 	gear_tweaks += list(gear_tweak_free_color_choice)
 
@@ -84,7 +87,7 @@
 	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
-	display_name = "Idris reclamation unit coat"
+	display_name = "Idris Reclamation Unit coat"
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"

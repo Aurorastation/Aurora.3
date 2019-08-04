@@ -127,7 +127,7 @@
 		//Appearance
 		new /obj/item/weapon/storage/backpack/security(src)
 		new /obj/item/weapon/storage/backpack/satchel_sec(src)
-		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
+		new /obj/item/clothing/under/rank/head_of_security(src)
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
 		new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
@@ -135,6 +135,8 @@
 		new /obj/item/clothing/head/helmet/HoS(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
+		new /obj/item/clothing/shoes/black_boots(src)
+		new /obj/item/clothing/gloves/black_leather(src)
 		//Tools
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
@@ -169,7 +171,7 @@
 		//Appearance
 		new /obj/item/weapon/storage/backpack/security(src)
 		new /obj/item/weapon/storage/backpack/satchel_sec(src)
-		new /obj/item/clothing/under/rank/head_of_security/jensen(src)
+		new /obj/item/clothing/under/rank/head_of_security(src)
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
@@ -179,6 +181,7 @@
 		new /obj/item/device/radio/headset/heads/hos(src)
 		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
+
 		new /obj/item/clothing/accessory/holster/waist(src)
 
 		new /obj/item/device/breath_analyzer(src)
@@ -215,6 +218,8 @@
 		new /obj/item/clothing/head/helmet/warden/commissar(src)
 		new /obj/item/clothing/head/helmet(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
+		new /obj/item/clothing/shoes/black_boots(src)
+		new /obj/item/clothing/gloves/black_leather(src)
 		//Tools
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
@@ -225,8 +230,11 @@
 		new /obj/item/weapon/melee/baton/loaded(src)
 		new /obj/item/weapon/gun/energy/pistol(src)
 		//Belts
+		if (prob(50))
+			new /obj/item/clothing/accessory/storage/black_vest(src)
+		else
+			new /obj/item/clothing/accessory/storage/black_pouches(src)
 		new /obj/item/weapon/storage/belt/security(src)
-		new /obj/item/clothing/accessory/storage/black_vest(src)
 
 
 /obj/structure/closet/secure_closet/security_cadet
@@ -245,8 +253,9 @@
 			new /obj/item/weapon/storage/backpack/security(src)
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
-		new /obj/item/clothing/head/beret/sec(src)
-		new /obj/item/clothing/under/rank/security2(src)
+		new /obj/item/clothing/head/beret/sec/cadet(src)
+		new /obj/item/clothing/suit/storage/vest/cadet(src)
+		new /obj/item/clothing/under/rank/cadet(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/device/flash(src)
@@ -256,7 +265,10 @@
 		new /obj/item/device/holowarrant(src)
 		new /obj/item/device/flashlight/flare(src)
 		//Belts
-		new /obj/item/clothing/accessory/storage/black_vest(src)
+		if (prob(50))
+			new /obj/item/clothing/accessory/storage/black_vest(src)
+		else
+			new /obj/item/clothing/accessory/storage/black_pouches(src)
 		new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security
@@ -295,9 +307,12 @@
 		new /obj/item/device/flashlight/flare(src)
 		new /obj/item/weapon/handcuffs(src)
 		//Belts
-		new /obj/item/clothing/accessory/storage/black_vest(src)
+		if (prob(50))
+			new /obj/item/clothing/accessory/storage/black_vest(src)
+		else
+			new /obj/item/clothing/accessory/storage/black_pouches(src)
+		new /obj/item/clothing/accessory/holster/hip(src)
 		new /obj/item/weapon/storage/belt/security(src)
-
 
 /obj/structure/closet/secure_closet/security/cargo
 
@@ -343,7 +358,7 @@
 		new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
 		new /obj/item/clothing/under/det(src)
 		new /obj/item/clothing/under/det/black(src)
-		new /obj/item/clothing/under/det/slob(src)
+		new /obj/item/clothing/under/det/classic(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/clothing/shoes/brown(src)
 		//Tools
@@ -395,11 +410,10 @@
 		new /obj/item/clothing/suit/storage/forensics/blue(src)
 		new /obj/item/clothing/suit/storage/forensics/red(src)
 		new /obj/item/clothing/suit/storage/vest/csi(src)
-		new /obj/item/clothing/under/det(src)
-		new /obj/item/clothing/under/det/black(src)
-		new /obj/item/clothing/under/det/slob(src)
 		new /obj/item/clothing/under/det/forensics(src)
-		new /obj/item/clothing/shoes/brown(src)
+		new /obj/item/clothing/under/det/black(src)
+		new /obj/item/clothing/under/det/classic(src)
+		new /obj/item/clothing/shoes/laceup(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/weapon/storage/box/evidence(src)
@@ -411,8 +425,8 @@
 	req_access = list(access_captain)
 
 	fill()
-		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
-		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
+		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/chloral(src)
+		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/chloral(src)
 
 
 // These are special snowflakes that need to be in a global list.

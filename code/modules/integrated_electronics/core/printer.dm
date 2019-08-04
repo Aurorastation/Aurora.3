@@ -116,6 +116,10 @@
 		if(!build_type || !ispath(build_type))
 			return 1
 
+		if (!can_print(build_type))
+			to_chat(usr, "<span class='danger'>[src] buzzes angrily at you!</span>")
+			return 1
+
 		var/cost = 1
 		var/is_asm = FALSE
 		if(ispath(build_type, /obj/item/device/electronic_assembly))
@@ -136,6 +140,15 @@
 			new build_type(get_turf(loc))
 
 	interact(usr)
+
+/obj/item/device/integrated_circuit_printer/proc/can_print(build_type)
+	var/list/current_list = SSelectronics.printer_recipe_list[current_category]
+
+	for (var/obj/O in current_list)
+		if (O.type == build_type)
+			return TRUE
+
+	return FALSE
 
 // FUKKEN UPGRADE DISKS
 /obj/item/weapon/disk/integrated_circuit/upgrade

@@ -37,7 +37,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/match
 	name = "match"
 	desc = "A simple match stick, used for lighting fine smokables."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "match_unlit"
 	var/burnt = 0
 	var/smoketime = 5
@@ -289,6 +289,24 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.clear_reagents()
 	reagents.add_reagent("tobacco",15)
 
+/obj/item/clothing/mask/smokable/cigarette/acmeco
+	burn_rate = 0.015
+
+/obj/item/clothing/mask/smokable/cigarette/acmeco/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobacco",5)
+	reagents.add_reagent("nicotine",5)
+	reagents.add_reagent("lexorin",2)
+	reagents.add_reagent("serotrotium",3)
+
+/obj/item/clothing/mask/smokable/cigarette/blank
+	burn_rate = 0.003 //300 seconds
+	chem_volume = 15
+
+/obj/item/clothing/mask/smokable/cigarette/blank/Initialize()
+	. = ..()
+	reagents.clear_reagents()
 
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
@@ -298,27 +316,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.clear_reagents()
 	reagents.add_reagent("tobacco",5)
 	reagents.add_reagent("nicotine",10)
-
-/obj/item/clothing/mask/smokable/cigarette/killthroat
-	burn_rate = 0.015
-
-/obj/item/clothing/mask/smokable/cigarette/killthroat/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent("tobacco",5)
-	reagents.add_reagent("nicotine",5)
-	reagents.add_reagent("lexorin",2)
-	reagents.add_reagent("serotrotium",3)
-
-/obj/item/clothing/mask/smokable/cigarette/custom
-	burn_rate = 0.003 //300 seconds
-	chem_volume = 15
-
-/obj/item/clothing/mask/smokable/cigarette/custom/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-
-
 
 
 ////////////
@@ -408,7 +405,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /////////////////
 /obj/item/clothing/mask/smokable/pipe
 	name = "smoking pipe"
-	desc = "A pipe, for smoking. Probably made of meershaum or something."
+	desc = "A pipe, for smoking. Probably made of meerschaum or something."
 	icon_state = "pipeoff"
 	item_state = "pipeoff"
 	icon_on = "pipeon"  //Note - these are in masks.dmi
@@ -511,7 +508,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/weapon/flame/lighter
 	name = "cheap lighter"
 	desc = "A cheap-as-free lighter."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
 	w_class = 1

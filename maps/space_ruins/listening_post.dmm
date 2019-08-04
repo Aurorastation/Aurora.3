@@ -46,10 +46,10 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/excavation,
 /obj/item/hoist_kit,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ak" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "al" = (
 /obj/structure/lattice,
@@ -68,7 +68,7 @@
 /obj/random/prebuilt_ka,
 /obj/structure/table/rack,
 /obj/item/mecha_parts/mecha_equipment/teleporter,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ap" = (
 /obj/machinery/crystal,
@@ -76,15 +76,15 @@
 /area/derelict/ship)
 "aq" = (
 /obj/machinery/giga_drill,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ar" = (
 /obj/mecha/working/ripley/mining,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "as" = (
 /obj/structure/closet/excavation,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "at" = (
 /obj/structure/lattice/catwalk,
@@ -96,7 +96,7 @@
 /area/derelict/ship)
 "aw" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ax" = (
 /turf/simulated/floor/airless{
@@ -115,7 +115,7 @@
 /area/derelict/ship)
 "aB" = (
 /obj/structure/boulder,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "aC" = (
 /obj/machinery/power/rtg/advanced,
@@ -215,7 +215,7 @@
 /area/derelict/ship)
 "aZ" = (
 /obj/item/weapon/rig/eva/equipped,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ba" = (
 /obj/effect/decal/remains,
@@ -227,7 +227,7 @@
 /area/derelict/ship)
 "bd" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "be" = (
 /obj/machinery/door/airlock/vault/bolted{
@@ -265,11 +265,11 @@
 /area/derelict/ship)
 "bq" = (
 /obj/item/weapon/ore/coal,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "br" = (
 /obj/item/weapon/pickaxe/diamond,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bs" = (
 /obj/item/weapon/ore/diamond,
@@ -279,14 +279,14 @@
 /area/derelict/ship)
 "bt" = (
 /obj/effect/decal/mecha_wreckage/hoverpod,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bu" = (
 /turf/simulated/wall,
 /area/derelict/ship)
 "bv" = (
 /obj/vehicle/bike,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bw" = (
 /obj/machinery/door/airlock/external,
@@ -353,7 +353,7 @@
 /area/derelict/ship)
 "bK" = (
 /obj/structure/girder,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bM" = (
 /obj/machinery/door/airlock/glass,
@@ -532,7 +532,7 @@
 /area/derelict/ship)
 "cu" = (
 /obj/item/weapon/archaeological_find,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "cv" = (
 /obj/structure/table/standard,

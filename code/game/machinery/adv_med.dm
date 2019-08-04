@@ -17,12 +17,13 @@
 		"Zhan-Khazan Tajara",
 		"Vaurca Worker",
 		"Vaurca Warrior",
-		"Diona"
+		"Diona",
+		"Monkey"
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scanner_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
 
@@ -30,11 +31,23 @@
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
+/obj/machinery/bodyscanner/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
 		connected.connected = null
 	return ..()
+
+/obj/machinery/bodyscanner/update_icon()
+	flick("[initial(icon_state)]-anim", src)
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
 
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
@@ -72,7 +85,7 @@
 	usr.forceMove(src)
 	src.occupant = usr
 	update_use_power(2)
-	src.icon_state = "body_scanner_1"
+	update_icon()
 	for(var/obj/O in src)
 		//O = null
 		qdel(O)
@@ -94,7 +107,7 @@
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_use_power(1)
-	src.icon_state = "body_scanner_0"
+	update_icon()
 	return
 
 /obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
@@ -124,7 +137,7 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		src.icon_state = "body_scanner_1"
+		update_icon()
 		for(var/obj/O in src)
 			O.forceMove(loc)
 		//Foreach goto(154)
@@ -167,7 +180,7 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		src.icon_state = "body_scanner_1"
+		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
 		for(var/obj/Obj in src)
 			Obj.forceMove(src.loc)
@@ -234,9 +247,10 @@
 	var/obj/machinery/bodyscanner/connected
 	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
 	var/collapse_desc = ""
+	var/broken_desc = ""
 	name = "Body Scanner Console"
 	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
@@ -257,16 +271,25 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/body_scanconsole/proc/get_lung_desc()
+/obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!src.connected || !src.connected.occupant)
 		return
 	if (src.connected.occupant.name != src.connected.last_occupant_name || !collapse_desc)
-		var/ldesc = pick("Contains fluid.", "Shows symptoms of collapse.", "Collapsed.", "Shows symptoms of rupture.", "Is ruptured.")
+		var/ldesc = pick("Shows symptoms of collapse.", "Collapsed.", "Pneumothorax detected.")
 		collapse_desc = ldesc
 		src.connected.last_occupant_name = src.connected.occupant.name
-		return ldesc
 
 	return collapse_desc
+
+/obj/machinery/body_scanconsole/proc/get_broken_lung_desc()
+	if (!src.connected || !src.connected.occupant)
+		return
+	if (src.connected.occupant.name != src.connected.last_occupant_name || !broken_desc)
+		var/ldesc = pick("Shows symptoms of rupture.", "Ruptured.", "Extensive damage detected.")
+		broken_desc = ldesc
+		src.connected.last_occupant_name = src.connected.occupant.name
+
+	return broken_desc
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
@@ -378,7 +401,10 @@
 				data["bruteDmg"] = 0
 
 		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
-			wounds += get_lung_desc()
+			if (O.is_broken())
+				wounds += get_broken_lung_desc()
+			else
+				wounds += get_collapsed_lung_desc()
 
 		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."

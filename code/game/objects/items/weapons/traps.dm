@@ -135,7 +135,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_base = "small"
 	icon_state = "small0"
-	desc = "A small mechanical trap thas is used to catch small animals like mice, lizards, chick and spiderlings."
+	desc = "A small mechanical trap thas is used to catch small animals like rats, lizards, chick and spiderlings."
 	throwforce = 2
 	force = 1
 	w_class = 2
@@ -145,7 +145,7 @@
 	time_to_escape = 3 // Minutes
 	var/breakout = FALSE
 	var/last_shake = 0
-	var/list/allowed_mobs = list(/mob/living/simple_animal/mouse, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
+	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
 	var/release_time = 0
 	var/list/resources = list(rods = 6)
 	var/spider = TRUE
@@ -157,7 +157,7 @@
 
 /obj/item/weapon/trap/animal/update_icon()
 	icon = initial(icon)
-	icon_state = "[icon_base][deployed]"	
+	icon_state = "[icon_base][deployed]"
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
 		deployed = FALSE
@@ -169,7 +169,7 @@
 	if(isliving(L))
 		var/mutable_appearance/MA = new(L)
 		MA.layer = FLOAT_LAYER
-		MA.plane = FLOAT_PLANE	
+		MA.plane = FLOAT_PLANE
 		underlays.Cut()
 		underlays += MA
 
@@ -196,7 +196,7 @@
 		else if (istype(L, /obj/effect/spider/spiderling))
 			var/obj/effect/spider/spiderling/S = L
 			to_chat(user, "<span class='notice'>\The [src] has [S] and it is alive.</span>")
-		
+
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 

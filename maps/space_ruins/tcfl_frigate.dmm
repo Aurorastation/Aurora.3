@@ -1872,14 +1872,12 @@
 /area/derelict/arrival)
 "fo" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/structure/closet/crate/extinguisher_catridges,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "fp" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/structure/closet/crate/extinguisher_catridges,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "fq" = (
@@ -2443,10 +2441,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
-"gL" = (
-/obj/structure/closet/crate/extinguisher_catridges,
-/turf/simulated/floor,
-/area/derelict/arrival)
 "gM" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2673,7 +2667,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "id" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
@@ -4859,6 +4853,18 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
+"Pb" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/storage/engine_storage)
+"TN" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/template_noop,
+/area/derelict/storage/engine_storage)
 
 (1,1,1) = {"
 aa
@@ -23002,7 +23008,7 @@ kX
 kX
 kX
 kX
-aa
+kX
 aa
 aa
 aa
@@ -23259,7 +23265,7 @@ mz
 mz
 oe
 op
-ks
+TN
 aa
 aa
 aa
@@ -29170,7 +29176,7 @@ nV
 nV
 oe
 op
-ks
+Pb
 aa
 aa
 aa
@@ -29427,7 +29433,7 @@ ml
 ml
 ml
 kX
-aa
+kX
 aa
 aa
 aa
@@ -29692,7 +29698,7 @@ kX
 kX
 kX
 kX
-aa
+kX
 aa
 aa
 aa
@@ -29949,7 +29955,7 @@ oW
 oZ
 pb
 op
-ks
+TN
 aa
 aa
 aa
@@ -33547,7 +33553,7 @@ oO
 pa
 oe
 op
-ks
+Pb
 aa
 aa
 aa
@@ -33804,7 +33810,7 @@ kX
 kX
 kX
 kX
-aa
+kX
 aa
 aa
 aa
@@ -34013,7 +34019,7 @@ fs
 cC
 gr
 gB
-gL
+cK
 cC
 dk
 cC

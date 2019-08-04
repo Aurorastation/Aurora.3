@@ -26,27 +26,13 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
 	modifystate = "eriflestun"
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/Laser.ogg')
 		)
 
-    //action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/energy/rifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/rifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/rifle/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/rifle/laser
 	name = "laser rifle"

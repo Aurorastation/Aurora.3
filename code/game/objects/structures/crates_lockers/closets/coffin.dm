@@ -19,7 +19,7 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else
 		attack_hand(user)

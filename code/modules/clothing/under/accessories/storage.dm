@@ -125,3 +125,17 @@
 	)
 
 	new /obj/item/weapon/material/knife/bayonet(hold)
+
+/obj/item/clothing/accessory/storage/bandolier
+	name = "bandolier"
+	desc = "A pocketed belt designated to hold shotgun shells."
+	icon_state = "bandolier"
+	item_state = "bandolier"
+	slots = 16
+
+/obj/item/clothing/accessory/storage/bandolier/Initialize()
+	. = ..()
+	hold.max_storage_space = 16
+	hold.can_hold = list(
+		/obj/item/ammo_casing/shotgun
+	)

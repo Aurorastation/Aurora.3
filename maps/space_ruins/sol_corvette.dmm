@@ -357,7 +357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bd" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "be" = (
@@ -467,12 +467,6 @@
 "bG" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bH" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -755,7 +749,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cA" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cB" = (
@@ -920,6 +914,68 @@
 "dg" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"sg" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"th" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"wQ" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"zm" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/shuttle/wall/dark,
+/area/derelict/ship)
+"BR" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/shuttle/wall/dark,
+/area/derelict/ship)
+"Ii" = (
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/floor,
+/area/derelict/ship)
+"Jr" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/derelict/ship)
+"Yo" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Zj" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"ZG" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"ZJ" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/shuttle/wall/dark,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -25226,8 +25282,8 @@ cE
 aq
 aq
 aq
-ab
-ab
+aq
+th
 ab
 ab
 ab
@@ -25483,8 +25539,8 @@ am
 cU
 cW
 aq
-ab
-ab
+Ii
+BR
 ab
 ab
 ab
@@ -25740,8 +25796,8 @@ am
 am
 cW
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -25997,8 +26053,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -26254,8 +26310,8 @@ am
 am
 cX
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -26511,8 +26567,8 @@ cP
 cN
 cX
 aq
-ab
-ab
+Ii
+zm
 ab
 ab
 ab
@@ -26768,8 +26824,8 @@ aw
 aq
 aq
 aq
-ab
-ab
+aq
+wQ
 ab
 ab
 ab
@@ -27541,8 +27597,8 @@ aq
 aq
 aq
 aq
-ab
-ab
+aq
+Zj
 ab
 ab
 ab
@@ -27798,8 +27854,8 @@ cY
 dc
 df
 aq
-ab
-ab
+Ii
+sg
 ab
 ab
 ab
@@ -28055,8 +28111,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -28312,8 +28368,8 @@ am
 am
 dg
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -28552,7 +28608,7 @@ ba
 am
 az
 am
-bH
+am
 bJ
 bN
 ba
@@ -28569,8 +28625,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -28826,8 +28882,8 @@ cZ
 am
 am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -29083,8 +29139,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -29340,8 +29396,8 @@ da
 de
 am
 aq
-ab
-ab
+Ii
+ZG
 ab
 ab
 ab
@@ -29597,8 +29653,8 @@ aq
 aq
 aq
 aq
-ab
-ab
+aq
+Yo
 ab
 ab
 ab
@@ -30366,8 +30422,8 @@ aq
 aq
 aq
 aq
-ab
-ab
+aq
+th
 ab
 ab
 ab
@@ -30623,8 +30679,8 @@ ax
 am
 am
 aq
-ab
-ab
+Ii
+BR
 ab
 ab
 ab
@@ -30880,8 +30936,8 @@ aq
 az
 aq
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -31137,8 +31193,8 @@ cK
 am
 am
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -31394,8 +31450,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -31651,8 +31707,8 @@ am
 cV
 db
 aq
-ab
-ab
+Ii
+zm
 ab
 ab
 ab
@@ -31908,8 +31964,8 @@ cT
 aq
 aq
 aq
-ab
-ab
+aq
+wQ
 ab
 ab
 ab

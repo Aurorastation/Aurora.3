@@ -5,14 +5,14 @@
 	density = 0
 	anchored = 1
 	layer = 2
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/trash.dmi'
 	icon_state = "shards"
 
 /obj/effect/decal/cleanable/ash
 	name = "ashes"
 	desc = "Ashes to ashes, dust to dust, and into space."
 	gender = PLURAL
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/trash.dmi'
 	icon_state = "ash"
 	anchored = 1
 

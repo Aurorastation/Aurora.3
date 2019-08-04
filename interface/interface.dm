@@ -1,15 +1,20 @@
 //Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
-/client/verb/wiki()
+/client/verb/wiki(var/sub_page = null as null|text)
 	set name = "wiki"
 	set desc = "Visit the wiki."
 	set hidden = 1
-	if( config.wikiurl )
+
+	if(config.wikiurl)
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		to_chat(src, link(config.wikiurl))
+
+		var/to_open = config.wikiurl
+		if (sub_page)
+			to_open += sub_page
+
+		send_link(src, to_open)
 	else
 		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
-	return
 
 /client/verb/forum()
 	set name = "forum"
@@ -18,7 +23,7 @@
 	if( config.forumurl )
 		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		to_chat(src, link(config.forumurl))
+		send_link(src, config.forumurl)
 	else
 		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 	return
@@ -30,7 +35,7 @@
 	if( config.githuburl )
 		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		to_chat(src, link(config.githuburl + "/issues"))
+		send_link(src, config.githuburl + "/issues")
 	else
 		to_chat(src, span("warning", "The issue tracker URL is not set in the server configuration."))
 	return
@@ -175,7 +180,7 @@ Any-Mode: (hotkey doesn't need to be on)
 	if (config.webint_url)
 		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
 			return
-		to_chat(src, link(config.webint_url))
+		send_link(src, config.webint_url)
 	else
 		to_chat(src, span("warning", "The web interface URL is not set in the server configuration."))
 	return
@@ -189,7 +194,7 @@ Any-Mode: (hotkey doesn't need to be on)
 		if(alert("This will open Discord in your browser or directly. Are you sure?",, "Yes", "No") == "Yes")
 			var/url_link = discord_bot.retreive_invite()
 			if (url_link)
-				to_chat(src, link(url_link))
+				send_link(src, url_link)
 			else
 				to_chat(src, span("danger", "An error occured retreiving the invite."))
 	else

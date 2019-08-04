@@ -81,9 +81,9 @@
 	permeability_coefficient = 0.50
 
 
-/obj/item/clothing/under/rank/internalaffairs
-	desc = "The plain, professional attire of an Internal Affairs Agent. The collar is <i>immaculately</i> starched."
-	name = "internal affairs uniform"
+/obj/item/clothing/under/rank/liaison
+	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
+	name = "corporate liaison uniform"
 	icon_state = "internalaffairs"
 	item_state = "ba_suit"
 	worn_state = "internalaffairs"
@@ -198,8 +198,8 @@
 	icon_state = "einstein_engine"
 	worn_state = "einstein_engine"
 
-/obj/item/clothing/under/rank/zheng
-	name = "Zheng-Hu uniform"
-	desc = "A uniform worn by Zheng-Hu employees and contractors."
+/obj/item/clothing/under/rank/zeng
+	name = "Zeng-Hu uniform"
+	desc = "A uniform worn by Zeng-Hu employees and contractors."
 	icon_state = "zhu"
 	worn_state = "zhu"
