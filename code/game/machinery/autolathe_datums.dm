@@ -56,6 +56,11 @@
 	path = /obj/item/glass_jar
 	category = "General"
 
+/datum/autolathe/recipe/bowl
+	name = "bowl"
+	path = /obj/item/weapon/reagent_containers/glass/beaker/bowl
+	category = "General"
+
 /datum/autolathe/recipe/crowbar
 	name = "crowbar"
 	path = /obj/item/weapon/crowbar

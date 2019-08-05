@@ -84,7 +84,7 @@
 	M.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/spray/pepper(M), slot_l_store)
 	M.equip_to_slot_or_del(new /obj/item/device/taperecorder/cciaa(M), slot_r_store)
 
-	var/obj/item/clothing/suit/storage/toggle/internalaffairs/suit = new(M)
+	var/obj/item/clothing/suit/storage/toggle/liaison/suit = new(M)
 	suit.name = "central command internal affairs jacket"
 	M.equip_to_slot_or_del(suit, slot_wear_suit)
 
@@ -291,20 +291,3 @@
 		data += "<center>No faxes have been sent out.</center>"
 
 	usr << browse("<HTML><HEAD><TITLE>Centcomm Fax History</TITLE></HEAD><BODY>[data]</BODY></HTML>", "window=Centcomm Fax History")
-
-/client/proc/view_duty_log()
-	set category = "Special Verbs"
-	set name = "Get Duty Log"
-	set desc = "Download a log or file from an investigation"
-
-	var/path = browse_files("data/dutylogs/")
-	if(!path)
-		return
-
-	if(file_spam_check())
-		return
-
-	message_admins("[key_name_admin(src)] accessed file: [path]")
-	to_chat(usr, run( file(path) ))
-	feedback_add_details("admin_verb","DOGL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	return

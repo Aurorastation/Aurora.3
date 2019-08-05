@@ -136,6 +136,19 @@
 		A.loc.contents.Remove(A)
 		update()
 
+/obj/item/weapon/implanter/freedom/Initialize()
+	imp = new /obj/item/weapon/implant/freedom( src )
+	..()
+	update()
+
+/obj/item/weapon/implanter/uplink
+	name = "implanter (U)"
+
+/obj/item/weapon/implanter/uplink/Initialize()
+	imp = new /obj/item/weapon/implant/uplink( src )
+	..()
+	update()
+
 /obj/item/weapon/implanter/ipc_tag
 	name = "IPC/Shell tag implanter"
 	desc = "A special implanter used for implanting synthetics with a special tag."

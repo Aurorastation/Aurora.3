@@ -149,7 +149,7 @@
 	icon_state = "chapeloffice"
 
 /area/lawoffice
-	name = "\improper Internal Affairs"
+	name = "\improper Representative Office"
 	icon_state = "law"
 	station_area = 1
 

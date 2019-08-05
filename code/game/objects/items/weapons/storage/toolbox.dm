@@ -26,46 +26,52 @@
 	name = "emergency toolbox"
 	icon_state = "red"
 	item_state = "toolbox_red"
+	starts_with = list(\
+		/obj/item/weapon/crowbar/red = 1,\
+		/obj/item/weapon/extinguisher/mini = 1,\
+		/obj/item/device/radio = 1\
+	)
 
-	fill()
-		new /obj/item/weapon/crowbar/red(src)
-		new /obj/item/weapon/extinguisher/mini(src)
-		if(prob(50))
-			new /obj/item/device/flashlight(src)
-		else
-			new /obj/item/device/flashlight/flare(src)
-		new /obj/item/device/radio(src)
+/obj/item/weapon/storage/toolbox/emergency/fill()
+	. = ..()
+	if(prob(50))
+		new /obj/item/device/flashlight(src)
+	else
+		new /obj/item/device/flashlight/flare(src)
 
 /obj/item/weapon/storage/toolbox/mechanical
 	name = "mechanical toolbox"
 	icon_state = "blue"
 	item_state = "toolbox_blue"
-
-	fill()
-		new /obj/item/weapon/screwdriver(src)
-		new /obj/item/weapon/wrench(src)
-		new /obj/item/weapon/weldingtool(src)
-		new /obj/item/weapon/crowbar(src)
-		new /obj/item/device/analyzer(src)
-		new /obj/item/weapon/wirecutters(src)
+	starts_with = list(\
+		/obj/item/weapon/screwdriver = 1,\
+		/obj/item/weapon/wrench = 1,\
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,\
+		/obj/item/device/analyzer = 1,\
+		/obj/item/weapon/wirecutters = 1\
+	)
 
 /obj/item/weapon/storage/toolbox/electrical
 	name = "electrical toolbox"
 	icon_state = "yellow"
 	item_state = "toolbox_yellow"
+	starts_with = list(\
+		/obj/item/weapon/screwdriver = 1,\
+		/obj/item/weapon/wirecutters = 1,\
+		/obj/item/device/t_scanner = 1,\
+		/obj/item/weapon/crowbar = 1\
+	)
 
-	fill()
-		var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
-		new /obj/item/weapon/screwdriver(src)
-		new /obj/item/weapon/wirecutters(src)
-		new /obj/item/device/t_scanner(src)
-		new /obj/item/weapon/crowbar(src)
+/obj/item/weapon/storage/toolbox/electrical/fill()
+	. = ..()
+	var/color = pick("red","yellow","green","blue","pink","orange","cyan","white")
+	new /obj/item/stack/cable_coil(src,30,color)
+	new /obj/item/stack/cable_coil(src,30,color)
+	if(prob(5))
+		new /obj/item/clothing/gloves/yellow(src)
+	else
 		new /obj/item/stack/cable_coil(src,30,color)
-		new /obj/item/stack/cable_coil(src,30,color)
-		if(prob(5))
-			new /obj/item/clothing/gloves/yellow(src)
-		else
-			new /obj/item/stack/cable_coil(src,30,color)
 
 /obj/item/weapon/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
@@ -73,15 +79,15 @@
 	item_state = "toolbox_syndi"
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
 	force = 7.0
-
-	fill()
-		new /obj/item/clothing/gloves/yellow(src)
-		new /obj/item/weapon/screwdriver(src)
-		new /obj/item/weapon/wrench(src)
-		new /obj/item/weapon/weldingtool(src)
-		new /obj/item/weapon/crowbar(src)
-		new /obj/item/weapon/wirecutters(src)
-		new /obj/item/device/multitool(src)
+	starts_with = list(\
+		/obj/item/clothing/gloves/yellow = 1,\
+		/obj/item/weapon/screwdriver = 1,\
+		/obj/item/weapon/wrench = 1,\
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,\
+		/obj/item/weapon/wirecutters = 1,\
+		/obj/item/device/multitool = 1,\
+	)
 
 
 /obj/item/weapon/storage/toolbox/proc/update_force()

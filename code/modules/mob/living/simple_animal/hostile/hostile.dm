@@ -259,11 +259,13 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	var/target_hit = FALSE
 	var/flags = ispath(projectiletype, /obj/item/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
-	for(var/mob/M in check_trajectory(target_mob, src, pass_flags=flags))
-		if(M == target_mob)
+	for(var/V in check_trajectory(target_mob, src, pass_flags=flags))
+		if(V == target_mob)
 			target_hit = TRUE
-		if((M.faction == faction) || (M in friends))
-			return FALSE
+		if(ismob(V))
+			var/mob/M = V
+			if((M.faction == faction) || (M in friends))
+				return FALSE
 
 	return target_hit
 

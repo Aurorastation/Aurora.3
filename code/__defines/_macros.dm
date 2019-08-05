@@ -63,6 +63,7 @@
 #define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
 #define send_output(target, msg, control)                   target << output(msg, control)
+#define send_link(target, url)                              target << link(url)
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
 

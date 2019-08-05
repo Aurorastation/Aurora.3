@@ -1,9 +1,4 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
-/proc/isxenomorph(A)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
-		return istype(H.species, /datum/species/xenos)
-	return 0
 
 /proc/issmall(A)
 	if(A && istype(A, /mob/living))
@@ -426,7 +421,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 		var/x
 		for(x=0; x<duration, x++)
-			if(M.client)
+			if(!M.client)
 				return
 			if(aiEyeFlag)
 				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
@@ -438,7 +433,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		//Will make the strength falloff after the duration.
 		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
 		//Recommended taper values are 0.05-0.1
-		if(M.client)
+		if(!M.client)
 			return
 		if (taper > 0)
 			while (strength > 0)
@@ -692,11 +687,11 @@ proc/is_blind(A)
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/data/record/R = find_security_record("name", perpname)
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
 		if(check_records && !R)
 			threatcount += 4
 
-		if(check_arrest && R && (R.fields["criminal"] == "*Arrest*"))
+		if(check_arrest && R && R.security && (R.security.criminal == "*Arrest*"))
 			threatcount += 4
 
 	return threatcount

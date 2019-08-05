@@ -159,6 +159,47 @@ Works together with spawning an observer, noted above.
 	if(medHUD)
 		process_medHUD(src)
 
+	teleport_if_needed()
+
+/mob/abstract/observer/proc/on_restricted_level(var/check)
+	if(!check)
+		check = z
+	//Check if they are a staff member
+	if(check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
+		return FALSE
+	
+	//Check if the z level is in the restricted list
+	if (!(check in current_map.restricted_levels))
+		return FALSE
+	
+	return TRUE
+
+/mob/abstract/observer/proc/teleport_to_spawn(var/message)
+	if(!message)
+		message = "You can not freely observe on this z-level."
+
+	//Teleport them back to the ghost spawn
+	var/obj/O = locate("landmark*Observer-Start")
+	if(istype(O))
+		to_chat(src, "<span class='notice'>[message]</span>")
+		forceMove(O.loc)
+
+//Teleports the observer away from z-levels they shouldnt be on, if needed.
+/mob/abstract/observer/proc/teleport_if_needed()
+	if(!on_restricted_level())
+		return
+
+	if(following)
+		if(!iscarbon(following)) //If they are following something other than a carbon mob, teleport them
+			stop_following()
+			teleport_to_spawn("You can not follow \the [following] on this level.")
+		else
+			return
+	//If they are moving around freely, teleport them
+	teleport_to_spawn()
+	//And update their sight settings
+	updateghostsight()
+
 
 /mob/abstract/observer/proc/process_medHUD(var/mob/M)
 	var/client/C = M.client
@@ -328,8 +369,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!L || !L.len)
 		if(holyblock)
 			to_chat(usr, "<span class='warning'>This area has been entirely made into sacred grounds, you cannot enter it while you are in this plane of existence!</span>")
+			return
 		else
 			to_chat(usr, "No area available.")
+			return
+
+	var/turf/P = pick(L)
+	if(on_restricted_level(P.z))
+		to_chat(usr, "You can not teleport to this area")
+		return
 
 	stop_following()
 	usr.forceMove(pick(L))
@@ -355,6 +403,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	to_chat(src, "<span class='notice'>Now following \the [following]</span>")
 	move_to_destination(following, following.loc, following.loc)
+	updateghostsight()
 
 /mob/abstract/observer/proc/stop_following()
 	if(following)
@@ -362,10 +411,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null
+	
 
 /mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
 	if(check_holy(T))
+		stop_following()
+		teleport_if_needed()
 		to_chat(usr, "<span class='warning'>You cannot follow something standing on holy grounds!</span>")
 		return
 	..()
@@ -394,21 +446,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			forceMove(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-/*
-/mob/abstract/observer/verb/boo()
-	set category = "Ghost"
-	set name = "Boo!"
-	set desc= "Scare your crew members because of boredom!"
-
-	if(bootime > world.time) return
-	var/obj/machinery/light/L = locate(/obj/machinery/light) in view(1, src)
-	if(L)
-		L.flicker()
-		bootime = world.time + 600
-		return
-	//Maybe in the future we can add more <i>spooky</i> code here!
-	return
-*/
+		
+		teleport_if_needed()
 
 /mob/abstract/observer/memory()
 	set hidden = 1
@@ -420,6 +459,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/abstract/observer/Post_Incorpmove()
 	stop_following()
+	teleport_if_needed()
 
 /mob/abstract/observer/verb/analyze_air()
 	set name = "Analyze Air"
@@ -587,7 +627,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	var/dat
 	dat += "<h4>Crew Manifest</h4>"
-	dat += data_core.get_manifest()
+	dat += SSrecords.get_manifest(OOC = 1)
 
 	src << browse(dat, "window=manifest;size=370x420;can_close=1")
 
@@ -839,12 +879,25 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	updateghostsight()
 
 /mob/abstract/observer/proc/updateghostsight()
-	if (!seedarkness)
-		see_invisible = SEE_INVISIBLE_NOLIGHTING
-	else
+	//if they are on a restricted level, then set the ghost vision for them.
+	if(on_restricted_level())
+		//On the restricted level they have the same sight as the mob
+		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
+		see_in_dark = 2
 		see_invisible = SEE_INVISIBLE_OBSERVER
-		if (!ghostvision)
-			see_invisible = SEE_INVISIBLE_LIVING;
+	else
+		//Outside of the restrcited level, they have enhanced vision
+		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
+		see_in_dark = 100
+		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+
+		if (!seedarkness)
+			see_invisible = SEE_INVISIBLE_NOLIGHTING
+		else
+			see_invisible = SEE_INVISIBLE_OBSERVER
+			if (!ghostvision)
+				see_invisible = SEE_INVISIBLE_LIVING
+
 	updateghostimages()
 
 /proc/updateallghostimages()
