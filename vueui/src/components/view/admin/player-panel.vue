@@ -1,7 +1,7 @@
 <template>
   <div>
     <vui-button :unsafe-params="{src: s.holder_ref, check_antagonist: 1}">Check antagonists</vui-button>
-    <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']"/>
+    <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']" autofocus/>
     <div class="table">
       <div class="header">
         <div class="header-item">Name</div>
