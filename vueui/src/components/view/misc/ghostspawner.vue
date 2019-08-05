@@ -33,9 +33,8 @@ export default {
   },
   computed: {
     tags: function() {
-      let st = this.spawners
-          .flatMap(s => s.tags)
-      let tags = {All: this.spawners.length}
+      let st = Object.values(this.spawners).flatMap(s => s.tags)
+      let tags = {All: Object.values(this.spawners).length}
       st.filter((v, i, a) => a.indexOf(v) === i).forEach(tag => {
           tags[tag] = st.filter(t => t == tag).length
       })
