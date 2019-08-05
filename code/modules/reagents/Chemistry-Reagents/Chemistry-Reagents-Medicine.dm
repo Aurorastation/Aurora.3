@@ -303,13 +303,17 @@
 	color = "#C8A5DC"
 	overdose = 60
 	scannable = 1
-	metabolism = 0.02
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sickness"
 	metabolism_min = 0.005
 	breathe_mul = 0
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT)) // reduces fever
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -323,7 +327,9 @@
 	color = "#CB68FC"
 	overdose = 30
 	scannable = 1
-	metabolism = 0.02
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "sourness"
 	metabolism_min = 0.005
 	breathe_mul = 0
@@ -342,7 +348,9 @@
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
-	metabolism = 0.02
+	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
+	ingest_met = REM * 2 // .4 units per tick
+	breathe_met = REM * 4 // .8 units per tick
 	taste_description = "bitterness"
 	metabolism_min = 0.005
 	breathe_mul = 0
@@ -595,16 +603,102 @@
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
 
-/datum/reagent/spaceacillin
-	name = "Spaceacillin"
-	id = "spaceacillin"
-	description = "An all-purpose antiviral agent."
+/datum/reagent/deltamivir
+	name = "Deltamivir"
+	id = "deltamivir"
+	description = "An interferon-delta type III antiviral agent."
 	reagent_state = LIQUID
 	color = "#C1C1C1"
-	metabolism = REM * 0.05
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
+
+/datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(dose/4))
+		to_chat(M, span("warning", "Your muscles feel sore..."))
+		M.adjustHalLoss(15) // side effects of antivirals include fever, muscle aches and fatigue
+	if(prob(dose/4))
+		to_chat(M, span("warning", "You feel tired..."))
+		M.drowsyness += 1
+	if(prob(dose/4))
+		to_chat(M, span("warning", "You feel cold and lethargic..."))
+		M.bodytemperature = max(M.bodytemperature, min(310+5, M.bodytemperature+5))
+
+/datum/reagent/thetamycin
+	name = "Thetamycin"
+	id = "thetamycin"
+	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
+	reagent_state = LIQUID
+	color = "#41C141"
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
+	overdose = REAGENTS_OVERDOSE
+	scannable = 1
+	taste_description = "bitter gauze"
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
+
+/datum/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(dose/4))
+		to_chat(M, span("warning", "You feel sick to your stomach...")) // side effects of antibiotics
+		if(prob(25))
+			M.vomit()
+
+/datum/reagent/coughsyrup
+	name = "Cough Syrup"
+	id = "coughsyrup"
+	description = "A chemical that is used as a cough suppressant in low doses, and in higher doses it can be recreationally (ab)used."
+	scannable = 1
+	reagent_state = LIQUID
+	taste_description = "bitterness"
+	color = "#402060"
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
+
+	glass_name = "glass of cough syrup"
+	glass_desc = "You'd better not."
+
+/datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
+
+/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
+	M.hallucination = max(M.hallucination, 40)
+	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
+	if(prob(dose))
+		M.vomit()
+	if(prob(7))
+		M.emote(pick("twitch", "drool", "moan", "giggle"))
+	if(prob(7))
+		M.adjustBrainLoss(3 * removed) // not great for your brain
+	if(prob(50))
+		M.drowsyness = max(M.drowsyness, 3)
+
+/datum/reagent/antihistamine
+	name = "Diphenhydramine"
+	id = "diphenhydramine"
+	description = "A common antihistamine medication, also known as Benadryl. Known for causing drowsiness in larger doses."
+	scannable = 1
+	reagent_state = LIQUID
+	taste_description = "bitterness"
+	metabolism = REM * 0.05 // only performs its effects while in blood
+	ingest_met = REM // .2 units per tick
+	breathe_met = REM * 2 // .4 units per tick
+	// touch is slow
+	ingest_mul = 1
+	fallback_specific_heat = 0.605 // assuming it's ethanol-based
+
+/datum/reagent/antihistamine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(dose/2))
+		M.drowsyness += 2
 
 /datum/reagent/sterilizine
 	name = "Sterilizine"
@@ -614,6 +708,7 @@
 	color = "#C8A5DC"
 	touch_met = 5
 	taste_description = "bitterness"
+	germ_adjust = 20
 
 /datum/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	M.germ_level -= min(removed*20, M.germ_level)
@@ -624,7 +719,7 @@
 		var/mob/living/carbon/human/H = M
 		for (var/obj/item/organ/external/E in H.organs)//For each external bodypart
 			for (var/datum/wound/W in E.wounds)//We check each wound on that bodypart
-				W.germ_level -= min(removed*20, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
+				W.germ_level -= min(removed*germ_adjust, W.germ_level)//Clean the wound a bit. Note we only clean wounds on the part, not the part itself.
 				if (W.germ_level <= 0)
 					W.disinfected = 1//The wound becomes disinfected if fully cleaned
 
@@ -642,7 +737,7 @@
 /datum/reagent/leporazine
 	name = "Leporazine"
 	id = "leporazine"
-	description = "Leporazine can be use to stabilize an individuals body temperature."
+	description = "Leporazine can be use to stabilize an individual's body temperature."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE

@@ -190,6 +190,17 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
+/obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
+	if(is_sharp(I))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
+		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
+			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			for(var/i in 1 to rand(1,3)) // average of 2 per
+				new /obj/item/weapon/reagent_containers/glass/rag(get_turf(src))
+			use(1)
+		return
+	..()
+
 /obj/item/stack/material/cardboard
 	name = "cardboard"
 	icon_state = "sheet-card"

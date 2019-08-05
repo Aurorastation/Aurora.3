@@ -409,6 +409,7 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
+
 	apply_damage(damage, BRUTE)
 
 	// The only piece of duplicate code. I was so close. Soooo close. :ree:
@@ -450,34 +451,11 @@
 				"<span class='notice'>You tuck into a roll as you hit \the [loc], minimizing damage!</span>")
 
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((60 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
+	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
+
 	var/limb_damage = rand(0,damage/2)
 
-	if(prob(30) && combat_roll >= 1) //landed on their head
-		apply_damage(limb_damage, BRUTE, "head")
-		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
-			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
-
-	else if(prob(30) && combat_roll >= 1) //landed on their arms
-		var/left_damage = rand(0,damage/4)
-		var/right_damage = rand(0,damage/4)
-		var/lefth_damage = rand(0,damage/4)
-		var/righth_damage = rand(0,damage/4)
-
-		apply_damage(left_damage, BRUTE, "l_arm")
-		apply_damage(right_damage, BRUTE, "r_arm")
-
-		if(prob(50))
-			apply_damage(lefth_damage, BRUTE, "r_hand")
-		if(prob(50))
-			apply_damage(righth_damage, BRUTE, "l_hand")
-
-		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
-
-		visible_message("<span class='warning'>\The [src] falls and lands arms first!</span>",
-			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
-
-	else if(prob(30) && combat_roll >= 1)//landed on their legs
+	if(prob(30) && combat_roll >= 1) //landed on their legs
 		var/left_damage = rand(0,damage/2)
 		var/right_damage = rand(0,damage/2)
 		var/leftf_damage = rand(0,damage/4)
@@ -500,13 +478,38 @@
 
 		limb_damage = left_damage + right_damage + leftf_damage + rightf_damage + groin_damage
 
+	else if(prob(30) && combat_roll >= 1) //landed on their arms
+		var/left_damage = rand(0,damage/4)
+		var/right_damage = rand(0,damage/4)
+		var/lefth_damage = rand(0,damage/4)
+		var/righth_damage = rand(0,damage/4)
+
+		apply_damage(left_damage, BRUTE, "l_arm")
+		apply_damage(right_damage, BRUTE, "r_arm")
+
+		if(prob(50))
+			apply_damage(lefth_damage, BRUTE, "r_hand")
+		if(prob(50))
+			apply_damage(righth_damage, BRUTE, "l_hand")
+
+		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
+
+		visible_message("<span class='warning'>\The [src] falls and lands arms first!</span>",
+			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
+
+	else if(prob(30) && combat_roll >= 1)//landed on their head
+		apply_damage(limb_damage, BRUTE, "head")
+		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
+			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
+
 	else
 		limb_damage = 0
 		if(combat_roll >= 0.5)
 			visible_message("\The [src] falls and lands on \the [loc]!",
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	apply_damage(damage - limb_damage, BRUTE, "chest")
+	if(!limb_damage)
+		apply_damage(damage, BRUTE, "chest")
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -546,6 +549,7 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
+
 	take_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
@@ -558,6 +562,9 @@
 
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
+	if(istype(loc, /turf/unsimulated/floor/asteroid))
+		damage /= 2
+
 	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)

@@ -425,8 +425,8 @@
 	req_access = list(access_captain)
 
 	fill()
-		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
-		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/choral(src)
+		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/chloral(src)
+		new /obj/item/weapon/reagent_containers/syringe/ld50_syringe/chloral(src)
 
 
 // These are special snowflakes that need to be in a global list.

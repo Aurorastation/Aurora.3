@@ -5,24 +5,22 @@
 	icon_state = "dicebag"
 	use_sound = "rustle"
 	drop_sound = 'sound/items/drop/hat.ogg'
-
-/obj/item/weapon/storage/pill_bottle/dice/fill()
-	..()
-	new /obj/item/weapon/dice( src )
-	new /obj/item/weapon/dice/d20( src )
+	starts_with = list(
+		/obj/item/weapon/dice = 1,
+		/obj/item/weapon/dice/d20 = 1
+	)
 
 /obj/item/weapon/storage/pill_bottle/dice/gaming
 	name = "pack of gaming dice"
 	desc = "It's a small container with gaming dice inside."
 	icon_state = "magicdicebag"
-
-/obj/item/weapon/storage/pill_bottle/dice/gaming/fill()
-	..()
-	new /obj/item/weapon/dice/d4(src)
-	new /obj/item/weapon/dice/d8(src)
-	new /obj/item/weapon/dice/d10(src)
-	new /obj/item/weapon/dice/d12(src)
-	new /obj/item/weapon/dice/d100(src)
+	starts_with = list(
+		/obj/item/weapon/dice/d4 = 1,
+		/obj/item/weapon/dice/d8 = 1,
+		/obj/item/weapon/dice/d10 = 1,
+		/obj/item/weapon/dice/d12 = 1,
+		/obj/item/weapon/dice/d100 = 1
+	)
 
 /*
  * Donut Box
@@ -32,14 +30,12 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "donutbox"
 	name = "donut box"
-	var/startswith = 6
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/donut)
 	foldable = /obj/item/stack/material/cardboard
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6)
 
 /obj/item/weapon/storage/box/donut/fill()
-	..()
-	for(var/i=1; i <= startswith; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/donut/normal(src)
+	. = ..()
 	update_icon()
 
 /obj/item/weapon/storage/box/donut/update_icon()
@@ -50,17 +46,16 @@
 		i++
 
 /obj/item/weapon/storage/box/donut/empty
-	startswith = 0
+	starts_with = null
 	max_storage_space = 12
 
 /obj/item/weapon/storage/box/pineapple
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "pineapple_rings"
 	name = "can of pineapple rings"
-	var/startswith = 6
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring = 6)
 	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring)
 
 /obj/item/weapon/storage/box/pineapple/fill()
-	for(var/i=1; i <= startswith; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/pineapple_ring(src)
+	. = ..()
 	update_icon()

@@ -34,7 +34,7 @@ var/list/admin_departments
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
 
-/obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/vueui/ui)
+/obj/machinery/photocopier/faxmachine/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
 	// Build baseline data, that's read-only
 	if(!newdata)
 		. = newdata = list("destination" = "[current_map.boss_name]", "idname" = "", "paper" = "")

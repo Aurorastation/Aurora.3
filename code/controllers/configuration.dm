@@ -205,6 +205,7 @@ var/list/gamemode_cache = list()
 	var/ooc_allowed = 1
 	var/looc_allowed = 1
 	var/dooc_allowed = 1
+	var/dead_looc_allowed = TRUE
 	var/dsay_allowed = 1
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
@@ -286,7 +287,7 @@ var/list/gamemode_cache = list()
 
 	var/docs_load_docs_from
 	var/docs_image_host
- 
+
 	var/ert_base_chance = 10
 	var/ert_green_inc = 1
 	var/ert_yellow_inc = 1
@@ -532,6 +533,9 @@ var/list/gamemode_cache = list()
 
 				if ("disable_dead_ooc")
 					config.dooc_allowed = 0
+
+				if ("disable_dead_looc")
+					config.dead_looc_allowed = FALSE
 
 				if ("disable_dsay")
 					config.dsay_allowed = 0
@@ -787,7 +791,7 @@ var/list/gamemode_cache = list()
 
 				if("sql_saves")
 					config.sql_saves = 1
-				
+
 				if("sql_ccia_logs")
 					config.sql_ccia_logs = 1
 

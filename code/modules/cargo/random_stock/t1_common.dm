@@ -348,8 +348,9 @@ STOCK_ITEM_COMMON(pills, 1.2)
 		/obj/item/weapon/storage/pill_bottle/dylovene, \
 		/obj/item/weapon/storage/pill_bottle/inaprovaline, \
 		/obj/item/weapon/storage/pill_bottle/kelotane, \
-		/obj/item/weapon/storage/pill_bottle/spaceacillin, \
-		/obj/item/weapon/storage/pill_bottle/tramadol \
+		/obj/item/weapon/storage/pill_bottle/antihistamine, \
+		/obj/item/weapon/storage/pill_bottle/tramadol, \
+		/obj/item/weapon/storage/pill_bottle/paracetamol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)
@@ -382,9 +383,9 @@ STOCK_ITEM_COMMON(booze, 3.7)
 					break
 
 		if (prob(80))
-			new /obj/structure/reagent_dispensers/beerkeg(T)
+			new /obj/structure/reagent_dispensers/keg/beerkeg(T)
 		else
-			new /obj/structure/reagent_dispensers/xuizikeg(T)
+			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
 	else
 		var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
 		drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle
