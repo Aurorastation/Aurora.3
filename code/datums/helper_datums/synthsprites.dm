@@ -53,15 +53,12 @@ paiicon is the pai icon sprite name
 		customsynthsprites.Execute()
 		while(customsynthsprites.NextRow())
 			CHECK_TICK
-			try
 				
-				var/datum/custom_synth/synth = new()
-				synth.synthname = customsynthsprites.item[1]
-				synth.synthckey = customsynthsprites.item[2]
-				synth.synthicon = customsynthsprites.item[3]
-				synth.aichassisicon = customsynthsprites.item[4]
-				synth.aiholoicon = customsynthsprites.item[5]
-				synth.paiicon = customsynthsprites.item[6]
-				robot_custom_icons[synth.synthname] = synth
-			catch(var/exception/el)
-				log_debug("Error: Could not load synth sprite [el]")
+			var/datum/custom_synth/synth = new()
+			synth.synthname = customsynthsprites.item[1]
+			synth.synthckey = customsynthsprites.item[2]
+			synth.synthicon = customsynthsprites.item[3]
+			synth.aichassisicon = customsynthsprites.item[4]
+			synth.aiholoicon = customsynthsprites.item[5]
+			synth.paiicon = customsynthsprites.item[6]
+			robot_custom_icons[synth.synthname] = synth
