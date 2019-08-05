@@ -1550,7 +1550,7 @@
 				<a name="VIII"><h2>On Duty to Family and God</h2><br></a>
 				A genteel and honorable person, in all cases, is loyal first to God first, his family second, king third, country fourth, and himself last. Your family are your closest
 				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, he has nothing. Be upright and honest with your
-				family, loyal, and keep your promises in all things – such as your dealings are with other men. Be loyal to God first and foremost - for if a man is without God, he is
+				family, loyal, and keep your promises in all things - such as your dealings are with other men. Be loyal to God first and foremost - for if a man is without God, he is
 				not living. It is God that gives us this opportunity to be honorable and just people.<BR><BR>
 
 				<a name="IX"><h2>On Duty to Country and Emperor</h2><br></a>
