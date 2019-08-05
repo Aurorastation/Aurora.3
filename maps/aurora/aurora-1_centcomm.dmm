@@ -5682,7 +5682,7 @@
 /turf/simulated/shuttle/wall/dark,
 /area/shuttle/administration/centcom)
 "aqH" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/shuttle/floor/administration{
 	icon_state = "floor6"
 	},
@@ -5709,7 +5709,7 @@
 	},
 /area/shuttle/administration/centcom)
 "aqL" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/shuttle/floor/administration{
 	icon_state = "floor6"
 	},
@@ -9580,7 +9580,7 @@
 	},
 /area/centcom/control)
 "aAd" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -9788,7 +9788,7 @@
 	},
 /area/centcom/control)
 "aAD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -10671,7 +10671,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aCn" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -11116,7 +11116,7 @@
 	},
 /area/centcom/holding)
 "aDz" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
@@ -11180,7 +11180,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop";
 	pixel_x = 3;
 	pixel_y = 4
@@ -11609,7 +11609,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "aFn" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -11663,7 +11663,7 @@
 	},
 /area/shuttle/escape/centcom)
 "aFt" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -16245,7 +16245,7 @@
 	},
 /area/centcom/spawning)
 "aQT" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17356,7 +17356,7 @@
 	},
 /area/tdome/tdomeobserve)
 "aTk" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
@@ -20406,7 +20406,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "dra" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -20719,7 +20719,7 @@
 	name = "adjusted light fixture";
 	pixel_x = 2
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop";
 	pixel_x = 3;
 	pixel_y = 2
@@ -24078,7 +24078,7 @@
 	},
 /area/syndicate_mothership)
 "ohm" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /obj/machinery/light/small{
 	dir = 1;
 	name = "old light fixture";
@@ -24874,10 +24874,6 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"qNo" = (
-/obj/item/organ/xenos/eggsac,
-/turf/simulated/shuttle/floor/airless,
-/area/template_noop)
 "qQb" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -32886,7 +32882,7 @@
 	},
 /area/centcom/checkpoint/fore)
 "yfw" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -33246,7 +33242,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "yhr" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -39749,7 +39745,7 @@ ahV
 ahV
 wPO
 ntU
-qNo
+qbD
 qWb
 wPO
 aaM

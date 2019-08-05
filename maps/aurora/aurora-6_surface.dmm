@@ -24881,7 +24881,7 @@
 	name = "Bridge Checkpoint Shutter"
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/item/device/radio/intercom{
