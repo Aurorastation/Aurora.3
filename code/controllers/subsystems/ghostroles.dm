@@ -105,7 +105,7 @@
 /datum/controller/subsystem/ghostroles/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list("current_tag"="All")
-	data["spawners"] = list()
+	LAZYINITLIST(data["spawners"])
 	for(var/s in spawners)
 		var/datum/ghostspawner/G = spawners[s]
 		if(G.cant_see(user))
