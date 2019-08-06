@@ -35,6 +35,7 @@ paiicon is the pai icon sprite name
 	customsynthsprites = customsynthsprites["synths"]
 	for (var/synthsprite in customsynthsprites)
 		var/datum/custom_synth/synth = new()
+		synth.synthname = synthsprite
 		synth.synthckey = customsynthsprites[synthsprite]["ckey"]
 		synth.synthicon = customsynthsprites[synthsprite]["synthicon"]
 		synth.aichassisicon = customsynthsprites[synthsprite]["aichassisicon"]
