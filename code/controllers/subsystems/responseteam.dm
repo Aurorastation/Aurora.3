@@ -199,8 +199,7 @@
 	else
 		to_chat(usr, "You need to be an observer or new player to use this.")
 
-/hook/shuttle_moved/proc/close_blastdoors(var/area/departing, var/area/destination)
-	log_debug("shuttle_moved hook: [departing.type] -> [destination.type]")
+/hook/shuttle_moved/proc/close_response_blastdoors(var/area/departing, var/area/destination)
 	//Check if we are departing from the Odin
 	if(istype(departing,/area/shuttle/specops/centcom))
 		SSresponseteam.close_ert_blastdoors()
