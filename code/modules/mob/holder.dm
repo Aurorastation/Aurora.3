@@ -605,7 +605,6 @@ var/list/holder_mob_icon_cache = list()
 		icon = CUSTOM_ITEM_SYNTH
 		icon_state = "[contained.icon_state]-holder"
 		item_state = "[contained.icon_state]"
-	else
 		return
 
 //corgi
