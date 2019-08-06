@@ -1,7 +1,7 @@
 <template>
   <div>
     <vui-button :unsafe-params="{src: s.holder_ref, check_antagonist: 1}">Check antagonists</vui-button>
-    <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']"/>
+    <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']" autofocus/>
     <div class="table">
       <div class="header">
         <div class="header-item">Name</div>
@@ -29,7 +29,7 @@
             {{p.ip}}
           </vui-tooltip>
         </div>
-        <div class="item">{{p.age}}</div>
+        <div class="item" v-if="s.ismod">{{p.age}}</div>
         <div class="item" v-if="s.ismod">
           <span v-if="p.antag == -1">NA</span>
           <span v-else-if="p.antag == 0">No</span>
@@ -38,10 +38,11 @@
         </div>
         <div class="item" style="text-align: right;">
           <vui-button :unsafe-params="{src: s.holder_ref, adminplayeropts: p.ref}">PP</vui-button>
-          <vui-button :unsafe-params="{src: s.holder_ref, mob: p.ref, notes: 'show'}">N</vui-button>
-          <vui-button :unsafe-params="{src: s.holder_ref, traitor: p.ref}">TP</vui-button>
           <vui-button :unsafe-params="{src: s.holder_ref, priv_msg: p.ref}">PM</vui-button>
           <vui-button :unsafe-params="{src: s.holder_ref, subtlemessage: p.ref}">SM</vui-button>
+          <vui-button :unsafe-params="{_src_: 'vars', Vars: p.ref}">VV</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, mob: p.ref, notes: 'show'}">N</vui-button>
+          <vui-button :unsafe-params="{src: s.holder_ref, traitor: p.ref}">TP</vui-button>
           <vui-button :unsafe-params="{src: s.holder_ref, adminplayerobservejump: p.ref}">JMP</vui-button>
           <vui-button :unsafe-params="{src: s.holder_ref, admin_wind_player: p.ref}">WIND</vui-button>
         </div>
