@@ -23,6 +23,8 @@
 /datum/shuttle/proc/short_jump(var/area/origin,var/area/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
+	callHook("shuttle_moved", list(origin,destination))
+
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
@@ -35,6 +37,8 @@
 
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(moving_status != SHUTTLE_IDLE) return
+
+	callHook("shuttle_moved", list(departing,destination))
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
