@@ -38,7 +38,7 @@ var/datum/vueui_module/player_panel/global_player_panel
 		return
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 640, 480, "Modern player panel", nstate = interactive_state)
+		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", nstate = interactive_state)
 		ui.header = "minimal"
 		ui.auto_update_content = TRUE
 
