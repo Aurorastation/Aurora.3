@@ -113,7 +113,7 @@
 			if(data["spawners"][G.short_name])
 				data["spawners"] -= G.short_name
 			continue
-		data["spawners"][G.short_name] = list()
+		LAZYINITLIST(data["spawners"][G.short_name])
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["name"], G.name, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["desc"], G.desc, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["cant_spawn"], G.cant_spawn(user), ., data)
