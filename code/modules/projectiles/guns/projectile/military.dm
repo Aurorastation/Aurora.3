@@ -51,6 +51,15 @@
 /obj/item/weapon/gun/projectile/sec/military/officer/hop
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
+/obj/item/weapon/gun/projectile/sec/military/trooper
+	magazine_type = /obj/item/ammo_magazine/c45m
+
+/obj/item/weapon/gun/projectile/sec/military/trooper/flash
+	magazine_type = /obj/item/ammo_magazine/c45m/flash
+
+/obj/item/weapon/gun/projectile/sec/military/officer/commander
+	magazine_type = /obj/item/ammo_magazine/c45m
+
 
 //Service Rifle
 /obj/item/weapon/gun/projectile/automatic/rifle/military

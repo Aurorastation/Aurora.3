@@ -459,3 +459,146 @@
 	return "Visitor"
 /datum/outfit/admin/random/visitor/get_id_rank()
 	return "Visitor"
+
+
+//Fleet Intelligence
+/datum/outfit/admin/fleet
+	name = "Naval Intelligence Officer"
+
+	uniform = /obj/item/clothing/under/fleet/officer
+	back = /obj/item/weapon/storage/backpack/satchel
+	gloves = /obj/item/clothing/gloves/white
+	shoes = /obj/item/clothing/shoes/laceup
+	l_ear = /obj/item/device/radio/headset/heads/hop
+	glasses = /obj/item/clothing/glasses/sunglasses
+	id = /obj/item/weapon/card/id
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1
+	)
+
+	var/id_icon = "centcom"
+	var/id_access = "Naval Intelligence Officer"
+
+/datum/outfit/admin/fleet/get_id_access()
+	return get_all_accesses() | get_centcom_access(id_access)
+
+/datum/outfit/admin/fleet/officer
+	name = "Naval Intelligence Officer"
+
+	uniform = /obj/item/clothing/under/fleet/officer
+	suit = /obj/item/clothing/suit/storage/fleet/officer
+	head = /obj/item/clothing/head/fleet/officerberet
+	l_ear = /obj/item/device/radio/headset/heads/captain
+	suit_store = /obj/item/weapon/gun/projectile/sec/military
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/ammo_magazine/c45m/rubber = 1
+	)
+
+
+
+//Intelligence SecArm
+/datum/outfit/admin/fleet/trooper
+	name = "Naval Intelligence Operative"
+
+	uniform = /obj/item/clothing/under/fleet/security
+	suit = /obj/item/clothing/suit/storage/vest/heavy/fleet/trooper
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/swat/tactical
+	l_ear = /obj/item/device/radio/headset/ert
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud
+	head = /obj/item/clothing/head/fleet/securityberet
+	suit_store = /obj/item/weapon/gun/projectile/sec/military/trooper
+	belt = /obj/item/weapon/storage/belt/security
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/clothing/head/helmet/fleet/trooper = 1,
+		/obj/item/clothing/accessory/holster/hip = 1,
+		/obj/item/ammo_magazine/c45m = 2
+	)
+
+	implants = list(
+		/obj/item/weapon/implant/loyalty
+	)
+
+/datum/outfit/admin/fleet/trooper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+
+	if(H && H.belt)
+
+		var/obj/item/weapon/reagent_containers/spray/pepper/pepperspray = new(H)
+		var/obj/item/weapon/melee/baton/loaded/baton = new(H)
+		var/obj/item/weapon/shield/riot/tact/shield = new(H)
+		var/obj/item/weapon/grenade/flashbang/flashbang = new(H)
+		var/obj/item/weapon/handcuffs/cuffs = new(H)
+		var/obj/item/device/flash/flash = new(H)
+		var/obj/item/device/flashlight/flare/flare = new(H)
+
+		H.belt.contents += flare
+		H.belt.contents += flashbang
+		H.belt.contents += cuffs
+		H.belt.contents += pepperspray
+		H.belt.contents += flash
+		H.belt.contents += baton
+		H.belt.contents += shield
+
+
+/datum/outfit/admin/fleet/trooper/commander
+	name = "Naval Intelligence Security Commander"
+
+	suit = /obj/item/clothing/suit/storage/vest/heavy/fleet/commander
+	suit_store = /obj/item/weapon/gun/projectile/sec/military/officer/commander
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/clothing/head/helmet/fleet/trooper = 1,
+		/obj/item/clothing/accessory/holster/hip = 1,
+		/obj/item/ammo_magazine/c45m = 2
+	)
+
+
+/datum/outfit/admin/fleet/trooper/formal
+	name = "Naval Intelligence Operative Formal"
+
+	uniform = /obj/item/clothing/under/fleet/security/dress
+	suit = /obj/item/clothing/suit/storage/fleet/troopercoat
+	gloves = /obj/item/clothing/gloves/white
+	shoes = /obj/item/clothing/shoes/laceup
+	l_ear = /obj/item/device/radio/headset/ert
+	head = /obj/item/clothing/head/fleet/securityberet
+	suit_store = /obj/item/weapon/gun/projectile/sec/military/trooper/flash
+	belt = null
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/clothing/accessory/holster/hip = 1
+	)
+
+/datum/outfit/admin/fleet/trooper/formal/get_id_assignment()
+    return "Naval Intelligence Operative"
+/datum/outfit/admin/fleet/trooper/formal/get_id_rank()
+    return "Naval Intelligence Operative"
+
+/datum/outfit/admin/fleet/trooper/formal/fem
+	name = "Naval Intelligence Operative Formal Female"
+	uniform = /obj/item/clothing/under/fleet/security/dress/fem
+	shoes = /obj/item/clothing/shoes/flats
+
+/datum/outfit/admin/fleet/trooper/formal/commander
+	name = "Naval Intelligence Security Commander Formal"
+
+	suit = /obj/item/clothing/suit/storage/fleet/commandercoat
+	suit_store = /obj/item/weapon/gun/projectile/sec/military/officer/hop
+
+/datum/outfit/admin/fleet/trooper/formal/commander/get_id_assignment()
+    return "Naval Intelligence Security Commander"
+/datum/outfit/admin/fleet/trooper/formal/commander/get_id_rank()
+    return "Naval Intelligence Security Commander"
+
+/datum/outfit/admin/fleet/trooper/formal/commander/fem
+	name = "Naval Intelligence Security Commander Formal Female"
+	uniform = /obj/item/clothing/under/fleet/security/dress/fem
+	shoes = /obj/item/clothing/shoes/flats
+

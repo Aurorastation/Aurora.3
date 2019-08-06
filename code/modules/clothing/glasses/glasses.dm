@@ -733,3 +733,11 @@ BLIND     // can't see anything
 	else
 		flash_protection = FLASH_PROTECTION_NONE
 		tint = TINT_NONE
+
+
+//Eyewear for Tajarans
+/obj/item/clothing/glasses/taj
+	name = "Tajwear"
+	desc = "A loose veil for covering the eyes."
+	icon_state = "taj_veil"
+	item_state = "taj_veil"
