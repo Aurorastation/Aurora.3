@@ -120,6 +120,13 @@
 	send_emergency_team = 0 // Can no longer join the ERT.
 	ert_type = "NT-ERT"
 
+/datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
+	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
+	wifi_sender.activate("close")
+
+/datum/controller/subsystem/responseteam/proc/close_tcfl_blastdoors()
+	var/datum/wifi/sender/door/wifi_sender = new("tcfl_shuttle_lockdown", src)
+	wifi_sender.activate("close")
 
 /client/proc/response_team()
 	set name = "Dispatch Emergency Response Team"
@@ -191,3 +198,13 @@
 				ert.create_default(usr)
 	else
 		to_chat(usr, "You need to be an observer or new player to use this.")
+
+/hook/shuttle_moved/proc/close_response_blastdoors(var/area/departing, var/area/destination)
+	//Check if we are departing from the Odin
+	if(istype(departing,/area/shuttle/specops/centcom))
+		SSresponseteam.close_ert_blastdoors()
+
+	//Check if we are departing from the TCFL base
+	else if(istype(departing,/area/shuttle/legion/centcom))
+		SSresponseteam.close_tcfl_blastdoors()
+	return TRUE
