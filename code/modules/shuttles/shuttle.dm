@@ -23,13 +23,13 @@
 /datum/shuttle/proc/short_jump(var/area/origin,var/area/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
-	callHook("shuttle_moved", list(origin,destination))
-
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
+
+		callHook("shuttle_moved", list(origin,destination))
 
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 		move(origin, destination)
@@ -38,13 +38,13 @@
 /datum/shuttle/proc/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(moving_status != SHUTTLE_IDLE) return
 
-	callHook("shuttle_moved", list(departing,destination))
-
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
+
+		callHook("shuttle_moved", list(departing,destination))
 
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT

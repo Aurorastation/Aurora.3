@@ -95,7 +95,7 @@
 
 /**
  * Shuttle moved.
- * Called whenever a shuttle performs a "long jump"
+ * Called whenever a shuttle performs a "long jump" or "short jump"
  * Parameters: var/area/departing, var/area/destination
  */
 /hook/shuttle_moved
