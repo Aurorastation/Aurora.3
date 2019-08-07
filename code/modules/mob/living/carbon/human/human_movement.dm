@@ -85,8 +85,6 @@
 
 	tally += config.human_delay
 
-	tally *= 2/(get_hydration_mul(0.75,1) + get_nutrition_mul(0.75,1))
-
 	tally = round(tally,1)
 
 	return tally
