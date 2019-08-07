@@ -25,6 +25,16 @@
 	if(species)
 		tally += species.get_species_tally(src)
 
+	if (nutrition < (max_nutrition * 0.4))
+		tally++
+		if (nutrition < (max_nutrition * 0.1))
+			tally++
+
+	if (hydration < (max_hydration * 0.4))
+		tally++
+		if (hydration < (max_hydration * 0.1))
+			tally++
+
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
 			var/obj/item/organ/external/E = get_organ(organ_name)
