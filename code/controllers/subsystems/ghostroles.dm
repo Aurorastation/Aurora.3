@@ -24,13 +24,13 @@
 		var/datum/ghostspawner/G = new spawner
 		//Check if we have name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
-			log_debug("Spawner [G.type] got removed from selection because of missing data")
+			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
 		if(!G.select_spawnpoint(FALSE))
-			log_debug("Spawner [G.type] got removed from selection because of missing spawnpoint")
+			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
-		LAZYSET(spawners, G.short_name, G)
+		spawners[G.short_name] = G
 	
 	for (var/identifier in spawnpoints)
 		CHECK_TICK

@@ -25,7 +25,7 @@
     . = ..()
     var/is_merchant = FALSE
 
-    if(istype(user, /mob/living/carbon/human))
+    if(ishuman(user))
         var/mob/living/carbon/human/H = user
         is_merchant = (H.job == "Merchant")
 

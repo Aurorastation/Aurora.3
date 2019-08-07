@@ -9,14 +9,14 @@
         <th>Name</th>
         <th>Description</th>
         <th>Available Slots</th>
-        <th class="taction">Actions</th>
+        <th class="action">Actions</th>
       </tr>
       <tr v-for="(data,index) in spawners" :key="index" v-show="showEntry(data)">
         <td>{{data.name}}</td>
         <td>{{data.desc}}</td>
         <td v-if="data.max_count > 0">{{data.max_count - data.count}} / {{data.max_count}}</td>
         <td v-else>&infin;</td>
-        <td>
+        <td class="action">
           <vui-button :disabled="(data.cant_spawn !== 0)" :params="{spawn: index, spawnpoint: spawnpoint}" icon="star">Spawn</vui-button> 
           <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 1)" :params="{enable: index}">Enable</vui-button> 
           <vui-button v-if="data.can_edit == 1" :disabled="(data.enabled == 0)" :params="{disable: index}">Disable</vui-button> 
@@ -59,14 +59,16 @@ export default {
 <style lang="scss" scoped>
   table {
     width: 100%;
-    th {
-      font-weight: bold;
+    th.action, td.action {
+      width: 1%;
+      white-space: nowrap;
     }
     th, td {
       text-align: center;
+      width: auto;
     }
-    .taction {
-      width: 200px;
+    th {
+      font-weight: bold;
     }
   }
   .tagselector {
