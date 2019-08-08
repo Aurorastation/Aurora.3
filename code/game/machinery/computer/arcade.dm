@@ -122,7 +122,7 @@
 			var/pointamt = rand(1,3)
 			var/healamt = rand(6,8)
 			src.temp = "You use [pointamt] magic to heal for [healamt] damage!"
-			playsound(loc, 'sound/arcade/heal.ogg', 5, 1, extrarange = -3, falloff = 10)
+			playsound(loc, 'sound/arcade/heal.ogg', 2, 1, extrarange = -3, falloff = 10)
 			src.updateUsrDialog()
 			turtle++
 
@@ -136,8 +136,8 @@
 		else if (href_list["charge"])
 			src.blocked = 1
 			var/chargeamt = rand(4,7)
-			src.temp = "You regain [chargeamt] points"
-			playsound(loc, 'sound/arcade/mana.ogg', 5, 1, extrarange = -3, falloff = 10)
+			src.temp = "You regain [chargeamt] points."
+			playsound(loc, 'sound/arcade/mana.ogg', 2, 1, extrarange = -3, falloff = 10)
 			src.player_mp += chargeamt
 			if(turtle > 0)
 				turtle--
