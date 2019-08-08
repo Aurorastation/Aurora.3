@@ -7589,7 +7589,7 @@
 /area/centcom/specops)
 "avN" = (
 /mob/living/silicon/decoy{
-	name = "A.L.I.C.E."
+	name = "Bubble"
 	},
 /turf/unsimulated/floor{
 	icon_state = "whiteshiny"

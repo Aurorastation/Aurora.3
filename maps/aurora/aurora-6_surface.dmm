@@ -10961,7 +10961,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/command{
-	name = "Shuttle Docking"
+	name = "Shuttle Docking";
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11202,7 +11203,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Docking Area";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
