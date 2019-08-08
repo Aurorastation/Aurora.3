@@ -97,7 +97,7 @@
 		if(ORION_VIEW_MAIN)
 			if(event == ORION_TRAIL_START) //new game? New game.
 				if(world.time >= cooldown)
-					playsound(loc, 'sound/arcade/Ori_begin.ogg', 3, 1, extrarange = -3, falloff = 10)
+					playsound(loc, 'sound/arcade/Ori_begin.ogg', 1, 1, extrarange = -3, falloff = 10)
 					cooldown = world.time + 300
 				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='?src=\ref[src];continue=1'>Start New Game</a></P>"
 				user << browse(dat, "window=arcade")

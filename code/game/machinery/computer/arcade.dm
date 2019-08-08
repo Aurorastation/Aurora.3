@@ -137,7 +137,7 @@
 			src.blocked = 1
 			var/chargeamt = rand(4,7)
 			src.temp = "You regain [chargeamt] points."
-			playsound(loc, 'sound/arcade/mana.ogg', 2, 1, extrarange = -3, falloff = 10)
+			playsound(loc, 'sound/arcade/mana.ogg', 1, 1, extrarange = -3, falloff = 10)
 			src.player_mp += chargeamt
 			if(turtle > 0)
 				turtle--
