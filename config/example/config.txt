@@ -13,6 +13,9 @@ ALERT_DELTA The station's self-destruct mechanism has been engaged. All crew are
 ## Add a # infront of this if you want to use the SQL based admin system, the legacy system uses admins.txt. You need to set up your database to use the SQL based system.
 ADMIN_LEGACY_SYSTEM
 
+## Uncomment this if you want to whitelist admins by computerid
+#ADMIN_RESTRICT_BY_COMPUTERID
+
 ## Add a # infront of this if you want to use the SQL based banning system. The legacy systems use the files in the data folder. You need to set up your database to use the SQL based system.
 BAN_LEGACY_SYSTEM
 

@@ -376,11 +376,7 @@
 		return
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
-	//Admin Authorisation
-	holder = admin_datums[ckey]
-	if(holder)
-		staff += src
-		holder.owner = src
+	InitHolder()
 
 	log_client_to_db()
 
@@ -437,6 +433,34 @@
 	check_ip_intel()
 
 	initialized = TRUE
+
+/client/proc/InitHolder()
+	
+	var/assign_holder = admin_datums[ckey]
+
+	if(config.admin_restrict_by_computerid && !config.admin_legacy_system && assign_holder) //Restrict by computerid only works with the SQL System enabled
+		if(!establish_db_connection(dbcon))
+			log_debug("Holder Assignment: SQL ERROR - Failed to connect. - Falling back to non-whitelist")
+		else
+			//Query the database for the computerid associated with that admin
+			var/DBQuery/cid_ckey_query = dbcon.NewQuery("SELECT count(*) FROM ss13_admin_computerid WHERE ckey = :ckey: AND computerid = :computerid:")
+			cid_ckey_query.Execute(list("ckey"=ckey,"computerid"=computer_id))
+			var/count = 0
+			if (cid_ckey_query.NextRow())
+				count = text2num(cid_ckey_query.item[1])
+			//If we cant find them in the db, dont assign them any permissions
+			if(!count)
+				to_chat(src,"<span class='danger'>This computer is not associated with your admin account. No permissions have been assigned!</span>")
+				assign_holder = null
+				spawn(0)
+					post_webhook_event(WEBHOOK_ADMIN_IMPORTANT, list("title"="Admin Login from unknown device with cid: [computer_id]", "message"="[key_name(src)] logged in from a unknown device."))
+					discord_bot.send_to_admins("@here [key_name(src)] logged in from a unknown device with cid: [computer_id].")
+
+	//Admin Authorisation
+	holder = assign_holder
+	if(holder)
+		staff += src
+		holder.owner = src
 
 //////////////
 //DISCONNECT//
