@@ -170,7 +170,7 @@
 		if("mouth")
 			if(announce)
 				user.visible_message("<span class='warning'>\The [user] covers [target]'s mouth!</span>")
-			if(target.silent < 3)
+			if(target.silent < 3 && !isipc(target))
 				target.silent = 3
 		if("eyes")
 			if(announce)
