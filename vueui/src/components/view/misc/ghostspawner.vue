@@ -59,13 +59,13 @@ export default {
 <style lang="scss" scoped>
   table {
     width: 100%;
-    th.action, td.action {
-      width: 1%;
-      white-space: nowrap;
-    }
     th, td {
       text-align: center;
       width: auto;
+      &.action {
+        width: 1%;
+        white-space: nowrap;
+      }
     }
     th {
       font-weight: bold;
