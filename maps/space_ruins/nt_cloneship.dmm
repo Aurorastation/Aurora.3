@@ -468,10 +468,6 @@
 /obj/structure/bed/chair/office/bridge,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"bf" = (
-/obj/item/organ/xenos/hivenode,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bg" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -2903,14 +2899,6 @@
 "ho" = (
 /obj/structure/closet/secure_closet/quartermaster,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"hp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/extinguisher_catridges,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
 /area/derelict/ship)
 "hq" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -31686,7 +31674,7 @@ ar
 cg
 fu
 ar
-hp
+ir
 hz
 hv
 hv
@@ -33954,7 +33942,7 @@ aI
 aI
 aV
 aI
-bf
+aI
 aI
 bm
 aI

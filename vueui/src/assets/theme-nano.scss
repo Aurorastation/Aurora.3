@@ -115,7 +115,7 @@
         color: #8BA5C4;
     }
 
-    .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
+    .itemLabel {
         color: #e9c183;
     }
 
@@ -186,6 +186,13 @@
         vertical-align: top;
         margin: 0 2px 2px 0;
     }
+
+    .tooltip {
+        &.content {
+            background: #272727;
+            border: 1px solid darkgrey;
+        }
+    }
 }
 
 .theme-nano-light {
@@ -193,7 +200,7 @@
     color: black;
     background: #c9c9c9 url(resources/theme-nano/uiBackground-light.svg) 50% 0 repeat-x;
 
-    .itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest {
+    .itemLabel {
         color: #4C401C
     }
     .uiTitleWrapper {
@@ -273,6 +280,13 @@
             &:hover {
                 background: #fcff5f;;
             }
+        }
+    }
+    .tooltip {
+        &.content {
+            color: black;
+            background: #c9c9c9;
+            border: 1px solid darkgrey;
         }
     }
 }

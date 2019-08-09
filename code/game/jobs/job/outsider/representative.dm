@@ -10,8 +10,8 @@
 	selection_color = "#dddddd"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
-	access = list(access_lawyer, access_maint_tunnels, access_heads)
-	minimal_access = list(access_lawyer, access_heads)
+	access = list(access_lawyer, access_maint_tunnels)
+	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
 	alt_titles = list("Tau Ceti Representative","Sol Consular Officer", "PRA Consular Officer")
 	outfit = /datum/outfit/job/representative

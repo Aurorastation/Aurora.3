@@ -6279,7 +6279,7 @@
 /area/security/checkpoint2)
 "lq" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/structure/window/reinforced{
@@ -6349,7 +6349,7 @@
 /area/security/checkpoint2)
 "lu" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/structure/window/reinforced{
@@ -6657,7 +6657,7 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lW" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -6682,7 +6682,7 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lY" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
@@ -10961,7 +10961,8 @@
 	opacity = 0
 	},
 /obj/machinery/door/airlock/command{
-	name = "Shuttle Docking"
+	name = "Shuttle Docking";
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11202,7 +11203,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Docking Area";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4

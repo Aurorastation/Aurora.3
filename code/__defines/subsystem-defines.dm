@@ -98,3 +98,12 @@
 // -- SSmob_ai --
 #define MOB_START_THINKING(mob) if (!mob.thinking_enabled) { SSmob_ai.processing += mob; mob.on_think_enabled(); mob.thinking_enabled = TRUE; }
 #define MOB_STOP_THINKING(mob) SSmob_ai.processing -= mob; mob.on_think_disabled(); mob.thinking_enabled = FALSE;
+
+
+// - SSrecords --
+#define RECORD_GENERAL 1
+#define RECORD_MEDICAL 2
+#define RECORD_SECURITY 4
+#define RECORD_LOCKED 8
+#define RECORD_WARRANT 16
+#define RECORD_VIRUS 32

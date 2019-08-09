@@ -8787,7 +8787,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aqW" = (
@@ -9662,7 +9662,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aso" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
@@ -13508,7 +13508,9 @@
 /area/lawoffice)
 "ayp" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment{
+	req_one_access = list(19,38)
+	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -13636,7 +13638,7 @@
 /turf/simulated/floor/plating,
 /area/bridge)
 "ayD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
@@ -15032,7 +15034,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aBb" = (
@@ -16498,7 +16500,7 @@
 /area/crew_quarters/captain)
 "aDw" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /obj/structure/cable/green{
@@ -17156,7 +17158,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEx" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEy" = (
@@ -20443,7 +20445,7 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aJF" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -20794,7 +20796,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -22558,7 +22561,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aNe" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/sign/goldenplaque{
 	pixel_x = -32
 	},
@@ -22990,7 +22993,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -23536,7 +23540,7 @@
 /area/crew_quarters/heads/hos)
 "aOS" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
@@ -24350,7 +24354,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aQi" = (
@@ -27017,7 +27021,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
 "aUy" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aUz" = (
@@ -27746,7 +27750,7 @@
 /area/hallway/primary/starboard)
 "aVG" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVH" = (
@@ -30822,7 +30826,7 @@
 /area/crew_quarters/heads/hop)
 "bba" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bbb" = (
@@ -33147,7 +33151,7 @@
 /area/medical/icu)
 "bff" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
@@ -33436,7 +33440,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -33445,7 +33450,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -34654,7 +34660,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
@@ -34693,7 +34699,7 @@
 /area/medical/pharmacy)
 "bhG" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -34978,7 +34984,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -34986,7 +34993,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -35702,7 +35710,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjr" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
@@ -36428,7 +36436,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Level A Lift";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -37109,7 +37118,7 @@
 /area/crew_quarters/heads/cmo)
 "blH" = (
 /obj/structure/table/glass,
-/obj/machinery/computer/skills,
+/obj/machinery/computer/records/employment,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 6
@@ -37417,13 +37426,13 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
-"bmg" = (
-/obj/structure/table/standard,
 /obj/item/stack/material/plasteel{
 	amount = 20
 	},
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
+"bmg" = (
+/obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bmh" = (
@@ -39753,7 +39762,7 @@
 	name = "\improper Medical - Exam Room 1"
 	})
 "bpH" = (
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
@@ -40307,7 +40316,7 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqC" = (
@@ -40336,7 +40345,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/computer/med_data/laptop,
+/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
@@ -41346,7 +41355,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Level A Lift";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -45139,7 +45149,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/machinery/light_switch{
 	pixel_x = 24;
 	pixel_y = 8
@@ -46942,7 +46952,7 @@
 /area/rnd/rdoffice)
 "bBz" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop"
 	},
 /turf/simulated/floor/carpet/blue,
