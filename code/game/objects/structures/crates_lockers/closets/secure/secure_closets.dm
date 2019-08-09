@@ -87,7 +87,7 @@
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-				if (!do_after(user, 2/W.toolspeed, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
+				if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
 					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
@@ -112,14 +112,14 @@
 		if(screwed)
 			to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 10/W.toolspeed, act_target = src))
+			if (do_after(user, 10/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  "<span class='notice'>You unscrew the locker!</span>")
 				playsound(loc, W.usesound, 50, 1)
 				screwed = 0
 		else if(!screwed && wrenched)
 			to_chat(user,  "<span class='notice'>You start to screw the locker to the floor...</span>")
 			playsound(src, 'sound/items/Welder.ogg', 80, 1)
-			if (do_after(user, 15/W.toolspeed, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  "<span class='notice'>You screw the locker!</span>")
 				playsound(loc, W.usesound, 50, 1)
 				screwed = 1
@@ -127,7 +127,7 @@
 		if(wrenched && !screwed)
 			to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 0
@@ -135,7 +135,7 @@
 		else if(!wrenched)
 			to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
 			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed, act_target = src))
+			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 				to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
 				playsound(loc, W.usesound, 50, 1)
 				wrenched = 1

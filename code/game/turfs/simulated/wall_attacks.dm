@@ -228,7 +228,7 @@
 			if(cut_delay<0)
 				cut_delay = 0
 
-			if(!do_after(user,4/W.toolspeed))
+			if(!do_after(user,cut_delay/W.toolspeed))
 				return
 
 
