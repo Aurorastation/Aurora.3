@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed hungry and thirsty movement calculations not working correctly with some species."
