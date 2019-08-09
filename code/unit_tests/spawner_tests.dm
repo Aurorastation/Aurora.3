@@ -21,7 +21,7 @@ datum/unit_test/template/start_test()
 	for(var/spawner in subtypesof(/datum/ghostspawner))
 		checks++
 		var/datum/ghostspawner/G = new spawner
-		if(is_type_in_list(G,ignore_spawners))
+		if(instances_of_type_in_list(G,ignore_spawners, strict = TRUE))
 			continue
 		//Check if we hae name, short_name and desc set
 		if(!G.short_name || !G.name || !G.desc)
