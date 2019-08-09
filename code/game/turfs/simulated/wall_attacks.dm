@@ -226,7 +226,7 @@
 				playsound(src, dismantle_sound, 100, 1)
 
 			if(cut_delay<0)
-				cut_delay = 0
+				cut_delay = 1
 
 			if(!do_after(user,cut_delay/W.toolspeed))
 				return
