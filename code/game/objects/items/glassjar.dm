@@ -6,7 +6,7 @@
 	w_class = 2
 	matter = list("glass" = 200)
 	flags = NOBLUDGEON
-	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/mouse)
+	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 	drop_sound = 'sound/items/drop/glass.ogg'
 
@@ -66,6 +66,7 @@
 			return
 		if(0)
 			to_chat(user, "<span class='notice'>You remove the lid from \the [src].</span>")
+			user.drop_from_inventory(src)
 			user.put_in_hands(new /obj/item/weapon/reagent_containers/glass/beaker/jar) //found in jar.dm
 			qdel(src)
 			return

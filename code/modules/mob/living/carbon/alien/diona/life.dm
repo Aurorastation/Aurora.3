@@ -30,11 +30,11 @@
 
 
 /mob/living/carbon/alien/diona/Life()
-	if (gestalt && (gestalt.life_tick % 5 == 0))//Minimal processing while in stasis
+	if (!detached && gestalt && (gestalt.life_tick % 5 == 0)) // Minimal processing while in stasis
 		updatehealth()
 		check_status_as_organ()
 
-	if (!gestalt)
+	else if (!gestalt || detached)
 		..()
 
 /mob/living/carbon/alien/diona/think()
@@ -42,6 +42,6 @@
 	if (!gestalt)
 		if(stat != DEAD)
 			if(master_nymph && !client && master_nymph != src)
-				walk_to(src,master_nymph,1,movement_delay())
+				walk_to(src,master_nymph, 1, movement_delay())
 			else
 				walk_to(src,0)

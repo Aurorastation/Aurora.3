@@ -82,7 +82,7 @@
 	emp_protection = 40
 	slowdown = 0
 
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+	species_restricted = list("exclude","Diona", "Golem")
 
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
@@ -205,9 +205,7 @@
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/mounted/xray
+		/obj/item/rig_module/chem_dispenser/combat
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
@@ -228,3 +226,13 @@
 
 /obj/item/clothing/gloves/rig/light/offworlder
 	species_restricted = list("Human")
+
+/obj/item/weapon/rig/light/offworlder/techno/equipped
+	initial_modules = list(
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/mounted/xray
+		)

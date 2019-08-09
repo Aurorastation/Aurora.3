@@ -53,26 +53,11 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
 	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
 	var/has_wield_state = TRUE
-
-	action_button_name = "Wield shotgun"
-
-/obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/shotgun/pump/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/shotgun/pump/verb/wield_shotgun()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)

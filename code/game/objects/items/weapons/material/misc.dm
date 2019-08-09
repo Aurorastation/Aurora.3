@@ -44,6 +44,7 @@
 	sharp = 1
 	edge = 1
 	desc = "A sharp, metal hook that sticks into things."
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 

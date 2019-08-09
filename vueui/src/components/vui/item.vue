@@ -20,3 +20,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.item {
+    width: 100%;
+}
+
+.itemLabel, .itemContent {
+    display: inline-block
+}
+
+.itemLabel {
+    width: 30%;
+    vertical-align: top;
+}
+</style>

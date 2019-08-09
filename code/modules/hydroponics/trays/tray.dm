@@ -51,30 +51,32 @@
 	// Reagent information for process(), consider moving this to a controller along
 	// with cycle information under 'mechanical concerns' at some point.
 	var/global/list/toxic_reagents = list(
-		"anti_toxin" =     -2,
-		"toxin" =           2,
-		"hydrazine" =       2.5,
-		"acetone" =	        1,
-		"sacid" =           1.5,
-		"hclacid" =         1.5,
-		"pacid" =           3,
-		"plantbgone" =      3,
-		"cryoxadone" =     -3,
-		"radium" =          2
+		"anti_toxin" =		-2,
+		"toxin" =			2,
+		"hydrazine" =		2.5,
+		"acetone" =			1,
+		"sacid" =			1.5,
+		"hclacid" =			1.5,
+		"pacid" =			3,
+		"plantbgone" =		3,
+		"cryoxadone" =		-3,
+		"radium" =			2,
+		"raskara_dust" =	2.5
 		)
 	var/global/list/nutrient_reagents = list(
-		"milk" =            0.1,
-		"beer" =            0.25,
-		"phosphorus" =      0.1,
-		"sugar" =           0.1,
-		"sodawater" =       0.1,
-		"ammonia" =         1,
-		"diethylamine" =    2,
-		"nutriment" =       1,
-		"adminordrazine" =  1,
-		"eznutrient" =      1,
-		"robustharvest" =   1,
-		"left4zed" =        1
+		"milk" =                  0.1,
+		"beer" =                  0.25,
+		"phosphorus" =            0.1,
+		"sugar" =                 0.1,
+		"sodawater" =             0.1,
+		"ammonia" =               1,
+		"diethylamine" =          2,
+		"nutriment" =             1,
+		"adminordrazine" =        1,
+		"eznutrient" =            1,
+		"robustharvest" =         1,
+		"left4zed" =              1,
+		"monoammoniumphosphate" = 1
 		)
 	var/global/list/weedkiller_reagents = list(
 		"hydrazine" =      -4,

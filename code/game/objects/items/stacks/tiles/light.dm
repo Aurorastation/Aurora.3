@@ -20,8 +20,18 @@
 /obj/item/stack/tile/light/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/weapon/crowbar))
 		amount--
-		new /obj/item/stack/light_w(user.loc)
+		to_chat(user, "<span class='notice'>You pry off the steel sheet from the [name].</span>")
+		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		new /obj/item/stack/material/glass/wired(user.loc)
+		new /obj/item/stack/material/steel(user.loc)
 		if(amount <= 0)
 			qdel(src)
 	else
 		return ..()
+
+/obj/item/stack/tile/light/attack_self(mob/user)
+	amount--
+	playsound(src.loc, 'sound/items/Deconstruct.ogg', 80, 1)
+	new /obj/machinery/floor_light(user.loc)
+	if(amount <= 0)
+		qdel(src)

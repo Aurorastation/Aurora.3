@@ -30,6 +30,7 @@
 
 	var/obj/item/inventory_head
 	var/obj/item/inventory_back
+	emote_sounds = list('sound/effects/creatures/dog_bark.ogg', 'sound/effects/creatures/dog_bark2.ogg', 'sound/effects/creatures/dog_bark3.ogg')
 
 /mob/living/simple_animal/corgi/Initialize()
 	. = ..()

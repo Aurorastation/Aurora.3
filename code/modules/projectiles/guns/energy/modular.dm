@@ -9,7 +9,7 @@
 	force = 10
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	can_turret = 0
+	can_turret = TRUE
 	zoomdevicename = null
 	max_shots = 0
 	burst_delay = 0
@@ -63,6 +63,8 @@
 	criticality = initial(criticality)
 	fire_sound = initial(fire_sound)
 	force = initial(force)
+	is_wieldable = initial(is_wieldable)
+	action_button_name = initial(action_button_name)
 
 /obj/item/weapon/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()
@@ -70,21 +72,7 @@
 		disassemble(user)
 		return
 
-	switch(origin_chassis)
-		if(CHASSIS_SMALL)
-			gun_type =  CHASSIS_SMALL
-			slot_flags = SLOT_BELT | SLOT_HOLSTER
-			item_state = "retro"
-		if(CHASSIS_MEDIUM)
-			gun_type = CHASSIS_MEDIUM
-			slot_flags = SLOT_BELT | SLOT_BACK
-			item_state = "energystun"
-			action_button_name = "Wield rifle"
-		if(CHASSIS_LARGE)
-			gun_type = CHASSIS_LARGE
-			slot_flags = SLOT_BACK
-			item_state = "heavyprotogun"
-			action_button_name = "Wield rifle"
+	update_chassis()
 
 	if(capacitor.reliability - capacitor.condition <= 0)
 		if(prob(66))
@@ -125,6 +113,24 @@
 	w_class = gun_type
 	reliability = max(reliability, 1)
 
+/obj/item/weapon/gun/energy/laser/prototype/proc/update_chassis()
+	switch(origin_chassis)
+		if(CHASSIS_SMALL)
+			gun_type =  CHASSIS_SMALL
+			slot_flags = SLOT_BELT | SLOT_HOLSTER
+			item_state = "retro"
+		if(CHASSIS_MEDIUM)
+			gun_type = CHASSIS_MEDIUM
+			slot_flags = SLOT_BELT | SLOT_BACK
+			item_state = "energystun"
+			is_wieldable = TRUE
+		if(CHASSIS_LARGE)
+			gun_type = CHASSIS_LARGE
+			slot_flags = SLOT_BACK
+			item_state = "heavyprotogun"
+			is_wieldable = TRUE
+	update_wield_verb()
+
 /obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		switch(modifier.mod_type)
@@ -151,6 +157,8 @@
 	if(!ispath(projectile_type))
 		return null
 	if(!power_supply.checked_use(charge_cost))
+		return null
+	if(!capacitor)
 		return null
 	if (self_recharge)
 		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
@@ -239,13 +247,6 @@
 /obj/item/weapon/gun/energy/laser/prototype/ui_action_click()
 	if(src in usr)
 		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/laser/prototype/verb/wield_shotgun()
-	set name = "Wield prototype"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"

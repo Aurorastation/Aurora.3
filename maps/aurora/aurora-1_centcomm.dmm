@@ -3722,7 +3722,7 @@
 "aka" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/shuttle/floor,
 /area/template_noop)
 "akb" = (
@@ -7043,7 +7043,7 @@
 /turf/simulated/shuttle/wall/dark,
 /area/shuttle/administration/centcom)
 "aqH" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -7070,7 +7070,7 @@
 	},
 /area/shuttle/administration/centcom)
 "aqL" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -9095,7 +9095,7 @@
 	},
 /area/centcom/specops)
 "avr" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "ert_synth_equipment";
 	name = "Synthetics Modification Equipment"
@@ -9195,7 +9195,7 @@
 	},
 /area/centcom/living)
 "avG" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	icon_state = "pdoor1";
 	id = "ASSAULT";
@@ -9366,7 +9366,7 @@
 	},
 /area/centcom/specops)
 "avX" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT";
@@ -9575,7 +9575,7 @@
 	},
 /area/centcom/control)
 "awx" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "battery3";
 	name = "Battery 3 Firing Door"
@@ -9599,7 +9599,7 @@
 	},
 /area/centcom/specops)
 "awA" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT3";
@@ -9946,7 +9946,7 @@
 	},
 /area/centcom/control)
 "axq" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	icon_state = "pdoor1";
 	id = "ASSAULT";
@@ -9980,7 +9980,7 @@
 	opacity = 1;
 	req_access = list(108,109)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	icon_state = "pdoor1";
 	id = "CREED";
@@ -10483,7 +10483,7 @@
 	},
 /area/centcom/control)
 "ayo" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT2";
@@ -10782,7 +10782,7 @@
 /area/centcom/control)
 "ayS" = (
 /mob/living/silicon/decoy{
-	name = "A.L.I.C.E."
+	name = "Bubble"
 	},
 /turf/unsimulated/floor{
 	icon_state = "whiteshiny"
@@ -10818,7 +10818,7 @@
 	},
 /area/centcom/control)
 "ayX" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "battery2";
 	name = "Battery 2 Firing Door"
@@ -10829,7 +10829,7 @@
 	},
 /area/centcom/control)
 "ayY" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT1";
@@ -11056,7 +11056,7 @@
 	name = "Bluespace Artillery Deck";
 	opacity = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	id = "centcomm_bsa";
 	name = "Bluespace Artillery Deck"
@@ -11138,6 +11138,7 @@
 	opacity = 1;
 	req_access = list(103)
 	},
+/obj/machinery/door/blast/odin/shuttle/ert,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -11149,6 +11150,7 @@
 	opacity = 1;
 	req_access = list(103)
 	},
+/obj/machinery/door/blast/odin/shuttle/ert,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -11160,7 +11162,7 @@
 	opacity = 1;
 	req_access = list(103)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "CREED";
@@ -11193,7 +11195,7 @@
 	opacity = 1;
 	req_access = list(103)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "CREED";
@@ -11223,7 +11225,7 @@
 	name = "Bluespace Artillery Deck";
 	opacity = 1
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	id = "centcomm_bsa";
 	name = "Bluespace Artillery Deck"
@@ -11240,7 +11242,7 @@
 /turf/space/transit/north/shuttlespace_ns1,
 /area/shuttle/escape/transit)
 "azO" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "pdoor1";
 	id = "ASSAULT0";
@@ -11277,6 +11279,7 @@
 	opacity = 1;
 	req_access = list(103)
 	},
+/obj/machinery/door/blast/odin/shuttle/ert,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -11392,7 +11395,7 @@
 	},
 /area/centcom/control)
 "aAd" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11538,6 +11541,7 @@
 	opacity = 1;
 	req_access = list(103)
 	},
+/obj/machinery/door/blast/odin/shuttle/ert,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -11634,7 +11638,7 @@
 	},
 /area/centcom/control)
 "aAD" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11662,7 +11666,7 @@
 	},
 /area/centcom/control)
 "aAH" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "battery1";
 	name = "Battery 1 Firing Door"
@@ -11680,10 +11684,10 @@
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
 /obj/item/weapon/storage/box/syringes,
+/obj/item/weapon/reagent_containers/hypospray/cmo,
+/obj/item/weapon/reagent_containers/hypospray/cmo,
+/obj/item/weapon/reagent_containers/hypospray/cmo,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -11697,11 +11701,11 @@
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/weapon/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
-/obj/item/weapon/reagent_containers/hypospray,
 /obj/item/weapon/storage/box/syringes,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/item/weapon/reagent_containers/hypospray/cmo,
+/obj/item/weapon/reagent_containers/hypospray/cmo,
+/obj/item/weapon/reagent_containers/hypospray/cmo,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -12422,7 +12426,7 @@
 	opacity = 1;
 	req_access = list(101)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "crescent_checkpoint_access";
 	name = "NMSS Odin Checkpoint"
@@ -12529,7 +12533,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aCn" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -12556,7 +12560,7 @@
 	opacity = 1;
 	req_access = list(101)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "crescent_checkpoint_access";
 	name = "NMSS Odin Checkpoint"
@@ -12858,7 +12862,7 @@
 	},
 /area/centcom/holding)
 "aDc" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComPort";
 	name = "Security Doors"
@@ -13040,7 +13044,7 @@
 	},
 /area/centcom/holding)
 "aDz" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
@@ -13091,7 +13095,7 @@
 	},
 /area/centcom/holding)
 "aDG" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -13108,7 +13112,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/skills{
+/obj/machinery/computer/records/employment{
 	icon_state = "medlaptop";
 	pixel_x = 3;
 	pixel_y = 4
@@ -13250,30 +13254,8 @@
 /area/centcom/ferry)
 "aDW" = (
 /obj/machinery/computer/shuttle_control{
-	req_access = list(101);
+	req_access = list(38);
 	shuttle_tag = "Centcom"
-	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/ferry)
-"aDX" = (
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK";
-	pixel_x = 0
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
 	},
 /turf/unsimulated/floor{
 	name = "plating"
@@ -13431,7 +13413,7 @@
 /area/template_noop)
 "aEv" = (
 /obj/machinery/computer/shuttle_control{
-	req_access = list(101);
+	req_access = list(38);
 	shuttle_tag = "Centcom"
 	},
 /obj/machinery/light{
@@ -13481,10 +13463,11 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/ferry)
 "aEC" = (
-/obj/machinery/door/airlock/external{
-	name = "Arrivals Bar Airlock"
+/obj/machinery/door/airlock/centcom{
+	name = "Bar Airlock";
+	req_access = list(101)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "crescent_vip_shuttle";
 	name = "NMSS Odin VIP Shuttle"
@@ -13758,7 +13741,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "aFn" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -13821,7 +13804,7 @@
 	},
 /area/shuttle/escape/centcom)
 "aFt" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -14234,7 +14217,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aGk" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -15282,12 +15265,6 @@
 	},
 /area/shuttle/escape/centcom)
 "aIE" = (
-/obj/item/organ/xenos/eggsac,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership/raider_base)
-"aIF" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
@@ -17797,7 +17774,7 @@
 	},
 /area/centcom/spawning)
 "aNX" = (
-/obj/machinery/door/blast/regular/open{
+/obj/machinery/door/blast/odin/open{
 	dir = 1;
 	id = "odinaslockdown"
 	},
@@ -17824,7 +17801,7 @@
 	},
 /area/centcom/spawning)
 "aNZ" = (
-/obj/machinery/door/blast/regular/open{
+/obj/machinery/door/blast/odin/open{
 	dir = 1;
 	id = "odinaslockdown"
 	},
@@ -17916,7 +17893,7 @@
 	},
 /area/centcom/holding)
 "aOk" = (
-/obj/machinery/door/blast/regular/open{
+/obj/machinery/door/blast/odin/open{
 	dir = 1;
 	id = "odinaslockdown"
 	},
@@ -18695,7 +18672,7 @@
 	},
 /area/centcom/spawning)
 "aPN" = (
-/obj/machinery/door/blast/regular/open{
+/obj/machinery/door/blast/odin/open{
 	dir = 1;
 	id = "odinaslockdown"
 	},
@@ -18718,7 +18695,7 @@
 	},
 /area/centcom/spawning)
 "aPP" = (
-/obj/machinery/door/blast/regular/open{
+/obj/machinery/door/blast/odin/open{
 	dir = 1;
 	id = "odinaslockdown"
 	},
@@ -19200,7 +19177,7 @@
 	},
 /area/centcom/spawning)
 "aQT" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20315,7 +20292,7 @@
 	},
 /area/tdome/tdomeobserve)
 "aTk" = (
-/obj/structure/reagent_dispensers/beerkeg,
+/obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
@@ -21469,7 +21446,7 @@
 	},
 /area/shuttle/escape/centcom)
 "aVZ" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21514,7 +21491,7 @@
 /area/shuttle/escape/centcom)
 "aWg" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsForeChkpt";
 	name = "Security Doors"
@@ -21620,7 +21597,7 @@
 /area/shuttle/escape/centcom)
 "aWr" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsAftChkpt";
 	name = "Security Doors"
@@ -21674,7 +21651,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "aWz" = (
-/obj/machinery/computer/secure_data,
+/obj/machinery/computer/records/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -22532,7 +22509,7 @@
 	opacity = 1;
 	req_access = list(108,109)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	icon_state = "pdoor1";
 	id = "ADMIN_SHUTTLE";
@@ -23054,7 +23031,7 @@
 /area/centcom/legion)
 "aZK" = (
 /obj/effect/floor_decal/industrial/loading,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	id = "tcfl"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -23156,6 +23133,7 @@
 	name = "Leader Preparation";
 	req_access = list(111)
 	},
+/obj/machinery/door/blast/odin/shuttle/tcfl,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bab" = (
@@ -23163,6 +23141,7 @@
 	name = "Security Preparation";
 	req_access = list(111)
 	},
+/obj/machinery/door/blast/odin/shuttle/tcfl,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bac" = (
@@ -23170,6 +23149,7 @@
 	name = "Medical Preparation";
 	req_access = list(111)
 	},
+/obj/machinery/door/blast/odin/shuttle/tcfl,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bad" = (
@@ -23177,6 +23157,7 @@
 	name = "Engineering Preparation";
 	req_access = list(111)
 	},
+/obj/machinery/door/blast/odin/shuttle/tcfl,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bae" = (
@@ -23184,6 +23165,7 @@
 	name = "General Supplies";
 	req_access = list(111)
 	},
+/obj/machinery/door/blast/odin/shuttle/tcfl,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "baf" = (
@@ -23817,7 +23799,7 @@
 	name = "Cmdt Office";
 	req_access = list(108,109)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	id = "tcfl";
 	name = "Heavy Support"
 	},
@@ -23861,7 +23843,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbx" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	id = "tcfl";
 	name = "Heavy Support"
 	},
@@ -24257,6 +24239,15 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"bPG" = (
+/obj/structure/table/wood,
+/obj/item/weapon/material/ashtray/glass,
+/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
+/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "djI" = (
 /obj/machinery/light{
 	dir = 2;
@@ -24268,12 +24259,20 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"doP" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "duC" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Cmdt Office";
 	req_access = list(108,109)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 4;
 	id = "tcfl-c";
 	name = "Cmdt Office"
@@ -24323,6 +24322,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"dUW" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "eiE" = (
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
@@ -24344,6 +24349,18 @@
 	icon_state = "floor"
 	},
 /area/centcom/evac)
+"ewG" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "eyw" = (
 /obj/machinery/telecomms/processor/preset_cent,
 /turf/unsimulated/floor{
@@ -24405,6 +24422,14 @@
 	dir = 8
 	},
 /area/centcom/living)
+"gXE" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "haj" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,
@@ -24442,12 +24467,18 @@
 	dir = 8
 	},
 /area/centcom/living)
+"hHP" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/ferry)
 "hKG" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/northleft{
 	req_access = list(101)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsAftChkpt";
 	name = "Security Doors"
@@ -24513,7 +24544,7 @@
 "ioS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/southright,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsForeChkpt";
 	name = "Security Doors"
@@ -24522,6 +24553,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"iIs" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/records/employment,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "iVE" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/energy/rifle,
@@ -24575,6 +24613,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"jiF" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/machinery/door/blast/odin/shuttle/ert,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/specops)
 "jon" = (
 /obj/machinery/door/airlock/centcom{
 	icon = 'icons/obj/doors/Doorcomglass.dmi';
@@ -24608,7 +24653,7 @@
 "jDn" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/southleft,
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsForeChkpt";
 	name = "Security Doors"
@@ -24637,7 +24682,7 @@
 /obj/machinery/door/window/northright{
 	req_access = list(101)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	dir = 1;
 	id = "CentComArrivalsAftChkpt";
 	name = "Security Doors"
@@ -24652,8 +24697,17 @@
 	dir = 4
 	},
 /area/centcom/living)
+"kEn" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "kHc" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -24707,7 +24761,7 @@
 	},
 /area/centcom/living)
 "lAK" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -24720,7 +24774,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "lUi" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -24741,7 +24795,7 @@
 	},
 /area/centcom/control)
 "mak" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -24768,6 +24822,10 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"mVG" = (
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "nhD" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/checkpoint/fore)
@@ -24815,8 +24873,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"otY" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "ouU" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -24948,6 +25011,26 @@
 	dir = 6
 	},
 /area/space)
+"qNk" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"raM" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Corporate Liaison"
+	},
+/obj/effect/landmark{
+	name = "LateJoinCorporate Liaison"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "rlk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -24961,6 +25044,16 @@
 	name = "plating"
 	},
 /area/centcom/evac)
+"rod" = (
+/obj/machinery/computer/shuttle_control{
+	req_access = list(38);
+	shuttle_tag = "Centcom"
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/centcom/ferry)
 "rwg" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -24980,6 +25073,15 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
+"sfa" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Cryo Storage";
+	req_access = list(38)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "srl" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -25050,7 +25152,7 @@
 	},
 /area/centcom/living)
 "tAQ" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -25088,7 +25190,7 @@
 	},
 /area/centcom/control)
 "vio" = (
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	density = 0;
 	dir = 1;
 	icon_state = "pdoor0";
@@ -25100,6 +25202,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"vjK" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "vyG" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
@@ -25229,6 +25337,15 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
+"xhq" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -25242,12 +25359,21 @@
 	name = "Cmdt Office";
 	req_access = list(108,109)
 	},
-/obj/machinery/door/blast/regular{
+/obj/machinery/door/blast/odin{
 	id = "tcfl-c";
 	name = "Cmdt Office"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"yhL" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Representative Office";
+	req_access = list(38)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 
 (1,1,1) = {"
 aaa
@@ -26989,9 +27115,9 @@ ahV
 aGz
 aGz
 aIE
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aKq
 aGz
 aGz
@@ -27245,11 +27371,11 @@ aaM
 ahV
 aGz
 aIh
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aJK
-aIF
+aIE
 aKq
 aGz
 aGz
@@ -27503,11 +27629,11 @@ ahV
 aGz
 aGz
 aIG
-aIF
-aIF
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
+aIE
+aIE
 aLl
 aGz
 ahV
@@ -27760,11 +27886,11 @@ aaM
 ahV
 aGz
 aIH
-aIF
+aIE
 aJk
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aLm
 aGz
 ahV
@@ -28017,8 +28143,8 @@ aHi
 aFT
 aFT
 aFT
-aIF
-aIF
+aIE
+aIE
 aJL
 aKr
 aKM
@@ -51899,9 +52025,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aDM
+aDM
+aDM
 aaM
 aaM
 aaM
@@ -52156,9 +52282,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aDM
+mVG
+aDM
 aaM
 aaM
 aaM
@@ -52413,9 +52539,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aDM
+dUW
+aDM
 aaM
 aaM
 aaM
@@ -52670,9 +52796,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aDM
+xhq
+aDM
 aaM
 aaM
 aaM
@@ -52925,11 +53051,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDM
+aDM
+aDM
+sfa
+aDM
 aaM
 aaM
 aaM
@@ -53182,11 +53308,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hHP
+vjK
+raM
+otY
+hHP
 aaM
 aaM
 aaM
@@ -53439,11 +53565,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hHP
+iIs
+gXE
+otY
+hHP
 aaM
 aaM
 aaM
@@ -53696,11 +53822,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDM
+kEn
+doP
+otY
+aDM
 aaM
 aaM
 aaM
@@ -53953,11 +54079,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDM
+otY
+otY
+otY
+aDM
 aaM
 aaM
 aaM
@@ -54210,11 +54336,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hHP
+qNk
+otY
+otY
+hHP
 aaM
 aaM
 aaM
@@ -54467,11 +54593,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hHP
+bPG
+ewG
+otY
+hHP
 aaM
 aaM
 aaM
@@ -54727,8 +54853,8 @@ aCb
 ave
 ave
 ave
-aaM
-aaM
+otY
+aDM
 aaM
 aaM
 aaM
@@ -54971,8 +55097,8 @@ ave
 azS
 aAg
 ave
-axZ
-axZ
+jiF
+jiF
 ave
 ave
 ave
@@ -54984,8 +55110,8 @@ aCc
 aCc
 aCc
 ave
-aaM
-aaM
+otY
+aDM
 aaM
 aaM
 aaM
@@ -55241,7 +55367,7 @@ aCT
 aCc
 aDB
 aDM
-aDM
+yhL
 aDM
 aEj
 aEj
@@ -56507,8 +56633,8 @@ awK
 ave
 ave
 ave
-axZ
-axZ
+jiF
+jiF
 ave
 azV
 aAh
@@ -59867,9 +59993,9 @@ aCj
 aCj
 aCj
 aDM
-aDX
+aEB
 aEg
-aDX
+aEB
 aDM
 aDM
 aDM
@@ -60124,7 +60250,7 @@ aDm
 aDm
 aDm
 aDM
-aDY
+rod
 aDY
 aDY
 aDM

@@ -24,6 +24,7 @@
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
+	var/onfire_overlay = 'icons/mob/OnFire.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0

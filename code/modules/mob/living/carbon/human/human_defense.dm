@@ -394,7 +394,7 @@ emp_act
 			if(assailant)
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
 				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [src.name] ([src.ckey]) with a thrown [O]</font>")
-				if(!istype(src,/mob/living/simple_animal/mouse))
+				if(!istype(src,/mob/living/simple_animal/rat))
 					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
 		//thrown weapon embedded object code.
@@ -551,6 +551,8 @@ emp_act
 	if(user.gloves && istype(user.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
 		G.state = GRAB_AGGRESSIVE
 		G.icon_state = "grabbed1"
+		G.hud.icon_state = "reinforce1"
+		G.last_action = world.time
 		visible_message("<span class='warning'>[user] gets a strong grip on [src]!</span>")
 		return 1
 	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")

@@ -83,6 +83,7 @@
 
 	//Parrots are kleptomaniacs. This variable ... stores the item a parrot is holding.
 	var/obj/item/held_item = null
+	emote_sounds = list('sound/effects/creatures/parrot.ogg')
 
 
 /mob/living/simple_animal/parrot/Initialize()

@@ -21,7 +21,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	watch_var("maxcopies", "maxcopies")
 	watch_var("copyitem", "gotitem", CALLBACK(null, .proc/transform_to_boolean, FALSE))
 
-/obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/vueui/ui)
+/obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
 	if(data && data["isAI"] != istype(user, /mob/living/silicon))

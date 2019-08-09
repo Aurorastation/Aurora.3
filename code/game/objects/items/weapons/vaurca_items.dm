@@ -13,26 +13,64 @@
 	to_chat(user, "This mask is too tight to adjust.")
 	return
 
-/obj/item/clothing/mask/breath/vaurca/expression
-	name = "human expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
-	icon_state = "human_mask"
-	item_state = "human_mask"
-
-/obj/item/clothing/mask/breath/vaurca/expression/skrell
-	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
-	icon_state = "skrell_mask"
-	item_state = "skrell_mask"
+/obj/item/clothing/mask/breath/vaurca/filter
+	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
+	name = "filter port"
+	icon_state = "filterport"
+	item_state = 0
 
 /obj/item/clothing/head/shaper
 	name = "shaper helmet"
-	desc = "A mirrored helm commonly worn by Preimmients. The helm masks the visage of its wearer, symbolically and literally  blinding them to all but the path set in front of them."
+	desc = "A mirrored helm commonly worn by Preimminents. The helm masks the visage of its wearer, symbolically and literally blinding them to all but the path set in front of them."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
 	species_restricted = list("Vaurca")
+	body_parts_covered = HEAD|FACE|EYES
+
+/obj/item/clothing/head/expression
+	name = "human expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a human."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "human_helmet"
+	item_state = "human_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/expression/skrell
+	name = "skrell expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	icon_state = "skrell_helmet"
+	item_state = "skrell_helmet"
+
+/obj/item/clothing/head/shroud
+	name = "vaurcan shroud"
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is blue."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "vacshroudblue"
+	item_state = "vacshroudblue"
+	body_parts_covered = HEAD|FACE|EYES
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/shroud/red
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is red."
+	icon_state = "vacshroudred"
+	item_state = "vacshroudred"
+
+/obj/item/clothing/head/shroud/green
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is green."
+	icon_state = "vacshroudgreen"
+	item_state = "vacshroudgreen"
+
+/obj/item/clothing/head/shroud/purple
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is purple."
+	icon_state = "vacshroudpurple"
+	item_state = "vacshroudpurple"
+
+/obj/item/clothing/head/shroud/brown
+	desc = "This relatively new design is meant to cover the head of a Vaurca, to both protect against sunlight, and to cover their mandibles. This one is brown."
+	icon_state = "vacshroudbrown"
+	item_state = "vacshroudbrown"
 
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
@@ -353,6 +391,7 @@
 	needspin = TRUE
 	recoil = 6
 
+	is_wieldable = TRUE
 
 	release_speed = 5
 	var/list/belt = new/list()
@@ -360,27 +399,6 @@
 	recoil_wielded = 2
 	accuracy_wielded = -1
 	fire_delay_wielded = 1
-
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/launcher/crossbow/vaurca/can_wield()
-	return 1
-
-/obj/item/weapon/gun/launcher/crossbow/vaurca/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/launcher/crossbow/vaurca/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	if(istype(usr,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = usr
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
 
 /obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
 	if(wielded)

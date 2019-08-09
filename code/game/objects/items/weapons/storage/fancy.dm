@@ -51,11 +51,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
 		)
-
-/obj/item/weapon/storage/fancy/egg_box/fill()
-	for(var/i=1; i <= storage_slots; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/egg(src)
-
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/egg = 12)
 /*
  * Candle Box
  */
@@ -70,10 +66,7 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	max_storage_space = 5
-
-/obj/item/weapon/storage/fancy/candle_box/fill()
-	for(var/i=1; i <= 5; i++)
-		new /obj/item/weapon/flame/candle(src)
+	starts_with = list(/obj/item/weapon/flame/candle = 5)
 
 /*
  * Crayon Box
@@ -89,15 +82,17 @@
 	can_hold = list(
 		/obj/item/weapon/pen/crayon
 	)
+	starts_with = list(
+		/obj/item/weapon/pen/crayon/red = 1,
+		/obj/item/weapon/pen/crayon/orange = 1,
+		/obj/item/weapon/pen/crayon/yellow = 1,
+		/obj/item/weapon/pen/crayon/green = 1,
+		/obj/item/weapon/pen/crayon/blue = 1,
+		/obj/item/weapon/pen/crayon/purple = 1
+	)
 
 /obj/item/weapon/storage/fancy/crayons/fill()
-	..()
-	new /obj/item/weapon/pen/crayon/red(src)
-	new /obj/item/weapon/pen/crayon/orange(src)
-	new /obj/item/weapon/pen/crayon/yellow(src)
-	new /obj/item/weapon/pen/crayon/green(src)
-	new /obj/item/weapon/pen/crayon/blue(src)
-	new /obj/item/weapon/pen/crayon/purple(src)
+	. = ..()
 	update_icon()
 
 /obj/item/weapon/storage/fancy/crayons/update_icon()
@@ -260,12 +255,7 @@
 	name = "vial storage box"
 	storage_slots = 6
 	can_hold = list(/obj/item/weapon/reagent_containers/glass/beaker/vial)
-
-
-/obj/item/weapon/storage/fancy/vials/fill()
-	..()
-	for(var/i=1; i <= storage_slots; i++)
-		new /obj/item/weapon/reagent_containers/glass/beaker/vial(src)
+	starts_with = list(/obj/item/weapon/reagent_containers/glass/beaker/vial = 6)
 
 /obj/item/weapon/storage/lockbox/vials
 	name = "secure vial storage box"
@@ -307,8 +297,8 @@
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	)
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/truffle/random = 8)
 
 /obj/item/weapon/storage/fancy/chocolate_box/fill()
 	for(var/i=1; i <= storage_slots; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/truffle/random(src)
-
