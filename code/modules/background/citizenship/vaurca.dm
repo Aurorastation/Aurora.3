@@ -45,12 +45,10 @@
 
 			H.unEquip(H.back)
 			H.unEquip(H.shoes)
-			H.unEquip(H.wear_mask)
 
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/tcfl_pamphlet(H), slot_in_backpack)
-			H.internals.icon_state = "internal1"
+			H.toggle_internals(H)
