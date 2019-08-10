@@ -51,4 +51,3 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/tcfl_pamphlet(H), slot_in_backpack)
-			H.toggle_internals(H)
