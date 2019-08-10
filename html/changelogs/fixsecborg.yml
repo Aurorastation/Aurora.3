@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds the ability for security borgs to do forensics, aswell as deploy energy barricades."
+  - rscadd: "Adds the ability for security borgs to do forensics, aswell as deploy energy barricades and sonic emitter."
   - tweak: "Adds MouseDrop to gripper."
   - rscdel: "Removes security borg offensive weapons."
