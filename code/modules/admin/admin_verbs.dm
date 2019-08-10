@@ -381,15 +381,13 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
-	/client/proc/spawn_duty_officer,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
 	/client/proc/returntobody,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists,
-	/client/proc/spawn_ert_commander
+	/client/proc/check_antagonists
 )
 
 /client/proc/add_admin_verbs()
