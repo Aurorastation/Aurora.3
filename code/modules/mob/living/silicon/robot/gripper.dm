@@ -91,6 +91,13 @@
 		return
 	return ..()
 
+/obj/item/weapon/gripper/MouseDrop(var/obj/item/I as obj, mob/user as mob)
+	if(wrapped)
+		wrapped.MouseDrop(I)
+		wrapped.update_icon()
+		update_icon()
+	return ..()
+
 /obj/item/weapon/gripper/AltClick(mob/user as mob)
 	if(wrapped)
 		.=wrapped.AltClick(user)
@@ -281,4 +288,19 @@
 
 	can_hold = list(
 		/obj/item/stack/material
+		)
+
+/obj/item/weapon/gripper/security
+	name = "security gripper"
+	icon_state = "gripper"
+	desc = "A simple grasping tool used to perform tasks in the security sector."
+
+	can_hold = list(
+		/obj/item/weapon/forensics,
+		/obj/item/weapon/reagent_containers/food,
+		/obj/item/weapon/sample,
+		/obj/item/weapon/evidencebag,
+		/obj/item/trash,
+		/obj/item/weapon/reagent_containers,
+		/obj/item/weapon/storage/briefcase/crimekit
 		)

@@ -370,6 +370,35 @@
 	to_chat(user, "You fail to pick up \the [A] with \the [src]")
 	return
 
+/obj/item/weapon/energyshield_generator
+	name = "energy shield deployment"
+	desc = "Small device which allows the deployment of portable energy cover shields."
+	icon = 'icons/obj/deployableshield.dmi'
+	icon_state = "shield_deployer"
+	w_class = 3
+	var/shieldsleft = 4
+	var/list/deployedshields = null
+
+
+/obj/item/weapon/energyshield_generator/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+	return
+
+/obj/item/weapon/energyshield_generator/attack_self(mob/user as mob)
+	if(!shieldsleft)
+		to_chat(user, "\The [src] cannot deploy anymore shields!.")
+		return
+	else
+		user.visible_message(span("notice", "[user] begins to deploy a shield barricade.</span>"))
+		deploy_shield(get_turf(src))
+
+
+
+
+/obj/item/weapon/energyshield_generator/proc/deploy_shield(var/turf/T)
+	var/obj/machinery/deployableshield/shield = new /obj/machinery/deployableshield(T)
+	shield.openshield()
+	shieldsleft -= 1
+
 /obj/item/weapon/gun/energy/mountedcannon
 	name = "mounted ballistic cannon"
 	desc = "A cyborg mounted ballistic cannon."

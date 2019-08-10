@@ -527,25 +527,15 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/crowbar(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
-	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
-	src.modules += new /obj/item/weapon/melee/baton/robot(src)
-	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg(src)
+	src.modules += new /obj/item/weapon/gripper/security(src)
 	src.modules += new /obj/item/taperoll/police(src)
 	src.modules += new /obj/item/device/holowarrant(src)
+	src.modules += new /obj/item/weapon/energyshield_generator(src)
+	src.modules += new /obj/item/device/uv_light(src)
+	src.modules += new /obj/item/weapon/forensics/sample_kit(src)
+	src.modules += new /obj/item/weapon/forensics/sample_kit/powder(src)
 	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space law
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
-
-/obj/item/weapon/robot_module/security/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	..()
-	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in src.modules
-	if(T.power_supply.charge < T.power_supply.maxcharge)
-		T.power_supply.give(T.charge_cost * amount)
-		T.update_icon()
-	else
-		T.charge_tick = 0
-	var/obj/item/weapon/melee/baton/robot/B = locate() in src.modules
-	if(B && B.bcell)
-		B.bcell.give(amount)
 
 /obj/item/weapon/robot_module/janitor
 	name = "custodial robot module"

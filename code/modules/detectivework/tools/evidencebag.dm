@@ -10,13 +10,12 @@
 	var/obj/item/stored_item = null
 
 /obj/item/weapon/evidencebag/MouseDrop(var/obj/item/I as obj)
-	if (!ishuman(usr))
+
+
+	if (!ishuman(usr) && !isrobot(usr))
 		return
 
-	var/mob/living/carbon/human/user = usr
-
-	if (!(user.l_hand == src || user.r_hand == src))
-		return //bag must be in your hands to use
+	var/mob/living/user = usr
 
 	if (isturf(I.loc))
 		if (!user.Adjacent(I))
