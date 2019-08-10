@@ -185,9 +185,13 @@ Example:
 ```
 Parameters:
  - `$slot` - Contents of button.
- - `params` - key value pairs to send to `Topic` of object.
+ - `params` - key value pairs to send to `Topic` of object. Can contain objects or arrays (DM keyed lists and lists respectively).
+ - `unsafe-params` - Used to execute a generic `Topic()` call to the game. Requires that you specify the `src` object as a valid reference, otherwise it will not function. **Should not generally be used**, primary use-case is backwards compatibility with older APIs that are spread out over multiple objects.
  - `icon` - icon that should be used in that button. For available icons look at `\vueui\styles\icons.scss`
  - `push-state` - Boolean determining if current ui state should be pushed on button click. This often results in `vueui_data_change` call right before `Topic` call.
+
+Events:
+ - `click` - Fires when button is clicked.
 
 ### VuiProgress `<vui-progress>`
 Simple progress bar for representing progress of a process or indicate status.
@@ -235,6 +239,20 @@ Example:
 ```
 Parameters:
  - `label` - Label to display next to contents.
+
+### VuiTooltip `<vui-tooltip>`
+Helper to getting nice tooltips when you hover over text. Works with buttons.
+
+Example:
+```Vue
+<vui-tooltip label="VUI">VueUi UI element<vui-tooltip>
+<vui-tooltip><template v-slot:label>ADV</template>Advanced use of tooltips</vui-tooltip>
+```
+Parameters:
+ - `$slot` - Contents of tooltip
+ - `$slot:label` - Actual content that is always shown. If slot is set, `label` parameter is ignored.
+ - `label` - Actual text that is always shown
+
 ### VuiInputNumeric `<vui-input-numeric>`
 Numeric input helper to help inputting large and small numbers.
 
@@ -250,6 +268,7 @@ Parameters:
  - `push-state` - Boolean determining if current ui state should be pushed on input change.
  - `width` - Determines width of input text field.
  - `decimal-places` - How many decimal places are allowed.
+
 Events:
  - `input` - Fires when value changes. Value is number currently entered.
 
@@ -263,5 +282,6 @@ Example:
 Parameters:
  - `input` - Initial array with elements to search.
  - `keys` - Array of strings listing keys to be searched.
+
 Events:
  - `input` - Fires when search text changes. Event value is new sorted array.

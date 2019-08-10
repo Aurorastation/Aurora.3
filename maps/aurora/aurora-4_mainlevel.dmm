@@ -13508,7 +13508,9 @@
 /area/lawoffice)
 "ayp" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
+/obj/machinery/computer/records/employment{
+	req_one_access = list(19,38)
+	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -20794,7 +20796,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -22990,7 +22993,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "sbridgedoor";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -33436,7 +33440,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -33445,7 +33450,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -34978,7 +34984,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -34986,7 +34993,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Bridge";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -36428,7 +36436,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
 	name = "Level A Lift";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -37417,13 +37426,13 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
-"bmg" = (
-/obj/structure/table/standard,
 /obj/item/stack/material/plasteel{
 	amount = 20
 	},
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
+"bmg" = (
+/obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bmh" = (
@@ -41346,7 +41355,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Level A Lift";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
