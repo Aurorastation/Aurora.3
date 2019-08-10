@@ -10,6 +10,8 @@
 	description = "The faith of the Preimminent Goddess is another religion that is relatively uncommon to find amongst Vaurca populations. Unlike the Hive Pantheon, adherents to this \
 	faith believe that God, or Goddess, does not exist but could exist, should all parts of themselves align in their predestined roles. They believe that all members of a hive or in \
 	some cases, several hives or aliens are pieces of a greater entity that would be god. "
+	book_name = "Latticed Apocrypha"
+	book_sprite = "latticed_apocrypha"
 
 /datum/religion/pilotdream
 	name = RELIGION_PILOTDREAM
