@@ -45,6 +45,6 @@
 			H.unEquip(H.wear_mask)
 
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/typec(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/typec(H), slot_shoes)
 			H.internals.icon_state = "internal1"
