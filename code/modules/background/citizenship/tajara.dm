@@ -20,8 +20,8 @@
 							"Have [rand(2,5)] PRA citizens to write down their grievances with the company, and present the report to station command",
 							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
 		else
-			rep_objectives = pick("Ensure party loyalty for Tajara in prestigious positions",
-							"Ensure [rand(2,5)] PRA citizens are secure and follow party lines.")
+			rep_objectives = pick("Ensure Party loyalty for Tajara in prestigious positions",
+							"Ensure [rand(2,5)] PRA citizens are secure and follow Party guidelines")
 
 	return rep_objectives
 
