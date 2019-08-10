@@ -31,6 +31,7 @@
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
 		/obj/item/weapon/storage/box/ceti_visa = 1,
+		/obj/item/weapon/storage/box/tcfl_pamphlet = 1,
 		/obj/item/weapon/gun/energy/pistol = 1
 	)
 

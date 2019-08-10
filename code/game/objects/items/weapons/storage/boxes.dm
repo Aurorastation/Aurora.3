@@ -752,8 +752,13 @@
 
 /obj/item/weapon/storage/box/dominia_honor
 	name = "dominian honor codex box"
-	desc = "A box full of dominian honor codex ."
+	desc = "A box full of dominian honor codex "
 	starts_with = list(/obj/item/weapon/book/manual/dominia_honor = 6)
+
+/obj/item/weapon/storage/box/tcfl_pamphlet
+	name = "tau ceti foreign legion pamphlets box"
+	desc = "A box full of tau ceti foreign legion pamphlets."
+	starts_with = list(/obj/item/weapon/book/manual/tcfl_pamphlet = 6)
 
 /obj/item/weapon/storage/box/sharps
 	name = "sharps disposal box"

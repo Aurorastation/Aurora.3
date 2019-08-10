@@ -18,7 +18,8 @@
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Assist Zo'ra Nanotrasen personnel in their avowal process",
-							"Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise")
+							"Promote [rand(3,6)] amount of Zo'rane products, be it energy drinks or merchandise",
+							"Sell [rand(3,6)] copies of the Tau Ceti Foreign Legion pamphlets, 10 credits each")
 		else
 			rep_objectives = pick("Question Non-Vaurcan employees about Vaurcan employees, looking for areas of improvement",
 							"Protect and promote the public image of the Zo'ra hive to all Nanotrasen employees",
@@ -34,6 +35,9 @@
 	glasses = null
 	l_hand =  null
 
+	backpack_contents = list()
+
+
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!visualsOnly)
 		if(isvaurca(H))
@@ -48,4 +52,5 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/tcfl_pamphlet(H), slot_in_backpack)
 			H.internals.icon_state = "internal1"

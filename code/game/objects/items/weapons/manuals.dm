@@ -1566,3 +1566,31 @@
 				</body>
 			</html>
 			"}
+
+/obj/item/weapon/book/manual/tcfl_pamphlet
+	name = "tau ceti foreign legion pamphlet"
+	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
+	icon_state ="tcfl_book"
+	title = "Tau Ceti foreign legion pamphlet"
+	author = "Tau Ceti foreign legion recruitment center"
+	w_class = 2.0
+	dat = {"<html>
+				<head>
+					<style>
+					h1 {font-size: 21px; margin: 15px 0px 5px;}
+					h2 {font-size: 15px; margin: 15px 0px 5px;}
+					li {margin: 2px 0px 2px 15px;}
+					ul {margin: 5px; padding: 0px;}
+					ol {margin: 5px; padding: 0px 15px;}
+					body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+				<br>\
+				The Tau Ceti Foreign Legion is a military force employed by the Republic of Biesel consisting of mostly volunteers of all recognized sentient citizens. It primarily
+				comprises of immigrants and external parties seeking citizenship or stakes in Tau Ceti, which the Republic offers in exchange for participation. It can often be seen
+				working with NanoTrasen assets wherever possible, extending operations slightly further than most NanoTrasen ERT officially reach. As such, the Foreign Legion can be
+				seen regularly patrolling areas nearby the N.S.S. Aurora and the Romanovich Cloud.
+				</body>
+			</html>
+			"}
