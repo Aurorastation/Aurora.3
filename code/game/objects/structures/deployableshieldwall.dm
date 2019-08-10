@@ -14,6 +14,7 @@
 	var/shieldhealth = 100
 	var/shieldmaxhealth = 100
 	var/open = 0
+	var/obj/item/weapon/energyshield_generator/deploymentdevice
 
 /obj/machinery/deployableshield/bullet_act(var/obj/item/projectile/Proj)
 	var/bullet_damage = Proj.get_structure_damage()
@@ -30,7 +31,7 @@
 /obj/machinery/deployableshield/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			qdel(src)
+			delamshield()
 			return
 		if(2.0)
 			delamshield()
@@ -144,5 +145,6 @@
 	var/turf/T = src.loc
 	tesla_zap(T, 3, 2500)
 	spark(T, 5, alldirs)
+	deploymentdevice.shieldsleft = min(deploymentdevice.maxshields, deploymentdevice.shieldsleft+1)
 	new /obj/item/stack/material/steel(T, 5)
 	qdel(src)

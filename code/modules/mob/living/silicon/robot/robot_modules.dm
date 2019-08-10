@@ -534,6 +534,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/uv_light(src)
 	src.modules += new /obj/item/weapon/forensics/sample_kit(src)
 	src.modules += new /obj/item/weapon/forensics/sample_kit/powder(src)
+	src.modules += new /obj/item/sonicblaster(src)
 	src.modules += new /obj/item/weapon/book/manual/security_space_law(src) // book of security space law
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 

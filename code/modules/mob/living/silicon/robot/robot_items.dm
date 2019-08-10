@@ -377,6 +377,7 @@
 	icon_state = "shield_deployer"
 	w_class = 3
 	var/shieldsleft = 4
+	var/maxshields = 4
 	var/list/deployedshields = null
 
 
@@ -387,8 +388,13 @@
 	if(!shieldsleft)
 		to_chat(user, "\The [src] cannot deploy anymore shields!.")
 		return
+	var/mob/living/silicon/robot/R = user
+	if(!R.cell || R.cell.charge < 1300)
+		to_chat(user, "<span class='warning'>You don't have enough charge to do this!</span>")
+		return
 	else
 		user.visible_message(span("notice", "[user] begins to deploy a shield barricade.</span>"))
+		R.cell.charge -= 1000
 		deploy_shield(get_turf(src))
 
 
@@ -396,6 +402,7 @@
 
 /obj/item/weapon/energyshield_generator/proc/deploy_shield(var/turf/T)
 	var/obj/machinery/deployableshield/shield = new /obj/machinery/deployableshield(T)
+	shield.deploymentdevice = src
 	shield.openshield()
 	shieldsleft -= 1
 
@@ -433,3 +440,30 @@
 
 /obj/item/weapon/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
+
+
+/obj/item/sonicblaster
+	name = "\improper Sonic Emitter"
+	desc = "Releases a harmless blast that confuses most organics."
+	icon = 'icons/obj/device.dmi'
+	icon_state = "megaphone"
+	var/cooldown = 0
+
+
+/obj/item/sonicblaster/attack_self(mob/user)
+	if(cooldown > world.time)
+		to_chat(user, "<font color='red'>The device is still recharging!</font>")
+		return
+
+	if(issilicon(user))
+		var/mob/living/silicon/robot/R = user
+		if(!R.cell || R.cell.charge < 1200)
+			to_chat(user, "<span class='warning'>You don't have enough charge to do this!</span>")
+			return
+		R.cell.charge -= 1000
+		for(var/mob/living/carbon/M in hearers(9, user))
+			M.confused += 12
+			to_chat(M, "<br><span class='danger'>The siren pierces your hearing and confuses you!</span><br>")
+		playsound(get_turf(src), 'sound/ai/crowdcontrol.ogg', 70, 3)
+		cooldown = world.time + 70
+		to_chat(R.connected_ai, "<br><span class='notice'>NOTICE - Sonic Emmiter used by unit: [user]</span><br>")
