@@ -44,7 +44,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/weapon/storage/backpack/satchel/withwallet = TRADER_BLACKLIST,
 		/obj/item/weapon/storage/backpack/chameleon          = TRADER_BLACKLIST,
 		/obj/item/weapon/storage/backpack/chameleon          = TRADER_BLACKLIST,
-		/obj/item/weapon/storage/backpack/typec              = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/storage/belt/champion               = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/briefcase                   = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/fancy                       = TRADER_SUBTYPES_ONLY,

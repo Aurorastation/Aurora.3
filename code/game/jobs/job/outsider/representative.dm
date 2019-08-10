@@ -79,7 +79,7 @@
 		if (faction.name == H.employer_faction)
 			var/datum/faction/selected_faction = faction
 
-			rep_objectives = selected_faction.get_corporate_objectives(mission_level)
+			rep_objectives = selected_faction.get_corporate_objectives(mission_level, H)
 
 	return rep_objectives
 

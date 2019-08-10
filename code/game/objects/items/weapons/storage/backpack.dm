@@ -470,3 +470,17 @@
 	name = "military rucksack"
 	desc = "A sturdy backpack with the emblems and markings of the Tau Ceti Foreign Legion."
 	icon_state = "legion_bag"
+
+/obj/item/weapon/storage/backpack/typec
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	name = "type c wings"
+	desc = "The wings of a CB Caste Vaurca. They are far too small at this stage to permit sustained periods of flight in most situations."
+	icon_state = "wings"
+	item_state = "wings"
+	w_class = 5.0
+	slot_flags = SLOT_BACK
+	max_w_class = 3
+	max_storage_space = 12
+	canremove = 0
+	species_restricted = list("Vaurca Breeder")
+	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi')

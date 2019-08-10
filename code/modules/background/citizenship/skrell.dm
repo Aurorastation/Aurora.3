@@ -7,7 +7,7 @@
 	Glorsh-Omega, has traumatized this nation for centuries to come, and the Federation is very wary of humanity, who has acquired AI technology (such as IPCs) after a Federation \
 	tech leak."
 
-/datum/citizenship/jargon/get_objectives(mission_level)
+/datum/citizenship/jargon/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)

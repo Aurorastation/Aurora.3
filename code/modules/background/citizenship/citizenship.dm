@@ -4,7 +4,7 @@
 	var/datum/outfit/consular_outfit = /datum/outfit/job/representative/consular
 	var/demonym
 
-/datum/citizenship/proc/get_objectives(mission_level)
+/datum/citizenship/proc/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)

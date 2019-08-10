@@ -7,7 +7,7 @@
 	the Tau Ceti Foreign Legion, and making active progress to spread their influence."
 	consular_outfit = /datum/outfit/job/representative/consular/zora
 
-/datum/citizenship/zora/get_objectives(mission_level)
+/datum/citizenship/zora/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -31,7 +31,6 @@
 
 	uniform = /obj/item/clothing/under/gearharness
 
-	shoes = null
 	glasses = null
 	l_hand =  null
 
@@ -46,5 +45,7 @@
 
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
-			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/typec(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
 			H.internals.icon_state = "internal1"

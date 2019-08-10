@@ -7,7 +7,7 @@
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	consular_outfit = /datum/outfit/job/representative/consular/pra
 
-/datum/citizenship/pra/get_objectives(mission_level)
+/datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)

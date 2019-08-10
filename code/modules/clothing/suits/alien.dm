@@ -216,3 +216,13 @@
 	icon_state = "vacmantle"
 	item_state = "vacmantle"
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/suit/vaurca/breeder
+	name = "zo'ra representative clothes"
+	desc = "A large piece of clothing used by Zo'ra representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "representative_clothes"
+	icon_state = "representative_clothes"
+	contained_sprite = FALSE
+	species_restricted = list("Vaurca Breeder")
+	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi')

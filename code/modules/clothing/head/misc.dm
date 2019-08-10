@@ -578,3 +578,13 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/vaurca_breeder
+	name = "zo'ra representative shroud"
+	desc = "Large shroud used by Zo'ra representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud"
+	icon_state = "shroud"
+	contained_sprite = FALSE
+	species_restricted = list("Vaurca Breeder")
+	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi')

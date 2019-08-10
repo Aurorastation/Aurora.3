@@ -6,7 +6,7 @@
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /datum/outfit/job/representative/consular/ceti
 
-/datum/citizenship/tau_ceti/get_objectives(mob/living/carbon/human/H, mission_level)
+/datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -43,7 +43,7 @@
 	It is generally authoritarian, and many aliens here find themselves discriminated against."
 	consular_outfit = /datum/outfit/job/representative/consular/sol
 
-/datum/citizenship/sol_alliance/get_objectives(mission_level)
+/datum/citizenship/sol_alliance/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)
@@ -101,7 +101,7 @@
 	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
 	consular_outfit = /datum/outfit/job/representative/consular/dominia
 
-/datum/citizenship/dominia/get_objectives(mission_level)
+/datum/citizenship/dominia/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
 	switch(mission_level)
