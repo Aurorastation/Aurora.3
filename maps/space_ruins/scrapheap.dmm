@@ -241,7 +241,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "aI" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
@@ -652,12 +652,12 @@
 /turf/simulated/floor/tiled/red,
 /area/derelict/ship)
 "bW" = (
-/obj/machinery/porta_turret/stationary,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor,
 /area/derelict/ship)
 "bX" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
@@ -2320,11 +2320,11 @@
 	},
 /area/derelict/ship)
 "gP" = (
-/obj/machinery/porta_turret/stationary,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/porta_turret/pulse,
 /turf/simulated/floor,
 /area/derelict/ship)
 "gQ" = (
@@ -4860,7 +4860,7 @@
 	},
 /area/derelict/ship)
 "oC" = (
-/obj/machinery/porta_turret/stationary,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -5101,7 +5101,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "po" = (
-/obj/machinery/porta_turret/stationary,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/window/reinforced,
 /turf/simulated/floor,
@@ -5131,7 +5131,7 @@
 	},
 /area/derelict)
 "pt" = (
-/obj/machinery/porta_turret/stationary,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -5712,7 +5712,7 @@
 /turf/simulated/floor/grass,
 /area/derelict/ship)
 "rs" = (
-/obj/machinery/porta_turret/stationary,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor,
 /area/derelict)
@@ -9278,7 +9278,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/bridge)
 "AH" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/derelict/bridge)
@@ -12060,7 +12060,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Iw" = (
-/obj/machinery/porta_turret,
+/obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
@@ -13853,9 +13853,9 @@
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "NV" = (
-/obj/machinery/porta_turret/stationary,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light,
+/obj/machinery/porta_turret/pulse,
 /turf/simulated/floor,
 /area/derelict/ship)
 "NW" = (
@@ -15931,6 +15931,30 @@
 /obj/random/junk,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"WQ" = (
+/obj/machinery/porta_turret/xray,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/derelict/ship)
+"Xv" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/pulse,
+/turf/simulated/floor,
+/area/derelict/ship)
+"XZ" = (
+/obj/machinery/porta_turret/xray,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ZO" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/cannon,
+/turf/simulated/floor,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -49831,7 +49855,7 @@ gh
 kJ
 ms
 kO
-bW
+ZO
 zj
 ld
 lh
@@ -57252,25 +57276,25 @@ Od
 ad
 ad
 ad
-gP
+WQ
 bU
 bC
 bC
 ax
 ax
 bT
-NV
+XZ
 ad
 ad
 ad
-gP
+WQ
 bT
 aw
 ax
 ax
 ax
 bU
-NV
+XZ
 ad
 ad
 ad
@@ -59781,7 +59805,7 @@ aM
 ad
 pJ
 pJ
-bW
+Xv
 aw
 aw
 aW
@@ -60809,7 +60833,7 @@ aD
 ad
 pJ
 pJ
-bW
+Xv
 bd
 aw
 aw
