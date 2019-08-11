@@ -127,7 +127,6 @@
 	set category = "Special Verbs"
 
 	var/mob/M = mob
-	var/area/A = get_area(M)
 
 	M.mind.special_role = null
 	mob.ghostize(1)
