@@ -17,7 +17,7 @@
 
 	assigned_role = "Visitor"
 	special_role = "Visitor"
-	respawn_flag = CREW
+	respawn_flag = null
 
 	mob_name = null
 

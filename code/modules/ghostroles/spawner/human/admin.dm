@@ -1,6 +1,11 @@
 /datum/ghostspawner/human/admin
 	tags = list("Admin")
 
+//Add the ability to despawn
+/datum/ghostspawner/human/admin/post_spawn(mob/user)
+	user.client.verbs += /client/proc/despawn
+	return ..()
+
 /datum/ghostspawner/human/admin/ert_commander
 	short_name = "ertcommander"
 	name = "ERT Commander"
@@ -113,3 +118,18 @@
 
 	mob_name = null
 	mob_name_prefix = "Spec. "
+
+
+
+/client/proc/despawn()
+	set name = "Despawn"
+	set desc = "Your work is done. Leave this realm."
+	set category = "Special Verbs"
+
+	var/mob/M = mob
+	var/area/A = get_area(M)
+
+	M.mind.special_role = null
+	mob.ghostize(1)
+	verbs -= /client/proc/despawn
+	qdel(M)
