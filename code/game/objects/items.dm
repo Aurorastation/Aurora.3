@@ -385,6 +385,14 @@ var/list/global/slot_flags_enumeration = list(
 					allow = 1
 			if(!allow)
 				return 0
+		if(slot_in_belt)
+			var/allow = 0
+			if(istype(H.belt, /obj/item/weapon/storage/belt))
+				var/obj/item/weapon/storage/belt/B = H.belt
+				if(B.can_be_inserted(src,1))
+					allow = 1
+			if(!allow)
+				return 0
 		if(slot_tie)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
