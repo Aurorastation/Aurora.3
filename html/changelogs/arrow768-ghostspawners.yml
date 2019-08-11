@@ -39,6 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - bugfix: "Unlimited ghostspawners no longer disable themselfs after the first spawn."
-  - tweak: "Added a verb to despawn admin-ghotspawners, such as ccia agent, ccia escort."
-  - bugfix: "Removed the respawn delay from visitor/pod survivors."
-  - tweak: "Added a drill to the survivor pod."
+  - tweak: "Removed the respawn delay from visitor/pod survivors."
+  - bugfix: "Fixes the gear of various ghostroles."
