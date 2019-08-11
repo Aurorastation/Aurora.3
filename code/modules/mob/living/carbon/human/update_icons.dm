@@ -88,29 +88,30 @@ There are several things that need to be remembered:
 #define DAMAGE_LAYER      2
 #define SURGERY_LAYER     3
 #define UNDERWEAR_LAYER   4
-#define UNIFORM_LAYER     5
-#define ID_LAYER          6
-#define SHOES_LAYER       7
-#define GLOVES_LAYER      8
-#define BELT_LAYER        9
-#define TAIL_SOUTH_LAYER 10
-#define SUIT_LAYER       11
-#define TAIL_NORTH_LAYER 12
-#define GLASSES_LAYER    13
-#define BELT_LAYER_ALT   14
-#define SUIT_STORE_LAYER 15
-#define BACK_LAYER       16
-#define HAIR_LAYER       17
-#define EARS_LAYER       18
-#define FACEMASK_LAYER   19
-#define HEAD_LAYER       20
-#define COLLAR_LAYER     21
-#define HANDCUFF_LAYER   22
-#define LEGCUFF_LAYER    23
-#define L_HAND_LAYER     24
-#define R_HAND_LAYER     25
-#define FIRE_LAYER       26		//If you're on fire
-#define TOTAL_LAYERS     26
+#define SHOES_LAYER_ALT   5
+#define UNIFORM_LAYER     6
+#define ID_LAYER          7
+#define SHOES_LAYER       8
+#define GLOVES_LAYER      9
+#define BELT_LAYER       10
+#define TAIL_SOUTH_LAYER 11
+#define SUIT_LAYER       12
+#define TAIL_NORTH_LAYER 13
+#define GLASSES_LAYER    14
+#define BELT_LAYER_ALT   15
+#define SUIT_STORE_LAYER 16
+#define BACK_LAYER       17
+#define HAIR_LAYER       18
+#define EARS_LAYER       19
+#define FACEMASK_LAYER   20
+#define HEAD_LAYER       21
+#define COLLAR_LAYER     22
+#define HANDCUFF_LAYER   23
+#define LEGCUFF_LAYER    24
+#define L_HAND_LAYER     25
+#define R_HAND_LAYER     26
+#define FIRE_LAYER       27		//If you're on fire
+#define TOTAL_LAYERS     27
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -684,6 +685,7 @@ There are several things that need to be remembered:
 		return
 
 	overlays_raw[SHOES_LAYER] = null
+	overlays_raw[SHOES_LAYER_ALT] = null
 	if(check_draw_shoes())
 		var/image/standing
 		if(shoes.contained_sprite)
@@ -699,6 +701,13 @@ There are several things that need to be remembered:
 		else
 			standing = image("icon" = 'icons/mob/feet.dmi', "icon_state" = "[shoes.icon_state]")
 
+		//Shoe layer stuff from Polaris v1.0333a
+		var/shoe_layer = SHOES_LAYER
+		if(istype(shoes, /obj/item/clothing/shoes))
+			var/obj/item/clothing/shoes/ushoes = shoes
+			if(ushoes.shoes_under_pants == 1)
+				shoe_layer = SHOES_LAYER_ALT
+
 		standing.color = shoes.color
 
 		var/list/ovr
@@ -708,12 +717,15 @@ There are several things that need to be remembered:
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
-		overlays_raw[SHOES_LAYER] = ovr || standing
+		overlays_raw[shoe_layer] = ovr || standing
 	else
 		if(feet_blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = feet_blood_color
 			overlays_raw[SHOES_LAYER] = bloodsies
+		else
+			overlays_raw[SHOES_LAYER] = null
+			overlays_raw[SHOES_LAYER_ALT] = null
 
 	if(update_icons)
 		update_icons()
