@@ -8,6 +8,7 @@
 	climbable = 1
 	layer = LAYER_TABLE
 	throwpass = 1
+	mob_offset = 12
 	var/flipped = 0
 	var/maxhealth = 10
 	var/health = 10
@@ -260,6 +261,7 @@
 	material = common_material_remove(user, material, 20, "plating", "bolts", 'sound/items/Ratchet.ogg')
 
 /obj/structure/table/proc/dismantle(obj/item/weapon/wrench/W, mob/user)
+	reset_mobs_offset()
 	if(manipulating) return
 	manipulating = 1
 	user.visible_message("<span class='notice'>\The [user] begins dismantling \the [src].</span>",
@@ -283,6 +285,7 @@
 // is to avoid filling the list with nulls, as place_shard won't place shards of certain materials (holo-wood, holo-steel)
 
 /obj/structure/table/proc/break_to_parts(full_return = 0)
+	reset_mobs_offset()
 	var/list/shards = list()
 	var/obj/item/weapon/material/shard/S = null
 	if(reinforced)
@@ -309,7 +312,8 @@
 	return shards
 
 /obj/structure/table/update_icon()
-	if(flipped != 1)
+	if(!flipped)
+		mob_offset = initial(mob_offset)
 		icon_state = "blank"
 		cut_overlays()
 
@@ -341,6 +345,7 @@
 				I = image(icon, "carpet_[connections[i]]", dir = 1<<(i-1))
 				add_overlay(I)
 	else
+		mob_offset = 0
 		cut_overlays()
 		var/type = 0
 		var/tabledirs = 0

@@ -6,13 +6,24 @@
 	var/breakable
 	var/parts
 	var/list/climbers
+	var/mob_offset = 0 //used for on_structure_offset mob animation
 
 /obj/structure/Destroy()
+	reset_mobs_offset()
 	if(parts)
 		new parts(loc)
 	if (smooth)
 		queue_smooth_neighbors(src)
 	return ..()
+
+/obj/structure/Crossed(mob/living/M)
+	if(istype(M))
+		M.on_structure_offset(mob_offset)
+	..()
+
+/obj/structure/proc/reset_mobs_offset()
+	for(var/mob/living/M in loc)
+		M.on_structure_offset(0)
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)

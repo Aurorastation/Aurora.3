@@ -241,3 +241,17 @@ note dizziness decrements automatically in the mob's Life() proc.
 			set_dir(D)
 			spintime -= speed
 	return
+
+/mob/living/proc/on_structure_offset(var/offset = 0)
+	if(offset)
+		var/check = default_pixel_z + offset
+		if(pixel_z != check)
+			animate(src, pixel_z = check, time = 2, easing = SINE_EASING)
+	else
+		var/obj/structure/S = (locate() in get_turf(src))
+		if(!S && pixel_z != default_pixel_z)
+			animate(src, pixel_z = default_pixel_z, time = 2, easing = SINE_EASING)
+
+/mob/living/Move()
+	. = ..()
+	on_structure_offset(0)
