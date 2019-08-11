@@ -83,7 +83,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/protection_detail
-	possible_species = list("Human")
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = TRUE
 
@@ -108,7 +108,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/odinsec
-	possible_species = list("Human","Skrell","Tajara","Unathi")
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = TRUE
 
