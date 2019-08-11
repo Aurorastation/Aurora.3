@@ -126,8 +126,8 @@
 	set desc = "Your work is done. Leave this realm."
 	set category = "Special Verbs"
 
-
-	mob.mind.special_role = null
-	mob.ghostize(1)
+	var/mob/M = mob
+	M.mind.special_role = null
+	M.ghostize(1)
 	verbs -= /client/proc/despawn
 	qdel(M)
