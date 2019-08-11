@@ -54,4 +54,3 @@
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
-	testing("mob_login - end")

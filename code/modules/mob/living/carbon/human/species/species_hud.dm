@@ -52,6 +52,10 @@
 	if(slot_w_uniform in equip_slots)
 		equip_slots |= slot_tie
 
+
+	if(slot_belt in equip_slots)
+		equip_slots |= slot_in_belt
+
 	equip_slots |= slot_legcuffed
 
 /datum/hud_data/diona
