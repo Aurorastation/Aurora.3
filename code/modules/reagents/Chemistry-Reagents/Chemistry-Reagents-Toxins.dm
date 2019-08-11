@@ -81,6 +81,7 @@
 			H.heal_organ_damage(2 * removed, 2 * removed)
 			H.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 			H.adjustToxLoss(-2 * removed)
+			return
 
 		if(alien == IS_VAURCA && H.species.has_organ["filtration bit"])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
