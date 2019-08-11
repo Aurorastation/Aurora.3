@@ -70,7 +70,7 @@
 	id = /obj/item/weapon/card/id/eridani
 
 /datum/outfit/job/representative/eridani
-	name = "Eridani Corporate Liaison "
+	name = "Eridani Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	head = null
 	suit = null

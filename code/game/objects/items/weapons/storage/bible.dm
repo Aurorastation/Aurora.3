@@ -45,15 +45,11 @@
 	if (!new_religion)
 		new_religion = religion_name
 
-	var/book_name = "holy bible"
-	book_name = sanitize(input(user, "Would you like the change your bible name? Default is holy bible.", "Book name change", book_name), MAX_NAME_LEN)
+	var/book_name = sanitize(input(user, "Would you like the change your bible name? Default is holy bible.", "Book name change", name), MAX_NAME_LEN)
 
-	if (!book_name)
-		book_name = book_name
-
-	name = book_name
-	SSticker.Bible_name = book_name
-
+	if (book_name)
+		name = book_name
+		SSticker.Bible_name = book_name
 
 	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
 	switch(new_book_style)

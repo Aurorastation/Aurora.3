@@ -34,4 +34,4 @@
 	within all beings. These demons are given power within a being when the person succumbs to greed, anger, or other vices. Aut'akh preach that the Contact War was the result of \
 	Sinta's being so consumed by the demons within them that they brought the world to ruin, and that all Sinta'Unathi are now cursed and forever barred from joining Sk'akh, doomed \
 	to forever reincarnate."
-	book_name = "Oss coding 101"
+	book_name = "Oss codex"
