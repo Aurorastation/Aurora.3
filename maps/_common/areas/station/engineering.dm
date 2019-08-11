@@ -101,3 +101,8 @@
 	name = "\improper Engineering - Security Office"
 	icon_state = "engineering_break"
 	sound_env = MEDIUM_SOFTFLOOR
+	
+/area/engineering/backup_SMES
+	name = "\improper Engineering - Backup Power Storage"
+	icon_state = "substation"
+	sound_env = SMALL_ENCLOSED	

@@ -21,7 +21,7 @@
 		// Ignore station areas.
 		if (the_station_areas[T.loc])
 			continue
-		else if (istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T))
+		else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T))
 			for (var/uu in RANGE_TURFS(1, T))
 				U = uu
 				if (T == U)

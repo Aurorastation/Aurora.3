@@ -84,7 +84,7 @@
 	. = ..()
 	setup_parts()
 	middle.add_overlay("activated")
-	update_list()
+	update_list(TRUE)
 	addtimer(CALLBACK(src, .proc/round_startset), 100)
 
 /obj/machinery/gravity_generator/main/station/proc/round_startset()
@@ -99,8 +99,6 @@
 /obj/machinery/gravity_generator/main/station/admin/Initialize()
 	. = ..()
 	round_start = 1
-
-
 
 //
 // Main Generator with the main code
@@ -131,7 +129,7 @@
 	log_debug("Gravity Generator Destroyed")
 	investigate_log("was destroyed!", "gravity")
 	on = 0
-	update_list()
+	update_list(TRUE)
 	for(var/obj/machinery/gravity_generator/part/O in parts)
 		O.main_part = null
 		qdel(O)
@@ -145,6 +143,10 @@
 	breaker = 1
 	charging_state = POWER_UP
 	set_power()
+	eventon = !eventon
+	addtimer(CALLBACK(src, .proc/reset_event), 100) // Because it takes 100 seconds for it to recharge. And we need to make sure we resen this var
+
+/obj/machinery/gravity_generator/main/proc/reset_event()
 	eventon = !eventon
 
 /obj/machinery/gravity_generator/main/proc/setup_parts()
@@ -423,7 +425,7 @@
 			if(M.client)
 				if(!M)	return
 				shake_camera(M, 5, 1)
-				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, 1, 0.5)
+				M.playsound_simple(our_turf, 'sound/effects/alert.ogg', 100, use_random_freq = TRUE, falloff = 0.5)
 
 /obj/machinery/gravity_generator/main/proc/update_list(var/gravity_changed = FALSE)
 	var/turf/T = get_turf(src.loc)
@@ -458,3 +460,16 @@
 		return AREA_SPECIAL
 	else
 		return AREA_STATION
+
+/obj/machinery/gravity_generator/main/proc/throw_up_and_down()
+	to_world("<h2 class='alert'>Station Announcement:</h2>")
+	to_world(span("danger", "Warning! Station Gravity Generator malfunction detected. Brace for dangerous gravity change!"))
+	sleep(50)
+	set_state(FALSE)
+	sleep(30)
+	set_state(TRUE)
+	for(var/mob/living/M in mob_list)
+		var/turf/their_turf = get_turf(M)
+		if(their_turf && (their_turf.loc in localareas))
+			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
+			M.fall_impact(1)

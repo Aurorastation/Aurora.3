@@ -202,6 +202,15 @@ var/list/possible_cable_coil_colours = list(
 			return 1
 	return 0
 
+/obj/structure/cable/attack_generic(var/mob/user)
+	//Let those rats (and other small things) nibble the cables
+	if (issmall(user) && !isDrone(user))
+		to_chat(user, span("danger","You bite into \the [src]."))
+		if(powernet && powernet.avail > 100) //100W should be sufficient to grill a rat
+			spark(src)
+			user.dust()
+	..()
+
 /obj/structure/cable/shuttle_move(turf/loc)
 	..()
 	SSmachinery.powernet_update_queued = TRUE
@@ -478,6 +487,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/stack/cable_coil/iscoil()
 	return TRUE
@@ -515,7 +525,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if (!S) return
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
+		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
 			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
 

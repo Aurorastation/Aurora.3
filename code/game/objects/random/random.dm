@@ -57,8 +57,8 @@
 /obj/random/tool
 	name = "random tool"
 	desc = "This is a random tool"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "welder"
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "welder_off"
 	spawnlist = list(
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/wirecutters,
@@ -124,7 +124,7 @@
 	problist = list(
 		/obj/random/powercell = 3,
 		/obj/random/technology_scanner = 2,
-		/obj/item/weapon/packageWrap = 1,
+		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
 		/obj/item/weapon/extinguisher = 1,
 		/obj/item/clothing/gloves/fyellow = 1,
@@ -138,7 +138,7 @@
 /obj/random/medical
 	name = "Random Medicine"
 	desc = "This is a random medical item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/stacks/medical.dmi'
 	icon_state = "brutepack"
 	spawn_nothing_percentage = 25
 	problist = list(
@@ -174,7 +174,7 @@
 /obj/random/contraband
 	name = "Random Illegal Item"
 	desc = "Hot Stuff."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
@@ -317,12 +317,9 @@
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
-		/obj/item/toy/plushie/squid/green,
-		/obj/item/toy/plushie/squid/mint,
-		/obj/item/toy/plushie/squid/blue,
-		/obj/item/toy/plushie/squid/orange,
-		/obj/item/toy/plushie/squid/yellow,
-		/obj/item/toy/plushie/squid/pink
+		/obj/item/toy/plushie/squid,
+		/obj/item/toy/plushie/bear,
+		/obj/item/toy/plushie/bearfire
 	)
 
 /obj/random/smalltank
@@ -514,14 +511,14 @@
 /obj/random/glowstick
 	name = "random glowstick"
 	desc = "This is a random glowstick."
-	icon = 'icons/obj/glowsticks.dmi'
+	icon = 'icons/obj/lighting.dmi'
 	icon_state = "glowstick"
 	spawnlist = list(
-		/obj/item/device/flashlight/glowstick,
-		/obj/item/device/flashlight/glowstick/red,
-		/obj/item/device/flashlight/glowstick/blue,
-		/obj/item/device/flashlight/glowstick/orange,
-		/obj/item/device/flashlight/glowstick/yellow
+		/obj/item/device/flashlight/flare/glowstick,
+		/obj/item/device/flashlight/flare/glowstick/red,
+		/obj/item/device/flashlight/flare/glowstick/blue,
+		/obj/item/device/flashlight/flare/glowstick/orange,
+		/obj/item/device/flashlight/flare/glowstick/yellow
 	)
 
 /obj/random/booze
@@ -590,7 +587,7 @@
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin"
 	problist = list(
 		/obj/item/weapon/coin/iron = 5,
@@ -605,7 +602,7 @@
 /obj/random/spacecash
 	name = "random credit chips"
 	desc = "This is a random credit ships."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	problist = list(
 		/obj/item/weapon/spacecash/c1 = 6,
@@ -760,8 +757,8 @@
 		/obj/item/weapon/material/knife/tacknife = 0.4,
 		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
 		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 0.3,
-		/obj/item/weapon/storage/fancy/cigarettes/custom = 1,
+		/obj/item/weapon/storage/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/weapon/storage/fancy/cigarettes/blank = 1,
 		/obj/item/weapon/storage/bag/plasticbag = 1,
 		/obj/item/weapon/extinguisher = 1.3,
 		/obj/item/weapon/extinguisher/mini = 0.9,
@@ -771,6 +768,7 @@
 		/obj/item/device/flashlight/flare = 0.5,
 		/obj/item/device/flashlight/lantern = 0.4,
 		/obj/item/device/taperecorder = 0.6,
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 0.8,
 		/obj/item/weapon/reagent_containers/food/drinks/teapot = 0.4,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/lithium = 0.3,
@@ -829,6 +827,7 @@
 		/obj/item/weapon/inflatable_duck = 0.2,
 		/obj/random/hoodie = 0.5,
 		/obj/random/junk = 0.9,
+		/obj/random/document = 0.5,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
 		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3,
@@ -860,8 +859,8 @@
 /obj/random/highvalue
 	name = "random high valuable item"
 	desc = "This is a random high valuable item."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "coin_diamond"
+	icon = 'icons/obj/coins.dmi'
+	icon_state = "coin_diamond_heads"
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
 		/obj/item/stack/telecrystal{amount = 10} = 5,
@@ -927,7 +926,8 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
-		/obj/item/ammo_casing/shotgun/beanbag = 0.5
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
+		/obj/random/document/junk = 0.5,
 	)
 
 //Sometimes the chef will have spare oil in storage.
@@ -936,7 +936,7 @@
 /obj/random/cookingoil
 	name = "random cooking oil"
 	desc = "Has a 50% chance of spawning a tank of cooking oil, otherwise nothing"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "oiltank"
 	spawn_nothing_percentage = 50
 
@@ -1219,3 +1219,19 @@
 		E.charge_cost *= 2
 		E.self_recharge = 0
 		E.reliability = 90
+
+/obj/random/animal_crate
+	name = "random animal"
+	desc = "Contains a random crate with some animal."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "densecrate"
+	spawnlist = list(
+		/obj/structure/largecrate/animal/corgi = 3,
+		/obj/structure/largecrate/animal/cow = 4,
+		/obj/structure/largecrate/animal/goat = 3,
+		/obj/structure/largecrate/animal/cat = 2,
+		/obj/structure/largecrate/animal/chick = 4,
+		/obj/structure/largecrate/animal/adhomai = 0.5,
+		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
+		/obj/structure/largecrate/animal/adhomai/rafama = 0.5
+	)

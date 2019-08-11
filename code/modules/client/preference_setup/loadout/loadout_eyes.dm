@@ -41,12 +41,12 @@
 /datum/gear/eyes/mesonaviators
 	display_name = "aviators, meson"
 	path = /obj/item/clothing/glasses/meson/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
 
 /datum/gear/eyes/mesonprescription
 	display_name = "meson goggles, prescription"
 	path = /obj/item/clothing/glasses/meson/prescription
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
 
 /datum/gear/eyes/security
 	display_name = "security HUD"

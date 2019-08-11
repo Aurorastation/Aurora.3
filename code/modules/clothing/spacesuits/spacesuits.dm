@@ -19,7 +19,7 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.9
-	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+	species_restricted = list("exclude","Diona","Vox","Golem")
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
 
@@ -76,7 +76,7 @@
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.9
-	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+	species_restricted = list("exclude","Diona","Vox","Golem")
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 

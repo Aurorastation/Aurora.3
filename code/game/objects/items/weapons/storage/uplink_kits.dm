@@ -78,7 +78,8 @@
 	icon_state = "box_of_doom"
 
 /obj/item/weapon/storage/box/syndie_kit/imp_freedom
-	name = "boxed freedom implant (with injector)"
+	name = "box (F)"
+	starts_with = list(/obj/item/weapon/implanter/freedom = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/imp_freedom/fill()
 	..()
@@ -89,99 +90,66 @@
 
 /obj/item/weapon/storage/box/syndie_kit/imp_compress
 	name = "box (C)"
-
-/obj/item/weapon/storage/box/syndie_kit/imp_compress/fill()
-	new /obj/item/weapon/implanter/compressed(src)
-	..()
+	starts_with = list(/obj/item/weapon/implanter/compressed = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
-
-/obj/item/weapon/storage/box/syndie_kit/imp_explosive/fill()
-	new /obj/item/weapon/implanter/explosive(src)
-	..()
-	return
+	starts_with = list(/obj/item/weapon/implanter/explosive = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
-
-/obj/item/weapon/storage/box/syndie_kit/imp_uplink/fill()
-	..()
-	var/obj/item/weapon/implanter/O = new(src)
-	O.imp = new /obj/item/weapon/implant/uplink(O)
-	O.update()
-	return
+	starts_with = list(/obj/item/weapon/implanter/uplink = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/space
 	name = "boxed space suit and helmet"
-
-/obj/item/weapon/storage/box/syndie_kit/space/fill()
-	..()
-	new /obj/item/clothing/suit/space/syndicate(src)
-	new /obj/item/clothing/head/helmet/space/syndicate(src)
-	new /obj/item/clothing/mask/gas/syndicate(src)
-	new /obj/item/weapon/tank/emergency_oxygen/double(src)
+	starts_with = list(
+		/obj/item/clothing/suit/space/syndicate = 1,
+		/obj/item/clothing/head/helmet/space/syndicate = 1,
+		/obj/item/clothing/mask/gas/syndicate = 1,
+		/obj/item/weapon/tank/emergency_oxygen/double = 1
+	)
 
 
 /obj/item/weapon/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
 	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
-
-/obj/item/weapon/storage/box/syndie_kit/chameleon/fill()
-	..()
-	new /obj/item/clothing/under/chameleon(src)
-	new /obj/item/clothing/head/chameleon(src)
-	new /obj/item/clothing/suit/chameleon(src)
-	new /obj/item/clothing/shoes/chameleon(src)
-	new /obj/item/weapon/storage/backpack/chameleon(src)
-	new /obj/item/clothing/gloves/chameleon(src)
-	new /obj/item/clothing/mask/chameleon(src)
-	new /obj/item/clothing/glasses/chameleon(src)
-	new /obj/item/weapon/gun/energy/chameleon(src)
+	starts_with = list(
+		/obj/item/clothing/under/chameleon = 1,
+		/obj/item/clothing/head/chameleon = 1,
+		/obj/item/clothing/suit/chameleon = 1,
+		/obj/item/clothing/shoes/chameleon = 1,
+		/obj/item/weapon/storage/backpack/chameleon = 1,
+		/obj/item/clothing/gloves/chameleon = 1,
+		/obj/item/clothing/mask/chameleon = 1,
+		/obj/item/clothing/glasses/chameleon = 1,
+		/obj/item/weapon/gun/energy/chameleon = 1
+	)
 
 /obj/item/weapon/storage/box/syndie_kit/clerical
 	name = "clerical kit"
 	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
-
-/obj/item/weapon/storage/box/syndie_kit/clerical/fill()
-	..()
-	new /obj/item/weapon/stamp/chameleon(src)
-	new /obj/item/weapon/pen/chameleon(src)
-	new /obj/item/device/destTagger(src)
-	new /obj/item/weapon/packageWrap(src)
-	new /obj/item/weapon/hand_labeler(src)
+	starts_with = list(
+		/obj/item/weapon/stamp/chameleon = 1,
+		/obj/item/weapon/pen/chameleon = 1,
+		/obj/item/device/destTagger = 1,
+		/obj/item/stack/packageWrap = 1,
+		/obj/item/weapon/hand_labeler = 1
+	)
 
 /obj/item/weapon/storage/box/syndie_kit/spy
 	name = "spy kit"
 	desc = "For when you want to conduct voyeurism from afar."
-
-/obj/item/weapon/storage/box/syndie_kit/spy/fill()
-	..()
-	new /obj/item/device/spy_bug(src)
-	new /obj/item/device/spy_bug(src)
-	new /obj/item/device/spy_bug(src)
-	new /obj/item/device/spy_bug(src)
-	new /obj/item/device/spy_bug(src)
-	new /obj/item/device/spy_bug(src)
-	new /obj/item/device/spy_monitor(src)
+	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/g9mm
 	name = "smooth operator"
 	desc = "9mm with silencer kit."
-
-/obj/item/weapon/storage/box/syndie_kit/g9mm/fill()
-	..()
-	new /obj/item/weapon/gun/projectile/pistol(src)
-	new /obj/item/weapon/silencer(src)
+	starts_with = list(/obj/item/weapon/gun/projectile/pistol = 1, /obj/item/weapon/silencer = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/toxin
 	name = "toxin kit"
 	desc = "An apple will not be enough to keep the doctor away after this."
-
-/obj/item/weapon/storage/box/syndie_kit/toxin/fill()
-	..()
-	new /obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin(src)
-	new /obj/item/weapon/reagent_containers/syringe(src)
+	starts_with = list(/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1, /obj/item/weapon/reagent_containers/syringe = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/cigarette
 	name = "tricky smokes"
@@ -227,45 +195,23 @@
 /obj/item/weapon/storage/box/syndie_kit/ewar_voice
 	name = "electrowarfare and voice synthesiser kit"
 	desc = "Kit for confounding organic and synthetic entities alike."
-
-/obj/item/weapon/storage/box/syndie_kit/ewar_voice/fill()
-	..()
-	new /obj/item/rig_module/electrowarfare_suite(src)
-	new /obj/item/rig_module/voice(src)
+	starts_with = list(/obj/item/rig_module/electrowarfare_suite = 1, /obj/item/rig_module/voice = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/armor
 	name = "boxed armor kit"
-
-/obj/item/weapon/storage/box/syndie_kit/armor/fill()
-	..()
-	new /obj/item/clothing/suit/storage/vest/merc(src)
-	new /obj/item/clothing/head/helmet/merc(src)
+	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1)
 
 /obj/item/weapon/storage/secure/briefcase/money
 	name = "suspicious briefcase"
 	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
-
-
-/obj/item/weapon/storage/secure/briefcase/money/fill()
-	..()
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
-	new /obj/item/weapon/spacecash/c1000(src)
+	starts_with = list(/obj/item/weapon/spacecash/c1000 = 10)
 
 /obj/item/weapon/storage/box/syndie_kit/stimulants
 	name = "box of stimulants"
 	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of inaprovaline, and a large empty cartridge."
-
-/obj/item/weapon/storage/box/syndie_kit/stimulants/fill()
-	..()
-	new /obj/item/weapon/personal_inhaler/combat( src )
-	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine( src )
-	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/inaprovaline( src )
-	new /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large( src )
+	starts_with = list(
+		/obj/item/weapon/personal_inhaler/combat = 1,
+		/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine = 1,
+		/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/inaprovaline = 1,
+		/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large = 1,
+	)

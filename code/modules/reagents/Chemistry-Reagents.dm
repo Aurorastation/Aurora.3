@@ -32,9 +32,11 @@
 
 	var/default_temperature = T0C + 20 //This is it's default spawning temperature, if none is provided.
 	var/thermal_energy = 0 //Internal value, should never change.
-	var/specific_heat = -1 //The higher, the more difficult it is to change its difficult. 0 or lower values indicate that the specific heat has yet to be assigned.
+	var/specific_heat = -1 //The higher, the more difficult it is to change its temperature. 0 or lower values indicate that the specific heat has yet to be assigned.
 	var/fallback_specific_heat = -1 //Setting this value above 0 will set the specific heat to this value only if the system could not find an appropriate specific heat to assign using the recipe system.
 	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
+
+	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))

@@ -111,7 +111,7 @@
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
 	casingtype = /obj/item/ammo_casing/c10mm
-	projectilesound = 'sound/weapons/Gunshot_light.ogg'
+	projectilesound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/medium
 
 	weapon1 = /obj/item/weapon/gun/projectile/automatic/c20r
@@ -146,7 +146,7 @@
 	pass_flags = PASSTABLE
 	health = 15
 	maxHealth = 15
-	melee_damage_lower = 15
+	melee_damage_lower = 10
 	melee_damage_upper = 15
 	density = 0
 	attacktext = "cut"

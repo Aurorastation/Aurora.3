@@ -18,28 +18,12 @@
 	scoped_accuracy = 4
 	var/bolt_open = 0
 
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	is_wieldable = TRUE
+
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 
 	recoil_wielded = 2
 	accuracy_wielded = -1
-
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/projectile/heavysniper/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/heavysniper/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/heavysniper/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/update_icon()
 	if(bolt_open)
@@ -110,7 +94,7 @@
 	caliber = "PPS"
 	recoil = 1
 	silenced = 1
-	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3
@@ -135,17 +119,15 @@
 /obj/item/weapon/gun/projectile/dragunov
 	name = "antique sniper rifle"
 	desc = "An old Dragunov semi-automatic marksman rifle. Smells of vodka and Communism. Uses 7.62mm rounds."
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
-	contained_sprite = 1
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	caliber = "a762"
 	recoil = 2
-	fire_sound = 'sound/weapons/svd_shot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
 	max_shells = 10
 	magazine_type = /obj/item/ammo_magazine/d762
@@ -153,11 +135,10 @@
 	accuracy = -4
 	scoped_accuracy = 3
 
+	is_wieldable = TRUE
+
 	recoil_wielded = 1
 	accuracy_wielded = 1
-
-	//action button for wielding
-	action_button_name = "Wield rifle"
 
 /obj/item/weapon/gun/projectile/dragunov/update_icon()
 
@@ -166,19 +147,12 @@
 	else
 		icon_state = "dragunov-empty"
 
-/obj/item/weapon/gun/projectile/dragunov/can_wield()
-	return 1
+	if(wielded)
+		item_state = "dragunov-wielded"
+	else
+		item_state = "dragunov"
 
-/obj/item/weapon/gun/projectile/dragunov/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/dragunov/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
+	update_held_icon()
 
 /obj/item/weapon/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
@@ -208,7 +182,7 @@
 	caliber = "a556"
 	recoil = 4
 	load_method = MAGAZINE
-	fire_sound = 'sound/weapons/Gunshot_DMR.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_dmr.ogg'
 	max_shells = 10
 	ammo_type = /obj/item/ammo_casing/a556/ap
 	magazine_type = /obj/item/ammo_magazine/a556/ap

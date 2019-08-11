@@ -25,8 +25,6 @@
 	name = "tendril"
 	cannot_break = 1
 
-
-
 /obj/item/organ/external/chest/diona
 	name = "core trunk"
 	limb_name = "chest"
@@ -215,7 +213,10 @@
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
 		H.death()
-	if(prob(50) && spawn_diona_nymph(get_turf(src)))
+
+/obj/item/organ/external/diona/removed(var/mob/living/user)
+	..()
+	if(spawn_diona_nymph(get_turf(src)))
 		qdel(src)
 
 // These are different to the standard diona organs as they have a purpose in other

@@ -267,7 +267,7 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
 		spark(user.loc, 5)
-		playsound(user.loc, 'sound/weapons/blade1.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return 1
 	return 0
 
@@ -306,6 +306,7 @@
 	item_state = "basketball"
 	desc = "Here's your chance, do your dance at the Space Jam."
 	w_class = 4 //Stops people from hiding it in their bags/pockets
+	drop_sound = 'sound/items/drop/basketball.ogg'
 
 /obj/structure/holohoop
 	name = "basketball hoop"

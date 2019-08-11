@@ -21,6 +21,7 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/weapon/material/hatchet/butch
 	name = "butcher's cleaver"
@@ -43,6 +44,7 @@
 	sharp = 1
 	edge = 1
 	desc = "A sharp, metal hook that sticks into things."
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 

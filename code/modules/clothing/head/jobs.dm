@@ -1,4 +1,3 @@
-
 //Bartender
 /obj/item/clothing/head/chefhat
 	name = "chef's hat"
@@ -63,6 +62,11 @@
 	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "officerberet"
 
+/obj/item/clothing/head/beret/sec/cadet
+	name = "cadet beret"
+	desc = "A beret with the security insignia emblazoned on it. This one is for in training security personnel."
+	icon_state = "cadetberet"
+
 /obj/item/clothing/head/beret/sec/hos
 	name = "commander beret"
 	desc = "A navy blue beret with a commander's rank emblem. For officers that are more inclined towards style than safety."
@@ -83,10 +87,21 @@
 	desc = "A stylish, if purple, beret."
 	icon_state = "purpleberet"
 
+/obj/item/clothing/head/beret/liaison
+	name = "corporate liaison beret"
+	desc = "A stylish beret worn by corporate liaisons."
+	icon_state = "centcomofficerberet"
+
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"
 	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
 	icon_state = "centcomofficerberet"
+
+/obj/item/clothing/head/beret/centcom/officer/civilprotection
+	name = "civil protection beret"
+	desc = "A black beret adorned with the shield - a gold kite shield with an engraved sword - of the NanoTrasen security forces."
+	icon_state = "civilprotection_beret"
+	item_state = "civilprotection_beret"
 
 /obj/item/clothing/head/beret/centcom/captain
 	name = "captains beret"
@@ -126,7 +141,7 @@
 /obj/item/clothing/head/det
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "brown_fedora"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
@@ -136,7 +151,7 @@
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/det/grey
-	icon_state = "detective2"
+	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 /obj/item/clothing/head/det/technicolor

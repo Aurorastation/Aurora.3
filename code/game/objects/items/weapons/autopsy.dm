@@ -80,7 +80,7 @@
 	set src in view(usr, 1)
 	set name = "Print Data"
 
-	if(use_check(usr))
+	if(use_check_and_message(usr))
 		return
 
 	var/scan_data = ""

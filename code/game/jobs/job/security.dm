@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffdddd"
-	req_admin_notify = 1
 	economic_modifier = 10
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
@@ -164,8 +163,7 @@
 	name = "Forensic Technician"
 	jobtype = /datum/job/forensics
 
-	uniform = /obj/item/clothing/under/det/slob
-	suit = /obj/item/clothing/suit/storage/vest/csi
+	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/detective
@@ -261,3 +259,31 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+
+/datum/job/intern_sec
+	title = "Security Cadet"
+	flag = INTERN_SEC
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 2
+	spawn_positions = 2
+	supervisors = "the Head of Security"
+	selection_color = "#ffeeee"
+	access = list(access_security, access_sec_doors, access_maint_tunnels)
+	minimal_access = list(access_security, access_sec_doors, access_maint_tunnels)
+	outfit = /datum/outfit/job/intern_sec
+
+/datum/outfit/job/intern_sec
+	name = "Security Cadet"
+	jobtype = /datum/job/intern_sec
+
+	uniform = /obj/item/clothing/under/rank/cadet
+	suit = /obj/item/clothing/suit/storage/vest/cadet
+	head = /obj/item/clothing/head/beret/sec/cadet
+	shoes = /obj/item/clothing/shoes/jackboots
+	l_ear = /obj/item/device/radio/headset/headset_sec
+
+	backpack = /obj/item/weapon/storage/backpack/security
+	satchel = /obj/item/weapon/storage/backpack/satchel_sec
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec

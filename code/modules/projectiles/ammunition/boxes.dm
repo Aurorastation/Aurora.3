@@ -12,7 +12,7 @@
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
-	icon_state = "T38"
+	icon_state = "a454"
 	caliber = "454"
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
@@ -269,6 +269,10 @@
 	max_ammo = 20
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/c762/sol
+	icon_state = "battlerifle_mag"
+	multiple_sprites = 0
+
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
 	icon_state = "762"
@@ -297,7 +301,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/tommymag
-	name = "tommygun magazine (.45)"
+	name = "magazine (.45)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -309,7 +313,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/tommydrum
-	name = "tommygun drum magazine (.45)"
+	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
@@ -332,7 +336,6 @@
 
 /obj/item/ammo_magazine/d762
 	name = "magazine (7.62mm)"
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "SVD"
 	mag_type = MAGAZINE
 	caliber = "a762"
@@ -375,7 +378,6 @@
 
 /obj/item/ammo_magazine/assault_shotgun
 	name = "magazine (slug)"
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "csmb"
 	caliber = "shotgun"
 	mag_type = MAGAZINE
@@ -422,3 +424,19 @@
 	name = "ion slug box"
 	icon_state = "empslugbox"
 	ammo_type = /obj/item/ammo_casing/gauss/emp
+
+
+/obj/item/ammo_magazine/plasma
+	name = "heavy duty plasma cell"
+	icon_state = "heavy_plasma_cell"
+	mag_type = MAGAZINE
+	caliber = "plasma slug"
+	ammo_type = /obj/item/ammo_casing/plasma_slug
+	max_ammo = 10
+
+/obj/item/ammo_magazine/plasma/light
+	name = "small plasma cell"
+	icon_state = "light_plasma_cell"
+	caliber = "plasma bolt"
+	ammo_type = /obj/item/ammo_casing/plasma_bolt
+	max_ammo = 30

@@ -52,27 +52,12 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
 	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
 	var/has_wield_state = TRUE
-
-	action_button_name = "Wield shotgun"
-
-/obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/shotgun/pump/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/shotgun/pump/verb/wield_shotgun()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -118,7 +103,15 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
-	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
+
+/obj/item/weapon/gun/projectile/shotgun/pump/combat/sol
+	name = "naval shotgun"
+	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Necropolis Industries."
+	icon_state = "malella"
+	item_state = "malella"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
 /obj/item/weapon/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
@@ -137,7 +130,7 @@
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 
 	burst_delay = 0
 	firemodes = list(

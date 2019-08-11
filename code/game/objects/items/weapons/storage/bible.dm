@@ -7,19 +7,17 @@
 	w_class = 3.0
 	var/mob/affecting = null
 	var/deity_name = "Christ"
+	use_sound = 'sound/bureaucracy/bookopen.ogg'
+	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
 /obj/item/weapon/storage/bible/booze
 	name = "bible"
 	desc = "To be applied to the head repeatedly."
-	icon_state ="bible"
-
-/obj/item/weapon/storage/bible/booze/fill()
-	..()
-	new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
-	new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer(src)
-	new /obj/item/weapon/spacecash(src)
-	new /obj/item/weapon/spacecash(src)
-	new /obj/item/weapon/spacecash(src)
+	icon_state = "bible"
+	starts_with = list(
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 2,
+		/obj/item/weapon/spacecash = 3
+	)
 
 /obj/item/weapon/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity) return

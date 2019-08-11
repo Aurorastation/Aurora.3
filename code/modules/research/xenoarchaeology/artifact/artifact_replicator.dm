@@ -2,7 +2,7 @@
 /obj/machinery/replicator
 	name = "alien machine"
 	desc = "It's some kind of pod with strange wires and gadgets all over it."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0(old)"
 	density = 1
 

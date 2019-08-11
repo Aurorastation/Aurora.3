@@ -188,6 +188,7 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
 	can_embed = 0
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/weapon/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -204,7 +205,7 @@
 
 /obj/item/weapon/material/twohanded/fireaxe/pre_attack(var/mob/living/target, var/mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 2.5)
-	if(istype(target))
+	if(istype(target) && wielded)
 		cleave(user, target)
 	..()
 
@@ -217,10 +218,9 @@
 	force = 10
 	w_class = 4.0
 	slot_flags = SLOT_BACK
-	force_wielded = 0.75           // 22 when wielded with hardness 15 (glass)
-	unwielded_force_divisor = 0.65 // 14 when unwielded based on above
-	thrown_force_divisor = 1.5 // 20 when thrown with weight 15 (glass)
-	throw_speed = 3
+	force_divisor = 0.35 // 21 damage for steel (hardness 60)
+	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
+	thrown_force_divisor = 1.2 // 24 damage for steel (weight 20)
 	edge = 1
 	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -416,13 +416,13 @@
 	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
 	if(cutting)
 		FuelToRemove = 1
-		playsound(loc, 'sound/weapons/chainsawloop2.ogg', 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
 		if(prob(75))
 			spark(src, 3, alldirs)
 			if(prob(25))
 				eyecheck(2,loc)
 	else
-		playsound(loc, 'sound/weapons/chainsawloop.ogg', 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
 
 	RemoveFuel(FuelToRemove)
 
@@ -433,7 +433,7 @@
 /obj/item/weapon/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
 	. = ..()
 	if(powered)
-		playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 		RemoveFuel(3)
 
 /obj/item/weapon/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
@@ -452,7 +452,7 @@
 			)
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(loc, "sound/weapons/chainsword.ogg", 25, 0, 30)
+			playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 			RemoveFuel(3)
 
 	. = ..()
@@ -494,7 +494,7 @@
 			if(i == max)
 				PowerUp(user)
 			else
-				playsound(loc, 'sound/weapons/chainsawpull.ogg', 50, 0, 15)
+				playsound(loc, 'sound/weapons/saw/chainsawpull.ogg', 50, 0, 15)
 				if(!do_after(user, 2 SECONDS, act_target = user))
 					break
 
@@ -571,13 +571,13 @@
 	var/unwielded_ap = 0
 
 /obj/item/weapon/material/twohanded/zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
-	if(!reach && istype(target))
+	if(!wielded && istype(target))
 		cleave(user, target)
 	..()
 
 /obj/item/weapon/material/twohanded/zweihander/unwield()
 	..()
-	reach = 0
+	reach = 1
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	armor_penetration = unwielded_ap
 

@@ -12,6 +12,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/beam/midlaser
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "laser"
 
 /obj/item/weapon/gun/energy/laser/mounted
@@ -19,6 +20,10 @@
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
+
+/obj/item/weapon/gun/energy/laser/mounted/cyborg/overclocked
+	max_shots = 15
+	recharge_time = 1
 
 /obj/item/weapon/gun/energy/laser/practice
 	name = "practice laser carbine"
@@ -36,6 +41,7 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "retro"
 
 /obj/item/weapon/gun/energy/captain
@@ -52,6 +58,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "captain"
 
 /obj/item/weapon/gun/energy/lasercannon
@@ -67,6 +74,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5
 	fire_delay = 20
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "cannon"
 
 /obj/item/weapon/gun/energy/lasercannon/mounted
@@ -75,6 +83,10 @@ obj/item/weapon/gun/energy/retro
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
+
+/obj/item/weapon/gun/energy/lasercannon/mounted/cyborg/overclocked
+	recharge_time = 1
+	max_shots = 15
 
 /obj/item/weapon/gun/energy/xray
 	name = "xray laser gun"
@@ -88,6 +100,7 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 20
 	fire_delay = 1
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "xray"
 
 /obj/item/weapon/gun/energy/xray/mounted
@@ -116,19 +129,12 @@ obj/item/weapon/gun/energy/retro
 	scoped_accuracy = 4
 	can_turret = 1
 	turret_sprite_set = "sniper"
+	turret_is_lethal = 1
+
+	is_wieldable = TRUE
 
 	fire_delay_wielded = 35
 	accuracy_wielded = 0
-
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/energy/sniperrifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/sniperrifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
@@ -161,6 +167,7 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 2
 	dispersion = list(10)
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "laser"
 
 ////////Laser Tag////////////////////

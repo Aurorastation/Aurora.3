@@ -16,6 +16,7 @@
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
+	description = "A selection of generic colored jumpsuits."
 	path = /obj/item/clothing/under/color/grey
 
 /datum/gear/uniform/jumpsuit/New()
@@ -45,7 +46,8 @@
 
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
-	path = /obj/item/clothing/under/skirt/
+	description = "A selection of skirts."
+	path = /obj/item/clothing/under/skirt
 
 /datum/gear/uniform/skirt/New()
 	..()
@@ -59,6 +61,7 @@
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
+	description = "A selection of formal suits."
 	path = /obj/item/clothing/under/lawyer/bluesuit
 
 /datum/gear/uniform/suit/New()
@@ -100,6 +103,7 @@
 
 /datum/gear/uniform/dress
 	display_name = "dress selection"
+	description = "A selection of dresses."
 	path = /obj/item/clothing/under/sundress
 
 /datum/gear/uniform/dress/New()
@@ -132,7 +136,7 @@
 	allowed_roles = list("Captain")
 
 /datum/gear/uniform/customdress
-	display_name = "Evening gown"
+	display_name = "evening gown"
 	path = /obj/item/clothing/under/dress/dress_evening
 
 /datum/gear/uniform/customdress/New()
@@ -171,6 +175,7 @@
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
+	description = "A selection of pants."
 	path = /obj/item/clothing/under/pants
 
 /datum/gear/uniform/pants/New()
@@ -219,6 +224,7 @@
 
 /datum/gear/uniform/dominia
 	display_name = "dominia suit selection"
+	description = "A selection of dominian suits."
 	path = /obj/item/clothing/under/dominia
 
 /datum/gear/uniform/dominia/New()
@@ -240,3 +246,38 @@
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"
 	path = /obj/item/clothing/under/gov
+
+/datum/gear/uniform/officer
+	display_name = "uniforms, (Security Officer)"
+	description = "A selection of officer uniforms."
+	path = /obj/item/clothing/under/rank/security
+	allowed_roles = list("Security Officer")
+
+/datum/gear/uniform/officer/New()
+	..()
+	var/uniform = list()
+	uniform["officer uniform, standard"] = /obj/item/clothing/under/rank/security
+	uniform["officer uniform, corporate"] = /obj/item/clothing/under/rank/security/corp
+	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+
+/datum/gear/uniform/warden
+	display_name = "uniforms, (Warden)"
+	description = "A selection of Warden uniforms."
+	path = /obj/item/clothing/under/rank/warden
+	allowed_roles = list("Warden")
+
+/datum/gear/uniform/warden/New()
+	..()
+	var/uniform = list()
+	uniform["warden uniform, standard"] = /obj/item/clothing/under/rank/warden
+	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
+	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+
+/datum/gear/uniform/hos
+	display_name = "uniform, corporate (Head of Security)"
+	path = /obj/item/clothing/under/rank/head_of_security/corp
+	allowed_roles = list("Head of Security")

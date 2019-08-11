@@ -12,7 +12,7 @@
 	station_area = 1
 
 /area/crew_quarters/toilet
-	name = "\improper Dormitory Toilets"
+	name = "\improper Surface - Washroom"
 	icon_state = "toilet"
 	sound_env = SMALL_ENCLOSED
 
@@ -38,7 +38,7 @@
 	icon_state = "Sleep"
 
 /area/crew_quarters/sleep/main
-	name = "\improper Main Level Dormitories"
+	name = "\improper Main Level Cryogenic Storage"
 	icon_state = "Sleep"
 
 /area/crew_quarters/sleep/engineering
@@ -90,9 +90,19 @@
 	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/fitness
-	name = "\improper Fitness Room"
+	name = "\improper Surface - Fitness Center"
 	icon_state = "fitness"
 	allow_nightmode = 1
+
+/area/crew_quarters/fitness/pool
+	name = "\improper Surface - Pool"
+
+/area/crew_quarters/fitness/changing
+	name = "\improper Surface - Changing Room"
+
+/area/crew_quarters/fitness/running
+	name = "\improper Surface - Running Track"
+	allow_nightmode = 0
 
 /area/crew_quarters/cafeteria
 	name = "\improper Cafeteria"
@@ -139,7 +149,7 @@
 	icon_state = "chapeloffice"
 
 /area/lawoffice
-	name = "\improper Internal Affairs"
+	name = "\improper Representative Office"
 	icon_state = "law"
 	station_area = 1
 

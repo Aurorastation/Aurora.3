@@ -107,14 +107,12 @@
 	bst.add_language(LANGUAGE_SOL_COMMON)
 	bst.add_language(LANGUAGE_ROOTSONG)
 	bst.add_language(LANGUAGE_VAURCA)
-	bst.add_language(LANGUAGE_RESOMI)	// why not?
 	// Synthetics
 	bst.add_language(LANGUAGE_ROBOT)
 	bst.add_language(LANGUAGE_DRONE)
 	bst.add_language(LANGUAGE_EAL)
 	// Antagonist languages
 	bst.add_language(LANGUAGE_VOX)
-	bst.add_language(LANGUAGE_XENOMORPH)
 	bst.add_language(LANGUAGE_HIVEMIND)
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)

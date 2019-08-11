@@ -1149,7 +1149,7 @@ About the new airlock wires panel:
 	return 0
 
 /mob/living/blocks_airlock()
-	return 1
+	return mob_size > MOB_SMALL
 
 /atom/movable/proc/airlock_crush(var/crush_damage)
 	return 0

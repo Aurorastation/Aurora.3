@@ -174,7 +174,8 @@
 		list("tricordrazine", "tricordrazine",        0, 80),
 		list("tramadol",      "tramadol",             0, 80),
 		list("dexalin plus",  "dexalinp",             0, 80),
-		list("antibiotics",   "spaceacillin",         0, 80),
+		list("antibiotics",   "thetamycin",          0, 80),
+		list("antivirals",    "deltamivir",           0, 80),
 		list("antitoxins",    "anti_toxin",           0, 80),
 		list("nutrients",     "glucose",              0, 80),
 		list("hydration",     "potassium_hydrophoro", 0, 80),
@@ -194,7 +195,8 @@
 		list("tricordrazine", "tricordrazine", 0, 20),
 		list("tramadol",      "tramadol",      0, 20),
 		list("dexalin plus",  "dexalinp",      0, 20),
-		list("antibiotics",   "spaceacillin",  0, 20),
+		list("antibiotics",   "thetamycin",   0, 20),
+		list("antivirals",    "deltamivir",     0, 20),
 		list("antitoxins",    "anti_toxin",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
 		list("hydration",     "potassium_hydrophoro", 0, 80),
@@ -581,7 +583,7 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
 	construction_time = 300
 
-	disruptive = 1
+	disruptive = 0
 
 	use_power_cost = 5
 	module_cooldown = 25
@@ -666,7 +668,7 @@
 			"<span class='warning'>You leap horizontally at \the [T]!</span>",
 			"<span class='warning'>You hear an electric <i>whirr</i> followed by a weighty thump!</span>")
 		H.face_atom(T)
-		H.throw_at(T, leapDistance, 1, src)
+		H.throw_at(T, leapDistance, 1, src, do_throw_animation = FALSE)
 		return 1
 	else
 		var/turf/simulated/open/TA = GetAbove(src)

@@ -24,6 +24,11 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/swat/tactical
+	name = "\improper tactical gloves"
+	icon_state = "black_leather"
+	item_state = "black_leather_gloves"
+
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
 	name = "combat gloves"
@@ -36,6 +41,7 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
@@ -45,6 +51,7 @@
 	permeability_coefficient = 0.01
 	germ_level = 0
 	fingerprint_chance = 75
+	drop_sound = 'sound/items/drop/rubber.ogg'
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
@@ -69,6 +76,7 @@
 	item_state = "ggloves"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
@@ -89,6 +97,7 @@
 	gender = NEUTER
 	body_parts_covered = null
 	fingerprint_chance = 100
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
@@ -164,6 +173,7 @@
 	item_state = "cobalt_armchains"
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/armchain/emerald
 	name = "emerald arm chains"
@@ -184,6 +194,7 @@
 	item_state = "cobalt_bracers"
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/goldbracer/emerald
 	name = "emerald bracers"
@@ -210,6 +221,7 @@
 	item_state = "force_glove"
 	siemens_coefficient = 0.6
 	permeability_coefficient = 0.05
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
@@ -241,6 +253,7 @@
 	force = 5
 	punch_force = 5
 	clipped = 1
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -254,6 +267,7 @@
 	punch_force = 10
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
 	if(!proximity)
@@ -264,7 +278,7 @@
 
 	var/mob/living/L = A
 
-	if(prob(50))
+	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
 		var/T = get_turf(user)
@@ -286,6 +300,7 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"

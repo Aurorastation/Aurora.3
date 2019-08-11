@@ -267,15 +267,16 @@
 		//Custom_sprite check and entry
 
 		if (custom_sprite == 1)
+			var/datum/custom_synth/sprite = robot_custom_icons[name]
 			var/list/valid_states = icon_states(CUSTOM_ITEM_SYNTH)
-			if("[ckey]-[modtype]" in valid_states)
-				module_sprites["Custom"] = "[src.ckey]-[modtype]"
+			if("[sprite.synthicon]-[modtype]" in valid_states)
+				module_sprites["Custom"] = "[sprite.synthicon]-[modtype]"
 				icon = CUSTOM_ITEM_SYNTH
 				icontype = "Custom"
 			else
 				icontype = module_sprites[1]
 				icon = 'icons/mob/robots.dmi'
-				to_chat(src, "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [ckey]-[modtype]</span>")
+				to_chat(src, "<span class='warning'>Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[modtype]</span>")
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
@@ -1016,8 +1017,12 @@
 							to_chat(cleaned_human, "<span class='warning'>[src] cleans your face!</span>")
 		return
 
-/mob/living/silicon/robot/proc/self_destruct()
-	say("WARNING: Self-destruct initiated. Unit [src] will self destruct in five seconds.")
+/mob/living/silicon/robot/proc/self_destruct(var/anti_theft=FALSE)
+	if(anti_theft)
+		say("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated. Unit [src] will self destruct in five seconds.")
+		to_chat(src,"<span class='warning'>All databases containing information related to NanoTrasen have been wiped!</span>")
+	else
+		say("WARNING: Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 	lockcharge = 1
 	update_canmove()
 	sleep(20)

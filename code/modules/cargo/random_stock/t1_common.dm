@@ -118,8 +118,8 @@ STOCK_ITEM_COMMON(smokes, 2)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 		new /obj/item/weapon/storage/fancy/cigar(L)
 	else
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
-		new /obj/item/weapon/storage/fancy/cigarettes/custom(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
+		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
 		if (prob(50))
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
 			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
@@ -242,6 +242,8 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 	exclusion += typesof(/obj/item/clothing/gloves/watch)
+	exclusion += typesof(/obj/item/clothing/gloves/fluff)
+	exclusion += typesof(/obj/item/clothing/gloves/yellow/fluff)
 	allgloves -= exclusion
 
 	for (var/i in 1 to rand(1, 5))
@@ -346,8 +348,9 @@ STOCK_ITEM_COMMON(pills, 1.2)
 		/obj/item/weapon/storage/pill_bottle/dylovene, \
 		/obj/item/weapon/storage/pill_bottle/inaprovaline, \
 		/obj/item/weapon/storage/pill_bottle/kelotane, \
-		/obj/item/weapon/storage/pill_bottle/spaceacillin, \
-		/obj/item/weapon/storage/pill_bottle/tramadol \
+		/obj/item/weapon/storage/pill_bottle/antihistamine, \
+		/obj/item/weapon/storage/pill_bottle/tramadol, \
+		/obj/item/weapon/storage/pill_bottle/paracetamol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)
@@ -380,9 +383,9 @@ STOCK_ITEM_COMMON(booze, 3.7)
 					break
 
 		if (prob(80))
-			new /obj/structure/reagent_dispensers/beerkeg(T)
+			new /obj/structure/reagent_dispensers/keg/beerkeg(T)
 		else
-			new /obj/structure/reagent_dispensers/xuizikeg(T)
+			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
 	else
 		var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
 		drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle
@@ -445,7 +448,7 @@ STOCK_ITEM_COMMON(target, 2)
 STOCK_ITEM_COMMON(snacks, 4)
 	//Snackboxes are much more likely to spawn on tables than in crates.
 	//This ensures the cargo bay will have a supply of food in an obtainable place for animals
-	//allows nymphs and mice to raid it for nutrients, and thus gives playermice more
+	//allows nymphs and rats to raid it for nutrients, and thus gives player rats more
 	//reason to infest the warehouse
 	if (CS && prob(65))
 		if (!isturf(L))

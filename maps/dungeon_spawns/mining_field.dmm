@@ -7,22 +7,22 @@
 /area/mine/unexplored)
 "c" = (
 /obj/random/spacecash,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /obj/item/weapon/ore/phoron,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "f" = (
 /obj/item/weapon/ore,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "g" = (
 /mob/living/simple_animal/hostile/retaliate/minedrone,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "h" = (
 /obj/structure/table/rack,
@@ -56,32 +56,32 @@
 /area/mine/unexplored)
 "n" = (
 /obj/random/junk,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "o" = (
 /obj/machinery/floodlight{
 	on = 1
 	},
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "p" = (
 /obj/item/weapon/ore/iron,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "q" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "r" = (
 /mob/living/silicon/robot/drone/mining,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "s" = (
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "t" = (
 /obj/item/weapon/ore/hydrogen,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "u" = (
 /obj/structure/table/standard,
@@ -104,11 +104,11 @@
 /obj/item/weapon/ore/diamond,
 /obj/item/weapon/ore/diamond,
 /obj/item/weapon/ore/diamond,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "y" = (
 /obj/item/weapon/ore/uranium,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "z" = (
 /obj/structure/closet/crate/secure/loot,
@@ -124,16 +124,16 @@
 /area/mine/unexplored)
 "C" = (
 /obj/item/weapon/ore/osmium,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "D" = (
 /obj/item/weapon/storage/bag/ore,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "E" = (
 /obj/structure/closet/crate,
 /obj/item/weapon/ore/strangerock,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 
 (1,1,1) = {"

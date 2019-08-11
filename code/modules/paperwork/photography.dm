@@ -11,7 +11,7 @@
 *******/
 /obj/item/device/camera_film
 	name = "film cartridge"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
@@ -25,7 +25,7 @@ var/global/photo_count = 0
 
 /obj/item/weapon/photo
 	name = "photo"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
 	w_class = 2.0
@@ -79,7 +79,7 @@ var/global/photo_count = 0
 **************/
 /obj/item/weapon/storage/photo_album
 	name = "Photo album"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
 	can_hold = list(/obj/item/weapon/photo)
@@ -113,7 +113,7 @@ var/global/photo_count = 0
 *********/
 /obj/item/device/camera
 	name = "camera"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/bureaucracy.dmi'
 	desc = "A polaroid camera. 10 photos left."
 	icon_state = "camera"
 	item_state = "electropack"
@@ -226,7 +226,7 @@ var/global/photo_count = 0
 
 	var/icon/small_img = icon(photoimage)
 	var/icon/tiny_img = icon(photoimage)
-	var/icon/ic = icon('icons/obj/items.dmi',"photo")
+	var/icon/ic = icon('icons/obj/bureaucracy.dmi',"photo")
 	var/icon/pc = icon('icons/obj/bureaucracy.dmi', "photo")
 	small_img.Scale(8, 8)
 	tiny_img.Scale(4, 4)

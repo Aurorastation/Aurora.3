@@ -1,6 +1,7 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
+	drop_sound = 'sound/items/drop/clothing.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -252,7 +253,6 @@
 	w_class = 1.0
 	throwforce = 2
 	slot_flags = SLOT_EARS
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
 
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
@@ -307,40 +307,6 @@
 		icon_state = O.icon_state
 		set_dir(O.dir)
 
-/obj/item/clothing/ears/earmuffs
-	name = "earmuffs"
-	desc = "Protects your hearing from loud noises, and quiet ones as well."
-	icon_state = "earmuffs"
-	item_state = "earmuffs"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
-
-/obj/item/clothing/ears/earmuffs/headphones
-	name = "headphones"
-	desc = "Unce unce unce unce."
-	var/headphones_on = 0
-	icon_state = "headphones_off"
-	item_state = "headphones"
-	slot_flags = SLOT_EARS | SLOT_TWOEARS
-
-/obj/item/clothing/ears/earmuffs/headphones/verb/togglemusic()
-	set name = "Toggle Headphone Music"
-	set category = "Object"
-	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
-
-	if(headphones_on)
-		icon_state = "headphones_off"
-		headphones_on = 0
-		to_chat(usr, "<span class='notice'>You turn the music off.</span>")
-	else
-		icon_state = "headphones_on"
-		headphones_on = 1
-		to_chat(usr, "<span class='notice'>You turn the music on.</span>")
-
-	update_clothing_icon()
-
-
 ///////////////////////////////////////////////////////////////////////
 //Gloves
 /obj/item/clothing/gloves
@@ -362,9 +328,9 @@
 	attack_verb = list("challenged")
 	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi',
-		"Resomi" = 'icons/mob/species/resomi/gloves.dmi'
+		"Vox" = 'icons/mob/species/vox/gloves.dmi'
 		)
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -463,14 +429,15 @@
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
+	drop_sound = 'sound/items/drop/hat.ogg'
+
 	var/light_overlay = "helmet_light"
 	var/light_applied
 	var/brightness_on
 	var/on = 0
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Resomi" = 'icons/mob/species/resomi/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi'
 		)
 
 /obj/item/clothing/head/attack_self(mob/user)
@@ -565,9 +532,9 @@
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
-		"Resomi" = 'icons/mob/species/resomi/masks.dmi',
-						"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-						"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
+		"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	var/voicechange = 0
@@ -597,7 +564,7 @@
 /obj/item/clothing/mask/proc/adjust_mask(mob/user)
 	if(!adjustable)
 		return
-	if(use_check(user))
+	if(use_check_and_message(user))
 		return
 
 	hanging = !hanging
@@ -636,6 +603,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -648,8 +616,7 @@
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/shoes.dmi'
+		"Vox" = 'icons/mob/species/vox/shoes.dmi'
 		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
@@ -666,7 +633,7 @@
 	if(usr.put_in_hands(holding))
 		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
 		holding = null
-		playsound(get_turf(src), 'sound/items/holster/sheathout.ogg', 25)
+		playsound(get_turf(src), 'sound/weapons/holster/sheathout.ogg', 25)
 	else
 		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
 		holding.forceMove(src)
@@ -722,8 +689,7 @@
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi',
-		"Resomi" = 'icons/mob/species/resomi/suit.dmi'
+		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
 
 	valid_accessory_slots = list("over")
@@ -759,8 +725,7 @@
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Golem" = 'icons/mob/uniform_fat.dmi',
-		"Resomi" = 'icons/mob/species/resomi/uniform.dmi')
+		"Golem" = 'icons/mob/uniform_fat.dmi')
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
@@ -970,4 +935,5 @@
 	icon = 'icons/obj/clothing/rings.dmi'
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
+	drop_sound = 'sound/items/drop/ring.ogg'
 	var/undergloves = 1

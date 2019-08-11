@@ -6,7 +6,7 @@
 	color = "#808080"
 	metabolism = REM * 0.2
 	taste_description = "acid"
-	specific_heat = 0.567
+	fallback_specific_heat = 0.567
 
 /datum/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed * 3)
@@ -36,7 +36,7 @@
 	color = "#A8A8A8"
 	taste_description = "metal"
 	taste_mult = 1.1
-	specific_heat = 0.811
+	fallback_specific_heat = 0.811
 
 /datum/reagent/ammonia
 	name = "Ammonia"
@@ -49,7 +49,7 @@
 	taste_mult = 2
 	breathe_mul = 2
 	breathe_met = REM * 0.25
-	specific_heat = 1.048
+	fallback_specific_heat = 1.048
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
@@ -66,7 +66,7 @@
 	ingest_met = REM * 5
 	taste_description = "sour chalk"
 	taste_mult = 1.5
-	specific_heat = 0.018
+	fallback_specific_heat = 0.018
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.ingested && M.ingested.reagent_list.len > 1) // Need to have at least 2 reagents - cabon and something to remove
@@ -91,7 +91,7 @@
 	description = "A highly ductile metal."
 	color = "#6E3B08"
 	taste_description = "copper"
-	specific_heat = 1.148
+	fallback_specific_heat = 1.148
 
 /datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_SKRELL)
@@ -118,6 +118,9 @@
 
 	var/flammability_divisor = 10
 
+	var/distillation_point = T0C + 100
+	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
+
 	unaffected_species = IS_MACHINE
 
 	taste_description = "mistakes"
@@ -140,6 +143,8 @@
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
+	if(prob(10*(strength/100)))
+		to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return
@@ -175,7 +180,9 @@
 	glass_name = "glass of ethanol"
 	glass_desc = "A well-known alcohol with a variety of applications."
 
-	specific_heat = 0.605
+	fallback_specific_heat = 0.605
+
+	distillation_point = T0C + 78.37
 
 /datum/reagent/alcohol/ethanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -227,7 +234,9 @@
 	glass_name = "glass of butanol"
 	glass_desc = "A fairly harmless alcohol that has intoxicating effects on certain species."
 
-	specific_heat = 0.549
+	fallback_specific_heat = 0.549
+
+	distillation_point = T0C + 117.7
 
 /datum/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -254,7 +263,7 @@
 	touch_met = 5
 	taste_description = "sweet tasting metal"
 
-	specific_heat = 0.549 //Unknown
+	fallback_specific_heat = 0.549 //Unknown
 
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(4 * removed)
@@ -268,6 +277,13 @@
 	remove_self(volume)
 	return
 
+/datum/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		if(istype(L))
+			L.take_damage(removed * 0.5)
+
 /datum/reagent/iron
 	name = "Iron"
 	id = "iron"
@@ -276,7 +292,7 @@
 	color = "#353535"
 	taste_description = "metal"
 
-	specific_heat = 1.181
+	fallback_specific_heat = 1.181
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (!(alien & IS_SKRELL))
@@ -290,7 +306,7 @@
 	color = "#808080"
 	taste_description = "metal"
 
-	specific_heat = 0.633
+	fallback_specific_heat = 0.633
 
 /datum/reagent/lithium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -307,7 +323,7 @@
 	ingest_met = REM*0.2
 	taste_mult = 0 //mercury apparently is tasteless
 
-	specific_heat = 0.631
+	fallback_specific_heat = 0.631
 
 /datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
@@ -325,7 +341,7 @@
 	color = "#832828"
 	taste_description = "vinegar"
 
-	specific_heat = 0.569
+	fallback_specific_heat = 0.569
 
 /datum/reagent/potassium
 	name = "Potassium"
@@ -335,7 +351,7 @@
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
 
-	specific_heat = 0.214
+	fallback_specific_heat = 0.214
 
 /datum/reagent/radium
 	name = "Radium"
@@ -346,7 +362,7 @@
 	taste_description = "the color blue, and regret"
 	unaffected_species = IS_MACHINE
 
-	specific_heat = 0.220
+	fallback_specific_heat = 0.220
 	var/message_shown = FALSE
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -485,7 +501,7 @@
 	power = 3
 	meltdose = 8
 	taste_description = "stomach acid"
-	specific_heat = 1.710
+	fallback_specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
 	name = "Polytrinic acid"
@@ -504,7 +520,7 @@
 	reagent_state = SOLID
 	color = "#A8A8A8"
 	taste_description = "metal"
-	specific_heat = 2.650
+	fallback_specific_heat = 2.650
 
 /datum/reagent/sodium
 	name = "Sodium"
@@ -513,7 +529,7 @@
 	reagent_state = SOLID
 	color = "#808080"
 	taste_description = "salty metal"
-	specific_heat = 0.483
+	fallback_specific_heat = 0.483
 
 /datum/reagent/sugar
 	name = "Sugar"
@@ -528,7 +544,7 @@
 	glass_name = "glass of sugar"
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
-	specific_heat = 0.332
+	fallback_specific_heat = 0.332
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)
@@ -541,7 +557,7 @@
 	color = "#BF8C00"
 	taste_description = "rotten eggs"
 
-	specific_heat = 0.503
+	fallback_specific_heat = 0.503
 
 /datum/reagent/tungsten
 	name = "Tungsten"
@@ -550,6 +566,6 @@
 	reagent_state = SOLID
 	color = "#DCDCDC"
 	taste_mult = 0 //no taste
-	specific_heat = 18
+	fallback_specific_heat = 18
 
-	specific_heat = 0.859
+	fallback_specific_heat = 0.859

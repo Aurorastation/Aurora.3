@@ -1,6 +1,7 @@
 
 #define VUEUI_SET_CHECK(a, b, c, d) if (a != b) { a = b; c = d; }
 #define VUEUI_SET_CHECK_IFNOTSET(a, b, c, d) if (a == null && a != b) { a = b; c = d; }
+#define VUEUI_SET_IFNOTSET(a, b, c, d) if (a == null) { a = b; c = d; }
 
 #define THEME_TYPE_DARK 1
 #define THEME_TYPE_LIGHT 0

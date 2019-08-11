@@ -81,9 +81,9 @@
 	permeability_coefficient = 0.50
 
 
-/obj/item/clothing/under/rank/internalaffairs
-	desc = "The plain, professional attire of an Internal Affairs Agent. The collar is <i>immaculately</i> starched."
-	name = "internal affairs uniform"
+/obj/item/clothing/under/rank/liaison
+	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
+	name = "corporate liaison uniform"
 	icon_state = "internalaffairs"
 	item_state = "ba_suit"
 	worn_state = "internalaffairs"
@@ -173,3 +173,33 @@
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
+
+/obj/item/clothing/under/rank/hephaestus
+	name = "Hephaestus Industries uniform"
+	desc = "A uniform worn by Hephaestus Industries employees and contractors."
+	icon_state = "heph"
+	worn_state = "heph"
+
+/obj/item/clothing/under/rank/necropolis
+	name = "Necropolis Industries uniform"
+	desc = "A uniform worn by Necropolis Industries employees and contractors."
+	icon_state = "necro"
+	worn_state = "necro"
+
+/obj/item/clothing/under/rank/idris
+	name = "Idris Incorporated uniform"
+	desc = "A uniform worn by Idris Incorporated employees and contractors."
+	icon_state = "idris"
+	worn_state = "idris"
+
+/obj/item/clothing/under/rank/einstein_engines
+	name = "Einstein Engines uniform"
+	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
+	icon_state = "einstein_engine"
+	worn_state = "einstein_engine"
+
+/obj/item/clothing/under/rank/zeng
+	name = "Zeng-Hu uniform"
+	desc = "A uniform worn by Zeng-Hu employees and contractors."
+	icon_state = "zhu"
+	worn_state = "zhu"

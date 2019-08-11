@@ -1,6 +1,7 @@
 /obj/item/organ
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
+	drop_sound = 'sound/items/drop/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
 	var/dead_icon
 	var/mob/living/carbon/human/owner = null
@@ -177,7 +178,7 @@
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
-	var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+	var/antibiotics = owner.reagents.get_reagent_amount("thetamycin")
 
 	if (germ_level > 0 && germ_level < INFECTION_LEVEL_ONE/2 && prob(30))
 		germ_level--
@@ -238,7 +239,7 @@
 
 //Germs
 /obj/item/organ/proc/handle_antibiotics()
-	var/antibiotics = owner.reagents.get_reagent_amount("spaceacillin")
+	var/antibiotics = owner.reagents.get_reagent_amount("thetamycin")
 
 	if (!germ_level || antibiotics < 5)
 		return

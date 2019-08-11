@@ -134,10 +134,7 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-	shadower = new(src)
-	if (!(flags & MIMIC_OVERWRITE) && plane == PLANE_SPACE_BACKGROUND)
-		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
-		plane = 0
+
 	update(mapload)
 
 /**
@@ -224,3 +221,10 @@
 
 /turf/simulated/open/AddTracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
 	return
+
+//Returns the roof type of the turf below
+/turf/simulated/open/get_roof_type()
+	var/turf/t = GetBelow(src)
+	if(!t)
+		return null
+	return t.roof_type

@@ -11,6 +11,7 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/material/Initialize()
 	. = ..()
@@ -93,16 +94,19 @@
 	icon_state = "sheet-sandstone"
 	default_type = "sandstone"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/stack/material/marble
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = "marble"
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/stack/material/diamond
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = "diamond"
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/uranium
 	name = "uranium"
@@ -114,6 +118,7 @@
 	icon_state = "sheet-phoron"
 	default_type = "phoron"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -176,17 +181,31 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = "wood"
+	drop_sound = 'sound/items/drop/wooden.ogg'
 
 /obj/item/stack/material/cloth
 	name = "cloth"
 	icon_state = "sheet-cloth"
 	default_type = "cloth"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
+	if(is_sharp(I))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
+		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
+			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			for(var/i in 1 to rand(1,3)) // average of 2 per
+				new /obj/item/weapon/reagent_containers/glass/rag(get_turf(src))
+			use(1)
+		return
+	..()
 
 /obj/item/stack/material/cardboard
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = "cardboard"
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/stack/material/leather
 	name = "leather"
@@ -194,12 +213,20 @@
 	icon_state = "sheet-leather"
 	default_type = "leather"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/stack/material/glass
 	name = "glass"
 	icon_state = "sheet-glass"
 	default_type = "glass"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
+
+/obj/item/stack/material/glass/wired
+	name = "wired glass"
+	icon = 'icons/obj/stacks/tiles.dmi'
+	icon_state = "glass_wire"
+	default_type = "wired glass"
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"

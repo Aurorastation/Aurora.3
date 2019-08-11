@@ -7,6 +7,7 @@
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 	force = 3
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/clothing/shoes/leg_guard/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
 	if(..()) //This will only run if no other problems occured when equiping.
@@ -24,7 +25,7 @@
 	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/shoes/leg_guard/bulletproof
-	name = "bulletproof leg guards"
+	name = "ballistic leg guards"
 	desc = "These will protect your legs and feet from ballistic weapons."
 	icon_state = "leg_guards_bullet"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)

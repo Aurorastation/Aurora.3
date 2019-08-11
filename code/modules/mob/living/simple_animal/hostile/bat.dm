@@ -38,7 +38,9 @@
 
 	faction = "scarybat"
 	flying = TRUE
+	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	var/mob/living/owner
+	emote_sounds = list('sound/effects/creatures/bat.ogg')
 
 /mob/living/simple_animal/hostile/scarybat/Initialize(mapload, mob/living/L as mob)
 	. = ..()

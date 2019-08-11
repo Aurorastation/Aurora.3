@@ -107,7 +107,7 @@
 	switch(reaction)
 		if(1)
 			to_chat(owner, "<span class='warning'>You are paralyzed with fear!</span>")
-			owner.Stun(15)
+			owner.Stun(3)
 			owner.Jitter(15)
 		if(2)
 			owner.Jitter(5)

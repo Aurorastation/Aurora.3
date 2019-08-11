@@ -24,7 +24,7 @@
 	var/moving			= null
 	var/adminobs		= null
 	var/area			= null
-	var/time_died_as_mouse = 0
+	var/time_died_as_rat = 0
 
 	var/adminhelped = NOT_ADMINHELPED
 
@@ -71,3 +71,7 @@
 	var/obj/screen/plane_master/parallax_master/parallax_master = null
 	var/obj/screen/plane_master/parallax_dustmaster/parallax_dustmaster = null
 	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null
+
+	var/initialized = FALSE
+
+	var/authed = TRUE

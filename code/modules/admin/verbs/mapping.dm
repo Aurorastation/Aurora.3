@@ -410,7 +410,7 @@ var/global/movement_disabled_exception //This is the client that calls the proc,
 
 	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
-		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			to_chat(usr, "Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 
 /client/proc/get_bad_fdoors()

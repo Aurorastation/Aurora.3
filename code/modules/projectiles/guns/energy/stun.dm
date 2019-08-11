@@ -22,13 +22,16 @@
 	max_shots = 6
 	recharge_time = 10 //Time it takes for shots to recharge (in ticks)
 
+/obj/item/weapon/gun/energy/taser/mounted/cyborg/overclocked
+	max_shots = 20
+	recharge_time = 1
 
 /obj/item/weapon/gun/energy/stunrevolver
 	name = "stun revolver"
 	desc = "A high-tech revolver that fires rechargeable stun bolts."
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
-	fire_sound = 'sound/weapons/Gunshot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
 	max_shots = 8

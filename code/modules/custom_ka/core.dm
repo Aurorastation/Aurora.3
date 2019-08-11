@@ -17,7 +17,7 @@
 	fire_delay = 0 	//delay after shooting before the gun can be used again
 	burst_delay = 2	//delay between shots, if firing in bursts
 	move_delay = 1
-	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
+	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	fire_sound_text = "blast"
 	recoil = 0
 	silenced = 0
@@ -27,8 +27,6 @@
 	burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	dispersion = list(0)
 	reliability = 100
-
-	action_button_name = "Wield kinetic accelerator"
 
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
 
@@ -43,6 +41,8 @@
 	accuracy_wielded = 0
 	wielded = 0
 	needspin = TRUE
+
+	is_wieldable = TRUE
 
 	var/require_wield = FALSE
 
@@ -71,19 +71,22 @@
 	var/can_disassemble_cell = TRUE
 	var/can_disassemble_barrel = TRUE
 
-/obj/item/weapon/gun/custom_ka/verb/wield_accelerator()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
-/obj/item/weapon/gun/custom_ka/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
 /obj/item/weapon/gun/custom_ka/can_wield()
 	return 1
+
+/obj/item/weapon/gun/custom_ka/toggle_wield()
+	..()
+	if(wielded)
+		item_state = "[initial(item_state)]_w"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
+
+/obj/item/weapon/gun/custom_ka/pickup(mob/user)
+	..()
+	if(can_wield())
+		item_state = initial(item_state)
+	update_held_icon()
 
 /obj/item/weapon/gun/custom_ka/examine(var/mob/user)
 	. = ..()
@@ -228,7 +231,7 @@
 
 	installed_cell.stored_charge -= cost_increase
 
-	var/obj/item/projectile/shot_projectile
+	var/obj/item/projectile/kinetic/shot_projectile
 	//Send fire events
 	if(installed_cell)
 		installed_cell.on_fire(src)
@@ -241,6 +244,7 @@
 	shot_projectile.damage = damage_increase
 	shot_projectile.range = range_increase
 	shot_projectile.aoe = aoe_increase
+	shot_projectile.base_damage = damage_increase
 	return shot_projectile
 
 /obj/item/weapon/gun/custom_ka/Initialize()
@@ -298,6 +302,12 @@
 			name = "custom kinetic accelerator"
 	else
 		name = initial(name)
+
+	if(wielded)
+		item_state = "[initial(item_state)]_w"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
 
 /obj/item/weapon/gun/custom_ka/proc/update_stats()
 	//pls don't bully me for this code
@@ -521,7 +531,7 @@
 	cell_increase = 0
 	capacity_increase = 0
 	mod_limit_increase = 0
-	var/fire_sound = 'sound/weapons/Kenetic_accel.ogg'
+	var/fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	var/projectile_type = /obj/item/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2)
 

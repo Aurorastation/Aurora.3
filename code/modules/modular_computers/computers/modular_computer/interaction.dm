@@ -181,6 +181,7 @@
 		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10))
 			damage = 0
 			to_chat(user, "You repair \the [src].")
+		update_icon()
 		return
 
 	if(W.isscrewdriver())
