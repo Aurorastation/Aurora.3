@@ -1,6 +1,11 @@
 /datum/ghostspawner/human/admin
 	tags = list("Admin")
 
+//Add the ability to despawn
+/datum/ghostspawner/human/admin/post_spawn(mob/user)
+	user.client.verbs += /client/proc/despawn
+	return ..()
+
 /datum/ghostspawner/human/admin/ert_commander
 	short_name = "ertcommander"
 	name = "ERT Commander"
@@ -78,7 +83,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/protection_detail
-	possible_species = list("Human")
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = TRUE
 
@@ -102,8 +107,8 @@
 	max_count = 4
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/protection_detail
-	possible_species = list("Human","Skrell","Tajara","Unathi")
+	outfit = /datum/outfit/admin/nt/odinsec
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = TRUE
 
@@ -113,3 +118,16 @@
 
 	mob_name = null
 	mob_name_prefix = "Spec. "
+
+
+
+/client/proc/despawn()
+	set name = "Despawn"
+	set desc = "Your work is done. Leave this realm."
+	set category = "Special Verbs"
+
+	var/mob/M = mob
+	M.mind.special_role = null
+	M.ghostize(1)
+	verbs -= /client/proc/despawn
+	qdel(M)
