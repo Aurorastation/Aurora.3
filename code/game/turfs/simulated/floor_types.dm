@@ -69,7 +69,9 @@
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(
 		/turf/simulated/shuttle/wall/dark,
-		/turf/simulated/shuttle/wall/dark/destructible
+		/turf/simulated/shuttle/wall/dark/destructible,
+		/obj/structure/window/shuttle,
+		/obj/machinery/door/airlock
 	)
 	roof_type = /turf/simulated/shuttle/roof/black
 

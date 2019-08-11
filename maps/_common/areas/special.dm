@@ -67,16 +67,13 @@
 /area/centcom/checkpoint/aft
 	name = "\improper Aft Checkpoint"
 
-/area/centcom/legion
-	name = "\improper Tau Ceti Foreign Legion Base"
-
-
 //SYNDICATES
 
 /area/syndicate_mothership
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
+	dynamic_lighting = 0
 	no_light_control = 1
 	centcomm_area = 1
 
@@ -91,6 +88,25 @@
 /area/syndicate_mothership/raider_base
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
+
+/area/antagonist_base
+	name = "\improper Syndicate High Command"
+	icon_state = "syndie-comm"
+	requires_power = 0
+	no_light_control = 1
+	centcomm_area = 1
+
+/area/antagonist_base/raider
+	name = "\improper Raider Hideout"
+	icon_state = "raid_base"
+
+/area/antagonist_base/mercenary
+	name = "\improper Mercenary Barracks"
+	icon_state = "merc_base"
+
+/area/antagonist_base/ninja
+	name = "\improper Ninja Preparation"
+	icon_state = "ninja_base"
 
 //THUNDERDOME
 
