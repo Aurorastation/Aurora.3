@@ -34,3 +34,6 @@
 	sprint_cost_factor = 0.5
 
 	climb_coeff = 1
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
