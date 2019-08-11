@@ -107,7 +107,7 @@
 	max_count = 4
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/protection_detail
+	outfit = /datum/outfit/admin/nt/odinsec
 	possible_species = list("Human","Skrell","Tajara","Unathi")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = TRUE
