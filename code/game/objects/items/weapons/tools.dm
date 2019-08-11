@@ -206,9 +206,8 @@
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
-	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
-	//800 = 1 unit per 1 minute and 20 seconds,
-	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
+	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
+	//400 = 1 unit per 40 seconds
 
 //Welding tool functionality here
 /obj/item/weapon/weldingtool/Initialize()
@@ -306,7 +305,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
+		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
 			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
 		if(S.brute_dam == 0)
@@ -347,24 +346,30 @@
 		if(tank.armed)
 			to_chat(user, "You are already heating the [O]")
 			return
-		tank.armed = 1
 		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
-		message_admins("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
-		if(do_after(user,100))
-			if(tank.defuse)
-				user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
-				tank.defuse = 0
+		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
+			if("Yes")
+				log_and_message_admins("is attempting to welderbomb", user)
+				to_chat(user, span("alert", "Heating the fueltank..."))
+				tank.armed = 1
+				if(do_after(user, 100))
+					if(tank.defuse)
+						user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
+						tank.defuse = 0
+						tank.armed = 0
+						return
+					log_and_message_admins("triggered a fuel tank explosion", user)
+					to_chat(user, span("alert", "That was stupid of you."))
+					tank.ex_act(3.0)
+					return
+				else
+					tank.armed = 0
+					to_chat(user, "You thought better of yourself.")
+					return
+			if("No")
 				tank.armed = 0
+				to_chat(user, "You thought better of yourself.")
 				return
-			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
-			to_chat(user, span("alert", "That was stupid of you."))
-			tank.ex_act(3.0)
-			return
-		else
-			tank.armed = 0
-			to_chat(user, "You thought better of yourself.")
-			return
 		return
 	if (src.welding)
 		remove_fuel(1)

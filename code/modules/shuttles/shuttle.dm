@@ -29,6 +29,8 @@
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
 
+		callHook("shuttle_moved", list(origin,destination))
+
 		moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 		move(origin, destination)
 		moving_status = SHUTTLE_IDLE
@@ -41,6 +43,8 @@
 	spawn(warmup_time*10)
 		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
+
+		callHook("shuttle_moved", list(departing,destination))
 
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT

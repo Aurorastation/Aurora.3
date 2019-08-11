@@ -12,7 +12,7 @@
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cellconsole"
 	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/weapon/circuitboard/cryopodcontrol
@@ -145,7 +145,7 @@
 
 	name = "cryogenic feed"
 	desc = "A bewildering tangle of machinery and pipes."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cryo_rear"
 	anchored = 1
 	dir = WEST
@@ -154,14 +154,14 @@
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "A man-sized pod for entering suspended animation."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "body_scanner_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
 	dir = WEST
 
-	var/base_icon_state = "body_scanner_0"
-	var/occupied_icon_state = "body_scanner_1"
+	var/base_icon_state = "body_scanner"
+	var/occupied_icon_state = "body_scanner-closed"
 	var/on_store_message = "has entered long-term storage."
 	var/on_store_name = "Cryogenic Oversight"
 	var/on_enter_occupant_message = "You feel cool air surround you. You go numb as your senses turn inward."
@@ -196,9 +196,9 @@
 	name = "robotic storage unit"
 	desc = "A storage unit for robots."
 	icon = 'icons/obj/robot_storage.dmi'
-	icon_state = "pod_0"
-	base_icon_state = "pod_0"
-	occupied_icon_state = "pod_1"
+	icon_state = "pod"
+	base_icon_state = "pod"
+	occupied_icon_state = "pod-closed"
 	on_store_message = "has entered robotic storage."
 	on_store_name = "Robotic Storage Oversight"
 	on_enter_occupant_message = "The storage unit broadcasts a sleep signal to you. Your systems start to shut down, and you enter low-power mode."
@@ -214,6 +214,7 @@
 /obj/machinery/cryopod/Initialize()
 	. = ..()
 
+	icon_state = base_icon_state
 	find_control_computer()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
@@ -316,6 +317,7 @@
 			else
 				W.forceMove(src.loc)
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
@@ -364,6 +366,7 @@
 					M.client.perspective = EYE_PERSPECTIVE
 					M.client.eye = src
 
+			flick("[initial(icon_state)]-anim", src)
 			icon_state = occupied_icon_state
 
 			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -425,6 +428,7 @@
 			to_chat(user, "<span class='notice'>You stop [L == user ? "climbing into" : "putting [L] into"] \the [name].</span>")
 			return
 
+		flick("[initial(icon_state)]-anim", src)
 		icon_state = occupied_icon_state
 
 		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
@@ -449,6 +453,7 @@
 	if(usr.stat != 0)
 		return
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	//Eject any items that aren't meant to be in the pod.
@@ -499,6 +504,7 @@
 		usr.forceMove(src)
 		set_occupant(usr)
 
+		flick("[initial(icon_state)]-anim", src)
 		icon_state = occupied_icon_state
 
 		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
@@ -522,6 +528,7 @@
 	occupant.forceMove(get_turf(src))
 	set_occupant(null)
 
+	flick("[initial(icon_state)]-anim", src)
 	icon_state = base_icon_state
 
 	return

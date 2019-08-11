@@ -7,7 +7,7 @@ import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
 import Store from './store.js'
-import './assets/global.scss';
+import './assets/global.scss'
 
 const requireComponent = require.context(
   './components', // The relative path of the components folder

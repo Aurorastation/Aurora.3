@@ -11,7 +11,7 @@ var/global/list/can_enter_vent_with = list(
 	/obj/item/weapon/holder,
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
-	/mob/living/simple_animal/mouse
+	/mob/living/simple_animal/rat
 	)
 
 /mob/living/var/list/icon/pipes_shown = list()
@@ -95,7 +95,7 @@ var/global/list/can_enter_vent_with = list(
 /mob/living/simple_animal/borer/ventcrawl_carry()
 	return 1
 
-/mob/living/simple_animal/mouse/can_ventcrawl()
+/mob/living/simple_animal/rat/can_ventcrawl()
 	return 1
 
 /mob/living/simple_animal/spiderbot/can_ventcrawl()

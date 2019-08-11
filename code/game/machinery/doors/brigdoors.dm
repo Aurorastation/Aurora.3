@@ -136,15 +136,13 @@
 		C.locked = 0
 		C.icon_state = C.icon_closed
 
-	if( istype(incident))
-		for (var/datum/data/record/E in data_core.general)
-			if(E.fields["name"] == incident.criminal.name)
-				for (var/datum/data/record/R in data_core.security)
-					if(R.fields["id"] == E.fields["id"])
-						if(early == 1)
-							R.fields["criminal"] = "Parolled"
-						else
-							R.fields["criminal"] = "Released"
+	if(istype(incident))
+		var/datum/record/general/R = SSrecords.find_record("name", incident.criminal.name)
+		if(istype(R) && istype(R.security))
+			if(early == 1)
+				R.security.criminal = "Parolled"
+			else
+				R.security.criminal = "Released"
 
 	qdel( incident )
 	incident = null
@@ -338,11 +336,9 @@
 
 		if( "activate" )
 			src.timer_start()
-			for (var/datum/data/record/E in data_core.general)
-				if(E.fields["name"] == incident.criminal.name)
-					for (var/datum/data/record/R in data_core.security)
-						if(R.fields["id"] == E.fields["id"])
-							R.fields["criminal"] = "Incarcerated"
+			var/datum/record/general/R = SSrecords.find_record("name", incident.criminal.name)
+			if(R && R.security)
+				R.security.criminal = "Incarcerated"
 
 		if ("early_release")
 			src.timer_end(1)

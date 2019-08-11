@@ -48,15 +48,6 @@ obj/item/weapon/gun/bang/deagle
 	pixel_offset_x = -4
 	pixel_offset_y = 16
 
-/obj/item/weapon/gun/bang/deagle/gold
-	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
-	icon_state = "deagleg"
-	item_state = "deagleg"
-
-/obj/item/weapon/gun/bang/deagle/camo
-	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
-	icon_state = "deaglecamo"
-
 /obj/item/weapon/gun/bang/pistol
 	name = "9mm pistol"
 	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."

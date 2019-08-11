@@ -29,8 +29,9 @@
 	show_browser(src, null, "window=auth;")
 	client.verbs += typesof(/client/verb) // Let's return regular client verbs
 	client.authed = TRUE // We declare client as authed now
+	client.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans
-	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id)
+	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
 	if(ban_data)
 		to_chat(c, "You are banned for this server.")
 		to_chat(c, "Reason: [ban_data["reason"]]")
@@ -44,8 +45,8 @@
 	// If mob exists for that ckey, then BYOND will transfer client to it.
 	if(istype(c.mob, /mob/abstract/unauthed))
 		c.mob = new /mob/abstract/new_player() // Else we just treat them as new player
-	c.InitPerfs() // We init pers just in case mob transfer didn't
-	c.InitClient() // And now we shal continue client initilization (permissions and stuff)
+	c.InitClient() // And now we shall continue client initilization (permissions and stuff)
+	c.InitPrefs() // We init prefs just in case mob transfer didn't
 	unauthed -= token
 
 /mob/abstract/unauthed/Topic(href, href_list)

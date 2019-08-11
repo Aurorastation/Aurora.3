@@ -636,8 +636,8 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="good">Age:			</span> <span class="average">{{:data.records.general.age}}		</span><br>
                         <span class="good">Rank:		</span> <span class="average">{{:data.records.general.rank}}	</span><br>
                         <span class="good">Fingerprint:		</span> <span class="average">{{:data.records.general.fingerprint}}	</span><br>
-                        <span class="good">Physical Status:	</span> <span class="average">{{:data.records.general.p_stat}}	</span><br>
-                        <span class="good">Mental Status:	</span> <span class="average">{{:data.records.general.m_stat}}	</span><br><br>
+                        <span class="good">Physical Status:	</span> <span class="average">{{:data.records.general.phisical_status}}	</span><br>
+                        <span class="good">Mental Status:	</span> <span class="average">{{:data.records.general.mental_status}}	</span><br><br>
                     {{else}}
                         <span class="bad">
                             General Record Lost!<br><br>
@@ -645,15 +645,10 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                     {{/if}}
                     {{if data.records.medical_exists == 1}}
                         Medical Data:<br>
-                        <span class="good">Blood Type:		</span> <span class="average">{{:data.records.medical.b_type}}	</span><br><br>
-                        <span class="good">Minor Disabilities:	</span> <span class="average">{{:data.records.medical.mi_dis}}	</span><br>
-                        <span class="good">Details:		</span> <span class="average">{{:data.records.medical.mi_dis_d}}	</span><br><br>
-                        <span class="good">Major Disabilities:	</span> <span class="average">{{:data.records.medical.ma_dis}}	</span><br>
-                        <span class="good">Details:		</span> <span class="average">{{:data.records.medical.ma_dis_d}}	</span><br><br>
-                        <span class="good">Allergies:		</span> <span class="average">{{:data.records.medical.alg}}		</span><br>
-                        <span class="good">Details:		</span> <span class="average">{{:data.records.medical.alg_d}}	</span><br><br>
-                        <span class="good">Current Disease:	</span> <span class="average">{{:data.records.medical.cdi}}		</span><br>
-                        <span class="good">Details:		</span> <span class="average">{{:data.records.medical.alg_d}}	</span><br><br>
+                        <span class="good">Blood Type:		</span> <span class="average">{{:data.records.medical.blood_type}}	</span><br><br>
+                        <span class="good">Disabilities:	</span> <span class="average">{{:data.records.medical.disabilities}}	</span><br><br>
+                        <span class="good">Allergies:		</span> <span class="average">{{:data.records.medical.allergies}}		</span><br><br>
+                        <span class="good">Current Disease:	</span> <span class="average">{{:data.records.medical.diseases}}		</span><br><br>
                         <span class="good">Important Notes:	</span> <span class="average"><pre>{{:data.records.medical.notes}}</pre>	</span>
                     {{else}}
                         <span class="bad">
@@ -692,8 +687,8 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="good">Age: </span>  <span class="average">{{:data.records.general.age}} </span><br>
                         <span class="good">Rank: </span>  <span class="average">{{:data.records.general.rank}} </span><br>
                         <span class="good">Fingerprint:  </span> <span class="average">{{:data.records.general.fingerprint}} </span><br>
-                        <span class="good">Physical Status:  </span> <span class="average">{{:data.records.general.p_stat}} </span><br>
-                        <span class="good">Mental Status:  </span> <span class="average">{{:data.records.general.m_stat}} </span><br><br>
+                        <span class="good">Physical Status:  </span> <span class="average">{{:data.records.general.phisical_status}} </span><br>
+                        <span class="good">Mental Status:  </span> <span class="average">{{:data.records.general.mental_status}} </span><br><br>
                     {{else}}
                         <span class="bad">
                             General Record Lost!<br><br>
@@ -702,10 +697,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                     {{if data.records.security_exists == 1}}
                         Security Data:<br>
                         <span class="good">Criminal Status:  </span><span class="average">{{:data.records.security.criminal}} </span><br><br>
-                        <span class="good">Minor Crimes:  </span><span class="average">{{:data.records.security.mi_crim}} </span><br>
-                        <span class="good">Details:  </span><span class="average">{{:data.records.security.mi_crim_d}} </span><br><br>
-                        <span class="good">Major Crimes:  </span><span class="average">{{:data.records.security.ma_crim}} </span><br>
-                        <span class="good">Details:  </span><span class="average">{{:data.records.security.ma_crim_d}} </span><br><br>
+                        <span class="good">Minor Crimes:  </span><span class="average">{{:data.records.security.crimes}} </span><br><br>
                         <span class="good">Important Notes:   </span><span class="average"> <pre>{{:data.records.security.notes}}</pre> </span>
                     {{else}}
                         <span class="bad">

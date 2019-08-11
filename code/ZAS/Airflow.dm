@@ -135,15 +135,17 @@ mob/living/carbon/human/airflow_hit(atom/A)
 
 zone/proc/movables(list/origins)
 	. = list()
-	if (!origins || !origins.len)
+	if (!origins?.len)
 		return
 
 	var/static/list/movables_tcache = typecacheof(list(/obj/effect, /mob/abstract))
 
 	var/atom/movable/AM
 	for (var/testing_turf in contents)
+		CHECK_TICK
 		for (var/am in testing_turf)
 			AM = am
+			CHECK_TICK
 			if (AM.simulated && !AM.anchored && !movables_tcache[AM.type])
 				for (var/source_turf in origins)
 					if (get_dist(testing_turf, source_turf) <= EDGE_KNOCKDOWN_MAX_DISTANCE)

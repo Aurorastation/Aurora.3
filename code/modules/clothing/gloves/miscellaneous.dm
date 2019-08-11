@@ -24,6 +24,11 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/swat/tactical
+	name = "\improper tactical gloves"
+	icon_state = "black_leather"
+	item_state = "black_leather_gloves"
+
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
 	name = "combat gloves"
@@ -35,6 +40,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+
 
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
@@ -272,7 +278,7 @@
 
 	var/mob/living/L = A
 
-	if(prob(50))
+	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
 		var/T = get_turf(user)

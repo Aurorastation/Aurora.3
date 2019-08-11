@@ -226,8 +226,8 @@
 /obj/machinery/chakrapod
 	name = "Crystal Therapy Pod"
 	desc = "A state-of-the-art crystal therapy pod. Designed to utilize phoron enhanced quartz crystals to remove mental trauma from the body. Proven to be 100% effective 30% of the time!"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "syndipod_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "sleeper_s"
 	density = 1
 	anchored = 1
 
@@ -253,6 +253,13 @@
 		return
 	src.go_out()
 	return
+
+/obj/machinery/chakrapod/update_icon()
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
 
 /obj/machinery/chakrapod/verb/eject()
 	set src in oview(1)
@@ -290,7 +297,8 @@
 	usr.forceMove(src)
 	src.occupant = WEAKREF(usr)
 	update_use_power(2)
-	src.icon_state = "syndipod_1"
+	flick("[initial(icon_state)]-anim", src)
+	update_icon()
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
 	src.add_fingerprint(usr)
@@ -316,7 +324,8 @@
 	H.forceMove(get_turf(src))
 	occupant = null
 	update_use_power(1)
-	src.icon_state = "syndipod_0"
+	flick("[initial(icon_state)]-anim", src)
+	update_icon()
 	return
 
 /obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G, mob/user)
@@ -351,7 +360,8 @@
 		occupant = WEAKREF(L)
 
 		update_use_power(2)
-		icon_state = "syndipod_1"
+		flick("[initial(icon_state)]-anim", src)
+		update_icon()
 		for(var/obj/O in src)
 			O.forceMove(get_turf(src))
 
@@ -392,7 +402,8 @@
 		H.forceMove(src)
 		occupant = WEAKREF(H)
 		update_use_power(2)
-		src.icon_state = "syndipod_1"
+		flick("[initial(icon_state)]-anim", src)
+		update_icon()
 		for(var/obj/Obj in src)
 			Obj.forceMove(get_turf(src))
 	src.add_fingerprint(user)
@@ -401,8 +412,8 @@
 /obj/machinery/chakraconsole
 	name = "Therapy Pod Console"
 	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "syndipod_scannerconsole"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "sleeper_s_scannerconsole"
 	density = 0
 	anchored = 1
 	var/obj/machinery/chakrapod/connected
@@ -432,7 +443,7 @@
 /obj/machinery/chakraconsole/power_change()
 	..()
 	if((stat & BROKEN) || (stat & NOPOWER))
-		icon_state = "syndipod_scannerconsole-p"
+		icon_state = "sleeper_s_scannerconsole-p"
 	else
 		icon_state = initial(icon_state)
 

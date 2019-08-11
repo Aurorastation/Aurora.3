@@ -15,22 +15,34 @@
 	// Vars.
 	var/list/occupations = list()
 	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are titles
+	var/list/type_occupations = list()	//Dict of all jobs, keys are types
 	var/list/unassigned = list()
 	var/list/job_debug = list()
+
+	var/list/factions = list()
+	var/list/name_factions = list()
+	var/datum/faction/default_faction = null
+
+	var/safe_to_sanitize = FALSE
+	var/list/deferred_preference_sanitizations = list()
 
 /datum/controller/subsystem/jobs/New()
 	NEW_SS_GLOBAL(SSjobs)
 
 /datum/controller/subsystem/jobs/Initialize()
+	..()
+
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
-	..()
+	InitializeFactions()
+
+	ProcessSanitizationQueue()
 
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
 	unassigned = SSjobs.unassigned
 	job_debug = SSjobs.job_debug
+	factions = SSjobs.factions
 	if (islist(job_debug))
 		job_debug += "NOTICE: Job system Recover() triggered."
 
@@ -70,9 +82,12 @@
 /datum/controller/subsystem/jobs/proc/GetRandomJob()
 	return pick(occupations)
 
-/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/rank)
-	if(!rank) return 0
-	var/datum/job/job = GetJob(rank)
+/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/datum/mind/mind)
+	if(player_is_antag(mind, only_offstation_roles = 1))
+		return 0
+	if(!mind.assigned_role)
+		return 0
+	var/datum/job/job = GetJob(mind.assigned_role)
 	if(!job) return 0
 	return job.create_record
 
@@ -324,6 +339,9 @@
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
 
+	if (H.mind)
+		H.mind.selected_faction = GetFaction(H)
+
 	H.job = rank
 
 	if(job)
@@ -409,9 +427,6 @@
 
 	if(job.supervisors)
 		to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
-
-	if(job.req_admin_notify)
-		to_chat(H, "<b>You are playing a job that is important for Game Progression. If you have to disconnect, please notify the admins via adminhelp.</b>")
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED && !megavend)
@@ -610,6 +625,25 @@
 
 	return TRUE
 
+/datum/controller/subsystem/jobs/proc/InitializeFactions()
+	for (var/type in subtypesof(/datum/faction))
+		var/datum/faction/faction = new type()
+
+		factions += faction
+		name_factions[faction.name] = faction
+
+		if (faction.is_default)
+			if (default_faction)
+				crash_with("Two default factions detected in SSjobs.")
+			else
+				default_faction = faction
+
+	if (!default_faction)
+		crash_with("No default faction assigned to SSjobs.")
+
+	if (!factions.len)
+		crash_with("No factions located in SSjobs.")
+
 /datum/controller/subsystem/jobs/proc/HandleFeedbackGathering()
 	for(var/thing in occupations)
 		var/datum/job/job = thing
@@ -695,17 +729,8 @@
 
 	// Delete them from datacore.
 
-	if(PDA_Manifest.len)
-		PDA_Manifest.Cut()
-	for(var/datum/data/record/R in data_core.medical)
-		if ((R.fields["name"] == H.real_name))
-			qdel(R)
-	for(var/datum/data/record/T in data_core.security)
-		if ((T.fields["name"] == H.real_name))
-			qdel(T)
-	for(var/datum/data/record/G in data_core.general)
-		if ((G.fields["name"] == H.real_name))
-			qdel(G)
+	SSrecords.remove_record_by_field("name", H.real_name)
+	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 
@@ -831,5 +856,21 @@
 		return pick(loc_list)
 	else
 		return locate("start*[rank]") // use old stype
+
+/datum/controller/subsystem/jobs/proc/GetFaction(mob/living/carbon/human/H)
+	var/faction_name = H?.client?.prefs?.faction
+	if (faction_name)
+		return name_factions[faction_name]
+	else
+		return null
+
+/datum/controller/subsystem/jobs/proc/ProcessSanitizationQueue()
+	safe_to_sanitize = TRUE
+
+	for (var/p in deferred_preference_sanitizations)
+		var/datum/callback/CB = deferred_preference_sanitizations[p]
+		CB.Invoke()
+
+	deferred_preference_sanitizations.Cut()
 
 #undef Debug

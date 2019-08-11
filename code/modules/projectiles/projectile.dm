@@ -93,6 +93,7 @@
 	var/tracer_type
 	var/muzzle_type
 	var/impact_type
+	var/hit_effect
 
 /obj/item/projectile/CanPass()
 	return TRUE
@@ -113,6 +114,9 @@
 			splatter_color = H.species.blood_color
 		var/splatter_dir = starting ? get_dir(starting, target.loc) : dir
 		new /obj/effect/temp_visual/dir_setting/bloodsplatter(target.loc, splatter_dir, splatter_color)
+
+	if(hit_effect)
+		new hit_effect(target.loc)
 
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
 	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.

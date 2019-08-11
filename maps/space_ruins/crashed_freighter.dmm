@@ -1196,7 +1196,7 @@
 /area/derelict/ship)
 "eb" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/structure/reagent_dispensers/xuizikeg,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ec" = (
@@ -1276,7 +1276,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "en" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eo" = (
@@ -1518,11 +1518,6 @@
 "eM" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"eN" = (
-/obj/effect/floor_decal/industrial/outline,
-/obj/structure/closet/crate/extinguisher_catridges,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eO" = (
@@ -33273,7 +33268,7 @@ aJ
 aJ
 be
 bo
-eN
+bi
 eY
 bw
 aO
@@ -34302,7 +34297,7 @@ aJ
 bd
 eM
 eM
-eN
+bi
 bw
 aO
 bM
@@ -34814,9 +34809,9 @@ aJ
 aJ
 aJ
 ai
-eN
-eN
-eN
+bi
+bi
+bi
 by
 aO
 bO

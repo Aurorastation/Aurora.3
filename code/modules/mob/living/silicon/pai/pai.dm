@@ -18,19 +18,21 @@
 	var/obj/item/device/paicard/card	// The card we inhabit
 	var/obj/item/device/radio/radio		// Our primary radio
 
+
 	var/chassis = "repairbot"   // A record of your chosen chassis.
 	var/global/list/possible_chassis = list(
 		"Drone" = "repairbot",
 		"Cat" = "cat",
-		"Mouse" = "mouse",
+		"Rat" = "rat",
 		"Monkey" = "monkey",
 		"Rabbit" = "rabbit"
+
 		)
 
 	var/global/list/pai_holder_types = list(
 		"Drone" = /obj/item/weapon/holder/pai/drone,
 		"Cat" = /obj/item/weapon/holder/pai/cat,
-		"Mouse" = /obj/item/weapon/holder/pai/mouse,
+		"Rat" = /obj/item/weapon/holder/pai/rat,
 		"Monkey" = /obj/item/weapon/holder/pai/monkey,
 		"Rabbit" = /obj/item/weapon/holder/pai/rabbit
 		)
@@ -67,12 +69,9 @@
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
 
 	var/medical_cannotfind = 0
-	var/datum/data/record/medicalActive1		// Datacore record declarations for record software
-	var/datum/data/record/medicalActive2
+	var/datum/record/general/active		// Datacore record declarations for record software
 
 	var/security_cannotfind = 0
-	var/datum/data/record/securityActive1		// Could probably just combine all these into one
-	var/datum/data/record/securityActive2
 
 	var/obj/machinery/door/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
@@ -134,6 +133,7 @@
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
+	set_custom_sprite()
 
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
@@ -149,6 +149,15 @@
 	pda.name = "[pda.owner] ([pda.ownjob])"
 	pda.toff = TRUE
 
+
+/mob/living/silicon/pai/proc/set_custom_sprite()
+	var/datum/custom_synth/sprite = robot_custom_icons[name]
+	if(istype(sprite) && sprite.synthckey == ckey)
+		possible_chassis["Custom"] = "[sprite.paiicon]"
+		pai_holder_types["Custom"] = /obj/item/weapon/holder/pai/custom
+		icon = CUSTOM_ITEM_SYNTH
+	else
+		return
 /mob/living/silicon/pai/init_id()
 	. = ..()
 	idcard.registered_name = ""
@@ -242,11 +251,8 @@
 	set category = "pAI Commands"
 	set name = "Reset Records Software"
 
-	securityActive1 = null
-	securityActive2 = null
+	active = null
 	security_cannotfind = 0
-	medicalActive1 = null
-	medicalActive2 = null
 	medical_cannotfind = 0
 	SSnanoui.update_uis(src)
 	to_chat(usr, "<span class='notice'>You reset your record-viewing software.</span>")
@@ -367,7 +373,7 @@
 	var/choice
 	var/finalized = "No"
 	while(finalized == "No" && src.client)
-
+		set_custom_sprite()
 		choice = input(usr,"What would you like to use for your mobile chassis icon? This decision can only be made once.") as null|anything in possible_chassis
 		if(!choice) return
 

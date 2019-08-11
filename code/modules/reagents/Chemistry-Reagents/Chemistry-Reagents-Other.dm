@@ -8,7 +8,7 @@
 	color = "#888888"
 	overdose = 5
 	taste_description = "the back of class"
-	specific_heat = 0.4
+	fallback_specific_heat = 0.4
 
 /datum/reagent/crayon_dust/red
 	name = "Red crayon dust"
@@ -59,7 +59,7 @@
 	overdose = REAGENTS_OVERDOSE * 0.5
 	color_weight = 20
 	taste_description = "chalk"
-	specific_heat = 0.2
+	fallback_specific_heat = 0.2
 
 /datum/reagent/paint/touch_turf(var/turf/T)
 	if(istype(T) && !istype(T, /turf/space))
@@ -136,7 +136,7 @@
 	glass_name = "golden cup"
 	glass_desc = "It's magic, I ain't gotta explain shit."
 
-	specific_heat = 10 //Magical.
+	fallback_specific_heat = 10 //Magical.
 
 
 /datum/reagent/adminordrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
@@ -178,7 +178,7 @@
 	reagent_state = SOLID
 	color = "#F7C430"
 	taste_description = "expensive metal"
-	specific_heat = 2.511
+	fallback_specific_heat = 2.511
 
 /datum/reagent/silver
 	name = "Silver"
@@ -187,7 +187,7 @@
 	reagent_state = SOLID
 	color = "#D0D0D0"
 	taste_description = "expensive yet reasonable metal"
-	specific_heat = 0.241
+	fallback_specific_heat = 0.241
 
 /datum/reagent/uranium
 	name ="Uranium"
@@ -196,7 +196,7 @@
 	reagent_state = SOLID
 	color = "#B8B8C0"
 	taste_description = "the inside of a reactor"
-	specific_heat = 2.286
+	fallback_specific_heat = 2.286
 
 /datum/reagent/uranium/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	affect_ingest(M, alien, removed)
@@ -219,7 +219,7 @@
 	reagent_state = SOLID
 	color = "#E0E0E0"
 	taste_description = "salty metalic miner tears"
-	specific_heat = 0.2971
+	fallback_specific_heat = 0.2971
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
@@ -228,7 +228,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	taste_description = "bitterness"
-	specific_heat = 0.75
+	fallback_specific_heat = 0.75
 
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.SetParalysis(0)
@@ -325,6 +325,7 @@
 	color = "#A5F0EE"
 	touch_met = REM * 10
 	taste_description = "sourness"
+	germ_adjust = 10
 
 /datum/reagent/space_cleaner/touch_obj(var/obj/O)
 	O.clean_blood()
@@ -376,6 +377,11 @@
 
 /datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed)
+
+/datum/reagent/space_cleaner/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	if(prob(10))
+		to_chat(M, span("danger","Your insides are burning!"))
+	M.adjustToxLoss(3 * removed)
 
 /datum/reagent/lube
 	name = "Space Lube"

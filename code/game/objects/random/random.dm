@@ -317,23 +317,9 @@
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
+		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
-		/obj/item/toy/plushie/bearfire,
-		/obj/random/squid_plushie
-	)
-
-/obj/random/squid_plushie
-	name = "random squid plushie"
-	desc = "This is a random squid plushie."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "greensquid"
-	spawnlist = list(
-		/obj/item/toy/plushie/squid/green,
-		/obj/item/toy/plushie/squid/mint,
-		/obj/item/toy/plushie/squid/blue,
-		/obj/item/toy/plushie/squid/orange,
-		/obj/item/toy/plushie/squid/yellow,
-		/obj/item/toy/plushie/squid/pink
+		/obj/item/toy/plushie/bearfire
 	)
 
 /obj/random/smalltank
@@ -782,6 +768,7 @@
 		/obj/item/device/flashlight/flare = 0.5,
 		/obj/item/device/flashlight/lantern = 0.4,
 		/obj/item/device/taperecorder = 0.6,
+		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 0.8,
 		/obj/item/weapon/reagent_containers/food/drinks/teapot = 0.4,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/weapon/reagent_containers/food/drinks/flask/lithium = 0.3,
@@ -840,6 +827,7 @@
 		/obj/item/weapon/inflatable_duck = 0.2,
 		/obj/random/hoodie = 0.5,
 		/obj/random/junk = 0.9,
+		/obj/random/document = 0.5,
 		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
 		/obj/random/spacecash = 0.3,
 		/obj/item/device/firing_pin = 0.3,
@@ -938,7 +926,8 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
-		/obj/item/ammo_casing/shotgun/beanbag = 0.5
+		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
+		/obj/random/document/junk = 0.5,
 	)
 
 //Sometimes the chef will have spare oil in storage.
@@ -1230,3 +1219,19 @@
 		E.charge_cost *= 2
 		E.self_recharge = 0
 		E.reliability = 90
+
+/obj/random/animal_crate
+	name = "random animal"
+	desc = "Contains a random crate with some animal."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "densecrate"
+	spawnlist = list(
+		/obj/structure/largecrate/animal/corgi = 3,
+		/obj/structure/largecrate/animal/cow = 4,
+		/obj/structure/largecrate/animal/goat = 3,
+		/obj/structure/largecrate/animal/cat = 2,
+		/obj/structure/largecrate/animal/chick = 4,
+		/obj/structure/largecrate/animal/adhomai = 0.5,
+		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
+		/obj/structure/largecrate/animal/adhomai/rafama = 0.5
+	)

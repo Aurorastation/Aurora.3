@@ -373,10 +373,6 @@
 /obj/item/weapon/vampiric,
 /turf/simulated/floor/diona,
 /area/derelict)
-"bm" = (
-/obj/structure/closet/crate/extinguisher_catridges,
-/turf/simulated/floor/diona,
-/area/derelict)
 "bn" = (
 /obj/random/belt,
 /turf/simulated/floor/diona,
@@ -386,7 +382,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "bp" = (
-/obj/random/squid_plushie,
+/obj/item/toy/plushie/squid,
 /turf/simulated/floor/diona,
 /area/derelict)
 
@@ -43691,7 +43687,7 @@ ab
 ab
 bj
 ab
-bm
+ac
 ab
 ac
 ac
