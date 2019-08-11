@@ -243,6 +243,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 /mob/living/proc/on_structure_offset(var/offset = 0)
+	var/default_pixel_z = 0
 	if(offset)
 		var/check = default_pixel_z + offset
 		if(pixel_z != check)
