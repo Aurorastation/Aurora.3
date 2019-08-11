@@ -3525,6 +3525,10 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gD" = (
@@ -3769,6 +3773,14 @@
 "gU" = (
 /obj/machinery/photocopier,
 /obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gV" = (
@@ -6957,6 +6969,10 @@
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
 /obj/item/weapon/reagent_containers/glass/beaker/large,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "nN" = (
@@ -7289,6 +7305,13 @@
 /obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"qv" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/security/forensics_office)
 "qG" = (
 /obj/machinery/disposal{
 	name = "MediExpress - Quarantine"
@@ -10857,6 +10880,14 @@
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site)
+"OY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11524,14 +11555,15 @@
 	},
 /area/mine/unexplored)
 "Uh" = (
-/obj/machinery/alarm{
-	pixel_y = 22
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/machinery/alarm/cold{
+	pixel_x = 0;
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -49977,7 +50009,7 @@ ab
 in
 PC
 Oa
-Oa
+OY
 fQ
 TL
 gA
@@ -50756,7 +50788,7 @@ gW
 fw
 hF
 hX
-hX
+qv
 UY
 Yg
 Xd
