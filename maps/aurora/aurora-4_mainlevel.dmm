@@ -40182,10 +40182,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/weapon/crowbar,
 /obj/item/device/mmi/digital/posibrain,
-/obj/item/device/robotanalyzer,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/device/mmi/digital/posibrain,
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqs" = (
