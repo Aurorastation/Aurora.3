@@ -21,6 +21,15 @@
 
 	outfit = /datum/outfit/job/merchant
 
+/datum/job/merchant/announce(mob/living/carbon/human/H)
+	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")
+
+/datum/job/merchant/New()
+	..()
+	if(prob(config.merchant_chance))
+		spawn_positions = 1
+		total_positions = 1
+
 /datum/outfit/job/merchant
 	name = "Merchant"
 	jobtype = /datum/job/merchant
@@ -31,11 +40,8 @@
 	pda = /obj/item/device/pda/merchant
 	r_pocket = /obj/item/device/price_scanner
 
-/datum/job/merchant/announce(mob/living/carbon/human/H)
-	to_chat(H,"You are a merchant heading to the [station_name()] to make profit, your main objective is to sell and trade with the crew.")
+/datum/outfit/job/merchant/assistant
+	name = "Merchant's Assistant"
 
-/datum/job/merchant/New()
-	..()
-	if(prob(config.merchant_chance))
-		spawn_positions = 1
-		total_positions = 1
+/datum/outfit/job/merchant/assistant/get_id_rank(mob/living/carbon/human/H)
+	return "Merchant's Assistant"

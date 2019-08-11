@@ -52,7 +52,10 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/commune)
+	inherent_verbs = list(
+	/mob/living/carbon/human/proc/commune,
+	/mob/living/carbon/human/proc/sonar_ping,
+	)
 
 	default_h_style = "Skrell Short Tentacles"
 
