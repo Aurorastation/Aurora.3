@@ -846,12 +846,6 @@
 			xylophone=0
 	return
 
-/mob/living/carbon/human/proc/check_has_mouth()
-	var/obj/item/organ/stomach/S = get_organ("stomach")
-	if(!istype(S))
-		return 0
-	return 1
-
 
 
 /mob/living/carbon/human/proc/morph()

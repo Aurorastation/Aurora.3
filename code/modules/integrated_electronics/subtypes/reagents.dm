@@ -288,7 +288,7 @@
 	name = "reagent scanner"
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  On pulse this beaker will send list of contained reagents, as well as analyse their taste."
 	icon_state = "reagent_scan"
-	extended_desc = "Mostly useful for reagent filters or artificial stomachs."
+	extended_desc = "Mostly useful for reagent filters."
 	flags = OPENCONTAINER
 	complexity = 8
 	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF,"list of reagents" = IC_PINTYPE_LIST,"taste" = IC_PINTYPE_STRING)

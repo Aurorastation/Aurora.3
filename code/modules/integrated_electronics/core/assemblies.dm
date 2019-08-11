@@ -1,5 +1,5 @@
-#define IC_COMPONENTS_BASE 20
-#define IC_COMPLEXITY_BASE 60
+#define IC_COMPONENTS_BASE 25
+#define IC_COMPLEXITY_BASE 75
 
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
@@ -11,6 +11,25 @@
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = 0
 	var/obj/item/weapon/cell/device/battery // Internal cell which most circuits need to work.
+	var/detail_color = COLOR_ASSEMBLY_BLACK
+	var/list/color_whitelist = list( //This is just for checking that hacked colors aren't in the save data.
+		COLOR_ASSEMBLY_BLACK,
+		COLOR_FLOORTILE_GRAY,
+		COLOR_ASSEMBLY_BGRAY,
+		COLOR_ASSEMBLY_WHITE,
+		COLOR_ASSEMBLY_RED,
+		COLOR_ASSEMBLY_ORANGE,
+		COLOR_ASSEMBLY_BEIGE,
+		COLOR_ASSEMBLY_BROWN,
+		COLOR_ASSEMBLY_GOLD,
+		COLOR_ASSEMBLY_YELLOW,
+		COLOR_ASSEMBLY_GURKHA,
+		COLOR_ASSEMBLY_LGREEN,
+		COLOR_ASSEMBLY_GREEN,
+		COLOR_ASSEMBLY_LBLUE,
+		COLOR_ASSEMBLY_BLUE,
+		COLOR_ASSEMBLY_PURPLE
+		)
 
 /obj/item/device/electronic_assembly/medium
 	name = "electronic mechanism"
@@ -178,11 +197,17 @@
 /obj/item/device/electronic_assembly/drone/can_move()
 	return TRUE
 
-/obj/item/device/electronic_assembly/update_icon()
+/obj/item/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = "[initial(icon_state)]-open"
 	else
 		icon_state = initial(icon_state)
+	cut_overlays()
+	if(detail_color == COLOR_ASSEMBLY_BLACK) //Black colored overlay looks almost but not exactly like the base sprite, so just cut the overlay and avoid it looking kinda off.
+		return
+	var/mutable_appearance/detail_overlay = mutable_appearance('icons/obj/assemblies/electronic_setups.dmi', "[icon_state]-color")
+	detail_overlay.color = detail_color
+	add_overlay(detail_overlay)
 
 /obj/item/device/electronic_assembly/GetAccess()
 	. = list()
@@ -284,6 +309,10 @@
 		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
 		interact(user)
 		return TRUE
+	else if(istype(I, /obj/item/integrated_electronics/detailer))
+		var/obj/item/integrated_electronics/detailer/D = I
+		detail_color = D.detail_color
+		update_icon()
 
 	else //Attempt to insert the item into any contained insert_slots
 		for(var/obj/item/integrated_circuit/insert_slot/S in contents)

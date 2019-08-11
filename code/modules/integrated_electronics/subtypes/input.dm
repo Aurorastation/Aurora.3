@@ -179,6 +179,9 @@
 		"distance"			    = IC_PINTYPE_NUMBER,
 		"max reagents"			= IC_PINTYPE_NUMBER,
 		"amount of reagents"    = IC_PINTYPE_NUMBER,
+		"density"				= IC_PINTYPE_BOOLEAN,
+		"opacity"				= IC_PINTYPE_BOOLEAN,
+		"occupied turf"			= IC_PINTYPE_REF
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -206,6 +209,9 @@
 			tr = H.reagents.total_volume
 		set_pin_data(IC_OUTPUT, 6, mr)
 		set_pin_data(IC_OUTPUT, 7, tr)
+		set_pin_data(IC_OUTPUT, 8, H.density)
+		set_pin_data(IC_OUTPUT, 9, H.opacity)
+		set_pin_data(IC_OUTPUT, 10, get_turf(H))
 		push_data()
 		activate_pin(2)
 	else
@@ -309,7 +315,7 @@
 			if(findtext(addtext(thing.name," ",thing.desc), DT, 1, 0) )
 				valid_things.Add(thing)
 	if(valid_things.len)
-		O.data = weakref(pick(valid_things))
+		O.data = WEAKREFpick(valid_things))
 		O.push_data()
 		activate_pin(2)
 	else
@@ -551,7 +557,7 @@
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
 	set_pin_data(IC_OUTPUT, 3, null)
-	set_pin_data(IC_OUTPUT, 4, weakref(assembly))
+	set_pin_data(IC_OUTPUT, 4, WEAKREFassembly))
 	if(assembly)
 		if(assembly.battery)
 
@@ -748,3 +754,245 @@
 /obj/item/integrated_circuit/input/gas_sensor/phoron
 	gas_name = "phoron"
 	gas_display_name = "phoron"
+
+/obj/item/integrated_circuit/input/turfpoint
+	name = "Tile pointer"
+	desc = "This circuit will get a tile ref with the provided absolute coordinates."
+	extended_desc = "If the machine	cannot see the target, it will not be able to calculate the correct direction.\
+	This circuit only works while inside an assembly."
+	icon_state = "numberpad"
+	complexity = 5
+	inputs = list("X" = IC_PINTYPE_NUMBER,"Y" = IC_PINTYPE_NUMBER)
+	outputs = list("tile" = IC_PINTYPE_REF)
+	activators = list("calculate dir" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 40
+
+/obj/item/integrated_circuit/input/turfpoint/do_work()
+	if(!assembly)
+		activate_pin(3)
+		return
+	var/turf/T = get_turf(assembly)
+	var/target_x = CLAMP(get_pin_data(IC_INPUT, 1), 0, world.maxx)
+	var/target_y = CLAMP(get_pin_data(IC_INPUT, 2), 0, world.maxy)
+	var/turf/A = locate(target_x, target_y, T.z)
+	set_pin_data(IC_OUTPUT, 1, null)
+	if(!A || !(A in view(T)))
+		activate_pin(3)
+		return
+	else
+		set_pin_data(IC_OUTPUT, 1, WEAKREFA))
+	push_data()
+	activate_pin(2)
+
+/obj/item/integrated_circuit/input/turfscan
+	name = "tile analyzer"
+	desc = "This circuit can analyze the contents of the scanned turf, and can read letters on the turf."
+	icon_state = "video_camera"
+	complexity = 5
+	inputs = list(
+		"target" = IC_PINTYPE_REF
+		)
+	outputs = list(
+		"located ref" 		= IC_PINTYPE_LIST,
+		"Written letters" 	= IC_PINTYPE_STRING,
+		"area"				= IC_PINTYPE_STRING
+		)
+	activators = list(
+		"scan" = IC_PINTYPE_PULSE_IN,
+		"on scanned" = IC_PINTYPE_PULSE_OUT,
+		"not scanned" = IC_PINTYPE_PULSE_OUT
+		)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 40
+	cooldown_per_use = 10
+
+/obj/item/integrated_circuit/input/turfscan/do_work()
+	var/turf/scanned_turf = get_pin_data_as_type(IC_INPUT, 1, /turf)
+	var/turf/circuit_turf = get_turf(src)
+	var/area_name = get_area_name(scanned_turf)
+	if(!istype(scanned_turf)) //Invalid input
+		activate_pin(3)
+		return
+
+	if(scanned_turf in view(circuit_turf)) // This is a camera. It can't examine things that it can't see.
+		var/list/turf_contents = new()
+		for(var/obj/U in scanned_turf)
+			turf_contents += WEAKREFU)
+		for(var/mob/U in scanned_turf)
+			turf_contents += WEAKREFU)
+		set_pin_data(IC_OUTPUT, 1, turf_contents)
+		set_pin_data(IC_OUTPUT, 3, area_name)
+		var/list/St = new()
+		for(var/obj/effect/decal/cleanable/crayon/I in scanned_turf)
+			St.Add(I.icon_state)
+		if(St.len)
+			set_pin_data(IC_OUTPUT, 2, jointext(St, ",", 1, 0))
+		push_data()
+		activate_pin(2)
+	else
+		activate_pin(3)
+
+/obj/item/integrated_circuit/input/advanced_locator_list
+	complexity = 6
+	name = "list advanced locator"
+	desc = "This is needed for certain devices that demand list of names for a target to act upon. This type locates something \
+	that is standing in given radius of up to 8 meters. Output is non-associative. Input will only consider keys if associative."
+	extended_desc = "The first pin requires a list of the kinds of objects that you want the locator to acquire. It will locate nearby objects by name and description, \
+	and will then provide a list of all found objects which are similar. \
+	The second pin is a radius."
+	inputs = list("desired type ref" = IC_PINTYPE_LIST, "radius" = IC_PINTYPE_NUMBER)
+	outputs = list("located ref" = IC_PINTYPE_LIST)
+	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 30
+	var/radius = 1
+	cooldown_per_use = 10
+
+/obj/item/integrated_circuit/input/advanced_locator_list/on_data_written()
+	var/rad = get_pin_data(IC_INPUT, 2)
+
+	if(isnum(rad))
+		rad = CLAMP(rad, 0, 8)
+		radius = rad
+
+/obj/item/integrated_circuit/input/advanced_locator_list/do_work()
+	var/datum/integrated_io/I = inputs[1]
+	var/datum/integrated_io/O = outputs[1]
+	O.data = null
+	var/list/input_list = list()
+	input_list = I.data
+	if(length(input_list))	//if there is no input don't do anything.
+		var/turf/T = get_turf(src)
+		var/list/nearby_things = view(radius,T)
+		var/list/valid_things = list()
+		for(var/item in input_list)
+			if(!isnull(item) && !isnum(item))
+				if(istext(item))
+					for(var/i in nearby_things)
+						var/atom/thing = i
+						if(ismob(thing) && !isliving(thing))
+							continue
+						if(findtext(addtext(thing.name," ",thing.desc), item, 1, 0) )
+							valid_things.Add(WEAKREF(thing))
+				else
+					var/atom/A = item
+					var/desired_type = A.type
+					for(var/i in nearby_things)
+						var/atom/thing = i
+						if(thing.type != desired_type)
+							continue
+						if(ismob(thing) && !isliving(thing))
+							continue
+						valid_things.Add(WEAKREF(thing))
+		if(valid_things.len)
+			O.data = valid_things
+			O.push_data()
+			activate_pin(2)
+		else
+			O.push_data()
+			activate_pin(3)
+	else
+		O.push_data()
+		activate_pin(3)
+
+/obj/item/integrated_circuit/input/sensor/ranged
+	name = "ranged sensor"
+	desc = "Scans and obtains a reference for any objects or persons in range. All you need to do is point the machine towards the target."
+	extended_desc = "If the 'ignore storage' pin is set to true, the sensor will disregard scanning various storage containers such as backpacks."
+	icon_state = "recorder"
+	complexity = 36
+	inputs = list("ignore storage" = IC_PINTYPE_BOOLEAN)
+	outputs = list("scanned" = IC_PINTYPE_REF)
+	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 120
+
+/obj/item/integrated_circuit/input/sensor/ranged/sense(atom/A, mob/user)
+	if(!user || !A || (ismob(A) && !isliving(A)))
+		return FALSE
+	if(user.client)
+		if(!(A in view(user.client)))
+			return FALSE
+	else
+		if(!(A in view(user)))
+			return FALSE
+	if(!check_then_do_work())
+		return FALSE
+	var/ignore_bags = get_pin_data(IC_INPUT, 1)
+	if(ignore_bags)
+		if(istype(A, /obj/item/storage))
+			return FALSE
+	set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
+	push_data()
+	to_chat(user, "<span class='notice'>You scan [A] with [assembly].</span>")
+	activate_pin(1)
+	return TRUE
+
+/obj/item/integrated_circuit/input/obj_scanner
+	name = "scanner"
+	desc = "Scans and obtains a reference for any objects you use on the assembly."
+	extended_desc = "If the 'put down' pin is set to true, the assembly will take the scanned object from your hands to its location. \
+	Useful for interaction with the grabber. The scanner only works using the help intent."
+	icon_state = "recorder"
+	complexity = 4
+	inputs = list("put down" = IC_PINTYPE_BOOLEAN)
+	outputs = list("scanned" = IC_PINTYPE_REF)
+	activators = list("on scanned" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 20
+
+/obj/item/integrated_circuit/input/obj_scanner/attackby_react(var/atom/A,var/mob/user,intent)
+	if(intent!=INTENT_HELP)
+		return FALSE
+	if(!check_then_do_work())
+		return FALSE
+	var/pu = get_pin_data(IC_INPUT, 1)
+	if(pu)
+		user.transferItemToLoc(A,drop_location())
+	set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
+	push_data()
+	to_chat(user, "<span class='notice'>You let [assembly] scan [A].</span>")
+	activate_pin(1)
+	return TRUE
+
+/obj/item/integrated_circuit/input/card_reader
+	name = "ID card reader" //To differentiate it from the data card reader
+	desc = "A circuit that can read the registred name, assignment, and PassKey string from an ID card."
+	icon_state = "card_reader"
+
+	complexity = 4
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	outputs = list(
+		"registered name" = IC_PINTYPE_STRING,
+		"assignment" = IC_PINTYPE_STRING,
+		"passkey" = IC_PINTYPE_STRING
+	)
+	activators = list(
+		"on read" = IC_PINTYPE_PULSE_OUT
+	)
+
+/obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
+	var/obj/item/card/id/card = I.GetID()
+	var/list/access = I.GetAccess()
+	var/passkey = strtohex(XorEncrypt(json_encode(access), SScircuit.cipherkey))
+
+	if(assembly)
+		assembly.access_card.access |= access
+
+	if(card) // An ID card.
+		set_pin_data(IC_OUTPUT, 1, card.registered_name)
+		set_pin_data(IC_OUTPUT, 2, card.assignment)
+
+	else if(length(access))	// A non-card object that has access levels.
+		set_pin_data(IC_OUTPUT, 1, null)
+		set_pin_data(IC_OUTPUT, 2, null)
+
+	else
+		return FALSE
+
+	set_pin_data(IC_OUTPUT, 3, passkey)
+
+	push_data()
+	activate_pin(1)
+	return TRUE
