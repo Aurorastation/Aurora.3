@@ -84,7 +84,7 @@
 //Proc executed before someone is spawned in
 /datum/ghostspawner/proc/pre_spawn(mob/user) 
 	count++ //Increment the spawned in mob count
-	if(count >= max_count)
+	if(max_count && count >= max_count)
 		disable()
 	return TRUE
 

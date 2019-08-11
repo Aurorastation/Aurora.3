@@ -16,7 +16,7 @@
 
 	assigned_role = "Pod Survivor"
 	special_role = "Pod Survivor"
-	respawn_flag = CREW
+	respawn_flag = null
 
 	mob_name = FALSE
 
@@ -76,6 +76,8 @@
 	H.internal = H.s_store
 	if(istype(H.internal,/obj/item/weapon/tank) && H.internals)
 		H.internals.icon_state = "internal1"
+	//Spawn a drill
+	new /obj/item/weapon/pickaxe/drill(H.loc)
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
