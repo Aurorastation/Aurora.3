@@ -3091,6 +3091,10 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "fQ" = (
@@ -7987,6 +7991,10 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "wd" = (
@@ -10824,6 +10832,14 @@
 /area/maintenance/interstitial_construction_site/zone_2)
 "OI" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "ON" = (
