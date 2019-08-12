@@ -53,3 +53,9 @@
 	desc = "A simple, cheap t-shirt."
 	icon_state = "tshirt"
 	item_state = "tshirt"
+
+/obj/item/clothing/accessory/sweater_vest
+	name = "sweater vest"
+	desc = "A sweater vest. Makes you feel like you're at school again."
+	icon_state = "swvest"
+	item_state = "swvest"

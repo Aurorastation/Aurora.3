@@ -131,6 +131,14 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
+/datum/gear/accessory/sweater_vest
+	display_name = "sweater vest"
+	path = /obj/item/clothing/accessory/sweater_vest
+
+/datum/gear/accessory/swvest/New()
+	..()
+	gear_tweaks = list(gear_tweak_free_color_choice)
+
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
 	path = /obj/item/clothing/accessory/dressshirt

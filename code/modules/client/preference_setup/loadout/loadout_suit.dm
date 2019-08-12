@@ -309,4 +309,8 @@
 
 /datum/gear/suit/cardigan/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	var/car = list()
+	car["cardigan"] = /obj/item/clothing/suit/cardigan
+	car["cardigan, alternative"] = /obj/item/clothing/suit/cardigan/alt
+	gear_tweaks += new/datum/gear_tweak/path(car)
+	gear_tweaks += list(gear_tweak_free_color_choice)

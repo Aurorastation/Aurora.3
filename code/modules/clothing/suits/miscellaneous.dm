@@ -575,3 +575,6 @@
 	icon_state = "cardigan"
 	item_state = "cardigan"
 
+/obj/item/clothing/suit/cardigan/alt
+	icon_state = "cardigan_alt"
+	item_state = "cardigan_alt"
