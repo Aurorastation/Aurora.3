@@ -4,6 +4,7 @@
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "droppod"
 	dir = SOUTH
+	layer = MOB_LAYER - 0.1
 
 	load_item_visible = 0
 	health = 500 // pretty strong because it can't move or be shot out of
@@ -19,6 +20,11 @@
 	var/mob/passenger
 
 	var/static/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
+
+/obj/vehicle/droppod/legion
+	name = "legion drop pod"
+	desc = "A big metal pod. Painted in the colors of the Tau Ceti Foreign Legion."
+	icon_state = "legion_pod"
 
 /obj/vehicle/droppod/Initialize()
 	. = ..()
@@ -62,7 +68,7 @@
 	C.set_dir(dir)
 	C.anchored = 1
 	user_buckle_mob(C, C)
-	icon_state = "droppod"
+	icon_state = initial(icon_state)
 	return 1
 
 /obj/vehicle/droppod/unload(var/mob/user, var/direction) // this also won't call the parent proc because it relies on load and doesn't expect a 2nd person
@@ -107,7 +113,7 @@
 
 	humanload = null
 	passenger = null
-	icon_state = "droppodopen"
+	icon_state = "[initial(icon_state)]_open"
 	return 1
 
 /obj/vehicle/droppod/MouseDrop_T(over_object, src_location, over_location)
