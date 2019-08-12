@@ -200,7 +200,7 @@
 /datum/outfit/admin/pod/occultist
 	name = "RescuePod - Occultist"
 	id = /obj/item/weapon/card/id
-	shoes = /obj/item/clothing/shoes/dress
+	shoes = /obj/item/clothing/shoes/laceup
 	uniform = "suit selection"
 	backpack_contents = list(
 		/obj/item/clothing/head/fake_culthood = 1,
@@ -224,6 +224,7 @@
 	suit_store = /obj/item/weapon/tank/oxygen
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/weapon/card/id/eridani
+	pda = /obj/item/device/pda/security
 	belt = /obj/item/weapon/gun/energy/gun/nuclear
 	uniform = /obj/item/clothing/under/rank/security/eridani
 
