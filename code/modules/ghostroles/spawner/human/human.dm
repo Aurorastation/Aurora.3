@@ -13,7 +13,7 @@
 	var/datum/outfit/outfit = null //Outfit to equip
 	var/possible_species = list("Human")
 	var/possible_genders = list(MALE,FEMALE)
-	var/allow_appearance_change = FALSE
+	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	var/assigned_role = null
 	var/special_role = null
@@ -29,7 +29,7 @@
 /datum/ghostspawner/human/proc/get_mob_name(mob/user)
 	var/mname = mob_name
 	if(isnull(mname))
-		var/pick_message = "Pick a name."
+		var/pick_message = mob_name_pick_message
 		if(mob_name_prefix)
 			pick_message = "[pick_message] Automatic Prefix: \"[mob_name_prefix]\" "
 		if(mob_name_suffix)
@@ -37,8 +37,10 @@
 		mname = sanitizeSafe(input(user, pick_message, "Name (without prefix/suffix"))
 	
 	if(mob_name_prefix)
-		mname = "[mob_name_prefix][mname]"
+		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
+		mname = "[mob_name_prefix]"
 	if(mob_name_suffix)
+		mname = replacetext(mname,mob_name_suffix,"") //Remove the suffix if it exists in the string
 		mname = "[mname][mob_name_suffix]"
 	return mname
 
@@ -83,7 +85,7 @@
 
 	//Setup the appearance
 	if(allow_appearance_change)
-		M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
+		M.change_appearance(allow_appearance_change, M.loc, check_species_whitelist = 1)
 	else //otherwise randomize
 		M.client.prefs.randomize_appearance_for(M, FALSE)
 	

@@ -26,6 +26,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/legion_commander
 	short_name = "legioncommander"
@@ -47,6 +48,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/cciaagent
 	short_name = "cciaagent"
@@ -68,6 +70,7 @@
 
 	mob_name = null
 	mob_name_prefix = "CCIAA "
+	mob_name_pick_message = "Pick a last-name."
 
 
 /datum/ghostspawner/human/admin/cciaescort
@@ -93,6 +96,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Ofc. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 
 /datum/ghostspawner/human/admin/checkpointsec
@@ -118,6 +122,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Spec. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 
 
