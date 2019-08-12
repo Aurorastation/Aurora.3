@@ -39,7 +39,7 @@
 		outfit = /datum/outfit/admin/pod/rep
 		possible_species = list("Human")
 	else if(t == "hunter")
-		welcome_message = "You are a stranded space fauna hunter!<br>Your ship has been attacked by a wild megacarp - a rare, almost mythical animal... with very expensive trophies. In this encounter, you lost. But the hunt lives on! You just need to find a new shuttle!"
+		welcome_message = "You are a stranded space fauna hunter!<br>Your ship has been attacked by a wild megacarp - a rare, almost mythical animal... with very expensive trophies. In this encounter, you lost. But the hunt lives on! You just need to find a new spacefaring vessel!"
 		outfit = /datum/outfit/admin/pod/hunter
 		possible_species = list("Human") // no ayyliums because the frontier rig only fits humans. i wish i could put unathi in here tho
 	else if(t == "occultist")
