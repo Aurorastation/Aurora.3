@@ -578,3 +578,12 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/fake_culthood
+	name = "occultist hood"
+	icon_state = "culthood"
+	desc = "A torn, dust-caked hood. Very authentic!"
+	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
+	body_parts_covered = HEAD|EYES
+	cold_protection = HEAD
+	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
