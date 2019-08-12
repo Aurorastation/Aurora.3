@@ -211,10 +211,10 @@
 	)
 
 /datum/outfit/admin/pod/occultist/get_id_assignment()
-	return "Shaman"
+	return "Visitor"
 
 /datum/outfit/admin/pod/occultist/get_id_rank()
-	return "Shaman"
+	return "Visitor"
 
 
 /datum/outfit/admin/pod/pmc
