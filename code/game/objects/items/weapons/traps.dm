@@ -268,7 +268,7 @@
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
 	
-	var/datum/M = captured.resolve()
+	var/datum/M = captured ? captured.resolve() : null
 
 	if(deployed)
 		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
