@@ -37,7 +37,7 @@
 		if (religion.name == H.religion)
 			var/datum/religion/C = religion
 
-			if(C.name == "None" || "Other")
+			if(C.name == "None" || C.name == "Other")
 				B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
 				return 1
 
