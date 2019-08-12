@@ -47,10 +47,11 @@
 			max_x = max(T.x, max_x)
 			max_y = max(T.y, max_y)
 			ship_size += 1
-			if(istype(A, /turf/simulated/shuttle) && exterior_wall(A))
+			if(istype(T, /turf/simulated/shuttle) && exterior_wall(T))
 				exterior_walls_and_engines += list(list(T.x, T.y, T.z))
-			if(integrity_check(A))
+			if(integrity_check(T))
 				walls_count += 1
+				T.add_overlay("engine_mount")
 		else if(istype(A, /obj/structure/shuttle/engine/propulsion))
 			engines_count += 1
 			var/obj/structure/shuttle/engine/propulsion/P = A
@@ -199,7 +200,7 @@
 		var/mob/living/bug = v
 		bug.gib()
 
-	move_contents_to(origin, destination)
+	move_shuttle_contents_to(origin, destination)
 
 	var/range = rand(1, 4)
 	var/speed = rand(1, 4)
@@ -220,7 +221,7 @@
 				M.throw_at(get_step(get_turf(locate(M.loc.x + rand(-3, 3), M.loc.y + rand(-3, 3), M.loc.z)), get_turf(M)), range, speed, M)
 	area_current = destination
 
-/datum/shuttle/proc/move_contents_to(area/A, area/B)
+/datum/shuttle/proc/move_shuttle_contents_to(area/A, area/B)
 	var/list/source_turfs = A.build_ordered_turf_list()
 	var/list/target_turfs = B.build_ordered_turf_list()
 
