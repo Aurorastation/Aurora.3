@@ -315,7 +315,7 @@
 			if(findtext(addtext(thing.name," ",thing.desc), DT, 1, 0) )
 				valid_things.Add(thing)
 	if(valid_things.len)
-		O.data = WEAKREFpick(valid_things))
+		O.data = WEAKREF(pick(valid_things))
 		O.push_data()
 		activate_pin(2)
 	else
@@ -557,7 +557,7 @@
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
 	set_pin_data(IC_OUTPUT, 3, null)
-	set_pin_data(IC_OUTPUT, 4, WEAKREFassembly))
+	set_pin_data(IC_OUTPUT, 4, WEAKREF(assembly))
 	if(assembly)
 		if(assembly.battery)
 
@@ -781,7 +781,7 @@
 		activate_pin(3)
 		return
 	else
-		set_pin_data(IC_OUTPUT, 1, WEAKREFA))
+		set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
 	push_data()
 	activate_pin(2)
 
@@ -818,9 +818,9 @@
 	if(scanned_turf in view(circuit_turf)) // This is a camera. It can't examine things that it can't see.
 		var/list/turf_contents = new()
 		for(var/obj/U in scanned_turf)
-			turf_contents += WEAKREFU)
+			turf_contents += WEAKREF(U)
 		for(var/mob/U in scanned_turf)
-			turf_contents += WEAKREFU)
+			turf_contents += WEAKREF(U)
 		set_pin_data(IC_OUTPUT, 1, turf_contents)
 		set_pin_data(IC_OUTPUT, 3, area_name)
 		var/list/St = new()
