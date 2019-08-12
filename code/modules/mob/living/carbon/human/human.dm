@@ -846,6 +846,13 @@
 			xylophone=0
 	return
 
+/mob/living/carbon/human/proc/check_has_mouth()
+	// Todo, check stomach organ when implemented.
+	var/obj/item/organ/external/head/H = get_organ("head")
+	if(!H || !H.can_intake_reagents)
+		return 0
+	return 1
+
 
 
 /mob/living/carbon/human/proc/morph()

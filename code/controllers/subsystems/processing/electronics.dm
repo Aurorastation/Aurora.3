@@ -13,11 +13,14 @@
 	var/list/all_integrated_circuits = list()
 	var/list/printer_recipe_list = list()
 
+	var/cipherkey
+
 /datum/controller/subsystem/processing/electronics/New()
 	NEW_SS_GLOBAL(SSelectronics)
 
 /datum/controller/subsystem/processing/electronics/Initialize(timeofday)
 	init_subtypes(/obj/item/integrated_circuit, all_integrated_circuits)
+	cipherkey = random_string(2000+rand(0,10), alphabet_uppercase)
 
 	// First loop is to seperate the actual circuits from base circuits.
 	var/list/circuits_to_use = list()

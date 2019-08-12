@@ -60,7 +60,7 @@
 			to_chat(user, "<span class='notice'>You prepare to detach a data wire from \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
 			mode = UNWIRING
 			update_icon()
-	
+
 		if (UNWIRING)
 			if(io == selected_io)
 				to_chat(user, "<span class='warning'>You can't wire a pin into each other, so unwiring \the [selected_io.holder] from \
@@ -234,20 +234,16 @@
 		io1.holder.interact(user) // This is to update the UI.
 		update_icon()
 
-/obj/item/integrated_electronics/detailer
+/obj/item/device/integrated_electronics/detailer
 	name = "assembly detailer"
 	desc = "A combination autopainter and flash anodizer designed to give electronic assemblies a colorful, wear-resistant finish."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "detailer"
-	flags_1 = CONDUCT_1
 	item_flags = NOBLUDGEON
-	w_class = WEIGHT_CLASS_SMALL
-	var/data_to_write = null
-	var/accepting_refs = FALSE
+	w_class = ITEMSIZE_SMALL
 	var/detail_color = COLOR_ASSEMBLY_WHITE
 	var/list/color_list = list(
 		"black" = COLOR_ASSEMBLY_BLACK,
-		"gray" = COLOR_FLOORTILE_GRAY,
 		"machine gray" = COLOR_ASSEMBLY_BGRAY,
 		"white" = COLOR_ASSEMBLY_WHITE,
 		"red" = COLOR_ASSEMBLY_RED,
@@ -261,21 +257,22 @@
 		"green" = COLOR_ASSEMBLY_GREEN,
 		"light blue" = COLOR_ASSEMBLY_LBLUE,
 		"blue" = COLOR_ASSEMBLY_BLUE,
-		"purple" = COLOR_ASSEMBLY_PURPLE
+		"purple" = COLOR_ASSEMBLY_PURPLE,
+		"hot pink" = COLOR_ASSEMBLY_HOT_PINK
 		)
 
-/obj/item/integrated_electronics/detailer/Initialize()
-	.=..()
+/obj/item/device/integrated_electronics/detailer/Initialize()
 	update_icon()
+	return ..()
 
-/obj/item/integrated_electronics/detailer/update_icon()
+/obj/item/device/integrated_electronics/detailer/update_icon()
 	cut_overlays()
-	var/mutable_appearance/detail_overlay = mutable_appearance('icons/obj/assemblies/electronic_tools.dmi', "detailer-color")
+	var/image/detail_overlay = image('icons/obj/assemblies/electronic_tools.dmi', "detailer-color")
 	detail_overlay.color = detail_color
 	add_overlay(detail_overlay)
 
-/obj/item/integrated_electronics/detailer/attack_self(mob/user)
-	var/color_choice = input(user, "Select color.", "Assembly Detailer") as null|anything in color_list
+/obj/item/device/integrated_electronics/detailer/attack_self(mob/user)
+	var/color_choice = input(user, "Select color.", "Assembly Detailer", detail_color) as null|anything in color_list
 	if(!color_list[color_choice])
 		return
 	if(!in_range(src, user))

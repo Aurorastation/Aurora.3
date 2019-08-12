@@ -137,7 +137,7 @@
 	create_reagents(volume)
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, weakref(src))
+	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
 
@@ -145,9 +145,84 @@
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
 	push_data()
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/handle_passive_energy()
+/obj/item/integrated_circuit/passive/power/chemical_cell/make_energy()
 	if(assembly)
 		for(var/I in fuel)
-			if((assembly.battery.maxcharge-assembly.battery.charge) / CELLRATE > fuel[I])
+			if((assembly.battery.maxcharge - assembly.battery.charge) / CELLRATE > fuel[I])
 				if(reagents.remove_reagent(I, 1))
 					assembly.give_power(fuel[I])
+
+// Interacts with the powernet.
+// Now you can make your own power generation (or poor man's powersink).
+
+/obj/item/integrated_circuit/passive/power/powernet
+	name = "power network interface"
+	desc = "Gives or takes power from a wire underneath the machine."
+	icon_state = "powernet"
+	extended_desc = "The assembly must be anchored, with a wrench, and a wire node must be avaiable directly underneath.<br>\
+	The first pin determines if power is moved at all. The second pin, if true, will draw from the powernet to charge the assembly's \
+	cell, otherwise it will give power from the cell to the powernet."
+	complexity = 20
+	inputs = list(
+		"active" = IC_PINTYPE_BOOLEAN,
+		"draw power" = IC_PINTYPE_BOOLEAN
+		)
+	outputs = list(
+		"power in grid" = IC_PINTYPE_NUMBER,
+		"surplus power" = IC_PINTYPE_NUMBER,
+		"load" = IC_PINTYPE_NUMBER
+		)
+	activators = list()
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 2)
+	var/obj/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
+	var/throughput = 10000 // Give/take up to 10kW.
+
+/obj/item/integrated_circuit/passive/power/powernet/Initialize()
+	IO = new(src)
+	return ..()
+
+/obj/item/integrated_circuit/passive/power/powernet/Destroy()
+	qdel(IO)
+	return ..()
+
+/obj/item/integrated_circuit/passive/power/powernet/on_anchored()
+	IO.connect_to_network()
+
+/obj/item/integrated_circuit/passive/power/powernet/on_unanchored()
+	IO.disconnect_from_network()
+
+/obj/item/integrated_circuit/passive/power/powernet/make_energy()
+	if(assembly && assembly.anchored && assembly.battery)
+		var/should_act = get_pin_data(IC_INPUT, 1) // Even if this is false, we still need to update the output pins with powernet information.
+		var/drawing = get_pin_data(IC_INPUT, 2)
+
+		if(should_act) // We're gonna give or take from the net.
+			if(drawing)
+				var/to_transfer = min(throughput, (assembly.battery.maxcharge - assembly.battery.charge) / CELLRATE) // So we don't need to draw 10kW if the cell needs much less.
+				var/amount = IO.draw_power(to_transfer)
+				assembly.give_power(amount)
+			else
+				var/amount = assembly.draw_power(throughput)
+				IO.add_avail(amount)
+
+		set_pin_data(IC_OUTPUT, 1, IO.avail())
+		set_pin_data(IC_OUTPUT, 2, IO.surplus())
+		set_pin_data(IC_OUTPUT, 3, -IO.surplus()-IO.avail()) // we don't have a viewload() proc on machines and i'm lazy
+
+// Internal power machine for interacting with the powernet.
+// It needs a bit of special code since base /machinery/power assumes loc will be a tile.
+/obj/machinery/power/circuit_io
+	name = "embedded electrical I/O"
+
+/obj/machinery/power/circuit_io/connect_to_network()
+	var/turf/T = get_turf(src)
+	if(!T || !istype(T))
+		return FALSE
+
+	var/obj/structure/cable/C = T.get_cable_node()
+	if(!C || !C.powernet)
+		return FALSE
+
+	C.powernet.add_machine(src)
+	return TRUE

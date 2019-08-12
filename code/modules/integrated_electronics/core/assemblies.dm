@@ -10,50 +10,10 @@
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
 	var/opened = 0
+	var/can_anchor = FALSE // If true, wrenching it will anchor it.
 	var/obj/item/weapon/cell/device/battery // Internal cell which most circuits need to work.
 	var/detail_color = COLOR_ASSEMBLY_BLACK
-	var/list/color_whitelist = list( //This is just for checking that hacked colors aren't in the save data.
-		COLOR_ASSEMBLY_BLACK,
-		COLOR_FLOORTILE_GRAY,
-		COLOR_ASSEMBLY_BGRAY,
-		COLOR_ASSEMBLY_WHITE,
-		COLOR_ASSEMBLY_RED,
-		COLOR_ASSEMBLY_ORANGE,
-		COLOR_ASSEMBLY_BEIGE,
-		COLOR_ASSEMBLY_BROWN,
-		COLOR_ASSEMBLY_GOLD,
-		COLOR_ASSEMBLY_YELLOW,
-		COLOR_ASSEMBLY_GURKHA,
-		COLOR_ASSEMBLY_LGREEN,
-		COLOR_ASSEMBLY_GREEN,
-		COLOR_ASSEMBLY_LBLUE,
-		COLOR_ASSEMBLY_BLUE,
-		COLOR_ASSEMBLY_PURPLE
-		)
-
-/obj/item/device/electronic_assembly/medium
-	name = "electronic mechanism"
-	icon_state = "setup_medium"
-	desc = "It's a case, for building medium-sized electronics with."
-	w_class = ITEMSIZE_NORMAL
-	max_components = IC_COMPONENTS_BASE * 2
-	max_complexity = IC_COMPLEXITY_BASE * 2
-
-/obj/item/device/electronic_assembly/large
-	name = "electronic machine"
-	icon_state = "setup_large"
-	desc = "It's a case, for building large electronics with."
-	w_class = ITEMSIZE_LARGE
-	max_components = IC_COMPONENTS_BASE * 4
-	max_complexity = IC_COMPLEXITY_BASE * 4
-
-/obj/item/device/electronic_assembly/drone
-	name = "electronic drone"
-	icon_state = "setup_drone"
-	desc = "It's a case, for building mobile electronics with."
-	w_class = ITEMSIZE_NORMAL
-	max_components = IC_COMPONENTS_BASE * 1.5
-	max_complexity = IC_COMPLEXITY_BASE * 1.5
+	var/obj/item/weapon/card/id/access_card
 
 /obj/item/device/electronic_assembly/implant
 	name = "electronic implant"
@@ -69,11 +29,21 @@
 	if (!printed)
 		battery = new(src)
 	START_PROCESSING(SSelectronics, src)
+	access_card = new /obj/item/weapon/card/id(src)
 
 /obj/item/device/electronic_assembly/Destroy()
 	QDEL_NULL(battery)
 	STOP_PROCESSING(SSelectronics, src)
+	QDEL_NULL(access_card)
 	return ..()
+
+/obj/item/device/electronic_assembly/Collide(atom/AM)
+	var/collw = AM
+	.=..()
+	if((istype(collw, /obj/machinery/door/airlock) ||  istype(collw, /obj/machinery/door/window)) && (!isnull(access_card)))
+		var/obj/machinery/door/D = collw
+		if(D.check_access(access_card))
+			D.open()
 
 /obj/item/device/electronic_assembly/process()
 	handle_idle_power()
@@ -197,7 +167,7 @@
 /obj/item/device/electronic_assembly/drone/can_move()
 	return TRUE
 
-/obj/item/electronic_assembly/update_icon()
+/obj/item/device/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = "[initial(icon_state)]-open"
 	else
@@ -205,7 +175,7 @@
 	cut_overlays()
 	if(detail_color == COLOR_ASSEMBLY_BLACK) //Black colored overlay looks almost but not exactly like the base sprite, so just cut the overlay and avoid it looking kinda off.
 		return
-	var/mutable_appearance/detail_overlay = mutable_appearance('icons/obj/assemblies/electronic_setups.dmi', "[icon_state]-color")
+	var/image/detail_overlay = image('icons/obj/assemblies/electronic_setups.dmi', "[icon_state]-color")
 	detail_overlay.color = detail_color
 	add_overlay(detail_overlay)
 
@@ -263,7 +233,7 @@
 	if(proximity)
 		var/scanned = FALSE
 		for(var/obj/item/integrated_circuit/input/sensor/S in contents)
-			if(S.scan(target))
+			if(S.sense(target))
 				scanned = TRUE
 		if(scanned)
 			visible_message("<span class='notice'>\The [user] waves \the [src] around [target].</span>")
@@ -279,7 +249,12 @@
 			interact(user)
 			return TRUE
 
-	else if(istype(I, /obj/item/weapon/crowbar))
+	else if(I.iswrench() && can_anchor)
+		anchored = !anchored
+		to_chat(user, "<span class='notice'>You wrench [src] [anchored ? "into" : "out of"]  place.</span>")
+		return TRUE
+
+	else if(I.iscrowbar())
 		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
@@ -296,10 +271,14 @@
 	else if(istype(I, /obj/item/weapon/cell/device))
 		if(!opened)
 			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't put anything inside.  Try using a crowbar.</span>")
+			for(var/obj/item/integrated_circuit/input/S in contents)
+				S.attackby_react(I,user,user.a_intent)
 			return FALSE
 
 		if(battery)
 			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] inside.  Remove it first if you want to replace it.</span>")
+			for(var/obj/item/integrated_circuit/input/S in contents)
+				S.attackby_react(I,user,user.a_intent)
 			return FALSE
 
 		var/obj/item/weapon/cell/device/cell = I
@@ -309,16 +288,18 @@
 		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
 		interact(user)
 		return TRUE
-	else if(istype(I, /obj/item/integrated_electronics/detailer))
-		var/obj/item/integrated_electronics/detailer/D = I
+	else if(istype(I, /obj/item/device/integrated_electronics/detailer))
+		var/obj/item/device/integrated_electronics/detailer/D = I
 		detail_color = D.detail_color
 		update_icon()
 
-	else //Attempt to insert the item into any contained insert_slots
-		for(var/obj/item/integrated_circuit/insert_slot/S in contents)
+	else
+		for(var/obj/item/integrated_circuit/insert_slot/S in contents)  //Attempt to insert the item into any contained insert_slots
 			if(S.insert(I, user))
 				return TRUE
-
+		for(var/obj/item/integrated_circuit/input/S in contents) // Attempt to swipe on scanners
+			if(S.attackby_react(I,user,user.a_intent))
+				return TRUE
 		return ..()
 
 /obj/item/device/electronic_assembly/attack_self(mob/user)
@@ -367,3 +348,11 @@
 	if(battery && battery.give(amount * CELLRATE))
 		return TRUE
 	return FALSE
+
+/obj/item/device/electronic_assembly/proc/on_anchored()
+	for(var/obj/item/integrated_circuit/IC in contents)
+		IC.on_anchored()
+
+/obj/item/device/electronic_assembly/proc/on_unanchored()
+	for(var/obj/item/integrated_circuit/IC in contents)
+		IC.on_unanchored()

@@ -30,7 +30,7 @@
 	push_data()
 
 /obj/item/integrated_circuit/reagent/smoke/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, WEAKREF(src))
+	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
 
@@ -63,7 +63,7 @@
 	var/transfer_amount = 10
 
 /obj/item/integrated_circuit/reagent/injector/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, WEAKREF(src))
+	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
 
@@ -90,7 +90,7 @@
 	if(!istype(AM)) //Invalid input
 		activate_pin(3)
 		return
-	
+
 	if(direc == 1)
 
 		if(!istype(AM)) //Invalid input
@@ -149,7 +149,7 @@
 				var/datum/reagent/B
 				if(istype(T, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = T
-					if(H.species && !H.should_have_organ(O_HEART))
+					if(H.species && !H.has_organ("heart"))
 						H.reagents.trans_to_obj(src, tramount)
 					else
 						B = T.take_blood(src, tramount)
@@ -259,7 +259,7 @@
 	push_data()
 
 /obj/item/integrated_circuit/reagent/storage/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, WEAKREF(src))
+	set_pin_data(IC_OUTPUT, 2, src)
 	push_data()
 	..()
 

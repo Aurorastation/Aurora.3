@@ -276,14 +276,10 @@
 /obj/item/integrated_circuit/input/advanced_locator
 	complexity = 6
 	name = "advanced locator"
-	desc = "This is needed for certain devices that demand a reference for a target to act upon. This type locates something \
-	that is standing in given radius of up to 7 meters"
-	extended_desc = "The first pin requires a ref to a kind of object that you want the locator to acquire. This means that it will \
-	give refs to nearby objects that are similar to given sample. If this pin is a string, the locator will search for\
-	 item by matching desired text in name + description. If more than one valid object is found nearby, it will choose one of them at \
-	random. The second pin is a radius."
+	desc = "This is needed for certain devices that demand a reference for a target to act upon. This type locates something that is standing in given radius of up to 7 meters."
+	extended_desc = "The first pin requires a ref to a kind of object that you want the locator to acquire. This means that it will give refs to nearby objects that are similar to given sample. If this pin is a string, the locator will search for item by matching desired text in name + description. If more than one valid object is found nearby, it will choose one of them at random. The second pin is a radius."
 	inputs = list("desired type" = IC_PINTYPE_ANY, "radius" = IC_PINTYPE_NUMBER)
-	outputs = list("located ref")
+	outputs = list("located ref" = IC_PINTYPE_REF )
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 30
@@ -296,31 +292,30 @@
 		radius = rad
 
 /obj/item/integrated_circuit/input/advanced_locator/do_work()
-	var/datum/integrated_io/I = inputs[1]
-	var/datum/integrated_io/O = outputs[1]
-	O.data = null
+	set_pin_data(IC_OUTPUT, 1, null)
 	var/turf/T = get_turf(src)
-	var/list/nearby_things = range(radius, T) & view(T)
+	var/list/nearby_things = view(radius, T)
 	var/list/valid_things = list()
-	if(isweakref(I.data))
-		var/atom/A = I.data.resolve()
+	var/I = get_pin_data(IC_INPUT, 1)
+	if(isweakref(I))
+		var/datum/weakref/WR = I
+		var/atom/A = WR.resolve()
 		var/desired_type = A.type
 		if(desired_type)
 			for(var/atom/thing in nearby_things)
 				if(thing.type == desired_type)
 					valid_things.Add(thing)
-	else if(istext(I.data))
-		var/DT = I.data
+	else if(istext(I))
+		var/DT = I
 		for(var/atom/thing in nearby_things)
-			if(findtext(addtext(thing.name," ",thing.desc), DT, 1, 0) )
+			if(findtext(addtext(thing.name, " ", thing.desc), DT, 1, 0))
 				valid_things.Add(thing)
 	if(valid_things.len)
-		O.data = WEAKREF(pick(valid_things))
-		O.push_data()
+		set_pin_data(IC_OUTPUT, 1, pick(valid_things))
 		activate_pin(2)
 	else
-		O.push_data()
 		activate_pin(3)
+	push_data()
 
 /obj/item/integrated_circuit/input/signaler
 	name = "integrated signaler"
@@ -502,7 +497,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 120
 
-/obj/item/integrated_circuit/input/sensor/proc/scan(var/atom/A)
+/obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A)
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
 		if(istype(A, /obj/item/weapon/storage))
@@ -557,7 +552,7 @@
 	set_pin_data(IC_OUTPUT, 1, null)
 	set_pin_data(IC_OUTPUT, 2, null)
 	set_pin_data(IC_OUTPUT, 3, null)
-	set_pin_data(IC_OUTPUT, 4, WEAKREF(assembly))
+	set_pin_data(IC_OUTPUT, 4, assembly)
 	if(assembly)
 		if(assembly.battery)
 
@@ -773,15 +768,15 @@
 		activate_pin(3)
 		return
 	var/turf/T = get_turf(assembly)
-	var/target_x = CLAMP(get_pin_data(IC_INPUT, 1), 0, world.maxx)
-	var/target_y = CLAMP(get_pin_data(IC_INPUT, 2), 0, world.maxy)
+	var/target_x = Clamp(get_pin_data(IC_INPUT, 1), 0, world.maxx)
+	var/target_y = Clamp(get_pin_data(IC_INPUT, 2), 0, world.maxy)
 	var/turf/A = locate(target_x, target_y, T.z)
 	set_pin_data(IC_OUTPUT, 1, null)
 	if(!A || !(A in view(T)))
 		activate_pin(3)
 		return
 	else
-		set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
+		set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	activate_pin(2)
 
@@ -841,7 +836,7 @@
 	extended_desc = "The first pin requires a list of the kinds of objects that you want the locator to acquire. It will locate nearby objects by name and description, \
 	and will then provide a list of all found objects which are similar. \
 	The second pin is a radius."
-	inputs = list("desired type ref" = IC_PINTYPE_LIST, "radius" = IC_PINTYPE_NUMBER)
+	inputs = list("desired type ref list" = IC_PINTYPE_LIST, "radius" = IC_PINTYPE_NUMBER)
 	outputs = list("located ref" = IC_PINTYPE_LIST)
 	activators = list("locate" = IC_PINTYPE_PULSE_IN,"found" = IC_PINTYPE_PULSE_OUT,"not found" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -853,15 +848,13 @@
 	var/rad = get_pin_data(IC_INPUT, 2)
 
 	if(isnum(rad))
-		rad = CLAMP(rad, 0, 8)
+		rad = Clamp(rad, 0, 8)
 		radius = rad
 
 /obj/item/integrated_circuit/input/advanced_locator_list/do_work()
-	var/datum/integrated_io/I = inputs[1]
-	var/datum/integrated_io/O = outputs[1]
-	O.data = null
+	set_pin_data(IC_OUTPUT, 1, null)
 	var/list/input_list = list()
-	input_list = I.data
+	input_list = get_pin_data(IC_INPUT, 1)
 	if(length(input_list))	//if there is no input don't do anything.
 		var/turf/T = get_turf(src)
 		var/list/nearby_things = view(radius,T)
@@ -886,15 +879,13 @@
 							continue
 						valid_things.Add(WEAKREF(thing))
 		if(valid_things.len)
-			O.data = valid_things
-			O.push_data()
+			set_pin_data(IC_OUTPUT, 1, valid_things)
 			activate_pin(2)
 		else
-			O.push_data()
 			activate_pin(3)
 	else
-		O.push_data()
 		activate_pin(3)
+	push_data()
 
 /obj/item/integrated_circuit/input/sensor/ranged
 	name = "ranged sensor"
@@ -921,9 +912,9 @@
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
-		if(istype(A, /obj/item/storage))
+		if(istype(A, /obj/item/weapon/storage))
 			return FALSE
-	set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
+	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	to_chat(user, "<span class='notice'>You scan [A] with [assembly].</span>")
 	activate_pin(1)
@@ -943,14 +934,14 @@
 	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/input/obj_scanner/attackby_react(var/atom/A,var/mob/user,intent)
-	if(intent!=INTENT_HELP)
+	if(intent!=I_HELP)
 		return FALSE
 	if(!check_then_do_work())
 		return FALSE
 	var/pu = get_pin_data(IC_INPUT, 1)
 	if(pu)
-		user.transferItemToLoc(A,drop_location())
-	set_pin_data(IC_OUTPUT, 1, WEAKREF(A))
+		user.drop_from_inventory(A)
+	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	to_chat(user, "<span class='notice'>You let [assembly] scan [A].</span>")
 	activate_pin(1)
@@ -973,9 +964,9 @@
 	)
 
 /obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
-	var/obj/item/card/id/card = I.GetID()
+	var/obj/item/weapon/card/id/card = I.GetID()
 	var/list/access = I.GetAccess()
-	var/passkey = strtohex(XorEncrypt(json_encode(access), SScircuit.cipherkey))
+	var/passkey = strtohex(XorEncrypt(json_encode(access), SSelectronics.cipherkey))
 
 	if(assembly)
 		assembly.access_card.access |= access
