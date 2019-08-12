@@ -164,7 +164,7 @@
 		var/datum/L = captured.resolve()
 		if (!L)
 			return
-		to_chat(user, "<span class='notice'>\The [src] has [L].")
+		to_chat(user, "<span class='notice'>\The [src] has [L].</span>")
 
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
