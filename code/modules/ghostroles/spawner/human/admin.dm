@@ -18,7 +18,7 @@
 	outfit = /datum/outfit/admin/nt/ert_commander
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
@@ -40,7 +40,7 @@
 	outfit = /datum/outfit/admin/nt/tcfl_commander
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tau Ceti Foreign Legion Commander"
 	special_role = "TCFL Commander"
@@ -62,7 +62,7 @@
 	outfit = /datum/outfit/admin/nt/cciaa
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
@@ -88,7 +88,7 @@
 	outfit = /datum/outfit/admin/nt/protection_detail
 	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Civil Protection Officer"
 	special_role = "Civil Protection Officer"
@@ -114,7 +114,7 @@
 	outfit = /datum/outfit/admin/nt/odinsec
 	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Security Officer"
 	special_role = "Odin Security Officer"
