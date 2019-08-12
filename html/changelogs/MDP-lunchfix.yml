@@ -1,0 +1,5 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Attempts a fix for lunchboxes randomly losing their drinks."
+  - bugfix: "Attempts a fix for not being able to spawn with diona nymph lunchboxes."

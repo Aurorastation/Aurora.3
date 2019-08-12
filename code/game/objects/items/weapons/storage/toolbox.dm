@@ -107,7 +107,7 @@
 			spill(3, get_turf(M))
 			playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
 			update_force()
-			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+			user.visible_message(span("danger", "\The [user] smashes \the [src] into \the [M], causing it to break open and strew its contents across the area!"))
 
 
 /obj/item/weapon/storage/toolbox/lunchbox
@@ -170,7 +170,7 @@
 	filled = TRUE
 
 /obj/item/weapon/storage/toolbox/lunchbox/nymph
-	name = "\improper diona nymph lunchbox"
+	name = "diona nymph lunchbox"
 	icon_state = "lunchbox_dionanymph"
 	item_state = "lunchbox_dionanymph"
 	desc = "A little lunchbox. This one has a diona nymph on the side."
