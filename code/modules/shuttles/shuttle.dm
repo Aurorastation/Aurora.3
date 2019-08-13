@@ -109,7 +109,7 @@
 
 	moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 	play_sound_shuttle(sound_landing, origin, 25)
-	play_sound_shuttle(sound_landing, destination, 25)
+	play_sound_shuttle(sound_landing, destination, 20)
 	sleep(10)
 	move(origin, destination)
 	launching(50)
@@ -368,7 +368,7 @@
 			crash.contents += T_n
 		CHECK_TICK
 
-	play_sound_shuttle(sound_crash, crash, 35)
+	play_sound_shuttle(sound_crash, crash, 45)
 	sleep(70) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
 	for(var/mob/living/L in A.contents)
 		shake_camera(L, 10, 1)
