@@ -217,11 +217,11 @@
 
 /obj/machinery/power/circuit_io/connect_to_network()
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T))
+	if(!istype(T))
 		return FALSE
 
 	var/obj/structure/cable/C = T.get_cable_node()
-	if(!C || !C.powernet)
+	if(!C?.powernet)
 		return FALSE
 
 	C.powernet.add_machine(src)

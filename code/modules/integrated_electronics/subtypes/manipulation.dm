@@ -208,7 +208,7 @@
 	..()
 	var/turf/T = get_turf(src)
 	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
-	if(!istype(AM,/mob/living)) //Invalid input
+	if(!isliving(AM)) //Invalid input
 		return
 	var/mob/living/M = AM
 	if(!M.Adjacent(T))
