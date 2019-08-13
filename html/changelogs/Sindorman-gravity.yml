@@ -41,3 +41,4 @@ changes:
   - tweak: "Changes malf gravity malfunction ability to only work for a specific area in which AI eye is looking at."
   - bugfix: "The gravity malfunction malf ability now counts for people who have magboots on and will not affect them."
   - bugfix: "AI core no longer falls if it is anchored. Meaning it won't get damage from its own malf gravity ability."
+  - tweak: "Updated Malf manual to include new abilities and some old one too."
