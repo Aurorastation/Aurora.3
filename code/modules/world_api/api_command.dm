@@ -66,7 +66,7 @@
 		log_debug("API: Throttling bypassed - Command [name] set to no_throttle")
 		return FALSE
 
-	if (addr in config.api_rate_limit_whitelist)
+	if (config.api_rate_limit_whitelist[addr])
 		log_debug("API: Throttling bypassed - IP [addr] is whitelisted.")
 		return FALSE
 
