@@ -212,6 +212,11 @@
 /area/maintenance/interstitial_construction_site/office
 	name = "\improper Construction Office"
 
+/area/maintenance/elevator
+	name = "\improper Primary Elevator Shaft Maintenance"
+	sound_env = SMALL_ENCLOSED
+	icon_state = "maintcentral"
+
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 
 /area/maintenance/substation
