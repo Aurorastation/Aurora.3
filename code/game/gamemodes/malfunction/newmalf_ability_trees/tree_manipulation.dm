@@ -223,7 +223,7 @@
 	set category = "Software"
 	var/price = 300
 	var/mob/living/silicon/ai/user = usr
-	var/area/Area = get_area(user.eyeobj.loc)
+	var/area/Area = get_area(user?.eyeobj.loc)
 	if(!Area)
 		return
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
