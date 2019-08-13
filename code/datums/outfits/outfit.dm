@@ -57,17 +57,6 @@
 	else
 		H.equip_to_slot_or_del(I, slot)
 
-/datum/outfit/proc/equip_belt(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!H)
-		return
-
-	var/obj/item/weapon/storage/belt/B = H.get_equipped_item(slot_belt)
-	if(B)
-		for(var/v in belt_contents)
-			var/number = belt_contents[v]
-			for(var/i in 1 to number)
-				new v(B)
-
 /datum/outfit/proc/equip_accessory(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
@@ -108,7 +97,6 @@
 		equip_item(H, suit, slot_wear_suit)
 	if(belt)
 		equip_item(H, belt, slot_belt)
-		equip_belt(H)
 	if(gloves)
 		equip_item(H, gloves, slot_gloves)
 	if(shoes)
