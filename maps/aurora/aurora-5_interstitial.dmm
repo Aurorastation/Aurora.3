@@ -205,6 +205,14 @@
 "ar" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/interstitial_main)
+"as" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/computer/records/security,
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
 "at" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -231,6 +239,17 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
+"av" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/forensics_office)
 "aw" = (
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -266,6 +285,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
+"aA" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/table/glass,
+/obj/machinery/reagentgrinder{
+	pixel_y = 7
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/security/forensics_office)
 "aB" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -49011,8 +49041,8 @@ id
 ab
 ab
 ab
-ab
-ab
+aa
+aa
 aa
 aa
 aa
@@ -49508,12 +49538,12 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 fx
 pe
 Wn
-av
+as
 fO
 vV
 gy
@@ -49765,8 +49795,8 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 in
 wO
 HA
@@ -50022,14 +50052,14 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 in
 PC
 Oa
 OY
 fQ
-TL
+av
 gA
 gT
 ho
@@ -50279,8 +50309,8 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 fy
 OI
 LF
@@ -50536,8 +50566,8 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 fw
 fN
 gj
@@ -50793,8 +50823,8 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 ab
 ab
 ab
@@ -51050,8 +51080,8 @@ aa
 aa
 aa
 aa
-ab
-ab
+aa
+aa
 ab
 ab
 ab
@@ -51308,7 +51338,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 ab
 ab
 ab
@@ -51316,7 +51346,7 @@ in
 uw
 sk
 Qc
-TH
+aA
 fw
 fw
 sA
@@ -51565,7 +51595,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 ab
 ab
 ab
@@ -51822,7 +51852,7 @@ aa
 aa
 aa
 aa
-ab
+aa
 ab
 ab
 ab
