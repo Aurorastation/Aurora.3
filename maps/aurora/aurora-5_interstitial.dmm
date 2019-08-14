@@ -9221,12 +9221,8 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Construction Level - Substation";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "GA" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -11542,9 +11538,16 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/medical/virology)
-"TI" = (
+"TB" = (
+/obj/machinery/floodlight{
+	name = "Construction Floodlight"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -2;
+	pixel_y = 26
+	},
 /turf/simulated/floor/tiled,
-/area/maintenance/interstitial_construction_site/office)
+/area/maintenance/interstitial_main)
 "TP" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -12048,7 +12051,33 @@
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
+"Yr" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light_switch{
+	pixel_x = 28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
+"Yw" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 8
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Construction Office";
@@ -40376,8 +40405,8 @@ pM
 Ra
 zo
 iD
-Zf
-Cw
+TB
+wL
 aw
 IJ
 iD
@@ -46756,7 +46785,7 @@ dc
 gL
 he
 hx
-ve
+Yr
 hO
 ii
 ii

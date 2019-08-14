@@ -11,9 +11,10 @@
 
 	//Vars related to human mobs
 	var/datum/outfit/outfit = null //Outfit to equip
+	var/list/species_outfits = list() //Outfit overwrite for the species
 	var/possible_species = list("Human")
 	var/possible_genders = list(MALE,FEMALE)
-	var/allow_appearance_change = FALSE
+	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	var/assigned_role = null
 	var/special_role = null
@@ -26,19 +27,21 @@
 /datum/ghostspawner/human/pre_spawn(mob/user)
 	. = ..()
 
-/datum/ghostspawner/human/proc/get_mob_name(mob/user)
+/datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species)
 	var/mname = mob_name
 	if(isnull(mname))
-		var/pick_message = "Pick a name."
+		var/pick_message = "[mob_name_pick_message] ([species])"
 		if(mob_name_prefix)
-			pick_message = "[pick_message] Automatic Prefix: \"[mob_name_prefix]\" "
+			pick_message = "[pick_message] Auto Prefix: \"[mob_name_prefix]\" "
 		if(mob_name_suffix)
-			pick_message = "[pick_message] Automatic Suffix: \"[mob_name_suffix]\" "
-		mname = sanitizeSafe(input(user, pick_message, "Name (without prefix/suffix"))
+			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
+		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
 	
 	if(mob_name_prefix)
+		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
 		mname = "[mob_name_prefix][mname]"
 	if(mob_name_suffix)
+		mname = replacetext(mname,mob_name_suffix,"") //Remove the suffix if it exists in the string
 		mname = "[mname][mob_name_suffix]"
 	return mname
 
@@ -50,15 +53,18 @@
 		log_debug("GhostSpawner: Unable to select spawnpoint for [short_name]")
 		return FALSE
 
+	//Pick a species
+	var/picked_species = pick(possible_species)
+
 	//Get the name / age from them first
-	var/mname = get_mob_name(user)
+	var/mname = get_mob_name(user, picked_species)
 	var/age = input(user, "Enter your characters age:","Num") as num
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(null)
-	
+
 	M.change_gender(pick(possible_genders))
-	M.set_species(pick(possible_species))
+	M.set_species(picked_species)
 
 	//Prepare the mob
 	M.check_dna(M)
@@ -83,7 +89,7 @@
 
 	//Setup the appearance
 	if(allow_appearance_change)
-		M.change_appearance(APPEARANCE_ALL, M.loc, check_species_whitelist = 1)
+		M.change_appearance(allow_appearance_change, M.loc, check_species_whitelist = 1)
 	else //otherwise randomize
 		M.client.prefs.randomize_appearance_for(M, FALSE)
 	
@@ -97,8 +103,12 @@
 		age = rand(35, 50)
 	M.age = Clamp(age, 21, 65) 
 
-	//Setup the outfit
-	if(outfit)
+	//Setup the Outfit
+	if(picked_species in species_outfits)
+		var/datum/outfit/species_outfit = species_outfits[picked_species]
+		M.preEquipOutfit(species_outfit, FALSE)
+		M.equipOutfit(species_outfit, FALSE)
+	else if(outfit)
 		M.preEquipOutfit(outfit, FALSE)
 		M.equipOutfit(outfit, FALSE)
 
