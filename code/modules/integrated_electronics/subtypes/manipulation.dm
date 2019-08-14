@@ -245,7 +245,7 @@
 	if(mode == 0)
 		if(contents.len)
 			var/obj/item/U = contents[1]
-			U.loc = T
+			U.forceMove(T)
 	if(mode == -1)
 		if(contents.len)
 			var/obj/item/U
