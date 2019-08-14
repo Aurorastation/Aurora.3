@@ -207,10 +207,9 @@
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
 	var/turf/T = get_turf(src)
-	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
-	if(!isliving(AM)) //Invalid input
+	var/mob/living/M = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
+	if(!istype(M)) //Invalid input
 		return
-	var/mob/living/M = AM
 	if(!M.Adjacent(T))
 		return //Can't reach
 	to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
@@ -240,9 +239,9 @@
 		if(AM.Adjacent(T))
 			if(contents.len < 10)
 				if(istype(AM,/obj/item))
-					var obj/item/A = AM
+					var/obj/item/A = AM
 					if(A.w_class < ITEMSIZE_NORMAL)
-						AM.loc = src
+						AM.forceMove(src)
 	if(mode == 0)
 		if(contents.len)
 			var/obj/item/U = contents[1]
@@ -251,7 +250,7 @@
 		if(contents.len)
 			var/obj/item/U
 			for(U in contents)
-				U.loc = T
+				U.forceMove(T)
 	set_pin_data(IC_OUTPUT, 1, contents[1])
 	set_pin_data(IC_OUTPUT, 2, contents[contents.len])
 	set_pin_data(IC_OUTPUT, 3, src.contents.len)
@@ -335,5 +334,5 @@
 		if(!T)
 			return
 
-		A.loc = get_turf(src)
+		A.forceMove(get_turf(src))
 		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
