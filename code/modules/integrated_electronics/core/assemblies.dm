@@ -230,13 +230,12 @@
 	return TRUE
 
 /obj/item/device/electronic_assembly/afterattack(atom/target, mob/user, proximity)
-	if(proximity)
-		var/scanned = FALSE
-		for(var/obj/item/integrated_circuit/input/sensor/S in contents)
-			if(S.sense(target))
-				scanned = TRUE
-		if(scanned)
-			visible_message("<span class='notice'>\The [user] waves \the [src] around [target].</span>")
+	var/scanned = FALSE
+	for(var/obj/item/integrated_circuit/input/sensor/S in contents)
+		if(S.sense(target))
+			scanned = TRUE
+	if(scanned)
+		visible_message("<span class='notice'>\The [user] waves \the [src] around [target].</span>")
 
 /obj/item/device/electronic_assembly/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/integrated_circuit))

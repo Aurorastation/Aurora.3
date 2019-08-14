@@ -498,6 +498,8 @@
 	power_draw_per_use = 120
 
 /obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A)
+	if(!Adjacent(A, src))
+		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
 		if(istype(A, /obj/item/weapon/storage))
@@ -751,7 +753,7 @@
 	gas_display_name = "phoron"
 
 /obj/item/integrated_circuit/input/turfpoint
-	name = "Tile pointer"
+	name = "tile pointer"
 	desc = "This circuit will get a tile ref with the provided absolute coordinates."
 	extended_desc = "If the machine	cannot see the target, it will not be able to calculate the correct direction.\
 	This circuit only works while inside an assembly."
@@ -900,7 +902,7 @@
 	power_draw_per_use = 120
 
 /obj/item/integrated_circuit/input/sensor/ranged/sense(atom/A, mob/user)
-	if(!user || !A || (ismob(A) && !isliving(A)))
+	if(!user || (!istype(A)  && !isliving(A)))
 		return FALSE
 	if(user.client)
 		if(!(A in view(user.client)))
