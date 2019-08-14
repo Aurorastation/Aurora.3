@@ -15253,7 +15253,7 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
-"aIF" = (
+"aIE" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
@@ -24230,6 +24230,15 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
+"bPG" = (
+/obj/structure/table/wood,
+/obj/item/weapon/material/ashtray/glass,
+/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
+/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "djI" = (
 /obj/machinery/light{
 	dir = 2;
@@ -24241,10 +24250,9 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
-"duo" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Representative Office";
-	req_access = list(38)
+"doP" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -24284,15 +24292,6 @@
 	dir = 5
 	},
 /area/centcom/living)
-"dMN" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/centcom/ferry)
 "dTq" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/energy/rifle,
@@ -24314,11 +24313,11 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
-"eaG" = (
-/obj/structure/filingcabinet/chestdrawer,
-/turf/unsimulated/floor{
-	icon_state = "floor"
+"dUW" = (
+/obj/machinery/cryopod{
+	dir = 4
 	},
+/turf/simulated/floor/tiled,
 /area/centcom/ferry)
 "eiE" = (
 /turf/simulated/floor/carpet/blue,
@@ -24336,20 +24335,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"erd" = (
-/obj/structure/table/wood,
-/obj/item/weapon/material/ashtray/glass,
-/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
-/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/ferry)
 "etF" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/evac)
+"ewG" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "eyw" = (
 /obj/machinery/telecomms/processor/preset_cent,
 /turf/unsimulated/floor{
@@ -24357,12 +24359,6 @@
 	dir = 4
 	},
 /area/centcom/living)
-"eJU" = (
-/obj/structure/bed/chair/comfy/black,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/ferry)
 "eSC" = (
 /obj/machinery/atm{
 	pixel_x = -26
@@ -24417,25 +24413,18 @@
 	dir = 8
 	},
 /area/centcom/living)
-"gYg" = (
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 4
-	},
-/obj/structure/bed/chair/comfy/black{
-	dir = 8
-	},
+"gXE" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
-"gZi" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
+"gVd" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/o2,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "haj" = (
@@ -24479,6 +24468,12 @@
 	dir = 8
 	},
 /area/centcom/living)
+"hHP" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/ferry)
 "hKG" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/northleft{
@@ -24559,30 +24554,9 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
-"iut" = (
-/obj/machinery/computer/shuttle_control{
-	req_access = list(38);
-	shuttle_tag = "Centcom"
-	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/centcom/ferry)
-"iuN" = (
-/obj/effect/landmark{
-	name = "CCIAEscort"
-	},
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/centcom/ferry)
-"iAI" = (
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 1
-	},
+"iIs" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/records/employment,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -24640,6 +24614,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"jiF" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/machinery/door/blast/odin/shuttle/ert,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/specops)
 "jon" = (
 /obj/machinery/door/airlock/centcom{
 	icon = 'icons/obj/doors/Doorcomglass.dmi';
@@ -24651,13 +24632,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/evac)
-"jza" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/door/blast/odin/shuttle/ert,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/specops)
 "jAE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin{
@@ -24724,6 +24698,15 @@
 	dir = 4
 	},
 /area/centcom/living)
+"kEn" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "kHc" = (
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -24825,26 +24808,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/evac)
-"mau" = (
+"mbM" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/template_noop,
+/area/centcom/evac)
+"mrx" = (
 /obj/effect/ghostspawpoint/cryo{
 	dir = 4;
 	identifier = "MerchantAss"
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"mbM" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/template_noop,
-/area/centcom/evac)
-"mcq" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Cryo Storage";
-	req_access = list(38)
-	},
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/ferry)
 "mQj" = (
 /turf/unsimulated/floor{
 	dir = 10;
@@ -24856,6 +24830,10 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"mVG" = (
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "nhD" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/checkpoint/fore)
@@ -24903,6 +24881,11 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"otY" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "ouU" = (
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -25022,12 +25005,6 @@
 	icon_state = "carpetside"
 	},
 /area/centcom/living)
-"pTV" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/o2,
-/turf/simulated/floor/tiled,
-/area/merchant_station)
 "qMl" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -25042,6 +25019,26 @@
 	dir = 6
 	},
 /area/space)
+"qNk" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"raM" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Corporate Liaison"
+	},
+/obj/effect/landmark{
+	name = "LateJoinCorporate Liaison"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "rlk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -25055,9 +25052,14 @@
 	name = "plating"
 	},
 /area/centcom/evac)
-"rmb" = (
+"rod" = (
+/obj/machinery/computer/shuttle_control{
+	req_access = list(38);
+	shuttle_tag = "Centcom"
+	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "vault";
+	dir = 5
 	},
 /area/centcom/ferry)
 "rwg" = (
@@ -25079,6 +25081,15 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
+"sfa" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Cryo Storage";
+	req_access = list(38)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "srl" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -25152,6 +25163,15 @@
 	dir = 4
 	},
 /area/centcom/living)
+"tou" = (
+/obj/effect/landmark{
+	name = "CCIAEscort"
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/centcom/ferry)
 "tAQ" = (
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -25182,33 +25202,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
-"uKM" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
-/turf/unsimulated/floor{
-	icon_state = "floor"
+"uQh" = (
+/obj/machinery/light{
+	dir = 1
 	},
-/area/centcom/ferry)
-"uWI" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
 	},
-/area/centcom/ferry)
-"vbS" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
-	},
-/obj/effect/landmark/start{
-	name = "Corporate Liaison"
-	},
-/obj/effect/landmark{
-	name = "LateJoinCorporate Liaison"
-	},
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/ferry)
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "vdZ" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -25230,6 +25232,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"vjK" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "vyG" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 8
@@ -25314,12 +25322,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
-"vXt" = (
-/obj/machinery/cryopod{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/centcom/ferry)
 "wne" = (
 /turf/unsimulated/floor{
 	name = "plating"
@@ -25365,6 +25367,15 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
+"xhq" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "xjq" = (
 /obj/machinery/light,
 /obj/structure/curtain,
@@ -25373,14 +25384,6 @@
 	dir = 2
 	},
 /area/centcom/spawning)
-"xwS" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/ferry)
 "xLe" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Cmdt Office";
@@ -25392,14 +25395,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"xUj" = (
-/obj/structure/cryofeed,
-/turf/simulated/floor/tiled,
-/area/centcom/ferry)
-"xWH" = (
-/obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+"yhL" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Representative Office";
+	req_access = list(38)
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -27144,10 +27144,10 @@ aEt
 ahV
 aGz
 aGz
-aIF
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
+aIE
 aKq
 aGz
 aGz
@@ -27401,11 +27401,11 @@ aaM
 ahV
 aGz
 aIh
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aJK
-aIF
+aIE
 aKq
 aGz
 aGz
@@ -27659,11 +27659,11 @@ ahV
 aGz
 aGz
 aIG
-aIF
-aIF
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
+aIE
+aIE
 aLl
 aGz
 ahV
@@ -27916,11 +27916,11 @@ aaM
 ahV
 aGz
 aIH
-aIF
+aIE
 aJk
-aIF
-aIF
-aIF
+aIE
+aIE
+aIE
 aLm
 aGz
 ahV
@@ -28173,8 +28173,8 @@ aHi
 aFT
 aFT
 aFT
-aIF
-aIF
+aIE
+aIE
 aJL
 aKr
 aKM
@@ -30408,7 +30408,7 @@ aaP
 ahV
 ahV
 aoY
-mau
+mrx
 apj
 apj
 aoY
@@ -30665,7 +30665,7 @@ aaP
 ahV
 ahV
 aoY
-gZi
+uQh
 apt
 apt
 apK
@@ -30922,7 +30922,7 @@ aaP
 ahV
 ahV
 aoY
-pTV
+gVd
 apl
 apy
 aoY
@@ -52313,7 +52313,7 @@ aaM
 aaM
 aaM
 aDM
-xUj
+mVG
 aDM
 aaM
 aaM
@@ -52570,7 +52570,7 @@ aaM
 aaM
 aaM
 aDM
-vXt
+dUW
 aDM
 aaM
 aaM
@@ -52827,7 +52827,7 @@ aaM
 aaM
 aaM
 aDM
-dMN
+xhq
 aDM
 aaM
 aaM
@@ -53084,7 +53084,7 @@ aaM
 aDM
 aDM
 aDM
-mcq
+sfa
 aDM
 aaM
 aaM
@@ -53338,11 +53338,11 @@ aaM
 aaM
 aaM
 aaM
-uWI
-eaG
-vbS
-rmb
-uWI
+hHP
+vjK
+raM
+otY
+hHP
 aaM
 aaM
 aaM
@@ -53595,11 +53595,11 @@ aaM
 aaM
 aaM
 aaM
-uWI
-uKM
-xWH
-rmb
-uWI
+hHP
+iIs
+gXE
+otY
+hHP
 aaM
 aaM
 aaM
@@ -53853,9 +53853,9 @@ aaM
 aaM
 aaM
 aDM
-iAI
-xwS
-rmb
+kEn
+doP
+otY
 aDM
 aaM
 aaM
@@ -54110,9 +54110,9 @@ aaM
 aaM
 aaM
 aDM
-rmb
-rmb
-rmb
+otY
+otY
+otY
 aDM
 aaM
 aaM
@@ -54366,11 +54366,11 @@ aaM
 aaM
 aaM
 aaM
-uWI
-eJU
-rmb
-rmb
-uWI
+hHP
+qNk
+otY
+otY
+hHP
 aaM
 aaM
 aaM
@@ -54623,11 +54623,11 @@ aaM
 aaM
 aaM
 aaM
-uWI
-erd
-gYg
-rmb
-uWI
+hHP
+bPG
+ewG
+otY
+hHP
 aaM
 aaM
 aaM
@@ -54883,7 +54883,7 @@ aCb
 ave
 ave
 ave
-rmb
+otY
 aDM
 aaM
 aaM
@@ -55127,8 +55127,8 @@ ave
 azS
 aAg
 ave
-jza
-jza
+jiF
+jiF
 ave
 ave
 ave
@@ -55140,7 +55140,7 @@ aCc
 aCc
 aCc
 ave
-rmb
+otY
 aDM
 aaM
 aaM
@@ -55397,7 +55397,7 @@ aCT
 aCc
 aDB
 aDM
-duo
+yhL
 aDM
 aEj
 aEj
@@ -56663,8 +56663,8 @@ awK
 ave
 ave
 ave
-jza
-jza
+jiF
+jiF
 ave
 azV
 aAh
@@ -60280,7 +60280,7 @@ aDm
 aDm
 aDm
 aDM
-iut
+rod
 aDY
 aDY
 aDM
@@ -60795,7 +60795,7 @@ aDm
 aDm
 aDM
 aDY
-iuN
+tou
 aDY
 aDM
 aEN
