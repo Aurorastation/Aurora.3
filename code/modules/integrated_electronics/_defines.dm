@@ -43,7 +43,7 @@
 /obj/item/integrated_circuit
 	name = "integrated circuit"
 	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_components.dmi'
 	icon_state = "template"
 	w_class = ITEMSIZE_TINY
 	var/obj/item/device/electronic_assembly/assembly // Reference to the assembly holding this circuit, if any.
@@ -56,7 +56,7 @@
 	var/next_use = 0                //Uses world.time
 	var/complexity = 1              //This acts as a limitation on building machines, more resource-intensive components cost more 'space'.
 	var/size                        //This acts as a limitation on building machines, bigger components cost more 'space'. -1 for size 0
-	var/cooldown_per_use = 1 SECOND // Circuits are limited in how many times they can be work()'d by this variable.
+	var/cooldown_per_use = 0.5 SECONDS // Circuits are limited in how many times they can be work()'d by this variable.
 	var/power_draw_per_use = 0      // How much power is drawn when work()'d.
 	var/power_draw_idle = 0         // How much power is drawn when doing nothing.
 	var/spawn_flags                 // Used for world initializing, see the #defines above.

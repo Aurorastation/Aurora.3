@@ -5,7 +5,7 @@
 	name = "electronic assembly"
 	desc = "It's a case, for building small electronics with."
 	w_class = ITEMSIZE_SMALL
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
 	var/max_components = IC_COMPONENTS_BASE
 	var/max_complexity = IC_COMPLEXITY_BASE
@@ -164,9 +164,6 @@
 /obj/item/device/electronic_assembly/proc/can_move()
 	return FALSE
 
-/obj/item/device/electronic_assembly/drone/can_move()
-	return TRUE
-
 /obj/item/device/electronic_assembly/update_icon()
 	if(opened)
 		icon_state = "[initial(icon_state)]-open"
@@ -228,6 +225,11 @@
 	IC.assembly = src
 
 	return TRUE
+
+// Non-interactive version of above that always succeeds, intended for build-in circuits that get added on assembly initialization.
+/obj/item/device/electronic_assembly/proc/force_add_circuit(var/obj/item/integrated_circuit/IC)
+	IC.forceMove(src)
+	IC.assembly = src
 
 /obj/item/device/electronic_assembly/afterattack(atom/target, mob/user, proximity)
 	var/scanned = FALSE

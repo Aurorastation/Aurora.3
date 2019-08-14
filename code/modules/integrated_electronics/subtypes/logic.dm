@@ -88,20 +88,16 @@
 	var/lstate=FALSE
 
 /obj/item/integrated_circuit/logic/binary/jklatch/do_work()
-	var/datum/integrated_io/A = inputs[1]
-	var/datum/integrated_io/B = inputs[2]
-	var/datum/integrated_io/O = outputs[1]
-	var/datum/integrated_io/Q = outputs[2]
-	if(A.data)
-		if(B.data)
+	if(get_pin_data(IC_INPUT, 1))
+		if(get_pin_data(IC_INPUT, 2))
 			lstate=!lstate
 		else
 			lstate = TRUE
 	else
-		if(B.data)
+		if(get_pin_data(IC_INPUT, 2))
 			lstate=FALSE
-	O.data = lstate ? TRUE : FALSE
-	Q.data = !lstate ? TRUE : FALSE
+	set_pin_data(IC_OUTPUT, 1, lstate ? TRUE : FALSE)
+	set_pin_data(IC_OUTPUT, 2, !lstate ? TRUE : FALSE)
 	if(get_pin_data(IC_OUTPUT, 1))
 		activate_pin(2)
 	else
@@ -119,18 +115,14 @@
 	var/lstate=FALSE
 
 /obj/item/integrated_circuit/logic/binary/rslatch/do_work()
-	var/datum/integrated_io/A = inputs[1]
-	var/datum/integrated_io/B = inputs[2]
-	var/datum/integrated_io/O = outputs[1]
-	var/datum/integrated_io/Q = outputs[2]
-	if(A.data)
-		if(!B.data)
+	if(get_pin_data(IC_INPUT, 1))
+		if(!get_pin_data(IC_INPUT, 2))
 			lstate=TRUE
 	else
-		if(B.data)
+		if(get_pin_data(IC_INPUT, 2))
 			lstate=FALSE
-	O.data = lstate ? TRUE : FALSE
-	Q.data = !lstate ? TRUE : FALSE
+	set_pin_data(IC_OUTPUT, 1, lstate ? TRUE : FALSE)
+	set_pin_data(IC_OUTPUT, 2, !lstate ? TRUE : FALSE)
 	if(get_pin_data(IC_OUTPUT, 1))
 		activate_pin(2)
 	else
@@ -148,18 +140,15 @@
 	var/lstate=FALSE
 
 /obj/item/integrated_circuit/logic/binary/gdlatch/do_work()
-	var/datum/integrated_io/A = inputs[1]
-	var/datum/integrated_io/B = inputs[2]
-	var/datum/integrated_io/O = outputs[1]
-	var/datum/integrated_io/Q = outputs[2]
-	if(B.data)
-		if(A.data)
+	if(get_pin_data(IC_INPUT, 2))
+		if(get_pin_data(IC_INPUT, 1))
 			lstate=TRUE
 		else
 			lstate=FALSE
 
-	O.data = lstate ? TRUE : FALSE
-	Q.data = !lstate ? TRUE : FALSE
+
+	set_pin_data(IC_OUTPUT, 1, lstate ? TRUE : FALSE)
+	set_pin_data(IC_OUTPUT, 2, !lstate ? TRUE : FALSE)
 	if(get_pin_data(IC_OUTPUT, 1))
 		activate_pin(2)
 	else

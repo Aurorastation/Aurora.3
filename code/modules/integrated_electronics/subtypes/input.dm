@@ -498,7 +498,7 @@
 	power_draw_per_use = 120
 
 /obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A)
-	if(!Adjacent(A, src))
+	if(!src.Adjacent(A))
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)

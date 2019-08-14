@@ -8,7 +8,7 @@
 	desc = "It's a small wiring tool, with a wire roll, electric soldering iron, wire cutter, and more in one package. \
 	The wires used are generally useful for small electronics, such as circuitboards and breadboards, as opposed to larger wires \
 	used for power or data transmission."
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "wirer-wire"
 	item_state = "wirer"
 	flags = CONDUCT
@@ -107,7 +107,7 @@
 	name = "circuit debugger"
 	desc = "This small tool allows one working with custom machinery to directly set data to a specific pin, useful for writing \
 	settings to specific circuits, or for debugging purposes.  It can also pulse activation pins."
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "debugger"
 	flags = CONDUCT
 	w_class = 2
@@ -282,8 +282,8 @@
 
 /obj/item/weapon/storage/bag/circuits
 	name = "circuit kit"
-	desc = "This kit's essential for any circuitry projects."
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	desc = "This kit is essential for any circuitry projects."
+	icon = 'icons/obj/assemblies/electronic_tools.dmi'
 	icon_state = "circuit_kit"
 	w_class = 3
 	display_contents_with_number = 0

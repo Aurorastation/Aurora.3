@@ -44,17 +44,53 @@
 
 	// Now for non-circuit things.
 	printer_recipe_list["Assemblies"] = list(
-		new /obj/item/device/electronic_assembly,
-		new /obj/item/device/electronic_assembly/medium,
-		new /obj/item/device/electronic_assembly/large,
-		new /obj/item/device/electronic_assembly/drone,
-		new /obj/item/weapon/implant/integrated_circuit,
-		new /obj/item/device/assembly/electronic_assembly
+		/obj/item/device/electronic_assembly/default,
+		/obj/item/device/electronic_assembly/calc,
+		/obj/item/device/electronic_assembly/clam,
+		/obj/item/device/electronic_assembly/simple,
+		/obj/item/device/electronic_assembly/hook,
+		/obj/item/device/electronic_assembly/pda,
+		/obj/item/device/electronic_assembly/tiny/default,
+		/obj/item/device/electronic_assembly/tiny/cylinder,
+		/obj/item/device/electronic_assembly/tiny/scanner,
+		/obj/item/device/electronic_assembly/tiny/hook,
+		/obj/item/device/electronic_assembly/tiny/box,
+		/obj/item/device/electronic_assembly/medium/default,
+		/obj/item/device/electronic_assembly/medium/box,
+		/obj/item/device/electronic_assembly/medium/clam,
+		/obj/item/device/electronic_assembly/medium/medical,
+		/obj/item/device/electronic_assembly/medium/gun,
+		/obj/item/device/electronic_assembly/medium/radio,
+		/obj/item/device/electronic_assembly/large/default,
+		/obj/item/device/electronic_assembly/large/scope,
+		/obj/item/device/electronic_assembly/large/terminal,
+		/obj/item/device/electronic_assembly/large/arm,
+		/obj/item/device/electronic_assembly/large/tall,
+		/obj/item/device/electronic_assembly/large/industrial,
+		/obj/item/device/electronic_assembly/drone/default,
+		/obj/item/device/electronic_assembly/drone/arms,
+		/obj/item/device/electronic_assembly/drone/secbot,
+		/obj/item/device/electronic_assembly/drone/medbot,
+		/obj/item/device/electronic_assembly/drone/genbot,
+		/obj/item/device/electronic_assembly/drone/android,
+		/obj/item/device/electronic_assembly/wallmount/tiny,
+		/obj/item/device/electronic_assembly/wallmount/light,
+		/obj/item/device/electronic_assembly/wallmount,
+		/obj/item/device/electronic_assembly/wallmount/heavy,
+		/obj/item/weapon/implant/integrated_circuit,
+		/obj/item/clothing/under/circuitry,
+		/obj/item/clothing/gloves/circuitry,
+		/obj/item/clothing/glasses/circuitry,
+		/obj/item/clothing/shoes/circuitry,
+		/obj/item/clothing/head/circuitry,
+		/obj/item/clothing/ears/circuitry,
+		/obj/item/clothing/suit/circuitry
 	)
 
 	printer_recipe_list["Tools"] = list(
 		new /obj/item/device/integrated_electronics/wirer,
-		new /obj/item/device/integrated_electronics/debugger
+		new /obj/item/device/integrated_electronics/debugger,
+		new /obj/item/device/integrated_electronics/detailer
 	)
 
 	..()

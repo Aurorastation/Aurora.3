@@ -1,7 +1,7 @@
 /obj/item/weapon/implant/integrated_circuit
 	name = "electronic implant"
 	desc = "It's a case, for building very tiny electronics with."
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_implant"
 	var/obj/item/device/electronic_assembly/implant/IC = null
 
