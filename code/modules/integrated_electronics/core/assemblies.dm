@@ -250,8 +250,13 @@
 			return TRUE
 
 	else if(I.iswrench() && can_anchor)
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
-		to_chat(user, "<span class='notice'>You wrench [src] [anchored ? "into" : "out of"]  place.</span>")
+		if(anchored)
+			on_anchored()
+		else
+			on_unanchored()
+		user.visible_message("[user] has wrenched [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You wrench [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You hear the sound of a ratcheting wrench turning.")
 		return TRUE
 
 	else if(I.iscrowbar())
