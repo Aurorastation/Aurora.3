@@ -304,11 +304,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Construction Level - Hallway Fore";
-	dir = 8;
-	pixel_y = 6
-	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "aG" = (
@@ -6543,6 +6538,10 @@
 	pixel_x = 4;
 	pixel_y = 7
 	},
+/obj/machinery/light_switch{
+	pixel_x = 26;
+	pixel_y = -2
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lD" = (
@@ -8020,6 +8019,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
+"ve" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light_switch{
+	pixel_x = 28;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/security/training)
 "vk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
@@ -8493,10 +8503,6 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Construction Level - Hallway Aft";
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -12130,6 +12136,16 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"Zf" = (
+/obj/machinery/floodlight{
+	name = "Construction Floodlight"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -2;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "Zr" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -12140,6 +12156,10 @@
 	pixel_x = 12;
 	pixel_y = -32;
 	req_access = list(33)
+	},
+/obj/machinery/light_switch{
+	pixel_x = -2;
+	pixel_y = -26
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
@@ -40356,7 +40376,7 @@ pM
 Ra
 zo
 iD
-Cw
+Zf
 Cw
 aw
 IJ
@@ -46736,7 +46756,7 @@ dc
 gL
 he
 hx
-hO
+ve
 hO
 ii
 ii
