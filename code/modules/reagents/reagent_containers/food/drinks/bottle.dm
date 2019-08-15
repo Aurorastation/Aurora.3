@@ -487,7 +487,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/bottle/applejuice
 	name = "apple juice"
 	desc = "Juice from an apple. Yes."
-	icon_state = "applecarton"
+	icon_state = "applejuice"
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=8)
 	isGlass = 0
