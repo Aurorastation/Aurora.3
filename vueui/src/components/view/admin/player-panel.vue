@@ -1,7 +1,7 @@
 <template>
   <div>
     <vui-button :unsafe-params="{src: s.holder_ref, check_antagonist: 1}">Check antagonists</vui-button>
-    <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']" autofocus :threshold="0.4" include-score/>
+    <vui-input-search style="float: right;" :input="players_filtered" v-model="search_results" :keys="['name', 'real_name', 'assigment', 'key', 'ip']" autofocus :threshold="threshold" include-score/>
     <div class="table">
       <div class="header">
         <div class="header-item">Name</div>
@@ -11,7 +11,7 @@
         <div class="header-item" v-if="s.ismod">Antag</div>
         <div class="header-item">Actions</div>
       </div>
-      <div class="player" v-for="p in search_results" :key="p.item.ref" :style="{opacity: 1 - p.score}">
+      <div class="player" v-for="p in search_results" :key="p.item.ref" :style="{opacity: 1 - (p.score * score_multiplier)}">
         <div class="item">
           <template v-if="(p.item.name == p.item.real_name) || (p.item.assigment == 'NA')">{{p.item.name}}</template>
           <vui-tooltip v-else :label="p.item.name">{{p.item.real_name}}</vui-tooltip>
@@ -56,12 +56,16 @@ export default {
   data() {
     return {
       search_results: [],
-      s: this.$root.$data.state
+      s: this.$root.$data.state,
+      threshold: 0.3
     }
   },
   computed: {
     players_filtered() {
       return Object.values(this.s.players).filter(x => x)
+    },
+    score_multiplier() {
+      return 1 / this.threshold
     }
   }
 }
