@@ -508,3 +508,9 @@ var/const/access_journalist = 70//journalist's office access
 /datum/access/crate_cash
 	id = access_crate_cash
 	access_type = ACCESS_TYPE_NONE
+
+/var/const/access_none = -1
+/datum/access/none
+	id = access_none
+	access_type = ACCESS_TYPE_NONE
+
