@@ -1387,4 +1387,4 @@ proc/admin_notice(var/message, var/rights)
 	
 	command_announcement.Announce(message, title, new_sound = melody)
 	log_and_message_admins("made custom annoucment with custom sound", usr)
-	// feedback_add_details("admin_verb","A") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	feedback_add_details("admin_verb","ACS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
