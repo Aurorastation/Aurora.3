@@ -253,19 +253,19 @@
 	for (var/type in subtypesof(/datum/citizenship))
 		var/datum/citizenship/citizenship = new type()
 
-		citizenships += citizenship
+		citizenships[citizenship.name] = citizenship
 
 	if (!citizenships.len)
-		crash_with("No citizenships located in SSjobs.")
+		crash_with("No citizenships located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/InitializeReligions()
 	for (var/type in subtypesof(/datum/religion))
 		var/datum/religion/religion = new type()
 
-		religions += religion
+		religions[religion.name] = religion
 
 	if (!religions.len)
-		crash_with("No citizenships located in SSjobs.")
+		crash_with("No citizenships located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
 	for (var/datum/religion/set_religion in religions)

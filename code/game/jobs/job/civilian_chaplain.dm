@@ -33,17 +33,16 @@
 	if(S && istype(S))
 		B.forceMove(S)
 
-	for (var/datum/religion/religion in SSrecords.religions)
-		if (religion.name == H.religion)
-			var/datum/religion/C = religion
+	var/datum/religion/religion = SSrecords.religions[H.religion]
+		if (religion)
 
-			if(C.name == "None" || C.name == "Other")
-				B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
-				return 1
+		if(religon.name == "None" || religonC.name == "Other")
+			B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
+			return 1
 
-			B.icon_state = C.book_sprite
-			B.name = C.book_name
-			SSticker.Bible_icon_state = C.book_sprite
-			SSticker.Bible_item_state = C.book_sprite
-			SSticker.Bible_name = C.book_name
+			B.icon_state = religon.book_sprite
+			B.name = religonC.book_name
+			SSticker.Bible_icon_state = religon.book_sprite
+			SSticker.Bible_item_state = religon.book_sprite
+			SSticker.Bible_name = religon.book_name
 			return 1

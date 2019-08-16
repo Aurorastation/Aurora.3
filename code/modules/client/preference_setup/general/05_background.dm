@@ -164,23 +164,21 @@
 	return ..()
 
 /datum/category_item/player_setup_item/general/background/proc/show_citizenship_menu(mob/user, selected_citizenship)
-	for (var/datum/citizenship/citizenship in SSrecords.citizenships)
-		if (citizenship.name == selected_citizenship)
-			var/datum/citizenship/C = citizenship
+	var/datum/citizenship/citizenship = SSrecords.citizenships[selected_citizenship]
 
-			var/list/dat = list("<center><b>[C.name]</center></b>")
+	if(citizenship)
 
-			dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(C.name, " ", "_")]'>Read the Wiki</a></center>"
-			dat += "<br>[C.description]"
-			dat += "<br><center>\[<a href='?src=\ref[src];set_citizenship=[html_encode(C.name)]'>Select</a>\]</center>"
-			show_browser(user, dat.Join(), "window=citizenshippreview;size=400x500")
+		var/list/dat = list("<center><b>[citizenship.name]</center></b>")
+		dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(citizenship.name, " ", "_")]'>Read the Wiki</a></center>"
+		dat += "<br>[citizenship.description]"
+		dat += "<br><center>\[<a href='?src=\ref[src];set_citizenship=[html_encode(citizenship.name)]'>Select</a>\]</center>"
+		show_browser(user, dat.Join(), "window=citizenshippreview;size=400x500")
 
 /datum/category_item/player_setup_item/general/background/proc/show_religion_menu(mob/user, selected_religion)
-	for (var/datum/religion/religion in SSrecords.religions)
-		if (religion.name == selected_religion)
-			var/datum/religion/R = religion
+	var/datum/religion/religion = SSrecords.religions[selected_religion]
 
-			var/list/dat = list("<center><b>[R.name]</center></b>")
-			dat += "<br>[R.description]"
-			dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(R.name)]'>Select</a>\]</center>"
-			show_browser(user, dat.Join(), "window=religionpreview;size=400x500")
+	if(religion)
+		var/list/dat = list("<center><b>[religion.name]</center></b>")
+		dat += "<br>[religion.description]"
+		dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
+		show_browser(user, dat.Join(), "window=religionpreview;size=400x500")
