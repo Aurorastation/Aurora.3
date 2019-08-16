@@ -24275,14 +24275,6 @@
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
 /area/rnd/test_area)
-"bap" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "bar" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	tag = "icon-warning_dust (SOUTHWEST)";
@@ -33781,9 +33773,6 @@
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"tYu" = (
-/turf/unsimulated/chasm_mask,
-/area/space)
 "udb" = (
 /obj/structure/table/steel,
 /obj/machinery/alarm{
@@ -35279,6 +35268,20 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
+"xxU" = (
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_x = 14;
+	status = 0
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "xyq" = (
 /obj/machinery/power/apc{
 	dir = 8;
@@ -48607,7 +48610,7 @@ aaa
 aaa
 aaa
 aaa
-tYu
+aaa
 aaa
 aaa
 acn
@@ -57988,11 +57991,11 @@ aba
 aba
 aba
 aba
-aaa
-aba
-aba
 aba
 aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -58250,7 +58253,7 @@ aba
 aba
 aba
 aba
-aaa
+aba
 aaa
 aaa
 aaa
@@ -58503,12 +58506,12 @@ aba
 aba
 aba
 aba
+aba
 aqy
 auJ
 bar
 aba
 aba
-aaa
 aaa
 aaa
 aaa
@@ -58760,12 +58763,12 @@ aba
 aba
 aba
 aba
+aba
 akG
-bap
+xxU
 ayi
 aba
 aba
-aaa
 aaa
 aaa
 aaa
@@ -59015,6 +59018,7 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aba
 aba
 aqz
@@ -59022,7 +59026,6 @@ arh
 arH
 aba
 aba
-aaa
 aaa
 aaa
 aaa
@@ -59273,12 +59276,12 @@ aaa
 aaa
 aaa
 aaa
-aba
-aba
-aba
-aba
-aba
 aaa
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -59531,10 +59534,10 @@ aaa
 aaa
 aaa
 aaa
-aba
-aba
-aba
 aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -74852,7 +74855,7 @@ aba
 aba
 aba
 aba
-aba
+aaa
 aaa
 aaa
 ale
@@ -75610,12 +75613,12 @@ aba
 aba
 aba
 akG
+aba
+aba
+aba
+aba
 akG
 aba
-aaa
-aba
-akG
-akG
 aba
 akG
 akG
@@ -75865,19 +75868,19 @@ aaa
 aaa
 aba
 aba
-aba
+akG
 akG
 aba
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 akG
 aba
 aba
-aaa
+aba
 aba
 aba
 akG
@@ -76133,8 +76136,8 @@ aba
 aba
 aba
 aba
-aaa
-aaa
+aba
+akG
 aba
 aba
 aba
@@ -76382,7 +76385,7 @@ aaa
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 aba
@@ -76390,9 +76393,9 @@ aba
 aba
 aba
 aba
-aaa
 akG
-aba
+akG
+akG
 aba
 aba
 aba
@@ -76648,7 +76651,7 @@ aba
 aba
 aba
 aba
-aba
+akG
 aba
 aba
 aba
@@ -76893,13 +76896,13 @@ aba
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 akG
@@ -77152,12 +77155,12 @@ aba
 aba
 aba
 akG
-akG
 aba
 aba
 aba
+aba
 akG
-akG
+aba
 aba
 akG
 akG

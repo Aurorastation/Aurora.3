@@ -6804,12 +6804,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
-"mc" = (
-/obj/structure/ladder{
-	pixel_y = 16
-	},
-/turf/simulated/open/airless,
-/area/mine/unexplored)
 "md" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -8187,19 +8181,6 @@
 "wY" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site/zone_2)
-"xm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
 "xv" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
@@ -8373,6 +8354,25 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"yR" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Elevator Maintenance";
+	open_layer = 2.8;
+	req_access = list(12)
+	},
+/obj/structure/sign/drop{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "yS" = (
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
@@ -8647,6 +8647,19 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/open,
 /area/medical/virology)
+"Cy" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "Cz" = (
 /obj/structure/track{
 	icon_state = "track13"
@@ -8967,6 +8980,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"Fh" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "Fj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -10010,6 +10040,9 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"KI" = (
+/turf/simulated/wall,
+/area/maintenance/elevator)
 "KJ" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/interstitial_cargo)
@@ -10496,6 +10529,21 @@
 	},
 /turf/simulated/open,
 /area/maintenance/interstitial_cargo)
+"LB" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "LC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -10558,23 +10606,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
-"LZ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -24;
-	req_one_access = list(24,11,55)
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
 "Mf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -10714,19 +10745,6 @@
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
 	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
-"MZ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -10969,25 +10987,6 @@
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Qi" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Elevator Maintenance";
-	open_layer = 2.8;
-	req_access = list(12)
-	},
-/obj/structure/sign/drop{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
 "Qp" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
@@ -11039,9 +11038,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
-"Qz" = (
-/turf/simulated/wall,
-/area/maintenance/elevator)
 "QB" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -11146,6 +11142,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"Rz" = (
+/obj/structure/ladder{
+	pixel_y = 16
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_x = 14;
+	status = 2
+	},
+/turf/simulated/open/airless,
+/area/mine/unexplored)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -11237,6 +11245,15 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/r_wall,
 /area/mine/unexplored)
+"RW" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "RX" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/plating,
@@ -11711,15 +11728,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"VI" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
 "VJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -12151,18 +12159,16 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Zc" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+"Zf" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_one_access = list(24,11,55)
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -34849,10 +34855,10 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
 aa
+ab
+ab
+ab
 aa
 aa
 aa
@@ -35105,12 +35111,12 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
 aa
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -35361,13 +35367,13 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 md
 mf
 mh
 ab
-aa
 aa
 aa
 aa
@@ -35618,13 +35624,13 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 ad
-mc
+Rz
 mi
 ab
-aa
 aa
 aa
 aa
@@ -35875,13 +35881,13 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 me
 mg
 mj
 ab
-aa
 aa
 aa
 aa
@@ -36133,13 +36139,13 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
 aa
+ab
+ab
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -36389,14 +36395,14 @@ aa
 aa
 aa
 aa
+aa
+ab
 ab
 ab
 ab
 aa
-aa
 ab
 ab
-aa
 aa
 aa
 aa
@@ -36645,11 +36651,11 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
 aa
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -36901,11 +36907,11 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
 aa
-aa
+ab
+ab
+ab
+ab
 aa
 aa
 aa
@@ -37160,7 +37166,7 @@ aa
 aa
 ab
 ab
-aa
+ab
 aa
 aa
 aa
@@ -39906,17 +39912,17 @@ ab
 ar
 ar
 ar
-Qz
-Qz
-Qz
-Qz
-Qz
+KI
+KI
+KI
+KI
+KI
 ar
-Qz
-Qz
-Qz
-Qz
-Qz
+KI
+KI
+KI
+KI
+KI
 ar
 aN
 Ja
@@ -40162,19 +40168,19 @@ ab
 aa
 aa
 ar
-Qz
+KI
 ay
 ay
 ay
 ay
 ay
-Qz
+KI
 aG
 aG
 aG
 aG
 aG
-MZ
+Zf
 aN
 IZ
 Gv
@@ -40419,19 +40425,19 @@ ab
 aa
 aa
 ar
-Qz
+KI
 ay
 ay
 ay
 ay
 ay
-Qz
+KI
 aG
 aG
 aG
 aG
 aG
-xm
+Cy
 Wk
 Pq
 Gz
@@ -40933,19 +40939,19 @@ aa
 aa
 aa
 ar
-Qz
+KI
 ay
 ay
 ay
 ay
 ay
-Qz
+KI
 aG
 aG
 aG
 aG
 aG
-MZ
+Zf
 Lr
 Jd
 XV
@@ -41190,22 +41196,22 @@ aa
 aa
 aa
 ar
-Qz
+KI
 ay
 ay
 ay
 ay
 ay
-Qz
+KI
 aG
 aG
 aG
 aG
 aG
-xm
+Cy
 aM
 nz
-LZ
+Fh
 iD
 bk
 Bl
@@ -41449,17 +41455,17 @@ ar
 ar
 ar
 EK
-VI
-VI
-Zc
-VI
-VI
-VI
-VI
-VI
-VI
-VI
-Qi
+RW
+RW
+LB
+RW
+RW
+RW
+RW
+RW
+RW
+RW
+yR
 Xn
 Je
 Jh
