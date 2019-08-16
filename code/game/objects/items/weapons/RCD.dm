@@ -72,7 +72,7 @@
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
 		return 0
 	var/turf/t = get_turf(A)
-	if (!isStationLevel(t.z))
+	if (isNotStationLevel(t.z))
 		return 0
 	return alter_turf(A,user,(mode == 3))
 
