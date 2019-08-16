@@ -1,7 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-  - bugfix: "Random staff will no longer see Discord-PMs. Only R_MOD and R_ADMIN staff will."
-  - backend: "Remote TGS restart command implemented."
-  - tweak: "Remote announce formatting changed to match the real announce."
