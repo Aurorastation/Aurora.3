@@ -55,4 +55,4 @@
 	name = "waste tract"
 	parent_organ = "chest"
 	color = "#0033cc"
-	tolerance = 25
+	tolerance = 20

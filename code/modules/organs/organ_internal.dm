@@ -120,7 +120,7 @@
 	parent_organ = "groin"
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
-	var/tolerance = 3
+	var/tolerance = 5
 
 /obj/item/organ/liver/process()
 
