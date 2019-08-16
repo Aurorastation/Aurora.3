@@ -13,7 +13,7 @@
 	outfit = /datum/outfit/admin/random/visitor
 	possible_species = list("Human","Skrell","Tajara","Unathi")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Visitor"
 	special_role = "Visitor"

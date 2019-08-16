@@ -834,7 +834,6 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
-
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 

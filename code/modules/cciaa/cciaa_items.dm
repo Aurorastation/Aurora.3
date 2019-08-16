@@ -208,12 +208,12 @@
 	if(!paused)
 		sLogFile << "--------------------------------"
 		sLogFile << "Recorder paused at: [get_time()]"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = TRUE
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
 		paused = FALSE
 	return
 

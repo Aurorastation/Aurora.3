@@ -86,7 +86,9 @@
 	qdel(record)
 
 /datum/controller/subsystem/records/proc/remove_record_by_field(var/field, var/value, var/record_type = RECORD_GENERAL)
-	remove_record(find_record(field, value, record_type))
+	. = find_record(field, value, record_type)
+	if(.)
+		remove_record(.)
 
 /datum/controller/subsystem/records/proc/find_record(var/field, var/value, var/record_type = RECORD_GENERAL)
 	if(excluded_fields[field])
