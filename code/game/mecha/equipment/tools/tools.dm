@@ -322,7 +322,7 @@
 	var/turf/t = get_turf(target)
 	if(istype(target,/area/shuttle)||istype(target, /turf/space/transit))//>implying these are ever made -Sieve
 		disabled = 1
-	else if (!isStationLevel(t.z))
+	else if (isNotStationLevel(t.z))
 		disabled = 1
 	else
 		disabled = 0
