@@ -36,13 +36,13 @@
 	var/datum/religion/religion = SSrecords.religions[H.religion]
 	if (religion)
 
-	if(religon.name == "None" || religonC.name == "Other")
-		B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
-		return 1
+		if(religion.name == "None" || religion.name == "Other")
+			B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
+			return 1
 
-		B.icon_state = religon.book_sprite
-		B.name = religonC.book_name
-		SSticker.Bible_icon_state = religon.book_sprite
-		SSticker.Bible_item_state = religon.book_sprite
-		SSticker.Bible_name = religon.book_name
+		B.icon_state = religion.book_sprite
+		B.name = religion.book_name
+		SSticker.Bible_icon_state = religion.book_sprite
+		SSticker.Bible_item_state = religion.book_sprite
+		SSticker.Bible_name = religion.book_name
 		return 1

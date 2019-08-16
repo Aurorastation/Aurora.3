@@ -268,7 +268,6 @@
 		crash_with("No citizenships located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
-	for (var/datum/religion/set_religion in religions)
-		if (set_religion.name == target_religion)
-			var/datum/religion/R = set_religion
-			return R.get_records_name()
+	var/datum/religion/religion = SSrecords.religions[target_religion]
+	if(religion)
+		return religion.get_records_name()
