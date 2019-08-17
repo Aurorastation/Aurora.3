@@ -62,19 +62,19 @@
 			item_state = "scrapbook"
 		if("Creeper")
 			icon_state = "creeper"
-			item_state = "syringe_kit"
+			item_state = "creeper"
 		if("White Bible")
 			icon_state = "white"
-			item_state = "syringe_kit"
+			item_state = "white"
 		if("Holy Light")
 			icon_state = "holylight"
-			item_state = "syringe_kit"
+			item_state = "holylight"
 		if("Atheist")
-			icon_state = "athiest"
-			item_state = "syringe_kit"
+			icon_state = "atheist"
+			item_state = "atheist"
 		if("Tome")
 			icon_state = "tome"
-			item_state = "syringe_kit"
+			item_state = "tome"
 		if("The King in Yellow")
 			icon_state = "kingyellow"
 			item_state = "kingyellow"
