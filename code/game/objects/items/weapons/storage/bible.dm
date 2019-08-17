@@ -55,8 +55,8 @@
 	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
 	switch(new_book_style)
 		if("Koran")
-			icon_state = "koran"
-			item_state = "koran"
+			icon_state = "quran"
+			item_state = "quran"
 		if("Scrapbook")
 			icon_state = "scrapbook"
 			item_state = "scrapbook"
