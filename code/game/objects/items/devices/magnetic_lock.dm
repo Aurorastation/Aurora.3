@@ -55,17 +55,15 @@
 	if(newtarget)
 		var/direction = reverse_direction(dir)
 		forceMove(get_step(newtarget.loc, reverse_direction(direction)))
-		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
-			for (var/obj/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))
-				if (istype(A, newtarget.type))
+		for (var/obj/machinery/door/airlock/A in oview(1, newtarget))
+			var/rdir = get_dir(newtarget, A)
+			if (istype(A, newtarget.type) && (rdir == turn(direction, -90) || rdir == turn(direction, 90)))
+				if(!target_node1)
 					target_node1 = A
 					target_node1.bracer = src
-					break
-			for (var/obj/machinery/door/airlock/B in get_step(newtarget.loc, turn(direction, 90)))
-				if (istype(B, newtarget.type))
-					target_node2 = B
+				else
+					target_node2 = A
 					target_node2.bracer = src
-					break
 
 		status = STATUS_ACTIVE
 		attach(newtarget)
@@ -429,8 +427,6 @@
 					return
 				if (1 to 4)
 					add_overlay("overlay_deconstruct_[constructionstate]")
-			if(istype(src, /obj/item/device/magnetic_lock/keypad))
-				add_overlay("overlay_keypad")
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	if(invincible)
