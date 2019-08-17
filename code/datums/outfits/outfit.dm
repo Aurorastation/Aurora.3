@@ -29,7 +29,7 @@
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
-	var/list/belt_contents = list()
+	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/implants = null //A list of implants that should be implanted
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -56,17 +56,6 @@
 		H.equip_or_collect(I, slot)
 	else
 		H.equip_to_slot_or_del(I, slot)
-
-/datum/outfit/proc/equip_belt(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!H)
-		return
-
-	var/obj/item/weapon/storage/belt/B = H.get_equipped_item(slot_belt)
-	if(B)
-		for(var/v in belt_contents)
-			var/number = belt_contents[v]
-			for(var/i in 1 to number)
-				new v(B)
 
 /datum/outfit/proc/equip_accessory(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
@@ -108,7 +97,6 @@
 		equip_item(H, suit, slot_wear_suit)
 	if(belt)
 		equip_item(H, belt, slot_belt)
-		equip_belt(H)
 	if(gloves)
 		equip_item(H, gloves, slot_gloves)
 	if(shoes)
@@ -158,6 +146,10 @@
 			var/number = backpack_contents[path]
 			for(var/i in 1 to number)
 				H.equip_or_collect(new path(H), slot_in_backpack)
+		for(var/path in belt_contents)
+			var/number = belt_contents[path]
+			for(var/i in 1 to number)
+				H.equip_or_collect(new path(H), slot_in_belt)
 
 	post_equip(H, visualsOnly)
 

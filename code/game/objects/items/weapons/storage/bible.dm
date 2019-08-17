@@ -6,7 +6,6 @@
 	throw_range = 5
 	w_class = 3.0
 	var/mob/affecting = null
-	var/deity_name = "Christ"
 	use_sound = 'sound/bureaucracy/bookopen.ogg'
 	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
@@ -32,3 +31,69 @@
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	..()
+
+/obj/item/weapon/storage/bible/proc/Set_Religion(mob/user)
+	if(use_check(user))
+		return
+
+	if(!ishuman(user))
+		return
+
+	var/religion_name = "Christianity"
+	var/new_religion = sanitize(input(user, "You are the crew services officer. Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
+
+	if (!new_religion)
+		new_religion = religion_name
+
+	var/book_name = sanitize(input(user, "Would you like the change your bible name? Default is holy bible.", "Book name change", name), MAX_NAME_LEN)
+
+	if (book_name)
+		name = book_name
+		SSticker.Bible_name = book_name
+
+	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+	switch(new_book_style)
+		if("Koran")
+			icon_state = "koran"
+			item_state = "koran"
+		if("Scrapbook")
+			icon_state = "scrapbook"
+			item_state = "scrapbook"
+		if("Creeper")
+			icon_state = "creeper"
+			item_state = "syringe_kit"
+		if("White Bible")
+			icon_state = "white"
+			item_state = "syringe_kit"
+		if("Holy Light")
+			icon_state = "holylight"
+			item_state = "syringe_kit"
+		if("Atheist")
+			icon_state = "athiest"
+			item_state = "syringe_kit"
+		if("Tome")
+			icon_state = "tome"
+			item_state = "syringe_kit"
+		if("The King in Yellow")
+			icon_state = "kingyellow"
+			item_state = "kingyellow"
+		if("Ithaqua")
+			icon_state = "ithaqua"
+			item_state = "ithaqua"
+		if("Scientology")
+			icon_state = "scientology"
+			item_state = "scientology"
+		if("the bible melts")
+			icon_state = "melted"
+			item_state = "melted"
+		if("Necronomicon")
+			icon_state = "necronomicon"
+			item_state = "necronomicon"
+		else
+			icon_state = "bible"
+			item_state = "bible"
+
+	SSticker.Bible_icon_state = icon_state
+	SSticker.Bible_item_state = item_state
+
+	verbs -= /obj/item/weapon/storage/bible/proc/Set_Religion

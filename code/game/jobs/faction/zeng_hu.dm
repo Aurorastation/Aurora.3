@@ -105,7 +105,7 @@
 	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/representative/zeng_hu
-	name = "Corporate Liaison - Zeng-Hu"
+	name = "Zeng-Hu Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/zeng
 	head = null
 	suit = null

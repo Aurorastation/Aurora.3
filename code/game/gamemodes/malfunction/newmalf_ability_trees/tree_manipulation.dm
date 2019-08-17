@@ -223,11 +223,15 @@
 	set category = "Software"
 	var/price = 300
 	var/mob/living/silicon/ai/user = usr
+	var/area/Area = get_area(user?.eyeobj.loc)
+	if(!Area)
+		return
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
+
 	for(var/A in SSmachinery.gravity_generators)
 		var/obj/machinery/gravity_generator/main/B = A
-		B.throw_up_and_down()
+		B.throw_up_and_down(Area)
 	log_ability_use(user, "gravity malfunction")
 
 // END ABILITY VERBS

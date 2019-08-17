@@ -120,6 +120,7 @@
 	parent_organ = "groin"
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
+	var/tolerance = 5
 
 /obj/item/organ/liver/process()
 
@@ -138,9 +139,9 @@
 	if(owner.life_tick % PROCESS_ACCURACY == 0)
 
 		//A liver's duty is to get rid of toxins
-		if(owner.getToxLoss() > 0 && owner.getToxLoss() <= 3)
+		if(owner.getToxLoss() > 0 && owner.getToxLoss() <= tolerance)
 			owner.adjustToxLoss(-0.2) //there isn't a lot of toxin damage, so we're going to be chill and slowly filter it out
-		else if(owner.getToxLoss() > 3)
+		else if(owner.getToxLoss() > tolerance)
 			if(is_bruised())
 				//damaged liver works less efficiently
 				owner.adjustToxLoss(-0.5)
