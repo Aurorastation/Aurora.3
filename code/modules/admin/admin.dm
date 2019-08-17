@@ -1357,19 +1357,20 @@ proc/admin_notice(var/message, var/rights)
 /datum/admins/proc/ccannoucment()
 	set category = "Special Verbs"
 	set name = "Custom sound Command Announcment"
-	set desc="Emulate announcment that look and sounds like real one."
-	if(!check_rights(R_ADMIN))	return
+	set desc = "Emulate announcement that looks and sounds like the real one"
+	if(!check_rights(R_FUN))	return
 
-	var/message = input("Announcment content:", "CAnnoucnce", null, null) as message
-	if(!message)
-		return
-	if(!check_rights(R_SERVER,0))
-		message = sanitize(message, 500, extra = 0)
-	var/title = input("Announcment TITLE:", "CAnnoucnce", null, null) as text
+	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
 	if(!title)
 		return
 	if(!check_rights(R_SERVER,0))
 		title = sanitize(title, 255, extra = 0)
+	var/message = input("Announcement content:", "CAnnounce", null, null) as message
+	if(!message)
+		return
+	if(!check_rights(R_SERVER,0))
+		message = sanitize(message, 500, extra = 0)
+	
 			
 	var/list/sounds = file2list("sound/serversound_list.txt");
 	sounds += "--CANCEL--"
