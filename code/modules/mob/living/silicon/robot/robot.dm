@@ -410,14 +410,6 @@
 	if(!R)
 		return
 	if(!overclocked)
-		//Give them some taser speed if they have a taser.
-		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
-		if(!T)
-			T = locate() in module.contents
-		if(!T)
-			T = locate() in module.modules
-		if(T)
-			T.recharge_time = max(2 , T.recharge_time - 4)
 		//Give them the hacked item if they don't have it.
 		if(!emagged)
 			R.emagged = 1
@@ -429,14 +421,6 @@
 		if(!cell_emp_mult < 2)
 			cell_emp_mult = 1
 	if(overclocked)
-		//Reduce their free taser speed.
-		var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
-		if(!T)
-			T = locate() in module.contents
-		if(!T)
-			T = locate() in module.modules
-		if(T)
-			T.recharge_time = max(2 , T.recharge_time + 4)
 		//Show them on the robotics console.
 		if(scrambledcodes)
 			scrambledcodes = 0

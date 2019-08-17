@@ -1080,8 +1080,6 @@ var/global/list/robot_modules = list(
 	// Security
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)
 	src.modules += new /obj/item/weapon/melee/baton/robot(src)
-	src.modules += new /obj/item/weapon/gun/energy/taser/mounted/cyborg/overclocked(src)
-	src.modules += new /obj/item/weapon/gun/energy/laser/mounted/cyborg/overclocked(src)
 	src.modules += new /obj/item/weapon/melee/hammer/powered(src)
 	src.modules += new /obj/item/weapon/gun/energy/lasercannon/mounted/cyborg/overclocked(src)
 	src.modules += new /obj/item/borg/combat/shield(src)
@@ -1150,12 +1148,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/bluespace/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
-	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in src.modules
-	if(T.power_supply.charge < T.power_supply.maxcharge)
-		T.power_supply.give(T.charge_cost * amount)
-		T.update_icon()
-	else
-		T.charge_tick = 0
 	var/obj/item/weapon/melee/baton/robot/B = locate() in src.modules
 	if(B && B.bcell)
 		B.bcell.give(amount)
