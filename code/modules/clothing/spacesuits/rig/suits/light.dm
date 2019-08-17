@@ -82,7 +82,7 @@
 	emp_protection = 40
 	slowdown = 0
 
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+	species_restricted = list("exclude","Diona", "Golem")
 
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja

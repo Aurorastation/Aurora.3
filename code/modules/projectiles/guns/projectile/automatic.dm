@@ -24,8 +24,9 @@
 
 /obj/item/weapon/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
-	desc = "The UZI is a lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
+	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
+	item_state = "mini-uzi"
 	w_class = 3
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi
@@ -104,6 +105,8 @@
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
@@ -118,23 +121,6 @@
 	fire_delay_wielded = 6
 	accuracy_wielded = 2
 
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/projectile/automatic/rifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/automatic/rifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/automatic/rifle/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
@@ -328,8 +314,9 @@
 
 /obj/item/weapon/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
-	desc = "A classic Thompson submachine gun, ya see? Uses .45 rounds."
+	desc = "A classic submachine gun. Uses .45 rounds."
 	icon_state = "tommygun"
+	item_state = "tommygun"
 	w_class = 3
 	max_shells = 50
 	caliber = ".45"
@@ -386,6 +373,8 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, move_delay=null, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3, move_delay=2,    burst_accuracy=list(2,1,1),       dispersion=list(0, 10, 15)),
@@ -401,8 +390,6 @@
 	accuracy_wielded = 2
 	scoped_accuracy = 2
 
-	action_button_name = "Wield rifle"
-
 /obj/item/weapon/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
@@ -413,28 +400,11 @@
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
-/obj/item/weapon/gun/projectile/automatic/terminator/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/automatic/terminator/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/automatic/terminator/verb/wield_rifle()
-	set name = "Wield rifle"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-	usr.update_icon()
-
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
-	icon = 'icons/obj/dragunov.dmi' //lazy but works fine
-	icon_state = "cshotgun"
-	item_state = "cshotgun"
-	contained_sprite = 1
+	icon_state = "assaultshotgun"
+	item_state = "assaultshotgun"
 	w_class = 4
 	load_method = MAGAZINE
 	max_shells = 8
@@ -462,4 +432,4 @@
 
 /obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "cshotgun" : "cshotgun-empty"
+	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"

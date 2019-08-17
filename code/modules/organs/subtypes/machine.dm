@@ -100,6 +100,27 @@
 	robotize()
 	. = ..()
 
+/obj/item/organ/surge/advanced
+	name = "advanced surge preventor"
+	var/max_charges = 5
+	var/stage_ticker = 0
+	var/stage_interval = 250
+
+/obj/item/organ/surge/advanced/process()
+	..()
+
+	if(!owner)
+		return
+
+	if(surge_left >= max_charges)
+		return
+
+	if(stage_ticker < stage_interval)
+		stage_ticker += 2
+
+	if(stage_ticker >= stage_interval)
+		surge_left += 1
+		stage_interval += 250
 
 /obj/item/organ/eyes/optical_sensor
 	name = "optical sensor"

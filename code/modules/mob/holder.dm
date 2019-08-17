@@ -592,6 +592,19 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder/pai/rabbit
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
+/obj/item/weapon/holder/pai/custom
+	var/customsprite = 1
+
+/obj/item/weapon/holder/pai/custom/sync(mob/living/M)
+	..()
+	set_paiholder()
+
+/obj/item/weapon/holder/pai/custom/proc/set_paiholder()
+
+	if(contained && customsprite == 1)
+		icon = CUSTOM_ITEM_SYNTH
+		icon_state = "[contained.icon_state]-holder"
+		item_state = "[contained.icon_state]"
 
 //corgi
 

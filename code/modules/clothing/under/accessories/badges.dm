@@ -99,20 +99,6 @@
 		return
 	..()
 
-/obj/item/weapon/storage/box/holobadge
-	name = "holobadge box"
-	desc = "A box claiming to contain holobadges."
-	New()
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		..()
-		return
-
-
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
 	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
@@ -126,80 +112,24 @@
 	icon_state = "goldbadge"
 	slot_flags = SLOT_TIE
 
-
-//Contractor IDs
-
-/obj/item/clothing/accessory/badge/contractor
-	name = "Necropolis Industries ID"
-	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
-	icon_state = "necro_card"
-	item_state = "necro_card"
-	icon_override = 'icons/mob/ties.dmi'
-	badge_string = "Necropolis Industries"	//Will be the contractor's 'position.'
+/obj/item/clothing/accessory/badge/sol_visa
+	name = "\improper ASSN visa recommendation slip"
+	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
+	icon_state = "sol-visa"
 	slot_flags = SLOT_TIE
-	slot = "over"
+	badge_string = "Priority ASSN Visa Applicant"
 
-/obj/item/clothing/accessory/badge/contractor/attack_self(mob/user as mob)
-	if(!isliving(user))
-		return
-	if(!stored_name)
-		set_name(user.real_name)
-		to_chat(user, "You inspect your [src]. Everything seems to be in order and you give it a quick cleaning with your hand.")
-		return
-	user.visible_message("<span class='notice'>[user] displays their [src].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src].\nIt reads: [stored_name], [badge_string].</span>")
+/obj/item/clothing/accessory/badge/tcfl_papers
+	name = "\improper TCFL enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
+	icon_state = "tc-visa"
+	slot_flags = SLOT_TIE
+	badge_string = "Tau Ceti Foreign Legion Recruit"
 
-/obj/item/clothing/accessory/badge/contractor/necrosec
-	name = "Necropolis Industries Security ID"
-	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
-	icon_state = "necrosec_card"
-	item_state = "necrosec_card"
-	badge_string = "Necropolis Industries Security"
+/obj/item/clothing/accessory/badge/hadii_card
+	name = "honorary party member card"
+	desc = "A card denoting a honorary member of the Hadiist party."
+	icon_state = "hadii-id"
+	slot_flags = SLOT_TIE
+	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
 
-/obj/item/clothing/accessory/badge/contractor/einstein
-	name = "Einstein Engines ID"
-	desc = "A stylized plastic card, belonging to one of the many specialists at EE.."
-	icon_state = "einstein_card"
-	item_state = "einstein_card"
-	badge_string = "Einstein Engines"
-
-/obj/item/clothing/accessory/badge/contractor/hephaestus
-	name = "Hephaestus Industries ID"
-	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
-	icon_state = "heph_card"
-	item_state = "heph_card"
-	badge_string = "Hephaestus Industries"
-
-/obj/item/clothing/accessory/badge/contractor/zenghu
-	name = "Zeng-Hu Pharmaceuticals ID"
-	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
-	icon_state = "zhu_card"
-	item_state = "zhu_card"
-	badge_string = "Zeng-Hu Pharmaceuticals"
-
-/obj/item/clothing/accessory/badge/contractor/eridani
-	name = "Eridani Corporate Federation ID"
-	desc = "A high-tech holobadge, designed to project information about an Eridanian Private Military Contractor."
-	icon_state = "erisec_card"
-	item_state = "erisec_card"
-	badge_string = "Eridani Corporate Federation"
-
-/obj/item/clothing/accessory/badge/contractor/idris
-	name = "Idris Incorporated ID"
-	desc = "A high-tech holocard, designed to project information about a civilian worker at Idris."
-	icon_state = "idris_card"
-	item_state = "idris_card"
-	badge_string = "Idris Incorporated"
-
-/obj/item/clothing/accessory/badge/contractor/idrissec
-	name = "Idris Security ID"
-	desc = "A high-tech holobadge, designed to project information about Security personnel at Idris."
-	icon_state = "idrissec_card"
-	item_state = "idrissec_card"
-	badge_string = "Idris Security"
-
-/obj/item/clothing/accessory/badge/contractor/iru
-	name = "Idris Reclamation Unit ID"
-	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris."
-	icon_state = "iru_card"
-	item_state = "iru_card"
-	badge_string = "Idris Reclamation Unit"

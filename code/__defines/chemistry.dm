@@ -15,6 +15,9 @@
 #define LIQUID 2
 #define GAS 3
 
+#define REAGENTS_PER_SHEET 20
+#define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
+
 #define REAGENTS_OVERDOSE 30
 
 #define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur

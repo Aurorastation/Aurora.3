@@ -131,18 +131,10 @@ obj/item/weapon/gun/energy/retro
 	turret_sprite_set = "sniper"
 	turret_is_lethal = 1
 
+	is_wieldable = TRUE
+
 	fire_delay_wielded = 35
 	accuracy_wielded = 0
-
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/energy/sniperrifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/sniperrifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
