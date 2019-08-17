@@ -52,9 +52,9 @@
 		name = book_name
 		SSticker.Bible_name = book_name
 
-	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Quran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
 	switch(new_book_style)
-		if("Koran")
+		if("Quran")
 			icon_state = "quran"
 			item_state = "quran"
 		if("Scrapbook")
