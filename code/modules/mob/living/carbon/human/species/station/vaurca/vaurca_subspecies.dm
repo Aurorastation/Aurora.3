@@ -80,6 +80,8 @@
 		/mob/living/carbon/human/proc/hivenet
 		)
 
+	default_h_style = "Bald"
+
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
 	H.gender = FEMALE
@@ -154,6 +156,8 @@
 		"eyes"                = /obj/item/organ/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
+
+	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(HULK)

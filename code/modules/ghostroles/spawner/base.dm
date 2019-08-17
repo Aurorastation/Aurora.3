@@ -24,6 +24,7 @@
 	var/mob/spawn_mob = null //The mob that should be spawned
 	var/list/variables = list() //Variables of that mob
 	var/mob_name = FALSE //The name of that mob; If null prompts for it
+	var/mob_name_pick_message = "Pick a name."
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	

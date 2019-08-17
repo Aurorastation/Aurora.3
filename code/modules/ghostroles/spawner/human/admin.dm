@@ -18,7 +18,7 @@
 	outfit = /datum/outfit/admin/nt/ert_commander
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
@@ -26,6 +26,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/legion_commander
 	short_name = "legioncommander"
@@ -39,7 +40,7 @@
 	outfit = /datum/outfit/admin/nt/tcfl_commander
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tau Ceti Foreign Legion Commander"
 	special_role = "TCFL Commander"
@@ -47,6 +48,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/cciaagent
 	short_name = "cciaagent"
@@ -60,7 +62,7 @@
 	outfit = /datum/outfit/admin/nt/cciaa
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
@@ -68,6 +70,7 @@
 
 	mob_name = null
 	mob_name_prefix = "CCIAA "
+	mob_name_pick_message = "Pick a last-name."
 
 
 /datum/ghostspawner/human/admin/cciaescort
@@ -85,7 +88,7 @@
 	outfit = /datum/outfit/admin/nt/protection_detail
 	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Civil Protection Officer"
 	special_role = "Civil Protection Officer"
@@ -93,6 +96,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Ofc. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 
 /datum/ghostspawner/human/admin/checkpointsec
@@ -110,7 +114,7 @@
 	outfit = /datum/outfit/admin/nt/odinsec
 	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Security Officer"
 	special_role = "Odin Security Officer"
@@ -118,6 +122,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Spec. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 
 

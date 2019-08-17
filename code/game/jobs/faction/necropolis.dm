@@ -107,7 +107,7 @@
 	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/representative/necropolis
-	name = "Corporate Liaison - Necropolis"
+	name = "Necropolis Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/necropolis
 	head = null
 	suit = null

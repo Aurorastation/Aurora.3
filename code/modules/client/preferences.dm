@@ -359,7 +359,6 @@ datum/preferences
 	character.h_style = h_style
 	character.f_style = f_style
 
-	character.home_system = home_system
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
