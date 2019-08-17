@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Vaurca can now select Jargon Federation citizenship."
+
