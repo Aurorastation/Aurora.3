@@ -106,6 +106,10 @@
 	var/cpr_time = 1.0//Carbon
 
 	var/bodytemperature = 310.055	//98.7 F
+	var/default_pixel_x = 0
+	var/default_pixel_y = 0
+	var/default_pixel_z = 0
+
 	var/old_x = 0
 	var/old_y = 0
 	var/drowsyness = 0.0//Carbon

@@ -58,8 +58,8 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 // Typo from the oriignal coder here, below lies the jitteriness process. So make of his code what you will, the previous comment here was just a copypaste of the above.
 /mob/proc/jittery_process()
-	//var/old_x = pixel_x
-	//var/old_y = pixel_y
+	//var/default_pixel_x = pixel_x
+	//var/default_pixel_y = pixel_y
 	is_jittery = 1
 	while(jitteriness > 100)
 //		var/amplitude = jitteriness*(sin(jitteriness * 0.044 * world.time) + 1) / 70
@@ -67,15 +67,14 @@ note dizziness decrements automatically in the mob's Life() proc.
 //		pixel_y = amplitude * cos(0.008 * jitteriness * world.time)
 
 		var/amplitude = min(4, jitteriness / 100)
-		pixel_x = old_x + rand(-amplitude, amplitude)
-		pixel_y = old_y + rand(-amplitude/3, amplitude/3)
+		pixel_x = default_pixel_x + rand(-amplitude, amplitude)
+		pixel_y = default_pixel_y + rand(-amplitude/3, amplitude/3)
 
 		sleep(1)
 	//endwhile - reset the pixel offsets to zero
 	is_jittery = 0
-	pixel_x = old_x
-	pixel_y = old_y
-
+	pixel_x = default_pixel_x
+	pixel_y = default_pixel_y
 
 //handles up-down floaty effect in space and zero-gravity
 /mob/var/is_floating = 0
@@ -243,7 +242,6 @@ note dizziness decrements automatically in the mob's Life() proc.
 	return
 
 /mob/living/proc/on_structure_offset(var/offset = 0)
-	var/default_pixel_z = 0
 	if(offset)
 		var/check = default_pixel_z + offset
 		if(pixel_z != check)

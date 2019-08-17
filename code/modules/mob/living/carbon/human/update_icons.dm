@@ -227,6 +227,7 @@ There are several things that need to be remembered:
 
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
+	pixel_z = species.icon_z_offset
 
 	//CACHING: Generate an index key from visible bodyparts.
 	//0 = destroyed, 1 = normal, 2 = robotic, 3 = necrotic.

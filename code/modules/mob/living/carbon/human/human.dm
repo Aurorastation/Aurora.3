@@ -73,8 +73,12 @@
 		sync_organ_dna()
 	make_blood()
 
-	pixel_x = species.icon_x_offset
-	pixel_y = species.icon_y_offset
+	default_pixel_x = initial(pixel_x) + species.icon_x_offset
+	default_pixel_y = initial(pixel_y) + species.icon_y_offset
+	default_pixel_z = initial(pixel_z) + species.icon_z_offset
+	pixel_x = default_pixel_x
+	pixel_y = default_pixel_y
+	pixel_z = default_pixel_z
 
 /mob/living/carbon/human/Destroy()
 	human_mob_list -= src
