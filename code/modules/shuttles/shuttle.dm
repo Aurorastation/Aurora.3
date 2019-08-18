@@ -397,3 +397,13 @@
 			if(istype(a, /obj/structure/shuttle/engine/propulsion))
 				var/obj/structure/shuttle/engine/propulsion/P = a
 				new E(get_step(P, P.dir), P.dir, 250, time)
+
+/datum/shuttle/proc/custom_landing(var/mob/living/user)
+	if(!user)
+		return
+	
+	var/mob/abstract/observer/shuttle/O = new /mob/abstract/observer/shuttle(pick(the_station_areas))
+	O.client = user.client
+	O.client.view = sqrt(ship_size)
+	O.sight &= ~SEE_MOBS
+	O.S = src
