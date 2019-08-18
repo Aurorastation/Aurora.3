@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds hair tying from BS12. Humans only for now :crying_cat_face:"
+  - rscadd: "Added 6 new IPC screens made by NiennaB (eye, heartrate, static2, static3, cancel, testcard)."
+  - rscadd: "Ported 8 new IPC screens from Polaris (blank, scroll, console, RGB, GoL glider, rainbow, smiley, database)."
