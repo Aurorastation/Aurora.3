@@ -713,80 +713,52 @@
 	can_hold = list(/obj/item/weapon/reagent_containers/toothpaste,
 					/obj/item/weapon/reagent_containers/toothbrush)
 
-/obj/item/weapon/storage/box/toothpaste/fill()
-	new /obj/item/weapon/reagent_containers/toothpaste(src)
-	new /obj/item/weapon/reagent_containers/toothbrush(src)
-	make_exact_fit()
+	starts_with = list(/obj/item/weapon/reagent_containers/toothpaste = 1,
+					/obj/item/weapon/reagent_containers/toothbrush = 1)
 
-/obj/item/weapon/storage/box/toothpaste/green/fill()
-	new /obj/item/weapon/reagent_containers/toothpaste(src)
-	new /obj/item/weapon/reagent_containers/toothbrush/green(src)
-	make_exact_fit()
+/obj/item/weapon/storage/box/toothpaste/green
+	starts_with = list(/obj/item/weapon/reagent_containers/toothpaste = 1,
+					/obj/item/weapon/reagent_containers/toothbrush/green = 1)
 
-/obj/item/weapon/storage/box/toothpaste/red/fill()
-	new /obj/item/weapon/reagent_containers/toothpaste(src)
-	new /obj/item/weapon/reagent_containers/toothbrush/red(src)
-	make_exact_fit()
+/obj/item/weapon/storage/box/toothpaste/red
+	starts_with = list(/obj/item/weapon/reagent_containers/toothpaste = 1,
+				/obj/item/weapon/reagent_containers/toothbrush/red = 1)
 
 /obj/item/weapon/storage/box/holobadge
 	name = "holobadge box"
 	desc = "A box claiming to contain holobadges."
-
-/obj/item/weapon/storage/box/holobadge/fill()
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo(src)
-	new /obj/item/clothing/accessory/badge/holo/cord(src)
-	new /obj/item/clothing/accessory/badge/holo/cord(src)
+	starts_with = list(/obj/item/clothing/accessory/badge/holo = 4,
+				/obj/item/clothing/accessory/badge/holo/cord = 2)
 
 /obj/item/weapon/storage/box/sol_visa
-	name = "Sol Alliance visa box"
-	desc = "A box full of Sol Aliance temporary visas."
-
-/obj/item/weapon/storage/box/sol_visa/fill()
-	new /obj/item/clothing/accessory/badge/sol_visa(src)
-	new /obj/item/clothing/accessory/badge/sol_visa(src)
-	new /obj/item/clothing/accessory/badge/sol_visa(src)
-	new /obj/item/clothing/accessory/badge/sol_visa(src)
-	new /obj/item/clothing/accessory/badge/sol_visa(src)
-	new /obj/item/clothing/accessory/badge/sol_visa(src)
+	name = "Sol Alliance visa recommendations box"
+	desc = "A box full of Sol Aliance visa recommendation slips."
+	starts_with = list(/obj/item/clothing/accessory/badge/sol_visa = 6)
 
 /obj/item/weapon/storage/box/ceti_visa
-	name = "Republic of Biesel visa box"
-	desc = "A box full of Tau Cetian visas."
-
-/obj/item/weapon/storage/box/ceti_visa/fill()
-	new /obj/item/clothing/accessory/badge/ceti_visa(src)
-	new /obj/item/clothing/accessory/badge/ceti_visa(src)
-	new /obj/item/clothing/accessory/badge/ceti_visa(src)
-	new /obj/item/clothing/accessory/badge/ceti_visa(src)
-	new /obj/item/clothing/accessory/badge/ceti_visa(src)
-	new /obj/item/clothing/accessory/badge/ceti_visa(src)
+	name = "TCFL recruitment papers box"
+	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Foreign Legion."
+	starts_with = list(/obj/item/clothing/accessory/badge/tcfl_papers = 6)
 
 /obj/item/weapon/storage/box/hadii_card
-	name = "party member card box"
+	name = "honorary party member card box"
 	desc = "A box full of Hadiist party member cards."
-
-/obj/item/weapon/storage/box/hadii_card/fill()
-	new /obj/item/clothing/accessory/badge/hadii_card(src)
-	new /obj/item/clothing/accessory/badge/hadii_card(src)
-	new /obj/item/clothing/accessory/badge/hadii_card(src)
-	new /obj/item/clothing/accessory/badge/hadii_card(src)
-	new /obj/item/clothing/accessory/badge/hadii_card(src)
-	new /obj/item/clothing/accessory/badge/hadii_card(src)
+	starts_with = list(/obj/item/clothing/accessory/badge/hadii_card = 6)
 
 /obj/item/weapon/storage/box/hadii_manifesto
 	name = "hadiist manifesto card box"
 	desc = "A box full of hadiist manifesto books."
+	starts_with = list(/obj/item/weapon/book/manual/pra_manifesto = 6)
 
-/obj/item/weapon/storage/box/hadii_manifesto/fill()
-	new /obj/item/pra_manifesto(src)
-	new /obj/item/pra_manifesto(src)
-	new /obj/item/pra_manifesto(src)
-	new /obj/item/pra_manifesto(src)
-	new /obj/item/pra_manifesto(src)
-	new /obj/item/pra_manifesto(src)
+/obj/item/weapon/storage/box/dominia_honor
+	name = "dominian honor codex box"
+	desc = "A box full of dominian honor codex "
+	starts_with = list(/obj/item/weapon/book/manual/dominia_honor = 6)
+
+/obj/item/weapon/storage/box/tcfl_pamphlet
+	name = "tau ceti foreign legion pamphlets box"
+	desc = "A box full of tau ceti foreign legion pamphlets."
+	starts_with = list(/obj/item/weapon/book/manual/tcfl_pamphlet = 6)
 
 /obj/item/weapon/storage/box/sharps
 	name = "sharps disposal box"

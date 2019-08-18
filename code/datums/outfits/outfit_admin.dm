@@ -356,7 +356,7 @@
 	name = "CCIA Agent"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
-	suit = /obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
+	suit = /obj/item/clothing/suit/storage/toggle/liaison
 	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/device/radio/headset/ert/ccia
@@ -365,6 +365,7 @@
 	l_pocket = /obj/item/weapon/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/weapon/storage/lockbox/cciaa
+	pda = /obj/item/device/pda/central
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"

@@ -24,6 +24,7 @@
 	var/mob/spawn_mob = null //The mob that should be spawned
 	var/list/variables = list() //Variables of that mob
 	var/mob_name = FALSE //The name of that mob; If null prompts for it
+	var/mob_name_pick_message = "Pick a name."
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	
@@ -84,7 +85,7 @@
 //Proc executed before someone is spawned in
 /datum/ghostspawner/proc/pre_spawn(mob/user) 
 	count++ //Increment the spawned in mob count
-	if(count >= max_count)
+	if(max_count && count >= max_count)
 		disable()
 	return TRUE
 
