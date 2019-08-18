@@ -111,10 +111,10 @@
 
 /obj/item/integrated_circuit/manipulation/grenade
 	name = "grenade primer"
-	desc = "This circuit comes with the ability to attach most types of grenades at prime them at will."
+	desc = "This circuit comes with the ability to attach most types of grenades and prime them at will."
 	extended_desc = "Time between priming and detonation is limited to between 1 to 12 seconds but is optional. \
 					If unset, not a number, or a number less than 1 then the grenade's built-in timing will be used. \
-					Beware: Once primed there is no aborting the process!"
+					Beware: Once primed, there is no aborting the process!"
 	icon_state = "grenade"
 	complexity = 30
 	size = 2
@@ -218,10 +218,10 @@
 
 /obj/item/integrated_circuit/manipulation/grabber
 	name = "grabber"
-	desc = "A circuit with it's own inventory for small/medium items, used to grab and store things."
+	desc = "A circuit with its own inventory for small/medium items, used to grab and store things."
 	icon_state = "grabber"
 	extended_desc = "The circuit accepts a reference to thing to be grabbed. It can store up to 10 things. Modes: 1 for grab. 0 for eject the first thing. -1 for eject all."
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_TINY
 	size = 3
 
 	complexity = 10
@@ -266,7 +266,7 @@
 	The 'fire' activator will cause the mechanism to attempt to throw thing at the coordinates, if possible.  Note that the \
 	projectile need to be inside the machine, or to be on an adjacent tile, and to be up to medium size."
 	complexity = 15
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_TINY
 	size = 2
 	inputs = list(
 		"target X rel" = IC_PINTYPE_NUMBER,

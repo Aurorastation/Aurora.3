@@ -54,7 +54,7 @@
 /obj/item/clothing/attackby(obj/item/I, mob/user)
 	if(IC)
 		// This needs to be done in a better way...
-		if(iscrowbar(I) || isscrewdriver(I) || istype(I, /obj/item/integrated_circuit) || istype(I, /obj/item/weapon/cell/device) || istype(I, /obj/item/device/integrated_electronics))
+		if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/integrated_circuit) || istype(I, /obj/item/weapon/cell) || istype(I, /obj/item/device/integrated_electronics))
 			IC.attackby(I, user)
 	else
 		..()
@@ -113,14 +113,14 @@
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
 
-/obj/item/clothing/gloves/circuitry/Touch(var/atom/A, var/proximity)
+/obj/item/clothing/gloves/circuitry/Touch(var/atom/A, var/mob/user, var/proximity)
 	if(!A || !proximity)
 		return 0
 
-	if(istype(action_circuit))
-		return action_circuit.check_then_do_work()
-
-	return 0 // if everything else fails for some weird reason, just do normal stuff
+	if(istype(action_circuit) && action_circuit.check_then_do_work())
+		action_circuit.set_pin_data(IC_OUTPUT, 1, A)
+		action_circuit.push_data() // we have to not return 1 so we can still do normal stuff like picking things up, etc.
+	return 0
 
 // Glasses.
 /obj/item/clothing/glasses/circuitry
@@ -133,6 +133,15 @@
 /obj/item/clothing/glasses/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
 	return ..()
+
+/obj/item/clothing/glasses/circuitry/Look(var/atom/A, mob/user, var/proximity)
+	if(!A)
+		return 0
+	
+	if(istype(action_circuit) && action_circuit.check_then_do_work())
+		action_circuit.set_pin_data(IC_OUTPUT, 1, A)
+		action_circuit.push_data() // we have to not return 1 so we can still do normal stuff like picking things up, etc.
+	return 0
 
 // Shoes
 /obj/item/clothing/shoes/circuitry

@@ -30,10 +30,11 @@
 // Triggered when clothing assembly's hud button is clicked, used in-hand, or when another clothing-specific interaction occurs (like touching something with gloves on).
 /obj/item/integrated_circuit/built_in/action_button
 	name = "external trigger circuit"
-	desc = "A built in chip that outputs a pulse when an external control event occurs."
+	desc = "A built in chip that outputs a pulse when an external control event occurs. It also provides additional data depending on the nature of the event and device."
 	extended_desc = "This outputs a pulse if the assembly's HUD button is clicked while the assembly is closed."
 	complexity = 0
 	activators = list("on activation" = IC_PINTYPE_PULSE_OUT)
+	outputs = list("output" = IC_PINTYPE_ANY)
 
 /obj/item/integrated_circuit/built_in/action_button/do_work()
 	activate_pin(1)
