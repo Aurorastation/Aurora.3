@@ -1427,3 +1427,170 @@
 /obj/item/weapon/book/manual/battlemonsters/New()
 	..()
 	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
+
+/obj/item/weapon/book/manual/pra_manifesto
+	name = "hadiist manifesto"
+	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
+	icon_state ="hadii-manifesto"
+	title = "hadiist manifesto"
+	author = "Al'Mari Hadii"
+	w_class = 2.0
+	dat = {"<html>
+				<head>
+					<style>
+					h1 {font-size: 21px; margin: 15px 0px 5px;}
+					h2 {font-size: 15px; margin: 15px 0px 5px;}
+					li {margin: 2px 0px 2px 15px;}
+					ul {margin: 5px; padding: 0px;}
+					ol {margin: 5px; padding: 0px 15px;}
+					body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+				<h1><center>Manifesto of the Parizahra Zhahrazjujz'tajara Akzatauzjauna'azahrazakahuz Hadii</center></h1>
+
+				<b><center></b><br>\
+				<br>\
+				Written: Late 2432;<br> \
+				First Published: February 2433<br> \
+				Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
+				<small>A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
+				like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate us brings us two inevitable facts:<br>\
+				<br>\
+				1) Revolutionary ideology is already cemented amongst Tajara.<br>\
+				2) It is time for supporters of a classless society to throw off their cloaks and set aside their daggers and pick up the rifle to meet the reactionary bourgeois in the open field.<br>\
+				<br>\
+				To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
+				This is a Revolution that will make the Old Order buckle before the strength of the working class until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
+				This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every man, woman, and kit. The simple fact that no Tajara is born inherently better than another.<br>\
+				</body>
+			</html>
+			"}
+
+/obj/item/weapon/book/manual/dominia_honor
+	name = "dominian honor codex"
+	desc = "A codex describing the main tenets of dominian honor."
+	icon_state ="rulebook"
+	title = "dominian honor codex"
+	author = "Zalze Han'San"
+	w_class = 2.0
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 21px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<a name="Foreword"><h1>Dominian Honor Codex:</h1></a>
+
+
+				<h2><a name="Contents">Contents</a></h2>
+				<ol>
+					<li><a href="#I">Conduct toward Equals</a></li>
+					<li><a href="#II">Conduct of Men</a></li>
+					<li><a href="#III">Conduct of Women</a></li>
+					<li><a href="#IV">Dueling Etiquette</a></li>
+					<li><a href="#V">Conduct of a Soldier</a></li>
+					<li><a href="#VI">On High and Low</a></li>
+					<li><a href="#VII">Behavior amongst Foreigners and Enemies</a></li>
+					<li><a href="#VIII">Behavior amongst Foreigners and Enemies</a></li>
+					<li><a href="#IX">On Duty to Country and Emperor</a></li>
+					<li><a href="#X">On Duty to Self</a></li>
+				</ol>
+				<br>
+
+				<a name="I"><h2>Conduct toward Equals</h2><br></a>
+				An honorable person will conduct himself in a manner that recognizes rich or poor, young or old, all are morally equal. Birth and wealth do not convey honor and a good reputation,
+				your actions do. It is not what one thinks, but one does. Thus, a gentleman of good repute and standing should avoid conducting himself untowardly to his fellow man, that they may
+				avoid unnecessarily coming to blows. Politeness and civility are the hallmarks of a reputable person. Thus, unless a person is known to of low repute and lacking honor,
+				act civilly to all you meet.<BR><BR>
+
+				<a name="II"><h2>Conduct of Men</h2><br></a>
+				Men, of the sexes, must bear a responsibility of having a gentile and forgiving nature, while remaining upright and honorable. They, especially, are burdened with the
+				responsibility of defending their honor - as outlined in Codex 4 - to the extreme if ncessary, for an honor that cannot be defended is not held, and an honor that cannot
+				be lost is not an honor at all. They must be kind and generous to the weaker and poorer, upright and honest with their equals, and respectful and obedient to their
+				superiors in rank or station.<BR><BR>
+
+				<a name="III"><h2>Conduct of Women</h2><br></a>
+				Women, while being noted on equal footing as men in matters of honor, cannot avoid the realities of being physically weaker. They must be equally vigorous and stalwart
+				in their conduct, in being polite and upright to all they interact with. It is good - though not necessary - for women to manage a home and family's affairs. Chastity,
+				modesty, and attention to detail - these are all traits of a woman of good repute.<BR><BR>
+
+				<a name="IV"><h2>Dueling Etiquette</h2><br></a>
+				There is no justice in the court of law for an offense of Slander, and to be Slandered is worse than death. To live a life of shame and ill repute is the lowest fate
+				one can receive. It is thus that affairs of honor are brought to the contest of the duel - to satisfy both parties, defender and accuser. In a duel, a second for both
+				sides must be present, as well as a physician. In some cases, a legal notary may be present to ensure its validity. In the cases of duels between men and women, or
+				people of differing ages and physical capabilities, to ensure the uprightness, fairness and honor of the duel, guns may be used. These shall be inspected by both
+				seconds upon being presented by the defendant in the duel. In a contest between two of equal physical ability, swords are preferable in use, as they do not necessarily
+				inflict a mortal wound when one is not necessary to satisfy the Honor of the two parties.<BR><BR>
+
+				<a name="V"><h2>Conduct of a Soldier</h2><br></a>
+				Soldiers, of all professions, have the greatest responsibilities in society to be fair and gentle in some cases, and be harsh and punishing in others. Looting,
+				bawdiness, pillaging, a lack of appropriate mercy, cruelty in killing, all hallmarks of a dishonorable soldier. A soldier must be dedicated to his task, dedicated in
+				becoming a master of his task, and willing to die to complete it. A soldier in defeat, if he has given his all, is a soldier who has learned. No soldier should be
+				afraid of defeat - for no soldier can win every battle - he should be afraid to not learn from it.<BR><BR>
+
+				<a name="VI"><h2>On High and Low</h2><br></a>
+				God, in His wisdom, sees fit to place some men high and some men low. This is does not make them any less equal in matters of honor. A powerful man, if he has been seen
+				fit to be head over another, must not in any case abuse his authority or position. A man, if he has been seen fit to be placed under another's authority, must be
+				dedicated and true in his work. There in no greater stain to a man of honor then to be a cruel task-master or an abuser of the weak and powerless. He has a
+				responsibility to ensure those under him work efficiently, and they have a responsibility to not cheat their master.<BR><BR>
+
+				<a name="VII"><h2>Behavior amongst Foreigners and Enemies</h2><br></a>
+				When among foreigners, an honorable and respectful man must be honorable and respectful of their customs as much as he can, unless they be themselves against the code of
+				Honor and the Edicts. Do not expect them to know or recognize our higher Code of Conduct. They, someday, will be brought under its reach - but until then, be as polite
+				and respectful to them as they deserve. When amongst your enemies, be polite. If they are enemies in war, they are doing their duty as you are. Respect and honor your
+				enemy unless he prove himself unworthy of it. In all cases, show that you are a better man then they are.<BR><BR>
+
+				<a name="VIII"><h2>On Duty to Family and God</h2><br></a>
+				A genteel and honorable person, in all cases, is loyal first to God first, his family second, king third, country fourth, and himself last. Your family are your closest
+				friends, allies, and compatriots: you must rely upon them, and they must rely upon you. If a person has no family, he has nothing. Be upright and honest with your
+				family, loyal, and keep your promises in all things - such as your dealings are with other men. Be loyal to God first and foremost - for if a man is without God, he is
+				not living. It is God that gives us this opportunity to be honorable and just people.<BR><BR>
+
+				<a name="IX"><h2>On Duty to Country and Emperor</h2><br></a>
+				Dutiful should describe any honorable person. A person everyone know will keep their word, honor their word, and faithfully fulfill their word. And no more important
+				word is given then an oath to King, and to Country. While some argue the Emperor is the Country, this codex is not one of philosophy. Obey the Emperor faithfully, serve
+				him faithfully, and your country will prosper for it. Respectfully question the Emperor at the appropriate time if necessary and obey him in all right and honorable
+				things.<BR><BR>
+
+				<a name="X"><h2>On Duty to Self</h2><br></a>
+				Your body, your mind, your honor - these three are the trinity of life. An honorable person keeps themselves in as good shape as they can and abstains from things such
+				as overuse of hard liquors and substances which cloud the mind and hamper the body. Without a sound body and mind, nobody can maintain their honor and reputation.<BR><BR>
+
+				</body>
+			</html>
+			"}
+
+/obj/item/weapon/book/manual/tcfl_pamphlet
+	name = "tau ceti foreign legion pamphlet"
+	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
+	icon_state ="tcfl_book"
+	title = "Tau Ceti foreign legion pamphlet"
+	author = "Tau Ceti foreign legion recruitment center"
+	w_class = 2.0
+	dat = {"<html>
+				<head>
+					<style>
+					h1 {font-size: 21px; margin: 15px 0px 5px;}
+					h2 {font-size: 15px; margin: 15px 0px 5px;}
+					li {margin: 2px 0px 2px 15px;}
+					ul {margin: 5px; padding: 0px;}
+					ol {margin: 5px; padding: 0px 15px;}
+					body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+				<br>\
+				The Tau Ceti Foreign Legion is a military force employed by the Republic of Biesel consisting of mostly volunteers of all recognized sentient citizens. It primarily
+				comprises of immigrants and external parties seeking citizenship or stakes in Tau Ceti, which the Republic offers in exchange for participation. It can often be seen
+				working with NanoTrasen assets wherever possible, extending operations slightly further than most NanoTrasen ERT officially reach. As such, the Foreign Legion can be
+				seen regularly patrolling areas nearby the N.S.S. Aurora and the Romanovich Cloud.
+				</body>
+			</html>
+			"}

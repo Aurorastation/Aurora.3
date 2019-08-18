@@ -28,7 +28,6 @@
       <template v-if="!hideAdvanced && (avaivabletypes & 1)">
         <vui-group-item label="Species:"><view-records-field :editable="(editable & 1) > 0" path="active.species"/></vui-group-item>
         <vui-group-item label="Citizenship:"><view-records-field :editable="(editable & 1) > 0" path="active.citizenship"/></vui-group-item>
-        <vui-group-item label="Home System:"><view-records-field :editable="(editable & 1) > 0" path="active.home_system"/></vui-group-item>
         <vui-group-item label="Religion:"><view-records-field :editable="(editable & 1) > 0" path="active.religion"/></vui-group-item>
         <vui-group-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1) > 0" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"/></view-records-field></vui-group-item>
         <vui-group-item label="CCIA Notes:">{{ active.ccia_record }}</vui-group-item>
