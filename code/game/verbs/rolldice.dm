@@ -9,4 +9,4 @@
 	var/conclusion = "[usr] rolls [rand(1,input)] out of [input]!"
 
 	for(var/mob/O in viewers(src))
-		to_chat(O, "<span class='notice'[conclusion]</span>")
+		to_chat(O, "<span class='notice'>[conclusion]</span>")
