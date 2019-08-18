@@ -54,7 +54,9 @@
 		return FALSE
 
 	//Pick a species
-	var/picked_species = pick(possible_species)
+	var/picked_species = input(user,"Select your species") as null|anything in possible_species
+	if(!picked_species)
+		picked_species = pick(possible_species)
 
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species)
