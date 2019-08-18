@@ -134,6 +134,7 @@
 	if (usr.stat || usr.restrained())
 		return
 
+	src.flipped = !src.flipped
 	if(src.flipped)
 		src.item_state = "[item_state]_alt"
 	else
