@@ -141,7 +141,6 @@
 		src.item_state = initial(item_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
 	update_clothing_icon()
-	update_icon()
 
 /obj/item/clothing/gloves/watch/examine(mob/user)
 	..()
