@@ -7,13 +7,13 @@
 
 -- Delete unused git_pull tables
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-DROP TABLE `ss13_git_pull_todo_stats`;
-DROP TABLE `ss13_git_pull_todos`;
-DROP TABLE `ss13_git_pull_requests`;
-DROP TABLE `ss13_santa`;
-DROP TABLE `ss13_contest_participants`;
-DROP TABLE `ss13_contest_reports`;
-DROP TABLE `ss13_directives`;
+DROP TABLE IF EXISTS `ss13_git_pull_todo_stats`;
+DROP TABLE IF EXISTS `ss13_git_pull_todos`;
+DROP TABLE IF EXISTS `ss13_git_pull_requests`;
+DROP TABLE IF EXISTS `ss13_santa`;
+DROP TABLE IF EXISTS `ss13_contest_participants`;
+DROP TABLE IF EXISTS `ss13_contest_reports`;
+DROP TABLE IF EXISTS `ss13_directives`;
 
 
 -- Fix data issues
