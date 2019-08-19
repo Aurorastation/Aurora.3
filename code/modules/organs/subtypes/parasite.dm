@@ -50,6 +50,8 @@
 	parent_organ = "chest"
 	stage_interval = 150
 
+	origin_tech = list(TECH_BIO = 3)
+
 /obj/item/organ/parasite/kois/process()
 	..()
 
@@ -118,6 +120,7 @@
 	parent_organ = "head"
 	var/removed_langs = 0
 	stage_interval = 150
+	origin_tech = list(TECH_BIO = 7)
 
 /obj/item/organ/parasite/blackkois/process()
 	..()
@@ -177,7 +180,7 @@
 			if(owner.can_feel_pain())
 				to_chat(owner, "<span class='warning'>You feel an unbearable pain in your mind!</span>")
 				owner.emote("scream")
-			owner.adjustBrainLoss(1)
+			owner.adjustBrainLoss(1, 55)
 
 		else if(prob(10))
 			to_chat(owner, "<span class='danger'>You feel something alien coming up your throat!</span>")
