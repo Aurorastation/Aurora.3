@@ -811,6 +811,9 @@ ALTER TABLE `ss13_player`
 	CHANGE COLUMN `ip` `ip` VARCHAR(18) NULL COLLATE 'utf8mb4_unicode_ci' AFTER `lastseen`,
 	CHANGE COLUMN `computerid` `computerid` VARCHAR(32) NULL COLLATE 'utf8mb4_unicode_ci' AFTER `ip`;
 
+-- Allows the ss13_library uploader to be nulled
+ALTER TABLE `ss13_library`
+	CHANGE COLUMN `uploader` `uploader` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `uploadtime`;
 
 -- Add/Update forein keys for ckeys
 ALTER TABLE `ss13_admin_log`
@@ -840,8 +843,6 @@ ALTER TABLE `ss13_ccia_reports_transcripts`
 ALTER TABLE `ss13_ipc_tracking`
 	ADD CONSTRAINT `FK_ss13_ipc_tracking_ss13_player` FOREIGN KEY (`player_ckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
 
-ALTER TABLE `ss13_library`
-	CHANGE COLUMN `uploader` `uploader` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `uploadtime`; -- Allow null for the uploader
 
 UPDATE `ss13_library` SET `uploader` = NULL WHERE `uploader` = "";
 UPDATE `ss13_library` SET `uploader` = REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(`uploader`),' ',''),'_',''),'-',''),'.',''),'@','');
