@@ -1,6 +1,11 @@
 /datum/ghostspawner/human/admin
 	tags = list("Admin")
 
+//Add the ability to despawn
+/datum/ghostspawner/human/admin/post_spawn(mob/user)
+	user.client.verbs += /client/proc/despawn
+	return ..()
+
 /datum/ghostspawner/human/admin/ert_commander
 	short_name = "ertcommander"
 	name = "ERT Commander"
@@ -13,7 +18,7 @@
 	outfit = /datum/outfit/admin/nt/ert_commander
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
@@ -21,6 +26,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/legion_commander
 	short_name = "legioncommander"
@@ -34,7 +40,7 @@
 	outfit = /datum/outfit/admin/nt/tcfl_commander
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tau Ceti Foreign Legion Commander"
 	special_role = "TCFL Commander"
@@ -42,6 +48,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Cmdr. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/cciaagent
 	short_name = "cciaagent"
@@ -55,7 +62,7 @@
 	outfit = /datum/outfit/admin/nt/cciaa
 	possible_species = list("Human")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
 	special_role = "ERT Commander"
@@ -63,6 +70,7 @@
 
 	mob_name = null
 	mob_name_prefix = "CCIAA "
+	mob_name_pick_message = "Pick a last-name."
 
 
 /datum/ghostspawner/human/admin/cciaescort
@@ -78,9 +86,9 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/protection_detail
-	possible_species = list("Human")
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Civil Protection Officer"
 	special_role = "Civil Protection Officer"
@@ -88,6 +96,7 @@
 
 	mob_name = null
 	mob_name_prefix = "Ofc. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 
 /datum/ghostspawner/human/admin/checkpointsec
@@ -102,10 +111,10 @@
 	max_count = 4
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/protection_detail
-	possible_species = list("Human","Skrell","Tajara","Unathi")
+	outfit = /datum/outfit/admin/nt/odinsec
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
-	allow_appearance_change = TRUE
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Security Officer"
 	special_role = "Odin Security Officer"
@@ -113,3 +122,17 @@
 
 	mob_name = null
 	mob_name_prefix = "Spec. "
+	mob_name_pick_message = "Pick a callsign or last-name."
+
+
+
+/client/proc/despawn()
+	set name = "Despawn"
+	set desc = "Your work is done. Leave this realm."
+	set category = "Special Verbs"
+
+	var/mob/M = mob
+	M.mind.special_role = null
+	M.ghostize(1)
+	verbs -= /client/proc/despawn
+	qdel(M)

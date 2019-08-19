@@ -282,6 +282,8 @@ Example:
 Parameters:
  - `input` - Initial array with elements to search.
  - `keys` - Array of strings listing keys to be searched.
+ - `include-score` - Includes internal search score in the results. `{item: x, score: (0 to 1)}`. 0 - means perfect match.
+ - `threshold` - Determines maximum score at witch results are cut off.
 
 Events:
  - `input` - Fires when search text changes. Event value is new sorted array.
