@@ -826,7 +826,7 @@ FROM ss13_ban
 LEFT JOIN ss13_player 
   ON ss13_player.ckey = ss13_ban.ckey 
 WHERE ss13_player.ckey IS NULL
-ON DUPLICATE KEY UPDATE byond_version = null; -- Add entries that exist in the ban table but not in the player tale to the ban table
+ON DUPLICATE KEY UPDATE byond_version = null;
 
 ALTER TABLE `ss13_ban`
 	ADD CONSTRAINT `FK_ss13_ban_ss13_player_ckey` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
