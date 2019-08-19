@@ -15,7 +15,7 @@
 	projectile_type = /obj/item/projectile/change
 	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
 	self_recharge = 1
-	recharge_time = 15
+	recharge_time = 120
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 
@@ -70,7 +70,8 @@ obj/item/weapon/gun/energy/staff/special_check(var/mob/living/user)
 	desc = "An artefact that spits bolts of life-force which causes objects which are hit by it to animate and come to life! This magic doesn't affect machines."
 	projectile_type = /obj/item/projectile/animate
 	fire_sound = 'sound/magic/wand.ogg'
-	max_shots = 10
+	max_shots = 5
+	recharge_time = 30
 
 obj/item/weapon/gun/energy/staff/animate/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -107,6 +108,8 @@ obj/item/weapon/gun/energy/staff/focus
 	fire_sound = 'sound/magic/wand.ogg'
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/forcebolt
+	max_shots = 5
+	recharge_time = 30
 
 obj/item/weapon/gun/energy/staff/focus/special_check(var/mob/living/user)
 	if(HULK in user.mutations)
@@ -154,7 +157,7 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	w_class = 4.0
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic
-	var/list/possible_projectiles = list(/obj/item/projectile/magic, /obj/item/projectile/change, /obj/item/projectile/forcebolt,
+	var/list/possible_projectiles = list(/obj/item/projectile/magic, /obj/item/projectile/forcebolt,
 										/obj/item/weapon/gun/energy/staff/animate, /obj/item/projectile/magic/fireball, /obj/item/projectile/magic/teleport,
 										/obj/item/projectile/temp, /obj/item/projectile/ion, /obj/item/projectile/energy/declone, /obj/item/projectile/meteor,
 										/obj/item/projectile/beam/thermaldrill, /obj/item/projectile/beam/energy_net, /obj/item/projectile/energy/bee)
@@ -235,33 +238,6 @@ obj/item/weapon/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 			H.IgniteMob(15)
 			H.visible_message("<span class='danger'>\The [src] explodes in a shower of fire!</span>")
 			H.drop_item()
-			qdel(src)
-		return 0
-	return 1
-
-
-/obj/item/weapon/gun/energy/wand/polymorph
-	name = "wand of polymorph"
-	desc = "A wand that will change the shape of the its victims."
-	icon = 'icons/obj/wands.dmi'
-	contained_sprite = 1
-	icon_state = "polywand"
-	item_state = "polywand"
-	fire_sound = 'sound/magic/Staff_Change.ogg'
-	max_shots = 10
-	projectile_type = /obj/item/projectile/change
-
-/obj/item/weapon/gun/energy/wand/polymorph/special_check(var/mob/living/user)
-	if(HULK in user.mutations)
-		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
-		return 0
-	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			H.drop_item()
-			H.visible_message("<span class='danger'>\The [H] collapses on the floor, their body shrinking and growing hair!</span>")
-			H.monkeyize()
-			H.equip_to_slot_or_del(new /obj/item/weapon/reagent_containers/food/snacks/grown/banana(H), slot_l_hand)
 			qdel(src)
 		return 0
 	return 1

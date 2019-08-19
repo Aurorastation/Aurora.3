@@ -259,7 +259,6 @@
 /obj/item/weapon/storage/belt/wands/full
 	starts_with = list(
 		/obj/item/weapon/gun/energy/wand/fire = 1,
-		/obj/item/weapon/gun/energy/wand/polymorph = 1,
 		/obj/item/weapon/gun/energy/wand/teleport = 1,
 		/obj/item/weapon/gun/energy/wand/force = 1,
 		/obj/item/weapon/gun/energy/wand/animation = 1
