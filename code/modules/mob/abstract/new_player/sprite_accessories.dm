@@ -28,7 +28,7 @@
 	var/gender = NEUTER
 
 	// Restrict some styles to specific species
-	var/list/species_allowed = list("Human")
+	var/list/species_allowed = list("Human","Shell Frame")
 
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = 1
@@ -69,7 +69,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bald"
 		icon_state = "bald"
 		gender = MALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Shell Frame","Unathi")
 		chatname = "Bald Head"
 		length = 0
 
@@ -277,14 +277,14 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
 		gender = FEMALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Shell Frame","Unathi")
 		chatname = "Bobbed Hair"
 
 	bob
 		name = "Bob"
 		icon_state = "hair_bobcut"
 		gender = FEMALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Shell Frame","Unathi")
 		chatname = "Bobbed Hair"
 
 	bobcutalt
@@ -303,7 +303,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
 		gender = MALE
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Shell Frame","Unathi")
 		chatname = "Short Hair"
 		length = 0
 
@@ -463,7 +463,7 @@ Follow by example and make good judgement based on length which list to include 
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spikey"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Shell Frame","Unathi")
 		length = 2
 		chatname = "Spiky Hair"
 
@@ -1115,7 +1115,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox")
+		species_allowed = list("Human","Shell Frame","Unathi","Tajara","Skrell","Vox")
 
 	watson
 		name = "Watson Mustache"
@@ -1156,7 +1156,7 @@ Follow by example and make good judgement based on length which list to include 
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list("Human","Unathi")
+		species_allowed = list("Human","Shell Frame","Unathi")
 
 	abe
 		name = "Abraham Lincoln Beard"
