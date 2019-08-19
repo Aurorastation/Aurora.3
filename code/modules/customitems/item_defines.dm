@@ -2763,7 +2763,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A holy book for followers of The Trinary Perfection."
 	icon = 'icons/obj/custom_items/oscar_bible.dmi'
 	icon_state = "oscar_bible"
-	deity_name = "Trinary Perfection"
 
 
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
