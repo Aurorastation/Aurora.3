@@ -76,7 +76,7 @@
 			to_chat(user, "You can't shapeshift [M].")
 			continue
 		shapeshift(M, user, share_damage, drop_items, revert_sound, possible_transformations, duration, newVars)
-
+		
 /mob/living/proc/unshapeshift_from(mob/living/holder_mob, revert_sound, share_damage)
 	if (QDELETED(holder_mob))
 		log_debug("unshapeshift_from: holder mob was already deleted, aborting")
@@ -112,7 +112,7 @@
 	duration = 600 //15 seconds.
 	cooldown_min = 300 //30 seconds
 
-	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 1, Sp_POWER = 2)
+	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 2, Sp_POWER = 4)
 
 	newVars = list("health" = 150, "maxHealth" = 150)
 
@@ -124,7 +124,7 @@
 	if(!..())
 		return 0
 
-	duration += 150
+	duration += 300
 
 	return "Your target will now stay in their polymorphed form for [duration/10] seconds."
 
