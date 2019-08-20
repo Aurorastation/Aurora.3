@@ -956,6 +956,9 @@
 
 	complexity = 4
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	inputs = list(
+		"enable cache" = IC_PINTYPE_BOOLEAN
+	)
 	outputs = list(
 		"registered name" = IC_PINTYPE_STRING,
 		"assignment" = IC_PINTYPE_STRING,
@@ -971,8 +974,8 @@
 	if(!access)
 		return
 
-	if(assembly)
-		assembly.access_card.access |= access
+	if(get_pin_data(IC_INPUT, 1))
+		assembly?.access_card.access |= access
 
 	if(card) // An ID card.
 		set_pin_data(IC_OUTPUT, 1, card.registered_name)
