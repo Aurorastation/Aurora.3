@@ -300,7 +300,7 @@
 	if(isweakref(I))
 		var/datum/weakref/WR = I
 		var/atom/A = WR.resolve()
-		var/desired_type = A.type
+		var/desired_type = A?.type
 		if(desired_type)
 			for(var/atom/thing in nearby_things)
 				if(thing.type == desired_type)
