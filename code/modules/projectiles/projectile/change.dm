@@ -9,4 +9,4 @@
 
 /obj/item/projectile/change/on_hit(var/atom/change)
 	if (isliving(change))
-		shapeshift(change, duration = 40, possible_transformations = possible_transformations)
+		shapeshift(change, duration = 40, possible_transformations = possible_transformations, newVars = list("health" = 150, "maxHealth" = 150))
