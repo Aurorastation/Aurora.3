@@ -957,7 +957,7 @@
 	complexity = 4
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	inputs = list(
-		"enable cache" = IC_PINTYPE_BOOLEAN
+		"enable credential cache" = IC_PINTYPE_BOOLEAN
 	)
 	outputs = list(
 		"registered name" = IC_PINTYPE_STRING,
