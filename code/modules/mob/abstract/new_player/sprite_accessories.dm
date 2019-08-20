@@ -66,1037 +66,1180 @@ Follow by example and make good judgement based on length which list to include 
 	var/length = 1
 
 	bald
-		name = "Bald"
-		icon_state = "bald"
+		name = "Bald"   // try to capatilize the names please~
+		icon_state = "bald" // you do not need to define _s or _l sub-states, game automatically does this for you
 		gender = MALE
 		species_allowed = list("Human","Unathi")
-		chatname = "Bald Head"
 		length = 0
-
-	short
-		name = "Short Hair"	  // try to capatilize the names please~
-		icon_state = "hair_a" // you do not need to define _s or _l sub-states, game automatically does this for you
-		length = 0
-
-	short2
-		name = "Short Hair 2"
-		icon_state = "hair_shorthair3"
-		chatname = "Short Hair"
-		length = 0
-
-	cut
-		name = "Cut Hair"
-		icon_state = "hair_c"
-		chatname = "Short Hair"
-		length = 0
-
-	flair
-		name = "Flaired Hair"
-		icon_state = "hair_flair"
-		chatname = "Flaired Hair"
-
-	long
-		name = "Shoulder-length Hair"
-		icon_state = "hair_b"
-		length = 2
-		chatname = "Shoulder-length Hair"
-
-	/*longish
-		name = "Longer Hair"
-		icon_state = "hair_b2"*/
-
-	longer
-		name = "Long Hair"
-		icon_state = "hair_vlong"
-		length = 2
-		chatname = "Long Hair"
-
-
-	longeralt2
-		name = "Long Hair Alt"
-		icon_state = "hair_longeralt2"
-		length = 2
-		chatname = "Long Hair"
-
-	longest
-		name = "Very Long Hair"
-		icon_state = "hair_longest"
-		length = 3
-		chatname = "Very Long Hair"
-
-	longfringe
-		name = "Long Fringe"
-		icon_state = "hair_longfringe"
-		length = 2
-		chatname = "Long Fringed Hair"
-
-	longeralt
-		name = "Longer Fringe"
-		icon_state = "hair_vlongfringe"
-		length = 2
-		chatname = "Long Fringed Hair"
-
-	halfbang
-		name = "Half-banged Hair"
-		icon_state = "hair_halfbang"
-		length = 2
-		chatname = "Half-banged Hair"
-
-	halfbangalt
-		name = "Half-banged Hair Alt"
-		icon_state = "hair_halfbang_alt"
-		length = 2
-		chatname = "Half-banged Hair"
-
-	ponytail1
-		name = "Ponytail 1"
-		icon_state = "hair_ponytail"
-		length = 2
-		chatname = "Ponytail"
-
-	ponytail2
-		name = "Ponytail 2"
-		icon_state = "hair_pa"
-		gender = FEMALE
-		length = 2
-		chatname = "Ponytail"
-
-	ponytail3
-		name = "Ponytail 3"
-		icon_state = "hair_ponytail3"
-		length = 2
-		chatname = "Ponytail"
-
-	ponytail4
-		name = "Ponytail 4"
-		icon_state = "hair_ponytail4"
-		gender = FEMALE
-		length = 2
-		chatname = "Ponytail"
-
-	ponytail5
-		name = "Ponytail 5"
-		icon_state = "hair_ponytail5"
-		length = 2
-		chatname = "Ponytail"
-
-	ponytail6
-		name = "Ponytail 6"
-		icon_state = "hair_ponytail6"
-		gender = FEMALE
-		length = 2
-		chatname = "Ponytail"
-
-	ponytail7
-		name = "Ponytail 7"
-		icon_state = "hair_ponytail7"
-		gender = FEMALE
-		length = 2
-		chatname = "Ponytail"
-
-	sideponytail
-		name = "Side Ponytail"
-		icon_state = "hair_stail"
-		gender = FEMALE
-		length = 2
-		chatname = "Side Ponytail"
-
-	sideponytail2
-		name = "Side Ponytail 2"
-		icon_state = "hair_ponytailf"
-		gender = FEMALE
-		length = 2
-		chatname = "Side Ponytail"
-
-	oneshoulder
-		name = "One Shoulder"
-		icon_state = "hair_oneshoulder"
-		gender = FEMALE
-		length = 2
-		chatname = "One Shoulder Hairstyle"
-
-	tresshoulder
-		name = "Tress Shoulder"
-		icon_state = "hair_tressshoulder"
-		gender = FEMALE
-		length = 2
-		chatname = "Tress Shoulder Hair"
-
-/*	wisp  ///disable until the coloring and sprite overall is not so awful
-		name = "Wisp"
-		icon_state = "hair_wisp"
-		gender = FEMALE
-*/
-	parted
-		name = "Parted"
-		icon_state = "hair_parted"
-		length = 1
-		chatname = "Parted Hair"
-
-	pompadour
-		name = "Pompadour"
-		icon_state = "hair_pompadour"
-		gender = MALE
-		length = 3
-		chatname = "Pompadour"
-
-	quiff
-		name = "Quiff"
-		icon_state = "hair_quiff"
-		gender = MALE
-		length = 2
-		chatname = "Quiff"
-
-	bedhead
-		name = "Bedhead"
-		icon_state = "hair_bedhead"
-		length = 1
-		chatname = "Bedhead Hair"
-
-	bedhead2
-		name = "Bedhead 2"
-		icon_state = "hair_bedheadv2"
-		length = 1
-		chatname = "Bedhead Hair"
-
-	beehive
-		name = "Beehive"
-		icon_state = "hair_beehive"
-		gender = FEMALE
-		length = 2
-		chatname = "Beehive Hairdo"
-
-	beehive2
-		name = "Beehive 2"
-		icon_state = "hair_beehive2"
-		gender = FEMALE
-		length = 2
-		chatname = "Beehive Hairdo"
-
-	bobcurl
-		name = "Bobcurl"
-		icon_state = "hair_bobcurl"
-		gender = FEMALE
-		species_allowed = list("Human","Unathi")
-		chatname = "Bobbed Hair"
-
-	bob
-		name = "Bob"
-		icon_state = "hair_bobcut"
-		gender = FEMALE
-		species_allowed = list("Human","Unathi")
-		chatname = "Bobbed Hair"
-
-	bobcutalt
-		name = "Chin Length Bob"
-		icon_state = "hair_bobcutalt"
-		gender = FEMALE
-		chatname = "Chin Length Bob Haircut"
-
-	bowl
-		name = "Bowl"
-		icon_state = "hair_bowlcut"
-		gender = MALE
-		chatname = "Bowl Cut"
-
-	buzz
-		name = "Buzzcut"
-		icon_state = "hair_buzzcut"
-		gender = MALE
-		species_allowed = list("Human","Unathi")
-		chatname = "Short Hair"
-		length = 0
-
-	crew
-		name = "Crewcut"
-		icon_state = "hair_crewcut"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	combover
-		name = "Combover"
-		icon_state = "hair_combover"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	reversemohawk
-		name = "Reverse Mohawk"
-		icon_state = "hair_reversemohawk"
-		gender = MALE
-		chatname = "Mohawk"
-		length = 1
-
-	devillock
-		name = "Devil Lock"
-		icon_state = "hair_devilock"
-		chatname = "Devil Locks"
-		length = 0
-
-	dreadlocks
-		name = "Dreadlocks"
-		icon_state = "hair_dreads"
-		length = 4
-		chatname = "Dreadlocks"
-
-	curls
-		name = "Curls"
-		icon_state = "hair_curls"
-		name = "Curled Hair"
-
-	afro
-		name = "Afro"
-		icon_state = "hair_afro"
-		length = 4
-		chatname = "Afro"
-
-	afro2
-		name = "Afro 2"
-		icon_state = "hair_afro2"
-		length = 4
-		chatname = "Afro"
-
-	afro_large
-		name = "Big Afro"
-		icon_state = "hair_bigafro"
-		gender = MALE
-		length = 4
-		chatname = "Big Afro"
-
-	rows
-		name = "Rows"
-		icon_state = "hair_rows1"
-		length = 2
-		chatname = "Cornrows"
-
-	rows2
-		name = "Rows 2"
-		icon_state = "hair_rows2"
-		length = 2
-		chatname = "Cornrows"
-
-	sargeant
-		name = "Flat Top"
-		icon_state = "hair_sargeant"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	emo
-		name = "Emo"
-		icon_state = "hair_emo"
-		chatname = "Short Hair"
-		length = 0
-
-	longemo
-		name = "Long Emo"
-		icon_state = "hair_emolong"
-		gender = FEMALE
-		length = 2
-		chatname = "Short Hair"
-
-	fringeemo
-		name = "Emo Fringe"
-		icon_state = "hair_emofringe"
-		chatname = "Fringed Hair"
-		length = 1
-
-	shortovereye
-		name = "Overeye Short"
-		icon_state = "hair_shortovereye"
-		chatname = "Short Hair"
-		length = 0
-
-	veryshortovereyealternate
-		name = "Overeye Very Short, Alternate"
-		icon_state = "hair_veryshortovereye"
-		chatname = "Short Hair"
-		length = 0
-
-	longovereye
-		name = "Overeye Long"
-		icon_state = "hair_longovereye"
-		length = 2
-		chatname = "Long Hair"
-
-	fag
-		name = "Flow Hair"
-		icon_state = "hair_f"
-		length = 2
-		chatname = "Flowing Hair"
-
-	feather
-		name = "Feather"
-		icon_state = "hair_feather"
-		length = 2
-		chatname = "Feathered Hair"
-
-	hitop
-		name = "Hitop"
-		icon_state = "hair_hitop"
-		gender = MALE
-		chatname = "Hitop"
-
-	jensen
-		name = "Jensen Hair"  // Removing Videogame References
-		icon_state = "hair_jensen"
-		gender = MALE
-		length = 2
-		chatname = "Short Hair"
-
-	gelled
-		name = "Gelled Back"
-		icon_state = "hair_gelled"
-		gender = FEMALE
-		chatname = "Gelled Back Hair"
-		length = 2
-
-	gentle
-		name = "Gentle"
-		icon_state = "hair_gentle"
-		gender = FEMALE
-		length = 1
-		chatname = "Gentle Hair"
-
-
-	spiky
-		name = "Spiky"
-		icon_state = "hair_spikey"
-		species_allowed = list("Human","Unathi")
-		length = 2
-		chatname = "Spiky Hair"
-
-	kusangi
-		name = "Kusanagi Hair"
-		icon_state = "hair_kusanagi"
-		length = 2
-		chatname = "Kusanagi Hair"
-
-	kagami
-		name = "Pigtails"
-		icon_state = "hair_kagami"
-		gender = FEMALE
-		length = 2
-		chatname = "Pigtails"
-
-	himecut
-		name = "Hime Cut"
-		icon_state = "hair_himecut"
-		gender = FEMALE
-		chatname = "Hime Cut Hair"
-		length = 0
-
-	himecut_alt
-		name = "Hime Cut Alt"
-		icon_state = "hair_himecut_alt"
-		gender = FEMALE
-		chatname = "Hime Cut Hair"
-		length = 0
-
-	shorthime
-		name = "Short Hime Cut"
-		icon_state = "hair_shorthime"
-		gender = FEMALE
-		chatname = "Hime Cut Hair"
-		length = 0
-
-	grandebraid
-		name = "Grande Braid"
-		icon_state = "hair_grande"
-		gender = FEMALE
-		length = 2
-		chatname = "Grande Braid"
-
-	braid
-		name = "Floorlength Braid"
-		icon_state = "hair_braid"
-		gender = FEMALE
-		length = 4
-		chatname = "Floorlength Braid"
-
-	mbraid
-		name = "Medium Braid"
-		icon_state = "hair_shortbraid"
-		gender = FEMALE
-		length = 2
-		chatname = "Medium Braid"
-
-	braid2
-		name = "Long Braid"
-		icon_state = "hair_hbraid"
-		gender = FEMALE
-		length = 3
-		chatname = "Long Braid"
-
-	braidalt
-		name = "Long Braid 2"
-		icon_state = "hair_hbraidalt"
-		gender = FEMALE
-		length = 3
-		chatname = "Long Braid"
-
-	odango
-		name = "Odango"
-		icon_state = "hair_odango"
-		gender = FEMALE
-		length = 2
-		chatname = "Odango Hairdo"
-
-	ombre
-		name = "Ombre"
-		icon_state = "hair_ombre"
-		gender = FEMALE
-		length = 2
-		chatname = "Ombre Hairdo"
-
-	updo
-		name = "Updo"
-		icon_state = "hair_updo"
-		gender = FEMALE
-		length = 2
-		chatname = "Updo"
-
-	skinhead
-		name = "Skinhead"
-		icon_state = "hair_skinhead"
-		length = 0
-
-
-	balding
-		name = "Balding Hair"
-		icon_state = "hair_e"
-		gender = MALE // turnoff!
-		length = 0
-		chatname = "Balding Hair"
-
-	familyman
-		name = "The Family Man"
-		icon_state = "hair_thefamilyman"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	mahdrills
-		name = "Drillruru"
-		icon_state = "hair_drillruru"
-		gender = FEMALE
-		length = 2
-		chatname = "Drills"
-
-	fringetail
-		name = "Fringetail"
-		icon_state = "hair_fringetail"
-		gender = FEMALE
-		length = 2
-		chatname = "Fringetail"
-
-	dandypomp
-		name = "Dandy Pompadour"
-		icon_state = "hair_dandypompadour"
-		gender = MALE
-		length = 3
-		chatname = "Dandy Pompadour"
-
-	poofy
-		name = "Poofy"
-		icon_state = "hair_poofy"
-		gender = FEMALE
-		length = 2
-		chatname = "Poofy Hair"
-
-	crono
-		name = "Chrono"
-		icon_state = "hair_toriyama"
-		gender = MALE
-		length = 4
-		name = "Spiked Hair"
-
-	vegeta
-		name = "Vegeta"
-		icon_state = "hair_toriyama2"
-		gender = MALE
-		length = 4
-		name = "Spiked Hair"
-
-	cia
-		name = "CIA"
-		icon_state = "hair_cia"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	mulder
-		name = "Mulder"
-		icon_state = "hair_mulder"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	scully
-		name = "Scully"
-		icon_state = "hair_scully"
-		gender = FEMALE
-		chatname = "Short Hair"
-		length = 0
-
-	wheeler
-		name = "Wheeler"
-		icon_state = "hair_wheeler"
-		gender = FEMALE
-		chatname = "Short Hair"
-
-	nitori
-		name = "Nitori"
-		icon_state = "hair_nitori"
-		gender = FEMALE
-		length = 2
-		chatname = "Pigtails"
-
-	joestar
-		name = "Joestar"
-		icon_state = "hair_joestar"
-		gender = MALE
-		chatname = "Short Hair"
-		length = 0
-
-	volaju
-		name = "Volaju"
-		icon_state = "hair_volaju"
-		length = 2
-		chatname = "Long Hair"
-
-	bald
-		name = "Bald"
-		icon_state = "bald"
-		chatname = "Bald Head"
-		length = 0
+		chatname = "bald head" //aim to keep these lowercase so they fit into the hair tugging message
 
 	eighties
 		name = "80's"
 		icon_state = "hair_80s"
 		gender = FEMALE
 		length = 2
-		chatname = "Long Hair"
+		chatname = "long hair"
 
-	nia
-		name = "Nia"
-		icon_state = "hair_nia"
-		gender = FEMALE
-		length = 2
-		chatname = "Long Hair"
+	afro
+		name = "Afro"
+		icon_state = "hair_afro"
+		length = 4
+		chatname = "afro"
 
-	unkept
-		name = "Unkept"
-		icon_state = "hair_unkept"
-		chatname = "Unkempt Hair"
+	afro2
+		name = "Afro 2"
+		icon_state = "hair_afro2"
+		length = 4
+		chatname = "afro"
 
-	modern
-		name = "Modern"
-		icon_state = "hair_modern"
-		length = 2
-		chatname = "Long Hair"
-
-	bald
-		name = "Bald"
-		icon_state = "bald"
-		chatname = "Bald Head"
-		length = 0
-
-	bun
-		name = "Bun"
-		icon_state = "hair_bun"
-		gender = FEMALE
-		chatname = "Hair Bun"
-
-	buncasual
-		name = "Casual Bun"
-		icon_state = "hair_bun2"
-		gender = FEMALE
-		chatname = "Hair Bun"
-
-	doublebun
-		name = "Double-Bun"
-		icon_state = "hair_doublebun"
-		gender = FEMALE
-		chatname = "Hair Bun"
-
-	bangshuman
-		name = "Bangs"
-		icon_state = "hair_hbangs"
-		gender = FEMALE
-		chatname = "Bangs"
-
-	bangshumanalt
-		name = "Bangs Short"
-		icon_state = "hair_hbangs_alt"
-		gender = FEMALE
-		chatname = "Bangs"
-
-	shortbangs
-		name = "Short Bangs"
-		icon_state = "hair_shortbangs"
-		chatname = "Short Bangs"
-
-	sleeze
-		name = "Sleeze"
-		icon_state = "hair_sleeze"
-		chatname = "Short Hair"
-
-	fringetail
-		name = "Fringetail"
-		icon_state = "hair_fringetail"
-		length = 2
-		chatname = "Fringetail"
-
-	lowfade
-		name = "Low Fade"
-		icon_state = "hair_lowfade"
+	afro3
+		name = "Afro, Big"
+		icon_state = "hair_afrobig"
 		gender = MALE
-		chatname = "Fade"
-
-	medfade
-		name = "Medium Fade"
-		icon_state = "hair_medfade"
-		chatname = "Fade"
-
-	highfade
-		name = "High Fade"
-		icon_state = "hair_highfade"
-		gender = MALE
-		chatname = "Fade"
+		length = 4
+		chatname = "big afro"
 
 	baldfade
 		name = "Balding Fade"
 		icon_state = "hair_baldfade"
 		gender = MALE
-		chatname = "Fade"
-
-	nofade
-		name = "No Fade"
-		icon_state = "hair_nofade"
-		gender = MALE
-		chatname = "Fade"
-
-	trimflat
-		name = "Trimmed Flat Top"
-		icon_state = "hair_trimflat"
-		gender = MALE
-		chatname = "Flat-Top"
-
-	shaved
-		name = "Shaved"
-		icon_state = "hair_shaved"
-		gender = MALE
 		length = 0
+		chatname = "bald head"
 
-	trimmed
-		name = "Trimmed"
-		icon_state = "hair_trimmed"
-		gender = MALE
+	baldinghair
+		name = "Balding Hair"
+		icon_state = "hair_baldinghair" //hair_e
+		gender = MALE // turnoff!
 		length = 0
+		chatname = "balding hair"
 
-	tightbun
-		name = "Tight Bun"
-		icon_state = "hair_tightbun"
+	bangs
+		name = "Bangs"
+		icon_state = "hair_bangs"
 		gender = FEMALE
-		chatname = "Hair Bun"
+		length = 2
+		chatname = "fringed hair"
+
+	bangs_short
+		name = "Bangs, Short"
+		icon_state = "hair_bangs_short"
+		gender = FEMALE
+		chatname = "fringed hair"
+
+	bangs_veryshort
+		name = "Bangs, Very Short"
+		icon_state = "hair_bangs_veryshort"
+		chatname = "fringed hair"
+
+	bedhead
+		name = "Bedhead"
+		icon_state = "hair_bedhead"
+		chatname = "messy locks"
+
+	bedhead2
+		name = "Bedhead 2"
+		icon_state = "hair_bedhead2"
+		chatname = "messy locks"
+
+	bedhead3
+		name = "Bedhead 3"
+		icon_state = "hair_bedhead3"
+		chatname = "wavy hair"
+
+	beehive
+		name = "Beehive"
+		icon_state = "hair_beehive"
+		gender = FEMALE
+		length = 2
+		chatname = "beehive hairdo"
+
+	beehive2
+		name = "Beehive 2"
+		icon_state = "hair_beehive2"
+		gender = FEMALE
+		length = 2
+		chatname = "beehive hairdo"
+
+	beehive3
+		name = "Beehive 3"
+		icon_state = "hair_beehive3"
+		gender = FEMALE
+		length = 2
+		chatname = "beehive hairdo"
+
+	belenko
+		name = "Belenko"
+		icon_state = "hair_belenko"
+		length = 2
+		chatname = "messy hair"
+
+	belenko_tied
+		name = "Belenko (Tied)"
+		icon_state = "hair_belenkotied"
+		length = 2
+		chatname = "tied messy hair"
+
+	bob
+		name = "Bob"
+		icon_state = "hair_bob"
+		gender = FEMALE
+		species_allowed = list("Human","Unathi")
+		chatname = "bobbed hair"
+
+	bob_chin
+		name = "Bob, Chin Length"
+		icon_state = "hair_bob_chin"
+		gender = FEMALE
+		chatname = "bobbed hair"
+
+	bob_even
+		name = "Bob, Shoulder Length"
+		icon_state = "hair_bob_shoulder"
+		gender = FEMALE
+		chatname = "bobbed hair"
+
+	bob_kusanagi
+		name = "Bob, Kusanagi"
+		icon_state = "hair_bob_kusanagi"
+		chatname = "bobbed hair"
+
+	bobcurl
+		name = "Bobcurl"
+		icon_state = "hair_bobcurl"
+		gender = FEMALE
+		species_allowed = list("Human","Unathi")
+		chatname = "bobbed hair"
+
+	bowl
+		name = "Bowl"
+		icon_state = "hair_bowlcut"
+		gender = MALE
+		chatname = "bowl cut"
+
+	bowlcut2
+		name = "Bowl 2"
+		icon_state = "hair_bowlcut2"
+		gender = MALE
+		chatname = "bowl cut"
+
+	braid_floorlength
+		name = "Braid, Floorlength"
+		icon_state = "hair_braid_floorlength"
+		gender = FEMALE
+		length = 4
+		chatname = "floorlength braided hair"
+
+	braid_grande
+		name = "Braid, Grande"
+		icon_state = "hair_braid_grande"
+		gender = FEMALE
+		length = 3
+		chatname = "braided hair"
+
+	braid_medium
+		name = "Braid, Medium"
+		icon_state = "hair_brad_medium"
+		gender = FEMALE
+		length = 2
+		chatname = "braided hair"
+
+	braid2
+		name = "Braid 2"
+		icon_state = "hair_braid2"
+		gender = FEMALE
+		length = 3
+		chatname = "braided hair"
+
+	braid2_alt
+		name = "Braid 2, Alt"
+		icon_state = "hair_braid2_alt"
+		gender = FEMALE
+		length = 3
+		chatname = "braided hair"
+
+	bun
+		name = "Bun"
+		icon_state = "hair_bun"
+		gender = FEMALE
+		length = 2
+		chatname = "bunned hair"	//renaming from Hair Bun to consider other points of contact
+
+	bun_casual
+		name = "Bun, Casual"
+		icon_state = "hair_bun_casual"
+		gender = FEMALE
+		length = 2
+		chatname = "bunned hair"
+
+	bun_donut
+		name = "Bun, Donut"
+		icon_state = "hair_bun_donut"
+		length = 2
+		chatname = "bunned hair"
+
+	bun_double
+		name = "Bun, Double"
+		icon_state = "hair_bun_double"
+		gender = FEMALE
+		length = 3
+		chatname = "bunned hair"
+
+	bun_low
+		name = "Bun, Low"
+		icon_state = "hair_bun_low"
+		length = 2
+		chatname = "bunned hair"
+
+	bun_manbun
+		name = "Bun, Manbun"
+		icon_state = "hair_bun_manbun"
+		gender = MALE
+		length = 2
+		chatname = "manbun"
+
+	bun_odango
+		name = "Bun, Odango"
+		icon_state = "hair_bun_odango"
+		gender = FEMALE
+		length = 2
+		chatname = "odango hairdo"
+
+	bun_overeye
+		name = "Bun, Overeye"
+		icon_state = "hair_bun_overeye"
+		gender = FEMALE
+		length = 2
+		chatname = "bunned hair"
+
+	bun_tight
+		name = "Bun, Tight"
+		icon_state = "hair_bun_tight"
+		gender = FEMALE
+		length = 2
+		chatname = "bunned hair"
+
+	bun_topknot
+		name = "Bun, Topknot"
+		icon_state = "hair_bun_topknot"
+		gender = MALE
+		length = 2
+		chatname = "topknotted hair"
+
+	buzzcut
+		name = "Buzzcut"
+		icon_state = "hair_buzzcut"
+		gender = MALE
+		species_allowed = list("Human","Unathi")
+		chatname = "unbuzzed hair"	//grabbing the grabbable hair
+
+	chrono
+		name = "Chrono"
+		icon_state = "hair_chrono"
+		gender = MALE
+		length = 4
+		chatname = "spiked hair"
+
+	cia
+		name = "CIA"
+		icon_state = "hair_cia"
+		gender = MALE
+		chatname = "short hair"
 
 	coffeehouse
 		name = "Coffee House Cut"
 		icon_state = "hair_coffeehouse"
 		gender = MALE
-		chatname = "Short Hair"
+		chatname = "coffee house haircut"
 
-	undercut
-		name = "Undercut"
-		icon_state = "hair_undercut"
-		gender = MALE
-		chatname = "Short Hair"
-
-	undercut2
-		name = "Undercut 2"
-		icon_state = "hair_undercut2"
+	coffeehouse_shave
+		name = "Coffee House Shave"
+		icon_state = "hair_coffeehouse_shave"
 		gender = MALE
 
-	undercut3
-		name = "Undercut 3"
-		icon_state = "hair_undercut3"
+	combover
+		name = "Combover"
+		icon_state = "hair_combover"
 		gender = MALE
+		chatname = "groomed hair"
 
-	shavedpart
-		name = "Partly Shaved"
-		icon_state = "hair_shavedpart"
-		gender = MALE
+	country
+		name = "Country"
+		icon_state = "hair_country"
+		gender = FEMALE
+		chatname = "tied hair"
 
-	hightight
-		name = "High and Tight"
-		icon_state = "hair_hightight"
+	crew
+		name = "Crewcut"
+		icon_state = "hair_crewcut"
 		gender = MALE
-		chatname = "Short Hair"
+		chatname = "short hair"
 
-	topknot
-		name = "Topknot"
-		icon_state = "hair_topknot"
-		gender = MALE
+	curls
+		name = "Curls"
+		icon_state = "hair_curls"
+		name = "curled hair"
+
+	cut
+		name = "Cut Hair"
+		icon_state = "hair_cuthair" //hair_c
+		chatname = "short hair"
+
+	devillock
+		name = "Devil Lock"
+		icon_state = "hair_devilock"
+		chatname = "devil locks"
+
+	dreadlocks
+		name = "Dreadlocks"
+		icon_state = "hair_dreads"
+		length = 4
+		chatname = "dreadlocks"
+
+	drills_celes
+		name = "Drills, Celes"
+		icon_state = "hair_drills_celes"
 		length = 3
-		chatname = "Topknot"
+		chatname = "drilled hair"
 
-	ronin
-		name = "Ronin"
-		icon_state = "hair_ronin"
-		gender = MALE
-		length = 3
-		chatname = "Long Hair"
+	drills_drillruru
+		name = "Drills, Drillruru"
+		icon_state = "hair_drills_drillruru"
+		gender = FEMALE
+		length = 2
+		chatname = "drilled hair"
 
-	bowlcut2
-		name = "Bowl2"
-		icon_state = "hair_bowlcut2"
-		gender = MALE
-		chatname = "Bowl Cut"
+	emo
+		name = "Emo"
+		icon_state = "hair_emo"
+		chatname = "fringed hair"
 
-	thinning
-		name = "Thinning"
-		icon_state = "hair_thinning"
-		gender = MALE
-		chatname = "Short Hair"
+	emo_alt
+		name = "Emo, Alt"
+		icon_state = "hair_emo_alt"
+		chatname = "fringed hair"
 
-	thinningfront
-		name = "Thinning Front"
-		icon_state = "hair_thinningfront"
-		gender = MALE
-		chatname = "Short Hair"
-
-	thinningback
-		name = "Thinning Back"
-		icon_state = "hair_thinningrear"
-		gender = MALE
-		chatname = "Short Hair"
-
-	manbun
-		name = "Manbun"
-		icon_state = "hair_manbun"
-		gender = MALE
-		length = 3
-		chatname = "Hair Bun"
-
-	shavedbun
-		name = "Shaved Bun"
-		icon_state = "hair_shavedbun"
-		chatname = "Hair Bun"
-
-
-	halfshaved
-		name = "Half-Shaved"
-		icon_state = "hair_halfshaved"
-		chatname = "Short Hair"
-
-	halfshavedemo
-		name = "Half-Shaved Emo"
-		icon_state = "hair_halfshavedemo"
-		chatname = "Short Hair"
-
-	longsideemo
-		name = "Long Side Emo"
-		icon_state = "hair_longsideemo"
-		chatname = "Side Cut Hair"
+	emo_long
+		name = "Emo, Long"
+		icon_state = "hair_emo_long"
+		chatname = "long fringed hair"
 		length = 2
 
-	sideswept
-		name = "Sideswept Hair"
-		icon_state = "hair_sideswept"
+	emofringe
+		name = "Emo, Fringe"
+		icon_state = "hair_emofringe"
+		chatname = "fringed hair"
+
+	emofringe_long
+		name = "Emo, Fringe Long"
+		icon_state = "hair_emofringe_long"
+		gender = FEMALE
+		length = 3
+		chatname = "long fringed hair"
+
+	fade_high
+		name = "Fade, High"
+		icon_state = "hair_fade_high"
+		gender = MALE
+		chatname = "unshaved hair"
+
+	fade_low
+		name = "Fade, Low"
+		icon_state = "hair_fade_low"	//why did we have to pick from a letter before M for something low
+		gender = MALE
+		chatname = "short hair"
+
+	fade_medium
+		name = "Fade, Medium"
+		icon_state = "hair_fade_medium"
+		gender = MALE
+		chatname = "unshaved hair"
+
+	fade_none
+		name = "Fade, None"
+		icon_state = "hair_fade_none"
+		gender = MALE
+		chatname = "short hair"
+
+	familyman
+		name = "Family Man, The"
+		icon_state = "hair_thefamilyman_the"
+		gender = MALE
+		chatname = "homely hairdo"
 		length = 2
-		chatname = "Sideswept Hair"
 
-	mohawkshaved
-		name = "Shaved Mohawk"
-		icon_state = "hair_mohawkshaved"
-		chatname = "Mohawk"
+	father
+		name = "Father"
+		icon_state = "hair_father"
+		gender = MALE
+		chatname = "short hair"
 
-	mohawkshaved2
-		name = "Tight Shaved Mohawk"
-		icon_state = "hair_mohawkshaved2"
-		chatname = "Mohawk"
+	feather
+		name = "Feather"
+		icon_state = "hair_feather"
+		length = 2
+		chatname = "feathered hair"
 
-	mohawkshavednaomi
-		name = "Naomi Mohawk"
-		icon_state = "hair_mohawkshavednaomi"
-		chatname = "Mohawk"
+	flat_top
+		name = "Flat Top"
+		icon_state = "hair_flattop"
+		gender = MALE
+		chatname = "flat top hair"
 
-	leftsidecut
-		name = "Left Sidecut"
-		icon_state = "hair_leftside"
-		chatname = "Side Cut Hair"
+	flair
+		name = "Flaired Hair"
+		icon_state = "hair_flair"
+		length = 2
+		chatname = "flaired hair"
 
-	rightsidecut
-		name = "Right Sidecut"
-		icon_state = "hair_rightside"
-		chatname = "Side Cut Hair"
+	flow
+		name = "Flow Hair"
+		icon_state = "hair_flow" //hair_f
+		chatname = "short hair"
+
+	gelled
+		name = "Gelled Back"
+		icon_state = "hair_gelled"
+		gender = FEMALE
+		length = 2
+		chatname = "gelled-back hair"
+
+	gentle
+		name = "Gentle"
+		icon_state = "hair_gentle"
+		gender = FEMALE
+		length = 3
+		chatname = "fringed hair"
 
 	gentle2
 		name = "Gentle 2"
 		icon_state = "hair_gentle2"
 		length = 2
-		chatname = "Fringed Hair"
+		chatname = "fringed hair"
 
-	gentle2long
-		name = "Gentle 2 (Long)"
-		icon_state = "hair_gentle2long"
-		length = 2
-		chatname = "Fringed Hair"
-
-	donutbun
-		name = "Donut Bun"
-		icon_state = "hair_donutbun"
-		chatname = "Hair Bun"
-
-	gentle2alt
+	gentle2_alt
 		name = "Gentle 2, Alternative"
-		icon_state = "hair_gentle2alt"
+		icon_state = "hair_gentle2_alt"
 		length = 2
-		chatname = "Fringed Hair"
+		chatname = "fringed hair"
 
-	gentle2longalt
+	gentle2_long
+		name = "Gentle 2 (Long)"
+		icon_state = "hair_gentle2_long"
+		length = 3
+		chatname = "fringed hair"
+
+	gentle2_longalt
 		name = "Gentle 2, Alternative (Long)"
-		icon_state = "hair_gentle2longalt"
+		icon_state = "hair_gentle2_longalt"
+		length = 3
+		chatname = "fringed hair"
+
+	glossy
+		name = "Glossy"
+		icon_state = "hair_glossy"
 		length = 2
-		chatname = "Fringed Hair"
+		chatname = "short hair"
+
+	halfbang
+		name = "Half-banged Hair"
+		icon_state = "hair_halfbang"
+		chatname = "half-banged hair"
+
+	halfbangalt
+		name = "Half-banged Hair, Alt"
+		icon_state = "hair_halfbang_alt"
+		chatname = "half-banged hair"
+
+	himecut
+		name = "Hime Cut"
+		icon_state = "hair_himecut"
+		gender = FEMALE
+		length = 3
+		chatname = "hime cut hair"
+
+	himecut_alt
+		name = "Hime Cut, Alt"
+		icon_state = "hair_himecut_alt"
+		gender = FEMALE
+		length = 3
+		chatname = "hime cut hair"
+
+	himecut_short
+		name = "Hime Cut, Short"
+		icon_state = "hair_himecut_short"
+		gender = FEMALE
+		chatname = "Hime Cut Hair"
+
+	hitop
+		name = "Hitop"
+		icon_state = "hair_hitop"
+		gender = MALE
+		chatname = "hitop"
+
+	jade
+		name = "Jade"
+		icon_state = "hair_jade"
+		length = 2
+		chatname = "messy hair"
+
+	jensen
+		name = "Jensen Hair"  // Removing Videogame References
+		icon_state = "hair_jensen"
+		gender = MALE
+		chatname = "short hair"
+
+	joestar
+		name = "Joestar"
+		icon_state = "hair_joestar"
+		gender = MALE
+		chatname = "short hair"
+
+	long
+		name = "Long Hair"
+		icon_state = "hair_long"
+		length = 3
+		chatname = "long hair"
+
+	long_alt
+		name = "Long Hair, Alt"
+		icon_state = "hair_long_alt"
+		length = 2
+		chatname = "Long Hair"
+
+	long_shoulder
+		name = "Long Hair, Shoulder-length"
+		icon_state = "hair_long_shoulder" //hair_b
+		length = 2
+		chatname = "shoulder-length hair"
+
+	long_verylong
+		name = "Long Hair, Very Long"
+		icon_state = "hair_long_verylong"
+		length = 4
+		chatname = "very long"
+
+	longfringe
+		name = "Long Fringe"
+		icon_state = "hair_longfringe"
+		length = 2
+		chatname = "fringed hair"
+
+	longfringe_longer
+		name = "Long Fringe, Longer"
+		icon_state = "hair_longfringe_longer"
+		length = 3
+		chatname = "fringed hair"
+
+	messy
+		name = "Messy"
+		icon_state = "hair_messy"
+		chatname = "messy hair"
+
+	modern
+		name = "Modern"
+		icon_state = "hair_modern"
+		length = 3
+		chatname = "long hair"
+
+	mohawk
+		name = "Mohawk"
+		icon_state = "hair_mohawk"
+		chatname = "mohawk"
+
+	mohawk_high
+		name = "Mohawk, High"
+		icon_state = "hair_mohawk_high" //hair_d
+		chatname = "mohawk"
+
+	mohawk_hightight
+		name = "Mohawk, High and Tight"
+		icon_state = "hair_mohawk_hightight"
+		gender = MALE
+		chatname = "mohawk"
+
+	mohawk_naomi
+		name = "Mohawk, Naomi"
+		icon_state = "hair_mohawk_naomi" //slightly longer on the side icons, in case you were wondering
+		chatname = "mohawk"
+
+	mohawk_reverse
+		name = "Mohawk, Reverse"
+		icon_state = "hair_mohawk_reverse"
+		gender = MALE
+		chatname = "reverse mohawk"
+
+	mohawk_shaved
+		name = "Mohawk, Shaved"
+		icon_state = "hair_mohawk_shaved"
+		chatname = "mohawk"
+
+	mohawk_shavedtight
+		name = "Mohawk, Shaved and Tight"
+		icon_state = "hair_mohawk_shavedtight"
+		chatname = "mohawk"
+
+	mohawk_unshaven
+		name = "Mohawk, Unshaven"
+		icon_state = "hair_mohawk_unshaven"
+		chatname = "mohawk"
+
+	mulder
+		name = "Mulder"
+		icon_state = "hair_mulder"
+		gender = MALE
+		chatname = "short hair"
 
 	neat
 		name = "Neat"
 		icon_state = "hair_neat"
 		gender = FEMALE
-		chatname = "Short Hair"
+		chatname = "groomed hair"
 
 	neatlong
 		name = "Neat (Long)"
 		icon_state = "hair_neatlong"
 		gender = FEMALE
 		length = 2
-		chatname = "Long Hair"
+		chatname = "wavy hair"
 
-	bobcuteven
-		name = "Shoulder Bob"
-		icon_state = "hair_bobcuteven"
+	newyou
+		name = "New You"
+		icon_state = "hair_newyou"
 		gender = FEMALE
-		chatname = "Bobbed Hair"
+		length = 3
+		chatname = "long hair"
 
-	shortmess
-		name = "Messy"
-		icon_state = "hair_shortmess"
-		chatname = "Messy Hair"
+	nia
+		name = "Nia"
+		icon_state = "hair_nia"
+		gender = FEMALE
+		length = 3
+		chatname = "long hair"
 
-	remohawk
-		name = "Mohawk"
-		icon_state = "hair_mohawk"
-		chatname = "Mohawk"
+	ombre
+		name = "Ombre"
+		icon_state = "hair_ombre"
+		gender = FEMALE
+		length = 2
+		chatname = "ombre hairdo"
 
-	celes
-		name = "Drills, Side"
-		icon_state = "hair_celes"
-		chatname = "Drills"
+	oneshoulder
+		name = "One Shoulder"
+		icon_state = "hair_oneshoulder"
+		gender = FEMALE
+		length = 2
+		chatname = "one shoulder hairstyle"
 
-	lowbun
-		name = "Low Bun"
-		icon_state = "hair_bun3"
-		chatname = "Hair Bun"
+	overeye_long
+		name = "Overeye, Long"
+		icon_state = "hair_overeye_lone"
+		length = 3
+		chatname = "long hair"
 
+	overeye_short
+		name = "Overeye, Short"
+		icon_state = "hair_overeye_short"
+		chatname = "long hair"
+		length = 2
+
+	overeye_veryshort
+		name = "Overeye, Very Short"
+		icon_state = "hair_overeye_veryshort"
+		chatname = "short hair"
+
+	overeye_veryshort_alt
+		name = "Overeye, Very Short Alt"
+		icon_state = "hair_overeye_veryshort_alt"
+		chatname = "short hair"
+
+	oxton
+		name = "Oxton"
+		icon_state = "hair_oxton"
+		chatname = "short hair"
+
+	parted
+		name = "Parted"
+		icon_state = "hair_parted"
+		chatname = "parted hair"
+
+	parted_alt
+		name = "Parted, Alt"
+		icon_state = "hair_parted_alt"
+		chatname = "parted hair"
+
+	pigtails_kagami
+		name = "Pigtails, Kagami"
+		icon_state = "hair_pigtails_kagami"
+		gender = FEMALE
+		length = 2
+		chatname = "pigtailed hair"
+
+	pigtails_nitori
+		name = "Pigtails, Nitori"
+		icon_state = "hair_pigtails_nitori"
+		gender = FEMALE
+		length = 2
+		chatname = "pigtailed hair"
+
+	pigtails_twintail
+		name = "Pigtails, Twintail"
+		icon_state = "hair_pigtails_twintail"
+		gender = FEMALE
+		length = 2
+		chatname = "pigtailed hair"
+
+	pompadour
+		name = "Pompadour"
+		icon_state = "hair_pompadour"
+		gender = MALE
+		length = 3
+		chatname = "pompadour"
+
+	pompadour_dandy
+		name = "Pompadour, Dandy"
+		icon_state = "hair_pompadour_dandy"
+		gender = MALE
+		length = 3
+		chatname = "pompadour"
+
+	ponytail_fringetail
+		name = "Ponytail, Fringetail"
+		icon_state = "hair_ponytail_fringetail"
+		gender = FEMALE
+		length = 2
+		chatname = "fringetailed hair"
+
+	ponytail_side
+		name = "Ponytail, Side"
+		icon_state = "hair_ponytail_side"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail_side2
+		name = "Ponytail, Side 2"
+		icon_state = "hair_ponytail_side2"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail_side3
+		name = "Ponytail, Side 3"
+		icon_state = "hair_ponytail_side3"
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail_spiky
+		name = "Ponytail, Spiky"
+		icon_state = "hair_ponytail_spiky"
+		gender = FEMALE
+		length = 4
+		chatname = "ponytailed hair"
+
+	ponytail_zieglertail
+		name = "Ponytail, Zieglertail"
+		icon_state = "hair_ponytail_ziegler"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail1
+		name = "Ponytail 1"
+		icon_state = "hair_ponytail1"
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail2
+		name = "Ponytail 2"
+		icon_state = "hair_ponytail2" //hair_pa
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail3
+		name = "Ponytail 3"
+		icon_state = "hair_ponytail3"
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail4
+		name = "Ponytail 4"
+		icon_state = "hair_ponytail4"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail5
+		name = "Ponytail 5"
+		icon_state = "hair_ponytail5"
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail6
+		name = "Ponytail 6"
+		icon_state = "hair_ponytail6"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	ponytail7
+		name = "Ponytail 7"
+		icon_state = "hair_ponytail7"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
+	poofy
+		name = "Poofy"
+		icon_state = "hair_poofy"
+		gender = FEMALE
+		length = 2
+		chatname = "poofy hair"
+
+	poofy2
+		name = "Poofy 2"
+		icon_state = "hair_poofy2"
+		gender = FEMALE
+		length = 2
+		chatname = "poofy hair"
+
+	punk_bun
+		name = "Punk Shave, Bun"
+		icon_state = "hair_punk_bun"
+		length = 2
+		chatname = "bunned hair"
+
+	punk_halfshaved
+		name = "Punk Shave, Half-Shaved"
+		icon_state = "hair_punk_halfshaved"
+		chatname = "unshaved hair"		// grabbing the parts that can be grabbed
+
+	punk_halfshaved_emo
+		name = "Punk Shave, Half-Shaved Emo"
+		icon_state = "hair_punk_halfshaved_emo"
+		length = 2		//risky; the unshaved part is long but the shaved part isn't. Might look weird if people abuse the tie hair verb -- but then again they can abuse the mirror
+		chatname = "unshaved hair"
+
+	punk_sidecut_left
+		name = "Punk Shave, Sidecut Left"
+		icon_state = "hair_punk_sideleft"
+		length = 2
+		chatname = "unshaved hair"
+
+	punk_sidecut_right
+		name = "Punk Shave, Sidecut Right"
+		icon_state = "hair_punk_sideright"
+		length = 2
+		chatname = "unshaved hair"
+
+	quiff
+		name = "Quiff"
+		icon_state = "hair_quiff"
+		gender = MALE
+		length = 2
+		chatname = "quiffed hair"
+
+	ronin
+		name = "Ronin"
+		icon_state = "hair_ronin"
+		gender = MALE
+		length = 2
+		chatname = "long hair"
+
+	rosa
+		name = "Rosa"
+		icon_state = "hair_rosa"
+		chatname = "short hair"
+
+	rows
+		name = "Rows"
+		icon_state = "hair_rows"
+		length = 2
+		chatname = "cornrows"
+
+	rows_braid
+		name = "Rows, Braid"
+		icon_state = "hair_rows_braid"
+		length = 2
+		chatname = "cornrows"
+
+	rows_bun
+		name = "Rows, Bun"
+		icon_state = "hair_rows_bun"
+		length = 2
+		chatname = "cornrows"
+
+	rows_dualtail
+		name = "Rows, Dual Tail"
+		icon_state = "hair_rows_dualtail"
+		length = 2
+		chatname = "cornrows"
+
+	rows_long
+		name = "Rows, Long"
+		icon_state = "hair_rows_long"
+		length = 2
+		chatname = "cornrows"
+
+	scully
+		name = "Scully"
+		icon_state = "hair_scully"
+		gender = FEMALE
+		chatname = "wavy hair"
+
+	shaved
+		name = "Shaved"
+		icon_state = "hair_shaved"
+		gender = MALE
+		length = 0
+		chatname = "shaved head"
+
+	short
+		name = "Short Hair"
+		icon_state = "hair_shorthair" //hair_a
+		chatname = "short hair"
+
+	short2
+		name = "Short Hair 2"
+		icon_state = "hair_shorthair2"
+		chatname = "short hair"
+
+	short3
+		name = "Short Hair 3"
+		icon_state = "hair_shorthair3"
+		chatname = "short hair"
+
+	sideswept
+		name = "Sideswept Hair"
+		icon_state = "hair_sideswept"
+		chatname = "sideswept hair"
+
+	skinhead
+		name = "Skinhead"
+		icon_state = "hair_skinhead"
+		chatname = "matted shaved hair"
+
+	sleeze
+		name = "Sleeze"
+		icon_state = "hair_sleeze"
+		chatname = "short hair"
+
+	spiky
+		name = "Spiky"
+		icon_state = "hair_spiky"
+		species_allowed = list("Human","Unathi")
+		chatname = "spiky hair"
+
+	thinning
+		name = "Thinning"
+		icon_state = "hair_thinning"
+		gender = MALE
+		chatname = "short hair"
+
+	thinningback
+		name = "Thinning Back"
+		icon_state = "hair_thinningback"
+		gender = MALE
+		chatname = "short hair"
+
+	thinningfront
+		name = "Thinning Front"
+		icon_state = "hair_thinningfront"
+		gender = MALE
+		chatname = "short hair"
+
+	tresshoulder
+		name = "Tress Shoulder"
+		icon_state = "hair_tressshoulder"
+		gender = FEMALE
+		length = 2
+		chatname = "tressed hair"
+
+	trimmed
+		name = "Trimmed"
+		icon_state = "hair_trimmed"
+		gender = MALE
+		chatname = "trimmed hair"
+
+	trimmedflat
+		name = "Trimmed Flat Top"
+		icon_state = "hair_trimmedflat"
+		gender = MALE
+		chatname = "trimmed hair"
+
+	undercut
+		name = "Undercut"
+		icon_state = "hair_undercut"
+		gender = MALE
+		chatname = "undercut"
+
+	undercut2
+		name = "Undercut 2"
+		icon_state = "hair_undercut2"
+		gender = MALE
+		chatname = "undercut"
+
+	undercut3
+		name = "Undercut 3"
+		icon_state = "hair_undercut3"
+		gender = MALE
+		chatname = "undercut"
+
+	unkept
+		name = "Unkept"
+		icon_state = "hair_unkept"
+		length = 3
+		chatname = "unkept hairdo"
+
+	updo
+		name = "Updo"
+		icon_state = "hair_updo"
+		gender = FEMALE
+		length = 2
+		chatname = "updone hair"
+
+	vegeta
+		name = "Vegeta"
+		icon_state = "hair_vegeta"
+		gender = MALE
+		length = 4
+		chatname = "spiked hair"
+
+	volaju
+		name = "Volaju"
+		icon_state = "hair_volaju"
+		length = 2
+		chatname = "long hair"
+
+	wheeler
+		name = "Wheeler"
+		icon_state = "hair_wheeler"
+		gender = FEMALE
+		chatname = "short hair"
+
+	wisp  //may require more work on the sprite; uncommented for potential of creativity
+		name = "Wisp"
+		icon_state = "hair_wisp"
+		gender = FEMALE
+		length = 3
+		chatname = "long hair"
 
 
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
-	uniter
+	balding
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
 		icon_blend_mode = ICON_MULTIPLY
-		name = "Uniter"
-		icon_state = "hair_uniter"
+		name = "Balding"
+		icon_state = "hair_balding"
+		length = 0
+		chatname = "balding hair"
 
-		balding
-			name = "Balding"
-			icon_state = "hair_balding"
-			length = 0
+		bun_librarian
+			name = "Bun, Librarian"
+			icon_state = "hair_bun_librarian"
+			length = 2
+			chatname = "bunned hair"
 
-		bun
-			name = "Librarian Bun"
-			icon_state = "hair_bun"
-			chatname = "Hair Bun"
+		bun_uniter
+			name = "Bun, Uniter"
+			icon_state = "hair_bun_uniter"
+			length = 2
+			chatname = "hair bun"
+
+		cactus
+			name = "Cactus"
+			icon_state = "hair_cactus"
+			length = 3
+			chatname = "very long hair"
 
 		fade
 			name = "Fade"
 			icon_state = "hair_fade"
-			chatname = "Fade"
+			length = 1
+			chatname = "groomed hair"
+
+		fade_grown
+			name = "Fade (Grown)"
+			icon_state = "hair_fade_grown"
+			length = 1
+			chatname = "groomed hair"
 
 		floof
 			name = "Floof"
 			icon_state = "hair_floof"
-			chatname = "Fluffed Hair"
+			length = 2
+			chatname = "fluffed hair"
+
+		jenjen
+			name = "Jenjen"
+			icon_state = "hair_jenjen"
+			length = 2
+			chatname = "ponytailed hair"
 
 		krewcut
 			name = "Krewcut"
 			icon_state = "hair_krewcut"
-			length = 0
+			length = 1
+			chatname = "fringed hair"
 
-		pomp
-			name = "Pomp III"
+		pompadour_iii
+			name = "Pompadour, Pomp III"
 			icon_state = "hair_pomp_iii"
 			length = 3
-			chatname = "Pompadour"
+			chatname = "pompadour"
+
+		spiked
+			name = "Spiked"
+			icon_state = "hair_short_spike"
+			length = 1
+			chatname = "spiked hair"
 
 		shortchoppy
 			name = "Choppy (Short)"
 			icon_state = "hair_shortchoppy"
-			chatname = "Short Hair"
+			length = 1
+			chatname = "choppy hair"
 
 		shortfloof
 			name = "Floof (Short)"
 			icon_state = "hair_shortfloof"
-			chatname = "Short Hair"
+			length = 1
+			chatname = "fluffed hair"
 
-		sideshave
-			name = "Sideshave"
-			icon_state = "hair_sideshaved"
-			chatname = "Short Hair"
+		swept
+			name = "Swept"
+			icon_state = "hair_shortswept"
+			length = 1
+			chatname = "swept hair"
+
+		punk_sideshaved
+			name = "Punk Shave, Sideshaved"
+			icon_state = "hair_punk_sideshaved"
+			length = 1
+			chatname = "unshaved hair"		//in reference to tugging the unshaved parts
+
+		superbowl
+			name = "Bowl, Superbowl"
+			icon_state = "hair_superbowl"
+			length = 1
+			chatname = "bowl cut"
 
 		waxed
 			name = "Waxed"
 			icon_state = "hair_waxed"
-			chatname = "Short Hair"
-
-		cactus
-			name = "Cactus"
-			icon_state = "hair_whatdoinamethiscactus"
-			chatname = "Short Hair"
+			chatname = "bald head"
 
 		wavyshoulder
 			name = "Wavy Shoulder (Down)"
 			icon_state = "wavyshoulder_down"
 			length = 2
-			chatname = "Wavy Hair"
+			chatname = "wavy hair"
 
 		wavyshoulder_pt
 			name = "Wavy Shoulder (Ponytail)"
 			icon_state = "wavyshoulder_up"
 			length = 2
-			chatname = "Wavy Hair"
-
-		jenjen
-			name = "Jenjen"
-			icon_state = "hair_jenjen"
-			chatname = "Short Hair"
-
-		fade_grown
-			name = "Fade (Grown)"
-			icon_state = "hair_fade_grown"
-			chatname = "Fade"
-
-		swept
-			name = "Swept"
-			icon_state = "hair_shortswept"
-			chatname = "Short Hair"
-
-		spiked
-			name = "Spiked"
-			icon_state = "hair_short_spike"
-			chatname = "Spiked"
+			chatname = "wavy hair"
 
 
 /*
@@ -1116,75 +1259,6 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "bald"
 		gender = NEUTER
 		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox")
-
-	watson
-		name = "Watson Mustache"
-		icon_state = "facial_watson"
-
-	hogan
-		name = "Hulk Hogan Mustache"
-		icon_state = "facial_hogan" //-Neek
-
-	vandyke
-		name = "Van Dyke Mustache"
-		icon_state = "facial_vandyke"
-
-	chaplin
-		name = "Square Mustache"
-		icon_state = "facial_chaplin"
-
-	selleck
-		name = "Selleck Mustache"
-		icon_state = "facial_selleck"
-
-	neckbeard
-		name = "Neckbeard"
-		icon_state = "facial_neckbeard"
-
-	fullbeard
-		name = "Full Beard"
-		icon_state = "facial_fullbeard"
-
-	longbeard
-		name = "Long Beard"
-		icon_state = "facial_longbeard"
-
-	vlongbeard
-		name = "Very Long Beard"
-		icon_state = "facial_wise"
-
-	elvis
-		name = "Elvis Sideburns"
-		icon_state = "facial_elvis"
-		species_allowed = list("Human","Unathi")
-
-	abe
-		name = "Abraham Lincoln Beard"
-		icon_state = "facial_abe"
-
-	chinstrap
-		name = "Chinstrap"
-		icon_state = "facial_chin"
-
-	hip
-		name = "Hipster Beard"
-		icon_state = "facial_hip"
-
-	gt
-		name = "Goatee"
-		icon_state = "facial_gt"
-
-	jensen
-		name = "Adam Jensen Beard"
-		icon_state = "facial_jensen"
-
-	volaju
-		name = "Volaju"
-		icon_state = "facial_volaju"
-
-	dwarf
-		name = "Dwarf Beard"
-		icon_state = "facial_dwarf"
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -1210,6 +1284,67 @@ Follow by example and make good judgement based on length which list to include 
 		name = "7 O'clock Shadow and Moustache"
 		icon_state = "facial_7oclockmoustache"
 
+	abe
+		name = "Abraham Lincoln Beard"
+		icon_state = "facial_abe"
+
+	chaplin
+		name = "Square Mustache"
+		icon_state = "facial_chaplin"
+
+	chinstrap
+		name = "Chinstrap"
+		icon_state = "facial_chin"
+
+	chinless
+		name = "Chinless Beard"
+		icon_state = "facial_chinlessbeard"
+
+	croppedbeard
+		name = "Full Cropped Beard"
+		icon_state = "facial_croppedfullbeard"
+
+	dwarf
+		name = "Dwarf Beard"
+		icon_state = "facial_dwarf"
+
+	elvis
+		name = "Elvis Sideburns"
+		icon_state = "facial_elvis"
+		species_allowed = list("Human","Unathi")
+
+	fullbeard
+		name = "Full Beard"
+		icon_state = "facial_fullbeard"
+
+	gt
+		name = "Goatee"
+		icon_state = "facial_gt"
+
+	hip
+		name = "Hipster Beard"
+		icon_state = "facial_hip"
+
+	hogan
+		name = "Hulk Hogan Mustache"
+		icon_state = "facial_hogan" //-Neek
+
+	jensen
+		name = "Adam Jensen Beard"
+		icon_state = "facial_jensen"
+
+	longbeard
+		name = "Long Beard"
+		icon_state = "facial_longbeard"
+
+	martial_artist
+		name = "Martial Artist"
+		icon_state = "facial_martialartist"
+
+	moonshiner
+		name = "Moonshiner"
+		icon_state = "facial_moonshiner"
+
 	mutton
 		name = "Mutton Chops"
 		icon_state = "facial_mutton"
@@ -1218,27 +1353,47 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Mutton Chops and Moustache"
 		icon_state = "facial_muttonmus"
 
+	neckbeard
+		name = "Neckbeard"
+		icon_state = "facial_neckbeard"
+
+	selleck
+		name = "Selleck Mustache"
+		icon_state = "facial_selleck"
+
+	tribeard
+		name = "Tribeard"
+		icon_state = "facial_tribeard"
+
+	vandyke
+		name = "Van Dyke Mustache"
+		icon_state = "facial_vandyke"
+
+	volaju
+		name = "Volaju"
+		icon_state = "facial_volaju"
+
 	walrus
 		name = "Walrus Moustache"
 		icon_state = "facial_walrus"
 
-	croppedbeard
-		name = "Full Cropped Beard"
-		icon_state = "facial_croppedfullbeard"
+	watson
+		name = "Watson Mustache"
+		icon_state = "facial_watson"
 
-	chinless
-		name = "Chinless Beard"
-		icon_state = "facial_chinlessbeard"
+	wise
+		name = "Wise Beard"
+		icon_state = "facial_wise"
 
-	stark
+	chinstrap2
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Stark"
-		icon_state = "beard_stark"
+		name = "Chinstrap (Alt)"
+		icon_state = "beard_chinstrap_ii"
 		icon_blend_mode = ICON_MULTIPLY
 
-		chinstrap2
-			name = "Chinstrap (Alt)"
-			icon_state = "beard_chinstrap_ii"
+		stark
+			name = "Stark"
+			icon_state = "beard_stark"
 
 		swire
 			name = "Swire"
@@ -1256,157 +1411,164 @@ Follow by example and make good judgement based on length which list to include 
 
 //unathi hair
 
-	una_spines_long
+
+	una_aquaticfrill
 		icon = 'icons/mob/human_face/unathi_hair.dmi'
-		name = "Long Unathi Spines"
-		icon_state = "unathi_longspines"
+		name = "Unathi Aquatic Frills"
+		icon_state = "unathi_aquaticfrills"
 		species_allowed = list("Unathi")
 		length = 0
-		chatname = "Spines"
-
-		una_spines_short
-			name = "Short Unathi Spines"
-			icon_state = "unathi_shortspines"
-			length = 0
-			chatname = "Spines"
-
-		una_frills_long
-			name = "Long Unathi Frills"
-			icon_state = "unathi_longfrills"
-			length = 0
-			chatname = "Frills"
-
-		una_frills_short
-			name = "Short Unathi Frills"
-			icon_state = "unathi_shortfrills"
-			length = 0
-			chatname = "Frills"
-
-		una_horns
-			name = "Unathi Horns"
-			icon_state = "unathi_simplehorn"
-			length = 5
-			chatname = "Horns"
+		chatname = "frills"
 
 		una_bighorns
 			name = "Unathi Big Horns"
 			icon_state = "unathi_bighorn"
 			length = 5
-			chatname = "Horns"
-
-		una_smallhorns
-			name = "Unathi Small Horns"
-			icon_state = "unathi_smallhorn"
-			length = 5
-			chatname = "Horns"
-
-		una_swepthorns
-			name = "Unathi Swept-Forward Horns"
-			icon_state = "unathi_swepthorn"
-			length = 0
-			chatname = "Horns"
-
-		una_sidefrills
-			name = "Unathi Side Frills"
-			icon_state = "unathi_sidefrills"
-			length = 0
-			chatname = "Frills"
-
-		una_mohawk
-			name = "Unathi Mohawk"
-			icon_state = "unathi_mohawk"
-			length = 5
-			chatname = "Mohawk"
-
-		una_drachorn
-			name = "Unathi Draconic Horns"
-			icon_state = "unathi_drachorn"
-			length = 5
-			chatname = "Horns"
-
-		una_lowerhorn
-			name = "Unathi Lower Horns"
-			icon_state = "unathi_lowerhorn"
-			length = 5
-			chatname = "Horns"
-
-		una_spikehorn
-			name = "Unathi Spike Horns"
-			icon_state = "unathi_spikehorn"
-			length = 5
-			chatname = "Spiked Horns"
-
-		una_shorthorn
-			name = "Unathi Short Horns"
-			icon_state = "unathi_shorthorn"
-			length = 5
-			chatname = "Horns"
-
-		una_curlhorn
-			name = "Unathi Curled Horns"
-			icon_state = "unathi_curledhorn"
-			length = 5
-			chatname = "Horns"
-
-		una_ramhornshort
-			name = "Unathi Short Ram Horns"
-			icon_state = "unathi_ramhorn"
-			length = 5
-			chatname = "Horns"
-
-		una_ramhornlong
-			name = "Unathi Long Ram Horns"
-			icon_state = "unathi_ramhorn2"
-			length = 5
-			chatname = "Horns"
+			chatname = "horns"
 
 		una_chinhorn
 			name = "Unathi Chin Horn"
 			icon_state = "unathi_chinhorns"
 			length = 0
-			chatname = "Horns"
+			chatname = "horns"
 
-		una_hornadorns
-			name = "Unathi Horn Adorns"
-			icon_state = "unathi_hornadorns"
-			length = 0
-			chatname = "Horns"
+		una_curlhorn
+			name = "Unathi Curled Horns"
+			icon_state = "unathi_curledhorn"
+			length = 5
+			chatname = "horns"
 
 		una_dorsalfrill
 			name = "Unathi Dorsal Frill"
 			icon_state = "unathi_dorsalfrill"
 			length = 0
-			chatname = "Frills"
-
-		una_aquaticfrill
-			name = "Unathi Aquatic Frills"
-			icon_state = "unathi_aquaticfrills"
-			length = 0
-			chatname = "Frills"
-
-		una_longfrill
-			name = "Unathi Long Frills"
-			icon_state = "unathi_longfrills"
-			length = 0
-			chatname = "Frills"
-
-		una_shortfrill
-			name = "Unathi Short Frills"
-			icon_state = "unathi_shortfrills"
-			length = 0
-			chatname = "Frills"
-
-		una_longdorsal
-			name = "Unathi Long Dorsal Frill"
-			icon_state = "unathi_longdorsal"
-			length = 0
-			chatname = "Frills"
+			chatname = "frills"
 
 		una_dracfrills
 			name = "Unathi Draconic Frills"
 			icon_state = "unathi_dracfrills"
 			length = 0
-			chatname = "Frills"
+			chatname = "frills"
+
+		una_drachorn
+			name = "Unathi Draconic Horns"
+			icon_state = "unathi_drachorn"
+			length = 5
+			chatname = "horns"
+
+		una_hornadorns
+			name = "Unathi Horn Adorns"
+			icon_state = "unathi_hornadorns"
+			length = 0
+			chatname = "horns"
+
+		una_longdorsal
+			name = "Unathi Long Dorsal Frill"
+			icon_state = "unathi_longdorsal"
+			length = 0
+			chatname = "frills"
+
+		una_longfrill
+			name = "Unathi Long Frills"
+			icon_state = "unathi_longfrills"
+			length = 0
+			chatname = "frills"
+
+		una_longfrill2
+			name = "Unathi Long Frills 2"
+			icon_state = "unathi_longfrills2"
+			length = 0
+			chatname = "frills"
+
+		una_longspines
+			name = "Unathi Long Spines"
+			icon_state = "unathi_longspines"
+			length = 0
+			chatname = "spines"
+
+		una_lowerhorn
+			name = "Unathi Lower Horns"
+			icon_state = "unathi_lowerhorn"
+			length = 5
+			chatname = "horns"
+
+		una_mohawk
+			name = "Unathi Mohawk"
+			icon_state = "unathi_mohawk"
+			length = 5
+			chatname = "mohawk"
+
+		una_ramhornshort
+			name = "Unathi Short Ram Horns"
+			icon_state = "unathi_ramhorn"
+			length = 5
+			chatname = "horns"
+
+		una_ramhornlong
+			name = "Unathi Long Ram Horns"
+			icon_state = "unathi_ramhorn2"
+			length = 5
+			chatname = "horns"
+
+		una_shortfrill
+			name = "Unathi Short Frills"
+			icon_state = "unathi_shortfrills"
+			length = 0
+			chatname = "frills"
+
+		una_shortfrill2
+			name = "Unathi Short Frills 2"
+			icon_state = "unathi_shortfrills2"
+			length = 0
+			chatname = "frills"
+
+		una_shorthorn
+			name = "Unathi Short Horns"
+			icon_state = "unathi_shorthorn"
+			length = 5
+			chatname = "horns"
+
+		una_shortspines
+			name = "Unathi Short Spines"
+			icon_state = "unathi_shortspines"
+			length = 0
+			chatname = "spines"
+
+		una_sidefrills
+			name = "Unathi Side Frills"
+			icon_state = "unathi_sidefrills"
+			length = 0
+			chatname = "frills"
+
+		una_horns
+			name = "Unathi Horns"
+			icon_state = "unathi_simplehorn"
+			length = 5
+			chatname = "horns"
+
+		una_smallhorns
+			name = "Unathi Small Horns"
+			icon_state = "unathi_smallhorn"
+			length = 5
+			chatname = "horns"
+
+		una_spikehorn
+			name = "Unathi Spike Horns"
+			icon_state = "unathi_spikehorn"
+			length = 5
+			chatname = "spiked horns"
+
+		una_swepthorns
+			name = "Unathi Swept-Forward Horns"
+			icon_state = "unathi_swepthorn"
+			length = 0
+			chatname = "horns"
+
+		una_swepthorns2
+			name = "Unathi Swept-Forward Horns 2"
+			icon_state = "unathi_swepthorn2"
+			length = 0
+			chatname = "horns"
 
 //skrell tentacles
 
@@ -1445,109 +1607,119 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "ears_plain"
 		species_allowed = list("Tajara")
 
-		taj_ears_clean
-			name = "Tajara Clean"
-			icon_state = "hair_clean"
-			chatname = "Short Hair"
-
 		taj_ears_bangs
 			name = "Tajara Bangs"
 			icon_state = "hair_bangs"
-			chatname = "Short Hair"
+			chatname = "bangs"
 
-
-		taj_ears_braid
-			name = "Tajara Braid"
-			icon_state = "hair_tbraid"
-			chatname = "Braid"
-
-		taj_ears_shaggy
-			name = "Tajara Shaggy"
-			icon_state = "hair_shaggy"
-			chatname = "Messy Hair"
-
-		taj_ears_mohawk
-			name = "Tajaran Mohawk"
-			icon_state = "hair_mohawk"
-			chatname = "Mohawk"
-
-		taj_ears_plait
-			name = "Tajara Plait"
-			icon_state = "hair_plait"
-			chatname = "Short Hair"
-
-		taj_ears_straight
-			name = "Tajara Straight"
-			icon_state = "hair_straight"
-			chatname = "Short Hair"
-
-		taj_ears_long
-			name = "Tajara Long"
-			icon_state = "hair_long"
-			chatname = "Long Hair"
-
-		taj_ears_rattail
-			name = "Tajara Rat Tail"
-			icon_state = "hair_rattail"
-			chatname = "Braided Hair"
-
-		taj_ears_spiky
-			name = "Tajara Spiky"
-			icon_state = "hair_tajspiky"
-			chatname = "Spikey Hair"
-
-		taj_ears_messy
-			name = "Tajara Messy"
-			icon_state = "hair_messy"
-			chatname = "Messy Hair"
+		taj_ears_clean
+			name = "Tajara Clean"
+			icon_state = "hair_clean"
+			chatname = "short hair"
 
 		taj_ears_curls
 			name = "Tajara Curly"
 			icon_state = "hair_curly"
-			chatname = "Curly Hair"
-
-		taj_ears_wife
-			name = "Tajara Housewife"
-			icon_state = "hair_wife"
-			chatname = "Long Hair"
-
-		taj_ears_victory
-			name = "Tajara Victory Curls"
-			icon_state = "hair_victory"
-			chatname = "Curly Hair"
-
-		taj_ears_bob
-			name = "Tajara Bob"
-			icon_state = "hair_tbob"
-			chatname = "Bobbed Hair"
+			chatname = "curly hair"
 
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
-			chatname = "Curly Hair"
+			chatname = "curly hair"
 
 		taj_ears_pompadour
 			name = "Tajara Greaser"
 			icon_state = "hair_greaser"
-			chatname = "Messy Hair"
+			chatname = "pompadour"
+
+		taj_ears_long
+			name = "Tajara Long"
+			icon_state = "hair_long"
+			chatname = "long hair"
+
+		taj_ears_messy
+			name = "Tajara Messy"
+			icon_state = "hair_messy"
+			chatname = "messy hair"
+
+		taj_ears_mohawk
+			name = "Tajara Mohawk"
+			icon_state = "hair_mohawk"
+			chatname = "mohawk"
+
+		taj_ears_plait
+			name = "Tajara Plait"
+			icon_state = "hair_plait"
+			chatname = "hair plaits"
+
+		taj_ears_rattail
+			name = "Tajara Rat Tail"
+			icon_state = "hair_rattail"
+			chatname = "rat tail"
+
+		taj_ears_shaggy
+			name = "Tajara Shaggy"
+			icon_state = "hair_shaggy"
+			chatname = "messy hair"
+
+		taj_ears_straight
+			name = "Tajara Straight"
+			icon_state = "hair_straight"
+			chatname = "short hair"
+
+		taj_ears_spiky
+			name = "Tajara Spiky"
+			icon_state = "hair_tajspiky"
+			chatname = "spiky hair"
+
+		taj_ears_bob
+			name = "Tajara Bob"
+			icon_state = "hair_tbob"
+			chatname = "bobbed hair"
+
+		taj_ears_braid
+			name = "Tajara Braid"
+			icon_state = "hair_tbraid"
+			chatname = "braid"
+
+		taj_ears_victory
+			name = "Tajara Victory Curls"
+			icon_state = "hair_victory"
+			chatname = "curly hair"
+
+		taj_ears_wife
+			name = "Tajara Housewife"
+			icon_state = "hair_wife"
+			chatname = "long hair"
 
 //vox hair
 
-	vox_quills_short
+	vox_quills_kingly
 		icon = 'icons/mob/human_face/vox_hair.dmi'
-		name = "Short Vox Quills"
-		icon_state = "vox_shortquills"
+		name = "Kingly Vox Quills"
+		icon_state = "vox_kingly"
 		species_allowed = list("Vox")
+		chatname = "quills"
 
-		vox_quills_kingly
-			name = "Kingly Vox Quills"
-			icon_state = "vox_kingly"
-			chatname = "Quills"
+		vox_braid_long
+			name = "Vox Braid Long"
+			icon_state = "vox_braid_long"
+			chatname = "quills"
+
+		vox_braid_short
+			name = "Vox Braid Short"
+			icon_state = "vox_braid_short"
+			chatname = "quills"
+
+		vox_quills_short
+			name = "Short Vox Quills"
+			icon_state = "vox_shortquills"
+			chatname = "quills"
 
 		vox_quills_mohawk
 			name = "Quill Mohawk"
 			icon_state = "vox_mohawk"
-			chatname = "Quills"
+			chatname = "quills"
 
 //vaurca antennae
 
@@ -1557,86 +1729,90 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "vaurca_classic"
 		species_allowed = list("Vaurca")
 		gender = NEUTER
-		chatname = "Antennae"
-
-		vaurca_mid
-			name = "Mid Length Antennae"
-			icon_state = "vaurca_mid"
-			chatname = "Antennae"
-			length = 2
-
-		vaurca_fla
-			name = "Floor Length Antennae"
-			icon_state = "vaurca_fla"
-			chatname = "Long Antennae"
-			length = 4
-
-		vaurca_droop
-			name = "Droopy Antennae"
-			icon_state = "vaurca_droop"
-			chatname = "Antennae"
-			length = 2
-
-		vaurca_zappy
-			name = "Zappy Antennae"
-			icon_state = "vaurca_zappy"
-			chatname = "Antennae"
-			length = 2
+		chatname = "antennae"
 
 		vaurca_braided
 			name = "Braided Antennae"
 			icon_state = "vaurca_braided"
-			chatname = "Antennae"
+			chatname = "antennae"
 			length = 3
-
-		vaurca_damaged_left
-			name = "Injured Antenna, Left"
-			icon_state = "vaurca_inj_left"
-			chatname = "Left Antenna"
-			length = 1
-
-		vaurca_damaged_right
-			name = "Injured Antenna, Right"
-			icon_state = "vaurca_inj_right"
-			chatname = "Right Antenna"
-			length = 1
 
 		vaurca_catfish
 			name = "Catfish Antennae"
 			icon_state = "vaurca_catfish"
-			chatname = "Antennae"
+			chatname = "antennae"
 			length = 2
 
 		vaurca_dipole
 			name = "Dipole Antennae"
 			icon_state = "vaurca_dipole"
-			chatname = "Antennae"
+			chatname = "antennae"
 			length = 2
 
-		vaurca_knight
-			name = "Knight Antennae"
-			icon_state = "vaurca_knight"
-			chatname = "Antennae"
+		vaurca_droop
+			name = "Droopy Antennae"
+			icon_state = "vaurca_droop"
+			chatname = "antennae"
 			length = 2
+
+		vaurca_fla
+			name = "Floor Length Antennae"
+			icon_state = "vaurca_fla"
+			chatname = "long antennae"
+			length = 4
 
 		vaurca_formic
 			name = "Formic Antennae"
 			icon_state = "vaurca_formic"
-			chatname = "Antennae"
+			chatname = "antennae"
+			length = 2
+
+		vaurca_damaged_left
+			name = "Injured Antenna, Left"
+			icon_state = "vaurca_inj_left"
+			chatname = "left antenna"
+			length = 1
+
+		vaurca_damaged_right
+			name = "Injured Antenna, Right"
+			icon_state = "vaurca_inj_right"
+			chatname = "right antenna"
+			length = 1
+
+		vaurca_knight
+			name = "Knight Antennae"
+			icon_state = "vaurca_knight"
+			chatname = "antennae"
+			length = 2
+
+		vaurca_mid
+			name = "Mid Length Antennae"
+			icon_state = "vaurca_mid"
+			chatname = "antennae"
 			length = 2
 
 		vaurca_parabolic
 			name = "Parabolic Antennae"
 			icon_state = "vaurca_parabolic"
-			chatname = "Antennae"
+			chatname = "antennae"
+			length = 2
+
+		vaurca_zappy
+			name = "Zappy Antennae"
+			icon_state = "vaurca_zappy"
+			chatname = "antennae"
 			length = 2
 
 /datum/sprite_accessory/facial_hair
-	taj_sideburns
+	taj_goatee
 		icon = 'icons/mob/human_face/tajara_facial_hair.dmi'
-		name = "Tajara Sideburns"
-		icon_state = "facial_sideburns"
+		name = "Tajara Goatee"
+		icon_state = "facial_goatee"
 		species_allowed = list("Tajara")
+
+		taj_moustache
+			name = "Tajara Moustache"
+			icon_state = "facial_moustache"
 
 		taj_mutton
 			name = "Tajara Mutton"
@@ -1646,13 +1822,9 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Pencilstache"
 			icon_state = "facial_pencilstache"
 
-		taj_moustache
-			name = "Tajara Moustache"
-			icon_state = "facial_moustache"
-
-		taj_goatee
-			name = "Tajara Goatee"
-			icon_state = "facial_goatee"
+		taj_sideburns
+			name = "Tajara Sideburns"
+			icon_state = "facial_sideburns"
 
 		taj_smallstache
 			name = "Tajara Smallsatche"
@@ -1660,96 +1832,64 @@ Follow by example and make good judgement based on length which list to include 
 
 //unathi horn beards and the like
 
-	una_chinhorn
+	una_aquaticfrill
 		icon = 'icons/mob/human_face/unathi_hair.dmi'
-		name = "Unathi Chin Horn"
-		icon_state = "facial_chinhorns"
+		name = "Unathi Aquatic Frills"
+		icon_state = "facial_aquaticfrills"
 		species_allowed = list("Unathi")
 		gender = NEUTER
-
-		una_hornadorns
-			name = "Unathi Horn Adorns"
-			icon_state = "facial_hornadorns"
-
-		una_dorsalfrill
-			name = "Unathi Dorsal Frill"
-			icon_state = "facial_dorsalfrill"
-
-		una_aquaticfrill
-			name = "Unathi Aquatic Frills"
-			icon_state = "facial_aquaticfrills"
-
-		una_longfrill
-			name = "Unathi Long Frills"
-			icon_state = "facial_longfrills"
-
-		una_shortfrill
-			name = "Unathi Short Frills"
-			icon_state = "facial_shortfrills"
-
-		una_longdorsal
-			name = "Unathi Long Dorsal Frill"
-			icon_state = "facial_longdorsal"
-
-		una_dracfrills
-			name = "Unathi Draconic Frills"
-			icon_state = "facial_dracfrills"
-
-		una_spines_short
-			name = "Short Unathi Spines"
-			icon_state = "facial_shortspines"
-
-		una_frills_long
-			name = "Long Unathi Frills"
-			icon_state = "facial_longfrills"
-
-		una_frills_short
-			name = "Short Unathi Frills"
-			icon_state = "facial_shortfrills"
-
-		una_horns
-			name = "Unathi Horns"
-			icon_state = "facial_simplehorn"
 
 		una_bighorns
 			name = "Unathi Big Horns"
 			icon_state = "facial_bighorn"
 
-		una_smallhorns
-			name = "Unathi Small Horns"
-			icon_state = "facial_smallhorn"
+		una_chinhorn
+			name = "Unathi Chin Horn"
+			icon_state = "facial_chinhorns"
 
-		una_swepthorns
-			name = "Unathi Swept-Forward Horns"
-			icon_state = "facial_swepthorn"
+		una_curlhorn
+			name = "Unathi Curled Horns"
+			icon_state = "facial_curledhorn"
 
-		una_sidefrills
-			name = "Unathi Side Frills"
-			icon_state = "facial_sidefrills"
+		una_dorsalfrill
+			name = "Unathi Dorsal Frill"
+			icon_state = "facial_dorsalfrill"
 
-		una_mohawk
-			name = "Unathi Mohawk"
-			icon_state = "facial_mohawk"
+		una_dracfrills
+			name = "Unathi Draconic Frills"
+			icon_state = "facial_dracfrills"
 
 		una_drachorn
 			name = "Unathi Draconic Horns"
 			icon_state = "facial_drachorn"
 
+		una_hornadorns
+			name = "Unathi Horn Adorns"
+			icon_state = "facial_hornadorns"
+
+		una_longdorsal
+			name = "Unathi Long Dorsal Frill"
+			icon_state = "facial_longdorsal"
+
+		una_longfrill
+			name = "Unathi Long Frills"
+			icon_state = "facial_longfrills"
+
+		una_longfrill2
+			name = "Unathi Long Frills 2"
+			icon_state = "facial_longfrills2"
+
+		una_longspines
+			name = "Unathi Long Spines"
+			icon_state = "facial_longspines"
+
 		una_lowerhorn
 			name = "Unathi Lower Horns"
 			icon_state = "facial_lowerhorn"
 
-		una_spikehorn
-			name = "Unathi Spike Horns"
-			icon_state = "facial_spikehorn"
-
-		una_shorthorn
-			name = "Unathi Short Horns"
-			icon_state = "facial_shorthorn"
-
-		una_curlhorn
-			name = "Unathi Curled Horns"
-			icon_state = "facial_curledhorn"
+		una_mohawk
+			name = "Unathi Mohawk"
+			icon_state = "facial_mohawk"
 
 		una_ramhornshort
 			name = "Unathi Short Ram Horns"
@@ -1758,6 +1898,46 @@ Follow by example and make good judgement based on length which list to include 
 		una_ramhornlong
 			name = "Unathi Long Ram Horns"
 			icon_state = "facial_ramhorn2"
+
+		una_shortfrill
+			name = "Unathi Short Frills"
+			icon_state = "facial_shortfrills"
+
+		una_shortfrill2
+			name = "Unathi Short Frills 2"
+			icon_state = "facial_shortfrills2"
+
+		una_shorthorn
+			name = "Unathi Short Horns"
+			icon_state = "facial_shorthorn"
+
+		una_shortspines
+			name = "Unathi Short Spines"
+			icon_state = "facial_shortspines"
+
+		una_sidefrills
+			name = "Unathi Side Frills"
+			icon_state = "facial_sidefrills"
+
+		una_horns
+			name = "Unathi Horns"
+			icon_state = "facial_simplehorn"
+
+		una_smallhorns
+			name = "Unathi Small Horns"
+			icon_state = "facial_smallhorn"
+
+		una_spikehorn
+			name = "Unathi Spike Horns"
+			icon_state = "facial_spikehorn"
+
+		una_swepthorns
+			name = "Unathi Swept-Forward Horns"
+			icon_state = "facial_swepthorn"
+
+		una_swepthorns2
+			name = "Unathi Swept-Forward Horns 2"
+			icon_state = "facial_swepthorn2"
 
 //ipc screens
 
