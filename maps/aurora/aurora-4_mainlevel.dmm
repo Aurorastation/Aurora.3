@@ -54300,6 +54300,8 @@
 	dir = 8
 	},
 /obj/structure/noticeboard{
+	desc = "A board for displaying menus.";
+	name = "Menu Board";
 	pixel_y = -25
 	},
 /turf/simulated/floor/tiled/white,
@@ -63188,7 +63190,8 @@
 /area/rnd/lab)
 "dgV" = (
 /obj/structure/bed/chair,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/maintenance/bar)
 "djF" = (
 /obj/item/weapon/broken_bottle,
@@ -63574,7 +63577,8 @@
 /obj/item/weapon/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/material/ashtray,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/maintenance/bar)
 "erq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -63809,7 +63813,8 @@
 	req_access = list(28)
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fpD" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -65201,6 +65206,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/loot,
+/mob/living/simple_animal/rat/irish,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "kdp" = (
@@ -66722,6 +66728,11 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
+"oSi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/maintenance/bar)
 "oVj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -68235,6 +68246,22 @@
 "tzU" = (
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"tCf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/white{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/white{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "tCB" = (
 /obj/structure/sink{
 	icon_state = "sink";
@@ -69948,7 +69975,9 @@
 /area/crew_quarters/kitchen/freezer)
 "yfB" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/chefcloset,
+/obj/structure/closet/chefcloset{
+	desc = "It's a storage unit for foodservice equipment."
+	},
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
 /obj/item/clothing/shoes/laceup,
@@ -103842,7 +103871,7 @@ woI
 iCN
 jPX
 eqx
-pie
+oSi
 bSU
 sQW
 hdD
@@ -104099,7 +104128,7 @@ jPX
 jPX
 jPX
 dgV
-pie
+tCf
 bSU
 bTD
 bSU
@@ -108213,7 +108242,7 @@ bGC
 bGC
 bGC
 bOu
-bGC
+bTG
 bEK
 aaa
 aaa
