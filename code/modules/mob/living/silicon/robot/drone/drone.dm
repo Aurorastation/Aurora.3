@@ -233,8 +233,9 @@
 		to_chat(user, "<span class='danger'>You attempt to subvert [src], but the sequencer has no effect.</span>")
 		return
 
-	to_chat(user, "<span class='danger'>You swipe the sequencer across [src]'s interface and watch its eyes flicker.</span>")
+	to_chat(user, "<span class='danger'>You swipe the sequencer across [src]'s interface and watch as it sparks!</span>")
 	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
+	to_chat(src, "<span class='danger'>The malware overloads your systems! You manage to get it under control, but capability is permanently reduced!</span>")
 
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
 	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
@@ -242,6 +243,9 @@
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = 1
+	maxHealth = 15
+	if (health > maxHealth)
+		health = 15
 	hacked = FALSE
 	lawupdate = 0
 	connected_ai = null
