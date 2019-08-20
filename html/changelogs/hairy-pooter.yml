@@ -38,10 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added Bedhead 3, Librarian Bun, High Mohawk, Superbowl hairstyles."
-  - rscadd: "Ported 20 hairstyles and 3 facial hairstyles for Humans/Shells from Polaris."
-  - rscadd: "Ported 2 hairstyles for Vox from Polaris."
+  - rscadd: "Ported 30 hairstyles and 6 facial hairstyles for Humans/Shells from Polaris and BS12."
+  - rscadd: "Ported 3 hairstyles for Vox from Polaris and BS12."
   - refactor: "Renamed hairstyles so that they may hopefully be more convenient to find on a hairstyle list -- be sure to check your character setup in case you're bald!"
   - spellcheck: "Rewrote the hair tugging messages so that they may show up in lower case."
-  - bugfix: "Fixed hair name values and lengths so that they may appear on the Character Setup and Hair Tie lists, with some existing hair now being found."
+  - bugfix: "Fixed hair name values and lengths so that they may appear on the Character Setup and Hair Tie lists, with 6 hairstyles being readded."
   - tweak: "For the next gen devs: rearranged the code and icon_states in the sprite_accessories and appropriate hair.dmi files so that they are mostly in alphabetical order and correspond to each other's positions."

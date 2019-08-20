@@ -99,6 +99,19 @@ Follow by example and make good judgement based on length which list to include 
 		length = 4
 		chatname = "big afro"
 
+	amazon
+		name = "Amazon"
+		icon_state = "hair_amazon"
+		gender = FEMALE
+		length = 2
+		chatname = "long hair"
+
+	averagejoe
+		name = "Average Joe"
+		icon_state = "hair_averagejoe"
+		gender = MALE
+		chatname = "short hair"
+
 	baldfade
 		name = "Balding Fade"
 		icon_state = "hair_baldfade"
@@ -331,6 +344,13 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		species_allowed = list("Human","Unathi")
 		chatname = "unbuzzed hair"	//grabbing the grabbable hair
+
+	buzzcut2
+		name = "Buzzcut 2"
+		icon_state = "hair_buzzcut2"
+		gender = MALE
+		species_allowed = list("Human","Unathi")
+		chatname = "unbuzzed hair"
 
 	chrono
 		name = "Chrono"
@@ -630,9 +650,25 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "fringed hair"
 
+	marysue
+		name = "Mary Sue"
+		icon_state = "hair_marysue"
+		length = 3
+		chatname = "long hair"
+
 	messy
 		name = "Messy"
 		icon_state = "hair_messy"
+		chatname = "messy hair"
+
+	messy2
+		name = "Messy 2"
+		icon_state = "hair_messy2"
+		chatname = "messy hair"
+
+	messy3
+		name = "Messy 3"
+		icon_state = "hair_messy3"
 		chatname = "messy hair"
 
 	modern
@@ -644,6 +680,11 @@ Follow by example and make good judgement based on length which list to include 
 	mohawk
 		name = "Mohawk"
 		icon_state = "hair_mohawk"
+		chatname = "mohawk"
+
+	mohawk_big
+		name = "Mohawk, Big"
+		icon_state = "hair_mohawk_big"
 		chatname = "mohawk"
 
 	mohawk_high
@@ -676,11 +717,6 @@ Follow by example and make good judgement based on length which list to include 
 	mohawk_shavedtight
 		name = "Mohawk, Shaved and Tight"
 		icon_state = "hair_mohawk_shavedtight"
-		chatname = "mohawk"
-
-	mohawk_unshaven
-		name = "Mohawk, Unshaven"
-		icon_state = "hair_mohawk_unshaven"
 		chatname = "mohawk"
 
 	mulder
@@ -889,6 +925,13 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "ponytailed hair"
 
+	ponytail8
+		name = "Ponytail 8"
+		icon_state = "hair_ponytail8"
+		gender = FEMALE
+		length = 2
+		chatname = "ponytailed hair"
+
 	poofy
 		name = "Poofy"
 		icon_state = "hair_poofy"
@@ -1024,11 +1067,22 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_sleeze"
 		chatname = "short hair"
 
+	slick
+		name = "Slick"
+		icon_state = "hair_slick"
+		chatname = "slicked hair"
+
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spiky"
 		species_allowed = list("Human","Unathi")
 		chatname = "spiky hair"
+
+	straightlong
+		name = "Straight Long"
+		icon_state = "hair_straightlong"
+		length = 3
+		chatname = "long hair"
 
 	thinning
 		name = "Thinning"
@@ -1082,6 +1136,12 @@ Follow by example and make good judgement based on length which list to include 
 	undercut3
 		name = "Undercut 3"
 		icon_state = "hair_undercut3"
+		gender = MALE
+		chatname = "undercut"
+
+	undercut4
+		name = "Undercut 4"
+		icon_state = "hair_undercut4"
 		gender = MALE
 		chatname = "undercut"
 
@@ -1288,6 +1348,10 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Abraham Lincoln Beard"
 		icon_state = "facial_abe"
 
+	biker
+		name = "Biker Beard"
+		icon_state = "facial_biker"
+
 	chaplin
 		name = "Square Mustache"
 		icon_state = "facial_chaplin"
@@ -1337,6 +1401,10 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Long Beard"
 		icon_state = "facial_longbeard"
 
+	lumberjack
+		name = "Lumberjack"
+		icon_state = "facial_lumberjack"
+
 	martial_artist
 		name = "Martial Artist"
 		icon_state = "facial_martialartist"
@@ -1356,6 +1424,10 @@ Follow by example and make good judgement based on length which list to include 
 	neckbeard
 		name = "Neckbeard"
 		icon_state = "facial_neckbeard"
+
+	seadog
+		name = "Sea Dog"
+		icon_state = "facial_seadog"
 
 	selleck
 		name = "Selleck Mustache"
@@ -1719,6 +1791,11 @@ Follow by example and make good judgement based on length which list to include 
 		vox_quills_mohawk
 			name = "Quill Mohawk"
 			icon_state = "vox_mohawk"
+			chatname = "quills"
+
+		vox_stubble
+			name = "Vox Stubble"
+			icon_state = "vox_stubble"
 			chatname = "quills"
 
 //vaurca antennae
