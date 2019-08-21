@@ -1853,7 +1853,7 @@ Follow by example and make good judgement based on length which list to include 
 		vaurca_damaged_right
 			name = "Injured Antenna, Right"
 			icon_state = "vaurca_inj_right"
-			chatname = "right antenna"
+			chatname = "antenna"
 			length = 1
 
 		vaurca_knight
