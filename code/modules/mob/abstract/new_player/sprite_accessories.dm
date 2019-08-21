@@ -1300,7 +1300,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Wavy Shoulder (Ponytail)"
 			icon_state = "wavyshoulder_up"
 			length = 2
-			chatname = "wavy hair"
+			chatname = "ponytail"
 
 
 /*
@@ -1702,7 +1702,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
 			icon_state = "hair_fingerwave"
-			chatname = "curly hair"
+			chatname = "curls"
 
 		taj_ears_pompadour
 			name = "Tajara Greaser"
@@ -1727,12 +1727,12 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_plait
 			name = "Tajara Plait"
 			icon_state = "hair_plait"
-			chatname = "hair plaits"
+			chatname = "braid"
 
 		taj_ears_rattail
 			name = "Tajara Rat Tail"
 			icon_state = "hair_rattail"
-			chatname = "rat tail"
+			chatname = "thin ponytail"
 
 		taj_ears_shaggy
 			name = "Tajara Shaggy"
@@ -1752,7 +1752,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_bob
 			name = "Tajara Bob"
 			icon_state = "hair_tbob"
-			chatname = "bobbed hair"
+			chatname = "groomed short mane"
 
 		taj_ears_braid
 			name = "Tajara Braid"
@@ -1762,7 +1762,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_victory
 			name = "Tajara Victory Curls"
 			icon_state = "hair_victory"
-			chatname = "curly hair"
+			chatname = "curls"
 
 		taj_ears_wife
 			name = "Tajara Housewife"
