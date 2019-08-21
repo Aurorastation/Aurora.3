@@ -41,7 +41,7 @@ changes:
   - rscadd: "Ported 30 hairstyles and 6 facial hairstyles for Humans/Shells from Polaris and BS12."
   - rscadd: "Ported 3 hairstyles for Vox from Polaris and BS12."
   - rscadd: "Added Sideburns facial hairstyle for Humans/Shells."
-  - rscadd: "Added 3 variant hairstyles and 4 variant facial hairstyles for Unathi."
+  - rscadd: "Added 3 variant hairstyles and 4 variant facial hairstyles for Unathi. (4 facial hairstyles because one hairstyle was missing from its list)"
   - refactor: "Renamed hairstyles so that they may hopefully be more convenient to find on a hairstyle list -- be sure to check your character setup in case you're bald!"
   - spellcheck: "Rewrote the hair tugging messages so that they may show up in lower case."
   - bugfix: "Fixed hair name values and lengths so that they may appear on the Character Setup and Hair Tie lists, with 6 hairstyles being readded."
