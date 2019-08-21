@@ -1687,12 +1687,12 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_clean
 			name = "Tajara Clean"
 			icon_state = "hair_clean"
-			chatname = "short hair"
+			chatname = "short mane"
 
 		taj_ears_curls
 			name = "Tajara Curly"
 			icon_state = "hair_curly"
-			chatname = "curly hair"
+			chatname = "curly mane"
 
 		taj_ears_fingercurl
 			name = "Tajara Finger Curls"
@@ -1707,7 +1707,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_long
 			name = "Tajara Long"
 			icon_state = "hair_long"
-			chatname = "long hair"
+			chatname = "long mane"
 
 		taj_ears_messy
 			name = "Tajara Messy"
@@ -1742,7 +1742,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_spiky
 			name = "Tajara Spiky"
 			icon_state = "hair_tajspiky"
-			chatname = "spiky hair"
+			chatname = "spiky mane"
 
 		taj_ears_bob
 			name = "Tajara Bob"
@@ -1762,7 +1762,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_wife
 			name = "Tajara Housewife"
 			icon_state = "hair_wife"
-			chatname = "long hair"
+			chatname = "long mane"
 
 //vox hair
 
