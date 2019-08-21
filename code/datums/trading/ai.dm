@@ -107,7 +107,21 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/clothing/glasses/sunglasses/bst            = TRADER_BLACKLIST, // BlueSpaceTech glasses
 		/obj/item/clothing/glasses/fluff                     = TRADER_BLACKLIST_ALL, // Custom items
 		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL, // Custom items
-		/obj/item/clothing/glasses/regular/fluff             = TRADER_BLACKLIST_ALL // Custom items
+		/obj/item/clothing/glasses/regular/fluff             = TRADER_BLACKLIST_ALL, // Custom items
+		/obj/item/weapon/storage/box                         = TRADER_SUBTYPES_ONLY, // Adding a bunch of 'bulk supply' items
+		/obj/item/weapon/storage/box/disks                   = TRADER_BLACKLIST, // OLD Dna/cloning disks inside
+		/obj/item/weapon/storage/box/syringegun              = TRADER_BLACKLIST, // Ammo for syringe gun, not weapons trader
+		/obj/item/weapon/storage/box/injectors               = TRADER_BLACKLIST, // Human-to-monkey injectors
+		/obj/item/weapon/storage/box/ids                     = TRADER_BLACKLIST, // Box of NT id's
+		/obj/item/weapon/storage/box/disks                   = TRADER_BLACKLIST, // stuff inside doesn't work
+		/obj/item/weapon/storage/box/syndicate               = TRADER_BLACKLIST, // traitor stuff
+		/obj/item/weapon/storage/box/syndie_kit              = TRADER_BLACKLIST_ALL, // traitor stuff
+		/obj/item/weapon/storage/box/fluff                   = TRADER_BLACKLIST_ALL, // custom items
+		/obj/item/weapon/storage/box/trackimp                = TRADER_BLACKLIST, // NT Tracking Implant
+		/obj/item/weapon/storage/box/tranquilizer            = TRADER_BLACKLIST, // HoS tranq rifle ammo
+		/obj/item/weapon/storage/box/botanydisk              = TRADER_BLACKLIST, // Not appropriate, too specialized
+		/obj/item/weapon/storage/box/bloodpacks              = TRADER_BLACKLIST, // Machine cannot fabricate blood
+		/obj/item/weapon/storage/box/firingpinsRD            = TRADER_BLACKLIST // RD's stuff
 	)
 
 	insult_drop = 0
