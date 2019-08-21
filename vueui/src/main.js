@@ -8,7 +8,6 @@ import camelCase from 'lodash/camelCase'
 
 import Store from './store.js'
 import './assets/global.scss'
-import './polyfills.js'
 
 const requireComponent = require.context(
   './components', // The relative path of the components folder

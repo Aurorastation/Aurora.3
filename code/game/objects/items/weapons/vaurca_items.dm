@@ -17,6 +17,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
+	species_restricted = list("Vaurca", "Vaurca Breeder")
 	item_state = 0
 
 /obj/item/clothing/head/shaper

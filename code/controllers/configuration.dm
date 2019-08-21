@@ -286,6 +286,7 @@ var/list/gamemode_cache = list()
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
 	var/docs_load_docs_from
+	var/load_customsynths_from
 	var/docs_image_host
 
 	var/ert_base_chance = 10
@@ -833,7 +834,6 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
-
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
@@ -899,6 +899,8 @@ var/list/gamemode_cache = list()
 
 				if ("docs_load_docs_from")
 					docs_load_docs_from = value
+				if ("load_customsynths_from")
+					load_customsynths_from = value
 				if ("docs_image_host")
 					docs_image_host = value
 

@@ -186,6 +186,13 @@
         vertical-align: top;
         margin: 0 2px 2px 0;
     }
+
+    .tooltip {
+        &.content {
+            background: #272727;
+            border: 1px solid darkgrey;
+        }
+    }
 }
 
 .theme-nano-light {
@@ -273,6 +280,13 @@
             &:hover {
                 background: #fcff5f;;
             }
+        }
+    }
+    .tooltip {
+        &.content {
+            color: black;
+            background: #c9c9c9;
+            border: 1px solid darkgrey;
         }
     }
 }

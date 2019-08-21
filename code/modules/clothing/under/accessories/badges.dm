@@ -113,23 +113,23 @@
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/sol_visa
-	name = "alliance visa"
-	desc = "A compact piece of legal paperwork, permitting temporary entrance in the Sol Alliance."
+	name = "\improper ASSN visa recommendation slip"
+	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
 	icon_state = "sol-visa"
 	slot_flags = SLOT_TIE
-	badge_string = "Temporary Sol Alliance Visa"
+	badge_string = "Priority ASSN Visa Applicant"
 
-/obj/item/clothing/accessory/badge/ceti_visa
-	name = "\improper Tau Ceti residence visa"
-	desc = "A compact piece of legal paperwork, permitting temporary residence in the Republic of Biesel."
+/obj/item/clothing/accessory/badge/tcfl_papers
+	name = "\improper TCFL enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
 	icon_state = "tc-visa"
 	slot_flags = SLOT_TIE
-	badge_string = "Tau Ceti Temporary Residence"
+	badge_string = "Tau Ceti Foreign Legion Recruit"
 
 /obj/item/clothing/accessory/badge/hadii_card
-	name = "party member card"
-	desc = "A card denoting a member of the Hadiist party."
+	name = "honorary party member card"
+	desc = "A card denoting a honorary member of the Hadiist party."
 	icon_state = "hadii-id"
 	slot_flags = SLOT_TIE
-	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
+	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
 
