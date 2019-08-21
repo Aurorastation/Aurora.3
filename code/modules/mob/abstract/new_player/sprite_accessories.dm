@@ -1732,7 +1732,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_shaggy
 			name = "Tajara Shaggy"
 			icon_state = "hair_shaggy"
-			chatname = "messy hair"
+			chatname = "messy mane"
 
 		taj_ears_straight
 			name = "Tajara Straight"
