@@ -1737,7 +1737,7 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_straight
 			name = "Tajara Straight"
 			icon_state = "hair_straight"
-			chatname = "short hair"
+			chatname = "short mane"
 
 		taj_ears_spiky
 			name = "Tajara Spiky"
