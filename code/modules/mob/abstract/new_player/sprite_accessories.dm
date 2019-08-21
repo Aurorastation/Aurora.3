@@ -1590,6 +1590,10 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Hulk Hogan Mustache"
 		icon_state = "facial_hogan" //-Neek
 
+	horseshoe
+		name = "Horseshoe Mustache"
+		icon_state = "facial_horseshoe"
+
 	jensen
 		name = "Adam Jensen Beard"
 		icon_state = "facial_jensen"
@@ -1638,10 +1642,6 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tribeard"
 		icon_state = "facial_tribeard"
 
-	vandyke
-		name = "Van Dyke Mustache"
-		icon_state = "facial_vandyke"
-
 	volaju
 		name = "Volaju"
 		icon_state = "facial_volaju"
@@ -1671,6 +1671,10 @@ Follow by example and make good judgement based on length which list to include 
 		swire
 			name = "Swire"
 			icon_state = "facial_swire"
+
+		vandyke
+			name = "Van Dyke Mustache"
+			icon_state = "facial_vandyke"
 
 /*
 ///////////////////////////////////
