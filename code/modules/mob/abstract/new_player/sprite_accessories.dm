@@ -140,9 +140,9 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		chatname = "short hair"
 
-	baldfade
+	baldingfade
 		name = "Balding Fade"
-		icon_state = "hair_baldfade"
+		icon_state = "hair_baldingfade"
 		gender = MALE
 		length = 0
 		chatname = "bald head"
@@ -862,6 +862,16 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_mohawk_shavedlong"
 		chatname = "mohawk"
 
+	mohawk_shavedback
+		name = "Mohawk, Shaved Back"
+		icon_state = "hair_mohawk_shavedback"
+		chatname = "mohawk"
+
+	mohawk_shavedbacklong
+		name = "Mohawk, Shaved Back and Long"
+		icon_state = "hair_mohawk_shavedbacklong
+		chatname = "mohawk"
+
 	mohawk_shavedtight
 		name = "Mohawk, Shaved and Tight"
 		icon_state = "hair_mohawk_shavedtight"
@@ -1501,6 +1511,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 3
 			chatname = "very long hair"
 
+		choppy
+			name = "Choppy"
+			icon_state = "hair_choppy"
+			length = 1
+			chatname = "choppy hair"
+
 		fade
 			name = "Fade"
 			icon_state = "hair_fade"
@@ -1508,7 +1524,7 @@ Follow by example and make good judgement based on length which list to include 
 			chatname = "groomed hair"
 
 		fade_grown
-			name = "Fade (Grown)"
+			name = "Fade, Grown"
 			icon_state = "hair_fade_grown"
 			length = 1
 			chatname = "groomed hair"
@@ -1517,6 +1533,12 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Floof"
 			icon_state = "hair_floof"
 			length = 2
+			chatname = "fluffy hair"
+
+		floof_short
+			name = "Floof, Short"
+			icon_state = "hair_floof_short"
+			length = 1
 			chatname = "fluffy hair"
 
 		hair_antenna
@@ -1635,23 +1657,11 @@ Follow by example and make good judgement based on length which list to include 
 			length = 1
 			chatname = "unshaved hair"		//in reference to tugging the unshaved parts
 
-		spiked
-			name = "Spiked"
-			icon_state = "hair_short_spike"
+		short_spiked
+			name = "Short Spiked"
+			icon_state = "hair_short_spiked"
 			length = 1
 			chatname = "spiked hair"
-
-		shortchoppy
-			name = "Choppy (Short)"
-			icon_state = "hair_shortchoppy"
-			length = 1
-			chatname = "choppy hair"
-
-		shortfloof
-			name = "Floof (Short)"
-			icon_state = "hair_shortfloof"
-			length = 1
-			chatname = "fluffy hair"
 
 		sidepart
 			name = "Sidepart"
@@ -1679,7 +1689,7 @@ Follow by example and make good judgement based on length which list to include 
 
 		superbowl
 			name = "Bowl, Superbowl"
-			icon_state = "hair_superbowl"
+			icon_state = "hair_bowlcut_superbowl"
 			length = 1
 			chatname = "bowl cut"
 
@@ -1759,13 +1769,13 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Square Mustache"
 		icon_state = "facial_chaplin"
 
-	chinstrap
-		name = "Chinstrap"
-		icon_state = "facial_chin"
-
 	chinless
 		name = "Chinless Beard"
 		icon_state = "facial_chinlessbeard"
+
+	chinstrap
+		name = "Chinstrap"
+		icon_state = "facial_chinstrap"
 
 	croppedbeard
 		name = "Full Cropped Beard"
@@ -1809,7 +1819,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "facial_horseshoe"
 
 	jensen
-		name = "Adam Jensen Beard"
+		name = "Jensen Beard"
 		icon_state = "facial_jensen"
 
 	longbeard
@@ -1874,7 +1884,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	chinstrap2
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Chinstrap (Alt)"
+		name = "Chinstrap, Alt"
 		icon_state = "facial_chinstrap_ii"
 		icon_blend_mode = ICON_MULTIPLY
 

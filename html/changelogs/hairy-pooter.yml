@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Ported 92 hairstyles and 11 facial hairstyles for Humans/Shells from Polaris, BS12, Para, tg, and including a small few from yours truly."
+  - rscadd: "Ported 94 hairstyles and 11 facial hairstyles for Humans/Shells from Polaris, BS12, Para, tg, and including a small few from yours truly."
   - rscadd: "Ported 3 hairstyles for Vox from Polaris and BS12."
   - rscadd: "Added 3 variant hairstyles and 4 variant facial hairstyles for Unathi. (4 facial hairstyles because one hairstyle was missing from its list)"
   - rscadd: "Added 1 facial hairstyle for Tajara."
