@@ -284,7 +284,7 @@ Follow by example and make good judgement based on length which list to include 
 		chatname = "bowl cut"
 
 	bowlcut_birdnest
-		name = "Bowl, Birdnest
+		name = "Bowl, Birdnest"
 		icon_state = "hair_bowlcut_birdnest"
 		gender = MALE
 		length = 4
@@ -966,7 +966,7 @@ Follow by example and make good judgement based on length which list to include 
 		chatname = "pigtails"
 
 	pigtails_twintail_ombre_alt
-		name = "Pigtails, Twintail Ombre Alt
+		name = "Pigtails, Twintail Ombre Alt"
 		icon_state = "hair_pigtails_twintail_ombre_alt"
 		gender = FEMALE
 		length = 3
