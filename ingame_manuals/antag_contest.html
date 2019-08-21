@@ -1,8 +1,12 @@
 <html>
-<body class="dark">
+<head>
+    <title>Antag Contest</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ </head>
+<body>
     <div class="main">
     <p>
-        <a style="cursor: pointer; color: #00a0fc;" onclick="localStorage.setItem('mode', (localStorage.getItem('mode') || 'dark') === 'dark' ? 'bright' : 'dark'); localStorage.getItem('mode') === 'dark' ? document.querySelector('body').classList.add('dark') : document.querySelector('body').classList.remove('dark')" title="Switch to light or dark theme">🌓 Light|dark mode</a>
+        <a style="cursor: pointer; color: #00a0fc;" onclick=" document.querySelector('body').classList.contains('dark') ? document.querySelector('body').classList.remove('dark') : document.querySelector('body').classList.add('dark')" title="Switch to light or dark theme">🌓 Light|dark mode</a>
     </p>
     <h1>2nd Antagonist Contest Help</h1>
 

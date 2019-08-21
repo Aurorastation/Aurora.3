@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Aurorastation Changelog</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" type="text/css" href="changelog.css">
   <base target="_blank" />
   <script type='text/javascript'>
@@ -15,18 +16,13 @@
 	}
 	
   </script>
-<script src="html/jquery-2.0.0.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
-<body class="dark">
-<p>
-	<a style="cursor: pointer; color: #00a0fc;" onclick="document.getElementsByTagName('body')[0].classList.contains('dark') ? dark_mode() : light_mode()" title="Switch to light or dark theme">🌓 Light|dark mode</a>
-</p>
-<script>
-		alert(document.getElementsByTagName('body')[0])
-		//alert(document.querySelector('body'))
-	</script>
+<body>
+	<p>
+		<a style="cursor: pointer; color: #00a0fc;" onclick=" document.querySelector('body').classList.contains('dark') ? document.querySelector('body').classList.remove('dark') : document.querySelector('body').classList.add('dark')" title="Switch to light or dark theme">🌓 Light|dark mode</a>
+	</p>
 <table align='center' width='650'><tr><td>
 <table align='center' class="top">
 	<tr>
@@ -9466,35 +9462,37 @@
 <p class="lic">Some icons by <a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a>. All rights reserved. Licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
 </td></tr></table>
 <style>
-		.main h1,
-              h2,
-              h3,
-              h4,
-              h5,
-              h6{
+		body {
+			background-color: #fff;
+		}
+		body.dark {
+            background-color: rgb(30,34,39);
+            color: #fff;
+        }
+        .main b {
+            font-weight: normal;
+            color:goldenrod;
+        }
+        h1,
+		h3,
+		h4,
+		h5,
+		h6{
             color:goldenrod;
 		}
 		h2.date{
 			color:teal;
 		}
+
+        body.dark code[class*=language-],
+        body.dark table tbody>tr:nth-child(odd)>td,
+        body.dark table tbody>tr:nth-child(odd)>th {
+            background: #282c34
+        }
 		a:link { color:lightgreen; }
 		a:visited { color:seagreen; }
 		a:hover { color:red; }
 		a:active { color:red; }
 </style>
-<script>
-	function dark_mode(){
-		var b = document.getElementsByTagName('body')[0];
-		b.style.background = "#1e2227";
-		b.style.color = "white";
-		document.getElementsByTagName('body')[0].classList.remove('dark')
-	}
-	function light_mode(){
-		var b = document.getElementsByTagName('body')[0];
-		b.style.background = "white";
-		b.style.color = "black";
-		document.getElementsByTagName('body')[0].classList.add('dark')
-	}
-</script>
 </body>
 </html>
