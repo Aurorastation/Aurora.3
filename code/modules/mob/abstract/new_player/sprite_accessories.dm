@@ -1115,7 +1115,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_tressshoulder"
 		gender = FEMALE
 		length = 2
-		chatname = "tressed hair"
+		chatname = "curls"
 
 	trimmed
 		name = "Trimmed"
