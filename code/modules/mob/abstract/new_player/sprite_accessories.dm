@@ -66,7 +66,7 @@ Follow by example and make good judgement based on length which list to include 
 	var/length = 1
 
 	bald
-		name = "Bald"   // try to capatilize the names please~
+		name = "Bald"   // try to capitalize the names please~
 		icon_state = "bald" // you do not need to define _s or _l sub-states, game automatically does this for you
 		gender = MALE
 		species_allowed = list("Human","Unathi")
