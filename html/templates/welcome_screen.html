@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+	<p>
+		<a style="cursor: pointer; color: #00a0fc;" onclick=" document.querySelector('body').classList.contains('dark') ? document.querySelector('body').classList.remove('dark') : document.querySelector('body').classList.add('dark')" title="Switch to light or dark theme">🌓 Light|dark mode</a>
+	</p>
 	<head>
 		<title>Aurorastation Welcome Screen</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -193,5 +196,22 @@
 			windowInterval = setInterval(function () {RequestLoop()}, 500);
 		});
 	</script>
-
+<style>
+		body {
+            background-color: #fff;
+        }
+        body.dark {
+            background-color: rgb(30,34,39);
+			color: #fff;
+		}
+		a:link { color:lightgreen; }
+		a:visited { color:seagreen; }
+		a:hover { color:red; }
+		a:active { color:red; }
+        body.dark code[class*=language-],
+        body.dark table tbody>tr:nth-child(odd)>td,
+        body.dark table tbody>tr:nth-child(odd)>th {
+            background: #282c34
+        }
+</style>
 </html>
