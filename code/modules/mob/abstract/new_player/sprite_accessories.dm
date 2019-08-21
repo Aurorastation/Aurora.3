@@ -131,18 +131,18 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_bangs"
 		gender = FEMALE
 		length = 2
-		chatname = "fringed hair"
+		chatname = "fringe"
 
 	bangs_short
 		name = "Bangs, Short"
 		icon_state = "hair_bangs_short"
 		gender = FEMALE
-		chatname = "fringed hair"
+		chatname = "fringe"
 
 	bangs_veryshort
 		name = "Bangs, Very Short"
 		icon_state = "hair_bangs_veryshort"
-		chatname = "fringed hair"
+		chatname = "fringe"
 
 	bedhead
 		name = "Bedhead"
@@ -261,47 +261,47 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_braid2"
 		gender = FEMALE
 		length = 3
-		chatname = "braided hair"
+		chatname = "braids"
 
 	braid2_alt
 		name = "Braid 2, Alt"
 		icon_state = "hair_braid2_alt"
 		gender = FEMALE
 		length = 3
-		chatname = "braided hair"
+		chatname = "braids"
 
 	bun
 		name = "Bun"
 		icon_state = "hair_bun"
 		gender = FEMALE
 		length = 2
-		chatname = "bunned hair"	//renaming from Hair Bun to consider other points of contact
+		chatname = "hair bun"
 
 	bun_casual
 		name = "Bun, Casual"
 		icon_state = "hair_bun_casual"
 		gender = FEMALE
 		length = 2
-		chatname = "bunned hair"
+		chatname = "hair bun"
 
 	bun_donut
 		name = "Bun, Donut"
 		icon_state = "hair_bun_donut"
 		length = 2
-		chatname = "bunned hair"
+		chatname = "hair bun"
 
 	bun_double
 		name = "Bun, Double"
 		icon_state = "hair_bun_double"
 		gender = FEMALE
 		length = 3
-		chatname = "bunned hair"
+		chatname = "hair buns"
 
 	bun_low
 		name = "Bun, Low"
 		icon_state = "hair_bun_low"
 		length = 2
-		chatname = "bunned hair"
+		chatname = "hair bun"
 
 	bun_manbun
 		name = "Bun, Manbun"
@@ -315,28 +315,28 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_bun_odango"
 		gender = FEMALE
 		length = 2
-		chatname = "pigtails"
+		chatname = "hair buns"
 
 	bun_overeye
 		name = "Bun, Overeye"
 		icon_state = "hair_bun_overeye"
 		gender = FEMALE
 		length = 2
-		chatname = "bunned hair"
+		chatname = "hair bun"
 
 	bun_tight
 		name = "Bun, Tight"
 		icon_state = "hair_bun_tight"
 		gender = FEMALE
 		length = 2
-		chatname = "bunned hair"
+		chatname = "hair bun"
 
 	bun_topknot
 		name = "Bun, Topknot"
 		icon_state = "hair_bun_topknot"
 		gender = MALE
 		length = 2
-		chatname = "topknotted hair"
+		chatname = "hair bun"
 
 	buzzcut
 		name = "Buzzcut"
@@ -375,6 +375,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Coffee House Shave"
 		icon_state = "hair_coffeehouse_shave"
 		gender = MALE
+		chatname = "coffee house haircut"
 
 	combover
 		name = "Combover"
@@ -419,14 +420,14 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Drills, Celes"
 		icon_state = "hair_drills_celes"
 		length = 3
-		chatname = "drilled hair"
+		chatname = "hair drills"
 
 	drills_drillruru
 		name = "Drills, Drillruru"
 		icon_state = "hair_drills_drillruru"
 		gender = FEMALE
 		length = 2
-		chatname = "drilled hair"
+		chatname = "hair drills"
 
 	emo
 		name = "Emo"
@@ -528,31 +529,31 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_gentle"
 		gender = FEMALE
 		length = 3
-		chatname = "fringed hair"
+		chatname = "long hair"
 
 	gentle2
 		name = "Gentle 2"
 		icon_state = "hair_gentle2"
 		length = 2
-		chatname = "fringed hair"
+		chatname = "long hair"
 
 	gentle2_alt
 		name = "Gentle 2, Alternative"
 		icon_state = "hair_gentle2_alt"
 		length = 2
-		chatname = "fringed hair"
+		chatname = "long hair"
 
 	gentle2_long
 		name = "Gentle 2 (Long)"
 		icon_state = "hair_gentle2_long"
 		length = 3
-		chatname = "fringed hair"
+		chatname = "long hair"
 
 	gentle2_longalt
 		name = "Gentle 2, Alternative (Long)"
 		icon_state = "hair_gentle2_longalt"
 		length = 3
-		chatname = "fringed hair"
+		chatname = "long hair"
 
 	glossy
 		name = "Glossy"
@@ -872,6 +873,13 @@ Follow by example and make good judgement based on length which list to include 
 		length = 4
 		chatname = "ponytail"
 
+	ponytail_wisp
+		name = "Ponytail, Wisp"
+		icon_state = "hair_ponytail_wisp"
+		gender = FEMALE
+		length = 3
+		chatname = "ponytail"
+
 	ponytail_zieglertail
 		name = "Ponytail, Zieglertail"
 		icon_state = "hair_ponytail_ziegler"
@@ -950,7 +958,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Punk Shave, Bun"
 		icon_state = "hair_punk_bun"
 		length = 2
-		chatname = "bunned hair"
+		chatname = "hair bun"
 
 	punk_halfshaved
 		name = "Punk Shave, Half-Shaved"
@@ -1177,14 +1185,6 @@ Follow by example and make good judgement based on length which list to include 
 		gender = FEMALE
 		chatname = "short hair"
 
-	wisp  //may require more work on the sprite; uncommented for potential of creativity
-		name = "Wisp"
-		icon_state = "hair_wisp"
-		gender = FEMALE
-		length = 3
-		chatname = "long hair"
-
-
 	// TG-format hair - uses ICON_MULTIPLY instead of ICON_ADD
 	balding
 		icon = 'icons/mob/human_face/hair_multiply.dmi'
@@ -1198,7 +1198,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Bun, Librarian"
 			icon_state = "hair_bun_librarian"
 			length = 2
-			chatname = "bunned hair"
+			chatname = "hair bun"
 
 		bun_uniter
 			name = "Bun, Uniter"
@@ -1230,12 +1230,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "fluffy hair"
 
-		jenjen
-			name = "Jenjen"
-			icon_state = "hair_jenjen"
-			length = 2
-			chatname = "ponytail"
-
 		krewcut
 			name = "Krewcut"
 			icon_state = "hair_krewcut"
@@ -1247,6 +1241,12 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "hair_pomp_iii"
 			length = 3
 			chatname = "pompadour"
+
+		ponytail_jenjen
+			name = "Ponytail, Jenjen"
+			icon_state = "hair_ponytail_jenjen"
+			length = 2
+			chatname = "ponytail"
 
 		spiked
 			name = "Spiked"
@@ -1432,6 +1432,10 @@ Follow by example and make good judgement based on length which list to include 
 	selleck
 		name = "Selleck Mustache"
 		icon_state = "facial_selleck"
+
+	sideburns
+		name = "Sideburns"
+		icon_state = "facial_sideburns"
 
 	tribeard
 		name = "Tribeard"
