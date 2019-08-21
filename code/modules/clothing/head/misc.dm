@@ -432,15 +432,18 @@
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "brown_fedora"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/head/fedora/brown/dark
+	icon_state = "darkbrown_fedora"
+
 /obj/item/clothing/head/fedora/grey
-	icon_state = "detective2"
+	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 /obj/item/clothing/head/beanie
@@ -575,3 +578,22 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/fake_culthood
+	name = "occultist hood"
+	icon_state = "culthood"
+	desc = "A torn, dust-caked hood. Very authentic!"
+	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
+	body_parts_covered = HEAD|EYES
+	cold_protection = HEAD
+	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+  
+/obj/item/clothing/head/vaurca_breeder
+	name = "zo'ra representative shroud"
+	desc = "Large shroud used by Zo'ra representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud"
+	icon_state = "shroud"
+	contained_sprite = FALSE
+	species_restricted = list("Vaurca Breeder")
+	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi')

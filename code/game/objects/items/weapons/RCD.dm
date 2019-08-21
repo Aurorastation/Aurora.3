@@ -2,7 +2,7 @@
 /obj/item/weapon/rcd
 	name = "rapid construction device"
 	desc = "A device used to rapidly build walls and floors."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -70,6 +70,9 @@
 	if(disabled && !isrobot(user))
 		return 0
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
+		return 0
+	var/turf/t = get_turf(A)
+	if (isNotStationLevel(t.z))
 		return 0
 	return alter_turf(A,user,(mode == 3))
 
@@ -170,6 +173,9 @@
 				R.cell.use(cost)
 				return 1
 	return 0
+
+/obj/item/weapon/rcd/borg/infinite/useResource()
+	return 1
 
 /obj/item/weapon/rcd/borg/attackby()
 	return

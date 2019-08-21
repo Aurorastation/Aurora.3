@@ -44,7 +44,7 @@ Protectiveness | Armor %
 /obj/item/weapon/material/armor_plating
 	name = "armor plating"
 	desc = "A sheet designed to protect something."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/clothing/material_armor.dmi'
 	icon_state = "armor_plate"
 	unbreakable = TRUE
 	force_divisor = 0.05

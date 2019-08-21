@@ -37,6 +37,7 @@
 	mob_size = 6
 
 	attack_emote = "skitters toward"
+	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse

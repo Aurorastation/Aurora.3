@@ -38,13 +38,13 @@
 	return temp_list
 
 //Checks for specific types in a list
-/proc/is_type_in_list(var/atom/A, var/list/L)
+/proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)
 		if(istype(A, type))
 			return 1
 	return 0
 
-/proc/instances_of_type_in_list(atom/A, list/L, strict = FALSE)
+/proc/instances_of_type_in_list(var/datum/A, list/L, strict = FALSE)
 	. = 0
 	if (strict)
 		for (var/type in L)
@@ -54,6 +54,8 @@
 		for(var/type in L)
 			if(istype(A, type))
 				.++
+
+
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
@@ -185,14 +187,11 @@
 	return sortTim(target, order ? /proc/cmp_name_asc : /proc/cmp_name_dsc, FALSE)
 
 //Mergesort: Specifically for record datums in a list.
-/proc/sortRecord(var/list/datum/data/record/L, var/field = "name", var/order = 1)
+/proc/sortRecord(var/list/datum/record/L, var/order = 1)
 	if (!L)
 		return
 	var/list/target = L.Copy()
-	var/old_cmp_field = cmp_field
-	cmp_field = field
 	sortTim(target, order ? /proc/cmp_records_asc : /proc/cmp_records_dsc, FALSE)
-	cmp_field = old_cmp_field
 	return target
 
 //Mergesort: any value in a list
@@ -284,6 +283,9 @@
 		if(istype(T, type))
 			i++
 	return i
+
+/proc/is_list_containing_type(var/list/L, type)
+	return count_by_type(L, type) == L.len
 
 /proc/subtypesof(prototype)
 	return (typesof(prototype) - prototype)
@@ -440,3 +442,85 @@
 	for(var/i = 1 to l.len)
 		if(islist(.[i]))
 			.[i] = .(.[i])
+
+//Sets object value at specified path
+/proc/obj_query_set(query, subject, value, delimiter = "/", list/keys)
+	. = FALSE
+	if(!keys)
+		keys = splittext(query, delimiter)
+	var/datum/subject_d
+	var/list/subject_l
+	for (var/i = 1; i < keys.len; i++)
+		var/key = keys[i]
+		if (isdatum(subject))
+			subject_d = subject
+			if (isnull(subject_d.vars[key]))
+				return
+
+			subject = subject_d.vars[key]
+		else if (islist(subject))
+			subject_l = subject
+			if (isnull(subject_l[key]))
+				return
+
+			subject = subject_l[key]
+		else
+			return
+
+	if (isnull(subject))
+		return
+		
+	var/final = keys[keys.len]
+	if (isdatum(subject))
+		subject_d = subject
+		if (isnull(subject_d.vars[final]))
+			return
+
+		subject_d.vars[final] = value
+	else if (islist(subject))
+		subject_l = subject
+		if (isnull(subject_l[final]))
+			return
+
+		subject_l[final] = value
+	else
+		return
+
+	return TRUE
+
+//Gets object value at specified path
+/proc/obj_query_get(query, subject, delimiter = "/", list/keys)
+	. = null
+	if(!keys)
+		keys = splittext(query, delimiter)
+	var/datum/subject_d
+	var/list/subject_l
+	for (var/i = 1; i < keys.len; i++)
+		var/key = keys[i]
+		if (isdatum(subject))
+			subject_d = subject
+			if (isnull(subject_d.vars[key]))
+				return
+
+			subject = subject_d.vars[key]
+		else if (islist(subject))
+			subject_l = subject
+			if (isnull(subject_l[key]))
+				return
+
+			subject = subject_l[key]
+		else
+			return
+
+	if (isnull(subject))
+		return
+		
+	var/final = keys[keys.len]
+	if (isdatum(subject))
+		subject_d = subject
+		if (subject_d.vars[final])
+			return subject_d.vars[final]
+	else if (islist(subject))
+		subject_l = subject
+		if (subject_l[final])
+			return subject_l[final]

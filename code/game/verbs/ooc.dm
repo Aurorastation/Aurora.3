@@ -91,8 +91,8 @@
 		if(!config.looc_allowed)
 			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
 			return
-		if(!config.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
+		if(!config.dead_looc_allowed && (mob.stat == DEAD))
+			to_chat(usr, "<span class='danger'>LOOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
 			return

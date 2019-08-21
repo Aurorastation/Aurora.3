@@ -24,6 +24,7 @@
 	var/damage_overlays = 'icons/mob/human_races/masks/dam_human.dmi'
 	var/damage_mask = 'icons/mob/human_races/masks/dam_mask_human.dmi'
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
+	var/onfire_overlay = 'icons/mob/OnFire.dmi'
 
 	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
 	var/icon_x_offset = 0
@@ -203,6 +204,9 @@
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
+
+	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY)
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -535,6 +539,9 @@
 		current_flags[1] = sound(pick(speech_sounds))
 		current_flags[2] = 50
 	return current_flags
+
+/datum/species/proc/get_vision_organ(mob/living/carbon/human/H)
+	return H.internal_organs_by_name[vision_organ]
 
 /datum/species/proc/set_default_hair(var/mob/living/carbon/human/H)
 	H.h_style = H.species.default_h_style

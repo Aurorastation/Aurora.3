@@ -101,6 +101,8 @@
 
 	max_hydration_factor = -1
 
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ERIDANI)
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65
@@ -236,4 +238,5 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-	H.gender = NEUTER
+	if (neuter_ipc)
+		H.gender = NEUTER

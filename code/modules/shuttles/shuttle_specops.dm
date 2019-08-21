@@ -51,7 +51,7 @@
 
 /datum/shuttle/ferry/multidock/specops/proc/radio_announce(var/message)
 	if(announcer)
-		announcer.autosay(message, "A.L.I.C.E.", "Response Team")
+		announcer.autosay(message, "Bubble", "Response Team")
 
 
 /datum/shuttle/ferry/multidock/specops/launch(var/user)

@@ -22,7 +22,7 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
-	specific_heat = 3.617
+	fallback_specific_heat = 3.617
 
 /datum/reagent/blood/initialize_data(var/newdata)
 	..()
@@ -186,6 +186,8 @@
 
 	specific_heat = 1.541
 
+	germ_adjust = 0.05 // i mean, i guess you could try...
+
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
 		return
@@ -195,7 +197,6 @@
 	if(!istype(T))
 		return
 
-	T.color = initial(T.color)
 	var/datum/gas_mixture/environment = T.return_air()
 	var/min_temperature = T0C + 100 // 100C, the boiling point of water
 
@@ -217,27 +218,18 @@
 		T.wet_floor(WET_TYPE_WATER,volume)
 
 /datum/reagent/water/touch_obj(var/obj/O)
-	if(istype(O))
-		O.color = initial(O.color)
-		if(istype(O, /obj/item/weapon/light))
-			var/obj/item/weapon/light/L = O
-			L.brightness_color = initial(L.brightness_color)
-			L.update()
-		else if(istype(O, /obj/machinery/light))
-			var/obj/machinery/light/L = O
-			L.brightness_color = initial(L.brightness_color)
-			L.update()
-		else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
-			var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
-			if(!cube.wrapped)
-				cube.Expand()
+	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
+		var/obj/item/weapon/reagent_containers/food/snacks/monkeycube/cube = O
+		if(!cube.wrapped)
+			cube.Expand()
 
 /datum/reagent/water/touch_mob(var/mob/M, var/amount)
 	. = ..()
 	if(istype(M) && isliving(M))
 		var/mob/living/L = M
-		L.ExtinguishMob(L.on_fire ? amount : amount*0.5)
-		remove_self(amount)
+		var/needed = min(L.fire_stacks, amount)
+		L.ExtinguishMob(needed)
+		remove_self(needed)
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
@@ -276,7 +268,7 @@
 	glass_name = "glass of welder fuel"
 	glass_desc = "Unless you are an industrial tool, this is probably not safe for consumption."
 
-	specific_heat = 0.605
+	fallback_specific_heat = 0.605
 
 /datum/reagent/fuel/touch_turf(var/turf/T)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)

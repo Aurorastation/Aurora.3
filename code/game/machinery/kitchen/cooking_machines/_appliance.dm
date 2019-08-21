@@ -642,7 +642,7 @@
 	//Result type is one of the following:
 		//0 unfinished, no result yet
 		//1 Standard modification cooking. eg Fried Donk Pocket, Baked wheat, etc
-		//2 Modification but with a new object that's an inert copy of the old. Generally used for deepfried mice
+		//2 Modification but with a new object that's an inert copy of the old. Generally used for deepfried rats
 		//3 Combination cooking, EG Donut Bread, Donk pocket pizza, etc
 		//4:Specific recipe cooking. EG: Turning raw potato sticks into fries
 

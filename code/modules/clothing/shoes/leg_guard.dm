@@ -25,7 +25,7 @@
 	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/shoes/leg_guard/bulletproof
-	name = "bulletproof leg guards"
+	name = "ballistic leg guards"
 	desc = "These will protect your legs and feet from ballistic weapons."
 	icon_state = "leg_guards_bullet"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)

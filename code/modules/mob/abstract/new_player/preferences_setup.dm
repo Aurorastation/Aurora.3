@@ -1,7 +1,10 @@
 datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
-	proc/randomize_appearance_for(var/mob/living/carbon/human/H)
-		gender = pick(MALE, FEMALE)
+	proc/randomize_appearance_for(var/mob/living/carbon/human/H,var/random_gender=TRUE)
+		if(random_gender)
+			gender = pick(MALE, FEMALE)
+		else
+			gender = H.gender
 		var/datum/species/current_species = all_species[species]
 
 		if(current_species)

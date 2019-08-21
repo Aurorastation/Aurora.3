@@ -17,8 +17,7 @@
 
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
-
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
+	var/radio_sound = null
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
@@ -226,12 +225,12 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/onlyert
 
-/obj/item/device/radio/headset/ia
-	name = "internal affairs headset"
+/obj/item/device/radio/headset/representative
+	name = "representative headset"
 	desc = "The headset of your worst enemy."
 	icon_state = "com_headset"
 	item_state = "headset"
-	ks2type = /obj/item/device/encryptionkey/heads/hos
+	ks2type = /obj/item/device/encryptionkey/headset_com
 
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()

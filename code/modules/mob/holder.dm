@@ -63,7 +63,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder/drone
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 
-/obj/item/weapon/holder/mouse
+/obj/item/weapon/holder/rat
 	w_class = 1
 
 /obj/item/weapon/holder/borer
@@ -468,35 +468,44 @@ var/list/holder_mob_icon_cache = list()
 	slot_flags = SLOT_HEAD
 	w_class = 3
 
-//Holders for mice
-/obj/item/weapon/holder/mouse
-	name = "mouse"
+//Holders for rats
+/obj/item/weapon/holder/rat
+	name = "rat"
 	desc = "It's a fuzzy little critter."
 	desc_dead = "It's filthy vermin, throw it in the trash."
-	icon = 'icons/mob/npc/mouse.dmi'
-	icon_state = "mouse_brown_sleep"
-	item_state = "mouse_brown"
-	icon_state_dead = "mouse_brown_dead"
+	icon = 'icons/mob/npc/rat.dmi'
+	icon_state = "rat_brown_sleep"
+	item_state = "rat_brown"
+	icon_state_dead = "rat_brown_dead"
 	slot_flags = SLOT_EARS
 	contained_sprite = 1
 	origin_tech = list(TECH_BIO = 2)
 	w_class = 1
 
-/obj/item/weapon/holder/mouse/white
-	icon_state = "mouse_white_sleep"
-	item_state = "mouse_white"
-	icon_state_dead = "mouse_white_dead"
+/obj/item/weapon/holder/rat/white
+	icon_state = "rat_white_sleep"
+	item_state = "rat_white"
+	icon_state_dead = "rat_white_dead"
 
-/obj/item/weapon/holder/mouse/gray
-	icon_state = "mouse_gray_sleep"
-	item_state = "mouse_gray"
-	icon_state_dead = "mouse_gray_dead"
+/obj/item/weapon/holder/rat/gray
+	icon_state = "rat_gray_sleep"
+	item_state = "rat_gray"
+	icon_state_dead = "rat_gray_dead"
 
-/obj/item/weapon/holder/mouse/brown
-	icon_state = "mouse_brown_sleep"
-	item_state = "mouse_brown"
-	icon_state_dead = "mouse_brown_dead"
+/obj/item/weapon/holder/rat/brown
+	icon_state = "rat_brown_sleep"
+	item_state = "rat_brown"
+	icon_state_dead = "rat_brown_dead"
 
+/obj/item/weapon/holder/rat/hooded
+	icon_state = "rat_hooded_sleep"
+	item_state = "rat_hooded"
+	icon_state_dead = "rat_hooded_dead"
+
+/obj/item/weapon/holder/rat/irish
+	icon_state = "rat_irish_sleep"
+	item_state = "rat_irish"
+	icon_state_dead = "rat_irish_dead"
 
 //Lizards
 
@@ -572,17 +581,30 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "cat_rest"
 	item_state = "cat"
 
-/obj/item/weapon/holder/pai/mouse
-	icon_state = "mouse_rest"
-	item_state = "mouse"
+/obj/item/weapon/holder/pai/rat
+	icon_state = "rat_rest"
+	item_state = "rat"
 
 /obj/item/weapon/holder/pai/monkey
-	icon_state = "monkey"
+	icon_state = "monkey_rest"
 	item_state = "monkey"
 
 /obj/item/weapon/holder/pai/rabbit
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
+/obj/item/weapon/holder/pai/custom
+	var/customsprite = 1
+
+/obj/item/weapon/holder/pai/custom/sync(mob/living/M)
+	..()
+	set_paiholder()
+
+/obj/item/weapon/holder/pai/custom/proc/set_paiholder()
+
+	if(contained && customsprite == 1)
+		icon = CUSTOM_ITEM_SYNTH
+		icon_state = "[contained.icon_state]-holder"
+		item_state = "[contained.icon_state]"
 
 //corgi
 

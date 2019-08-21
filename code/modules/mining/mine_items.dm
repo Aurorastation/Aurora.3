@@ -24,6 +24,7 @@
 	new /obj/item/weapon/storage/bag/ore(src)
 	new /obj/item/weapon/shovel(src)
 	new /obj/item/weapon/pickaxe(src)
+	new /obj/item/weapon/gun/custom_ka/frame01/prebuilt(src)
 	new /obj/item/weapon/ore_radar(src)
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
@@ -46,7 +47,7 @@
 /obj/item/weapon/pickaxe
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
@@ -323,7 +324,7 @@
 /obj/item/weapon/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "shovel"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -443,7 +444,7 @@
 /obj/item/weapon/rrf
 	name = "\improper Rapid-Railway-Fabricator"
 	desc = "A device used to rapidly deploy mine tracks."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "rcd"
 	opacity = 0
 	density = 0
@@ -1159,7 +1160,7 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
 	name = "auto-chisel"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)

@@ -23,6 +23,7 @@
 	parent_organ = "chest"
 	robotic_name = "gas exchange system"
 	robotic_sprite = "heart-prosthetic"
+	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
 /obj/item/organ/lungs/process()
 	..()
@@ -34,13 +35,19 @@
 		if(prob(5))
 			owner.emote("cough")		//Respiratory tract infection
 
-	if(is_bruised())
+	if(is_broken() || (is_bruised() && !rescued)) // a thoracostomy can only help with a collapsed lung, not a mangled one
 		if(prob(2))
 			spawn owner.emote("me", 1, "coughs up blood!")
 			owner.drip(10)
 		if(prob(4))
 			spawn owner.emote("me", 1, "gasps for air!")
 			owner.losebreath += 15
+
+	if(is_bruised() && rescued)
+		if(prob(4))
+			to_chat(owner, span("warning", "It feels hard to breathe..."))
+			if (owner.losebreath < 5)
+				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
 /obj/item/organ/kidneys
 	name = "kidneys"
@@ -113,6 +120,7 @@
 	parent_organ = "groin"
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
+	var/tolerance = 5
 
 /obj/item/organ/liver/process()
 
@@ -130,7 +138,26 @@
 
 	if(owner.life_tick % PROCESS_ACCURACY == 0)
 
-		//High toxins levels are dangerous
+		//A liver's duty is to get rid of toxins
+		if(owner.getToxLoss() > 0 && owner.getToxLoss() <= tolerance)
+			owner.adjustToxLoss(-0.2) //there isn't a lot of toxin damage, so we're going to be chill and slowly filter it out
+		else if(owner.getToxLoss() > tolerance)
+			if(is_bruised())
+				//damaged liver works less efficiently
+				owner.adjustToxLoss(-0.5)
+				if(!owner.reagents.has_reagent("anti_toxin")) //no damage to liver if anti-toxin is present
+					src.damage += 0.1 * PROCESS_ACCURACY
+			else if(is_broken())
+				//non-functioning liver ADDS toxins
+				owner.adjustToxLoss(-0.1) //roughly 33 minutes to kill someone straight out, stacks with 60+ tox proc tho
+			else 
+				//functioning liver removes toxins at a cost
+				owner.adjustToxLoss(-1)
+				if(!owner.reagents.has_reagent("anti_toxin")) //no damage to liver if anti-toxin is present
+					src.damage += 0.05 * PROCESS_ACCURACY
+
+
+		//High toxins levels are super dangerous
 		if(owner.getToxLoss() >= 60 && !owner.reagents.has_reagent("anti_toxin"))
 			//Healthy liver suffers on its own
 			if (src.damage < min_broken_damage)

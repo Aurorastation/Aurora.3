@@ -44,7 +44,6 @@
 #define LANGUAGE_DELVAHII "Delvahhi"
 #define LANGUAGE_SIIK_TAU "Siik'Tau"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
-#define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Freespeak"
@@ -86,3 +85,8 @@
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 #define TCOMSSIM     512 // Can be synthesized in tcoms
+
+// Representative missions levels
+#define REPRESENTATIVE_MISSION_LOW 1
+#define REPRESENTATIVE_MISSION_MEDIUM 2
+#define REPRESENTATIVE_MISSION_HIGH 3
