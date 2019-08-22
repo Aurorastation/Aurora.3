@@ -109,8 +109,8 @@
 	invocation_type = SpI_SHOUT
 	spell_flags = NEEDSCLOTHES | SELECTABLE
 	range = 3
-	duration = 600 //15 seconds.
-	cooldown_min = 300 //30 seconds
+	duration = 600 
+	cooldown_min = 300 
 
 	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 2, Sp_POWER = 4)
 
