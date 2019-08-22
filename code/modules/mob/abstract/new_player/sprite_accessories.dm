@@ -869,7 +869,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	mohawk_shavedbacklong
 		name = "Mohawk, Shaved Back and Long"
-		icon_state = "hair_mohawk_shavedbacklong
+		icon_state = "hair_mohawk_shavedbacklong"
 		chatname = "mohawk"
 
 	mohawk_shavedtight
@@ -1196,7 +1196,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	punk_chelseafringe_bighawk
 		name = "Punk Shave, Chelsea Fringe Big Hawk"
-		icon_state = "hair_punk_chelsea_bighawk"
+		icon_state = "hair_punk_chelseafringe_bighawk"
 		chatname = "mohawk"
 
 	punk_chelseafringe_smallhawk
