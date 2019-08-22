@@ -41,6 +41,10 @@
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!visualsOnly)
 		if(isvaurca(H))
+			var/r = H.r_skin
+			var/g = H.g_skin
+			var/b = H.b_skin
+
 			H.set_species("Vaurca Breeder")
 
 			H.unEquip(H.back)
@@ -51,3 +55,6 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/tcfl_pamphlet(H), slot_in_backpack)
+
+			H.change_skin_color(r, g, b)
+			H.update_dna()
