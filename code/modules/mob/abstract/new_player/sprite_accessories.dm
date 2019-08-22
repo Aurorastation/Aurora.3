@@ -1169,15 +1169,45 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "poofy hair"
 
-	punk_anarchist
-		name = "Punk Shave, Anarchist"
-		icon_state = "hair_punk_anarchist"
-		chatname = "unshaved hair"
-
-	punk_fringe
-		name = "Punk Shave, Fringe"
-		icon_state = "hair_punk_fringe"
+	punk_chelsea
+		name = "Punk Shave, Chelsea"
+		icon_state = "hair_punk_chelsea"
 		chatname = "fringe"
+
+	punk_chelsea_bighawk
+		name = "Punk Shave, Chelsea Big Hawk"
+		icon_state = "hair_punk_chelsea_bighawk"
+		chatname = "mohawk"
+
+	punk_chelsea_smallhawk
+		name = "Punk Shave, Chelsea Small Hawk"
+		icon_state = "hair_punk_chelsea_smallhawk"
+		chatname = "mohawk"
+
+	punk_chelsea_ponytail
+		name = "Punk Shave, Chelsea Ponytail"
+		icon_state = "hair_punk_chelsea_ponytail"
+		chatname = "ponytail"
+
+	punk_chelseafringe
+		name = "Punk Shave, Chelsea Fringe"
+		icon_state = "hair_punk_chelseafringe"
+		chatname = "fringe"
+
+	punk_chelseafringe_bighawk
+		name = "Punk Shave, Chelsea Fringe Big Hawk"
+		icon_state = "hair_punk_chelsea_bighawk"
+		chatname = "mohawk"
+
+	punk_chelseafringe_smallhawk
+		name = "Punk Shave, Chelsea Fringe Small Hawk"
+		icon_state = "hair_punk_chelseafringe_smallhawk"
+		chatname = "mohawk"
+
+	punk_chelseafringe_ponytail
+		name = "Punk Shave, Chelsea Fringe Ponytail"
+		icon_state = "hair_punk_chelseafringe_ponytail"
+		chatname = "ponytail"
 
 	punk_halfshaved
 		name = "Punk Shave, Half-Shaved"
