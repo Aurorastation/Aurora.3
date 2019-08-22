@@ -901,7 +901,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_newyou"
 		gender = FEMALE
 		length = 3
-		chatname = "long hair"
+		chatname = "ponytail"
 
 	nia
 		name = "Nia"
