@@ -44,7 +44,7 @@
 		if(varName in trans.vars)
 			trans.vars[varName] = newVars[varName]
 
-	trans.name = "[trans.name] ([M])"
+	trans.name = "[trans.name]"
 	if(istype(M,/mob/living/carbon/human) && drop_items)
 		for(var/obj/item/I in M.contents)
 			if(istype(I,/obj/item/organ))
@@ -102,7 +102,7 @@
 	name = "Baleful Polymorth"
 	desc = "This spell transforms its target into a mindless creature temporarily. There is a possibility that the creature may be dangerous to the caster, however. Those practiced in the high arcane arts can block this spell with ease, however."
 	feedback = "BP"
-	possible_transformations = list(/mob/living/simple_animal/lizard,/mob/living/simple_animal/rat,/mob/living/simple_animal/corgi, /mob/living/simple_animal/cat, /mob/living/simple_animal/slime, /mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/carp)
+	possible_transformations = list(/mob/living/simple_animal/lizard/wizard, /mob/living/simple_animal/rat/wizard, /mob/living/simple_animal/corgi, /mob/living/simple_animal/penguin/wizard, /mob/living/simple_animal/cat/wizard, /mob/living/simple_animal/slime/wizard, /mob/living/simple_animal/hostile/giant_spider/wizard, /mob/living/simple_animal/hostile/carp/wizard)
 
 	share_damage = 0
 	invocation = "Yo'balada!"

@@ -55,3 +55,28 @@
 	S2.icon_dead = "[src.colour] baby slime dead"
 	S2.colour = "[src.colour]"
 	qdel(src)
+
+/mob/living/simple_animal/slime/wizard
+	desc = "A smallish, blobby creature that bobs up and down slowly. How did it get in here?"
+
+/mob/living/simple_animal/slime/wizard/verb/change_name()
+	set name = "Name Slime"
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+
+	if(!name_changed)
+
+		var/input = sanitizeSafe(input("What do you want to name the Slime?", ,""), MAX_NAME_LEN)
+
+		if(src && input && !M.stat && in_range(M,src))
+			name = input
+			real_name = input
+			name_changed = 1
+			return 1
+
+	else
+		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
+		return

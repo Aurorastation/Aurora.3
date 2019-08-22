@@ -78,3 +78,5 @@
 
 	var/burn_mod = 1
 	var/brute_mod = 1
+
+	var/name_changed = 0 // for use in name changes

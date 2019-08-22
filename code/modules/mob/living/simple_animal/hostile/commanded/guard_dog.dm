@@ -43,8 +43,6 @@
 
 	known_commands = list("stay", "stop", "attack", "follow")
 
-	var/name_changed = 0
-
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
 

@@ -41,3 +41,4 @@ changes:
   - tweak: "The polymorph spell lasts longer (60 seconds base, +30 per extension, max 180), no longer makes you drop items, but also makes you a mindless animal for the duration."
   - balance: "The polymorph spell can be ended early with a second casting of the spell."
   - tweak: "The staff of change now works like a weaker baleful polymorph with a flat 40 second duration. It cannot be extended, but it can be dispelled with a second staff blast."
+  - tweak: "Polymorphed characters can now be renamed. Including by themselves. Let's not abuse this."

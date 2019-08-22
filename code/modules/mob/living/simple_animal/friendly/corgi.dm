@@ -171,3 +171,25 @@
 	if (!stat && !resting && !buckled && prob(1))
 		visible_emote(pick("dances around","chases her tail"),0)
 		INVOKE_ASYNC(src, .proc/do_dance, list(1,2,4,8,4,2,1,2,4,8,4,2,1,2,4,8,4,2))
+
+/mob/living/simple_animal/corgi/verb/change_name()
+	set name = "Name Dog"
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+
+	if(!name_changed)
+
+		var/input = sanitizeSafe(input("What do you want to name the dog?", ,""), MAX_NAME_LEN)
+
+		if(src && input && !M.stat && in_range(M,src))
+			name = input
+			real_name = input
+			name_changed = 1
+			return 1
+
+	else
+		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
+		return

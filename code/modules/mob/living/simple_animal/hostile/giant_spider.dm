@@ -239,3 +239,28 @@
 #undef LAYING_EGGS
 #undef MOVING_TO_TARGET
 #undef SPINNING_COCOON
+
+/mob/living/simple_animal/hostile/giant_spider/wizard
+	desc = "A large and hungry-looking spider. Where it it come from?"
+
+/mob/living/simple_animal/hostile/giant_spider/wizard/verb/change_name()
+	set name = "Name Spider"
+	set category = "IC"
+	set src in view(1)
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+
+	if(!name_changed)
+
+		var/input = sanitizeSafe(input("What do you want to name the spider?", ,""), MAX_NAME_LEN)
+
+		if(src && input && !M.stat && in_range(M,src))
+			name = input
+			real_name = input
+			name_changed = 1
+			return 1
+
+	else
+		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
+		return
