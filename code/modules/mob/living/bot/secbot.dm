@@ -527,7 +527,7 @@
 	..()
 	if(!on)
 		return
-	if((M.a_intent == I_HURT) && on ) //assume he wants to hurt us.
+	if((M.a_intent == I_HURT)) //assume he wants to hurt us.
 		idcheck = TRUE
 		target = M
 		mode = SECBOT_HUNT
