@@ -8,9 +8,9 @@
 	density = 0
 	var/obj/item/weapon/card/id/botcard = null
 	var/list/botcard_access = list()
-	var/on = 1
+	var/on = 0
 	var/open = 0
-	var/locked = 1
+	var/locked = 0
 	var/emagged = 0
 	var/light_strength = 3
 
@@ -91,6 +91,7 @@
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
+			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		else
 			to_chat(user, "<span class='notice'>You need to unlock the controls first.</span>")
 		return
