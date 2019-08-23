@@ -886,18 +886,6 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"cF" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/door/airlock/medical,
-/turf/simulated/wall/r_wall,
-/area/derelict/ship)
 "cG" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -65246,7 +65234,7 @@ aJ
 aD
 cm
 ad
-cF
+dl
 ad
 ad
 ad
