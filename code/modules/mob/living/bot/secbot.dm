@@ -157,6 +157,8 @@
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	var/curhealth = health
 	..()
+	if(!on)
+		return
 	if(health < curhealth)
 		target = user
 		awaiting_surrender = 5
@@ -521,8 +523,9 @@
 
 /mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
 	..()
-
-	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
+	if(!on)
+		return
+	if((M.a_intent == I_HURT) && on ) //assume he wants to hurt us.
 		idcheck = TRUE
 		target = M
 		mode = SECBOT_HUNT
@@ -541,7 +544,8 @@
 
 /mob/living/bot/secbot/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
-
+	if(!on)
+		return
 	target = user
 	mode = SECBOT_HUNT
 	if(ishuman(user))
@@ -561,7 +565,8 @@
 
 /mob/living/bot/secbot/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
-
+	if(!on)
+		return
 	if (ismob(P.firer))
 		var/found = 0
 		// Check if we can see them.
@@ -599,7 +604,8 @@
 	..()
 	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/weapon/pen) || istype(O, /obj/item/device/pda))
 		return
-
+	if(!on)
+		return
 	target = user
 	mode = SECBOT_HUNT
 	if(ishuman(user))
@@ -619,7 +625,8 @@
 
 /mob/living/bot/secbot/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-
+	if(!on)
+		return
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 		if(ismob(O.thrower))
