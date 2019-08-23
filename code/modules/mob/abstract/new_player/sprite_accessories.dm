@@ -1987,6 +1987,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
+		una_elvis
+			name = "Elvis Sideburns"
+			icon_state = "unathi_elvis"
+			length = 0
+			chatname = "sideburns"
+
 		una_hornadorns
 			name = "Unathi Horn Adorns"
 			icon_state = "unathi_hornadorns"
@@ -2383,6 +2389,22 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Big Horns"
 			icon_state = "facial_bighorn"
 
+		una_bob
+			name = "Bob"
+			icon_state = "facial_bob"
+
+		una_bobcurl
+			name = "Bobcurl"
+			icon_state = "facial_bobcurl"
+
+		una_buzzcut
+			name = "Buzzcut"
+			icon_state = "facial_buzzcut"
+
+		una_buzzcut2
+			name = "Buzzcut 2"
+			icon_state = "facial_buzzcut2"
+
 		una_chinhorn
 			name = "Unathi Chin Horn"
 			icon_state = "facial_chinhorns"
@@ -2458,6 +2480,10 @@ Follow by example and make good judgement based on length which list to include 
 		una_sidefrills
 			name = "Unathi Side Frills"
 			icon_state = "facial_sidefrills"
+
+		una_spiky
+			name = "Spiky"
+			icon_state = "facial_spiky"
 
 		una_horns
 			name = "Unathi Horns"
