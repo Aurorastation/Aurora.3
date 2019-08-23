@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - tweak: "Constructed bots (e.g., medibots) start unlocked and offline."
   - soundadd: "Screwdrivering bots to open/close the maintenance panel now plays a sound."
-  - bufix: "Fixed security bots from thinking you're attacking them even when they're offline; roboticists no longer have to live in fear (if they switch them off first)."
+  - bugfix: "Fixed security bots from thinking you're attacking them even when they're offline; roboticists no longer have to live in fear (if they switch them off first)."
