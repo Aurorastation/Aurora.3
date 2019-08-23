@@ -1912,11 +1912,15 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Wise Beard"
 		icon_state = "facial_wise"
 
-	chinstrap2
+	brokenman
 		icon = 'icons/mob/human_face/facial_hair_multiply.dmi'
-		name = "Chinstrap, Alt"
-		icon_state = "facial_chinstrap_ii"
+		name = "Broken Man"
+		icon_state = "facial_brokenman"
 		icon_blend_mode = ICON_MULTIPLY
+
+		chinstrap2
+			name = "Chinstrap, Alt"
+			icon_state = "facial_chinstrap_ii"
 
 		stark
 			name = "Stark"
