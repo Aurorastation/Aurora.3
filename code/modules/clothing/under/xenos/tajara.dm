@@ -26,6 +26,16 @@
 	icon_state = "ntoveralls"
 	item_state = "ntoveralls"
 
+/obj/item/clothing/under/tajaran/matake
+	name = "Mata'ke priest garments"
+	desc = "Simple linen garments worn by Mata'ke priests."
+	icon_state = "matakeuniform"
+	item_state = "matakeuniform"
+	description_fluff = "The priesthood of Mata’ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata’ke must prove themselves capable, \
+	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata’ke has a different way of testing its applicants and these tests are always kept as a strict \
+	secret, the only thing known is that the majority of applicants never return. After they’re accepted, priests of Mata’ke dress in white furs as not all are M’sai and carry silver \
+	weapons, usually daggers for ease of transport and to simulate Mata’ke’s sword. There is a remarkably low amount of Njarir-Arkhan in the Mata’ke priesthood."
+
 /obj/item/clothing/under/dress/tajaran
 	name = "fancy adhomian dress"
 	desc = "Created for the rich and party-loving circles of Adhomai, this dress is fashioned from smooth silk and is see through at parts. This one is white."

@@ -65,8 +65,8 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/weapon/bananapeel,
 												 /obj/item/weapon/bikehorn, /obj/item/device/pda/clown)),
 
-					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran/scarf, /obj/item/clothing/suit/storage/tajaran,
-												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/tajaran/furs,
+					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran, /obj/item/clothing/suit/storage/tajaran,
+												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/storage/tajaran,
 												 /obj/item/stack/material/animalhide/cat, /obj/item/weapon/holder/cat, /obj/item/toy/plushie/kitten)),
 
 					   "lizards"   = typecacheof(list(/obj/item/toy/plushie/lizard,/obj/item/weapon/material/hatchet/unathiknife,/obj/item/weapon/rig/unathi,
