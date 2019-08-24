@@ -169,6 +169,10 @@
 /mob/living/bot/secbot/think()
 	..()
 	if(!on)
+		walk_to(src, src, 0, move_to_delay)
+		target = null
+		frustration = 0
+		mode = SECBOT_IDLE
 		return
 
 	if(QDELETED(target))
@@ -527,7 +531,7 @@
 	..()
 	if(!on)
 		return
-	if((M.a_intent == I_HURT)) //assume he wants to hurt us.
+	if(M.a_intent == I_HURT) //assume he wants to hurt us.
 		idcheck = TRUE
 		target = M
 		mode = SECBOT_HUNT
