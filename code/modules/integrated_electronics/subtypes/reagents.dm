@@ -297,7 +297,7 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
-	var/cont[0]
+	var/list/cont = list()
 	for(var/datum/reagent/RE in reagents.reagent_list)
 		cont += RE.id
 	set_pin_data(IC_OUTPUT, 3, cont)
