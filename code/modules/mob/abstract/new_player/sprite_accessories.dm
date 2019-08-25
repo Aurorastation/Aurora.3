@@ -2570,9 +2570,65 @@ Follow by example and make good judgement based on length which list to include 
 			name = "static IPC screen"
 			icon_state = "ipc_static"
 
+		ipc_screen_static2
+			name = "static2 IPC screen"
+			icon_state = "ipc_static2"
+
+		ipc_screen_static3
+			name = "static3 IPC screen"
+			icon_state = "ipc_static3"
+
 		ipc_screen_yellow
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
+
+		ipc_screen_eye
+			name = "eye IPC screen"
+			icon_state = "ipc_eye"
+
+		ipc_screen_heartrate
+			name = "heartrate IPC screen"
+			icon_state = "ipc_heartrate"
+
+		ipc_screen_cancel
+			name = "cancel IPC screen"
+			icon_state = "ipc_cancel"
+
+		ipc_screen_testcard
+			name = "testcard IPC screen"
+			icon_state = "ipc_testcard"
+
+		ipc_screen_blank
+			name = "blank IPC screen"
+			icon_state = "ipc_blank"
+
+		ipc_screen_scroll
+			name = "scroll IPC screen"
+			icon_state = "ipc_scroll"
+
+		ipc_screen_console
+			name = "console IPC screen"
+			icon_state = "ipc_console"
+
+		ipc_screen_rgb
+			name = "RGB IPC screen"
+			icon_state = "ipc_rgb"
+
+		ipc_screen_gol_glider
+			name = "GoL glider IPC screen"
+			icon_state = "ipc_gol_glider"
+
+		ipc_screen_rainbow
+			name = "rainbow IPC screen"
+			icon_state = "ipc_rainbow"
+
+		ipc_screen_smiley
+			name = "smiley IPC screen"
+			icon_state = "ipc_smiley"
+
+		ipc_screen_database
+			name = "database IPC screen"
+			icon_state = "ipc_database"
 
 /*
 ////////////////////////////
