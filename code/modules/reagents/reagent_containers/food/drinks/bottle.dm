@@ -484,6 +484,17 @@
 		. = ..()
 		reagents.add_reagent("dynjuice", 100)
 
+/obj/item/weapon/reagent_containers/food/drinks/bottle/applejuice
+	name = "apple juice"
+	desc = "Juice from an apple. Yes."
+	icon_state = "applejuice"
+	item_state = "carton"
+	center_of_mass = list("x"=16, "y"=8)
+	isGlass = 0
+	Initialize()
+		. = ..()
+		reagents.add_reagent("applejuice", 100)
+
 //Small bottles
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small
 	name = "empty small bottle"
