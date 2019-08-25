@@ -98,7 +98,7 @@
 	else
 		set_light(0)
 
-/mob/living/bot/secbot/attack_hand(var/mob/user)
+/mob/living/bot/secbot/proc/open_interface(var/mob/user)
 	if (!has_ui_access(user))
 		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
@@ -155,16 +155,6 @@
 		if("declarearrests")
 			declare_arrests = !declare_arrests
 	attack_hand(usr)
-
-/mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
-	var/curhealth = health
-	..()
-	if(!on)
-		return
-	if(health < curhealth)
-		target = user
-		awaiting_surrender = 5
-		mode = SECBOT_HUNT
 
 /mob/living/bot/secbot/think()
 	..()
@@ -529,6 +519,7 @@
 
 /mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+	open_interface(M)
 	if(!on)
 		return
 	if(M.a_intent == I_HURT) //assume he wants to hurt us.
