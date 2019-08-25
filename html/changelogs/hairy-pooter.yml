@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added 107 hairstyles and 12 facial hairstyles for Humans/Shells, 3 hairstyles for Vox, 3 variant hairstyles and 4 variant facial hairstyles for Unathi, 1 facial hairstyle for Tajara; from Polaris, BS12, Para, tg, and including a small few from yours truly."
+  - rscadd: "Added 107 hairstyles and 12 facial hairstyles for Humans/Shells, 3 hairstyles for Vox, 3 variant hairstyles and 4 variant facial hairstyles for Unathi, 1 facial hairstyle for Tajara, 3 screens for Baseline IPCs; from Polaris, BS12, Para, tg, and including a small few from yours truly."
   - refactor: "Renamed hairstyles so that they may hopefully be more convenient to find on a hairstyle list -- be sure to check your character setup in case you're bald!"
   - spellcheck: "Rewrote the hair tugging messages so that they may show up in lower case."
   - bugfix: "Fixed hair name values and lengths so that they may appear on the Character Setup and Hair Tie lists, with 6 hairstyles being readded."

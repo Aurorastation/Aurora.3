@@ -2511,20 +2511,12 @@ Follow by example and make good judgement based on length which list to include 
 
 //ipc screens
 
-	ipc_screen_pink
+	ipc_screen_blank
 		icon = 'icons/mob/human_face/ipc_screens.dmi'
-		name = "pink IPC screen"
-		icon_state = "ipc_pink"
+		name = "blank IPC screen"
+		icon_state = "ipc_blank"
 		species_allowed = list("Machine")
 		gender = NEUTER
-
-		ipc_screen_red
-			name = "red IPC screen"
-			icon_state = "ipc_red"
-
-		ipc_screen_green
-			name = "green IPC screen"
-			icon_state = "ipc_green"
 
 		ipc_screen_blue
 			name = "blue IPC screen"
@@ -2534,21 +2526,57 @@ Follow by example and make good judgement based on length which list to include 
 			name = "breakout IPC screen"
 			icon_state = "ipc_breakout"
 
+		ipc_screen_cancel
+			name = "cancel IPC screen"
+			icon_state = "ipc_cancel"
+
+		ipc_screen_console
+			name = "console IPC screen"
+			icon_state = "ipc_console"
+
+		ipc_screen_database
+			name = "database IPC screen"
+			icon_state = "ipc_database"
+
 		ipc_screen_eight
 			name = "eight IPC screen"
 			icon_state = "ipc_eight"
+
+		ipc_screen_eye
+			name = "eye IPC screen"
+			icon_state = "ipc_eye"
 
 		ipc_screen_goggles
 			name = "goggles IPC screen"
 			icon_state = "ipc_goggles"
 
+		ipc_screen_gol_glider
+			name = "GoL glider IPC screen"
+			icon_state = "ipc_gol_glider"
+
+		ipc_screen_green
+			name = "green IPC screen"
+			icon_state = "ipc_green"
+
 		ipc_screen_heart
 			name = "heart IPC screen"
 			icon_state = "ipc_heart"
 
+		ipc_screen_heartrate
+			name = "heartrate IPC screen"
+			icon_state = "ipc_heartrate"
+
+		ipc_screen_lumi_eyes
+			name = "lumi eyes IPC screen"
+			icon_state = "ipc_lumi_eyes"
+
 		ipc_screen_monoeye
 			name = "monoeye IPC screen"
 			icon_state = "ipc_monoeye"
+
+		ipc_scren_music
+			name = "music IPC screen"
+			icon_state = "ipc_music"
 
 		ipc_screen_nature
 			name = "nature IPC screen"
@@ -2558,13 +2586,37 @@ Follow by example and make good judgement based on length which list to include 
 			name = "orange IPC screen"
 			icon_state = "ipc_orange"
 
+		ipc_screen_pink
+			name = "pink IPC screen"
+			icon_state = "ipc_pink"
+
 		ipc_screen_purple
 			name = "purple IPC screen"
 			icon_state = "ipc_purple"
 
+		ipc_screen_rainbow
+			name = "rainbow IPC screen"
+			icon_state = "ipc_rainbow"
+
+		ipc_screen_red
+			name = "red IPC screen"
+			icon_state = "ipc_red"
+
+		ipc_screen_rgb
+			name = "RGB IPC screen"
+			icon_state = "ipc_rgb"
+
+		ipc_screen_scroll
+			name = "scroll IPC screen"
+			icon_state = "ipc_scroll"
+
 		ipc_screen_shower
 			name = "shower IPC screen"
 			icon_state = "ipc_shower"
+
+		ipc_screen_smiley
+			name = "smiley IPC screen"
+			icon_state = "ipc_smiley"
 
 		ipc_screen_static
 			name = "static IPC screen"
@@ -2578,57 +2630,18 @@ Follow by example and make good judgement based on length which list to include 
 			name = "static3 IPC screen"
 			icon_state = "ipc_static3"
 
-		ipc_screen_yellow
-			name = "yellow IPC screen"
-			icon_state = "ipc_yellow"
-
-		ipc_screen_eye
-			name = "eye IPC screen"
-			icon_state = "ipc_eye"
-
-		ipc_screen_heartrate
-			name = "heartrate IPC screen"
-			icon_state = "ipc_heartrate"
-
-		ipc_screen_cancel
-			name = "cancel IPC screen"
-			icon_state = "ipc_cancel"
-
 		ipc_screen_testcard
 			name = "testcard IPC screen"
 			icon_state = "ipc_testcard"
 
-		ipc_screen_blank
-			name = "blank IPC screen"
-			icon_state = "ipc_blank"
+		ipc_screen_waiting
+			name = "waiting IPC screen"
+			icon_state = "ipc_waiting"
 
-		ipc_screen_scroll
-			name = "scroll IPC screen"
-			icon_state = "ipc_scroll"
+		ipc_screen_yellow
+			name = "yellow IPC screen"
+			icon_state = "ipc_yellow"
 
-		ipc_screen_console
-			name = "console IPC screen"
-			icon_state = "ipc_console"
-
-		ipc_screen_rgb
-			name = "RGB IPC screen"
-			icon_state = "ipc_rgb"
-
-		ipc_screen_gol_glider
-			name = "GoL glider IPC screen"
-			icon_state = "ipc_gol_glider"
-
-		ipc_screen_rainbow
-			name = "rainbow IPC screen"
-			icon_state = "ipc_rainbow"
-
-		ipc_screen_smiley
-			name = "smiley IPC screen"
-			icon_state = "ipc_smiley"
-
-		ipc_screen_database
-			name = "database IPC screen"
-			icon_state = "ipc_database"
 
 /*
 ////////////////////////////
