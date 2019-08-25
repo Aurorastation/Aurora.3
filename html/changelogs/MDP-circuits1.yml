@@ -1,5 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - rscadd: "Ports a bunch of circuits from Polaris."
-  - tweak: "Energy siphons can now restore nutrients/energy to the host at a reduced efficiency."
