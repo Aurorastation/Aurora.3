@@ -153,11 +153,6 @@
 				if(skin_color)
 					mob_icon.Blend(skin_color, ICON_ADD)
 
-				if(!isnull(s_tone))
-					if(s_tone >= 0)
-						mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
-					else
-						mob_icon.Blend(rgb(-s_tone,  -s_tone,  -s_tone), ICON_SUBTRACT)
 				
 
 			apply_markings()
