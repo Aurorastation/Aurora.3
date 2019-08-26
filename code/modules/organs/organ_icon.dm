@@ -150,13 +150,10 @@
 					mob_icon.ColorTone(rgb(10,50,0))
 					mob_icon.SetIntensity(0.7)
 
-				if(!isnull(s_tone))
-					if(s_tone >= 0)
-						mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
-					else
-						mob_icon.Blend(rgb(-s_tone,  -s_tone,  -s_tone), ICON_SUBTRACT)
-				else if(skin_color)
+				if(skin_color)
 					mob_icon.Blend(skin_color, ICON_ADD)
+
+				
 
 			apply_markings()
 
