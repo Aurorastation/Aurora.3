@@ -344,6 +344,11 @@
 						dismantle_wall()
 					return
 
+	if(istype(W, /obj/item/device/electronic_assembly/wallmount))
+		var/obj/item/device/electronic_assembly/wallmount/IC = W
+		IC.mount_assembly(src, user)
+		return
+
 	if(istype(W,/obj/item/frame))
 		var/obj/item/frame/F = W
 		F.try_build(src)
