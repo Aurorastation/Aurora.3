@@ -70,7 +70,7 @@
 	uniform["laborers clothes"] = /obj/item/clothing/under/tajaran
 	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy
 	uniform["NanoTrasen overalls"] = /obj/item/clothing/under/tajaran/nt
-	uniform["Matake priest garments"] = /obj/item/clothing/under/tajaran/matake
+	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
