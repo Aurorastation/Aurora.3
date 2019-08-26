@@ -585,7 +585,7 @@
 
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
-	desc = "A small, red flag pin worn by  of the Hadiist party."
+	desc = "A small, red flag pin worn by members of the Hadiist party."
 	icon_state = "hadii-pin"
 	item_state = "hadii-pin"
 	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
