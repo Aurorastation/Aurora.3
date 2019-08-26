@@ -77,6 +77,84 @@
 /obj/item/integrated_circuit/logic/binary/equals/do_compare(A, B)
 	return A == B
 
+/obj/item/integrated_circuit/logic/binary/jklatch
+	name = "JK latch"
+	desc = "This gate is a synchronized JK latch."
+	icon_state = "jklatch"
+	inputs = list("J" = IC_PINTYPE_ANY,"K" = IC_PINTYPE_ANY)
+	outputs = list("Q" = IC_PINTYPE_BOOLEAN,"!Q" = IC_PINTYPE_BOOLEAN)
+	activators = list("pulse in C" = IC_PINTYPE_PULSE_IN, "pulse out Q" = IC_PINTYPE_PULSE_OUT, "pulse out !Q" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	var/lstate=FALSE
+
+/obj/item/integrated_circuit/logic/binary/jklatch/do_work()
+	if(get_pin_data(IC_INPUT, 1))
+		if(get_pin_data(IC_INPUT, 2))
+			lstate=!lstate
+		else
+			lstate = TRUE
+	else
+		if(get_pin_data(IC_INPUT, 2))
+			lstate=FALSE
+	set_pin_data(IC_OUTPUT, 1, lstate ? TRUE : FALSE)
+	set_pin_data(IC_OUTPUT, 2, !lstate ? TRUE : FALSE)
+	if(get_pin_data(IC_OUTPUT, 1))
+		activate_pin(2)
+	else
+		activate_pin(3)
+	push_data()
+
+/obj/item/integrated_circuit/logic/binary/rslatch
+	name = "RS latch"
+	desc = "This gate is a synchronized RS latch. If both R and S are true, its state will not change."
+	icon_state = "sr_nor"
+	inputs = list("S" = IC_PINTYPE_ANY,"R" = IC_PINTYPE_ANY)
+	outputs = list("Q" = IC_PINTYPE_BOOLEAN,"!Q" = IC_PINTYPE_BOOLEAN)
+	activators = list("pulse in C" = IC_PINTYPE_PULSE_IN, "pulse out Q" = IC_PINTYPE_PULSE_OUT, "pulse out !Q" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	var/lstate=FALSE
+
+/obj/item/integrated_circuit/logic/binary/rslatch/do_work()
+	if(get_pin_data(IC_INPUT, 1))
+		if(!get_pin_data(IC_INPUT, 2))
+			lstate=TRUE
+	else
+		if(get_pin_data(IC_INPUT, 2))
+			lstate=FALSE
+	set_pin_data(IC_OUTPUT, 1, lstate ? TRUE : FALSE)
+	set_pin_data(IC_OUTPUT, 2, !lstate ? TRUE : FALSE)
+	if(get_pin_data(IC_OUTPUT, 1))
+		activate_pin(2)
+	else
+		activate_pin(3)
+	push_data()
+
+/obj/item/integrated_circuit/logic/binary/gdlatch
+	name = "gated D latch"
+	desc = "This gate is a synchronized gated D latch."
+	icon_state = "gated_d"
+	inputs = list("D" = IC_PINTYPE_ANY,"E" = IC_PINTYPE_ANY)
+	outputs = list("Q" = IC_PINTYPE_BOOLEAN,"!Q" = IC_PINTYPE_BOOLEAN)
+	activators = list("pulse in C" = IC_PINTYPE_PULSE_IN, "pulse out Q" = IC_PINTYPE_PULSE_OUT, "pulse out !Q" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	var/lstate=FALSE
+
+/obj/item/integrated_circuit/logic/binary/gdlatch/do_work()
+	if(get_pin_data(IC_INPUT, 2))
+		if(get_pin_data(IC_INPUT, 1))
+			lstate=TRUE
+		else
+			lstate=FALSE
+
+
+	set_pin_data(IC_OUTPUT, 1, lstate ? TRUE : FALSE)
+	set_pin_data(IC_OUTPUT, 2, !lstate ? TRUE : FALSE)
+	if(get_pin_data(IC_OUTPUT, 1))
+		activate_pin(2)
+	else
+		activate_pin(3)
+	push_data()
+
 /obj/item/integrated_circuit/logic/binary/not_equals
 	name = "not equal gate"
 	desc = "This gate compares two values, and outputs the number one if both are different."

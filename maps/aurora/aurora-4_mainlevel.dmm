@@ -40162,6 +40162,14 @@
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "bru" = (
@@ -40172,6 +40180,14 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/sign/flag/nanotrasen/left,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "brv" = (
@@ -40182,6 +40198,14 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/sign/flag/nanotrasen/right,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
 "brw" = (
@@ -40193,6 +40217,14 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
@@ -40209,6 +40241,14 @@
 /obj/machinery/door/airlock/glass_research{
 	name = "Robotics Lab";
 	req_access = list(29)
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
