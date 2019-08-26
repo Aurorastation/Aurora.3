@@ -183,7 +183,7 @@
 
 	if ((status & ORGAN_PLANT))
 		cannot_break = 1
-
+	
 	get_icon()
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)

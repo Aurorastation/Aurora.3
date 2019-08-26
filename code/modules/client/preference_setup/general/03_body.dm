@@ -197,7 +197,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
 	message_admins(mob_species.bodytype)
-	if(has_flag(mob_species, HAS_SKIN_TONE))
+	if(has_flag(mob_species, HAS_SKIN_BASE))
 		if(pref.s_base == "")
 			pref.s_base = "cold"
 		out += "Skin Base: <a href='?src=\ref[src];skin_base=1'>[pref.s_base]</a><br>"

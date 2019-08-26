@@ -120,8 +120,9 @@
 	if(owner && owner.gender == MALE)
 		gender = "m"
 	var/skin_base = ""
-	if(owner)
-		skin_base = "_[owner.skin_base]"
+	if(owner && owner.s_base)
+		skin_base = "_[owner.s_base]"
+	message_admins(skin_base)
 
 	if(force_icon)
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender][skin_base]" : "[skin_base]"]")

@@ -34,7 +34,7 @@
 				return 1
 	if(href_list["skin_base"])
 		if(can_change_skin_base())
-			var/new_skin_base = input(user, "Choose your character's skin base:", "Character Skin Base")  as null|anything in list("cold", "warm")
+			var/new_skin_base = input(usr, "Choose your character's skin base:", "Character Skin Base")  as null|anything in list("cold", "warm")
 			if(new_skin_base)
 				return owner.change_skin_base(new_skin_base)
 			
