@@ -135,7 +135,7 @@
 			turn_off()
 		else
 			turn_on()
-		attack_hand(usr)
+		open_interface(usr)
 
 	if (locked && !issilicon(usr))
 		return
@@ -154,7 +154,7 @@
 			mode = SECBOT_IDLE
 		if("declarearrests")
 			declare_arrests = !declare_arrests
-	attack_hand(usr)
+	open_interface(usr)
 
 /mob/living/bot/secbot/think()
 	..()
