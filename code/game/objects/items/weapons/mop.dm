@@ -12,9 +12,10 @@
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
 	var/mopping = 0
 	var/mopcount = 0
+	var/cleantime = 25
 
-/obj/item/weapon/mop/New()
-	..()
+/obj/item/weapon/mop/Initialize()
+	. = ..()
 	create_reagents(30)
 	janitorial_supplies |= src
 
@@ -33,7 +34,7 @@
 		user.visible_message("<span class='warning'>[user] begins to clean \the [get_turf(A)].</span>")
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 
-		if(do_after(user, 40))
+		if(do_after(user, cleantime))
 			var/turf/T = get_turf(A)
 			if(T)
 				T.clean(src, user)
@@ -47,11 +48,18 @@
 
 /obj/item/weapon/mop/update_icon()
 	if(reagents.total_volume < 1)
-		icon_state = "mop"
-		item_state = "mop"
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(icon_state)]"
 	if(reagents.total_volume > 1)
-		icon_state = "mop_wet"
-		item_state = "mop_wet"
+		icon_state = "[initial(icon_state)]_wet"
+		item_state = "[initial(icon_state)]_wet"
 
 /obj/item/weapon/mop/on_reagent_change()
 	update_icon()
+
+/obj/item/weapon/mop/electric
+	name = "emop"
+	desc = "Who said water and electricity couldn't mix?"
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "emop"
+	cleantime = 10

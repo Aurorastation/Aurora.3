@@ -17,7 +17,7 @@
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
 	w_class = 1
-	icon = 'icons/obj/toy.dmi'
+	icon = 'icons/obj/janitor.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5)
