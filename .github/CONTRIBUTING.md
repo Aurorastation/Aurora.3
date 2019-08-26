@@ -227,7 +227,7 @@ Due to our current situation with 5 different HTML UI systems we are now enforci
 
  1. Modification is security / severe bug fix.
  0. It is typo fix.
- 0. Touched UI file to too large.
+ 0. Touched UI file is too large.
  0. VueUi can't accommodate that type of UI.
 
 ### Responsiveness
