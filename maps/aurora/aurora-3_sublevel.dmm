@@ -20430,7 +20430,7 @@
 "aOc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/requests_console{
-	department = "Medical Bay";
+	department = "Autopsy Laboratory";
 	departmentType = 1;
 	pixel_x = 0;
 	pixel_y = -30
@@ -33983,6 +33983,7 @@
 "uui" = (
 /obj/structure/table/reinforced,
 /obj/machinery/requests_console{
+	department = "Quarantine Ward";
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,

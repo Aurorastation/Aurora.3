@@ -39385,8 +39385,8 @@
 	dir = 6
 	},
 /obj/machinery/requests_console{
-	department = "Psychiatrist's Desk";
-	departmentType = 1;
+	department = "Main Medical Storage";
+	departmentType = 2;
 	pixel_x = 32;
 	pixel_y = 0
 	},
