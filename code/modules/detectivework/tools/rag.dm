@@ -107,15 +107,13 @@
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		update_icon()
 		if(do_after(user,30))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
-			var/turf/T = get_turf(A)
-			if(T)
-				T.clean(src, user) // you can clean floors now with a rag! yay!
 
 /obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
