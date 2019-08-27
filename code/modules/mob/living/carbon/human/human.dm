@@ -1136,7 +1136,7 @@
 						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>")
 					to_chat(src, msg)
 
-				src.adjustHalLoss(rand(1, 3))
+				adjustHalLoss(rand(1, 3))
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
