@@ -28,6 +28,7 @@
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
+	var/cleantime = 30
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/weapon/reagent_containers/glass/rag/Initialize()
@@ -71,11 +72,11 @@
 
 /obj/item/weapon/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
-		icon_state = "raglit"
+		icon_state = "[initial(icon_state)]_lit"
 	else if(reagents.total_volume)
-		icon_state = "rag_wet"
+		icon_state = "[initial(icon_state)]_wet"
 	else
-		icon_state = "rag"
+		icon_state = "[initial(icon_state)]"
 
 	var/obj/item/weapon/reagent_containers/food/drinks/bottle/B = loc
 	if(istype(B))
@@ -111,7 +112,7 @@
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		update_icon()
-		if(do_after(user,30))
+		if(do_after(user,cleantime))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
 
@@ -265,3 +266,30 @@
 	update_name()
 	update_icon()
 	burn_time--
+
+/obj/item/weapon/reagent_containers/glass/rag/advanced
+	name = "microfiber cloth"
+	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
+	w_class = 1
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "advrag"
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5)
+	volume = 20
+	cleantime = 15
+
+/obj/item/weapon/reagent_containers/glass/rag/advanced/proc/wipe_down(atom/A, mob/user)
+	if(!reagents.total_volume)
+		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
+	else
+		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
+		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
+		update_name()
+		update_icon()
+		if(do_after(user,cleantime))
+			user.visible_message("\The [user] finishes wiping off \the [A]!")
+			A.clean_blood()
+			var/turf/T = get_turf(A)
+			if(T)
+				T.clean(src, user)
