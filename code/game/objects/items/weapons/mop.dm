@@ -6,8 +6,8 @@
 	item_state = "mop"
 	force = 3.0
 	throwforce = 10.0
-	throw_speed = 5
-	throw_range = 10
+	throw_speed = 3
+	throw_range = 7
 	w_class = 3.0
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
 	var/mopping = 0
@@ -57,9 +57,42 @@
 /obj/item/weapon/mop/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/mop/electric
-	name = "emop"
-	desc = "Who said water and electricity couldn't mix?"
+/obj/item/weapon/mop/advanced
+	name = "advanced mop"
+	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
 	icon = 'icons/obj/janitor.dmi'
-	icon_state = "emop"
+	icon_state = "advmop"
+	item_state = "advmop"
+	force = 6.0
+	throwforce = 14
+	throw_range = 8
 	cleantime = 10
+	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
+	var/refill_rate = 1 //Rate per process() tick mop refills itself
+	var/refill_reagent = "water" //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+
+/obj/item/weapon/mop/advanced/New()
+	..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/weapon/mop/advanced/attack_self(mob/user)
+	refill_enabled = !refill_enabled
+	if(refill_enabled)
+		START_PROCESSING(SSprocessing, src)
+	else
+		STOP_PROCESSING(SSprocessing,src)
+	to_chat(user, "<span class='notice'>You set the condenser switch to the '[refill_enabled ? "ON" : "OFF"]' position.</span>")
+	playsound(user, 'sound/machines/click.ogg', 30, 1)
+
+/obj/item/weapon/mop/advanced/process()
+	if(reagents.total_volume < 30)
+		reagents.add_reagent(refill_reagent, refill_rate)
+
+/obj/item/weapon/mop/advanced/examine(mob/user)
+	..()
+	to_chat(user, "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>")
+
+/obj/item/weapon/mop/advanced/Destroy()
+	if(refill_enabled)
+		STOP_PROCESSING(SSprocessing, src)
+	return ..()

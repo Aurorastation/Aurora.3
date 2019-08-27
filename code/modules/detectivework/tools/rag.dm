@@ -33,6 +33,7 @@
 /obj/item/weapon/reagent_containers/glass/rag/Initialize()
 	. = ..()
 	update_name()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/Destroy()
 	STOP_PROCESSING(SSprocessing, src) //so we don't continue turning to ash while gc'd
@@ -58,6 +59,7 @@
 
 	. = ..()
 	update_name()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
@@ -70,12 +72,18 @@
 /obj/item/weapon/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
 		icon_state = "raglit"
+	else if(reagents.total_volume)
+		icon_state = "rag_wet"
 	else
 		icon_state = "rag"
 
 	var/obj/item/weapon/reagent_containers/food/drinks/bottle/B = loc
 	if(istype(B))
 		B.update_icon()
+
+/obj/item/weapon/reagent_containers/glass/rag/on_reagent_change()
+	update_name()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/remove_contents(mob/user, atom/trans_dest = null)
 	if(!trans_dest && !user.loc)
@@ -92,6 +100,7 @@
 				reagents.splash(user.loc, reagents.total_volume)
 			user.visible_message("<span class='danger'>\The [user] wrings out [src] over [target_text].</span>", "<span class='notice'>You finish to wringing out [src].</span>")
 			update_name()
+			update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
@@ -100,9 +109,11 @@
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
+		update_icon()
 		if(do_after(user,30))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
+			T.clean(src, user)
 
 /obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
@@ -153,6 +164,7 @@
 					//^HA HA HA
 					reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
 					update_name()
+					update_icon()
 				else
 					wipe_down(target, user)
 			return
@@ -172,6 +184,7 @@
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 			user.visible_message("<span class='notice'>\The [user] soaks [src] using [A].</span>", "<span class='notice'>You soak [src] using [A].</span>")
 			update_name()
+			update_icon()
 		return
 
 	if(!on_fire && istype(A) && (src in user))
@@ -250,4 +263,5 @@
 
 	reagents.remove_reagent("fuel", reagents.maximum_volume/25)
 	update_name()
+	update_icon()
 	burn_time--
