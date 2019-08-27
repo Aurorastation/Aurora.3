@@ -192,8 +192,6 @@ other types of metals and chemistry for reagents).
 	name = "microfiber cloth"
 	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
 	id = "advrag"
-	icon = 'icons/obj/janitor.dmi'
-	icon_state = "advrag"
 	build_type = PROTOLATHE
 	materials = list("glass" = 200)
 	build_path = /obj/item/weapon/reagent_containers/glass/rag/advanced
