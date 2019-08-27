@@ -1481,6 +1481,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 2
 			chatname = "long hair"
 
+		bob_alt
+			name = "Bob, Alt"
+			icon_state = "hair_bob_alt"
+			length = 1
+			chatname = "short hair"
+
 		braided_tail
 			name = "Braided, Tail"
 			icon_state = "hair_braided_tail"
