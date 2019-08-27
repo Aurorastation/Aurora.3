@@ -188,15 +188,6 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/storage/bag/trash/bluespace
 	sort_string = "VAAAJ"
 
-/datum/design/advrag
-	name = "microfiber cloth"
-	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
-	id = "advrag"
-	build_type = PROTOLATHE
-	materials = list("glass" = 200)
-	build_path = /obj/item/weapon/reagent_containers/glass/rag/advanced
-	sort_string = "VAAAK"
-
 /datum/design/item/experimental_welder
 	name = "Experimental Welding Tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
