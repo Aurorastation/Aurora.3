@@ -43996,7 +43996,7 @@
 /obj/machinery/requests_console{
 	department = "Research and Development";
 	departmentType = 2;
-	name = "Research and Development Request Console";
+	name = "Research and Development Requests Console";
 	pixel_x = 0;
 	pixel_y = 30
 	},
@@ -51857,7 +51857,7 @@
 /obj/machinery/requests_console{
 	department = "Research and Development";
 	departmentType = 2;
-	name = "Research and Development Request Console";
+	name = "Research and Development Requests Console";
 	pixel_x = 0;
 	pixel_y = -30
 	},
@@ -51872,7 +51872,7 @@
 /obj/machinery/requests_console{
 	department = "Telescience Lab";
 	departmentType = 2;
-	name = "Telescience Request Console";
+	name = "Telescience Requests Console";
 	pixel_x = -32;
 	pixel_y = 0
 	},
