@@ -69,8 +69,10 @@
 		else
 			to_chat(user, "\The [target] is empty!")
 	else
-		to_chat(user, "<span class='notice'>You clean \the [target.name].</span>")
-		target.clean_blood()
+		to_chat(user, "You start cleaning the [target.name]")
+		if (do_after(user, 15, needhand = 0))
+			to_chat(user, "<span class='notice'>You clean \the [target.name].</span>")
+			target.clean_blood()
 	return
 
 //attack_as_weapon
