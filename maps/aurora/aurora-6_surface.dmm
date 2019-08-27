@@ -9533,7 +9533,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/machinery/requests_console{
-	department = "Primary tool Storage";
+	department = "Primary Tool Storage";
 	departmentType = 2;
 	pixel_x = -32
 	},
