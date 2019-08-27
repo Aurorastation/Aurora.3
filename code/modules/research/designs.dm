@@ -189,7 +189,7 @@ other types of metals and chemistry for reagents).
 	sort_string = "VAAAJ"
 
 /datum/design/advrag
-	name = "microfiber cloth"
+	name = "Microfiber Cloth"
 	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
 	id = "advrag"
 	build_type = PROTOLATHE
