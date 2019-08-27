@@ -38,9 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Increases the size of the mop bucket by 3x"
-  - rscadd: "Makes mop faster."
-  - imageadd: "Cooler rag sprite."
-  - imageadd: "New Bluespace trashbag and E-mop"
-  - rscadd: "Buffs Janibelt ( You can finally put gloves, rags and radios in them )"
+  - tweak: "Increases the size of the mop bucket by 3x, and makes mop mop faster, like, 1.5x faster."
+  - tweak: "Buffs the janibelt ( You can finally put gloves, rags and radios in them! )"
+  - imageadd: "Cooler rag sprites, and some tweaks."
+  - rscadd: "New bluespace trashbag, advanced mop, and microfiber cloth available in the protolathe."
 
