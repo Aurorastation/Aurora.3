@@ -113,7 +113,9 @@
 		if(do_after(user,30))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
-			T.clean(src, user)
+			var/turf/T = get_turf(A)
+			if(T)
+				T.clean(src, user) // you can clean floors now with a rag! yay!
 
 /obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
