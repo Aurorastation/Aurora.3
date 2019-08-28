@@ -47,11 +47,12 @@
 	..()
 
 /obj/item/weapon/mop/update_icon()
-	if(reagents.total_volume < 5)
+	if(reagents.total_volume < 1)
 		icon_state = "[initial(icon_state)]"
-	if(reagents.total_volume > 5)
+		item_state = icon_state
+	if(reagents.total_volume > 1)
 		icon_state = "[initial(icon_state)]_wet"
-	item_state = icon_state
+		item_state = icon_state
 
 /obj/item/weapon/mop/on_reagent_change()
 	update_icon()
@@ -65,9 +66,9 @@
 	force = 6.0
 	throwforce = 14
 	throw_range = 8
-	cleantime = 10
+	cleantime = 15
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
-	var/refill_rate = 1 //Rate per process() tick mop refills itself
+	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
 	var/refill_reagent = "water" //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
 /obj/item/weapon/mop/advanced/New()
@@ -81,7 +82,7 @@
 	else
 		STOP_PROCESSING(SSprocessing,src)
 	to_chat(user, "<span class='notice'>You set the condenser switch to the '[refill_enabled ? "ON" : "OFF"]' position.</span>")
-	playsound(user, 'sound/machines/click.ogg', 30, 1)
+	playsound(user, 'sound/machines/click.ogg', 25, 1)
 
 /obj/item/weapon/mop/advanced/process()
 	if(reagents.total_volume < 30)

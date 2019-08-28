@@ -59,6 +59,23 @@
 /obj/item/weapon/reagent_containers/toothbrush/feed_sound(var/mob/user)
 	return
 
+/obj/item/weapon/reagent_containers/toothbrush/afterattack(atom/A, mob/user, proximity)
+	if(!proximity) return
+	if(istype(A, /turf A, || /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
+		if(reagents.total_volume < 1)
+			to_chat(user, "<span class='notice'>Your toothbrush is dry!</span>")
+			return
+
+		user.visible_message("<span class='warning'>[user] begins to scrub \the [get_turf(A)].</span>")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
+
+		if(do_after(user, 50))
+			var/turf/T = get_turf(A)
+			if(T)
+				T.clean(src, user)
+			to_chat(user, "<span class='notice'>You have finished scrubbing!</span>")
+			update_icon()
+
 /obj/item/weapon/reagent_containers/toothbrush/green
 	icon_state = "toothbrush_g"
 

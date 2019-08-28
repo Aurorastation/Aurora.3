@@ -14,7 +14,6 @@
 	flags = OPENCONTAINER
 	var/key_data
 	drop_sound = 'sound/misc/slip.ogg'
-	var/cleantime = 25
 
 /obj/item/weapon/soap/New()
 	..()
@@ -63,7 +62,7 @@
 	else
 		to_chat(user, "You start scrubbing the [target.name]")
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-		if (do_after(user, cleantime, needhand = 0))
+		if (do_after(user, 25, needhand = 0))
 			target.clean_blood()
 			to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
 			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
