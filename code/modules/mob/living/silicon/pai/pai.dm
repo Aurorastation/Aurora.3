@@ -7,7 +7,8 @@
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	density = 0
-	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
+	var/speed = 0.8 //Determines the speed of the pAI
+	mob_size = 1 //As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
 
 	var/network = "SS13"
@@ -73,7 +74,7 @@
 
 	var/security_cannotfind = 0
 
-	var/obj/machinery/door/hackdoor		// The airlock being hacked
+	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
 
@@ -142,6 +143,9 @@
 	pda = new(src)
 	addtimer(CALLBACK(src, .proc/set_pda), 5)
 	. = ..()
+	
+/mob/living/silicon/pai/movement_delay()
+	return speed + config.robot_delay
 
 /mob/living/silicon/pai/proc/set_pda()
 	pda.ownjob = "Personal Assistant"
