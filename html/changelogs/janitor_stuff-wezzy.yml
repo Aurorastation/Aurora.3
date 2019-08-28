@@ -40,6 +40,6 @@ delete-after: True
 changes: 
   - tweak: "Increases the size of the mop bucket by 3x, and makes mop mop faster, like, 1.5x faster."
   - tweak: "Buffs the janibelt ( You can finally put gloves, rags and radios in them! )"
-  - imageadd: "Cooler rag sprites, and some tweaks."
+  - imageadd: "Cooler rag sprites, and some tweaks to other sprites."
   - rscadd: "New bluespace trashbag, advanced mop, and microfiber cloth available in the protolathe."
 
