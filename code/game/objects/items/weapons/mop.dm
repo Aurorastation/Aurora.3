@@ -24,14 +24,13 @@
 	return ..()
 
 /obj/item/weapon/mop/afterattack(atom/A, mob/user, proximity)
-	update_icon()
 	if(!proximity) return
 	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
 			to_chat(user, "<span class='notice'>Your mop is dry!</span>")
 			return
 
-		user.visible_message("<span class='warning'>[user] begins to clean \the [get_turf(A)].</span>")
+		user.visible_message("<span class='warning'>[user] begins to mop \the [get_turf(A)].</span>")
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 
 		if(do_after(user, cleantime))
@@ -39,6 +38,7 @@
 			if(T)
 				T.clean(src, user)
 			to_chat(user, "<span class='notice'>You have finished mopping!</span>")
+			update_icon()
 
 
 /obj/effect/attackby(obj/item/I, mob/user)
@@ -47,12 +47,11 @@
 	..()
 
 /obj/item/weapon/mop/update_icon()
-	if(reagents.total_volume < 1)
+	if(reagents.total_volume < 5)
 		icon_state = "[initial(icon_state)]"
-		item_state = "[initial(icon_state)]"
-	if(reagents.total_volume > 1)
+	if(reagents.total_volume > 5)
 		icon_state = "[initial(icon_state)]_wet"
-		item_state = "[initial(icon_state)]_wet"
+	item_state = icon_state
 
 /obj/item/weapon/mop/on_reagent_change()
 	update_icon()
@@ -96,3 +95,4 @@
 	if(refill_enabled)
 		STOP_PROCESSING(SSprocessing, src)
 	return ..()
+

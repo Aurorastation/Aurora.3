@@ -29,7 +29,7 @@
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 	var/cleantime = 30
-	var/floorclean = 0
+	var/floorclean = FALSE //the abilty to clean floors. a regular rag would just smudge stuff.
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/weapon/reagent_containers/glass/rag/Initialize()
@@ -282,5 +282,5 @@
 	possible_transfer_amounts = list(5)
 	volume = 20
 	cleantime = 15
-	floorclean = 1
+	floorclean = TRUE
 

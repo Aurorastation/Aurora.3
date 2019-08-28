@@ -14,6 +14,7 @@
 	flags = OPENCONTAINER
 	var/key_data
 	drop_sound = 'sound/misc/slip.ogg'
+	var/cleantime = 25
 
 /obj/item/weapon/soap/New()
 	..()
@@ -50,15 +51,6 @@
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
 		to_chat(user, "<span class='notice'>You need to take that [target.name] off before cleaning it.</span>")
-	else if(istype(target,/obj/effect/decal/cleanable))
-		to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
-		qdel(target)
-	else if(istype(target,/turf))
-		to_chat(user, "You start scrubbing the [target.name]")
-		if (do_after(user, 30, needhand = 0))
-			to_chat(user, "<span class='notice'>You scrub \the [target.name] clean.</span>")
-			var/turf/T = target
-			T.clean(src, user)
 	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
 		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
 		wet()
@@ -69,8 +61,15 @@
 		else
 			to_chat(user, "\The [target] is empty!")
 	else
-		to_chat(user, "<span class='notice'>You clean \the [target.name].</span>")
-		target.clean_blood()
+		to_chat(user, "You start scrubbing the [target.name]")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
+		if (do_after(user, cleantime, needhand = 0))
+			target.clean_blood()
+			to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
+			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
+				var/turf/T = get_turf(target)
+				if(T)
+					T.clean(src, user)
 	return
 
 //attack_as_weapon
