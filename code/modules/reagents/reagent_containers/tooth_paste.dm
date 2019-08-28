@@ -61,7 +61,7 @@
 
 /obj/item/weapon/reagent_containers/toothbrush/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
-	if(istype(A, /turf A, || /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
+	if(istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay))
 		if(reagents.total_volume < 1)
 			to_chat(user, "<span class='notice'>Your toothbrush is dry!</span>")
 			return
