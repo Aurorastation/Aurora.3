@@ -29,6 +29,7 @@ datum/preferences
 	var/html_UI_style = "Nano"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
+	var/darkmode
 
 	//character preferences
 	var/real_name						//our character's name
