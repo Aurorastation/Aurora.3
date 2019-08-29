@@ -222,7 +222,7 @@
 	if(!istype(source) || (!istype(target))) //Invalid input
 		return
 	var/turf/T = get_turf(src)
-	if((source.Adjacent(T)  || istype(beaker_slot)) && target.Adjacent(T))
+	if((T.Adjacent(source)  || istype(beaker_slot)) && T.Adjacent(target))
 		if(!source.reagents || !target.reagents)
 			return
 		if(ismob(source) || ismob(target))
