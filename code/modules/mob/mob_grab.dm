@@ -158,8 +158,10 @@
 		//affecting.apply_effect(STUTTER, 5) //would do this, but affecting isn't declared as mob/living for some stupid reason.
 		affecting.stuttering = max(affecting.stuttering, 5) //It will hamper your voice, being choked and all.
 		affecting.Weaken(5)	//Should keep you down unless you get help.
-		if (!(affecting.species.flags & NO_BREATHE))
-			affecting.losebreath = max(affecting.losebreath + 2, 3)
+		if(ishuman_species(affecting))
+			var/mob/living/carbon/human/A = affecting
+			if (!(A.species.flags & NO_BREATHE))
+				A.losebreath = max(A.losebreath + 2, 3)
 
 	adjust_position()
 
@@ -289,8 +291,10 @@
 		msg_admin_attack("[key_name_admin(assailant)] strangled (kill intent) [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 
 		affecting.setClickCooldown(10)
-		if (!(affecting.species.flags & NO_BREATHE))
-			affecting.losebreath += 1
+		if(ishuman_species(affecting))
+			var/mob/living/carbon/human/A = affecting
+			if (!(A.species.flags & NO_BREATHE))
+				A.losebreath += 1
 		affecting.set_dir(WEST)
 	adjust_position()
 
