@@ -189,7 +189,7 @@
 	power_draw_per_use = 80
 
 /obj/item/integrated_circuit/input/examiner/do_work()
-	var/atom/movable/H = get_pin_data_as_type(IC_INPUT, 1, /atom/movable)
+	var/atom/H = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	var/turf/T = get_turf(src)
 	if(!istype(H)) //Invalid input
 		return
@@ -497,8 +497,8 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 120
 
-/obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A)
-	if(!src.Adjacent(A))
+/obj/item/integrated_circuit/input/sensor/proc/sense(var/atom/A, mob/user)
+	if(!user.Adjacent(A))
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
@@ -508,6 +508,7 @@
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	activate_pin(1)
+	user.visible_message(span("notice", "[user] waves [assembly] around [A]."), span("notice", "You scan [A] with [assembly]."))
 	return TRUE
 
 /obj/item/integrated_circuit/input/atmo_scanner
@@ -918,7 +919,7 @@
 			return FALSE
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
-	to_chat(user, "<span class='notice'>You scan [A] with [assembly].</span>")
+	user.visible_message(span("notice", "[user] points [assembly] at [A]."), span("notice", "You scan [A] with [assembly]."))
 	activate_pin(1)
 	return TRUE
 
