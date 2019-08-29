@@ -229,9 +229,7 @@
 				owner.reagents.add_reagent("toxin", 25)
 				return
 
-
 			owner.vessel.remove_reagent("blood",rand(15,30))
-			owner.adjustToxLoss(rand(5,25))
 			owner.reagents.add_reagent("paracetamol", 5)
 			owner.reagents.add_reagent("inaprovaline", 5)
 
