@@ -48,11 +48,13 @@
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
-		user.visible_message(
-		"<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>",
-		"<span class='notice'>You brush your teeth with \the [src].</span>")
-		reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
-		update_icon()
+		playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
+		if(do_after(user, 30))
+			user.visible_message(
+			"<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>",
+			"<span class='notice'>You brush your teeth with \the [src].</span>")
+			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
+			update_icon()
 	return
 
 /obj/item/weapon/reagent_containers/toothbrush/feed_sound(var/mob/user)
@@ -72,6 +74,7 @@
 				if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message("<span class='warning'>[user] is trying to brush \the [target]'s teeth \the [src]!</span>")
+					playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 					if(do_after(user, 30))
 						user.visible_message("<span class='warning'>[user] has brushed \the [target]'s teeth with \the [src]!</span>")
 
