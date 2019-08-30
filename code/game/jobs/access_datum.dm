@@ -341,7 +341,7 @@
 	desc = "Head of Security"
 	region = ACCESS_REGION_SECURITY
 
-/var/const/access_RC_announce = 59 //Request console announcements
+/var/const/access_RC_announce = 59 //Requests console announcements
 /datum/access/RC_announce
 	id = access_RC_announce
 	desc = "RC Announcements"
