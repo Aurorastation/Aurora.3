@@ -5762,6 +5762,7 @@
 "kz" = (
 /obj/machinery/requests_console{
 	department = "Psychiatry";
+	departmentType = 1;
 	pixel_x = 32;
 	pixel_y = 0
 	},
@@ -6267,6 +6268,7 @@
 /obj/structure/table/wood,
 /obj/machinery/requests_console{
 	department = "Psychiatry";
+	departmentType = 1;
 	pixel_x = 0;
 	pixel_y = 32
 	},
