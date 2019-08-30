@@ -238,6 +238,9 @@ datum/preferences
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
+	mannequin.species.create_organs(mannequin)
+	if(gender)
+		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
 
 	preview_icon = icon('icons/effects/effects.dmi', "nothing")
