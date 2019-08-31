@@ -33,9 +33,9 @@
 /datum/controller/subsystem/jobs/Initialize()
 	..()
 
-	InitializeFactions()
-
 	SetupOccupations()
+
+	InitializeFactions()
 	LoadJobs("config/jobs.txt")
 
 	ProcessSanitizationQueue()
@@ -83,7 +83,7 @@
 
 /datum/controller/subsystem/jobs/proc/SetupMasterJob(datum/job/J)
 	if (!J.master_job)
-		return
+		return TRUE
 
 	var/datum/job/master = type_occupations[J.master_job]
 
