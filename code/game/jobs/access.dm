@@ -249,7 +249,7 @@ proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	return missing_id_name
 
 proc/get_all_job_icons() //For all existing HUD icons
-	return joblist + list("Prisoner")
+	return SSjobs.name_occupations + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation
 	var/obj/item/weapon/card/id/I = GetID()

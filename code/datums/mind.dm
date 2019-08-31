@@ -199,8 +199,9 @@
 		if(antag) antag.place_mob(src.current)
 
 	else if (href_list["role_edit"])
-		var/new_role = input("Select new role", "Assigned role", assigned_role) as null|anything in joblist
-		if (!new_role) return
+		var/new_role = input("Select new role", "Assigned role", assigned_role) as null|anything in SSjobs.name_occupations
+		if (!new_role)
+			return
 		assigned_role = new_role
 
 	else if (href_list["memory_edit"])
