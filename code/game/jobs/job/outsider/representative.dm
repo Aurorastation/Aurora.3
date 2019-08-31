@@ -12,7 +12,7 @@
 	outfit = /datum/outfit/job/representative
 
 /datum/job/representative/consular
-	name = "Consular Officer"
+	title = "Consular Officer"
 	outfit = /datum/outfit/job/representative
 	master_job = /datum/job/representative
 

@@ -13,7 +13,7 @@
 		return 0
 	return 1
 
-/datum/job/ai/is_position_available()
+/datum/job/ai/has_open_slots()
 	return (empty_playable_ai_cores.len != 0)
 
 /datum/job/ai/equip_preview(mob/living/carbon/human/H)

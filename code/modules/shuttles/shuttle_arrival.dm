@@ -33,7 +33,7 @@
 					to_chat(A, "<span class='danger'>You feel as if you shouldn't be on the shuttle.</span>") // give them an angry text
 					if(!A.client && ishuman(A) && SSarrivals.failreturnnumber >= 3) // well they are SSD and holding up the shuttle so might as well.
 						SSjobs.DespawnMob(A)
-						global_announcer.autosay("[A.real_name], [A.mind.role_alt_title], has entered long-term storage.", "Cryogenic Oversight")
+						global_announcer.autosay("[A.real_name], [A.mind.assigned_role], has entered long-term storage.", "Cryogenic Oversight")
 						mobstoyellat -= A // so they don't get told on
 					else if(A.client && ishuman(A) && SSarrivals.failreturnnumber >= 3) // they aren't SSD and are holding up the shuttle so we are booting them.
 						A.forceMove(pick(kickoffsloc))

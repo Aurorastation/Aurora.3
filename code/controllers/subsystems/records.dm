@@ -236,9 +236,7 @@
  * Helping functions for everyone
  */
 /proc/GetAssignment(var/mob/living/carbon/human/H)
-	if(H.mind?.role_alt_title)
-		return H.mind.role_alt_title
-	else if(H.mind?.assigned_role)
+	if(H.mind?.assigned_role)
 		return H.mind.assigned_role
 	else if(H.job)
 		return H.job

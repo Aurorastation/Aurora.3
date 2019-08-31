@@ -163,14 +163,7 @@
 				if(id_card)
 					var/datum/record/general/R = SSrecords.find_record("name", id_card.registered_name)
 					if(istype(R))
-						var/real_title = id_card.assignment
-						for(var/datum/job/J in get_job_datums())
-							if(!J)
-								continue
-							var/list/alttitles = get_alternate_titles(J.title)
-							if(id_card.assignment in alttitles)
-								real_title = J.title
-								break
+						var/real_title = SSjobs.name_occupations[id_card.assignment] || id_card.assignment
 						R.rank = id_card.assignment
 						R.real_rank = real_title
 				computer.proc_eject_id(user)

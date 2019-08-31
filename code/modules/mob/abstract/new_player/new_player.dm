@@ -274,7 +274,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/datum/job/job = SSjobs.GetJob(rank)
 	if (!job)
 		return FALSE
-	if (!job.is_position_available())
+	if (!job.has_open_slots())
 		return FALSE
 	if (jobban_isbanned(src,rank))
 		return FALSE
