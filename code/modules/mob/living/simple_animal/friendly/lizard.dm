@@ -1,7 +1,6 @@
 /mob/living/simple_animal/lizard
 	name = "Lizard"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
-	icon = 'icons/mob/npc/critter.dmi'
 	icon_state = "lizard"
 	icon_living = "lizard"
 	icon_dead = "lizard-dead"
