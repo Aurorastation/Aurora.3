@@ -461,15 +461,22 @@
 	else
 		return AREA_STATION
 
-/obj/machinery/gravity_generator/main/proc/throw_up_and_down()
+/obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
+	if(!Area)
+		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(span("danger", "Warning! Station Gravity Generator malfunction detected. Brace for dangerous gravity change!"))
+	to_world(span("danger", "Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
 	sleep(50)
 	set_state(FALSE)
 	sleep(30)
 	set_state(TRUE)
 	for(var/mob/living/M in mob_list)
 		var/turf/their_turf = get_turf(M)
-		if(their_turf && (their_turf.loc in localareas))
+		if(their_turf?.loc ==  Area)
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
+				if(istype(boots))
+					continue
 			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)

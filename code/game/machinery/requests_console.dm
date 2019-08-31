@@ -1,12 +1,12 @@
 /******************** Requests Console ********************/
 /** Originally written by errorage, updated by: Carn, needs more work though. I just added some security fixes */
 
-//Request Console Department Types
+//Requests Console Department Types
 #define RC_ASSIST 1		//Request Assistance
 #define RC_SUPPLY 2		//Request Supplies
 #define RC_INFO   4		//Relay Info
 
-//Request Console Screens
+//Requests Console Screens
 #define RCS_MAINMENU 0	// Main menu
 #define RCS_RQASSIST 1	// Request supplies
 #define RCS_RQSUPPLY 2	// Request assistance
@@ -187,7 +187,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
+		ui = new(user, src, ui_key, "requests_console.tmpl", "[department] Requests Console", 520, 410)
 		ui.set_initial_data(data)
 		ui.open()
 

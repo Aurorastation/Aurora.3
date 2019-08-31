@@ -66,6 +66,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/applejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,

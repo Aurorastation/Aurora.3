@@ -101,6 +101,8 @@
 
 	max_hydration_factor = -1
 
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ERIDANI)
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65
@@ -230,8 +232,51 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("static IPC screen")
 			return "#FFFFFF"
 
+		if ("static2 IPC screen")
+			return "#FFFFFF"
+
+		if ("static3 IPC screen")
+			return "#FFFFFF"
+
 		if ("yellow IPC screen")
 			return LIGHT_COLOR_YELLOW
+
+		if ("eye IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("heartrate IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("cancel IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("testcard IPC screen")
+			return "#FFFFFF"
+
+		if ("blank IPC screen")
+			return null
+
+		if ("scroll IPC screen")
+			return "#FFFFFF"
+
+		if ("console IPC screen")
+			return "#FFFFFF"
+
+		if ("RGB IPC screen")
+			return "#FFFFFF" //idk
+
+		if ("GoL glider IPC screen")
+			return "#FFFFFF"
+
+		if ("rainbow IPC screen")
+			return "#FFFFFF" //idk 2.0
+
+		if ("smiley IPC screen")
+			return LIGHT_COLOR_YELLOW
+
+		if ("database IPC screen")
+			return "#FFFFFF"
+
 
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

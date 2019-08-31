@@ -6507,15 +6507,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"apk" = (
-/obj/machinery/computer/cryopod{
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/merchant_station)
 "apl" = (
 /obj/machinery/sleeper{
 	icon_state = "sleeper_0";
@@ -6608,8 +6599,6 @@
 /area/merchant_station)
 "apy" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/o2,
 /obj/item/weapon/storage/firstaid/toxin,
 /obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor/tiled,
@@ -22391,7 +22380,16 @@
 /area/centcom/living)
 "aYi" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/item/weapon/storage/box/drinkingglasses{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/machinery/chemical_dispenser/coffee/full{
+	layer = 3.1;
+	pixel_x = 4;
+	pixel_y = 3;
+	spawn_cartridges = list(/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar)
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23760,7 +23758,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbm" = (
-/obj/structure/bed/chair/comfy/black,
+/obj/effect/landmark{
+	name = "TCFLCommander"
+	},
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbn" = (
@@ -24422,6 +24422,12 @@
 	dir = 8
 	},
 /area/centcom/living)
+"gVd" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/o2,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "gXE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -24437,6 +24443,10 @@
 "hDK" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "OdinCheckpoint";
+	name = "igs - OdinCheckpoint"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -24811,6 +24821,13 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/template_noop,
 /area/centcom/evac)
+"mrx" = (
+/obj/effect/ghostspawpoint/cryo{
+	dir = 4;
+	identifier = "MerchantAss"
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "mQj" = (
 /turf/unsimulated/floor{
 	dir = 10;
@@ -25101,6 +25118,10 @@
 /area/centcom/living)
 "sQk" = (
 /obj/structure/bed/chair/office/dark,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinCheckpoint";
+	name = "igs - OdinCheckpoint"
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -25151,6 +25172,15 @@
 	dir = 4
 	},
 /area/centcom/living)
+"tou" = (
+/obj/effect/landmark{
+	name = "CCIAEscort"
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/centcom/ferry)
 "tAQ" = (
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -25181,6 +25211,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"uQh" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "vdZ" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -29863,7 +29902,7 @@ ahM
 ahM
 aaP
 ahV
-ahV
+aoY
 aoY
 aoY
 aoY
@@ -30120,8 +30159,8 @@ ahM
 aaP
 aaP
 ahV
-ahV
 aoY
+api
 api
 api
 aoY
@@ -30377,8 +30416,8 @@ ahM
 aaP
 ahV
 ahV
-ahV
 aoY
+mrx
 apj
 apj
 aoY
@@ -30634,9 +30673,9 @@ ahM
 aaP
 ahV
 ahV
-ahV
 aoY
-apk
+uQh
+apt
 apt
 apK
 apt
@@ -30891,8 +30930,8 @@ ahM
 aaP
 ahV
 ahV
-ahV
 aoY
+gVd
 apl
 apy
 aoY
@@ -31148,7 +31187,7 @@ ahM
 aaP
 ahV
 ahV
-ahV
+aoY
 aoY
 aoY
 aoY
@@ -60765,7 +60804,7 @@ aDm
 aDm
 aDM
 aDY
-aDY
+tou
 aDY
 aDM
 aEN

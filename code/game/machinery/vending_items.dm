@@ -2,7 +2,7 @@
 	name = "resupply canister"
 	var/vend_id = "generic"
 
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_medium-open"
 	item_state = "RPED"
 	desc = "A vending machine restock cart."

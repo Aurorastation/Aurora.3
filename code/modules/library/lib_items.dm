@@ -352,9 +352,3 @@
 			to_chat(user, "<font color=red>No associated computer found. Only local scans will function properly.</font>")
 		to_chat(user, "\n")
 
-/obj/item/pra_manifesto
-	name = "hadiist manifesto"
-	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
-	icon = 'icons/obj/library.dmi'
-	icon_state ="hadii-manifesto"
-	w_class = 2.0

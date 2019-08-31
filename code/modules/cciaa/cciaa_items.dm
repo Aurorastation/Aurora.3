@@ -208,12 +208,12 @@
 	if(!paused)
 		sLogFile << "--------------------------------"
 		sLogFile << "Recorder paused at: [get_time()]"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = TRUE
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
 		paused = FALSE
 	return
 
@@ -266,3 +266,14 @@
 /obj/item/device/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
 	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Supply" = 0, "Service" = 0)
+
+/obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
+	name = "central command internal affairs jacket"
+
+/obj/item/weapon/storage/lockbox/cciaa
+	req_access = list(access_cent_captain)
+	name = "CCIA agent briefcase"
+	desc = "A smart looking briefcase with a NT logo on the side"
+	storage_slots = 8
+	max_storage_space = 16
+

@@ -321,12 +321,15 @@
 	var/disabled = 0 //malf
 
 /obj/item/mecha_parts/mecha_equipment/tool/rcd/action(atom/target)
+	var/turf/t = get_turf(target)
 	if(istype(target,/area/shuttle)||istype(target, /turf/space/transit))//>implying these are ever made -Sieve
+		disabled = 1
+	else if (isNotStationLevel(t.z))
 		disabled = 1
 	else
 		disabled = 0
 	if(!istype(target, /turf) && !istype(target, /obj/machinery/door/airlock))
-		target = get_turf(target)
+		target = t
 	if(!action_checks(target) || disabled || get_dist(chassis, target)>3) return
 	playsound(chassis, 'sound/machines/click.ogg', 50, 1)
 	//meh
