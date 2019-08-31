@@ -38,6 +38,8 @@
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
 		/datum/job/paramedic,
+		/datum/job/roboticist,
+		/datum/job/xenobiologist,
 		/datum/job/representative
 	)
 
@@ -50,14 +52,30 @@
 
 	titles_to_loadout = list(
 		"Medical Doctor" = /datum/outfit/job/doctor/zeng_hu,
+		"Surgeon" = /datum/outfit/job/doctor/zeng_hu,
+		"Emergency Phyisician" = /datum/outfit/job/doctor/zeng_hu,
+		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu,
+		"Emergency Medical Technician" = /datum/outfit/job/paramedic/zeng_hu,
+		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
+		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
+		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/xenobiologist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/xenobiologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
 /datum/outfit/job/doctor/zeng_hu
 	name = "Medical Doctor - Zeng-Hu"
+	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
+
+/datum/outfit/job/roboticist/zeng_hu
+	name = "Roboticist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/weapon/card/id/zeng_hu
 
@@ -81,8 +99,13 @@
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/weapon/card/id/zeng_hu
 
+/datum/outfit/job/xenobiologist/zeng_hu
+	name = "Xenobiologist - Zeng-Hu"
+	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/weapon/card/id/zeng_hu
+
 /datum/outfit/job/representative/zeng_hu
-	name = "Corporate Liaison - Zeng-Hu"
+	name = "Zeng-Hu Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/zeng
 	head = null
 	suit = null

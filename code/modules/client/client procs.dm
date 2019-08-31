@@ -352,6 +352,7 @@
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
+		src.InitPrefs() //Init some default prefs
 		return m
 		//Do auth shit
 	else

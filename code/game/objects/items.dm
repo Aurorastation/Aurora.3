@@ -169,6 +169,9 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
+	if(!src.Adjacent(user) && !(TK in user.mutations))
+		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
+		return // please don't pick things up 
 	src.pickup(user)
 	if (istype(src.loc, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = src.loc
@@ -381,6 +384,14 @@ var/list/global/slot_flags_enumeration = list(
 			var/allow = 0
 			if(H.back && istype(H.back, /obj/item/weapon/storage/backpack))
 				var/obj/item/weapon/storage/backpack/B = H.back
+				if(B.can_be_inserted(src,1))
+					allow = 1
+			if(!allow)
+				return 0
+		if(slot_in_belt)
+			var/allow = 0
+			if(istype(H.belt, /obj/item/weapon/storage/belt))
+				var/obj/item/weapon/storage/belt/B = H.belt
 				if(B.can_be_inserted(src,1))
 					allow = 1
 			if(!allow)
