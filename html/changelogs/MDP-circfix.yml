@@ -1,0 +1,4 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Fixes a myriad of circuit-related bugs."
