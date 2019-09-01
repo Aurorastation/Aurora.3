@@ -277,6 +277,15 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("database IPC screen")
 			return "#FFFFFF"
 
+		if ("lumi eyes IPC screen")
+			return "#FFFFFF"
+
+		if ("music IPC screen")
+			return "#FFFFFF"
+
+		if ("waiting IPC screen")
+			return "#FFFFFF"
+
 
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
