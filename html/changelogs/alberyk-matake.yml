@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added more tajaran related options to the loadout."
-  - rscdel: "Removed siik'tau."
