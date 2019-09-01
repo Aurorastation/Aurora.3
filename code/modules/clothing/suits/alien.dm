@@ -89,8 +89,8 @@
 	name = "Mata'ke priest mantle"
 	desc = "A mantle worn by the priests of Mata'ke."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "messarobes"
-	item_state = "messarobes"
+	icon_state = "matakecoat"
+	item_state = "matakecoat"
 	contained_sprite = TRUE
 	description_fluff = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
 	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
