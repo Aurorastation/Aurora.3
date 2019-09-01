@@ -14,34 +14,34 @@
 #define LASER           9  // Harm intent - click anywhere to shoot lasers from eyes.
 #define HEAL            10 // Healing people with hands.
 
-#define SKELETON      29
-#define PLANT         30
+#define SKELETON        29
+#define PLANT           30
 
 // Other Mutations:
-#define mNobreath      100 // No need to breathe.
-#define mRemote        101 // Remote viewing.
-#define mRegen         102 // Health regeneration.
-#define mRun           103 // No slowdown.
-#define mRemotetalk    104 // Remote talking.
-#define mMorph         105 // Hanging appearance.
-#define mBlend         106 // Nothing. (seriously nothing)
-#define mHallucination 107 // Hallucinations.
-#define mFingerprints  108 // No fingerprints.
-#define mShock         109 // Insulated hands.
-#define mSmallsize     110 // Table climbing.
+#define mNobreath       100 // No need to breathe.
+#define mRemote         101 // Remote viewing.
+#define mRegen          102 // Health regeneration.
+#define mRun            103 // No slowdown.
+#define mRemotetalk     104 // Remote talking.
+#define mMorph          105 // Hanging appearance.
+#define mBlend          106 // Nothing. (seriously nothing)
+#define mHallucination  107 // Hallucinations.
+#define mFingerprints   108 // No fingerprints.
+#define mShock          109 // Insulated hands.
+#define mSmallsize      110 // Table climbing.
 
 // disabilities
-#define NEARSIGHTED 1
-#define EPILEPSY    2
-#define COUGHING    4
-#define TOURETTES   8
-#define STUTTER     16
-#define DUMB            32
-#define MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
-#define PACIFIST        128
-#define UNINTELLIGIBLE  256
-#define GERTIE 512
-#define ASTHMA 1024
+#define DISABILITY_NEARSIGHTED     1
+#define DISABILITY_EPILEPSY        2
+#define DISABILITY_COUGHING        4
+#define DISABILITY_TOURETTES       8
+#define DISABILITY_STUTTER         16
+#define DISABILITY_DUMB            32
+#define DISABILITY_MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
+#define DISABILITY_PACIFIST        128
+#define DISABILITY_UNINTELLIGIBLE  256
+#define DISABILITY_GERTIE          512
+#define DISABILITY_ASTHMA          1024
 
 // sdisabilities
 #define BLIND 0x1

@@ -429,7 +429,7 @@
 		to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 
 	//Gives glasses to the vision impaired
-	if(H.disabilities & NEARSIGHTED && !megavend)
+	if(H.disabilities & DISABILITY_NEARSIGHTED && !megavend)
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
@@ -568,7 +568,7 @@
 			W.add_fingerprint(H)
 
 	//Gives glasses to the vision impaired
-	if(H.disabilities & NEARSIGHTED)
+	if(H.disabilities & DISABILITY_NEARSIGHTED)
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses

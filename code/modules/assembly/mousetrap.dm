@@ -58,7 +58,7 @@
 	if(!armed)
 		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
-		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+		if(((user.is_clumsy()) || (DISABILITY_DUMB in user.mutations)) && prob(50))
 			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = "r_hand"
@@ -74,7 +74,7 @@
 
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
 	if(armed)
-		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+		if(((user.is_clumsy()) || (DISABILITY_DUMB in user.mutations)) && prob(50))
 			var/which_hand = "l_hand"
 			if(!user.hand)
 				which_hand = "r_hand"

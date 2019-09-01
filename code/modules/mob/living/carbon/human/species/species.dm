@@ -459,7 +459,7 @@
 	if(config.welder_vision)
 		if(short_sighted || (H.equipment_tint_total >= TINT_HEAVY))
 			H.client.screen += global_hud.darkMask
-		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
+		else if((!H.equipment_prescription && (H.disabilities & DISABILITY_NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
 			H.client.screen += global_hud.vimpaired
 	if(H.eye_blurry)	H.client.screen += global_hud.blurry
 	if(H.druggy)		H.client.screen += global_hud.druggy
@@ -489,10 +489,10 @@
 	else
 		remainder = cost
 
-	if(H.disabilities & ASTHMA)
+	if(H.disabilities & DISABILITY_ASTHMA)
 		H.adjustOxyLoss(remainder*0.15)
 
-	if(H.disabilities & COUGHING)
+	if(H.disabilities & DISABILITY_COUGHING)
 		H.adjustHalLoss(remainder*0.1)
 
 	if (breathing_organ && has_organ[breathing_organ])

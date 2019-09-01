@@ -45,7 +45,7 @@
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/dumbness/on_gain()
-	owner.disabilities |= DUMB
+	owner.disabilities |= DISABILITY_DUMB
 	..()
 
 /datum/brain_trauma/mild/dumbness/on_life()
@@ -55,7 +55,7 @@
 	..()
 
 /datum/brain_trauma/mild/dumbness/on_lose()
-	owner.disabilities &= ~DUMB
+	owner.disabilities &= ~DISABILITY_DUMB
 	owner.tarded = 0
 	..()
 
@@ -68,11 +68,11 @@
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/speech_impediment/on_gain()
-	owner.disabilities |= UNINTELLIGIBLE
+	owner.disabilities |= DISABILITY_UNINTELLIGIBLE
 	..()
 
 /datum/brain_trauma/mild/speech_impediment/on_lose()
-	owner.disabilities &= ~UNINTELLIGIBLE
+	owner.disabilities &= ~DISABILITY_UNINTELLIGIBLE
 	..()
 
 /datum/brain_trauma/mild/tourettes
@@ -85,11 +85,11 @@
 	can_gain = FALSE
 
 /datum/brain_trauma/mild/tourettes/on_gain()
-	owner.disabilities |= TOURETTES
+	owner.disabilities |= DISABILITY_TOURETTES
 	..()
 
 /datum/brain_trauma/mild/tourettes/on_lose()
-	owner.disabilities &= ~TOURETTES
+	owner.disabilities &= ~DISABILITY_TOURETTES
 	..()
 
 /datum/brain_trauma/mild/gertie
@@ -101,11 +101,11 @@
 	cure_type = CURE_HYPNOSIS
 
 /datum/brain_trauma/mild/gertie/on_gain()
-	owner.disabilities |= GERTIE
+	owner.disabilities |= DISABILITY_GERTIE
 	..()
 
 /datum/brain_trauma/mild/gertie/on_lose()
-	owner.disabilities &= ~GERTIE
+	owner.disabilities &= ~DISABILITY_GERTIE
 	..()
 
 /datum/brain_trauma/mild/concussion
@@ -231,18 +231,18 @@
 	cure_type = CURE_SURGERY
 
 /datum/brain_trauma/mild/nearsightedness/on_gain()
-	owner.disabilities |= NEARSIGHTED
+	owner.disabilities |= DISABILITY_NEARSIGHTED
 	..()
 
 //no fiddling with genetics to get out of this one
 /datum/brain_trauma/mild/nearsightedness/on_life()
-	if(!(owner.disabilities & NEARSIGHTED))
+	if(!(owner.disabilities & DISABILITY_NEARSIGHTED))
 		on_gain()
 	..()
 
 /datum/brain_trauma/mild/nearsightedness/on_lose()
-	if(owner.disabilities & NEARSIGHTED)
-		owner.disabilities &= ~NEARSIGHTED
+	if(owner.disabilities & DISABILITY_NEARSIGHTED)
+		owner.disabilities &= ~DISABILITY_NEARSIGHTED
 	..()
 
 /datum/brain_trauma/mild/colorblind

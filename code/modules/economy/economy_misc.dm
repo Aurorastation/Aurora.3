@@ -25,26 +25,21 @@
 #define CELEBRITY_DEATH 23
 #define RESIGNATION 24
 
-#define DEFAULT 1
-
-#define ADMINISTRATIVE 2
-#define CLOTHING 3
-#define SECURITY 4
+#define DEFAULT          1
+#define ADMINISTRATIVE   2
+#define CLOTHING         3
+#define SECURITY         4
 #define SPECIAL_SECURITY 5
-
-#define FOOD 6
-#define ANIMALS 7
-
-#define MINERALS 8
-
-#define EMERGENCY 9
-#define GAS 10
-#define MAINTENANCE 11
-#define ELECTRICAL 12
-#define ROBOTICS 13
-#define BIOMEDICAL 14
-
-#define GEAR_EVA 15
+#define FOOD             6
+#define ANIMALS          7
+#define MINERALS         8
+#define EMERGENCY        9
+#define GAS              10
+#define MAINTENANCE      11
+#define ELECTRICAL       12
+#define ROBOTICS         13
+#define BIOMEDICAL       14
+#define GEAR_EVA         15
 
 //---- The following corporations are friendly with NanoTrasen and loosely enable trade and travel:
 //Corporation NanoTrasen - Generalised / high tech research and phoron exploitation.

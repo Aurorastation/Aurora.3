@@ -43,7 +43,7 @@
 	// UNUSED!
 	//COUGHBLOCK         = getAssignedBlock("COUGH",         numsToAssign)
 	//GLASSESBLOCK       = getAssignedBlock("GLASSES",       numsToAssign)
-	//EPILEPSYBLOCK      = getAssignedBlock("EPILEPSY",      numsToAssign)
+	//EPILEPSYBLOCK      = getAssignedBlock("DISABILITY_EPILEPSY",      numsToAssign)
 	//TWITCHBLOCK        = getAssignedBlock("TWITCH",        numsToAssign)
 	//NERVOUSBLOCK       = getAssignedBlock("NERVOUS",       numsToAssign)
 

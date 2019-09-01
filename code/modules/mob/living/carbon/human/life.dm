@@ -189,7 +189,7 @@
 			else
 				eye_blurry = max(eye_blurry-1, 0)
 
-	if (disabilities & EPILEPSY)
+	if (disabilities & DISABILITY_EPILEPSY)
 		if ((prob(1) && paralysis < 1))
 			to_chat(src, "<span class='warning'>You have a seizure!</span>")
 			for(var/mob/O in viewers(src, null))
@@ -198,18 +198,18 @@
 				O.show_message(text("<span class='danger'>[src] starts having a seizure!</span>"), 1)
 			Paralyse(10)
 			make_jittery(1000)
-	if (disabilities & COUGHING)
+	if (disabilities & DISABILITY_COUGHING)
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
 			spawn( 0 )
 				emote("cough")
 				return
 
-	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
+	if((disabilities & DISABILITY_ASTHMA) && getOxyLoss() >= 10)
 		if(prob(5))
 			emote("cough")
 
-	if (disabilities & TOURETTES)
+	if (disabilities & DISABILITY_TOURETTES)
 		speech_problem_flag = 1
 		if ((prob(10) && paralysis <= 1))
 			Stun(10)
@@ -227,7 +227,7 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & STUTTER)
+	if (disabilities & DISABILITY_STUTTER)
 		speech_problem_flag = 1
 		if (prob(10))
 			stuttering = max(10, stuttering)
@@ -556,7 +556,7 @@
 		failed_last_breath = 1
 	else
 		failed_last_breath = 0
-		if(disabilities & ASTHMA)
+		if(disabilities & DISABILITY_ASTHMA)
 			adjustOxyLoss(rand(-5,0))
 		else
 			adjustOxyLoss(-5)

@@ -925,7 +925,7 @@ var/list/sacrificed = list()
 			C.eye_blurry += 50
 			C.eye_blind += 20
 			if(prob(5))
-				C.disabilities |= NEARSIGHTED
+				C.disabilities |= DISABILITY_NEARSIGHTED
 				if(prob(10))
 					C.sdisabilities |= BLIND
 			C.show_message("<span class='warning'>Suddenly you see a red flash that blinds you.</span>", 3)

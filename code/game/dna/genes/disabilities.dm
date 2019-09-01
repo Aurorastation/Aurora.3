@@ -63,7 +63,7 @@
 /datum/dna/gene/disability/epilepsy
 	name="Epilepsy"
 	activation_message="You get a headache."
-	disability=EPILEPSY
+	disability=DISABILITY_EPILEPSY
 
 	New()
 		block=HEADACHEBLOCK
@@ -71,7 +71,7 @@
 /datum/dna/gene/disability/cough
 	name="Coughing"
 	activation_message="You start coughing."
-	disability=COUGHING
+	disability=DISABILITY_COUGHING
 
 	New()
 		block=COUGHBLOCK
@@ -87,7 +87,7 @@
 /datum/dna/gene/disability/tourettes
 	name="Tourettes"
 	activation_message="You twitch."
-	disability=TOURETTES
+	disability=DISABILITY_TOURETTES
 
 	New()
 		block=TWITCHBLOCK
@@ -95,7 +95,7 @@
 /datum/dna/gene/disability/stutter
 	name="Stuttering"
 	activation_message="You feel like forming words becomes increasingly difficult."
-	disability=STUTTER
+	disability=DISABILITY_STUTTER
 
 	New()
 		block=STUTTERBLOCK
@@ -123,7 +123,7 @@
 /datum/dna/gene/disability/nearsighted
 	name="Nearsightedness"
 	activation_message="Your eyes feel weird..."
-	disability=NEARSIGHTED
+	disability=DISABILITY_NEARSIGHTED
 
 	New()
 		block=GLASSESBLOCK

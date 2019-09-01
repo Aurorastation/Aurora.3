@@ -339,5 +339,3 @@ main ui datum.
   */
 /datum/vueui/proc/get_theme_class()
 	return SSvueui.get_html_theme_class(user)
-
-#undef UIDEBUG

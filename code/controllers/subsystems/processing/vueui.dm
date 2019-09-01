@@ -242,5 +242,3 @@ Byond Vue UI framework's management subsystem
 	if(user.client)
 		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui_theming)
 		assets.send(user.client)
-
-#undef NULL_OR_EQUAL

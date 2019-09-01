@@ -807,7 +807,7 @@
 			to_chat(src, "<span class='warning'>You don't have the dexterity to use that!</span>")
 		return 0
 
-	if(disabilities & MONKEYLIKE)
+	if(disabilities & DISABILITY_MONKEYLIKE)
 		if(!silent)
 			to_chat(src, "<span class='warning'>You don't have the dexterity to use that!</span>")
 		return 0

@@ -52,7 +52,7 @@
 	add_fingerprint(user)
 	if(on && user.zone_sel.selecting == "eyes")
 
-		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
+		if(((user.is_clumsy()) || (DISABILITY_DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear

@@ -499,8 +499,8 @@ BLIND     // can't see anything
 			M.eye_blind = 3
 			M.eye_blurry = 5
 			// Don't cure being nearsighted
-			if(!(M.disabilities & NEARSIGHTED))
-				M.disabilities |= NEARSIGHTED
+			if(!(M.disabilities & DISABILITY_NEARSIGHTED))
+				M.disabilities |= DISABILITY_NEARSIGHTED
 				addtimer(CALLBACK(M, /mob/living/carbon/human/.proc/thermal_reset_blindness), 100)
 	..()
 
@@ -509,7 +509,7 @@ BLIND     // can't see anything
 	overlay = global_hud.thermal
 
 /mob/living/carbon/human/proc/thermal_reset_blindness()
-	disabilities &= ~NEARSIGHTED
+	disabilities &= ~DISABILITY_NEARSIGHTED
 
 /obj/item/clothing/glasses/thermal/syndi	//These are now a traitor item, concealed as mesons.	-Pete
 	name = "optical meson scanner"

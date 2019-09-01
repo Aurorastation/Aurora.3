@@ -1,5 +1,4 @@
 #define NECK_CHOP "HHD"
-#define LEG_SWEEP "DHD"
 #define QUICK_CHOKE "HDH"
 
 /datum/martial_art/sol_combat

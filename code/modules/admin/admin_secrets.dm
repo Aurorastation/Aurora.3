@@ -29,7 +29,7 @@ var/datum/admin_secrets/admin_secrets = new()
 	var/desc = ""
 	var/list/datum/admin_secret_item/items
 
-/datum/admin_secret_category
+/datum/admin_secret_category/New()
 	..()
 	items = list()
 

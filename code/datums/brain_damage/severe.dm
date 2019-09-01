@@ -183,11 +183,11 @@
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/severe/discoordination/on_gain()
-	owner.disabilities |= MONKEYLIKE
+	owner.disabilities |= DISABILITY_MONKEYLIKE
 	..()
 
 /datum/brain_trauma/severe/discoordination/on_lose()
-	owner.disabilities &= ~MONKEYLIKE
+	owner.disabilities &= ~DISABILITY_MONKEYLIKE
 	..()
 
 /datum/brain_trauma/severe/aphasia
@@ -223,11 +223,11 @@
 	cure_type = CURE_HYPNOSIS
 
 /datum/brain_trauma/severe/pacifism/on_gain()
-	owner.disabilities |= PACIFIST
+	owner.disabilities |= DISABILITY_PACIFIST
 	..()
 
 /datum/brain_trauma/severe/pacifism/on_lose()
-	owner.disabilities &= ~PACIFIST
+	owner.disabilities &= ~DISABILITY_PACIFIST
 	..()
 
 /datum/brain_trauma/severe/total_colorblind

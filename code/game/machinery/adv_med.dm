@@ -412,7 +412,7 @@
 		if (istype(O, H.species.vision_organ))
 			if (H.sdisabilities & BLIND)
 				wounds += "Appears to have cataracts."
-			else if (H.disabilities & NEARSIGHTED)
+			else if (H.disabilities & DISABILITY_NEARSIGHTED)
 				wounds += "Appears to have misaligned retinas."
 
 		if (O.germ_level)
@@ -672,6 +672,6 @@
 
 	if(occ["sdisabilities"] & BLIND)
 		dat += text("<font color='red'>Cataracts detected.</font><BR>")
-	if(occ["sdisabilities"] & NEARSIGHTED)
+	if(occ["sdisabilities"] & DISABILITY_NEARSIGHTED)
 		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
 	return dat

@@ -846,8 +846,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	var/mob/living/carbon/T = changeling_sting(20,/mob/proc/changeling_blind_sting,stealthy = 0)
 	if(!T)	return 0
 	to_chat(T, "<span class='danger'>Your eyes burn horrificly!</span>")
-	T.disabilities |= NEARSIGHTED
-	spawn(300)	T.disabilities &= ~NEARSIGHTED
+	T.disabilities |= DISABILITY_NEARSIGHTED
+	spawn(300)	T.disabilities &= ~DISABILITY_NEARSIGHTED
 	T.eye_blind = 10
 	T.eye_blurry = 20
 	feedback_add_details("changeling_powers","BS")

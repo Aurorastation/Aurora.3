@@ -171,10 +171,8 @@
 			NextToken() //skip function name
 			if(!CheckToken("(", /token/symbol)) //Check for and skip open parenthesis
 				return
-			var/loops = 0
-			for()
-				loops++
-				if(loops>=6000)
+			for(var/loops = 0, loops <= 6000, loops++)
+				if(loops == 6000)
 					CRASH("Something TERRIBLE has gone wrong in ParseFunctionStatement ;__;")
 
 				if(!curToken)

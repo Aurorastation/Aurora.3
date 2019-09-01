@@ -38,7 +38,7 @@
 	else if(damage >= min_bruised_damage)
 		owner.eye_blind = 5
 		owner.eye_blurry = 5
-		owner.disabilities |= NEARSIGHTED
+		owner.disabilities |= DISABILITY_NEARSIGHTED
 		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
 
 /obj/item/organ/kidneys/vaurca/robo

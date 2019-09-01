@@ -490,12 +490,12 @@
 				to_chat(user, "<span class='danger'>You go blind!</span>")
 				user.eye_blind = 5
 				user.eye_blurry = 5
-				user.disabilities |= NEARSIGHTED
+				user.disabilities |= DISABILITY_NEARSIGHTED
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
 // This is on /mob instead of the welder so the timer is stopped when the mob is deleted.
 /mob/proc/reset_nearsighted()
-	disabilities &= ~NEARSIGHTED
+	disabilities &= ~DISABILITY_NEARSIGHTED
 
 /obj/item/weapon/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions

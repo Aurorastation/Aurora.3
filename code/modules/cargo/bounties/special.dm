@@ -20,8 +20,7 @@
 		return (Copy.copy_type && ispath(Copy.copy_type, /obj/item/documents/syndicate))
 	return TRUE
 */
-/datum/bounty/more_bounties/
-	..()
+/datum/bounty/more_bounties
 	name = "More Bounties"
 	description = "Complete enough bounties and %BOSSSHORT will issue new ones!"
 	reward = 3 // number of bounties

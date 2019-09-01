@@ -660,9 +660,6 @@ var/list/diona_banned_languages = list(
 	nutrient_organ = null
 	return ..()
 
-#undef FLASHLIGHT_STRENGTH
-#undef PDALIGHT_STRENGTH
-#undef DIONA_MAX_LIGHT
 #undef TEMP_REGEN_STOP
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE

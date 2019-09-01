@@ -369,7 +369,7 @@ proc/admin_notice(var/message, var/rights)
 					if(FC.is_admin_channel)
 						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR></B>"
 			dat+={"<BR><HR><A href='?src=\ref[src];ac_refresh=1'>Refresh</A>
 				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>
 			"}
@@ -456,7 +456,7 @@ proc/admin_notice(var/message, var/rights)
 			else
 				for(var/channel in SSnews.network_channels)
 					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
@@ -470,7 +470,7 @@ proc/admin_notice(var/message, var/rights)
 			else
 				for(var/channel in SSnews.network_channels)
 					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>"
 		if(12)
@@ -1125,7 +1125,7 @@ proc/admin_notice(var/message, var/rights)
 		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>disabled</a></b>.<br/>"
 
 	out += "<b>All antag ids:</b>"
-	if(LAZYLEN(SSticker.mode.antag_templates)).
+	if(LAZYLEN(SSticker.mode.antag_templates))
 		for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
 			antag.update_current_antag_max()
 			out += " <a href='?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"

@@ -443,7 +443,7 @@
 	return (CE_BERSERK in chem_effects)
 
 /mob/living/carbon/is_pacified()
-	if(disabilities & PACIFIST)
+	if(disabilities & DISABILITY_PACIFIST)
 		return TRUE
 	if(CE_PACIFIED in chem_effects)
 		return TRUE

@@ -275,7 +275,7 @@
 			src.blind.invisibility = 0
 		else
 			src.blind.invisibility = 101
-			if (src.disabilities & NEARSIGHTED)
+			if (src.disabilities & DISABILITY_NEARSIGHTED)
 				src.client.screen += global_hud.vimpaired
 
 			if (src.eye_blurry)

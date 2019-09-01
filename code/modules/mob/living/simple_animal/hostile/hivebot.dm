@@ -1,6 +1,6 @@
-#define NORMAL 1
-#define RANGED 2
-#define RAPID  3
+#define HIVEBOT_NORMAL 1
+#define HIVEBOT_RANGED 2
+#define HIVEBOT_RAPID  3
 
 /obj/item/projectile/bullet/pistol/hivebotspike
 	name = "spike"
@@ -149,7 +149,7 @@
 	see_in_dark = 8
 	smart = 1
 	destroy_surroundings = 0
-	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
+	var/bot_type = HIVEBOT_NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
 	var/bot_amt = 48 //Number of total bots that are spawned before the beacon disappears completely.
 	var/max_bots = 16 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
@@ -250,20 +250,20 @@
 		visible_message("<span class='warning'>[src] radiates with energy!</span>")
 		var/mob/living/simple_animal/hostile/hivebot/latest_child
 		switch(bot_type)
-			if(NORMAL)
+			if(HIVEBOT_NORMAL)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot(get_turf(src), src)
-			if(RANGED)
+			if(HIVEBOT_RANGED)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/range(get_turf(src), src)
-			if(RAPID)
+			if(HIVEBOT_RAPID)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/range/rapid(get_turf(src), src)
 		linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
 		if(prob(30))
 			if(prob(65))
-				bot_type = RANGED
+				bot_type = HIVEBOT_RANGED
 			else
-				bot_type = RAPID
+				bot_type = HIVEBOT_RAPID
 		else
-			bot_type = NORMAL
+			bot_type = HIVEBOT_NORMAL
 		bot_amt--
 	if(bot_amt>0 && linked_bots.len < max_bots)
 		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
@@ -274,6 +274,6 @@
 		if((!snoozing) && (prob(2)))
 			warpbots()
 
-#undef NORMAL
-#undef RANGED
-#undef RAPID
+#undef HIVEBOT_NORMAL
+#undef HIVEBOT_RANGED
+#undef HIVEBOT_RAPID

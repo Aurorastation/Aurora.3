@@ -1,7 +1,5 @@
 var/datum/controller/subsystem/processing/nanoui/SSnanoui
 
-#define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
-
 /datum/controller/subsystem/processing/nanoui
 	// Subsystem stuff.
 	name = "NanoUI"
@@ -252,5 +250,3 @@ var/datum/controller/subsystem/processing/nanoui/SSnanoui
 		"layout_default.css" = 'nano/css/layout_default.css',
 		"shared.css" = 'nano/css/shared.css'
 	)
-
-#undef NULL_OR_EQUAL

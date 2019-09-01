@@ -233,7 +233,7 @@
 
 /mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
 	if(message)
-		if(disabilities & TOURETTES)
+		if(disabilities & DISABILITY_TOURETTES)
 			var/prefix=copytext(message,1,2)
 			if(prefix == ";")
 				message = copytext(message,2)
@@ -254,7 +254,7 @@
 						message = replacetext(message,"[cword]","[cword] [pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")] ")
 			message ="[prefix] [message]"
 
-		if(disabilities & GERTIE)
+		if(disabilities & DISABILITY_GERTIE)
 			var/compassing = pick("north","south","east","west")
 			var/stational = pick("fore","aft","port","starboard")
 			var/directional = pick("up","down","left","right")
@@ -275,7 +275,7 @@
 			message = replacetext(message,"out"," [motional] ")
 			message = replacetext(message,"above"," [motional] ")
 			message = replacetext(message,"below"," [motional] ")
-		if(disabilities & UNINTELLIGIBLE)
+		if(disabilities & DISABILITY_UNINTELLIGIBLE)
 			var/prefix=copytext(message,1,2)
 			if(prefix == ";")
 				message = copytext(message,2)

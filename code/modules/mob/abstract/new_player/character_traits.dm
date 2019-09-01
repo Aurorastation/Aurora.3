@@ -12,14 +12,14 @@
 	desc = "Without prescription glasses your vision is impaired."
 
 /datum/character_disabilities/nearsighted/apply_self(var/mob/living/carbon/human/H)
-	H.disabilities |= NEARSIGHTED
+	H.disabilities |= DISABILITY_NEARSIGHTED
 
 /datum/character_disabilities/stutter
 	name = "Stuttering"
 	desc = "You have a chronic case of stuttering, repeating sounds involuntarily."
 
 /datum/character_disabilities/stutter/apply_self(var/mob/living/carbon/human/H)
-	H.disabilities |= STUTTER
+	H.disabilities |= DISABILITY_STUTTER
 
 /datum/character_disabilities/deuteranomaly
 	name = "Deuteranopia"
@@ -68,7 +68,7 @@
 	desc = "You are prone to inflammation in the lungs."
 
 /datum/character_disabilities/asthma/apply_self(var/mob/living/carbon/human/H)
-	H.disabilities |= ASTHMA
+	H.disabilities |= DISABILITY_ASTHMA
 	if(H.max_stamina)
 		H.max_stamina *= 0.8
 		H.stamina = H.max_stamina
