@@ -22380,7 +22380,16 @@
 /area/centcom/living)
 "aYi" = (
 /obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/coffee/full,
+/obj/item/weapon/storage/box/drinkingglasses{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/machinery/chemical_dispenser/coffee/full{
+	layer = 3.1;
+	pixel_x = 4;
+	pixel_y = 3;
+	spawn_cartridges = list(/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar)
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -24413,6 +24422,12 @@
 	dir = 8
 	},
 /area/centcom/living)
+"gVd" = (
+/obj/structure/table/reinforced,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/o2,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "gXE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -24421,12 +24436,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
-"gVd" = (
-/obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/o2,
-/turf/simulated/floor/tiled,
-/area/merchant_station)
 "haj" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/dark,

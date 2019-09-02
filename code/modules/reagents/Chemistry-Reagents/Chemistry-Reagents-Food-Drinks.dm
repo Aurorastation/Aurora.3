@@ -949,6 +949,17 @@
 	glass_name = "glass of onion juice"
 	glass_desc = "Juice from an onion, for when you need to cry."
 
+/datum/reagent/drink/applejuice
+	name = "Apple Juice"
+	id = "applejuice"
+	description = "Juice from an apple. The most basic beverage you can imagine."
+	taste_description = "apple juice"
+	color = "#f2d779"
+
+	glass_icon_state = "glass_apple"
+	glass_name = "glass of apple juice"
+	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
+
 /datum/reagent/drink/dynjuice
 	name = "Dyn Juice"
 	id = "dynjuice"
