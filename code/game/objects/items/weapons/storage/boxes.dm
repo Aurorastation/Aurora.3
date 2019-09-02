@@ -256,22 +256,22 @@
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
 	starts_with = list(/obj/item/device/firing_pin/test_range = 7)
 
-/obj/item/weapon/storage/box/loyaltypins
+/obj/item/weapon/storage/box/mindshieldpins
 	name = "box of firing pins"
-	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
-	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
+	desc = "A box of specialised \"mindshield\" authentication pins produced by NanoTrasen; these check to see if the user of the gun it's installed in has been implanted with a mindshield implant. Often used in ERTs."
+	starts_with = list(/obj/item/device/firing_pin/implant/mindshield = 7)
 
-/obj/item/weapon/storage/box/loyaltypins/fill()
+/obj/item/weapon/storage/box/mindshieldpins/fill()
 	..()
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
-	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/mindshield(src)
+	new /obj/item/device/firing_pin/implant/mindshield(src)
+	new /obj/item/device/firing_pin/implant/mindshield(src)
+	new /obj/item/device/firing_pin/implant/mindshield(src)
 
 /obj/item/weapon/storage/box/firingpinsRD
 	name = "box of assorted firing pins"
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
-	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
+	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/mindshield = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
 
 /obj/item/weapon/storage/box/teargas
 	name = "box of pepperspray grenades"

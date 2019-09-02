@@ -36,7 +36,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/weapon/implant/mindshield
 	)
 
 	backpack = /obj/item/weapon/storage/backpack/captain

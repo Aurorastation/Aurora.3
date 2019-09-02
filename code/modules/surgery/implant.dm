@@ -187,7 +187,7 @@
 				"<span class='notice'>You take [obj] out of incision on [target]'s [affected.name]s with \the [tool].</span>" )
 				affected.implants -= obj
 
-				BITSET(target.hud_updateflag, IMPLOYAL_HUD)
+				BITSET(target.hud_updateflag, IMPSHIELD_HUD)
 
 				//Handle possessive brain borers.
 				if(istype(obj,/mob/living/simple_animal/borer))

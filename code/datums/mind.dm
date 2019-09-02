@@ -352,21 +352,21 @@
 	else if(href_list["implant"])
 		var/mob/living/carbon/human/H = current
 
-		BITSET(H.hud_updateflag, IMPLOYAL_HUD)   // updates that players HUD images so secHUD's pick up they are implanted or not.
+		BITSET(H.hud_updateflag, IMPSHIELD_HUD)   // updates that players HUD images so secHUD's pick up they are implanted or not.
 
 		switch(href_list["implant"])
 			if("remove")
-				for(var/obj/item/weapon/implant/loyalty/I in H.contents)
+				for(var/obj/item/weapon/implant/mindshield/I in H.contents)
 					for(var/obj/item/organ/external/organs in H.organs)
 						if(I in organs.implants)
 							qdel(I)
 							break
-				to_chat(H, "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>")
-				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
+				to_chat(H, "<span class='notice'><font size =3><B>Your mindshield implant has been deactivated.</B></font></span>")
+				log_admin("[key_name_admin(usr)] has de-mindshield implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			if("add")
-				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recepient of a loyalty transplant, and it just activated!</font></span>")
-				H.implant_loyalty(H, override = TRUE)
-				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
+				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recepient of a mindshield transplant, and it just activated!</font></span>")
+				H.implant_mindshield(H, override = TRUE)
+				log_admin("[key_name_admin(usr)] has mindshield implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			else
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)

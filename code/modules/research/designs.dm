@@ -153,12 +153,12 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/implantcase/freedom
 	sort_string = "MFAAB"
 
-/datum/design/item/implant/loyalty
-	name = "loyalty"
-	id = "implant_loyal"
+/datum/design/item/implant/mindshield
+	name = "mindshield"
+	id = "implant_mindshield"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
-	build_path = /obj/item/weapon/implantcase/loyalty
+	build_path = /obj/item/weapon/implantcase/mindshield
 	sort_string = "MFAAC"
 
 /datum/design/item/advanced_light_replacer

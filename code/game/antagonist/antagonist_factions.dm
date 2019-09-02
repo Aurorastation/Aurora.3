@@ -3,9 +3,9 @@
 	set category = "Abilities"
 	if(!M.mind)
 		return
-	for (var/obj/item/weapon/implant/loyalty/I in M)
+	for (var/obj/item/weapon/implant/mindshield/I in M)
 		if (I.implanted)
-			to_chat(src, "<span class='warning'>[M] is too loyal to the company!</span>")
+			to_chat(src, "<span class='warning'>[M] has a shielded mind!</span>")
 			return
 	convert_to_faction(M.mind, revs)
 

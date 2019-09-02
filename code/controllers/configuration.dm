@@ -134,7 +134,7 @@ var/list/gamemode_cache = list()
 	var/revival_cloning = 1
 	var/revival_brain_life = -1
 
-	var/use_loyalty_implants = 0
+	var/use_mindshield_implants = 0
 
 	var/welder_vision = 1
 	var/generate_asteroid = 0
@@ -994,8 +994,8 @@ var/list/gamemode_cache = list()
 					config.animal_delay = value
 
 
-				if("use_loyalty_implants")
-					config.use_loyalty_implants = 1
+				if("use_mindshield_implants")
+					config.use_mindshield_implants = 1
 
 				if ("sunlight_accuracy")
 					config.sun_accuracy = value

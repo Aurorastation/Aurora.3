@@ -70,7 +70,7 @@
 	return vampire
 
 // Checks whether or not the target can be affected by a vampire's abilities.
-/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_loyalty_implant = 0, var/ignore_thrall = FALSE)
+/mob/proc/vampire_can_affect_target(var/mob/living/carbon/human/T, var/notify = 1, var/account_mindshield_implant = 0, var/ignore_thrall = FALSE)
 	if (!T || !istype(T))
 		return 0
 
@@ -101,11 +101,11 @@
 			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return 0
 
-	if (account_loyalty_implant)
-		for (var/obj/item/weapon/implant/loyalty/I in T)
+	if (account_mindshield_implant)
+		for (var/obj/item/weapon/implant/mindshield/I in T)
 			if (I.implanted)
 				if (notify)
-					to_chat(src, "<span class='warning'>You feel that [T]'s mind is unreachable due to forced loyalty.</span>")
+					to_chat(src, "<span class='warning'>You feel that [T]'s mind is unreachable due to their implant.</span>")
 				return 0
 
 	return 1

@@ -24,7 +24,7 @@
 #define ANTAG_OVERRIDE_MOB        0x2 // Mob is recreated from datum mob_type var when spawning.
 #define ANTAG_CLEAR_EQUIPMENT     0x4 // All preexisting equipment is purged.
 #define ANTAG_CHOOSE_NAME         0x8 // Antagonists are prompted to enter a name.
-#define ANTAG_IMPLANT_IMMUNE     0x10 // Cannot be loyalty implanted.
+#define ANTAG_IMPLANT_IMMUNE     0x10 // Cannot be mindshield implanted.
 #define ANTAG_SUSPICIOUS         0x20 // Shows up on roundstart report.
 #define ANTAG_HAS_LEADER         0x40 // Generates a leader antagonist.
 #define ANTAG_HAS_NUKE           0x80 // Will spawn a nuke at supplied location.

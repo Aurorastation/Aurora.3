@@ -67,8 +67,8 @@ ANIMAL_DELAY 1
 
 ## Config options which, of course, don't fit into previous categories.
 
-## Remove the # in front of this config option to have loyalty implants spawn by default on your server.
-#USE_LOYALTY_IMPLANTS
+## Remove the # in front of this config option to have mindshield implants spawn by default on your server.
+#USE_MINDSHIELD_IMPLANTS
 
 
 ## Sunlight Settings ##

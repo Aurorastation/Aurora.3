@@ -439,7 +439,7 @@
 		H.species.equip_later_gear(H)
 
 	BITSET(H.hud_updateflag, ID_HUD)
-	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
+	BITSET(H.hud_updateflag, IMPSHIELD_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
 	Debug("ER/([H]): Completed.")

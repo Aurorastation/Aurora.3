@@ -25,8 +25,8 @@
 	return
 
 	// What does the implant do upon injection?
-	// return 0 if the implant fails (ex. Revhead and loyalty implant.)
-	// return 1 if the implant succeeds (ex. Nonrevhead and loyalty implant.)
+	// return 0 if the implant fails (ex. Revhead and mindshield implant.)
+	// return 1 if the implant succeeds (ex. Nonrevhead and mindshield implant.)
 /obj/item/weapon/implant/proc/implanted(var/mob/source)
 	return 1
 
@@ -343,35 +343,35 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	spawn(20)
 		malfunction--
 
-/obj/item/weapon/implant/loyalty
-	name = "loyalty implant"
-	desc = "Makes you loyal or such."
+/obj/item/weapon/implant/mindshield
+	name = "mindshield implant"
+	desc = "Protects against brainwashing."
 
-/obj/item/weapon/implant/loyalty/get_data()
+/obj/item/weapon/implant/mindshield/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> [current_map.company_name] Employee Management Implant<BR>
 <b>Life:</b> Ten years.<BR>
-<b>Important Notes:</b> Personnel injected with this device tend to be much more loyal to the company.<BR>
+<b>Important Notes:</b> Personnel injected with this device are much more resistant to brainwashing.<BR>
 <HR>
 <b>Implant Details:</b><BR>
-<b>Function:</b> Contains a small pod of nanobots that manipulate the host's mental functions.<BR>
+<b>Function:</b> Contains a small pod of nanobots that protects the host's mental functions from manipulation.<BR>
 <b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
 <b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
 
-/obj/item/weapon/implant/loyalty/implanted(mob/M)
+/obj/item/weapon/implant/mindshield/implanted(mob/M)
 	if(!istype(M, /mob/living/carbon/human))	return 0
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-		H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of [current_map.company_name] try to invade your mind!")
+		H.visible_message("[H] seems to resist the implant!", "You feel something interfering with your mental conditioning, but you resist it!")
 		return 0
 	else
 		clear_antag_roles(H.mind, 1)
-		to_chat(H, "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name].</span>")
+		to_chat(H, "<span class='notice'>You feel a sense of mental peace and security.</span>")
 	return 1
 
-/obj/item/weapon/implant/loyalty/emp_act(severity)
+/obj/item/weapon/implant/mindshield/emp_act(severity)
 	if (malfunction)
 		return
 	malfunction = MALFUNCTION_TEMPORARY
@@ -386,15 +386,15 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	spawn(20)
 		malfunction--
 
-/obj/item/weapon/implant/loyalty/implanted(mob/source as mob)
+/obj/item/weapon/implant/mindshield/implanted(mob/source as mob)
 	//mobname = source.real_name
 	return 1
 
-/obj/item/weapon/implant/loyalty/ipc
-	name = "loyalty chip"
-	desc = "A device that sets directives programmed for loyalty to NanoTrasen on the synthetic subject. Will not work on organics."
+/obj/item/weapon/implant/mindshield/ipc
+	name = "mindshield chip"
+	desc = "A dedicated processor core designed to identify and terminate malignant software, ensuring a synthetics protection from outside hacking."
 
-/obj/item/weapon/implant/loyalty/ipc/implanted(mob/M)
+/obj/item/weapon/implant/mindshield/ipc/implanted(mob/M)
 
 	if (!isipc(M))
 		return

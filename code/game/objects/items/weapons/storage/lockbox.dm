@@ -70,12 +70,12 @@
 		visible_message(visual_feedback, audible_feedback)
 		return 1
 
-/obj/item/weapon/storage/lockbox/loyalty
-	name = "lockbox of loyalty implants"
+/obj/item/weapon/storage/lockbox/mindshield
+	name = "lockbox of mindshield implants"
 	req_access = list(access_security)
 	starts_with = list(
-		/obj/item/weapon/implantcase/loyalty = 3,
-		/obj/item/weapon/implanter/loyalty = 1
+		/obj/item/weapon/implantcase/mindshield = 3,
+		/obj/item/weapon/implanter/mindshield = 1
 	)
 
 /obj/item/weapon/storage/lockbox/clusterbang

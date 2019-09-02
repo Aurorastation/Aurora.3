@@ -77,7 +77,7 @@
 		bst.equip_to_slot_or_del(pills, slot_in_backpack)
 
 	//Implant because access
-	bst.implant_loyalty(bst,TRUE)
+	bst.implant_mindshield(bst,TRUE)
 
 	//Sort out ID
 	var/obj/item/weapon/card/id/bst/id = new/obj/item/weapon/card/id/bst(bst)

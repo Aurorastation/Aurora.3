@@ -91,7 +91,7 @@
 							/obj/item/weapon/reagent_containers/glass/bottle/dexalin_plus = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/epinephrine = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/spaceacillin = 1,
-							
+
 						)
 	accessory_contents = list(/obj/item/weapon/gun/energy/pulse/pistol = 1)
 	var/id_access = "Lance Medic"
@@ -284,7 +284,7 @@
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/weapon/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -326,7 +326,7 @@
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/weapon/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/tcfl_commander
@@ -395,7 +395,7 @@
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/weapon/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -424,7 +424,7 @@
 	r_pocket = /obj/item/weapon/flame/lighter/zippo
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/weapon/implant/mindshield
 	)
 
 	id_access = "Death Commando"

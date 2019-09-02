@@ -31,7 +31,7 @@
 	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudhealthy")
 	hud_list[ID_HUD]          = image('icons/hud/hud_security.dmi', src, "hudunknown")
 	hud_list[WANTED_HUD]      = image('icons/hud/hud_security.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPSHIELD_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[IMPCHEM_HUD]     = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[IMPTRACK_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[SPECIALROLE_HUD] = image('icons/mob/hud.dmi', src, "hudblank")
@@ -44,9 +44,9 @@
 	holder.pixel_y = 24
 	hud_list[ID_HUD] = holder
 
-	holder = hud_list[IMPLOYAL_HUD]
+	holder = hud_list[IMPSHIELD_HUD]
 	holder.pixel_y = 2
-	hud_list[IMPLOYAL_HUD] = holder
+	hud_list[IMPSHIELD_HUD] = holder
 
 	holder = hud_list[IMPCHEM_HUD]
 	holder.pixel_y = 2
@@ -227,14 +227,14 @@
 				update |= temp.take_damage(b_loss * 0.05, f_loss * 0.05, used_weapon = weapon_message)
 	if(update)	UpdateDamageIcon()
 
-/mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
-	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
+/mob/living/carbon/human/proc/implant_mindshield(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
+	if(!config.use_mindshield_implants && !override) return // Nuh-uh.
 
-	var/obj/item/weapon/implant/loyalty/L
+	var/obj/item/weapon/implant/mindshield/L
 	if(isipc(M))
-		L = new/obj/item/weapon/implant/loyalty/ipc(M)
+		L = new/obj/item/weapon/implant/mindshield/ipc(M)
 	else
-		L = new/obj/item/weapon/implant/loyalty(M)
+		L = new/obj/item/weapon/implant/mindshield(M)
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name["head"]
@@ -242,9 +242,9 @@
 	L.part = affected
 	L.implanted(src)
 
-/mob/living/carbon/human/proc/is_loyalty_implanted(mob/living/carbon/human/M)
+/mob/living/carbon/human/proc/is_mindshield_implanted(mob/living/carbon/human/M)
 	for(var/L in M.contents)
-		if(istype(L, /obj/item/weapon/implant/loyalty))
+		if(istype(L, /obj/item/weapon/implant/mindshield))
 			for(var/obj/item/organ/external/O in M.organs)
 				if(L in O.implants)
 					return 1

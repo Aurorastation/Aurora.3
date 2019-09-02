@@ -102,7 +102,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
 		return 0
-	for(var/obj/item/weapon/implant/loyalty/L in player.current)
+	for(var/obj/item/weapon/implant/mindshield/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
 	return 1
