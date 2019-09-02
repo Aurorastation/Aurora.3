@@ -103,7 +103,7 @@ var/datum/antagonist/ninja/ninjas
 	if(!..())
 		return 0
 
-	var/obj/item/clothing/under/syndicate/combat/ninjauniform = new(player)
+	var/obj/item/clothing/under/syndicate/ninja/ninjauniform = new(player)
 	if(ninjauniform)
 		player.equip_to_slot_or_del(ninjauniform, slot_w_uniform)
 		var/obj/item/clothing/accessory/storage/black_vest/ninjavest = new(get_turf(player))
