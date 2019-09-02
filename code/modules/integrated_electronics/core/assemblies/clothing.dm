@@ -53,18 +53,13 @@
 
 /obj/item/clothing/attackby(obj/item/I, mob/user)
 	if(IC)
-		// This needs to be done in a better way...
-		if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/integrated_circuit) || istype(I, /obj/item/weapon/cell) || istype(I, /obj/item/device/integrated_electronics))
-			IC.attackby(I, user)
+		IC.attackby(I, user)
 	else
 		..()
 
 /obj/item/clothing/attack_self(mob/user)
 	if(IC)
-		if(IC.opened)
-			IC.attack_self(user)
-		else
-			action_circuit.do_work()
+		IC.attack_self(user)
 	else
 		..()
 
@@ -92,7 +87,7 @@
 // Jumpsuit.
 /obj/item/clothing/under/circuitry
 	name = "electronic jumpsuit"
-	desc = "It's a wearable case for electronics. This on is a black jumpsuit with wiring weaved into the fabric."
+	desc = "It's a wearable case for electronics. This one is a black jumpsuit with wiring weaved into the fabric."
 	icon_state = "circuitry"
 	worn_state = "circuitry"
 
@@ -117,9 +112,10 @@
 	if(!A || !proximity)
 		return 0
 
-	if(istype(action_circuit) && action_circuit.check_then_do_work())
+	if(istype(action_circuit) && action_circuit.check_power())
 		action_circuit.set_pin_data(IC_OUTPUT, 1, A)
 		action_circuit.push_data() // we have to not return 1 so we can still do normal stuff like picking things up, etc.
+		action_circuit.activate_pin(1)
 	return 0
 
 // Glasses.
@@ -128,7 +124,8 @@
 	desc = "It's a wearable case for electronics. This one is a pair of goggles, with wiring sticking out. \
 	Could this augment your vision?" // Sadly it won't, or at least not yet.
 	icon_state = "circuitry"
-	item_state = "night" // The on-mob sprite would be identical anyways.
+	item_state = "glasses"
+	off_state = "denight"
 
 /obj/item/clothing/glasses/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
@@ -138,9 +135,10 @@
 	if(!A)
 		return 0
 	
-	if(istype(action_circuit) && action_circuit.check_then_do_work())
+	if(istype(action_circuit) && action_circuit.check_power())
 		action_circuit.set_pin_data(IC_OUTPUT, 1, A)
 		action_circuit.push_data() // we have to not return 1 so we can still do normal stuff like picking things up, etc.
+		action_circuit.activate_pin(1)
 	return 0
 
 // Shoes

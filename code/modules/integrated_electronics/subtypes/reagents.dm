@@ -103,16 +103,16 @@
 			if(isliving(AM))
 				var/mob/living/L = AM
 				var/turf/T = get_turf(AM)
-				T.visible_message("<span class='warning'>[src] is trying to inject [L]!</span>")
+				T.visible_message("<span class='warning'>[assembly] is trying to inject [L]!</span>")
 				sleep(3 SECONDS)
 				if(!L.can_be_injected_by(src))
 					activate_pin(3)
 					return
 				var/contained = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
-				message_admins("[src] injected \the [L] with [trans]u of [contained].")
+				message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
 				to_chat(AM, "<span class='notice'>You feel a tiny prick!</span>")
-				visible_message("<span class='warning'>[src] injects [L]!</span>")
+				visible_message("<span class='warning'>[assembly] injects [L]!</span>")
 			else
 				reagents.trans_to(AM, transfer_amount)
 	else
@@ -129,7 +129,7 @@
 		if(!TS.Adjacent(TT))
 			activate_pin(3)
 			return
-		var/tramount = Clamp(min(transfer_amount, reagents.maximum_volume - reagents.total_volume), 0, reagents.maximum_volume)
+		var/tramount = Clamp(min(transfer_amount, reagents.get_free_space()), 0, reagents.maximum_volume)
 		if(ismob(target))//Blood!
 			if(istype(target, /mob/living/carbon))
 				var/mob/living/carbon/T = target
@@ -144,7 +144,6 @@
 						activate_pin(2)
 					else
 						activate_pin(3)
-					return
 					return
 				var/datum/reagent/B
 				if(istype(T, /mob/living/carbon/human))
@@ -161,7 +160,7 @@
 					on_reagent_change()
 					reagents.handle_reactions()
 					B = null
-				visible_message( "<span class='notice'>Machine takes a blood sample from [target].</span>")
+				visible_message( "<span class='notice'>[assembly] takes a blood sample from [target].</span>")
 			else
 				activate_pin(3)
 				return
@@ -222,8 +221,7 @@
 		source = beaker_slot.get_item(FALSE)
 	if(!istype(source) || (!istype(target))) //Invalid input
 		return
-	var/turf/T = get_turf(src)
-	if((source.Adjacent(T)  || istype(beaker_slot)) && target.Adjacent(T))
+	if((src.Adjacent(source)  || istype(beaker_slot)) && src.Adjacent(target))
 		if(!source.reagents || !target.reagents)
 			return
 		if(ismob(source) || ismob(target))

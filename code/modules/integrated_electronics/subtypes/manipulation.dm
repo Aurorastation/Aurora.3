@@ -210,7 +210,7 @@
 	var/mob/living/M = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
 	if(!istype(M)) //Invalid input
 		return
-	if(!M.Adjacent(T))
+	if(!T.Adjacent(M))
 		return //Can't reach
 	to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
 	spark(get_turf(M), 3, 1)
