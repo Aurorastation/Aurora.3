@@ -107,6 +107,14 @@
 	reach = 8
 	var/mob/living/creator
 
+/obj/item/device/multitool/hacktool/rig/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/device/multitool/hacktool/rig/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
 /obj/item/device/multitool/hacktool/rig/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
