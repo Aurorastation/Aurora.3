@@ -25,7 +25,7 @@
 	var/obj/item/weapon/implant/integrated_circuit/implant = null
 
 /obj/item/device/electronic_assembly/Initialize(mapload, printed = FALSE)
-	..()
+	. = ..()
 	if (!printed)
 		battery = new(src)
 	START_PROCESSING(SSelectronics, src)
