@@ -71,7 +71,7 @@
  */
 /turf/simulated/open/proc/add_climber(atom/climber, flags = CLIMBER_DEFAULT)
 	if (!flags)
-		PROCLOG_WEIRD("Attempted to add climber [climber] without flags.")
+		log_debug("/turf/simulated/open/proc/add_climber([climber], [flags]): Attempted to add climber [climber] without flags.")
 		return FALSE
 
 	if (LAZYACCESS(climbers, climber))

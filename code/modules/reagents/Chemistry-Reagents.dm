@@ -45,7 +45,6 @@
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
-		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
 		return
 
 	holder.remove_reagent(id, amount)

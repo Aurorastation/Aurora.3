@@ -76,7 +76,7 @@
 		return
 
 	if (!loc)
-		PROCLOG_WEIRD("loc is null, breaking self.")
+		log_debug("/obj/machinery/conveyor/machinery_process(): loc is null, breaking self.")
 		stat |= BROKEN
 		return
 
