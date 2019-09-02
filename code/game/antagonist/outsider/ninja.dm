@@ -11,9 +11,9 @@ var/datum/antagonist/ninja/ninjas
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudninja"
 
-	initial_spawn_req = 1
-	initial_spawn_target = 1
-	hard_cap = 1
+	initial_spawn_req = 2
+	initial_spawn_target = 2
+	hard_cap = 2
 	hard_cap_round = 3
 
 	id_type = /obj/item/weapon/card/id/syndicate
@@ -103,12 +103,28 @@ var/datum/antagonist/ninja/ninjas
 	if(!..())
 		return 0
 
-	var/obj/item/device/radio/R = new /obj/item/device/radio/headset(player)
-	player.equip_to_slot_or_del(R, slot_l_ear)
-	player.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(player), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_belt)
+	var/obj/item/clothing/under/syndicate/combat/ninjauniform = new(player)
+	if(ninjauniform)
+		player.equip_to_slot_or_del(ninjauniform, slot_w_uniform)
+		var/obj/item/clothing/accessory/storage/black_vest/ninjavest = new(get_turf(player))
+		if(ninjavest)
+			ninjauniform.attach_accessory(player,ninjavest)
+
+	var/obj/item/weapon/storage/belt/ninja/ninjabelt = new(player)
+	if(ninjabelt)
+		new /obj/item/device/flashlight/maglight(ninjabelt)
+		new /obj/item/weapon/crowbar(ninjabelt)
+		new /obj/item/weapon/screwdriver(ninjabelt)
+		new /obj/item/device/paicard(ninjabelt)
+		player.equip_to_slot_or_del(ninjabelt, slot_belt)
+
+	var/obj/item/clothing/shoes/swat/ert/ninjashoes = new(get_turf(player))
+	player.equip_to_slot_or_del(ninjashoes, slot_shoes)
+
+	player.equip_to_slot_or_del(new /obj/item/clothing/mask/balaclava(player),	slot_wear_mask)
 	player.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(player, player.mind), slot_l_store)
 	create_id("Infiltrator", player)
+	create_radio(NINJ_FREQ, player)
 
 	var/obj/item/weapon/rig/light/ninja/ninjasuit = new(get_turf(player))
 	ninjasuit.seal_delay = 0

@@ -73,6 +73,11 @@
 	translate_hivenet = 1
 	ks1type = /obj/item/device/encryptionkey/hivenet
 
+/obj/item/device/radio/headset/ninja
+	origin_tech = list(TECH_ILLEGAL = 3)
+	syndie = 1
+	ks1type = /obj/item/device/encryptionkey/ninja
+
 /obj/item/device/radio/headset/syndicate
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = 1
