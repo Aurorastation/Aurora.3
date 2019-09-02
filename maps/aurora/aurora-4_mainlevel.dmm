@@ -40050,8 +40050,8 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/bodybags,
 /obj/item/weapon/storage/box/rxglasses,
-/obj/item/weapon/cane,
-/obj/item/weapon/cane,
+/obj/item/weapon/cane/crutch,
+/obj/item/weapon/cane/crutch,
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
