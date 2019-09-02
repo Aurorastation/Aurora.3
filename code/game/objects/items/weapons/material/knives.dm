@@ -25,6 +25,16 @@
 			M = user
 		return eyestab(M,user)
 
+/obj/item/weapon/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H)
+	for(var/obj/item/weapon/material/shard/shrapnel/S in H.contents)
+		to_chat(usr, "<span class='notice'>You start digging out some of the shrapnel in [H == usr ? "yourself" : H]...")
+		to_chat(H, "<font size=2><span class='danger'>IT HURTS!</span></font>")
+		if(do_after(H, 50))
+			S.forceMove(H.loc)
+		H.apply_damage(40, HALLOSS)
+		if(H.can_feel_pain())
+			H.emote("scream")
+
 /obj/item/weapon/material/knife/ritual
 	name = "ritual knife"
 	desc = "The unearthly energies that once powered this blade are now dormant."

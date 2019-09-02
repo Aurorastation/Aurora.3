@@ -269,6 +269,20 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"aaE" = (
+/obj/structure/table/standard,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Robotics Surgery";
+	dir = 8;
+	network = list("Research","Toxins Test Area")
+	},
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/item/weapon/storage/box/tray,
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
 "aaF" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -818,6 +832,18 @@
 "abK" = (
 /turf/simulated/wall,
 /area/maintenance/substation/security)
+"abL" = (
+/obj/structure/table/standard,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Operating Room 1";
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "abM" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -911,6 +937,19 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"abW" = (
+/obj/structure/table/standard,
+/obj/machinery/vending/wallmed2{
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/item/weapon/storage/box/tray,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "abX" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -1098,6 +1137,41 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
+"acq" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
+"acr" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
+"acs" = (
+/obj/structure/table/standard,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_one_access = list(24,11,55)
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "act" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -1158,6 +1232,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"acz" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "acA" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1395,6 +1477,46 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"acR" = (
+/obj/structure/table/standard,
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24;
+	req_one_access = list(24,11,55)
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
+"acS" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
+"acT" = (
+/obj/structure/table/standard,
+/obj/machinery/vending/wallmed2{
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/item/weapon/storage/box/tray,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "acU" = (
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -1486,6 +1608,14 @@
 /obj/structure/barricade,
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
+"adc" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "ade" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -30474,27 +30604,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
-"bbD" = (
-/obj/structure/table/standard,
-/obj/item/weapon/bonegel,
-/obj/item/weapon/bonesetter,
-/obj/item/weapon/cautery,
-/obj/item/weapon/circular_saw,
-/obj/item/weapon/retractor,
-/obj/item/weapon/scalpel,
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Robotics Surgery";
-	dir = 8;
-	network = list("Research","Toxins Test Area")
-	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/item/weapon/surgicaldrill,
-/obj/item/weapon/hemostat,
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
 "bbE" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -43406,43 +43515,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
-"bwv" = (
-/obj/structure/table/standard,
-/obj/item/weapon/bonesetter,
-/obj/item/weapon/bonegel,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 1";
-	dir = 2
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bww" = (
-/obj/structure/table/standard,
-/obj/item/weapon/surgicaldrill,
-/obj/item/weapon/FixOVein,
-/obj/machinery/vending/wallmed2{
-	pixel_x = 0;
-	pixel_y = 28
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bwx" = (
-/obj/structure/table/standard,
-/obj/item/weapon/retractor,
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
 "bwy" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -44505,21 +44577,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
-"bxV" = (
-/obj/structure/table/standard,
-/obj/item/weapon/cautery,
-/obj/item/weapon/hemostat,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
 "bxY" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -45169,24 +45226,6 @@
 /area/medical/surgerywing)
 "bzl" = (
 /obj/machinery/optable,
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bzm" = (
-/obj/structure/table/standard,
-/obj/item/weapon/scalpel,
-/obj/item/weapon/circular_saw{
-	pixel_y = 8
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_one_access = list(24,11,55)
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bzn" = (
@@ -49123,18 +49162,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/surgerywing)
-"bGJ" = (
-/obj/structure/table/standard,
-/obj/item/weapon/scalpel,
-/obj/item/weapon/circular_saw{
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
 "bGK" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/effect/floor_decal/corner/white{
@@ -49745,27 +49772,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
-"bHC" = (
-/obj/structure/table/standard,
-/obj/item/weapon/cautery,
-/obj/item/weapon/hemostat,
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24;
-	req_one_access = list(24,11,55)
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
 "bHD" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -50255,43 +50261,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bID" = (
-/obj/structure/table/standard,
-/obj/item/weapon/bonesetter,
-/obj/item/weapon/bonegel,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 2";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bIE" = (
-/obj/structure/table/standard,
-/obj/item/weapon/surgicaldrill,
-/obj/item/weapon/FixOVein,
-/obj/machinery/vending/wallmed2{
-	pixel_x = 0;
-	pixel_y = -28
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
-"bIF" = (
-/obj/structure/table/standard,
-/obj/item/weapon/retractor,
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white_full";
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -95927,7 +95896,7 @@ aWA
 aYj
 aZm
 baE
-bbD
+aaE
 bdf
 beM
 bgb
@@ -107251,7 +107220,7 @@ bmO
 bmK
 buo
 bvz
-bwv
+abL
 bxT
 bzl
 bAn
@@ -107263,7 +107232,7 @@ bvz
 bAn
 bzl
 bxT
-bID
+acS
 bvz
 bFP
 bBo
@@ -107508,7 +107477,7 @@ brV
 bmJ
 bup
 bvz
-bww
+abW
 bxU
 bzk
 bzk
@@ -107520,7 +107489,7 @@ bBj
 bzk
 bzk
 bxU
-bIE
+acT
 bvz
 bDZ
 bBo
@@ -107765,9 +107734,9 @@ brW
 btm
 buq
 bvz
-bwx
-bxV
-bzm
+acq
+acr
+acs
 bAo
 bvz
 bCd
@@ -107775,9 +107744,9 @@ bDb
 bDR
 bvz
 bAo
-bGJ
-bHC
-bIF
+acz
+acR
+adc
 bvz
 bDZ
 bBo

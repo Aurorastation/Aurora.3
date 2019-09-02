@@ -6,6 +6,7 @@
  *		Surgical Drill
  *		Scalpel
  *		Circular Saw
+ *   	Tray
  */
 
 /*
@@ -174,3 +175,37 @@
 	w_class = 2.0
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	drop_sound = 'sound/items/drop/scrap.ogg'
+
+/obj/item/weapon/storage/box/tray
+	name = "surgery tray"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "surgerytray"
+	force = 2
+	w_class = 5.0
+	attack_verb = list("slammed")
+	can_hold = list(
+		/obj/item/weapon/bonesetter,
+		/obj/item/weapon/cautery,
+		/obj/item/weapon/circular_saw,
+		/obj/item/weapon/hemostat,
+		/obj/item/weapon/retractor,
+		/obj/item/weapon/scalpel,
+		/obj/item/weapon/surgicaldrill,
+		/obj/item/weapon/bonegel,
+		/obj/item/weapon/FixOVein,
+		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/nanopaste
+		)
+
+	starts_with = list(	
+		/obj/item/weapon/bonesetter = 1,
+		/obj/item/weapon/cautery = 1,
+		/obj/item/weapon/circular_saw = 1,
+		/obj/item/weapon/hemostat = 1,
+		/obj/item/weapon/retractor = 1,
+		/obj/item/weapon/scalpel = 1,
+		/obj/item/weapon/surgicaldrill = 1,
+		/obj/item/weapon/bonegel = 1,
+		/obj/item/weapon/FixOVein = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+	)
