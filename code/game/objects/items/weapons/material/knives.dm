@@ -16,8 +16,13 @@
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
+	action_button_name = "Extract Shrapnel"
 
 /obj/item/weapon/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+	set name = "Extract Shrapnel"
+	set category = "Object"
+	set src in usr
+
 	if(active == 1)
 		if(target_zone != "eyes" && target_zone != "head")
 			return ..()
