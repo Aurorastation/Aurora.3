@@ -58285,7 +58285,7 @@
 	},
 /obj/machinery/door/blast/shutters{
 	density = 1;
-	dir = 3;
+	dir = 2;
 	icon_state = "shutter1";
 	id = "cargo_cockblock";
 	name = "Cargo";
