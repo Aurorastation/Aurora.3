@@ -3093,14 +3093,6 @@
 "uI" = (
 /turf/simulated/wall,
 /area/crew_quarters/fitness/running)
-"uN" = (
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Running Track Staircase";
-	dir = 2;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/crew_quarters/fitness/running)
 "vm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3528,11 +3520,6 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Running Track Lounge";
-	dir = 8;
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "HW" = (
@@ -3940,18 +3927,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"Xd" = (
-/obj/structure/lattice,
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface - Running Track Aft";
-	dir = 1;
-	pixel_y = 0
-	},
-/turf/simulated/open{
-	name = "heated open space";
-	temperature = 303.15
-	},
-/area/crew_quarters/fitness/running)
 "XG" = (
 /obj/structure/closet/emcloset,
 /obj/structure/sign/nosmoking_1{
@@ -37070,7 +37045,7 @@ ab
 ab
 ab
 PJ
-uN
+Wx
 Qh
 mb
 uI
@@ -38882,7 +38857,7 @@ ka
 ka
 ka
 ka
-Xd
+ka
 VL
 yx
 Mu

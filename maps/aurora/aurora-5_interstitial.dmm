@@ -5216,9 +5216,6 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Isolation Antechamber"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jH" = (
@@ -6111,9 +6108,6 @@
 "ld" = (
 /obj/structure/table/wood,
 /obj/item/weapon/mesmetron,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychiatry Closet"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/psych)
 "le" = (
@@ -6271,10 +6265,6 @@
 	departmentType = 1;
 	pixel_x = 0;
 	pixel_y = 32
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Psychiatrist Office";
-	network = list("Medical")
 	},
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
@@ -7176,10 +7166,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Construction Level Exterior Airlock";
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "pw" = (
@@ -9319,10 +9305,6 @@
 	},
 /obj/structure/closet/crate/freezer{
 	name = "Uncontaminated Blood"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology Freezer";
-	dir = 1
 	},
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/item/weapon/reagent_containers/blood/OMinus,
@@ -11758,19 +11740,6 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
-"Uw" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/obj/machinery/camera/network/mining{
-	c_tag = "Mining - Interstitial Exterior";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "UA" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	tag = "icon-warning_dust (SOUTHWEST)";
@@ -39444,7 +39413,7 @@ yw
 aB
 nI
 YE
-Uw
+mf
 mf
 KQ
 Lc

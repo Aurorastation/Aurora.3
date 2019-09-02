@@ -1122,9 +1122,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Breakroom"
-	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/meeting)
@@ -1165,9 +1162,6 @@
 "acO" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Storage"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/meeting)
@@ -3770,11 +3764,6 @@
 /area/outpost/engineering/hallway)
 "ain" = (
 /obj/machinery/light,
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Corridor Camera 1";
-	dir = 1;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "aio" = (
@@ -12166,10 +12155,6 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "axx" = (
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Supply Closet";
-	dir = 1
-	},
 /obj/machinery/washing_machine,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
@@ -12288,10 +12273,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical Sublevel - Substation";
-	dir = 8
 	},
 /obj/machinery/power/apc{
 	dir = 4;
@@ -14605,10 +14586,6 @@
 	name = "Powernet Sensor - Research (Sub-level)";
 	name_tag = "Research (Sub-level)"
 	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Substation";
-	dir = 2
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
 "aCr" = (
@@ -16592,21 +16569,6 @@
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
 "aGp" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Perma, Patient One Dorm";
-	dir = 8
-	},
-/obj/machinery/light_switch{
-	pixel_x = 24;
-	pixel_y = -6
-	},
-/turf/simulated/floor/wood,
-/area/medical/patient_a)
-"aGs" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Perma, Patient Two Dorm";
-	dir = 8
-	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
 	pixel_y = -6
@@ -17939,11 +17901,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Morgue";
-	dir = 8;
-	icon_state = "camera"
 	},
 /obj/machinery/alarm/cold{
 	dir = 8;
@@ -19881,16 +19838,6 @@
 "aMR" = (
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology)
-"aMS" = (
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Xenobiology Secure Storage";
-	dir = 1;
-	network = list("Research Outpost","Xenobiology")
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "aMT" = (
@@ -21833,10 +21780,6 @@
 	},
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Data Office";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "aRn" = (
@@ -23310,11 +23253,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Staff Wing Hallway South";
-	dir = 8;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aVe" = (
@@ -27631,10 +27569,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
 "ckF" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Perma, Patient Three Dorm";
-	dir = 8
-	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
 	pixel_y = -6
@@ -29549,9 +29483,6 @@
 /obj/structure/table/steel,
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Quarantine Morgue"
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -33661,11 +33592,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
 "tMU" = (
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Artifact Storage";
-	dir = 1;
-	network = list("Research Outpost")
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -33777,10 +33703,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "tUY" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Perma, Patient Four Dorm";
-	dir = 8
-	},
 /obj/machinery/light_switch{
 	pixel_x = 24;
 	pixel_y = -6
@@ -60255,7 +60177,7 @@ aHK
 wbr
 aKK
 aLQ
-aMS
+aMR
 aFV
 aOv
 aPn
@@ -78752,7 +78674,7 @@ sXz
 nJV
 aEp
 aFr
-aGs
+aGp
 qRa
 hWq
 aJs
