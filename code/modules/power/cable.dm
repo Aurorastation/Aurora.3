@@ -512,8 +512,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 					if(W.bandaged)
 						continue
 					if(W.current_stage <= W.max_bleeding_stage)
-						user.visible_message("<span class='notice'>\The [user] starts slowly stitching  the open wound on [M]'s [affecting.name] together...</span>", \
-											  "<span class='notice'>You start slowly stitching the open wound on [M]'s [affecting.name] together... This will take a while.</span>")
+						user.visible_message("<span class='notice'>\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]...</span>", \
+											  "<span class='notice'>You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while.</span>")
 						if(!do_mob(user, M, 200))
 							user.visible_message("<span class='danger'>[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!</span>", \
 													 "<span class='danger'>The wound on your [affecting.name] is torn open!</span>")
@@ -531,7 +531,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				if (do_surgery(H,user,src))
 					return
 			else
-				to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a stitch!</span>")
+				to_chat(user, "<span class='notice'>You can't suture this kind of wound!</span>")
 	return
 
 /obj/item/stack/cable_coil/iscoil()
