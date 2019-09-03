@@ -250,16 +250,6 @@
 	)
 
 	id_access = "Syndicate Agent"
-
-/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(visualsOnly)
-		return
-
-	var/obj/item/clothing/shoes/swat/ert/S = H.shoes
-	if(!istype(S))
-		H.equip_to_slot_or_del(new S(H), slot_shoes)
-
 /datum/outfit/admin/nt
 	name = "NanoTrasen Representative"
 
