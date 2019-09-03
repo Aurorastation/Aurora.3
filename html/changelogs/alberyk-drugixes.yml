@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed hydro belts starting full when created by biogenerators."
-  - bugfix: "Fixed drugs' emotes no working properly."
