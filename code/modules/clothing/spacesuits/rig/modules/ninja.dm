@@ -78,6 +78,7 @@
 	redundant = 1
 	usable = 1
 	selectable = 1
+	var/lastteleport
 
 	engage_string = "Emergency Leap"
 
@@ -106,13 +107,17 @@
 
 /obj/item/rig_module/teleporter/engage(var/atom/target, var/notify_ai)
 
-	if(!..()) return 0
+	if(!..()) return FALSE
 
 	var/mob/living/carbon/human/H = holder.wearer
+	
+	if(lastteleport + (5 SECONDS) > world.time)
+		to_chat(H, span("warning", "The teleporter needs time to cool down!"))
+		return FALSE
 
 	if(!istype(H.loc, /turf))
 		to_chat(H, "<span class='warning'>You cannot teleport out of your current location.</span>")
-		return 0
+		return FALSE
 
 	var/turf/T
 	if(target)
@@ -122,19 +127,19 @@
 
 	if(!T || T.density)
 		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
-		return 0
+		return FALSE
 
 	if(T.z in current_map.admin_levels)
 		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
-		return 0
+		return FALSE
 
 	if(T.contains_dense_objects())
 		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
-		return 0
+		return FALSE
 
 	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
 		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
-		return 0
+		return FALSE
 
 	phase_out(H,get_turf(H))
 	do_teleport(H,T)
@@ -148,8 +153,8 @@
 			phase_out(G.affecting,get_turf(G.affecting))
 			do_teleport(G.affecting,locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
 			phase_in(G.affecting,get_turf(G.affecting))
-
-	return 1
+	lastteleport = world.time
+	return TRUE
 
 /obj/item/rig_module/fabricator/energy_net
 

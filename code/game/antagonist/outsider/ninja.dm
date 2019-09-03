@@ -99,51 +99,19 @@ var/datum/antagonist/ninja/ninjas
 	player.name = H.name
 
 /datum/antagonist/ninja/equip(var/mob/living/carbon/human/player)
-
 	if(!..())
 		return 0
-
-	var/obj/item/clothing/under/syndicate/ninja/ninjauniform = new(player)
-	if(ninjauniform)
-		player.equip_to_slot_or_del(ninjauniform, slot_w_uniform)
-		var/obj/item/clothing/accessory/storage/black_vest/ninjavest = new(get_turf(player))
-		if(ninjavest)
-			ninjauniform.attach_accessory(player,ninjavest)
-
-	var/obj/item/weapon/storage/belt/ninja/ninjabelt = new(player)
-	if(ninjabelt)
-		new /obj/item/device/flashlight/maglight(ninjabelt)
-		new /obj/item/weapon/crowbar(ninjabelt)
-		new /obj/item/weapon/screwdriver(ninjabelt)
-		new /obj/item/device/paicard(ninjabelt)
-		player.equip_to_slot_or_del(ninjabelt, slot_belt)
-
-	var/obj/item/clothing/shoes/swat/ert/ninjashoes = new(get_turf(player))
-	player.equip_to_slot_or_del(ninjashoes, slot_shoes)
-
-	player.equip_to_slot_or_del(new /obj/item/clothing/mask/balaclava(player),	slot_wear_mask)
-	player.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(player, player.mind), slot_l_store)
-	create_id("Infiltrator", player)
-	create_radio(NINJ_FREQ, player)
-
-	var/obj/item/weapon/rig/light/ninja/ninjasuit = new(get_turf(player))
-	ninjasuit.seal_delay = 0
-	player.put_in_hands(ninjasuit)
-	player.equip_to_slot_or_del(ninjasuit,slot_back)
-	if(ninjasuit)
-		ninjasuit.toggle_seals(src,1)
-		ninjasuit.seal_delay = initial(ninjasuit.seal_delay)
-
-	if(istype(player.back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = player.back
-		if(rig.air_supply)
-			player.internal = rig.air_supply
-
-	spawn(10)
-		if(player.internal)
-			player.internals.icon_state = "internal1"
-		else
-			to_chat(player, "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>")
+	for (var/obj/item/I in player)
+		if (istype(I, /obj/item/weapon/implant))
+			continue
+		player.drop_from_inventory(I)
+		if(I.loc != player)
+			qdel(I)
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/ninja/, FALSE)
+	player.equipOutfit(/datum/outfit/admin/syndicate/ninja/, FALSE)
+	player.force_update_limbs()
+	player.update_eyes()
+	player.regenerate_icons()
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)
 	var/directive = "[side=="face"?"[current_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.

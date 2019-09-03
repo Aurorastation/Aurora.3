@@ -224,6 +224,41 @@
 		/obj/item/weapon/implant/explosive
 	)
 
+/datum/outfit/admin/syndicate/ninja
+	name = "Infiltrator"
+
+	uniform = /obj/item/clothing/under/syndicate/ninja
+	back = /obj/item/weapon/rig/light/ninja
+	belt = /obj/item/weapon/storage/belt/ninja/
+	shoes = /obj/item/clothing/shoes/swat/ert
+	gloves = /obj/item/clothing/ring/ninja
+	mask = /obj/item/clothing/mask/balaclava
+	l_ear = /obj/item/device/radio/headset/ninja
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
+	id = /obj/item/weapon/card/id/syndicate
+	l_pocket = /obj/item/device/ninja_uplink
+	r_pocket = null
+	accessory = /obj/item/clothing/accessory/storage/black_pouches
+
+	backpack_contents = list()
+
+	belt_contents = list(
+		/obj/item/device/flashlight/maglight = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/device/paicard = 1
+	)
+
+	id_access = "Syndicate Agent"
+
+/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/clothing/shoes/swat/ert/S = H.shoes
+	if(!istype(S))
+		H.equip_to_slot_or_del(new S(H), slot_shoes)
 
 /datum/outfit/admin/nt
 	name = "NanoTrasen Representative"

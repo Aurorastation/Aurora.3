@@ -93,7 +93,8 @@
 	initial_modules = list(
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
-		/obj/item/rig_module/stealth_field/advanced,
+		/obj/item/rig_module/teleporter,
+		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/device/door_hack,
