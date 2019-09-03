@@ -339,19 +339,6 @@
 		/obj/item/clothing/gloves/botanic_leather,
 	)
 
-/obj/item/weapon/storage/belt/hydro
-	starts_with = list(
-		/obj/item/weapon/plantspray/pests = 1,
-		/obj/item/weapon/material/minihoe = 1,
-		/obj/item/weapon/storage/bag/plants = 1,
-		/obj/item/clothing/gloves/botanic_leather = 1,
-		/obj/item/device/analyzer/plant_analyzer = 1,
-		/obj/item/weapon/material/hatchet = 1,
-		/obj/item/weapon/reagent_containers/glass/fertilizer/rh = 1,
-		/obj/item/weapon/reagent_containers/spray/plantbgone = 1,
-		/obj/item/weapon/wirecutters/clippers = 1
-	)
-
 /obj/item/weapon/storage/belt/fannypack
 	name = "leather fannypack"
 	desc = "A dorky fannypack for keeping small items in."
