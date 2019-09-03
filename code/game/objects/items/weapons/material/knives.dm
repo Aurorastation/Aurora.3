@@ -31,7 +31,7 @@
 	set src in usr
 
 	for(var/obj/item/weapon/material/shard/shrapnel/S in H.contents)
-		to_chat(usr, "<span class='notice'>You start frantically digging out some of the shrapnel in [H == usr ? "yourself" : H]...</span>")
+		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
 		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
 		if(do_after(H, 70))
 			S.forceMove(H.loc)
