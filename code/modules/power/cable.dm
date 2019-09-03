@@ -489,6 +489,51 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
+/obj/item/stack/cable_coil/attack(mob/living/carbon/M as mob, mob/user as mob)
+	if(..())
+		return 1
+
+	if(amount <= 10)
+		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
+	
+	if (istype(M, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+
+		if(affecting.open == 0)
+			if(affecting.is_bandaged())
+				to_chat(user, "<span class='warning'>The cuts on [M]'s [affecting.name] have already been closed.</span>")
+				return 1
+			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				for(var/datum/wound/W in affecting.wounds)
+					if(W.internal)
+						continue
+					if(W.bandaged)
+						continue
+					if(W.current_stage <= W.max_bleeding_stage)
+						user.visible_message("<span class='notice'>\The [user] starts slowly stitching  the open wound on [M]'s [affecting.name] together...</span>", \
+											  "<span class='notice'>You start slowly stitching the open wound on [M]'s [affecting.name] together... This will take a while.</span>")
+						if(!do_mob(user, M, 200))
+							user.visible_message("<span class='danger'>[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!</span>", \
+													 "<span class='danger'>The wound on your [affecting.name] is torn open!</span>")
+							M.apply_damage(rand(1,10), BRUTE)
+							break
+						user.visible_message("<span class='notice'>\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name].</span>", \
+													"<span class='notice'>You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].</span>" )
+						W.bandage("cable-stitched")
+						use(10)
+						H.apply_damage(25, HALLOSS)
+					else to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
+				affecting.update_damages()
+		else
+			if (can_operate(H))
+				if (do_surgery(H,user,src))
+					return
+			else
+				to_chat(user, "<span class='notice'>The [affecting.name] is cut open, you'll need more than a stitch!</span>")
+	return
+
 /obj/item/stack/cable_coil/iscoil()
 	return TRUE
 

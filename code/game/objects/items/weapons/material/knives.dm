@@ -16,13 +16,8 @@
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
-	action_button_name = "Extract Shrapnel"
 
 /obj/item/weapon/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
-	set name = "Extract Shrapnel"
-	set category = "Object"
-	set src in usr
-
 	if(active == 1)
 		if(target_zone != "eyes" && target_zone != "head")
 			return ..()
@@ -31,10 +26,14 @@
 		return eyestab(M,user)
 
 /obj/item/weapon/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H)
+	set name = "Extract Shrapnel"
+	set category = "Object"
+	set src in usr
+
 	for(var/obj/item/weapon/material/shard/shrapnel/S in H.contents)
-		to_chat(usr, "<span class='notice'>You start digging out some of the shrapnel in [H == usr ? "yourself" : H]...")
-		to_chat(H, "<font size=2><span class='danger'>IT HURTS!</span></font>")
-		if(do_after(H, 50))
+		to_chat(usr, "<span class='notice'>You start frantically digging out some of the shrapnel in [H == usr ? "yourself" : H]...")
+		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
+		if(do_after(H, 70))
 			S.forceMove(H.loc)
 		H.apply_damage(40, HALLOSS)
 		if(H.can_feel_pain())

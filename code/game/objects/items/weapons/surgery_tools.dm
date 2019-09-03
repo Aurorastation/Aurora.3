@@ -182,6 +182,7 @@
 	icon_state = "surgerytray"
 	force = 2
 	w_class = 5.0
+	max_storage_space = 30
 	attack_verb = list("slammed")
 	can_hold = list(
 		/obj/item/weapon/bonesetter,
