@@ -55,12 +55,12 @@
 				name = "salt shaker"
 				desc = "Salt. From space oceans, presumably."
 				icon_state = "saltshaker"
-				center_of_mass = list("x"=16, "y"=10)
+				center_of_mass = list("x"=17, "y"=11)
 			if("blackpepper")
 				name = "pepper mill"
 				desc = "Often used to flavor food or make people sneeze."
 				icon_state = "peppermillsmall"
-				center_of_mass = list("x"=16, "y"=10)
+				center_of_mass = list("x"=17, "y"=11)
 			if("cornoil")
 				name = "corn oil"
 				desc = "A delicious oil used in cooking. Made from corn."
@@ -74,7 +74,7 @@
 				name = "bottle of space spice"
 				desc = "An exotic blend of spices for cooking. It must flow."
 				icon_state = "spacespicebottle"
-				center_of_mass = list("x"=16, "y"=6)
+				center_of_mass = list("x"=16, "y"=10)
 			if("barbecue")
 				name = "barbecue sauce"
 				desc = "Barbecue sauce, it's labeled 'sweet and spicy'."
