@@ -1,6 +1,3 @@
-#define CELLS 8
-#define CELLSIZE (32/CELLS)
-
 /obj/item/weapon/reagent_containers
 	name = "Container"
 	desc = "..."
@@ -246,6 +243,3 @@
 	playsound(src, 'sound/effects/pour.ogg', 25, 1)
 	to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to [target].</span>")
 	return 1
-
-#undef CELLS
-#undef CELLSIZE
