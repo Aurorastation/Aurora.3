@@ -45,7 +45,6 @@ changes:
   - rscadd: "Added a doorhack RIG module. Functions the same as the normal doorhack, but the user can move around after initiating the hack, as well as hack multiple airlocks at once."
   - tweak: "Gave the ninja teleporter a 5 second cooldown between uses."
   - rscadd: "Added new advanced combat belt, can hold various gear that a ninja would usually come across."
-  - rscdel: "Removed the teleporter RIG module from the ninja suit."
   - tweak : "Buffed the ninja's RIG armour values slightly. Still requires feedback, if ninjas die too quickly, it will be buffed more."
   - rscadd: "Added an additional toolbox, chair, suitcooling unit and ninja spawn point to the ninja shuttle on the centcomm level."
   - rscadd: Gave the ninja a new uniform + gloves.
