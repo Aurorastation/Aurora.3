@@ -35,7 +35,7 @@ proc/process_sec_hud(var/mob/M, var/advanced_mode, var/mob/Alt)
 		if(advanced_mode)
 			P.Client.images += perp.hud_list[WANTED_HUD]
 			P.Client.images += perp.hud_list[IMPTRACK_HUD]
-			P.Client.images += perp.hud_list[IMPLOYAL_HUD]
+			P.Client.images += perp.hud_list[IMPSHIELD_HUD]
 			P.Client.images += perp.hud_list[IMPCHEM_HUD]
 
 datum/arranged_hud_process

@@ -345,7 +345,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 /obj/item/weapon/implant/mindshield
 	name = "mindshield implant"
-	desc = "Protects against brainwashing."
+	desc = "A controversial and debatably unethical neurostimulator and autohypnosis device. When implanted against the amygdala, it ensures the host maintains a consistent personality, preventing outside interference through brainwashing or hypnotic suggestion."
 
 /obj/item/weapon/implant/mindshield/get_data()
 	. = {"
@@ -355,9 +355,9 @@ the implant may become unstable and either pre-maturely inject the subject or si
 <b>Important Notes:</b> Personnel injected with this device are much more resistant to brainwashing.<BR>
 <HR>
 <b>Implant Details:</b><BR>
-<b>Function:</b> Contains a small pod of nanobots that protects the host's mental functions from manipulation.<BR>
+<b>Function:</b> A controversial and debatably unethical neurostimulator and autohypnosis device. When implanted against the amygdala, it ensures the host maintains a consistent personality, preventing outside interference through brainwashing or hypnotic suggestion.<BR>
 <b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
-<b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
+<b>Integrity:</b> Implant will last so long as the implant is inside the subject."}
 
 /obj/item/weapon/implant/mindshield/implanted(mob/M)
 	if(!istype(M, /mob/living/carbon/human))	return 0

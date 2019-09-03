@@ -95,13 +95,13 @@
 	return
 
 
-/obj/item/weapon/implantcase/loyalty
-	name = "glass case - 'loyalty'"
-	desc = "A case containing a loyalty implant."
+/obj/item/weapon/implantcase/mindshield
+	name = "glass case - 'mindshield'"
+	desc = "A case containing a mindshield implant."
 	icon_state = "implantcase-r"
 
-/obj/item/weapon/implantcase/loyalty/New()
-	src.imp = new /obj/item/weapon/implant/loyalty( src )
+/obj/item/weapon/implantcase/mindshield/New()
+	src.imp = new /obj/item/weapon/implant/mindshield( src )
 	..()
 	return
 

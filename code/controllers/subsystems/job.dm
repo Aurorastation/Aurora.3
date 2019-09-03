@@ -582,7 +582,7 @@
 	H.update_noise_level()
 
 	BITSET(H.hud_updateflag, ID_HUD)
-	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
+	BITSET(H.hud_updateflag, IMPSHIELD_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
 	to_chat(H, "<b>[current_map.command_spawn_message]</b>")
