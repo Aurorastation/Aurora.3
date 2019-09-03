@@ -36,6 +36,7 @@
 		if(do_after(H, 70))
 			S.forceMove(H.loc)
 		H.apply_damage(40, HALLOSS)
+		H.apply_damage(10, BRUTE)
 		if(H.can_feel_pain())
 			H.emote("scream")
 
