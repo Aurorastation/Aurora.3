@@ -6,6 +6,8 @@
 	name = "space helmet"
 	icon_state = "space"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
+	randpixel = 0
+	center_of_mass = null
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	flags_inv = BLOCKHAIR
 	item_state_slots = list(
@@ -64,6 +66,8 @@
 	desc = "A suit that protects against low pressure environments. \"NSS AURORA\" is written in large block letters on the back."
 	icon_state = "space"
 	item_state = "s_suit"
+	randpixel = 0
+	center_of_mass = null
 	w_class = 4//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02

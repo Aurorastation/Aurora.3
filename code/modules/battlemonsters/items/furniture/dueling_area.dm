@@ -29,13 +29,12 @@
 			span("notice","\The [user] plays \the [W]!"),\
 			span("notice","You play \the [W]!")\
 		)
-		if (!W.center_of_mass)
-			W.pixel_x = rand(-6, 6)
-			W.pixel_y = rand(-6, 6)
-			W.pixel_z = 0
+		if(!W.center_of_mass)
+			W.pixel_x = rand(-W.randpixel, W.randpixel)
+			W.pixel_y = rand(-W.randpixel, W.randpixel)
 			return
 
-		if (!click_parameters)
+		if(!click_parameters)
 			return
 
 		var/list/mouse_control = mouse_safe_xy(click_parameters)

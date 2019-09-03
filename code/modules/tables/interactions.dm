@@ -214,13 +214,12 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 */
 /obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
-	if (!W.center_of_mass) // Clothing, material stacks, generally items with large sprites where exact placement would be unhandy.
-		W.pixel_x = rand(-6, 6)
-		W.pixel_y = rand(-6, 6)
-		W.pixel_z = 0
+	if(!W.center_of_mass)
+		W.pixel_x = rand(-W.randpixel, W.randpixel)
+		W.pixel_y = rand(-W.randpixel, W.randpixel)
 		return
 
-	if (!click_parameters)
+	if(!click_parameters)
 		return
 
 	var/list/mouse_control = mouse_safe_xy(click_parameters)
