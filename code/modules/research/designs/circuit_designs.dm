@@ -304,6 +304,30 @@
 	build_path = /obj/item/weapon/circuitboard/requestconsole
 	sort_string = "HACAI"
 
+
+/datum/design/circuit/cryopod
+	name = "cryo cellboard"
+	id = "cryocell_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/cryotube
+	sort_string = "HACAJ"
+
+/datum/design/circuit/crystelpod
+	name = "crystel therapy pod"
+	id = "therapypod"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/crystelpod
+	sort_string = "HACAK"
+
+/datum/design/circuit/crystelpodconsole
+	name = "crystel therapy pod"
+	id = "therapypodconsole"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/crystelpodconsole
+	sort_string = "HACAL"
+
+
+
 /datum/design/circuit/atmosalerts
 	name = "atmosphere alert console"
 	id = "atmosalerts"

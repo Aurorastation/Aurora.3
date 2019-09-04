@@ -78,10 +78,10 @@
 	if (istype(W, /obj/item/weapon/card/emag))
 		if (!emagged)
 			emagged = 1
-			user << "<span class='notice'>You run [W] through [src], hear the machine quietly whirr. A new option has been unlocked.</span>"
+			to_chat(user, "<span class='notice'>You run [W] through [src], hear the machine quietly whirr. A new option has been unlocked.</span>")
 			return
 		else
-			user << "<span class='notice'>[src] is already emagged!</span>"
+			to_chat(user, "<span class='notice'>[src] is already emagged!</span>")
 			return
 
 /obj/machinery/optable/lifesupport/process(mob/living/carbon/patient as mob)
@@ -155,7 +155,7 @@
 
 /obj/machinery/optable/lifesupport/check_table(mob/living/carbon/patient as mob)
 	if (victim)
-		usr << "\blue <B>The table is already occupied!</B>"
+		to_chat(usr, "<span class='notice'>The table is already occupied!</span>")
 		return 0
 
 	return 1
@@ -228,30 +228,30 @@
 
 /obj/machinery/optable/lifesupport/proc/buckle(mob/living/carbon/human/patient as mob, mob/living/carbon/human/user as mob)
 	if (!victim)
-		user << "<span class='notice'><b>No patient to buckle in!</b></span>"
+		to_chat(user, "<span class='notice'><b>No patient to buckle in!</b></span>")
 		return
 
 	if (patient == user)
-		user << "<span class='notice'><b>You cannot do this yourself!</b></span>"
+		to_chat(user, "<span class='notice'><b>You cannot do this yourself!</b></span>")
 		return
 
 	if (active)
-		user << "<span class='notice'><b>You cannot do this while lifesupport is enabled!</b></span>"
+		to_chat(user, "<span class='notice'><b>You cannot do this while lifesupport is enabled!</b></span>")
 		return
 
 	if (!buckled)
 		if (patient.wear_mask)
-			user << "<span class='notice'><b>You need to remove their [patient.wear_mask] first!</b></span>"
+			to_chat(user, "<span class='notice'><b>You need to remove their [patient.wear_mask] first!</b></span>")
 			return
 		else if (patient.back)
-			user << "<span class='notice'><b>You need to remove their [patient.back] first!</b></span>"
+			to_chat(user, "<span class='notice'><b>You need to remove their [patient.back] first!</b></span>")
 			return
 
 	switch (buckled)
 		if (0)
 			user.visible_message("<span class='notice'>[user] buckles \the [victim] into \the [src], linking them up to the required tubing and straps.</span>", "<span class='notice'>You fit \the [victim] into \the [src]'s restraints, and hook them up to the life-support machine.</span>")
 			if (!patient.sleeping && !patient.stat)
-				patient << "<span class='notice'>[user] buckles you into \the [src] and hooks you up to the lifesupport machinery.</span>"
+				to_chat(patient, "<span class='notice'>[user] buckles you into \the [src] and hooks you up to the lifesupport machinery.</span>")
 			buckled = 1
 			patient.buckled = src
 			patient.update_canmove()
@@ -261,7 +261,7 @@
 		if (1)
 			user.visible_message("<span class='notice'>[user] unbuckles \the [victim] from \the [src], disconnecting them from the tubing and straps.</span>", "<span class='notice'>You remove \the [victim]'s restraints, and unhook them from the life-support machine.</span>")
 			if (!patient.sleeping && !patient.stat)
-				patient << "<span class='notice'>[user] unbuckles you from \the [src] and disconnects you from the lifesupport machinery.</span>"
+				to_chat(patient, "<span class='notice'>[user] unbuckles you from \the [src] and disconnects you from the lifesupport machinery.</span>")
 			buckled = 0
 			patient.buckled = null
 			patient.anchored = initial(patient.anchored)

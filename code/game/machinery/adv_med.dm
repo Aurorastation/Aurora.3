@@ -137,8 +137,6 @@
 		src.occupant = M
 		update_use_power(2)
 		update_icon()
-		for(var/obj/O in src)
-			O.forceMove(loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -181,9 +179,6 @@
 		update_use_power(2)
 		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
-		for(var/obj/Obj in src)
-			Obj.forceMove(src.loc)
-			//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
 	return

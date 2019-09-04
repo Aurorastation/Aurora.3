@@ -126,3 +126,23 @@
 	req_components = list(
 							"/obj/item/weapon/stock_parts/capacitor" = 2,
 							"/obj/item/weapon/stock_parts/scanning_module" = 1)
+
+/obj/item/weapon/circuitboard/crystelpodconsole
+	name = T_BOARD("Crystel Therapy Pod Console")
+	desc = "The circuitboard for a crystel therapy pod console."
+	build_path = "/obj/machinery/chakraconsole"
+	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/scanning_module" = 2,
+							"/obj/item/weapon/stock_parts/capacitor" = 1
+
+/obj/item/weapon/circuitboard/crystelpod
+	name = T_BOARD("Crystel Therapy Pod")
+	desc = "The circuitboard for a crystel therapy pod."
+	build_path = "/obj/machinery/chakrapod"
+	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/scanning_module" = 2,
+							"/obj/item/weapon/stock_parts/capacitor" = 2

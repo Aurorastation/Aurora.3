@@ -239,6 +239,12 @@
 	var/locked
 	var/obj/machinery/chakraconsole/connected
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/crystelpod,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2
+		)
+
 /obj/machinery/chakrapod/Destroy()
 	if (connected)
 		connected.connected = null
@@ -404,8 +410,6 @@
 		update_use_power(2)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
-		for(var/obj/Obj in src)
-			Obj.forceMove(get_turf(src))
 	src.add_fingerprint(user)
 	return
 
@@ -419,6 +423,11 @@
 	var/obj/machinery/chakrapod/connected
 	var/crystal = 0
 	var/working = 0
+	component_types = list(
+			/obj/item/weapon/circuitboard/crystelpodconsole,
+			/obj/item/weapon/stock_parts/capacitor = 1,
+			/obj/item/weapon/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakraconsole/ex_act(severity)
 
