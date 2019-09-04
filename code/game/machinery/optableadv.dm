@@ -72,7 +72,7 @@
 			to_chat(user, "<span class='notice'>You load [W] into [src], and hook it up the machine.</span>")
 			return
 		else
-			user << "<span class='notice'>There is already [airsupply] in [src]!</span>"
+			to_chat(user, "<span class='notice'>There is already [airsupply] in [src]!</span>")
 			return
 
 	if (istype(W, /obj/item/weapon/card/emag))
