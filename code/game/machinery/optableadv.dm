@@ -8,7 +8,7 @@
  * The more advanced life support table
  */
 /obj/machinery/optable/lifesupport
-	name = "Life Support Enabled Operating Table"
+	name = "life support operating table"
 	desc = "A more advanced version of the standard operating table."
 	icon_state = "table3-idle"
 	modify_state = "table3"
