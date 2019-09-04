@@ -337,7 +337,7 @@
 				broadcastalert("ERROR: Not enough chemicals to sustain lifesupport functionality! Shutting down lifesupport systems!")
 				addtolog("Emergency shutdown of life support systems.")
 			else
-				broadcastalert("Lifesupport systems disabled.")
+				broadcastalert("Life support systems disabled.")
 				addtolog("Life support systems disabled.")
 
 			return
