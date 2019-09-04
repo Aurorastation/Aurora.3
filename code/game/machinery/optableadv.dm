@@ -69,7 +69,7 @@
 			user.drop_item()
 			airsupply = W
 			W.loc = src
-			user << "<span class='notice'>You load [W] into [src], and hook it up the machine.</span>"
+			to_chat(user, "<span class='notice'>You load [W] into [src], and hook it up the machine.</span>")
 			return
 		else
 			user << "<span class='notice'>There is already [airsupply] in [src]!</span>"
