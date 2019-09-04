@@ -127,8 +127,8 @@ other types of metals and chemistry for reagents).
 
 
 /datum/design/item/powerdrill
-	name = "Power Drill"
-	desc = "A advanced drill used to make work more efficiant."
+	name = "power drill"
+	desc = "An advanced drill designed to be faster than other drills."
 	id = "powerdrill"
 	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 60, "glass" = 50)

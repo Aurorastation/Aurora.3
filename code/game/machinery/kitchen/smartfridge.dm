@@ -259,31 +259,31 @@
 	if(O.ismultitool()||O.iswirecutter())
 		if(panel_open)
 			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
-				if("SmartHeater.")
+				if("SmartHeater")
 					new /obj/machinery/smartfridge/foodheater(loc, make_from=src)
 					qdel(src)
 
-				if("MegaSeed Storage.")
+				if("MegaSeed Storage")
 					new /obj/machinery/smartfridge/seeds(loc, make_from=src)
 					qdel(src)
 
-				if("Slime Extract Storage.")
+				if("Slime Extract Storage")
 					new /obj/machinery/smartfridge/secure/extract(loc, make_from=src)
 					qdel(src)
 
-				if("Refrigerated Chemical Storage.")
+				if("Refrigerated Chemical Storage")
 					new /obj/machinery/smartfridge/secure/medbay(loc, make_from=src)
 					qdel(src)
 
-				if("Refrigerated Virus Storage.")
+				if("Refrigerated Virus Storage")
 					new /obj/machinery/smartfridge/secure/virology(loc, make_from=src)
 					qdel(src)
 
-				if("Drink Showcase.")
+				if("Drink Showcase")
 					new /obj/machinery/smartfridge/drinks(loc, make_from=src)
 					qdel(src)
 
-				if("Drying Rack.")
+				if("Drying Rack")
 					new /obj/machinery/smartfridge/drying_rack(loc, make_from=src)
 					qdel(src)
 

@@ -87,7 +87,7 @@
 
 
 /obj/machinery/computer/operating/advanced
-	name = "Advanced Operating Computer"
+	name = "advanced operating computer"
 	density = 1
 	anchored = 1.0
 	icon_state = "crew"

@@ -19,7 +19,7 @@
 
 /obj/machinery/constructable_frame/verb/rotate_clockwise()
 	set category = "Object"
-	set name = "Rotate (Clockwise)"
+	set name = "Rotate Clockwise"
 	set src in view(1)
 
 	if(use_check(usr) || anchored)
@@ -30,7 +30,7 @@
 
 /obj/machinery/constructable_frame/verb/rotate_counterclockwise()
 	set category = "Object"
-	set name = "Rotate (Counterclockwise)"
+	set name = "Rotate Counter-Clockwise"
 	set src in view(1)
 
 	if(use_check(usr) || anchored)
@@ -61,7 +61,7 @@
 				else
 					if(P.iswirecutter())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
-						to_chat(user, span("notice", "You decide to scrap the blueprint"))
+						to_chat(user, span("notice", "You decide to scrap the blueprint."))
 						new /obj/item/stack/material/steel(src.loc, 5)
 						qdel(src)
 			if(2)

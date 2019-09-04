@@ -27,7 +27,6 @@
 /obj/item/weapon/pen/ispen()
 	return TRUE
 
-
 /obj/item/weapon/pen/blue
 	desc = "An instrument for writing or drawing with ink. This one is in blue. Ironically used mostly by white-collar workers."
 	icon_state = "pen_blue"
