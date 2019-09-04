@@ -139,7 +139,7 @@
 			new /obj/effect/gibspawner/human(T)
 			spark(T, 5)
 			playsound(T, "sparks", 50, 1)
-			to_chat(victim, "<span class='warning'>You feel the machine wrestle away at your flesh with its claws! Leaving you as a husk of your former self.</span>")
+			to_chat(victim, "<span class='warning'>You feel the machine wrestle away at your flesh with its claws, leaving you as a husk of your former self...</span>")
 			victim.set_species("Skeleton")
 
 /obj/machinery/optable/lifesupport/update_icon()
