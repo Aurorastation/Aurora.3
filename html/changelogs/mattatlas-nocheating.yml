@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Station species that aren't robots no longer have a death message. Check their pulse or make sure they stop gasping."
+  - tweak: "You will no longer see the station species' death message if you're more than two tiles away from them. Check their pulse or make sure they stop gasping if you're too far away."
