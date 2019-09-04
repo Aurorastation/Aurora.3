@@ -764,7 +764,6 @@
 	name = "sharps disposal box"
 	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
 	icon_state = "sharpsbox"
-	max_w_class = 2
 	max_storage_space = 20
 	chewable = FALSE
 	foldable = null
