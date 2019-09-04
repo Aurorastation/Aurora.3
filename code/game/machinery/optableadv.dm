@@ -58,7 +58,7 @@
 			user << "<span class='notice'>You load [W] into [src], and hook it up to the machine.</span>"
 			return
 		else
-			user << "<span class='notice'>There is already a bloodbag in [src]!</span>"
+			to_chat(user, "<span class='notice'>There is already a bloodbag in [src]!</span>")
 			return
 
 	if (W.is_open_container())
