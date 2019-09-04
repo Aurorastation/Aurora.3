@@ -153,6 +153,7 @@
 /datum/job/mining
 	title = "Shaft Miner"
 	flag = MINER
+	account_exclude = 1
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
@@ -212,6 +213,7 @@
 /datum/job/journalist
 	title = "Corporate Reporter"
 	flag = JOURNALIST
+	account_exclude = 1
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"

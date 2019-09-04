@@ -134,6 +134,7 @@
 /datum/job/intern_sci
 	title = "Lab Assistant"
 	flag = INTERN_SCI
+	account_exclude = 1
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2

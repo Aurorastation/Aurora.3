@@ -395,6 +395,16 @@
 
 		H.mind.store_memory(remembered_info)
 
+	//Allows any personnel to access their department account
+	if(H.mind && !(job.head_position) && !(job.account_exclude))
+		var/remembered_info = ""
+		var/datum/money_account/department_account = SSeconomy.get_department_account(job.department)
+
+		if(department_account)
+			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
+
+		H.mind.store_memory(remembered_info)
+
 	var/alt_title = null
 	if(H.mind)
 		H.mind.assigned_role = rank

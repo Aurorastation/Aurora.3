@@ -3,6 +3,7 @@
 	faction = "Station"
 	department = "Civilian"
 	flag = MERCHANT
+	account_exclude = 1
 	department_flag = CIVILIAN
 	total_positions = 0
 	spawn_positions = 0

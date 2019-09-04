@@ -1,6 +1,7 @@
 /datum/job/assistant
 	title = "Assistant"
 	flag = ASSISTANT
+	account_exclude = 1
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"

@@ -230,6 +230,7 @@
 /datum/job/intern_med
 	title = "Medical Resident"
 	flag = INTERN_MED
+	account_exclude = 1
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2

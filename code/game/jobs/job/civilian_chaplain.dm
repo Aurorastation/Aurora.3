@@ -2,6 +2,7 @@
 /datum/job/chaplain
 	title = "Chaplain"
 	flag = CHAPLAIN
+	account_exclude = 1
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"

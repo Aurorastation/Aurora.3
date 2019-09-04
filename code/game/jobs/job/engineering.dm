@@ -117,6 +117,7 @@
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
 	flag = INTERN_ENG
+	account_exclude = 1
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2

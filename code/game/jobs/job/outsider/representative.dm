@@ -1,6 +1,7 @@
 /datum/job/representative
 	title = "Corporate Liaison"
 	flag = LAWYER
+	account_exclude = 1
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"

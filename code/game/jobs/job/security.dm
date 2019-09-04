@@ -236,6 +236,7 @@
 /datum/job/intern_sec
 	title = "Security Cadet"
 	flag = INTERN_SEC
+	account_exclude = 1
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 2
