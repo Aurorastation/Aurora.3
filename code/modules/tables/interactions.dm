@@ -215,8 +215,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 /obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
 	if(!W.center_of_mass)
-		W.pixel_x = rand(-W.randpixel, W.randpixel)
-		W.pixel_y = rand(-W.randpixel, W.randpixel)
+		W.randpixel_xy()
 		return
 
 	if(!click_parameters)

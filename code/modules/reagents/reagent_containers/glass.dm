@@ -197,6 +197,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
+	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = 3.0
@@ -252,6 +253,7 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
+	center_of_mass = list("x" = 16,"y" = 8)
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	carving_weapon = /obj/item/weapon/material/hatchet

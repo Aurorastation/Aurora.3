@@ -6,8 +6,6 @@
 	name = "space helmet"
 	icon_state = "space"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
-	randpixel = 0
-	center_of_mass = null
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
 	flags_inv = BLOCKHAIR
 	item_state_slots = list(

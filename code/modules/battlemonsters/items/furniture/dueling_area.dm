@@ -30,8 +30,7 @@
 			span("notice","You play \the [W]!")\
 		)
 		if(!W.center_of_mass)
-			W.pixel_x = rand(-W.randpixel, W.randpixel)
-			W.pixel_y = rand(-W.randpixel, W.randpixel)
+			W.randpixel_xy()
 			return
 
 		if(!click_parameters)
