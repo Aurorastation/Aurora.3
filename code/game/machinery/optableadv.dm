@@ -175,7 +175,7 @@
 
 /obj/machinery/optable/lifesupport/proc/broadcastalert(var/message as text)
 	playsound(loc, 'sound/machines/chime.ogg', 75, 1)
-	visible_message("\icon[src]<span class='warning'>The Operating Table pings: [message]</span>")
+	visible_message("\icon[src]<span class='warning'>[src] pings: [message]</span>")
 
 /obj/machinery/optable/lifesupport/proc/checkrequiredchems()
 	for (var/id in requiredchems)
