@@ -25,7 +25,7 @@
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
-	siemens_coefficient = 0.5 // what? it's steel.
+	siemens_coefficient = 0.75 // what? it's steel.
 	w_class = 3
 	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
