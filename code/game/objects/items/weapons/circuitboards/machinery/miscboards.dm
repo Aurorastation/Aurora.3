@@ -135,7 +135,7 @@
 	board_type = "machine"
 	req_components = list(
 							"/obj/item/weapon/stock_parts/scanning_module" = 2,
-							"/obj/item/weapon/stock_parts/capacitor" = 1
+							"/obj/item/weapon/stock_parts/capacitor" = 1)
 
 /obj/item/weapon/circuitboard/crystelpod
 	name = T_BOARD("Crystel Therapy Pod")
@@ -145,4 +145,4 @@
 	board_type = "machine"
 	req_components = list(
 							"/obj/item/weapon/stock_parts/scanning_module" = 2,
-							"/obj/item/weapon/stock_parts/capacitor" = 2
+							"/obj/item/weapon/stock_parts/capacitor" = 2)
