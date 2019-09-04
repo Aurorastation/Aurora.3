@@ -55,7 +55,7 @@
 			user.drop_item()
 			bloodbag = W
 			W.loc = src
-			user << "<span class='notice'>You load [W] into [src], and hook it up to the machine.</span>"
+			to_chat(user, "<span class='notice'>You load [W] into [src], and hook it up to the machine.</span>")
 			return
 		else
 			to_chat(user, "<span class='notice'>There is already a bloodbag in [src]!</span>")
