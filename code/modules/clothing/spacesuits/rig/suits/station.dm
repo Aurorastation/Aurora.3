@@ -63,7 +63,7 @@
 	desc = "A heavy, powerful rig used by construction crews and mining corporations."
 	icon_state = "industrial_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0.25
 	slowdown = 2
 	offline_slowdown = 7
 	offline_vision_restriction = TINT_HEAVY
