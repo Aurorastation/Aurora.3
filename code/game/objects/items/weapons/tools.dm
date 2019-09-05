@@ -53,38 +53,41 @@
 	lock_picking_level = 5
 	var/random_icon = TRUE
 	drop_sound = 'sound/items/drop/scrap.ogg'
-
+	var/random_color = TRUE //if the screwdriver uses random coloring
+	var/static/list/screwdriver_colors = list(
+		"blue" = rgb(24, 97, 213),
+		"red" = rgb(255, 0, 0),
+		"pink" = rgb(213, 24, 141),
+		"brown" = rgb(160, 82, 18),
+		"green" = rgb(14, 127, 27),
+		"cyan" = rgb(24, 162, 213),
+		"yellow" = rgb(255, 165, 0)
+	)
 
 /obj/item/weapon/screwdriver/Initialize()
 	. = ..()
-	if(!random_icon)
+	if(random_color) //random colors!
+		icon_state = "screwdriver"
+		var/our_color = pick(screwdriver_colors)
+		add_atom_colour(screwdriver_colors[our_color], FIXED_COLOUR_PRIORITY)
+		update_icon()
+	if(prob(75))
+		pixel_y = rand(16, 0)
+
+/obj/item/weapon/screwdriver/update_icon()
+	if(!random_color) //icon override
 		return
+	cut_overlays()
+	var/mutable_appearance/base_overlay = mutable_appearance(icon, "screwdriver_head")
+	base_overlay.appearance_flags = RESET_COLOR
+	add_overlay(base_overlay)
 
-	switch(pick("red","blue","purple","brown","green","cyan","yellow"))
-		if ("red")
-			icon_state = "screwdriver2"
-			item_state = "screwdriver"
-		if ("blue")
-			icon_state = "screwdriver"
-			item_state = "screwdriver_blue"
-		if ("purple")
-			icon_state = "screwdriver3"
-			item_state = "screwdriver_purple"
-		if ("brown")
-			icon_state = "screwdriver4"
-			item_state = "screwdriver_brown"
-		if ("green")
-			icon_state = "screwdriver5"
-			item_state = "screwdriver_green"
-		if ("cyan")
-			icon_state = "screwdriver6"
-			item_state = "screwdriver_cyan"
-		if ("yellow")
-			icon_state = "screwdriver7"
-			item_state = "screwdriver_yellow"
-
-	if (prob(75))
-		src.pixel_y = rand(0, 16)
+/obj/item/weapon/screwdriver/worn_overlays(isinhands = FALSE, icon_file)
+	. = list()
+	if(isinhands && random_color)
+		var/mutable_appearance/M = mutable_appearance(icon_file, "screwdriver_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")

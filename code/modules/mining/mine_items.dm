@@ -494,6 +494,8 @@
 			return
 	else
 		if(stored_matter <= 0)
+			user << "The \'Low Ammo\' light on the device blinks yellow."
+			flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
@@ -515,10 +517,19 @@
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(used_energy)
+
 	else
 		stored_matter--
 		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
 
+/obj/item/weapon/rrf/update_icon()	//For the fancy "ammo" counter
+	overlays.Cut()
+
+	var/ratio = 0
+	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RCD
+	ratio = max(round(ratio, 0.10) * 100, 10)
+
+	overlays += "[icon_state]-[ratio]"
 
 /obj/structure/track
 	name = "mine track"

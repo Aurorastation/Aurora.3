@@ -68,6 +68,8 @@ RSF
 			return
 	else
 		if(stored_matter <= 0)
+			user << "The \'Low Ammo\' light on the device blinks yellow."
+			flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /obj/structure/table) && !istype(A, /turf/simulated/floor))
@@ -104,3 +106,12 @@ RSF
 	else
 		stored_matter--
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
+
+/obj/item/weapon/rsf/update_icon()	//For the fancy "ammo" counter
+	overlays.Cut()
+
+	var/ratio = 0
+	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RCD
+	ratio = max(round(ratio, 0.10) * 100, 10)
+
+	overlays += "[icon_state]-[ratio]"
