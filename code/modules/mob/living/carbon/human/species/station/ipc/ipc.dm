@@ -38,7 +38,7 @@
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 
 	death_message = "gives one shrill beep before falling lifeless."
-	death_message_range = world.view
+	death_message_range = 7
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
 	halloss_message = "encounters a hardware fault and suddenly reboots."
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."

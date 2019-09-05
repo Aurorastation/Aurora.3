@@ -180,7 +180,7 @@
 
 	death_sound = 'sound/effects/bang.ogg'
 	death_message = "collapses to the ground with a CLUNK, and begins to beep ominously."
-	death_message_range = world.view
+	death_message_range = 7
 
 	heat_level_1 = 1500
 	heat_level_2 = 2000

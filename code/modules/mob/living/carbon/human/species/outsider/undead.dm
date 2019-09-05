@@ -46,7 +46,7 @@
 	remains_type = /obj/effect/decal/cleanable/ash
 
 	death_message = "collapses, their bones clattering in a symphony of demise..."
-	death_message_range = world.view
+	death_message_range = 7
 	death_sound = 'sound/effects/falling_bones.ogg'
 
 	breath_type = null

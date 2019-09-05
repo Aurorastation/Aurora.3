@@ -22,7 +22,7 @@
 	remains_type = /obj/effect/decal/cleanable/ash
 
 	death_message = "rapidly loses cohesion, splattering across the ground..."
-	death_message_range = world.view
+	death_message_range = 7
 
 	has_organ = list(
 		"brain" = /obj/item/organ/brain/slime
