@@ -67510,6 +67510,11 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"rbC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/power/singularity_beacon/emergency,
+/turf/simulated/floor/plating,
+/area/engineering/storage)
 "rcu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -86907,7 +86912,7 @@ akA
 akA
 amw
 anG
-anG
+rbC
 aqa
 arn
 ajL
