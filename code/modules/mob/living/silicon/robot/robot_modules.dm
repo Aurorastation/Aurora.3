@@ -796,9 +796,6 @@ var/global/list/robot_modules = list(
 	robot.internals = new/obj/item/weapon/tank/jetpack/carbondioxide(src)
 	src.modules += robot.internals
 
-	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	src.emag.name = "Plasma Cutter"
-
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(25000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(25000)
 	var/datum/matter_synth/wood = new /datum/matter_synth/wood(4000)

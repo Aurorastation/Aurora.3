@@ -67,6 +67,10 @@
 	else
 		to_chat(user,  "<span class='notice'>Access Denied</span>")
 
+/obj/structure/closet/secure_closet/AltClick(mob/user)
+	. = ..()
+	togglelock(user)
+
 /obj/structure/closet/secure_closet/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && !opened && !broken)
 
