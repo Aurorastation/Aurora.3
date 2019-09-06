@@ -74,6 +74,11 @@
 	item_cost = 5
 	path = /obj/item/clothing/gloves/claws
 
+/datum/uplink_item/item/visible_weapons/ballisticgauntlet
+	name = "Ballistic Gauntlets"
+	item_cost = 12
+	path = /obj/item/clothing/gloves/ballistic
+
 /datum/uplink_item/item/visible_weapons/wrestling
 	name = "Wrestling Manual"
 	item_cost = 6
