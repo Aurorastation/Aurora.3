@@ -44,5 +44,5 @@ changes:
   - bugfix: "Telsa looses energy when dropping ball which should be slightly below how much is required for new ball."
   - tweak: "Tesla dissipation rate has been buffed, it now looses energy faster."
   - tweak: "Tesla dissipates every time it zaps something."
-  - tweak: "Tesla now melts anything it touches or zaps."
+  - tweak: "Tesla now melts any object or mob(but not turfs) it touches or zaps."
   - rscadd: "Added special emergency singularity beacon that is to be used when Singulo/Telsa are on the Loose. When Tesla zaps the beacon, it will discharge all energy into it, dying and destroying beacon."
