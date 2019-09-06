@@ -75,7 +75,7 @@
 	path = /obj/item/clothing/gloves/claws
 
 /datum/uplink_item/item/visible_weapons/ballisticgauntlet
-	name = "Ballistic Gauntlets"
+	name = "Ballistic Gauntlet"
 	item_cost = 12
 	path = /obj/item/clothing/gloves/ballistic
 
