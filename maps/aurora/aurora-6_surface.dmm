@@ -5768,7 +5768,7 @@
 /obj/machinery/turretid/lethal{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Telecoms Satellite";
+	control_area = "\improper Telecoms Exterior";
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms lethal turret control";
 	pixel_y = 29;
@@ -6679,7 +6679,7 @@
 /obj/machinery/turretid/stun{
 	ailock = 1;
 	check_synth = 1;
-	control_area = null;
+	control_area = "\improper Telecoms Foyer";
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms Foyer turret control";
 	pixel_y = 29;
@@ -9154,7 +9154,7 @@
 /area/storage/primary)
 "qS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "qT" = (
@@ -9216,7 +9216,7 @@
 /area/hallway/secondary/entry/central)
 "qX" = (
 /turf/simulated/wall/r_wall,
-/area/maintenance/arrivals)
+/area/maintenance/elevator)
 "qY" = (
 /obj/structure/cable/yellow{
 	d1 = 2;
@@ -9342,7 +9342,7 @@
 	pixel_y = 16
 	},
 /turf/simulated/open,
-/area/maintenance/arrivals)
+/area/maintenance/elevator)
 "ri" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -9533,6 +9533,8 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/machinery/requests_console{
+	department = "Primary Tool Storage";
+	departmentType = 2;
 	pixel_x = -32
 	},
 /obj/random/tech_supply,
@@ -11308,7 +11310,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "vD" = (
-/obj/structure/reagent_dispensers/extinguisher,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "vE" = (
@@ -20468,6 +20470,11 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"QO" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "QQ" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -21768,6 +21775,9 @@
 /obj/item/weapon/pen,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
+"Vs" = (
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "Vt" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -23133,12 +23143,12 @@
 /area/shuttle/research/station)
 "YN" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	name = "Elevator Maintenance";
-	req_one_access = list(11,24)
+	req_access = list(12)
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/area/maintenance/elevator)
 "YP" = (
 /obj/structure/cryofeed,
 /obj/structure/window/reinforced{
@@ -52933,8 +52943,8 @@ ag
 ag
 qX
 rh
-tt
-Bx
+Vs
+QO
 ql
 sf
 qu
