@@ -196,6 +196,7 @@
 
 	// Placing stuff on tables
 	if(user.unEquip(W, 0, src.loc))
+		user.make_item_drop_sound(W)
 		auto_align(W, click_parameters)
 		return 1
 
@@ -237,3 +238,4 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 
 /obj/structure/table/attack_tk() // no telehulk sorry
 	return
+

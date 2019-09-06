@@ -25,10 +25,6 @@
 
 /obj/structure/dueling_table/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
 	if(user.unEquip(W, 0, src.loc))
-		user.visible_message(\
-			span("notice","\The [user] plays \the [W]!"),\
-			span("notice","You play \the [W]!")\
-		)
 		if(!W.center_of_mass)
 			W.randpixel_xy()
 			return
