@@ -353,9 +353,8 @@
 /obj/item/clothing/gloves/ballistic/attackby(obj/item/W, mob/user)
 	..()
 	if(mounted)
-		if(istype(W, /obj/item/ammo_casing))
-			mounted.attackby(W, user)
-			return
+		mounted.load_ammo(W, user)
+		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()
 	set name = "Unload Ballistic Gauntlet "
