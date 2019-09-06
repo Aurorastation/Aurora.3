@@ -375,6 +375,9 @@ var/list/slot_equipment_priority = list( \
 			step(src, inertia_dir)
 */
 
+		if(istype(item,/obj/item))
+			var/obj/item/W = item
+			W.randpixel_xy()
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
 
