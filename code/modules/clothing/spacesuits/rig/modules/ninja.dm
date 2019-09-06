@@ -188,7 +188,7 @@
 
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
-	var/list/explosion_values = list(1,2,6,12)
+	var/list/explosion_values = list(3,4,5,6)
 
 	category = MODULE_SPECIAL
 
