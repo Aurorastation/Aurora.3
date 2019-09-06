@@ -143,6 +143,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = 0
 	time_to_escape = 3 // Minutes
+	can_buckle = TRUE
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -152,26 +153,10 @@
 	health = 100
 	var/datum/weakref/captured = null
 
-/obj/item/weapon/trap/animal/process()
-	update_icon()
 
 /obj/item/weapon/trap/animal/update_icon()
 	icon = initial(icon)
 	icon_state = "[icon_base][deployed]"
-	var/datum/L = captured ? captured.resolve() : null
-	if (!L)
-		deployed = FALSE
-		captured = null
-		release_time = world.time
-		underlays.Cut()
-		STOP_PROCESSING(SSprocessing, src)
-		return
-	if(isliving(L))
-		var/mutable_appearance/MA = new(L)
-		MA.layer = FLOAT_LAYER
-		MA.plane = FLOAT_PLANE
-		underlays.Cut()
-		underlays += MA
 
 /obj/item/weapon/trap/animal/examine(mob/user)
 	..()
@@ -179,23 +164,7 @@
 		var/datum/L = captured.resolve()
 		if (!L)
 			return
-		if (isliving(L))
-			var/mob/living/ll = L
-			var/message = "<span class='notice'>\The [src] has [ll] and it is "
-			if(ll.stat == DEAD)
-				message += "<span class='danger'>dead</span>"
-			else if(ll == UNCONSCIOUS)
-				message += "<span class='warning'>unconscious</span>"
-			else if((ll.maxHealth / ll.health) == 1)
-				message += "<span class='good'>healthy</span>"
-			else
-				message += "<span class='warning'>wounded</span>"
-			message += ".</span>"
-			to_chat(user, message)
-			ll.examine(user)
-		else if (istype(L, /obj/effect/spider/spiderling))
-			var/obj/effect/spider/spiderling/S = L
-			to_chat(user, "<span class='notice'>\The [src] has [S] and it is alive.</span>")
+		to_chat(user, "<span class='notice'>\The [src] has [L].</span>")
 
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
@@ -215,26 +184,23 @@
 			if(istype(AM, f))
 				L.visible_message(
 					"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
-					"<span class='danger'>You enters \the [src], and it snaps shut with a clatter!</span>",
+					"<span class='danger'>You enter \the [src], and it snaps shut with a clatter!</span>",
 					"<b>You hear a loud metallic snap!</b>"
 					)
-				L.forceMove(src)
 				captured = WEAKREF(L)
 				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 				deployed = 1
-				update_icon()
+				buckle_mob(L)
 				src.animate_shake()
-				START_PROCESSING(SSprocessing, src)
 
 	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
-		S.forceMove(src)
 		captured = WEAKREF(S)
-		STOP_PROCESSING(SSprocessing, S)
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = 1
-		update_icon()
+		buckle_mob(S)
 		src.animate_shake()
+	update_icon()
 
 /obj/item/weapon/trap/animal/proc/req_breakout()
 	if(!deployed)
@@ -255,13 +221,13 @@
 	return TRUE
 
 // If we are stuck, and need to get out
-/obj/item/weapon/trap/animal/proc/mob_breakout(var/mob/living/escapee)
+/obj/item/weapon/trap/animal/user_unbuckle_mob(var/mob/living/escapee)
 	if (req_breakout() < 1)
 		return
 
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	to_chat(escapee, "<span class='warning'>You to shake and bump the lock of \the [src]. (this will take about [time_to_escape] minutes).</span>")
+	to_chat(escapee, "<span class='warning'>You begin to shake and bump the lock of \the [src]. (this will take about [time_to_escape] minutes).</span>")
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is attempting to escape it!</span>")
 
 	var/time = 360 * time_to_escape * 2
@@ -275,8 +241,6 @@
 	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
 	playsound(loc, "sound/effects/grillehit.ogg", 100, 1)
-	if(!contents.len)
-		return
 
 	release()
 
@@ -303,6 +267,8 @@
 	if(!ishuman(usr))
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
+	
+	var/datum/M = captured ? captured.resolve() : null
 
 	if(deployed)
 		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
@@ -314,11 +280,8 @@
 			to_chat(usr, "<span class='warning'>You cannot use \the [src].</span>")
 			return
 
-		if(usr in contents)
+		if(usr == M)
 			to_chat(usr, "<span class='warning'>You cannot open lock \the [src] from the inside. You would have to forcefully open it.</span>")
-			return
-
-		if(!contents.len)
 			return
 
 		var/turf/T_cage = get_turf(src)
@@ -377,22 +340,17 @@
 		deployed = FALSE
 		captured = null
 		release_time = world.time
-		update_icon()
-		STOP_PROCESSING(SSprocessing, src)
 		return
 
 	var/msg
 	if (isliving(L))
 		var/mob/living/ll = L
-		ll.forceMove(target)
 		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
-		STOP_PROCESSING(SSprocessing, src)
 	else if (istype(L, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = L
-		S.forceMove(target)
 		msg = "<span class='warning'>[S] jumps out of \the [src].</span>"
-		START_PROCESSING(SSprocessing, L)
-
+	
+	unbuckle_mob()
 	captured = null
 	visible_message(msg)
 	animate_shake()
@@ -442,6 +400,20 @@
 		L.attackby(W, user)
 	else
 		..()
+
+/obj/item/weapon/trap/animal/Move()
+	..()
+	if(captured)
+		var/datum/M = captured.resolve()
+		if(!M)
+			captured = null
+			return
+		if(isliving(M))
+			var/mob/living/L = M
+			if(L && buckled_mob.buckled == src)
+				L.forceMove(src.loc)
+			else if(L)
+				captured = null
 
 /obj/item/weapon/trap/animal/attack_hand(mob/user as mob)
 
@@ -600,6 +572,7 @@
 	spider = FALSE
 
 /obj/item/weapon/trap/animal/medium/Initialize()
+	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
@@ -621,6 +594,7 @@
 	spider = FALSE
 
 /obj/item/weapon/trap/animal/large/Initialize()
+	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,

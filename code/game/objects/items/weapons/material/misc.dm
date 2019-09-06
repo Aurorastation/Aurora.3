@@ -60,7 +60,7 @@
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 
 /obj/item/weapon/material/scythe
-	icon_state = "scythe0"
+	icon_state = "scythe"
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
 	force_divisor = 0.275 // 16 with hardness 60 (steel)

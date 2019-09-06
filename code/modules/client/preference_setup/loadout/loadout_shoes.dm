@@ -108,3 +108,7 @@
 /datum/gear/shoes/black_boots
 	display_name = "black boots"
 	path = /obj/item/clothing/shoes/black_boots
+
+/datum/gear/shoes/circuitry
+	display_name = "boots, circuitry (empty)"
+	path = /obj/item/clothing/shoes/circuitry

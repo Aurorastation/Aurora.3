@@ -219,3 +219,7 @@
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/circuitry
+	display_name = "headwear, circuitry (empty)"
+	path = /obj/item/clothing/head/circuitry

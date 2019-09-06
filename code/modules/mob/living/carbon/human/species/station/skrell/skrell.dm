@@ -21,7 +21,6 @@
 
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
-	secondary_langs = list(LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
