@@ -214,7 +214,7 @@
 
 /obj/singularity/energy_ball/Move(NewLoc, Dir)
 	. = ..()
-	for(var/v in loc)
+	for(var/v in view(0, loc))
 		if(istype(v, /obj/singularity))
 			continue
 
