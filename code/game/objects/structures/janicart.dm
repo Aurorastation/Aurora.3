@@ -23,7 +23,6 @@
 	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 	var/driving
 	var/mob/living/pulling
-	var/obstacle
 
 /obj/structure/janitorialcart/New()
 	..()
