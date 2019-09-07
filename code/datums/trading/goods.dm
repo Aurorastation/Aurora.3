@@ -53,11 +53,12 @@
 	possible_origins = list("Best Sale", "Overstore", "Oldegg", "Circuit Citadel")
 
 	speech = list(
-		"hail_generic"     = "Hello, sir! Welcome to ORIGIN, I hope you find what you are looking for.",
+		"hail_generic"      = "Hello, sir! Welcome to ORIGIN, I hope you find what you are looking for.",
 		"hail_deny"         = "Your call has been disconnected.",
 		"trade_complete"    = "Thank you for shopping at ORIGIN, would you like to get the extended warranty as well?",
 		"trade_blacklist"   = "Sir, this is a /electronics/ store.",
 		"trade_no_goods"    = "As much as I'd love to buy that from you, I can't.",
+		"what_want"         = "Well... we could use some",
 		"trade_not_enough"  = "Your offer isn't adequate, sir.",
 		"how_much"          = "Your total comes out to VALUE credits.",
 		"compliment_deny"   = "Hahaha! Yeah... funny...",
@@ -66,6 +67,13 @@
 		"insult_bad"        = "Sir, I am allowed to hang up the phone if you continue, sir.",
 		"bribe_refusal"     = "Sorry, sir, but I can't really do that.",
 		"bribe_accept"      = "Why not! Glad to be here for a few more minutes."
+	)
+
+		possible_wanted_items = list(
+		/obj/item/stack/material/glass         = TRADER_THIS_TYPE,
+		/obj/item/stack/material/gold          = TRADER_THIS_TYPE,
+		/obj/item/stack/material/silver        = TRADER_THIS_TYPE,
+        /obj/item/stack/material/steel         = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
@@ -283,6 +291,15 @@ Sells devices, odds and ends, and medical stuff
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Robot Store"
 	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
+
+	possible_wanted_items = list(
+        /obj/item/weapon/bucket_sensor         = TRADER_THIS_TYPE,
+        /obj/item/weapon/toolbox_tiles_sensor  = TRADER_THIS_TYPE,
+        /obj/item/weapon/firstaid_arm_assembly = TRADER_THIS_TYPE,
+        /obj/item/stack/material/steel         = TRADER_THIS_TYPE
+
+	)
+
 	possible_trading_items = list(
 		/obj/item/device/paicard                        = TRADER_THIS_TYPE,
 		/obj/item/weapon/aicard                         = TRADER_THIS_TYPE,
@@ -293,6 +310,7 @@ Sells devices, odds and ends, and medical stuff
 		"hail_generic"      = "Welcome to ORIGIN! Let me walk you through our fine robotic selection!",
 		"hail_silicon"      = "Welcome to ORIGIN! Let- oh, you're a synth! Well, your money is good anyway. Welcome, welcome!",
 		"hail_deny"         = "ORIGIN no longer wants to speak to you.",
+		"what_want"         = "I'd like",
 		"trade_complete"    = "I hope you enjoy your new robot!",
 		"trade_blacklist"   = "I work with robots, sir. Not that.",
 		"trade_no_goods"    = "You gotta buy the robots, sir. I don't do trades.",
@@ -315,7 +333,6 @@ Sells devices, odds and ends, and medical stuff
 	trade_flags = TRADER_GOODS|TRADER_MONEY|TRADER_WANTED_ONLY
 
 	possible_wanted_items  = list(
-		/obj/item/weapon/ore                                    = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/material/glass                          = TRADER_ALL,
 		/obj/item/stack/material/iron                           = TRADER_THIS_TYPE,
 		/obj/item/stack/material/sandstone                      = TRADER_THIS_TYPE,
@@ -328,11 +345,8 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/stack/material/silver                         = TRADER_THIS_TYPE,
 		/obj/item/stack/material/platinum                       = TRADER_THIS_TYPE,
 		/obj/item/stack/material/mhydrogen                      = TRADER_THIS_TYPE,
-		/obj/item/stack/material/tritium                        = TRADER_THIS_TYPE,
-		/obj/item/stack/material/osmium                         = TRADER_THIS_TYPE,
 		/obj/item/stack/material/steel                          = TRADER_THIS_TYPE,
 		/obj/item/stack/material/plasteel                       = TRADER_THIS_TYPE,
-		/obj/item/weapon/coin                                   = TRADER_SUBTYPES_ONLY,
 		/mob/living/simple_animal/hostile/retaliate/minedrone   = TRADER_THIS_TYPE
 	)
 
