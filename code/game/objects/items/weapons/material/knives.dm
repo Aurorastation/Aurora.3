@@ -35,8 +35,13 @@
 		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
 		if(do_after(H, 70))
 			S.forceMove(H.loc)
-		H.apply_damage(40, HALLOSS)
-		H.apply_damage(10, BRUTE)
+			log_and_message_admins("has extracted shrapnel out of [H.key]/[H]", H)
+		H.apply_damage(30, HALLOSS)
+		if(prob(25))
+			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
+			if(affecting)
+				var/datum/wound/internal_bleeding/I = new(15)
+				affecting.wounds += I
 		if(H.can_feel_pain())
 			H.emote("scream")
 
