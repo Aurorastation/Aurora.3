@@ -527,7 +527,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 						if(prob(50))
 							var/obj/item/organ/external/O = H.get_organ(H.zone_sel.selecting)
 							O.germ_level += rand(400, 600)
-					else to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
+					else
+						to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
 				affecting.update_damages()
 		else
 			if (can_operate(H))
