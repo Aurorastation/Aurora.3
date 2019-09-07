@@ -42,6 +42,8 @@
 		if(do_mob(usr, H, 100))
 			S.forceMove(H.loc)
 			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
+		else
+			break
 		H.apply_damage(30, HALLOSS)
 		if(prob(25))
 			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
