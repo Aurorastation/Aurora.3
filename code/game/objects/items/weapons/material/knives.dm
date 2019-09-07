@@ -35,7 +35,7 @@
 		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
 		if(do_after(H, 70))
 			S.forceMove(H.loc)
-			log_and_message_admins("has extracted shrapnel out of [H.key]/[H]", H)
+			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
 		H.apply_damage(30, HALLOSS)
 		if(prob(25))
 			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
