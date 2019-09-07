@@ -498,6 +498,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
+
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
 		if(affecting.open == 0)
@@ -525,7 +526,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 						use(10)
 						H.apply_damage(25, HALLOSS)
 						if(prob(50))
-							var/obj/item/organ/external/O = H.get_organ(H.zone_sel.selecting)
+							var/obj/item/organ/external/O = H.get_organ(user.zone_sel.selecting)
+							to_chat(H, "<span class='danger'>Something burns in your [O.name]!</span>")
 							O.germ_level += rand(400, 600)
 					else
 						to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
