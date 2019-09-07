@@ -69,7 +69,7 @@
 		"bribe_accept"      = "Why not! Glad to be here for a few more minutes."
 	)
 
-		possible_wanted_items = list(
+	possible_wanted_items = list(
 		/obj/item/stack/material/glass         = TRADER_THIS_TYPE,
 		/obj/item/stack/material/gold          = TRADER_THIS_TYPE,
 		/obj/item/stack/material/silver        = TRADER_THIS_TYPE,
