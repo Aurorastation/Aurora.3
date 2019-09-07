@@ -496,7 +496,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(amount <= 10)
 		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
 	
-	if (istype(M, /mob/living/carbon/human))
+	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
