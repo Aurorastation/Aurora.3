@@ -121,7 +121,6 @@ They sell generic supplies and ask for generic supplies.
 	origin = "Mining Beacon"
 
 	possible_trading_items = list(
-		/obj/item/weapon/ore                      = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/material/glass            = TRADER_ALL,
 		/obj/item/stack/material/iron             = TRADER_THIS_TYPE,
 		/obj/item/stack/material/sandstone        = TRADER_THIS_TYPE,
