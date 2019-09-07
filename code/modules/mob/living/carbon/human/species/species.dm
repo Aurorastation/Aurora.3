@@ -91,7 +91,7 @@
 	var/gibbed_anim = "gibbed-h"
 	var/dusted_anim = "dust-h"
 	var/death_sound
-	var/death_message = "goes limp and stops moving..."
+	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
