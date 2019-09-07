@@ -25,7 +25,7 @@
 			M = user
 		return eyestab(M,user)
 
-/obj/item/weapon/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H)
+/obj/item/weapon/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H as mob in view(1))
 	set name = "Extract Shrapnel"
 	set category = "Object"
 	set src in usr
