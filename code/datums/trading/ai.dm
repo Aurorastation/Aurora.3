@@ -142,13 +142,18 @@ They sell generic supplies and ask for generic supplies.
 	origin = "Manufacturing Beacon"
 
 	possible_trading_items = list(
-		/obj/structure/AIcore               = TRADER_THIS_TYPE,
-		/obj/structure/mopbucket            = TRADER_THIS_TYPE,
-		/obj/structure/ore_box              = TRADER_THIS_TYPE,
-		/obj/structure/coatrack             = TRADER_THIS_TYPE,
-		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/working/hoverpod         = TRADER_THIS_TYPE,
-		/obj/vehicle/bike                   = TRADER_THIS_TYPE
+		/obj/structure/AIcore                  = TRADER_THIS_TYPE,
+		/obj/structure/ore_box                 = TRADER_THIS_TYPE,
+		/obj/structure/dispenser               = TRADER_THIS_TYPE,
+		/obj/mecha/working/hoverpod            = TRADER_THIS_TYPE,
+		/obj/item/weapon/ladder_mobile         = TRADER_THIS_TYPE,
+		/obj/item/weapon/inflatable_dispenser  = TRADER_THIS_TYPE,
+		/obj/machinery/pipedispenser/orderable = TRADER_THIS_TYPE,
+		/obj/machinery/pipedispenser/disposal/orderable = TRADER_THIS_TYPE,
+		/obj/structure/reagent_dispensers/water_cooler = TRADER_THIS_TYPE,
+		/obj/machinery/media/jukebox           = TRADER_THIS_TYPE,
+		/obj/machinery/reagentgrinder          = TRADER_THIS_TYPE,
+		/obj/vehicle/bike                      = TRADER_THIS_TYPE
 	)
 
 /datum/trader/trading_beacon/medical
