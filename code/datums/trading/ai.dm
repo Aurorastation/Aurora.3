@@ -122,7 +122,6 @@ They sell generic supplies and ask for generic supplies.
 
 	possible_trading_items = list(
 		/obj/item/stack/material/glass            = TRADER_ALL,
-		/obj/item/stack/material/iron             = TRADER_THIS_TYPE,
 		/obj/item/stack/material/sandstone        = TRADER_THIS_TYPE,
 		/obj/item/stack/material/marble           = TRADER_THIS_TYPE,
 		/obj/item/stack/material/diamond          = TRADER_THIS_TYPE,
