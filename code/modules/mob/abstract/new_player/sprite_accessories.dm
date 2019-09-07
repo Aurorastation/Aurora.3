@@ -1801,10 +1801,6 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Britstache"
 		icon_state = "facial_britstache"
 
-	chaplin
-		name = "Square Mustache"
-		icon_state = "facial_chaplin"
-
 	chinless
 		name = "Chinless Beard"
 		icon_state = "facial_chinlessbeard"
