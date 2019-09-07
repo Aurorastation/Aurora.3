@@ -271,6 +271,7 @@
 				if(mybucket)
 					mybucket.forceMove(get_turf(user))
 					to_chat(user, "<span class='notice'>You unmount [mybucket] from [src].</span>")
+					mybucket.update_icon()
 					mybucket = null
 
 	update_icon()

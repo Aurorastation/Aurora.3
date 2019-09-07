@@ -835,7 +835,6 @@
 #include "code\game\objects\items\weapons\cards_ids_syndicate.dm"
 #include "code\game\objects\items\weapons\cigs_lighters.dm"
 #include "code\game\objects\items\weapons\cloaking_device.dm"
-#include "code\game\objects\items\weapons\clown_items.dm"
 #include "code\game\objects\items\weapons\cosmetics.dm"
 #include "code\game\objects\items\weapons\dice.dm"
 #include "code\game\objects\items\weapons\dna_injector.dm"
