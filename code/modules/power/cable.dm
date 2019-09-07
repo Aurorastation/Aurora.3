@@ -526,7 +526,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 						H.apply_damage(25, HALLOSS)
 						if(prob(50))
 							var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
-							O.germ_level += rand(400, 600)
+							affecting.germ_level += rand(400, 600)
 					else to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
 				affecting.update_damages()
 		else
