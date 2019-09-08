@@ -1,7 +1,6 @@
 //used for pref.alternate_option
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
 
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
@@ -112,7 +111,7 @@
 					log_debug("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
-	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
+	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
 	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
 	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
 	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
@@ -227,8 +226,6 @@
 	dat += "</center></table>"
 
 	switch(pref.alternate_option)
-		if(GET_RANDOM_JOB)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=green>Get random job if preferences unavailable</font></a></u></center><br>"
 		if(BE_ASSISTANT)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
@@ -245,10 +242,10 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["job_alternative"])
-		if(pref.alternate_option == GET_RANDOM_JOB || pref.alternate_option == BE_ASSISTANT)
-			pref.alternate_option += 1
+		if(pref.alternate_option == BE_ASSISTANT)
+			pref.alternate_option = RETURN_TO_LOBBY
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
-			pref.alternate_option = 0
+			pref.alternate_option = BE_ASSISTANT
 		return TOPIC_REFRESH
 
 	else if(href_list["select_alt_title"])

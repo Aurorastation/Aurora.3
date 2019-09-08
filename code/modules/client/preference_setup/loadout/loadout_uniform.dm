@@ -261,3 +261,7 @@
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
 	allowed_roles = list("Head of Security")
+
+/datum/gear/uniform/circuitry
+	display_name = "jumpsuit, circuitry (empty)"
+	path = /obj/item/clothing/under/circuitry

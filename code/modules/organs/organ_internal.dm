@@ -22,7 +22,7 @@
 	organ_tag = "lungs"
 	parent_organ = "chest"
 	robotic_name = "gas exchange system"
-	robotic_sprite = "heart-prosthetic"
+	robotic_sprite = "lungs-prosthetic"
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
 /obj/item/organ/lungs/process()
