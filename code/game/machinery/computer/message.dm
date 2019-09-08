@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/message_monitor
 	name = "messaging monitor console"
-	desc = "Used to access and maintain data on messaging servers. Allows you to view PDA and request console messages."
+	desc = "Used to access and maintain data on messaging servers. Allows you to view PDA and requests console messages."
 	icon_screen = "comm_logs"
 	light_color = "#00b000"
 	var/hack_icon = "error"
@@ -122,9 +122,9 @@
 					dat += "<dd><A>&#09;ERROR: Server not found!</A><br></dd>"
 				else
 					dat += "<dd><A href='?src=\ref[src];view=1'>&#09;[++i]. View Message Logs </a><br></dd>"
-					dat += "<dd><A href='?src=\ref[src];viewr=1'>&#09;[++i]. View Request Console Logs </a></br></dd>"
+					dat += "<dd><A href='?src=\ref[src];viewr=1'>&#09;[++i]. View Requests Console Logs </a></br></dd>"
 					dat += "<dd><A href='?src=\ref[src];clear=1'>&#09;[++i]. Clear Message Logs</a><br></dd>"
-					dat += "<dd><A href='?src=\ref[src];clearr=1'>&#09;[++i]. Clear Request Console Logs</a><br></dd>"
+					dat += "<dd><A href='?src=\ref[src];clearr=1'>&#09;[++i]. Clear Requests Console Logs</a><br></dd>"
 					dat += "<dd><A href='?src=\ref[src];pass=1'>&#09;[++i]. Set Custom Key</a><br></dd>"
 					dat += "<dd><A href='?src=\ref[src];msg=1'>&#09;[++i]. Send Admin Message</a><br></dd>"
 					dat += "<dd><A href='?src=\ref[src];spam=1'>&#09;[++i]. Modify Spam Filter</a><br></dd>"
@@ -220,7 +220,7 @@
 			<td width='300px'>[custommessage]</td></tr>"}
 			dat += "</table><br><center><A href='?src=\ref[src];select=Send'>Send</a></center>"
 
-		//Request Console Logs
+		//Requests Console Logs
 		if(4)
 
 			var/index = 0
@@ -340,7 +340,7 @@
 				if(auth)
 					src.linkedServer.pda_msgs = list()
 					message = "<span class='notice'>NOTICE: Logs cleared.</span>"
-		//Clears the request console logs - KEY REQUIRED
+		//Clears the requests console logs - KEY REQUIRED
 		if (href_list["clearr"])
 			if(!linkedServer || (src.linkedServer.stat & (NOPOWER|BROKEN)))
 				message = noserver
@@ -387,7 +387,7 @@
 				else //if(istype(href_list["delete"], /datum/data_pda_msg))
 					src.linkedServer.pda_msgs -= locate(href_list["delete"])
 					message = "<span class='notice'>NOTICE: Log Deleted!</span>"
-		//Delete the request console log.
+		//Delete the requests console log.
 		if (href_list["deleter"])
 			//Are they on the view logs screen?
 			if(screen == 4)
@@ -476,7 +476,7 @@
 						//Finally..
 						ResetMessage()
 
-		//Request Console Logs - KEY REQUIRED
+		//Requests Console Logs - KEY REQUIRED
 		if(href_list["viewr"])
 			if(src.linkedServer == null || (src.linkedServer.stat & (NOPOWER|BROKEN)))
 				message = noserver

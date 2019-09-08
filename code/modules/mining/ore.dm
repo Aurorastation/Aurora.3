@@ -2,6 +2,7 @@
 	name = "rock"
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "ore1"
+	randpixel = 8
 	w_class = 2
 	throwforce = 10
 	var/datum/geosample/geologic_data
@@ -85,9 +86,7 @@
 	material = null
 
 /obj/item/weapon/ore/New()
-	pixel_x = rand(0,16)-8
-	pixel_y = rand(0,8)-8
-	if(icon_state == "ore1")
+	if((randpixel_xy()) && icon_state == "ore1")
 		icon_state = "ore[pick(1,2,3)]"
 
 /obj/item/weapon/ore/attackby(obj/item/weapon/W as obj, mob/user as mob)

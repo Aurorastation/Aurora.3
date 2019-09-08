@@ -36,14 +36,7 @@
 			step(M, pick(cardinal))
 
 	if(prob(3))
-		var/list/current_emotes = list("smile" = 0, "giggle" = 5, "moan" = 10, "yawn" = 15, "laugh" = 20, "drool" = 20, "twitch" = 20)
-		var/list/usable_emotes
-		for(var/key in current_emotes)
-			var/value = current_emotes[key]
-			if(value >= power)
-				usable_emotes += key
-
-		M.emote(pick(usable_emotes))
+		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
 
 /datum/reagent/space_drugs/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
 	. = ..()
@@ -279,7 +272,7 @@
 	metabolism = REM // twice as fast as space drugs
 	overdose = 10
 	strength = 1.5 // makes up for it with slight suffocation damage
-	
+
 	glass_name = "glass of purple drank"
 	glass_desc = "Bottoms up."
 
