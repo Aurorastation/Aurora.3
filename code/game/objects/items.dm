@@ -4,6 +4,7 @@
 	w_class = 3.0
 
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1.0
 	var/health
@@ -171,7 +172,7 @@
 			return
 	if(!src.Adjacent(user) && !(TK in user.mutations))
 		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
-		return // please don't pick things up 
+		return // please don't pick things up
 	src.pickup(user)
 	if (istype(src.loc, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = src.loc
@@ -266,6 +267,8 @@
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
+	pixel_x = 0
+	pixel_y = 0
 	return
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -781,3 +784,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE
+
+//Used for selecting a random pixel placement, usually on initialize. Checks for pixel_x/y to not interfere with mapped in items.
+/obj/item/proc/randpixel_xy()
+	if(!pixel_x && !pixel_y)
+		pixel_x = rand(-randpixel, randpixel)
+		pixel_y = rand(-randpixel, randpixel)
+		return TRUE
+	else
+		return FALSE

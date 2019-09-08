@@ -55,12 +55,12 @@
 				name = "salt shaker"
 				desc = "Salt. From space oceans, presumably."
 				icon_state = "saltshaker"
-				center_of_mass = list("x"=16, "y"=10)
+				center_of_mass = list("x"=17, "y"=11)
 			if("blackpepper")
 				name = "pepper mill"
 				desc = "Often used to flavor food or make people sneeze."
 				icon_state = "peppermillsmall"
-				center_of_mass = list("x"=16, "y"=10)
+				center_of_mass = list("x"=17, "y"=11)
 			if("cornoil")
 				name = "corn oil"
 				desc = "A delicious oil used in cooking. Made from corn."
@@ -74,7 +74,7 @@
 				name = "bottle of space spice"
 				desc = "An exotic blend of spices for cooking. It must flow."
 				icon_state = "spacespicebottle"
-				center_of_mass = list("x"=16, "y"=6)
+				center_of_mass = list("x"=16, "y"=10)
 			if("barbecue")
 				name = "barbecue sauce"
 				desc = "Barbecue sauce, it's labeled 'sweet and spicy'."
@@ -99,6 +99,7 @@
 	name = "universal enzyme"
 	desc = "Used in cooking various dishes."
 	icon_state = "enzyme"
+	center_of_mass = list("x"=16, "y"=6)
 
 /obj/item/weapon/reagent_containers/food/condiment/enzyme/Initialize()
 	. = ..()
@@ -107,6 +108,7 @@
 /obj/item/weapon/reagent_containers/food/condiment/sugar
 	name = "sugar"
 	desc = "Tastey space sugar!"
+	center_of_mass = list("x"=16, "y"=6)
 
 /obj/item/weapon/reagent_containers/food/condiment/sugar/Initialize()
 	. = ..()
@@ -116,6 +118,7 @@
 	name = "salt shaker"											//	a large one.
 	desc = "Salt. From space oceans, presumably."
 	icon_state = "saltshakersmall"
+	center_of_mass = list("x"=17, "y"=11)
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
@@ -128,6 +131,7 @@
 	name = "pepper mill"
 	desc = "Often used to flavor food or make people sneeze."
 	icon_state = "peppermillsmall"
+	center_of_mass = list("x"=17, "y"=11)
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
@@ -142,18 +146,19 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "flour"
 	item_state = "flour"
+	center_of_mass = list("x"=16, "y"=8)
 	volume = 220
 
 /obj/item/weapon/reagent_containers/food/condiment/flour/Initialize()
 	. = ..()
 	reagents.add_reagent("flour", 200)
-	src.pixel_x = rand(-10.0, 10)
-	src.pixel_y = rand(-10.0, 10)
+	randpixel_xy()
 
 /obj/item/weapon/reagent_containers/food/condiment/spacespice
 	name = "space spices"
 	desc = "An exotic blend of spices for cooking. It must flow."
 	icon_state = "spacespicebottle"
+	center_of_mass = list("x"=16, "y"=10)
 	possible_transfer_amounts = list(1,40) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 40
@@ -166,6 +171,7 @@
 	name = "barbecue sauce"
 	desc = "Barbecue sauce, it's labeled 'sweet and spicy'."
 	icon_state = "barbecue"
+	center_of_mass = list("x"=16, "y"=6)
 
 /obj/item/weapon/reagent_containers/food/condiment/barbecue/Initialize()
 	..()
@@ -174,6 +180,7 @@
 /obj/item/weapon/reagent_containers/food/condiment/garlicsauce
 	name = "garlic sauce"
 	desc = "Garlic sauce, perfect for spicing up a plate of garlic."
+	center_of_mass = list("x"=16, "y"=6)
 
 /obj/item/weapon/reagent_containers/food/condiment/garlicsauce/Initialize()
 	..()
