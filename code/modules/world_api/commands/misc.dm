@@ -208,6 +208,37 @@
 	response = "Client has been authenticated sucessfully."
 	una.ClientLogin(queryparams["key"])
 
+// Authenticates client from external system
+/datum/topic_command/get_auth_client_ip
+	name = "get_auth_client_ip"
+	description = "Authenticates client from external system."
+	params = list(
+		"clienttoken" = list("name"="clienttoken","desc"="Token for identifying the unique client.","type"="str","req"=1),
+	)
+	if(!istype(una) || !una.client)
+		statuscode = 500
+		response = "Somethnig went horribly wrong."
+		return TRUE
+
+	if(!config.external_auth)
+		statuscode = 500
+		response = "External auth is disalowed."
+		del(una.client)
+		del(una)
+		return TRUE
+
+	statuscode = 200
+	response = "Got client IP sucessfully."
+	data = una.client.address
+
+/datum/topic_command/get_auth_client_ip/run_command(queryparams)
+	if(!(queryparams["clienttoken"] in unauthed))
+		statuscode = 404
+		response = "Client with such token is not found."
+		return TRUE
+
+	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
+
 // Updates external auth state
 /datum/topic_command/set_extenal_auth
 	name = "set_extenal_auth"
