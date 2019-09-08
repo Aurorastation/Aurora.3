@@ -25,7 +25,8 @@
 	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 900, TIMER_STOPPABLE)
 
 /mob/abstract/unauthed/proc/timeout()
-	to_chat(c, "Your login time has expired. Please relog and try again.")
+	if (client)
+		to_chat(client, "Your login time has expired. Please relog and try again.")
 	qdel(client)
 	qdel(src)
 

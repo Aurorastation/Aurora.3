@@ -211,7 +211,7 @@
 // Authenticates client from external system
 /datum/topic_command/get_auth_client_ip
 	name = "get_auth_client_ip"
-	description = "Authenticates client from external system."
+	description = "Returns the IP of the client awaiting authentication, identified by the client token."
 	params = list(
 		"clienttoken" = list("name"="clienttoken","desc"="Token for identifying the unique client.","type"="str","req"=1),
 	)
@@ -226,12 +226,12 @@
 
 	if(!istype(una) || !una.client)
 		statuscode = 500
-		response = "Somethnig went horribly wrong."
+		response = "Something went horribly wrong."
 		return TRUE
 
 	if(!config.external_auth)
 		statuscode = 500
-		response = "External auth is disalowed."
+		response = "External auth is disallowed."
 		del(una.client)
 		del(una)
 		return TRUE
