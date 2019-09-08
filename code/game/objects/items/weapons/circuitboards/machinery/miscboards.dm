@@ -84,7 +84,7 @@
 							"/obj/item/weapon/stock_parts/capacitor" = 1,
 							"/obj/item/device/healthanalyzer" = 1,
 							"/obj/item/weapon/stock_parts/scanning_module/adv" = 1,
-							"/obj/item/clothing/mask/breath/medical" = 1),
+							"/obj/item/clothing/mask/breath/medical" = 1,
 							"/obj/item/weapon/reagent_containers/glass/beaker/large" = 2)
 
 /obj/item/weapon/circuitboard/smartfridge
