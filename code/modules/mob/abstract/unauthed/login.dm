@@ -3,6 +3,7 @@
 /mob/abstract/unauthed
 	authed = FALSE
 	var/token = ""
+	var/timeout_timer
 
 /mob/abstract/unauthed/New()
 	verbs -= typesof(/mob/verb)
@@ -21,10 +22,16 @@
 	if(!config.guests_allowed && config.webint_url && config.external_auth)
 		src.OpenForumAuthWindow()
 	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
+	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 900, TIMER_STOPPABLE)
+
+/mob/abstract/unauthed/proc/timeout()
+	qdel(client)
+	qdel(src)
 
 /mob/abstract/unauthed/proc/ClientLogin(var/newkey)
 	if(!client)
 		qdel(src)
+	deltimer(timeout_timer)
 	var/client/c = client
 	show_browser(src, null, "window=auth;")
 	client.verbs += typesof(/client/verb) // Let's return regular client verbs
