@@ -25,7 +25,7 @@
 	var/obj/item/weapon/tank/airsupply						//Stores the airtank used for anesthesia.
 	var/obj/item/clothing/mask/breath/medical/airmask		//Stores the medical mask used for anesthesia.
 	var/requiredchems = list(
-							"clonexadone" = 0.06,
+							"peridaxon" = 0.06,
 							"cryoxadone" = 0.2)				//Details what chemicals (use ids, not names) it keeps track of, and the minimum quantities required for operation. Each time process() is called, the associated amount of that chemical is removed from storage.
 															//Cryoxadone will last you around 10 minutes, Clonexadone around 30. (Provided you use the standard, 60 unit beaker.)
 	var/list/internallog = list()								//A log of everything that has happened on the table. Has two keys per entry: "time" and "message".
@@ -33,7 +33,7 @@
 	component_types = list(
 			/obj/item/weapon/circuitboard/optableadv,
 			/obj/item/clothing/mask/breath/medical,
-			/obj/item/weapon/reagent_containers/glass/beaker = 2
+			/obj/item/weapon/reagent_containers/glass/beaker/large = 2
 
 		)
 
@@ -366,8 +366,6 @@
 			if (AIR_ACTIVE)
 				victim.u_equip(airsupply)
 				airsupply.loc = src
-				if (victim.internals)
-					victim.internals.icon_state = "internal0"
 				broadcastalert("Internal air supply deactivated.")
 				addtolog("Internal air supply deactivated.")
 				program &= ~setting
@@ -403,8 +401,6 @@
 				if (airsupply && airsupply.air_contents.return_pressure() > 10)
 					victim.equip_to_slot(airsupply, slot_back)
 					victim.internal = airsupply
-					if (victim.internals)
-						victim.internals.icon_state = "internal1"
 					broadcastalert("Internal air supply activated.")
 					addtolog("Internal air supply activated.")
 					program |= setting
