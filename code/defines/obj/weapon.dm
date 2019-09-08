@@ -37,6 +37,15 @@
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
 
+/obj/item/weapon/bikehorn/attack_self(mob/user as mob)
+	if (spam_flag == 0)
+		spam_flag = 1
+		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+		src.add_fingerprint(user)
+		spawn(20)
+			spam_flag = 0
+	return
+
 /obj/item/weapon/cane
 	name = "cane"
 	desc = "A cane used by a true gentlemen. Or a clown."
@@ -259,6 +268,12 @@
 		name = "cane shaft"
 		icon_state = "nullrod"
 		item_state = "foldcane"
+
+/obj/item/weapon/cane/crutch
+	name ="crutch"
+	desc = "A long stick with a crosspiece at the top, used to help with walking."
+	icon_state = "crutch"
+	item_state = "crutch"
 
 /obj/item/weapon/disk
 	name = "disk"

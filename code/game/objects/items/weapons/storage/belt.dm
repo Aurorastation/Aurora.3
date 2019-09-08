@@ -233,15 +233,20 @@
 	w_class = 3
 	max_w_class = 3
 	can_hold = list(
-		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
-		/obj/item/device/lightreplacer,
-		/obj/item/device/flashlight,
-		/obj/item/weapon/reagent_containers/spray,
-		/obj/item/weapon/soap,
-		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/wrench,
-		/obj/item/weapon/crowbar
+		/obj/item/device/flashlight,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/glasses/material,
+		/obj/item/weapon/reagent_containers/spray,
+		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
+		/obj/item/device/lightreplacer,
+		/obj/item/weapon/soap,
+		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/reagent_containers/glass/rag
 		)
 
 /obj/item/weapon/storage/belt/wands
@@ -273,7 +278,8 @@
 	storage_slots = 9
 	w_class = 4
 	max_w_class = 4 //Pickaxes are big.
-	can_hold = list(/obj/item/weapon/crowbar,
+	can_hold = list(
+		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/weldingtool,
 		/obj/item/weapon/wirecutters,
@@ -337,19 +343,6 @@
 		/obj/item/weapon/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-	)
-
-/obj/item/weapon/storage/belt/hydro
-	starts_with = list(
-		/obj/item/weapon/plantspray/pests = 1,
-		/obj/item/weapon/material/minihoe = 1,
-		/obj/item/weapon/storage/bag/plants = 1,
-		/obj/item/clothing/gloves/botanic_leather = 1,
-		/obj/item/device/analyzer/plant_analyzer = 1,
-		/obj/item/weapon/material/hatchet = 1,
-		/obj/item/weapon/reagent_containers/glass/fertilizer/rh = 1,
-		/obj/item/weapon/reagent_containers/spray/plantbgone = 1,
-		/obj/item/weapon/wirecutters/clippers = 1
 	)
 
 /obj/item/weapon/storage/belt/fannypack
