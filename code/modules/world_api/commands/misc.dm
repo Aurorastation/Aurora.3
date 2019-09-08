@@ -215,6 +215,15 @@
 	params = list(
 		"clienttoken" = list("name"="clienttoken","desc"="Token for identifying the unique client.","type"="str","req"=1),
 	)
+
+/datum/topic_command/get_auth_client_ip/run_command(queryparams)
+	if(!(queryparams["clienttoken"] in unauthed))
+		statuscode = 404
+		response = "Client with such token is not found."
+		return TRUE
+
+	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
+
 	if(!istype(una) || !una.client)
 		statuscode = 500
 		response = "Somethnig went horribly wrong."
@@ -230,14 +239,6 @@
 	statuscode = 200
 	response = "Got client IP sucessfully."
 	data = una.client.address
-
-/datum/topic_command/get_auth_client_ip/run_command(queryparams)
-	if(!(queryparams["clienttoken"] in unauthed))
-		statuscode = 404
-		response = "Client with such token is not found."
-		return TRUE
-
-	var/mob/abstract/unauthed/una = unauthed[queryparams["clienttoken"]]
 
 // Updates external auth state
 /datum/topic_command/set_extenal_auth
