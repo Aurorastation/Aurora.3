@@ -355,6 +355,12 @@
 		var/obj/item/weapon/rig/R = back
 		R.attack_disrupt_check(src)
 
+/mob/living/carbon/human/throw_item(atom/target)
+	. = ..()
+	if (ismob(src) && istype(back, /obj/item/weapon/rig))
+		var/obj/item/weapon/rig/R = back
+		R.attack_disrupt_check(src)
+
 /obj/item/weapon/rig/proc/attack_disrupt_check()
 	for (var/obj/item/rig_module/module in installed_modules)
 		if (module.active && module.attackdisrupts)

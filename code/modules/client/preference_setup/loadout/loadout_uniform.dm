@@ -153,22 +153,6 @@
 	path = /obj/item/clothing/under/dress/dress_hr
 	allowed_roles = list("Head of Personnel")
 
-/datum/gear/uniform/security_contractors
-	display_name = "security contractor uniform selection"
-	description = "A selection of security contractor uniforms."
-	path = /obj/item/clothing/under/rank/security/necropolis
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
-
-/datum/gear/uniform/security_contractors/New()
-	..()
-	var/uniform = list()
-	uniform["Necropolis Industries security uniform"] = /obj/item/clothing/under/rank/security/necropolis
-	uniform["Idris Incorporated security uniform"] = /obj/item/clothing/under/rank/security/idris
-	uniform["Idris Incorporated security uniform, alternative"] = /obj/item/clothing/under/rank/security/idris/alt
-	uniform["Eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
-	uniform["Eridani PMC uniform, alternative"] = /obj/item/clothing/under/rank/security/eridani/alt
-	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
 /datum/gear/uniform/pants
 	display_name = "pants selection"
 	description = "A selection of pants."
@@ -277,3 +261,7 @@
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
 	allowed_roles = list("Head of Security")
+
+/datum/gear/uniform/circuitry
+	display_name = "jumpsuit, circuitry (empty)"
+	path = /obj/item/clothing/under/circuitry

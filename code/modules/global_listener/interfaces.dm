@@ -43,6 +43,19 @@ Iterating through a listener list:
 	return ..()
 
 //-------------------------------
+// Record listener
+//-------------------------------
+
+/listener/record/New(datum/target)
+	..("SSrecords", target)
+
+/listener/record/proc/on_delete(var/datum/record/r)
+	return
+
+/listener/record/proc/on_modify(var/datum/record/r)
+	return
+
+//-------------------------------
 // Wifi (Deprecated, use /listener instead)
 //-------------------------------
 /datum/wifi

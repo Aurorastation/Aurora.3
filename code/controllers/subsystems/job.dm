@@ -1,8 +1,7 @@
 /var/datum/controller/subsystem/jobs/SSjobs
 
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
 
 #define Debug(text) if (Debug2) {job_debug += text}
 
@@ -82,9 +81,12 @@
 /datum/controller/subsystem/jobs/proc/GetRandomJob()
 	return pick(occupations)
 
-/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/rank)
-	if(!rank) return 0
-	var/datum/job/job = GetJob(rank)
+/datum/controller/subsystem/jobs/proc/ShouldCreateRecords(var/datum/mind/mind)
+	if(player_is_antag(mind, only_offstation_roles = 1))
+		return 0
+	if(!mind.assigned_role)
+		return 0
+	var/datum/job/job = GetJob(mind.assigned_role)
 	if(!job) return 0
 	return job.create_record
 
@@ -135,29 +137,6 @@
 		if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
 			Debug("FOC pass, Player: [player], Level:[level]")
 			. += player
-
-/datum/controller/subsystem/jobs/proc/GiveRandomJob(mob/abstract/new_player/player)
-	Debug("GRJ Giving random job, Player: [player]")
-	for(var/thing in shuffle(occupations))
-		var/datum/job/job = thing
-		if(!job)
-			continue
-
-		if(istype(job, GetJob("Assistant"))) // We don't want to give him assistant, that's boring!
-			continue
-
-		if(job in command_positions) //If you want a command position, select it!
-			continue
-
-		if(jobban_isbanned(player, job.title))
-			Debug("GRJ isbanned failed, Player: [player], Job: [job.title]")
-			continue
-
-		if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
-			Debug("GRJ Random job given, Player: [player], Job: [job]")
-			AssignRole(player, job.title)
-			unassigned -= player
-			break
 
 /datum/controller/subsystem/jobs/proc/ResetOccupations()
 	for(var/mob/abstract/new_player/player in player_list)
@@ -302,12 +281,6 @@
 						AssignRole(player, job.title)
 						unassigned -= player
 						break
-
-	// Hand out random jobs to the people who didn't get any in the last check
-	// Also makes sure that they got their preference correct
-	for(var/mob/abstract/new_player/player in unassigned)
-		if(player.client.prefs.alternate_option == GET_RANDOM_JOB)
-			GiveRandomJob(player)
 
 	Debug("DO, Standard Check end")
 
@@ -726,17 +699,8 @@
 
 	// Delete them from datacore.
 
-	if(PDA_Manifest.len)
-		PDA_Manifest.Cut()
-	for(var/datum/data/record/R in data_core.medical)
-		if ((R.fields["name"] == H.real_name))
-			qdel(R)
-	for(var/datum/data/record/T in data_core.security)
-		if ((T.fields["name"] == H.real_name))
-			qdel(T)
-	for(var/datum/data/record/G in data_core.general)
-		if ((G.fields["name"] == H.real_name))
-			qdel(G)
+	SSrecords.remove_record_by_field("name", H.real_name)
+	SSrecords.reset_manifest()
 
 	log_and_message_admins("([H.mind.role_alt_title]) entered cryostorage.", user = H)
 

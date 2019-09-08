@@ -1,9 +1,4 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
-/proc/isxenomorph(A)
-	if(istype(A, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = A
-		return istype(H.species, /datum/species/xenos)
-	return 0
 
 /proc/issmall(A)
 	if(A && istype(A, /mob/living))
@@ -692,11 +687,11 @@ proc/is_blind(A)
 		if(id)
 			perpname = id.registered_name
 
-		var/datum/data/record/R = find_security_record("name", perpname)
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
 		if(check_records && !R)
 			threatcount += 4
 
-		if(check_arrest && R && (R.fields["criminal"] == "*Arrest*"))
+		if(check_arrest && R && R.security && (R.security.criminal == "*Arrest*"))
 			threatcount += 4
 
 	return threatcount

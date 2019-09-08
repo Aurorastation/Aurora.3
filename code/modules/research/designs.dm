@@ -170,6 +170,24 @@ other types of metals and chemistry for reagents).
 	build_path =/obj/item/device/lightreplacer/advanced
 	sort_string = "VAAAH"
 
+/datum/design/advmop
+	name = "Advanced Mop"
+	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
+	id = "advmop"
+	build_type = PROTOLATHE
+	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 200)
+	build_path = /obj/item/weapon/mop/advanced
+	sort_string = "VAAAI"
+
+/datum/design/blutrash
+	name = "Trashbag of Holding"
+	desc = "An advanced trash bag with bluespace properties; capable of holding a plethora of garbage."
+	id = "blutrash"
+	build_type = PROTOLATHE
+	materials = list("gold" = 1500, "uranium" = 250, "phoron" = 1500)
+	build_path = /obj/item/weapon/storage/bag/trash/bluespace
+	sort_string = "VAAAJ"
+
 /datum/design/item/experimental_welder
 	name = "Experimental Welding Tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
@@ -178,16 +196,6 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
 	build_path =/obj/item/weapon/weldingtool/experimental
 	sort_string = "VABAJ"
-
-/datum/design/item/posibrain
-	name = "Positronic brain"
-	id = "posibrain"
-	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 6, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	build_type = PROTOLATHE | MECHFAB
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "silver" = 1000, "gold" = 500, "phoron" = 500, "diamond" = 100)
-	build_path = /obj/item/device/mmi/digital/posibrain
-	category = "Misc"
-	sort_string = "VACAB"
 
 /datum/design/item/mmi
 	name = "Man-machine interface"

@@ -37,7 +37,7 @@
 
 /obj/item/integrated_circuit/proc/activate_pin(pin_number)
 	var/datum/integrated_io/activate/A = activators[pin_number]
-	A.push_data()
+	A.push_data(pin_number)
 
 /datum/integrated_io/proc/get_data()
 	if(isweakref(data))
@@ -73,3 +73,11 @@
 			debugger.write_data(pin, usr)
 			return 1
 	return 0
+
+/proc/XorEncrypt(string, key)
+	if(!string || !key ||!istext(string)||!istext(key))
+		return
+	var/r
+	for(var/i = 1 to length(string))
+		r += ascii2text(text2ascii(string,i) ^ text2ascii(key,(i-1)%length(string)+1))
+	return r

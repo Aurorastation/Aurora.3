@@ -196,6 +196,7 @@
 		/mob/living/carbon/human/proc/leap,
 		/mob/living/carbon/human/proc/gut,
 		/mob/living/carbon/human/proc/commune,
-		/mob/living/carbon/human/proc/quillboar
+		/mob/living/carbon/human/proc/quillboar,
+		/mob/living/carbon/human/proc/sonar_ping
 		)
 

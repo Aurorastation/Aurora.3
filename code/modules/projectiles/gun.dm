@@ -326,7 +326,7 @@
 			P.launch_projectile(target)
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
-			
+
 			if(silenced)
 				playsound(src, fire_sound, 10, 1)
 			else

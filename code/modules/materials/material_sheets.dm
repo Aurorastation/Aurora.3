@@ -123,8 +123,10 @@
 /obj/item/stack/material/plastic
 	name = "plastic"
 	icon_state = "sheet-plastic"
+	item_state = "sheet-plastic"
 	default_type = "plastic"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/stack/material/gold
 	name = "gold"
@@ -190,6 +192,17 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
+/obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
+	if(is_sharp(I))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
+		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
+			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			for(var/i in 1 to rand(1,3)) // average of 2 per
+				new /obj/item/weapon/reagent_containers/glass/rag(get_turf(src))
+			use(1)
+		return
+	..()
+
 /obj/item/stack/material/cardboard
 	name = "cardboard"
 	icon_state = "sheet-card"
@@ -202,7 +215,7 @@
 	icon_state = "sheet-leather"
 	default_type = "leather"
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 /obj/item/stack/material/glass
 	name = "glass"
@@ -220,6 +233,7 @@
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"
+	item_state = "sheet-rglass"
 	default_type = "rglass"
 
 /obj/item/stack/material/glass/phoronglass
@@ -227,6 +241,7 @@
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-phoronglass"
+	item_state = "sheet-pglass"
 	default_type = "borosilicate glass"
 
 /obj/item/stack/material/glass/phoronrglass
@@ -234,6 +249,7 @@
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
 	icon_state = "sheet-phoronrglass"
+	item_state = "sheet-prglass"
 	default_type = "reinforced borosilicate glass"
 
 /obj/item/stack/material/bronze

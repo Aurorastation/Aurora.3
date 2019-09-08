@@ -21,7 +21,6 @@
 
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
-	secondary_langs = list(LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
@@ -52,9 +51,15 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/commune)
+	inherent_verbs = list(
+	/mob/living/carbon/human/proc/commune,
+	/mob/living/carbon/human/proc/sonar_ping,
+	)
 
 	default_h_style = "Skrell Short Tentacles"
+
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

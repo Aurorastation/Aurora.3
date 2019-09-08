@@ -111,42 +111,6 @@
 	R.speed--
 	return 1
 
-
-/obj/item/borg/upgrade/tasercooler
-	name = "robotic Rapid Taser Cooling Module"
-	desc = "Used to cool a mounted taser, increasing the potential current in it and thus its recharge rate."
-	icon_state = "cyborg_upgrade3"
-	require_module = 1
-
-
-/obj/item/borg/upgrade/tasercooler/action(var/mob/living/silicon/robot/R)
-	if(..()) return 0
-
-	if(!R.module || !(src.type in R.module.supported_upgrades))
-		to_chat(R, "<span class='notice'>Upgrade mounting error!  No suitable hardpoint detected!</span>")
-		to_chat(usr, "<span class='warning'> There's no mounting point for the module!</span>")
-		return 0
-
-	var/obj/item/weapon/gun/energy/taser/mounted/cyborg/T = locate() in R.module
-	if(!T)
-		T = locate() in R.module.contents
-	if(!T)
-		T = locate() in R.module.modules
-	if(!T)
-		to_chat(usr, "This robot has had its taser removed!")
-		return 0
-
-	if(T.recharge_time <= 2)
-		to_chat(R, "<span class='notice'>Maximum cooling achieved for this hardpoint!</span>")
-		to_chat(usr, "<span class='warning'>There's no room for another cooling unit!</span>")
-		return 0
-
-	else
-		T.recharge_time = max(2 , T.recharge_time - 4)
-
-	return 1
-
-
 /obj/item/borg/upgrade/syndicate/
 	name = "illegal equipment module"
 	desc = "Unlocks the hidden, deadlier functions of a robot"

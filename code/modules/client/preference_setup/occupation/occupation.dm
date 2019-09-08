@@ -1,7 +1,6 @@
 //used for pref.alternate_option
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
 
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
@@ -112,7 +111,7 @@
 					log_debug("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
-	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
+	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
 	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
 	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
 	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
@@ -227,8 +226,6 @@
 	dat += "</center></table>"
 
 	switch(pref.alternate_option)
-		if(GET_RANDOM_JOB)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=green>Get random job if preferences unavailable</font></a></u></center><br>"
 		if(BE_ASSISTANT)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
@@ -245,10 +242,10 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["job_alternative"])
-		if(pref.alternate_option == GET_RANDOM_JOB || pref.alternate_option == BE_ASSISTANT)
-			pref.alternate_option += 1
+		if(pref.alternate_option == BE_ASSISTANT)
+			pref.alternate_option = RETURN_TO_LOBBY
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
-			pref.alternate_option = 0
+			pref.alternate_option = BE_ASSISTANT
 		return TOPIC_REFRESH
 
 	else if(href_list["select_alt_title"])
@@ -378,16 +375,19 @@
 
 	pref.player_alt_titles.Cut()
 
-/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(user, selected_faction)
+/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(mob/user, selected_faction)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/faction_icons)
 
-	var/list/dat = list("<center>")
+	var/list/dat = list("<center><b>")
 
+	var/list/factions = list()
 	for (var/datum/faction/faction in SSjobs.factions)
 		if (faction.name == selected_faction)
-			dat += " [faction.name] "
+			factions += "[faction.name]"
 		else
-			dat += " <a href='?src=\ref[src];faction_preview=[html_encode(faction.name)]'>[faction.name]</a> "
+			factions += "<a href='?src=\ref[src];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
+
+	dat += factions.Join(" | ") + "</b>"
 
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
 
@@ -404,9 +404,10 @@
 	if (faction.is_default)
 		dat += "<br><center><small>This faction is the default faction aboard this installation.</small></center>"
 
-	dat += "<br><br>[faction.description]"
+	dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>Read the Wiki</a></center>"
+	dat += "<br>[faction.description]"
 
-	show_browser(user, dat.Join(), "window=factionpreview")
+	show_browser(user, dat.Join(), "window=factionpreview;size=400x600")
 
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]

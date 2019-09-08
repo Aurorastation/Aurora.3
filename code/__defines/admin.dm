@@ -41,6 +41,7 @@
 #define R_CCIAA         0x8000 //higher than this will overflow
 
 #define R_MAXPERMISSION 0x8000 // This holds the maximum value for a permission. It is used in iteration, so keep it updated.
+#define R_ALL           0x7FFF // All perms forever.
 
 // ticket statuses
 #define TICKET_CLOSED   0
@@ -51,3 +52,6 @@
 #define NOT_ADMINHELPED     0
 #define ADMINHELPED         1
 #define ADMINHELPED_DISCORD 2
+
+#define STICKYBAN_DB_CACHE_TIME (10 SECONDS)
+#define STICKYBAN_ROGUE_CHECK_TIME 5

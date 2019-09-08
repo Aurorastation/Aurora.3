@@ -2763,7 +2763,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A holy book for followers of The Trinary Perfection."
 	icon = 'icons/obj/custom_items/oscar_bible.dmi'
 	icon_state = "oscar_bible"
-	deity_name = "Trinary Perfection"
 
 
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
@@ -2956,3 +2955,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_state = "fraseq_journal"
 	w_class = 3
+
+
+/obj/item/clothing/accessory/poncho/fluff/ioraks_cape //Iorakian Cape - Kuhserze Ioraks - geeves
+	name = "iorakian cape"
+	desc = "A tough leather cape, with neat colours of the Ioraks clan threaded through the seams."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_cape"
+	item_state = "ioraks_cape"
+	contained_sprite = TRUE
+	icon_override = FALSE

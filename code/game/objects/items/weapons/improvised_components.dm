@@ -1,7 +1,7 @@
 /obj/item/weapon/material/butterflyconstruction
 	name = "unfinished concealed knife"
 	desc = "An unfinished concealed knife, it looks like the screws need to be tightened."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterflystep1"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -16,7 +16,7 @@
 /obj/item/weapon/material/butterflyblade
 	name = "knife blade"
 	desc = "A knife blade. Unusable as a weapon without a grip."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterfly2"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -24,7 +24,7 @@
 /obj/item/weapon/material/butterflyhandle
 	name = "concealed knife grip"
 	desc = "A plasteel grip with screw fittings for a blade."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "butterfly1"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -74,6 +74,7 @@
 /obj/item/weapon/material/shaft
 	name = "shaft"
 	desc = "A large stick, you could probably attach something to it."
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "shaft"
 	item_state = "rods"
 	force = 5
@@ -103,6 +104,7 @@
 /obj/item/weapon/material/spearhead
 	name = "spearhead"
 	desc = "A pointy spearhead, not really useful without a shaft."
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "spearhead"
 	force = 5
 	throwforce = 5
@@ -149,7 +151,7 @@
 /obj/item/woodcirclet
 	name = "wood circlet"
 	desc = "A small wood circlet for making a flower crown."
-	icon = 'icons/obj/buildingobject.dmi'
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "woodcirclet"
 	item_state = "woodcirclet"
 	w_class = ITEMSIZE_SMALL

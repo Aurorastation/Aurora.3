@@ -204,7 +204,7 @@
 
 			// Wiki link from various panels.
 			if ("wiki")
-				src.wiki()
+				src.wiki(sub_page = (href_list["wiki_page"] || null))
 
 			// Web interface href link from various panels.
 			if ("webint")
@@ -352,6 +352,7 @@
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
+		src.InitPrefs() //Init some default prefs
 		return m
 		//Do auth shit
 	else

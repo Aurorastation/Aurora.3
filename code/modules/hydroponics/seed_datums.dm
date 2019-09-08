@@ -282,7 +282,7 @@
 	seed_name = "apple"
 	display_name = "apple tree"
 	mutants = list("poisonapple","goldapple")
-	chems = list("nutriment" = list(1,10))
+	chems = list("applejuice" = list(1,10), "nutriment" = list(1,10))
 	kitchen_tag = "apple"
 
 /datum/seed/apple/setup_traits()
@@ -308,7 +308,7 @@
 	seed_name = "golden apple"
 	display_name = "gold apple tree"
 	mutants = null
-	chems = list("nutriment" = list(1,10), "gold" = list(1,5))
+	chems = list("applejuice" = list(1,10), "gold" = list(1,5))
 	kitchen_tag = "goldapple"
 
 /datum/seed/apple/gold/setup_traits()
@@ -410,6 +410,8 @@
 
 /datum/seed/koisspore/black
 	name = "blackkois"
+	seed_name = "black kois"
+	display_name = "black k'ois spores"
 	mutants = null
 	chems = list(
 				"blackkois" = list(4),
@@ -1184,26 +1186,6 @@
 	set_trait(TRAIT_PLANT_ICON,"bush7")
 	set_trait(TRAIT_IDEAL_HEAT, 283)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
-
-// Alien weeds.
-/datum/seed/xenomorph
-	name = "xenomorph"
-	seed_name = "alien weed"
-	display_name = "alien weeds"
-	force_layer = 3
-	chems = list("phoron" = list(1,3))
-
-/datum/seed/xenomorph/setup_traits()
-	..()
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IMMUTABLE,1)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#3D1934")
-	set_trait(TRAIT_FLESH_COLOUR,"#3D1934")
-	set_trait(TRAIT_PLANT_COLOUR,"#3D1934")
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,-1)
-	set_trait(TRAIT_SPREAD,2)
-	set_trait(TRAIT_POTENCY,50)
 
 /datum/seed/earthenroot
 	name = "earthenroot"
