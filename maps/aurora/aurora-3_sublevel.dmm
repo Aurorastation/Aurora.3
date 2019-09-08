@@ -21136,7 +21136,8 @@
 /area/crew_quarters/sleep/medical)
 "aPE" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cane,
+/obj/item/weapon/cane/crutch,
+/obj/item/weapon/cane/crutch,
 /obj/item/weapon/storage/box/rxglasses,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)

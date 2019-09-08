@@ -97,6 +97,7 @@
 	gender = NEUTER
 	body_parts_covered = null
 	fingerprint_chance = 100
+	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/verb/checktime()
@@ -124,6 +125,22 @@
 		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
 	else
 		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+
+/obj/item/clothing/gloves/watch/verb/swapwrists()
+	set category = "Object"
+	set name = "Flip watch wrist"
+	set src in usr
+
+	if (usr.stat || usr.restrained())
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.item_state = "[item_state]_alt"
+	else
+		src.item_state = initial(item_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
+	update_clothing_icon()
 
 /obj/item/clothing/gloves/watch/examine(mob/user)
 	..()
