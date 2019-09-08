@@ -6,6 +6,7 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
+	center_of_mass = null
 
 	var/default_type = DEFAULT_WALL_MATERIAL
 	var/material/material
@@ -15,8 +16,7 @@
 
 /obj/item/stack/material/Initialize()
 	. = ..()
-	pixel_x = rand(0,4)-4
-	pixel_y = rand(0,4)-4
+	randpixel_xy()
 
 	if(!default_type)
 		default_type = DEFAULT_WALL_MATERIAL
