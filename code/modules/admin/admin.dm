@@ -1358,7 +1358,8 @@ proc/admin_notice(var/message, var/rights)
 	set category = "Special Verbs"
 	set name = "Custom sound Command Announcment"
 	set desc = "Emulate announcement that looks and sounds like the real one"
-	if(!check_rights(R_FUN))	return
+	if(!check_rights(R_FUN))
+		return
 
 	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
 	if(!title)
