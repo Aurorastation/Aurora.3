@@ -469,6 +469,7 @@
 		stored_matter += 30
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
+		update_icon()
 		return
 
 	if (istype(W, /obj/item/weapon/rrf_ammo))
@@ -512,6 +513,7 @@
 	new /obj/structure/track(get_turf(A))
 
 	to_chat(user, "Dispensing track...")
+	update_icon()
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user

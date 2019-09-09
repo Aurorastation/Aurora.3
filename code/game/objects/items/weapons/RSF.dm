@@ -33,6 +33,7 @@ RSF
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
+		update_icon()
 		return
 
 /obj/item/weapon/rsf/attack_self(mob/user as mob)
@@ -98,6 +99,7 @@ RSF
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")
 	product.forceMove(get_turf(A))
+	update_icon()
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user

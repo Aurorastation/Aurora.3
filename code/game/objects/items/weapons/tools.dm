@@ -51,28 +51,28 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
 	lock_picking_level = 5
-	var/random_icon = TRUE
 	drop_sound = 'sound/items/drop/scrap.ogg'
-	var/random_color = TRUE //if the screwdriver uses random coloring
-	var/static/list/screwdriver_colors = list(
-		"blue" = rgb(24, 97, 213),
-		"red" = rgb(255, 0, 0),
-		"pink" = rgb(213, 24, 141),
-		"brown" = rgb(160, 82, 18),
-		"green" = rgb(14, 127, 27),
-		"cyan" = rgb(24, 162, 213),
-		"yellow" = rgb(255, 165, 0)
+	var/random_icon = TRUE
+	var/random_color = TRUE //if the tool uses random coloring
+	var/static/list/tool_colors = list(
+		"blue" = COLOR_BLUE,
+		"red" = COLOR_RED,
+		"pink" = COLOR_PINK,
+		"brown" = COLOR_BROWN,
+		"green" = COLOR_GREEN,
+		"cyan" = COLOR_CYAN,
+		"yellow" = COLOR_YELLOW
 	)
 
 /obj/item/weapon/screwdriver/Initialize()
 	. = ..()
 	if(random_color) //random colors!
 		icon_state = "screwdriver"
-		var/our_color = pick(screwdriver_colors)
-		add_atom_colour(screwdriver_colors[our_color], FIXED_COLOUR_PRIORITY)
+		var/our_color = pick(tool_colors)
+		add_atom_colour(tool_colors[our_color], FIXED_COLOUR_PRIORITY)
 		update_icon()
 	if(prob(75))
-		pixel_y = rand(16, 0)
+		pixel_x = rand(0, 16)
 
 /obj/item/weapon/screwdriver/update_icon()
 	if(!random_color) //icon override
@@ -108,7 +108,7 @@
 	name = "wirecutters"
 	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "cutters"
+	icon_state = "wirecutters"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 6.0
@@ -121,12 +121,38 @@
 	sharp = 1
 	edge = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
+	var/random_color = TRUE
+	var/static/list/tool_colors = list(
+		"blue" = COLOR_BLUE,
+		"red" = COLOR_RED,
+		"pink" = COLOR_PINK,
+		"brown" = COLOR_BROWN,
+		"green" = COLOR_GREEN,
+		"cyan" = COLOR_CYAN,
+		"yellow" = COLOR_YELLOW
+	)
 
-/obj/item/weapon/wirecutters/New()
-	if(prob(50))
-		icon_state = "cutters-y"
-		item_state = "cutters_yellow"
-	..()
+/obj/item/weapon/wirecutters/Initialize()
+	. = ..()
+	if(random_color) //random colors!
+		icon_state = "wirecutters"
+		var/our_color = pick(tool_colors)
+		add_atom_colour(tool_colors[our_color], FIXED_COLOUR_PRIORITY)
+		update_icon()
+
+/obj/item/weapon/wirecutters/update_icon()
+	if(!random_color) //icon override
+		return
+	cut_overlays()
+	var/mutable_appearance/base_overlay = mutable_appearance(icon, "wirecutters_head")
+	base_overlay.appearance_flags = RESET_COLOR
+	add_overlay(base_overlay)
+
+/obj/item/weapon/wirecutters/worn_overlays(isinhands = FALSE, icon_file)
+	. = list()
+	if(isinhands && random_color)
+		var/mutable_appearance/M = mutable_appearance(icon_file, "wirecutters_head")
+		M.appearance_flags = RESET_COLOR
 
 /obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)))

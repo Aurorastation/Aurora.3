@@ -34,9 +34,10 @@
 	if(src.type == /obj/item/weapon/rcd && loc == usr)
 		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
 
-/obj/item/weapon/rcd/New()
-	..()
+/obj/item/weapon/rcd/Initialize()
+	. = ..()
 	src.spark_system = bind_spark(src, 5)
+	update_icon()
 
 /obj/item/weapon/rcd/Destroy()
 	qdel(spark_system)
@@ -55,6 +56,7 @@
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/30 matter-units.</span>")
+		update_icon()
 		return
 	..()
 
@@ -80,6 +82,7 @@
 	if(stored_matter < amount)
 		return 0
 	stored_matter -= amount
+	update_icon()
 	return 1
 
 /obj/item/weapon/rcd/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)

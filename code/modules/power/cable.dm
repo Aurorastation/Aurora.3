@@ -44,6 +44,7 @@ var/list/possible_cable_coil_colours = list(
 	var/d2 = 1
 	layer = 2.44 //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
 	color = COLOR_RED
+	var/our_color = color
 	var/obj/machinery/power/breakerbox/breaker_box
 
 /obj/structure/cable/drain_power(var/drain_check, var/surge, var/amount = 0)
@@ -475,7 +476,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	icon_state = "coil"
 	amount = MAXCOIL
 	max_amount = MAXCOIL
-	color = COLOR_RED
+	var/our_color = COLOR_RED
 	desc = "A coil of power cable."
 	throwforce = 10
 	w_class = 2.0
@@ -502,9 +503,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
+	icon_state = "coil"
+	our_color = pick(possible_cable_coil_colours)
+	add_atom_colour(possible_cable_coil_colours[our_color], FIXED_COLOUR_PRIORITY)
+	update_icon()
 
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
-		color = param_color
+		our_color = param_color
 
 	pixel_x = rand(-2,2)
 	pixel_y = rand(-2,2)
@@ -546,18 +551,27 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 
 /obj/item/stack/cable_coil/update_icon()
-	if (!color)
-		color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
 	if(amount == 1)
 		icon_state = "coil1"
 		name = "cable piece"
+		cut_overlays()
+		var/mutable_appearance/base_overlay = mutable_appearance(icon, "coil1_end")
+		base_overlay.appearance_flags = RESET_COLOR
+		add_overlay(base_overlay)
 	else if(amount == 2)
 		icon_state = "coil2"
 		name = "cable piece"
+		cut_overlays()
+		var/mutable_appearance/base_overlay = mutable_appearance(icon, "coil2_end")
+		base_overlay.appearance_flags = RESET_COLOR
+		add_overlay(base_overlay)
 	else
 		icon_state = "coil"
 		name = "cable coil"
-
+		cut_overlays()
+		var/mutable_appearance/base_overlay = mutable_appearance(icon, "coil_end")
+		base_overlay.appearance_flags = RESET_COLOR
+		add_overlay(base_overlay)
 /obj/item/stack/cable_coil/proc/set_cable_color(var/selected_color, var/user)
 	if(!selected_color)
 		return
@@ -566,7 +580,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(!final_color)
 		final_color = possible_cable_coil_colours["Red"]
 		selected_color = "red"
-	color = final_color
+	our_color = final_color
 	to_chat(user, "<span class='notice'>You change \the [src]'s color to [lowertext(selected_color)].</span>")
 
 /obj/item/stack/cable_coil/proc/update_wclass()
@@ -598,7 +612,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
 		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
-		B.color = color
+		B.color = our_color
 		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
 	else
@@ -686,7 +700,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			var/obj/structure/cable/C = new(F)
 			var/obj/structure/cable/D = new(GetBelow(F))
 
-			C.cableColor(color)
+			C.cableColor(our_color)
 
 			C.d1 = 11
 			C.d2 = dirn
@@ -719,7 +733,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 			var/obj/structure/cable/C = new(F)
 
-			C.cableColor(color)
+			C.cableColor(our_color)
 
 			//set up the new cable
 			C.d1 = 0 //it's a O-X node cable
@@ -784,7 +798,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 					return
 
 			var/obj/structure/cable/NC = new(U)
-			NC.cableColor(color)
+			NC.cableColor(our_color)
 
 			NC.d1 = 0
 			NC.d2 = fdirn
@@ -830,7 +844,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				return
 
 
-		C.cableColor(color)
+		C.cableColor(our_color)
 
 		C.d1 = nd1
 		C.d2 = nd2
@@ -876,28 +890,27 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_wclass()
 
 /obj/item/stack/cable_coil/yellow
-	color = COLOR_YELLOW
+	our_color = COLOR_YELLOW
 
 /obj/item/stack/cable_coil/blue
-	color = COLOR_BLUE
+	our_color = COLOR_BLUE
 
 /obj/item/stack/cable_coil/green
-	color = COLOR_LIME
+	our_color = COLOR_LIME
 
 /obj/item/stack/cable_coil/pink
-	color = COLOR_PINK
+	our_color = COLOR_PINK
 
 /obj/item/stack/cable_coil/orange
-	color = COLOR_ORANGE
+	our_color = COLOR_ORANGE
 
 /obj/item/stack/cable_coil/cyan
-	color = COLOR_CYAN
+	our_color = COLOR_CYAN
 
 /obj/item/stack/cable_coil/white
-	color = COLOR_WHITE
+	our_color = COLOR_WHITE
 
 /obj/item/stack/cable_coil/random/Initialize()
-	color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
 	. = ..()
 
 //nooses - all catbeast/ligger/squiggers/synths must hang

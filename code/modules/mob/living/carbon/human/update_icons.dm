@@ -306,6 +306,12 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
+/obj/item/proc/worn_overlays(isinhands = FALSE, icon_file)
+	. = list()
+
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
 	var/list/ovr
 

@@ -24,6 +24,7 @@ var/malftransformermade = 0
 
 	if(malftransformermade)
 		to_chat(user, "There is already a transformer machine made!")
+		flick("[icon_state]-empty", src)
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
