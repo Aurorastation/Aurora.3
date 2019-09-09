@@ -67,6 +67,12 @@ var/list/gear_datums = list()
 				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
 					. += gear_name
 					break
+		if(G.faction && preference_mob)
+			if(ishuman(preference_mob))
+				var/mob/living/carbon/human/H = preference_mob
+				if(G.faction == H.employer_faction)
+					. += gear_name
+					break
 		else
 			.+= gear_name
 
@@ -218,6 +224,7 @@ var/list/gear_datums = list()
 	var/slot               //Slot to equip to.
 	var/list/allowed_roles //Roles that can spawn with this item.
 	var/whitelisted        //Term to check the whitelist for..
+	var/faction            //Is this item whitelisted for a faction?
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 
