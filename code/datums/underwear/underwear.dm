@@ -9,24 +9,34 @@
 *************/
 /datum/category_group/underwear
 	var/sort_order		// Lower sort order is applied as icons first
+	var/display_name
+	var/gender = NEUTER
+
+datum/category_group/underwear/dd_SortValue()
+	return sort_order
 
 /datum/category_group/underwear/top
 	name = "Underwear, top"
 	sort_order = 1
+	display_name = "top piece"
 	category_item_type = /datum/category_item/underwear/top
 
 /datum/category_group/underwear/bottom
 	name = "Underwear, bottom"
 	sort_order = 2
+	display_name = "bottom piece"
 	category_item_type = /datum/category_item/underwear/bottom
 
 /datum/category_group/underwear/socks
 	name = "Socks"
 	sort_order = 3
+	display_name = "socks"
+	gender = PLURAL
 	category_item_type = /datum/category_item/underwear/socks
 
 /datum/category_group/underwear/undershirt
 	name = "Undershirt"
+	display_name = "undershirt"
 	sort_order = 4		// Undershirts currently have the highest sort order because they may cover both underwear and socks.
 	category_item_type = /datum/category_item/underwear/undershirt
 
@@ -44,6 +54,11 @@
 /datum/category_item/underwear/New()
 	if(has_color)
 		tweaks += gear_tweak_free_color_choice
+
+/datum/category_item/underwear/dd_SortValue()
+	if(always_last)
+		return "~"+name
+	return name
 
 /datum/category_item/underwear/proc/is_default(var/gender)
 	return is_default

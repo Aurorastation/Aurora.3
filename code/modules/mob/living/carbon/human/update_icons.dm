@@ -313,6 +313,8 @@ There are several things that need to be remembered:
 	if(species.appearance_flags & HAS_UNDERWEAR)
 		overlays_raw[UNDERWEAR_LAYER] = list()
 		for(var/category in all_underwear)
+			if(hide_underwear[category])
+				continue
 			var/datum/category_item/underwear/UWI = all_underwear[category]
 			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
