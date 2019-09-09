@@ -41,7 +41,6 @@
 #define LANGUAGE_SIGN_TAJARA "Nal'rasan"
 #define LANGUAGE_YA_SSA "Ya'ssa"
 #define LANGUAGE_DELVAHII "Delvahhi"
-#define LANGUAGE_SIIK_TAU "Siik'Tau"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
@@ -51,8 +50,6 @@
 #define LANGUAGE_SIGN "Sign Language"
 
 // Antag Languages
-#define LANGUAGE_XENOMORPH "Xenomorph"
-#define LANGUAGE_HIVEMIND "Hivemind"	// xeno hivemind
 #define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"

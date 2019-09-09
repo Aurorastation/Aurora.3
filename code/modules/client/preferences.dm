@@ -94,7 +94,7 @@ datum/preferences
 	var/unsanitized_jobs = ""
 
 	//Keeps track of preferrence for not getting any wanted jobs
-	var/alternate_option = 2
+	var/alternate_option = RETURN_TO_LOBBY
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null

@@ -147,3 +147,30 @@
 					target.drop_r_hand()
 			user.visible_message("<span class='danger'>\The [user] disarms \the [target] with \the [src]!</span>")
 		return
+
+/obj/item/weapon/melee/ceremonial_sword
+	name = "sol officer ceremonial sword"
+	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "officersword"
+	item_state = "officersword"
+	contained_sprite = 1
+	flags = CONDUCT
+	slot_flags = SLOT_BELT
+	force = 15
+	throwforce = 5
+	w_class = 4
+	sharp = 1
+	edge = 1
+	can_embed = 0
+	origin_tech = list(TECH_COMBAT = 4)
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+/obj/item/weapon/melee/ceremonial_sword/marine
+	name = "sol marine ceremonial sword"
+	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "marineofficersword"
+	item_state = "marineofficersword"
+	contained_sprite = 1

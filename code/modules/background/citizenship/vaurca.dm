@@ -39,7 +39,7 @@
 
 
 /datum/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(!visualsOnly)
+	if(H && !visualsOnly)
 		if(isvaurca(H))
 			var/r = H.r_skin
 			var/g = H.g_skin
@@ -58,3 +58,5 @@
 
 			H.change_skin_color(r, g, b)
 			H.update_dna()
+		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+	return TRUE

@@ -136,8 +136,7 @@
 		step(O, get_dir(O, src))
 	return
 
-
-/obj/structure/table/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/table/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
 	if (!W) return
 
 	// Handle harm intent grabbing/tabling.
@@ -195,8 +194,48 @@
 		to_chat(user, "<span class='warning'>There's nothing to put \the [W] on! Try adding plating to \the [src] first.</span>")
 		return
 
-	user.drop_item(src.loc)
-	return
+	// Placing stuff on tables
+	if(user.unEquip(W, 0, src.loc))
+		user.make_item_drop_sound(W)
+		auto_align(W, click_parameters)
+		return 1
+
+#define CELLS 8								//Amount of cells per row/column in grid
+#define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
+/*
+Automatic alignment of items to an invisible grid, defined by CELLS and CELLSIZE.
+Since the grid will be shifted to own a cell that is perfectly centered on the turf, we end up with two 'cell halves'
+on edges of each row/column.
+Each item defines a center_of_mass, which is the pixel of a sprite where its projected center of mass toward a turf
+surface can be assumed. For a piece of paper, this will be in its center. For a bottle, it will be (near) the bottom
+of the sprite.
+auto_align() will then place the sprite so the defined center_of_mass is at the bottom left corner of the grid cell
+closest to where the cursor has clicked on.
+Note: This proc can be overwritten to allow for different types of auto-alignment.
+*/
+/obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
+/obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
+	if(!W.center_of_mass)
+		W.randpixel_xy()
+		return
+
+	if(!click_parameters)
+		return
+
+	var/list/mouse_control = mouse_safe_xy(click_parameters)
+	var/mouse_x = mouse_control["icon-x"]
+	var/mouse_y = mouse_control["icon-y"]
+
+	if(isnum(mouse_x) && isnum(mouse_y))
+		var/cell_x = max(0, min(CELLS-1, round(mouse_x/CELLSIZE)))
+		var/cell_y = max(0, min(CELLS-1, round(mouse_y/CELLSIZE)))
+
+		W.pixel_x = (CELLSIZE * (0.5 + cell_x)) - W.center_of_mass["x"]
+		W.pixel_y = (CELLSIZE * (0.5 + cell_y)) - W.center_of_mass["y"]
+
+#undef CELLS
+#undef CELLSIZE
 
 /obj/structure/table/attack_tk() // no telehulk sorry
 	return
+
