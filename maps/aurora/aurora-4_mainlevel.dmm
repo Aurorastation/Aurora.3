@@ -46714,6 +46714,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/holosign/surgery{
+	id = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bBY" = (
@@ -46767,10 +46770,6 @@
 "bCd" = (
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
-	},
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 0;
-	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -47664,6 +47663,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/holosign/surgery{
+	id = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -66577,6 +66579,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"opq" = (
+/obj/machinery/button/holosign{
+	id = 2
+	},
+/turf/simulated/wall,
+/area/medical/surgerywing)
 "opv" = (
 /obj/structure/closet,
 /obj/item/weapon/pickaxe{
@@ -67054,6 +67062,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"pzm" = (
+/obj/machinery/button/holosign{
+	id = 1
+	},
+/turf/simulated/wall,
+/area/medical/surgerywing)
 "pzv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -107737,11 +107751,11 @@ acq
 acr
 acs
 bAo
-bvz
+pzm
 bCd
 bDb
 bDR
-bvz
+opq
 bAo
 acz
 acR

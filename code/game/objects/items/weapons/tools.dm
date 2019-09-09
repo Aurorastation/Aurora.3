@@ -41,6 +41,7 @@
 	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver"
+	center_of_mass = list("x" = 13,"y" = 7)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 5.0
@@ -106,6 +107,7 @@
 	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
+	center_of_mass = list("x" = 18,"y" = 10)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 6.0
