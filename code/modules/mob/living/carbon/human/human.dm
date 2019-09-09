@@ -1175,7 +1175,7 @@
 	else
 		to_chat(usr, "<span class='warning'>You failed to check the pulse. Try again.</span>")
 
-/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0)
+/mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
@@ -1263,7 +1263,8 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
-	species.set_default_hair(src)
+	if(change_hair)
+		species.set_default_hair(src)
 
 	if(species)
 		return 1
