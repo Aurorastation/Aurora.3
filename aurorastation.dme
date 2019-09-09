@@ -1273,7 +1273,6 @@
 #include "code\modules\client\preference_setup\global\03_language.dm"
 #include "code\modules\client\preference_setup\global\04_pai.dm"
 #include "code\modules\client\preference_setup\loadout\gear_tweaks.dm"
-#include "code\modules\client\preference_setup\loadout\human.dm"
 #include "code\modules\client\preference_setup\loadout\loadout.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_accessories.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_cosmetics.dm"
