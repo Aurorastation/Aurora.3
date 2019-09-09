@@ -1,5 +1,6 @@
 var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
 
+
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
 	sort_order = 3

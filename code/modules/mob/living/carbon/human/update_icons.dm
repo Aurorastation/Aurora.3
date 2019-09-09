@@ -308,17 +308,13 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
 	var/list/ovr
-
-	if(underwear && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[underwear]"))
-
-	if(undershirt && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[undershirt]"))
-
-	if(socks && (species.appearance_flags & HAS_SOCKS))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[socks]"))
-
 	overlays_raw[UNDERWEAR_LAYER] = ovr
+
+	if(species.appearance_flags & HAS_UNDERWEAR)
+		overlays_raw[UNDERWEAR_LAYER] = list()
+		for(var/category in all_underwear)
+			var/datum/category_item/underwear/UWI = all_underwear[category]
+			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
 	if (update_icons)
 		update_icons()
