@@ -2125,11 +2125,7 @@
 /area/maintenance/security_starboard)
 "aei" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/constructable_frame/machine_frame{
-	icon_state = "box_0";
-	name = "machine frame";
-	state = 2
-	},
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "aej" = (
@@ -7760,11 +7756,7 @@
 "apy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/constructable_frame/machine_frame{
-	icon_state = "box_0";
-	name = "machine frame";
-	state = 2
-	},
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
 "apB" = (
@@ -63057,16 +63049,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cBK" = (
-/obj/machinery/constructable_frame/machine_frame{
-	icon_state = "box_0";
-	name = "machine frame";
-	state = 2
-	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
 "cCf" = (
@@ -63393,6 +63381,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"dEG" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Hydroponics - West";
+	dir = 1
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
 "dFK" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -69469,14 +69465,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"wEb" = (
-/obj/structure/flora/pottedplant/random,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Hydroponics - West";
-	dir = 1
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "wEn" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -99038,7 +99026,7 @@ bJT
 bJT
 bJT
 bJT
-wEb
+dEG
 bGr
 bOQ
 bPA
