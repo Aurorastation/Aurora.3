@@ -34,9 +34,10 @@
 	if(src.type == /obj/item/weapon/rcd && loc == usr)
 		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
 
-/obj/item/weapon/rcd/New()
-	..()
+/obj/item/weapon/rcd/Initialize()
+	. = ..()
 	src.spark_system = bind_spark(src, 5)
+	update_icon()
 
 /obj/item/weapon/rcd/Destroy()
 	qdel(spark_system)
@@ -55,6 +56,7 @@
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>The RCD now holds [stored_matter]/30 matter-units.</span>")
+		update_icon()
 		return
 	..()
 
@@ -80,6 +82,7 @@
 	if(stored_matter < amount)
 		return 0
 	stored_matter -= amount
+	update_icon()
 	return 1
 
 /obj/item/weapon/rcd/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
@@ -125,7 +128,8 @@
 		return 0
 
 	if(!useResource(build_cost, user))
-		to_chat(user, "Insufficient resources.")
+		user << "The \'Low Ammo\' light on the device blinks yellow."
+		flick("[icon_state]-empty", src)
 		return 0
 
 	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
@@ -150,6 +154,15 @@
 
 	playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 	return 1
+
+/obj/item/weapon/rcd/update_icon()	//For the fancy "ammo" counter
+	overlays.Cut()
+
+	var/ratio = 0
+	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RCD
+	ratio = max(round(ratio, 0.10) * 100, 10)
+
+	overlays += "[icon_state]-[ratio]"
 
 /obj/item/weapon/rcd_ammo
 	name = "compressed matter cartridge"

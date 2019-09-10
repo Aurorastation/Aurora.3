@@ -33,6 +33,7 @@ RSF
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
+		update_icon()
 		return
 
 /obj/item/weapon/rsf/attack_self(mob/user as mob)
@@ -68,6 +69,8 @@ RSF
 			return
 	else
 		if(stored_matter <= 0)
+			user << "The \'Low Ammo\' light on the device blinks yellow."
+			flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /obj/structure/table) && !istype(A, /turf/simulated/floor))
@@ -96,6 +99,7 @@ RSF
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")
 	product.forceMove(get_turf(A))
+	update_icon()
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
@@ -104,3 +108,12 @@ RSF
 	else
 		stored_matter--
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
+
+/obj/item/weapon/rsf/update_icon()	//For the fancy "ammo" counter
+	overlays.Cut()
+
+	var/ratio = 0
+	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RCD
+	ratio = max(round(ratio, 0.10) * 100, 10)
+
+	overlays += "[icon_state]-[ratio]"
