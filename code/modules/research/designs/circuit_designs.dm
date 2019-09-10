@@ -73,6 +73,12 @@
 	build_path = /obj/item/weapon/circuitboard/operating
 	sort_string = "FACAA"
 
+/datum/design/circuit/operatingadv
+	name = "life support console"
+	id = "operatingadv"
+	build_path = /obj/item/weapon/circuitboard/advoperating
+	sort_string = "FACAB"
+
 /datum/design/circuit/pandemic
 	name = "PanD.E.M.I.C. 2200"
 	id = "pandemic"
@@ -239,6 +245,88 @@
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/recharge_station
 	sort_string = "HACAC"
+
+/datum/design/circuit/holopadboard
+	name = "holopad board"
+	id = "holo_board"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/holopad
+	sort_string = "HACAD"
+
+/datum/design/circuit/sleeper
+	name = "sleeper board"
+	id = "sleeper_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/sleeper
+	sort_string = "HACAE"
+
+/datum/design/circuit/bodyscannerm
+	name = "body Scanner board"
+	id = "bodyscanm_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/bodyscanner
+	sort_string = "HACAF"
+
+/datum/design/circuit/bodyscannerc
+	name = "body Scanner console board"
+	id = "bodyscanc_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/bodyscannerconsole
+	sort_string = "HACAG"
+
+/datum/design/circuit/optable
+	name = "operation table scanning board"
+	id = "optable_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/optable
+	sort_string = "HACAH"
+
+
+/datum/design/circuit/optable
+	name = "advanced operation table scanning board"
+	id = "advoptable_board"
+	req_tech = list(TECH_BIO = 4, TECH_ENGINEERING = 5)
+	build_path = /obj/item/weapon/circuitboard/optableadv
+	sort_string = "HACAI"
+
+
+/datum/design/circuit/smartfridge
+	name = "smart fridge board"
+	id = "fridge_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/optable
+	sort_string = "HACAJ"
+
+/datum/design/circuit/requestconsole
+	name = "request console board"
+	id = "requestconsole_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/requestconsole
+	sort_string = "HACAI"
+
+
+/datum/design/circuit/cryopod
+	name = "cryo cellboard"
+	id = "cryocell_board"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/cryotube
+	sort_string = "HACAJ"
+
+/datum/design/circuit/crystelpod
+	name = "crystel therapy pod"
+	id = "therapypod"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/crystelpod
+	sort_string = "HACAK"
+
+/datum/design/circuit/crystelpodconsole
+	name = "crystel therapy pod"
+	id = "therapypodconsole"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/crystelpodconsole
+	sort_string = "HACAL"
+
+
 
 /datum/design/circuit/atmosalerts
 	name = "atmosphere alert console"

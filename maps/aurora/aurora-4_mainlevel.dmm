@@ -24060,6 +24060,8 @@
 /obj/item/weapon/reagent_containers/spray/pepper,
 /obj/item/clothing/suit/space/void/hos,
 /obj/item/clothing/head/helmet/space/void/hos,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aQC" = (
@@ -40171,7 +40173,6 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/item/bodybag/cryobag,
-/obj/item/weapon/storage/box/cdeathalarm_kit,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bri" = (
