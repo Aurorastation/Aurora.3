@@ -150,7 +150,7 @@
 			else if(is_broken())
 				//non-functioning liver ADDS toxins
 				owner.adjustToxLoss(-0.1) //roughly 33 minutes to kill someone straight out, stacks with 60+ tox proc tho
-			else 
+			else
 				//functioning liver removes toxins at a cost
 				owner.adjustToxLoss(-1)
 				if(!owner.reagents.has_reagent("anti_toxin")) //no damage to liver if anti-toxin is present
@@ -197,15 +197,3 @@
 	icon_state = "appendix"
 	parent_organ = "groin"
 	organ_tag = "appendix"
-
-/obj/item/organ/appendix/removed()
-	if(owner)
-		var/inflamed = 0
-		for(var/datum/disease/appendicitis/appendicitis in owner.viruses)
-			inflamed = 1
-			appendicitis.cure()
-			owner.resistances += appendicitis
-		if(inflamed)
-			icon_state = "appendixinflamed"
-			name = "inflamed appendix"
-	..()
