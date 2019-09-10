@@ -44,6 +44,7 @@
 	icon_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
+	center_of_mass = list("x" = 13,"y" = 7)
 	force = 5.0
 	w_class = 1.0
 	throwforce = 5.0
@@ -109,6 +110,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
+	center_of_mass = list("x" = 18,"y" = 10)
 	slot_flags = SLOT_BELT
 	force = 6.0
 	throw_speed = 2

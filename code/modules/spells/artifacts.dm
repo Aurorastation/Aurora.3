@@ -167,6 +167,7 @@
 		return
 
 /obj/item/phylactery/pickup(mob/living/user as mob)
+	..()
 	if(!user.is_wizard() && src.lich)
 		to_chat(user, "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>")
 		for(var/obj/machinery/light/P in view(7, user))

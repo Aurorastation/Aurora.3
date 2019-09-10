@@ -5,6 +5,8 @@
 	desc = "Apply butt."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "stool_preview" //set for the map
+	randpixel = 0
+	center_of_mass = null
 	force = 10
 	throwforce = 10
 	w_class = 5
