@@ -4,6 +4,7 @@
 	icon = 'icons/obj/coins.dmi'
 	name = "Coin"
 	icon_state = "coin"
+	randpixel = 8
 	desc = "A flat disc or piece of metal with an official stamp. An archaic type of currency."
 	flags = CONDUCT
 	force = 0.0
@@ -16,8 +17,7 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/weapon/coin/New()
-	pixel_x = rand(0,16)-8
-	pixel_y = rand(0,8)-8
+	randpixel_xy()
 
 /obj/item/weapon/coin/gold
 	name = "gold coin"

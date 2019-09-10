@@ -44,6 +44,7 @@
 /obj/item/weapon/storage/fancy/egg_box
 	icon = 'icons/obj/food.dmi'
 	icon_state = "eggbox"
+	center_of_mass = list("x" = 16,"y" = 7)
 	icon_type = "egg"
 	name = "egg box"
 	storage_slots = 12

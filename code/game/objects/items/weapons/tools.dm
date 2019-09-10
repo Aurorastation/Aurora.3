@@ -29,6 +29,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/sword.ogg'
+	usesound = 'sound/items/Ratchet.ogg'
 
 /obj/item/weapon/wrench/iswrench()
 	return TRUE
@@ -43,6 +44,7 @@
 	icon_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
+	center_of_mass = list("x" = 13,"y" = 7)
 	force = 5.0
 	w_class = 1.0
 	throwforce = 5.0
@@ -53,6 +55,7 @@
 	lock_picking_level = 5
 	var/random_icon = TRUE
 	drop_sound = 'sound/items/drop/scrap.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
 
 
 /obj/item/weapon/screwdriver/Initialize()
@@ -107,6 +110,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
+	center_of_mass = list("x" = 18,"y" = 10)
 	slot_flags = SLOT_BELT
 	force = 6.0
 	throw_speed = 2
@@ -631,3 +635,69 @@
 	update_tool()
 	return 1
 
+
+/obj/item/powerdrill
+	name = "impact wrench"
+	desc = " The screwdriver's big brother."
+	icon = 'icons/obj/tools.dmi'
+	var/drillcolor = null
+	force = 3
+	w_class = 2
+	toolspeed = 3
+	usesound = 'sound/items/drill_use.ogg'
+
+	var/list/tools = list(
+		"screwdriverbit",
+		"wrenchbit"
+		)
+	var/current_tool = 1
+
+/obj/item/powerdrill/Initialize()
+	. = ..()
+
+	switch(pick("red","blue","yellow","green"))
+		if ("red")
+			drillcolor = "red"
+		if ("blue")
+			drillcolor = "blue"
+		if ("green")
+			drillcolor = "green"
+		if ("yellow")
+			drillcolor = "yellow"
+	icon_state = "powerdrill[drillcolor]"
+
+/obj/item/powerdrill/examine(var/mob/user)
+	. = ..()
+	if(. && tools.len)
+		to_chat(user, "It has the following fittings:")
+		for(var/tool in tools)
+			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+
+/obj/item/powerdrill/iswrench()
+	usesound = 'sound/items/air_wrench.ogg'
+	return tools[current_tool] == "wrenchbit"
+
+/obj/item/powerdrill/isscrewdriver()
+	usesound = 'sound/items/drill_use.ogg'
+
+	return tools[current_tool] == "screwdriverbit"
+
+/obj/item/powerdrill/proc/update_tool()
+	if(isscrewdriver())
+		cut_overlays()
+		add_overlay("screwdriverbit")
+	if(iswrench())
+		cut_overlays()
+		add_overlay("wrenchbit")
+
+/obj/item/powerdrill/attack_self(var/mob/user)
+	if(++current_tool > tools.len)
+		current_tool = 1
+	var/tool = tools[current_tool]
+	if(!tool)
+		to_chat(user, "You can't seem to find any fittings in \the [src].")
+	else
+		to_chat(user, "You switch \the [src] to the [tool] fitting.")
+		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
+	update_tool()
+	return 1

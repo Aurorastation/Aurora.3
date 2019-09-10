@@ -11,6 +11,7 @@
 	var/datum/battle_monsters/trap/trap_datum
 
 	w_class = ITEMSIZE_TINY
+	drop_sound = null
 
 	//Card information here
 
@@ -22,6 +23,14 @@
 	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
 		var/obj/item/battle_monsters/card/adding_card = attacking
 		make_deck(user,adding_card)
+
+/obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)
+	if(istype(A,/obj/structure/table) || istype(A,/obj/structure/dueling_table))
+		user.visible_message(\
+			span("notice","\The [user] plays \the [src]!"),\
+			span("notice","You play \the [src]!")\
+		)
+	..(A, user, click_parameters)
 
 /obj/item/battle_monsters/card/attack_self(mob/user as mob)
 	flip_card(user)

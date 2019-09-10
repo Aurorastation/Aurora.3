@@ -44390,6 +44390,7 @@
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_server_room)
 "bBZ" = (
+/obj/machinery/telecomms/relay/preset/station,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_server_room)
 "bCa" = (

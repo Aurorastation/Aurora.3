@@ -85,6 +85,7 @@
 	item_state = icon_state
 
 /obj/item/weapon/material/twohanded/pickup(mob/user)
+	..()
 	unwield()
 
 /obj/item/weapon/material/twohanded/attack_self(mob/user as mob)

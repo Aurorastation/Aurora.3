@@ -4,6 +4,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cleaner"
 	item_state = "cleaner"
+	center_of_mass = list("x" = 16,"y" = 10)
 	flags = OPENCONTAINER|NOBLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -143,6 +144,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "pepperspray"
 	item_state = "pepperspray"
+	center_of_mass = list("x" = 16,"y" = 16)
 	possible_transfer_amounts = null
 	volume = 40
 	safety = 1
@@ -190,6 +192,7 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
+	center_of_mass = list("x" = 16,"y" = 16)
 	throwforce = 3
 	w_class = 3.0
 	possible_transfer_amounts = null
