@@ -133,11 +133,13 @@
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/helmet/HoS(src)
+		new /obj/item/clothing/head/helmet/hoshelm(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
 		new /obj/item/clothing/shoes/black_boots(src)
 		new /obj/item/clothing/gloves/black_leather(src)
 		//Tools
+		new /obj/item/clothing/shoes/magboots(src)
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/weapon/storage/box/tranquilizer(src)
