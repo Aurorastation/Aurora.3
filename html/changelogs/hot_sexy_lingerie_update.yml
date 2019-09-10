@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Split the underwear into top and bottom."
+  - rscadd: "Splits the underwear into top and bottom pieces."
   - rscadd: "Allows underwear to be removed."
-  - rscadd: "Ports underwear from BS12, Polaris, and tg using this new system."
+  - rscadd: "Ports some many more underwear, undershirt, socks styles from BS12, Polaris, and tg using this new system."
