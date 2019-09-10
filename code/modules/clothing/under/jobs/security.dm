@@ -101,6 +101,10 @@
 	icon_state = "necro_sec"
 	worn_state = "necro_sec"
 
+/obj/item/clothing/under/rank/security/necropolis/alt
+	icon_state = "necro_sec_alt"
+	worn_state = "necro_sec_alt"
+
 /obj/item/clothing/under/rank/security/idris
 	name = "Idris Incorporated security uniform"
 	desc = "A uniform worn by Idris Incorporated employees and contractors."
