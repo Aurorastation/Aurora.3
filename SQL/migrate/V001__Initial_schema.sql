@@ -305,6 +305,7 @@ CREATE TABLE `ss13_characters` (
   `facial_style` varchar(32) DEFAULT NULL,
   `eyes_colour` varchar(7) DEFAULT NULL,
   `all_underwear` varchar(32) DEFAULT NULL,
+  `all_underwear_metadata` varchar(7) DEFAULT NULL,
   `backbag` int(11) DEFAULT NULL,
   `b_type` varchar(32) DEFAULT NULL,
   `spawnpoint` varchar(32) DEFAULT NULL,
