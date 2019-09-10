@@ -738,7 +738,10 @@
 				permitted = TRUE
 
 			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
-				permitted = 0
+				permitted = FALSE
+
+			if(G.faction && G.faction != H.employer_faction)
+				permitted = FALSE
 
 			if(!permitted)
 				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")

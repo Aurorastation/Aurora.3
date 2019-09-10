@@ -1278,7 +1278,7 @@
 #include "code\modules\client\preference_setup\loadout\loadout_cosmetics.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_ears.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_eyes.dm"
-#include "code\modules\client\preference_setup\loadout\loadout_faction.dm"
+#include "code\modules\client\preference_setup\loadout\loadout_factions.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_general.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_gloves.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_head.dm"

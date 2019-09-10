@@ -232,15 +232,13 @@
 
 /obj/item/clothing/under/rank/zeng
 	name = "Zeng-Hu uniform"
-	desc = "A uniform worn by Zeng-Hu medical doctors."
-	icon_state = "zeng_research_alt"
-	worn_state = "zeng_research_alt"
-
-/obj/item/clothing/under/rank/zeng/research
-	name = "Zeng-Hu research uniform"
-	desc = "A uniform worn by Zeng-Hu researchers."
+	desc = "A uniform worn by Zeng-Hu medical doctors and researchers."
 	icon_state = "zeng_research"
 	worn_state = "zeng_research"
+
+/obj/item/clothing/under/rank/zeng/alt
+	icon_state = "zeng_research_alt"
+	worn_state = "zeng_research_alt"
 
 /obj/item/clothing/under/rank/zeng/civilian
 	name = "Zeng-Hu civilian uniform"

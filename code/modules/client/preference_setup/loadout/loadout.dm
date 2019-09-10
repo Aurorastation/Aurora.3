@@ -67,12 +67,6 @@ var/list/gear_datums = list()
 				if(is_alien_whitelisted(preference_mob, global.all_species[species]))
 					. += gear_name
 					break
-		if(G.faction && preference_mob)
-			if(ishuman(preference_mob))
-				var/mob/living/carbon/human/H = preference_mob
-				if(G.faction == H.employer_faction)
-					. += gear_name
-					break
 		else
 			.+= gear_name
 

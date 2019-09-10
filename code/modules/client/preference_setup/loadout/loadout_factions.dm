@@ -1,42 +1,47 @@
-/datum/gear/uniform/idris/cap
+/datum/gear/faction
 	display_name = "idris cap"
 	path = /obj/item/clothing/head/soft/sec/idris
+	slot = slot_head
 	sort_category = "Factions"
+	cost = 1
 	faction = "Idris Incorporated"
 
-/datum/gear/uniform/idris/beret
+/datum/gear/faction/idris_beret
 	display_name = "idris beret"
 	path = /obj/item/clothing/head/beret/sec/idris
-	sort_category = "Factions"
 	faction = "Idris Incorporated"
 
-/datum/gear/uniform/idris/uniform/alt
+/datum/gear/faction/idris_uniform_alt
 	display_name = "idris service skirt"
 	description = "Not for security usage."
 	path = /obj/item/clothing/under/rank/idris/service/alt
-	sort_category = "Factions"
+	slot = slot_wear_suit
 	faction = "Idris Incorporated"
 
-/datum/gear/uniform/necro/beret
+/datum/gear/faction/necro_beret
 	display_name = "brown necropolis beret"
 	path = /obj/item/clothing/head/beret/sec/necro
-	sort_category = "Factions"
 	faction = "Necropolis Industries"
 
-/datum/gear/uniform/necro/beret/alt
+/datum/gear/faction/necro_beret/alt
 	display_name = "black necropolis beret"
 	path = /obj/item/clothing/head/beret/sec/necro/alt
 	sort_category = "Factions"
-	faction = "Necropolis Industries"
 
-/datum/gear/uniform/necro/uniform/alt
+/datum/gear/faction/necro_uniform_alt
 	display_name = "brown necropolis uniform"
 	path = /obj/item/clothing/under/rank/security/necropolis/alt
-	sort_category = "Factions"
+	slot = slot_wear_suit
 	faction = "Necropolis Industries"
 
-/datum/gear/uniform/eridani/beret
+/datum/gear/faction/eridani_beret
 	display_name = "eridani beret"
 	path = /obj/item/clothing/head/beret/sec/eri
-	sort_category = "Factions"
+	slot = slot_head
 	faction = "Eridani Private Military Contractors"
+
+/datum/gear/faction/zenghu_uniform_alt
+	display_name = "zeng-hu black uniform"
+	path = /obj/item/clothing/under/rank/zeng/alt
+	slot = slot_wear_suit
+	faction = "Zeng-hu Pharmaceuticals"

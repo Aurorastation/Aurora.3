@@ -76,7 +76,7 @@
 
 /datum/outfit/job/roboticist/zeng_hu
 	name = "Roboticist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng/research
+	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
@@ -101,7 +101,7 @@
 
 /datum/outfit/job/xenobiologist/zeng_hu
 	name = "Xenobiologist - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng/research
+	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/weapon/card/id/zeng_hu
 
 /datum/outfit/job/representative/zeng_hu
