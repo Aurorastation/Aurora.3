@@ -96,7 +96,11 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aq" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "ar" = (
@@ -298,8 +302,12 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aX" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aY" = (
@@ -356,7 +364,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "bj" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bk" = (
@@ -395,8 +407,12 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "br" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/structure/window/reinforced,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bs" = (
@@ -502,15 +518,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "bN" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 1
 	},
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "bO" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "bP" = (
@@ -1194,7 +1218,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "dY" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/template_noop,
 /area/template_noop)
 "dZ" = (
@@ -1987,9 +2015,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "gn" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "go" = (
@@ -2876,7 +2908,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "ji" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jj" = (
@@ -3826,7 +3862,11 @@
 /area/derelict/hallway/southeast)
 "lY" = (
 /obj/item/weapon/gun/energy/mindflayer,
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "lZ" = (
@@ -3896,7 +3936,11 @@
 /turf/template_noop,
 /area/derelict/hallway/southwest)
 "mh" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "mi" = (
@@ -3904,8 +3948,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mj" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "mk" = (
@@ -4023,7 +4071,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mz" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mA" = (
@@ -4781,8 +4833,12 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "oD" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "oE" = (
@@ -4962,8 +5018,12 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "pc" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "pd" = (
@@ -5372,8 +5432,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "qk" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "ql" = (
@@ -6599,8 +6663,12 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "tD" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "tE" = (
@@ -7519,9 +7587,13 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vJ" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vK" = (
@@ -7697,8 +7769,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southwest)
 "wm" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "wn" = (
@@ -7725,9 +7801,13 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "wr" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "ws" = (

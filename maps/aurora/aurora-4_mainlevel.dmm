@@ -2124,8 +2124,12 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "aei" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "aej" = (
@@ -7755,8 +7759,12 @@
 /area/security/brig)
 "apy" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
 "apB" = (
@@ -52538,19 +52546,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hydroponics)
-"bNA" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Hydroponics - West";
-	dir = 1
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bNB" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light,
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "bND" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/alarm{
@@ -63062,7 +63057,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cBK" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/machine_frame{
+	icon_state = "box_0";
+	name = "machine frame";
+	state = 2
+	},
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
@@ -69470,6 +69469,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"wEb" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Hydroponics - West";
+	dir = 1
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
 "wEn" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -99031,7 +99038,7 @@ bJT
 bJT
 bJT
 bJT
-bJS
+wEb
 bGr
 bOQ
 bPA
@@ -99288,7 +99295,7 @@ bKO
 bLx
 bLx
 bML
-bNA
+bJT
 bOp
 uuz
 bPB
@@ -99545,7 +99552,7 @@ bKP
 bLy
 bMg
 bMM
-bNB
+bJT
 bJb
 bOS
 bPA
