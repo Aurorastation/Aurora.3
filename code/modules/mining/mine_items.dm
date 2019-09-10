@@ -457,6 +457,10 @@
 	if(..(user, 0))
 		to_chat(user, "It currently holds [stored_matter]/30 fabrication-units.")
 
+/obj/item/weapon/rrf/Initialize()
+	. = ..()
+	update_icon()
+
 /obj/item/weapon/rrf/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if (istype(W, /obj/item/weapon/rcd_ammo))
