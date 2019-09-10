@@ -106,7 +106,7 @@
 
 /datum/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
-	uniform = /obj/item/clothing/under/rank/zeng/service
+	uniform = /obj/item/clothing/under/rank/zeng/civilian
 	head = null
 	suit = null
 	implants = null
