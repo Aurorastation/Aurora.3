@@ -173,7 +173,7 @@
 		to_chat(H, span("warning", "Warning: small electric discharge detected in the system. Battery has lost 35% of charge!"))
 		H.nutrition -= H.max_nutrition * 0.35
 		if(H.nutrition / H.max_nutrition < 0.5)
-			H.Weaken(15)
+			H.Weaken(5)
 
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
