@@ -55,6 +55,7 @@
 #include "code\__defines\vueui.dm"
 #include "code\__defines\webhook.dm"
 #include "code\__defines\ZAS.dm"
+#include "code\_helpers\_global_objects.dm"
 #include "code\_helpers\_string_lists.dm"
 #include "code\_helpers\area_movement.dm"
 #include "code\_helpers\areas.dm"
