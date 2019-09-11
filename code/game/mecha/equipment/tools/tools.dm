@@ -1,3 +1,5 @@
+
+
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
 	name = "hydraulic clamp"
 	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
@@ -1306,6 +1308,17 @@
 			to_chat(usr, "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>")
 		if (0)
 			to_chat(usr, "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>")
+
+
+
+/obj/item/mecha_parts/mecha_equipment/tool/artillerycomputer
+	name = "passenger compartment"
+	desc = "A mountable passenger compartment for exo-suits. Rather cramped."
+	icon_state = "mecha_abooster_ccw"
+	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
+	var/ax = null
+	var/ay = null
+	var/az = null
 
 #undef LOCKED
 #undef OCCUPIED

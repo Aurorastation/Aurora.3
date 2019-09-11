@@ -26,6 +26,12 @@
 	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscanner,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/device/healthanalyzer
+		)
 
 	use_power = 1
 	idle_power_usage = 60
@@ -86,10 +92,6 @@
 	src.occupant = usr
 	update_use_power(2)
 	update_icon()
-	for(var/obj/O in src)
-		//O = null
-		qdel(O)
-		//Foreach goto(124)
 	src.add_fingerprint(usr)
 	return
 
@@ -98,9 +100,6 @@
 		return
 
 	last_occupant_name = src.occupant.name
-	for(var/obj/O in src)
-		O.forceMove(src.loc)
-		//Foreach goto(30)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
@@ -138,8 +137,6 @@
 		src.occupant = M
 		update_use_power(2)
 		update_icon()
-		for(var/obj/O in src)
-			O.forceMove(loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -182,9 +179,6 @@
 		update_use_power(2)
 		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
-		for(var/obj/Obj in src)
-			Obj.forceMove(src.loc)
-			//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
 	return
@@ -254,11 +248,19 @@
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscannerconsole,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen
+		)
+
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
+
+
 
 /obj/machinery/body_scanconsole/power_change()
 	..()
@@ -302,6 +304,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
+
 	if(..())
 		return
 
