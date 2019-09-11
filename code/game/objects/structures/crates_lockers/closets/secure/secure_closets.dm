@@ -70,7 +70,7 @@
 /obj/structure/closet/secure_closet/AltClick(mob/user)
 	. = ..()
 
-	if(use_check_and_message(usr))
+	if(use_check_and_message(user))
 		return
 
 	togglelock(user)
