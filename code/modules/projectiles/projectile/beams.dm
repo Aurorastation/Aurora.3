@@ -166,15 +166,6 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
-/obj/item/projectile/beam/stun/on_impact(var/atom/A)
-	. = ..()
-	if(isipc(A))
-		var/mob/living/carbon/human/H = A
-		to_chat(H, span("warning", "Warning: small electric discharge detected in the system. Battery has lost 35% of charge!"))
-		H.nutrition -= H.max_nutrition * 0.35
-		if(H.nutrition / H.max_nutrition < 0.5)
-			H.Weaken(5)
-
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
