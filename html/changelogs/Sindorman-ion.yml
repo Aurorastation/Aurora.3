@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "Ion rifle fire delay has been increased twice for unweidled and 5 times to weilded.(Since it was practicaly 1 and making it 2 was not noticable at all)."
-  - tweal: "Taser shots and energy gun stun beams will now drain 35% of IPC battery per shot. If IPC battery is less than 5%, the shot will also stun them for 5 seconds."
+  - tweak: "Taser shots and energy gun stun beams will now drain 35% of IPC battery per shot. If IPC battery is less than 5%, the shot will also stun them for 5 seconds."
