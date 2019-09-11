@@ -299,7 +299,7 @@
 /mob/living/simple_animal/penguin/Dave
 	name = "Dave"
 	real_name = "Dave"	//Intended to hold the name without altering it.
-	desc = "Can't fly and barely waddles, yet the prince of all chicks. This one has a collar with the name /Dave/ emboldened."
+	desc = "Can't fly and barely waddles, yet the prince of all chicks. This one has a collar with the name Dave emboldened."
 	icon_state = "penguin_baby"
 	icon_living = "penguin_baby"
 	icon_dead = "penguin_baby_dead"
