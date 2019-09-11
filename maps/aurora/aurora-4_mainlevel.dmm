@@ -40173,7 +40173,6 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/item/bodybag/cryobag,
-/obj/item/weapon/storage/box/cdeathalarm_kit,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bri" = (
