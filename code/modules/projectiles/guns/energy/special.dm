@@ -14,6 +14,8 @@
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 10
+	fire_delay = 12
+	fire_delay_wielded = 5
 	secondary_projectile_type =  /obj/item/projectile/ion
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1

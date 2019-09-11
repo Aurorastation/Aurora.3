@@ -49,6 +49,15 @@
 	damage_type = HALLOSS
 	//Damage will be handled on the MOB side, to prevent window shattering.
 
+/obj/item/projectile/energy/electrode/on_impact(var/atom/A)
+	. = ..()
+	if(isipc(A))
+		var/mob/living/carbon/human/H = A
+		to_chat(H, span("warning", "Warning: small electric discharge detected in the system. Battery has lost 35% of charge!"))
+		H.nutrition -= H.max_nutrition * 0.35
+		if(H.nutrition / H.max_nutrition < 0.5)
+			H.Weaken(15)
+
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"
 	damage = 5
