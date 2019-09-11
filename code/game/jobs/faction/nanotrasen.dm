@@ -22,14 +22,20 @@
 		if(REPRESENTATIVE_MISSION_HIGH)
 			objective = pick("Have [rand(1,4)] crewmember sign NT apprenticeship contracts",
 						"Make sure that the station fullfils [rand(4,12)] cargo bounties",
+						"Provide [rand(1,3)] reports on artifacts and their effects",
+						"Make sure at least [rand(5-50)] Phoron crystals are exported to NTCC Odin",
 						"Make sure that the station raises [rand(5000,12000)] credits by the end of the shift")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
 						"Have [rand(2,5)] crewmembers buy Odin real estate",
-						"[rand(3,10)] crewmember must buy Getmore products from the vendors")
+						"Provide a list of researched techlogies to the NTCC Odin at the end of the shift",
+						"Make sure [rand(2,5)] more Getmore vending machines are installed")
 		else
-			objective = pick("Conduct and present a survey on crew morale and content",
-						"Make sure that [rand(2,4)] complaints are solved on the station",
-						"Have [rand(3,10)] crewmembers buy Getmore products from the vendors")
+
+			objective = pick("Conduct and present a survey on crew morale and satisfaction",
+						"Make sure that [rand(2,4)] complaints are resolved on the station",
+						"Provide a presentation for heads of staff regarding workplace efficiency",
+						"Conduct and present a survey on Getmore products and ideas to expand them",
+						"Have [rand(3,7)] crewmembers provide written recommendations of Getmore Products for advertisers")
 
 	return objective

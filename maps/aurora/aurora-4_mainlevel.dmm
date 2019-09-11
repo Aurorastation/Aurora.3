@@ -63100,6 +63100,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"cOU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/coatrack,
+/turf/simulated/floor/wood,
+/area/lawoffice)
 "cPy" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -66196,16 +66208,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "mOb" = (
-/obj/structure/coatrack,
-/obj/machinery/light_switch{
-	pixel_x = 12;
-	pixel_y = -23
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/firealarm/south,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/door/window/brigdoor{
+	base_state = "rightsecure";
+	dir = 1;
+	icon_state = "rightsecure";
+	req_access = list(38)
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/mob/living/simple_animal/penguin/Dave{
+	health = 40
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -66256,9 +66274,6 @@
 	pixel_y = 32
 	},
 /obj/item/weapon/storage/secure/briefcase,
-/obj/item/device/eftpos{
-	eftpos_name = "Internal Affairs EFTPOS scanner"
-	},
 /obj/item/clothing/under/suit_jacket/female,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
@@ -66965,13 +66980,6 @@
 	pixel_x = 5
 	},
 /obj/item/weapon/folder/yellow,
-/obj/item/weapon/stamp/denied{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/weapon/stamp{
-	name = "representative stamp"
-	},
 /obj/machinery/ringer{
 	department = "Representatives Office";
 	id = "rep_ringer";
@@ -108485,7 +108493,7 @@ siO
 auY
 ekc
 awI
-azV
+cOU
 atr
 wJm
 aCX
