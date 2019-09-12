@@ -15,7 +15,7 @@
 
 /obj/item/stellascope/examine(mob/user)
 	..(user)
-	to_chat(user, "\The [src] display the \"[selected_constellation]\".")
+	to_chat(user, "\The [src] displays the \"[selected_constellation]\".")
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
@@ -32,3 +32,87 @@
 	var/chosen_constellation = pick(constellations)
 	selected_constellation = chosen_constellation
 	return chosen_constellation
+
+/obj/item/skrell_projector
+	name = "nralakk projector"
+	desc = "A projector meant to help Federation Skrell feel like they’re carrying home with them wherever they go. It looks very complex."
+	icon = 'icons/obj/skrell_items.dmi'
+	icon_state = "projector"
+	w_class = 1
+	matter = list("glass" = 200)
+	drop_sound = 'sound/items/drop/glass.ogg'
+	var/list/worlds_selection = list("Xrim", "Kal'lo", "Nralakk")
+	var/selected_world
+	var/working = FALSE
+
+/obj/item/skrell_projector/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/skrell_projector/examine(mob/user)
+	..(user)
+	if(selected_world && working)
+		to_chat(user, "\The [src] displays the world of [selected_world].")
+
+/obj/item/skrell_projector/attack_self(mob/user as mob)
+	working = !working
+
+	if(working)
+		var/choice = input("You change the projector's world to;","Change the projector's world.") as null|anything in list(worlds_selection)
+		apply_world(choice)
+		START_PROCESSING(SSprocessing, src)
+	else
+		set_light(0)
+		working = FALSE
+		icon_state = initial(icon_state)
+		STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/skrell_projector/proc/apply_world(var/choice)
+	set_light(2)
+	if(choice)
+		selected_world = choice
+
+	switch(choice)
+
+		if("Xrim")
+			icon_state = "projector_pink"
+			light_color = LIGHT_COLOR_PINK
+
+		if("Kal'lo")
+			icon_state = "projector_blue"
+			light_color = LIGHT_COLOR_BLUE
+
+		if("Nralakk")
+			icon_state = "projector_purple"
+			light_color = LIGHT_COLOR_PURPLE
+		else
+			working = FALSE
+			set_light(0)
+			icon_state = initial(icon_state)
+			STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/skrell_projector/process()
+	if(!selected_world)
+		return
+
+	if(prob(10))
+		var/hologram_message
+		switch(selected_world)
+
+			if("Xrim")
+				hologram_message = pick("You hear strange, warbling birdsong.",
+										" You see sunlight filtered through overgrown trees projected on the ceiling.",
+										"You see large insects hovering above the projector.")
+
+			if("Kal'lo")
+				hologram_message = pick("You see the ocean surface projected on the ceiling.",
+										"You see colorful fish swimming above the projector.",
+										"You hear the muffled sound of waves breaking above you.")
+
+			if("Nralakk")
+				hologram_message = pick("You see the Jargon system sky projected on the ceiling.",
+										"You see planets slowly orbiting Nralakk above the projector.",
+										"You hear faint ceremonial hymms.")
+
+		if(hologram_message)
+			visible_message("<span class='notice'>[hologram_message]</span>")
