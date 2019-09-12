@@ -37,3 +37,5 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
+
+	zombie_type = "Zombie"
