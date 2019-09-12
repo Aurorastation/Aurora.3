@@ -58,7 +58,7 @@
 	working = !working
 
 	if(working)
-		var/choice = input("You change the projector's world to;","Change the projector's world.") as null|anything in list(worlds_selection)
+		var/choice = input("You change the projector's world to;","Change the projector's world.") as null|anything in worlds_selection
 		apply_world(choice)
 		START_PROCESSING(SSprocessing, src)
 	else

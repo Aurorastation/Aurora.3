@@ -80,3 +80,9 @@
 	path = /obj/item/stellascope
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
+
+/datum/gear/skrell_projector
+	display_name = "nralakk projector"
+	path = /obj/item/skrell_projector
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
