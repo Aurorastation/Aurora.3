@@ -203,3 +203,11 @@
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
+
+/obj/machinery/constructable_frame/temp_deco
+	name = "machine frame"
+	desc = "An old and dusty machine frame that once housed a machine of some kind."
+	icon_state = "box_0"
+	density = 1
+	anchored = 1
+	state = 2
