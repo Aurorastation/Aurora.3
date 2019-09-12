@@ -176,7 +176,8 @@
 		new /obj/item/clothing/under/rank/head_of_security/corp(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
-		new /obj/item/clothing/head/helmet/HoS(src)
+		new /obj/item/clothing/head/helmet/hos/cap(src)
+		new /obj/item/clothing/head/helmet/hos/helmet(src)
 		//Tools
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
