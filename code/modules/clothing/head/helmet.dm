@@ -38,14 +38,14 @@
 	desc = "A security commissar's cap."
 	icon_state = "commissarcap"
 
-/obj/item/clothing/head/helmet/HoS
+/obj/item/clothing/head/helmet/hos/cap
 	name = "head of security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
 
-/obj/item/clothing/head/helmet/hoshelm
+/obj/item/clothing/head/helmet/hos/helmet
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
 	description_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
@@ -53,7 +53,7 @@
 	item_state = "hoshelmet"
 	armor = list(melee = 62, bullet = 50, laser = 50, energy = 35, bomb = 10, bio = 2, rad = 0)
 
-/obj/item/clothing/head/helmet/HoS/dermal
+/obj/item/clothing/head/helmet/hos/dermal
 	name = "dermal armour patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
