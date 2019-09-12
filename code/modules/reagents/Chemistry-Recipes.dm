@@ -3153,7 +3153,7 @@
 	mix_message = "The ice melts."
 	reaction_sound = ""
 
-/datum/chemical_reaction/phoron_salt //Safe temperatures for phoron salt is between 0 degress celcius and 200 celcius.
+/datum/chemical_reaction/phoron_salt
 	name = "Phoron Salt"
 	id = "phoron_salt"
 	result = "phoron_salt"
@@ -3298,5 +3298,3 @@
 	result = "rmt"
 	result_amount = 1
 	required_reagents = list("potassium" = 1, "inaprovaline" = 1)
-
-

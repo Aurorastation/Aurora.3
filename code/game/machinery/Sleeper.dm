@@ -65,6 +65,7 @@
 
 	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
+
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
 		return 1
