@@ -2793,6 +2793,36 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list("Skrell")
 		do_colouration = 0
 
+	skr_dots
+		name = "Skrell Dots"
+		icon_state = "skrell_dots"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_stripes
+		name = "Skrell Stripes"
+		icon_state = "skrell_stripes"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_arms
+		name = "Skrell Arms"
+		icon_state = "skrell_arms"
+		body_parts = list("l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Skrell")
+
+	skr_circles_r
+		name = "Right Skrell Circles"
+		icon_state = "skrell_circles_r"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_circles_l
+		name = "Left Skrell Circles"
+		icon_state = "skrell_circles_l"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
 // Branded IPC markings - disabled for now, some layering issues.
 /*
 	bishop
