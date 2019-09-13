@@ -63,6 +63,7 @@
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
 	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
 	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
+	var/fractured = FALSE
 
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
@@ -490,6 +491,17 @@ This function completely restores a damaged organ to perfect condition.
 		//Bone fractures
 		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
 			src.fracture()
+
+		if(fractured)
+			if(!(status & ORGAN_SPLINTED) && istype(owner,/mob/living/carbon/human))
+				var/mob/living/carbon/human/H = owner
+				if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
+					var/obj/item/clothing/suit/space/suit = H.wear_suit
+					if(isnull(suit.supporting_limbs))
+						return
+					to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
+					status |= ORGAN_SPLINTED
+					suit.supporting_limbs |= src
 
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
@@ -925,6 +937,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam
+	fractured = TRUE
 
 	// Fractures have a chance of getting you out of restraints
 	if (prob(25))
@@ -956,6 +969,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return 0	//will just immediately fracture again
 
 	status &= ~ORGAN_BROKEN
+	fractured = FALSE
+
 	return 1
 
 /obj/item/organ/external/robotize(var/company)
