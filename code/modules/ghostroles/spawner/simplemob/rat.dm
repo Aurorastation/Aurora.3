@@ -1,7 +1,7 @@
 /datum/ghostspawner/simplemob/rat
 	short_name = "rat"
 	name = "Rat"
-	desc = "Join as a Rat on the aurora, a common nuciance to the crew."
+	desc = "Join as a Rat on the aurora, a common nuisance to the crew."
 	welcome_message = "You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!"
 	tags = list("Simple Mobs")
 
