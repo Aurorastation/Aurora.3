@@ -460,7 +460,7 @@
 			user.remove_language(LANGUAGE_UNATHI)
 			user.remove_language(LANGUAGE_SIIK_MAAS)
 			user.remove_language(LANGUAGE_SKRELLIAN)
-			user.add_language("Rootsong")
+			user.add_language(LANGUAGE_ROOTSONG)
 
 	is_active(mob/living/silicon/pai/user)
 		return user.translator_on
