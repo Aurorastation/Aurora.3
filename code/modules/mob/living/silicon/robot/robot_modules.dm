@@ -356,6 +356,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/engineering/construction/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/rfd/construction/borg(src)

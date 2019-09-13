@@ -53,7 +53,7 @@
 		)
 
 	possible_trading_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/monkeykabob  	           = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/monkeykabob                = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/monkeysdelight             = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/ricepudding                = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/soydope                    = TRADER_THIS_TYPE,
@@ -114,17 +114,17 @@
 	trade_flags = TRADER_MONEY
 
 	possible_trading_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks                     = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/reagent_containers/food/drinks/cans                = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle              = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/small        = TRADER_BLACKLIST,
-		/obj/item/weapon/reagent_containers/food/snacks/boiledslimecore     = TRADER_BLACKLIST,
-		/obj/item/weapon/reagent_containers/food/snacks/fruit_slice         = TRADER_BLACKLIST,
-		/obj/item/weapon/reagent_containers/food/snacks/grown               = TRADER_BLACKLIST_ALL,
-		/obj/item/weapon/reagent_containers/food/snacks/human               = TRADER_BLACKLIST_ALL,
+		/obj/item/weapon/reagent_containers/food/snacks                      = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/reagent_containers/food/drinks/cans                 = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle               = TRADER_SUBTYPES_ONLY,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/small         = TRADER_BLACKLIST,
+		/obj/item/weapon/reagent_containers/food/snacks/boiledslimecore      = TRADER_BLACKLIST,
+		/obj/item/weapon/reagent_containers/food/snacks/fruit_slice          = TRADER_BLACKLIST,
+		/obj/item/weapon/reagent_containers/food/snacks/grown                = TRADER_BLACKLIST_ALL,
+		/obj/item/weapon/reagent_containers/food/snacks/human                = TRADER_BLACKLIST_ALL,
 		/obj/item/weapon/reagent_containers/food/snacks/sliceable/cake/brain = TRADER_BLACKLIST,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/human          = TRADER_BLACKLIST,
-		/obj/item/weapon/reagent_containers/food/snacks/variable            = TRADER_BLACKLIST_ALL
+		/obj/item/weapon/reagent_containers/food/snacks/meat/human           = TRADER_BLACKLIST,
+		/obj/item/weapon/reagent_containers/food/snacks/variable             = TRADER_BLACKLIST_ALL
 	)
 
 	speech = list(
@@ -172,11 +172,11 @@
 
 	possible_trading_items = list(
 		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday/filled       = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled	        = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot/filled         = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/cheese/filled         = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/chocolate/filled      = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lemon/filled          = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lime/filled	        = TRADER_THIS_TYPE,
+		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lime/filled           = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange/filled         = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/cakeslice/plain/filled          = TRADER_THIS_TYPE,
 		/obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice/filled          = TRADER_THIS_TYPE,

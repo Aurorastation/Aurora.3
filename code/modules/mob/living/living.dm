@@ -17,7 +17,7 @@
 	if(!..())
 		return 0
 
-	src.visible_message("<b>[src]</b> points to [A]")
+	src.visible_message("<b>[src]</b> points to [A].")
 	return 1
 
 /mob/living/Crossed(var/atom/movable/AM)
