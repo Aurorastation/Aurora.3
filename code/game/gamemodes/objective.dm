@@ -435,7 +435,7 @@ datum/objective/steal
 	var/global/possible_items[] = list(
 		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
 		"a hand teleporter" = /obj/item/weapon/hand_tele,
-		"an RCD" = /obj/item/weapon/rcd,
+		"a RFD C-Class" = /obj/item/weapon/rfd/construction,
 		"a jetpack" = /obj/item/weapon/tank/jetpack,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
 		"a functional AI" = /obj/item/weapon/aicard,

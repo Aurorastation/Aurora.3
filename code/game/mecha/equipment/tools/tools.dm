@@ -307,10 +307,10 @@
 	return
 
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd
-	name = "mounted RCD"
-	desc = "An exosuit-mounted Rapid Construction Device."
-	icon_state = "mecha_rcd"
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c
+	name = "mounted RFD-C"
+	desc = "An exosuit-mounted Rapid-Fabrication-Device C-Class."
+	icon_state = "mecha_rfd-c"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	equip_cooldown = 10
 	energy_drain = 250
@@ -318,7 +318,7 @@
 	var/mode = 0 //0 - deconstruct, 1 - wall or floor, 2 - airlock.
 	var/disabled = 0 //malf
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd/action(atom/target)
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c/action(atom/target)
 	var/turf/t = get_turf(target)
 	if(istype(target,/area/shuttle)||istype(target, /turf/space/transit))//>implying these are ever made -Sieve
 		disabled = 1
@@ -395,20 +395,20 @@
 	return
 
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd/Topic(href,href_list)
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c/Topic(href,href_list)
 	..()
 	if(href_list["mode"])
 		mode = text2num(href_list["mode"])
 		switch(mode)
 			if(0)
-				occupant_message("Switched RCD to Deconstruct.")
+				occupant_message("Switched RFD-C to Deconstruct.")
 			if(1)
-				occupant_message("Switched RCD to Construct.")
+				occupant_message("Switched RFD-C to Construct.")
 			if(2)
-				occupant_message("Switched RCD to Construct Airlock.")
+				occupant_message("Switched RFD-C to Construct Airlock.")
 	return
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd/get_equip_info()
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c/get_equip_info()
 	return "[..()] \[<a href='?src=\ref[src];mode=0'>D</a>|<a href='?src=\ref[src];mode=1'>C</a>|<a href='?src=\ref[src];mode=2'>A</a>\]"
 
 

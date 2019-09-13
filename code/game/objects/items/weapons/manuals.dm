@@ -526,7 +526,7 @@
 				  <li>A basic set of engineering tools</li>
 				  <li>Metal Synthesizer</li>
 				  <li>Reinforced Glass Synthesizer</li>
-				  <li>An RCD</li>
+				  <li>A Rapid-Fabrication-Device C-Class</li>
 				  <li>Wire Synthesizer</li>
 				  <li>Fire Extinguisher</li>
 				  <li>Built-in Optical Meson Scanners</li>
