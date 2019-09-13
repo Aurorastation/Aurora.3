@@ -40,6 +40,6 @@ delete-after: True
 changes: 
   - tweak: "The RCD, the RSF, and the RRF have been rebranded into classes of a catch-all Rapid Fabrication Device."
   - imageadd: "RFDs also have nicer sprites."'
-  - rscadd: "You can make crossbows with RSFs too."
+  - rscadd: "You can make crossbows with RFDs too."
 
 
