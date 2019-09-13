@@ -280,7 +280,7 @@
 /obj/item/weapon/arrow/RFD
 	name = "flashforged bolt"
 	desc = "The ultimate ghetto deconstruction implement."
-	throwforce = 4
+	throwforce = 10
 
 /obj/item/weapon/gun/launcher/crossbow/RFD
 	name = "Rapid-Fabrication-Device Crossbow"

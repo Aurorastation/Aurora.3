@@ -42,7 +42,7 @@
 
 /obj/item/weapon/rfd/examine(var/mob/user)
 	..()
-	if(src.type == !/obj/item/weapon/rfd/transformer && loc == user)
+	if(loc == user)
 		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
 
 /obj/item/weapon/rfd/attack_self(mob/user)
@@ -364,12 +364,19 @@ RFD Mining-Class
 /obj/item/weapon/rfd/transformer
 	name = "\improper Rapid-Fabrication-Device T-Class"
 	desc = "A device used for rapid fabrication, modified to deploy a transformer. It can only be used once and there can not be more than one made."
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "rfd"
+	stored_matter = 30
 	var/malftransformermade = 0
 
 /obj/item/weapon/rfd/transformer/attack_self(mob/user)
 	return
+
+/obj/item/weapon/rfd/transformer/examine(var/mob/user)
+	..()
+	if(loc == user)
+		if(malftransformermade)
+			to_chat(user, "There is already a transformer machine made!")
+		else
+			to_chat(user, "It is ready to deploy a transformer machine.")
 
 /obj/item/weapon/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
@@ -395,16 +402,10 @@ RFD Mining-Class
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))
+		stored_matter = 0
 		update_icon()
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(used_energy)
-
-/obj/item/weapon/rfd/transformer/update_icon()	//For the fancy "ammo" counter
-	overlays.Cut()
-	if(!malftransformermade)
-		add_overlay("rfd-100")
-	else
-		add_overlay("rfd-0")
