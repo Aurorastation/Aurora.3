@@ -10,7 +10,7 @@
 		only hope these unknown assassins isn't here for you."
 	config_tag = "ninja"
 	required_players = 10
-	max_players = 15
+	max_players = 35
 	required_enemies = 2
 	end_on_antag_death = 0
 	antag_tags = list(MODE_NINJA)
