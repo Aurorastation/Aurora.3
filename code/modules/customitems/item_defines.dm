@@ -136,12 +136,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "bell_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
 	name = "pinned brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - \"Avery Bell, Silhouette Co\"."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
 	item_state = "bell_coat"
+	icon_open = "bell_coat"
+	icon_closed = "bell_coat"
 	contained_sprite = TRUE
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
 	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
@@ -963,12 +965,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "leo_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
 	name = "tagged brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the \"Museum of Terran Culture and Technology\"."
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
+	icon_open = "leo_coat"
+	icon_closed = "leo_coat"
 	contained_sprite = TRUE
 
 
@@ -2965,3 +2969,57 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ioraks_cape"
 	contained_sprite = TRUE
 	icon_override = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/strauss_jacket //Custom Firesuit - Lena Strauss - oddbomber3768
+	name = "modified firesuit"
+	desc = "An old industrial firesuit belonging to a defunct and forgotten company. The wearer has sawn off both of the arms, added two buttons on the front and replaced the back name \
+	tag with one reading \"FIREAXE\". Doesn't look really fire resistant anymore"
+	icon = 'icons/obj/custom_items/strauss_jacket.dmi'
+	icon_state = "strauss_jacket"
+	item_state = "strauss_jacket"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/likho_labcoat //Terraneus Diagnostics Labcoat - Likho - neworiginalschwann
+	name = "terraneus diagnostics labcoat"
+	desc = "A well-worn labcoat that marks its wearer as an employee of Terraneus Diagnostics, a subsidiary corporation of Einstein Engines. Text on the labcoat's breast pocket marks \
+	the employee as a roboticist employed at Factory 09, Hoboken, United Americas."
+	icon = 'icons/obj/custom_items/likho_labcoat.dmi'
+	icon_state = "likho_labcoat"
+	item_state = "likho_labcoat"
+	icon_open = "likho_labcoat_open"
+	icon_closed = "likho_labcoat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - simontheminer
+	name = "winter paramedic jacket"
+	desc = "A custom made first responder coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
+	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
+	icon_state = "ramit_jacket"
+	item_state = "ramit_jacket"
+	icon_open = "ramit_jacket_open"
+	icon_closed = "ramit_jacket"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/dressshirt/fluff/takahashi_uniform //High Collar Dress Shirt - Shiki Takahashi - nantei
+	name = "high collar dress shirt"
+	desc = "A casual dress shirt. This one has an abnormally high collar."
+	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
+	icon_state = "takahashi_uniform"
+	item_state = "takahashi_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
+	name = "long trenchcoat"
+	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
+	symbol on the back, similar to the Frontier Alliance flag."
+	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
+	icon_state = "takahashi_coat"
+	item_state = "takahashi_coat"
+	icon_open = "takahashi_coat_open"
+	icon_closed = "takahashi_coat"
+	contained_sprite = TRUE
