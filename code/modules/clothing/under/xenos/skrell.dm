@@ -29,7 +29,8 @@
 	set category = "Object"
 	set src in usr
 
-	if (use_check_and_message(usr)) return
+	if (use_check_and_message(usr))
+		return
 
 	lights = !lights
 
