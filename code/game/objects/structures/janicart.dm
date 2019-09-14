@@ -21,6 +21,8 @@
 	var/signs = 0	//maximum capacity hardcoded below
 	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
 	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
+	var/driving
+	var/mob/living/pulling
 
 /obj/structure/janitorialcart/New()
 	..()
@@ -303,3 +305,78 @@
 	if(signs)
 		add_overlay("cart_sign[signs]")
 		has_items = 1
+
+//Shamelessly copied from wheelchair code
+/obj/structure/janitorialcart/relaymove(mob/user, direction)
+	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
+		if(user==pulling)
+			pulling = null
+			user.pulledby = null
+			to_chat(user, "<span class='warning'>You lost your grip!</span>")
+		return
+	if(user.pulling && (user == pulling))
+		pulling = null
+		user.pulledby = null
+		return
+	if(pulling && (get_dist(src, pulling) > 1))
+		pulling = null
+		user.pulledby = null
+		if(user==pulling)
+			return
+	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
+		to_chat(user, "<span class='warning'>You cannot go there.</span>")
+		return
+
+	driving = 1
+	var/turf/T = null
+	if(pulling)
+		T = pulling.loc
+		if(get_dist(src, pulling) >= 1)
+			step(pulling, get_dir(pulling.loc, src.loc))
+	step(src, direction)
+	set_dir(direction)
+	if(pulling)
+		if(pulling.loc == src.loc)
+			pulling.forceMove(T)
+		else
+			spawn(0)
+			if(get_dist(src, pulling) > 1)
+				pulling = null
+				user.pulledby = null
+			pulling.set_dir(get_dir(pulling, src))
+	driving = 0
+
+/obj/structure/janitorialcart/Move()
+	. = ..()
+	if (pulling && (get_dist(src, pulling) > 1))
+		pulling.pulledby = null
+		to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
+		pulling = null
+
+/obj/structure/janitorialcart/CtrlClick(var/mob/user)
+	if(in_range(src, user))
+		if(!ishuman(user))	return
+		if(!pulling)
+			pulling = user
+			user.pulledby = src
+			if(user.pulling)
+				user.stop_pulling()
+			user.set_dir(get_dir(user, src))
+			to_chat(user, "You grip \the [name]'s handles.")
+		else
+			to_chat(usr, "You let go of \the [name]'s handles.")
+			pulling.pulledby = null
+			pulling = null
+		return
+
+/obj/structure/janitorialcart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(air_group || (height==0)) return 1
+	if(istype(mover) && mover.checkpass(PASSTABLE))
+		return 1
+	if(istype(mover, /mob/living) && mover == pulling)
+		return 1
+	else
+		if(istype(mover, /obj/item/projectile))
+			return prob(30)
+		else
+			return !density
