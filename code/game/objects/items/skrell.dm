@@ -30,6 +30,7 @@
 							"<span class='notice'>You see the starry edgy of srom floating on the void of space.</span>")
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
+				projection_ready = FALSE
 				addtimer(CALLBACK(src, .proc/rearm), 3 MINUTES)
 
 
