@@ -77,27 +77,27 @@
 
 /datum/outfit/job/scientist/hephaestus
 	name = "Scientist - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus
+	uniform = /obj/item/clothing/under/rank/hephaestus/research
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/roboticist/hephaestus
 	name = "Roboticist - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus
+	uniform = /obj/item/clothing/under/rank/hephaestus/research
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/mining/hephaestus
 	name = "Miner - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus
+	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/qm/hephaestus
 	name = "Quartermaster - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus
+	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/cargo_tech/hephaestus
 	name = "Cargo Technician - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus
+	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/weapon/card/id/hephaestus
 
 /datum/outfit/job/representative/hephaestus
