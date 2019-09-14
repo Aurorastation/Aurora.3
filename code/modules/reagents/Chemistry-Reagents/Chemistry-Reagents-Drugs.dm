@@ -324,6 +324,7 @@
 	description = "The extract of the wulumunusha fruit, it can cause hallucionations and muteness."
 	color = "#61E2EC"
 	taste_description = "sourness"
+	fallback_specific_heat = 1
 
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 50)
