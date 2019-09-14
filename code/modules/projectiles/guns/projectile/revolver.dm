@@ -227,7 +227,7 @@
 		to_chat(user, "\The [src] has a secondary barrel that is empty.")
 
 /obj/item/weapon/gun/projectile/revolver/adhomian
-	name = "adhomian revolver"
+	name = "adhomian service revolver"
 	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
 	icon_state = "adhomian_revolver"
 	caliber = "38"
