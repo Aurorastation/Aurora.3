@@ -3062,7 +3062,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/weapon/fluff/muhawir_bedroll/attack_self(mob/user as mob)
 	if(!deployed)
-		to_chat(user, "<span class='notice'>You open the bedroll, extending it.")
+		to_chat(user, "<span class='notice'>You open the bedroll, extending it.</span>")
 		name = "open bedroll"
 		icon_state = "bedroll-open"
 		layer = MOB_LAYER - 0.01
@@ -3151,10 +3151,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	"<span class='notice'>You begin setting up the [src.name].</span>")
 	if(has_bedroll)
 		if(do_after(usr, 20 SECONDS, act_target = src))
-			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].")
+			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].</span>")
 			new/obj/item/weapon/fluff/muhawir_bedroll(get_turf(usr))
 	if(do_after(usr, 50 SECONDS, act_target = src))
-		to_chat(usr, "<span class='notice'>You take down \the [src].")
+		to_chat(usr, "<span class='notice'>You take down \the [src].</span>")
 		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
 		qdel(src)
 		return
