@@ -69,7 +69,7 @@
 
 /obj/item/skrell_projector
 	name = "nralakk projector"
-	desc = "A projector meant to help Federation Skrell feel like they’re carrying home with them wherever they go. It looks very complex."
+	desc = "A projector meant to help Federation Skrell feel like theyre carrying home with them wherever they go. It looks very complex."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
 	w_class = 1
