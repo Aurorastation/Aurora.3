@@ -34,6 +34,12 @@
 	slot = slot_wear_suit
 	faction = "Necropolis Industries"
 
+/datum/gear/faction/necro_research_alt
+	display_name = "brown necropolis research uniform"
+	path = /obj/item/clothing/under/rank/necropolis/research/alt
+	slot = slot_wear_suit
+	faction = "Necropolis Industries"
+
 /datum/gear/faction/eridani_beret
 	display_name = "eridani beret"
 	path = /obj/item/clothing/head/beret/sec/eri
