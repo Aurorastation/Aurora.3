@@ -8,6 +8,7 @@
 	drop_sound = 'sound/items/drop/glass.ogg'
 	var/list/constellations = list("Island", "Hatching Egg", "Star Chanter", "Jiu'x'klua", "Stormcloud", "Gnarled Tree", "Poet", "Bloated Toad", "Qu'Poxiii", "Fisher")
 	var/selected_constellation
+	var/projection_ready = TRUE
 
 /obj/item/stellascope/Initialize()
 	. = ..()
@@ -27,11 +28,43 @@
 		if(isskrell(H))
 			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to \his eye and peers at something unseen.</span>",
 							"<span class='notice'>You see the starry edgy of srom floating on the void of space.</span>")
+			if(projection_ready)
+				new/obj/effect/temp_visual/constellation (get_turf(user))
+				addtimer(CALLBACK(src, .proc/rearm), 3 MINUTES)
+
+
+/obj/item/stellascope/proc/rearm()
+	projection_ready = TRUE
 
 /obj/item/stellascope/proc/pick_constellation()
 	var/chosen_constellation = pick(constellations)
 	selected_constellation = chosen_constellation
 	return chosen_constellation
+
+/obj/effect/temp_visual/constellation
+	name = "starry projection"
+	desc = "A holographic projection of star system."
+	icon = 'icons/obj/skrell_items.dmi'
+	icon_state = "starprojection"
+	mouse_opacity = TRUE
+	duration = 1200
+	layer = LIGHTING_LAYER + 0.1
+
+/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+	visible_message("<span class='notice'>\The [src] vanishes!</span>")
+	qdel(src)
+	return
+
+/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+	visible_message("<span class='notice'>\The [src] vanishes!</span>")
+	qdel(src)
+	return
+
+/obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
+	if(user.a_intent == I_HURT))
+		visible_message("<span class='notice'>\The [src] vanishes!</span>")
+		qdel(src)
+		return
 
 /obj/item/skrell_projector
 	name = "nralakk projector"
