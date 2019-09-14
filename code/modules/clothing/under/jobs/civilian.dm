@@ -245,3 +245,9 @@
 	desc = "A uniform worn by Zeng-Hu employees."
 	icon_state = "zeng_service"
 	worn_state = "zeng_service"
+
+/obj/item/clothing/under/rank/eridani_medic
+	name = "Eridani PMC medic uniform"
+	desc = "A uniform worn by Eridani PMC paramedics."
+	icon_state = "eridani_medic"
+	worn_state = "eridani_medic"
