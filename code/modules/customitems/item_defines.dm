@@ -1396,7 +1396,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/weapon/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
 	name = "pineapple wallet"
 	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."
-	icon = 'icons/obj/custom_items/muhawir_wallet.dmi'
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "muhawir_wallet"
 
 /obj/item/weapon/storage/wallet/fluff/muhawir_wallet/update_icon()
@@ -3051,3 +3051,110 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
+/obj/item/weapon/fluff/muhawir_bedroll //Bedroll - Muhawir Nawfal - menown
+	name = "bedroll"
+	desc = "A portable bedroll, made of cloth and padding."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "bedroll-rolled"
+	w_class = 3.0
+	attack_verb = list("battered","whacked")
+	var/deployed = FALSE
+
+/obj/item/weapon/fluff/muhawir_bedroll/attack_self(mob/user as mob)
+	if(!deployed)
+		to_chat(user, "<span class='notice'>You open the bedroll, extending it.")
+		name = "open bedroll"
+		icon_state = "bedroll-open"
+		layer = MOB_LAYER - 0.01
+		user.drop_from_inventory(src)
+		deployed = TRUE
+	return
+
+/obj/item/weapon/fluff/muhawir_bedroll/attack_hand(mob/user as mob)
+	if(deployed)
+		to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
+		name = initial(name)
+		icon_state = initial(icon_state)
+		layer = initial(layer)
+		deployed = FALSE
+
+	..()
+
+/obj/item/weapon/fluff/muhawir_tenttools //Toolbag - Muhawir Nawfal - menown
+	name = "toolbag"
+	desc = "A roll of poles and ropes. Anybody knowledgeable would know they are designed for erecting a tent."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "tent-tools"
+	w_class = 3.0
+	attack_verb = list("battered","whacked")
+
+/obj/item/weapon/fluff/muhawir_tent //Tentroll - Muhawir Nawfal - menown
+	name = "tentroll"
+	desc = "A portable tent. All wrapped up with straps and buckles."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "tent-rolled"
+	w_class = 3.0
+	attack_verb = list("battered","whacked")
+
+/obj/item/weapon/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
+	if(istype(W, /obj/item/weapon/fluff/muhawir_tenttools))
+		user.visible_message("<span class='warning'>[user] unrolls the tent .</span>",
+			"<span class='notice'>You unroll the tent.</span>")
+		if(do_after(user, 5 SECONDS, act_target = src))
+			user.visible_message(
+				"<span class='warning'>[user] begins sliding the tent poles into the frame of the tent.</span>",
+				"<span class='notice'>You begin sliding the tent poles into the frame of the tent.</span>")
+			if(do_after(user, 60 SECONDS, act_target = src))
+				user.visible_message(
+					"<span class='warning'>[user] begins raising tent.</span>",
+					"<span class='notice'>You begin raising the tent.</span>")
+				if(do_after(user, 20 SECONDS, act_target = src))
+					user.visible_message(
+						"<span class='warning'>[usr] finishes raising the tent.</span>",
+						"<span class='notice'>You finish raising the tent.</span>")
+					new/obj/structure/closet/fluff/muhawir_tent(user.loc)
+					qdel(src)
+				return
+
+/obj/structure/closet/fluff/muhawir_tent
+	name = "camping tent"
+	desc = "A relatively good quality tent, complete with mounting poles and straps for keeping it open."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "tent-closed"
+	icon_closed = "tent-closed"
+	icon_opened = "tent-open"
+	open_sound = 'sound/items/zip.ogg'
+	close_sound = 'sound/items/zip.ogg'
+	anchored = TRUE
+	storage_capacity = 15
+	var/has_bedroll = FALSE
+
+/obj/structure/closet/fluff/muhawir_tent/attackby(W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/fluff/muhawir_bedroll))
+		user.visible_message(
+		"<span class='warning'>[user] lays down the bedroll inside \the [src].</span>",
+		"<span class='notice'>You lay down the bedroll in \the [src].</span>")
+		qdel(W)
+		has_bedroll = TRUE
+		return
+
+/obj/structure/closet/fluff/muhawir_tent/verb/dismantle()
+	set name = "Dismantle Tent"
+	set category = "Object"
+	set src in view(1)
+
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	usr.visible_message(
+	"<span class='warning'>[usr] begins setting up the [src.name].</span>",
+	"<span class='notice'>You begin setting up the [src.name].</span>")
+	if(has_bedroll)
+		if(do_after(usr, 20 SECONDS, act_target = src))
+			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].")
+			new/obj/item/weapon/fluff/muhawir_bedroll(get_turf(usr))
+	if(do_after(usr, 50 SECONDS, act_target = src))
+		to_chat(usr, "<span class='notice'>You take down \the [src].")
+		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
+		qdel(src)
+		return
