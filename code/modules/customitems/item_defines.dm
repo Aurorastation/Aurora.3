@@ -3023,3 +3023,31 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_open = "takahashi_coat_open"
 	icon_closed = "takahashi_coat"
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/sunglasses/blindfold/fluff/nai_fold	//Starvoice - Nai Eresh'Wake - jamchop23334
+	name = "starvoid blindfold"
+	desc = "An ethereal purple blindfold, woven from an incredibly soft yet durable silk. The faintest of light shines through, shading your darkened vision in a haze of purple."
+	icon = 'icons/obj/custom_items/nai_items.dmi'
+	icon_state = "nai_fold"
+	item_state = "nai_fold"
+	contained_sprite = TRUE
+	tint = TINT_BLIND
+	drop_sound = 'sound/items/drop/gloves.ogg'
+
+/obj/item/clothing/glasses/sunglasses/blindfold/fluff/nai_fold/equipped(mob/M as mob, slot)
+	if (M.ckey == "jamchop23334" && M.name == "Nai Eresh'Wake")
+		tint = TINT_NONE
+	else
+		tint = TINT_BLIND
+	..()
+
+/obj/item/clothing/gloves/fluff/nai_gloves //Starvoid Gloves - Nai Eresh'Wake - jamchop23334
+	name = "starvoid gloves"
+	desc = "An ethereal purple set of fingerless evening gloves, secured at the middle finger by a lace, with the palms exposed. The fabric is soft silk of some kind."
+	icon = 'icons/obj/custom_items/nai_items.dmi'
+	icon_state = "nai_gloves"
+	item_state = "nai_gloves"
+	contained_sprite = TRUE
+
+
