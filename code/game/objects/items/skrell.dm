@@ -61,7 +61,7 @@
 	return
 
 /obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
-	if(user.a_intent == I_HURT))
+	if(user.a_intent == I_HURT)
 		visible_message("<span class='notice'>\The [src] vanishes!</span>")
 		qdel(src)
 		return
