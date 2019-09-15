@@ -48,7 +48,7 @@
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)
 
-/mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", messagerange)
+/mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", messagerange = world.view)
 
 	if(stat == DEAD)
 		return 0
