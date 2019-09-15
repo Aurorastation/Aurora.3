@@ -50,4 +50,4 @@
 	display_name = "zeng-hu black uniform"
 	path = /obj/item/clothing/under/rank/zeng/alt
 	slot = slot_wear_suit
-	faction = "Zeng-hu Pharmaceuticals"
+	faction = "Zeng-Hu Pharmaceuticals"
