@@ -56,7 +56,7 @@
 	facing_dir = null
 
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
-		src.visible_message("<b>\The [src.name]</b> [deathmessage]", null, null, messagerange)
+		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
 
 	stat = DEAD
 
