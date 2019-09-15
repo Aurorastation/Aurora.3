@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: ParadoxSpace
+author: ParadoxSpace & AmoryBlaine
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - bugfix: "Adds the alt Necropolis research uniform to the loadout. My bad."
   - tweak: "Refactors the Necropolis security uniform just a little bit."
-  - bugfix: "Fixes being unable to select the alt Zeng-Hu uniform and the Idris service uniform having no sprite."
+  - bugfix: "Fixes being unable to select the alt Zeng-Hu uniform and the Idris service uniform having no sprite, as well as various other small fixes."
   - bugfix: "Fixes Bedhead 5 to properly come up all the way."
