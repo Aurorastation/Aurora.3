@@ -238,9 +238,12 @@ Byond Vue UI framework's management subsystem
 		return class
 	return ""
 
-/datum/controller/subsystem/processing/vueui/proc/send_theme_resources(var/mob/user)
+/proc/send_theme_resources(var/mob/user)
 	if(user.client)
-		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui_theming)
+		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
 		assets.send(user.client)
+
+/proc/enable_ui_theme(var/mob/user, var/windowid)
+	to_chat(user, output(list2params(list(SSvueui.get_html_theme_class(user))),"[windowid].browser:setBodyClass"))
 
 #undef NULL_OR_EQUAL
