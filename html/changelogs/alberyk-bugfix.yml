@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed scientist shoes having no icon."
+  - bugfix: "Fixed kinetic accelerators having firing pins."
