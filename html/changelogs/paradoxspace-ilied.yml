@@ -41,3 +41,4 @@ changes:
   - bugfix: "Adds the alt Necropolis research uniform to the loadout. My bad."
   - tweak: "Refactors the Necropolis security uniform just a little bit."
   - bugfix: "Fixes being unable to select the alt Zeng-Hu uniform and the Idris service uniform having no sprite."
+  - bugfix: "Fixes Bedhead 5 to properly come up all the way."
