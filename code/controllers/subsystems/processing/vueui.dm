@@ -226,24 +226,34 @@ Byond Vue UI framework's management subsystem
 	return {"<meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">"}
 
 /datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
-	if(user.client)
-		var/style = user.client.prefs.html_UI_style
-		if(!(style in available_html_themes))
-			style = "Nano"
-		var/list/theme = available_html_themes[style]
-		var/class = ""
-		class += "[theme["class"]]"
-		if(theme["type"] == THEME_TYPE_DARK)
-			class += " dark-theme"
-		return class
-	return ""
+	var/client/cl = null
+	if(istype(user))
+		cl = user.client
+	else
+		if(istype(user, /client))
+			cl = user
+	if(!cl)
+		return
+	var/style = cl.prefs.html_UI_style
+	if(!(style in available_html_themes))
+		style = "Nano"
+	var/list/theme = available_html_themes[style]
+	var/class = ""
+	class += "[theme["class"]]"
+	if(theme["type"] == THEME_TYPE_DARK)
+		class += " dark-theme"
+	return class
 
-/proc/send_theme_resources(var/mob/user)
-	if(user.client)
-		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
-		assets.send(user.client)
+/proc/send_theme_resources(var/user)
+#ifdef UIDEBUG
+	user << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
+	user << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
+#else
+	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
+	assets.send(user)
+#endif
 
-/proc/enable_ui_theme(var/mob/user, var/windowid)
-	to_chat(user, output(list2params(list(SSvueui.get_html_theme_class(user))),"[windowid].browser:setBodyClass"))
+/proc/enable_ui_theme(var/user, var/contents)
+	return replacetext(contents, "THEMECLASS", SSvueui.get_html_theme_class(user))
 
 #undef NULL_OR_EQUAL

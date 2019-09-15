@@ -30,10 +30,7 @@ requireComponent.keys().forEach(fileName => {
 })
 
 Vue.config.productionTip = false
-
-global.setBodyClass = (cl) => {
-  document.querySelector('body').className = cl
-}
+global.Vue = Vue
 
 global.receiveUIState = (jsonState) => {
   Store.loadState(JSON.parse(jsonState))
