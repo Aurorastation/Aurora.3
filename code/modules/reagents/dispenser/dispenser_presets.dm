@@ -45,7 +45,10 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/imidazoline,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/peridaxon,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/bicaridine,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/spaceacillin,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/deltamivir,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/thetamycin,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coughsyrup,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/benadryl,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ethylredox,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sleeptox,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/chloral,
@@ -80,6 +83,7 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/orange,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lime,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/apple,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/watermelon,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/clean_kois
 		)

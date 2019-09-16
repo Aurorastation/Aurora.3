@@ -1,3 +1,5 @@
+
+
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
 	name = "hydraulic clamp"
 	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
@@ -319,12 +321,15 @@
 	var/disabled = 0 //malf
 
 /obj/item/mecha_parts/mecha_equipment/tool/rcd/action(atom/target)
+	var/turf/t = get_turf(target)
 	if(istype(target,/area/shuttle)||istype(target, /turf/space/transit))//>implying these are ever made -Sieve
+		disabled = 1
+	else if (isNotStationLevel(t.z))
 		disabled = 1
 	else
 		disabled = 0
 	if(!istype(target, /turf) && !istype(target, /obj/machinery/door/airlock))
-		target = get_turf(target)
+		target = t
 	if(!action_checks(target) || disabled || get_dist(chassis, target)>3) return
 	playsound(chassis, 'sound/machines/click.ogg', 50, 1)
 	//meh
@@ -1303,6 +1308,17 @@
 			to_chat(usr, "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>")
 		if (0)
 			to_chat(usr, "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>")
+
+
+
+/obj/item/mecha_parts/mecha_equipment/tool/artillerycomputer
+	name = "passenger compartment"
+	desc = "A mountable passenger compartment for exo-suits. Rather cramped."
+	icon_state = "mecha_abooster_ccw"
+	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
+	var/ax = null
+	var/ay = null
+	var/az = null
 
 #undef LOCKED
 #undef OCCUPIED

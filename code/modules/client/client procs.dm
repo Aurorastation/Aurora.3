@@ -194,9 +194,9 @@
 				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
-						to_chat(src, link(pr_link))
+						send_link(src, pr_link)
 					else
-						to_chat(src, link(config.githuburl))
+						send_link(src, config.githuburl)
 
 			// Forum link from various panels.
 			if ("forums")
@@ -204,7 +204,7 @@
 
 			// Wiki link from various panels.
 			if ("wiki")
-				src.wiki()
+				src.wiki(sub_page = (href_list["wiki_page"] || null))
 
 			// Web interface href link from various panels.
 			if ("webint")
@@ -352,6 +352,7 @@
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
+		src.InitPrefs() //Init some default prefs
 		return m
 		//Do auth shit
 	else
@@ -671,7 +672,7 @@
 			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
-	to_chat(src, link(linkURL))
+	send_link(src, linkURL)
 	return
 
 /client/verb/show_greeting()

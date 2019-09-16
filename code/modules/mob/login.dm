@@ -42,6 +42,8 @@
 	disconnect_time = null
 	..()
 
+	player_age = client.player_age
+
 	if(loc && !isturf(loc))
 		client.eye = loc
 		client.perspective = EYE_PERSPECTIVE
@@ -54,4 +56,3 @@
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
-	testing("mob_login - end")

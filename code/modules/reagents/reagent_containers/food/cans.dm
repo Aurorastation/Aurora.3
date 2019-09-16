@@ -20,7 +20,7 @@
 	name = "bottled water"
 	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
 	icon_state = "waterbottle"
-	center_of_mass = list("x"=15, "y"=8)
+	center_of_mass = list("x"=16, "y"=8)
 	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle/Initialize()
@@ -41,7 +41,7 @@
 	name = "thirteen loko"
 	desc = "The CMO has advised crew members that consumption of Thirteen Loko may result in seizures, blindness, drunkeness, or even death. Please Drink Responsibly."
 	icon_state = "thirteen_loko"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=10)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/thirteenloko/Initialize()
 	. = ..()
@@ -131,7 +131,7 @@
 	name = "\improper Phoron Punch!"
 	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
 	icon_state = "phoron_punch"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/koispunch/Initialize()
 	. = ..()
@@ -154,7 +154,7 @@
 	name = "\improper Zo'ra Soda Cherry"
 	desc = "A can of cherry energy drink, with V'krexi additives. All good colas come in cherry."
 	icon_state = "zoracherry"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorasoda/Initialize()
 	. = ..()
@@ -165,7 +165,7 @@
 	name = "\improper Zo'ra Soda Kois Twist"
 	desc = "A can of K'ois flavored energy drink, with V'krexi additives. Contains no K'ois, probably contains no palatable flavor."
 	icon_state = "koistwist"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorakois/Initialize()
 	. = ..()
@@ -176,7 +176,7 @@
 	name = "\improper Zo'ra Soda Phoron Passion"
 	desc = "A can of grape flavored energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound taste testers."
 	icon_state = "phoronpassion"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zoraphoron/Initialize()
 	. = ..()
@@ -187,7 +187,7 @@
 	name = "\improper High Octane Zorane Might"
 	desc = "A can of fizzy, acidic energy, with plenty V'krexi additives. It tastes like the bottom of your mouth is being impaled by a freezing cold spear, a spear laced with bees and salt."
 	icon_state = "hozm"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorahozm/Initialize()
 	. = ..()
@@ -198,7 +198,7 @@
 	name = "\improper Zo'ra Soda Sour Venom Grass (Diet!)"
 	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. It still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
 	icon_state = "sourvenomgrass"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zoravenom/Initialize()
 	. = ..()
@@ -209,7 +209,7 @@
 	name = "\improper Klaxan Energy Crush"
 	desc = "A can of orange cream flavored energy drink, with V'krexi additives. Engineered nearly to perfection."
 	icon_state = "klaxancrush"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zoraklax/Initialize()
 	. = ..()
@@ -220,7 +220,7 @@
 	name = "\improper C'thur Rockin' Raspberry"
 	desc = "A can of blue raspberry flavored energy drink, with V'krexi additives. You're pretty sure this was shipped by mistake, the previous K'laxan Energy Crush wrapper is still partly visible underneath the current one."
 	icon_state = "cthurberry"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zoracthur/Initialize()
 	. = ..()
@@ -231,7 +231,7 @@
 	name = "\improper Drone Fuel"
 	desc = "A can of some kind of industrial fluid flavored energy drink, with V'krexi additives meant for Vaurca. <span class='warning'>Known to induce vomiting in humans!</span>."
 	icon_state = "dronefuel"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zoradrone/Initialize()
 	. = ..()
@@ -242,7 +242,7 @@
 	name = "\improper Royal Jelly"
 	desc = "A can of... You aren't sure, but it smells pleasant already."
 	icon_state = "royaljelly"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly/Initialize()
 	. = ..()
@@ -263,7 +263,7 @@
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
 	icon_state = "beetlemilk"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=17, "y"=10)
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk/Initialize()
 	. = ..()

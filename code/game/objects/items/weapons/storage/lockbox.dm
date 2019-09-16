@@ -73,31 +73,22 @@
 /obj/item/weapon/storage/lockbox/loyalty
 	name = "lockbox of loyalty implants"
 	req_access = list(access_security)
-
-	New()
-		..()
-		new /obj/item/weapon/implantcase/loyalty(src)
-		new /obj/item/weapon/implantcase/loyalty(src)
-		new /obj/item/weapon/implantcase/loyalty(src)
-		new /obj/item/weapon/implanter/loyalty(src)
+	starts_with = list(
+		/obj/item/weapon/implantcase/loyalty = 3,
+		/obj/item/weapon/implanter/loyalty = 1
+	)
 
 /obj/item/weapon/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."
 	req_access = list(access_security)
-
-	New()
-		..()
-		new /obj/item/weapon/grenade/flashbang/clusterbang(src)
+	starts_with = list(/obj/item/weapon/grenade/flashbang/clusterbang = 1)
 
 /obj/item/weapon/storage/lockbox/lawgiver
 	name = "Weapons lockbox"
 	desc = "A high security weapons lockbox"
 	req_access = list(access_armory)
-
-	New()
-		..()
-		new /obj/item/weapon/gun/energy/lawgiver(src)
+	starts_with = list(/obj/item/weapon/gun/energy/lawgiver = 1)
 
 /obj/item/weapon/storage/lockbox/medal
 	name = "medal box"
@@ -110,18 +101,11 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-
-/obj/item/weapon/storage/lockbox/medal/fill()
-	..()
-	new /obj/item/clothing/accessory/medal/conduct(src)
-	new /obj/item/clothing/accessory/medal/conduct(src)
-	new /obj/item/clothing/accessory/medal/conduct(src)
-	new /obj/item/clothing/accessory/medal/bronze_heart(src)
-	new /obj/item/clothing/accessory/medal/bronze_heart(src)
-	new /obj/item/clothing/accessory/medal/nobel_science(src)
-	new /obj/item/clothing/accessory/medal/nobel_science(src)
-	new /obj/item/clothing/accessory/medal/iron/merit(src)
-	new /obj/item/clothing/accessory/medal/iron/merit(src)
-	new /obj/item/clothing/accessory/medal/silver/valor(src)
-	new /obj/item/clothing/accessory/medal/silver/security(src)
-	new /obj/item/clothing/accessory/medal/silver/security(src)
+	starts_with = list(
+		/obj/item/clothing/accessory/medal/conduct = 3,
+		/obj/item/clothing/accessory/medal/bronze_heart = 2,
+		/obj/item/clothing/accessory/medal/nobel_science = 2,
+		/obj/item/clothing/accessory/medal/iron/merit = 2,
+		/obj/item/clothing/accessory/medal/silver/valor = 1,
+		/obj/item/clothing/accessory/medal/silver/security = 2
+	)

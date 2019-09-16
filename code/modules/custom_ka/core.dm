@@ -28,8 +28,6 @@
 	dispersion = list(0)
 	reliability = 100
 
-	action_button_name = "Wield kinetic accelerator"
-
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
 
 	needspin = FALSE
@@ -43,6 +41,8 @@
 	accuracy_wielded = 0
 	wielded = 0
 	needspin = TRUE
+
+	is_wieldable = TRUE
 
 	var/require_wield = FALSE
 
@@ -70,17 +70,6 @@
 
 	var/can_disassemble_cell = TRUE
 	var/can_disassemble_barrel = TRUE
-
-/obj/item/weapon/gun/custom_ka/verb/wield_accelerator()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
-/obj/item/weapon/gun/custom_ka/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
 
 /obj/item/weapon/gun/custom_ka/can_wield()
 	return 1
@@ -412,7 +401,7 @@
 		update_icon()
 	else if(istype(I,/obj/item/weapon/wrench))
 		if(installed_upgrade_chip)
-			playsound(src,'sound/items/Screwdriver.ogg', 50, 0)
+			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")
 			installed_upgrade_chip.forceMove(user.loc)
 			installed_upgrade_chip.update_icon()
@@ -420,7 +409,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_barrel && can_disassemble_barrel)
-			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
+			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_barrel].")
 			installed_barrel.forceMove(user.loc)
 			installed_barrel.update_icon()
@@ -428,7 +417,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_cell && can_disassemble_cell)
-			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
+			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_cell].")
 			installed_cell.forceMove(user.loc)
 			installed_cell.update_icon()

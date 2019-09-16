@@ -71,6 +71,9 @@
 		return 0
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
 		return 0
+	var/turf/t = get_turf(A)
+	if (isNotStationLevel(t.z))
+		return 0
 	return alter_turf(A,user,(mode == 3))
 
 /obj/item/weapon/rcd/proc/useResource(var/amount, var/mob/user)

@@ -17,6 +17,7 @@
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
+	verbs += /mob/living/carbon/human/proc/pause_regen_process
 	verbs += /mob/living/proc/devour
 
 	spawn(10)
@@ -199,7 +200,7 @@
 
 	textbox	= "What shall we name our new collective? Type in a name, or leave blank to cancel. We recall that we were once part of a collective named [mind.name] but it is not necessary to return to that"
 
-	newname = input(src,textbox,"Choosing a name.",suggestion)
+	newname = input(src, textbox, "Choosing a name.", suggestion)
 	if (newname)
 		real_name = newname
 		name = newname
@@ -207,6 +208,15 @@
 		to_chat(src, "<span class=notice>Our collective shall now be known as [real_name] !</span>")
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
+
+/mob/living/carbon/human/proc/pause_regen_process()
+	set name = "Halt metabolism"
+	set desc = "Allows you to pause any regeneration process."
+	set category = "Abilities"
+
+	if(DS)
+		DS.pause_regen = !DS.pause_regen
+		to_chat(usr, span("notice", "You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
 /mob/living/carbon/human/proc/diona_detach_nymph()
 	set name = "Detach nymph"
@@ -263,11 +273,14 @@
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
+	M.detached = TRUE
+	M.update_verbs(TRUE)
+	M.languages = languages.Copy()
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ
 	DS.stored_energy -= REGROW_ENERGY_REQ
-	diona_handle_regeneration(DS, TRUE)
+	diona_handle_regeneration(DS)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
 /mob/living/carbon/human/proc/switch_to_nymph()

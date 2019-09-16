@@ -786,11 +786,11 @@
 		if(state==1)
 			state = 2
 			to_chat(user, "You undo the securing bolts.")
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(get_turf(src), W.usesound, 50, 1)
 		else if(state==2)
 			state = 1
 			to_chat(user, "You tighten the securing bolts.")
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(get_turf(src), W.usesound, 50, 1)
 		return
 	else if(W.iscrowbar())
 		if(state==2)
