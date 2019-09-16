@@ -109,7 +109,7 @@ var/datum/antagonist/ninja/ninjas
 		if(I.loc != player)
 			qdel(I)
 	player.preEquipOutfit(/datum/outfit/admin/syndicate/ninja/, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/ninja/, FALSE)
+	player.equipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
