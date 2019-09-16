@@ -2124,8 +2124,8 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "aei" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "aej" = (
@@ -7755,8 +7755,8 @@
 /area/security/brig)
 "apy" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
 "apB" = (
@@ -24060,6 +24060,8 @@
 /obj/item/weapon/reagent_containers/spray/pepper,
 /obj/item/clothing/suit/space/void/hos,
 /obj/item/clothing/head/helmet/space/void/hos,
+/obj/item/clothing/head/helmet,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aQC" = (
@@ -40171,7 +40173,6 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/item/bodybag/cryobag,
-/obj/item/weapon/storage/box/cdeathalarm_kit,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bri" = (
@@ -52536,19 +52537,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hydroponics)
-"bNA" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Hydroponics - West";
-	dir = 1
-	},
-/turf/simulated/floor/grass,
-/area/hydroponics)
-"bNB" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/light,
-/turf/simulated/floor/grass,
-/area/hydroponics)
 "bND" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/alarm{
@@ -63060,12 +63048,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "cBK" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
 "cCf" = (
@@ -63392,6 +63380,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"dEG" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Hydroponics - West";
+	dir = 1
+	},
+/turf/simulated/floor/grass,
+/area/hydroponics)
 "dFK" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -99029,7 +99025,7 @@ bJT
 bJT
 bJT
 bJT
-bJS
+dEG
 bGr
 bOQ
 bPA
@@ -99286,7 +99282,7 @@ bKO
 bLx
 bLx
 bML
-bNA
+bJT
 bOp
 uuz
 bPB
@@ -99543,7 +99539,7 @@ bKP
 bLy
 bMg
 bMM
-bNB
+bJT
 bJb
 bOS
 bPA
