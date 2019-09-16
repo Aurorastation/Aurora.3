@@ -223,7 +223,7 @@ All tables for the database should be prefixed according to the following list:
 # HTML UI Standards
 
 ### UI conversion policy
-Due to our current situation with 5 different HTML UI systems we are now enforcing new policy that all new uis without exception should be made in VueUi ui system. This policy also applies to editing existing uis, but there is few exceptions:
+Due to our current situation with 5 different HTML UI systems we are now enforcing a policy that all new UIs should be made using the VueUi UI system. This policy also applies to editing existing UIs, with the following exceptions:
 
  1. Modification is security / severe bug fix.
  0. It is typo fix.
@@ -239,4 +239,4 @@ If you need to use conditional rendering inside UI, then try to put conditional 
 For conditional rendering try to prefer to use `v-show` attribute when change is expected to be often occurring. Use `v-if` when you need `v-else` and switch is expected expected not often.
 
 ### Reusability
-If there is segment of ui that is used multiple times with different content. then we strongly encourage making of new component. If that component is general or may be reused globally, then it should be made in to global component (placed in `vui` folder), else it should be made in to ui specific component that must be placed in folder inside `view` folder.
+If there is segment of UI that is used multiple times with different content, then we strongly encourage making of new component. If that component is general or may be reused globally, then it should be made in to global component (placed in `vui` folder), else it should be made in to UI specific component that must be placed in folder inside `view` folder.
