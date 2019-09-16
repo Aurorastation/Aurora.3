@@ -108,7 +108,7 @@ var/datum/antagonist/ninja/ninjas
 		player.drop_from_inventory(I)
 		if(I.loc != player)
 			qdel(I)
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/ninja/, FALSE)
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
 	player.equipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
