@@ -6,7 +6,7 @@
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "ae" = (
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "af" = (
 /turf/simulated/floor,
@@ -116,11 +116,11 @@
 /area/derelict/ship)
 "aq" = (
 /obj/structure/extinguisher_cabinet,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "ar" = (
 /obj/structure/sign/flag/pra,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "as" = (
 /obj/machinery/door/firedoor,
@@ -197,7 +197,7 @@
 /area/derelict/ship)
 "aE" = (
 /obj/structure/fireaxecabinet,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "aF" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -397,10 +397,10 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage,
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/sunglasses/big,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/gun/projectile/contender,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "bc" = (
@@ -563,7 +563,7 @@
 /area/derelict/ship)
 "bB" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "bC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1462,7 +1462,7 @@
 /area/derelict/ship)
 "eK" = (
 /obj/structure/shuttle/engine/router,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eL" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -1478,7 +1478,7 @@
 /area/derelict/ship)
 "eN" = (
 /obj/machinery/vending/medical,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1487,7 +1487,7 @@
 /area/derelict/ship)
 "eP" = (
 /obj/machinery/vending/wallmed2,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eQ" = (
 /obj/structure/shuttle/engine/propulsion,
@@ -1775,19 +1775,6 @@
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
-"HS" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright,
-/obj/item/weapon/rig/tesla,
-/turf/simulated/floor/greengrid,
-/area/derelict/ship)
 "HX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
@@ -1830,6 +1817,22 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"OR" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/weapon/rig/tesla,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/greengrid,
 /area/derelict/ship)
 "Qe" = (
 /obj/effect/decal/cleanable/dirt,
@@ -33369,9 +33372,9 @@ ap
 ak
 ae
 ae
-ag
-aj
-am
+ae
+ae
+ae
 ae
 aq
 ak
@@ -33625,11 +33628,11 @@ ae
 ae
 bm
 ae
-cj
-cj
-cj
-cj
-cj
+Cc
+ck
+ck
+ck
+Cc
 ae
 ax
 dg
@@ -33882,11 +33885,11 @@ ak
 ak
 ak
 ae
-ae
-ae
-ae
-ae
-ae
+ck
+ck
+ck
+ck
+ck
 ae
 ak
 ak
@@ -34143,7 +34146,7 @@ JX
 ck
 ck
 ck
-Cc
+ck
 ae
 da
 ay
@@ -34398,9 +34401,9 @@ bs
 bN
 ck
 ck
+OR
 ck
-ck
-HS
+Cc
 ae
 bB
 ak
@@ -34657,7 +34660,7 @@ JX
 ck
 ck
 ck
-Cc
+ck
 ae
 db
 ak
@@ -34910,11 +34913,11 @@ by
 af
 bV
 ae
-ae
-ae
-ae
-ae
-ae
+ck
+ck
+ck
+ck
+ck
 ae
 dc
 ak
@@ -35167,11 +35170,11 @@ bz
 af
 bV
 ae
-cj
-cj
-cj
-cj
-cj
+Cc
+ck
+ck
+ck
+Cc
 ae
 ae
 ae
@@ -35425,9 +35428,9 @@ am
 ae
 ae
 ae
-ag
-aj
-am
+ae
+ae
+ae
 ae
 ae
 dd
