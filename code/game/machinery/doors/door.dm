@@ -178,6 +178,14 @@
 			else
 				do_animate("deny")
 		return
+	if(istype(AM, /obj/structure/janitorialcart))
+		var/obj/structure/janitorialcart/cart = AM
+		if(density)
+			if(cart.pulling && (src.allowed(cart.pulling)))
+				open()
+			else
+				do_animate("deny")
+		return
 	return
 
 
