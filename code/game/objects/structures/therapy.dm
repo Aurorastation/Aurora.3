@@ -30,7 +30,7 @@
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, W.usesound, 50, 1)
 		C.set_dir(dir)
 		part.forceMove(get_turf(src))
 		part.master = null
@@ -187,7 +187,7 @@
 
 /obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
 			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
 			STOP_PROCESSING(SSfast_process, src)
@@ -238,6 +238,12 @@
 	var/datum/weakref/occupant = null
 	var/locked
 	var/obj/machinery/chakraconsole/connected
+
+	component_types = list(
+			/obj/item/weapon/circuitboard/crystelpod,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakrapod/Destroy()
 	if (connected)
@@ -404,8 +410,6 @@
 		update_use_power(2)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
-		for(var/obj/Obj in src)
-			Obj.forceMove(get_turf(src))
 	src.add_fingerprint(user)
 	return
 
@@ -419,6 +423,11 @@
 	var/obj/machinery/chakrapod/connected
 	var/crystal = 0
 	var/working = 0
+	component_types = list(
+			/obj/item/weapon/circuitboard/crystelpodconsole,
+			/obj/item/weapon/stock_parts/capacitor = 1,
+			/obj/item/weapon/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakraconsole/ex_act(severity)
 
