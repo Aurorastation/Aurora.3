@@ -95,7 +95,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		var/mob/living/carbon/human/X = user
 		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
 			var/obj/item/clothing/gloves/force/G = X.gloves
-			power *= G.amplification
+			power *= 1
 
 		if(ishuman(target))
 			if(X.martial_art && X.martial_art.weapon_affinity && istype(src, X.martial_art.weapon_affinity))
