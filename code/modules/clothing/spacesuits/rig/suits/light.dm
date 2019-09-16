@@ -76,7 +76,7 @@
 /obj/item/weapon/rig/light/ninja
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
-	desc = "A unique, vaccuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
+	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
 	icon_state = "ninja_rig"
 	armor = list(melee = 50, bullet = 45, laser = 45, energy = 30, bomb = 35, bio = 100, rad = 100)
 	emp_protection = 40
