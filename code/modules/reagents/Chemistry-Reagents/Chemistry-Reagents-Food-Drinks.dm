@@ -3794,7 +3794,6 @@
 
 	strength = 15
 	druggy = 30
-	halluci = 5
 
 	glass_icon_state = "rixulin_sundae"
 	glass_name = "glass of Rixulin Sundae"
