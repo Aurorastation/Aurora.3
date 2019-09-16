@@ -50,6 +50,11 @@ Byond Vue UI framework's management subsystem
 
 	..()
 
+	for(var/mob/M in mob_list)
+		var/mob/abstract/new_player/np = M
+		if(istype(np))
+			np.new_player_panel_proc()
+
 /**
   * Gets a vueui_var_monitor associated with the given source type.
   *
@@ -254,6 +259,9 @@ Byond Vue UI framework's management subsystem
 #endif
 
 /proc/enable_ui_theme(var/user, var/contents)
-	return replacetext(contents, "THEMECLASS", SSvueui.get_html_theme_class(user))
+	if(SSvueui)
+		return replacetext(contents, "THEMECLASS", SSvueui.get_html_theme_class(user))
+	else
+		return "theme-nano dark-theme"
 
 #undef NULL_OR_EQUAL

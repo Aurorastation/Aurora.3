@@ -35,6 +35,15 @@
 	return text("#[][][]", textr, textg, textb)
 	return
 
+/proc/hex2rgba(var/hex, var/alpha)
+	var/textr = copytext(hex, 2, 4)
+	var/textg = copytext(hex, 4, 6)
+	var/textb = copytext(hex, 6, 8)
+	var/r = hex2num(textr)
+	var/g = hex2num(textg)
+	var/b = hex2num(textb)
+	return "rgba([r], [g], [b], [alpha])"
+
 //Returns the middle-most value
 /proc/dd_range(var/low, var/high, var/num)
 	return max(low,min(high,num))

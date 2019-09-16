@@ -224,7 +224,7 @@ datum/preferences
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
-	var/dat = "<html><body><center>"
+	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'><center>"
 
 	if(path)
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
@@ -242,7 +242,8 @@ datum/preferences
 	dat += player_setup.content(user)
 
 	dat += "</html></body>"
-	user << browse(dat, "window=preferences;size=800x800")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
@@ -391,7 +392,7 @@ datum/preferences
 		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
-	var/dat = "<body>"
+	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'>"
 	dat += "<tt><center>"
 
 	for(var/ckey in preferences_datums)
@@ -426,11 +427,12 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
-	var/dat = "<body>"
+	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'>"
 	dat += "<tt><center>"
 
 	var/savefile/S = new /savefile(path)
@@ -447,7 +449,8 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")
