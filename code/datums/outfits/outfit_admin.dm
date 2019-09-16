@@ -229,7 +229,7 @@
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	back = /obj/item/weapon/rig/light/ninja
-	belt = /obj/item/weapon/storage/belt/ninja/
+	belt = /obj/item/weapon/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/ring/ninja
 	mask = /obj/item/clothing/mask/balaclava
