@@ -48,4 +48,5 @@ changes:
   - tweak : "Buffed the ninja's RIG armour values slightly. Still requires feedback, if ninjas die too quickly, it will be buffed more."
   - rscadd: "Added an additional toolbox, chair, suitcooling unit and ninja spawn point to the ninja shuttle on the centcomm level."
   - rscadd: Gave the ninja a new uniform + gloves.
+  - tweak: "EMERGENCY power generator now generates 2500 units of power, with a cooldown of five minutes."
   - wip: "Gnomes still evading capture. Report any occurences of gnomes and gnome activity to Aurora authorities."

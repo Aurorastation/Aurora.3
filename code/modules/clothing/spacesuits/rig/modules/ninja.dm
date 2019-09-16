@@ -270,7 +270,7 @@
 
 	interface_name = "emergency power generator"
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
-	var/generation_ammount = 1500
+	var/generation_ammount = 2500
 
 	category = MODULE_SPECIAL
 
@@ -286,7 +286,7 @@
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 		holder.cell.give(generation_ammount)
 		cooldown = 1
-		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 240)
+		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 5 MINUTES)
 
 /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown()
 	cooldown = 0
