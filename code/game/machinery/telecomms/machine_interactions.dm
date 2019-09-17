@@ -35,24 +35,24 @@
 		if(0)
 			if(P.isscrewdriver())
 				to_chat(user, "You unfasten the bolts.")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				construct_op ++
 		if(1)
 			if(P.isscrewdriver())
 				to_chat(user, "You fasten the bolts.")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				construct_op --
 			if(P.iswrench())
 				to_chat(user, "You dislodge the external plating.")
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, P.usesound, 75, 1)
 				construct_op ++
 		if(2)
 			if(P.iswrench())
 				to_chat(user, "You secure the external plating.")
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, P.usesound, 75, 1)
 				construct_op --
 			if(P.iswirecutter())
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				to_chat(user, "You remove the cables.")
 				construct_op ++
 				var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( user.loc )
@@ -70,7 +70,7 @@
 			if(P.iscrowbar())
 				to_chat(user, "You begin prying out the circuit board other components...")
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-				if(do_after(user,60))
+				if(do_after(user,60/P.toolspeed))
 					to_chat(user, "You finish prying out the components.")
 
 					// Drop all the component stuff

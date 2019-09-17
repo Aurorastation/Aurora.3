@@ -257,12 +257,18 @@
 	if(stage >= 4)
 		if(prob(10))
 			if(!isundead(owner))
-				if(ishuman_species(owner))
+				if(owner.species.zombie_type)
+					var/r = owner.r_skin
+					var/g = owner.g_skin
+					var/b = owner.b_skin
+
 					for(var/datum/language/L in owner.languages)
 						owner.remove_language(L.name)
 					to_chat(owner, "<span class='warning'>You feel life leaving your husk, but death rejects you...</span>")
 					playsound(src.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 					to_chat(owner, "<font size='3'><span class='cult'>All that is left is a cruel hunger for the flesh of the living, and the desire to spread this infection. You must consume all the living!</font></span>")
-					owner.set_species("Zombie")
+					owner.set_species(owner.species.zombie_type, 0, 0, 0)
+					owner.change_skin_color(r, g, b)
+					owner.update_dna()
 				else
 					owner.adjustToxLoss(50)
