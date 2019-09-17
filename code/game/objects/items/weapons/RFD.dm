@@ -300,6 +300,9 @@ RFD Service-Class
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")
 	product.forceMove(get_turf(A))
+	if(istype(A, /obj/structure/table))
+		var/obj/structure/table/T = A
+		T.auto_align(product, click_parameters)
 	update_icon()
 
 	if(isrobot(user))
