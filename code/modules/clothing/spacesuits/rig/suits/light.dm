@@ -82,7 +82,7 @@
 	emp_protection = 40
 	slowdown = 0
 
-	species_restricted = list("exclude","Diona", "Golem")
+	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/light/ninja
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
@@ -219,22 +219,10 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
-	chest_type = /obj/item/clothing/suit/space/rig/light/offworlder
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/offworlder
-	boot_type =  /obj/item/clothing/shoes/magboots/rig/light/offworlder
-	glove_type = /obj/item/clothing/gloves/rig/light/offworlder
-
-/obj/item/clothing/suit/space/rig/light/offworlder
-	species_restricted = list("Human")
-
-/obj/item/clothing/head/helmet/space/rig/light/offworlder
-	species_restricted = list("Human")
-
- /obj/item/clothing/shoes/magboots/rig/light/offworlder
-	species_restricted = list("Human")
-
-/obj/item/clothing/gloves/rig/light/offworlder
-	species_restricted = list("Human")
+	chest_type = /obj/item/clothing/suit/space/rig/light
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
+	glove_type = /obj/item/clothing/gloves/rig/light
 
 /obj/item/weapon/rig/light/offworlder/techno/equipped
 	initial_modules = list(
