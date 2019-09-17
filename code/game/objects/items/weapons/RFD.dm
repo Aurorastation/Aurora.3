@@ -261,7 +261,7 @@ RFD Service-Class
 	modes = list("Cigarette", "Drinking Glass","Paper","Pen","Dice Pack")
 	number_of_modes = 5
 
-/obj/item/weapon/rfd/service/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/weapon/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
 
 	if(!proximity) return
 
