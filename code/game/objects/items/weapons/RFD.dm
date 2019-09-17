@@ -263,7 +263,6 @@ RFD Service-Class
 
 /obj/item/weapon/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
 
-	if(!proximity) return
 
 	if(istype(user,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = user
