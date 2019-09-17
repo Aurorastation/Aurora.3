@@ -1835,15 +1835,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
-"dU" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "dV" = (
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/reinforced/airless,
@@ -2085,6 +2076,7 @@
 "es" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
+	cur_coils = 2;
 	RCon_tag = "Solar - Roof"
 	},
 /obj/structure/cable{
@@ -2140,6 +2132,15 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/item/stack/cable_coil/yellow{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/stack/cable_coil/yellow{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ex" = (
@@ -2427,16 +2428,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
-"eQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "eS" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -2449,11 +2440,8 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "eT" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -2478,18 +2466,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
-"eW" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "eX" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2518,6 +2494,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
+	},
+/obj/machinery/light_switch{
+	pixel_x = -8;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -2820,6 +2800,24 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"fP" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "fU" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -2847,6 +2845,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
+"gX" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "hm" = (
 /obj/machinery/light{
 	dir = 4;
@@ -2935,6 +2946,24 @@
 "mb" = (
 /turf/simulated/open,
 /area/crew_quarters/fitness/running)
+"nU" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "nY" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2956,6 +2985,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"oH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "pm" = (
 /obj/structure/bed/chair/comfy/black{
 	icon_state = "comfychair_preview";
@@ -3082,6 +3121,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"wf" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "ww" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3157,6 +3209,9 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
+"zg" = (
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "zL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3167,6 +3222,26 @@
 "Aj" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"Am" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"AD" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/airless,
 /area/mine/explored)
 "AK" = (
 /obj/structure/disposalpipe/segment{
@@ -3400,12 +3475,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"GN" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "Hc" = (
 /obj/machinery/vending/snack{
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"Hj" = (
+/obj/structure/cable/yellow{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/solar{
+	id = "roofsolars";
+	name = "Roof Solar Array"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "solarpanel"
+	},
+/area/mine/explored)
 "Hs" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3510,6 +3605,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"Lu" = (
+/obj/machinery/power/solar{
+	id = "roofsolars";
+	name = "Roof Solar Array"
+	},
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "solarpanel"
+	},
+/area/mine/explored)
 "Ly" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3590,6 +3698,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"NK" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
 "NR" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3599,6 +3714,19 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"OL" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/solar{
+	id = "roofsolars";
+	name = "Roof Solar Array"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "solarpanel"
+	},
+/area/mine/explored)
 "Pm" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -25409,7 +25537,7 @@ aa
 aa
 aa
 aa
-aa
+yJ
 aa
 aa
 aa
@@ -28468,9 +28596,9 @@ bb
 bb
 bb
 bb
-eQ
+dV
 dP
-eW
+PA
 bb
 bb
 bb
@@ -31553,7 +31681,7 @@ ag
 fy
 aP
 dV
-dP
+NK
 ad
 ag
 ag
@@ -32067,8 +32195,8 @@ ai
 fB
 bb
 dV
-dP
-dU
+eV
+af
 ai
 ai
 ai
@@ -34894,7 +35022,7 @@ dH
 dH
 dH
 ah
-ah
+zg
 ah
 dH
 dH
@@ -35145,25 +35273,25 @@ eh
 ag
 ag
 ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
-ag
+fy
+oH
+oH
+oH
+oH
+dV
+zg
+PA
+oH
+oH
+oH
+oH
+eh
 fJ
 ag
 ag
 ag
 ag
-ah
+fe
 ah
 ah
 ah
@@ -35402,19 +35530,19 @@ ae
 ah
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
+al
+OL
+OL
+OL
+OL
+OL
+GN
+Lu
+OL
+OL
+OL
+OL
+bn
 ah
 ah
 ah
@@ -35659,19 +35787,19 @@ ae
 ah
 bX
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
+al
+wf
+nU
+nU
+nU
+nU
+gX
+fP
+fP
+fP
+fP
+AD
+bn
 ah
 ah
 ah
@@ -35916,19 +36044,19 @@ ed
 ff
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
+al
+Hj
+Hj
+Hj
+Hj
+Hj
+Am
+Hj
+Hj
+Hj
+Hj
+Hj
+bn
 ah
 ah
 ah
@@ -36173,19 +36301,19 @@ ab
 ae
 ah
 ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
-ah
+fh
+fH
+fH
+fH
+fH
+fH
+fs
+fH
+fH
+fH
+fH
+fH
+fe
 ah
 ah
 ah

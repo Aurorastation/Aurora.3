@@ -1,7 +1,6 @@
 //used for pref.alternate_option
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
 
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
@@ -19,6 +18,7 @@
 	S["job_engsec_med"]		>> pref.job_engsec_med
 	S["job_engsec_low"]		>> pref.job_engsec_low
 	S["player_alt_titles"]	>> pref.player_alt_titles
+	S["faction"]            >> pref.faction
 
 /datum/category_item/player_setup_item/occupation/save_character(var/savefile/S)
 	S["alternate_option"]	<< pref.alternate_option
@@ -32,6 +32,7 @@
 	S["job_engsec_med"]		<< pref.job_engsec_med
 	S["job_engsec_low"]		<< pref.job_engsec_low
 	S["player_alt_titles"]	<< pref.player_alt_titles
+	S["faction"]            << pref.faction
 
 /datum/category_item/player_setup_item/occupation/gather_load_query()
 	return list(
@@ -39,7 +40,8 @@
 			"vars" = list(
 				"jobs" = "unsanitized_jobs",
 				"alternate_option",
-				"alternate_titles" = "player_alt_titles"
+				"alternate_titles" = "player_alt_titles",
+				"faction"
 			),
 			"args" = list("id")
 		)
@@ -54,6 +56,7 @@
 			"jobs",
 			"alternate_option",
 			"alternate_titles",
+			"faction",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -77,6 +80,7 @@
 		"alternate_option" = pref.alternate_option,
 		"alternate_titles" = list2params(pref.player_alt_titles),
 		"id" = pref.current_character,
+		"faction" = pref.faction,
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
@@ -107,7 +111,7 @@
 					log_debug("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
-	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
+	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
 	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
 	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
 	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
@@ -121,13 +125,31 @@
 	if (!pref.player_alt_titles)
 		pref.player_alt_titles = new()
 
-	for(var/datum/job/job in SSjobs.occupations)
+	if (!SSjobs.safe_to_sanitize)
+		if (!SSjobs.deferred_preference_sanitizations[src])
+			SSjobs.deferred_preference_sanitizations[src] = CALLBACK(src, .proc/late_sanitize, sql_load)
+	else
+		late_sanitize(sql_load)
+
+/datum/category_item/player_setup_item/occupation/proc/late_sanitize(sql_load)
+	for (var/datum/job/job in SSjobs.occupations)
 		var/alt_title = pref.player_alt_titles[job.title]
 		if(alt_title && !(alt_title in job.alt_titles))
 			pref.player_alt_titles -= job.title
 
+	sanitize_faction()
+
 /datum/category_item/player_setup_item/occupation/content(mob/user, limit = 16, list/splitJobs = list("Chief Engineer", "Head of Security"))
+	if (SSjobs.init_state != SS_INITSTATE_DONE)
+		return "<center><large>Jobs controller not initialized yet. Please wait a bit and reload this section.</large></center>"
+
 	var/list/dat = list(
+		"<center><b>Character faction</b><br>",
+		"<small>This will influence the jobs you can select from, and the starting equipment.</small><br>",
+		"<b><a href='?src=\ref[src];faction_preview=[html_encode(pref.faction)]'>[pref.faction]</a></b></center><br><hr>"
+	)
+
+	dat += list(
 		"<tt><center>",
 		"<b>Choose occupation chances</b><br>Unavailable occupations are crossed out.<br>",
 		"<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>", // Table within a table for alignment, also allows you to easily add more colomns.
@@ -137,7 +159,10 @@
 
 	//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 	var/datum/job/lastJob
-	for(var/datum/job/job in SSjobs.occupations)
+
+	var/datum/faction/faction = SSjobs.name_factions[pref.faction] || SSjobs.default_faction
+
+	for(var/datum/job/job in faction.get_occupations())
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
 			if((index < limit) && (lastJob != null))
@@ -201,8 +226,6 @@
 	dat += "</center></table>"
 
 	switch(pref.alternate_option)
-		if(GET_RANDOM_JOB)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=green>Get random job if preferences unavailable</font></a></u></center><br>"
 		if(BE_ASSISTANT)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
@@ -219,10 +242,10 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["job_alternative"])
-		if(pref.alternate_option == GET_RANDOM_JOB || pref.alternate_option == BE_ASSISTANT)
-			pref.alternate_option += 1
+		if(pref.alternate_option == BE_ASSISTANT)
+			pref.alternate_option = RETURN_TO_LOBBY
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
-			pref.alternate_option = 0
+			pref.alternate_option = BE_ASSISTANT
 		return TOPIC_REFRESH
 
 	else if(href_list["select_alt_title"])
@@ -235,9 +258,27 @@
 				return TOPIC_REFRESH
 
 	else if(href_list["set_job"])
-		if(SetJob(user, href_list["set_job"])) return TOPIC_REFRESH
+		if(SetJob(user, href_list["set_job"]))
+			return TOPIC_REFRESH
+
+	else if(href_list["faction_preview"])
+		show_faction_menu(user, html_decode(href_list["faction_preview"]))
+		return TOPIC_NOACTION
+
+	else if(href_list["faction_select"])
+		validate_and_set_faction(html_decode(href_list["faction_select"]))
+		show_faction_menu(user, html_decode(href_list["faction_select"]))
+		return TOPIC_REFRESH
 
 	return ..()
+
+/datum/category_item/player_setup_item/occupation/proc/sanitize_faction()
+	if (!SSjobs.name_factions[pref.faction])
+		pref.faction = SSjobs.default_faction.name
+
+		to_client_chat("<span class='danger'>Your faction selection has been reset to [pref.faction].</span>")
+		to_client_chat("<span class='danger'>Your jobs have been reset due to this!</span>")
+		ResetJobs()
 
 /datum/category_item/player_setup_item/occupation/proc/SetPlayerAltTitle(datum/job/job, new_title)
 	// remove existing entry
@@ -270,7 +311,8 @@
 	return 1
 
 /datum/category_item/player_setup_item/occupation/proc/SetJobDepartment(var/datum/job/job, var/level)
-	if(!job || !level)	return 0
+	if(!job || !level)
+		return 0
 	switch(level)
 		if(1)//Only one of these should ever be active at once so clear them all here
 			pref.job_civilian_high = 0
@@ -333,8 +375,55 @@
 
 	pref.player_alt_titles.Cut()
 
+/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(mob/user, selected_faction)
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/faction_icons)
+
+	var/list/dat = list("<center><b>")
+
+	var/list/factions = list()
+	for (var/datum/faction/faction in SSjobs.factions)
+		if (faction.name == selected_faction)
+			factions += "[faction.name]"
+		else
+			factions += "<a href='?src=\ref[src];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
+
+	dat += factions.Join(" | ") + "</b>"
+
+	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
+
+	if (selected_faction == pref.faction)
+		dat += "<br>\[Faction already selected\]"
+	else if (faction.can_select(pref))
+		dat += "<br>\[<a href='?src=\ref[src];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
+	else
+		dat += "<br><span class='warning'>[faction.get_selection_error(pref)]</span>"
+
+	dat += "</center><hr><center><large><u>[faction.name]</u></large>"
+	dat += {"<br><img style="height:100px;" src="[faction.get_logo_name()]"></center>"}
+
+	if (faction.is_default)
+		dat += "<br><center><small>This faction is the default faction aboard this installation.</small></center>"
+
+	dat += "<br><br><center><a href='?src=\ref[user.client];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>Read the Wiki</a></center>"
+	dat += "<br>[faction.description]"
+
+	show_browser(user, dat.Join(), "window=factionpreview;size=400x600")
+
+/datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
+	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
+
+	if (!faction)
+		to_client_chat("<span class='danger'>Invalid faction chosen. Resetting to default.</span>")
+		selected_faction = SSjobs.default_faction.name
+
+	ResetJobs() // How to be horribly lazy.
+
+	pref.faction = selected_faction
+
+	to_client_chat("<span class='notice'>New faction chosen. Job preferences reset.</span>")
+
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
-	return (job.title in player_alt_titles) ? player_alt_titles[job.title] : job.title
+	return player_alt_titles[job.title] || job.title
 
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)	return 0

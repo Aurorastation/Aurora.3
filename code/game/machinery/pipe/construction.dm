@@ -62,6 +62,7 @@ Buildable meters
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	item_state = "buildpipe"
+	randpixel = 5
 	w_class = 3
 	level = 2
 
@@ -200,8 +201,7 @@ Buildable meters
 			connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_SUPPLY|CONNECT_TYPE_SCRUBBER
 	//src.pipe_dir = get_pipe_dir()
 	update()
-	src.pixel_x = rand(-5, 5)
-	src.pixel_y = rand(-5, 5)
+	randpixel_xy()
 
 //update the name and icon of the pipe item depending on the type
 
@@ -1180,7 +1180,7 @@ Buildable meters
 			P.atmos_init()
 			P.build_network()
 
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, W.usesound, 50, 1)
 	user.visible_message( \
 		"[user] fastens the [src].", \
 		"<span class='notice'>You have fastened the [src].</span>", \
@@ -1211,7 +1211,7 @@ Buildable meters
 		to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
 		return 1
 	new/obj/machinery/meter( src.loc )
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
 	qdel(src)
 //not sure why these are necessary

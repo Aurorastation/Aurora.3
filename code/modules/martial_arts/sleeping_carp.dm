@@ -63,7 +63,8 @@
 		D.visible_message("<span class='warning'>[A] knees [D] in the stomach!</span>", \
 						  "<span class='danger'>[A] winds you with a knee in the stomach!</span>")
 		D.audible_message("<b>[D]</b> gags!")
-		D.losebreath += 3
+		if (!(D.species.flags & NO_BREATHE))
+			D.losebreath += 3
 		D.Stun(2)
 		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
 

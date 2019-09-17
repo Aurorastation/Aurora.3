@@ -24,6 +24,7 @@
 	new /obj/item/weapon/storage/bag/ore(src)
 	new /obj/item/weapon/shovel(src)
 	new /obj/item/weapon/pickaxe(src)
+	new /obj/item/weapon/gun/custom_ka/frame01/prebuilt(src)
 	new /obj/item/weapon/ore_radar(src)
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
@@ -114,6 +115,7 @@
 	return	unwield()
 
 /obj/item/weapon/pickaxe/pickup(mob/user)
+	..()
 	unwield()
 
 /obj/item/weapon/pickaxe/attack_self(mob/user as mob)
@@ -1192,7 +1194,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
 	if (C.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, C.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
 		anchored = !anchored
 

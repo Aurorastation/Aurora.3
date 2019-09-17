@@ -150,7 +150,7 @@
 		if(F.welding)
 			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-			if(!do_after(user, 20) || !F.remove_fuel(1, user))
+			if(!do_after(user, 20/W.toolspeed) || !F.remove_fuel(1, user))
 				return
 			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
 			                              "<span class='notice'>You repair some damage to \the [src].</span>")
@@ -164,6 +164,12 @@
 			queue_icon_update()
 			update_desc()
 			update_material()
+		return 1
+
+	if(!material && can_plate && istype(W, /obj/item/weapon/reagent_containers/glass/beaker/bowl))
+		new /obj/structure/chemkit(loc)
+		qdel(W)
+		qdel(src)
 		return 1
 
 	return ..()
@@ -251,15 +257,15 @@
 	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
 
 /obj/structure/table/proc/remove_material(obj/item/weapon/wrench/W, mob/user)
-	material = common_material_remove(user, material, 20, "plating", "bolts", 'sound/items/Ratchet.ogg')
+	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
 
 /obj/structure/table/proc/dismantle(obj/item/weapon/wrench/W, mob/user)
 	if(manipulating) return
 	manipulating = 1
 	user.visible_message("<span class='notice'>\The [user] begins dismantling \the [src].</span>",
 	                              "<span class='notice'>You begin dismantling \the [src].</span>")
-	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	if(!do_after(user, 20))
+	playsound(src, W.usesound, 100, 1)
+	if(!do_after(user, 20/W.toolspeed))
 		manipulating = 0
 		return
 	user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>",

@@ -53,28 +53,32 @@
 		/obj/item/weapon/material/hatchet,
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/weapon/extinguisher/mini,
-		/obj/item/weapon/pipewrench
+		/obj/item/weapon/pipewrench,
+		/obj/item/powerdrill
 		)
 
 
-/obj/item/weapon/storage/belt/utility/full/fill()
-	..()
-	new /obj/item/weapon/screwdriver(src)
-	new /obj/item/weapon/wrench(src)
-	new /obj/item/weapon/weldingtool(src)
-	new /obj/item/weapon/crowbar(src)
-	new /obj/item/weapon/wirecutters(src)
-	new /obj/item/stack/cable_coil(src,30,pick("red","yellow","orange"))
+/obj/item/weapon/storage/belt/utility/full/
+	starts_with = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
 
 
-/obj/item/weapon/storage/belt/utility/atmostech/fill()
-	..()
-	new /obj/item/weapon/screwdriver(src)
-	new /obj/item/weapon/wrench(src)
-	new /obj/item/weapon/weldingtool(src)
-	new /obj/item/weapon/crowbar(src)
-	new /obj/item/weapon/wirecutters(src)
-	new /obj/item/device/t_scanner(src)
+/obj/item/weapon/storage/belt/utility/atmostech/
+	starts_with = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/device/t_scanner = 1
+	)
 
 
 
@@ -161,14 +165,8 @@
 		/obj/item/device/soulstone
 		)
 
-/obj/item/weapon/storage/belt/soulstone/full/fill()
-	..()
-	new /obj/item/device/soulstone(src)
-	new /obj/item/device/soulstone(src)
-	new /obj/item/device/soulstone(src)
-	new /obj/item/device/soulstone(src)
-	new /obj/item/device/soulstone(src)
-	new /obj/item/device/soulstone(src)
+/obj/item/weapon/storage/belt/soulstone/full
+	starts_with = list(/obj/item/device/soulstone = 6)
 
 /obj/item/weapon/storage/belt/champion
 	name = "championship belt"
@@ -237,15 +235,20 @@
 	w_class = 3
 	max_w_class = 3
 	can_hold = list(
-		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
-		/obj/item/device/lightreplacer,
-		/obj/item/device/flashlight,
-		/obj/item/weapon/reagent_containers/spray,
-		/obj/item/weapon/soap,
-		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/wrench,
-		/obj/item/weapon/crowbar
+		/obj/item/device/flashlight,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/glasses/material,
+		/obj/item/weapon/reagent_containers/spray,
+		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
+		/obj/item/device/lightreplacer,
+		/obj/item/weapon/soap,
+		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/reagent_containers/glass/rag
 		)
 
 /obj/item/weapon/storage/belt/wands
@@ -258,15 +261,16 @@
 	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/weapon/gun/energy/wand
-		)
+	)
 
-/obj/item/weapon/storage/belt/wands/full/fill()
-	..()
-	new /obj/item/weapon/gun/energy/wand/fire(src)
-	new /obj/item/weapon/gun/energy/wand/polymorph(src)
-	new /obj/item/weapon/gun/energy/wand/teleport(src)
-	new /obj/item/weapon/gun/energy/wand/force(src)
-	new /obj/item/weapon/gun/energy/wand/animation(src)
+/obj/item/weapon/storage/belt/wands/full
+	starts_with = list(
+		/obj/item/weapon/gun/energy/wand/fire = 1,
+		/obj/item/weapon/gun/energy/wand/polymorph = 1,
+		/obj/item/weapon/gun/energy/wand/teleport = 1,
+		/obj/item/weapon/gun/energy/wand/force = 1,
+		/obj/item/weapon/gun/energy/wand/animation = 1
+	)
 
 /obj/item/weapon/storage/belt/mining
 	name = "explorer's belt"
@@ -276,7 +280,8 @@
 	storage_slots = 9
 	w_class = 4
 	max_w_class = 4 //Pickaxes are big.
-	can_hold = list(/obj/item/weapon/crowbar,
+	can_hold = list(
+		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/weldingtool,
 		/obj/item/weapon/wirecutters,
@@ -340,19 +345,7 @@
 		/obj/item/weapon/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-		)
-
-/obj/item/weapon/storage/belt/hydro/full/fill()
-	..()
-	new /obj/item/weapon/plantspray/pests(src)
-	new /obj/item/weapon/material/minihoe(src)
-	new /obj/item/weapon/storage/bag/plants(src)
-	new /obj/item/clothing/gloves/botanic_leather(src)
-	new /obj/item/device/analyzer/plant_analyzer(src)
-	new /obj/item/weapon/material/hatchet(src)
-	new /obj/item/weapon/reagent_containers/glass/fertilizer/rh(src)
-	new /obj/item/weapon/reagent_containers/spray/plantbgone(src)
-	new /obj/item/weapon/wirecutters/clippers(src)
+	)
 
 /obj/item/weapon/storage/belt/fannypack
 	name = "leather fannypack"

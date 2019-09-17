@@ -33,6 +33,10 @@ BLIND     // can't see anything
 	species_restricted = list("exclude","Vaurca Breeder")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
+// Called in mob/RangedAttack() and mob/UnarmedAttack.
+/obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
+	return 0 // return 1 to cancel attack_hand/RangedAttack()
+
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc

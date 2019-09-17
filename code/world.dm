@@ -188,10 +188,8 @@ var/list/world_api_rate_limit = list()
 		return json_encode(response)
 
 
-/world/Reboot(var/reason)
-	var/hard_reset = FALSE
-
-	if (world.TgsAvailable())
+/world/Reboot(reason, hard_reset = FALSE)
+	if (!hard_reset && world.TgsAvailable())
 		switch (config.rounds_until_hard_restart)
 			if (-1)
 				hard_reset = FALSE
@@ -204,6 +202,8 @@ var/list/world_api_rate_limit = list()
 				else
 					hard_reset = FALSE
 					SSpersist_config.rounds_since_hard_restart++
+	else if (!world.TgsAvailable() && hard_reset)
+		hard_reset = FALSE
 
 	SSpersist_config.save_to_file("data/persistent_config.json")
 	Master.Shutdown()

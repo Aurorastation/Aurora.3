@@ -161,9 +161,9 @@ BREATH ANALYZER
 				to_chat(user, "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>")
 		if(C.virus2.len)
 			for (var/ID in C.virus2)
-				if (ID in virusDB)
-					var/datum/data/record/V = virusDB[ID]
-					user.show_message("<span class='warning'>Warning: Pathogen [V.fields["name"]] detected in subject's blood. Known antigen : [V.fields["antigen"]]</span>")
+				var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
+				if(istype(V))
+					user.show_message("<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>")
 					
 	if(M.nutrition / M.max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
 		user.show_message("<span class='warning'>Subject malnourished. Food intake recommended.</span>")

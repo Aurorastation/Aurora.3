@@ -186,6 +186,8 @@
 
 	specific_heat = 1.541
 
+	germ_adjust = 0.05 // i mean, i guess you could try...
+
 /datum/reagent/water/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!istype(M))
 		return

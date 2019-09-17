@@ -266,7 +266,8 @@ var/list/name_to_material
 	icon_base = "stone"
 	icon_reinf = "reinf_stone"
 	icon_colour = "#007A00"
-	weight = 22
+	weight = 25
+	hardness = 20
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
 	golem = "Uranium Golem"
@@ -291,8 +292,8 @@ var/list/name_to_material
 	name = "gold"
 	stack_type = /obj/item/stack/material/gold
 	icon_colour = "#EDD12F"
-	weight = 24
-	hardness = 40
+	weight = 30
+	hardness = 15 
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
@@ -705,6 +706,37 @@ var/list/name_to_material
 	golem = "Wood Golem"
 	hitsound = 'sound/effects/woodhit.ogg'
 
+/material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
+	name = "log"
+	stack_type = /obj/item/stack/material/woodlog 
+	icon_colour = "#824B28"
+	integrity = 50
+	icon_base = "solid"
+	explosion_resistance = 4
+	hardness = 30
+	weight = 30 //Logs are heavier then normal pieces of wood
+	conductivity = 0.8
+	melting_point = T0C+380
+	ignition_point = T0C+328
+	destruction_desc = "splinters"
+	sheet_singular_name = "log"
+	sheet_plural_name = "logs"
+
+/material/wood/branch
+	name = "branch"
+	stack_type = /obj/item/stack/material/woodbranch
+	icon_colour = "#824B28"
+	integrity = 50
+	icon_base = "solid"
+	explosion_resistance = 0
+	hardness = 0.1
+	weight = 7
+	melting_point = T0C+220 
+	ignition_point = T0C+218
+	sheet_singular_name = "branch"
+	sheet_plural_name = "branch"
+
+
 /material/rust
 	name = "rust"
 	display_name = "rusty steel"
@@ -783,12 +815,6 @@ var/list/name_to_material
 	melting_point = T0C+300
 	sheet_singular_name = "blob"
 	sheet_plural_name = "blobs"
-
-/material/resin/can_open_material_door(var/mob/living/user)
-	var/mob/living/carbon/M = user
-	if(istype(M) && locate(/obj/item/organ/xenos/hivenode) in M.internal_organs)
-		return 1
-	return 0
 
 //TODO PLACEHOLDERS:
 /material/leather

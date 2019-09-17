@@ -62,6 +62,26 @@
 	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "officerberet"
 
+/obj/item/clothing/head/beret/sec/idris
+	name = "idris security beret"
+	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
+	icon_state = "idrissecberet"
+
+/obj/item/clothing/head/beret/sec/necro
+	name = "necropolis security beret"
+	desc = "A brown beret with the Necropolis Industries insignia emblazoned on it."
+	icon_state = "necrosecberet"
+
+/obj/item/clothing/head/beret/sec/necro/alt
+	name = "necropolis security beret"
+	desc = "A black beret with the Necropolis Industries insignia emblazoned on it."
+	icon_state = "necrosecaltberet"
+
+/obj/item/clothing/head/beret/sec/eri
+	name = "eridani security beret"
+	desc = "A beret with the Eridani PMC insignia emblazoned on it."
+	icon_state = "erisecberet"
+
 /obj/item/clothing/head/beret/sec/cadet
 	name = "cadet beret"
 	desc = "A beret with the security insignia emblazoned on it. This one is for in training security personnel."
@@ -86,6 +106,11 @@
 	name = "purple beret"
 	desc = "A stylish, if purple, beret."
 	icon_state = "purpleberet"
+
+/obj/item/clothing/head/beret/liaison
+	name = "corporate liaison beret"
+	desc = "A stylish beret worn by corporate liaisons."
+	icon_state = "centcomofficerberet"
 
 /obj/item/clothing/head/beret/centcom/officer
 	name = "officers beret"

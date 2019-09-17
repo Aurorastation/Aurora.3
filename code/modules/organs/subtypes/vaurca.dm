@@ -54,9 +54,11 @@
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
+	tolerance = 20
 
 /obj/item/organ/liver/vaurca
 	icon_state = "liver_vaurca"
+	tolerance = 20
 
 /obj/item/organ/brain/vaurca
 	icon_state = "brain_vaurca"

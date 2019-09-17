@@ -46,6 +46,7 @@
 	var/role_alt_title
 
 	var/datum/job/assigned_job
+	var/datum/faction/selected_faction
 
 	var/holonetname = "User"
 
@@ -116,7 +117,12 @@
 		new_character.key = key		//now transfer the key to link the client to our new body
 
 /datum/mind/proc/store_memory(new_text)
-	memory += "[new_text]<BR>"
+	. = length(memory + new_text)
+
+	if (. > MAX_PAPER_MESSAGE_LEN)
+		memory = copytext(memory, . - MAX_PAPER_MESSAGE_LEN, .)
+	else
+		memory += "[new_text]<BR>"
 
 /datum/mind/proc/show_memory(mob/recipient)
 	var/output = "<B>[current.real_name]'s Memory</B><HR>"
@@ -504,7 +510,9 @@
 		mind = new /datum/mind(key)
 		mind.original = src
 		SSticker.minds += mind
-	if(!mind.name)	mind.name = real_name
+	if(!mind.name)
+		mind.name = real_name
+
 	if (client)
 		if (client.prefs.signature)
 			mind.signature = client.prefs.signature
@@ -515,7 +523,8 @@
 //HUMAN
 /mob/living/carbon/human/mind_initialize()
 	..()
-	if(!mind.assigned_role)	mind.assigned_role = "Assistant"	//defualt
+	if(!mind.assigned_role)
+		mind.assigned_role = "Assistant"	//defualt
 
 //slime
 /mob/living/carbon/slime/mind_initialize()

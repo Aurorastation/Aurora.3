@@ -129,7 +129,7 @@
 	item_state = "waterpackjani"
 
 /obj/item/watertank/janitor/Initialize()
-	..()
+	. = ..()
 	reagents.add_reagent("cleaner", 500)
 
 /obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor

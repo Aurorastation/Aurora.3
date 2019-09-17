@@ -60,3 +60,8 @@
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
+
+/obj/item/weapon/bananapeel/Crossed(AM as mob|obj)
+	if (istype(AM, /mob/living))
+		var/mob/living/M = AM
+		M.slip("the [src.name]",4)

@@ -41,9 +41,8 @@
 	var/last_chew = 0 // Used for hand chewing
 
 	// General information
-	var/home_system = ""
 	var/citizenship = ""
-	var/personal_faction = ""
+	var/employer_faction = ""
 	var/religion = ""
 
 	//Equipment slots

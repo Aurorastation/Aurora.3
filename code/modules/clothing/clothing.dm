@@ -609,6 +609,8 @@
 	var/can_hold_knife
 	var/obj/item/holding
 
+	var/shoes_under_pants = 0
+
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
 	force = 0
@@ -660,6 +662,25 @@
 		update_icon()
 	else
 		return ..()
+
+/obj/item/clothing/shoes/verb/toggle_layer()
+	set name = "Switch Shoe Layer"
+	set category = "Object"
+
+	if(shoes_under_pants == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		return
+	shoes_under_pants = !shoes_under_pants
+	update_icon()
+
+/obj/item/clothing/shoes/update_icon()
+	overlays.Cut()
+	if(holding)
+		overlays += image(icon, "[icon_state]_knife")
+	if(ismob(usr))
+		var/mob/M = usr
+		M.update_inv_shoes()
+	return ..()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
