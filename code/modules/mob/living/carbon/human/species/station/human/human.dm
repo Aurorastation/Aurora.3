@@ -21,7 +21,7 @@
 	megacorporations have sparked secretive factions to fight their influence, while there is always the risk of someone digging too \
 	deep into the secrets of the galaxy..."
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_SIIK_TAU)
+	secondary_langs = list(LANGUAGE_SOL_COMMON)
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
@@ -34,3 +34,8 @@
 	sprint_cost_factor = 0.5
 
 	climb_coeff = 1
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
+
+	zombie_type = "Zombie"

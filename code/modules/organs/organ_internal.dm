@@ -15,6 +15,14 @@
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 
+/obj/item/organ/heart/process()
+	//Check if we're on lifesupport, and whether or not organs should be processing.
+	if(owner && owner.isonlifesupport())
+		return 1
+	else
+		return 0
+
+
 /obj/item/organ/lungs
 	name = "lungs"
 	icon_state = "lungs"
@@ -22,7 +30,7 @@
 	organ_tag = "lungs"
 	parent_organ = "chest"
 	robotic_name = "gas exchange system"
-	robotic_sprite = "heart-prosthetic"
+	robotic_sprite = "lungs-prosthetic"
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
 /obj/item/organ/lungs/process()
@@ -120,6 +128,7 @@
 	parent_organ = "groin"
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
+	var/tolerance = 5
 
 /obj/item/organ/liver/process()
 
@@ -138,9 +147,9 @@
 	if(owner.life_tick % PROCESS_ACCURACY == 0)
 
 		//A liver's duty is to get rid of toxins
-		if(owner.getToxLoss() > 0 && owner.getToxLoss() <= 3)
+		if(owner.getToxLoss() > 0 && owner.getToxLoss() <= tolerance)
 			owner.adjustToxLoss(-0.2) //there isn't a lot of toxin damage, so we're going to be chill and slowly filter it out
-		else if(owner.getToxLoss() > 3)
+		else if(owner.getToxLoss() > tolerance)
 			if(is_bruised())
 				//damaged liver works less efficiently
 				owner.adjustToxLoss(-0.5)

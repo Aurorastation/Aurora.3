@@ -6,6 +6,7 @@
 	name = "empty bottle"
 	desc = "A sad empty bottle."
 	icon_state = "alco-clear"
+	center_of_mass = list("x" = 16,"y" = 6)
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
@@ -204,7 +205,7 @@
 	name = "Uncle Git's Special Reserve"
 	desc = "A premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
 	icon_state = "whiskeybottle"
-	center_of_mass = list("x"=16, "y"=3)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("whiskey", 100)
@@ -213,7 +214,7 @@
 	name = "Uncle Git's Cinnamon Fireball"
 	desc = "A premium single-malt whiskey, infused with cinnamon and hot pepper inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
 	icon_state = "fireballbottle"
-	center_of_mass = list("x"=16, "y"=3)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("fireball", 100)
@@ -222,7 +223,7 @@
 	name = "Tunguska Triple Distilled"
 	desc = "Aah, vodka. Prime choice of drink AND fuel by Russians worldwide."
 	icon_state = "vodkabottle"
-	center_of_mass = list("x"=17, "y"=3)
+	center_of_mass = list("x"=17, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("vodka", 100)
@@ -231,7 +232,7 @@
 	name = "Caccavo Guaranteed Quality tequila"
 	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!"
 	icon_state = "tequillabottle"
-	center_of_mass = list("x"=16, "y"=3)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("tequilla", 100)
@@ -240,7 +241,7 @@
 	name = "bottle of nothing"
 	desc = "A bottle filled with nothing"
 	icon_state = "bottleofnothing"
-	center_of_mass = list("x"=17, "y"=5)
+	center_of_mass = list("x"=16, "y"=5)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("nothing", 100)
@@ -249,7 +250,7 @@
 	name = "Angstra Aromatic Bitters"
 	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters."
 	icon_state = "bitters"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=9)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("bitters",40)
@@ -276,7 +277,7 @@
 	name = "Wrapp Artiste patron"
 	desc = "Silver laced tequilla, served in space night clubs across the galaxy."
 	icon_state = "patronbottle"
-	center_of_mass = list("x"=16, "y"=6)
+	center_of_mass = list("x"=16, "y"=7)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("patron", 100)
@@ -285,7 +286,7 @@
 	name = "Captain Pete's Cuban Spiced rum"
 	desc = "This isn't just rum, oh no. It's practically GRIFF in a bottle."
 	icon_state = "rumbottle"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("rum", 100)
@@ -303,7 +304,7 @@
 	name = "Goldeneye vermouth"
 	desc = "Sweet, sweet dryness~"
 	icon_state = "vermouthbottle"
-	center_of_mass = list("x"=17, "y"=3)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("vermouth", 100)
@@ -312,7 +313,7 @@
 	name = "Robert Robust's coffee liqueur"
 	desc = "A widely known, Mexican coffee-flavoured liqueur. In production since 1936, HONK"
 	icon_state = "kahluabottle"
-	center_of_mass = list("x"=17, "y"=3)
+	center_of_mass = list("x"=16, "y"=5)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("kahlua", 100)
@@ -321,7 +322,7 @@
 	name = "College Girl goldschlager"
 	desc = "Because they are the only ones who will drink 100 proof cinnamon schnapps."
 	icon_state = "goldschlagerbottle"
-	center_of_mass = list("x"=15, "y"=3)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("goldschlager", 100)
@@ -330,7 +331,7 @@
 	name = "Chateau De Baton Premium cognac"
 	desc = "A sweet and strongly alchoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time."
 	icon_state = "cognacbottle"
-	center_of_mass = list("x"=16, "y"=6)
+	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("cognac", 100)
@@ -348,7 +349,7 @@
 	name = "Jailbreaker Verte"
 	desc = "One sip of this and you just know you're gonna have a good time."
 	icon_state = "absinthebottle"
-	center_of_mass = list("x"=16, "y"=6)
+	center_of_mass = list("x"=16, "y"=7)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("absinthe", 100)
@@ -423,7 +424,7 @@
 	desc = "Full of vitamins and deliciousness!"
 	icon_state = "orangejuice"
 	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=7)
+	center_of_mass = list("x"=16, "y"=6)
 	isGlass = 0
 	Initialize()
 		. = ..()
@@ -434,7 +435,7 @@
 	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
 	icon_state = "cream"
 	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=6)
 	isGlass = 0
 	Initialize()
 		. = ..()
@@ -445,7 +446,7 @@
 	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
 	icon_state = "tomatojuice"
 	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=6)
 	isGlass = 0
 	Initialize()
 		. = ..()
@@ -456,7 +457,7 @@
 	desc = "Sweet-sour goodness."
 	icon_state = "limejuice"
 	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=4)
 	isGlass = 0
 	Initialize()
 		. = ..()
@@ -467,7 +468,7 @@
 	desc = "This juice is VERY sour."
 	icon_state = "lemoncarton"
 	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=6)
 	isGlass = 0
 	Initialize()
 		. = ..()
@@ -478,11 +479,22 @@
 	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
 	icon_state = "dyncarton"
 	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=8)
+	center_of_mass = list("x"=16, "y"=6)
 	isGlass = 0
 	Initialize()
 		. = ..()
 		reagents.add_reagent("dynjuice", 100)
+
+/obj/item/weapon/reagent_containers/food/drinks/bottle/applejuice
+	name = "apple juice"
+	desc = "Juice from an apple. Yes."
+	icon_state = "applejuice"
+	item_state = "carton"
+	center_of_mass = list("x"=16, "y"=4)
+	isGlass = 0
+	Initialize()
+		. = ..()
+		reagents.add_reagent("applejuice", 100)
 
 //Small bottles
 /obj/item/weapon/reagent_containers/food/drinks/bottle/small
@@ -498,7 +510,7 @@
 	name = "space beer"
 	desc = "Contains only water, malt and hops."
 	icon_state = "beer"
-	center_of_mass = list("x"=16, "y"=12)
+	center_of_mass = list("x"=16, "y"=8)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("beer", 30)
@@ -508,7 +520,7 @@
 	desc = "A true dorf's drink of choice."
 	icon_state = "alebottle"
 	item_state = "beer"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("ale", 30)
@@ -519,6 +531,7 @@
 	name = "green chartreuse"
 	desc = "A green, strong liqueur."
 	icon_state = "chartreusegreenbottle"
+	center_of_mass = list("x" = 15,"y" = 5)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("chartreusegreen", 100)
@@ -527,6 +540,7 @@
 	name = "yellow chartreuse"
 	desc = "A yellow, strong liqueur."
 	icon_state = "chartreuseyellowbottle"
+	center_of_mass = list("x" = 15,"y" = 5)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("chartreuseyellow", 100)
@@ -535,6 +549,7 @@
 	name = "white creme de menthe"
 	desc = "Mint-flavoured alcohol, in a bottle."
 	icon_state = "whitecremebottle"
+	center_of_mass = list("x" = 16,"y" = 5)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("cremewhite", 100)
@@ -543,6 +558,7 @@
 	name = "Creme de Yvette"
 	desc = "Berry-flavoured alcohol, in a bottle."
 	icon_state = "cremedeyvettebottle"
+	center_of_mass = list("x" = 16,"y" = 6)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("cremeyvette", 100)
@@ -551,6 +567,7 @@
 	name = "brandy"
 	desc = "Cheap knock off for cognac."
 	icon_state = "brandybottle"
+	center_of_mass = list("x" = 15,"y" = 8)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("brandy", 100)
@@ -559,6 +576,7 @@
 	name = "Guinness"
 	desc = "A bottle of good old Guinness."
 	icon_state = "guinnes_bottle"
+	center_of_mass = list("x" = 15,"y" = 4)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("guinnes", 100)
@@ -567,6 +585,7 @@
 	name = "Drambuie"
 	desc = "A bottle of Drambuie."
 	icon_state = "drambuie_bottle"
+	center_of_mass = list("x" = 16,"y" = 6)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("drambuie", 100)
@@ -575,6 +594,7 @@
 	name = "sbiten"
 	desc = "A bottle full of sweet sbiten."
 	icon_state = "sbitenbottle"
+	center_of_mass = list("x" = 16,"y" = 7)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("sbiten", 100)
@@ -583,6 +603,7 @@
 	name = "messa's mead"
 	desc = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
 	icon_state = "messa_mead"
+	center_of_mass = list("x" = 16,"y" = 5)
 	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
 	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
 	People's Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
@@ -598,7 +619,7 @@
 	name = "Xuizi Juice"
 	desc = "Blended flower buds from the Xuizi cactus. It smells faintly of vanilla. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "xuizibottle"
-	center_of_mass = list("x"=16, "y"=10)
+	center_of_mass = list("x"=16, "y"=8)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("xuizijuice", 30)
@@ -607,6 +628,7 @@
 	name = "Sarezhi Wine"
 	desc = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "sarezhibottle"
+	center_of_mass = list("x" = 16,"y" = 6)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("sarezhiwine", 100)

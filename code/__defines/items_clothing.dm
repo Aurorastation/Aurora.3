@@ -91,6 +91,7 @@
 #define slot_r_ear       20
 #define slot_legs        21
 #define slot_tie         22
+#define slot_in_belt     23
 
 // Inventory slot strings.
 // since numbers cannot be used as associative list keys.

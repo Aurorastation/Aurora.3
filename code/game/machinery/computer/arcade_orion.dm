@@ -67,6 +67,7 @@
 	var/distance = 0
 	var/port = 0
 	var/view = 0
+	var/cooldown = 0
 	prize = /obj/random/arcade/orion
 
 /obj/machinery/computer/arcade/orion_trail/proc/newgame(var/emag = 0)
@@ -95,7 +96,9 @@
 	switch(view)
 		if(ORION_VIEW_MAIN)
 			if(event == ORION_TRAIL_START) //new game? New game.
-				playsound(loc, 'sound/arcade/Ori_begin.ogg', 10, 1, extrarange = -3, falloff = 10)
+				if(world.time >= cooldown)
+					playsound(loc, 'sound/arcade/Ori_begin.ogg', 1, 1, extrarange = -3, falloff = 10)
+					cooldown = world.time + 300
 				dat = "<center><h1>Orion Trail[emagged ? ": Realism Edition" : ""]</h1><br>Learn how our ancestors got to Orion, and have fun in the process!</center><br><P ALIGN=Right><a href='?src=\ref[src];continue=1'>Start New Game</a></P>"
 				user << browse(dat, "window=arcade")
 				return
@@ -104,7 +107,7 @@
 				event_actions = "<a href='?src=\ref[src];continue=1'>Continue your journey</a><br>"
 			switch(event)
 				if(ORION_TRAIL_GAMEOVER)
-					playsound(loc, 'sound/arcade/Ori_fail.ogg', 10, 1, extrarange = -3, falloff = 10)
+					playsound(loc, 'sound/arcade/Ori_fail.ogg', 2, 1, extrarange = -3, falloff = 10)
 					event_info = ""
 					event_actions = "<a href='?src=\ref[src];continue=1'>Start New Game</a><br>"
 				if(ORION_TRAIL_SPACEPORT)
@@ -126,7 +129,7 @@
 				if(ORION_TRAIL_ILLNESS)
 					event_desc = "A disease has spread amoungst your crew!"
 				if(ORION_TRAIL_FLUX)
-					playsound(loc, 'sound/arcade/explo.ogg', 10, 1, extrarange = -3, falloff = 10)
+					playsound(loc, 'sound/arcade/explo.ogg', 3, 1, extrarange = -3, falloff = 10)
 					event_desc = "You've entered a turbulent region. Slowing down would be better for your ship but would cost more fuel."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"
 					event_actions += "<a href='?src=\ref[src];continue=1;slow=1;'>Take it slow</a><BR>"
@@ -137,14 +140,14 @@
 					if(supplies["3"] != 0)
 						event_actions += "<a href='?src=\ref[src];continue=1;fix=3'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_COLLISION)
-					playsound(loc, 'sound/arcade/explo.ogg', 10, 1, extrarange = -3, falloff = 10)
+					playsound(loc, 'sound/arcade/explo.ogg', 3, 1, extrarange = -3, falloff = 10)
 					event_info = ""
 					event_desc = "Something has hit your ship and breached the hull! You can choose to fix it with a part or risk something going awry."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"
 					if(supplies["2"] != 0)
 						event_actions += "<a href='?src=\ref[src];continue=1;fix=2'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_BREAKDOWN)
-					playsound(loc, 'sound/arcade/explo.ogg', 10, 1, extrarange = -3, falloff = 10)
+					playsound(loc, 'sound/arcade/explo.ogg', 3, 1, extrarange = -3, falloff = 10)
 					event_info = ""
 					event_desc = "The ship's engines broke down! You can choose to fix it with a part or risk something going awry."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"

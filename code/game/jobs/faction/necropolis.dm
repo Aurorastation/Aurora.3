@@ -88,26 +88,26 @@
 
 /datum/outfit/job/doctor/necropolis
 	name = "Medical Doctor - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
 	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/pharmacist/necropolis
 	name = "Pharmacist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
 	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/scientist/necropolis
 	name = "Scientist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
 	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/roboticist/necropolis
 	name = "Roboticist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
 	id = /obj/item/weapon/card/id/necropolis
 
 /datum/outfit/job/representative/necropolis
-	name = "Corporate Liaison - Necropolis"
+	name = "Necropolis Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/necropolis
 	head = null
 	suit = null

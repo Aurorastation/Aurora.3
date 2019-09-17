@@ -138,7 +138,7 @@
 
 /obj/item/weapon/reagent_containers/spray/aspergillum
 	name = "aspergillum"
-	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject. It has two sacred bells attached."
+	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "aspergillum"
 	item_state = "aspergillum"

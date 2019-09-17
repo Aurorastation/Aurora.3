@@ -121,7 +121,7 @@ list[](
 
 /datum/integrated_io/activate/push_data()
 	for(var/datum/integrated_io/io in linked)
-		io.holder.check_then_do_work()
+		io.holder.check_then_do_work(FALSE)
 
 /datum/integrated_io/proc/pull_data()
 	for(var/datum/integrated_io/io in linked)

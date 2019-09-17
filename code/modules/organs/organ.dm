@@ -319,7 +319,7 @@
 		if(3.0)
 			take_damage(rand(3) * emp_coeff * organ_fragility)
 
-/obj/item/organ/proc/removed(var/mob/living/user)
+/obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
 
 	if(!istype(owner))
 		return
@@ -353,6 +353,9 @@
 
 	owner.update_action_buttons()
 	owner = null
+
+	if(!owner.isonlifesupport())
+		owner.death()
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
 

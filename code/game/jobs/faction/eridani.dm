@@ -66,11 +66,11 @@
 
 /datum/outfit/job/paramedic/eridani
 	name = "Paramedic - Eridani"
-	uniform = /obj/item/clothing/under/rank/security/eridani/alt
+	uniform = /obj/item/clothing/under/rank/eridani_medic
 	id = /obj/item/weapon/card/id/eridani
 
 /datum/outfit/job/representative/eridani
-	name = "Corporate Liaison - Eridani"
+	name = "Eridani Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	head = null
 	suit = null

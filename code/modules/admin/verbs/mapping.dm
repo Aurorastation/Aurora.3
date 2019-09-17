@@ -1,7 +1,7 @@
 //- Are all the floors with or without air, as they should be? (regular or airless)
 //- Does the area have an APC?
 //- Does the area have an Air Alarm?
-//- Does the area have a Request Console?
+//- Does the area have a Requests Console?
 //- Does the area have lights?
 //- Does the area have a light switch?
 //- Does the area have enough intercoms?

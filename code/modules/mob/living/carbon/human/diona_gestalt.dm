@@ -275,6 +275,7 @@
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
 	M.detached = TRUE
 	M.update_verbs(TRUE)
+	M.languages = languages.Copy()
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ
