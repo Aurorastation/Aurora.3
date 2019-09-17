@@ -40,7 +40,6 @@
 	recoil_wielded = 0
 	accuracy_wielded = 0
 	wielded = 0
-	needspin = TRUE
 
 	is_wieldable = TRUE
 

@@ -69,6 +69,10 @@
 
 /obj/structure/closet/secure_closet/AltClick(mob/user)
 	. = ..()
+
+	if(use_check_and_message(user))
+		return
+
 	togglelock(user)
 
 /obj/structure/closet/secure_closet/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
