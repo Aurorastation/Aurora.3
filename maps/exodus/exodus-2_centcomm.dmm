@@ -8193,6 +8193,30 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
+"axN" = (
+/obj/structure/closet/medical_wall{
+	pixel_x = -32
+	},
+/obj/item/weapon/storage/firstaid/brute,
+/obj/item/weapon/storage/firstaid/fire,
+/obj/item/weapon/storage/firstaid/o2,
+/obj/item/weapon/storage/firstaid/toxin,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	name = "Surgery Cleaner"
+	},
+/obj/item/weapon/storage/firstaid/regular,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "axR" = (
 /obj/item/weapon/coin/gold,
 /turf/unsimulated/floor{
@@ -8537,9 +8561,12 @@
 /turf/simulated/shuttle/wall,
 /area/shuttle/escape/centcom)
 "ayL" = (
-/obj/structure/grille,
-/obj/structure/window/shuttle,
-/turf/simulated/shuttle/plating,
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/weapon/storage/firstaid/regular,
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "ayS" = (
 /obj/structure/window/reinforced{
@@ -8632,33 +8659,28 @@
 	},
 /area/centcom/living)
 "azf" = (
-/obj/machinery/computer/records/security,
+/obj/machinery/computer/records/medical,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "azg" = (
-/obj/machinery/computer/station_alert,
+/obj/item/modular_computer/console/preset/captain,
 /turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor4"
 	},
 /area/shuttle/escape/centcom)
 "azh" = (
 /obj/machinery/computer/shuttle_control/emergency,
 /turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"azi" = (
-/obj/item/modular_computer/console/preset/command,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"azj" = (
-/obj/machinery/computer/records/medical,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor4"
 	},
 /area/shuttle/escape/centcom)
 "azl" = (
@@ -8761,33 +8783,46 @@
 	},
 /area/centcom/holding)
 "azv" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/extinguisher,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Bridge West"
+/obj/structure/bed/chair/office/bridge,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
 	},
-/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "azw" = (
-/obj/structure/bed/chair{
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
 /area/shuttle/escape/centcom)
 "azx" = (
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "azy" = (
-/obj/machinery/status_display{
-	pixel_y = 30
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
 	},
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/toxin,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Bridge East"
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/turf/simulated/shuttle/floor,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
 /area/shuttle/escape/centcom)
 "azz" = (
 /turf/unsimulated/floor{
@@ -8969,23 +9004,26 @@
 /turf/simulated/shuttle/plating,
 /area/shuttle/escape/centcom)
 "azW" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "escape_shuttle";
-	pixel_x = 0;
-	pixel_y = -25;
-	req_one_access = list(13);
-	tag_door = "escape_shuttle_hatch"
-	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/tiled/ramp,
 /area/shuttle/escape/centcom)
 "azX" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
 /area/shuttle/escape/centcom)
 "azY" = (
-/obj/machinery/light,
-/turf/simulated/shuttle/floor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
 /area/shuttle/escape/centcom)
 "azZ" = (
 /obj/structure/grille,
@@ -9055,22 +9093,6 @@
 	icon_state = "dark"
 	},
 /area/centcom)
-"aAl" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aAm" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aAn" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/shuttle/floor{
@@ -9078,26 +9100,18 @@
 	},
 /area/shuttle/escape/centcom)
 "aAp" = (
-/obj/structure/AIcore/deactivated,
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
-"aAq" = (
-/obj/machinery/computer/crew,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 1
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aAr" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aAs" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/door/airlock/glass_command{
+	name = "Cockpit";
+	req_access = list(19)
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
@@ -9191,16 +9205,19 @@
 	},
 /area/centcom/control)
 "aAD" = (
-/obj/machinery/door/airlock/glass_command{
-	name = "Escape Shuttle Cockpit";
-	req_access = list(19)
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aAG" = (
-/turf/simulated/shuttle/wall{
-	icon_state = "swall_straight";
-	dir = 8
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aAH" = (
@@ -9282,36 +9299,21 @@
 	},
 /area/centcom/control)
 "aAU" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/machinery/light/small{
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/shuttle/floor4,
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aAV" = (
-/obj/machinery/status_display{
-	pixel_y = 30
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Cell"
-	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aAW" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = 30
-	},
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/machinery/light/small{
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
 	dir = 1
 	},
-/turf/simulated/shuttle/floor4,
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aAY" = (
 /obj/machinery/door/blast/regular{
@@ -9339,20 +9341,11 @@
 	},
 /area/centcom/ferry)
 "aBh" = (
-/obj/structure/bed/chair{
-	dir = 4
+/obj/machinery/door/airlock/command{
+	name = "Cockpit";
+	req_access = list(19)
 	},
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aBi" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor4,
-/area/shuttle/escape/centcom)
-"aBj" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/simulated/shuttle/floor4,
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aBk" = (
 /obj/machinery/optable,
@@ -9467,7 +9460,10 @@
 	},
 /area/centcom/control)
 "aBB" = (
-/turf/simulated/shuttle/floor4,
+/obj/machinery/status_display{
+	pixel_y = 32
+	},
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aBD" = (
 /obj/structure/mirror/raider{
@@ -9555,7 +9551,9 @@
 /turf/simulated/shuttle/floor,
 /area/shuttle/transport1/centcom)
 "aBM" = (
-/obj/machinery/door/unpowered/shuttle,
+/obj/machinery/door/unpowered/shuttle{
+	req_access = list(38)
+	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/transport1/centcom)
 "aBN" = (
@@ -9579,11 +9577,18 @@
 	},
 /area/centcom/control)
 "aBR" = (
-/obj/machinery/door/airlock/glass_security{
-	name = "Escape Shuttle Cell";
-	req_access = list(2)
+/obj/structure/bed/chair{
+	dir = 8
 	},
-/turf/simulated/shuttle/floor4,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
 "aBS" = (
 /obj/structure/table/rack,
@@ -9751,9 +9756,17 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
-"aCp" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Center"
+"aCo" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 0
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
@@ -9795,46 +9808,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/creed)
-"aCx" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = -28
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West";
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aCy" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 28
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle East";
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aCz" = (
 /obj/structure/table/rack,
 /obj/item/clothing/under/vox/vox_casual,
@@ -10099,38 +10072,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/holding)
-"aDj" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = -28
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aDk" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = 30
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aDm" = (
 /obj/structure/table/wood{
 	dir = 5
@@ -10194,13 +10135,6 @@
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
-"aDt" = (
-/obj/machinery/status_display{
-	pixel_y = -30
-	},
-/obj/machinery/light,
-/turf/simulated/shuttle/floor,
-/area/shuttle/escape/centcom)
 "aDu" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
@@ -10235,20 +10169,12 @@
 	},
 /area/centcom/control)
 "aDC" = (
-/obj/machinery/door/airlock/glass_mining{
-	name = "Shuttle Cargo"
+/obj/machinery/door/airlock/glass_security{
+	name = "Secure Holding";
+	req_access = list(1)
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aDD" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Escape Shuttle Infirmary";
-	req_access = list(5)
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aDF" = (
@@ -10314,35 +10240,30 @@
 	},
 /area/centcom/control)
 "aDT" = (
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = -28
-	},
+/obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aDU" = (
-/obj/structure/closet/hydrant{
-	pixel_x = 30;
-	pixel_y = 0
-	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aDW" = (
-/obj/machinery/atmospherics/unary/cryo_cell{
-	layer = 3.3
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aDX" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
+/obj/structure/bed/chair{
+	dir = 8
+	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aDY" = (
@@ -10351,78 +10272,34 @@
 	},
 /area/shuttle/escape/centcom)
 "aDZ" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -4;
-	pixel_y = 0
-	},
-/obj/item/weapon/wrench,
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aEa" = (
-/obj/structure/closet/crate/medical,
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = 5
-	},
-/obj/item/weapon/storage/firstaid/o2{
-	layer = 2.8;
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/weapon/storage/box/masks{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/weapon/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/weapon/storage/firstaid/toxin,
-/obj/item/weapon/storage/firstaid/fire{
-	layer = 2.9;
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/weapon/storage/firstaid/adv{
-	pixel_x = -2
-	},
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
-/obj/item/weapon/reagent_containers/blood/empty,
+/obj/structure/bed/chair,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aEb" = (
-/obj/structure/closet/hydrant{
-	pixel_x = -30;
-	pixel_y = 0
+/obj/machinery/sleeper{
+	icon_state = "sleeper_0";
+	dir = 8
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aEc" = (
-/obj/structure/closet/walllocker/emerglocker{
-	pixel_x = 28
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aEf" = (
@@ -10477,121 +10354,50 @@
 	},
 /area/centcom/holding)
 "aEm" = (
-/obj/structure/closet/crate/freezer/rations,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West Storage";
+/obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aEn" = (
-/obj/structure/closet/crate/freezer/rations,
 /obj/machinery/light{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
-/area/shuttle/escape/centcom)
-"aEo" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 5
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle Medical";
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aEp" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aEq" = (
-/obj/machinery/vending/wallmed1{
-	layer = 3.3;
-	name = "Emergency NanoMed";
-	pixel_x = 28;
-	pixel_y = 0
-	},
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aEr" = (
-/obj/machinery/recharge_station,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+	dir = 4;
+	status = 2
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aEs" = (
-/obj/machinery/recharge_station,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle East Storage";
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor2"
+	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
 "aEB" = (
-/obj/structure/shuttle/engine/heater,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/bed/chair{
+	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/shuttle/escape/centcom)
-"aEC" = (
-/obj/machinery/iv_drip,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = -32
 	},
 /turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aED" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
+	icon_state = "floor7"
 	},
 /area/shuttle/escape/centcom)
 "aEE" = (
 /obj/structure/bed/roller,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aEF" = (
-/obj/structure/bed/roller,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = 30
-	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -10736,20 +10542,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/control)
-"aFb" = (
-/obj/machinery/sleeper,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
-"aFc" = (
-/obj/machinery/sleeper{
-	icon_state = "sleeper_0-r"
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aFe" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1331;
@@ -10838,11 +10630,12 @@
 	},
 /area/tdome)
 "aFu" = (
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
 	},
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/floor/airless,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /area/shuttle/escape/centcom)
 "aFv" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -12919,13 +12712,6 @@
 	icon_state = "grimy"
 	},
 /area/centcom/holding)
-"aLF" = (
-/turf/unsimulated/floor{
-	dir = 5;
-	heat_capacity = 1;
-	icon_state = "warning"
-	},
-/area/centcom/holding)
 "aLG" = (
 /turf/unsimulated/floor{
 	dir = 8;
@@ -13081,12 +12867,19 @@
 	},
 /area/centcom/holding)
 "aLW" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_x = 0;
-	pixel_y = 0
+/obj/structure/window/reinforced/crescent,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 1
 	},
-/turf/unsimulated/wall/riveted,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
 /area/centcom/holding)
 "aLX" = (
 /obj/structure/closet/secure_closet/hos,
@@ -13274,13 +13067,6 @@
 	dir = 8
 	},
 /area/centcom/holding)
-"aMv" = (
-/turf/unsimulated/floor{
-	dir = 4;
-	heat_capacity = 1;
-	icon_state = "warning"
-	},
-/area/centcom/holding)
 "aMw" = (
 /obj/structure/closet/secure_closet/merchant,
 /obj/structure/sign/poster{
@@ -13316,15 +13102,6 @@
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "whitecorner"
-	},
-/area/centcom/holding)
-"aMA" = (
-/obj/machinery/light/spot{
-	icon_state = "tube1";
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	name = "plating"
 	},
 /area/centcom/holding)
 "aMB" = (
@@ -13707,13 +13484,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
-"aNq" = (
-/turf/unsimulated/floor{
-	icon_state = "warning";
-	dir = 1;
-	heat_capacity = 1
-	},
-/area/centcom/holding)
 "aNr" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -14006,8 +13776,10 @@
 	},
 /area/centcom/living)
 "aNZ" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals East"
+/obj/structure/bed/chair/office/dark,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinCheckpoint";
+	name = "igs - OdinCheckpoint"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -14821,22 +14593,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/control)
-"aPO" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/crowbar,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aPP" = (
 /obj/structure/artilleryplaceholder{
 	icon_state = "11"
@@ -15104,8 +14860,11 @@
 	},
 /area/centcom/holding)
 "aQu" = (
-/obj/machinery/status_display{
-	pixel_y = 30
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
@@ -16152,13 +15911,6 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/administration/centcom)
-"aSJ" = (
-/obj/structure/bed/roller,
-/turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "whitegreenfull"
-	},
-/area/centcom/holding)
 "aSK" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/structure/window/reinforced{
@@ -16205,12 +15957,6 @@
 	dir = 1
 	},
 /area/centcom/control)
-"aSP" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 1;
-	name = "shuttle bay blast door"
-	},
-/area/centcom/holding)
 "aSQ" = (
 /obj/machinery/light/spot,
 /turf/unsimulated/floor{
@@ -16815,14 +16561,18 @@
 	},
 /area/centcom/holding)
 "aUf" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_x = 0;
-	pixel_y = 0
+/obj/structure/window/reinforced/crescent,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 1
 	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "floor"
 	},
 /area/centcom/holding)
 "aUg" = (
@@ -17113,11 +16863,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"aUN" = (
-/turf/unsimulated/floor{
-	icon_state = "warning"
-	},
-/area/centcom/holding)
 "aUO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -17192,17 +16937,6 @@
 	dir = 8
 	},
 /area/centcom/test)
-"aUW" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
-/area/centcom/holding)
 "aUX" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -17264,9 +16998,22 @@
 	},
 /area/centcom/control)
 "aVe" = (
+/obj/structure/window/reinforced/crescent,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 8
+	},
 /obj/machinery/porta_turret/crescent,
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 8
+	},
 /turf/unsimulated/floor{
-	icon_state = "bot"
+	icon_state = "floor"
 	},
 /area/centcom/control)
 "aVf" = (
@@ -18132,24 +17879,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
-"aWQ" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/fire,
-/obj/item/weapon/storage/firstaid/regular{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/weapon/extinguisher,
-/obj/item/weapon/crowbar,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aWR" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/structure/window/reinforced{
@@ -18207,14 +17936,6 @@
 /turf/unsimulated/floor{
 	icon_state = "whiteblue";
 	dir = 9
-	},
-/area/centcom/holding)
-"aWY" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "greencorner"
 	},
 /area/centcom/holding)
 "aWZ" = (
@@ -18286,8 +18007,17 @@
 	},
 /area/centcom/holding)
 "aXi" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/simulated/shuttle/plating,
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
 /area/shuttle/escape/centcom)
 "aXj" = (
 /turf/unsimulated/floor{
@@ -19292,21 +19022,6 @@
 	dir = 8
 	},
 /area/centcom/spawning)
-"aZC" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "centcom_dock";
-	name = "docking port controller";
-	pixel_x = 25;
-	pixel_y = 0;
-	req_one_access = list(13);
-	tag_door = "centcom_dock_airlock"
-	},
-/turf/unsimulated/floor{
-	dir = 6;
-	icon_state = "warning"
-	},
-/area/centcom/holding)
 "aZD" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals - Holding Cell";
@@ -19540,6 +19255,16 @@
 	dir = 8
 	},
 /area/centcom/holding)
+"bhY" = (
+/obj/machinery/atmospherics/unary/cryo_cell,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"bpz" = (
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "bxw" = (
 /turf/unsimulated/wall/riveted,
 /area/tdome)
@@ -19568,12 +19293,43 @@
 	dir = 4
 	},
 /area/tdome)
+"bPM" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "centcom_dock";
+	name = "docking port controller";
+	pixel_x = 25;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_door = "centcom_dock_airlock"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"bRd" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 0
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"bRf" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/centcom/holding)
 "cce" = (
 /turf/unsimulated/floor{
 	icon_state = "redyellowfull";
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"cdD" = (
+/obj/structure/bed/chair,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "ceH" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
@@ -19585,6 +19341,30 @@
 	icon_state = "floor"
 	},
 /area/tdome)
+"cov" = (
+/obj/structure/banner,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"cqq" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/template_noop)
+"crl" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_dock_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13)
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/holding)
 "cuW" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -19597,6 +19377,17 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"cwn" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/machinery/door/blast/odin{
+	dir = 1;
+	id = "CentComArrivalsForeChkpt";
+	name = "Security Doors"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "cAt" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/handcuffs,
@@ -19615,6 +19406,15 @@
 	dir = 4
 	},
 /area/centcom/spawning)
+"cGP" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/space)
 "cHJ" = (
 /turf/unsimulated/floor{
 	icon_state = "redfull"
@@ -19685,6 +19485,15 @@
 	icon_state = "dark"
 	},
 /area/tdome/tdome2)
+"dys" = (
+/turf/unsimulated/wall/riveted,
+/area/space)
+"dIQ" = (
+/turf/unsimulated/wall/fakepdoor{
+	dir = 1;
+	name = "shuttle bay blast door"
+	},
+/area/space)
 "dJI" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
@@ -19718,6 +19527,11 @@
 	icon_state = "dark"
 	},
 /area/centcom/holding)
+"eeU" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape/centcom)
 "efu" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor,
@@ -19772,6 +19586,15 @@
 	dir = 8
 	},
 /area/centcom/holding)
+"eoQ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/closet/medical_wall{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/ramp,
+/area/shuttle/escape/centcom)
 "epm" = (
 /obj/structure/flora/pottedplant/random{
 	anchored = 1
@@ -19799,6 +19622,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/spawning)
+"etW" = (
+/obj/structure/flora/pottedplant/random,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "ewQ" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_x = 32
@@ -19858,6 +19687,16 @@
 	icon_state = "floor"
 	},
 /area/tdome)
+"fbH" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "fde" = (
 /obj/machinery/door/airlock/centcom{
 	name = "IAC Regional Outpost A23";
@@ -19892,6 +19731,14 @@
 	dir = 10
 	},
 /area/centcom/spawning)
+"fBr" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/holding)
 "fGm" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/mechanical,
@@ -19900,6 +19747,19 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"fHd" = (
+/obj/machinery/door/airlock/centcom{
+	icon_state = "door_locked";
+	id_tag = "CentComArrivalsAftDrFore";
+	locked = 1;
+	name = "Aft Checkpoint";
+	opacity = 1;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "fJg" = (
 /turf/unsimulated/floor{
 	icon_state = "bluecorner"
@@ -19927,11 +19787,28 @@
 	icon_state = "redfull"
 	},
 /area/centcom/spawning)
+"fUv" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/shuttle/escape/centcom)
 "fYh" = (
 /obj/machinery/igniter,
 /obj/structure/banner,
 /turf/simulated/floor,
 /area/tdome)
+"gbN" = (
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
+/obj/item/weapon/storage/firstaid/regular,
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "gcm" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/electrical,
@@ -19975,6 +19852,19 @@
 	name = "grass"
 	},
 /area/centcom/spawning)
+"gkP" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsForeMid";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "glm" = (
 /obj/machinery/light{
 	dir = 4;
@@ -19984,6 +19874,30 @@
 	icon_state = "greencorner"
 	},
 /area/centcom/holding)
+"gmk" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/centcom/holding)
+"goC" = (
+/obj/machinery/door/airlock/glass_medical{
+	name = "Medical Bay";
+	req_access = list(5)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"guU" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Cryo Storage";
+	req_access = list(38)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "gvS" = (
 /obj/structure/cryofeed,
 /obj/machinery/light{
@@ -20002,6 +19916,28 @@
 	dir = 1
 	},
 /area/centcom/holding)
+"gBI" = (
+/obj/machinery/door/airlock/centcom{
+	icon_state = "door_locked";
+	id_tag = "CentComArrivalsForeDrAft";
+	locked = 1;
+	name = "Fore Checkpoint";
+	opacity = 1;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"gCb" = (
+/obj/machinery/computer/cryopod{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "gCx" = (
 /obj/machinery/camera/network/crescent{
 	c_tag = "Shuttle West";
@@ -20012,10 +19948,29 @@
 	dir = 10
 	},
 /area/centcom/holding)
+"gLs" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsForeExt";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "gQb" = (
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
 	dir = 4
+	},
+/area/centcom/holding)
+"gQq" = (
+/obj/item/modular_computer/console/preset/research,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
 	},
 /area/centcom/holding)
 "gXA" = (
@@ -20037,6 +19992,15 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"hax" = (
+/obj/structure/table/wood,
+/obj/item/weapon/material/ashtray/glass,
+/obj/item/weapon/storage/fancy/cigarettes/dromedaryco,
+/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "hdS" = (
 /obj/machinery/computer/pod{
 	id = "thunderdomehea";
@@ -20145,6 +20109,12 @@
 	dir = 10
 	},
 /area/centcom/spawning)
+"hwm" = (
+/obj/machinery/iv_drip,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "hxx" = (
 /obj/machinery/light,
 /obj/structure/sign/directions/dock{
@@ -20169,6 +20139,13 @@
 	dir = 8
 	},
 /area/centcom/spawning)
+"hBY" = (
+/obj/structure/table/wood,
+/obj/machinery/computer/records/employment,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "hCC" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark{
@@ -20210,6 +20187,29 @@
 	icon_state = "dark"
 	},
 /area/tdome/tdome1)
+"iaq" = (
+/obj/machinery/button/remote/airlock{
+	desiredstate = 1;
+	id = "CentComArrivalsAftDrAft";
+	name = "aft bolt control";
+	pixel_x = 31;
+	pixel_y = -5;
+	req_access = list(101);
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/airlock{
+	desiredstate = 1;
+	id = "CentComArrivalsAftDrFore";
+	name = "fore bolt control";
+	pixel_x = 31;
+	pixel_y = 5;
+	req_access = list(101);
+	specialfunctions = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "igD" = (
 /turf/unsimulated/floor{
 	icon_state = "ramptop";
@@ -20265,6 +20265,12 @@
 /obj/structure/sign/directions/all,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
+"izq" = (
+/obj/machinery/light/spot,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "iBj" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Romanovich Exploration Guild";
@@ -20318,8 +20324,82 @@
 	icon_state = "dark"
 	},
 /area/centcom/holding)
+"iHv" = (
+/obj/machinery/hologram/holopad,
+/obj/machinery/door/window/brigdoor/westleft{
+	name = "Shuttle Brig";
+	req_access = list(2)
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
 "iMg" = (
 /obj/structure/window/reinforced/holowindow/disappearing,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"iOw" = (
+/obj/structure/table/standard,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"jbJ" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/rifle,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/northright{
+	req_access = list(101)
+	},
+/obj/item/weapon/storage/box/teargas,
+/obj/item/clothing/mask/gas/tactical,
+/obj/machinery/light/spot,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"jhm" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Aft Checkpoint";
+	opacity = 1;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"jmW" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/rifle,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/southright,
+/obj/item/weapon/storage/box/teargas,
+/obj/item/clothing/mask/gas/tactical,
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20340,10 +20420,42 @@
 	dir = 6
 	},
 /area/centcom/spawning)
+"jzz" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"jAP" = (
+/obj/structure/window/shuttle,
+/obj/structure/grille,
+/turf/simulated/shuttle/plating,
+/area/centcom/holding)
 "jEA" = (
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
+"jRs" = (
+/obj/structure/closet/walllocker/emerglocker/south,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"jVg" = (
+/obj/machinery/computer/records/security,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"kar" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/wall/riveted,
+/area/centcom/holding)
 "kjv" = (
 /obj/machinery/vending/snack,
 /turf/unsimulated/floor{
@@ -20367,6 +20479,20 @@
 	icon_state = "floor"
 	},
 /area/centcom/spawning)
+"kys" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/northright{
+	req_access = list(101)
+	},
+/obj/machinery/door/blast/odin{
+	dir = 1;
+	id = "CentComArrivalsAftChkpt";
+	name = "Security Doors"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "kzM" = (
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
@@ -20401,11 +20527,47 @@
 	icon_state = "floor"
 	},
 /area/tdome)
+"kNc" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/southleft,
+/obj/machinery/door/blast/odin{
+	dir = 1;
+	id = "CentComArrivalsForeChkpt";
+	name = "Security Doors"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "kWr" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor,
 /area/tdome)
+"kYq" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_shuttle_hatch";
+	locked = 1;
+	name = "Shuttle Hatch";
+	req_access = list(13)
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"ldC" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 8
+	},
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "liw" = (
 /obj/machinery/recharger{
 	pixel_y = 4
@@ -20437,6 +20599,31 @@
 	dir = 10
 	},
 /area/centcom/spawning)
+"lrq" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsForeInt";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"lrT" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "ltQ" = (
 /obj/structure/table/standard,
 /obj/item/weapon/flame/lighter/zippo,
@@ -20453,6 +20640,12 @@
 	dir = 4
 	},
 /area/centcom/spawning)
+"lKY" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "lUI" = (
 /obj/random/junk,
 /turf/unsimulated/floor{
@@ -20478,12 +20671,62 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"mdu" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"mqR" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/template_noop,
+/area/template_noop)
 "mrn" = (
 /turf/unsimulated/floor{
 	icon_state = "bluecorner";
 	dir = 1
 	},
 /area/centcom/spawning)
+"mtc" = (
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsForeMid";
+	name = "Center Checkpoint";
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsForeInt";
+	name = "Interior Checkpoint";
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsForeExt";
+	name = "Exterior Checkpoint";
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/obj/machinery/turretid{
+	ailock = 1;
+	pixel_y = -31;
+	req_access = list(101)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsForeChkpt";
+	name = "Checkpoint Blast-Doors";
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "mwM" = (
 /obj/structure/bed/chair,
 /obj/structure/disposalpipe/segment,
@@ -20495,6 +20738,12 @@
 	dir = 8
 	},
 /area/tdome/tdomeobserve)
+"myS" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "mzf" = (
 /turf/unsimulated/floor{
 	icon_state = "red";
@@ -20529,6 +20778,27 @@
 	icon_state = "dark"
 	},
 /area/centcom/holding)
+"mLQ" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/rifle,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/northleft{
+	req_access = list(101)
+	},
+/obj/item/weapon/storage/box/teargas,
+/obj/item/clothing/mask/gas/tactical,
+/obj/machinery/light/spot,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "mRj" = (
 /obj/structure/table/holotable,
 /turf/unsimulated/floor{
@@ -20536,12 +20806,40 @@
 	dir = 10
 	},
 /area/centcom/holding)
+"mVW" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape/centcom)
 "mWJ" = (
 /turf/unsimulated/floor{
 	icon_state = "red";
 	dir = 2
 	},
 /area/centcom/holding)
+"mXz" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/holding)
+"nbs" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape/centcom)
 "ndx" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
@@ -20569,6 +20867,17 @@
 	dir = 8
 	},
 /area/tdome/tdomeobserve)
+"nqv" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/obj/machinery/door/blast/odin{
+	dir = 1;
+	id = "CentComArrivalsAftChkpt";
+	name = "Security Doors"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "nqR" = (
 /obj/structure/window/reinforced/holowindow/disappearing,
 /turf/unsimulated/floor{
@@ -20587,6 +20896,12 @@
 	icon_state = "wood_siding2"
 	},
 /area/centcom/spawning)
+"nCq" = (
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/ferry)
 "nDd" = (
 /obj/machinery/computer/security/telescreen,
 /turf/unsimulated/floor{
@@ -20594,6 +20909,44 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"nEA" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/shuttle/escape/centcom)
+"nNn" = (
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"nPW" = (
+/obj/structure/table/rack,
+/obj/item/weapon/gun/energy/rifle,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/southleft,
+/obj/item/weapon/storage/box/teargas,
+/obj/item/clothing/mask/gas/tactical,
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "nWy" = (
 /turf/unsimulated/floor{
 	icon_state = "ramptop";
@@ -20611,6 +20964,12 @@
 	icon_state = "green"
 	},
 /area/centcom/holding)
+"nXW" = (
+/obj/item/modular_computer/console/preset/medical,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "obk" = (
 /obj/structure/table/holotable,
 /obj/item/clothing/gloves/boxing/hologlove{
@@ -20649,6 +21008,20 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor,
 /area/tdome)
+"osm" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/northleft{
+	req_access = list(101)
+	},
+/obj/machinery/door/blast/odin{
+	dir = 1;
+	id = "CentComArrivalsAftChkpt";
+	name = "Security Doors"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "ouk" = (
 /obj/structure/banner/unmovable,
 /turf/unsimulated/floor{
@@ -20656,6 +21029,49 @@
 	dir = 6
 	},
 /area/centcom/spawning)
+"oyI" = (
+/obj/structure/table/reinforced,
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsAftInt";
+	name = "Interior Checkpoint";
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsAftMid";
+	name = "Center Checkpoint";
+	pixel_x = 6;
+	pixel_y = -5
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsAftExt";
+	name = "Exterior Checkpoint";
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/machinery/turretid{
+	ailock = 1;
+	pixel_y = 31;
+	req_access = list(101)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsAftChkpt";
+	name = "Checkpoint Blast-Doors";
+	pixel_x = -6;
+	pixel_y = -5
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"ozm" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape/centcom)
 "oGN" = (
 /obj/machinery/cryopod,
 /turf/unsimulated/floor{
@@ -20698,6 +21114,30 @@
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
+	},
+/area/centcom/holding)
+"oOc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"oRI" = (
+/obj/machinery/door/airlock/centcom{
+	icon = 'icons/obj/doors/Doorcomglass.dmi';
+	name = "Shuttle Bridge Access";
+	opacity = 0;
+	req_access = list(19)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
 	},
 /area/centcom/holding)
 "oTr" = (
@@ -20776,6 +21216,16 @@
 	name = "plating"
 	},
 /area/tdome/tdome2)
+"pCE" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/banner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "pCY" = (
 /turf/unsimulated/floor{
 	icon_state = "plaque"
@@ -20812,6 +21262,23 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"qcY" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_dock_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13)
+	},
+/turf/unsimulated/floor{
+	icon_state = "warnplate";
+	dir = 8
+	},
+/area/centcom/holding)
+"qfw" = (
+/turf/simulated/shuttle/wall,
+/area/centcom/holding)
 "qiJ" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -20858,6 +21325,15 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"qAx" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
 "qBr" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -20929,12 +21405,33 @@
 	dir = 8
 	},
 /area/tdome/tdomeobserve)
+"rbI" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "rdm" = (
 /turf/unsimulated/floor{
 	icon_state = "rampbottom";
 	dir = 4
 	},
 /area/centcom/spawning)
+"rjn" = (
+/obj/structure/table/reinforced,
+/obj/machinery/door/window/southright,
+/obj/machinery/door/blast/odin{
+	dir = 1;
+	id = "CentComArrivalsForeChkpt";
+	name = "Security Doors"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "rjz" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
@@ -20968,6 +21465,18 @@
 	icon_state = "redfull"
 	},
 /area/centcom/spawning)
+"ruj" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "rxd" = (
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
@@ -20998,6 +21507,29 @@
 	icon_state = "floor"
 	},
 /area/centcom/spawning)
+"rzM" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Representative Office";
+	req_access = list(38)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"rBt" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
+"rHG" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "rIj" = (
 /obj/structure/table/holotable,
 /obj/machinery/readybutton{
@@ -21008,6 +21540,30 @@
 	dir = 6
 	},
 /area/centcom/holding)
+"rNY" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/banner,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"rQw" = (
+/obj/machinery/computer/records/security,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "rQI" = (
 /obj/item/weapon/beach_ball/holoball,
 /turf/unsimulated/floor{
@@ -21015,6 +21571,17 @@
 	dir = 2
 	},
 /area/centcom/holding)
+"rQN" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "escape_shuttle";
+	pixel_x = -25;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_door = "escape_shuttle_hatch"
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "rQV" = (
 /obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/unsimulated/floor{
@@ -21022,6 +21589,14 @@
 	dir = 8
 	},
 /area/tdome/tdomeobserve)
+"scf" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "sck" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
@@ -21043,11 +21618,20 @@
 	name = "plating"
 	},
 /area/tdome/tdome1)
+"srY" = (
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "ssJ" = (
 /turf/unsimulated/floor{
 	icon_state = "greencorner"
 	},
 /area/tdome)
+"sER" = (
+/turf/unsimulated/floor,
+/area/space)
 "sII" = (
 /obj/structure/table/standard,
 /obj/item/clothing/ears/earmuffs{
@@ -21077,6 +21661,15 @@
 	dir = 8
 	},
 /area/tdome/tdomeobserve)
+"sXR" = (
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "sYT" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -21137,6 +21730,40 @@
 	dir = 10
 	},
 /area/centcom/spawning)
+"tgP" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Corporate Liaison"
+	},
+/obj/effect/landmark{
+	name = "LateJoinCorporate Liaison"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"tka" = (
+/obj/structure/table/wood,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"tmt" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "OdinCheckpoint";
+	name = "igs - OdinCheckpoint"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "ttJ" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/ausbushes/fullgrass,
@@ -21150,6 +21777,15 @@
 	name = "grass"
 	},
 /area/centcom/spawning)
+"tvh" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "txF" = (
 /obj/machinery/atmospherics/valve,
 /turf/unsimulated/floor{
@@ -21201,6 +21837,17 @@
 	dir = 8
 	},
 /area/centcom/holding)
+"tUY" = (
+/obj/structure/lattice,
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/template_noop,
+/area/template_noop)
+"tVk" = (
+/obj/machinery/light/spot,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/template_noop)
 "tWF" = (
 /turf/unsimulated/floor{
 	icon_state = "rampbottom";
@@ -21214,6 +21861,23 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"uaQ" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsAftMid";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"ufC" = (
+/obj/structure/cryofeed,
+/turf/simulated/floor/tiled,
+/area/centcom/ferry)
 "ugi" = (
 /obj/machinery/computer/pod{
 	id = "thunderdome";
@@ -21224,6 +21888,25 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"uhH" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/ferry)
+"unv" = (
+/obj/item/modular_computer/console/preset/research,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"utw" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "uGh" = (
 /obj/machinery/button/remote/blast_door{
 	id = "odinaslockdown";
@@ -21277,6 +21960,15 @@
 	dir = 6
 	},
 /area/centcom/spawning)
+"vaF" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "vcI" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
@@ -21294,6 +21986,21 @@
 	icon_state = "floor"
 	},
 /area/centcom/spawning)
+"vlo" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/shuttle/escape/centcom)
+"vob" = (
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/space)
 "voh" = (
 /turf/unsimulated/floor{
 	icon_state = "redcorner";
@@ -21342,6 +22049,63 @@
 	dir = 5
 	},
 /area/tdome/tdomeadmin)
+"vvQ" = (
+/obj/machinery/button/remote/airlock{
+	desiredstate = 1;
+	id = "CentComArrivalsForeDrAft";
+	name = "aft bolt control";
+	pixel_x = 31;
+	pixel_y = -5;
+	req_access = list(101);
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "CentComArrivalsCommand";
+	name = "Command Blastdoors";
+	pixel_x = 31;
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"vwg" = (
+/obj/structure/window/reinforced/crescent,
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/porta_turret/crescent,
+/obj/machinery/light/spot{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"vBv" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Fore Checkpoint";
+	opacity = 1;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"vDw" = (
+/obj/machinery/door/airlock/glass{
+	name = "Emergency Supplies"
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
 "vJh" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -21350,6 +22114,11 @@
 	icon_state = "redfull"
 	},
 /area/centcom/holding)
+"vKc" = (
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/shuttle/escape/centcom)
 "vNK" = (
 /obj/structure/banner/unmovable,
 /turf/unsimulated/floor{
@@ -21357,6 +22126,25 @@
 	dir = 5
 	},
 /area/centcom/spawning)
+"vPt" = (
+/obj/structure/table/standard,
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/weapon/wrench,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "vWC" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -21382,6 +22170,12 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"vYM" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/holding)
 "wcG" = (
 /obj/machinery/cryopod/robot,
 /turf/unsimulated/floor{
@@ -21403,6 +22197,53 @@
 	dir = 2
 	},
 /area/centcom/spawning)
+"wrd" = (
+/obj/structure/bed/chair/comfy/black,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
+"wBz" = (
+/obj/structure/closet/hydrant{
+	pixel_x = -32
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor2"
+	},
+/area/shuttle/escape/centcom)
+"wEz" = (
+/obj/structure/bed/chair/office/bridge{
+	dir = 4
+	},
+/obj/machinery/status_display{
+	pixel_y = -32
+	},
+/obj/machinery/light,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
+"wJl" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsCommand";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"wJB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor3"
+	},
+/area/shuttle/escape/centcom)
 "wLt" = (
 /obj/machinery/recharger{
 	pixel_y = 4
@@ -21483,6 +22324,32 @@
 	dir = 8
 	},
 /area/tdome/tdomeobserve)
+"xoQ" = (
+/obj/machinery/door/airlock/centcom{
+	icon_state = "door_locked";
+	id_tag = "CentComArrivalsAftDrAft";
+	locked = 1;
+	name = "Aft Checkpoint";
+	opacity = 1;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
+"xDO" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsAftExt";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "xDW" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
 	dir = 1
@@ -21492,10 +22359,25 @@
 	dir = 4
 	},
 /area/centcom/holding)
+"xEw" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "xIt" = (
 /obj/structure/sign/nosmoking_2,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
+"xLn" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/ramp,
+/area/shuttle/escape/centcom)
 "xLv" = (
 /obj/effect/landmark{
 	name = "tdome2"
@@ -21504,6 +22386,11 @@
 	name = "plating"
 	},
 /area/tdome)
+"xME" = (
+/obj/structure/flora/pottedplant/random,
+/obj/structure/closet/walllocker/emerglocker/east,
+/turf/simulated/shuttle/floor,
+/area/shuttle/escape/centcom)
 "xSv" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -21515,6 +22402,19 @@
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 9
+	},
+/area/centcom/holding)
+"ydX" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsAftInt";
+	name = "Security Doors";
+	opacity = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
 	},
 /area/centcom/holding)
 "yeD" = (
@@ -45103,9 +46003,9 @@ aWW
 aWW
 aWW
 aWW
-aWW
-aaM
-aaM
+aXY
+aXY
+aXY
 aaM
 aaM
 aaM
@@ -45360,9 +46260,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aXY
+ufC
+aXY
 aaM
 aaM
 aaM
@@ -45617,9 +46517,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aXY
+myS
+aXY
 aaM
 aaM
 aaM
@@ -45874,9 +46774,9 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
+aXY
+gCb
+aXY
 aaM
 aaM
 aaM
@@ -46129,11 +47029,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aXY
+aXY
+aXY
+guU
+aXY
 aaM
 aaM
 aaM
@@ -46386,11 +47286,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+nCq
+lKY
+tgP
+nNn
+nCq
 aaM
 aaM
 aaM
@@ -46643,11 +47543,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+nCq
+hBY
+tka
+nNn
+nCq
 aaM
 aaM
 aaM
@@ -46900,11 +47800,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aXY
+sXR
+utw
+nNn
+aXY
 aaM
 aaM
 aaM
@@ -47157,11 +48057,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aXY
+nNn
+nNn
+nNn
+aXY
 aaM
 aaM
 aaM
@@ -47414,11 +48314,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+nCq
+wrd
+nNn
+nNn
+nCq
 aaM
 aaM
 aaM
@@ -47671,11 +48571,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+nCq
+hax
+ruj
+nNn
+nCq
 aaM
 aaM
 aaM
@@ -47931,8 +48831,8 @@ aRi
 aWe
 aWe
 aWe
-aaM
-aaM
+nNn
+aXY
 aaM
 aaM
 aaM
@@ -48188,8 +49088,8 @@ aLo
 aRy
 aRy
 aWe
-aaM
-aaM
+nNn
+aXY
 aaM
 aaM
 aaM
@@ -48445,7 +49345,7 @@ aQp
 aRy
 aRp
 aXY
-aXY
+rzM
 aXY
 aIb
 aIb
@@ -52054,7 +52954,7 @@ aXY
 aCi
 aDh
 aDp
-aCi
+uhH
 aLd
 aEi
 aCi
@@ -56416,11 +57316,11 @@ aSn
 aSn
 aZb
 aXc
+xEw
 aOB
-aOB
-aWY
-aZb
-aXc
+aLs
+aSn
+gQb
 aOB
 aOB
 aZW
@@ -56667,22 +57567,22 @@ aZW
 aZW
 aZW
 aZW
+kar
+oRI
+oRI
 aZW
 aZW
-aPT
-aPT
-aPT
-aPT
-aZO
-aZO
-aPT
-aPT
-aPT
-aZO
-aZO
 aZW
-aSJ
-aSJ
+aZW
+aZW
+aOB
+aZW
+aOB
+aZW
+jhm
+aZW
+aZW
+aZW
 aDQ
 aNL
 aNL
@@ -56924,22 +57824,22 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aZW
-aZy
-aZy
-aZy
-aPT
-aOB
-aOB
-aPT
-aZy
-aPT
+mqR
 aOB
 aOB
 aZW
-aSJ
-aSJ
+aOB
+aOB
+aOB
+aZW
+lrq
+aZW
+ydX
+aZW
+aOB
+aOB
+aOB
+aZW
 aVp
 aOt
 aNH
@@ -57181,21 +58081,21 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aZW
-aZW
-aZW
-aZy
-aPT
+mqR
 aOB
+izq
+aZW
+jmW
 aOB
-aPT
+jVg
+cwn
+aOB
 aUf
-aPT
 aOB
+nqv
+jVg
 aOB
-aZW
-aZW
+jbJ
 aZW
 aZW
 aZW
@@ -57432,28 +58332,28 @@ aUv
 aUv
 aMG
 aZp
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 alI
-aaM
+alI
+alI
+alI
+alI
+alI
+tUY
+cqq
+cqq
 aZW
-aZy
-aPT
+etW
+aOB
 aNZ
+rjn
 aOB
+vwg
 aOB
+kys
+tmt
 aOB
-aOB
-aOB
-aOB
-aOB
-aUD
-aPT
+etW
+aZW
 aMW
 aZB
 aSu
@@ -57695,21 +58595,21 @@ aaM
 aaM
 aaM
 aaM
-aaM
-alI
-aaM
+mqR
+cqq
+cqq
+vBv
+aOB
+aOB
+mtc
 aZW
-aUW
-aPT
+gkP
+aZW
+uaQ
+aZW
+oyI
 aOB
 aOB
-aOB
-aMv
-aOB
-aOB
-aOB
-aOB
-aRb
 aNw
 aPX
 aXm
@@ -57952,22 +58852,22 @@ aaM
 aaM
 aaM
 aaM
-aaM
-alI
-alI
+mqR
+cqq
+cqq
 aZW
-aZy
-aPT
+etW
 aOB
+aNZ
+kNc
 aOB
-aUN
 aVe
-aNq
 aOB
+osm
+tmt
 aOB
-aOB
-aXw
-aPT
+etW
+aZW
 aRU
 aMI
 aNG
@@ -58209,21 +59109,21 @@ aaM
 aaM
 aaM
 aaM
-aaM
-alI
-aaM
+mqR
+cqq
+tVk
 aZW
-aZy
-aPT
-aMv
-aMv
-aZC
+nPW
+aOB
+jVg
+cwn
+aOB
 aLW
-aLF
-aMv
-aMv
-aZW
-aZW
+aOB
+nqv
+jVg
+aOB
+mLQ
 aZW
 aUy
 aUy
@@ -58466,21 +59366,21 @@ aZW
 aZW
 aZW
 aZW
+kar
+aOB
+aOB
 aZW
+aOB
+vvQ
+aOB
 aZW
+gLs
 aZW
+xDO
 aZW
-aZW
-aPT
-aCl
-aPT
-aZW
-aZW
-aZW
-aPT
-aCl
-aPT
-aZW
+aOB
+iaq
+aOB
 aZW
 aZW
 aZW
@@ -58723,22 +59623,22 @@ aQC
 aWl
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aWl
 aPT
-aCm
-aPT
-aQC
-aWl
-aQC
-aPT
-aCm
-aPT
-aWl
-aQC
+wJl
+wJl
+aZW
+aZW
+aZW
+gBI
+aZW
+aOB
+aZW
+aOB
+aZW
+fHd
+aZW
+xoQ
+aZW
 aQC
 aQC
 aWl
@@ -58980,22 +59880,22 @@ aQC
 aQC
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aQC
 aPT
+aOB
+aOB
+aOB
+aOB
+aPT
+aOB
+aOB
+aOB
+rbI
+aOB
+aOB
+aOB
+crl
 aCm
 aPT
-aQC
-aQC
-aQC
-aPT
-aCm
-aPT
-aQC
-aQC
 aQC
 aQC
 aQC
@@ -59237,22 +60137,22 @@ aQC
 aQC
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aQC
+aPT
+aOB
+aOB
+aOB
+aOB
+aPT
+cov
+bPM
+aOB
+aOB
+aOB
+aOB
+cov
 aPT
 aCm
 aPT
-aQC
-aQC
-aQC
-aPT
-aCm
-aPT
-aQC
-aQC
 aQC
 aQC
 aQC
@@ -59494,25 +60394,25 @@ aQC
 aQC
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aQC
+aPT
+aPT
+aPT
+aPT
+aCl
+aPT
+aZW
+aZW
+qcY
+qcY
+qcY
+aZW
+aZW
 aPT
 aCl
 aPT
 aQC
-aQC
-aQC
-aPT
-aCl
-aPT
-aQC
-aQC
-aQC
-aQC
-aQC
+qfw
+qfw
 aQC
 aZW
 aYF
@@ -59749,27 +60649,27 @@ aZW
 aTn
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-ayK
-ayK
+qfw
+jAP
+qfw
+jAP
+jAP
+qfw
 aCn
 ayK
-ayL
-ayL
-ayL
+azV
+ayK
+kYq
+kYq
+kYq
+ayK
+azV
 ayK
 aDs
 ayK
 ayK
 ayK
-ayK
-ayK
-aQC
+qfw
 aQC
 aZW
 aUy
@@ -60005,28 +60905,28 @@ aZp
 aZW
 aTn
 aQC
-aQC
+qfw
 ayK
-azV
+unv
 ayK
-ayK
-ayK
-azV
-ayK
-aWQ
+cdD
 azx
-aCx
-aAm
-aAm
-aAm
-aDj
+rQN
 azx
-azV
+ayK
+cdD
+azx
+azx
+azx
+azx
+azx
+rHG
+ayK
 aDT
 aEm
 aEB
 aXi
-aQC
+fBr
 aQC
 aZW
 aNj
@@ -60261,29 +61161,29 @@ aOu
 aZp
 aZW
 aTn
-aQC
+jAP
+azV
+aDY
+wEz
 ayK
-ayK
-azx
-aAl
 aAD
 azx
+bpz
+bRd
+aAr
 azx
 azx
-azx
-azx
-azx
-azx
+bRd
 azx
 azx
 azx
 azx
 aDC
 aDU
-aEn
-aEB
-aXi
-aQC
+aDU
+aDU
+vlo
+vYM
 aQC
 aZW
 aRf
@@ -60518,29 +61418,29 @@ aVm
 aZp
 aZW
 aTn
-ayK
-ayK
-azv
-azx
-aAm
 azV
+nXW
+azv
+aDY
+ayK
+ayK
 aAr
-aAr
-aAr
-aAr
+ayK
+ayK
+ayK
+azV
+azV
+ayK
+azV
+azV
 azx
-aAr
-aAr
-aAr
-aAr
-aAr
-aDt
-ayK
-ayK
-ayK
-ayK
-ayK
-ayK
+azx
+azV
+nEA
+iHv
+nEA
+vlo
+mVW
 aQC
 aZW
 aRf
@@ -60775,30 +61675,30 @@ aVS
 aZp
 aZW
 aTn
-ayL
+azV
 azf
 azw
-azx
-aAn
-ayK
+tvh
+aDY
+eoQ
+jRs
 ayK
 ayL
-ayL
-ayK
+jzz
 aQu
-ayL
-ayL
-ayL
-ayL
-ayL
+aQu
+lrT
+aQu
+rBt
 azx
-ayL
+srY
+ayK
 aDW
-aEo
-aEC
-aFb
-ayK
-ayK
+aDU
+aDU
+vlo
+mVW
+eeU
 aZW
 aRf
 aVf
@@ -61032,30 +61932,30 @@ aXo
 aZp
 aZW
 aTn
-ayL
+azV
 azg
-azx
+vKc
 azW
-ayK
-ayK
+aDY
+pCE
 aAU
 aBh
-aBh
-azV
-aCp
-aAm
-aAm
-aAm
-aAm
-aAm
 azx
-ayL
+azx
+azx
+azx
+azx
+azx
+azx
+azx
+azx
+azV
 aDX
 aEp
-aDY
-aDY
+aDX
+nbs
 aFu
-aXi
+eeU
 aZW
 aRf
 aVf
@@ -61289,30 +62189,30 @@ aWG
 aZp
 aZW
 aTn
-ayL
+azV
 azh
-azw
+fUv
 azX
 aAp
 aAG
 aAV
-aBi
+ayK
 aBB
 aBR
+fbH
+fbH
+fbH
+fbH
+mdu
 azx
-azx
-azx
-azX
-azx
-azx
-azx
-aDD
-aDY
-aDY
-aED
-aDY
-aFu
-aXi
+jRs
+ayK
+ayK
+ayK
+ayK
+ayK
+ayK
+eeU
 aZW
 aRf
 aVf
@@ -61546,30 +62446,30 @@ aWG
 aZp
 aZW
 aTn
-ayL
-azi
-azx
-azY
-ayK
-ayK
-aAW
-aBj
-aBj
 azV
+azg
+fUv
+azY
+aAp
+aAG
+aAV
+ayK
+aBB
+jzz
+aQu
+aQu
+aQu
+aQu
+rBt
 azx
-aAr
-aAr
-aAr
-aAr
-aAr
 azx
-ayL
+goC
 aDZ
-aDY
-aEE
-aDY
-aFu
-aXi
+wJB
+axN
+ayK
+ayK
+eeU
 aZW
 aRf
 aMf
@@ -61803,30 +62703,30 @@ aWG
 aZp
 aZW
 aTn
-ayL
-azj
-azw
+azV
+azg
+vKc
+azW
+aDY
+rNY
+aAU
+aBh
 azx
-aAq
-ayK
-ayK
-ayL
-ayL
-ayK
-aQu
-ayL
-ayL
-ayL
-ayL
-ayL
+azx
+azx
+azx
+azx
+azx
+azx
+azx
 azx
 azV
 aEa
-aEq
-aEF
-aFc
-ayK
-ayK
+aDY
+aEE
+aXi
+ozm
+eeU
 aZW
 aRf
 aMf
@@ -62060,29 +62960,29 @@ aWG
 aZp
 aZW
 aTn
-ayK
-ayK
-azy
-azx
-aAr
 azV
-aAm
-aAm
-aAm
-aAm
+rQw
+azy
+scf
+aDY
+xLn
+jRs
+ayK
 azx
-aAm
-aAm
-aAm
-aAm
-aAm
-aDt
-ayK
-ayK
-ayK
-ayK
-ayK
-ayK
+aBR
+fbH
+fbH
+fbH
+fbH
+mdu
+azx
+azx
+azV
+aEa
+aDY
+aEE
+vlo
+mVW
 aQC
 aZW
 aRf
@@ -62317,29 +63217,29 @@ aXo
 aZp
 aZW
 aTn
-aQC
+jAP
+aAn
+vaF
+aDY
+ayK
+ayK
 ayK
 ayK
 azx
-aAs
-aAD
+jzz
+aQu
+aQu
+aQu
+aQu
+rBt
 azx
 azx
-azx
-azx
-azx
-azx
-azx
-azx
-azx
-azx
-azx
-aDC
+azV
 aEb
-aEr
-aEB
-aXi
-aQC
+aDY
+hwm
+vlo
+vYM
 aQC
 aZW
 aRf
@@ -62574,29 +63474,29 @@ aWG
 aZp
 aZW
 aQC
-aQC
-aQC
+jAP
+jAP
+aDY
+ldC
 ayK
-azV
+qAx
+wBz
+vDw
+azx
+azx
+azx
+azx
+azx
+azx
+azx
+azx
+srY
 ayK
-ayK
-ayK
-azV
-ayK
-aPO
-aAr
-aCy
-aAr
-aAr
-aAr
-aDk
-aAr
-azV
 aEc
 aEs
-aEB
-aXi
-aQC
+iOw
+vlo
+vYM
 aQC
 aZW
 aRf
@@ -62832,28 +63732,28 @@ aZp
 aZW
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
+qfw
+qfw
+gQq
+qfw
+bRf
+gmk
+qfw
+gbN
+aBR
+fbH
+fbH
+aCo
+fbH
+mdu
+azx
+xME
 ayK
-ayK
-azV
-ayK
-ayL
-ayL
-ayL
-ayK
-azV
-ayK
-ayK
-ayK
-ayK
-ayK
-aQC
+bhY
+oOc
+vPt
+nbs
+mXz
 aQC
 aZW
 aRf
@@ -63090,27 +63990,27 @@ aZW
 aQC
 aQC
 aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
+qfw
+jAP
+qfw
+jAP
+jAP
+qfw
+qfw
+jAP
+jAP
+jAP
+qfw
+jAP
+jAP
+jAP
+qfw
+qfw
+jAP
+jAP
+qfw
+qfw
+qfw
 aQC
 aZW
 aRf
@@ -63344,21 +64244,6 @@ aZg
 aOi
 aZp
 aZW
-aTn
-aQC
-aMA
-aQC
-aQC
-aQC
-aQC
-aQC
-aQC
-aMA
-aQC
-aQC
-aQC
-aQC
-aMA
 aQC
 aQC
 aQC
@@ -63367,7 +64252,22 @@ aQC
 aQC
 aQC
 aQC
-aMA
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+qfw
+qfw
 aQC
 aZW
 aRf
@@ -63601,31 +64501,31 @@ aOs
 aXo
 aZp
 aZW
-aZW
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
-aSP
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
+aQC
 aZW
 aRf
 aRf
@@ -63858,31 +64758,31 @@ aOv
 aOv
 aZp
 aZW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
+sER
+vob
+cGP
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+cGP
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+vob
+cGP
+vob
 aZW
 aNs
 aRf
@@ -64114,32 +65014,32 @@ aaM
 aaM
 aaM
 aaM
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
-aWW
+dys
+dys
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
+dIQ
 aZW
 aUy
 aWh
