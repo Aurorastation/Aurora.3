@@ -57,6 +57,7 @@
 	sprint_charge_factor = 0.85
 
 	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/tie_hair)
 
 /datum/species/machine/shell/get_light_color()
@@ -141,6 +142,10 @@
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
 	sprint_charge_factor = 1.1
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
 
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
@@ -356,6 +361,10 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
 	)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
+
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -396,6 +405,10 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/bishop)
 	)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
+
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -429,6 +442,10 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot/unbranded),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbranded)
 	)
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
