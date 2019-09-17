@@ -1,0 +1,8 @@
+author: Alberyk, BRAINOS
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added new options to the skrell loadout."
+  - rscadd: "Added new skrell body markings."
+  - rscadd: "Added new skrell related drinks."
