@@ -69,7 +69,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bald"   // try to capitalize the names please~
 		icon_state = "bald" // you do not need to define _s or _l sub-states, game automatically does this for you
 		gender = MALE
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 		length = 0
 		chatname = "bald head" //aim to keep these lowercase so they fit into the hair tugging message
 
@@ -244,7 +244,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bob"
 		icon_state = "hair_bob"
 		gender = FEMALE
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 		chatname = "short hair"
 
 	bob_chin
@@ -268,7 +268,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
 		gender = FEMALE
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 		chatname = "curls"
 
 	bobcurl2
@@ -436,14 +436,14 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Buzzcut"
 		icon_state = "hair_buzzcut"
 		gender = MALE
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 		chatname = "unbuzzed hair"	//grabbing the grabbable hair
 
 	buzzcut2
 		name = "Buzzcut 2"
 		icon_state = "hair_buzzcut2"
 		gender = MALE
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 		chatname = "unbuzzed hair"
 
 	chrono
@@ -1343,7 +1343,7 @@ Follow by example and make good judgement based on length which list to include 
 	spiky
 		name = "Spiky"
 		icon_state = "hair_spiky"
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 		chatname = "mighty spikes"
 
 	straightlong
@@ -1763,7 +1763,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Shell Frame","Unathi","Tajara","Skrell","Vox")
+		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox")
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -1824,7 +1824,7 @@ Follow by example and make good judgement based on length which list to include 
 	elvis
 		name = "Elvis Sideburns"
 		icon_state = "facial_elvis"
-		species_allowed = list("Human","Shell Frame","Unathi")
+		species_allowed = list("Human","Unathi")
 
 	fullbeard
 		name = "Full Beard"
