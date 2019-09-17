@@ -32,6 +32,7 @@
 
 /obj/machinery/button/attack_hand(mob/living/user)
 	if(..()) return 1
+	user.visible_message("<span class='notice'>[user] hits \the [src] button.</span>")
 	activate(user)
 
 /obj/machinery/button/proc/activate(mob/living/user)

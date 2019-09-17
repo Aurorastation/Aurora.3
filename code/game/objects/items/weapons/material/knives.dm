@@ -25,11 +25,41 @@
 			M = user
 		return eyestab(M,user)
 
+/obj/item/weapon/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H as mob in view(1))
+	set name = "Extract Shrapnel"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	if(!istype(H))
+		return
+
+	for(var/obj/item/weapon/material/shard/shrapnel/S in H.contents)
+		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
+		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
+		if(do_mob(usr, H, 100))
+			S.forceMove(H.loc)
+			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
+		else
+			break
+		H.apply_damage(30, HALLOSS)
+		if(prob(25))
+			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
+			if(affecting)
+				to_chat(H, "<span class='danger'><font size=2>You feel something rip open in your [affecting.name]!</span></font>")
+				var/datum/wound/internal_bleeding/I = new(15)
+				affecting.wounds += I
+		if(H.can_feel_pain())
+			H.emote("scream")
+
 /obj/item/weapon/material/knife/ritual
 	name = "ritual knife"
 	desc = "The unearthly energies that once powered this blade are now dormant."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
+	item_state = "knife"
 	applies_material_colour = 0
 
 /obj/item/weapon/material/knife/bayonet

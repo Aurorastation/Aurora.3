@@ -5,9 +5,12 @@ var/list/holder_mob_icon_cache = list()
 	name = "holder"
 	desc = "You shouldn't ever see this."
 	icon = 'icons/mob/npc/held_mobs.dmi'
+	randpixel = 0
+	center_of_mass = null
 	slot_flags = 0
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
 	origin_tech = null
+	drop_sound = null
 	var/mob/living/contained = null
 	var/icon_state_dead
 	var/desc_dead

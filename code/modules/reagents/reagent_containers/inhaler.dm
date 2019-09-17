@@ -6,6 +6,7 @@
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "autoinjector"
 	icon_state = "inhaler1"
+	center_of_mass = list("x" = 16,"y" = 11)
 	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5

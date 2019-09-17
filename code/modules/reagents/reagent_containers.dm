@@ -1,13 +1,9 @@
-#define CELLS 8
-#define CELLSIZE (32/CELLS)
-
 /obj/item/weapon/reagent_containers
 	name = "Container"
 	desc = "..."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = null
 	w_class = 2
-	var/list/center_of_mass = list("x" = 16,"y" = 16)
 	var/amount_per_transfer_from_this = 5
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
@@ -65,21 +61,6 @@
 		return
 
 /obj/item/weapon/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
-
-	if(proximity && params && istype(target, /obj/structure/table) && center_of_mass && center_of_mass.len)
-		//Places the item on a grid
-		var/list/mouse_control = mouse_safe_xy(params)
-
-		var/mouse_x = mouse_control["icon-x"]
-		var/mouse_y = mouse_control["icon-y"]
-
-		if(isnum(mouse_x) && isnum(mouse_y))
-			var/cell_x = max(0, min(CELLS-1, round(mouse_x/CELLSIZE)))
-			var/cell_y = max(0, min(CELLS-1, round(mouse_y/CELLSIZE)))
-
-			pixel_x = (CELLSIZE * (0.5 + cell_x)) - center_of_mass["x"]
-			pixel_y = (CELLSIZE * (0.5 + cell_y)) - center_of_mass["y"]
-
 	if(!proximity || !is_open_container())
 		return
 	if(is_type_in_list(target,can_be_placed_into))
@@ -262,6 +243,3 @@
 	playsound(src, 'sound/effects/pour.ogg', 25, 1)
 	to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to [target].</span>")
 	return 1
-
-#undef CELLS
-#undef CELLSIZE

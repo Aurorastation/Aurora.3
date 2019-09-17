@@ -15,6 +15,14 @@
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 
+/obj/item/organ/heart/process()
+	//Check if we're on lifesupport, and whether or not organs should be processing.
+	if(owner && owner.isonlifesupport())
+		return 1
+	else
+		return 0
+
+
 /obj/item/organ/lungs
 	name = "lungs"
 	icon_state = "lungs"
@@ -22,7 +30,7 @@
 	organ_tag = "lungs"
 	parent_organ = "chest"
 	robotic_name = "gas exchange system"
-	robotic_sprite = "heart-prosthetic"
+	robotic_sprite = "lungs-prosthetic"
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
 /obj/item/organ/lungs/process()

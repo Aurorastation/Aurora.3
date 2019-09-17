@@ -658,6 +658,7 @@
 		return unwield()
 
 /obj/item/weapon/gun/pickup(mob/user)
+	..()
 	if(is_wieldable)
 		unwield()
 

@@ -886,18 +886,6 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"cF" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/door/airlock/medical,
-/turf/simulated/wall/r_wall,
-/area/derelict/ship)
 "cG" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -2040,7 +2028,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict)
 "fQ" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fR" = (
@@ -6419,8 +6407,8 @@
 	},
 /area/derelict)
 "tl" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -7832,10 +7820,10 @@
 	},
 /area/derelict)
 "wF" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/constructable_frame/temp_deco,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -8045,7 +8033,7 @@
 	},
 /area/derelict)
 "xj" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -8860,7 +8848,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "zG" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "zH" = (
@@ -9676,7 +9664,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/bridge)
 "BH" = (
-/obj/machinery/constructable_frame/machine_frame,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled,
 /area/derelict/bridge)
 "BI" = (
@@ -9795,10 +9783,10 @@
 /turf/simulated/floor/wood,
 /area/derelict/bridge)
 "Cb" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled,
 /area/derelict/bridge)
 "Cc" = (
@@ -14100,8 +14088,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "OD" = (
-/obj/machinery/constructable_frame/machine_frame,
 /obj/machinery/light,
+/obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "OE" = (
@@ -65246,7 +65234,7 @@ aJ
 aD
 cm
 ad
-cF
+dl
 ad
 ad
 ad

@@ -27,6 +27,8 @@
 
 	icon = null												// This thing isn't meant to be used on it's own. Subtypes should supply their own icon.
 	icon_state = null										// And no random pixelshifting on-creation either.
+	randpixel = 0
+	center_of_mass = null
 	var/icon_state_unpowered = null							// Icon state when the computer is turned off
 	var/icon_state_menu = "menu"							// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
 	var/icon_state_screensaver = null

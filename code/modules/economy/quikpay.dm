@@ -17,7 +17,7 @@
 
 
 /obj/item/device/nanoquikpay/Initialize()
-	..()
+	. = ..()
 	machine_id = "[station_name()] Quik-Pay #[SSeconomy.num_financial_terminals++]"
 	access_code = rand(1111,111111)
 	print_reference()
