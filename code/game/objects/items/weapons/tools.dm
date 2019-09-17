@@ -640,7 +640,7 @@
 	name = "impact wrench"
 	desc = " The screwdriver's big brother."
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "powerdrill"
+	icon_state = "powerdrillyellow"
 	var/drillcolor = null
 	force = 3
 	w_class = 2
