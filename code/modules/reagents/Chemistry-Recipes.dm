@@ -3088,6 +3088,27 @@
 	required_reagents = list("dynjuice" = 1, "ice" = 2, "sodawater" = 2)
 	result_amount = 5
 
+/datum/chemical_reaction/drink/algaesuprise
+	name = "Pl'iuop Algae Surprise"
+	id = "algaesuprise"
+	result = "algaesuprise"
+	required_reagents = list("virusfood" = 2, "banana" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/xrim
+	name = "Xrim Garden"
+	id = "xrim"
+	result = "xrim"
+	required_reagents = list("virusfood" = 2, "watermelonjuice" = 1, "orangejuice" = 1, "limejuice" = 1, "zora_cthur" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/rixulin_sundae
+	name = "Rixulin Sundae"
+	id = "rixulin_sundae"
+	result = "rixulin_sundae"
+	required_reagents = list("virusfood" = 3, "wulumunusha" = 1, "whitewine" = 2)
+	result_amount = 6
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
