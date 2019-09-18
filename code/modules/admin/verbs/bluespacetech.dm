@@ -113,7 +113,6 @@
 	bst.add_language(LANGUAGE_EAL)
 	// Antagonist languages
 	bst.add_language(LANGUAGE_VOX)
-	bst.add_language(LANGUAGE_HIVEMIND)
 	bst.add_language(LANGUAGE_CHANGELING)
 	bst.add_language(LANGUAGE_BORER)
 

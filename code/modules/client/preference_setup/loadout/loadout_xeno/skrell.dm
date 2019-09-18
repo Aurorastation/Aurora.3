@@ -68,3 +68,21 @@
 	capes["nova cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nova
 	capes["galaxy cape"] = /obj/item/clothing/accessory/poncho/shouldercape/galaxy
 	gear_tweaks += new/datum/gear_tweak/path(capes)
+
+/datum/gear/uniform/skrell
+	display_name = "qeblak ceremonial garment"
+	path = /obj/item/clothing/under/skrell/qeblak
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
+
+/datum/gear/stellascope
+	display_name = "stellascope"
+	path = /obj/item/stellascope
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
+
+/datum/gear/skrell_projector
+	display_name = "nralakk projector"
+	path = /obj/item/skrell_projector
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"

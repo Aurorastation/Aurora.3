@@ -72,10 +72,10 @@
 	var/uses = 10
 
 var/const/NO_EMAG_ACT = -50
-/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user)
+/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	var/used_uses = A.emag_act(uses, user, src)
 	if(used_uses == NO_EMAG_ACT)
-		return ..(A, user)
+		return ..(A, user, click_parameters)
 
 	uses -= used_uses
 	A.add_fingerprint(user)

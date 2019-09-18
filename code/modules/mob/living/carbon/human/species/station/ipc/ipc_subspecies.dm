@@ -56,6 +56,9 @@
 	sprint_temperature_factor = 1.3
 	sprint_charge_factor = 0.85
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
+
 /datum/species/machine/shell/get_light_color()
 	return
 
