@@ -2,6 +2,7 @@
 	name = "bible"
 	desc = "Apply to head repeatedly."
 	icon_state ="bible"
+	icon = 'icons/obj/library.dmi'
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
@@ -51,29 +52,29 @@
 		name = book_name
 		SSticker.Bible_name = book_name
 
-	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Quran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
 	switch(new_book_style)
-		if("Koran")
-			icon_state = "koran"
-			item_state = "koran"
+		if("Quran")
+			icon_state = "quran"
+			item_state = "quran"
 		if("Scrapbook")
 			icon_state = "scrapbook"
 			item_state = "scrapbook"
 		if("Creeper")
 			icon_state = "creeper"
-			item_state = "syringe_kit"
+			item_state = "creeper"
 		if("White Bible")
 			icon_state = "white"
-			item_state = "syringe_kit"
+			item_state = "white"
 		if("Holy Light")
 			icon_state = "holylight"
-			item_state = "syringe_kit"
+			item_state = "holylight"
 		if("Atheist")
-			icon_state = "athiest"
-			item_state = "syringe_kit"
+			icon_state = "atheist"
+			item_state = "atheist"
 		if("Tome")
 			icon_state = "tome"
-			item_state = "syringe_kit"
+			item_state = "tome"
 		if("The King in Yellow")
 			icon_state = "kingyellow"
 			item_state = "kingyellow"

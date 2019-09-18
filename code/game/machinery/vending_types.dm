@@ -66,6 +66,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/applejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
@@ -693,6 +694,7 @@
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
+		/obj/item/powerdrill = 2,
 		/obj/item/weapon/airlock_electronics = 10,
 		/obj/item/weapon/module/power_control = 10,
 		/obj/item/weapon/airalarm_electronics = 10,
