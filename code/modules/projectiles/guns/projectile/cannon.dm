@@ -14,9 +14,11 @@
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	recoil = 4
 
-	action_button_name = "Wield hand cannon"
-
 	is_wieldable = TRUE
+
+	description_fluff = "The adhomian hand cannon was created due the shortage of weapons that happened in the New Kingdom of Adhomai during the second civil war. Old naval culverins \
+	found in museums and forgotten warehouses were adapted into portable weapons, combining modern and ancient tajaran technology. This weapon is usually found in the hands of the \
+	sailors and marines of the Royal Navy."
 
 /obj/item/weapon/gun/projectile/cannon/update_icon()
 	if(wielded)
