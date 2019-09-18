@@ -172,7 +172,7 @@
 	switch(target_zone)
 		if("mouth")
 			if(announce)
-				user.visible_message("<span class='warning'>\The [user] covers [target]'s mouth!</span>")
+				user.visible_message("<span class='warning'>\The [user] covers [target]'s face!</span>")
 			if(target.silent < 3)
 				target.silent = 3
 		if("eyes")
