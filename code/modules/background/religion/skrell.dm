@@ -6,7 +6,8 @@
 	upon something, that while the process of how it came to be understood, the catalyst of it all is sought, as all things require some measure of action, so in order to do that, \
 	the collective races needs to uncover every mystery in the galaxy in order to fully understand everything within it, and possibly beyond. This makes Qeblak a religion that highly \
 	celebrates the pursuit of knowledge, exploration, science and innovation, to them, science is part of culture."
-	book_name = "star keeper tome"
+	book_name = "book of celestial spheres"
+	book_sprite = "skrellbible"
 
 /datum/religion/weishii
 	name = RELIGION_WEISHII
@@ -15,4 +16,5 @@
 	the belief that the constellations all around us hold the key to understanding their fate and place in the galaxy. Whereas a member of the Qeblak faith would learn and study, a \
 	member of the Weishii faith would meditate, attempt to get a deeper inner understanding. This is generally attempted through the usage of Wulumunusha, a flowering vine that has \
 	came into existence following the meddling of the biosphere of Xrim by Glorsh."
-	book_name = "weishii meditation booklet"
+	book_name = "book of celestial spheres"
+	book_sprite = "skrellbible"

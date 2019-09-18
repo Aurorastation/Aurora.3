@@ -358,7 +358,7 @@
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>")
 		else
 			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress. Unable to pinpoint location.</b></font>")
-	var/obj/machinery/door/D = cable.machine
+	var/obj/machinery/door/airlock/D = cable.machine
 	if(!istype(D))
 		hack_aborted = 1
 		hackprogress = 0
@@ -375,6 +375,7 @@
 			return
 		if(hackprogress >= 1000)
 			hackprogress = 0
+			D.unlock() //unbolts door as long as bolt wires aren't cut
 			D.open()
 			cable.machine = null
 			return
@@ -454,14 +455,12 @@
 			user.add_language(LANGUAGE_UNATHI)
 			user.add_language(LANGUAGE_SIIK_MAAS)
 			user.add_language(LANGUAGE_SKRELLIAN)
-//			user.add_language("Vaurcese")
-			user.add_language("Rootsong")
+			user.add_language(LANGUAGE_ROOTSONG)
 		else
 			user.remove_language(LANGUAGE_UNATHI)
 			user.remove_language(LANGUAGE_SIIK_MAAS)
 			user.remove_language(LANGUAGE_SKRELLIAN)
-			//user.add_language(LANGUAGE_VAURCA) //I can buy an AI core and its cyborgs having access to the local hivenet for security reasons, but a pAI?
-			user.add_language("Rootsong")
+			user.add_language(LANGUAGE_ROOTSONG)
 
 	is_active(mob/living/silicon/pai/user)
 		return user.translator_on
