@@ -2793,6 +2793,13 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list("Skrell")
 		do_colouration = 0
 
+	skr_arms
+		name = "Skrell Arms"
+		icon_state = "skrell_arms"
+		body_parts = list("l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Skrell")
+
+
 // Branded IPC markings - disabled for now, some layering issues.
 /*
 	bishop

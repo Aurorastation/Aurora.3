@@ -62,7 +62,7 @@
 					if(P.iswirecutter())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 						to_chat(user, span("notice", "You decide to scrap the blueprint."))
-						new /obj/item/stack/material/steel(src.loc, 5)
+						new /obj/item/stack/material/steel(src.loc, 2)
 						qdel(src)
 			if(2)
 				if(P.iscoil())
