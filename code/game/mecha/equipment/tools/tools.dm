@@ -312,7 +312,7 @@
 /obj/item/mecha_parts/mecha_equipment/tool/rfd_c
 	name = "mounted RFD-C"
 	desc = "An exosuit-mounted Rapid-Fabrication-Device C-Class."
-	icon_state = "mecha_rfd-c"
+	icon_state = "mecha_rfd"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	equip_cooldown = 10
 	energy_drain = 250
