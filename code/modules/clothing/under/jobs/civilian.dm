@@ -211,18 +211,16 @@
 /obj/item/clothing/under/rank/idris
 	name = "Idris Incorporated uniform"
 	desc = "A uniform worn by Idris Incorporated employees and contractors."
-	icon_state = "idris_service_alt"
-	worn_state = "idris_service_alt"
+	icon_state = "idris_service"
+	worn_state = "idris_service"
 
 /obj/item/clothing/under/rank/idris/service
 	name = "Idris Incorporated service uniform"
 	desc = "A uniform worn by Idris Incorporated service personnel."
-	icon_state = "idris_service"
-	worn_state = "idris_service"
 
 /obj/item/clothing/under/rank/idris/service/alt
-	icon_state = "idris_serv_alt"
-	worn_state = "idris_serv_alt"
+	icon_state = "idris_service_alt"
+	worn_state = "idris_service_alt"
 
 /obj/item/clothing/under/rank/einstein_engines
 	name = "Einstein Engines uniform"
