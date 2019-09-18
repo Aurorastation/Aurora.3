@@ -280,7 +280,7 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "aaF" = (
@@ -947,7 +947,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "abX" = (
@@ -1514,7 +1514,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "acU" = (
