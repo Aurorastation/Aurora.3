@@ -1333,3 +1333,21 @@
 	set_trait(TRAIT_PRODUCT_ICON,"leaves")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#00e0e0")
 	set_trait(TRAIT_PLANT_ICON,"bush8")
+
+/datum/seed/wulumunusha
+	name = "wulumunusha"
+	seed_name = "wulumunusha"
+	display_name = "wulumunusha vines"
+	chems = list("wulumunusha" = list(3,5))
+	kitchen_tag = "wulumunusha"
+
+/datum/seed/wulumunusha/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,8)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"wumpafruit")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#61E2EC")
+	set_trait(TRAIT_PLANT_ICON,"wumpavines")
+	set_trait(TRAIT_WATER_CONSUMPTION, 10)

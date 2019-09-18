@@ -34,7 +34,7 @@
 
 
 /obj/item/clothing/head/helmet/space/void/pra
-	name = "cosmonaut voidsuit helmet"
+	name = "kosmostrelki voidsuit helmet"
 	desc = "A tajaran helmet used by the crew of the Republican Orbital Fleet."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"
@@ -47,7 +47,7 @@
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 
 /obj/item/clothing/suit/space/void/pra
-	name = "cosmonaut voidsuit"
+	name = "kosmostrelki voidsuit"
 	desc = "A tajaran voidsuit used by the crew of the Republican Orbital Fleet."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"
