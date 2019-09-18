@@ -5,7 +5,7 @@
 	organ_tag = "brain"
 	parent_organ = "head"
 	vital = 1
-	icon_state = "brain2"
+	icon_state = "brain"
 	force = 1.0
 	w_class = 2.0
 	throwforce = 1.0

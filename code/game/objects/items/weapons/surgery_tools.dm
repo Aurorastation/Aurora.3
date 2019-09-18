@@ -17,6 +17,7 @@
 	desc = "Retracts stuff."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"
+	var/overlay_state = "tray_retractor"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000)
 	flags = CONDUCT
 	w_class = 2.0
@@ -31,6 +32,7 @@
 	desc = "You think you have seen this before."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
+	var/overlay_state = "tray_hemostat"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
 	flags = CONDUCT
 	w_class = 2.0
@@ -46,6 +48,7 @@
 	desc = "This stops bleeding."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "cautery"
+	var/overlay_state = "tray_cautery"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
 	flags = CONDUCT
 	w_class = 2.0
@@ -61,6 +64,7 @@
 	desc = "You can drill using this item. You dig?"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
+	var/overlay_state = "tray_drill"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 10000)
 	flags = CONDUCT
@@ -78,6 +82,7 @@
 	desc = "Cut, cut, and once more cut."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "scalpel"
+	var/overlay_state = "tray_scalpel"
 	flags = CONDUCT
 	force = 10.0
 	sharp = 1
@@ -128,7 +133,8 @@
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "saw3"
+	icon_state = "saw"
+	var/overlay_state = "tray_saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
@@ -148,6 +154,7 @@
 	name = "bone gel"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
+	var/overlay_state = "tray_bone-gel"
 	force = 0
 	w_class = 2.0
 	throwforce = 1.0
@@ -157,6 +164,7 @@
 	name = "FixOVein"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "fixovein"
+	var/overlay_state = "tray_fixovein"
 	force = 0
 	throwforce = 1.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
@@ -167,7 +175,8 @@
 /obj/item/weapon/bonesetter
 	name = "bone setter"
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "bone setter"
+	icon_state = "bonesetter"
+	var/overlay_state = "tray_bonesetter"
 	force = 8.0
 	throwforce = 9.0
 	throw_speed = 3
@@ -176,13 +185,15 @@
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
-/obj/item/weapon/storage/box/tray
+/obj/item/weapon/storage/fancy/tray
 	name = "surgery tray"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgerytray"
+	use_sound = null
+	drop_sound = 'sound/items/drop/axe.ogg'
 	force = 2
 	w_class = 5.0
-	max_storage_space = 30
+	storage_slots = 10
 	attack_verb = list("slammed")
 	can_hold = list(
 		/obj/item/weapon/bonesetter,
@@ -198,7 +209,7 @@
 		/obj/item/stack/nanopaste
 		)
 
-	starts_with = list(	
+	starts_with = list(
 		/obj/item/weapon/bonesetter = 1,
 		/obj/item/weapon/cautery = 1,
 		/obj/item/weapon/circular_saw = 1,
@@ -210,3 +221,34 @@
 		/obj/item/weapon/FixOVein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
+
+/obj/item/weapon/storage/fancy/tray/update_icon()
+	cut_overlays()
+	for(var/obj/item/weapon/bonesetter/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/cautery/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/circular_saw/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/hemostat/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/retractor/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/scalpel/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/surgicaldrill/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/bonegel/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/weapon/FixOVein/T in contents)
+		add_overlay("[T.overlay_state]")
+	for(var/obj/item/stack/medical/advanced/bruise_pack/T in contents)
+		add_overlay("[T.overlay_state]")
+
+/obj/item/weapon/storage/fancy/tray/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/weapon/storage/fancy/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	update_icon()
