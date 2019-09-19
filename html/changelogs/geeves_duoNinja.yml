@@ -1,0 +1,52 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: Geeves, with some code by BurgerBB
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Added a ninja frequency to radios which ninjas spawn with to collaborate."
+  - tweak: "Two ninjas now spawn instead of just one."
+  - rscadd: "Gave the ninja better spawning gear, a syndicate uniform, a belt with some tools and a pAI card."
+  - tweak: "The ninja suit now has new lights, and its shoes are now magboots."
+  - rscadd: "Added a doorhack RIG module. Functions the same as the normal doorhack, but the user can move around after initiating the hack, as well as hack multiple airlocks at once."
+  - tweak: "Gave the ninja teleporter a 5 second cooldown between uses."
+  - rscadd: "Added new advanced combat belt, can hold various gear that a ninja would usually come across."
+  - tweak : "Buffed the ninja's RIG armour values slightly. Still requires feedback, if ninjas die too quickly, it will be buffed more."
+  - rscadd: "Added an additional toolbox, chair, suitcooling unit and ninja spawn point to the ninja shuttle on the centcomm level."
+  - rscadd: Gave the ninja a new uniform + gloves.
+  - tweak: "EMERGENCY power generator now generates 2500 units of power, with a cooldown of five minutes."
+  - wip: "Gnomes still evading capture. Report any occurences of gnomes and gnome activity to Aurora authorities."
