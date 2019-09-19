@@ -57,6 +57,9 @@
 	collection = null
 	return ..()
 
+datum/category_group/dd_SortValue()
+	return name
+
 /*****************
 * Category Items *
 *****************/
@@ -71,3 +74,6 @@
 /datum/category_item/Destroy()
 	category = null
 	return ..()
+
+datum/category_item/dd_SortValue()
+	return name
