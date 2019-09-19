@@ -55,6 +55,7 @@
 
 	remains_type = /obj/effect/decal/cleanable/ash
 	death_message = "dissolves into ash..."
+	death_message_range = 7
 
 	flags = NO_BLOOD | NO_SCAN | NO_SLIP | NO_POISON | NO_PAIN | NO_BREATHE | NO_EMBED
 	spawn_flags = IS_RESTRICTED
