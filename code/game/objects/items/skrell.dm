@@ -27,11 +27,11 @@
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
 			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to \his eye and peers at something unseen.</span>",
-							"<span class='notice'>You see the starry edgy of srom floating on the void of space.</span>")
+							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
-				addtimer(CALLBACK(src, .proc/rearm), 3 MINUTES)
+				addtimer(CALLBACK(src, .proc/rearm), 30 SECONDS)
 
 
 /obj/item/stellascope/proc/rearm()
@@ -48,7 +48,7 @@
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
-	duration = 1200
+	duration = 30 SECONDS
 	layer = LIGHTING_LAYER + 0.1
 	light_power = 1
 	light_range = 1
