@@ -73,15 +73,17 @@ calculate text size per text.
 			temp_text = "cool"
 		if(T0C + 15 to T0C + 25)
 			temp_text = "lukewarm"
+			if (default_temperature in (T0C + 15 to T0C + 25))
+				temp_text = ""
 		if(T0C + 25 to T0C + 40)
 			temp_text = "warm"
 		if(T0C + 40 to T0C + 100)
 			temp_text = "hot"
 		if(T0C + 100 to T0C + 120)
-			temp_text = "scolding hot"
+			temp_text = "scalding hot"
 		if(T0C + 120 to T0C + 200)
 			temp_text = "molten hot"
 		if(T0C + 200 to INFINITY)
 			temp_text = "lethally hot"
 
-	return "[temp_text] [english_list(out, "something indescribable")]."
+	return "[temp_text][temp_text ? " " : ""][english_list(out, "something indescribable")]."
