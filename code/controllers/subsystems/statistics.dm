@@ -18,6 +18,7 @@
 	var/list/msg_deathsquad = list()
 	var/list/msg_syndicate = list()
 	var/list/msg_raider = list()
+	var/list/msg_ninja = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
 

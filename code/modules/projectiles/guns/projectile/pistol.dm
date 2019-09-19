@@ -190,6 +190,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
+	var/can_silence = TRUE
 
 /obj/item/weapon/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
@@ -197,7 +198,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
-		if(silenced)
+		if(silenced && can_silence)
 			if(user.l_hand != src && user.r_hand != src)
 				..()
 				return
@@ -210,7 +211,7 @@
 	..()
 
 /obj/item/weapon/gun/projectile/pistol/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/silencer))
+	if(istype(I, /obj/item/weapon/silencer) && can_silence)
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 			to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")
 			return
@@ -304,6 +305,7 @@
 	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
 	icon_state = "m8"
 	item_state = "pistol"
+	can_silence = FALSE
 
 /obj/item/weapon/gun/projectile/pistol/sol/update_icon()
 	..()
@@ -311,3 +313,17 @@
 		icon_state = "m8"
 	else
 		icon_state = "m8-empty"
+
+/obj/item/weapon/gun/projectile/pistol/adhomai
+	name = "adhomian service pistol"
+	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and political commissars."
+	icon_state = "adhomian_pistol"
+	item_state = "pistol"
+	can_silence = FALSE
+
+/obj/item/weapon/gun/projectile/pistol/adhomai/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "adhomian_pistol"
+	else
+		icon_state = "adhomian_pistol-e"
