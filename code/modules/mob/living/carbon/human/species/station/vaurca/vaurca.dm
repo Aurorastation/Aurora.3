@@ -64,7 +64,6 @@
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 
-	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
 	heat_discomfort_strings = list(

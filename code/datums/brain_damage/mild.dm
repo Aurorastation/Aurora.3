@@ -135,6 +135,12 @@
 
 	..()
 
+/datum/brain_trauma/mild/concussion/on_lose()
+	owner.dizziness = 0
+	owner.slurring = 0
+	owner.confused = 0
+	..()
+
 /datum/brain_trauma/mild/muscle_weakness
 	name = "Muscle Weakness"
 	desc = "Patient experiences occasional bouts of muscle weakness."
