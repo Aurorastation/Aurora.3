@@ -16,7 +16,7 @@
 			category = new category(src)
 			categories += category
 			categories_by_name[category.name] = category
-	sortTim(categories, /proc/cmp_name_asc, FALSE)
+	categories = dd_sortedObjectList(categories)
 
 /datum/category_collection/Destroy()
 	for(var/category in categories)
@@ -48,7 +48,7 @@
 			items_by_name[item.name] = item
 
 	// If you change this, confirm that character setup doesn't become completely unordered.
-	sortTim(items, /proc/cmp_player_setup_group)
+	items = dd_sortedObjectList(items)
 
 /datum/category_group/Destroy()
 	for(var/item in items)

@@ -8,7 +8,7 @@
 * Categories *
 *************/
 /datum/category_group/underwear
-	var/sort_order		// Lower sort order is applied as icons first
+	var/sort_order = 0		// Lower sort order is applied as icons first
 	var/display_name
 	var/gender = NEUTER
 
