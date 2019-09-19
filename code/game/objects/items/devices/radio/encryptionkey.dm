@@ -27,6 +27,12 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = 1
 
+/obj/item/device/encryptionkey/ninja
+	icon_state = "cypherkey"
+	channels = list("Ninja" = 1)
+	origin_tech = list(TECH_ILLEGAL = 3)
+	syndie = 1
+
 /obj/item/device/encryptionkey/binary
 	icon_state = "cypherkey"
 	translate_binary = 1
