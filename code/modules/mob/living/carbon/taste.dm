@@ -22,6 +22,7 @@ calculate text size per text.
 
 	var/list/out = list()
 	var/list/tastes = list() //descriptor = strength
+	var/lukewarm = 0 // should we allow it to be lukewarm or not
 	if(minimum_percent <= 100)
 		for(var/datum/reagent/R in reagent_list)
 			if(!R.taste_mult)
@@ -40,6 +41,8 @@ calculate text size per text.
 					tastes[taste_desc] += taste_amount
 				else
 					tastes[taste_desc] = taste_amount
+				if(!(R.default_temperature in (T0C + 15 to T0C + 25)))
+					lukewarm = 1
 
 		//deal with percentages
 		var/total_taste = 0
@@ -72,9 +75,8 @@ calculate text size per text.
 		if(T0C to T0C + 15)
 			temp_text = "cool"
 		if(T0C + 15 to T0C + 25)
-			temp_text = "lukewarm"
-			if (default_temperature in (T0C + 15 to T0C + 25))
-				temp_text = ""
+			if(lukewarm)
+				temp_text = "lukewarm"
 		if(T0C + 25 to T0C + 40)
 			temp_text = "warm"
 		if(T0C + 40 to T0C + 100)
