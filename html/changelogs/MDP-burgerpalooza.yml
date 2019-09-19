@@ -1,0 +1,5 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - bugfix: "Fixes service module cyborgs dispensing drinks at the wrong temperature."
+  - tweak: "Reagents that should be at room temperature will no longer be described as lukewarm."
