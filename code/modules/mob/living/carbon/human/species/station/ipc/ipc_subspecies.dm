@@ -21,6 +21,12 @@
 
 	light_range = 0
 	light_power = 0
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/bite
+	)
 
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
@@ -180,8 +186,10 @@
 	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark"
+
 	death_sound = 'sound/effects/bang.ogg'
 	death_message = "collapses to the ground with a CLUNK, and begins to beep ominously."
+	death_message_range = 7
 
 	heat_level_1 = 1500
 	heat_level_2 = 2000

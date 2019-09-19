@@ -20,7 +20,10 @@
 
 	gibbed_anim = "gibbed-m"
 	dusted_anim = "dust-m"
+
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
+	death_message_range = 7
+
 	tail = "chimptail"
 
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
