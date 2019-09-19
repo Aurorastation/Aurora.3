@@ -224,26 +224,22 @@
 
 /obj/item/weapon/storage/fancy/tray/update_icon()
 	cut_overlays()
-	for(var/obj/item/weapon/bonesetter/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/cautery/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/circular_saw/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/hemostat/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/retractor/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/scalpel/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/surgicaldrill/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/bonegel/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/weapon/FixOVein/T in contents)
-		add_overlay("[T.overlay_state]")
-	for(var/obj/item/stack/medical/advanced/bruise_pack/T in contents)
-		add_overlay("[T.overlay_state]")
+
+	var/list/types_and_overlays = list(
+	/obj/item/weapon/bonesetter = "tray_bonesetter",
+	/obj/item/weapon/cautery = "tray_cautery",
+	/obj/item/weapon/circular_saw = "tray_saw",
+	/obj/item/weapon/hemostat = "tray_hemostat",
+	/obj/item/weapon/retractor = "tray_retractor",
+	/obj/item/weapon/scalpel = "tray_scalpel",
+	/obj/item/weapon/surgicaldrill = "tray_drill",
+	/obj/item/weapon/bonegel = "tray_bone-gel",
+	/obj/item/weapon/FixOVein = "tray_fixovein",
+	/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack")
+	for (var/obj/item/W in contents)
+		if (types_and_overlays[W.type])
+			add_overlay(types_and_overlays[W.type])
+			types_and_overlays -= W.type
 
 /obj/item/weapon/storage/fancy/tray/fill()
 	. = ..()
