@@ -55,7 +55,7 @@
 /obj/item/clothing/shoes/science
 	name = "scientist shoes"
 	desc = "A pair of treated purple and white shoes resistant to chemical and gas spills."
-	icon_state = "science"
+	icon_state = "scientist"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 
