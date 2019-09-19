@@ -9,6 +9,7 @@
 *************/
 /datum/category_group/underwear
 	var/layer_sort_order		// Lower sort order is applied as icons first
+	var/sort_order
 	var/display_name
 	var/gender = NEUTER
 
@@ -17,18 +18,21 @@ datum/category_group/underwear/dd_SortValue()
 
 /datum/category_group/underwear/top
 	name = "Underwear, top"
+	sort_order = 1
 	layer_sort_order = 1
 	display_name = "top piece"
 	category_item_type = /datum/category_item/underwear/top
 
 /datum/category_group/underwear/bottom
 	name = "Underwear, bottom"
+	sort_order = 2
 	layer_sort_order = 2
 	display_name = "bottom piece"
 	category_item_type = /datum/category_item/underwear/bottom
 
 /datum/category_group/underwear/socks
 	name = "Socks"
+	sort_order = 3
 	layer_sort_order = 3
 	display_name = "socks"
 	gender = PLURAL
@@ -36,6 +40,7 @@ datum/category_group/underwear/dd_SortValue()
 
 /datum/category_group/underwear/undershirt
 	name = "Undershirt"
+	sort_order = 4
 	display_name = "undershirt"
 	layer_sort_order = 4		// Undershirts currently have the highest sort order because they may cover both underwear and socks.
 	category_item_type = /datum/category_item/underwear/undershirt
