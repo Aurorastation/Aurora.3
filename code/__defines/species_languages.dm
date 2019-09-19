@@ -41,9 +41,7 @@
 #define LANGUAGE_SIGN_TAJARA "Nal'rasan"
 #define LANGUAGE_YA_SSA "Ya'ssa"
 #define LANGUAGE_DELVAHII "Delvahhi"
-#define LANGUAGE_SIIK_TAU "Siik'Tau"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
-#define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Freespeak"
@@ -52,8 +50,6 @@
 #define LANGUAGE_SIGN "Sign Language"
 
 // Antag Languages
-#define LANGUAGE_XENOMORPH "Xenomorph"
-#define LANGUAGE_HIVEMIND "Hivemind"	// xeno hivemind
 #define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"
@@ -85,3 +81,8 @@
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 #define TCOMSSIM     512 // Can be synthesized in tcoms
+
+// Representative missions levels
+#define REPRESENTATIVE_MISSION_LOW 1
+#define REPRESENTATIVE_MISSION_MEDIUM 2
+#define REPRESENTATIVE_MISSION_HIGH 3

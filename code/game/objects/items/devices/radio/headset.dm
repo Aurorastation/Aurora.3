@@ -19,8 +19,6 @@
 	var/ks2type = null
 	var/radio_sound = null
 
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/ears.dmi')
-
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
 	internal_channels.Cut()
@@ -84,6 +82,11 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/raider
+
+/obj/item/device/radio/headset/ninja
+	origin_tech = list(TECH_ILLEGAL = 3)
+	syndie = 1
+	ks1type = /obj/item/device/encryptionkey/ninja
 
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -227,12 +230,12 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/onlyert
 
-/obj/item/device/radio/headset/ia
-	name = "internal affairs headset"
+/obj/item/device/radio/headset/representative
+	name = "representative headset"
 	desc = "The headset of your worst enemy."
 	icon_state = "com_headset"
 	item_state = "headset"
-	ks2type = /obj/item/device/encryptionkey/heads/hos
+	ks2type = /obj/item/device/encryptionkey/headset_com
 
 /obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
 //	..()

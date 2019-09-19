@@ -278,7 +278,14 @@
 		t = replacetext(t, "\[/table\]", "")
 		t = replacetext(t, "\[row\]", "")
 		t = replacetext(t, "\[cell\]", "")
-		t = replacetext(t, "\[logo\]", "")
+		t = replacetext(t, "\[logo_nt\]", "")
+		t = replacetext(t, "\[logo_nt_small\]", "")
+		t = replacetext(t, "\[logo_zh\]", "")
+		t = replacetext(t, "\[logo_idris\]", "")
+		t = replacetext(t, "\[logo_eridani\]", "")
+		t = replacetext(t, "\[logo_necro\]", "")
+		t = replacetext(t, "\[logo_hp\]", "")
+		t = replacetext(t, "\[logo_be\]", "")
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
@@ -310,8 +317,6 @@
 		else if (P.iswelder())
 			var/obj/item/weapon/weldingtool/F = P
 			if (!F.welding)//welding tools are 0 when off
-				return
-			if (!F.remove_fuel(1, user))//This function removes the fuel and does the usual eyedamage checks, if it returns 0 then the welder is out of fuel and cant burn paper
 				return
 		else
 			//If we got here somehow, the item is incompatible and can't burn things
@@ -540,7 +545,7 @@
 	var/sentence = 1 // Is this form contain a sentence of guilty?
 
 /obj/item/weapon/paper/incident/New()
-	info = {"\[center\]\[logo\]\[/center\]
+	info = {"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Encoded NanoTrasen Security Incident Report\[/b\]\[/i\]\[hr\]
 \[small\]FOR USE BY SECURITY ONLY\[/small\]\[br\]
 \[barcode\]\[/center\]"}
@@ -552,7 +557,7 @@
 	icon_state = "pamphlet"
 
 /obj/item/weapon/paper/sentencing/New()
-	info = {"\[center\]\[logo\]\[/center\]
+	info = {"\[center\]\[logo_nt\]\[/center\]
 \[center\]\[b\]\[i\]Operation of Criminal Sentencing Computers\[/b\]\[/i\]\[hr\]
 \[small\]In compliance with new NanoTrasen criminal regulations, the \[b\][station_name()]\[/b\] has been equipped with state of the art sentencing computers. The operation of these terminals is quite simple:\[br\]
 \[br\]

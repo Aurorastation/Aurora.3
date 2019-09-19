@@ -66,6 +66,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale = 6,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/orangejuice = 4,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/applejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/tomatojuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/limejuice = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/lemonjuice = 4,
@@ -301,7 +302,7 @@
 		/obj/item/weapon/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/weapon/reagent_containers/glass/bottle/stoxin = 4,
 		/obj/item/weapon/reagent_containers/glass/bottle/toxin = 4,
-		/obj/item/weapon/reagent_containers/syringe/antiviral = 4,
+		/obj/item/weapon/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/weapon/reagent_containers/syringe = 12,
 		/obj/item/device/healthanalyzer = 5,
 		/obj/item/device/breath_analyzer = 2,
@@ -310,7 +311,10 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
-		/obj/item/weapon/reagent_containers/pill/antitox = 6
+		/obj/item/weapon/reagent_containers/pill/antitox = 6,
+		/obj/item/weapon/reagent_containers/pill/antihistamine = 6,
+		/obj/item/weapon/reagent_containers/pill/paracetamol = 6,
+		/obj/item/weapon/reagent_containers/food/drinks/medcup = 4
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/pill/tox = 3,
@@ -607,13 +611,13 @@
 	icon_state = "dinnerware"
 	vend_id = "cutlery"
 	products = list(
-		/obj/item/weapon/tray = 8,
-		/obj/item/weapon/material/kitchen/utensil/fork = 6,
-		/obj/item/weapon/material/kitchen/utensil/knife = 6,
-		/obj/item/weapon/material/kitchen/utensil/spoon = 6,
+		/obj/item/weapon/tray = 12,
+		/obj/item/weapon/material/kitchen/utensil/fork = 12,
+		/obj/item/weapon/material/kitchen/utensil/knife = 12,
+		/obj/item/weapon/material/kitchen/utensil/spoon = 12,
 		/obj/item/weapon/material/knife = 2,
 		/obj/item/weapon/material/hatchet/butch = 2,
-		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 8,
+		/obj/item/weapon/reagent_containers/food/drinks/drinkingglass = 12,
 		/obj/item/clothing/suit/chef/classic = 2,
 		/obj/item/weapon/material/kitchen/rollingpin = 2,
 		/obj/item/weapon/reagent_containers/cooking_container/oven = 5,
@@ -690,6 +694,7 @@
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
+		/obj/item/powerdrill = 2,
 		/obj/item/weapon/airlock_electronics = 10,
 		/obj/item/weapon/module/power_control = 10,
 		/obj/item/weapon/airalarm_electronics = 10,

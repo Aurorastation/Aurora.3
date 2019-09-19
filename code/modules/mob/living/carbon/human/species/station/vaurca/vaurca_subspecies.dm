@@ -50,8 +50,6 @@
 	slowdown = 2
 	eyes = "breeder_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
-	brute_mod = 0.1 //note to self: remove is_synthetic checks for brmod and burnmod
-	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	grab_mod = 4
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -76,9 +74,10 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite,
-		/mob/living/carbon/human/proc/devour_head,
 		/mob/living/carbon/human/proc/hivenet
 		)
+
+	default_h_style = "Bald"
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
@@ -118,6 +117,7 @@
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
 	blood_mask = 'icons/mob/human_races/masks/dam_mask_warform.dmi'
+	onfire_overlay = 'icons/mob/OnFire_large.dmi'
 
 
 	stamina = 200
@@ -153,6 +153,8 @@
 		"eyes"                = /obj/item/organ/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
+
+	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(HULK)

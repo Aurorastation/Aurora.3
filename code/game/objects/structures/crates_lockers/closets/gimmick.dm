@@ -48,7 +48,7 @@
 	icon_opened = "syndicate1open"
 	anchored = 0
 
-/obj/structure/closet/gimmick/russianr
+/obj/structure/closet/gimmick/russian
 	name = "russian surplus closet"
 	desc = "It's a storage unit for Russian standard-issue surplus."
 	icon_state = "syndicate1"
@@ -56,11 +56,11 @@
 	icon_opened = "syndicate1open"
 
 /obj/structure/closet/gimmick/russian/fill()
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
-	new /obj/item/clothing/head/ushanka(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
+	new /obj/item/clothing/head/ushanka/grey(src)
 	new /obj/item/clothing/under/soviet(src)
 	new /obj/item/clothing/under/soviet(src)
 	new /obj/item/clothing/under/soviet(src)

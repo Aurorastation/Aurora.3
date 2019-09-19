@@ -24,6 +24,9 @@
 	var/colour = "black"	//what colour the ink is!
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
+/obj/item/weapon/pen/ispen()
+	return TRUE
+
 /obj/item/weapon/pen/blue
 	desc = "An instrument for writing or drawing with ink. This one is in blue. Ironically used mostly by white-collar workers."
 	icon_state = "pen_blue"
@@ -70,7 +73,6 @@
 	return
 
 /obj/item/weapon/pen/attack_self(var/mob/user)
-	to_chat(user, "<span class='notice'>Click.</span>")
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 
 /*

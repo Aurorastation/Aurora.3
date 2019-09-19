@@ -110,7 +110,9 @@
 		/obj/item/weapon/gun/projectile/revolver/lemat               = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage   = TRADER_THIS_TYPE,
 		/obj/item/weapon/gun/energy/rifle/icelance                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/accessory/storage/bayonet                 = TRADER_THIS_TYPE
+		/obj/item/clothing/accessory/storage/bayonet                 = TRADER_THIS_TYPE,
+		/obj/item/weapon/gun/projectile/cannon                       = TRADER_THIS_TYPE,
+		/obj/item/ammo_casing/cannon                                 = TRADER_ALL
 	)
 
 
@@ -152,5 +154,5 @@
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/weapon/shield/riot/tact                         = TRADER_THIS_TYPE,
 		/obj/item/weapon/storage/belt/security/tactical           = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/belt/bandolier                   = TRADER_THIS_TYPE
+		/obj/item/clothing/accessory/storage/bandolier            = TRADER_THIS_TYPE
 	)

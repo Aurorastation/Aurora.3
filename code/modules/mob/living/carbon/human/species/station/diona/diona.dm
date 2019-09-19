@@ -92,6 +92,9 @@
 
 	max_hydration_factor = -1
 
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_NONE)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER)
+
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
@@ -100,7 +103,7 @@
 
 	var/remainder = cost * H.sprint_cost_factor
 
-	if (H.total_radiation)
+	if (H.total_radiation && !DS.regening_organ)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
 			H.apply_radiation(cost*(-0.5))
 			return 1
@@ -126,6 +129,9 @@
 	if(istype(D))
 		return 1
 	return 0
+
+/datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
+	return H.organs_by_name[vision_organ]
 
 /datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))

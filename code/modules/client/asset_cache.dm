@@ -138,6 +138,11 @@ var/list/asset_datums = list()
 		return new type()
 	return asset_datums[type]
 
+/proc/simple_asset_ensure_is_sent(client, type)
+	var/datum/asset/simple/asset = get_asset_datum(type)
+
+	asset.send(client)
+
 /datum/asset/New()
 	asset_datums[type] = src
 
@@ -179,7 +184,14 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
-		"ntlogo.png"   = 'html/images/ntlogo.png'
+		"ntlogo.png" = 'html/images/ntlogo.png',
+		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
+		"zhlogo.png" = 'html/images/zhlogo.png',
+		"idrislogo.png" = 'html/images/idrislogo.png',
+		"eridanilogo.png" = 'html/images/eridanilogo.png',
+		"necrologo.png" = 'html/images/necrologo.png',
+		"hplogo.png" = 'html/images/hplogo.png',
+		"belogo.png" = 'html/images/belogo.png'
 	)
 
 /datum/asset/simple/changelog
@@ -233,3 +245,14 @@ var/list/asset_datums = list()
 
 /datum/asset/chem_master/send(client)
 	send_asset_list(client, assets)
+
+/datum/asset/simple/faction_icons
+	assets = list(
+		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
+		"faction_Zeng.png" = 'icons/misc/factions/ZhenHulogo.png',
+		"faction_Necro.png" = 'icons/misc/factions/NecroInclogo.png',
+		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
+		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
+		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
+		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
+	)

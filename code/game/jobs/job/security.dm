@@ -9,7 +9,6 @@
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#ffdddd"
-	req_admin_notify = 1
 	economic_modifier = 10
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
@@ -164,8 +163,7 @@
 	name = "Forensic Technician"
 	jobtype = /datum/job/forensics
 
-	uniform = /obj/item/clothing/under/det/slob
-	suit = /obj/item/clothing/suit/storage/vest/csi
+	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/detective
@@ -252,8 +250,9 @@
 	name = "Security Cadet"
 	jobtype = /datum/job/intern_sec
 
-	uniform = /obj/item/clothing/under/rank/security2
-	head = /obj/item/clothing/head/beret/sec
+	uniform = /obj/item/clothing/under/rank/cadet
+	suit = /obj/item/clothing/suit/storage/vest/cadet
+	head = /obj/item/clothing/head/beret/sec/cadet
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec
 

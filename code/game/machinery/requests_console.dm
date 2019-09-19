@@ -1,12 +1,12 @@
 /******************** Requests Console ********************/
 /** Originally written by errorage, updated by: Carn, needs more work though. I just added some security fixes */
 
-//Request Console Department Types
+//Requests Console Department Types
 #define RC_ASSIST 1		//Request Assistance
 #define RC_SUPPLY 2		//Request Supplies
 #define RC_INFO   4		//Relay Info
 
-//Request Console Screens
+//Requests Console Screens
 #define RCS_MAINMENU 0	// Main menu
 #define RCS_RQASSIST 1	// Request supplies
 #define RCS_RQSUPPLY 2	// Request assistance
@@ -29,6 +29,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
+	component_types = list(
+			/obj/item/weapon/circuitboard/requestconsole,
+			/obj/item/weapon/stock_parts/capacitor,
+			/obj/item/weapon/stock_parts/console_screen,
+		)
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
@@ -79,8 +84,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			else
 				set_light(0)
 
-/obj/machinery/requests_console/Initialize()
+/obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
+
+	if(building)
+		if(dir)
+			src.set_dir(dir)
+
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
+		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+		update_icon()
+		return
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
@@ -173,7 +187,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
+		ui = new(user, src, ui_key, "requests_console.tmpl", "[department] Requests Console", 520, 410)
 		ui.set_initial_data(data)
 		ui.open()
 

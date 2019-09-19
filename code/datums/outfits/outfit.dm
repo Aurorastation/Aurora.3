@@ -14,10 +14,11 @@
 	var/mask = null
 	var/l_ear = null
 	var/r_ear = null
-	var/glasses = null	
+	var/glasses = null
 	var/l_pocket = null
 	var/r_pocket = null
 	var/suit_store = null
+	var/accessory = null
 
 	//The following vars must be paths
 	var/l_hand = null
@@ -27,6 +28,8 @@
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
+	var/list/accessory_contents = list()
+	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/implants = null //A list of implants that should be implanted
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -54,6 +57,31 @@
 	else
 		H.equip_to_slot_or_del(I, slot)
 
+/datum/outfit/proc/equip_accessory(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!H)
+		return
+
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	if(U)
+		var/obj/item/clothing/accessory/A = new accessory
+		U.attach_accessory(H, A)
+		if(!accessory_contents.len)
+			return
+
+		if(istype(A, /obj/item/clothing/accessory/storage))
+			var/obj/item/clothing/accessory/storage/S = A
+			for(var/v in accessory_contents)
+				var/number = accessory_contents[v]
+				for(var/i in 1 to number)
+					var/obj/item/I = new v
+					S.hold.insert_into_storage(I)
+		else if(istype(A, /obj/item/clothing/accessory/holster))
+			var/obj/item/clothing/accessory/holster/holster = A
+			var/w_type = accessory_contents[1]
+			var/obj/item/weapon/W = new w_type(H.loc)
+			if(W)
+				holster.holster(W, H)
+
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for changing items post equip (such as toggeling internals, ...)
 
@@ -63,6 +91,8 @@
 		equip_item(H, back, slot_back)
 	if(uniform)
 		equip_item(H, uniform, slot_w_uniform)
+		if(accessory)
+			equip_accessory(H)
 	if(suit)
 		equip_item(H, suit, slot_wear_suit)
 	if(belt)
@@ -116,6 +146,10 @@
 			var/number = backpack_contents[path]
 			for(var/i in 1 to number)
 				H.equip_or_collect(new path(H), slot_in_backpack)
+		for(var/path in belt_contents)
+			var/number = belt_contents[path]
+			for(var/i in 1 to number)
+				H.equip_or_collect(new path(H), slot_in_belt)
 
 	post_equip(H, visualsOnly)
 
@@ -173,7 +207,7 @@
 		H.l_store.add_fingerprint(H, 1)
 	if(H.r_store)
 		H.r_store.add_fingerprint(H, 1)
-	return 1		
+	return 1
 
 /datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/weapon/card/id/C)
 	if(istype(C))
@@ -200,7 +234,11 @@
 	return list()
 
 /datum/outfit/proc/get_id_assignment(mob/living/carbon/human/H)
-	return GetAssignment(H)
+	. = GetAssignment(H)
+
+	if (. && . != "Unassigned" && H?.mind?.selected_faction)
+		if (!H.mind.selected_faction.is_default && H.mind.selected_faction.title_suffix)
+			. += " ([H.mind.selected_faction.title_suffix])"
 
 /datum/outfit/proc/get_id_rank(mob/living/carbon/human/H)
 	return GetAssignment(H)

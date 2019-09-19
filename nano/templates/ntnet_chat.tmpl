@@ -20,11 +20,10 @@
 		{{/if}}
 	</div>
 	<div class="itemLabel">
-		Controls: 
+		Chat Controls: 
 	</div>
 	<div class="itemContent">
 		<table>
-			<tr><td>{{:helper.link("Send message", null, {'PRG_speak' : 1})}}
 			<tr><td>{{:helper.link("Change nickname", null, {'PRG_changename' : 1})}}
 			<tr><td>{{:helper.link("Toggle administration mode", null, {'PRG_toggleadmin' : 1})}}
 			<tr><td>{{:helper.link("Leave channel", null, {'PRG_leavechannel' : 1})}}
@@ -35,7 +34,11 @@
 				<tr><td>{{:helper.link("Delete channel", null, {'PRG_deletechannel' : 1})}}
 			{{/if}}
 		</table>
-	</div>		
+	</div>
+	<b>Connected Users</b><br>
+	{{for data.clients}}
+		{{:value.name}}<br>
+	{{/for}}
 	<b>Chat Window</b>
         <div class="statusDisplay" style="overflow: auto;">
 		<div class="item">
@@ -46,10 +49,14 @@
 			</div>
 		</div>
         </div>	
- 	<b>Connected Users</b><br>
-	{{for data.clients}}
-		{{:value.name}}<br>
-	{{/for}}
+	<div class="itemLabel">
+		Messaging: 
+	</div>
+	<div class="itemContent">
+		<table>
+			<tr><td>{{:helper.link("Send message", null, {'PRG_speak' : 1})}}</td></tr>
+		</table>
+	</div>
 {{else}}
 	<b>Controls:</b>
 	<table>

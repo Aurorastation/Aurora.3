@@ -21,6 +21,12 @@
 
 	light_range = 0
 	light_power = 0
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/bite
+	)
 
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
@@ -56,10 +62,40 @@
 	sprint_temperature_factor = 1.3
 	sprint_charge_factor = 0.85
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/tie_hair)
+
 /datum/species/machine/shell/get_light_color()
 	return
 
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
+	return
+
+
+/datum/species/machine/shell/rogue
+	name = "Rogue Shell"
+	short_name = "roguejak"
+	name_plural = "Rogue Shells"
+
+	spawn_flags = IS_RESTRICTED
+
+	breakcuffs = list(MALE, FEMALE)
+
+	has_organ = list(
+		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		"cell"    = /obj/item/organ/cell,
+		"optics"  = /obj/item/organ/eyes/optical_sensor,
+		"surge"   = /obj/item/organ/surge/advanced
+	)
+
+	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/terminator, /datum/unarmed_attack/bite/strong)
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/leap,
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
+
+/datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	return
 
 /datum/species/machine/industrial
@@ -119,7 +155,7 @@
 	return
 
 /datum/species/machine/terminator
-	name = "Hunter-Killer"
+	name = "Military Frame"
 	short_name = "hks"
 	name_plural = "HKs"
 	bald = 1
@@ -150,8 +186,10 @@
 	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark"
+
 	death_sound = 'sound/effects/bang.ogg'
 	death_message = "collapses to the ground with a CLUNK, and begins to beep ominously."
+	death_message_range = 7
 
 	heat_level_1 = 1500
 	heat_level_2 = 2000
@@ -181,7 +219,8 @@
 		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
 		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
-		"data core" = /obj/item/organ/data
+		"data core" = /obj/item/organ/data,
+		"surge"   = /obj/item/organ/surge/advanced
 	)
 
 	has_limbs = list(

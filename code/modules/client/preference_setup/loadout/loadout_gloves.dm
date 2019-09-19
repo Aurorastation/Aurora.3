@@ -23,6 +23,7 @@
 	gloves["green gloves"] = /obj/item/clothing/gloves/green
 	gloves["grey gloves"] = /obj/item/clothing/gloves/grey
 	gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow
+	gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
 
 /datum/gear/gloves/evening
@@ -57,3 +58,7 @@
 /datum/gear/gloves/fingerless
 	display_name = "fingerless gloves"
 	path = /obj/item/clothing/gloves/fingerless
+
+/datum/gear/gloves/circuitry
+	display_name = "gloves, circuitry (empty)"
+	path = /obj/item/clothing/gloves/circuitry

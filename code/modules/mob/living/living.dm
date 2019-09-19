@@ -17,7 +17,7 @@
 	if(!..())
 		return 0
 
-	src.visible_message("<b>[src]</b> points to [A]")
+	src.visible_message("<b>[src]</b> points to [A].")
 	return 1
 
 /mob/living/Crossed(var/atom/movable/AM)
@@ -660,9 +660,6 @@ default behaviour is:
 	if( src.loc && istype(src.loc, /obj/structure/closet) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
-	else if(src.loc && istype(src.loc, /obj/item/weapon/trap/animal))
-		var/obj/item/weapon/trap/animal/A = loc
-		spawn() A.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return

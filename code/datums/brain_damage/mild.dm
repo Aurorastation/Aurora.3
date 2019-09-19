@@ -124,15 +124,21 @@
 				owner.vomit()
 			if(2,3)
 				to_chat(owner, "<span class='notice'>You feel light-headed.</span>")
-				owner.dizziness += 10
+				owner.dizziness = max(owner.slurring, 10)
 			if(4,5)
 				to_chat(owner, "<span class='notice'>it becomes hard to see for some reason.</span>")
-				owner.confused += 10
+				owner.confused = max(owner.slurring, 10)
 				owner.apply_effect(10,EYE_BLUR)
 			if(6 to 9)
 				to_chat(owner, "<span class='notice'>Your tongue feels thick in your mouth.</span>")
-				owner.slurring += 30
+				owner.slurring = max(owner.slurring, 30)
 
+	..()
+
+/datum/brain_trauma/mild/concussion/on_lose()
+	owner.dizziness = 0
+	owner.slurring = 0
+	owner.confused = 0
 	..()
 
 /datum/brain_trauma/mild/muscle_weakness
@@ -251,6 +257,7 @@
 	scan_desc = "minor damage to the brain's occipital lobe"
 	gain_text = "<span class='warning'>Your perception of color distorts!</span>"
 	lose_text = "<span class='notice'>Your vision returns.</span>"
+	cure_type = CURE_SURGERY
 	var/colorblindedness
 
 /datum/brain_trauma/mild/colorblind/on_gain()

@@ -67,7 +67,7 @@
 	if(wearing_rig)
 		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
 
-	. = ..(gibbed,species.death_message)
+	. = ..(gibbed,species.death_message, species.death_message_range)
 	handle_hud_list()
 
 /mob/living/carbon/human/proc/ChangeToHusk()

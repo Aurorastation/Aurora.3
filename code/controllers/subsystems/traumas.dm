@@ -42,7 +42,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"lizards"  = typecacheof(list(/mob/living/simple_animal/lizard)),
 						"cats"  = typecacheof(list(/mob/living/simple_animal/cat, /mob/living/simple_animal/familiar/pet/cat, /mob/living/simple_animal/cat/kitten)),
 						"robots"  = typecacheof(list(/mob/living/silicon,/mob/living/bot, /mob/living/simple_animal/hostile/retaliate/malf_drone)),
-						"pests" = typecacheof(list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/mouse, /mob/living/carbon/alien/diona)),
+						"pests" = typecacheof(list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/rat, /mob/living/carbon/alien/diona)),
 						"paranormals" = typecacheof(list(/mob/living/simple_animal/hostile/scarybat, /mob/living/simple_animal/hostile/true_changeling,
 														/mob/living/simple_animal/hostile/mimic, /mob/living/simple_animal/hostile/faithless,
 														/mob/living/simple_animal/construct)),
@@ -54,7 +54,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 					   "security"  = typecacheof(list(/obj/item/clothing/under/rank/security, /obj/item/clothing/under/rank/warden, /obj/item/clothing/head/beret/sec,
 											 	 /obj/item/clothing/under/rank/head_of_security, /obj/item/clothing/under/det, /obj/item/clothing/glasses/hud/security,
 												 /obj/item/weapon/melee/baton, /obj/item/weapon/gun/energy/taser, /obj/item/weapon/handcuffs, /obj/item/clothing/glasses/sunglasses/sechud,
-												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/security2, /obj/structure/sign/directions/security,
+												 /obj/machinery/door/airlock/security, /obj/item/clothing/under/rank/cadet, /obj/structure/sign/directions/security,
 												 /obj/item/clothing/head/bio_hood/security, /obj/item/clothing/head/bomb_hood/security, /obj/item/clothing/head/helmet/space/void/security,
 												 /obj/item/clothing/head/soft/sec, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
 												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/navyofficer, /obj/item/clothing/suit/space/void/security,
@@ -65,8 +65,8 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/weapon/bananapeel,
 												 /obj/item/weapon/bikehorn, /obj/item/device/pda/clown)),
 
-					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran/scarf, /obj/item/clothing/suit/storage/tajaran,
-												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/tajaran/furs,
+					   "cats"  = typecacheof(list(/obj/item/clothing/head/tajaran, /obj/item/clothing/suit/storage/tajaran,
+												 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran, /obj/item/clothing/suit/storage/tajaran,
 												 /obj/item/stack/material/animalhide/cat, /obj/item/weapon/holder/cat, /obj/item/toy/plushie/kitten)),
 
 					   "lizards"   = typecacheof(list(/obj/item/toy/plushie/lizard,/obj/item/weapon/material/hatchet/unathiknife,/obj/item/weapon/rig/unathi,

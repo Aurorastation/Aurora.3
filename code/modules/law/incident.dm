@@ -186,9 +186,9 @@
 	return .
 
 /datum/crime_incident/proc/saveCharInfraction()
-	var/datum/char_infraction/cinf = new()
+	var/datum/record/char_infraction/cinf = new()
 	cinf.char_id = criminal.character_id
-	cinf.UID = UID
+	cinf.id = UID
 	cinf.notes = notes
 	cinf.charges = json_decode(json_encode(charges)) //Thats there to strip all the non-needed values from the data before saving it to the db
 	cinf.evidence = json_decode(json_encode(evidence))
@@ -202,17 +202,14 @@
 	// Check if player is a antag
 	if(isnull(criminal.mind.special_role))
 		cinf.saveToDB()
-	for (var/datum/data/record/E in data_core.general)
-		if(E.fields["name"] == criminal.name)
-			for (var/datum/data/record/R in data_core.security)
-				if(R.fields["id"] == E.fields["id"])
-					R.fields["incidents"] += cinf
+	var/datum/record/general/R = SSrecords.find_record("name", criminal.name)
+	if(istype(R) && istype(R.security))
+		R.security.incidents += cinf
 
-/datum/char_infraction
+/datum/record/char_infraction
 	var/db_id = 0
 	var/char_id
-	var/UID // The unique identifier for this incident
-	var/notes = "" // The written explanation of the crime
+	notes = "" // The written explanation of the crime
 	var/list/charges = list() // What laws were broken in this incident
 	var/list/evidence = list() // If its a prison sentence, it'll require evidence
 	var/list/arbiters = list( "Witness" = list() ) // The person or list of people who were involved in the conviction of the criminal
@@ -222,14 +219,15 @@
 	var/fine = 0// how much space dosh do they need to cough up if they want to go free
 	var/felony = 0// will the criminal become a felon as a result of being found guilty of his crimes?
 	var/created_by //The ckey and name of the person that created that charge
+	excluded_fields = list("db_id", "char_id", "created_by", "felony", "evidence", "arbiters", "brig_sentence", "prison_sentence", "fine")
 
-/datum/char_infraction/proc/getBrigSentence()
+/datum/record/char_infraction/proc/getBrigSentence()
 	if(brig_sentence < PERMABRIG_SENTENCE)
 		return "[brig_sentence] min"
 	else
 		return "Holding until Transfer"
 
-/datum/char_infraction/proc/saveToDB()
+/datum/record/char_infraction/proc/saveToDB()
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		error("SQL database connection failed. Infractions Datum failed to save information")
@@ -248,7 +246,7 @@
 
 	var/list/sql_args[] = list(
 		"char_id" = char_id,
-		"uid" = UID,
+		"uid" = id,
 		"datetime" = datetime,
 		"notes" = notes,
 		"charges" = json_encode(charges),
@@ -278,7 +276,7 @@
 	"})
 	infraction_insert_query.Execute(sql_args)
 
-/datum/char_infraction/proc/deleteFromDB(var/deleted_by)
+/datum/record/char_infraction/proc/deleteFromDB(var/deleted_by)
 	establish_db_connection(dbcon)
 	if(!dbcon.IsConnected())
 		error("SQL database connection failed. Infractions Datum failed to save information")

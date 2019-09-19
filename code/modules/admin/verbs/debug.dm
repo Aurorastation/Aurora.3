@@ -74,23 +74,6 @@
 		M.Animalize()
 
 
-/client/proc/cmd_admin_alienize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make Alien"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(ishuman(M))
-		log_admin("[key_name(src)] has alienized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
-		spawn(10)
-			M:Alienize()
-			feedback_add_details("admin_verb","MKAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		log_admin("[key_name(usr)] made [key_name(M)] into an alien.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("<span class='notice'>[key_name_admin(usr)] made [key_name(M)] into an alien.</span>", 1)
-	else
-		alert("Invalid mob")
-
 /client/proc/cmd_admin_slimeize(var/mob/M in mob_list)
 	set category = "Fun"
 	set name = "Make slime"
@@ -354,7 +337,7 @@
 	for(var/areatype in areas_without_air_alarm)
 		to_world("* [areatype]")
 
-	to_world("<b>AREAS WITHOUT A REQUEST CONSOLE:</b>")
+	to_world("<b>AREAS WITHOUT A REQUESTS CONSOLE:</b>")
 	for(var/areatype in areas_without_RC)
 		to_world("* [areatype]")
 
@@ -409,7 +392,7 @@
 		return
 
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	
+
 	if(dostrip)
 		for (var/obj/item/I in M)
 			if (istype(I, /obj/item/weapon/implant))
@@ -421,7 +404,7 @@
 	switch(dresscode)
 		if("strip")
 			//do nothing
-		
+
 		if("as job...")
 			var/datum/job/jobdatum
 			var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
@@ -430,7 +413,7 @@
 				dresscode = "[jobdatum.title]"
 				M.job = jobdatum.title
 				jobdatum.equip(M)
-		
+
 		if("emergency response team")
 			ert.equip(M)
 

@@ -143,11 +143,6 @@
 	..()
 	gear_tweaks = list(gear_tweak_free_color_choice)
 
-/datum/gear/uniform/corpsecsuit
-	display_name = "uniform, corporate (Security)"
-	path = /obj/item/clothing/under/rank/security/corp
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet")
-
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
 	path = /obj/item/clothing/under/dress/dress_hop
@@ -157,37 +152,6 @@
 	display_name = "uniform, HR director (HoP)"
 	path = /obj/item/clothing/under/dress/dress_hr
 	allowed_roles = list("Head of Personnel")
-
-/datum/gear/uniform/navysecsuit
-	display_name = "uniform, navyblue (Security Officer)"
-	path = /obj/item/clothing/under/rank/security/navyblue
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-
-/datum/gear/uniform/navysecsuit_warden
-	display_name = "uniform, navyblue (Warden)"
-	path = /obj/item/clothing/under/rank/warden/navyblue
-	allowed_roles = list("Head of Security", "Warden")
-
-/datum/gear/uniform/navysecsuit_hos
-	display_name = "uniform, navyblue (Head of Security)"
-	path = /obj/item/clothing/under/rank/head_of_security/navyblue
-	allowed_roles = list("Head of Security")
-
-/datum/gear/uniform/security_contractors
-	display_name = "security contractor uniform selection"
-	description = "A selection of security contractor uniforms."
-	path = /obj/item/clothing/under/rank/security/necropolis
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
-
-/datum/gear/uniform/security_contractors/New()
-	..()
-	var/uniform = list()
-	uniform["Necropolis Industries security uniform"] = /obj/item/clothing/under/rank/security/necropolis
-	uniform["Idris Incorporated security uniform"] = /obj/item/clothing/under/rank/security/idris
-	uniform["Idris Incorporated security uniform, alternative"] = /obj/item/clothing/under/rank/security/idris/alt
-	uniform["Eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
-	uniform["Eridani PMC uniform, alternative"] = /obj/item/clothing/under/rank/security/eridani/alt
-	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -263,17 +227,41 @@
 	display_name = "green formal uniform"
 	path = /obj/item/clothing/under/gov
 
-/datum/gear/uniform/contractors
-	display_name = "contractor uniform selection"
-	description = "A selection of contractor uniforms."
-	path = /obj/item/clothing/under/rank/hephaestus
+/datum/gear/uniform/officer
+	display_name = "uniforms, (Security Officer)"
+	description = "A selection of officer uniforms."
+	path = /obj/item/clothing/under/rank/security
+	allowed_roles = list("Security Officer")
 
-/datum/gear/uniform/contractors/New()
+/datum/gear/uniform/officer/New()
 	..()
 	var/uniform = list()
-	uniform["Hephaestus Industries uniform"] = /obj/item/clothing/under/rank/hephaestus
-	uniform["Necropolis Industries uniform"] = /obj/item/clothing/under/rank/necropolis
-	uniform["Idris Incorporated uniform"] = /obj/item/clothing/under/rank/idris
-	uniform["Einstein Engines uniform"] = /obj/item/clothing/under/rank/einstein_engines
-	uniform["Zeng-Hu Pharmaceuticals uniform"] = /obj/item/clothing/under/rank/zeng
+	uniform["officer uniform, standard"] = /obj/item/clothing/under/rank/security
+	uniform["officer uniform, corporate"] = /obj/item/clothing/under/rank/security/corp
+	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+
+/datum/gear/uniform/warden
+	display_name = "uniforms, (Warden)"
+	description = "A selection of Warden uniforms."
+	path = /obj/item/clothing/under/rank/warden
+	allowed_roles = list("Warden")
+
+/datum/gear/uniform/warden/New()
+	..()
+	var/uniform = list()
+	uniform["warden uniform, standard"] = /obj/item/clothing/under/rank/warden
+	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
+	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
+
+
+/datum/gear/uniform/hos
+	display_name = "uniform, corporate (Head of Security)"
+	path = /obj/item/clothing/under/rank/head_of_security/corp
+	allowed_roles = list("Head of Security")
+
+/datum/gear/uniform/circuitry
+	display_name = "jumpsuit, circuitry (empty)"
+	path = /obj/item/clothing/under/circuitry

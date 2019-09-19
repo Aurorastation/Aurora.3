@@ -37,11 +37,11 @@
 		else
 			name = ("bookcase ([newname])")
 	else if(O.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, O.usesound, 100, 1)
 		to_chat(user, (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>"))
 		anchored = !anchored
 	else if(O.isscrewdriver())
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
+		playsound(loc, O.usesound, 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
 		if(do_after(user,25))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
@@ -297,7 +297,7 @@
 	else if(istype(W, /obj/item/weapon/material/knife) || W.iswirecutter())
 		if(carved)	return
 		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
-		if(do_after(user, 30))
+		if(do_after(user, 30/W.toolspeed))
 			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
 			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/weapon/shreddedp(get_turf(src))
@@ -351,3 +351,4 @@
 		else
 			to_chat(user, "<font color=red>No associated computer found. Only local scans will function properly.</font>")
 		to_chat(user, "\n")
+

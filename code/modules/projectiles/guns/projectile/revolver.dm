@@ -136,9 +136,9 @@
 
 /obj/item/weapon/gun/projectile/revolver/lemat
 	name = "grapeshot revolver"
-	desc = "The LeMat revolver is a 6 shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
+	desc = "A six shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
 	icon_state = "lemat"
-	item_state = "revolver"
+	item_state = "lemat"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
@@ -225,3 +225,13 @@
 		to_chat(user, "\The [src] has a secondary barrel loaded with \a [to_print]")
 	else
 		to_chat(user, "\The [src] has a secondary barrel that is empty.")
+
+/obj/item/weapon/gun/projectile/revolver/adhomian
+	name = "adhomian service revolver"
+	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
+	icon_state = "adhomian_revolver"
+	caliber = "38"
+	max_shells = 7
+	load_method = SINGLE_CASING
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	ammo_type = /obj/item/ammo_casing/c38

@@ -890,7 +890,7 @@
 	reagents.add_reagent("pacid",6)
 
 /obj/item/weapon/reagent_containers/food/snacks/fishfingers
-	name = "fish Fingers"
+	name = "fish fingers"
 	desc = "A finger of fish."
 	icon_state = "fishfingers"
 	filling_color = "#FFDEFE"
@@ -1208,8 +1208,8 @@
 	bitesize = 2
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/mouse
-	name = "mouse burger"
-	desc = "Squeaky and a little furry."
+	name = "rat burger"
+	desc = "Squeaky and a little furry. Do you see any cows around here, Detective?"
 	icon_state = "ratburger"
 	center_of_mass = list("x"=16, "y"=11)
 	bitesize = 2
@@ -1217,7 +1217,6 @@
 /obj/item/weapon/reagent_containers/food/snacks/burger/mouse/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 5)
-	reagents.add_reagent("rattoxin", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/omelette
 	name = "omelette du fromage"
@@ -3805,6 +3804,7 @@
 	desc = "A box suited for pizzas."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
+	center_of_mass = list("x" = 16,"y" = 6)
 
 	var/open = 0 // Is the box open?
 	var/ismessy = 0 // Fancy mess on the lid
@@ -4068,7 +4068,7 @@
 		switch (MF.kitchen_tag)
 			if ("rodent")
 				result = new /obj/item/weapon/reagent_containers/food/snacks/burger/mouse(src)
-				to_chat(user, "You make a mouseburger!")
+				to_chat(user, "You make a ratburger!")
 
 	if (result)
 		if (W.reagents)
@@ -4910,6 +4910,7 @@
 	trash = /obj/item/trash/snacktray
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/grilled_carp/Initialize()
+	. = ..()
 	reagents.add_reagent("seafood", 12)
 
 /obj/item/weapon/reagent_containers/food/snacks/grilled_carp_slice

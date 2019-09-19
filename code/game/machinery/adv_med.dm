@@ -17,7 +17,8 @@
 		"Zhan-Khazan Tajara",
 		"Vaurca Worker",
 		"Vaurca Warrior",
-		"Diona"
+		"Diona",
+		"Monkey"
 	)
 	name = "Body Scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
@@ -25,6 +26,12 @@
 	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscanner,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/device/healthanalyzer
+		)
 
 	use_power = 1
 	idle_power_usage = 60
@@ -41,6 +48,7 @@
 	return ..()
 
 /obj/machinery/bodyscanner/update_icon()
+	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		icon_state = "[initial(icon_state)]-closed"
 		return
@@ -83,12 +91,7 @@
 	usr.forceMove(src)
 	src.occupant = usr
 	update_use_power(2)
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
-	for(var/obj/O in src)
-		//O = null
-		qdel(O)
-		//Foreach goto(124)
 	src.add_fingerprint(usr)
 	return
 
@@ -97,16 +100,12 @@
 		return
 
 	last_occupant_name = src.occupant.name
-	for(var/obj/O in src)
-		O.forceMove(src.loc)
-		//Foreach goto(30)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
 	src.occupant.forceMove(src.loc)
 	src.occupant = null
 	update_use_power(1)
-	flick("[initial(icon_state)]-anim", src)
 	update_icon()
 	return
 
@@ -137,10 +136,7 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
-		for(var/obj/O in src)
-			O.forceMove(loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -181,12 +177,8 @@
 		M.forceMove(src)
 		src.occupant = M
 		update_use_power(2)
-		flick("[initial(icon_state)]-anim", src)
 		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
-		for(var/obj/Obj in src)
-			Obj.forceMove(src.loc)
-			//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
 	return
@@ -249,17 +241,26 @@
 	var/obj/machinery/bodyscanner/connected
 	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
 	var/collapse_desc = ""
+	var/broken_desc = ""
 	name = "Body Scanner Console"
 	desc = "A control panel for some kind of medical device."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
+	component_types = list(
+			/obj/item/weapon/circuitboard/bodyscannerconsole,
+			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/weapon/stock_parts/console_screen
+		)
+
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
+
+
 
 /obj/machinery/body_scanconsole/power_change()
 	..()
@@ -272,16 +273,25 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/body_scanconsole/proc/get_lung_desc()
+/obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!src.connected || !src.connected.occupant)
 		return
 	if (src.connected.occupant.name != src.connected.last_occupant_name || !collapse_desc)
-		var/ldesc = pick("Contains fluid.", "Shows symptoms of collapse.", "Collapsed.", "Shows symptoms of rupture.", "Is ruptured.")
+		var/ldesc = pick("Shows symptoms of collapse.", "Collapsed.", "Pneumothorax detected.")
 		collapse_desc = ldesc
 		src.connected.last_occupant_name = src.connected.occupant.name
-		return ldesc
 
 	return collapse_desc
+
+/obj/machinery/body_scanconsole/proc/get_broken_lung_desc()
+	if (!src.connected || !src.connected.occupant)
+		return
+	if (src.connected.occupant.name != src.connected.last_occupant_name || !broken_desc)
+		var/ldesc = pick("Shows symptoms of rupture.", "Ruptured.", "Extensive damage detected.")
+		broken_desc = ldesc
+		src.connected.last_occupant_name = src.connected.occupant.name
+
+	return broken_desc
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
@@ -294,6 +304,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
+
 	if(..())
 		return
 
@@ -393,7 +404,10 @@
 				data["bruteDmg"] = 0
 
 		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
-			wounds += get_lung_desc()
+			if (O.is_broken())
+				wounds += get_broken_lung_desc()
+			else
+				wounds += get_collapsed_lung_desc()
 
 		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."

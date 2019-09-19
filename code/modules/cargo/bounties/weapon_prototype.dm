@@ -6,9 +6,7 @@
 	var/stat_comparison = "greater than"
 
 /datum/bounty/weapon_prototype/New()
-	if(rand(3) == 1)
-		stat_value *= -1
-	name = "Weapon ([stat_name] of [stat_value])"
+	name = "Weapon ([stat_name] [stat_comparison] [stat_value])"
 	description = "[current_map.company_name] is interested in a laser prototype with a [stat_name] stat [stat_comparison] [stat_value]. [current_map.boss_name] will pay handsomely for such a weapon."
 	reward += rand(0, 4) * 500
 	..()
@@ -51,13 +49,13 @@
 /datum/bounty/weapon_prototype/burst/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
 	return P.burst > stat_value
 
-/datum/bounty/weapon_prototype/burst_delay
-	stat_name = "burst delay"
-	stat_value = 0.9
+/datum/bounty/weapon_prototype/fire_delay
+	stat_name = "fire delay"
+	stat_value = 1
 	stat_comparison = "smaller than"
 
-/datum/bounty/weapon_prototype/burst_delay/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
-	return P.burst_delay < stat_value
+/datum/bounty/weapon_prototype/fire_delay/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
+	return P.fire_delay < stat_value
 
 /datum/bounty/weapon_prototype/reliability
 	stat_name = "reliability"

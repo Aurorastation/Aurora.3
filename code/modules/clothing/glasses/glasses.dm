@@ -28,11 +28,14 @@ BLIND     // can't see anything
 	var/activated_color = null
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Resomi" = 'icons/mob/species/resomi/eyes.dmi',
 		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
 		)
 	species_restricted = list("exclude","Vaurca Breeder")
 	drop_sound = 'sound/items/drop/accessory.ogg'
+
+// Called in mob/RangedAttack() and mob/UnarmedAttack.
+/obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
+	return 0 // return 1 to cancel attack_hand/RangedAttack()
 
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))

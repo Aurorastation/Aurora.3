@@ -22,7 +22,7 @@
 	//Bee smoker intentionally spawns empty. Fill it at a weldertank before use
 
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
-/obj/item/weapon/bee_smoker/resolve_attackby(atom/A, mob/user)
+/obj/item/weapon/bee_smoker/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if (istype(A, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,A) <= 1)
 		A.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, "<span class='notice'>Smoker refilled!</span>")
@@ -41,7 +41,7 @@
 		return 1
 	else
 		smoke_at(A)
-	..()
+	..(A, user, click_parameters)
 	return 1
 
 
