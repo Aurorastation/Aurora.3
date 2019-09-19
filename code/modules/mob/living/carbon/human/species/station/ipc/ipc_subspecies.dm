@@ -21,6 +21,12 @@
 
 	light_range = 0
 	light_power = 0
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/bite
+	)
 
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
