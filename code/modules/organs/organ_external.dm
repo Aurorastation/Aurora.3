@@ -491,24 +491,32 @@ This function completely restores a damaged organ to perfect condition.
 		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
 			src.fracture()
 
-		if((status & ORGAN_BROKEN))
-			if(!(status & ORGAN_SPLINTED) && istype(owner,/mob/living/carbon/human))
-				var/mob/living/carbon/human/H = owner
-				if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-					var/obj/item/clothing/suit/space/suit = H.wear_suit
-					if(isnull(suit.supporting_limbs))
-						return
-					to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
-					status |= ORGAN_SPLINTED
-					suit.supporting_limbs |= src
-
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
 
 		//Infections
 		update_germs()
+
+		//check if an online RIG can splint the broken bone
+		check_rigsplints()
 	else
 		..()
+
+/obj/item/organ/external/proc/check_rigsplints()
+	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))
+		if(istype(owner,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = owner
+			if(H.back && istype(H.back, /obj/item/weapon/rig))
+				var/obj/item/weapon/rig/R = H.back
+				if(R.offline)
+					return
+			if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
+				var/obj/item/clothing/suit/space/suit = H.wear_suit
+				if(isnull(suit.supporting_limbs))
+					return
+				to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
+				status |= ORGAN_SPLINTED
+				suit.supporting_limbs |= src
 
 //Updating germ levels. Handles organ germ levels and necrosis.
 /*
@@ -942,22 +950,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		release_restraints()
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
-	// TODO: consider moving this to a suit proc or process() or something during
-	// hardsuit rewrite.
-	if(owner && !(status & ORGAN_SPLINTED) && istype(owner,/mob/living/carbon/human))
-
-		var/mob/living/carbon/human/H = owner
-
-		if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-
-			var/obj/item/clothing/suit/space/suit = H.wear_suit
-
-			if(isnull(suit.supporting_limbs))
-				return
-
-			to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
-			status |= ORGAN_SPLINTED
-			suit.supporting_limbs |= src
+	check_rigsplints()
 	return
 
 /obj/item/organ/external/proc/mend_fracture()
