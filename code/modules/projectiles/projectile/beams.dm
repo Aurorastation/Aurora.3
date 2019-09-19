@@ -354,3 +354,11 @@
 	muzzle_type = /obj/effect/projectile/muzzle/tachyon
 	tracer_type = /obj/effect/projectile/tracer/tachyon
 	impact_type = /obj/effect/projectile/impact/tachyon
+
+//framework for creating a beam that has custom damage
+/obj/item/projectile/beam/custom
+	damage = 0
+
+/obj/item/projectile/beam/custom/New(var/power)
+	..()
+	damage = power

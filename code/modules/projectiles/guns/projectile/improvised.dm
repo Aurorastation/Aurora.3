@@ -169,22 +169,66 @@
 /obj/item/weapon/gun/energy/improvised_laser
 	name = "improvised lasergun"
 	desc = "A hodgepodge of parts in the shape of an pistol. Most notably, a high capacity battery wired to inefficiently blast energy through thick lenses."
+	projectile_type = /obj/item/projectile/beam/custom
 	max_shots = 8
 	accuracy = -1
 	fire_delay = 10
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "ilaser"
-	item_state = "caplaser"
+	item_state = "blaster"
+	burst = 1
+	burst_delay = 0
+	dispersion = list(15)
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	var/tuning = 0 //the lower this value is, the better tuned the lens is, and the better the gun will operate
+	var/stability = 2 //this value is a counter, when it reaches 0, the next shot will cause the gun to gain tuning faults
+
+/obj/item/weapon/gun/energy/improvised_laser/New()
+	..()
+	projectile_type = new /obj/item/projectile/beam/custom(20)
+
+/obj/item/weapon/gun/energy/improvised_laser/afterattack(atom/A, mob/living/user)
+	..()
+	if(stability > 0)
+		stability--
+	if(stability == 0)
+		if (tuning < 3)
+			tuning++
+		switch(tuning)
+			if(0)
+				burst = 1
+				projectile_type = new /obj/item/projectile/beam/custom(20)
+				stability = 2
+			if(1)
+				burst = 2
+				projectile_type = new /obj/item/projectile/beam/custom(10)
+				stability = 2
+			if(2)
+				burst = 4
+				projectile_type = new /obj/item/projectile/beam/custom(5)
+				stability = 2
+			if(3)
+				burst = 4
+				projectile_type = new /obj/item/projectile/beam/custom(2)
+				stability = 2
+
+/obj/item/weapon/gun/energy/improvised_laser/attackby(obj/item/C as obj, mob/user as mob)
+	..()
+	if(C.isscrewdriver())
+		tuning = 0
+		stability = 2
+		projectile_type = new /obj/item/projectile/beam/custom(20)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		to_chat(user, span("notice", "You retune the lens using the screwdriver."))
+
 	
-/*obj/item/weapon/gun/energy/improvised_laser/examine(mob/user)
+obj/item/weapon/gun/energy/improvised_laser/examine(mob/user)
 	..(user)
-	switch(jam_chance)
-		if(1) to_chat(user, "All craftsmanship is of the highest quality.")
-		if(2 to 25) to_chat(user, "All craftsmanship is of high quality.")
-		if(26 to 50) to_chat(user, "All craftsmanship is of average quality.")
-		if(51 to 75) to_chat(user, "All craftsmanship is of low quality.")
-		if(100) to_chat(user, "All craftsmanship is of the lowest quality.")*/
+	switch(tuning)
+		if(0) to_chat(user, "This amalgamation looks as tuned as it can be.")
+		if(1) to_chat(user, "This horrible device is starting to rattle a bit.")
+		if(2) to_chat(user, "This mash-up has parts starting to peel off.")
+		if(3) to_chat(user, "This fusion of bad ideas has its lens shifted completely out of line.")
 
 /obj/item/weapon/stock/update_icon()
 	if(buildpath == 0)
