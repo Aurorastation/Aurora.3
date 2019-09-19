@@ -73,7 +73,7 @@
 
 	var/security_cannotfind = 0
 
-	var/obj/machinery/door/hackdoor		// The airlock being hacked
+	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
 
@@ -89,6 +89,9 @@
 	var/response_disarm = "shoves"
 	var/response_harm   = "kicks"
 	var/harm_intent_damage = 15//based on 100 health, which is probably too much for a pai to have
+
+/mob/living/silicon/pai/movement_delay()
+	return 0.8
 
 /mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M as mob)
 	..()

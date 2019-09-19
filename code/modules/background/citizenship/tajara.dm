@@ -33,6 +33,6 @@
 	backpack_contents = list(
 		/obj/item/weapon/storage/box/hadii_card = 1,
 		/obj/item/weapon/storage/box/hadii_manifesto = 1,
-		/obj/item/weapon/gun/projectile/pistol = 1
+		/obj/item/weapon/gun/projectile/pistol/adhomai = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
