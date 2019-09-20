@@ -224,7 +224,7 @@ datum/preferences
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
-	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'><center>"
+	var/dat = "<center>"
 
 	if(path)
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
@@ -240,8 +240,6 @@ datum/preferences
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-
-	dat += "</html></body>"
 	send_theme_resources(user)
 	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
 
@@ -392,8 +390,7 @@ datum/preferences
 		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
-	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'>"
-	dat += "<tt><center>"
+	var/dat = "<tt><center>"
 
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
@@ -432,8 +429,7 @@ datum/preferences
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
-	var/dat = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'>"
-	dat += "<tt><center>"
+	var/dat = "<tt><center>"
 
 	var/savefile/S = new /savefile(path)
 	if(S)

@@ -227,10 +227,7 @@ Byond Vue UI framework's management subsystem
 	if (!LAZYLEN(open_uis[old_object_key]))
 		open_uis -= old_object_key
 
-/datum/controller/subsystem/processing/vueui/proc/get_html_theme_header()
-	return {"<meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">"}
-
-/datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
+/datum/controller/subsystem/processing/vueui/proc/get_html_theme(var/mob/user)
 	var/client/cl = null
 	if(istype(user))
 		cl = user.client
@@ -242,7 +239,12 @@ Byond Vue UI framework's management subsystem
 	var/style = cl.prefs.html_UI_style
 	if(!(style in available_html_themes))
 		style = "Nano"
-	var/list/theme = available_html_themes[style]
+	return available_html_themes[style]
+
+/datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
+	var/list/theme = get_html_theme(user)
+	if(!theme)
+		return FALLBACK_HTML_THEME
 	var/class = ""
 	class += "[theme["class"]]"
 	if(theme["type"] == THEME_TYPE_DARK)
@@ -258,10 +260,16 @@ Byond Vue UI framework's management subsystem
 	assets.send(user)
 #endif
 
-/proc/enable_ui_theme(var/user, var/contents)
+/proc/get_html_theme_header(var/themeclass, var/extra_header = "")
+	return {"<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">[extra_header]</head><body class="[themeclass]">"}
+
+/proc/get_html_theme_footer()
+	return {"</body></html>"}
+
+/proc/enable_ui_theme(var/user, var/contents, var/extra_header = "")
+	var/theme_class = FALLBACK_HTML_THEME
 	if(SSvueui)
-		return replacetext(contents, "THEMECLASS", SSvueui.get_html_theme_class(user))
-	else
-		return "theme-nano dark-theme"
+		theme_class = SSvueui.get_html_theme_class(user)
+	return get_html_theme_header(theme_class, extra_header) + contents + get_html_theme_footer()
 
 #undef NULL_OR_EQUAL

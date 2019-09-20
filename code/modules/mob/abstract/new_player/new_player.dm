@@ -27,7 +27,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<html><head><meta http-equiv='X-UA-Compatible' content='IE=edge'><link rel='stylesheet' type='text/css' href='vueui.css'></head><body class='THEMECLASS'><div align='center'><B>New Player Options</B>"
+	var/output = "<div align='center'><B>New Player Options</B>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
@@ -62,7 +62,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			else
 				output += "<p><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A></p>"
 
-	output += "</div></body></html>"
+	output += "</div>"
 	send_theme_resources(src)
 	src << browse(enable_ui_theme(src, output),"window=playersetup;size=310x350;can_close=0")
 
