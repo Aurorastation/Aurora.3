@@ -2764,13 +2764,13 @@ Follow by example and make good judgement based on length which list to include 
 
 	cheshire_left
 		name = "Cheshire (Left Cheek)"
-		icon_state = "tat_cheshire_l"
+		icon_state = "cheshire_l"
 		body_parts = list("head")
 		species_allowed = list("Human")
 
 	cheshire_right
 		name = "Cheshire, (Right Cheek)"
-		icon_state = "tat_cheshire_r"
+		icon_state = "cheshire_r"
 		body_parts = list("head")
 		species_allowed = list("Human")
 
