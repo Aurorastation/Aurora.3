@@ -83,21 +83,12 @@ var/datum/controller/subsystem/explosives/SSexplosives
 	epicenter = get_turf(epicenter)
 	if(!epicenter) return
 
-	var/z_level_sub = config.iterative_explosives_z_subtraction
-	var/z_level_mul = config.iterative_explosives_z_multiplier
-
-	var/z_devastation = max(0, round(devastation_range*z_level_mul) - z_level_sub )
-	var/z_heavy_impact = max(0, round(heavy_impact_range*z_level_mul) - z_level_sub )
-	var/z_light_impact = max(0, round(light_impact_range*z_level_mul) - z_level_sub )
-	var/z_flash = max(0, round(flash_range*z_level_mul) - z_level_sub )
-
-
 	// Handles recursive propagation of explosions.
-	if(devastation_range >= 1 && (z_devastation > 0 || z_heavy_impact > 0) )
+	if(devastation_range > 2 || heavy_impact_range > 2)
 		if(HasAbove(epicenter.z) && z_transfer & UP)
-			global.explosion(GetAbove(epicenter), z_devastation, z_heavy_impact, z_light_impact, z_flash, 0, UP, spreading = FALSE)
+			global.explosion(GetAbove(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, UP, spreading = FALSE)
 		if(HasBelow(epicenter.z) && z_transfer & DOWN)
-			global.explosion(GetBelow(epicenter), z_devastation, z_heavy_impact, z_light_impact, z_flash, 0, DOWN, spreading = FALSE)
+			global.explosion(GetBelow(epicenter), max(0, devastation_range - 2), max(0, heavy_impact_range - 2), max(0, light_impact_range - 2), max(0, flash_range - 2), 0, DOWN, spreading = FALSE)
 
 	var/max_range = max(devastation_range, heavy_impact_range, light_impact_range, flash_range)
 
