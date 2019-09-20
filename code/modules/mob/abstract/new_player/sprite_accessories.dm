@@ -2942,6 +2942,18 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("chest")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
+	scratch_chest_left
+		name = "Scratch, Chest (Left)"
+		con_state = "scratch_chest_l"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	scratch_chest_right
+		name = "Scratch, Chest (Right)"
+		con_state = "scratch_chest_r"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
 	skull_paint
 		name = "Skull Paint"
 		icon_state = "skull"
@@ -3073,6 +3085,52 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_nightling"
 		body_parts = list("chest")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_pawsocks
+		name = "Tattoo (Pawsocks, All)"
+		icon_state = "pawsocks"
+		body_parts = list("l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		chest
+			name = "Tattoo (Pawsocks, Torso)"
+			body_parts = list("chest")
+
+		groin
+			name = "Tattoo (Pawsocks, Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Tattoo (Pawsocks, Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Tattoo (Pawsocks, Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Tattoo (Pawsocks, Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Tattoo (Pawsocks, Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Tattoo (Pawsocks, Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Tattoo (Pawsocks, Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Tattoo (Pawsocks, Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Tattoo (Pawsocks, Right Foot)"
+			body_parts = list("r_foot")
 
 	tat_silverburgh_left
 		name = "Tattoo (Silverburgh, Left Leg)"
