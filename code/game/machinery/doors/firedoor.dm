@@ -61,6 +61,7 @@
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src)
+			crash_with("Duplicate firedoors at [x]-[y]-[z]. Deleting one.")
 			QDEL_IN(src, 1)
 			return .
 	var/area/A = get_area(src)
