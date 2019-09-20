@@ -2800,24 +2800,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"fP" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "fU" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -2857,7 +2839,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
-/area/mine/explored)
+/area/solar/auxport)
 "hm" = (
 /obj/machinery/light{
 	dir = 4;
@@ -2946,24 +2928,6 @@
 "mb" = (
 /turf/simulated/open,
 /area/crew_quarters/fitness/running)
-"nU" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "nY" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3121,19 +3085,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
-"wf" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "ww" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3209,9 +3160,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"zg" = (
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "zL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3229,19 +3177,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
-"AD" = (
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/airless,
 /area/mine/explored)
 "AK" = (
 /obj/structure/disposalpipe/segment{
@@ -3475,32 +3410,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
-"GN" = (
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "Hc" = (
 /obj/machinery/vending/snack{
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
-"Hj" = (
-/obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/power/solar{
-	id = "roofsolars";
-	name = "Roof Solar Array"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "solarpanel"
-	},
-/area/mine/explored)
 "Hs" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3605,19 +3520,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
-"Lu" = (
-/obj/machinery/power/solar{
-	id = "roofsolars";
-	name = "Roof Solar Array"
-	},
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "solarpanel"
-	},
-/area/mine/explored)
 "Ly" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3714,19 +3616,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
-"OL" = (
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/solar{
-	id = "roofsolars";
-	name = "Roof Solar Array"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "solarpanel"
-	},
-/area/mine/explored)
 "Pm" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
@@ -35022,7 +34911,7 @@ dH
 dH
 dH
 ah
-zg
+dP
 ah
 dH
 dH
@@ -35279,7 +35168,7 @@ oH
 oH
 oH
 dV
-zg
+dP
 PA
 oH
 oH
@@ -35531,17 +35420,17 @@ ah
 ah
 ah
 al
-OL
-OL
-OL
-OL
-OL
-GN
-Lu
-OL
-OL
-OL
-OL
+dF
+dF
+dF
+dF
+dF
+NK
+dW
+dF
+dF
+dF
+dF
 bn
 ah
 ah
@@ -35788,17 +35677,17 @@ ah
 bX
 ah
 al
-wf
-nU
-nU
-nU
-nU
+dG
+dK
+dK
+dK
+dK
 gX
-fP
-fP
-fP
-fP
-AD
+dX
+dX
+dX
+dX
+dY
 bn
 ah
 ah
@@ -36045,17 +35934,17 @@ ff
 ah
 ah
 al
-Hj
-Hj
-Hj
-Hj
-Hj
+dH
+dH
+dH
+dH
+dH
 Am
-Hj
-Hj
-Hj
-Hj
-Hj
+dH
+dH
+dH
+dH
+dH
 bn
 ah
 ah
