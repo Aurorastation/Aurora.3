@@ -2862,7 +2862,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Nose Tape"
 		icon_state = "nosetape"
 		body_parts = list("head")
-		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+		species_allowed = list("Human", "Skrell", "Vaurca")
 
 	skull_paint
 		name = "Skull Paint"
