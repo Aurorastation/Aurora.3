@@ -2780,6 +2780,12 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	fullfacepaint
+		name = "Full Face Paint"
+		icon_state = "fullface"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
 	heterochromia
 		name = "Heterochromia"
 		icon_state = "heterochromia"
