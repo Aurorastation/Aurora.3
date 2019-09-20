@@ -2762,9 +2762,9 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	bridgebandage
-		name = "Bridge Bandage"
-		icon_state = "bridgebandage"
+	bridge
+		name = "Bridge"
+		icon_state = "bridge"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
@@ -2858,6 +2858,12 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
+	nosetape
+		name = "Nose Tape"
+		icon_state = "nosetape"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
 	skull_paint
 		name = "Skull Paint"
 		icon_state = "skull"
@@ -2927,13 +2933,13 @@ Follow by example and make good judgement based on length which list to include 
 	tat_hunter_left
 		name = "Tattoo (Hunter, Left Eye)"
 		icon_state = "tat_hunter"
-		body_parts = list("l_leg")
+		body_parts = list("head")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_hunter_right
 		name = "Tattoo (Hunter, Right Eye)"
 		icon_state = "tat_hunter"
-		body_parts = list("r_leg")
+		body_parts = list("head")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_jaeger_left
