@@ -9359,7 +9359,8 @@
 	})
 "aBs" = (
 /obj/machinery/computer/shuttle_control{
-	req_access = list(101);
+	req_access = null;
+	req_one_access = list(38,101);
 	shuttle_tag = "Centcom"
 	},
 /obj/machinery/light{
@@ -13405,18 +13406,6 @@
 	dir = 1
 	},
 /area/centcom/holding)
-"aNp" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/northright{
-	name = "display case";
-	req_access = list(110)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/merchant_ship/start)
 "aNr" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -13806,9 +13795,10 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "merchant_shuttle_hatch";
+	id_tag = null;
 	name = "Ship External Access";
-	req_access = list(110)
+	req_access = list(110);
+	welded = 0
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
@@ -14978,7 +14968,7 @@
 /area/centcom/living)
 "aQN" = (
 /obj/machinery/light,
-/obj/structure/flora/pottedplant,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "aQO" = (
@@ -15956,10 +15946,6 @@
 	dir = 2
 	},
 /area/centcom/holding)
-"aSY" = (
-/obj/machinery/light/small,
-/turf/unsimulated/floor/asteroid/ash,
-/area/merchant_station)
 "aSZ" = (
 /obj/structure/bed/chair/comfy/brown,
 /turf/unsimulated/floor{
@@ -16172,7 +16158,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "aTu" = (
-/obj/structure/flora/pottedplant,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "aTv" = (
@@ -16784,15 +16770,12 @@
 /area/merchant_ship/start)
 "aUM" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "merchant_station_door";
 	locked = 1;
-	req_access = list(110)
+	req_access = list(110);
+	welded = 1
 	},
-/obj/effect/floor_decal/industrial/loading{
-	dir = 8;
-	icon_state = "loadingarea"
+/obj/structure/barricade{
+	layer = 3.2
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
@@ -19704,6 +19687,21 @@
 /obj/structure/window/reinforced,
 /turf/simulated/shuttle/floor,
 /area/shuttle/escape/centcom)
+"dnb" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
 "dpG" = (
 /obj/machinery/status_display/arrivals_display{
 	pixel_y = -32
@@ -19881,6 +19879,18 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"efi" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = null;
+	locked = 1;
+	name = "Ship External Access";
+	req_access = list(110);
+	welded = 1
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_ship/start)
 "efu" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor,
@@ -21207,6 +21217,17 @@
 	dir = 6
 	},
 /area/centcom/spawning)
+"jCI" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
 "jEA" = (
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/wall/riveted,
@@ -22625,6 +22646,14 @@
 	icon_state = "grimy"
 	},
 /area/centcom/shared_dream)
+"qAt" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "qBr" = (
 /obj/structure/target_stake,
 /obj/item/target,
@@ -22639,6 +22668,17 @@
 	dir = 8
 	},
 /area/centcom/holding)
+"qBR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/shuttle/plating,
+/area/merchant_station)
 "qFv" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/bruise_pack,
@@ -23342,6 +23382,13 @@
 	dir = 8
 	},
 /area/centcom/holding)
+"tVs" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/template_noop)
 "tWF" = (
 /turf/unsimulated/floor{
 	icon_state = "rampbottom";
@@ -23567,6 +23614,14 @@
 "uGY" = (
 /turf/unsimulated/wall/riveted,
 /area/tdome/tdome1)
+"uIr" = (
+/obj/machinery/door/airlock/external{
+	locked = 1;
+	req_access = list(110);
+	welded = 1
+	},
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "uMl" = (
 /obj/machinery/computer/shuttle_control/legion,
 /turf/simulated/shuttle/floor{
@@ -24026,6 +24081,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"xuS" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled,
+/area/merchant_station)
 "xDW" = (
 /obj/structure/window/reinforced/holowindow/disappearing{
 	dir = 1
@@ -25787,11 +25846,11 @@ aVg
 aVg
 aVg
 aVg
-aVg
-aVg
-aVg
-aVg
-aVg
+alC
+alC
+alC
+alC
+alC
 alC
 alC
 alC
@@ -26044,11 +26103,11 @@ aZh
 aTJ
 aUR
 aVg
-aOn
-aNu
-aPt
-aNI
-aVg
+alC
+alC
+alC
+alC
+alC
 alC
 alC
 alC
@@ -26301,10 +26360,10 @@ aQQ
 aMi
 aSm
 aVg
-aVF
-aMi
-aMi
-aMi
+aVg
+aVg
+aVg
+aVg
 aVg
 aVg
 aVg
@@ -26318,9 +26377,9 @@ alC
 alC
 alC
 aVL
-alB
-alB
-alB
+aVL
+aVL
+aVL
 aaM
 aaM
 aaM
@@ -26569,15 +26628,15 @@ aMi
 aMi
 aPq
 aMi
-aOn
+xuS
 aVg
-alC
-alC
-alC
+aVg
+aVg
+aVg
+aVg
+aVg
+aVg
 aVL
-aVL
-aVL
-alB
 alB
 alB
 aaM
@@ -26815,7 +26874,7 @@ aPl
 aMi
 aNF
 aVg
-aMi
+aVF
 aMi
 aMi
 aMi
@@ -26826,14 +26885,14 @@ aMi
 aMi
 aMi
 aMi
-aLv
+aMi
+aMi
+aMi
+aPq
+aNu
+aPt
+aNI
 aVg
-alC
-alC
-alC
-alC
-alC
-aVL
 aVL
 aVL
 alB
@@ -27079,18 +27138,18 @@ aVg
 aVg
 aVg
 aVg
-aQy
+aMi
+aMi
+aMi
+aMi
+aMi
+aMi
+aMi
 aMi
 aMi
 aMi
 aMi
 aVg
-alC
-alC
-alC
-alC
-alC
-alC
 alC
 aVL
 alB
@@ -27342,12 +27401,12 @@ aUM
 aRt
 aMq
 aVg
-alI
-alI
-alC
-alC
-alC
-alC
+aMi
+aMi
+aMi
+aMi
+aMi
+aVg
 alC
 aVL
 alB
@@ -27597,14 +27656,14 @@ aaM
 aXy
 aMi
 aMp
-aaM
-aaM
-aaM
 alI
-alI
-alI
-alC
-alC
+aVg
+aRt
+aTr
+aVg
+aMi
+aLv
+aVg
 alC
 aVL
 aVL
@@ -27852,16 +27911,16 @@ aaM
 aaM
 aaM
 aXy
-aVU
+uIr
 aMp
 aaM
-aaM
-aaM
-aaM
-aaM
 alI
-alC
-alC
+alI
+alI
+aUr
+aMi
+aMi
+aVg
 alC
 alC
 aVL
@@ -28109,16 +28168,16 @@ aaM
 aaM
 aaM
 aMl
-aUO
+efi
 aMl
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-alC
-alC
+aOh
+aMi
+aMi
+aVg
 alC
 alC
 aVL
@@ -28372,10 +28431,10 @@ aMl
 aaM
 aaM
 aaM
-aaM
-aaM
-alI
-alC
+aOh
+aMi
+aMi
+aVg
 alC
 alC
 aVL
@@ -28629,10 +28688,10 @@ aMl
 aVu
 aaM
 aaM
-aaM
-aaM
-alI
-alC
+aNa
+aMi
+aMi
+aVg
 alC
 alC
 alC
@@ -28886,10 +28945,10 @@ aMl
 aMl
 aaM
 aaM
-aaM
-aaM
-alI
-alI
+aVg
+aMi
+aLv
+aVg
 alC
 alC
 alC
@@ -29134,19 +29193,19 @@ aLD
 aNr
 aaM
 aaM
-aMl
+aZj
 aTu
 aXM
 aXM
 aXM
 aQN
-aMl
+aZj
 aaM
 aaM
-aaM
-aaM
-aaM
-alI
+aUr
+aMi
+aMi
+aVg
 alC
 alC
 alC
@@ -29400,10 +29459,10 @@ aTY
 aZj
 aaM
 aaM
-aaM
-aaM
-aaM
-alC
+aOh
+aMi
+aMi
+aVg
 alC
 alC
 alC
@@ -29647,20 +29706,20 @@ aPH
 aYP
 aOh
 aaM
-aaM
-aZj
+aTM
+aMl
 aRS
 aXM
 aXI
 aXM
 aZz
-aZj
+aMl
+aVu
 aaM
-aaM
-aaM
-aaM
-aTw
-aTw
+aOh
+aMi
+aMi
+aVg
 alC
 alC
 alC
@@ -29904,7 +29963,7 @@ aYo
 aVh
 aOh
 aaM
-aTM
+aMl
 aMl
 aQl
 aXM
@@ -29912,12 +29971,12 @@ aXI
 aXM
 aXG
 aMl
-aVu
+aMl
 aaM
-aaM
-aaM
-aSY
-alC
+aNa
+aMi
+aMi
+aVg
 alC
 alC
 alC
@@ -30171,10 +30230,10 @@ aQG
 aMl
 aMl
 aaM
-aaM
-aaM
-aTw
-aTw
+aVg
+aQy
+aLv
+aVg
 alC
 alC
 alC
@@ -30418,21 +30477,21 @@ aaM
 aaM
 aaM
 aaM
-aMl
-aMl
+aaM
+aZj
 aRZ
 aXM
 aXM
 aXM
 aYf
 aMl
-aMl
-aaM
-aaM
-aaM
-aTw
-aTw
-aTw
+qAt
+qAt
+dnb
+aMi
+aMi
+aVg
+alC
 alC
 alC
 aVL
@@ -30681,16 +30740,16 @@ aPg
 aXM
 aXI
 aXM
-aTY
-aZj
-aaM
-aaM
-aaM
-aaM
-aTw
-aTw
-aTw
-aTw
+aXM
+aUO
+aVU
+aMi
+aVU
+aMi
+aMi
+aVg
+alC
+alC
 alC
 aVL
 alB
@@ -30938,15 +30997,15 @@ aRS
 aXM
 aXI
 aXM
-aNp
-aZj
-aaM
-aaM
-aaM
-aaM
+aTu
+aMl
+tVs
+tVs
+aNr
+aMi
+aMi
+aVg
 alC
-alC
-aTw
 alC
 alC
 aVL
@@ -31189,7 +31248,7 @@ aaM
 aaM
 aaM
 aaM
-aTM
+aaM
 aMl
 aMl
 aXM
@@ -31197,12 +31256,12 @@ aXM
 aXM
 aMl
 aMl
-aVu
 aaM
 aaM
-aaM
-alC
-alC
+qBR
+jCI
+aTr
+aVg
 alC
 alC
 alC
@@ -31446,7 +31505,7 @@ aaM
 aaM
 aaM
 aaM
-aMl
+aTM
 aMl
 aMl
 aLB
@@ -31454,11 +31513,11 @@ aQq
 aXx
 aMl
 aMl
-aMl
+aVu
 aaM
 aaM
 aaM
-aaM
+alI
 alC
 alC
 alC
@@ -31703,7 +31762,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
+aMl
 aMl
 aMl
 aTt
@@ -31711,11 +31770,11 @@ aLf
 aRC
 aMl
 aMl
+aMl
 aaM
 aaM
 aaM
-aaM
-aaM
+alI
 alC
 alC
 alC
@@ -31961,18 +32020,18 @@ aaM
 aaM
 aaM
 aaM
-aaM
+aMl
 aMl
 aTA
 aXM
 aTA
 aMl
+aMl
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+alI
 alC
 alC
 alC
