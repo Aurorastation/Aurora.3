@@ -2760,7 +2760,13 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Blush"
 		icon_state= "blush"
 		body_parts = list("head")
-		species_allowed = list("Human", "Skrell")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	bridgebandage
+		name = "Bridge Bandage"
+		icon_state = "bridgebandage"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
 	cheekspot_left
 		name = "Cheek Spot (Left Cheek)"
@@ -2858,9 +2864,9 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_barcode
-		name = "Tattoo (Barcode, Head)"
-		icon_state = "tat_barcode"
+	tat_backhead
+		name = "Tattoo (Backhead, Head)"
+		icon_state = "tat_backhead"
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
