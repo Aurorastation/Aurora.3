@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Added body markings/tattoos/scars/cosmetic cybernetics/heterochromia/make-up (get creative!) for Human/Shell, Unathi, Skrell, Tajara."
   - rscadd: "Added additional body part customisation for whole-body body markings; the all-body markings have been kept for colouring convenience and legacy purposes."
+  - rscadd: "Ported the ability to rearrange the order of body markings from the character setup."
