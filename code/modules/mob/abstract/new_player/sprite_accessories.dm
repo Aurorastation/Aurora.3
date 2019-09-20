@@ -2678,12 +2678,6 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("chest")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	blush
-		name = "Blush"
-		icon_state= "blush"
-		body_parts = list("head")
-		species_allowed = list("Human")
-
 	bands
 		name = "Color Bands (All)"
 		icon_state = "bands"
@@ -2760,19 +2754,49 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Bindi"
 		icon_state = "bindi"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	blush
+		name = "Blush"
+		icon_state= "blush"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
+
+	cheekspot_left
+		name = "Cheek Spot (Left Cheek)"
+		icon_state = "cheekspot_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	cheekspot_right
+		name = "Cheek Spot (Right Cheek)"
+		icon_state = "cheekspot_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	cheshire_left
 		name = "Cheshire (Left Cheek)"
 		icon_state = "cheshire_l"
 		body_parts = list("head")
-		species_allowed = list("Human")
+		species_allowed = list("Human", "Skrell")
 
 	cheshire_right
 		name = "Cheshire, (Right Cheek)"
 		icon_state = "cheshire_r"
 		body_parts = list("head")
-		species_allowed = list("Human")
+		species_allowed = list("Human", "Skrell")
+
+	crow_left
+		name = "Crow Mark (Left Eye)"
+		icon_state = "crow_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	crow_right
+		name = "Crow Mark (Right Eye)"
+		icon_state = "crow_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	eyestripe
 		name = "Eye Stripe"
@@ -2796,13 +2820,25 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Lips"
 		icon_state = "lips"
 		body_parts = list("head")
-		species_allowed = list("Human")
+		species_allowed = list("Human", "Skrell")
+
+	neck
+		name = "Neck Cover"
+		icon_state = "neck"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	neckthick
+		name = "Neck Cover (Thick)"
+		icon_state = "neckthick"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	nosestripe
 		name = "Nose Stripe"
 		icon_state = "nosestripe"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
 	skull_paint
 		name = "Skull Paint"
@@ -2850,13 +2886,13 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Forrest, Left Eye)"
 		icon_state = "tat_forrest_l"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_forrest_right
 		name = "Tattoo (Forrest, Right Eye)"
 		icon_state = "tat_forrest_r"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_hive
 		name = "Tattoo (Hive, Back)"
@@ -2898,13 +2934,13 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Joosten, Left Eye)"
 		icon_state = "tat_joosten_l"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_joosten_right
 		name = "Tattoo (Joosten, Right Eye)"
 		icon_state = "tat_joosten_r"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_miller_left
 		name = "Tattoo (Miller, Left Eye)"
@@ -2918,35 +2954,47 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	tat_montana_left
+		name = "Tattoo (Montana, Left Face)"
+		icon_state = "tat_montana_l"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
+	tat_montana_right
+		name = "Tattoo (Montana, Right Face)"
+		icon_state = "tat_montana_r"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
 	tat_nightling
 		name = "Tattoo (Nightling, Back)"
 		icon_state = "tat_nightling"
 		body_parts = list("chest")
-		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_silverburgh_left
 		name = "Tattoo (Silverburgh, Left Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list("l_leg")
-		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_silverburgh_right
 		name = "Tattoo (Silverburgh, Right Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list("r_leg")
-		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_tatyana_left
 		name = "Tattoo (Tatyana, Left Eye)"
 		icon_state = "tat_tatyana_l"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_tatyana_right
 		name = "Tattoo (Tatyana, Right Eye)"
 		icon_state = "tat_tatyana_r"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_tiger
 		name = "Tattoo (Tiger Stripes, All)"
@@ -3010,25 +3058,25 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Volgin, Left Eye)"
 		icon_state = "tat_volgin_l"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_volgin_right
 		name = "Tattoo (Volgin, Right Eye)"
 		icon_state = "tat_volgin_r"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
 		icon_state = "tigerhead"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tilaka
 		name = "Tilaka"
 		icon_state = "tilaka"
 		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 //Tajara specific
 
@@ -3370,6 +3418,18 @@ Follow by example and make good judgement based on length which list to include 
 	skr_dots
 		name = "Skrell Dots"
 		icon_state = "skrell_dots"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_heterochromia_left
+		name = "Skrell Heterochromia (Left Eye)"
+		icon_state = "sk_heterochromia_l"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_heterochromia_right
+		name = "Skrell Heterochromia (Right Eye)"
+		icon_state = "sk_heterochromia_r"
 		body_parts = list("head")
 		species_allowed = list("Skrell")
 
