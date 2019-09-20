@@ -9219,7 +9219,7 @@
 	icon_state = "plant-28"
 	},
 /obj/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the engine core airlock hatch bolts.";
+	desc = "A remote control-switch.";
 	id = "rep_bolts_maint";
 	name = "Backdoor Bolts";
 	pixel_x = 6;
@@ -20519,18 +20519,17 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKD" = (
-/obj/structure/table/wood,
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Captain's Office West"
-	},
-/obj/item/weapon/storage/secure/briefcase,
-/obj/machinery/alarm{
-	pixel_y = 23
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKE" = (
-/obj/machinery/vending/coffee,
+/obj/structure/table/wood,
+/obj/item/weapon/storage/secure/briefcase,
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aKF" = (
@@ -24656,7 +24655,6 @@
 	},
 /obj/structure/table/wood,
 /obj/item/stack/packageWrap,
-/obj/item/weapon/hand_labeler,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRE" = (
@@ -24666,6 +24664,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/table/wood,
+/obj/item/weapon/hand_labeler,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "aRF" = (
@@ -65875,7 +65874,7 @@
 	pixel_y = -7
 	},
 /obj/machinery/button/remote/airlock{
-	desc = "A remote control-switch for the engine core airlock hatch bolts.";
+	desc = "A remote control-switch.";
 	id = "rep_office";
 	name = "Office Door Bolts";
 	pixel_x = 5;
@@ -66960,13 +66959,6 @@
 	pixel_x = 5
 	},
 /obj/item/weapon/folder/yellow,
-/obj/item/weapon/stamp/denied{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/weapon/stamp{
-	name = "representative stamp"
-	},
 /obj/machinery/ringer{
 	department = "Representatives Office";
 	id = "rep_ringer";
@@ -67893,6 +67885,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/computer/security/telescreen{
+	desc = "Used for watching security cameras.";
 	name = "Office Cameras";
 	network = list("Rep_Office");
 	pixel_x = 0;
@@ -69502,14 +69495,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"wML" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "wOo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/c45/rubber,
@@ -106232,7 +106217,7 @@ bEK
 tYo
 bRY
 sOQ
-wML
+dQv
 eGj
 eGj
 bUk
@@ -106746,7 +106731,7 @@ ciZ
 bRY
 tYo
 sOQ
-wML
+dQv
 oGJ
 luK
 pie

@@ -1912,6 +1912,7 @@
 #include "code\modules\mob\living\simple_animal\hostile\mimic.dm"
 #include "code\modules\mob\living\simple_animal\hostile\moghesfauna.dm"
 #include "code\modules\mob\living\simple_animal\hostile\pirate.dm"
+#include "code\modules\mob\living\simple_animal\hostile\pra.dm"
 #include "code\modules\mob\living\simple_animal\hostile\russian.dm"
 #include "code\modules\mob\living\simple_animal\hostile\sarlacc.dm"
 #include "code\modules\mob\living\simple_animal\hostile\syndicate.dm"
