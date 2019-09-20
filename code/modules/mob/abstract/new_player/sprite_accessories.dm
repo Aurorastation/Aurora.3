@@ -2884,7 +2884,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	lipcorner_right
 		name = "Lip Corner Right"
-		con_state = "lipcorner_r"
+		icon_state = "lipcorner_r"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell")
 
@@ -2944,13 +2944,13 @@ Follow by example and make good judgement based on length which list to include 
 
 	scratch_chest_left
 		name = "Scratch, Chest (Left)"
-		con_state = "scratch_chest_l"
+		icon_state = "scratch_chest_l"
 		body_parts = list("chest")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	scratch_chest_right
 		name = "Scratch, Chest (Right)"
-		con_state = "scratch_chest_r"
+		icon_state = "scratch_chest_r"
 		body_parts = list("chest")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
