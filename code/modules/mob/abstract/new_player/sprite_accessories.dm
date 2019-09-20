@@ -2666,47 +2666,83 @@ Follow by example and make good judgement based on length which list to include 
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
 
-	tiger_stripes
-		name = "Tiger Stripes (Tajara)"
-		icon_state = "tiger"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-	taj_paw_socks
-		name = "Socks Coloration (Tajara)"
-		icon_state = "taj_pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-	una_paw_socks
-		name = "Socks Coloration (Unathi)"
-		icon_state = "una_pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
-		species_allowed = list("Unathi")
-
-	belly_hands_feet
-		name = "Hands,Feet,Belly Color (Minor)"
-		icon_state = "bellyhandsfeetsmall"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-	patches
-		name = "Color Patches"
-		icon_state = "patches"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-	patchesface
-		name = "Color Patches (Face)"
-		icon_state = "patchesface"
+	aug_headplug
+		name = "Augment (Headplug, Back Head)"
+		icon_state = "aug_headplug"
 		body_parts = list("head")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	backstripe
+		name = "Back Stripe"
+		icon_state = "backstripe"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	blush
+		name = "Blush"
+		icon_state= "blush"
+		body_parts = list("head")
+		species_allowed = list("Human")
 
 	bands
-		name = "Color Bands"
+		name = "Color Bands (All)"
 		icon_state = "bands"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		body_parts = list("l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		chest
+			name = "Color Bands (Torso)"
+			body_parts = list("chest")
+
+		groin
+			name = "Color Bands (Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Color Bands (Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Color Bands (Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Color Bands (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Color Bands (Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Color Bands (Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Color Bands (Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Color Bands (Left Foot)"
+			body_parts = list("l_foot")
+			species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		left_foot_human
+			name = "Color Bands (Left Foot)"
+			icon_state = "bandshuman"
+			body_parts = list("l_foot")
+			species_allowed = list("Human")
+
+		right_foot
+			name = "Color Bands (Right Foot)"
+			body_parts = list("r_foot")
+			species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		right_foot_human
+			name = "Color Bands (Right Foot)"
+			icon_state = "bandshuman"
+			body_parts = list("r_foot")
+			species_allowed = list("Human")
 
 	bandsface
 		name = "Color Bands (Face)"
@@ -2714,33 +2750,285 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	bandsface_human
+		name = "Color Bands (Face)"
+		icon_state = "bandshumanface"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
+	bindi
+		name = "Bindi"
+		icon_state = "bindi"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	cheshire_left
+		name = "Cheshire (Left Cheek)"
+		icon_state = "tat_cheshire_l"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
+	cheshire_right
+		name = "Cheshire, (Right Cheek)"
+		icon_state = "tat_cheshire_r"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
+	eyestripe
+		name = "Eye Stripe"
+		icon_state = "eyestripe"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	heterochromia
+		name = "Heterochromia"
+		icon_state = "heterochromia"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	lips
+		name = "Lips"
+		icon_state = "lips"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
+	nosestripe
+		name = "Nose Stripe"
+		icon_state = "nosestripe"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	skull_paint
+		name = "Skull Paint"
+		icon_state = "skull"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_barcode
+		name = "Tattoo (Barcode, Head)"
+		icon_state = "tat_barcode"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_belly
+		name = "Tattoo (Belly)"
+		icon_state = "tat_belly"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_campbell_leftarm
+		name = "Tattoo (Campbell, Left Arm)"
+		icon_state = "tat_campbell"
+		body_parts = list("l_arm")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_campbell_rightarm
+		name = "Tattoo (Campbell, Right Arm)"
+		icon_state = "tat_campbell"
+		body_parts= list("r_arm")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_campbell_leftleg
+		name = "Tattoo (Campbell, Left Leg)"
+		icon_state = "tat_campbell"
+		body_parts= list("l_leg")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_campbell_rightleg
+		name = "Tattoo (Campbell, Right Leg)"
+		icon_state = "tat_campbell"
+		body_parts= list("r_leg")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_forrest_left
+		name = "Tattoo (Forrest, Left Eye)"
+		icon_state = "tat_forrest_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_forrest_right
+		name = "Tattoo (Forrest, Right Eye)"
+		icon_state = "tat_forrest_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_hive
+		name = "Tattoo (Hive, Back)"
+		icon_state = "tat_hive"
+		body_parts = list("chest")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_heart
+		name = "Tattoo (Heart, Torso)"
+		icon_state = "tat_heart"
+		body_parts = list("chest")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_hunter_left
+		name = "Tattoo (Hunter, Left Leg)"
+		icon_state = "tat_hunter"
+		body_parts = list("l_leg")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_hunter_right
+		name = "Tattoo (Hunter, Right Leg)"
+		icon_state = "tat_hunter"
+		body_parts = list("r_leg")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_jaeger_left
+		name = "Tattoo (Jaeger, Left Eye)"
+		icon_state = "tat_jaeger_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_jaeger_right
+		name = "Tattoo (Jaeger, Right Eye)"
+		icon_state = "tat_jaeger_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_joosten_left
+		name = "Tattoo (Joosten, Left Eye)"
+		icon_state = "tat_joosten_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_joosten_right
+		name = "Tattoo (Joosten, Right Eye)"
+		icon_state = "tat_joosten_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_miller_left
+		name = "Tattoo (Miller, Left Eye)"
+		icon_state = "tat_miller_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_miller_right
+		name = "Tattoo (Miller, Right Eye)"
+		icon_state = "tat_miller_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_nightling
+		name = "Tattoo (Nightling, Back)"
+		icon_state = "tat_nightling"
+		body_parts = list("chest")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_silverburgh_left
+		name = "Tattoo (Silverburgh, Left Leg)"
+		icon_state = "tat_silverburgh"
+		body_parts = list("l_leg")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_silverburgh_right
+		name = "Tattoo (Silverburgh, Right Leg)"
+		icon_state = "tat_silverburgh"
+		body_parts = list("r_leg")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_tatyana_left
+		name = "Tattoo (Tatyana, Left Eye)"
+		icon_state = "tat_tatyana_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_tatyana_right
+		name = "Tattoo (Tatyana, Right Eye)"
+		icon_state = "tat_tatyana_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_tiger
+		name = "Tattoo (Tiger Stripes, All)"
+		icon_state = "tat_tiger"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		chest
+			name = "Tattoo (Tiger Stripes, Chest)"
+			body_parts = list("chest")
+
+		groin
+			name = "Tattoo (Tiger Stripes, Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Tattoo (Tiger Stripes, Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Tattoo (Tiger Stripes, Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Tattoo (Tiger Stripes, Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Tattoo (Tiger Stripes, Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Tattoo (Tiger Stripes, Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Tattoo (Tiger Stripes, Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Tattoo (Tiger Stripes, Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Tattoo (Tiger Stripes, Right Foot)"
+			body_parts = list("r_foot")
+
+	tat_tramp
+		name = "Tattoo (Tramp, Lower Back)"
+		icon_state = "tat_tramp"
+		body_parts = list("chest")
+		species_allowed = list("Human")
+
+	tat_trampheart
+		name = "Tattoo (Tramp Heart, Lower Back)"
+		icon_state = "tat_trampheart"
+		body_parts = list("chest")
+		species_allowed = list("Human")
+
+	tat_volgin_left
+		name = "Tattoo (Volgin, Left Eye)"
+		icon_state = "tat_volgin_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_volgin_right
+		name = "Tattoo (Volgin, Right Eye)"
+		icon_state = "tat_volgin_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
 		icon_state = "tigerhead"
 		body_parts = list("head")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tigerface
-		name = "Tiger Stripes (Head, Major)"
-		icon_state = "tigerface"
+	tilaka
+		name = "Tilaka"
+		icon_state = "tilaka"
 		body_parts = list("head")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	backstripe
-		name = "Back Stripe"
-		icon_state = "backstripe"
-		body_parts = list("chest")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+//Tajara specific
 
-	taj_nose
-		name = "Nose Color"
-		icon_state = "taj_nose"
-		body_parts = list("head")
-		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-	taj_muzzle
-		name = "Muzzle Color"
-		icon_state = "taj_muzzle"
+	taj_all
+		name = "All Tajara Head"
+		icon_state = "taj_all"
 		body_parts = list("head")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
@@ -2750,11 +3038,214 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
-	taj_all
-		name = "All Tajara Head"
-		icon_state = "taj_all"
+	patches
+		name = "Color Patches (All)"
+		icon_state = "patches"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+		chest
+			name = "Color Patches (Chest)"
+			body_parts = list("chest")
+
+		groin
+			name = "Color Patches (Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Color Patches (Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Color Patches (Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Color Patches (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Color Patches (Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Color Patches (Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Color Patches (Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Color Patches (Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Color Patches (Right Foot)"
+			body_parts = list("r_foot")
+
+	patchesface
+		name = "Color Patches (Face)"
+		icon_state = "patchesface"
 		body_parts = list("head")
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	belly_hands_feet
+		name = "Hands,Feet,Belly Color (Minor, All)"
+		icon_state = "bellyhandsfeetsmall"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+		chest
+			name = "Hands,Feet,Belly Color (Minor, Chest)"
+			body_parts = list("chest")
+
+		groin
+			name = "Hands,Feet,Belly Color (Minor, Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Hands,Feet,Belly Color (Minor, Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Hands,Feet,Belly Color (Minor, Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Hands,Feet,Belly Color (Minor, (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Hands,Feet,Belly Color (Minor, Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Hands,Feet,Belly Color (Minor, Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Hands,Feet,Belly Color (Minor, Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Hands,Feet,Belly Color (Minor, Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Hands,Feet,Belly Color (Minor, Right Foot)"
+			body_parts = list("r_foot")
+
+	taj_muzzle
+		name = "Muzzle Color"
+		icon_state = "taj_muzzle"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	taj_nose
+		name = "Nose Color"
+		icon_state = "taj_nose"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+	taj_paw_socks
+		name = "Socks Coloration (Tajara, All)"
+		icon_state = "taj_pawsocks"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+		chest
+			name = "Socks Coloration (Tajara, Chest)"
+			body_parts = list("chest")
+
+		groin
+			name = "Socks Coloration (Tajara, Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Socks Coloration (Tajara, Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Socks Coloration (Tajara, Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Socks Coloration (Tajara, (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Socks Coloration (Tajara, Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Socks Coloration (Tajara, Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Socks Coloration (Tajara, Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Socks Coloration (Tajara, Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Socks Coloration (Tajara, Right Foot)"
+			body_parts = list("r_foot")
+
+	tiger_stripes
+		name = "Tiger Stripes (Tajara, All)"
+		icon_state = "tiger"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+		chest
+			name = "Tiger Stripes (Tajara, Chest)"
+			body_parts = list("chest")
+
+		groin
+			name = "Tiger Stripes (Tajara, Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Tiger Stripes (Tajara, Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Tiger Stripes (Tajara, Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Tiger Stripes (Tajara, (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Tiger Stripes (Tajara, Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Tiger Stripes (Tajara, Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Tiger Stripes (Tajara, Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Tiger Stripes (Tajara, Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Tiger Stripes (Tajara, Right Foot)"
+			body_parts = list("r_foot")
+	tigerface
+		name = "Tiger Stripes (Head, Major)"
+		icon_state = "tigerface"
+		body_parts = list("head")
+		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+//Unathi specific
 
 	una_face
 		name = "Face Color"
@@ -2774,11 +3265,53 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("chest")
 		species_allowed = list("Unathi")
 
-	spelunker
-		name = "Spelunker"
-		icon_state = "spelunker"
-		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
-		species_allowed = list("Vaurca")
+	una_paw_socks
+		name = "Socks Coloration (Unathi, All)"
+		icon_state = "una_pawsocks"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Unathi")
+
+		chest
+			name = "Socks Coloration (Unathi, Chest)"
+			body_parts = list("chest")
+
+		groin
+			name = "Socks Coloration (Unathi, Groin)"
+			body_parts = list("groin")
+
+		left_arm
+			name = "Socks Coloration (Unathi, Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Socks Coloration (Unathi, Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Socks Coloration (Unathi, (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Socks Coloration (Unathi, Right Hand)"
+			body_parts = list("r_hand")
+
+		left_leg
+			name = "Socks Coloration (Unathi, Left Leg)"
+			body_parts = list("l_leg")
+
+		right_leg
+			name = "Socks Coloration (Unathi, Right Leg)"
+			body_parts = list("r_leg")
+
+		left_foot
+			name = "Socks Coloration (Unathi, Left Foot)"
+			body_parts = list("l_foot")
+
+		right_foot
+			name = "Socks Coloration (Unathi, Right Foot)"
+			body_parts = list("r_foot")
+
+//Vaurcae specific
 
 	delver
 		name = "Delver"
@@ -2786,18 +3319,66 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
 		species_allowed = list("Vaurca")
 
+	spelunker
+		name = "Spelunker"
+		icon_state = "spelunker"
+		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		species_allowed = list("Vaurca")
+
+//Skrell specific
+
+	skr_arms
+		name = "Skrell Arms (All)"
+		icon_state = "skrell_arms"
+		body_parts = list("l_arm","r_arm","l_hand","r_hand")
+		species_allowed = list("Skrell")
+
+		left_arm
+			name = "Skrell Arms (Left Arm)"
+			body_parts = list("l_arm")
+
+		right_arm
+			name = "Skrell Arms (Right Arm)"
+			body_parts = list("r_arm")
+
+		left_hand
+			name = "Skrell Arms (Left Hand)"
+			body_parts = list("l_hand")
+
+		right_hand
+			name = "Skrell Arms (Right Hand)"
+			body_parts = list("r_hand")
+
+	skr_circles_left
+		name = "Skrell Circles (Left)"
+		icon_state = "skrell_circles_l"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_circles_right
+		name = "Skrell Circles (Right)"
+		icon_state = "skrell_circles_r"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_dots
+		name = "Skrell Dots"
+		icon_state = "skrell_dots"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
+	skr_stripes
+		name = "Skrell Stripes"
+		icon_state = "skrell_stripes"
+		body_parts = list("head")
+		species_allowed = list("Skrell")
+
 	skr_tears
 		name = "Tear Stains"
 		icon_state = "skr_tears"
 		body_parts = list("head")
 		species_allowed = list("Skrell")
 		do_colouration = 0
-
-	skr_arms
-		name = "Skrell Arms"
-		icon_state = "skrell_arms"
-		body_parts = list("l_arm","r_arm","l_hand","r_hand")
-		species_allowed = list("Skrell")
 
 
 // Branded IPC markings - disabled for now, some layering issues.
