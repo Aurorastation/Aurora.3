@@ -2672,6 +2672,140 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	aug_backports
+		name = "Augment (Backports, Back)"
+		icon_state = "aug_backports"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	aug_headcase
+		name = "Augment (Headcase, Head)"
+		icon_state = "aug_headcase"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_headcase_light
+		name = "Augment (Headcase Light, Head)"
+		icon_state = "aug_headcaselight"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_lowerjaw
+		name = "Augment (Lower Jaw, Head)"
+		icon_state = "aug_lowerjaw"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
+
+	aug_scalpports
+		name = "Augment (Scalp Ports)"
+		icon_state = "aug_scalpports"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		vertex_left
+			name = "Augment (Scalp Port, Vertex Left)"
+			icon_state = "aug_vertexport_l"
+
+		vertex_right
+			name = "Augment (Scalp Port, Vertex Right)"
+			icon_state = "aug_vertexport_r"
+
+		occipital_left
+			name = "Augment (Scalp Port, Occipital Left)"
+			icon_state = "aug_occipitalport_l"
+
+		occipital_right
+			name = "Augment (Scalp Port, Occipital Right)"
+			icon_state = "aug_occipitalport_r"
+
+	aug_backside_left
+		name = "Augment (Backside Left, Head)"
+		icon_state = "aug_backside_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		side_diode
+			name = "Augment (Backside Left Diode, Head)"
+			icon_state = "aug_sidediode_l"
+
+	aug_backside_right
+		name = "Augment (Backside Right, Head)"
+		icon_state = "aug_backside_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		side_diode
+			name = "Augment (Backside Right Diode, Head)"
+			icon_state = "aug_sidediode_r"
+
+	aug_side_deunan_left
+		name = "Augment (Deunan, Side Left)"
+		icon_state = "aug_sidedeunan_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_side_deunan_right
+		name = "Augment (Deunan, Side Right)"
+		icon_state = "aug_sidedeunan_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_side_kuze_left
+		name = "Augment (Kuze, Side Left)"
+		icon_state = "aug_sidekuze_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		side_diode
+			name = "Augment (Kuze Diode, Side Left)"
+			icon_state = "aug_sidekuzediode_l"
+
+	aug_side_kuze_right
+		name = "Augment (Kuze, Side Right)"
+		icon_state = "aug_sidekuze_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		side_diode
+			name = "Augment (Kuze Diode, Side Right)"
+			icon_state = "aug_sidekuzediode_r"
+
+	aug_side_kinzie_left
+		name = "Augment (Kinzie, Side Left)"
+		icon_state = "aug_sidekinzie_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_side_kinzie_right
+		name = "Augment (Kinzie, Side Right)"
+		icon_state = "aug_sidekinzie_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_side_shelly_left
+		name = "Augment (Shelly, Side Left)"
+		icon_state = "aug_sideshelly_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_side_shelly_right
+		name = "Augment (Shelly, Side Right)"
+		icon_state = "aug_sideshelly_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	aug_chestports
+		name = "Augment (Chest Ports)"
+		icon_state = "aug_chestports"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	aug_abdomenports
+		name = "Augment (Abdomen Ports)"
+		icon_state = "aug_abdomenports"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
 	backstripe
 		name = "Back Stripe"
 		icon_state = "backstripe"
