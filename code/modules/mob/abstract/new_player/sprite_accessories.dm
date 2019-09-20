@@ -2798,6 +2798,18 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	ear_left
+		name = "Ear Cover (Left)"
+		icon_state = "ear_l"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
+	ear_right
+		name = "Ear Cover (Right)"
+		icon_state = "ear_r"
+		body_parts = list("head")
+		species_allowed = list("Human")
+
 	eyestripe
 		name = "Eye Stripe"
 		icon_state = "eyestripe"
