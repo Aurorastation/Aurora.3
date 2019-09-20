@@ -208,6 +208,12 @@
 	name = "machine frame"
 	desc = "An old and dusty machine frame that once housed a machine of some kind."
 	icon_state = "box_0"
-	density = 1
 	anchored = 1
-	state = 2
+	density = 1
+
+/obj/machinery/constructable_frame/temp_deco/attackby(obj/item/P as obj, mob/user as mob)
+	if(P.iswrench())
+		playsound(src.loc, P.usesound, 75, 1)
+		to_chat(user, "<span class='notice'>You dismantle [src]</span>")
+		new /obj/item/stack/material/steel(src.loc, 5)
+		qdel(src)
