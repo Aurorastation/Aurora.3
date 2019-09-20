@@ -2768,6 +2768,18 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
+	brow_left
+		name = "Brow Left"
+		icon_state = "brow_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	brow_right
+		name = "Brow Right"
+		icon_state = "brow_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
 	cheekspot_left
 		name = "Cheek Spot (Left Cheek)"
 		icon_state = "cheekspot_l"
@@ -2787,7 +2799,7 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list("Human", "Skrell")
 
 	cheshire_right
-		name = "Cheshire, (Right Cheek)"
+		name = "Cheshire (Right Cheek)"
 		icon_state = "cheshire_r"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell")
@@ -2822,6 +2834,30 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	eyecorner_left
+		name = "Eye Corner Left"
+		icon_state = "eyecorner_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	eyecorner_right
+		name = "Eye Corner Right"
+		icon_state = "eyecorner_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	eyelash_left
+		name = "Eyelash Left"
+		icon_state = "eyelash_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	eyelash_right
+		name = "Eyelash Right"
+		icon_state = "eyelash_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
 	fullfacepaint
 		name = "Full Face Paint"
 		icon_state = "fullface"
@@ -2837,6 +2873,18 @@ Follow by example and make good judgement based on length which list to include 
 	lips
 		name = "Lips"
 		icon_state = "lips"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
+
+	lipcorner_left
+		name = "Lip Corner Left"
+		icon_state = "lipcorner_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
+
+	lipcorner_right
+		name = "Lip Corner Right"
+		con_state = "lipcorner_r"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell")
 
@@ -2863,6 +2911,36 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "nosetape"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Vaurca")
+
+	scratch_abdomen_left
+		name = "Scratch, Abdomen Left"
+		icon_state = "scratch_abdomen_l"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	scratch_abdomen_right
+		name = "Scratch, Abdomen Right"
+		icon_state = "scratch_abdomen_r"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	scratch_abdomen_small_left
+		name = "Scratch, Abdomen Small Left"
+		icon_state = "scratch_abdomensmall_l"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	scratch_abdomen_small_right
+		name = "Scratch, Abdomen Small Right"
+		icon_state = "scratch_abdomensmall_r"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+	scratch_back
+		name = "Scratch, Back"
+		icon_state = "scratch_back"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
 
 	skull_paint
 		name = "Skull Paint"
@@ -2922,7 +3000,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Hive, Back)"
 		icon_state = "tat_hive"
 		body_parts = list("chest")
-		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_heart
 		name = "Tattoo (Heart, Chest)"
@@ -2932,13 +3010,13 @@ Follow by example and make good judgement based on length which list to include 
 
 	tat_hunter_left
 		name = "Tattoo (Hunter, Left Eye)"
-		icon_state = "tat_hunter"
+		icon_state = "tat_hunter_l"
 		body_parts = list("head")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_hunter_right
 		name = "Tattoo (Hunter, Right Eye)"
-		icon_state = "tat_hunter"
+		icon_state = "tat_hunter_r"
 		body_parts = list("head")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
@@ -2994,19 +3072,19 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Tattoo (Nightling, Back)"
 		icon_state = "tat_nightling"
 		body_parts = list("chest")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_silverburgh_left
 		name = "Tattoo (Silverburgh, Left Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list("l_leg")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_silverburgh_right
 		name = "Tattoo (Silverburgh, Right Leg)"
 		icon_state = "tat_silverburgh"
 		body_parts = list("r_leg")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_tatyana_left
 		name = "Tattoo (Tatyana, Left Eye)"
