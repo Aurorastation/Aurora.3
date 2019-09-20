@@ -2859,19 +2859,19 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_heart
-		name = "Tattoo (Heart, Torso)"
+		name = "Tattoo (Heart, Chest)"
 		icon_state = "tat_heart"
 		body_parts = list("chest")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_hunter_left
-		name = "Tattoo (Hunter, Left Leg)"
+		name = "Tattoo (Hunter, Left Eye)"
 		icon_state = "tat_hunter"
 		body_parts = list("l_leg")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_hunter_right
-		name = "Tattoo (Hunter, Right Leg)"
+		name = "Tattoo (Hunter, Right Eye)"
 		icon_state = "tat_hunter"
 		body_parts = list("r_leg")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
