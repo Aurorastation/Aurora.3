@@ -17,7 +17,7 @@
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
 	w_class = 1
-	icon = 'icons/obj/toy.dmi'
+	icon = 'icons/obj/janitor.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5)
@@ -28,11 +28,13 @@
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
+	var/cleantime = 30
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/weapon/reagent_containers/glass/rag/Initialize()
 	. = ..()
 	update_name()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/Destroy()
 	STOP_PROCESSING(SSprocessing, src) //so we don't continue turning to ash while gc'd
@@ -58,6 +60,7 @@
 
 	. = ..()
 	update_name()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
@@ -69,13 +72,19 @@
 
 /obj/item/weapon/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
-		icon_state = "raglit"
+		icon_state = "[initial(icon_state)]_lit"
+	else if(reagents.total_volume)
+		icon_state = "[initial(icon_state)]_wet"
 	else
-		icon_state = "rag"
+		icon_state = "[initial(icon_state)]"
 
 	var/obj/item/weapon/reagent_containers/food/drinks/bottle/B = loc
 	if(istype(B))
 		B.update_icon()
+
+/obj/item/weapon/reagent_containers/glass/rag/on_reagent_change()
+	update_name()
+	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/remove_contents(mob/user, atom/trans_dest = null)
 	if(!trans_dest && !user.loc)
@@ -92,15 +101,18 @@
 				reagents.splash(user.loc, reagents.total_volume)
 			user.visible_message("<span class='danger'>\The [user] wrings out [src] over [target_text].</span>", "<span class='notice'>You finish to wringing out [src].</span>")
 			update_name()
+			update_icon()
 
 /obj/item/weapon/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
-		if(do_after(user,30))
+		update_icon()
+		if(do_after(user,cleantime))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
 
@@ -153,6 +165,7 @@
 					//^HA HA HA
 					reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
 					update_name()
+					update_icon()
 				else
 					wipe_down(target, user)
 			return
@@ -172,6 +185,7 @@
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 			user.visible_message("<span class='notice'>\The [user] soaks [src] using [A].</span>", "<span class='notice'>You soak [src] using [A].</span>")
 			update_name()
+			update_icon()
 		return
 
 	if(!on_fire && istype(A) && (src in user))
@@ -250,4 +264,17 @@
 
 	reagents.remove_reagent("fuel", reagents.maximum_volume/25)
 	update_name()
+	update_icon()
 	burn_time--
+
+/obj/item/weapon/reagent_containers/glass/rag/advanced
+	name = "microfiber cloth"
+	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
+	w_class = 1
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "advrag"
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5)
+	volume = 10
+	cleantime = 15
+

@@ -32,7 +32,7 @@
 
 	if(losebreath>0) //Suffocating so do not take a breath
 		losebreath--
-		if (prob(10)) //Gasp per 10 ticks? Sounds about right.
+		if (prob(10) && !isipc(src)) //Gasp per 10 ticks? Sounds about right.
 			spawn emote("gasp")
 	else
 		//Okay, we can breathe, now check if we can get air

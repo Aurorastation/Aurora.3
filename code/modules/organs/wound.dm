@@ -142,8 +142,10 @@
 
 	return 0
 
-/datum/wound/proc/bandage()
-	bandaged = 1
+/datum/wound/proc/bandage(var/examine_desc)
+	if(!examine_desc)
+		bandaged = 1
+	else bandaged = examine_desc
 
 /datum/wound/proc/salve()
 	salved = 1

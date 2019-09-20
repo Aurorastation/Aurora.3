@@ -3788,6 +3788,7 @@
 "aki" = (
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit/improved,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -22216,6 +22217,7 @@
 /obj/item/weapon/storage/toolbox/syndicate,
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/weapon/storage/toolbox/syndicate,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -25376,6 +25378,19 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
+"wQa" = (
+/obj/effect/landmark{
+	name = "ninjastart"
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "xhq" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -65562,7 +65577,7 @@ ahn
 ajU
 aXO
 akh
-akh
+wQa
 akF
 akh
 akN

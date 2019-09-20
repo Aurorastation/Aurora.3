@@ -18,7 +18,10 @@
 	light_range = 2
 	light_power = 0.5
 	meat_type = /obj/item/stack/material/steel
-	unarmed_types = list(/datum/unarmed_attack/punch)
+	unarmed_types = list(
+		/datum/unarmed_attack/punch, 
+		/datum/unarmed_attack/stomp, 
+		/datum/unarmed_attack/kick)
 	rarity_value = 2
 
 	inherent_eye_protection = FLASH_PROTECTION_MAJOR
@@ -36,7 +39,9 @@
 	brute_mod = 1.0
 	burn_mod = 1.2
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
+
 	death_message = "gives one shrill beep before falling lifeless."
+	death_message_range = 7
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
 	halloss_message = "encounters a hardware fault and suddenly reboots."
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."
@@ -275,6 +280,15 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			return LIGHT_COLOR_YELLOW
 
 		if ("database IPC screen")
+			return "#FFFFFF"
+
+		if ("lumi eyes IPC screen")
+			return "#FFFFFF"
+
+		if ("music IPC screen")
+			return "#FFFFFF"
+
+		if ("waiting IPC screen")
 			return "#FFFFFF"
 
 
