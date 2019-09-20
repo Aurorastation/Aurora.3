@@ -42,6 +42,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 # What to multiply power by when crossing Z-levels.
 #EXPLOSION_Z_MULT 0.75
 
+# What to subtract power by when crossing Z-levels.
+#EXPLOSION_Z_SUB 2
+
 ## log OOC channel
 LOG_OOC
 
