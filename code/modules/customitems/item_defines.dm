@@ -3147,12 +3147,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	usr.visible_message(
-	"<span class='warning'>[usr] begins setting up the [src.name].</span>",
-	"<span class='notice'>You begin setting up the [src.name].</span>")
+	"<span class='warning'>[usr] begins taking apart the [src.name].</span>",
+	"<span class='notice'>You begin taking apart the [src.name].</span>")
 	if(has_bedroll)
 		if(do_after(usr, 20 SECONDS, act_target = src))
 			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].</span>")
 			new/obj/item/weapon/fluff/muhawir_bedroll(get_turf(usr))
+			has_bedroll = FALSE
 	if(do_after(usr, 50 SECONDS, act_target = src))
 		to_chat(usr, "<span class='notice'>You take down \the [src].</span>")
 		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
