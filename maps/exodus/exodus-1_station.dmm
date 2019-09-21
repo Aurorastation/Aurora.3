@@ -64568,6 +64568,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/weapon/storage/bag/circuits/basic,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cnm" = (
@@ -75683,6 +75684,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75699,6 +75701,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75715,6 +75718,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75736,6 +75740,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -76674,6 +76679,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -76894,6 +76900,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -76969,6 +76976,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77263,6 +77271,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77313,6 +77322,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77413,6 +77423,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77449,6 +77460,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -78593,10 +78605,6 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
-"kmI" = (
-/obj/item/weapon/storage/bag/circuits/basic,
-/turf/simulated/wall/r_wall,
-/area/engineering/workshop)
 "knl" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -79489,6 +79497,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"rdX" = (
+/obj/machinery/requests_console{
+	department = "Representative's Office";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/simulated/floor/carpet,
+/area/space)
 "reN" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/ringer{
@@ -104182,7 +104199,7 @@ pnI
 aVr
 aWZ
 mfF
-nxA
+rdX
 bbY
 bdD
 bfb
@@ -110394,7 +110411,7 @@ ccA
 ckr
 clK
 cif
-kmI
+col
 cpu
 cpx
 cpx
@@ -110651,7 +110668,7 @@ ccB
 cks
 clL
 cif
-kmI
+col
 cpv
 cpx
 cpx
