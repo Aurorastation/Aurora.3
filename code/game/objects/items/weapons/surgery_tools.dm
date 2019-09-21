@@ -17,7 +17,6 @@
 	desc = "Retracts stuff."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"
-	var/overlay_state = "tray_retractor"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000)
 	flags = CONDUCT
 	w_class = 2.0
@@ -32,7 +31,6 @@
 	desc = "You think you have seen this before."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
-	var/overlay_state = "tray_hemostat"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
 	flags = CONDUCT
 	w_class = 2.0
@@ -48,7 +46,6 @@
 	desc = "This stops bleeding."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "cautery"
-	var/overlay_state = "tray_cautery"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
 	flags = CONDUCT
 	w_class = 2.0
@@ -64,7 +61,6 @@
 	desc = "You can drill using this item. You dig?"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
-	var/overlay_state = "tray_drill"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 10000)
 	flags = CONDUCT
@@ -82,7 +78,6 @@
 	desc = "Cut, cut, and once more cut."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "scalpel"
-	var/overlay_state = "tray_scalpel"
 	flags = CONDUCT
 	force = 10.0
 	sharp = 1
@@ -134,7 +129,6 @@
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw"
-	var/overlay_state = "tray_saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
@@ -154,7 +148,6 @@
 	name = "bone gel"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
-	var/overlay_state = "tray_bone-gel"
 	force = 0
 	w_class = 2.0
 	throwforce = 1.0
@@ -164,7 +157,6 @@
 	name = "FixOVein"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "fixovein"
-	var/overlay_state = "tray_fixovein"
 	force = 0
 	throwforce = 1.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
@@ -176,7 +168,6 @@
 	name = "bone setter"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bonesetter"
-	var/overlay_state = "tray_bonesetter"
 	force = 8.0
 	throwforce = 9.0
 	throw_speed = 3
