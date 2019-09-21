@@ -1,5 +1,0 @@
-delete-after: True
-author: Skull132
-
-changes:
-  - bugfix: "The gatling laser no longer gets stuck in a state of locked up when you move while charging it."
