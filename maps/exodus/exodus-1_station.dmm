@@ -11073,15 +11073,10 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/entry/fore)
 "aub" = (
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/structure/table/glass,
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "auc" = (
@@ -38132,6 +38127,21 @@
 	},
 /obj/item/weapon/screwdriver,
 /obj/structure/table/glass,
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bsA" = (
@@ -79109,6 +79119,15 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/ai_monitored/storage/eva)
+"mOq" = (
+/obj/machinery/requests_console{
+	department = "Representative's Office";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/simulated/floor/carpet,
+/area/space)
 "nuw" = (
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -79497,15 +79516,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"rdX" = (
-/obj/machinery/requests_console{
-	department = "Representative's Office";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = -28
-	},
-/turf/simulated/floor/carpet,
-/area/space)
 "reN" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/ringer{
@@ -104199,7 +104209,7 @@ pnI
 aVr
 aWZ
 mfF
-rdX
+mOq
 bbY
 bdD
 bfb
