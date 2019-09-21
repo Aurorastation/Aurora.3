@@ -236,7 +236,7 @@
 		/obj/item/weapon/bonegel = "tray_bone-gel",
 		/obj/item/weapon/FixOVein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
-		)
+	)
 	for (var/obj/item/W in contents)
 		if (types_and_overlays[W.type])
 			add_overlay(types_and_overlays[W.type])
