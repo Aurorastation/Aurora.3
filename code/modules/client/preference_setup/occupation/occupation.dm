@@ -168,7 +168,7 @@
 			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
-		dat += "<tr style='background-color: [hex2rgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
+		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
 		var/ban_reason = jobban_isbanned(user, rank)
@@ -200,7 +200,7 @@
 			else
 				dat += " <font color=red>\[No]</font>"
 			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr style='background-color: [hex2rgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -213,7 +213,7 @@
 		else
 			dat += " <font color=red>\[NEVER]</font>"
 		if(job.alt_titles)
-			dat += "</a></td></tr><tr style='background-color: [hex2rgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"

@@ -256,8 +256,7 @@ Byond Vue UI framework's management subsystem
 	user << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
 	user << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
 #else
-	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
-	assets.send(user)
+	simple_asset_ensure_is_sent(user, /datum/asset/simple/vueui)
 #endif
 
 /proc/get_html_theme_header(var/themeclass, var/extra_header = "")
