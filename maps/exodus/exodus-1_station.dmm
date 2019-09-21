@@ -35862,6 +35862,9 @@
 /area/maintenance/substation/command)
 "boq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge Substation"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/command)
 "bor" = (
@@ -37889,7 +37892,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Command Substation";
+	name = "Command Substation and Shield Generators";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -79119,15 +79122,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/ai_monitored/storage/eva)
-"mOq" = (
-/obj/machinery/requests_console{
-	department = "Representative's Office";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = -28
-	},
-/turf/simulated/floor/carpet,
-/area/space)
 "nuw" = (
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -79696,6 +79690,15 @@
 /obj/item/weapon/storage/belt/champion,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
+"ssg" = (
+/obj/machinery/requests_console{
+	department = "Representative's Office";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/simulated/floor/carpet,
+/area/space)
 "suD" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
@@ -104209,7 +104212,7 @@ pnI
 aVr
 aWZ
 mfF
-mOq
+ssg
 bbY
 bdD
 bfb
