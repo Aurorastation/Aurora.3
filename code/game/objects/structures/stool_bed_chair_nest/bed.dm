@@ -173,7 +173,7 @@
 	..(newloc,"wood","leather")
 
 /obj/structure/bed/padded/New(var/newloc)
-	..(newloc,"plastic","cotton")
+	..(newloc,DEFAULT_WALL_MATERIAL,"cotton")
 
 /obj/structure/bed/alien
 	name = "resting contraption"
