@@ -226,16 +226,17 @@
 	cut_overlays()
 
 	var/list/types_and_overlays = list(
-	/obj/item/weapon/bonesetter = "tray_bonesetter",
-	/obj/item/weapon/cautery = "tray_cautery",
-	/obj/item/weapon/circular_saw = "tray_saw",
-	/obj/item/weapon/hemostat = "tray_hemostat",
-	/obj/item/weapon/retractor = "tray_retractor",
-	/obj/item/weapon/scalpel = "tray_scalpel",
-	/obj/item/weapon/surgicaldrill = "tray_drill",
-	/obj/item/weapon/bonegel = "tray_bone-gel",
-	/obj/item/weapon/FixOVein = "tray_fixovein",
-	/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack")
+		/obj/item/weapon/bonesetter = "tray_bonesetter",
+		/obj/item/weapon/cautery = "tray_cautery",
+		/obj/item/weapon/circular_saw = "tray_saw",
+		/obj/item/weapon/hemostat = "tray_hemostat",
+		/obj/item/weapon/retractor = "tray_retractor",
+		/obj/item/weapon/scalpel = "tray_scalpel",
+		/obj/item/weapon/surgicaldrill = "tray_drill",
+		/obj/item/weapon/bonegel = "tray_bone-gel",
+		/obj/item/weapon/FixOVein = "tray_fixovein",
+		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
+		)
 	for (var/obj/item/W in contents)
 		if (types_and_overlays[W.type])
 			add_overlay(types_and_overlays[W.type])
