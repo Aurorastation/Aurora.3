@@ -19842,6 +19842,8 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Chapel EFTPOS scanner"
 	},
+/obj/item/weapon/nullrod/obsidianshards,
+/obj/item/weapon/reagent_containers/spray/aspergillum,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "aKW" = (
@@ -66245,6 +66247,10 @@
 	c_tag = "Atmospherics Northeast"
 	},
 /obj/structure/table/steel,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "cqp" = (
@@ -77977,6 +77983,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
+"eXE" = (
+/obj/machinery/requests_console{
+	department = "Representative's Office";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/simulated/floor/carpet,
+/area/space)
 "fhn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -79690,15 +79705,6 @@
 /obj/item/weapon/storage/belt/champion,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"ssg" = (
-/obj/machinery/requests_console{
-	department = "Representative's Office";
-	departmentType = 5;
-	pixel_x = 0;
-	pixel_y = -28
-	},
-/turf/simulated/floor/carpet,
-/area/space)
 "suD" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
@@ -104212,7 +104218,7 @@ pnI
 aVr
 aWZ
 mfF
-ssg
+eXE
 bbY
 bdD
 bfb
