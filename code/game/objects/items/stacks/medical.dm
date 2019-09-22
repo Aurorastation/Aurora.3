@@ -185,7 +185,6 @@ Contains:
 	singular_name = "advanced trauma kit"
 	desc = "An advanced trauma kit for severe injuries."
 	icon_state = "traumakit"
-	var/overlay_state = "tray_bruise_kit"
 	heal_brute = 8
 	origin_tech = list(TECH_BIO = 1)
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg','sound/items/tape.ogg')
