@@ -723,12 +723,58 @@ default behaviour is:
 		visible_message("<span class='danger'>[src] resists!</span>")
 		setClickCooldown(20)
 
-/mob/living/verb/lay_down()
+/mob/living/verb/lay_down(var/mob/user)
 	set name = "Rest"
 	set category = "IC"
 
-	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	var/state_changed = FALSE
+	if(resting && can_stand_up())
+		resting = FALSE
+		state_changed = TRUE
+
+
+	else if (!resting)
+		if(ishuman(src))
+			var/obj/item/weapon/bedsheet/BS = locate(/obj/item/weapon/bedsheet) in get_turf(src)
+			// If there is unrolled bedsheet roll and unroll it to get in bed like a proper adult does
+			if(BS && !BS.rolled && !BS.folded)
+				resting = TRUE
+				BS.toggle_roll(src, no_message = TRUE)
+				BS.toggle_roll(src)
+			else
+				resting = TRUE
+			state_changed = TRUE
+		else
+			resting = TRUE
+			state_changed = TRUE
+	if(state_changed)
+		user.show_message("<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+		update_canmove()
+
+/mob/living/proc/can_stand_up(var/mob/user)
+	var/blankets = TRUE
+	blankets = unblanket()
+
+	if(blankets)
+		return FALSE
+	else
+		user.show_message("<span class='warning'>You stand up, but struggle to get the bedsheets out of the way.")
+		return TRUE
+
+//used to push away bedsheets in order to stand up, only humans will roll them (see overriden human proc)
+/mob/living/proc/unblanket(var/mob/user)
+	if((locate(/obj/item/weapon/bedsheet) in get_turf(src)) && do_after(src,10,incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_STUNNED))
+		var/quantity = 0
+		for (var/obj/item/weapon/bedsheet/BS in get_turf(src))
+			quantity++
+			if(prob(25))
+				BS.rolled = TRUE
+				BS.update_icon()
+			if(prob(85))
+				var/turf/T = get_offset_target_turf(get_turf(src),rand(-1,1),rand(-1,1))
+				step_towards(BS,T)
+		if(quantity)
+			user.visible_message("<span class='warning'>\The [src] shoves aside \the [quantity > 1 ? "blankets" : "blanket"] as they stand up.", "You shove aside \the [quantity > 1 ? "blankets" : "blanket"] as you stand up.")
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
