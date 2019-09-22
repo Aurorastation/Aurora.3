@@ -42220,15 +42220,9 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bzA" = (
-/obj/structure/table/standard,
-/obj/item/weapon/circular_saw,
-/obj/item/weapon/scalpel{
-	pixel_y = 12
-	},
-/obj/item/weapon/hemostat,
-/obj/item/weapon/retractor,
 /obj/effect/floor_decal/corner/white,
-/obj/item/weapon/surgicaldrill,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bzB" = (
@@ -61348,7 +61342,7 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "chF" = (
@@ -61402,7 +61396,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery2)
 "chI" = (
