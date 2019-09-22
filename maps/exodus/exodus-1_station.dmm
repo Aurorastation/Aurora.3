@@ -75972,6 +75972,7 @@
 	charge = 2e+006;
 	input_attempt = 1;
 	input_level = 100000;
+	output_attempt = 1;
 	output_level = 200000;
 	RCon_tag = "Engine - Core"
 	},
@@ -77583,6 +77584,7 @@
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
 	id = "EngineVent";
+	is_critical = 1;
 	name = "Reactor Vent";
 	p_open = 0
 	},
