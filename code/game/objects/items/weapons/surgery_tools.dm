@@ -186,6 +186,8 @@
 	w_class = 5.0
 	storage_slots = 10
 	attack_verb = list("slammed")
+	icon_type = "surgery tool"
+	storage_type = "tray"
 	can_hold = list(
 		/obj/item/weapon/bonesetter,
 		/obj/item/weapon/cautery,
