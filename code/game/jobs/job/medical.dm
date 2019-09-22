@@ -53,7 +53,7 @@
 	selection_color = "#ffeef0"
 	economic_modifier = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
 	alt_titles = list("Surgeon","Emergency Physician","Nurse")
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
