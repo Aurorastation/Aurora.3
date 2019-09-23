@@ -145,7 +145,7 @@
 						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
-	else if(!istype(W, /obj/item/weapon/bedsheet))
+	else
 		..()
 
 /obj/structure/bed/proc/remove_padding()
