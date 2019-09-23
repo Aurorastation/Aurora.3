@@ -133,7 +133,7 @@
 		new /obj/item/clothing/suit/armor/hos(src)
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/helmet/hos/cap(src)
-		new /obj/item/clothing/head/helmet/hos/helmet(src)
+		new /obj/item/clothing/head/helmet/hos(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/accessory/badge/hos(src)
 		new /obj/item/clothing/shoes/black_boots(src)
@@ -177,7 +177,7 @@
 		new /obj/item/clothing/suit/storage/vest/hos(src)
 		new /obj/item/clothing/head/beret/sec/hos(src)
 		new /obj/item/clothing/head/helmet/hos/cap(src)
-		new /obj/item/clothing/head/helmet/hos/helmet(src)
+		new /obj/item/clothing/head/helmet/hos(src)
 		//Tools
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
