@@ -21801,13 +21801,12 @@
 /area/crew_quarters/heads/chief)
 "aMJ" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -21816,6 +21815,7 @@
 /obj/machinery/door/window/brigdoor/southright{
 	req_access = list(56)
 	},
+/obj/item/weapon/rfd/construction,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "aMK" = (
