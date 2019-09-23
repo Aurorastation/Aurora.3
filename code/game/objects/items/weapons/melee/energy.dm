@@ -37,6 +37,11 @@
 	edge = initial(edge)
 	w_class = initial(w_class)
 
+/obj/item/weapon/melee/energy/dropped(var/mob/user)
+	..()
+	if(!istype(loc,/mob))
+		deactivate(user)
+
 /obj/item/weapon/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
 		if ((user.is_clumsy()) && prob(50))
@@ -219,11 +224,6 @@
 	edge = 1
 	var/blade_color
 	shield_power = 75
-
-/obj/item/weapon/melee/energy/sword/dropped(var/mob/user)
-	..()
-	if(!istype(loc,/mob))
-		deactivate(user)
 
 /obj/item/weapon/melee/energy/sword/New()
 	blade_color = pick("red","blue","green","purple")

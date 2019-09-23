@@ -562,6 +562,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled,
 /area/outpost/research/chemistry)
 "br" = (
