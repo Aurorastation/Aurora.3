@@ -4286,7 +4286,7 @@
 	},
 /area/syndicate_mothership)
 "alk" = (
-/obj/structure/bed/padded,
+/obj/structure/bed,
 /obj/item/weapon/bedsheet/hos,
 /turf/unsimulated/floor{
 	icon_state = "grimy"
