@@ -120,7 +120,7 @@
 
 /obj/item/weapon/reagent_containers/borghypo/service
 	name = "cyborg drink synthesizer"
-	desc = "A portable drink dispencer."
+	desc = "A portable drink dispenser."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "shaker"
 	charge_cost = 20
@@ -147,8 +147,11 @@
 		to_chat(user, "<span class='notice'>[target] is full.</span>")
 		return
 
-	var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
-	target.reagents.add_reagent(reagent_ids[mode], t)
-	reagent_volumes[reagent_ids[mode]] -= t
-	to_chat(user, "<span class='notice'>You transfer [t] units of the solution to [target].</span>")
+	var/rid = reagent_ids[mode]
+	var/datum/reagent/R = SSchemistry.chemical_reagents[rid]
+	var/temp = R.default_temperature
+	var/amt = min(amount_per_transfer_from_this, reagent_volumes[rid])
+	target.reagents.add_reagent(rid, amt, temperature = temp)
+	reagent_volumes[rid] -= amt
+	to_chat(user, "<span class='notice'>You transfer [amt] units of the solution to [target].</span>")
 	return
