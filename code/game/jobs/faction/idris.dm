@@ -69,7 +69,7 @@
 
 /datum/outfit/job/detective/idris
 	name = "Detective - Idris"
-	uniform = /obj/item/clothing/under/rank/security/idris/alt
+	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/weapon/card/id/idris/sec
 
 /datum/outfit/job/bartender/idris

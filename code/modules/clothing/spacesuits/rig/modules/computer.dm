@@ -464,8 +464,8 @@
 		drain_complete(H)
 		return
 
-	// Attempts to drain up to 40kW, determines this value from remaining cell capacity to ensure we don't drain too much..
-	var/to_drain = min(40000, ((holder.cell.maxcharge - holder.cell.charge) / CELLRATE))
+	// Attempts to drain up to 80kW, determines this value from remaining cell capacity to ensure we don't drain too much..
+	var/to_drain = min(80000, ((holder.cell.maxcharge - holder.cell.charge) / CELLRATE))
 	var/target_drained = interfaced_with.drain_power(0,0,to_drain)
 	if(target_drained <= 0)
 		to_chat(H, "<span class = 'danger'>Your power sink flashes a red light; there is no power left in [interfaced_with].</span>")

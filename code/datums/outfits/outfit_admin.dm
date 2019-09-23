@@ -236,7 +236,7 @@
 	l_ear = /obj/item/device/radio/headset/ninja
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	id = /obj/item/weapon/card/id/syndicate
-	l_pocket = /obj/item/device/ninja_uplink
+	l_pocket = null
 	r_pocket = null
 	accessory = /obj/item/clothing/accessory/storage/black_pouches
 
@@ -250,6 +250,14 @@
 	)
 
 	id_access = "Syndicate Agent"
+
+/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	H.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(H, H.mind), slot_l_store)
+
 
 /datum/outfit/admin/nt
 	name = "NanoTrasen Representative"
