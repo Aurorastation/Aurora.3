@@ -976,8 +976,8 @@
 /area/derelict)
 "cl" = (
 /obj/structure/closet/crate/trashcart,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd_ammo,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
@@ -2361,7 +2361,7 @@
 	},
 /area/derelict)
 "ft" = (
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor2"
@@ -2543,7 +2543,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "fW" = (
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/structure/plasticflaps/airtight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor{
@@ -2763,7 +2763,7 @@
 "gB" = (
 /obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd_ammo,
 /turf/simulated/floor,
 /area/derelict)
 "gC" = (
@@ -2790,7 +2790,7 @@
 	},
 /area/derelict)
 "gE" = (
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/shuttle/floor{
@@ -4772,7 +4772,7 @@
 /area/derelict)
 "lY" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd_ammo,
 /turf/simulated/floor,
 /area/derelict)
 "mK" = (
