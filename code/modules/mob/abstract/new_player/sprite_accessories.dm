@@ -2672,11 +2672,29 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+		diode
+			name = "Augment (Headplug Diode, Back Head)"
+			icon_state = "aug_headplugdiode"
+
 	aug_backports
 		name = "Augment (Backports, Back)"
 		icon_state = "aug_backports"
 		body_parts = list("chest")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+		diode
+			name = "Augment (Backports Diode, Back)"
+			icon_state = "aug_backportsdiode"
+
+	aug_backportswide
+		name = "Augment (Backports Wide, Back)"
+		icon_state = "aug_backportswide"
+		body_parts = list("chest")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Vaurca")
+
+		diode
+			name = "Augment (Backports Wide Diode, Back)"
+			icon_state = "aug_backportswidediode"
 
 	aug_headcase
 		name = "Augment (Headcase, Head)"
@@ -2717,6 +2735,28 @@ Follow by example and make good judgement based on length which list to include 
 		occipital_right
 			name = "Augment (Scalp Port, Occipital Right)"
 			icon_state = "aug_occipitalport_r"
+
+	aug_scalpportsdiode
+		name = "Augment (Scalp Ports Diode)"
+		icon_state = "aug_scalpportsdiode"
+		body_parts = list("head")
+		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		vertex_left
+			name = "Augment (Scalp Port Diode, Vertex Left )"
+			icon_state = "aug_vertexportdiode_l"
+
+		vertex_right
+			name = "Augment (Scalp Port Diode, Vertex Right)"
+			icon_state = "aug_vertexportdiode_r"
+
+		occipital_left
+			name = "Augment (Scalp Port Diode, Occipital Left)"
+			icon_state = "aug_occipitalportdiode_l"
+
+		occipital_right
+			name = "Augment (Scalp Port Diode, Occipital Right)"
+			icon_state = "aug_occipitalportdiode_r"
 
 	aug_backside_left
 		name = "Augment (Backside Left, Head)"
@@ -2811,6 +2851,10 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "backstripe"
 		body_parts = list("chest")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+		spinemarks
+			name = "Back Stripe Marks"
+			icon_state = "backstripemarks"
 
 	bands
 		name = "Color Bands (All)"
@@ -3094,12 +3138,6 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_backhead
-		name = "Tattoo (Backhead, Head)"
-		icon_state = "tat_backhead"
-		body_parts = list("head")
-		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
-
 	tat_belly
 		name = "Tattoo (Belly)"
 		icon_state = "tat_belly"
@@ -3277,6 +3315,12 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_silverburgh"
 		body_parts = list("r_leg")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_tamoko
+		name = "Tattoo (Ta Moko, Face)"
+		icon_state = "tat_tamoko"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
 
 	tat_tatyana_left
 		name = "Tattoo (Tatyana, Left Eye)"
