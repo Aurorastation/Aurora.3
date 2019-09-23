@@ -249,7 +249,7 @@
 
 /obj/item/weapon/storage/fancy/tray/MouseDrop(mob/user as mob)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(usr) && !usr.get_active_hand())
+		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 
@@ -271,7 +271,7 @@
 	if(..() && contents.len)
 		spill(3, get_turf(M))
 		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
-		user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to spill its contents across the area"))
+		user.visible_message(span("danger", "[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
 /obj/item/weapon/storage/fancy/tray/throw_impact(atom/hit_atom)
 	..()
