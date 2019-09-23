@@ -1582,21 +1582,3 @@
 			return TRUE
 
 	return FALSE
-
-//	If covered in blankets you can't get up unless all blankets are unrolled
-/mob/living/carbon/human/unblanket()
-	if(incapacitated(incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_STUNNED))
-		return FALSE
-	var/obj/item/weapon/bedsheet/unrolledBlanket
-	for (var/obj/item/weapon/bedsheet/BS in get_turf(src))
-		if(!BS.rolled && !BS.folded)
-			unrolledBlanket = BS
-			break
-	if(unrolledBlanket)
-		if(unrolledBlanket.toggle_roll(src))
-			if (unblanket())
-				return TRUE
-		else
-			return FALSE
-	else
-		return TRUE

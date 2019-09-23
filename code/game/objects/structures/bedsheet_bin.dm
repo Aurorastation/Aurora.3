@@ -17,6 +17,8 @@ LINEN BINS
 	throw_range = 2
 	w_class = 2.0
 	drop_sound = 'sound/items/drop/clothing.ogg'
+	randpixel = 0
+	center_of_mass = null
 	var/rolled = FALSE
 	var/folded = FALSE
 	var/inuse = FALSE
@@ -31,11 +33,8 @@ LINEN BINS
 		return
 
 /obj/item/weapon/bedsheet/attack_hand(mob/user as mob)
-	if(!user || user.incapacitated(incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_STUNNED))
-		return
 	if(!folded)
 		toggle_roll(user)
-	user.put_in_hands(src)
 	add_fingerprint(user)
 
 /obj/item/weapon/bedsheet/MouseDrop(mob/user as mob)
@@ -69,10 +68,10 @@ LINEN BINS
 	if(!user)
 		return FALSE
 	if(inuse)
-		user.show_message("Someone's already using \the [src]")
+		user.show_message("Someone's already using \the [src].")
 		return FALSE
 	inuse = TRUE
-	if (do_after(user, 6, src, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_STUNNED))
+	if (do_after(user, 6, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), "rustle", 15, 1, -5)
@@ -80,10 +79,11 @@ LINEN BINS
 			user.visible_message("<span class='notice'>\The [user] [rolled ? "unrolled" : "rolled"] \the [src].", "You [rolled ? "unrolled" : "rolled"] \the [src].</span>")
 		if(!rolled)
 			rolled = TRUE
+			layer = initial(layer)
 		else
 			rolled = FALSE
-			if(!user.resting && get_turf(src) == get_turf(user))
-				user.lay_down()
+			if(layer == initial(layer))
+				layer = ABOVE_MOB_LAYER
 		inuse = FALSE
 		update_icon()
 		return TRUE
