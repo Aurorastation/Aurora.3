@@ -352,7 +352,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	else if(pressure > (8.0*ONE_ATMOSPHERE))
 
-		if(damage >= 60)
+		if(is_broken())
 			var/turf/simulated/T = get_turf(src)
 			if(!T)
 				return
@@ -362,7 +362,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	else if(pressure > (5.0*ONE_ATMOSPHERE))
 
-		if(damage >= 45)
+		if(is_bruised())
 			var/turf/simulated/T = get_turf(src)
 			if(!T)
 				return
