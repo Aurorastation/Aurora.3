@@ -24059,8 +24059,8 @@
 /obj/item/weapon/reagent_containers/spray/pepper,
 /obj/item/clothing/suit/space/void/hos,
 /obj/item/clothing/head/helmet/space/void/hos,
-/obj/item/clothing/head/helmet,
 /obj/item/clothing/shoes/magboots,
+/obj/item/weapon/tank/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aQC" = (
