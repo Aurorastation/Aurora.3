@@ -61,7 +61,8 @@
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/change_monitor
 	)
 
 	flags = IS_IPC

@@ -77,6 +77,7 @@
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/area/area
 	var/areastring = null
 	var/obj/item/weapon/cell/cell

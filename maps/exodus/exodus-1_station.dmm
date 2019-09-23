@@ -11073,15 +11073,10 @@
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/entry/fore)
 "aub" = (
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/item/stack/material/phoron,
-/obj/structure/table/glass,
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
+/obj/machinery/chem_heater,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "auc" = (
@@ -19847,6 +19842,8 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Chapel EFTPOS scanner"
 	},
+/obj/item/weapon/nullrod/obsidianshards,
+/obj/item/weapon/reagent_containers/spray/aspergillum,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "aKW" = (
@@ -35867,6 +35864,9 @@
 /area/maintenance/substation/command)
 "boq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge Substation"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/command)
 "bor" = (
@@ -37894,7 +37894,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
-	name = "Command Substation";
+	name = "Command Substation and Shield Generators";
 	req_one_access = list(11,24)
 	},
 /obj/machinery/door/firedoor,
@@ -38132,6 +38132,21 @@
 	},
 /obj/item/weapon/screwdriver,
 /obj/structure/table/glass,
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
+/obj/item/stack/material/phoron{
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bsA" = (
@@ -42205,15 +42220,9 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bzA" = (
-/obj/structure/table/standard,
-/obj/item/weapon/circular_saw,
-/obj/item/weapon/scalpel{
-	pixel_y = 12
-	},
-/obj/item/weapon/hemostat,
-/obj/item/weapon/retractor,
 /obj/effect/floor_decal/corner/white,
-/obj/item/weapon/surgicaldrill,
+/obj/structure/table/standard,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bzB" = (
@@ -61333,7 +61342,7 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "chF" = (
@@ -61387,7 +61396,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/item/weapon/storage/box/tray,
+/obj/item/weapon/storage/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery2)
 "chI" = (
@@ -64568,6 +64577,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/item/weapon/storage/bag/circuits/basic,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "cnm" = (
@@ -66231,6 +66241,10 @@
 	c_tag = "Atmospherics Northeast"
 	},
 /obj/structure/table/steel,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
+/obj/item/weapon/pipewrench,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "cqp" = (
@@ -75683,6 +75697,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75699,6 +75714,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75715,6 +75731,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75736,6 +75753,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "EngineBlast";
+	is_critical = 1;
 	name = "Engine Monitoring Room Blast Doors";
 	opacity = 0
 	},
@@ -75954,6 +75972,7 @@
 	charge = 2e+006;
 	input_attempt = 1;
 	input_level = 100000;
+	output_attempt = 1;
 	output_level = 200000;
 	RCon_tag = "Engine - Core"
 	},
@@ -76674,6 +76693,7 @@
 	dir = 4;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -76894,6 +76914,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -76969,6 +76990,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77263,6 +77285,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77313,6 +77336,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77413,6 +77437,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77449,6 +77474,7 @@
 	density = 0;
 	icon_state = "pdoor0";
 	id = "SupermatterPort";
+	is_critical = 1;
 	layer = 2.7;
 	name = "Reactor Blast Door";
 	opacity = 0
@@ -77558,6 +77584,7 @@
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
 	id = "EngineVent";
+	is_critical = 1;
 	name = "Reactor Vent";
 	p_open = 0
 	},
@@ -77952,6 +77979,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
+"eXE" = (
+/obj/machinery/requests_console{
+	department = "Representative's Office";
+	departmentType = 5;
+	pixel_x = 0;
+	pixel_y = -28
+	},
+/turf/simulated/floor/carpet,
+/area/space)
 "fhn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -78593,10 +78629,6 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
-"kmI" = (
-/obj/item/weapon/storage/bag/circuits/basic,
-/turf/simulated/wall/r_wall,
-/area/engineering/workshop)
 "knl" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -104182,7 +104214,7 @@ pnI
 aVr
 aWZ
 mfF
-nxA
+eXE
 bbY
 bdD
 bfb
@@ -110394,7 +110426,7 @@ ccA
 ckr
 clK
 cif
-kmI
+col
 cpu
 cpx
 cpx
@@ -110651,7 +110683,7 @@ ccB
 cks
 clL
 cif
-kmI
+col
 cpv
 cpx
 cpx
