@@ -1580,5 +1580,4 @@
 	if(SR>0)
 		if(bac > INTOX_REACTION*SR)
 			return TRUE
-
 	return FALSE
