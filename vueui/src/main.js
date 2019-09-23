@@ -30,43 +30,45 @@ requireComponent.keys().forEach(fileName => {
 })
 
 Vue.config.productionTip = false
-
-var state = JSON.parse(document.getElementById('initialstate').innerHTML)
-
-Store.loadState(state)
+global.Vue = Vue
 
 global.receiveUIState = (jsonState) => {
-    Store.loadState(JSON.parse(jsonState))
+  Store.loadState(JSON.parse(jsonState))
 }
+if (document.getElementById("app")) {
+  var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
-window.__wtimetimer = window.setInterval(() => {
-  Store.state.wtime += 2
-}, 200)
-
-new Vue({
-  data: Store.state,
-  template: "<div><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
-  computed: {
-    componentName() {
-      if(this.$root.$data.active.charAt(0) != "?") {
-        return 'view-' + this.$root.$data.active
+  Store.loadState(state)
+  
+  window.__wtimetimer = window.setInterval(() => {
+    Store.state.wtime += 2
+  }, 200)
+  
+  new Vue({
+    data: Store.state,
+    template: "<div><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
+    computed: {
+      componentName() {
+        if(this.$root.$data.active.charAt(0) != "?") {
+          return 'view-' + this.$root.$data.active
+        }
+      },
+      templateString() {
+        if(this.$root.$data.active.charAt(0) == "?") {
+          return "<div>" + this.$root.$data.active.substr(1) + "</div>"
+        }
       }
     },
-    templateString() {
-      if(this.$root.$data.active.charAt(0) == "?") {
-        return "<div>" + this.$root.$data.active.substr(1) + "</div>"
+    watch: {
+      state: {
+        handler() {
+          Store.pushState()
+        },
+        deep: true
       }
     }
-  },
-  watch: {
-    state: {
-      handler() {
-        Store.pushState()
-      },
-      deep: true
-    }
-  }
-}).$mount('#app')
+  }).$mount('#app')
+}
 
 if (document.getElementById("header")) {
   new Vue({
