@@ -27,6 +27,7 @@
 	ui.open()
 
 /obj/item/modular_computer/vueui_transfer(oldobj)
+	. = FALSE
 	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
 	for(var/tui in uis)
 		var/datum/vueui/ui = tui
