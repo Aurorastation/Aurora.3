@@ -156,6 +156,7 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_GUTTER, 0)
 	add_language(LANGUAGE_VAURCA, 0)
 	add_language(LANGUAGE_ROOTSONG, 0)
+	add_language(LANGUAGE_NRAL_SONG, 0)
 	add_language(LANGUAGE_EAL, 1)
 	add_language(LANGUAGE_YA_SSA, 0)
 	add_language(LANGUAGE_DELVAHII, 0)

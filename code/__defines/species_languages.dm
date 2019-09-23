@@ -42,6 +42,7 @@
 #define LANGUAGE_YA_SSA "Ya'ssa"
 #define LANGUAGE_DELVAHII "Delvahhi"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
+#define LANGUAGE_NRAL_SONG "Nral'Song"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Freespeak"

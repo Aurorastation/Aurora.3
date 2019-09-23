@@ -20,6 +20,18 @@
 
 	return new_name
 
+/datum/language/nral_song //dionae + skrell
+	name = LANGUAGE_NRAL_SONG
+	desc = "A form of Nral'Malic spoken by Dionaea. It sounds strange to skrell, but understandable to someone who knows Nral'Malic."
+	speech_verb = "warbles"
+	ask_verb = "warbles"
+	exclaim_verb = "warbles"
+	colour = "soghun_alt"
+	key = "z"
+	flags = RESTRICTED|TCOMSSIM
+	syllables = list("qrrzk","qqrr","xxuuq","qilksh","quuq", "quum","xxuqqmm","vokzl","xrriim","zzaaoo","qu-uu","qiixx","qoo","zi", "xix","*","!")
+	partial_understanding = list(LANGUAGE_SKRELLIAN = 100)
+
 /datum/language/unathi
 	name = LANGUAGE_UNATHI
 	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
@@ -134,6 +146,7 @@
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+	partial_understanding = list(LANGUAGE_NRAL_SONG = 90) //skrell have a little difficulty understanding the trees
 
 /datum/language/skrell/get_random_name()
 	var/new_name = ""

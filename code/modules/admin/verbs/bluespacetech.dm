@@ -106,6 +106,7 @@
 	bst.add_language(LANGUAGE_SKRELLIAN)
 	bst.add_language(LANGUAGE_SOL_COMMON)
 	bst.add_language(LANGUAGE_ROOTSONG)
+	bst.add_language(LANGUAGE_NRAL_SONG)
 	bst.add_language(LANGUAGE_VAURCA)
 	// Synthetics
 	bst.add_language(LANGUAGE_ROBOT)
