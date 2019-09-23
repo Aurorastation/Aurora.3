@@ -40,4 +40,3 @@ delete-after: True
 changes: 
   - spellcheck: "Fixed grammar in Malf IC guide."
   - tweak: "Updated Malf IC guide with all abilites. Reformatted it to look better."
-  - rscadd: "Changed colours on few HTML files. Added dark theme for these files and button to switch between light/dark themes."
