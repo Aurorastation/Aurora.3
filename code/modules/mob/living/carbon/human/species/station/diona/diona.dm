@@ -24,7 +24,7 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_ROOTSONG, LANGUAGE_NRAL_SONG)
+	secondary_langs = list(LANGUAGE_NRAL_SONG)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
