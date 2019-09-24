@@ -172,13 +172,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/send_resources_and_assets(var/client/cl)
-#ifdef UIDEBUG
-	cl << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
-	cl << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
-#else
-	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
-	assets.send(cl)
-#endif
+	send_theme_resources(cl)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		if (!QDELETED(asset["img"]))

@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Aurorastation Changelog</title>
-  <link rel="stylesheet" type="text/css" href="changelog.css">
-  <base target="_blank" />
-  <script type='text/javascript'>
-  
-	function changeText(tagID, newText, linkTagID){
-		var tag = document.getElementById(tagID);
-		tag.innerHTML = newText;
-		var linkTag = document.getElementById(linkTagID);
-		linkTag.removeAttribute("href");
-		linkTag.removeAttribute("onclick");
-	}
-	
-  </script>  
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-</head>
-
-<body>
 <table align='center' width='650'><tr><td>
 <table align='center' class="top">
 	<tr>
@@ -56,10 +35,119 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">24 September 2019</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed missing impact wrench sprites, fixed rfd-s not working for stationbounds, fixed pixel-precision when placing material sheets on tables.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes the IE Shocker. Give 'em an inch and they take a mile.</li>
+			</ul>
+			<h3 class="author">Scheveningen updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Force gloves will no longer amplify their damage to melee weapons.</li>
+				<li class="balance">Force gloves have their TC cost reduced to compensate.</li>
+			</ul>
+
+			<h2 class="date">23 September 2019</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The IAC Vest can now store things like other vests.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Made cable coil easier to click.</li>
+				<li class="tweak">Changed the regular helmet in the Head of Security's locker into a proper HoS Helmet.</li>
+				<li class="rscadd">Added oxygen tank to the HoS locker.</li>
+				<li class="experiment">The gnome is still on the run.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">HTML themes now apply to changelog, rules, character setup and new player screen.</li>
+				<li class="rscadd">Adds back ability to view virus records.</li>
+			</ul>
+			<h3 class="author">Lady fowl updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes the chameleon kit from the protolathe.</li>
+			</ul>
+			<h3 class="author">Mwahahahaha updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Re-adds the Roll the Dice verb to the OOC tab, originally added by Berkbuzcu.</li>
+			</ul>
+			<h3 class="author">Wowzewow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The RCD, the RSF, and the RRF have been rebranded into classes of a catch-all Rapid Fabrication Device.</li>
+				<li class="imageadd">RFDs also have nicer sprites.</li>
+				<li class="rscadd">You can make crossbows with RFDs too.</li>
+			</ul>
+
+			<h2 class="date">22 September 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed ballistic gauntlets spawning at cargo.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Returns the surgery trays to Exodus.</li>
+				<li class="bugfix">Makes the Exodus engine vent stop opening on its own, for real this time.</li>
+				<li class="bugfix">Surgeons will no longer mistake their tools for donuts.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The ninja uplink now gives proper access to the infiltrator store.</li>
+				<li class="tweak">The powersink now drains more power.</li>
+				<li class="tweak">The cooldown for the emergency power generator has been reduced to 2 minutes from 5.</li>
+				<li class="tweak">The power generator now generates 3500 units of power.</li>
+			</ul>
+			<h3 class="author">Wowzewow updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">New and improved sprite for surgical tray.</li>
+				<li class="tweak">Tweaks the crutch, maps ham, and medical gown item sprites to look nicer.</li>
+			</ul>
+
+			<h2 class="date">21 September 2019</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed some energy melee weapons being unable to be picked up after they've been dropped, e.g. e-axe, e-glaive and power swords.</li>
+				<li class="maptweak">Fixed engine blast doors opening during power failures, added a request console to the rep office, added chem heaters to the chem labs, misc fixes.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Now APCs look decently on cameras.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes service module cyborgs dispensing drinks at the wrong temperature.</li>
+				<li class="tweak">Reagents that should be at room temperature will no longer be described as lukewarm.</li>
+			</ul>
+			<h3 class="author">Mwahahahaha updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the ability for Baseline Frames to change screens on the go (Change IC Screen verb in IC tab).</li>
+				<li class="bugfix">Re-added the ability for Shell Frames to run self-diagnostics! (my bad)</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The gatling laser no longer gets stuck in a state of locked up when you move while charging it.</li>
+			</ul>
+
 			<h2 class="date">20 September 2019</h2>
+			<h3 class="author">Alberyk, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Some space ruins might have extra challenges now.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Fixed some spots on the rooftop solars that had the wrong area. Fixed some oddly described buttons. Removed the captain's office coffee vendor. Removed some unnecessary extra stamps from the representative's office.</li>
+				<li class="maptweak">Adds a merchant dock to exodus and a journalist office, plus a bunch of misc fixes.</li>
+			</ul>
 			<h3 class="author">Furrycactus updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="maptweak">Reworked the Exodus map so that it's a little bit more in line with recent developments. Way too many changes to list here.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added custom announcement with custom sound tool for more immersive events.</li>
 			</ul>
 
 			<h2 class="date">19 September 2019</h2>
@@ -9832,5 +9920,3 @@
 <p class="lic"><a name="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img src="88x31.png" alt="Creative Commons License" /></a><br><i>Except where otherwise noted, Goon Station 13 is licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 License</a>.<br>Rights are currently extended to <a href="http://forums.somethingawful.com/">SomethingAwful Goons</a> only.</i></p>
 <p class="lic">Some icons by <a href="http://p.yusukekamiyamane.com/">Yusuke Kamiyamane</a>. All rights reserved. Licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</p>
 </td></tr></table>
-</body>
-</html>

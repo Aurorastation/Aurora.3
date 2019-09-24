@@ -78,7 +78,7 @@
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
-	path = /obj/item/clothing/suit/iacvest
+	path = /obj/item/clothing/suit/storage/iacvest
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
