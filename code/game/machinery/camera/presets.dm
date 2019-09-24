@@ -68,6 +68,10 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/telecom
 	network = list(NETWORK_TELECOM)
 
+/obj/machinery/camera/network/telecom/Initialize()
+	. = ..()
+	upgradeMotion()
+
 /obj/machinery/camera/network/thunder
 	network = list(NETWORK_THUNDER)
 
