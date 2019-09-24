@@ -21,6 +21,23 @@
 /obj/structure/sign/electricshock,
 /turf/simulated/wall,
 /area/solar/port)
+"af" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Foyer"
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/turret_protected/tcomfoyer)
 "ag" = (
 /turf/simulated/mineral/surface,
 /area/mine/unexplored)
@@ -1998,14 +2015,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/port)
-"dT" = (
-/turf/simulated/floor/airless,
-/area/turret_protected/tcomsat)
-"dU" = (
-/obj/machinery/porta_turret/stationary,
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor/airless,
-/area/turret_protected/tcomsat)
 "dV" = (
 /turf/simulated/wall/r_wall,
 /area/tcommsat/chamber)
@@ -5730,18 +5739,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
-"kC" = (
-/obj/machinery/porta_turret{
-	dir = 6
-	},
-/obj/effect/decal/warning_stripes,
-/obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/turret_protected/tcomfoyer)
 "kD" = (
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -5750,41 +5747,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
-"kE" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Foyer"
-	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/turretid/lethal{
-	ailock = 1;
-	check_synth = 1;
-	control_area = "\improper Telecoms Exterior";
-	desc = "A firewall prevents AIs from interacting with this device.";
-	name = "Telecoms lethal turret control";
-	pixel_y = 29;
-	req_access = list(61)
-	},
-/turf/simulated/floor/tiled,
-/area/turret_protected/tcomfoyer)
 "kF" = (
 /turf/simulated/floor/tiled,
-/area/turret_protected/tcomfoyer)
-"kG" = (
-/obj/machinery/porta_turret{
-	dir = 10
-	},
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor/plating,
 /area/turret_protected/tcomfoyer)
 "kH" = (
 /obj/structure/sign/drop{
@@ -6672,18 +6636,6 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/turret_protected/tcomfoyer)
-"mg" = (
-/obj/machinery/turretid/stun{
-	ailock = 1;
-	check_synth = 1;
-	control_area = "\improper Telecoms Foyer";
-	desc = "A firewall prevents AIs from interacting with this device.";
-	name = "Telecoms Foyer turret control";
-	pixel_y = 29;
-	req_access = list(61)
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
@@ -31319,7 +31271,6 @@ bv
 bv
 bv
 bv
-dT
 bv
 bv
 bv
@@ -31329,7 +31280,8 @@ bv
 bv
 bv
 bv
-dT
+bv
+bv
 bv
 bv
 lC
@@ -31576,7 +31528,6 @@ bv
 bv
 bv
 bv
-dU
 bv
 bv
 bv
@@ -31586,7 +31537,8 @@ bv
 bv
 bv
 bv
-dU
+bv
+bv
 bv
 bv
 bv
@@ -34157,7 +34109,7 @@ eO
 je
 eo
 dV
-kC
+kD
 le
 lE
 kA
@@ -34671,7 +34623,7 @@ iv
 eP
 jz
 jZ
-kE
+af
 lf
 lF
 lS
@@ -34932,7 +34884,7 @@ kF
 le
 lG
 kA
-mg
+kF
 kD
 mE
 mN
@@ -35185,7 +35137,7 @@ eO
 jf
 eo
 dV
-kG
+kF
 le
 lE
 kA
@@ -37744,7 +37696,7 @@ cC
 cX
 bH
 bh
-dU
+bv
 bv
 eR
 fw
@@ -37754,7 +37706,7 @@ hX
 iy
 eR
 bv
-dU
+bv
 bv
 bv
 bv
@@ -38011,7 +37963,7 @@ hY
 iz
 eS
 bv
-dT
+bv
 bv
 li
 bv
