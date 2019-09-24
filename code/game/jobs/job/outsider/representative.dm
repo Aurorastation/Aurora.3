@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
-	selection_color = "#dddddd"
+	selection_color = "#C0C0C0"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 	access = list(access_lawyer, access_maint_tunnels)

@@ -8,7 +8,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
-	selection_color = "#ffdddd"
+	selection_color = "#FF6363"
 	economic_modifier = 10
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
@@ -66,7 +66,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#ffeeee"
+	selection_color = "#FFA4A4"
 	economic_modifier = 5
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_external_airlocks, access_weapons)
@@ -112,7 +112,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#ffeeee"
+	selection_color = "#FFA4A4"
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_morgue, access_maint_tunnels, access_detective, access_weapons)
@@ -150,7 +150,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of security"
-	selection_color = "#ffeeee"
+	selection_color = "#FFA4A4"
 	economic_modifier = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
@@ -197,7 +197,7 @@
 	total_positions = 4
 	spawn_positions = 4
 	supervisors = "the head of security"
-	selection_color = "#ffeeee"
+	selection_color = "#FFA4A4"
 //	alt_titles = list("Junior Officer") //aurora already has security cadets
 	economic_modifier = 4
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
@@ -241,7 +241,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Head of Security"
-	selection_color = "#ffeeee"
+	selection_color = "#FFA4A4"
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors, access_maint_tunnels)
 	outfit = /datum/outfit/job/intern_sec
