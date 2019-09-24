@@ -94,7 +94,7 @@ datum/preferences
 	var/unsanitized_jobs = ""
 
 	//Keeps track of preferrence for not getting any wanted jobs
-	var/alternate_option = 2
+	var/alternate_option = RETURN_TO_LOBBY
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null
@@ -224,7 +224,7 @@ datum/preferences
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
-	var/dat = "<html><body><center>"
+	var/dat = "<center>"
 
 	if(path)
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
@@ -240,9 +240,8 @@ datum/preferences
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-
-	dat += "</html></body>"
-	user << browse(dat, "window=preferences;size=800x800")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
@@ -251,7 +250,7 @@ datum/preferences
 
 	if(href_list["preference"] == "open_whitelist_forum")
 		if(config.forumurl)
-			to_chat(user, link(config.forumurl))
+			send_link(user, config.forumurl)
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
@@ -359,9 +358,8 @@ datum/preferences
 	character.h_style = h_style
 	character.f_style = f_style
 
-	character.home_system = home_system
 	character.citizenship = citizenship
-	character.personal_faction = faction
+	character.employer_faction = faction
 	character.religion = religion
 
 	character.skills = skills
@@ -392,8 +390,7 @@ datum/preferences
 		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
-	var/dat = "<body>"
-	dat += "<tt><center>"
+	var/dat = "<tt><center>"
 
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
@@ -427,12 +424,12 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
-	var/dat = "<body>"
-	dat += "<tt><center>"
+	var/dat = "<tt><center>"
 
 	var/savefile/S = new /savefile(path)
 	if(S)
@@ -448,7 +445,8 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")
@@ -568,3 +566,9 @@ datum/preferences
 	new_setup(1)
 
 	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
+
+/datum/preferences/proc/get_species_datum()
+	if (species)
+		return all_species[species]
+
+	return null

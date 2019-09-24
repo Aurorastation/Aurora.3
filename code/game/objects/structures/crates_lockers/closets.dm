@@ -210,6 +210,11 @@
 	if(!proj_damage)
 		return
 
+	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
+		var/distance = get_dist(Proj.starting, get_turf(loc))
+		for(var/mob/living/L in contents)
+			Proj.attack_mob(L, distance)
+
 	..()
 	damage(proj_damage)
 
@@ -260,7 +265,7 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
@@ -271,7 +276,7 @@
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")

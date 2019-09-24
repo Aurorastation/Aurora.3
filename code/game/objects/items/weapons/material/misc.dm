@@ -44,6 +44,7 @@
 	sharp = 1
 	edge = 1
 	desc = "A sharp, metal hook that sticks into things."
+	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 
@@ -59,7 +60,7 @@
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 
 /obj/item/weapon/material/scythe
-	icon_state = "scythe0"
+	icon_state = "scythe"
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
@@ -72,3 +73,13 @@
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
+
+/obj/item/weapon/material/scythe/sickle
+	icon_state = "sickle0"
+	name = "sickle"
+	desc = "A short sharp and curved blade on a wood handle, this tool makes it easy to cut grass."
+	force_divisor = 0.175 // 16 with hardness 60 (steel)
+	thrown_force_divisor = 0.04 // 5 with weight 20 (steel)
+	throw_speed = 2
+	throw_range = 3
+	w_class = 2

@@ -12,14 +12,14 @@
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
 	name = "[current_map.boss_name] Update Announcement"
-	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 2)
+	item_cost = round(DEFAULT_TELECRYSTAL_AMOUNT / 3)
 	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
 	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
 	if(!title)
 		return
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|text)
+	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|message)
 	if(!message)
 		return
 	return list("title" = title, "message" = message)
@@ -42,52 +42,43 @@
 		return 0
 
 	var/obj/item/weapon/card/id/I = user.GetIdCard()
-	var/datum/data/record/random_general_record
-	var/datum/data/record/random_medical_record
-	if(data_core.general.len)
-		random_general_record	= pick(data_core.general)
-		random_medical_record	= find_medical_record("id", random_general_record.fields["id"])
+	var/datum/record/general/random_record
+	if(SSrecords.records.len)
+		random_record = pick(SSrecords.records)
+	else
+		random_record = new(user)
 
-	var/datum/data/record/general = data_core.CreateGeneralRecord(user)
+	var/datum/record/general/record = random_record.Copy()
+	
 	if(I)
-		general.fields["age"] = I.age
-		general.fields["rank"] = I.assignment
-		general.fields["real_rank"] = I.assignment
-		general.fields["name"] = I.registered_name
-		general.fields["sex"] = I.sex
+		record.age = I.age
+		record.rank = I.assignment
+		record.real_rank = I.assignment
+		record.name = I.registered_name
+		record.sex = I.sex
 	else
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
 			H = user
-			general.fields["age"] = H.age
+			record.age = H.age
 		else
-			general.fields["age"] = initial(H.age)
+			record.age = initial(H.age)
 		var/assignment = GetAssignment(user)
-		general.fields["rank"] = assignment
-		general.fields["real_rank"] = assignment
-		general.fields["name"] = user.real_name
-		general.fields["sex"] = capitalize(user.gender)
+		record.rank = assignment
+		record.real_rank = assignment
+		record.name = user.real_name
+		record.sex = capitalize(user.gender)
 
-	general.fields["species"] = user.get_species()
-	var/datum/data/record/medical = data_core.CreateMedicalRecord(general.fields["name"], general.fields["id"])
-	data_core.CreateSecurityRecord(general.fields["name"], general.fields["id"])
-
-	if(!random_general_record)
-		general.fields["citizenship"]	= random_general_record.fields["citizenship"]
-		general.fields["faction"] 		= random_general_record.fields["faction"]
-		general.fields["fingerprint"] 	= random_general_record.fields["fingerprint"]
-		general.fields["home_system"] 	= random_general_record.fields["home_system"]
-		general.fields["religion"] 		= random_general_record.fields["religion"]
-	if(random_medical_record)
-		medical.fields["b_type"]		= random_medical_record.fields["b_type"]
-		medical.fields["b_dna"]			= random_medical_record.fields["b_type"]
+	record.species = user.get_species()
+	record.security = new(null, record.id)
 
 	if(I)
-		general.fields["fingerprint"] 	= I.fingerprint_hash
-		medical.fields["b_type"]	= I.blood_type
-		medical.fields["b_dna"]		= I.dna_hash
+		record.fingerprint = I.fingerprint_hash
+		record.medical.blood_type = I.blood_type
+		record.medical.blood_dna = I.dna_hash
 
-	AnnounceArrivalSimple(general.fields["name"], general.fields["rank"])
+	SSrecords.add_record(record)
+	AnnounceArrivalSimple(record.name, record.rank)
 	return 1
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm
@@ -110,7 +101,7 @@
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
-	item_cost = 6
+	item_cost = 4
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
 	var/static/cooldown = 0

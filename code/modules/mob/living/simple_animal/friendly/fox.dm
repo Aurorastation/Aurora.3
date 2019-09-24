@@ -21,6 +21,8 @@
 	mob_size = 4
 	max_nutrition = 90
 	holder_type = /obj/item/weapon/holder/fox
+	emote_sounds = list()
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
 //Captain fox
 /mob/living/simple_animal/corgi/fox/Chauncey

@@ -83,7 +83,7 @@
 		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
@@ -105,7 +105,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
@@ -119,7 +119,7 @@
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/vision/meson
 		)
 
@@ -141,7 +141,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
@@ -156,7 +156,7 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
@@ -253,6 +253,13 @@
 		/obj/item/rig_module/mounted/taser
 		)
 
+/obj/item/weapon/rig/hazard/equipped/pirate
+	req_access = list(access_syndicate)
+	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
+
+/obj/item/clothing/head/helmet/space/rig/hazard/pirate
+	camera_networks = list()
+
 /obj/item/weapon/rig/diving
 	name = "diving suit control module"
 	suit_type = "diving suit"
@@ -263,20 +270,9 @@
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
-	chest_type = /obj/item/clothing/suit/space/rig/diving
-	helm_type = /obj/item/clothing/head/helmet/space/rig/diving
-	boot_type = /obj/item/clothing/shoes/magboots/rig/diving
-
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
 
-/obj/item/clothing/head/helmet/space/rig/diving
-	species_restricted = list("Human")
-
-/obj/item/clothing/suit/space/rig/diving
-	species_restricted = list("Human")
-
-/obj/item/clothing/shoes/magboots/rig/diving
 	species_restricted = list("Human")

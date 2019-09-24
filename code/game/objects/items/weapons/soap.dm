@@ -4,8 +4,9 @@
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
+	item_state = "soap"
 	w_class = 2.0
 	throwforce = 0
 	throw_speed = 4
@@ -14,15 +15,81 @@
 	var/key_data
 	drop_sound = 'sound/misc/slip.ogg'
 
+/obj/item/weapon/soap/New()
+	..()
+	create_reagents(10)
+	wet()
+
+/obj/item/weapon/soap/proc/wet()
+	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+	reagents.add_reagent("cleaner", 10)
+
+/obj/item/weapon/soap/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/weapon/key))
+		if(!key_data)
+			to_chat(user, "<span class='notice'>You imprint \the [I] into \the [src].</span>")
+			var/obj/item/weapon/key/K = I
+			key_data = K.key_data
+			update_icon()
+		return
+	..()
+
+/obj/item/weapon/soap/update_icon()
+	overlays.Cut()
+	if(key_data)
+		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
+
+/obj/item/weapon/soap/Crossed(AM as mob|obj)
+	if (istype(AM, /mob/living))
+		var/mob/living/M =	AM
+		M.slip("the [src.name]",3)
+
+/obj/item/weapon/soap/afterattack(atom/target, mob/user as mob, proximity)
+	if(!proximity) return
+	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
+	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
+	if(user.client && (target in user.client.screen))
+		to_chat(user, "<span class='notice'>You need to take that [target.name] off before cleaning it.</span>")
+	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
+		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
+		wet()
+	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/weapon/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
+		if (target.reagents && target.reagents.total_volume)
+			to_chat(user, "<span class='notice'>You wet \the [src] in the [target].</span>")
+			wet()
+		else
+			to_chat(user, "\The [target] is empty!")
+	else
+		to_chat(user, "You start scrubbing the [target.name]")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
+		if (do_after(user, 25, needhand = 0))
+			target.clean_blood()
+			to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
+			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
+				var/turf/T = get_turf(target)
+				if(T)
+					T.clean(src, user)
+	return
+
+//attack_as_weapon
+/obj/item/weapon/soap/attack(mob/living/target, mob/living/user, var/target_zone)
+	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == "mouth" )
+		user.visible_message("<span class='danger'>\The [user] washes \the [target]'s mouth out with soap!</span>")
+		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
+		return
+	..()
+
 /obj/item/weapon/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
 	icon_state = "soapnt"
+	item_state = "soapnt"
 
 /obj/item/weapon/soap/plant
 	desc = "A green bar of soap. Smells like dirt and plants."
 
 /obj/item/weapon/soap/deluxe
 	icon_state = "soapdeluxe"
+	item_state = "soapdeluxe"
 
 /obj/item/weapon/soap/deluxe/Initialize()
 
@@ -32,6 +99,7 @@
 /obj/item/weapon/soap/syndie
 	desc = "An untrustworthy bar of soap. Smells of fear."
 	icon_state = "soapsyndie"
+	item_state = "soapsyndie"
 
 /obj/item/weapon/soap/space_soap
 	name = "Soap"
@@ -75,7 +143,7 @@
 
 /obj/item/weapon/soap/white_soap
 	name = "Soap"
-	desc = "Smells like chicken."
+	desc = "Smells like vanilla."
 	icon_state = "white_soap"
 
 /obj/item/weapon/soap/grey_soap
@@ -125,13 +193,13 @@
 
 /obj/item/weapon/soap/golden_soap
 	name = "Soap"
-	desc = "Smells like butter."
+	desc = "Smells like honey."
 	icon_state = "golden_soap"
 
 /obj/random/soap/
 	name = "Random Soap"
 	desc = "This is a random soap."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/soap.dmi'
 	icon_state = "soap"
 
 /obj/random/soap/item_to_spawn()

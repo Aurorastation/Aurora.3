@@ -4,6 +4,7 @@
 	w_class = 3.0
 
 	var/image/blood_overlay //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1.0
 	var/health
@@ -81,6 +82,7 @@
 	var/cleaving = FALSE
 	var/reach = 1 // Length of tiles it can reach, 1 is adjacent.
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
+	// Its vital that if you make new power tools or new recipies that you include this
 
 /obj/item/Destroy()
 	if(ismob(loc))
@@ -157,7 +159,7 @@
 	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user as mob)
-	if (!user) return
+	if (!user || anchored) return
 	if (hasorgans(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
@@ -169,6 +171,9 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
+	if(!src.Adjacent(user) && !(TK in user.mutations))
+		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
+		return // please don't pick things up
 	src.pickup(user)
 	if (istype(src.loc, /obj/item/weapon/storage))
 		var/obj/item/weapon/storage/S = src.loc
@@ -245,7 +250,7 @@
 /obj/item/throw_impact(atom/hit_atom)
 	..()
 	if(drop_sound)
-		playsound(src, drop_sound, 50, 0)
+		playsound(src, drop_sound, 50, 0, required_asfx_toggles = ASFX_DROPSOUND)
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
@@ -263,6 +268,8 @@
 
 // called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
+	pixel_x = 0
+	pixel_y = 0
 	return
 
 // called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
@@ -381,6 +388,14 @@ var/list/global/slot_flags_enumeration = list(
 			var/allow = 0
 			if(H.back && istype(H.back, /obj/item/weapon/storage/backpack))
 				var/obj/item/weapon/storage/backpack/B = H.back
+				if(B.can_be_inserted(src,1))
+					allow = 1
+			if(!allow)
+				return 0
+		if(slot_in_belt)
+			var/allow = 0
+			if(istype(H.belt, /obj/item/weapon/storage/belt))
+				var/obj/item/weapon/storage/belt/B = H.belt
 				if(B.can_be_inserted(src,1))
 					allow = 1
 			if(!allow)
@@ -770,3 +785,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
 		return TRUE
 	return FALSE
+
+//Used for selecting a random pixel placement, usually on initialize. Checks for pixel_x/y to not interfere with mapped in items.
+/obj/item/proc/randpixel_xy()
+	if(!pixel_x && !pixel_y)
+		pixel_x = rand(-randpixel, randpixel)
+		pixel_y = rand(-randpixel, randpixel)
+		return TRUE
+	else
+		return FALSE

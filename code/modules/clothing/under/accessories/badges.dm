@@ -39,7 +39,7 @@
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		to_chat(user, "You polish your badge fondly, shining up the surface.")
+		to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
 		set_name(user.real_name)
 		return
 
@@ -99,20 +99,6 @@
 		return
 	..()
 
-/obj/item/weapon/storage/box/holobadge
-	name = "holobadge box"
-	desc = "A box claiming to contain holobadges."
-	New()
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		..()
-		return
-
-
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
 	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
@@ -125,3 +111,28 @@
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
 	slot_flags = SLOT_TIE
+
+/obj/item/clothing/accessory/badge/sol_visa
+	name = "\improper ASSN visa recommendation slip"
+	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
+	icon_state = "sol-visa"
+	slot_flags = SLOT_TIE
+	badge_string = "Priority ASSN Visa Applicant"
+
+/obj/item/clothing/accessory/badge/tcfl_papers
+	name = "\improper TCFL enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
+	icon_state = "tc-visa"
+	slot_flags = SLOT_TIE
+	badge_string = "Tau Ceti Foreign Legion Recruit"
+
+/obj/item/clothing/accessory/badge/hadii_card
+	name = "honorary party member card"
+	desc = "A card denoting a honorary member of the Hadiist party."
+	icon_state = "hadii-id"
+	slot_flags = SLOT_TIE
+	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
+	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
+	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
+	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
+	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."

@@ -108,3 +108,6 @@
 				qdel(src)
 	else
 		..(M, user, target_zone)
+
+/obj/item/weapon/pen/crayon/attack_self(var/mob/user)
+	return

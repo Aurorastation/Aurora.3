@@ -17,7 +17,7 @@
 
 
 /obj/item/device/nanoquikpay/Initialize()
-	..()
+	. = ..()
 	machine_id = "[station_name()] Quik-Pay #[SSeconomy.num_financial_terminals++]"
 	access_code = rand(1111,111111)
 	print_reference()
@@ -130,7 +130,7 @@
 		ui = new(usr, src, "quikpay-main", 400, 400, "NT Quik-Pay")
 	ui.open()
 
-/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui, var/list/newdata)
+/obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list()
 

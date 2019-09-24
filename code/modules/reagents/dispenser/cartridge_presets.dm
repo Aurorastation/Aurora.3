@@ -62,6 +62,7 @@
 	orange		spawn_reagent = "orangejuice"
 	lime		spawn_reagent = "limejuice"
 	watermelon	spawn_reagent = "watermelonjuice"
+	apple   	spawn_reagent = "applejuice"
 
 	// Bar, coffee
 	coffee		spawn_reagent = "coffee"
@@ -94,7 +95,10 @@
 	bicaridine	spawn_reagent = "bicaridine"
 	hyperzine	spawn_reagent = "hyperzine"
 	rezadone	spawn_reagent = "rezadone"
-	spaceacillin	spawn_reagent = "spaceacillin"
+	deltamivir	spawn_reagent = "deltamivir"
+	thetamycin	spawn_reagent = "thetamycin"
+	coughsyrup	spawn_reagent = "coughsyrup"
+	benadryl	spawn_reagent = "diphenhydramine"
 	ethylredox	spawn_reagent = "ethylredoxrazine"
 	sleeptox	spawn_reagent = "stoxin"
 	chloral		spawn_reagent = "chloralhydrate"

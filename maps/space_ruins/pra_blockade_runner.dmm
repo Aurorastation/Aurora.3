@@ -5,14 +5,8 @@
 "ab" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
-"ac" = (
-/turf/simulated/wall/diona,
-/area/mine/unexplored)
-"ad" = (
-/turf/simulated/floor/diona,
-/area/mine/unexplored)
 "ae" = (
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "af" = (
 /turf/simulated/floor,
@@ -88,7 +82,8 @@
 "an" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/random/handgun,
+/obj/machinery/light/small/built,
+/obj/item/weapon/gun/projectile/pistol/adhomai,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
@@ -121,23 +116,24 @@
 /area/derelict/ship)
 "aq" = (
 /obj/structure/extinguisher_cabinet,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "ar" = (
 /obj/structure/sign/flag/pra,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "as" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/glass_command,
+/obj/item/weapon/landmine{
+	anchored = 1;
+	deployed = 1
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
-"at" = (
-/turf/template_noop,
-/area/mine/unexplored)
 "av" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/bin,
@@ -166,13 +162,6 @@
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
-"az" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/sord,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
-/area/derelict/ship)
 "aA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -193,7 +182,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "aC" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -208,7 +197,7 @@
 /area/derelict/ship)
 "aE" = (
 /obj/structure/fireaxecabinet,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "aF" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -220,7 +209,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/holofloor/grass,
+/turf/simulated/floor/grass,
 /area/derelict/ship)
 "aG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -234,7 +223,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -242,7 +231,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -254,16 +243,19 @@
 /obj/item/weapon/melee/whip,
 /obj/random/spacecash,
 /obj/random/spacecash,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/obj/machinery/suit_cycler/captain,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/pra,
+/obj/item/clothing/head/helmet/space/void/pra,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -272,7 +264,7 @@
 	},
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aL" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -292,7 +284,7 @@
 	},
 /obj/structure/bed/chair/comfy/beige,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -302,7 +294,7 @@
 /obj/structure/table/wood/gamblingtable,
 /obj/item/weapon/deck/cards,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -313,7 +305,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -325,16 +317,16 @@
 /obj/item/clothing/suit/storage/tajaran,
 /obj/item/clothing/suit/storage/tajaran/cloak/fancy,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aR" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aS" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -343,7 +335,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aU" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -369,7 +364,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aY" = (
 /obj/structure/bed/chair/comfy/blue{
@@ -377,7 +372,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "aZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -385,7 +380,10 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ba" = (
 /obj/structure/flora/pottedplant/random,
@@ -399,29 +397,29 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle/vintage,
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/sunglasses/big,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/item/weapon/gun/projectile/contender,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bc" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
 /obj/item/weapon/pen,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bd" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "be" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -432,21 +430,7 @@
 /obj/structure/curtain/open/bed,
 /obj/item/weapon/bedsheet/rd,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
-/area/derelict/ship)
-"bg" = (
-/turf/simulated/wall/diona,
-/area/derelict/ship)
-"bh" = (
-/turf/simulated/floor/diona,
-/area/derelict/ship)
-"bi" = (
-/obj/structure/lattice,
-/turf/simulated/floor/diona,
-/area/derelict/ship)
-"bj" = (
-/obj/structure/computerframe,
-/turf/simulated/floor,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bk" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -460,7 +444,7 @@
 	},
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bm" = (
 /obj/machinery/door/firedoor,
@@ -471,20 +455,30 @@
 	},
 /area/derelict/ship)
 "bn" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/vault/bolted,
+/obj/item/weapon/landmine{
+	anchored = 1;
+	deployed = 1
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
 "bp" = (
-/obj/structure/lattice,
-/obj/effect/decal/remains,
-/turf/simulated/floor/diona,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bq" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "br" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -497,7 +491,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bs" = (
 /turf/simulated/shuttle/floor{
@@ -516,13 +510,13 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -548,11 +542,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/lasagna,
 /obj/item/weapon/reagent_containers/food/snacks/lasagna,
 /obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/turf/simulated/floor/holofloor/wood,
-/area/derelict/ship)
-"bx" = (
-/obj/machinery/firealarm/north,
-/turf/simulated/floor,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "by" = (
 /obj/random/toolbox,
@@ -572,7 +562,7 @@
 /area/derelict/ship)
 "bB" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "bC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -594,7 +584,10 @@
 "bF" = (
 /obj/machinery/firealarm/north,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/closet/crate/freezer,
+/obj/item/weapon/storage/field_ration,
+/obj/item/weapon/storage/field_ration,
+/obj/item/weapon/storage/field_ration,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bG" = (
@@ -611,15 +604,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bI" = (
-/obj/structure/lattice,
 /obj/item/clothing/suit/storage/hooded/tajaran,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor/diona,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bJ" = (
 /obj/item/clothing/under/tajaran,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bK" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -629,7 +623,8 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "bL" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -641,13 +636,16 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bN" = (
-/obj/machinery/door/airlock/vault/bolted{
-	name = "Reactor"
+/obj/machinery/door/airlock/vault/bolted,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
 	},
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -659,11 +657,6 @@
 "bP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bQ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bS" = (
@@ -680,9 +673,6 @@
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"bU" = (
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bV" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor,
@@ -694,7 +684,6 @@
 /area/derelict/ship)
 "bX" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/structure/closet/coffin,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -720,17 +709,23 @@
 /area/derelict/ship)
 "cb" = (
 /obj/random/glowstick,
-/turf/simulated/floor,
-/area/derelict/ship)
-"cc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/obj/item/weapon/gun/projectile/pirate,
+/turf/simulated/floor/wood,
+/area/derelict/ship)
+"cc" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cd" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -749,6 +744,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cg" = (
@@ -757,12 +753,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"ch" = (
-/turf/template_noop,
-/obj/structure/lattice,
-/obj/random/voidsuit,
-/turf/simulated/floor/diona,
-/area/derelict/ship)
 "ci" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -770,10 +760,18 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/structure/closet/cabinet,
+/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cj" = (
-/turf/simulated/floor/asteroid/ash,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 9
+	},
+/obj/item/weapon/bedsheet/rd,
+/obj/structure/bed/padded,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "ck" = (
 /turf/simulated/floor/greengrid,
@@ -802,7 +800,7 @@
 "co" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cp" = (
 /obj/item/clothing/under/dress/tajaran,
@@ -810,39 +808,53 @@
 /obj/effect/decal/cleanable/blood,
 /obj/random/arcade,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cq" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "cs" = (
 /obj/item/clothing/under/tajaran,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
-/area/derelict/ship)
-"ct" = (
-/obj/effect/decal/remains,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
-/area/derelict/ship)
-"cu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/derelict/ship)
+"ct" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/derelict/ship)
+"cu" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/holofloor/wood,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cv" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
+/obj/item/weapon/landmine{
+	anchored = 1;
+	deployed = 1
+	},
 /turf/simulated/floor/tiled/freezer,
-/area/derelict/ship)
-"cw" = (
-/obj/machinery/power/supermatter,
-/turf/simulated/floor,
 /area/derelict/ship)
 "cx" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -862,13 +874,14 @@
 "cB" = (
 /obj/effect/decal/cleanable/molten_item,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cC" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/clothing/suit/storage/tajaran/cloak,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cD" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -878,7 +891,8 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cE" = (
 /obj/machinery/door/airlock,
@@ -916,6 +930,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "cK" = (
@@ -934,17 +949,27 @@
 /area/derelict/ship)
 "cM" = (
 /obj/effect/decal/remains,
-/turf/simulated/floor/diona,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "cN" = (
-/obj/item/clothing/suit/storage/tajaran/messa,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/floor,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 9
+	},
+/obj/item/weapon/bedsheet/rd,
+/obj/structure/bed/padded,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cO" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/holofloor/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -957,7 +982,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cR" = (
 /obj/structure/filingcabinet/medical,
@@ -967,17 +992,20 @@
 "cS" = (
 /obj/machinery/papershredder,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cT" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/turf/simulated/floor/holofloor/wood,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cV" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -986,14 +1014,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/coatrack,
-/turf/simulated/floor/holofloor/wood,
-/area/derelict/ship)
-"cW" = (
-/obj/structure/barricade,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
+/obj/structure/closet/cabinet,
+/obj/item/ammo_magazine/boltaction,
+/turf/simulated/floor/wood,
 /area/derelict/ship)
 "cX" = (
 /obj/effect/decal/cleanable/blood,
@@ -1014,6 +1037,9 @@
 "da" = (
 /obj/machinery/vending/sovietsoda,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
@@ -1021,6 +1047,9 @@
 "db" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
@@ -1069,42 +1098,12 @@
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
-"di" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
-/area/derelict/ship)
-"dj" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
-/area/derelict/ship)
-"dk" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
-/area/derelict/ship)
 "dl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/material/shard/wood,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
@@ -1133,27 +1132,9 @@
 "dp" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"dq" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
 /area/derelict/ship)
 "dr" = (
 /obj/structure/bed/chair{
@@ -1193,27 +1174,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dx" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "dy" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -1226,25 +1186,14 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dA" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "dB" = (
 /obj/machinery/power/smes,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dC" = (
-/obj/item/clothing/head/kitty,
 /obj/structure/table/standard,
+/obj/item/clothing/head/helmet/tank/olive,
 /turf/simulated/floor,
 /area/derelict/ship)
 "dD" = (
@@ -1293,28 +1242,8 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dK" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "dL" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/machinery/power/terminal{
 	icon_state = "term";
 	dir = 1
@@ -1329,14 +1258,6 @@
 /obj/random/powercell,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"dN" = (
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor,
 /area/derelict/ship)
 "dO" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -1359,102 +1280,18 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dR" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
-/area/derelict/ship)
-"dS" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor7"
-	},
-/area/derelict/ship)
-"dT" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "dU" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dV" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"dW" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/derelict/ship)
-"dX" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
-/area/derelict/ship)
 "dY" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor,
 /area/derelict/ship)
 "dZ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "door_locked";
@@ -1464,37 +1301,7 @@
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
-"ea" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
-"eb" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/derelict/ship)
 "ec" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/machinery/power/tracker,
 /turf/simulated/floor,
 /area/derelict/ship)
@@ -1520,18 +1327,8 @@
 	},
 /area/derelict/ship)
 "eg" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/east,
-/turf/simulated/floor,
-/area/derelict/ship)
-"eh" = (
-/obj/structure/cable,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ei" = (
@@ -1541,45 +1338,10 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"ej" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"ek" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "el" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"em" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "en" = (
@@ -1615,16 +1377,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"es" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
 /area/derelict/ship)
 "et" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -1689,13 +1441,6 @@
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"eC" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/solar_control/autostart,
-/obj/structure/cable,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "eD" = (
 /obj/structure/shuttle/engine/heater,
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -1745,7 +1490,7 @@
 /area/derelict/ship)
 "eK" = (
 /obj/structure/shuttle/engine/router,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eL" = (
 /obj/machinery/door/airlock/maintenance_hatch,
@@ -1761,7 +1506,7 @@
 /area/derelict/ship)
 "eN" = (
 /obj/machinery/vending/medical,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1770,11 +1515,11 @@
 /area/derelict/ship)
 "eP" = (
 /obj/machinery/vending/wallmed2,
-/turf/simulated/wall/titanium,
+/turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eQ" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "eR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1825,10 +1570,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
-/area/derelict/ship)
-"eY" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/diona,
 /area/derelict/ship)
 "eZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1886,6 +1627,7 @@
 "fh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "fi" = (
@@ -1895,7 +1637,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "fj" = (
-/turf/simulated/floor/asteroid/ash,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/away)
 "fk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1936,10 +1678,317 @@
 	icon_state = "floor7"
 	},
 /area/derelict/ship)
-"tY" = (
-/turf/template_noop,
-/obj/structure/lattice,
-/turf/simulated/floor/diona,
+"hJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/derelict/ship)
+"jE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"kr" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"ln" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"nx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/east,
+/obj/machinery/light/small/built{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"oH" = (
+/obj/item/weapon/landmine{
+	anchored = 1;
+	deployed = 1
+	},
+/turf/simulated/floor,
+/area/derelict/ship)
+"qd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"uP" = (
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"vW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"wE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/weapon/landmine{
+	anchored = 1;
+	deployed = 1
+	},
+/turf/simulated/floor,
+/area/derelict/ship)
+"xr" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"yi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"AJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"Bg" = (
+/obj/structure/flora/pottedplant/random,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"Cc" = (
+/obj/machinery/porta_turret/ballistic,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"Cy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/derelict/ship)
+"CH" = (
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"DX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"Ee" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/item/weapon/storage/field_ration,
+/obj/machinery/light/small/built,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"HX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/pra,
+/obj/item/clothing/head/helmet/space/void/pra,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"IC" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"JX" = (
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"Kj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/derelict/ship)
+"Kp" = (
+/obj/effect/floor_decal/industrial/hatch,
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"KW" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"Lm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/machinery/light/small/built{
+	dir = 8
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"LO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/derelict/ship)
+"Mu" = (
+/mob/living/simple_animal/hostile/republicon,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"OC" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"OR" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/weapon/rig/tesla,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"Qe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"Qk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict/ship)
+"Qz" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/hatch,
+/obj/item/weapon/landmine{
+	anchored = 1;
+	deployed = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"RJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"Sj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"TH" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/built{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"VV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/obj/machinery/light/small/built{
+	dir = 4
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"Zh" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/republicon/ranged,
+/turf/simulated/shuttle/floor{
+	icon_state = "floor7"
+	},
+/area/derelict/ship)
+"ZU" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -25183,10 +25232,10 @@ ab
 ab
 ab
 ab
-ac
-ac
-at
-at
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -25440,11 +25489,11 @@ ab
 ab
 ab
 ab
-ac
+cq
 ab
 ab
 ab
-at
+cq
 ab
 ab
 ab
@@ -25697,7 +25746,7 @@ ab
 ab
 ab
 ab
-ac
+cq
 ab
 ab
 ab
@@ -25954,9 +26003,9 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
+cq
+cq
+cq
 ab
 ab
 ab
@@ -26213,8 +26262,8 @@ ab
 ab
 ab
 ab
-ac
-ac
+cq
+cq
 ab
 ab
 ab
@@ -26471,20 +26520,20 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -26725,23 +26774,23 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -26978,27 +27027,27 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -27235,27 +27284,27 @@ ab
 ab
 ab
 ab
-ac
+cq
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -27492,28 +27541,28 @@ ab
 ab
 ab
 ab
-at
+cq
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -27749,28 +27798,28 @@ ab
 ab
 ab
 ab
-at
+cq
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -28006,28 +28055,28 @@ ab
 ab
 ab
 ab
-at
+cq
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -28264,27 +28313,27 @@ ab
 ab
 ab
 ab
-at
+cq
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -28523,25 +28572,25 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -28777,28 +28826,28 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -29033,29 +29082,29 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -29290,30 +29339,30 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -29547,31 +29596,31 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -29803,32 +29852,32 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 cM
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 cq
 cq
 cq
@@ -30060,25 +30109,25 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-bg
-bg
-bg
-bg
-bg
-bg
-bh
-bi
-bi
-bi
-bi
-bg
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
 ae
 ag
 am
@@ -30086,8 +30135,8 @@ ae
 ag
 am
 ae
-ac
-ac
+cq
+cq
 cq
 cq
 cq
@@ -30315,36 +30364,36 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-bg
-bg
-bh
-bh
-bh
-ch
-tY
-af
-tY
-tY
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ae
+cj
+Cy
+ae
+cj
+Cy
+ae
+cj
+Cy
+ae
 cN
-cT
+Cy
 ae
 ay
 ak
-bO
+nx
 ak
 ak
 ae
-ac
-ac
+cq
+cq
 cq
 cq
 cq
@@ -30572,25 +30621,25 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-bh
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ae
 bp
 bI
-bi
-bi
-af
-af
+ae
+bp
+cT
+ae
 cs
 cB
-cb
+ae
 cO
 bd
 ae
@@ -30827,23 +30876,23 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ac
-ac
-ac
-bi
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ae
 bq
 bJ
-af
+ae
 cb
-aS
+LO
 ae
 ct
 cC
@@ -31084,19 +31133,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ac
-ac
-bj
-aH
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ae
+Kj
 bK
 ae
 cc
@@ -31105,15 +31154,15 @@ ae
 cu
 cD
 ae
-aH
+Kj
 cV
 ae
-bm
+Qz
 ae
-dw
+TH
 dw
 dP
-dw
+KW
 dw
 dw
 eD
@@ -31338,20 +31387,20 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 br
 ae
@@ -31367,11 +31416,11 @@ ae
 ae
 ak
 ae
-dx
-dA
-dA
-dA
-ej
+dw
+dw
+dw
+dw
+dw
 dw
 eD
 eK
@@ -31595,21 +31644,22 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
+uP
 bs
 bs
 bs
@@ -31617,18 +31667,17 @@ bs
 bs
 bs
 bs
+CH
 bs
 bs
 bs
-cW
-cW
 aA
 ae
 dy
 dI
 dQ
 dQ
-ek
+dw
 ed
 eD
 eK
@@ -31852,14 +31901,14 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ag
 am
@@ -32109,14 +32158,14 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ao
 av
 ak
@@ -32140,13 +32189,13 @@ ax
 ae
 dz
 dJ
+OC
 dw
 dw
-ek
 eu
 eE
 ae
-eR
+wE
 eR
 fg
 cq
@@ -32364,16 +32413,16 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ap
 ak
 ak
@@ -32386,20 +32435,20 @@ aW
 bS
 ce
 ae
-cm
+hJ
 cm
 ae
 ae
 ae
 cY
 df
-di
+ak
 dp
-dA
-dK
-dA
-dA
-em
+dw
+dw
+dw
+IC
+dw
 dw
 eF
 ae
@@ -32621,23 +32670,23 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
-ak
+jE
 ak
 aD
 aM
 aW
-aW
+xr
 aM
 bM
 bT
@@ -32650,7 +32699,7 @@ cJ
 ae
 cZ
 ae
-dj
+ak
 ae
 dB
 dL
@@ -32875,22 +32924,22 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ao
 ak
-az
+ak
 ae
 aN
 aX
@@ -32907,7 +32956,7 @@ ae
 ae
 ae
 ar
-dj
+ak
 ae
 ae
 ae
@@ -33132,19 +33181,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ap
 ak
 aA
@@ -33164,11 +33213,11 @@ ak
 bm
 ak
 ak
-dk
-dq
-dq
-dq
-dR
+ak
+ak
+ak
+ak
+ak
 ak
 aA
 ak
@@ -33389,19 +33438,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 aw
 ak
@@ -33414,9 +33463,9 @@ ap
 ak
 ae
 ae
-ag
-aj
-am
+ae
+ae
+ae
 ae
 aq
 ak
@@ -33424,8 +33473,8 @@ aA
 dl
 ak
 ak
-ay
-dj
+VV
+ak
 ak
 ak
 bO
@@ -33646,14 +33695,14 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ag
 aj
@@ -33670,11 +33719,11 @@ ae
 ae
 bm
 ae
-cj
-cj
-cj
-cj
-cj
+Cc
+ck
+ck
+ck
+Cc
 ae
 ax
 dg
@@ -33682,7 +33731,7 @@ ae
 ag
 am
 ae
-dS
+ax
 dg
 ae
 ae
@@ -33903,16 +33952,16 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-af
-ah
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ao
+Qe
 ai
 ai
 an
@@ -33920,18 +33969,18 @@ aq
 ay
 ak
 ak
-ak
+kr
 ak
 bm
 ak
 ak
 ak
 ae
-ae
-ag
-aj
-am
-ae
+ck
+ck
+ck
+ck
+ck
 ae
 ak
 ak
@@ -33939,7 +33988,7 @@ ba
 dr
 dr
 ba
-dj
+ak
 ak
 ae
 dd
@@ -34160,15 +34209,15 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ZU
 ah
 ak
 al
@@ -34184,7 +34233,7 @@ ae
 ae
 ae
 ae
-ck
+JX
 ck
 ck
 ck
@@ -34193,10 +34242,10 @@ ae
 da
 ay
 ak
+kr
 ak
 ak
 ak
-dj
 dh
 aq
 ev
@@ -34205,14 +34254,14 @@ ak
 ak
 ak
 ak
-ak
+qd
 ak
 ak
 ak
 ak
 ak
 fn
-fn
+Lm
 ay
 ak
 ak
@@ -34417,18 +34466,18 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ZU
 ai
 al
-ak
+kr
 ak
 as
 ak
@@ -34437,15 +34486,15 @@ ak
 ak
 ak
 bn
-af
+bs
+Mu
+bs
 bN
-bU
-bN
 ck
 ck
-cw
+OR
 ck
-ck
+Cc
 ae
 bB
 ak
@@ -34453,7 +34502,7 @@ ak
 aB
 aF
 ak
-dj
+ak
 ak
 eo
 ak
@@ -34674,15 +34723,15 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ZU
 ah
 ak
 al
@@ -34694,11 +34743,11 @@ aG
 ae
 ae
 ae
-bx
 ae
 ae
 ae
-ck
+ae
+JX
 ck
 ck
 ck
@@ -34706,11 +34755,11 @@ ck
 ae
 db
 ak
+Zh
 ak
 ak
 ak
-ak
-dj
+kr
 ak
 ae
 ew
@@ -34723,13 +34772,13 @@ ba
 ak
 fk
 fm
-fm
+AJ
 ak
 ak
 ak
 ak
 ak
-ak
+vW
 ak
 fq
 ae
@@ -34931,19 +34980,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ap
 ah
 ai
 ai
-ah
+Ee
 ae
 ax
 ae
@@ -34955,19 +35004,19 @@ by
 af
 bV
 ae
-ae
-ag
-aj
-am
-ae
+ck
+ck
+ck
+ck
+ck
 ae
 dc
 ak
 dm
 ds
 ds
-ba
-dj
+Bg
+ak
 ak
 ep
 bC
@@ -35188,14 +35237,14 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ag
 aj
@@ -35212,11 +35261,11 @@ bz
 af
 bV
 ae
-cj
-cj
-cj
-cj
-cj
+Cc
+ck
+ck
+ck
+Cc
 ae
 ae
 ae
@@ -35224,12 +35273,12 @@ ae
 ag
 am
 ae
-dS
+ax
 dg
 ae
 cG
 eH
-bC
+RJ
 bC
 fd
 ae
@@ -35445,19 +35494,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ak
 ae
@@ -35470,9 +35519,9 @@ am
 ae
 ae
 ae
-ag
-aj
-am
+ae
+ae
+ae
 ae
 ae
 dd
@@ -35481,7 +35530,7 @@ ak
 ak
 ak
 ak
-dj
+ak
 ak
 ae
 ae
@@ -35702,21 +35751,21 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ao
-ak
+Zh
 ae
 aJ
 aS
@@ -35728,7 +35777,7 @@ ak
 bm
 ak
 ak
-ay
+VV
 ak
 ak
 ak
@@ -35736,16 +35785,16 @@ ak
 ak
 ak
 ak
-ak
+vW
 bO
-dj
+ak
 ak
 eq
 ex
-ex
+yi
 ex
 eW
-cm
+Qk
 ae
 cq
 cq
@@ -35959,19 +36008,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ap
 ak
 ae
@@ -35995,7 +36044,7 @@ ae
 ae
 ae
 ae
-dj
+ak
 ak
 ae
 ey
@@ -36216,19 +36265,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ax
 ae
@@ -36237,8 +36286,8 @@ ae
 ae
 ae
 bB
-ak
-ak
+jE
+kr
 ae
 bc
 aS
@@ -36252,7 +36301,7 @@ ae
 dt
 dC
 ae
-dj
+ak
 ak
 ae
 ez
@@ -36473,19 +36522,19 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ao
 ak
 ak
@@ -36509,7 +36558,7 @@ dn
 af
 by
 aq
-dj
+ak
 ef
 ar
 ex
@@ -36733,20 +36782,20 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ap
 ak
 ak
-ak
+vW
 aA
 ak
 bm
@@ -36766,7 +36815,7 @@ ae
 du
 dD
 ae
-dj
+ak
 ba
 ae
 eA
@@ -36990,16 +37039,16 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ag
 am
@@ -37023,7 +37072,7 @@ ae
 ae
 ae
 ae
-dT
+dO
 ae
 ae
 ae
@@ -37247,49 +37296,49 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 bC
 bP
 bC
 bP
-bQ
+bC
 ae
-cx
-cx
-cx
-cx
+HX
+HX
+Sj
+Sj
 ae
 ak
-ak
+qd
 ae
 dE
 dM
 dU
-dw
+OC
 er
 eB
 eD
 eK
-eY
-ad
-ac
-ac
+eQ
+cq
+cq
+cq
 cq
 cq
 cq
@@ -37504,22 +37553,22 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ao
 bD
 bC
@@ -37533,20 +37582,20 @@ cy
 cy
 de
 ak
-ak
+kr
 ao
 dF
 dw
-dV
+eu
 dw
 dw
 dw
 eD
 eK
-eY
-ad
-ac
-ac
+eQ
+cq
+cq
+cq
 cq
 cq
 cq
@@ -37763,25 +37812,25 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ap
 bE
 bC
 bY
-bC
+ln
 ca
 ae
 cy
@@ -37794,16 +37843,16 @@ ak
 ap
 dw
 dw
-dW
-dw
+eR
+IC
 dw
 dw
 eD
 eK
-eY
-ad
-ac
-ac
+eQ
+cq
+cq
+cq
 cq
 cq
 cq
@@ -38020,26 +38069,26 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 bF
 bP
 bZ
 bC
-bC
+DX
 ae
 cz
 cH
@@ -38051,18 +38100,18 @@ do
 ae
 dG
 dG
-dX
+eR
 eg
-es
-eC
+eR
+dw
 eD
 eK
-eY
-ad
-ad
-ac
-ac
-ac
+eQ
+cq
+cq
+cq
+cq
+cq
 cq
 cq
 cq
@@ -38278,22 +38327,22 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ao
 bG
-bQ
+bC
 ca
 bC
 cl
@@ -38314,12 +38363,12 @@ ag
 am
 ae
 ae
-ad
-ad
-ad
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
 cq
 cq
 cq
@@ -38535,23 +38584,23 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ap
 bH
-bQ
-ca
+bC
+Kp
 bC
 bC
 bW
@@ -38564,20 +38613,20 @@ ay
 ak
 ak
 ak
-ak
-dW
+bB
+eR
 ae
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 cq
 ab
 ab
@@ -38795,16 +38844,16 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 ag
 am
@@ -38824,18 +38873,18 @@ ae
 ae
 dZ
 ae
-ad
-ad
-ad
-ad
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -39055,44 +39104,44 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-af
-ea
-af
-ad
-ad
-ad
-ad
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+ae
+oH
+ae
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -39313,42 +39362,42 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
-ad
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ae
 dZ
 ae
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -39571,41 +39620,41 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ea
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -39829,38 +39878,38 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ea
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -40087,34 +40136,34 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ea
-ac
-ac
-ac
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+af
+cq
+cq
+cq
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -40344,31 +40393,31 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ea
-ac
-ac
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+af
+cq
+cq
+cq
+cq
 ab
 ab
 ab
@@ -40603,27 +40652,27 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ea
-ac
-ac
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+af
+cq
+cq
 ab
 ab
 ab
@@ -40864,21 +40913,21 @@ ab
 ab
 ab
 ab
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-ea
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+cq
+af
 ab
 ab
 ab
@@ -41135,7 +41184,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -41392,7 +41441,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -41649,7 +41698,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -41906,7 +41955,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -42163,7 +42212,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -42420,7 +42469,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -42677,7 +42726,7 @@ ab
 ab
 ab
 ab
-ea
+af
 ab
 ab
 ab
@@ -42933,9 +42982,9 @@ cq
 cq
 cq
 ab
-dN
-eb
-eh
+af
+af
+af
 ab
 ab
 cq
@@ -43190,9 +43239,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 ab
 cq
 aa
@@ -43447,9 +43496,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 cq
 aa
 aa
@@ -43704,9 +43753,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 cq
 aa
 aa
@@ -43961,9 +44010,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 cq
 aa
 aa
@@ -44218,9 +44267,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 cq
 aa
 aa
@@ -44475,9 +44524,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 cq
 aa
 aa
@@ -44732,9 +44781,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 cq
 aa
 aa
@@ -44989,9 +45038,9 @@ cq
 cq
 cq
 cq
-dN
-eb
-eh
+af
+af
+af
 aa
 aa
 aa

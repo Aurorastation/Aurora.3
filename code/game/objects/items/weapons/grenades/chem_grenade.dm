@@ -1,7 +1,7 @@
 /obj/item/weapon/grenade/chem_grenade
 	name = "grenade casing"
 	icon_state = "chemg"
-	item_state = "grenade"
+	item_state = "chemg"
 	desc = "A hand made chemical grenade."
 	w_class = 2.0
 	force = 2.0
@@ -57,7 +57,7 @@
 			return
 		path = 1
 		to_chat(user, "<span class='notice'>You add [W] to the metal casing.</span>")
-		playsound(src.loc, 'sound/items/Screwdriver2.ogg', 25, -3)
+		playsound(src.loc, W.usesound, 25, -3)
 		user.remove_from_mob(det)
 		det.forceMove(src)
 		detonator = det
@@ -79,7 +79,7 @@
 			else
 				to_chat(user, "<span class='notice'>You lock the empty assembly.</span>")
 				name = "fake grenade"
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
+			playsound(src.loc, W.usesound, 25, -3)
 			icon_state = initial(icon_state) +"_locked"
 			stage = 2
 		else if(stage == 2)
@@ -89,7 +89,7 @@
 				return
 			else
 				to_chat(user, "<span class='notice'>You unlock the assembly.</span>")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, -3)
+				playsound(src.loc, W.usesound, 25, -3)
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 				icon_state = initial(icon_state) + (detonator?"_ass":"")
 				stage = 1
@@ -185,6 +185,7 @@
 	name = "large chem grenade"
 	desc = "An oversized grenade that affects a larger area."
 	icon_state = "large_grenade"
+	item_state = "largechemg"
 	allowed_containers = list(/obj/item/weapon/reagent_containers/glass)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	affected_area = 4
@@ -253,7 +254,7 @@
 
 	beakers += B1
 	beakers += B2
-	icon_state = "grenade"
+	icon_state = initial(icon_state) +"_locked"
 
 /obj/item/weapon/grenade/chem_grenade/gas
 	name = "NT. 53 'Sandman' grenade"

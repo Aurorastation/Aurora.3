@@ -88,29 +88,30 @@ There are several things that need to be remembered:
 #define DAMAGE_LAYER      2
 #define SURGERY_LAYER     3
 #define UNDERWEAR_LAYER   4
-#define UNIFORM_LAYER     5
-#define ID_LAYER          6
-#define SHOES_LAYER       7
-#define GLOVES_LAYER      8
-#define BELT_LAYER        9
-#define TAIL_SOUTH_LAYER 10
-#define SUIT_LAYER       11
-#define TAIL_NORTH_LAYER 12
-#define GLASSES_LAYER    13
-#define BELT_LAYER_ALT   14
-#define SUIT_STORE_LAYER 15
-#define BACK_LAYER       16
-#define HAIR_LAYER       17
-#define EARS_LAYER       18
-#define FACEMASK_LAYER   19
-#define HEAD_LAYER       20
-#define COLLAR_LAYER     21
-#define HANDCUFF_LAYER   22
-#define LEGCUFF_LAYER    23
-#define L_HAND_LAYER     24
-#define R_HAND_LAYER     25
-#define FIRE_LAYER       26		//If you're on fire
-#define TOTAL_LAYERS     26
+#define SHOES_LAYER_ALT   5
+#define UNIFORM_LAYER     6
+#define ID_LAYER          7
+#define SHOES_LAYER       8
+#define GLOVES_LAYER      9
+#define BELT_LAYER       10
+#define TAIL_SOUTH_LAYER 11
+#define SUIT_LAYER       12
+#define TAIL_NORTH_LAYER 13
+#define GLASSES_LAYER    14
+#define BELT_LAYER_ALT   15
+#define SUIT_STORE_LAYER 16
+#define BACK_LAYER       17
+#define HAIR_LAYER       18
+#define EARS_LAYER       19
+#define FACEMASK_LAYER   20
+#define HEAD_LAYER       21
+#define COLLAR_LAYER     22
+#define HANDCUFF_LAYER   23
+#define LEGCUFF_LAYER    24
+#define L_HAND_LAYER     25
+#define R_HAND_LAYER     26
+#define FIRE_LAYER       27		//If you're on fire
+#define TOTAL_LAYERS     27
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -155,12 +156,12 @@ There are several things that need to be remembered:
 			M.Turn(90)
 			M.Scale(size_multiplier)
 			M.Translate(1,-6)
-			src.transform = M
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 		else
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
 			M.Translate(0, 16*(size_multiplier-1))
-			src.transform = M
+			animate(src, transform = M, time = ANIM_LYING_TIME)
 
 	compile_overlays()
 	lying_prev = lying
@@ -684,6 +685,7 @@ There are several things that need to be remembered:
 		return
 
 	overlays_raw[SHOES_LAYER] = null
+	overlays_raw[SHOES_LAYER_ALT] = null
 	if(check_draw_shoes())
 		var/image/standing
 		if(shoes.contained_sprite)
@@ -699,6 +701,13 @@ There are several things that need to be remembered:
 		else
 			standing = image("icon" = 'icons/mob/feet.dmi', "icon_state" = "[shoes.icon_state]")
 
+		//Shoe layer stuff from Polaris v1.0333a
+		var/shoe_layer = SHOES_LAYER
+		if(istype(shoes, /obj/item/clothing/shoes))
+			var/obj/item/clothing/shoes/ushoes = shoes
+			if(ushoes.shoes_under_pants == 1)
+				shoe_layer = SHOES_LAYER_ALT
+
 		standing.color = shoes.color
 
 		var/list/ovr
@@ -708,12 +717,15 @@ There are several things that need to be remembered:
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
-		overlays_raw[SHOES_LAYER] = ovr || standing
+		overlays_raw[shoe_layer] = ovr || standing
 	else
 		if(feet_blood_DNA)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = feet_blood_color
 			overlays_raw[SHOES_LAYER] = bloodsies
+		else
+			overlays_raw[SHOES_LAYER] = null
+			overlays_raw[SHOES_LAYER_ALT] = null
 
 	if(update_icons)
 		update_icons()
@@ -723,13 +735,19 @@ There are several things that need to be remembered:
 		return
 
 	if(s_store)
-		//s_store.auto_adapt_species(src)
-		overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
-		s_store.screen_loc = ui_sstore1		//TODO
+		if(s_store.contained_sprite)
+			s_store.auto_adapt_species(src)
+			var/state="[UNDERSCORE_OR_NULL(s_store.icon_species_tag)][s_store.item_state][WORN_SSTORE]"
+			overlays_raw[SUIT_STORE_LAYER] = image(s_store.icon_override || s_store.icon, state)
+			s_store.screen_loc = ui_sstore1
+		else
+			//s_store.auto_adapt_species(src)
+			overlays_raw[SUIT_STORE_LAYER] = image('icons/mob/belt_mirror.dmi', s_store.item_state || s_store.icon_state)
+			s_store.screen_loc = ui_sstore1		//TODO
 	else
 		overlays_raw[SUIT_STORE_LAYER] = null
-	if(update_icons)   update_icons()
-
+	if(update_icons)
+		update_icons()
 
 /mob/living/carbon/human/update_inv_head(update_icons = TRUE, recurse = TRUE)
 	if (QDELING(src))
@@ -1241,7 +1259,7 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[FIRE_LAYER] = on_fire ? image('icons/mob/OnFire.dmi', "Standing", layer = FIRE_LAYER) : null
+	overlays_raw[FIRE_LAYER] = on_fire ? image(species.onfire_overlay, "Standing", layer = FIRE_LAYER) : null
 
 	if(update_icons)
 		update_icons()

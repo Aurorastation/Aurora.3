@@ -76,29 +76,39 @@
 /obj/item/weapon/rig/light/ninja
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
-	desc = "A unique, vaccum-proof suit of nano-enhanced armor designed specifically for stealth operations."
+	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
 	icon_state = "ninja_rig"
-	armor = list(melee = 50, bullet = 35, laser = 35, energy = 30, bomb = 25, bio = 100, rad = 30)
+	armor = list(melee = 50, bullet = 45, laser = 45, energy = 30, bomb = 35, bio = 100, rad = 100)
 	emp_protection = 40
 	slowdown = 0
 
+	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
+
+	helm_type = /obj/item/clothing/head/helmet/space/rig/light/ninja
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
 	glove_type = /obj/item/clothing/gloves/rig/light/ninja
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/ninja
-	boot_type = /obj/item/clothing/shoes/rig/light/ninja
+	boot_type = /obj/item/clothing/shoes/magboots/rig/light/ninja
 
 	req_access = list(access_syndicate)
 	initial_modules = list(
-		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
+		/obj/item/rig_module/teleporter,
+		/obj/item/rig_module/stealth_field,
+		/obj/item/rig_module/electrowarfare_suite,
 		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/chem_dispenser/ninja,
 		/obj/item/rig_module/self_destruct,
-		/obj/item/rig_module/actuators
+		/obj/item/rig_module/actuators/combat
 	)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+/obj/item/clothing/head/helmet/space/rig/light/ninja
+	light_overlay = "helmet_light_dual_green"
+	light_color = "#3e7c3e"
 
 /obj/item/weapon/rig/light/ninja/equipped
 	initial_modules = list(
@@ -121,16 +131,12 @@
 	name = "insulated gloves"
 	siemens_coefficient = 0
 
-/obj/item/clothing/shoes/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
+/obj/item/clothing/shoes/magboots/rig/light/ninja
 	silent = 1
 
 /obj/item/clothing/suit/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 	breach_threshold = 38 //comparable to regular hardsuits
 
-/obj/item/clothing/head/helmet/space/rig/light/ninja
-	species_restricted = list("exclude","Diona","Xenomorph", "Golem")
 
 /obj/item/weapon/rig/light/stealth
 	name = "stealth suit control module"
@@ -167,9 +173,12 @@
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
 
+	species_restricted = list("Human")
+
+	siemens_coefficient = 0.9
+
 /obj/item/clothing/head/lightrig/offworlder
 	name = "helmet"
-	species_restricted = list("Human")
 	flash_protection = FLASH_PROTECTION_MAJOR
 
 /obj/item/clothing/suit/lightrig/offworlder
@@ -177,7 +186,6 @@
 	heat_protection = UPPER_TORSO
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
-	species_restricted = list("Human")
 
 /obj/item/weapon/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
@@ -190,6 +198,7 @@
 	offline_slowdown = 0
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
+	siemens_coefficient = 0.2
 
 	allowed = list(
 		/obj/item/device/flashlight,
@@ -205,26 +214,22 @@
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
-		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
-		/obj/item/rig_module/mounted/xray
+		/obj/item/rig_module/chem_dispenser/combat
 		)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
-	chest_type = /obj/item/clothing/suit/space/rig/light/offworlder
-	helm_type =  /obj/item/clothing/head/helmet/space/rig/light/offworlder
-	boot_type =  /obj/item/clothing/shoes/magboots/rig/light/offworlder
-	glove_type = /obj/item/clothing/gloves/rig/light/offworlder
+	chest_type = /obj/item/clothing/suit/space/rig/light
+	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
+	glove_type = /obj/item/clothing/gloves/rig/light
 
-/obj/item/clothing/suit/space/rig/light/offworlder
-	species_restricted = list("Human")
-
-/obj/item/clothing/head/helmet/space/rig/light/offworlder
-	species_restricted = list("Human")
-
- /obj/item/clothing/shoes/magboots/rig/light/offworlder
-	species_restricted = list("Human")
-
-/obj/item/clothing/gloves/rig/light/offworlder
-	species_restricted = list("Human")
+/obj/item/weapon/rig/light/offworlder/techno/equipped
+	initial_modules = list(
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/mounted/xray
+		)

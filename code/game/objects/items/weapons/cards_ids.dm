@@ -19,6 +19,7 @@
 	var/associated_account_number = 0
 
 	var/list/files = list(  )
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/weapon/card/data
 	name = "data disk"
@@ -71,10 +72,10 @@
 	var/uses = 10
 
 var/const/NO_EMAG_ACT = -50
-/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user)
+/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	var/used_uses = A.emag_act(uses, user, src)
 	if(used_uses == NO_EMAG_ACT)
-		return ..(A, user)
+		return ..(A, user, click_parameters)
 
 	uses -= used_uses
 	A.add_fingerprint(user)
@@ -95,10 +96,6 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card used to provide ID and determine access across the station."
 	icon_state = "id"
 	item_state = "card-id"
-
-	sprite_sheets = list(
-		"Resomi" = 'icons/mob/species/resomi/id.dmi'
-		)
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
@@ -165,9 +162,9 @@ var/const/NO_EMAG_ACT = -50
 
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
 	..()
-	id_card.age = age
+	id_card.age 				= age
 	id_card.citizenship			= citizenship
-	id_card.religion			= religion
+	id_card.religion 			= SSrecords.get_religion_record_name(religion)
 	id_card.mob					= src
 
 /obj/item/weapon/card/id/proc/dat()
@@ -202,7 +199,7 @@ var/const/NO_EMAG_ACT = -50
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
 				citizenship = H.citizenship
-				religion = H.religion
+				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
 				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
 				return
@@ -359,7 +356,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
-obj/item/weapon/card/id/ert/New()
+/obj/item/weapon/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
@@ -380,3 +377,42 @@ obj/item/weapon/card/id/ert/New()
 /obj/item/weapon/card/id/all_access/New()
 	access = get_access_ids()
 	..()
+
+// Contractor cards
+
+/obj/item/weapon/card/id/idris
+	name = "\improper Idris Incorporated identification card"
+	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
+	icon_state = "idris_card"
+
+/obj/item/weapon/card/id/idris/sec
+	icon_state = "idrissec_card"
+
+/obj/item/weapon/card/id/iru
+	name = "\improper IRU identification card"
+	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris Incorporated."
+	icon_state = "iru_card"
+
+/obj/item/weapon/card/id/eridani
+	name = "\improper Eridani identification card"
+	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
+	icon_state = "erisec_card"
+
+/obj/item/weapon/card/id/zeng_hu
+	name = "\improper Zeng-Hu Pharmaceuticals identification card"
+	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
+	icon_state = "zhu_card"
+
+/obj/item/weapon/card/id/hephaestus
+	name = "\improper Hephaestus Industries identification card"
+	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
+	icon_state = "heph_card"
+
+/obj/item/weapon/card/id/necropolis
+	name = "\improper Necropolis Incorporated identification card"
+	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
+	icon_state = "necro_card"
+
+/obj/item/weapon/card/id/necropolis/sec
+	icon_state = "necrosec_card"
+	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."

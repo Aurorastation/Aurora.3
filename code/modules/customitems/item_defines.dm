@@ -136,12 +136,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "bell_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
 	name = "pinned brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - \"Avery Bell, Silhouette Co\"."
 	icon = 'icons/obj/custom_items/bell_coat.dmi'
 	icon_state = "bell_coat"
 	item_state = "bell_coat"
+	icon_open = "bell_coat"
+	icon_closed = "bell_coat"
 	contained_sprite = TRUE
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
 	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
@@ -205,8 +207,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "sobriety chip"
 	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: \"TO THINE OWN SELF BE TRUE\"."
 	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
-	icon_state = "yoiko_coin" //thanks fireandglory for the sprites
-
+	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
+	cmineral = "yoiko"
 
 /obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
 	name = "unathi wrappings"
@@ -288,7 +290,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	force = 2
 
 
-/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - jackboot
+/obj/item/clothing/suit/chaplain_hoodie/fluff/nioathi_hoodie //Shaman Hoodie - Fereydoun Nioathi - marlonphoenix
 	name = "shaman hoodie"
 	desc = "A slightly faded robe. It's worn by some Unathi shamans."
 	icon = 'icons/obj/custom_items/nioathi_hoodie.dmi'
@@ -630,7 +632,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - jackboot
+/obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - marlonphoenix
 	name = "framed zatimono"
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one is slightly faded."
 	icon_state = "triaka_atimono"
@@ -651,8 +653,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
-	icon_state = "raymond_coin"
-
+	icon_state = "coin_raymond_heads"
+	cmineral = "raymond"
 
 /obj/item/clothing/under/fluff/zohjar_uniform //Republic Noble Clothing - Zohjar Rasateir - lordraven001
 	name = "republic noble clothing"
@@ -963,12 +965,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "leo_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
 	name = "tagged brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the \"Museum of Terran Culture and Technology\"."
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
+	icon_open = "leo_coat"
+	icon_closed = "leo_coat"
 	contained_sprite = TRUE
 
 
@@ -1031,7 +1035,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "oz_plushie"
 
 
-/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - jackboot
+/obj/item/clothing/suit/storage/fluff/vizili_mantle //Maraziite Throw Over - Urzkrauzi Vizili - marlonphoenix
 	name = "maraziite throw over"
 	desc = "A worn, grey poncho exclusively worn by members of the Maraziite Order."
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
@@ -1039,7 +1043,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "vizili_mantle"
 	contained_sprite = TRUE
 
-/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - jackboot
+/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Urzkrauzi Vizili - marlonphoenix
 	name = "iron mask"
 	desc = "A mask made of iron worn by members of the Maraziite Order. It can strike dread in the hearts of Unathi that don't toe the line of Sk'akh orthodoxy."
 	icon = 'icons/obj/custom_items/vizili_clothing.dmi'
@@ -1260,7 +1264,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - jackboot
+/obj/item/clothing/under/rank/medical/fluff/jurlkiitajr_scrubs //IAC Scrubs - Rajii'rkalahk Jurlkiitajr - marlonphoenix
 	name = "\improper IAA scrubs"
 	desc = "A change of sterile medical scrubs worn by IAC workers. This one is specific for Tajara Aid workers."
 	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
@@ -1268,7 +1272,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "jurlkiitajr_scrubs"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - jackboot
+/obj/item/clothing/suit/apron/surgery/fluff/jurlkiitajr_vest //IAC Vest - Rajii'rkalahk Jurlkiitajr - marlonphoenix
 	name = "\improper IAA vest"
 	desc = "A vest designed to distinguish medical workers in the Interstellar Aid Corps."
 	icon = 'icons/obj/custom_items/jurlkiitajr_items.dmi'
@@ -1392,7 +1396,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/weapon/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
 	name = "pineapple wallet"
 	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."
-	icon = 'icons/obj/custom_items/muhawir_wallet.dmi'
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "muhawir_wallet"
 
 /obj/item/weapon/storage/wallet/fluff/muhawir_wallet/update_icon()
@@ -1760,7 +1764,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - jackboot
+/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - marlonphoenix
 	name = "manifesto of the PRA"
 	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
 	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
@@ -1960,7 +1964,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			else
 				open = FALSE
 				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
-			playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(user.loc, I.usesound, 50, 1)
 
 		if(I.ismultitool() && open)
 			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
@@ -2763,7 +2767,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A holy book for followers of The Trinary Perfection."
 	icon = 'icons/obj/custom_items/oscar_bible.dmi'
 	icon_state = "oscar_bible"
-	deity_name = "Trinary Perfection"
 
 
 /obj/item/fluff/tokash_spear //Ancestral Spear - Suvek Tokash - evandorf
@@ -2868,10 +2871,291 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/suit/storage/fluff/imari_hoodie //adinkra hoodie - Imari Idris - P - ornias
+/obj/item/clothing/suit/storage/fluff/imari_hoodie //Adinkra Hoodie - Imari Idris - P - ornias
 	name = "adinkra hoodie"
 	desc = "A large, immaculate white hoodie adorned with seven Adinkra symbols on the back. Below the large central symbol is the text \"MMERE DANE\". There is a small 'Idris Incorporated' logo below the left drawstring."
 	icon = 'icons/obj/custom_items/imari_hoodie.dmi'
 	icon_state = "imari_hoodie"
 	item_state = "imari_hoodie"
 	contained_sprite = TRUE
+
+
+/obj/item/weapon/reagent_containers/glass/bucket/fluff/khasan_bucket //Battered Metal Bucket - Khasan Mikhnovsky - alberyk
+	name = "battered metal bucket"
+	desc = "A battered rusty metal bucket. It has seen a lot of use and little maintenance."
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_bucket"
+	item_state = "khasan_bucket"
+	contained_sprite = TRUE
+	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	drop_sound = 'sound/items/drop/axe.ogg'
+
+/obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
+	name = "battered metal bucket helmet"
+	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
+	icon_state = "khasan_helmet"
+	item_state = "khasan_helmet"
+	contained_sprite = TRUE
+
+
+/obj/item/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+	name = "holo-symphette"
+	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
+	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
+	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_state = "akinyi_symphette"
+	item_state = "akinyi_symphette"
+	w_class = 3
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	var/deployed = FALSE
+
+/obj/item/fluff/akinyi_symphette/update_icon()
+	if(deployed)
+		icon_state = "akinyi_symphette_on"
+		item_state = "akinyi_symphette_on"
+	else
+		icon_state = "akinyi_symphette"
+		item_state = "akinyi_symphette"
+
+/obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
+	deployed = !deployed
+	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
+	update_icon()
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
+
+/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
+	name = "bronze teapot"
+	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teapot"
+	center_of_mass = list("x"=16, "y"=13)
+
+/obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
+	name = "bronze teacup"
+	desc = "A shallow, bronze teacup. Looks heavy."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teacup"
+	volume = 20
+	center_of_mass = list("x"=16, "y"=12)
+
+/obj/item/weapon/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
+	desc = "A black, wooden box, the edges softened with transport and use."
+	icon = 'icons/obj/custom_items/thea_tea.dmi'
+	icon_state = "thea_teabox"
+	foldable = null
+	can_hold = list(/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup)
+
+/obj/item/weapon/storage/box/fluff/thea_teabox/fill()
+	new /obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot(src)
+	for(var/i in 1 to 4)
+		new /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup(src)
+	make_exact_fit()
+
+/obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
+	name = "leather journal"
+	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
+	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
+	icon_state = "fraseq_journal"
+	w_class = 3
+
+
+/obj/item/clothing/accessory/poncho/fluff/ioraks_cape //Iorakian Cape - Kuhserze Ioraks - geeves
+	name = "iorakian cape"
+	desc = "A tough leather cape, with neat colours of the Ioraks clan threaded through the seams."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_cape"
+	item_state = "ioraks_cape"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/strauss_jacket //Custom Firesuit - Lena Strauss - oddbomber3768
+	name = "modified firesuit"
+	desc = "An old industrial firesuit belonging to a defunct and forgotten company. The wearer has sawn off both of the arms, added two buttons on the front and replaced the back name \
+	tag with one reading \"FIREAXE\". Doesn't look really fire resistant anymore"
+	icon = 'icons/obj/custom_items/strauss_jacket.dmi'
+	icon_state = "strauss_jacket"
+	item_state = "strauss_jacket"
+	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/likho_labcoat //Terraneus Diagnostics Labcoat - Likho - neworiginalschwann
+	name = "terraneus diagnostics labcoat"
+	desc = "A well-worn labcoat that marks its wearer as an employee of Terraneus Diagnostics, a subsidiary corporation of Einstein Engines. Text on the labcoat's breast pocket marks \
+	the employee as a roboticist employed at Factory 09, Hoboken, United Americas."
+	icon = 'icons/obj/custom_items/likho_labcoat.dmi'
+	icon_state = "likho_labcoat"
+	item_state = "likho_labcoat"
+	icon_open = "likho_labcoat_open"
+	icon_closed = "likho_labcoat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - simontheminer
+	name = "winter paramedic jacket"
+	desc = "A custom made first responder coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
+	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
+	icon_state = "ramit_jacket"
+	item_state = "ramit_jacket"
+	icon_open = "ramit_jacket_open"
+	icon_closed = "ramit_jacket"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/accessory/dressshirt/fluff/takahashi_uniform //High Collar Dress Shirt - Shiki Takahashi - nantei
+	name = "high collar dress shirt"
+	desc = "A casual dress shirt. This one has an abnormally high collar."
+	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
+	icon_state = "takahashi_uniform"
+	item_state = "takahashi_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
+	name = "long trenchcoat"
+	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
+	symbol on the back, similar to the Frontier Alliance flag."
+	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
+	icon_state = "takahashi_coat"
+	item_state = "takahashi_coat"
+	icon_open = "takahashi_coat_open"
+	icon_closed = "takahashi_coat"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/glasses/sunglasses/blindfold/fluff/nai_fold	//Starvoice - Nai Eresh'Wake - jamchop23334
+	name = "starvoid blindfold"
+	desc = "An ethereal purple blindfold, woven from an incredibly soft yet durable silk. The faintest of light shines through, shading your darkened vision in a haze of purple."
+	icon = 'icons/obj/custom_items/nai_items.dmi'
+	icon_state = "nai_fold"
+	item_state = "nai_fold"
+	contained_sprite = TRUE
+	tint = TINT_BLIND
+	drop_sound = 'sound/items/drop/gloves.ogg'
+
+/obj/item/clothing/glasses/sunglasses/blindfold/fluff/nai_fold/equipped(mob/M as mob, slot)
+	if (M.ckey == "jamchop23334" && M.name == "Nai Eresh'Wake")
+		tint = TINT_NONE
+	else
+		tint = TINT_BLIND
+	..()
+
+/obj/item/clothing/gloves/fluff/nai_gloves //Starvoid Gloves - Nai Eresh'Wake - jamchop23334
+	name = "starvoid gloves"
+	desc = "An ethereal purple set of fingerless evening gloves, secured at the middle finger by a lace, with the palms exposed. The fabric is soft silk of some kind."
+	icon = 'icons/obj/custom_items/nai_items.dmi'
+	icon_state = "nai_gloves"
+	item_state = "nai_gloves"
+	contained_sprite = TRUE
+
+
+/obj/item/weapon/fluff/muhawir_bedroll //Bedroll - Muhawir Nawfal - menown
+	name = "bedroll"
+	desc = "A portable bedroll, made of cloth and padding."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "bedroll-rolled"
+	w_class = 3.0
+	attack_verb = list("battered","whacked")
+	var/deployed = FALSE
+
+/obj/item/weapon/fluff/muhawir_bedroll/attack_self(mob/user as mob)
+	if(!deployed)
+		to_chat(user, "<span class='notice'>You open the bedroll, extending it.</span>")
+		name = "open bedroll"
+		icon_state = "bedroll-open"
+		layer = MOB_LAYER - 0.01
+		user.drop_from_inventory(src)
+		deployed = TRUE
+	return
+
+/obj/item/weapon/fluff/muhawir_bedroll/attack_hand(mob/user as mob)
+	if(deployed)
+		to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
+		name = initial(name)
+		icon_state = initial(icon_state)
+		layer = initial(layer)
+		deployed = FALSE
+
+	..()
+
+/obj/item/weapon/fluff/muhawir_tenttools //Toolbag - Muhawir Nawfal - menown
+	name = "toolbag"
+	desc = "A roll of poles and ropes. Anybody knowledgeable would know they are designed for erecting a tent."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "tent-tools"
+	w_class = 3.0
+	attack_verb = list("battered","whacked")
+
+/obj/item/weapon/fluff/muhawir_tent //Tentroll - Muhawir Nawfal - menown
+	name = "tentroll"
+	desc = "A portable tent. All wrapped up with straps and buckles."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "tent-rolled"
+	w_class = 3.0
+	attack_verb = list("battered","whacked")
+
+/obj/item/weapon/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
+	if(istype(W, /obj/item/weapon/fluff/muhawir_tenttools))
+		user.visible_message("<span class='warning'>[user] unrolls the tent .</span>",
+			"<span class='notice'>You unroll the tent.</span>")
+		if(do_after(user, 5 SECONDS, act_target = src))
+			user.visible_message(
+				"<span class='warning'>[user] begins sliding the tent poles into the frame of the tent.</span>",
+				"<span class='notice'>You begin sliding the tent poles into the frame of the tent.</span>")
+			if(do_after(user, 60 SECONDS, act_target = src))
+				user.visible_message(
+					"<span class='warning'>[user] begins raising tent.</span>",
+					"<span class='notice'>You begin raising the tent.</span>")
+				if(do_after(user, 20 SECONDS, act_target = src))
+					user.visible_message(
+						"<span class='warning'>[usr] finishes raising the tent.</span>",
+						"<span class='notice'>You finish raising the tent.</span>")
+					new/obj/structure/closet/fluff/muhawir_tent(user.loc)
+					qdel(src)
+				return
+
+/obj/structure/closet/fluff/muhawir_tent
+	name = "camping tent"
+	desc = "A relatively good quality tent, complete with mounting poles and straps for keeping it open."
+	icon = 'icons/obj/custom_items/muhawir_items.dmi'
+	icon_state = "tent-closed"
+	icon_closed = "tent-closed"
+	icon_opened = "tent-open"
+	open_sound = 'sound/items/zip.ogg'
+	close_sound = 'sound/items/zip.ogg'
+	anchored = TRUE
+	storage_capacity = 15
+	var/has_bedroll = FALSE
+
+/obj/structure/closet/fluff/muhawir_tent/attackby(W as obj, mob/user as mob)
+	if(istype(W, /obj/item/weapon/fluff/muhawir_bedroll))
+		user.visible_message(
+		"<span class='warning'>[user] lays down the bedroll inside \the [src].</span>",
+		"<span class='notice'>You lay down the bedroll in \the [src].</span>")
+		qdel(W)
+		has_bedroll = TRUE
+		return
+
+/obj/structure/closet/fluff/muhawir_tent/verb/dismantle()
+	set name = "Dismantle Tent"
+	set category = "Object"
+	set src in view(1)
+
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	usr.visible_message(
+	"<span class='warning'>[usr] begins taking apart the [src.name].</span>",
+	"<span class='notice'>You begin taking apart the [src.name].</span>")
+	if(has_bedroll)
+		if(do_after(usr, 20 SECONDS, act_target = src))
+			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].</span>")
+			new/obj/item/weapon/fluff/muhawir_bedroll(get_turf(usr))
+			has_bedroll = FALSE
+	if(do_after(usr, 50 SECONDS, act_target = src))
+		to_chat(usr, "<span class='notice'>You take down \the [src].</span>")
+		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
+		qdel(src)
+		return

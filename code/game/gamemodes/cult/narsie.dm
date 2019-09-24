@@ -40,13 +40,15 @@ var/global/list/narsie_list = list()
 	var/announce=1
 	var/cause_hell = 1
 
-/obj/singularity/narsie/large/New()
+/obj/singularity/narsie/large/New(loc)
 	..()
 	if(announce)
 		to_world("<font size='15' color='red'><b>[uppertext(name)] HAS RISEN</b></font>")
 		to_world(sound('sound/effects/narsie.ogg'))
 
 	narsie_spawn_animation()
+
+	log_and_message_admins("Narsie has been spawned.", location = get_turf(loc))
 
 	if(!narsie_cometh)//so we don't initiate Hell more than one time.
 		if(cause_hell)

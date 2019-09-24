@@ -9,18 +9,21 @@
 	admin_levels = list(1)
 	contact_levels = list(3, 4, 5, 6)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
+	restricted_levels = list()
 	accessible_z_levels = list("8" = 10, "7" = 15, "2" = 60)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
 		"3" = /turf/space,
-		"4" = /turf/simulated/floor/asteroid/ash/rocky,
-		"5" = /turf/simulated/floor/asteroid/ash/rocky,
-		"6" = /turf/simulated/floor/asteroid/ash,
+		"4" = /turf/unsimulated/floor/asteroid/ash/rocky,
+		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
+		"6" = /turf/unsimulated/floor/asteroid/ash,
 		"7" = /turf/space,
 		"8" = /turf/space,
 		"9" = /turf/space
 	)
+
+	has_space_ruins = TRUE
 
 	station_name = "NSS Aurora"
 	station_short = "Aurora"
@@ -81,6 +84,3 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
-	// generate an empty space Z for the space ruin
-	world.maxz++
-	create_space_ruin(1,1,9)

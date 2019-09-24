@@ -1,3 +1,5 @@
+
+
 /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
 	name = "hydraulic clamp"
 	desc = "Equipment for engineering exosuits. Lifts objects and loads them into cargo."
@@ -157,8 +159,8 @@
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
-			else if(istype(target, /turf/simulated/floor/asteroid))
-				for(var/turf/simulated/floor/asteroid/M in range(chassis,1))
+			else if(istype(target, /turf/unsimulated/floor/asteroid))
+				for(var/turf/unsimulated/floor/asteroid/M in range(chassis,1))
 					if(get_dir(chassis,M)&chassis.dir)
 						M.gets_dug()
 				log_message("Drilled through \the [target]")
@@ -216,8 +218,8 @@
 						for(var/obj/item/weapon/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
-			else if(istype(target,/turf/simulated/floor/asteroid))
-				for(var/turf/simulated/floor/asteroid/M in range(target,1))
+			else if(istype(target,/turf/unsimulated/floor/asteroid))
+				for(var/turf/unsimulated/floor/asteroid/M in range(target,1))
 					M.gets_dug()
 				log_message("Drilled through \the [target]")
 				if(locate(/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp) in chassis.equipment)
@@ -307,10 +309,10 @@
 	return
 
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd
-	name = "mounted RCD"
-	desc = "An exosuit-mounted Rapid Construction Device."
-	icon_state = "mecha_rcd"
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c
+	name = "mounted RFD-C"
+	desc = "An exosuit-mounted Rapid-Fabrication-Device C-Class."
+	icon_state = "mecha_rfd"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4)
 	equip_cooldown = 10
 	energy_drain = 250
@@ -318,13 +320,16 @@
 	var/mode = 0 //0 - deconstruct, 1 - wall or floor, 2 - airlock.
 	var/disabled = 0 //malf
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd/action(atom/target)
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c/action(atom/target)
+	var/turf/t = get_turf(target)
 	if(istype(target,/area/shuttle)||istype(target, /turf/space/transit))//>implying these are ever made -Sieve
+		disabled = 1
+	else if (isNotStationLevel(t.z))
 		disabled = 1
 	else
 		disabled = 0
 	if(!istype(target, /turf) && !istype(target, /obj/machinery/door/airlock))
-		target = get_turf(target)
+		target = t
 	if(!action_checks(target) || disabled || get_dist(chassis, target)>3) return
 	playsound(chassis, 'sound/machines/click.ogg', 50, 1)
 	//meh
@@ -392,20 +397,20 @@
 	return
 
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd/Topic(href,href_list)
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c/Topic(href,href_list)
 	..()
 	if(href_list["mode"])
 		mode = text2num(href_list["mode"])
 		switch(mode)
 			if(0)
-				occupant_message("Switched RCD to Deconstruct.")
+				occupant_message("Switched RFD-C to Deconstruct.")
 			if(1)
-				occupant_message("Switched RCD to Construct.")
+				occupant_message("Switched RFD-C to Construct.")
 			if(2)
-				occupant_message("Switched RCD to Construct Airlock.")
+				occupant_message("Switched RFD-C to Construct Airlock.")
 	return
 
-/obj/item/mecha_parts/mecha_equipment/tool/rcd/get_equip_info()
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c/get_equip_info()
 	return "[..()] \[<a href='?src=\ref[src];mode=0'>D</a>|<a href='?src=\ref[src];mode=1'>C</a>|<a href='?src=\ref[src];mode=2'>A</a>\]"
 
 
@@ -1303,6 +1308,17 @@
 			to_chat(usr, "<span class='danger'>All of the passenger compartments are already occupied or locked!</span>")
 		if (0)
 			to_chat(usr, "<span class='warning'>\The [src] doesn't have a passenger compartment.</span>")
+
+
+
+/obj/item/mecha_parts/mecha_equipment/tool/artillerycomputer
+	name = "passenger compartment"
+	desc = "A mountable passenger compartment for exo-suits. Rather cramped."
+	icon_state = "mecha_abooster_ccw"
+	origin_tech = list(TECH_ENGINEERING = 1, TECH_BIO = 1)
+	var/ax = null
+	var/ay = null
+	var/az = null
 
 #undef LOCKED
 #undef OCCUPIED

@@ -81,9 +81,9 @@
 	permeability_coefficient = 0.50
 
 
-/obj/item/clothing/under/rank/internalaffairs
-	desc = "The plain, professional attire of an Internal Affairs Agent. The collar is <i>immaculately</i> starched."
-	name = "internal affairs uniform"
+/obj/item/clothing/under/rank/liaison
+	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
+	name = "corporate liaison uniform"
 	icon_state = "internalaffairs"
 	item_state = "ba_suit"
 	worn_state = "internalaffairs"
@@ -173,3 +173,79 @@
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
+
+/obj/item/clothing/under/rank/hephaestus
+	name = "Hephaestus Industries engineer uniform"
+	desc = "A uniform worn by Hephaestus Industries engineers."
+	icon_state = "heph_engineer"
+	worn_state = "heph_engineer"
+
+/obj/item/clothing/under/rank/hephaestus/tech
+	name = "Hephaestus Industries technician uniform"
+	desc = "A uniform worn by Hephaestus Industries technicians."
+	icon_state = "heph_technician"
+	worn_state = "heph_technician"
+
+/obj/item/clothing/under/rank/hephaestus/research
+	name = "Hephaestus Industries research uniform"
+	desc = "A uniform worn by Hephaestus Industries researchers."
+	icon_state = "heph_research"
+	worn_state = "heph_research"
+
+/obj/item/clothing/under/rank/necropolis
+	name = "Necropolis Industries uniform"
+	desc = "A uniform worn by Necropolis Industries employees and contractors."
+	icon_state = "necro"
+	worn_state = "necro"
+
+/obj/item/clothing/under/rank/necropolis/research
+	name = "Necropolis Industries research uniform"
+	desc = "A uniform worn by Necropolis Industries researchers."
+	icon_state = "necro_research"
+	worn_state = "necro_research"
+
+/obj/item/clothing/under/rank/necropolis/research/alt
+	icon_state = "necro_research_alt"
+	worn_state = "necro_research_alt"
+
+/obj/item/clothing/under/rank/idris
+	name = "Idris Incorporated uniform"
+	desc = "A uniform worn by Idris Incorporated employees and contractors."
+	icon_state = "idris_service"
+	worn_state = "idris_service"
+
+/obj/item/clothing/under/rank/idris/service
+	name = "Idris Incorporated service uniform"
+	desc = "A uniform worn by Idris Incorporated service personnel."
+
+/obj/item/clothing/under/rank/idris/service/alt
+	icon_state = "idris_service_alt"
+	worn_state = "idris_service_alt"
+
+/obj/item/clothing/under/rank/einstein_engines
+	name = "Einstein Engines uniform"
+	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
+	icon_state = "einstein_engine"
+	worn_state = "einstein_engine"
+
+/obj/item/clothing/under/rank/zeng
+	name = "Zeng-Hu uniform"
+	desc = "A uniform worn by Zeng-Hu medical doctors and researchers."
+	icon_state = "zeng_research"
+	worn_state = "zeng_research"
+
+/obj/item/clothing/under/rank/zeng/alt
+	icon_state = "zeng_research_alt"
+	worn_state = "zeng_research_alt"
+
+/obj/item/clothing/under/rank/zeng/civilian
+	name = "Zeng-Hu civilian uniform"
+	desc = "A uniform worn by Zeng-Hu employees."
+	icon_state = "zeng_service"
+	worn_state = "zeng_service"
+
+/obj/item/clothing/under/rank/eridani_medic
+	name = "Eridani PMC medic uniform"
+	desc = "A uniform worn by Eridani PMC paramedics."
+	icon_state = "eridani_medic"
+	worn_state = "eridani_medic"

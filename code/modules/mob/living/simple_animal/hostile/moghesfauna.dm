@@ -23,9 +23,10 @@
 	mob_size = 30
 	environment_smash = 2
 	attacktext = "chomped"
-	attack_sound = 'sound/misc/monstergrowl.ogg'
+	attack_sound = 'sound/effects/creatures/monstergrowl.ogg'
 
 	faction = "lizard"
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 
 /mob/living/simple_animal/hostile/biglizard/AttackingTarget()
 	. =..()

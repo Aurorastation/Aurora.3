@@ -25,6 +25,16 @@
 	if(species)
 		tally += species.get_species_tally(src)
 
+	if (nutrition < (max_nutrition * 0.4))
+		tally++
+		if (nutrition < (max_nutrition * 0.1))
+			tally++
+
+	if (hydration < (max_hydration * 0.4))
+		tally++
+		if (hydration < (max_hydration * 0.1))
+			tally++
+
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
 		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
 			var/obj/item/organ/external/E = get_organ(organ_name)
@@ -74,8 +84,6 @@
 		tally += T.movement_cost
 
 	tally += config.human_delay
-
-	tally *= 2/(get_hydration_mul(0.75,1) + get_nutrition_mul(0.75,1))
 
 	tally = round(tally,1)
 
@@ -139,11 +147,11 @@
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1, is_footstep = TRUE)
+			playsound(src, T.footstep_sound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1, is_footstep = TRUE)
+				playsound(src, T.footstep_sound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

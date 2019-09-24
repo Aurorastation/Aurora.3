@@ -159,6 +159,47 @@ Works together with spawning an observer, noted above.
 	if(medHUD)
 		process_medHUD(src)
 
+	teleport_if_needed()
+
+/mob/abstract/observer/proc/on_restricted_level(var/check)
+	if(!check)
+		check = z
+	//Check if they are a staff member
+	if(check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
+		return FALSE
+	
+	//Check if the z level is in the restricted list
+	if (!(check in current_map.restricted_levels))
+		return FALSE
+	
+	return TRUE
+
+/mob/abstract/observer/proc/teleport_to_spawn(var/message)
+	if(!message)
+		message = "You can not freely observe on this z-level."
+
+	//Teleport them back to the ghost spawn
+	var/obj/O = locate("landmark*Observer-Start")
+	if(istype(O))
+		to_chat(src, "<span class='notice'>[message]</span>")
+		forceMove(O.loc)
+
+//Teleports the observer away from z-levels they shouldnt be on, if needed.
+/mob/abstract/observer/proc/teleport_if_needed()
+	if(!on_restricted_level())
+		return
+
+	if(following)
+		if(!iscarbon(following)) //If they are following something other than a carbon mob, teleport them
+			stop_following()
+			teleport_to_spawn("You can not follow \the [following] on this level.")
+		else
+			return
+	//If they are moving around freely, teleport them
+	teleport_to_spawn()
+	//And update their sight settings
+	updateghostsight()
+
 
 /mob/abstract/observer/proc/process_medHUD(var/mob/M)
 	var/client/C = M.client
@@ -207,7 +248,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 					return
 				src.client.admin_ghost()
 		else
-			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another 30 minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
+			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
 		if(response != "Ghost")
 			return
 		resting = 1
@@ -328,8 +369,15 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!L || !L.len)
 		if(holyblock)
 			to_chat(usr, "<span class='warning'>This area has been entirely made into sacred grounds, you cannot enter it while you are in this plane of existence!</span>")
+			return
 		else
 			to_chat(usr, "No area available.")
+			return
+
+	var/turf/P = pick(L)
+	if(on_restricted_level(P.z))
+		to_chat(usr, "You can not teleport to this area")
+		return
 
 	stop_following()
 	usr.forceMove(pick(L))
@@ -355,6 +403,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	to_chat(src, "<span class='notice'>Now following \the [following]</span>")
 	move_to_destination(following, following.loc, following.loc)
+	updateghostsight()
 
 /mob/abstract/observer/proc/stop_following()
 	if(following)
@@ -362,10 +411,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null
+	
 
 /mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
 	if(check_holy(T))
+		stop_following()
+		teleport_if_needed()
 		to_chat(usr, "<span class='warning'>You cannot follow something standing on holy grounds!</span>")
 		return
 	..()
@@ -394,21 +446,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			forceMove(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-/*
-/mob/abstract/observer/verb/boo()
-	set category = "Ghost"
-	set name = "Boo!"
-	set desc= "Scare your crew members because of boredom!"
-
-	if(bootime > world.time) return
-	var/obj/machinery/light/L = locate(/obj/machinery/light) in view(1, src)
-	if(L)
-		L.flicker()
-		bootime = world.time + 600
-		return
-	//Maybe in the future we can add more <i>spooky</i> code here!
-	return
-*/
+		
+		teleport_if_needed()
 
 /mob/abstract/observer/memory()
 	set hidden = 1
@@ -420,6 +459,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 /mob/abstract/observer/Post_Incorpmove()
 	stop_following()
+	teleport_if_needed()
 
 /mob/abstract/observer/verb/analyze_air()
 	set name = "Analyze Air"
@@ -447,48 +487,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='notice'>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</span>")
 		to_chat(src, "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>")
 
-/mob/abstract/observer/verb/become_mouse()
-	set name = "Become mouse"
-	set category = "Ghost"
-
-	if(config.disable_player_mice)
-		to_chat(src, "<span class='warning'>Spawning as a mouse is currently disabled.</span>")
-		return
-
-	if(!ROUND_IS_STARTED)
-		to_chat(src, "<span class='warning'>You can not spawn as a mouse before round start!</span>")
-		return
-
-	if(!MayRespawn(1, ANIMAL))
-		return
-
-	var/turf/T = get_turf(src)
-	if(!T || (T.z in current_map.admin_levels))
-		to_chat(src, "<span class='warning'>You may not spawn as a mouse on this Z-level.</span>")
-		return
-
-	var/response = alert(src, "Are you -sure- you want to become a mouse?","Are you sure you want to squeek?","Squeek!","Nope!")
-	if(response != "Squeek!") return  //Hit the wrong key...again.
-
-
-	//find a viable mouse candidate
-	var/mob/living/simple_animal/mouse/host
-	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
-
-	if (spawnpoint)
-		host = new /mob/living/simple_animal/mouse(spawnpoint.loc)
-	else
-		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn mice at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
-
-	if(host)
-		if(config.uneducated_mice)
-			host.universal_understand = 0
-		announce_ghost_joinleave(src, 0, "They are now a mouse.")
-		host.ckey = src.ckey
-		to_chat(host, "<span class='info'>You are now a mouse. Try to avoid interaction with players, and do not give hints away that you are more than a simple rodent.</span>")
-
 /proc/find_mouse_spawnpoint(var/ZLevel)
-	//This function will attempt to find a good spawnpoint for mice, and prevent them from spawning in closed vent systems with no escape
+	//This function will attempt to find a good spawnpoint for rats, and prevent them from spawning in closed vent systems with no escape
 	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
 	//Continues either until a valid one is found (in which case we return it), or until we hit a limit on attempts..
 	//If we hit the limit without finding a valid one, then the best one we found is selected
@@ -587,7 +587,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	var/dat
 	dat += "<h4>Crew Manifest</h4>"
-	dat += data_core.get_manifest()
+	dat += SSrecords.get_manifest(OOC = 1)
 
 	src << browse(dat, "window=manifest;size=370x420;can_close=1")
 
@@ -603,7 +603,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(usr == src && try_possession(M))
 			return
 	if(istype(over, /obj/machinery/drone_fabricator))
-		if(try_drone_spawn(src, over))
+		var/obj/machinery/drone_fabricator/fab = over
+		if(fab.create_drone(src))
 			return
 
 	return ..()
@@ -618,7 +619,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 //Used for drawing on walls with blood puddles as a spooky ghost.
 /mob/abstract/observer/verb/bloody_doodle()
-
 	set category = "Ghost"
 	set name = "Write in blood"
 	set desc = "If the round is sufficiently spooky, write a short message in blood on the floor or a wall. Remember, no IC in OOC or OOC in IC."
@@ -839,12 +839,25 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	updateghostsight()
 
 /mob/abstract/observer/proc/updateghostsight()
-	if (!seedarkness)
-		see_invisible = SEE_INVISIBLE_NOLIGHTING
-	else
+	//if they are on a restricted level, then set the ghost vision for them.
+	if(on_restricted_level())
+		//On the restricted level they have the same sight as the mob
+		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
+		see_in_dark = 2
 		see_invisible = SEE_INVISIBLE_OBSERVER
-		if (!ghostvision)
-			see_invisible = SEE_INVISIBLE_LIVING;
+	else
+		//Outside of the restrcited level, they have enhanced vision
+		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
+		see_in_dark = 100
+		see_invisible = SEE_INVISIBLE_LEVEL_TWO
+
+		if (!seedarkness)
+			see_invisible = SEE_INVISIBLE_NOLIGHTING
+		else
+			see_invisible = SEE_INVISIBLE_OBSERVER
+			if (!ghostvision)
+				see_invisible = SEE_INVISIBLE_LIVING
+
 	updateghostimages()
 
 /proc/updateallghostimages()
@@ -906,3 +919,15 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if((!target) || (!ghost)) return
 	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
 	. += target.extra_ghost_link(ghost)
+
+
+//Opens the Ghost Spawner Menu
+/mob/abstract/observer/verb/ghost_spawner()
+	set category = "Ghost"
+	set name = "Ghost Spawner"
+	
+	if(!ROUND_IS_STARTED)
+		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		return
+
+	SSghostroles.vui_interact(src)

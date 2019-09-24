@@ -464,15 +464,15 @@
 		drain_complete(H)
 		return
 
-	// Attempts to drain up to 40kW, determines this value from remaining cell capacity to ensure we don't drain too much..
-	var/to_drain = min(40000, ((holder.cell.maxcharge - holder.cell.charge) / CELLRATE))
+	// Attempts to drain up to 80kW, determines this value from remaining cell capacity to ensure we don't drain too much..
+	var/to_drain = min(80000, ((holder.cell.maxcharge - holder.cell.charge) / CELLRATE))
 	var/target_drained = interfaced_with.drain_power(0,0,to_drain)
 	if(target_drained <= 0)
 		to_chat(H, "<span class = 'danger'>Your power sink flashes a red light; there is no power left in [interfaced_with].</span>")
 		drain_complete(H)
 		return
 
-	holder.cell.give(target_drained * CELLRATE)
+	holder.cell.give(target_drained * CELLRATE * 2)
 	total_power_drained += target_drained
 
 	return 1
@@ -480,9 +480,9 @@
 /obj/item/rig_module/power_sink/proc/drain_complete(var/mob/living/M)
 
 	if(!interfaced_with)
-		if(M) to_chat(M, "<font color='blue'><b>Total power drained:</b> [round(total_power_drained/1000)]kJ.</font>")
+		if(M) to_chat(M, "<font color='blue'><b>Total power drained:</b> [round(total_power_drained/500)]kJ.</font>")
 	else
-		if(M) to_chat(M, "<font color='blue'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained/1000)]kJ.</font>")
+		if(M) to_chat(M, "<font color='blue'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained/500)]kJ.</font>")
 		interfaced_with.drain_power(0,1,0) // Damage the victim.
 
 	drain_loc = null

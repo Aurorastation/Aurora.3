@@ -24,6 +24,7 @@
 	new /obj/item/weapon/storage/bag/ore(src)
 	new /obj/item/weapon/shovel(src)
 	new /obj/item/weapon/pickaxe(src)
+	new /obj/item/weapon/gun/custom_ka/frame01/prebuilt(src)
 	new /obj/item/weapon/ore_radar(src)
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
@@ -46,7 +47,7 @@
 /obj/item/weapon/pickaxe
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
@@ -114,6 +115,7 @@
 	return	unwield()
 
 /obj/item/weapon/pickaxe/pickup(mob/user)
+	..()
 	unwield()
 
 /obj/item/weapon/pickaxe/attack_self(mob/user as mob)
@@ -323,7 +325,7 @@
 /obj/item/weapon/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "shovel"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -411,7 +413,7 @@
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
-	if(!T || !istype(T, /turf/simulated/floor/asteroid))
+	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
 		to_chat(user, "The beacon won't stand up in this terrain.")
 		return
 
@@ -430,94 +432,8 @@
 	src.use(1)
 
 /**********************Miner Carts***********************/
-/obj/item/weapon/rrf_ammo
-	name = "compressed railway cartridge"
-	desc = "Highly compressed matter for the RRF."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "rcd"
-	item_state = "rcdammo"
-	w_class = 2
-	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 15000,"glass" = 7500)
 
-/obj/item/weapon/rrf
-	name = "\improper Rapid-Railway-Fabricator"
-	desc = "A device used to rapidly deploy mine tracks."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "rcd"
-	opacity = 0
-	density = 0
-	anchored = 0.0
-	var/stored_matter = 30
-	w_class = 3.0
-
-/obj/item/weapon/rrf/examine(mob/user)
-	if(..(user, 0))
-		to_chat(user, "It currently holds [stored_matter]/30 fabrication-units.")
-
-/obj/item/weapon/rrf/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	..()
-	if (istype(W, /obj/item/weapon/rcd_ammo))
-
-		if ((stored_matter + 30) > 30)
-			to_chat(user, "The RRF can't hold any more matter.")
-			return
-
-		qdel(W)
-
-		stored_matter += 30
-		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
-		return
-
-	if (istype(W, /obj/item/weapon/rrf_ammo))
-
-		if ((stored_matter + 15) > 30)
-			to_chat(user, "The RRF can't hold any more matter.")
-			return
-
-		qdel(W)
-
-		stored_matter += 15
-		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
-		return
-
-/obj/item/weapon/rrf/afterattack(atom/A, mob/user as mob, proximity)
-
-	if(!proximity) return
-
-	if(istype(user,/mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = user
-		if(R.stat || !R.cell || R.cell.charge <= 0)
-			return
-	else
-		if(stored_matter <= 0)
-			return
-
-	if(!istype(A, /turf/simulated/floor))
-		return
-
-	if(locate(/obj/structure/track) in A)
-		return
-
-	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-	var/used_energy = 0
-
-	used_energy = 10
-
-	new /obj/structure/track(get_turf(A))
-
-	to_chat(user, "Dispensing track...")
-
-	if(isrobot(user))
-		var/mob/living/silicon/robot/R = user
-		if(R.cell)
-			R.cell.use(used_energy)
-	else
-		stored_matter--
-		to_chat(user, "The RRF now holds [stored_matter]/30 fabrication-units.")
-
+// RRF refactored into RFD-M, found in RFD.dm
 
 /obj/structure/track
 	name = "mine track"
@@ -1159,7 +1075,7 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/weapon/autochisel
 	name = "auto-chisel"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
@@ -1192,7 +1108,7 @@ var/list/total_extraction_beacons = list()
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
 	if (C.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, C.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
 		anchored = !anchored
 

@@ -18,6 +18,7 @@
 	icon_state = "donutbox6"
 	name = "donut box"
 	var/icon_type = "donut"
+	var/storage_type = "box"
 
 /obj/item/weapon/storage/fancy/update_icon(var/itemremoved = 0)
 	var/total_contents = src.contents.len - itemremoved
@@ -29,11 +30,11 @@
 		return
 
 	if(contents.len <= 0)
-		to_chat(user, "There are no [src.icon_type]s left in the box.")
+		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
 	else if(contents.len == 1)
-		to_chat(user, "There is one [src.icon_type] left in the box.")
+		to_chat(user, "There is one [src.icon_type] left in the [src.storage_type].")
 	else
-		to_chat(user, "There are [src.contents.len] [src.icon_type]s in the box.")
+		to_chat(user, "There are [src.contents.len] [src.icon_type]s in the [src.storage_type].")
 
 	return
 
@@ -44,6 +45,7 @@
 /obj/item/weapon/storage/fancy/egg_box
 	icon = 'icons/obj/food.dmi'
 	icon_state = "eggbox"
+	center_of_mass = list("x" = 16,"y" = 7)
 	icon_type = "egg"
 	name = "egg box"
 	storage_slots = 12
@@ -51,11 +53,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/egg,
 		/obj/item/weapon/reagent_containers/food/snacks/boiledegg
 		)
-
-/obj/item/weapon/storage/fancy/egg_box/fill()
-	for(var/i=1; i <= storage_slots; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/egg(src)
-
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/egg = 12)
 /*
  * Candle Box
  */
@@ -70,10 +68,7 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	max_storage_space = 5
-
-/obj/item/weapon/storage/fancy/candle_box/fill()
-	for(var/i=1; i <= 5; i++)
-		new /obj/item/weapon/flame/candle(src)
+	starts_with = list(/obj/item/weapon/flame/candle = 5)
 
 /*
  * Crayon Box
@@ -89,15 +84,17 @@
 	can_hold = list(
 		/obj/item/weapon/pen/crayon
 	)
+	starts_with = list(
+		/obj/item/weapon/pen/crayon/red = 1,
+		/obj/item/weapon/pen/crayon/orange = 1,
+		/obj/item/weapon/pen/crayon/yellow = 1,
+		/obj/item/weapon/pen/crayon/green = 1,
+		/obj/item/weapon/pen/crayon/blue = 1,
+		/obj/item/weapon/pen/crayon/purple = 1
+	)
 
 /obj/item/weapon/storage/fancy/crayons/fill()
-	..()
-	new /obj/item/weapon/pen/crayon/red(src)
-	new /obj/item/weapon/pen/crayon/orange(src)
-	new /obj/item/weapon/pen/crayon/yellow(src)
-	new /obj/item/weapon/pen/crayon/green(src)
-	new /obj/item/weapon/pen/crayon/blue(src)
-	new /obj/item/weapon/pen/crayon/purple(src)
+	. = ..()
 	update_icon()
 
 /obj/item/weapon/storage/fancy/crayons/update_icon()
@@ -123,7 +120,7 @@
 /obj/item/weapon/storage/fancy/cigarettes
 	name = "cigarette packet"
 	desc = "The most popular brand of Space Cigarettes, sponsors of the Space Olympics."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	w_class = 1
@@ -178,6 +175,22 @@
 	else
 		..()
 
+// get it? A - AcmeCo, B - Blank, C - Cigar, D - DromedaryCo. How convenient is that? - Wezzy
+
+/obj/item/weapon/storage/fancy/cigarettes/acmeco
+	name = "\improper AcmeCo packet"
+	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
+	icon_state = "Apacket"
+	item_state = "Apacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
+
+/obj/item/weapon/storage/fancy/cigarettes/blank
+	name = "\improper blank packet"
+	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
+	icon_state = "Bpacket"
+	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
+
 /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
 	name = "\improper DromedaryCo packet"
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
@@ -185,26 +198,12 @@
 	item_state = "Dpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
-/obj/item/weapon/storage/fancy/cigarettes/killthroat
-	name = "\improper AcmeCo packet"
-	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
-	icon_state = "Bpacket"
-	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/killthroat
-
-/obj/item/weapon/storage/fancy/cigarettes/custom
-	name = "\improper blank packet"
-	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
-	icon_state = "Epacket"
-	item_state = "Epacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/custom
-
 /obj/item/weapon/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/cigs_lighters.dmi'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -258,12 +257,7 @@
 	name = "vial storage box"
 	storage_slots = 6
 	can_hold = list(/obj/item/weapon/reagent_containers/glass/beaker/vial)
-
-
-/obj/item/weapon/storage/fancy/vials/fill()
-	..()
-	for(var/i=1; i <= storage_slots; i++)
-		new /obj/item/weapon/reagent_containers/glass/beaker/vial(src)
+	starts_with = list(/obj/item/weapon/reagent_containers/glass/beaker/vial = 6)
 
 /obj/item/weapon/storage/lockbox/vials
 	name = "secure vial storage box"
@@ -305,8 +299,8 @@
 	can_hold = list(
 		/obj/item/weapon/reagent_containers/food/snacks/truffle/random
 	)
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/truffle/random = 8)
 
 /obj/item/weapon/storage/fancy/chocolate_box/fill()
 	for(var/i=1; i <= storage_slots; i++)
 		new /obj/item/weapon/reagent_containers/food/snacks/truffle/random(src)
-

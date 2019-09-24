@@ -35,7 +35,6 @@
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["synthetic intelligence movement armband"] = /obj/item/clothing/accessory/armband/movement
 	armbands["ATLAS armband"] = /obj/item/clothing/accessory/armband/atlas
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
@@ -43,7 +42,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -193,5 +192,3 @@
 /datum/gear/accessory/chaps/black
 	display_name = "chaps, black"
 	path = /obj/item/clothing/accessory/chaps/black
-
-

@@ -1,7 +1,7 @@
 /obj/item/weapon/phone
 	name = "red phone"
 	desc = "Should anything ever go wrong..."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
 	force = 3.0
@@ -15,8 +15,8 @@
 /obj/item/weapon/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
 	desc = "A device used to rapidly deploy seeds."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "rcd"
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "rfd"
 	opacity = 0
 	density = 0
 	anchored = 0.0
@@ -37,16 +37,14 @@
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
 
-
-/obj/item/weapon/c_tube
-	name = "cardboard tube"
-	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "c_tube"
-	throwforce = 1
-	w_class = 2.0
-	throw_speed = 4
-	throw_range = 5
+/obj/item/weapon/bikehorn/attack_self(mob/user as mob)
+	if (spam_flag == 0)
+		spam_flag = 1
+		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+		src.add_fingerprint(user)
+		spawn(20)
+			spam_flag = 0
+	return
 
 /obj/item/weapon/cane
 	name = "cane"
@@ -271,6 +269,12 @@
 		icon_state = "nullrod"
 		item_state = "foldcane"
 
+/obj/item/weapon/cane/crutch
+	name ="crutch"
+	desc = "A long stick with a crosspiece at the top, used to help with walking."
+	icon_state = "crutch"
+	item_state = "crutch"
+
 /obj/item/weapon/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
@@ -313,7 +317,6 @@
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-	sprite_sheets = list("Resomi" = 'icons/mob/species/resomi/handcuffs.dmi')
 
 /obj/item/weapon/caution
 	desc = "Caution! Wet Floor!"
@@ -326,6 +329,7 @@
 	throw_range = 5
 	w_class = 2.0
 	attack_verb = list("warned", "cautioned", "smashed")
+	drop_sound = 'sound/items/drop/shoes.ogg'
 
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
@@ -550,7 +554,7 @@
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
@@ -581,7 +585,7 @@
 /obj/item/weapon/anomaly_core
 	name = "anomaly core"
 	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 

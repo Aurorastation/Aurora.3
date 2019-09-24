@@ -8,8 +8,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
-	selection_color = "#ffddf0"
-	req_admin_notify = 1
+	selection_color = "#FF56B4"
 	economic_modifier = 10
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
@@ -51,7 +50,7 @@
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the chief medical officer"
-	selection_color = "#ffeef0"
+	selection_color = "#FF97D1"
 	economic_modifier = 7
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva)
@@ -70,7 +69,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
 	suit_store = /obj/item/device/flashlight/pen
@@ -114,7 +113,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
-	selection_color = "#ffeef0"
+	selection_color = "#FF97D1"
 	economic_modifier = 5
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
@@ -130,7 +129,7 @@
 
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/chemist
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 
@@ -161,7 +160,7 @@
 	spawn_positions = 1
 	economic_modifier = 5
 	supervisors = "the chief medical officer"
-	selection_color = "#ffeef0"
+	selection_color = "#FF97D1"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
 	alt_titles = list("Psychologist")
@@ -195,7 +194,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
-	selection_color = "#ffeef0"
+	selection_color = "#FF97D1"
 	economic_modifier = 4
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
@@ -213,6 +212,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_hand = /obj/item/weapon/storage/firstaid/adv
+	r_hand = /obj/item/weapon/reagent_containers/hypospray
 	belt = /obj/item/weapon/storage/belt/medical/emt
 	pda =  /obj/item/device/pda/medical
 
@@ -235,7 +235,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
-	selection_color = "#ffeef0"
+	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	alt_titles = list("Medical Intern")
@@ -246,7 +246,7 @@
 	jobtype = /datum/job/intern_med
 
 	uniform = /obj/item/clothing/under/rank/medical
-	shoes = /obj/item/clothing/shoes/white
+	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 
 	backpack = /obj/item/weapon/storage/backpack/medic

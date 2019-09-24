@@ -10,10 +10,10 @@
 	taste_description = "boiled cabbage"
 	unaffected_species = IS_MACHINE
 	var/kois_type = 1
-	specific_heat = 0.75
+	fallback_specific_heat = 0.75
 
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(!istype(M))
+	if(!ishuman(M))
 		return
 	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
@@ -23,21 +23,27 @@
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
 	else
-		M.adjustToxLoss(1 * removed)
-		if(istype(M,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = M
-			switch(kois_type)
-				if(1) //Normal
-					if(!H.internal_organs_by_name["kois"] && prob(5*removed))
-						var/obj/item/organ/external/affected = H.get_organ("chest")
-						var/obj/item/organ/parasite/kois/infest = new()
-						infest.replaced(H, affected)
-				if(2) //Modified
-					if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
-						var/obj/item/organ/external/affected = H.get_organ("head")
-						var/obj/item/organ/parasite/blackkois/infest = new()
-						infest.replaced(H, affected)
-	..()
+		infect(M, alien, removed)
+
+/datum/reagent/kois/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(ishuman(M))
+		infect(M, alien, removed)
+
+/datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
+	var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+	if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
+		H.adjustToxLoss(1 * removed)
+		switch(kois_type)
+			if(1) //Normal
+				if(!H.internal_organs_by_name["kois"] && prob(5*removed))
+					var/obj/item/organ/external/affected = H.get_organ("chest")
+					var/obj/item/organ/parasite/kois/infest = new()
+					infest.replaced(H, affected)
+			if(2) //Modified
+				if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
+					var/obj/item/organ/external/affected = H.get_organ("head")
+					var/obj/item/organ/parasite/blackkois/infest = new()
+					infest.replaced(H, affected)
 
 /datum/reagent/kois/clean
 	name = "Filtered K'ois"
@@ -46,7 +52,7 @@
 	color = "#ece9dd"
 	taste_description = "cabbage soup"
 	kois_type = 0
-	specific_heat = 1
+	fallback_specific_heat = 1
 
 /datum/reagent/kois/black
 	name = "Modified K'ois"
@@ -55,7 +61,7 @@
 	color = "#31004A"
 	taste_description = "tar"
 	kois_type = 2
-	specific_heat = 0.5
+	fallback_specific_heat = 0.5
 
 /* Food */
 /datum/reagent/nutriment
@@ -107,10 +113,8 @@
 			data -= null
 
 /datum/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!injectable)
-		M.adjustToxLoss(0.1 * removed)
-		return
-	affect_ingest(M, alien, removed)
+	if(injectable)
+		affect_ingest(M, alien, removed)
 
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -370,6 +374,7 @@
 	nutriment_factor = 10
 	color = "#FFFF00"
 	taste_description = "honey"
+	germ_adjust = 5
 
 /datum/reagent/nutriment/flour
 	name = "flour"
@@ -549,7 +554,7 @@
 	taste_description = "mint"
 	taste_mult = 1.5
 
-	specific_heat = 15
+	fallback_specific_heat = 15
 	default_temperature = T0C - 20
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -732,7 +737,6 @@
 	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(removed * blood_to_ingest_scale) // Probably not a good idea; not very deadly though
 	digest(M,alien,removed * blood_to_ingest_scale, FALSE)
 
 /datum/reagent/drink/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -791,7 +795,8 @@
 
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.reagents.add_reagent("imidazoline", removed * 0.2)
+	if(alien != IS_DIONA)
+		M.reagents.add_reagent("imidazoline", removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -826,6 +831,11 @@
 	glass_icon_state = "glass_green"
 	glass_name = "glass of lime juice"
 	glass_desc = "A glass of sweet-sour lime juice"
+
+/datum/reagent/drink/limejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	if(alien != IS_DIONA)
+		M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/orangejuice
 	name = "Orange juice"
@@ -878,6 +888,10 @@
 	glass_name = "glass of tomato juice"
 	glass_desc = "Are you sure this is tomato juice?"
 
+/datum/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0, 0.1 * removed)
+
 /datum/reagent/drink/watermelonjuice
 	name = "Watermelon Juice"
 	id = "watermelonjuice"
@@ -922,6 +936,8 @@
 	glass_name = "glass of garlic juice"
 	glass_desc = "Who would even drink juice from garlic?"
 
+	germ_adjust = 7.5 // has allicin, an antibiotic
+
 /datum/reagent/drink/juice/onion
 	name = "Onion Juice"
 	id = "onionjuice"
@@ -932,6 +948,17 @@
 
 	glass_name = "glass of onion juice"
 	glass_desc = "Juice from an onion, for when you need to cry."
+
+/datum/reagent/drink/applejuice
+	name = "Apple Juice"
+	id = "applejuice"
+	description = "Juice from an apple. The most basic beverage you can imagine."
+	taste_description = "apple juice"
+	color = "#f2d779"
+
+	glass_icon_state = "glass_apple"
+	glass_name = "glass of apple juice"
+	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
 
 /datum/reagent/drink/dynjuice
 	name = "Dyn Juice"
@@ -990,6 +1017,7 @@
 /datum/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
+		M.heal_organ_damage(0.1 * removed, 0)
 		holder.remove_reagent("capsaicin", 10 * removed)
 
 /datum/reagent/drink/milk/cream
@@ -1015,13 +1043,10 @@
 	glass_desc = "White and nutritious soy goodness!"
 
 /datum/reagent/drink/milk/adhomai
-	name = "Fermented Fatshouters Milk"
-	id = "adhomai_milk"
-	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
-	taste_description = "sour milk"
-
-	glass_name = "glass of fermented fatshouters milk"
-	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	name = "Fatshouters Milk"
+	id = "fatshouter_milk"
+	description = "An opaque white liquid produced by the mammary glands of native adhomian animal."
+	taste_description = "fatty milk"
 
 /datum/reagent/drink/milk/adhomai/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -1029,6 +1054,15 @@
 		var/mob/living/carbon/human/H = M
 		if(alien != IS_TAJARA && prob(5))
 			H.delayed_vomit()
+
+/datum/reagent/drink/milk/adhomai/fermented
+	name = "Fermented Fatshouters Milk"
+	id = "adhomai_milk"
+	description = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
+	taste_description = "sour milk"
+
+	glass_name = "glass of fermented fatshouters milk"
+	glass_desc = "A tajaran made fermented dairy product, traditionally consumed by nomadic population of Adhomai."
 
 /datum/reagent/drink/milk/beetle
 	name = "Hakhma Milk"
@@ -1056,6 +1090,21 @@
 	glass_desc = "Tasty black tea, it has antioxidants, it's good for you!"
 
 	var/last_taste_time = -100
+
+/datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.adjustToxLoss(-0.1 * removed)
+
+
+/datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		if(last_taste_time + 800 < world.time) // Not to spam message
+			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			last_taste_time = world.time
+		metabolism = REM * 0.33
+		M.adjustToxLoss(1.5 * removed)
+	else
+		M.adjustToxLoss(-0.1 * removed)
 
 /datum/reagent/drink/tea/icetea
 	name = "Iced Tea"
@@ -1127,6 +1176,10 @@
 	glass_desc = "A nice and refrshing beverage while you are reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
 
+/datum/reagent/drink/coffee/soy_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.1 * removed, 0)
+
 /datum/reagent/drink/coffee/cafe_latte
 	name = "Cafe Latte"
 	id = "cafe_latte"
@@ -1138,6 +1191,10 @@
 	glass_name = "glass of cafe latte"
 	glass_desc = "A nice, strong and refreshing beverage while you are reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/cafe_latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.1 * removed, 0)
 
 /datum/reagent/drink/coffee/espresso
 	name = "Espresso"
@@ -1198,6 +1255,10 @@
 	glass_name = "glass of cafe latte"
 	glass_desc = "A nice, strong and refreshing beverage while you are reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
+
+/datum/reagent/drink/coffee/latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.heal_organ_damage(0.1 * removed, 0)
 
 /datum/reagent/drink/coffee/cappuccino
 	name = "Cappuccino"
@@ -1557,6 +1618,7 @@
 	if(alien != IS_DIONA)
 		M.adjustOxyLoss(-4 * removed)
 		M.heal_organ_damage(2 * removed, 2 * removed)
+		M.adjustToxLoss(-2 * removed)
 		if(M.dizziness)
 			M.dizziness = max(0, M.dizziness - 15)
 		if(M.confused)
@@ -3701,6 +3763,41 @@
 	if(alien != IS_DIONA)
 		M.make_jittery(10)
 
+/datum/reagent/drink/algaesuprise
+	name = "Pl'iuop Algae Surprise"
+	id = "algaesuprise"
+	color = "#FFFF80"
+	description = "This bubbling drink gives off a faint moldy aroma."
+	taste_description = "swamp fungus"
+
+	glass_icon_state = "algae_surprise"
+	glass_name = "glass of Pl'iuop Algae Surprise"
+	glass_desc = "This bubbling drink gives off a faint moldy aroma."
+
+/datum/reagent/drink/xrim
+	name = "Xrim Garden"
+	id = "xrim"
+	color = "#F6668E"
+	description = "A colorful drink that smells a lot like rotten fruit."
+	taste_description = "sweet, fruity slime"
+
+	glass_icon_state = "xrim"
+	glass_name = "glass of Xrim Garden"
+	glass_desc = "A colorful drink that smells a lot like rotten fruit."
+
+/datum/reagent/alcohol/ethanol/rixulin_sundae
+	name = "Rixulin Sundae"
+	id = "rixulin_sundae"
+	color = "#83E2C6"
+	description = "A fizzing drink that looks like a really great time."
+	taste_description = "spacetime and warbling music"
+
+	strength = 15
+	druggy = 30
+
+	glass_icon_state = "rixulin_sundae"
+	glass_name = "glass of Rixulin Sundae"
+	glass_desc = "A fizzing drink that looks like a really great time."
 
 // Butanol-based alcoholic drinks
 //=====================================

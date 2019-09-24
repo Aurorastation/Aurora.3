@@ -252,27 +252,14 @@
 	fire_delay = 10
 	dispersion = GATLINGLASER_DISPERSION_CONCENTRATED
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="concentrated burst", burst=10, burst_delay = 1, fire_delay = 10, dispersion = GATLINGLASER_DISPERSION_CONCENTRATED),
 		list(mode_name="spray", burst=20, burst_delay = 1, move_delay = 5, fire_delay = 30, dispersion = GATLINGLASER_DISPERSION_SPRAY)
 		)
 
-	action_button_name = "Wield gatling laser"
 	charge_cost = 50
-
-/obj/item/weapon/gun/energy/vaurca/gatlinglaser/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/vaurca/gatlinglaser/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/vaurca/gatlinglaser/verb/wield_rifle()
-	set name = "Wield gatling laser"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
@@ -289,6 +276,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 30))
+		is_charging = 0
 		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
@@ -324,7 +312,7 @@
 /obj/item/weapon/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
-	icon = 'icons/mob/species/breeder/inventory/items.dmi'
+	icon = 'icons/mob/species/breeder/inventory.dmi'
 	icon_state = "megaglaive0"
 	item_state = "megaglaive"
 	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
@@ -354,21 +342,9 @@
 	recharge_time = 2
 	needspin = FALSE
 
+	is_wieldable = TRUE
+
 	action_button_name = "Wield thermal lance"
-
-/obj/item/weapon/gun/energy/vaurca/typec/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/vaurca/typec/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/vaurca/typec/verb/wield_rifle()
-	set name = "Wield thermal lance"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
@@ -393,6 +369,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 20))
+		is_charging = 0
 		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
@@ -450,6 +427,8 @@
 	can_turret = 1
 	turret_sprite_set = "thermaldrill"
 
+	is_wieldable = TRUE
+
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
 		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
@@ -459,20 +438,6 @@
 	action_button_name = "Wield thermal drill"
 
 	needspin = FALSE
-
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/verb/wield_rifle()
-	set name = "Wield thermal drill"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	if(is_charging)
@@ -532,6 +497,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 20))
+		is_charging = 0
 		return 0
 	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))
@@ -570,6 +536,13 @@
 	fire_delay = 10
 	accuracy = 80
 	muzzle_flash = 15
+
+/obj/item/weapon/gun/energy/tesla/mounted
+	name = "mounted tesla carbine"
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0
 
 /obj/item/weapon/gun/energy/gravity_gun
 	name = "gravity gun"

@@ -46,7 +46,7 @@
 			link = select_query.item[1]
 
 		if(link && link != "")
-			to_chat(usr, link(link))
+			send_link(usr, link)
 		else
 			log_debug("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
 

@@ -138,6 +138,11 @@ var/list/asset_datums = list()
 		return new type()
 	return asset_datums[type]
 
+/proc/simple_asset_ensure_is_sent(client, type)
+	var/datum/asset/simple/asset = get_asset_datum(type)
+
+	asset.send(client)
+
 /datum/asset/New()
 	asset_datums[type] = src
 
@@ -179,34 +184,20 @@ var/list/asset_datums = list()
 		"barcode1.png" = 'html/images/barcode1.png',
 		"barcode2.png" = 'html/images/barcode2.png',
 		"barcode3.png" = 'html/images/barcode3.png',
-		"ntlogo.png"   = 'html/images/ntlogo.png'
+		"ntlogo.png" = 'html/images/ntlogo.png',
+		"ntlogo_small.png" = 'html/images/ntlogo_small.png',
+		"zhlogo.png" = 'html/images/zhlogo.png',
+		"idrislogo.png" = 'html/images/idrislogo.png',
+		"eridanilogo.png" = 'html/images/eridanilogo.png',
+		"necrologo.png" = 'html/images/necrologo.png',
+		"hplogo.png" = 'html/images/hplogo.png',
+		"belogo.png" = 'html/images/belogo.png'
 	)
 
 /datum/asset/simple/changelog
 	assets = list(
-		"88x31.png" = 'html/88x31.png',
-		"bug-minus.png" = 'html/bug-minus.png',
-		"cross-circle.png" = 'html/cross-circle.png',
-		"hard-hat-exclamation.png" = 'html/hard-hat-exclamation.png',
-		"image-minus.png" = 'html/image-minus.png',
-		"image-plus.png" = 'html/image-plus.png',
-		"map-pencil.png" = 'html/map-pencil.png',
-		"music-minus.png" = 'html/music-minus.png',
-		"music-plus.png" = 'html/music-plus.png',
-		"tick-circle.png" = 'html/tick-circle.png',
-		"wrench-screwdriver.png" = 'html/wrench-screwdriver.png',
-		"spell-check.png" = 'html/spell-check.png',
-		"burn-exclamation.png" = 'html/burn-exclamation.png',
-		"scales.png" = 'html/scales.png',
-		"chevron.png" = 'html/chevron.png',
-		"chevron-expand.png" = 'html/chevron-expand.png',
 		"changelog.css" = 'html/changelog.css',
 		"changelog.js" = 'html/changelog.js'
-	)
-
-/datum/asset/simple/vueui_theming
-	assets = list(
-		"vueui.css" = 'vueui/dist/app.css'
 	)
 
 /datum/asset/simple/vueui
@@ -233,3 +224,14 @@ var/list/asset_datums = list()
 
 /datum/asset/chem_master/send(client)
 	send_asset_list(client, assets)
+
+/datum/asset/simple/faction_icons
+	assets = list(
+		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
+		"faction_Zeng.png" = 'icons/misc/factions/ZhenHulogo.png',
+		"faction_Necro.png" = 'icons/misc/factions/NecroInclogo.png',
+		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
+		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
+		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',
+		"faction_unaffiliated.png" = 'icons/misc/factions/Unaffiliatedlogo.png'
+	)

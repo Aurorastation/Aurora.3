@@ -6,6 +6,7 @@
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "autoinjector"
 	icon_state = "inhaler1"
+	center_of_mass = list("x" = 16,"y" = 11)
 	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5
@@ -102,6 +103,14 @@
 	else
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
+
+/obj/item/weapon/reagent_containers/inhaler/attackby(obj/item/weapon/W, mob/user)
+	if(W.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
+		flags |= OPENCONTAINER
+		update_icon()
+		return
+	. = ..()
 
 /obj/item/weapon/reagent_containers/inhaler/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())

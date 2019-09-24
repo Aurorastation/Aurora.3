@@ -26,7 +26,7 @@ input, textarea, button, select, .button {
     display: inline-block;
 }
 
-.button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
+a, .button, button, input[type=submit], input[type=button], input[type=reset], input[disabled] {
     user-select: none;
     background-color: #d8d8d8;
     cursor: pointer;
@@ -45,61 +45,6 @@ input, textarea, button, select, .button {
 
 .hidden {
     display: none;
-}
-
-.itemGroup {
-    border: 1px solid #e9c183;
-    background: #2c2c2c;
-    padding: 4px;
-}
-
-.item {
-    width: 100%;
-}
-
-.itemContentNarrow {
-    width: 30%;
-}
-
-.itemContent {
-    width: 69%;
-}
-
-.itemLabelNarrow, .itemLabel, .itemLabelWide, .itemLabelWider, .itemLabelWidest, .itemContentNarrow, .itemContent {
-    display: inline-block
-}
-
-.itemLabelNarrow {
-    width: 20%;
-}
-
-.itemLabel {
-    width: 30%;
-    vertical-align: middle;
-}
-
-.itemLabelWide {
-    width: 45%;
-}
-
-.itemLabelWider {
-    width: 69%;
-}
-
-.itemLabelWidest {
-    width: 100%;
-}
-
-.itemContentWide {
-    width: 79%;
-}
-
-.itemContentSmall {
-    width: 33%;
-}
-
-.itemContentMedium {
-    width: 55%;
 }
 
 .notice {
@@ -148,4 +93,22 @@ input, textarea, button, select, .button {
 
 .csserror {
     display: none;
+}
+
+.tooltip {
+    &.label {
+        text-decoration: underline;
+    }
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: green;
 }

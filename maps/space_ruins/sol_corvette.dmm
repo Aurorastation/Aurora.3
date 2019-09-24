@@ -357,7 +357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bd" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "be" = (
@@ -394,50 +394,8 @@
 /area/derelict/ship)
 "bl" = (
 /obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor,
-/area/derelict/ship)
-"bm" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor,
-/area/derelict/ship)
-"bn" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/shuttle/wall/dark,
-/area/derelict/ship)
-"bo" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bp" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bq" = (
 /obj/machinery/light{
@@ -457,32 +415,6 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"bt" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bu" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bv" = (
-/obj/machinery/power/rtg/advanced,
-/obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
-	},
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor,
-/area/derelict/ship)
 "bw" = (
 /turf/template_noop,
 /area/shuttle/research/away)
@@ -501,39 +433,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /turf/simulated/floor,
-/area/derelict/ship)
-"by" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bz" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bA" = (
 /obj/structure/table/reinforced/steel,
@@ -550,12 +450,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bD" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/random/voidsuit,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
@@ -573,12 +467,6 @@
 "bG" = (
 /obj/machinery/light{
 	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"bH" = (
-/obj/effect/landmark{
-	name = "Observer-Start"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -612,22 +500,6 @@
 	},
 /turf/simulated/floor/greengrid,
 /area/derelict/ship)
-"bL" = (
-/obj/machinery/door/airlock/hatch{
-	desc = "A thick blast door with Sol Alliance markings.";
-	icon_state = "door_locked";
-	id_tag = "engine_access_hatch";
-	locked = 1;
-	req_access = list(11)
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "bM" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -645,14 +517,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/greengrid,
-/area/derelict/ship)
-"bP" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bQ" = (
 /obj/machinery/light{
@@ -706,14 +570,6 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bW" = (
-/turf/simulated/floor/tiled/white,
-/area/derelict/ship)
-"bX" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bY" = (
@@ -771,23 +627,7 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"cf" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/random/loot,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "cg" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 8
@@ -800,36 +640,6 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/regular/open,
 /turf/simulated/floor,
-/area/derelict/ship)
-"ch" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"ci" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/derelict/ship)
-"cj" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "ck" = (
 /obj/structure/table/reinforced/steel,
@@ -939,7 +749,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cA" = (
-/mob/living/simple_animal/mouse,
+/mob/living/simple_animal/rat,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cB" = (
@@ -972,14 +782,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cH" = (
-/turf/simulated/floor/tiled/ramp,
-/area/derelict/ship)
-"cI" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/ramp,
 /area/derelict/ship)
 "cJ" = (
@@ -1101,16 +903,6 @@
 /obj/structure/closet/wardrobe/engineering_yellow,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dd" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable,
-/obj/machinery/power/terminal,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "de" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/simulated/floor/tiled/dark,
@@ -1123,34 +915,67 @@
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"dh" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"di" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+"sg" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
 	},
-/obj/structure/cable,
-/obj/machinery/power/breakerbox/activated,
-/turf/simulated/floor/tiled/dark,
+/turf/template_noop,
 /area/derelict/ship)
-"dj" = (
-/obj/machinery/power/apc/high{
+"th" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"wQ" = (
+/turf/space,
+/turf/simulated/shuttle/wall/dark{
 	dir = 4;
-	name = "east bump";
-	pixel_x = 24
+	icon_state = "diagonalWall3"
 	},
-/obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
+/area/derelict/ship)
+"zm" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
 	},
-/obj/machinery/power/terminal{
-	dir = 4
+/turf/simulated/shuttle/wall/dark,
+/area/derelict/ship)
+"BR" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/shuttle/wall/dark,
+/area/derelict/ship)
+"Ii" = (
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/floor,
+/area/derelict/ship)
+"Jr" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/derelict/ship)
+"Yo" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"Zj" = (
+/turf/simulated/shuttle/wall/dark{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"ZG" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"ZJ" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/shuttle/wall/dark,
 /area/derelict/ship)
 
 (1,1,1) = {"
@@ -25437,13 +25262,13 @@ ab
 ab
 ab
 aq
-bm
-bm
-bm
-bm
-bm
-bm
-bm
+bl
+bl
+bl
+bl
+bl
+bl
+bl
 aq
 aZ
 aZ
@@ -25457,8 +25282,8 @@ cE
 aq
 aq
 aq
-ab
-ab
+aq
+th
 ab
 ab
 ab
@@ -25694,13 +25519,13 @@ aj
 aj
 aq
 aq
-bn
+aq
 bx
-bn
+aq
 bx
-bn
+aq
 bx
-bn
+aq
 aq
 be
 aq
@@ -25714,8 +25539,8 @@ am
 cU
 cW
 aq
-ab
-ab
+Ii
+BR
 ab
 ab
 ab
@@ -25951,11 +25776,11 @@ aj
 aq
 aq
 bc
-bo
-bu
-bu
-bu
-bu
+aG
+am
+am
+am
+am
 bD
 bD
 aq
@@ -25971,8 +25796,8 @@ am
 am
 cW
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -26208,17 +26033,17 @@ aU
 aq
 aw
 am
-bp
-by
-by
-by
-by
-by
-by
-bL
-bP
-bP
-cf
+am
+am
+am
+am
+am
+am
+am
+az
+am
+am
+ce
 aq
 bG
 am
@@ -26228,8 +26053,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -26475,7 +26300,7 @@ aG
 aq
 am
 am
-bu
+am
 az
 am
 am
@@ -26485,8 +26310,8 @@ am
 am
 cX
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -26732,7 +26557,7 @@ aq
 aq
 bQ
 am
-bu
+am
 cn
 am
 am
@@ -26742,8 +26567,8 @@ cP
 cN
 cX
 aq
-ab
-ab
+Ii
+zm
 ab
 ab
 ab
@@ -26989,7 +26814,7 @@ bj
 aq
 bR
 am
-bu
+am
 aq
 az
 aq
@@ -26999,8 +26824,8 @@ aw
 aq
 aq
 aq
-ab
-ab
+aq
+wQ
 ab
 ab
 ab
@@ -27246,7 +27071,7 @@ aZ
 aq
 bR
 am
-bu
+am
 aq
 am
 cB
@@ -27503,7 +27328,7 @@ aZ
 aq
 aY
 am
-bu
+am
 aq
 bG
 am
@@ -27772,8 +27597,8 @@ aq
 aq
 aq
 aq
-ab
-ab
+aq
+Zj
 ab
 ab
 ab
@@ -28017,7 +27842,7 @@ am
 am
 am
 ax
-bu
+am
 co
 am
 am
@@ -28029,8 +27854,8 @@ cY
 dc
 df
 aq
-ab
-ab
+Ii
+sg
 ab
 ab
 ab
@@ -28274,7 +28099,7 @@ am
 am
 am
 am
-bu
+am
 aq
 aq
 aq
@@ -28286,8 +28111,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -28531,7 +28356,7 @@ bI
 bM
 bT
 am
-bu
+am
 aq
 ct
 am
@@ -28543,8 +28368,8 @@ am
 am
 dg
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -28783,25 +28608,25 @@ ba
 am
 az
 am
-bH
+am
 bJ
 bN
 ba
 am
-ch
-bL
-bP
-bP
-cI
-bP
-bP
-bP
-bP
-dd
-dh
+am
+az
+am
+am
+cH
+am
+am
+am
+am
+am
+am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -29045,7 +28870,7 @@ bK
 bO
 bU
 am
-bu
+am
 aq
 cu
 cC
@@ -29054,11 +28879,11 @@ am
 am
 am
 cZ
-bp
-di
+am
+am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -29302,7 +29127,7 @@ am
 am
 am
 am
-bu
+am
 aq
 aq
 aq
@@ -29312,10 +29137,10 @@ cR
 am
 am
 am
-bu
+am
 aq
-ab
-ab
+Ii
+Jr
 ab
 ab
 ab
@@ -29559,7 +29384,7 @@ am
 am
 am
 ca
-bu
+am
 aq
 cv
 bW
@@ -29569,10 +29394,10 @@ cS
 am
 da
 de
-dj
+am
 aq
-ab
-ab
+Ii
+ZG
 ab
 ab
 ab
@@ -29816,7 +29641,7 @@ aq
 aw
 am
 am
-bu
+am
 cp
 bW
 cD
@@ -29828,8 +29653,8 @@ aq
 aq
 aq
 aq
-ab
-ab
+aq
+Yo
 ab
 ab
 ab
@@ -30073,7 +29898,7 @@ aZ
 aq
 aY
 am
-bu
+am
 aq
 aq
 aq
@@ -30330,7 +30155,7 @@ bj
 be
 am
 am
-bu
+am
 cq
 am
 ax
@@ -30587,7 +30412,7 @@ aZ
 aq
 aq
 cb
-bn
+aq
 aq
 aq
 aq
@@ -30597,8 +30422,8 @@ aq
 aq
 aq
 aq
-ab
-ab
+aq
+th
 ab
 ab
 ab
@@ -30844,7 +30669,7 @@ aq
 aq
 bV
 bW
-ci
+bW
 bW
 cw
 aq
@@ -30854,8 +30679,8 @@ ax
 am
 am
 aq
-ab
-ab
+Ii
+BR
 ab
 ab
 ab
@@ -31101,7 +30926,7 @@ am
 aq
 bW
 bW
-ci
+bW
 bW
 cx
 aq
@@ -31111,8 +30936,8 @@ aq
 az
 aq
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -31348,17 +31173,17 @@ aU
 aq
 aw
 am
-bt
-bz
-bz
-bz
-bz
-bz
-bz
-bL
-bX
-bX
-cj
+am
+am
+am
+am
+am
+am
+am
+az
+bW
+bW
+bW
 bW
 cy
 aq
@@ -31368,8 +31193,8 @@ cK
 am
 am
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -31605,13 +31430,13 @@ aj
 aq
 aq
 bc
-bu
-bu
-bu
-bu
-bu
-bu
-bu
+am
+am
+am
+am
+am
+am
+am
 aq
 bY
 bY
@@ -31625,8 +31450,8 @@ am
 am
 am
 aq
-ab
-ab
+Ii
+ZJ
 ab
 ab
 ab
@@ -31862,13 +31687,13 @@ aj
 aj
 aq
 aq
-bn
+aq
 bx
-bn
+aq
 bx
-bn
+aq
 bx
-bn
+aq
 aq
 aq
 aq
@@ -31882,8 +31707,8 @@ am
 cV
 db
 aq
-ab
-ab
+Ii
+zm
 ab
 ab
 ab
@@ -32119,13 +31944,13 @@ ab
 ab
 ab
 aq
-bm
-bm
-bm
-bm
-bm
-bm
-bm
+bl
+bl
+bl
+bl
+bl
+bl
+bl
 aq
 aq
 aq
@@ -32139,8 +31964,8 @@ cT
 aq
 aq
 aq
-ab
-ab
+aq
+wQ
 ab
 ab
 ab
@@ -32376,13 +32201,13 @@ ab
 ab
 ab
 aq
-bv
-bv
-bv
-bv
-bv
-bv
-bv
+bl
+bl
+bl
+bl
+bl
+bl
+bl
 aq
 aq
 aq

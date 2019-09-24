@@ -9,6 +9,7 @@
 #define AI_FREQ 1343
 #define DTH_FREQ 1341
 #define SYND_FREQ 1213
+#define NINJ_FREQ 1255
 #define RAID_FREQ 1277
 #define ENT_FREQ 1461 //entertainment frequency. This is not a diona exclusive frequency.
 
@@ -35,6 +36,7 @@ var/list/radiochannels = list(
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,
+	"Ninja"			= NINJ_FREQ,
 	"Raider"		= RAID_FREQ,
 	"Supply" 		= SUP_FREQ,
 	"Service" 		= SRV_FREQ,
@@ -60,12 +62,14 @@ var/list/CENT_FREQS_ASSOC = list(
 // Antag channels, i.e. Syndicate
 var/list/ANTAG_FREQS = list(
 	SYND_FREQ, 
-	RAID_FREQ
+	RAID_FREQ,
+	NINJ_FREQ
 )
 
 var/list/ANTAG_FREQS_ASSOC = list(
 	"[SYND_FREQ]" = TRUE,
-	"[RAID_FREQ]" = TRUE
+	"[RAID_FREQ]" = TRUE,
+	"[NINJ_FREQ]" = TRUE
 )
 
 //Department channels, arranged lexically

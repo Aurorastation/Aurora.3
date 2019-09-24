@@ -146,11 +146,6 @@
 	new /obj/item/clothing/shoes/jackboots(src.loc)
 	delete_me = 1
 
-/obj/effect/landmark/costume/nyangirl/New()
-	new /obj/item/clothing/under/schoolgirl(src.loc)
-	new /obj/item/clothing/head/kitty(src.loc)
-	delete_me = 1
-
 /obj/effect/landmark/costume/maid/New()
 	new /obj/item/clothing/under/skirt/(src.loc)
 	var/CHOICE = pick( /obj/item/clothing/head/beret , /obj/item/clothing/head/rabbitears )
@@ -215,7 +210,7 @@
 
 /obj/effect/landmark/costume/commie/New()
 	new /obj/item/clothing/under/soviet(src.loc)
-	new /obj/item/clothing/head/ushanka(src.loc)
+	new /obj/item/clothing/head/ushanka/grey(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/imperium_monk/New()

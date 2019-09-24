@@ -58,6 +58,7 @@ var/list/gamemode_cache = list()
 	var/allow_ai = 1					// allow ai job
 	var/hostedby = null
 	var/respawn_delay = 30
+	var/hacked_drones_limit = 5
 	var/guest_jobban = 1
 	var/usewhitelist = 0
 	var/kick_inactive = 0				//force disconnect for inactive players after this many minutes, if non-0
@@ -83,8 +84,8 @@ var/list/gamemode_cache = list()
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
-	var/disable_player_mice = 0
-	var/uneducated_mice = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
+	var/disable_player_rats = 0
+	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
 
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
@@ -166,6 +167,7 @@ var/list/gamemode_cache = list()
 	var/sql_stats = 0			//Do we record round statistics on the database (deaths, round reports, population, etcetera) or not?
 	var/sql_whitelists = 0		//Defined whether the server uses an SQL based whitelist system, or the legacy one with two .txts. Config option in config.txt
 	var/sql_saves = 0			//Defines whether the server uses an SQL based character and preference saving system. Config option in config.txt
+	var/sql_ccia_logs = 0		//Defines weather the server saves CCIA Logs to the database aswell
 
 	var/simultaneous_pm_warning_timeout = 100
 
@@ -203,6 +205,7 @@ var/list/gamemode_cache = list()
 	var/ooc_allowed = 1
 	var/looc_allowed = 1
 	var/dooc_allowed = 1
+	var/dead_looc_allowed = TRUE
 	var/dsay_allowed = 1
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
@@ -282,6 +285,10 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+	var/docs_load_docs_from
+	var/load_customsynths_from
+	var/docs_image_host
+
 	var/ert_base_chance = 10
 	var/ert_green_inc = 1
 	var/ert_yellow_inc = 1
@@ -295,6 +302,9 @@ var/list/gamemode_cache = list()
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
 	var/ntsl_port = "1945"
+
+	// Is external Auth enabled
+	var/external_auth = FALSE
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -476,6 +486,9 @@ var/list/gamemode_cache = list()
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
 
+				if("hacked_drones_limit")
+					config.hacked_drones_limit = text2num(value)
+
 				if ("servername")
 					config.server_name = value
 
@@ -521,6 +534,9 @@ var/list/gamemode_cache = list()
 
 				if ("disable_dead_ooc")
 					config.dooc_allowed = 0
+
+				if ("disable_dead_looc")
+					config.dead_looc_allowed = FALSE
 
 				if ("disable_dsay")
 					config.dsay_allowed = 0
@@ -679,11 +695,11 @@ var/list/gamemode_cache = list()
 				if("nl_finish_hour")
 					config.nl_finish = text2num(value)
 
-				if("disable_player_mice")
-					config.disable_player_mice = 1
+				if("disable_player_rats")
+					config.disable_player_rats = 1
 
-				if("uneducated_mice")
-					config.uneducated_mice = 1
+				if("uneducated_rats")
+					config.uneducated_rats = 1
 
 				if("use_discord_pins")
 					config.use_discord_pins = 1
@@ -777,6 +793,9 @@ var/list/gamemode_cache = list()
 				if("sql_saves")
 					config.sql_saves = 1
 
+				if("sql_ccia_logs")
+					config.sql_ccia_logs = 1
+
 				if("client_error_version")
 					config.client_error_version = text2num(value)
 
@@ -814,7 +833,6 @@ var/list/gamemode_cache = list()
 
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
-
 
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
@@ -879,6 +897,13 @@ var/list/gamemode_cache = list()
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
 
+				if ("docs_load_docs_from")
+					docs_load_docs_from = value
+				if ("load_customsynths_from")
+					load_customsynths_from = value
+				if ("docs_image_host")
+					docs_image_host = value
+
 				if ("ert_base_chance")
 					ert_base_chance = text2num(value)
 				if ("ert_green_inc")
@@ -902,6 +927,9 @@ var/list/gamemode_cache = list()
 					ntsl_hostname = value
 				if ("ntsl_port")
 					ntsl_port = value
+
+				if ("external_auth")
+					external_auth = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

@@ -30,7 +30,7 @@
 /obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, W.usesound, 50, 1)
 		C.set_dir(dir)
 		part.forceMove(get_turf(src))
 		part.master = null
@@ -187,7 +187,7 @@
 
 /obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(W.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
 			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
 			STOP_PROCESSING(SSfast_process, src)
@@ -226,8 +226,8 @@
 /obj/machinery/chakrapod
 	name = "Crystal Therapy Pod"
 	desc = "A state-of-the-art crystal therapy pod. Designed to utilize phoron enhanced quartz crystals to remove mental trauma from the body. Proven to be 100% effective 30% of the time!"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "syndipod_0"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "sleeper_s"
 	density = 1
 	anchored = 1
 
@@ -238,6 +238,12 @@
 	var/datum/weakref/occupant = null
 	var/locked
 	var/obj/machinery/chakraconsole/connected
+
+	component_types = list(
+			/obj/item/weapon/circuitboard/crystelpod,
+			/obj/item/weapon/stock_parts/capacitor = 2,
+			/obj/item/weapon/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakrapod/Destroy()
 	if (connected)
@@ -253,6 +259,13 @@
 		return
 	src.go_out()
 	return
+
+/obj/machinery/chakrapod/update_icon()
+	if(occupant)
+		icon_state = "[initial(icon_state)]-closed"
+		return
+	else
+		icon_state = initial(icon_state)
 
 /obj/machinery/chakrapod/verb/eject()
 	set src in oview(1)
@@ -290,7 +303,8 @@
 	usr.forceMove(src)
 	src.occupant = WEAKREF(usr)
 	update_use_power(2)
-	src.icon_state = "syndipod_1"
+	flick("[initial(icon_state)]-anim", src)
+	update_icon()
 	for(var/obj/O in src)
 		O.forceMove(get_turf(src))
 	src.add_fingerprint(usr)
@@ -316,7 +330,8 @@
 	H.forceMove(get_turf(src))
 	occupant = null
 	update_use_power(1)
-	src.icon_state = "syndipod_0"
+	flick("[initial(icon_state)]-anim", src)
+	update_icon()
 	return
 
 /obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G, mob/user)
@@ -351,7 +366,8 @@
 		occupant = WEAKREF(L)
 
 		update_use_power(2)
-		icon_state = "syndipod_1"
+		flick("[initial(icon_state)]-anim", src)
+		update_icon()
 		for(var/obj/O in src)
 			O.forceMove(get_turf(src))
 
@@ -392,22 +408,26 @@
 		H.forceMove(src)
 		occupant = WEAKREF(H)
 		update_use_power(2)
-		src.icon_state = "syndipod_1"
-		for(var/obj/Obj in src)
-			Obj.forceMove(get_turf(src))
+		flick("[initial(icon_state)]-anim", src)
+		update_icon()
 	src.add_fingerprint(user)
 	return
 
 /obj/machinery/chakraconsole
 	name = "Therapy Pod Console"
 	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "syndipod_scannerconsole"
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "sleeper_s_scannerconsole"
 	density = 0
 	anchored = 1
 	var/obj/machinery/chakrapod/connected
 	var/crystal = 0
 	var/working = 0
+	component_types = list(
+			/obj/item/weapon/circuitboard/crystelpodconsole,
+			/obj/item/weapon/stock_parts/capacitor = 1,
+			/obj/item/weapon/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakraconsole/ex_act(severity)
 
@@ -432,7 +452,7 @@
 /obj/machinery/chakraconsole/power_change()
 	..()
 	if((stat & BROKEN) || (stat & NOPOWER))
-		icon_state = "syndipod_scannerconsole-p"
+		icon_state = "sleeper_s_scannerconsole-p"
 	else
 		icon_state = initial(icon_state)
 

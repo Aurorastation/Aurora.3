@@ -230,12 +230,10 @@ var/global/list/additional_antag_types = list()
 	refresh_event_modifiers()
 
 	spawn (ROUNDSTART_LOGOUT_REPORT_TIME)
-		display_roundstart_logout_report()
+		display_logout_report()
 
 	spawn (rand(waittime_l, waittime_h))
 		send_intercept()
-		spawn(rand(100,150))
-			announce_ert_disabled()
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -248,6 +246,7 @@ var/global/list/additional_antag_types = list()
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
+		feedback_set_details("master_mode","[master_mode]")
 		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
 	return 1
@@ -551,7 +550,7 @@ var/global/list/additional_antag_types = list()
 	if(evil_department)
 		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
 	if(total_crew)
-		intercepttext += "<br>Data collected and analyzed by A.L.I.C.E. indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
+		intercepttext += "<br>Data collected and analyzed by Bubble indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
 
 	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director<br>"
 	intercepttext += "<center><img src = barcode[rand(0, 3)].png></center>"
@@ -634,8 +633,8 @@ var/global/list/additional_antag_types = list()
 //////////////////////////
 //Reports player logouts//
 //////////////////////////
-proc/display_roundstart_logout_report()
-	var/msg = "<span class='notice'><b>Roundstart logout report</b>\n\n"
+proc/get_logout_report()
+	var/msg = "<span class='notice'><b>Logout report</b>\n\n"
 	for(var/mob/living/L in mob_list)
 
 		if(L.ckey)
@@ -674,10 +673,22 @@ proc/display_roundstart_logout_report()
 						continue //Ghosted while alive
 
 	msg += "</span>" // close the span from right at the top
+	return msg
 
-	for(var/mob/M in mob_list)
-		if(M.client && M.client.holder)
-			to_chat(M, msg)
+proc/display_logout_report()
+	var/logout_report = get_logout_report()
+	for(var/s in staff)
+		var/client/C = s
+		if(check_rights(R_MOD|R_ADMIN,0,C.mob))
+			to_chat(C.mob, logout_report)
+
+/client/proc/print_logout_report()
+	set category = "Admin"
+	set name = "Print Logout Report"
+
+	if(!check_rights(R_ADMIN|R_MOD))
+		return
+	to_chat(src,get_logout_report())
 
 proc/get_nt_opposed()
 	var/list/dudes = list()

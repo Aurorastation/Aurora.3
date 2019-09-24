@@ -1,7 +1,8 @@
 /obj/item/weapon/material/ashtray
 	name = "ashtray"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/ashtray.dmi'
 	icon_state = "blank"
+	randpixel = 5
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 	var/image/base_image
@@ -13,8 +14,7 @@
 		qdel(src)
 		return
 	max_butts = round(material.hardness/10) //This is arbitrary but whatever.
-	src.pixel_y = rand(-5, 5)
-	src.pixel_x = rand(-6, 6)
+	randpixel_xy()
 	update_icon()
 	return
 
@@ -24,7 +24,7 @@
 	var/list/ashtray_cache = SSicon_cache.ashtray_cache
 	var/cache_key = "base-[material.name]"
 	if(!ashtray_cache[cache_key])
-		var/image/I = image('icons/obj/objects.dmi',"ashtray")
+		var/image/I = image('icons/obj/ashtray.dmi',"ashtray")
 		I.color = material.icon_colour
 		ashtray_cache[cache_key] = I
 	add_overlay(ashtray_cache[cache_key])

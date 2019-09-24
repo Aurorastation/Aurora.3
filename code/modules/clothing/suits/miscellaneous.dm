@@ -345,6 +345,22 @@
 	icon_closed = "trench2"
 	blood_overlay_type = "coat"
 
+/obj/item/clothing/suit/storage/toggle/trench/alt
+	name = "brown trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_brown"
+	item_state = "trenchcoat_brown"
+	icon_open = "trenchcoat_brown_open"
+	icon_closed = "trenchcoat_brown"
+
+/obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	name = "grey trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_grey"
+	item_state = "trenchcoat_grey"
+	icon_open = "trenchcoat_grey_open"
+	icon_closed = "trenchcoat_grey"
+
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"
 	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
@@ -484,6 +500,12 @@
 	icon_state = "militaryjacket_green"
 	item_state = "militaryjacket_green"
 
+/obj/item/clothing/suit/storage/legion
+	name = "tcfl jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
+	icon_state = "tcfljacket"
+	item_state = "tcfljacket"
+
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"
 	desc = "A thick jacket with a rubbery, water-resistant shell. Oddly enough, you don't feel any heat."
@@ -553,3 +575,10 @@
 	icon_state = "cardigan"
 	item_state = "cardigan"
 
+/obj/item/clothing/suit/fake_cultrobes
+	name = "occultist robes"
+	desc = "A ragged, dusty set of robes. Sets off that moody, mysterious aura."
+	icon_state = "cultrobes"
+	item_state = "cultrobes"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT

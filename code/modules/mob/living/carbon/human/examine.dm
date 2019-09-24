@@ -238,14 +238,6 @@
 	if(on_fire)
 		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
 	msg += "<span class='warning'>"
-	if (!(src.species.flags & NO_CHUBBY) && max_nutrition > 0)
-		if(nutrition / max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
-			msg += "[T.He] [T.is] severely malnourished.\n"
-		else if(nutrition / max_nutrition >= CREW_NUTRITION_OVEREATEN)
-			msg += "[T.He] [T.is] quite chubby.\n"
-	if(max_hydration > 0)
-		if(hydration / max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
-			msg += "[T.He] [T.is] severely dehydrated.\n"
 
 	msg += "</span>"
 
@@ -342,11 +334,9 @@
 			perpname = name
 
 		if(perpname)
-			for (var/datum/data/record/E in data_core.general)
-				if(E.fields["name"] == perpname)
-					for (var/datum/data/record/R in data_core.security)
-						if(R.fields["id"] == E.fields["id"])
-							criminal = R.fields["criminal"]
+			var/datum/record/general/R = SSrecords.find_record("name", perpname)
+			if(istype(R) && istype(R.security))
+				criminal = R.security.criminal
 
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
 			msg += "<span class = 'deptradio'>Security records:</span> <a href='?src=\ref[src];secrecord=`'>\[View\]</a>  <a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>\n"
@@ -364,11 +354,9 @@
 		else
 			perpname = src.name
 
-		for (var/datum/data/record/E in data_core.general)
-			if (E.fields["name"] == perpname)
-				for (var/datum/data/record/R in data_core.general)
-					if (R.fields["id"] == E.fields["id"])
-						medical = R.fields["p_stat"]
+		var/datum/record/general/R = SSrecords.find_record("name", perpname)
+		if(istype(R))
+			medical = R.phisical_status
 
 		msg += "<span class = 'deptradio'>Physical status:</span> <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
 		msg += "<span class = 'deptradio'>Medical records:</span> <a href='?src=\ref[src];medrecord=`'>\[View\]</a> <a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>\n"

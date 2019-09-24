@@ -187,7 +187,7 @@ macro "borghotkeymode"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -357,7 +357,7 @@ macro "macro"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -590,7 +590,7 @@ macro "hotkeymode"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -760,7 +760,7 @@ macro "borgmacro"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -1026,6 +1026,7 @@ window "mainwindow"
 		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
+		icon = 'icons\\ss13_64.png'
 		title = "Space Station 13 - Aurora Station"
 		macro = "macro"
 		menu = "menu"

@@ -36,7 +36,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	desc = "It's a floor-mounted device for projecting holographic images."
 	icon_state = "holopad0"
 
-	layer = TURF_LAYER+0.1 //Preventing mice and drones from sneaking under them.
+	layer = TURF_LAYER+0.1 //Preventing rats and drones from sneaking under them.
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5

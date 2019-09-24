@@ -172,7 +172,7 @@
 
 		if(href_list["network"])
 
-			var/newnet = input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text
+			var/newnet = sanitize(input(usr, "Which network do you want to view?", "Comm Monitor", network) as null|text)
 
 			if(newnet && ((usr in range(1, src) || issilicon(usr))))
 				if(length(newnet) > 15)
@@ -190,8 +190,8 @@
 
 	attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 		if(D.isscrewdriver())
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-			if(do_after(user, 20))
+			playsound(src.loc, D.usesound, 50, 1)
+			if(do_after(user, 20/D.toolspeed))
 				if (src.stat & BROKEN)
 					to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

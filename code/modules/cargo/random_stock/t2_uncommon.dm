@@ -73,7 +73,8 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve", "sglue", "black_matter", "lightning", "trioxin", "phoron_salt")
+	var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve",\
+							 "sglue", "black_matter", "lightning", "trioxin", "phoron_salt", "nanites")
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 6))
 		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
@@ -200,7 +201,7 @@ STOCK_ITEM_UNCOMMON(fireaxe, 1)
 	new /obj/item/weapon/material/twohanded/fireaxe(L)
 
 STOCK_ITEM_UNCOMMON(service, 2)
-	new /obj/item/weapon/rsf(L)
+	new /obj/item/weapon/rfd/service(L)
 
 STOCK_ITEM_UNCOMMON(robot, 2)
 	var/list/bots = list(
@@ -309,7 +310,7 @@ STOCK_ITEM_UNCOMMON(exoquip, 2)
 		/obj/item/mecha_parts/mecha_equipment/tool/drill = 1,
 		/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill = 0.7,
 		/obj/item/mecha_parts/mecha_equipment/tool/extinguisher = 1,
-		/obj/item/mecha_parts/mecha_equipment/tool/rcd = 0.08,
+		/obj/item/mecha_parts/mecha_equipment/tool/rfd_c = 0.08,
 		/obj/item/mecha_parts/mecha_equipment/teleporter = 0.3,
 		/obj/item/mecha_parts/mecha_equipment/wormhole_generator = 0.5,
 		/obj/item/mecha_parts/mecha_equipment/gravcatapult = 0.8,
