@@ -314,7 +314,7 @@
 	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
 	Severity determines the power draw and usage of each shock. It accepts values between 0 and 60."
 	w_class = ITEMSIZE_TINY
-	complexity = 10
+	complexity = 30
 	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
 	outputs = list()
 	activators = list("shock" = IC_PINTYPE_PULSE_IN)
@@ -323,7 +323,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,60)*4
+	power_draw_per_use = Clamp(s,0,60)*16
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
