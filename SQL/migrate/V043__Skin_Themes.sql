@@ -3,4 +3,4 @@
 --
 
 ALTER TABLE `ss13_player_preferences`
-	ADD `skin_theme` VARCHAR(32) DEFAULT 'Ligth';
+	ADD `skin_theme` VARCHAR(32) DEFAULT 'Light';

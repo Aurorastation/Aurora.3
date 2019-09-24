@@ -28,7 +28,7 @@ var/datum/controller/subsystem/theming/SStheming
 		)
 	)
 
-	var/skin_files = list("Ligth" = "interface/skin.txt", "Dark" = "interface/dark.txt")
+	var/skin_files = list("Light" = "interface/skin.txt", "Dark" = "interface/dark.txt")
 	var/skin_themes
 
 /datum/controller/subsystem/theming/New()
