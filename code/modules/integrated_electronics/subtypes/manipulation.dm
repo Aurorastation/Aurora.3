@@ -329,10 +329,15 @@
 	..()
 	var/turf/T = get_turf(src)
 	var/mob/living/M = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
+	var/shocktime
 	if(!istype(M)) //Invalid input
 		return
 	if(!T.Adjacent(M))
 		return //Can't reach
-	to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
-	spark(get_turf(M), 3, 1)
-	M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,60), null)
+	if(shocktime + (5 SECONDS) < world.time)
+		to_chat(M, "<span class='danger'>You feel the shocking tips prod you. Luckily it was charging!</span>")
+	else	
+		to_chat(M, "<span class='danger'>You feel a sharp shock from the device!</span>")
+		spark(get_turf(M), 3, 1)
+		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,60), null)
+		shocktime = world.time
