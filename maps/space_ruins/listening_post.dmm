@@ -460,11 +460,11 @@
 "ck" = (
 /obj/structure/table/standard,
 /obj/item/weapon/rfd/mining,
-/obj/item/weapon/rfd/mining_ammo,
-/obj/item/weapon/rfd/mining_ammo,
-/obj/item/weapon/rfd/mining_ammo,
-/obj/item/weapon/rfd/mining_ammo,
-/obj/item/weapon/rfd/mining_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cl" = (
