@@ -3066,6 +3066,18 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell")
 
+	lowercheek_left
+		name = "Lower Cheek Left"
+		icon_state = "lowercheek_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
+
+	lowercheek_left
+		name = "Lower Cheek Right"
+		icon_state = "lowercheek_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell")
+
 	neck
 		name = "Neck Cover"
 		icon_state = "neck"
