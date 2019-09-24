@@ -262,15 +262,6 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/device/encryptionkey/binary
 	sort_string = "VASAA"
 
-/datum/design/item/chameleon
-	name = "Holographic equipment kit"
-	desc = "A kit of dangerous, high-tech equipment with changeable looks."
-	id = "chameleon"
-	req_tech = list(TECH_ILLEGAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path = /obj/item/weapon/storage/box/syndie_kit/chameleon
-	sort_string = "VASBA"
-
 /datum/design/item/pda
 	name = "PDA design"
 	desc = "Cheaper than whiny non-digital assistants."
