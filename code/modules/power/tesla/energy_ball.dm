@@ -295,7 +295,7 @@
 		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))		
 			var/obj/machinery/power/singularity_beacon/emergency/E = A
 			var/obj/singularity/energy_ball/B = source
-			if(E.active)
+			if(!E.active)
 				return
 			B.visible_message("\The [src] discharges entirely at [A] until it dissapears and [A] melts down")
 			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
