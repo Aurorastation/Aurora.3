@@ -248,7 +248,7 @@
 		src.open(user)
 
 /obj/item/weapon/storage/fancy/tray/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
