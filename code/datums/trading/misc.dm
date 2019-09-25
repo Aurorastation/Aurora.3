@@ -183,7 +183,7 @@
 		/obj/item/weapon/rig/combat                    = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/healthscanner      = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/drill              = TRADER_THIS_TYPE,
-		/obj/item/rig_module/device/rcd                = TRADER_THIS_TYPE,
+		/obj/item/rig_module/device/rfd_c              = TRADER_THIS_TYPE,
 		/obj/item/rig_module/chem_dispenser            = TRADER_ALL,
 		/obj/item/rig_module/voice                     = TRADER_THIS_TYPE,
 		/obj/item/rig_module/vision                    = TRADER_SUBTYPES_ONLY,

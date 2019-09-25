@@ -318,7 +318,7 @@
 		/obj/item/weapon/storage/bag/plants,
 		/obj/item/warp_core,
 		/obj/item/weapon/extraction_pack,
-		/obj/item/weapon/rrf,
+		/obj/item/weapon/rfd/mining,
 		/obj/item/weapon/gun/custom_ka
 		)
 

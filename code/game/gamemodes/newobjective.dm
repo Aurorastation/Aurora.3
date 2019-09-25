@@ -655,8 +655,8 @@ datum
 
 
 			RCD
-				steal_target = /obj/item/weapon/rcd
-				explanation_text = "Steal a rapid construction device."
+				steal_target = /obj/item/weapon/rfd/construction
+				explanation_text = "Steal a RFD C-Class."
 				weight = 20
 
 				get_points(var/job)

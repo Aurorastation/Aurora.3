@@ -63,8 +63,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				output += "<p><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A></p>"
 
 	output += "</div>"
-
-	src << browse(output,"window=playersetup;size=310x350;can_close=0")
+	send_theme_resources(src)
+	src << browse(enable_ui_theme(src, output),"window=playersetup;size=310x350;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()
