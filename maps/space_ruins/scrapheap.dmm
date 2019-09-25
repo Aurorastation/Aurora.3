@@ -8002,7 +8002,7 @@
 	},
 /area/derelict)
 "xe" = (
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/floodlight,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor7"
 	},
