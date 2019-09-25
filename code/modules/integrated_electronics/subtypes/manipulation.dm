@@ -336,6 +336,7 @@
 		return //Can't reach
 	if(shocktime + (5 SECONDS) > world.time)
 		to_chat(M, "<span class='danger'>You feel a light tingle from [src]. Luckily it was charging!</span>")
+		return
 	else
 		to_chat(M, "<span class='danger'>You feel a sharp shock from the [src]!</span>")
 		spark(get_turf(M), 3, 1)
