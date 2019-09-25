@@ -314,7 +314,7 @@
 	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
 	Severity determines the power draw and usage of each shock. It accepts values between 0 and 20."
 	w_class = ITEMSIZE_TINY
-	complexity = 10
+	complexity = 24
 	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
 	outputs = list()
 	activators = list("shock" = IC_PINTYPE_PULSE_IN)
@@ -324,7 +324,7 @@
 
 /obj/item/integrated_circuit/manipulation/shocker/on_data_written()
 	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,20)*4
+	power_draw_per_use = Clamp(s,0,20)*8
 
 /obj/item/integrated_circuit/manipulation/shocker/do_work()
 	..()
@@ -339,5 +339,5 @@
 	else
 		to_chat(M, "<span class='danger'>You feel a sharp shock from the [src]!</span>")
 		spark(get_turf(M), 3, 1)
-		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,60), null)
+		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time
