@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/visible_weapons/forcegloves
 	name = "Force Gloves"
-	item_cost = 8
+	item_cost = 5
 	path = /obj/item/clothing/gloves/force/syndicate
 
 /datum/uplink_item/item/visible_weapons/energy_sword
