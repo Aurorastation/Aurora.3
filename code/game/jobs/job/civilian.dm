@@ -163,6 +163,8 @@
 	economic_modifier = 5
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+	alt_titles = list("Drill Technician")
+	alt_outfits = list("Drill Technician" = /datum/outfit/job/miningd)
 	outfit = /datum/outfit/job/mining
 
 /datum/outfit/job/mining
@@ -177,6 +179,26 @@
 	backpack_contents = list(
 		/obj/item/weapon/crowbar = 1,
 		/obj/item/weapon/storage/bag/ore = 1
+	)
+
+	backpack = /obj/item/weapon/storage/backpack/industrial
+	satchel = /obj/item/weapon/storage/backpack/satchel_eng
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+
+/datum/outfit/job/miningd
+	name = "Drill Technician"
+	jobtype = /datum/job/mining
+
+	uniform = /obj/item/clothing/under/rank/miner
+	pda = /obj/item/device/pda/shaftminer
+	shoes = /obj/item/clothing/shoes/black
+	l_hand = /obj/item/weapon/storage/toolbox
+	l_ear = /obj/item/device/radio/headset/headset_cargo
+
+	backpack_contents = list(
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/powerdrill = 1
 	)
 
 	backpack = /obj/item/weapon/storage/backpack/industrial
