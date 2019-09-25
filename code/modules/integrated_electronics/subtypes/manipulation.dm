@@ -186,36 +186,6 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 10)
 	spawn_flags = null			// Used for world initializing, see the #defines above.
 
-/obj/item/integrated_circuit/manipulation/shocker
-	name = "shocker circuit"
-	desc = "Used to shock adjacent creatures with electricity."
-	icon_state = "shocker"
-	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
-	Severity determines hardness of shock and its power consumption. It accepts values between 0 and 60."
-	w_class = ITEMSIZE_TINY
-	complexity = 10
-	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
-	outputs = list()
-	activators = list("shock" = IC_PINTYPE_PULSE_IN)
-	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 0
-
-/obj/item/integrated_circuit/manipulation/shocker/on_data_written()
-	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,60)*4
-
-/obj/item/integrated_circuit/manipulation/shocker/do_work()
-	..()
-	var/turf/T = get_turf(src)
-	var/mob/living/M = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
-	if(!istype(M)) //Invalid input
-		return
-	if(!T.Adjacent(M))
-		return //Can't reach
-	to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
-	spark(get_turf(M), 3, 1)
-	M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,60), null)
-
 /obj/item/integrated_circuit/manipulation/grabber
 	name = "grabber"
 	desc = "A circuit with its own inventory for small/medium items, used to grab and store things."
