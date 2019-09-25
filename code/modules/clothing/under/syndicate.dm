@@ -28,3 +28,10 @@
 	icon_state = "fulltracksuit"
 	item_state = "fulltracksuit"
 	contained_sprite = 1
+
+/obj/item/clothing/under/syndicate/ninja
+	name = "slipsuit"
+	desc = "A sleek, form-fitting undersuit designed to retain the wearer's mobility. It almost feels like you're wearing nothing at all."
+	icon_state = "ninja"
+	item_state = "ninja"
+	worn_state = "ninja"

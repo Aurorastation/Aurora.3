@@ -632,10 +632,10 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bH" = (
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd/construction,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)

@@ -12,7 +12,8 @@
 	req_access = list(access_cent_specops)
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
 	siemens_coefficient = 0.1
-	allowed = list(/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
+	allowed = list(
+	/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rfd/construction, /obj/item/weapon/crowbar, \
 	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
 	/obj/item/device/radio, /obj/item/device/analyzer,/obj/item/weapon/storage/briefcase/inflatable, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, \
 	/obj/item/weapon/storage/firstaid, /obj/item/weapon/reagent_containers/hypospray, /obj/item/roller)
@@ -22,7 +23,8 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat
-		)	
+		)
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/weapon/rig/ert/engineer
@@ -38,10 +40,10 @@
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/plasmacutter,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/actuators
 		)
-	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
 
 /obj/item/weapon/rig/ert/medical
 	name = "ERT-M suit control module"
@@ -58,6 +60,7 @@
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/actuators
 		)
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL
 
 /obj/item/weapon/rig/ert/security
@@ -110,10 +113,11 @@
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/chem_dispenser/injector,
 		/obj/item/rig_module/device/drill,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/actuators/combat
 		)
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules
 
 /obj/item/weapon/rig/ert/assetprotection/empty

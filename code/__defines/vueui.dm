@@ -6,6 +6,8 @@
 #define THEME_TYPE_DARK 1
 #define THEME_TYPE_LIGHT 0
 
+#define FALLBACK_HTML_THEME "theme-nano dark-theme"
+
 #define VUEUI_MONITOR_VARS(type, monitor_name)                    \
 /datum/vueui_var_monitor/##monitor_name { subject_type = type; }; \
                                                                   \

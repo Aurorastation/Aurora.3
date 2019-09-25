@@ -39,6 +39,8 @@
 				return 1
 			if("Aut'akh Unathi")
 				return 1
+			if ("Unathi Zombie")
+				return 1
 	return 0
 
 /proc/isautakh(A)
@@ -57,11 +59,17 @@
 				return 1
 			if("M'sai Tajara")
 				return 1
+			if ("Tajara Zombie")
+				return 1
 	return 0
 
 /proc/isskrell(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skrell"))
-		return 1
+	if(istype(A, /mob/living/carbon/human))
+		switch(A:get_species())
+			if ("Skrell")
+				return 1
+			if ("Skrell Zombie")
+				return 1
 	return 0
 
 /proc/isvaurca(A)
@@ -118,6 +126,12 @@
 			if ("Skeleton")
 				return 1
 			if ("Zombie")
+				return 1
+			if ("Tajara Zombie")
+				return 1
+			if ("Unathi Zombie")
+				return 1
+			if ("Skrell Zombie")
 				return 1
 			if ("Apparition")
 				return 1

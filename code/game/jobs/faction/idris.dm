@@ -74,32 +74,32 @@
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/chef/idris
 	name = "Chef - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/cargo_tech/idris
 	name = "Cargo Technician - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/weapon/card/id/idris
 
 /datum/outfit/job/qm/idris
 	name = "Quartermaster - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/weapon/card/id/idris
 
 
 /datum/outfit/job/representative/idris
-	name = "Corporate Liaison - Idris"
+	name = "Idris Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null

@@ -45,6 +45,8 @@
 	var/obj/item/device/radio/R
 
 	switch(freq)
+		if(NINJ_FREQ)
+			R = new/obj/item/device/radio/headset/ninja(player)
 		if(SYND_FREQ)
 			R = new/obj/item/device/radio/headset/syndicate(player)
 		if(RAID_FREQ)

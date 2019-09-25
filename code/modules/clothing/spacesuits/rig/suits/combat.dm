@@ -90,7 +90,7 @@
 		/obj/item/weapon/handcuffs
 	)
 
-	species_restricted = list("exclude","Diona", "Golem")
+	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 

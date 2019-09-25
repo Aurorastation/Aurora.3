@@ -99,6 +99,7 @@
 
 /area/crew_quarters/fitness/changing
 	name = "\improper Surface - Changing Room"
+	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/fitness/running
 	name = "\improper Surface - Running Track"
@@ -111,6 +112,10 @@
 /area/crew_quarters/kitchen
 	name = "\improper Kitchen"
 	icon_state = "kitchen"
+
+/area/crew_quarters/kitchen/freezer
+	name = "\improper Kitchen Freezer"
+	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/bar
 	name = "\improper Bar"

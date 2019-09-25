@@ -97,10 +97,11 @@
 	if(isturf(A) || isturf(A.loc))
 		if(A.Adjacent(src)) // see adjacent.dm
 
-			var/resolved = A.attackby(W, src)
-			if(!resolved && A && W)
-				W.afterattack(A, src, 1, params)
-			return
+			if(W)
+				var/resolved = W.resolve_attackby(A, src, params)
+				if(!resolved && A && W)
+					W.afterattack(A, src, 1, params)
+				return
 		else
 			W.afterattack(A, src, 0, params)
 			return

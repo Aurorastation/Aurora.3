@@ -25,7 +25,7 @@
 	light_color = "#315ab4"
 	req_one_access = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
 	circuit = /obj/item/weapon/circuitboard/med_data
-	records_type = RECORD_MEDICAL
+	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
 

@@ -575,3 +575,10 @@
 	icon_state = "cardigan"
 	item_state = "cardigan"
 
+/obj/item/clothing/suit/fake_cultrobes
+	name = "occultist robes"
+	desc = "A ragged, dusty set of robes. Sets off that moody, mysterious aura."
+	icon_state = "cultrobes"
+	item_state = "cultrobes"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT

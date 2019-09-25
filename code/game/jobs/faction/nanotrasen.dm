@@ -19,11 +19,11 @@
 /datum/faction/nano_trasen/get_corporate_objectives(var/mission_level)
 	var/objective
 	switch(mission_level)
-		if("high")
+		if(REPRESENTATIVE_MISSION_HIGH)
 			objective = pick("Have [rand(1,4)] crewmember sign NT apprenticeship contracts",
 						"Make sure that the station fullfils [rand(4,12)] cargo bounties",
 						"Make sure that the station raises [rand(5000,12000)] credits by the end of the shift")
-		if("medium")
+		if(REPRESENTATIVE_MISSION_MEDIUM)
 			objective = pick("Have [rand(2,5)] crewmembers sign contract extensions",
 						"Have [rand(2,5)] crewmembers buy Odin real estate",
 						"[rand(3,10)] crewmember must buy Getmore products from the vendors")

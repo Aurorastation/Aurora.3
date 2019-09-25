@@ -282,7 +282,7 @@
 	seed_name = "apple"
 	display_name = "apple tree"
 	mutants = list("poisonapple","goldapple")
-	chems = list("nutriment" = list(1,10))
+	chems = list("applejuice" = list(1,10), "nutriment" = list(1,10))
 	kitchen_tag = "apple"
 
 /datum/seed/apple/setup_traits()
@@ -308,7 +308,7 @@
 	seed_name = "golden apple"
 	display_name = "gold apple tree"
 	mutants = null
-	chems = list("nutriment" = list(1,10), "gold" = list(1,5))
+	chems = list("applejuice" = list(1,10), "gold" = list(1,5))
 	kitchen_tag = "goldapple"
 
 /datum/seed/apple/gold/setup_traits()
@@ -410,6 +410,8 @@
 
 /datum/seed/koisspore/black
 	name = "blackkois"
+	seed_name = "black kois"
+	display_name = "black k'ois spores"
 	mutants = null
 	chems = list(
 				"blackkois" = list(4),
@@ -1331,3 +1333,21 @@
 	set_trait(TRAIT_PRODUCT_ICON,"leaves")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#00e0e0")
 	set_trait(TRAIT_PLANT_ICON,"bush8")
+
+/datum/seed/wulumunusha
+	name = "wulumunusha"
+	seed_name = "wulumunusha"
+	display_name = "wulumunusha vines"
+	chems = list("wulumunusha" = list(3,5))
+	kitchen_tag = "wulumunusha"
+
+/datum/seed/wulumunusha/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,8)
+	set_trait(TRAIT_PRODUCTION,3)
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"wumpafruit")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#61E2EC")
+	set_trait(TRAIT_PLANT_ICON,"wumpavines")
+	set_trait(TRAIT_WATER_CONSUMPTION, 10)

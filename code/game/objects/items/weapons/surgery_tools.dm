@@ -6,6 +6,7 @@
  *		Surgical Drill
  *		Scalpel
  *		Circular Saw
+ *   	Tray
  */
 
 /*
@@ -127,7 +128,7 @@
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "saw3"
+	icon_state = "saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
@@ -166,7 +167,7 @@
 /obj/item/weapon/bonesetter
 	name = "bone setter"
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "bone setter"
+	icon_state = "bonesetter"
 	force = 8.0
 	throwforce = 9.0
 	throw_speed = 3
@@ -174,3 +175,70 @@
 	w_class = 2.0
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	drop_sound = 'sound/items/drop/scrap.ogg'
+
+/obj/item/weapon/storage/fancy/tray
+	name = "surgery tray"
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "surgerytray"
+	use_sound = null
+	drop_sound = 'sound/items/drop/axe.ogg'
+	force = 2
+	w_class = 5.0
+	storage_slots = 10
+	attack_verb = list("slammed")
+	icon_type = "surgery tool"
+	storage_type = "tray"
+	can_hold = list(
+		/obj/item/weapon/bonesetter,
+		/obj/item/weapon/cautery,
+		/obj/item/weapon/circular_saw,
+		/obj/item/weapon/hemostat,
+		/obj/item/weapon/retractor,
+		/obj/item/weapon/scalpel,
+		/obj/item/weapon/surgicaldrill,
+		/obj/item/weapon/bonegel,
+		/obj/item/weapon/FixOVein,
+		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/nanopaste
+		)
+
+	starts_with = list(
+		/obj/item/weapon/bonesetter = 1,
+		/obj/item/weapon/cautery = 1,
+		/obj/item/weapon/circular_saw = 1,
+		/obj/item/weapon/hemostat = 1,
+		/obj/item/weapon/retractor = 1,
+		/obj/item/weapon/scalpel = 1,
+		/obj/item/weapon/surgicaldrill = 1,
+		/obj/item/weapon/bonegel = 1,
+		/obj/item/weapon/FixOVein = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+	)
+
+/obj/item/weapon/storage/fancy/tray/update_icon()
+	cut_overlays()
+
+	var/list/types_and_overlays = list(
+		/obj/item/weapon/bonesetter = "tray_bonesetter",
+		/obj/item/weapon/cautery = "tray_cautery",
+		/obj/item/weapon/circular_saw = "tray_saw",
+		/obj/item/weapon/hemostat = "tray_hemostat",
+		/obj/item/weapon/retractor = "tray_retractor",
+		/obj/item/weapon/scalpel = "tray_scalpel",
+		/obj/item/weapon/surgicaldrill = "tray_drill",
+		/obj/item/weapon/bonegel = "tray_bone-gel",
+		/obj/item/weapon/FixOVein = "tray_fixovein",
+		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
+	)
+	for (var/obj/item/W in contents)
+		if (types_and_overlays[W.type])
+			add_overlay(types_and_overlays[W.type])
+			types_and_overlays -= W.type
+
+/obj/item/weapon/storage/fancy/tray/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/weapon/storage/fancy/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	update_icon()

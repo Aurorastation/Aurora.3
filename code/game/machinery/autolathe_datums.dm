@@ -185,9 +185,9 @@
 	path = /obj/item/weapon/module/power_control
 	category = "Engineering"
 
-/datum/autolathe/recipe/rcd_ammo
-	name = "matter cartridge"
-	path = /obj/item/weapon/rcd_ammo
+/datum/autolathe/recipe/rfd_ammo
+	name = "compressed matter cartridge"
+	path = /obj/item/weapon/rfd_ammo
 	category = "Engineering"
 
 /datum/autolathe/recipe/scalpel
@@ -489,9 +489,9 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/rcd
-	name = "rapid construction device"
-	path = /obj/item/weapon/rcd
+/datum/autolathe/recipe/rfd_construction
+	name = "rapid-fabrication-device c-class"
+	path = /obj/item/weapon/rfd/construction
 	hidden = 1
 	category = "Engineering"
 
