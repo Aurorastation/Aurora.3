@@ -342,3 +342,4 @@
 		spark(get_turf(M), 3, 1)
 		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time
+		return
