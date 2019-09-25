@@ -1,7 +1,7 @@
 /obj/mecha/medical/Initialize()
 	. = ..()
 	var/turf/T = get_turf(src)
-	if(isPlayerLevel(T.z))
+	if(isStationLevel(T.z))
 		new /obj/item/mecha_parts/mecha_tracking(src)
 	return
 

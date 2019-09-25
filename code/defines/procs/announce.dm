@@ -11,7 +11,7 @@
 	var/channel_name = "Station Announcements"
 	var/announcement_type = "Announcement"
 
-/datum/announcement/New(var/do_log = 0, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/New(var/do_log = 1, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
 	sound = new_sound
 	log = do_log
 	newscast = do_newscast
@@ -53,7 +53,7 @@
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
 			var/turf/T = get_turf(M)
-			if(T && isStationLevel(T.z))
+			if(T && isContactLevel(T.z))
 				to_chat(M, "<h2 class='alert'>[title]</h2>")
 				to_chat(M, "<span class='alert'>[message]</span>")
 				if (announcer)

@@ -688,7 +688,7 @@
 	P.name = "wormhole"
 	var/list/pick_turfs = list()
 	for(var/turf/simulated/floor/exit in turfs)
-		if(exit.z in current_map.station_levels)
+		if(isStationLevel(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
