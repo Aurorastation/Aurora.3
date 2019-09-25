@@ -193,19 +193,13 @@
 	uniform = /obj/item/clothing/under/rank/miner
 	pda = /obj/item/device/pda/shaftminer
 	shoes = /obj/item/clothing/shoes/black
-	l_hand = /obj/item/weapon/storage/toolbox
+	l_hand = /obj/item/weapon/storage/toolbox/drill
 	l_ear = /obj/item/device/radio/headset/headset_cargo
-
-	backpack_contents = list(
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/powerdrill = 1
-	)
 
 	backpack = /obj/item/weapon/storage/backpack/industrial
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
-
 
 //Not engineers, just the mop boys
 /datum/job/janitor
