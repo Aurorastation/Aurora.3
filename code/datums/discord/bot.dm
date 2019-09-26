@@ -474,10 +474,10 @@ var/datum/discord_bot/discord_bot = null
 		. = hereReg.Replace(., "@ here")
 
 	if(remove_mentions)
-		var/regex/menReg = regex("<@[\d]+>", "g")
-		. = menReg.Replace(., "[mention]")
-		var/regex/roleReg = regex("<@&[\d]+>", "g")
-		. = roleReg.Replace(., "[role mention]")
+		var/regex/menReg = regex("<@\[\\d]+>", "g")
+		. = menReg.Replace(., "\[mention]")
+		var/regex/roleReg = regex("<@&\[\\d]+>", "g")
+		. = roleReg.Replace(., "\[role mention]")
 
 #undef CHAN_ADMIN
 #undef CHAN_CCIAA
