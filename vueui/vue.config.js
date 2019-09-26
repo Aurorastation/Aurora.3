@@ -9,6 +9,10 @@ module.exports = {
   css: {
     extract: true
   },
+  pages: {
+    app: "src/main.js",
+    chat: "src/chat.js"
+  },
   chainWebpack: config => {
     config
       .performance
@@ -42,10 +46,14 @@ module.exports = {
         .end()
         
     config.plugins
-      .delete("html")
-      .delete("preload")
-      .delete("prefetch")
-      .delete("hmr")
+      .delete("html-app")
+      .delete("preload-app")
+      .delete("prefetch-app")
+      .delete("hmr-app")
+      .delete("html-chat")
+      .delete("preload-chat")
+      .delete("prefetch-chat")
+      .delete("hmr-chat")
 
     config.plugin('extract-css')
       .tap(args => {
