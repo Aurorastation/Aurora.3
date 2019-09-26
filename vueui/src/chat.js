@@ -23,6 +23,7 @@ function addMessages(messages) {
 
 Utils.onReady(() => {
   global.messageTarget = document.getElementById('chattarget')
+  global.messageTarget.innerHTML = ""
   Store.loadInitialState(document.getElementById('initialstate').innerHTML)
   addMessages(Store.state.messages)
   Utils.sendToTopicRaw({

@@ -462,5 +462,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 #define NULL_OR_EQUAL(self,other) (!(self) || (self) == (other))
 
+#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (istype(I, /client) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
+
 //Lying animation
 #define ANIM_LYING_TIME 2

@@ -75,3 +75,4 @@
 	var/initialized = FALSE
 
 	var/authed = TRUE
+	var/datum/chat/chat
