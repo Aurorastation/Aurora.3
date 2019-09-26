@@ -80,7 +80,7 @@
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
 	icon_state = "ninja_rig"
 	armor = list(melee = 50, bullet = 45, laser = 45, energy = 30, bomb = 35, bio = 100, rad = 100)
-  siemens_coefficient = 0.25
+ 	siemens_coefficient = 0.25
 	emp_protection = 40
 	slowdown = 0
 
