@@ -161,9 +161,9 @@
 
 /obj/machinery/shieldgen/proc/create_shields()
 	for(var/turf/target_tile in range(2, src))
-		if (istype(target_tile,/turf/space) && !(locate(/obj/machinery/shield) in target_tile))
+		if (istype(target_tile,/turf/space) || istype(target_tile,/turf/simulated/open) || istype(target_tile,/turf/unsimulated/floor/asteroid/ash) || istype(target_tile,/turf/simulated/floor/airless) && !(locate(/obj/machinery/shield) in target_tile))
 			if (malfunction && prob(33) || !malfunction)
-				var/obj/machinery/shield/S = new/obj/machinery/shield(target_tile)
+				var/obj/machinery/shield/S = new /obj/machinery/shield(target_tile)
 				deployed_shields += S
 				use_power(S.shield_generate_power)
 
