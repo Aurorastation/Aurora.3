@@ -6,7 +6,6 @@
 	suit_type = "light suit"
 	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/cell)
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	siemens_coefficient = 0.5
 	emp_protection = 10
 	slowdown = 0
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
@@ -61,14 +60,14 @@
 //The cybersuit is not space-proof. It does however, have good siemens_coefficient values
 /obj/item/clothing/head/lightrig/hacker
 	name = "HUD"
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.4
 	flags = 0
 
 /obj/item/clothing/suit/lightrig/hacker
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.4
 
 /obj/item/clothing/shoes/lightrig/hacker
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.4
 	flags = NOSLIP //All the other rigs have magboots anyways, hopefully gives the hacker suit something more going for it.
 
 /obj/item/clothing/gloves/lightrig/hacker
@@ -80,7 +79,6 @@
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
 	icon_state = "ninja_rig"
 	armor = list(melee = 50, bullet = 45, laser = 45, energy = 30, bomb = 35, bio = 100, rad = 100)
- 	siemens_coefficient = 0.25
 	emp_protection = 40
 	slowdown = 0
 
@@ -146,12 +144,14 @@
 	desc = "A highly advanced and expensive suit designed for covert operations."
 	icon_state = "stealth_rig"
 	armor = list(melee = 45, bullet = 20, laser = 50, energy = 10, bomb = 25, bio = 30, rad = 20)
-	siemens_coefficient = 0.5
+
 	req_access = list(access_syndicate)
+
 	initial_modules = list(
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/vision
 		)
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
 
 /obj/item/weapon/rig/light/offworlder
@@ -167,11 +167,14 @@
 	chest_type = /obj/item/clothing/suit/lightrig/offworlder
 	glove_type = null
 	boot_type = null
+
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
+
 	species_restricted = list("Human")
+
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/lightrig/offworlder
@@ -196,6 +199,7 @@
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
 	siemens_coefficient = 0.2
+
 	allowed = list(
 		/obj/item/device/flashlight,
 		/obj/item/weapon/tank,
@@ -205,13 +209,16 @@
 		/obj/item/weapon/melee/baton,
 		/obj/item/weapon/melee/energy/sword
 	)
+
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/chem_dispenser/combat
 		)
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
+
 	chest_type = /obj/item/clothing/suit/space/rig/light
 	helm_type =  /obj/item/clothing/head/helmet/space/rig/light
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
