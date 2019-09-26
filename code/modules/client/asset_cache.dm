@@ -206,6 +206,12 @@ var/list/asset_datums = list()
 		"vueui.css" = 'vueui/dist/app.css'
 	)
 
+/datum/asset/simple/chat
+	assets = list(
+		"chat.js" = 'vueui/dist/chat.js',
+		"chat.css" = 'vueui/dist/chat.css'
+	)
+
 /datum/asset/chem_master
 	var/list/bottle_sprites = list("bottle-1", "bottle-2", "bottle-3", "bottle-4")
 	var/max_pill_sprite = 20

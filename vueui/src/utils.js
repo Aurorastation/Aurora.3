@@ -1,5 +1,4 @@
 import Store from './store.js'
-import store from './store.js';
 export default {
   sendToTopicRaw(data) {
     var sendparams = []
@@ -17,11 +16,24 @@ export default {
       vueuihrefjson: JSON.stringify(data)
     }
     if(pushState) {
-      pushData["vueuistateupdate"] = store.getStatePushDataString()
+      pushData.vueuistateupdate = Store.getStatePushDataString()
     }
     this.sendToTopicRaw(pushData)
   },
   dotNotationRead(object, key) {
     return key.split('.').reduce((a, b) => a[b], object);
+  },
+  onReady(callback) {
+    if (document.readyState != 'loading'){
+      callback()
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', callback)
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading') {
+          callback()
+        }
+      });
+    }
   }
 }
