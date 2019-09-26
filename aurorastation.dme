@@ -1248,6 +1248,8 @@
 #include "code\modules\cargo\random_stock\~undefs.dm"
 #include "code\modules\cciaa\cciaa.dm"
 #include "code\modules\cciaa\cciaa_items.dm"
+#include "code\modules\chat\chat.dm"
+#include "code\modules\chat\chat_datum.dm"
 #include "code\modules\client\asset_cache.dm"
 #include "code\modules\client\client defines.dm"
 #include "code\modules\client\client procs.dm"
