@@ -53,16 +53,14 @@ var/datum/controller/subsystem/theming/SStheming
 			np.new_player_panel_proc()
 	..()
 
-/datum/controller/subsystem/theming/proc/apply_theme_from_perfs(var/user)
-	var/client/c
-	if(ismob(user))
-		var/mob/M = user
-		c = M.client
-	if(isclient(user))
-		c = user
+/datum/controller/subsystem/theming/proc/get_theme(var/user)
+	var/client/c = CLIENT_FROM_VAR(user)
 	if(!isclient(c))
-		return
-	apply_theme(user, c.prefs.skin_theme)
+		return "Light"
+	return c.prefs.skin_theme
+
+/datum/controller/subsystem/theming/proc/apply_theme_from_perfs(var/user)
+	apply_theme(user, get_theme(user))
 
 /datum/controller/subsystem/theming/proc/apply_theme(var/user, var/theme = "Dark")
 	if(!isclient(user) && !ismob(user))

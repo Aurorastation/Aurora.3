@@ -4,7 +4,6 @@
 	var/broken = FALSE
 	var/list/queue
 
-
 /datum/chat/New(var/client/C)
 	client = C
 	queue = list()
@@ -13,20 +12,27 @@
 	. = FALSE
 	if(!isclient(client))
 		return
-	
 	if(!winexists(client, "browseroutput"))
 		set waitfor = FALSE
 		broken = TRUE
-		log_debug("Failed to start chat for [client] due to outdated skin file.")
+		log_debug("VüChat: Failed to start chat for [client] due to outdated skin file.")
 		alert(client, "Updated chat window does not exist. If you are using a custom skin file please allow the game to update.")
 		return
 	
+	
 	if(winget(client, "browseroutput", "is-visible") == "true")
-		FinilizeLoading()
+		LoadHTML() // Let's load it again anyways
 	else
 		LoadHTML()
 	
+	addtimer(CALLBACK(src, .proc/checkForFail), 50)
 	return TRUE
+
+/datum/chat/proc/checkForFail()
+	if(loaded)
+		return
+	hide()
+	log_debug("VüChat: [client] has failed to load chat.")
 
 /datum/chat/proc/LoadHTML()
 	set waitfor = FALSE
@@ -39,7 +45,6 @@
 #else
 	simple_asset_ensure_is_sent(client, /datum/asset/simple/chat)
 #endif
-
 	client << browse(GenerateHTML(), "window=browseroutput")
 
 /datum/chat/proc/GenerateHTML()
@@ -53,6 +58,7 @@
 	</head>
 	<body class="[get_theme_class()]">
 		<div id="chattarget">
+			Chat is loading...
 		</div>
 		<noscript>
 			<div id='uiNoScript'>
@@ -71,29 +77,31 @@
 
 /datum/chat/proc/generate_data_json()
 	. = list()
-	.["uiref"] = "\ref[src]"
-	.["state"] = list(
-		"roundid" = game_id
-	)
+	.["ref"] = "\ref[src]"
+	.["roundid"] = game_id
 	return json_encode(.)
 
 /datum/chat/proc/get_theme_class()
 	if(SStheming)
-		return SStheming.get_html_theme_class(client)
-	return ""
+		return SStheming.get_theme(client)
+	return "Ligth"
 
-/datum/chat/jscall(var/list/params, var/function)
-	user << output(list2params(params))),"browseroutput:[function]")
+/datum/chat/proc/jscall(var/list/params, var/function)
+	client << output(list2params(params),"browseroutput:[function]")
 
 /datum/chat/proc/FinilizeLoading()
 	if(loaded)
 		return
-
 	loaded = TRUE
-
+	show()
+	ProcessQueue()
 
 /datum/chat/proc/ProcessQueue()
-	jscall(list(json_encode(queue)), "")
+	if(!client)
+		return
+	if(queue.len && loaded)
+		jscall(list(json_encode(queue)), "receiveQueue")
+		queue.Cut()
 
 /datum/chat/proc/show()
 	winset(client, "output", "is-visible=false")

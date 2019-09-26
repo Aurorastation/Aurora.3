@@ -322,6 +322,7 @@
 	//CONNECT//
 	///////////
 /client/New(TopicData)
+	chat = new /datum/chat(src)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
 	if(!(connection in list("seeker", "web")))					//Invalid connection type.
@@ -429,6 +430,7 @@
 			winset(src, null, "command=\".configure graphics-hwmode on\"")
 
 	send_resources()
+	chat.Start()
 
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1))
