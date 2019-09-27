@@ -19,27 +19,17 @@ LINEN BINS
 	drop_sound = 'sound/items/drop/clothing.ogg'
 	randpixel = 0
 	center_of_mass = null
-	var/rolled = FALSE
-	var/folded = FALSE
+	var/roll = FALSE
 	var/inuse = FALSE
 
-/obj/item/weapon/bedsheet/afterattack(atom/A, mob/user)
-	if(!user || user.incapacitated() || !user.Adjacent(A))
-		return
-	if(toggle_fold(user))
-		user.drop_item()
-		forceMove(get_turf(A))
-		add_fingerprint(user)
-		return
-
 /obj/item/weapon/bedsheet/attack_hand(mob/user as mob)
-	if(!folded)
+	if(!istype(loc,/mob))
 		toggle_roll(user)
 	add_fingerprint(user)
 
 /obj/item/weapon/bedsheet/MouseDrop(mob/user as mob)
-	if((user == usr && (!( usr.restrained() ) && (!( usr.stat ) && (usr.contents.Find(src) || in_range(src, usr))))))
-		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
+	if((user && (!( user.restrained() ) && (!( user.stat ) && (user.contents.Find(src) || in_range(src, user))))))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !usr.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
@@ -48,93 +38,64 @@ LINEN BINS
 				if(temp && !temp.is_usable())
 					to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
 					return
-				if(!folded)
-					toggle_fold(usr)
-				if(folded)
-					to_chat(user, "<span class='notice'>You pick up the [src].</span>")
-					user.put_in_hands(src)
+
+				to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+				user.put_in_hands(src)
 
 	return
 
 /obj/item/weapon/bedsheet/update_icon()
-	if (folded)
-		icon_state = "sheet-folded"
-	else if (rolled)
-		icon_state = "sheet-rolled"
+	if(roll)
+		icon_state = "sheet-roll"
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/bedsheet/proc/toggle_roll(var/mob/living/user, var/message = TRUE)
+/obj/item/weapon/bedsheet/Crossed() //Basically, stepping on it resets it to below people. Unless there's someone already under the blanket.
+	if(/mob == src.loc) // there must be a better proc for this.
+		return
+	else
+		layer = initial(layer)
+
+/obj/item/weapon/bedsheet/verb/roll_verb(var/mob/living/user)
+	set name = "Roll Bedsheet"
+	set category = "Object"
+	set src in view(1)
+
+	if(ishuman(user))
+		toggle_roll(user)
+
+/obj/item/weapon/bedsheet/proc/toggle_roll(var/mob/living/user) // Tuck yourself in just by clicking. Also automatically rests you (if you're under it)
 	if(!user)
 		return FALSE
 	if(inuse)
-		user.show_message("Someone's already using \the [src].")
+		return FALSE
+	if(istype(loc,/mob))
+		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
 		return FALSE
 	inuse = TRUE
 	if (do_after(user, 6, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), "rustle", 15, 1, -5)
-		if(!message)
-			user.visible_message("<span class='notice'>\The [user] [rolled ? "unrolled" : "rolled"] \the [src].", "You [rolled ? "unrolled" : "rolled"] \the [src].</span>")
-		if(!rolled)
-			rolled = TRUE
+		var/rolls = roll
+		user.visible_message("<span class='notice'>\The [user] [rolls ? "unrolls" : "rolls"] \the [src].", "You [roll ? "unroll" : "roll"] \the [src].</span>")
+		if(!roll)
+			roll = TRUE
 			layer = initial(layer)
+			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
+				user.lay_down()
 		else
-			rolled = FALSE
+			roll = FALSE
 			if(layer == initial(layer))
 				layer = ABOVE_MOB_LAYER
-		inuse = FALSE
+			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
+				user.lay_down()
 		update_icon()
+		inuse = FALSE
 		return TRUE
 	inuse = FALSE
 	return FALSE
 
-/obj/item/weapon/bedsheet/verb/roll_verb(mob/living/user as mob)
-	set name = "Roll bedsheet"
-	set category = "Object"
-	set src in view(1)
-
-	if(folded)
-		user.show_message("<span class='warning'>Unfold \the [src] first.</span>")
-	else if(istype(loc,/mob))
-		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
-	else if(ishuman(usr))
-		toggle_roll(usr)
-
-/obj/item/weapon/bedsheet/proc/toggle_fold(var/mob/user, var/message = TRUE)
-	if(!user)
-		return FALSE
-	if(inuse)
-		user.show_message("Someone's already using \the [src].")
-		return FALSE
-	inuse = TRUE
-	if (do_after(user, 25, src))
-		rolled = FALSE
-		if(user.loc != loc)
-			user.do_attack_animation(src)
-		playsound(get_turf(loc), "rustle", 15, 1, -5)
-		if(message)
-			user.visible_message("<span class='notice'>\The [user] [folded ? "unfolded" : "folded"] \the [src].", "You [folded ? "unfolded" : "folded"] \the [src].</span>")
-		if(!folded)
-			folded = TRUE
-		else
-			folded = FALSE
-		inuse = FALSE
-		update_icon()
-		return TRUE
-	inuse = FALSE
-	return FALSE
-
-/obj/item/weapon/bedsheet/verb/fold_verb(mob/living/user as mob)
-	set name = "Fold bedsheet"
-	set category = "Object"
-	set src in view(1)
-
-	if(istype(loc,/mob))
-		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
-	else if(ishuman(usr))
-		toggle_fold(usr)
 
 /obj/item/weapon/bedsheet/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
