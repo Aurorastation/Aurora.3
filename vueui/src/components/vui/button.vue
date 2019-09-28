@@ -7,7 +7,7 @@
 
 <script>
 import Store from '../../store.js'
-import Utils from '../../utils.js'
+import Utils from '../../vueuiutils.js'
 export default {
   props: {
     icon: {

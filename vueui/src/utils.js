@@ -1,4 +1,3 @@
-import Store from './store.js'
 export default {
   sendToTopicRaw(data) {
     var sendparams = []
@@ -9,16 +8,6 @@ export default {
     var sendUrl = "?" + sendparams.join("&")
     r.open("GET", sendUrl, true);
     r.send()
-  },
-  sendToTopic(data, pushState = false) {
-    var pushData = {
-      src: Store.state.uiref,
-      vueuihrefjson: JSON.stringify(data)
-    }
-    if(pushState) {
-      pushData.vueuistateupdate = Store.getStatePushDataString()
-    }
-    this.sendToTopicRaw(pushData)
   },
   dotNotationRead(object, key) {
     return key.split('.').reduce((a, b) => a[b], object);
