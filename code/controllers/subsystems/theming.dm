@@ -97,8 +97,8 @@ var/datum/controller/subsystem/theming/SStheming
 
 /proc/send_theme_resources(var/user)
 #ifdef UIDEBUG
-	user << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
-	user << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
+	send_rsc(user, file("vueui/dist/app.js"), "vueui.js")
+	send_rsc(user, file("vueui/dist/app.css"), "vueui.css")
 #else
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/vueui)
 #endif

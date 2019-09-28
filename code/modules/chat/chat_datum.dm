@@ -40,8 +40,8 @@
 		return
 
 #ifdef UIDEBUG
-	client << browse_rsc(file("vueui/dist/chat.js"), "chat.js")
-	client << browse_rsc(file("vueui/dist/chat.css"), "chat.css")
+	send_rsc(client, file("vueui/dist/chat.js"), "chat.js")
+	send_rsc(client, file("vueui/dist/chat.css"), "chat.css")
 #else
 	simple_asset_ensure_is_sent(client, /datum/asset/simple/chat)
 #endif
