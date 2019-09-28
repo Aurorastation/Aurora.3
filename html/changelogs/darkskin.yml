@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Added main ui (skin) dark version that can be changed in global preferences."
