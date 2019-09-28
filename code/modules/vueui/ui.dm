@@ -176,7 +176,7 @@ main ui datum.
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		if (!QDELETED(asset["img"]))
-			cl << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
+			send_rsc(cl, asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 
 /**
   * Sends requested asset to ui's client
@@ -190,7 +190,7 @@ main ui datum.
 		return
 	var/asset = assets[ckey(name)]
 	if (asset && !QDELETED(asset["img"]))
-		user.client << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
+		send_rsc(user.client, asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 
 /**
   * Adds / sets dynamic asset for this ui's use
@@ -229,8 +229,8 @@ main ui datum.
 		return
 	if(href_list["vueuiforceresource"])
 		if(user.client)
-			user.client << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
-			user.client << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
+			send_rsc(user.client, file("vueui/dist/app.js"), "vueui.js")
+			send_rsc(user.client, file("vueui/dist/app.css"), "vueui.css")
 		open()
 	if(href_list["vueuistateupdate"])
 		var/rdata = json_decode(href_list["vueuistateupdate"])
