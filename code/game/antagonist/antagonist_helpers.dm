@@ -13,7 +13,7 @@
 	return 1
 
 /datum/antagonist/proc/can_become_antag_chance(var/datum/mind/player)
-	if(player.assigned_role in chance_restricted_jobs)
+	if(!isnull(chance_restricted_jobs[player.assigned_role]))
 		return prob(chance_restricted_jobs[player.assigned_role])
 	else
 		return 1
