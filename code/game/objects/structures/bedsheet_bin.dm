@@ -25,6 +25,9 @@ LINEN BINS
 /obj/item/weapon/bedsheet/attack_hand(mob/user as mob)
 	if(!istype(loc,/mob))
 		toggle_roll(user)
+	else
+		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
+		..()
 	add_fingerprint(user)
 
 /obj/item/weapon/bedsheet/MouseDrop(mob/user as mob)
@@ -50,9 +53,11 @@ LINEN BINS
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/weapon/bedsheet/Crossed() //Basically, stepping on it resets it to below people. Unless there's someone already under the blanket.
-	if(/mob == src.loc) // there must be a better proc for this.
-		return
+/obj/item/weapon/bedsheet/Crossed(H as mob) //Basically, stepping on it resets it to below people.
+	if(isliving(H))
+		var/mob/living/M = H
+		if(M.loc == src.loc)
+			return
 	else
 		layer = initial(layer)
 
@@ -68,9 +73,6 @@ LINEN BINS
 	if(!user)
 		return FALSE
 	if(inuse)
-		return FALSE
-	if(istype(loc,/mob))
-		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
 		return FALSE
 	inuse = TRUE
 	if (do_after(user, 6, src))
