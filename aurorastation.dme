@@ -198,6 +198,7 @@
 #include "code\controllers\subsystems\stickyban.dm"
 #include "code\controllers\subsystems\sun.dm"
 #include "code\controllers\subsystems\sunlight.dm"
+#include "code\controllers\subsystems\theming.dm"
 #include "code\controllers\subsystems\ticker.dm"
 #include "code\controllers\subsystems\timer.dm"
 #include "code\controllers\subsystems\trade.dm"

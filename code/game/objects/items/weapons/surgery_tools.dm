@@ -242,3 +242,37 @@
 /obj/item/weapon/storage/fancy/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	update_icon()
+
+/obj/item/weapon/storage/fancy/tray/attack_hand(mob/user as mob)
+	if(ishuman(user))
+		src.open(user)
+
+/obj/item/weapon/storage/fancy/tray/MouseDrop(mob/user as mob)
+	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+		if(ishuman(user) && !user.get_active_hand())
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+
+			if (H.hand)
+				temp = H.organs_by_name["l_hand"]
+			if(temp && !temp.is_usable())
+				to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+				return
+
+			to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+			pixel_x = 0
+			pixel_y = 0
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
+
+	return
+
+/obj/item/weapon/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+	if(..() && contents.len)
+		spill(3, get_turf(M))
+		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
+		user.visible_message(span("danger", "[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
+
+/obj/item/weapon/storage/fancy/tray/throw_impact(atom/hit_atom)
+	..()
+	spill(3, src.loc)
