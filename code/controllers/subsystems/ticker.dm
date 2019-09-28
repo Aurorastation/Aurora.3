@@ -470,7 +470,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if (S.name != "AI")
 				qdel(S)
 		to_world("<FONT color='blue'><B>Enjoy the game!</B></FONT>")
-		to_world(sound('sound/AI/welcome.ogg'))
+		sound_to(world, sound('sound/AI/welcome.ogg'))
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
 

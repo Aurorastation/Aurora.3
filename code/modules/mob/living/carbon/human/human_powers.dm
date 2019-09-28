@@ -399,7 +399,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	for(var/mob/living/M in range(7, src))
-		to_chat(M, 'sound/effects/EMPulse.ogg')
+		sound_to(M, 'sound/effects/EMPulse.ogg')
 		for(var/obj/item/weapon/material/shard/shrapnel/flechette/F in M.contents)
 			playsound(F, 'sound/items/countdown.ogg', 125, 1)
 			spawn(20)
