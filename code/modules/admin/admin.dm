@@ -1355,3 +1355,40 @@ proc/admin_notice(var/message, var/rights)
 	log_admin("[key_name(usr)] toggled the round spookyness to [enabled_spooking].")
 	message_admins("[key_name_admin(usr)] toggled the round spookyness [enabled_spooking ? "on" : "off"].", 1)
 	feedback_add_details("admin_verb","SPOOKY") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/datum/admins/proc/ccannoucment()
+	set category = "Special Verbs"
+	set name = "Custom sound Command Announcment"
+	set desc = "Emulate announcement that looks and sounds like the real one"
+	if(!check_rights(R_FUN))
+		return
+
+	var/title = input("Announcement TITLE:", "CAnnounce", null, null) as text
+	if(!title)
+		return
+	if(!check_rights(R_SERVER,0))
+		title = sanitize(title, 255, extra = 0)
+	var/message = input("Announcement content:", "CAnnounce", null, null) as message
+	if(!message)
+		return
+	if(!check_rights(R_SERVER,0))
+		message = sanitize(message, 500, extra = 0)
+	
+			
+	var/list/sounds = file2list("sound/serversound_list.txt");
+	sounds += "--CANCEL--"
+	sounds += "--LOCAL--"
+	sounds += sounds_cache
+
+	var/melody = input("Select a sound from the server to play", "Server sound list", "--CANCEL--") in sounds
+
+	if(melody == "--CANCEL--")
+		return
+	if(melody == "--LOCAL--")
+		melody = input("Select a sound to play", "Sound select") as sound
+		if(!melody)
+			return
+	
+	command_announcement.Announce(message, title, new_sound = melody)
+	log_and_message_admins("made custom announcement with custom sound", usr)
+	feedback_add_details("admin_verb","ACS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

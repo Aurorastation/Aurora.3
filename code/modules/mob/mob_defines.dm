@@ -237,3 +237,4 @@
 	var/mob_thinks = TRUE
 
 	var/authed = TRUE
+	var/player_age = "Requires database"

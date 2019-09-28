@@ -15,8 +15,7 @@
 
 /obj/item/stack/material/Initialize()
 	. = ..()
-	pixel_x = rand(0,4)-4
-	pixel_y = rand(0,4)-4
+	randpixel_xy()
 
 	if(!default_type)
 		default_type = DEFAULT_WALL_MATERIAL
@@ -75,7 +74,7 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(W.iscoil())
+	if(iscoil(W))
 		material.build_wired_product(user, W, src)
 		return
 	else if(istype(W, /obj/item/stack/rods))
@@ -184,6 +183,17 @@
 	icon_state = "sheet-wood"
 	default_type = "wood"
 	drop_sound = 'sound/items/drop/wooden.ogg'
+
+/obj/item/stack/material/woodlog
+	name = "log"
+	icon_state = "sheet-woodlog"
+	default_type = "log"
+
+/obj/item/stack/material/woodbranch
+	name = "branch"
+	icon_state = "sheet-branch"
+	default_type = "branch"
+
 
 /obj/item/stack/material/cloth
 	name = "cloth"

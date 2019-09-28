@@ -422,18 +422,18 @@
 	icon_opened = "medicalcrateopen"
 	icon_closed = "medicalcrate"
 
-/obj/structure/closet/crate/rcd
-	name = "\improper RCD crate"
-	desc = "A crate with rapid construction device."
+/obj/structure/closet/crate/rfd
+	name = "\improper RFD C-Class crate"
+	desc = "A crate with a Rapid-Fabrication-Device C-Class."
 	icon_state = "crate"
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 
-/obj/structure/closet/crate/rcd/fill()
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd_ammo(src)
-	new /obj/item/weapon/rcd(src)
+/obj/structure/closet/crate/rfd/fill()
+	new /obj/item/weapon/rfd_ammo(src)
+	new /obj/item/weapon/rfd_ammo(src)
+	new /obj/item/weapon/rfd_ammo(src)
+	new /obj/item/weapon/rfd/construction(src)
 
 /obj/structure/closet/crate/solar
 	name = "solar pack crate"

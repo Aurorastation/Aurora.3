@@ -21,6 +21,12 @@
 
 	light_range = 0
 	light_power = 0
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/bite
+	)
 
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
@@ -55,6 +61,10 @@
 
 	sprint_temperature_factor = 1.3
 	sprint_charge_factor = 0.85
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/tie_hair)
 
 /datum/species/machine/shell/get_light_color()
 	return
@@ -139,6 +149,10 @@
 	sprint_temperature_factor = 0.9
 	sprint_charge_factor = 1.1
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
+
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
 
@@ -177,8 +191,10 @@
 	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark"
+
 	death_sound = 'sound/effects/bang.ogg'
 	death_message = "collapses to the ground with a CLUNK, and begins to beep ominously."
+	death_message_range = 7
 
 	heat_level_1 = 1500
 	heat_level_2 = 2000
@@ -353,6 +369,10 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
 	)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
+
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -393,6 +413,10 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/bishop)
 	)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
+
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -426,6 +450,10 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot/unbranded),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbranded)
 	)
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

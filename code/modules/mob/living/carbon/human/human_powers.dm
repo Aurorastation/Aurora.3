@@ -16,7 +16,7 @@
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
 				var/list/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
-				if(test.length >= 2 && (species.name in test.species_allowed))
+				if(test.length >= 2 && (species.bodytype in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
 		if(selected_string && h_style != selected_string)
@@ -25,6 +25,27 @@
 			visible_message("<span class='notice'>[src] pauses a moment to style their hair.</span>")
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
+
+mob/living/carbon/human/proc/change_monitor()
+	set name = "Change IPC Screen"
+	set desc = "Change the display on your screen."
+	set category = "IC"
+
+	if(f_style)
+		var/datum/sprite_accessory/facial_hair/screen_style = facial_hair_styles_list[f_style]
+		var/selected_string
+		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
+		for(var/screen_string in facial_hair_styles_list)
+			var/list/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
+			if(species.bodytype in test.species_allowed)
+				valid_screenstyles.Add(screen_string)
+		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
+		if(selected_string && f_style != selected_string)
+			f_style = selected_string
+			regenerate_icons()
+			visible_message("<span class='notice'>[src]'s screen switches to a different display.</span>")
+		else
+			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
 
 /mob/living/carbon/human/proc/tackle()
 	set category = "Abilities"
