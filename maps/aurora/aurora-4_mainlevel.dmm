@@ -64629,7 +64629,6 @@
 	icon_state = "warningcorner_dust";
 	dir = 8
 	},
-/obj/machinery/mining/brace,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -65551,13 +65550,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"ldY" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/mining/drill,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
 "lgq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -66583,12 +66575,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"onQ" = (
-/obj/machinery/mining/drill,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
 "opq" = (
 /obj/machinery/button/holosign{
 	id = 2
@@ -69309,12 +69295,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"vUO" = (
-/obj/machinery/mining/brace,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/outpost/mining_main/eva)
 "vYh" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -92133,7 +92113,7 @@ cbQ
 cev
 ceN
 cfg
-ldY
+cfv
 aab
 aab
 aab
@@ -92647,7 +92627,7 @@ cbQ
 cew
 ceN
 cfh
-vUO
+ceN
 cfx
 cey
 cgl
@@ -92904,7 +92884,7 @@ cbQ
 cev
 ceN
 cfh
-onQ
+ceN
 cfx
 cey
 kIj
@@ -93161,7 +93141,7 @@ cbQ
 cev
 ceN
 cfh
-vUO
+ceN
 cfx
 cey
 cgm
@@ -93418,7 +93398,7 @@ cbQ
 cex
 ceO
 cfi
-vUO
+ceN
 cfx
 cey
 cgn
