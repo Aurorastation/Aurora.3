@@ -12,7 +12,7 @@
 
 /obj/item/weapon/bee_smoker/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
+		to_chat(user, "[hicon(src)] [src.name] contains [get_fuel()]/[src.max_fuel] units of fuel!")
 
 /obj/item/weapon/bee_smoker/New()
 	..()

@@ -884,7 +884,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, "\icon[] []: The detective's credentials show:")
+	to_chat(usr, "[hicon(src)] [src]: The detective's credentials show:")
 	to_chat(usr, "The investigator registered to the credentials is [investigator].")
 	to_chat(usr, "The assignment registered on the card is [occupation].")
 	to_chat(usr, "The birth date on the card displays [birth_year].")

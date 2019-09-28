@@ -205,7 +205,7 @@ var/const/NO_EMAG_ACT = -50
 				return
 
 	for(var/mob/O in viewers(user, null))
-		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
+		O.show_message("[user] shows you: [hicon(src)] [src.name]: assignment: [src.assignment]", 1)
 
 	src.add_fingerprint(user)
 	return
@@ -270,7 +270,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+	to_chat(usr, "[hicon(src)] [src.name]: The current assignment on the card is [src.assignment].")
 	to_chat(usr, "The age on the card is [age].")
 	to_chat(usr, "The citizenship on the card is [citizenship].")
 	to_chat(usr, "The religion on the card is [religion].")

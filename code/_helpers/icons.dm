@@ -167,7 +167,7 @@ mob
 
 		Output_Icon()
 			set name = "2. Output Icon"
-			src<<"Icon is: \icon[getFlatIcon(src)]"
+			src<<"Icon is: [hicon(getFlatIcon(src))]"
 
 		Label_Icon()
 			set name = "3. Label Icon"
@@ -958,3 +958,112 @@ proc/percentage_to_colour(var/P)
 	//var/red = 255 - (min(1, P*2)*255)
 
 	return rgb(red,green,0)
+
+
+
+// ICON2HTML Chat STUFF
+/var/savefile/chatIconCache = new("data/tmp/iconCache.sav")
+
+/proc/icon2base64(icon/icon, iconKey = "misc")
+	if (!isicon(icon))
+		return FALSE
+	chatIconCache[iconKey] << icon
+	var/iconData = chatIconCache.ExportText(iconKey)
+	var/list/partial = splittext(iconData, "{")
+	return replacetext(copytext(partial[2], 3, -5), "\n", "")
+
+/proc/icon2html(iconParam, target, icon_state, dir, frame = 1, moving = FALSE)
+	if (!iconParam)
+		return
+
+	var/key
+	var/icon/I = iconParam
+	if (!target)
+		return
+	var/list/targets
+	if (target == world)
+		targets = clients
+	else
+		targets = list(target)
+
+	if (!targets.len)
+		return
+	
+	if (!isicon(I))
+		if (isfile(iconParam)) //special snowflake
+			key = "[generate_asset_name(iconParam)].png"
+			register_asset(key, iconParam)
+			for (var/cl in targets)
+				send_asset(cl, key, FALSE)
+			return "<img class='icon icon-misc' src=\"[url_encode(key)]\">"
+		var/atom/A = iconParam
+		if (isnull(dir))
+			dir = A.dir
+		if (isnull(icon_state))
+			icon_state = A.icon_state
+		I = A.icon
+		if (ishuman(iconParam)) // Shitty workaround for a BYOND issue.
+			var/icon/temp = I
+			I = icon()
+			I.Insert(temp, dir = SOUTH)
+			dir = SOUTH
+	else
+		if (isnull(dir))
+			dir = SOUTH
+		if (isnull(icon_state))
+			icon_state = ""
+
+	I = icon(I, icon_state, dir, frame, moving)
+
+	key = "[generate_asset_name(I)].png"
+	register_asset(key, I)
+	for (var/cl in targets)
+		send_asset(cl, key, FALSE)
+
+	return "<img class='icon icon-[icon_state]' src=\"[url_encode(key)]\">"
+
+/proc/icon2base64html(rawIcon, extraClass = "")
+	if (!rawIcon)
+		return
+	var/static/list/bicon_cache = list()
+	if (isicon(rawIcon))
+		var/icon/I = rawIcon
+		var/iconRef = "\ref[I]"
+		var/icon_base64 = ""
+
+		if (I.Height() > world.icon_size || I.Width() > world.icon_size)
+			var/icon_md5 = md5(iconRef)
+			icon_base64 = bicon_cache[icon_md5]
+			if (!icon_base64) // Doesn't exist yet, make it.
+				bicon_cache[icon_md5] = icon_base64 = icon2base64(I)
+		else
+			icon_base64 = icon2base64(I)
+
+		return "<img class='icon icon-misc [extraClass]' src='data:image/png;base64,[icon_base64]'>"
+
+	var/atom/A = rawIcon
+	if(!istype(A))
+		CRASH("Invalid type was passed to iconbase64.")
+	var/key = "[istype(A.icon, /icon) ? "\ref[A.icon]" : A.icon]:[A.icon_state]"
+
+	if (!bicon_cache[key]) // Doesn't exist, make it.
+		var/icon/I = icon(A.icon, A.icon_state, SOUTH, 1)
+		if (ishuman(rawIcon)) // Shitty workaround for a BYOND issue.
+			var/icon/temp = I
+			I = icon()
+			I.Insert(temp, dir = SOUTH)
+
+		bicon_cache[key] = icon2base64(I, key)
+
+	return "<img class='icon icon-[A.icon_state] [extraClass]' src='data:image/png;base64,[bicon_cache[key]]'>"
+
+//Costlier version of icon2html() that uses getFlatIcon() to account for overlays, underlays, etc. Use with extreme moderation, ESPECIALLY on mobs.
+/proc/costly_icon2html(thing, target)
+	if (!thing)
+		return
+
+	if (isicon(thing))
+		return icon2html(thing, target)
+
+	var/icon/I = getFlatIcon(thing)
+	return icon2html(I, target)
