@@ -83,8 +83,8 @@
 		/obj/item/powerdrill = 1,\
 		/obj/item/weapon/mining_scanner = 1,\
 		/obj/item/weapon/cell/high = 1,\
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 1\
-	) //gotta celebrate a job well done, eh?
+		/obj/item/device/drill_dropper = 1\
+	)
 
 /obj/item/weapon/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
