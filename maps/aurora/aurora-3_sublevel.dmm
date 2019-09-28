@@ -27698,6 +27698,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
+"cwE" = (
+/obj/machinery/button/crematorium{
+	_wifi_id = "sci_crema1";
+	pixel_x = 28;
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "cyD" = (
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -28024,6 +28038,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
+"dpo" = (
+/obj/machinery/optable{
+	name = "Autopsy Table"
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "dpL" = (
 /obj/structure/table/rack,
 /obj/item/weapon/pickaxe{
@@ -28879,6 +28902,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
+"ftS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "fxa" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 1
@@ -28895,15 +28928,6 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_a)
-"fFr" = (
-/obj/machinery/light/small,
-/obj/machinery/button/crematorium{
-	_wifi_id = "sci_crema2";
-	pixel_x = 28;
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "fHV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -29784,20 +29808,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
-"iup" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
-"ivX" = (
-/obj/structure/crematorium{
-	_wifi_id = "sci_crema1";
-	dir = 8;
-	icon_state = "crema1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "iyz" = (
 /obj/machinery/alarm{
 	pixel_y = 24
@@ -29808,14 +29818,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
-"iEE" = (
-/obj/structure/crematorium{
-	_wifi_id = "sci_crema2";
-	dir = 8;
-	icon_state = "crema1"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "iFn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -30589,6 +30591,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"kMf" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
 "kPF" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -30638,17 +30646,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
-"kVk" = (
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/obj/machinery/door/airlock/glass_research{
-	name = "Incinerator"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "kVF" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -31642,6 +31639,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology/xenoflora_hazard)
+"nEO" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/machinery/door/airlock/glass_research{
+	name = "Autopsy and Incineration"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "nFv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -31692,12 +31703,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
-"nIA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/test_range)
 "nJV" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(12)
@@ -31914,12 +31919,6 @@
 "owN" = (
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
-"oyo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "ozh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -32125,12 +32124,6 @@
 	icon_state = "plating"
 	},
 /area/rnd/mixing)
-"phL" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "piW" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -32653,6 +32646,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
+"qMd" = (
+/obj/structure/table/standard,
+/obj/item/weapon/autopsy_scanner,
+/obj/item/weapon/scalpel{
+	desc = "Cut, cut, and once more cut. This one is extra shiny!";
+	name = "shiny scalpel"
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "qMQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -33157,19 +33162,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
-"saT" = (
+"sbi" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /obj/machinery/light/small{
-	dir = 1
+	dir = 4;
+	pixel_y = 0
 	},
-/obj/machinery/button/crematorium{
-	_wifi_id = "sci_crema1";
-	pixel_x = 28;
-	pixel_y = 28
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "sbs" = (
 /turf/simulated/floor/tiled/white,
@@ -33232,12 +33236,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"sox" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "soJ" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/cable_coil,
@@ -33299,6 +33297,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"swN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "sCq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -33831,6 +33841,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"tQO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "tSs" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
@@ -34338,6 +34357,15 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
+"uZz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "vdr" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -35009,6 +35037,12 @@
 /obj/structure/closet,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"wDt" = (
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "wGj" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -35274,6 +35308,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"xjO" = (
+/obj/structure/table/standard,
+/obj/item/weapon/hemostat,
+/obj/item/weapon/retractor,
+/obj/item/weapon/circular_saw,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "xjT" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -35637,6 +35681,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"xVH" = (
+/obj/structure/crematorium{
+	_wifi_id = "sci_crema1";
+	dir = 2;
+	icon_state = "crema1"
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/rnd/test_range)
 "xVZ" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -35688,13 +35743,6 @@
 /obj/structure/bed,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
-"yaw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/test_range)
 "ybR" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -53159,9 +53207,9 @@ aJD
 aKD
 aLz
 piW
-kVk
-yaw
-iup
+nEO
+ftS
+swN
 aGy
 aQr
 bdf
@@ -53414,12 +53462,12 @@ aHv
 dsZ
 aJE
 aIA
-nIA
+kMf
 jcB
 aGy
-sox
-aMB
-aMB
+uZz
+wDt
+qMd
 aQr
 bdg
 bfJ
@@ -53674,9 +53722,9 @@ aKE
 usm
 aMC
 aGy
-saT
-oyo
-fFr
+cwE
+tQO
+dpo
 aQr
 bdh
 bdG
@@ -53931,9 +53979,9 @@ aKF
 aLC
 gHy
 aGy
-ivX
-phL
-iEE
+xVH
+sbi
+xjO
 aQr
 bdi
 bdJ
