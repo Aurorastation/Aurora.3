@@ -91,7 +91,7 @@
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, O.usesound, 50, 1)
 		else
 			to_chat(user, "<span class='notice'>You need to unlock the controls first.</span>")
 		return
