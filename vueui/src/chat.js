@@ -13,12 +13,17 @@ global.receiveQueue = function (encoded) {
 }
 
 function addMessages(messages) {
+  var offset = document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   messages.forEach(message => {
     let div = document.createElement('div')
     div.innerHTML = message
     div.className = "message"
     global.messageTarget.appendChild(div)
   })
+  if(offset + 20 >= height) {
+    window.scrollTo(0, document.documentElement.scrollHeight);
+  }
 }
 
 Utils.onReady(() => {
