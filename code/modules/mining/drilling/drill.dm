@@ -202,13 +202,13 @@
 				sleep(30)
 				if(!supported) //if you can resolve it manually in three seconds then power to you good-sir.
 					if(prob(50))
-						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
+						visible_message("<span class='notice'>[hicon(src)] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
 					else
 						visible_message("<span class='danger'>\The [src] explodes!</span>")
 						fragem(src,10,35,2,1,5,1,0)
 						qdel(src)
 				else
-					visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\"</span>")
+					visible_message("<span class='notice'>[hicon(src)] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\"</span>")
 			if(supported && panel_open)
 				if(cell)
 					system_error("unsealed cell fitting error")
@@ -229,7 +229,7 @@
 							component_parts -= cell
 							cell = null
 					else
-						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"</span>")
+						visible_message("<span class='notice'>[hicon(src)] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\"</span>")
 		else
 			to_chat(user, "<span class='notice'>The drill is unpowered.</span>")
 	update_icon()
@@ -279,7 +279,7 @@
 /obj/machinery/mining/drill/proc/system_error(var/error)
 
 	if(error)
-		visible_message("<span class='warning'>\icon[src] [src.name] flashes a system warning: [error].</span>")
+		visible_message("<span class='warning'>[hicon(src)] [src.name] flashes a system warning: [error].</span>")
 		playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 100, 1)
 	need_player_check = 1
 	active = 0
@@ -389,7 +389,7 @@
 				sleep(30)
 				if(connected && connected.active) //if you can resolve it manually in three seconds then power to you good-sir.
 					if(prob(50))
-						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
+						visible_message("<span class='notice'>[hicon(src)] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
 					else
 						visible_message("<span class='danger'>\The [src] explodes!</span>")
 						fragem(src,10,35,2,1,5,1,0)

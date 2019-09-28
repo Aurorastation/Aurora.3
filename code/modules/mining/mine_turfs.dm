@@ -220,7 +220,7 @@ var/list/mineral_can_smooth_with = list(
 			if (!istype(src, /turf/simulated/mineral))
 				return
 
-			to_chat(user, "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*excavation_level]cm.</span>")
+			to_chat(user, "<span class='notice'>[hicon(P)] [src] has been excavated to a depth of [2*excavation_level]cm.</span>")
 		return
 
 	if (istype(W, /obj/item/weapon/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.

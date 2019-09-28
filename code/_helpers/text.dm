@@ -336,7 +336,7 @@ proc/TextPreview(var/string,var/len=40)
 /proc/create_text_tag(var/tagname, var/tagdesc = tagname, var/client/C = null)
 	if(C && (C.prefs.toggles & CHAT_NOICONS))
 		return tagdesc
-	return "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
+	return icon2base64html(icon(text_tag_icons, tagname), "text_tag")
 
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.

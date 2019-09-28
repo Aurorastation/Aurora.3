@@ -9,3 +9,5 @@
 #define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
 #define send_output(target, msg, control)                   target << output(msg, control)
 #define send_link(target, url)                              target << link(url)
+
+#define hicon(icon) icon2base64html(icon)

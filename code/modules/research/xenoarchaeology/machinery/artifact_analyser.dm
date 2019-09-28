@@ -77,7 +77,7 @@
 		var/pname = "[src] report #[++report_num]"
 		var/info = "<b>[src] analysis report #[report_num]</b><br>"
 		info += "<br>"
-		info += "\icon[scanned_object] [results]"
+		info += "[hicon(scanned_object)] [results]"
 		P.stamped = list(/obj/item/weapon/stamp)
 		P.overlays = list("paper_stamped")
 		P.set_content_unsafe(pname, info)

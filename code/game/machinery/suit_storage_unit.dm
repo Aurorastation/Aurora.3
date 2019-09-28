@@ -996,7 +996,7 @@
 
 /obj/machinery/suit_cycler/proc/finished_job()
 	var/turf/T = get_turf(src)
-	T.visible_message("\icon[src]<span class='notice'>The [src] pings loudly.</span>")
+	T.visible_message("[hicon(src)]<span class='notice'>The [src] pings loudly.</span>")
 	icon_state = initial(icon_state)
 	active = 0
 	src.updateUsrDialog()

@@ -234,7 +234,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			audible_message(text("[hicon(src)] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
 
 	//Handle screen switching
 	if(href_list["setScreen"])
@@ -374,7 +374,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message(text("[hicon(src)] *The Requests Console beeps: 'Paper added.'"))
 		else
 			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
 	else if (istype(O, /obj/item/weapon/paper))
@@ -384,7 +384,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message(text("[hicon(src)] *The Requests Console beeps: 'Paper added.'"))
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
@@ -431,12 +431,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
-							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
+							player.show_message(text("[hicon(Console)] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--
 				if(sent == 1)
-					user.show_message(text("\icon[src] *The Requests Console beeps: 'Message Sent.'"))
+					user.show_message(text("[hicon(src)] *The Requests Console beeps: 'Message Sent.'"))
 			else
-				user.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+				user.show_message(text("[hicon(src)] *The Requests Console beeps: 'NOTICE: No server detected!'"))
 
 	return
 

@@ -37,3 +37,4 @@
 		SSchat.Queue(.)
 
 	. = null
+
