@@ -3228,27 +3228,27 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_joosten_left
-		name = "Tattoo (Joosten, Left Eye)"
-		icon_state = "tat_joosten_l"
+	tat_kater_left
+		name = "Tattoo (Kater, Left Eye)"
+		icon_state = "tat_kater_l"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_joosten_right
-		name = "Tattoo (Joosten, Right Eye)"
-		icon_state = "tat_joosten_r"
+	tat_kater_right
+		name = "Tattoo (Kater, Right Eye)"
+		icon_state = "tat_kater_r"
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_miller_left
-		name = "Tattoo (Miller, Left Eye)"
-		icon_state = "tat_miller_l"
+	tat_lujan_left
+		name = "Tattoo (Lujan, Left Eye)"
+		icon_state = "tat_lujan_l"
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_miller_right
-		name = "Tattoo (Miller, Right Eye)"
-		icon_state = "tat_miller_r"
+	tat_lujan_right
+		name = "Tattoo (Lujan, Right Eye)"
+		icon_state = "tat_lujan_r"
 		body_parts = list("head")
 		species_allowed = list("Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
@@ -3263,6 +3263,18 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_montana_r"
 		body_parts = list("head")
 		species_allowed = list("Human")
+
+	tat_natasha_left
+		name = "Tattoo (Natasha, Left Eye)"
+		icon_state = "tat_natasha_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_natasha_right
+		name = "Tattoo (Natasha, Right Eye)"
+		icon_state = "tat_natasha_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tat_nightling
 		name = "Tattoo (Nightling, Back)"
@@ -3334,18 +3346,6 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell")
 
-	tat_tatyana_left
-		name = "Tattoo (Tatyana, Left Eye)"
-		icon_state = "tat_tatyana_l"
-		body_parts = list("head")
-		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
-
-	tat_tatyana_right
-		name = "Tattoo (Tatyana, Right Eye)"
-		icon_state = "tat_tatyana_r"
-		body_parts = list("head")
-		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
-
 	tat_tiger
 		name = "Tattoo (Tiger Stripes, All)"
 		icon_state = "tat_tiger"
@@ -3392,6 +3392,18 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tattoo (Tiger Stripes, Right Foot)"
 			body_parts = list("r_foot")
 
+	tat_toshi_left
+		name = "Tattoo (Toshi, Left Eye)"
+		icon_state = "tat_toshi_l"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
+	tat_toshi_right
+		name = "Tattoo (Volgin, Right Eye)"
+		icon_state = "tat_toshi_r"
+		body_parts = list("head")
+		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
+
 	tat_tramp
 		name = "Tattoo (Tramp, Lower Back)"
 		icon_state = "tat_tramp"
@@ -3403,18 +3415,6 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "tat_trampheart"
 		body_parts = list("chest")
 		species_allowed = list("Human")
-
-	tat_volgin_left
-		name = "Tattoo (Volgin, Left Eye)"
-		icon_state = "tat_volgin_l"
-		body_parts = list("head")
-		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
-
-	tat_volgin_right
-		name = "Tattoo (Volgin, Right Eye)"
-		icon_state = "tat_volgin_r"
-		body_parts = list("head")
-		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
