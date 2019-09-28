@@ -12,9 +12,9 @@ em						{font-style: normal;font-weight: bold;}
 
 .motd					{color: #638500;font-family: Verdana, sans-serif;}
 .motd h1, .motd h2, .motd h3, .motd h4, .motd h5, .motd h6
-						{color: #638500;text-decoration: underline;}
+            {color: #638500;text-decoration: underline;}
 .motd a, .motd a:link, .motd a:visited, .motd a:active, .motd a:hover
-						{color: #638500;}
+            {color: #638500;}
 
 .prefix					{font-weight: bold;}
 .log_message			{color: #386AFF;	font-weight: bold;}
@@ -113,4 +113,10 @@ h1.alert, h2.alert		{color: #000000;}
 .good                   {color: #4f7529; font-weight: bold;}
 .bad                    {color: #ee0000; font-weight: bold;}
 
-BIG IMG.icon 			{width: 32px; height: 32px;}
+
+IMG.icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: middle;
+}
+//BIG IMG.icon 			{width: 32px; height: 32px;}
