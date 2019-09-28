@@ -213,17 +213,17 @@
 	var/list/data = list("div" = "", "content" = "", "update" = 1, "changeHash" = null)
 
 	if (outdated_info & OUTDATED_NOTE)
-		to_chat(user, output("#note-placeholder", "greeting.browser:RemoveElement"))
+		send_output(user, "#note-placeholder", "greeting.browser:RemoveElement")
 
 		data["div"] = "#note"
 		data["update"] = 1
 
 		for (var/datum/client_notification/a in user.prefs.notifications)
 			data["content"] = a.get_html()
-			to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
+			send_output(user, JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (!user.holder)
-		to_chat(user, output("#memo-tab", "greeting.browser:RemoveElement"))
+		send_output(user, "#memo-tab", "greeting.browser:RemoveElement")
 	else
 		if (outdated_info & OUTDATED_MEMO)
 			data["update"] = 1
@@ -234,7 +234,7 @@
 
 		data["div"] = "#memo"
 		data["content"] = get_memo_content(user)
-		to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
+		send_output(user, JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	if (outdated_info & OUTDATED_MOTD)
 		data["update"] = 1
@@ -245,7 +245,7 @@
 
 	data["div"] = "#motd"
 	data["content"] = motd
-	to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
+	send_output(user, JS_SANITIZE(data), "greeting.browser:AddContent")
 
 	data["div"] = "#testmerges"
 	data["content"] = revdata.greeting_info
@@ -255,7 +255,7 @@
 	else
 		data["update"] = 0
 	data["changeHash"] = null
-	to_chat(user, output(JS_SANITIZE(data), "greeting.browser:AddContent"))
+	send_output(user, JS_SANITIZE(data), "greeting.browser:AddContent")
 
 /*
  * Basically the Topic proc for the greeting datum.

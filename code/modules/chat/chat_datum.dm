@@ -87,7 +87,7 @@
 	return "Ligth"
 
 /datum/chat/proc/jscall(var/list/params, var/function)
-	client << output(list2params(params),"browseroutput:[function]")
+	send_output(client, list2params(params), "browseroutput:[function]")
 
 /datum/chat/proc/FinilizeLoading()
 	if(loaded)
