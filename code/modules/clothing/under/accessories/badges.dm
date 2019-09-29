@@ -53,6 +53,22 @@
 	if(isliving(user))
 		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting [src] into their face insistently.</span>","<span class='danger'>You invade [M]'s personal space, thrusting [src] into their face insistently.</span>")
 
+/obj/item/clothing/accessory/badge/verb/flip_side()
+	set category = "Object"
+	set name = "Flip badge"
+	set src in usr
+
+	if (usr.stat || usr.restrained())
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.item_state = "[item_state]_flip"
+	else
+		src.item_state = initial(item_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+	update_clothing_icon()
+
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
 	name = "holobadge"

@@ -11,6 +11,8 @@
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/image/mob_overlay = null
 	var/overlay_state = null
+	var/flippable = 0
+	var/flipped = 0
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -82,6 +84,20 @@
 		return	//we aren't an object on the ground so don't call parent
 	..()
 
+//default attack_self behaviour
+/obj/item/clothing/accessory/attack_self(mob/user as mob)
+	if(flippable)
+		if(flipped)
+			item_state = "[item_state]_flip"
+			flipped = 1
+		else
+			item_state = initial(item_state)
+			flipped = 0
+		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+		update_clothing_icon()
+		return
+	..()
+
 /obj/item/clothing/accessory/blue
 	name = "blue tie"
 	icon_state = "bluetie"
@@ -140,6 +156,7 @@
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
 	icon_state = "stethoscope"
+	flippable = 1
 
 /obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user, var/target_zone)
 	if(ishuman(M) && isliving(user))
@@ -199,6 +216,7 @@
 	desc = "A bronze medal."
 	icon_state = "bronze"
 	item_state = "bronze"
+	flippable = 1
 
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
@@ -267,6 +285,7 @@
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
+	flippable = 1
 
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
@@ -507,6 +526,7 @@
 	description_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
 	icon_state = "starcape"
 	item_state = "starcape"
+	flippable = 1
 
 /obj/item/clothing/accessory/poncho/shouldercape/star
 	name = "star cape"
@@ -539,6 +559,7 @@
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	slot = "over"
+	flippable = 1
 
 /obj/item/clothing/accessory/legion/specialist
 	name = "specialist medallion"
@@ -576,12 +597,14 @@
 	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
+	flippable = 1
 
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
 	desc = "A small pin of the Sol Alliance, shaped like a golden sun."
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
+	flippable = 1
 
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
@@ -592,3 +615,4 @@
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	flippable = 1
