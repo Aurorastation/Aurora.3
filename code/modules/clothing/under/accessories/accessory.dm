@@ -99,9 +99,9 @@
 				icon_state = initial(icon_state)
 				flipped = 0
 			else
-				overlay_state = "[overlay_state]_flip"
-				flipped = 1
-		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+				overlay_state = initial(overlay_state)
+				flipped = 0
+		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 		update_clothing_icon()
 		return
 	..()
