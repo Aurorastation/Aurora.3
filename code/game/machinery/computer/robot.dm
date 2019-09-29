@@ -61,10 +61,7 @@
 		// Antagonistic cyborgs? Left here for downstream
 		if(target.mind && target.mind.special_role && target.emagged)
 			to_chat(target, "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered.")
-			target.say("WARNING: Self-Destruct initiated. Unit BZT- [target] will. TERMINATING COMMAND.. NIN- NINE- NINE SECONDS")
 			target.ResetSecurityCodes()
-			sleep(20)
-			playsound(target, 'sound/items/countdown.ogg', 125, 1)
 			return
 		if(target.emagged)
 			to_chat(user, "Access Denied. Safety protocols are disabled.")
