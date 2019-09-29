@@ -5,7 +5,9 @@ export default {
     ref: "",
     roundId: "",
     fontSize: 14,
-    messages: []
+    messages: [],
+    lastPing: null,
+    lastPong: null,
   },
   loadInitialState(encodedData) {
     var newState = JSON.parse(encodedData)
@@ -22,5 +24,30 @@ export default {
   UpdateFontSize(newSize) {
     this.state.fontSize = newSize
     Cookies.set('fontSize', newSize);
+  },
+  getPingHandlier(send, onFailure) {
+    return () => {
+      if(!this.state.lastPing) {
+        this.state.lastPing = Date.now()
+        send()
+      } else {
+        var diff = Date.now() - this.state.lastPing
+        if(diff > 15000) {
+          onFailure(diff / 1000);
+          send()
+        }
+      }
+    }
+  },
+  getPongHandler(callback) {
+    return () => {
+      if(!this.state.lastPing) {
+        return;
+      }
+      this.state.lastPong = Date.now()
+      callback(this.state.lastPong - this.state.lastPing)
+      this.state.lastPong = null;
+      this.state.lastPing = null;
+    }
   }
 }

@@ -116,6 +116,8 @@
 		return
 	if(href_list["ready"])
 		FinilizeLoading()
+	if(href_list["ping"])
+		jscall(list(), "chatPong")
 
 	. = ..()
 	

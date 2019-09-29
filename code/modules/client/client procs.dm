@@ -54,6 +54,11 @@
 		//del(usr)
 		return
 
+	if(href_list["_openurl"])
+		if(alert("This will open \"[href_list["_openurl"]]\" in your browser. Are you sure?",,"Yes","No")=="No")
+			return
+		send_link(usr, href_list["_openurl"])
+
 	//Admin PM
 	if(href_list["priv_msg"])
 		var/client/C = locate(href_list["priv_msg"])

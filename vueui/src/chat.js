@@ -5,6 +5,8 @@
 import './assets/chat.scss'
 import Utils from './utils.js'
 import Store from './chatStore.js'
+import UrlParse from 'url-parse'
+import linkifyHtml from 'linkifyjs/html';
 
 global.receiveQueue = function (encoded) {
   let decoded = JSON.parse(encoded)
@@ -33,15 +35,54 @@ global.changeFontSize = function (delta) {
   window.scrollTo(0, newOffset);
 }
 
+global.chatPong = Store.getPongHandler((speed) => {
+  document.getElementById("latency").innerText = speed
+})
+
+global.dbg = () => {
+  let div = document.createElement('div')
+  div.innerText = global.messageTarget.innerHTML
+  div.innerText += "<hr>" + window.location
+  global.messageTarget.appendChild(div)
+
+}
+
+var pingTimer = setInterval(Store.getPingHandlier(
+  () => Utils.sendToTopicRaw({
+      src: Store.state.ref,
+      ping: 1
+    }),
+  (time) => {
+    addMessages([`Server didn't respond in ${time} seconds. You might have lost connection.`])
+    clearInterval(pingTimer);
+  }
+), 2000)
+
+function getLinkClickHandler(el) {
+  return (event) => {
+    event.preventDefault()
+    var url = UrlParse(el.getAttribute('href'), 'byond://')
+    if(url.hostname) {
+      Utils.sendToTopicRaw({
+        _openurl: url.href
+      })
+    } else {
+      Utils.AJAX(url.query)
+    }
+    return false
+  }
+}
+
 function addMessages(messages) {
   // Save current parameters for later
   var offset = document.documentElement.scrollTop;
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   messages.forEach(message => {
     let div = document.createElement('div')
-    div.innerHTML = message
-    div.className = "message"
+    div.innerHTML = linkifyHtml(message)
+    div.className = 'message'
     global.messageTarget.appendChild(div)
+    div.getElementsByTagName('A').forEach(el => el.addEventListener('click', getLinkClickHandler(el)))
   })
   // If we were at the end of document, then auto scroll to it.
   if(offset + 20 >= height) {
@@ -64,9 +105,16 @@ Utils.onReady(() => {
     ready: 1
   })
 
+  document.addEventListener("onclick", (event) => {
+    addMessages([JSON.stringify(event)])
+    if(event.target.tagName == "A") {
+      event.preventDefault()
+    }
+  })
+
   var tst = document.createElement('div')
   tst.className = "vuchat-controls"
-  tst.innerHTML = "<a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(1)\">[+]</a><a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(-1)\">[-]</a>"
+  tst.innerHTML = "<span id=\"latency\"></span><a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(1)\">[+]</a><a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(-1)\">[-]</a><a href=\"javascript:void(0);\" onmousedown=\"dbg()\">[D]</a>"
   document.body.insertBefore(tst, document.body.firstChild)
   
 })

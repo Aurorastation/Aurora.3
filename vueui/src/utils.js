@@ -4,8 +4,10 @@ export default {
     for(var val in data) {
       sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(data[val]))
     }
+    this.AJAX("?" + sendparams.join("&"))
+  },
+  AJAX(sendUrl) {
     var r = new XMLHttpRequest()
-    var sendUrl = "?" + sendparams.join("&")
     r.open("GET", sendUrl, true);
     r.send()
   },
