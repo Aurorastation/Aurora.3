@@ -1,0 +1,7 @@
+author: Alberky
+
+delete-after: True
+
+changes: 
+  - tweak: "Vaurca phoron tanks will now only leak when damaged."
+  - tweak: "Ta consulars can no longer issue orders over hivenet in any way besides actually saying them."
