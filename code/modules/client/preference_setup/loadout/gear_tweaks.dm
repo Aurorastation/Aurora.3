@@ -169,12 +169,12 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	return "Name: [metadata]"
 
 /datum/gear_tweak/custom_name/get_default()
-	return "None"
+	return ""
 
 /datum/gear_tweak/custom_name/get_metadata(var/user, var/metadata)
 	if(valid_custom_names)
 		return input(user, "Choose an item name.", "Character Preference", metadata) as null|anything in valid_custom_names
-	return input(user, "Choose the item's name.", "Item Name", metadata) as text|null
+	return sanitize(input(user, "Choose the item's name.", "Item Name", metadata) as text|null, MAX_LNAME_LEN, extra = 0)
 
 /datum/gear_tweak/custom_name/tweak_item(var/obj/item/I, var/metadata)
 	if(!metadata)
@@ -182,6 +182,29 @@ var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 	I.name = metadata
 
 /*
-Description
+Custom Description
 */
-//var/datum/gear_tweak/text/desc = new()
+var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
+
+/datum/gear_tweak/custom_desc
+	var/list/valid_custom_desc
+
+/datum/gear_tweak/custom_desc/New(var/list/valid_custom_desc)
+	src.valid_custom_desc = valid_custom_desc
+	..()
+
+/datum/gear_tweak/custom_desc/get_contents(var/metadata)
+	return "Description: [metadata]"
+
+/datum/gear_tweak/custom_desc/get_default()
+	return ""
+
+/datum/gear_tweak/custom_desc/get_metadata(var/user, var/metadata)
+	if(valid_custom_desc)
+		return input(user, "Choose an item description.", "Character Preference", metadata) as null|anything in valid_custom_desc
+	return sanitize(input(user, "Choose the item's description.", "Item Description", metadata) as message|null, extra = 0)
+
+/datum/gear_tweak/custom_desc/tweak_item(var/obj/item/I, var/metadata)
+	if(!metadata)
+		return I.desc
+	I.desc = metadata
