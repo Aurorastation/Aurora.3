@@ -87,7 +87,7 @@
 //default attack_self behaviour
 /obj/item/clothing/accessory/attack_self(mob/user as mob)
 	if(flippable)
-		if(flipped)
+		if(!flipped)
 			item_state = "[item_state]_flip"
 			flipped = 1
 		else
