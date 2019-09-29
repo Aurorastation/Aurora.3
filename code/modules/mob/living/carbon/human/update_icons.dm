@@ -560,8 +560,10 @@ There are several things that need to be remembered:
 			if(wear_id.contained_sprite)
 				wear_id.auto_adapt_species(src)
 				overlays_raw[ID_LAYER] = image(wear_id.icon_override || wear_id.icon, "[wear_id.item_state][WORN_ID]")
+			else if(wear_id.icon_override)
+				overlays_raw[ID_LAYER] = image(wear_id.icon_override, "[wear_id.item_state]")
 			else
-				overlays_raw[ID_LAYER] = image("icon" = 'icons/mob/mob.dmi', "icon_state" = "id")
+				overlays_raw[ID_LAYER] = image("icon" = 'icons/mob/card.dmi', "icon_state" = "id")
 
 	BITSET(hud_updateflag, ID_HUD)
 	BITSET(hud_updateflag, WANTED_HUD)

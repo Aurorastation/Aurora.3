@@ -187,7 +187,7 @@
 	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
-	gear_tweaks += list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"
@@ -239,3 +239,11 @@
 /datum/gear/accessory/electronic_idbadge
 	display_name = "badge, electronic"
 	path = /obj/item/clothing/accessory/badge/idbadge/intel
+
+/datum/gear/accessory/sleeve_patch
+	display_name = "shoulder sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch
+
+/datum/gear/accessory/sleeve_patch/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice

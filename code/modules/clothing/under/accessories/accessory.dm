@@ -696,3 +696,33 @@
 	icon_state = "tags"
 	item_state = "tags"
 	overlay_state = "tags"
+
+/obj/item/clothing/accessory/sleevepatch
+	name = "sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
+	icon_state = "patch"
+	overlay_state = "patch"
+
+/obj/item/clothing/accessory/sleevepatch/necro
+	name = "\improper Necropolis Industries sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Necropolis Industries logo."
+	icon_state = "necro_patch"
+	overlay_state = "necro_patch"
+
+/obj/item/clothing/accessory/sleevepatch/necrosec
+	name = "\improper Necropolis Industries Security sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Necropolis Industries logo with an insignia."
+	icon_state = "necrosec_patch"
+	overlay_state = "necrosec_patch"
+
+/obj/item/clothing/accessory/sleevepatch/erisec
+	name = "\improper EPMC sleeve patch"
+	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one denotes the wearer as an Eridani Private Military Contractor."
+	icon_state = "erisec_patch"
+	overlay_state = "erisec_patch"
+
+/obj/item/clothing/accessory/sleevepatch/idrissec
+	name = "\improper Idris Incorporated sleeve patch"
+	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
+	icon_state = "idrissec_patch"
+	overlay_state = "idrissec_patch"
