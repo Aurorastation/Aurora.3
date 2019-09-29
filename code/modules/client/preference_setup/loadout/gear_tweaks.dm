@@ -156,7 +156,7 @@ Reagents adjustment
 Custom Name
 */
 
-var/datum/gear_tweak/color/gear_tweak_free_name = new()
+var/datum/gear_tweak/custom_name/gear_tweak_free_name = new()
 
 /datum/gear_tweak/custom_name
 	var/list/valid_custom_names
