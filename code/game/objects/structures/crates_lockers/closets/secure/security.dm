@@ -235,7 +235,7 @@
 		if (prob(50))
 			new /obj/item/clothing/accessory/storage/black_vest(src)
 		else
-			new /obj/item/clothing/accessory/storage/black_pouches(src)
+			new /obj/item/clothing/accessory/storage/pouches/black(src)
 		new /obj/item/weapon/storage/belt/security(src)
 
 
@@ -270,7 +270,7 @@
 		if (prob(50))
 			new /obj/item/clothing/accessory/storage/black_vest(src)
 		else
-			new /obj/item/clothing/accessory/storage/black_pouches(src)
+			new /obj/item/clothing/accessory/storage/pouches/black(src)
 		new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security
@@ -312,7 +312,7 @@
 		if (prob(50))
 			new /obj/item/clothing/accessory/storage/black_vest(src)
 		else
-			new /obj/item/clothing/accessory/storage/black_pouches(src)
+			new /obj/item/clothing/accessory/storage/pouches/black(src)
 		new /obj/item/clothing/accessory/holster/hip(src)
 		new /obj/item/weapon/storage/belt/security(src)
 

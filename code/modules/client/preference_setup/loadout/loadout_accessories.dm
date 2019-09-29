@@ -104,17 +104,17 @@
 
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
-	path = /obj/item/clothing/accessory/storage/brown_pouches
+	path = /obj/item/clothing/accessory/storage/pouches/brown
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
-	path = /obj/item/clothing/accessory/storage/black_pouches
+	path = /obj/item/clothing/accessory/storage/pouches/black
 	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
-	path = /obj/item/clothing/accessory/storage/white_pouches
+	path = /obj/item/clothing/accessory/storage/pouches/white
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist","Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches

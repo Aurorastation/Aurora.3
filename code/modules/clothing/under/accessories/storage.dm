@@ -44,28 +44,6 @@
 		hold.remove_from_storage(I, T)
 	src.add_fingerprint(user)
 
-/obj/item/clothing/accessory/storage/verb/flip_side()
-	set category = "Object"
-	set name = "Flip storage accessory"
-	set src in usr
-
-	if (usr.stat || usr.restrained())
-		return
-
-	src.flipped = !src.flipped
-	if(src.flipped)
-		if(!overlay_state)
-			src.icon_state = "[icon_state]_flip"
-		else
-			src.overlay_state = "[overlay_state]_flip"
-	else
-		if(!overlay_state)
-			src.icon_state = initial(icon_state)
-		else
-			src.overlay_state = "[overlay_state]_flip"
-	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
-	update_clothing_icon()
-
 /obj/item/clothing/accessory/storage/webbing
 	name = "webbing"
 	desc = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
@@ -95,21 +73,46 @@
 	icon_state = "thigh_brown" //todo: get a different sprite for it
 	overlay_state = "thigh_brown"
 
-/obj/item/clothing/accessory/storage/black_pouches
+
+/obj/item/clothing/accessory/storage/pouches/verb/flip_side()
+	set category = "Object"
+	set name = "Flip drop pouches"
+	set src in usr
+
+	if (usr.stat || usr.restrained())
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		if(!overlay_state)
+			src.icon_state = "[icon_state]_flip"
+		else
+			src.overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			src.icon_state = initial(icon_state)
+		else
+			src.overlay_state = "[overlay_state]_flip"
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+	update_clothing_icon()
+	src.inv_overlay = null
+	src.mob_overlay = null
+
+/obj/item/clothing/accessory/storage/pouches/black
 	name = "black drop pouches"
 	desc = "Robust black synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_black"
 	overlay_state = "thigh_black"
 	slots = 5
 
-/obj/item/clothing/accessory/storage/brown_pouches
+/obj/item/clothing/accessory/storage/pouches/brown
 	name = "brown drop pouches"
 	desc = "Worn brownish synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_brown"
 	overlay_state = "thigh_brown"
 	slots = 5
 
-/obj/item/clothing/accessory/storage/white_pouches
+/obj/item/clothing/accessory/storage/pouches/white
 	name = "white drop pouches"
 	desc = "Durable white synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_white"

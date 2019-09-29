@@ -77,6 +77,8 @@
 			src.overlay_state = "[overlay_state]_flip"
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 	update_clothing_icon()
+	src.inv_overlay = null
+	src.mob_overlay = null
 
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo

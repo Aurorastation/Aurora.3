@@ -103,6 +103,8 @@
 				flipped = 0
 		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 		update_clothing_icon()
+		inv_overlay = null
+		mob_overlay = null
 		return
 	..()
 
