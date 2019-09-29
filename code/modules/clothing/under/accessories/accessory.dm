@@ -219,7 +219,6 @@
 				return
 	return ..(M,user)
 
-
 //Medals
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
@@ -241,7 +240,7 @@
 	icon_state = "bronze_heart"
 
 /obj/item/clothing/accessory/medal/nobel_science
-	name = "nobel sciences award"
+	name = "\improper Nobel science award"
 	desc = "A bronze medal which represents significant contributions to the field of science or engineering."
 
 /obj/item/clothing/accessory/medal/sol
@@ -298,12 +297,14 @@
 	icon_state = "gold"
 	overlay_state = "gold"
 
-/obj/item/clothing/accessory/medal/gold/star //todo
+/obj/item/clothing/accessory/medal/gold/star
 	name = "gold star medal"
+	desc = "Some sort of medal with finely-cut gold. There is a small arch depicted on it."
 	icon_state = "gold_star"
 
-/obj/item/clothing/accessory/medal/gold/sun //todo
+/obj/item/clothing/accessory/medal/gold/sun
 	name = "gold sun medal"
+	desc = "A finely rounded gold medal with small, complicated engravings running all around it."
 	icon_state = "gold_sun"
 
 /obj/item/clothing/accessory/medal/gold/captain
