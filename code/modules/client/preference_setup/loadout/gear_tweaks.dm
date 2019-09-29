@@ -153,34 +153,35 @@ Reagents adjustment
 	I.reagents.add_reagent(., I.reagents.get_free_space())
 
 /*
-Name Text
+Custom Name
 */
-var/datum/gear_tweak/name/gear_name = new()
 
-/datum/gear_tweak/name
-	var/list/valid_names
+var/datum/gear_tweak/color/gear_tweak_free_name = new()
 
-/datum/gear_tweak/name/New(var/list/valid_names)
-	src.valid_names = valid_names
+/datum/gear_tweak/custom_name
+	var/list/valid_custom_names
+
+/datum/gear_tweak/custom_name/New(var/list/valid_custom_names)
+	src.valid_custom_names = valid_custom_names
 	..()
 
-/datum/gear_tweak/name/get_contents(var/metadata)
+/datum/gear_tweak/custom_name/get_contents(var/metadata)
 	return "Name: [metadata]"
 
-/datum/gear_tweak/color/get_default()
+/datum/gear_tweak/custom_name/get_default()
 	return "None"
 
-/datum/gear_tweak/color/get_metadata(var/user, var/metadata)
-	if(valid_names)
-		return input(user, "Choose an item color.", "Character Preference", metadata) as null|anything in valid_names
-	return input(user, "Choose an item color.", "Global Preference", metadata) as color|null
+/datum/gear_tweak/custom_name/get_metadata(var/user, var/metadata)
+	if(valid_custom_names)
+		return input(user, "Choose an item name.", "Character Preference", metadata) as null|anything in valid_custom_names
+	return input(user, "Choose the item's name.", "Item Name", metadata) as text|null
 
-/datum/gear_tweak/color/tweak_item(var/obj/item/I, var/metadata)
-	if(valid_colors && !(metadata in valid_colors))
-		return
-	I.color = metadata
+/datum/gear_tweak/custom_name/tweak_item(var/obj/item/I, var/metadata)
+	if(!metadata)
+		return I.name
+	I.name = metadata
 
 /*
 Description
 */
-var/datum/gear_tweak/text/desc = new()
+//var/datum/gear_tweak/text/desc = new()

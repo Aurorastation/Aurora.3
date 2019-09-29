@@ -119,6 +119,10 @@
 	overlay_state = "thigh_white"
 	slots = 5
 
+/obj/item/clothing/accessory/storage/pouches/colour
+	icon_state = "thigh_colour"
+	overlay_state = "thigh_white"
+
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."

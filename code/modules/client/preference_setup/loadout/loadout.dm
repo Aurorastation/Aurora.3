@@ -230,6 +230,7 @@ var/list/gear_datums = list()
 	if(!description)
 		var/obj/O = path
 		description = initial(O.desc)
+	gear_tweaks += gear_tweak_free_name
 
 /datum/gear_data
 	var/path

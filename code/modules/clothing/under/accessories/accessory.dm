@@ -323,8 +323,8 @@
 	icon_state = "gold_sol"
 
 /obj/item/clothing/accessory/medal/white_heart
-	name = "white heart medal"
-	desc = "A medal with a red cross on it for those who have performed outstanding medical services as a volunteer for the Interstellar Aid Corps."
+	name = "distinguished volunteer's medal"
+	desc = "A white medal with a red cross on it for those who have performed outstanding medical services as a volunteer for the Interstellar Aid Corps."
 	icon_state = "white_heart"
 	overlay_state = "white_heart"
 
@@ -690,7 +690,7 @@
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	flippable = 1
 
-/obj/item/clothing/accessory/badge/dogtags
+/obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
 	icon_state = "tags"
