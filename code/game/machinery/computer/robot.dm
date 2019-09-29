@@ -63,6 +63,7 @@
 			to_chat(target, "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered.")
 			target.ResetSecurityCodes()
 			return
+			
 		if(target.emagged)
 			to_chat(user, "Access Denied. Safety protocols are disabled.")
 			return
