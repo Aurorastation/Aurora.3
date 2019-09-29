@@ -114,7 +114,7 @@ Utils.onReady(() => {
 
   var tst = document.createElement('div')
   tst.className = "vuchat-controls"
-  tst.innerHTML = "<span id=\"latency\"></span><a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(1)\">[+]</a><a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(-1)\">[-]</a><a href=\"javascript:void(0);\" onmousedown=\"dbg()\">[D]</a>"
+  tst.innerHTML = "<span id=\"latency\">?</span>ms  <a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(1)\">[+]</a><a href=\"javascript:void(0);\" onmousedown=\"changeFontSize(-1)\">[-]</a>"
   document.body.insertBefore(tst, document.body.firstChild)
   
 })

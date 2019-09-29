@@ -32,7 +32,7 @@ export default {
         send()
       } else {
         var diff = Date.now() - this.state.lastPing
-        if(diff > 15000) {
+        if(diff > 5000) {
           onFailure(diff / 1000);
           send()
         }
