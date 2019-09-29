@@ -74,7 +74,7 @@
 		if(!overlay_state)
 			src.icon_state = initial(icon_state)
 		else
-			src.overlay_state = "[overlay_state]_flip"
+			src.overlay_state = initial(overlay_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 	update_clothing_icon()
 	src.inv_overlay = null
