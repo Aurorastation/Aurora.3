@@ -9,6 +9,7 @@
 	desc = "A corporate security badge, made from gold and set on false leather."
 	icon_state = "badge"
 	item_state = "marshalbadge"
+	overlay_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_TIE
 
 	var/stored_name
@@ -19,6 +20,7 @@
 	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
 	icon_state = "pressbadge"
 	item_state = "pbadge"
+	overlay_state = "pbadge"
 	badge_string = "Corporate Reporter"
 
 /obj/item/clothing/accessory/badge/press/independent
@@ -31,6 +33,7 @@
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
 	icon_state = "badge_round"
+	overlay_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
 	stored_name = new_name
@@ -63,9 +66,15 @@
 
 	src.flipped = !src.flipped
 	if(src.flipped)
-		src.item_state = "[item_state]_flip"
+		if(!overlay_state)
+			src.icon_state = "[icon_state]_flip"
+		else
+			src.overlay_state = "[overlay_state]_flip"
 	else
-		src.item_state = initial(item_state)
+		if(!overlay_state)
+			src.icon_state = initial(icon_state)
+		else
+			src.overlay_state = "[overlay_state]_flip"
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
 	update_clothing_icon()
 
@@ -75,10 +84,12 @@
 	desc = "This glowing blue badge marks the holder as a member of corporate security."
 	icon_state = "holobadge"
 	item_state = "holobadge"
+	overlay_state = "holobadge"
 	var/emagged //Emagging removes Sec check.
 
 /obj/item/clothing/accessory/badge/holo/cord
 	icon_state = "holobadge-cord"
+	overlay_state = null
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
@@ -119,6 +130,7 @@
 	name = "warden's badge"
 	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
 	icon_state = "silverbadge"
+	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 
@@ -126,12 +138,14 @@
 	name = "commander's badge"
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
+	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/sol_visa
 	name = "\improper ASSN visa recommendation slip"
 	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
 	icon_state = "sol-visa"
+	overlay_state = null
 	slot_flags = SLOT_TIE
 	badge_string = "Priority ASSN Visa Applicant"
 
@@ -139,6 +153,7 @@
 	name = "\improper TCFL enlistment"
 	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
 	icon_state = "tc-visa"
+	overlay_state = null
 	slot_flags = SLOT_TIE
 	badge_string = "Tau Ceti Foreign Legion Recruit"
 
@@ -146,6 +161,7 @@
 	name = "honorary party member card"
 	desc = "A card denoting a honorary member of the Hadiist party."
 	icon_state = "hadii-id"
+	overlay_state = null
 	slot_flags = SLOT_TIE
 	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
 	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \

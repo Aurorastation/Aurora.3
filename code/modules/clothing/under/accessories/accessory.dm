@@ -88,11 +88,19 @@
 /obj/item/clothing/accessory/attack_self(mob/user as mob)
 	if(flippable)
 		if(!flipped)
-			item_state = "[item_state]_flip"
-			flipped = 1
+			if(!overlay_state)
+				icon_state = "[icon_state]_flip"
+				flipped = 1
+			else
+				overlay_state = "[overlay_state]_flip"
+				flipped = 1
 		else
-			item_state = initial(item_state)
-			flipped = 0
+			if(!overlay_state)
+				icon_state = initial(icon_state)
+				flipped = 0
+			else
+				overlay_state = "[overlay_state]_flip"
+				flipped = 1
 		to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 		update_clothing_icon()
 		return
@@ -215,7 +223,7 @@
 	name = "bronze medal"
 	desc = "A bronze medal."
 	icon_state = "bronze"
-	item_state = "bronze"
+	overlay_state = "bronze"
 	flippable = 1
 
 /obj/item/clothing/accessory/medal/conduct
@@ -232,37 +240,64 @@
 	name = "nobel sciences award"
 	desc = "A bronze medal which represents significant contributions to the field of science or engineering."
 
+/obj/item/clothing/accessory/medal/sol //todo
+	name = "bronze Sol medal"
+	icon_state = "bronze_sol"
+
 /obj/item/clothing/accessory/medal/iron
 	name = "iron medal"
 	desc = "A simple iron medal."
 	icon_state = "iron"
-	item_state = "iron"
+	overlay_state = "iron"
 
 /obj/item/clothing/accessory/medal/iron/merit
 	name = "iron merit medal"
 	desc = "An iron medal awarded to NanoTrasen employees for merit."
 	icon_state = "iron_nt"
 
+/obj/item/clothing/accessory/medal/iron/star
+	name = "iron star medal"
+	desc = "An iron medal awarded to those who have provided service to their profession in the field of medical organisation, and/or to physicians by enhancing overall health and well-being of colleagues on both personal and professional levels."
+	icon_state = "iron_star"
+	overlay_state = "iron_star"
+
+/obj/item/clothing/accessory/medal/iron/sol //todo
+	name = "iron Sol medal"
+	icon_state = "iron_sol"
+
 /obj/item/clothing/accessory/medal/silver
 	name = "silver medal"
 	desc = "A silver medal."
 	icon_state = "silver"
-	item_state = "silver"
+	overlay_state = "silver"
 
 /obj/item/clothing/accessory/medal/silver/valor
 	name = "medal of valor"
 	desc = "A silver medal awarded for acts of exceptional valor."
+	icon_state = "silver_sword"
 
 /obj/item/clothing/accessory/medal/silver/security
 	name = "robust security award"
 	desc = "An award for distinguished combat and sacrifice in defence of corporate commercial interests. Often awarded to security staff."
 	icon_state = "silver_nt"
 
+/obj/item/clothing/accessory/medal/silver/sol //todo
+	name = "silver Sol medal"
+	icon_state = "silver_sol"
+
 /obj/item/clothing/accessory/medal/gold
 	name = "gold medal"
 	desc = "A prestigious golden medal."
 	icon_state = "gold"
-	item_state = "gold"
+	overlay_state = "gold"
+
+/obj/item/clothing/accessory/medal/gold/star //todo
+	name = "gold star medal"
+	icon_state = "gold_star"
+
+/obj/item/clothing/accessory/medal/gold/sun //todo
+	name = "gold sun medal"
+	icon_state = "gold_sun"
 
 /obj/item/clothing/accessory/medal/gold/captain
 	name = "medal of captaincy"
@@ -273,6 +308,15 @@
 	name = "medal of exceptional heroism"
 	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
 	icon_state = "gold_crest"
+
+/obj/item/clothing/accessory/medal/gold/sol //todo
+	name = "gold Sol medal"
+	icon_state = "gold_sol"
+
+/obj/item/clothing/accessory/medal/white_heart //todo
+	name = "white heart medal"
+	icon_state = "white_heart"
+	overlay_state = "white_heart"
 
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
@@ -285,52 +329,62 @@
 	desc = "A simple scarf, to protect your neck from the cold of space."
 	icon_state = "whitescarf"
 	item_state = "whitescarf"
+	overlay_state = "whitescarf"
 	flippable = 1
 
 /obj/item/clothing/accessory/scarf/yellow
 	name = "yellow scarf"
 	icon_state = "yellowscarf"
 	item_state = "yellowscarf"
+	overlay_state = "yellowscarf"
 
 /obj/item/clothing/accessory/scarf/green
 	name = "green scarf"
 	icon_state = "greenscarf"
 	item_state = "greenscarf"
+	overlay_state = "greenscarf"
 
 /obj/item/clothing/accessory/scarf/purple
 	name = "purple scarf"
 	icon_state = "purplescarf"
 	item_state = "purplescarf"
+	overlay_state = "purplescarf"
 
 /obj/item/clothing/accessory/scarf/black
 	name = "black scarf"
 	icon_state = "blackscarf"
 	item_state = "blackscarf"
+	overlay_state = "blackscarf"
 
 /obj/item/clothing/accessory/scarf/red
 	name = "red scarf"
 	icon_state = "redscarf"
 	item_state = "redscarf"
+	overlay_state = "redscarf"
 
 /obj/item/clothing/accessory/scarf/orange
 	name = "orange scarf"
 	icon_state = "orangescarf"
 	item_state = "orangescarf"
+	overlay_state = "orangescarf"
 
 /obj/item/clothing/accessory/scarf/light_blue
 	name = "light blue scarf"
 	icon_state = "lightbluescarf"
 	item_state = "lightbluescarf"
+	overlay_state = "lightbluescarf"
 
 /obj/item/clothing/accessory/scarf/dark_blue
 	name = "dark blue scarf"
 	icon_state = "darkbluescarf"
 	item_state = "darkbluescarf"
+	overlay_state = "darkbluescarf"
 
 /obj/item/clothing/accessory/scarf/zebra
 	name = "zebra scarf"
 	icon_state = "zebrascarf"
 	item_state = "zebrascarf"
+	overlay_state = "zebrascarf"
 
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
@@ -533,24 +587,28 @@
 	desc = "A simple looking cape with a couple of runes woven into the fabric."
 	icon_state = "starcape"
 	item_state = "starcape"
+	overlay_state = "starcape"
 
 /obj/item/clothing/accessory/poncho/shouldercape/nebula
 	name = "nebula cape"
 	desc = "A decorated cape. Starry patterns have been woven into the fabric."
 	icon_state = "nebulacape"
 	item_state = "nebulacape"
+	overlay_state = "nebulacape"
 
 /obj/item/clothing/accessory/poncho/shouldercape/nova
 	name = "nova cape"
 	desc = "A heavily decorated cape with emblems on the shoulders. An ornate starry design has been woven into the fabric of it"
 	icon_state = "novacape"
 	item_state = "novacape"
+	overlay_state = "novacape"
 
 /obj/item/clothing/accessory/poncho/shouldercape/galaxy
 	name = "galaxy cape"
 	desc = "An extremely decorated cape with an intricately made design has been woven into the fabric of this cape with great care."
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
+	overlay_state = "galaxycape"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
@@ -558,6 +616,7 @@
 	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
+	overlay_state = "senior_ribbon"
 	slot = "over"
 	flippable = 1
 
@@ -566,6 +625,7 @@
 	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
 	icon_state = "specialist_medallion"
 	item_state = "specialist_medallion"
+	overlay_state = "specialist_medallion"
 
 /obj/item/clothing/accessory/offworlder
 	name = "venter assembly"
@@ -597,6 +657,7 @@
 	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
+	overlay_state = "tc-pin"
 	flippable = 1
 
 /obj/item/clothing/accessory/sol_pin
@@ -604,6 +665,7 @@
 	desc = "A small pin of the Sol Alliance, shaped like a golden sun."
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
+	overlay_state = "sol-pin"
 	flippable = 1
 
 /obj/item/clothing/accessory/hadii_pin
@@ -611,6 +673,7 @@
 	desc = "A small, red flag pin worn by members of the Hadiist party."
 	icon_state = "hadii-pin"
 	item_state = "hadii-pin"
+	overlay_state = "hadii-pin"
 	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
