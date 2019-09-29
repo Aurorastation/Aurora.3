@@ -24,6 +24,7 @@
 	item_state = "pbadge"
 	overlay_state = "pbadge"
 	badge_string = "Corporate Reporter"
+	w_class = 1
 
 	drop_sound = 'sound/items/drop/rubber.ogg'
 
@@ -38,6 +39,7 @@
 	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
 	icon_state = "pbadge"
 	badge_string = "Security Journalist"
+	w_class = 2
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
@@ -47,7 +49,7 @@
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
 	stored_name = new_name
-	name = "[initial(name)] ([stored_name])"
+	name = "[name] ([stored_name])"
 
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
@@ -194,6 +196,7 @@
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	w_class = 1
 
 	drop_sound = 'sound/items/drop/card.ogg'
 
@@ -223,6 +226,7 @@
 	icon_state = "solbadge"
 	overlay_state = "solbadge"
 	badge_string = null
+	w_class = 1
 
 /obj/item/clothing/accessory/badge/idbadge/nt
 	name = "\improper NT ID badge"

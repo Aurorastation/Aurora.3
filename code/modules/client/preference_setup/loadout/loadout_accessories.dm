@@ -10,7 +10,7 @@
 
 /datum/gear/accessory/suspenders/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
@@ -18,7 +18,7 @@
 
 /datum/gear/accessory/waistcoat/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 
 /datum/gear/accessory/armband
@@ -80,7 +80,7 @@
 
 /datum/gear/accessory/bowtie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -124,7 +124,7 @@
 
 /datum/gear/accessory/pouches/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/sweater
 	display_name = "sweater"
@@ -132,7 +132,7 @@
 
 /datum/gear/accessory/sweater/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
@@ -140,7 +140,7 @@
 
 /datum/gear/accessory/dressshirt/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/dressshirt_r
 	display_name = "dress shirt, rolled up"
@@ -148,7 +148,7 @@
 
 /datum/gear/accessory/dressshirt_r/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
@@ -156,7 +156,7 @@
 
 /datum/gear/accessory/longsleeve/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/longsleeve_s
 	display_name = "long-sleeved shirt, striped"
@@ -175,7 +175,7 @@
 
 /datum/gear/accessory/tshirt/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
