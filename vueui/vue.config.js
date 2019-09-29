@@ -49,11 +49,10 @@ module.exports = {
       .delete("html-app")
       .delete("preload-app")
       .delete("prefetch-app")
-      .delete("hmr-app")
       .delete("html-chat")
       .delete("preload-chat")
       .delete("prefetch-chat")
-      .delete("hmr-chat")
+      .delete("hmr")
 
     config.plugin('extract-css')
       .tap(args => {
