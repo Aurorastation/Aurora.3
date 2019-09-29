@@ -154,6 +154,9 @@
 		new /obj/item/device/breath_analyzer(src)
 		//Belts
 		new /obj/item/clothing/accessory/holster/waist(src)
+		new /obj/item/clothing/accessory/holster/armpit(src)
+		new /obj/item/clothing/accessory/holster/hip(src)
+		new /obj/item/clothing/accessory/holster/thigh(src)
 		new /obj/item/weapon/storage/belt/security(src)
 
 
@@ -184,7 +187,10 @@
 		//Belts
 		new /obj/item/weapon/storage/belt/security(src)
 
+		new /obj/item/clothing/accessory/holster/armpit(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
+		new /obj/item/clothing/accessory/holster/hip(src)
+		new /obj/item/clothing/accessory/holster/thigh(src)
 
 		new /obj/item/device/breath_analyzer(src)
 
@@ -372,6 +378,9 @@
 		new /obj/item/taperoll/police(src)
 		//Belts
 		new /obj/item/clothing/accessory/holster/armpit(src)
+		new /obj/item/clothing/accessory/holster/waist(src)
+		new /obj/item/clothing/accessory/holster/hip(src)
+		new /obj/item/clothing/accessory/holster/thigh(src)
 
 /obj/structure/closet/secure_closet/detective/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(opened)

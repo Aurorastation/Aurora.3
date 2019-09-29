@@ -192,3 +192,46 @@
 /datum/gear/accessory/chaps/black
 	display_name = "chaps, black"
 	path = /obj/item/clothing/accessory/chaps/black
+
+/datum/gear/accessory/dogtags
+	display_name = "dogtags"
+	path = /obj/item/clothing/accessory/dogtags
+
+/datum/gear/accessory/holobadge
+	display_name = "badge, holo"
+	path = /obj/item/clothing/accessory/badge/holo
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
+
+/datum/gear/accessory/holobadge/New()
+	..()
+	var/holobadges = list()
+	holobadges["holobadge"] = /obj/item/clothing/accessory/badge/holo
+	holobadges["holobadge cord"] = /obj/item/clothing/accessory/badge/holo/cord
+	gear_tweaks += new/datum/gear_tweak/path(holobadges)
+
+/datum/gear/accessory/wardenbadge
+	display_name = "badge, warden"
+	path = /obj/item/clothing/accessory/badge/warden
+	allowed_roles = list("Warden")
+
+/datum/gear/accessory/hosbadge
+	display_name = "badge, HoS"
+	path = /obj/item/clothing/accessory/badge/hos
+	allowed_roles = list("Head of Security")
+
+/datum/gear/accessory/detbadge
+	display_name = "badge, detective"
+	path = /obj/item/clothing/accessory/badge/dia
+	allowed_roles = list("Detective")
+
+/datum/gear/accessory/idbadge
+	display_name = "badge, identification"
+	path = /obj/item/clothing/accessory/badge/idbadge
+
+/datum/gear/accessory/nt_idbadge
+	display_name = "badge, NanoTrasen ID"
+	path = /obj/item/clothing/accessory/badge/idbadge/nt
+
+/datum/gear/accessory/electronic_idbadge
+	display_name = "badge, electronic"
+	path = /obj/item/clothing/accessory/badge/idbadge/intel

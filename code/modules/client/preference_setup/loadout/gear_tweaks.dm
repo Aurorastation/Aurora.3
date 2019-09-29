@@ -151,3 +151,34 @@ Reagents adjustment
 	else
 		. = valid_reagents[metadata]
 	I.reagents.add_reagent(., I.reagents.get_free_space())
+
+/*
+Name and description
+*/
+var/datum/gear_tweak/text/name = new()
+var/datum/gear_tweak/text/desc = new()
+
+/datum/gear_tweak/text
+
+/datum/gear_tweak/text/New()
+	src.valid_colors = valid_colors
+	..()
+
+/datum/gear_tweak/color/get_contents(var/metadata)
+	return "Color: <font color='[metadata]'>&#9899;</font>"
+
+/datum/gear_tweak/color/get_default()
+	return valid_colors ? valid_colors[1] : COLOR_GRAY
+
+/datum/gear_tweak/color/get_random()
+	return valid_colors ? pick(valid_colors) : COLOR_GRAY
+
+/datum/gear_tweak/color/get_metadata(var/user, var/metadata)
+	if(valid_colors)
+		return input(user, "Choose an item color.", "Character Preference", metadata) as null|anything in valid_colors
+	return input(user, "Choose an item color.", "Global Preference", metadata) as color|null
+
+/datum/gear_tweak/color/tweak_item(var/obj/item/I, var/metadata)
+	if(valid_colors && !(metadata in valid_colors))
+		return
+	I.color = metadata

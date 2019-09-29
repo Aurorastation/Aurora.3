@@ -228,6 +228,8 @@
 	overlay_state = "bronze"
 	flippable = 1
 
+	drop_sound = 'sound/items/drop/scrap.ogg'
+
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
 	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer. It is often awarded by a captain to a member of their crew."
@@ -242,8 +244,9 @@
 	name = "nobel sciences award"
 	desc = "A bronze medal which represents significant contributions to the field of science or engineering."
 
-/obj/item/clothing/accessory/medal/sol //todo
-	name = "bronze Sol medal"
+/obj/item/clothing/accessory/medal/sol
+	name = "\improper ASSN medal of bravery"
+	desc = "A bronze medal dedicated to those who have demonstrated courageous acts in the name of the Alliance of Sovereign Solarian Nations."
 	icon_state = "bronze_sol"
 
 /obj/item/clothing/accessory/medal/iron
@@ -263,8 +266,9 @@
 	icon_state = "iron_star"
 	overlay_state = "iron_star"
 
-/obj/item/clothing/accessory/medal/iron/sol //todo
-	name = "iron Sol medal"
+/obj/item/clothing/accessory/medal/iron/sol
+	name = "\improper ASSN medal of effort"
+	desc = "An iron medal awarded for distinguished effort conducted by an individual in the name of the Alliance of Sovereign Solarion Nations."
 	icon_state = "iron_sol"
 
 /obj/item/clothing/accessory/medal/silver
@@ -283,8 +287,9 @@
 	desc = "An award for distinguished combat and sacrifice in defence of corporate commercial interests. Often awarded to security staff."
 	icon_state = "silver_nt"
 
-/obj/item/clothing/accessory/medal/silver/sol //todo
-	name = "silver Sol medal"
+/obj/item/clothing/accessory/medal/silver/sol
+	name = "\improper ASSN medal of service"
+	desc = "A silver medal held for those who have served for long periods of time with pristine conduct in the name of the Alliance of Sovereign Solarian Nations."
 	icon_state = "silver_sol"
 
 /obj/item/clothing/accessory/medal/gold
@@ -311,12 +316,14 @@
 	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
 	icon_state = "gold_crest"
 
-/obj/item/clothing/accessory/medal/gold/sol //todo
-	name = "gold Sol medal"
+/obj/item/clothing/accessory/medal/gold/sol
+	name = "\improper ASSN medal of distinction"
+	desc = "A gold medal reserved only for those with excellent performance in both combat and political training, for selflessness, and for bravery displayed in service under the Alliance of Sovereign Solarian Nations."
 	icon_state = "gold_sol"
 
-/obj/item/clothing/accessory/medal/white_heart //todo
+/obj/item/clothing/accessory/medal/white_heart
 	name = "white heart medal"
+	desc = "A medal with a red cross on it for those who have performed outstanding medical services as a volunteer for the Interstellar Aid Corps."
 	icon_state = "white_heart"
 	overlay_state = "white_heart"
 
@@ -681,3 +688,10 @@
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	flippable = 1
+
+/obj/item/clothing/accessory/badge/dogtags
+	name = "dogtags"
+	desc = "A pair of engraved metal identification tags."
+	icon_state = "tags"
+	item_state = "tags"
+	overlay_state = "tags"
