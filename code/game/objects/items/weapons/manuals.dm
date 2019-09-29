@@ -12,8 +12,8 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Station Repairs and Construction"
 
-/obj/item/weapon/book/manual/engineering_construction/New()
-	..()
+/obj/item/weapon/book/manual/engineering_construction/Initialize()
+	. = ..()
 	dat = {"
 
 		<html><head>
@@ -33,8 +33,8 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
-/obj/item/weapon/book/manual/engineering_particle_accelerator/New()
-	..()
+/obj/item/weapon/book/manual/engineering_particle_accelerator/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -80,8 +80,8 @@
 	author = "Central Engineering Division"
 	title = "Supermatter Engine Operating Manual"
 
-/obj/item/weapon/book/manual/supermatter_engine/New()
-	..()
+/obj/item/weapon/book/manual/supermatter_engine/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -153,8 +153,8 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Hacking"
 
-/obj/item/weapon/book/manual/engineering_hacking/New()
-	..()
+/obj/item/weapon/book/manual/engineering_hacking/Initialize()
+	. = ..()
 	dat = {"
 
 		<html><head>
@@ -224,10 +224,10 @@
 
 
 /obj/item/weapon/book/manual/medical_cloning
-	name = "Cloning Techniques of the 26th Century"
+	name = "Cloning Techniques of the 25th Century"
 	icon_state ="bookCloning"
 	author = "Medical Journal, volume 3"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
-	title = "Cloning Techniques of the 26th Century"
+	title = "Cloning Techniques of the 25th Century"
 
 	dat = {"<html>
 				<head>
@@ -246,7 +246,7 @@
 				<H1>How to Clone People</H1>
 				So there are 50 dead people lying on the floor, chairs are spinning like no tomorrow and you haven't the foggiest idea of what to do? Not to worry!
 				This guide is intended to teach you how to clone people and how to do it right, in a simple, step-by-step process! If at any point of the guide you have a mental meltdown,
-				genetics probably isn't for you and you should get a job-change as soon as possible before you're sued for malpractice.
+				Medical probably isn't for you and you should get a reassignment as soon as possible before you're sued for malpractice.
 
 				<ol>
 					<li><a href='#1'>Acquire body</a></li>
@@ -254,12 +254,11 @@
 					<li><a href='#3'>Put body in cloning machine</a></li>
 					<li><a href='#4'>Scan body</a></li>
 					<li><a href='#5'>Clone body</a></li>
-					<li><a href='#6'>Get clean Structural Enzymes for the body</a></li>
 					<li><a href='#7'>Put body in morgue</a></li>
 					<li><a href='#8'>Await cloned body</a></li>
-					<li><a href='#9'>Cryo and use the clean SE injector</a></li>
-					<li><a href='#10'>Give person clothes back</a></li>
-					<li><a href='#11'>Send person on their way</a></li>
+					<li><a href='#9'>Place patient in cryogenic cell</a></li>
+					<li><a href='#10'>Give patient their clothes back</a></li>
+					<li><a href='#11'>Send patient to receive psychiatric treatment, if necessary</a></li>
 				</ol>
 
 				<a name='1'><H3>Step 1: Acquire body</H3>
@@ -267,49 +266,39 @@
 
 				<a name='2'><H3>Step 2: Strip body</H3>
 				The cloning machine does not like abiotic items. What this means is you can't clone anyone if they're wearing clothes or holding things, so take all of it off. If it's just one person, it's courteous to put their possessions in the closet.
-				If you have about seven people awaiting cloning, just leave the piles where they are, but don't mix them around and for God's sake don't let people in to steal them.
+				If you have several people awaiting cloning, just leave the piles where they are, but don't mix them around and for God's sake don't let people in to steal them.
 
 				<a name='3'><h3>Step 3: Put body in cloning machine</h3>
 				Grab the body and then put it inside the DNA modifier. If you cannot do this, then you messed up at Step 2. Go back and check you took EVERYTHING off - a commonly missed item is their headset.
 
 				<a name='4'><h3>Step 4: Scan body</h3>
 				Go onto the computer and scan the body by pressing 'Scan - &lt;Subject Name Here&gt;.' If you're successful, they will be added to the records (note that this can be done at any time, even with living people,
-				so that they can be cloned without a body in the event that they are lying dead on port solars and didn't turn on their suit sensors)!
-				If not, and it says "Error: Mental interface failure.", then they have left their bodily confines and are one with the spirits. If this happens, just shout at them to get back in their body,
-				click 'Refresh' and try scanning them again. If there's no success, threaten them with gibbing.
+				so that they can be cloned without a body in the event that they are lying dead on the asteroid and didn't turn on their suit sensors)!
+				If not, and it says "Error: Mental interface failure.", then a scan is unable to be made. If this happens, try again several times at intervals of 30 seconds or more. If they are still damaged
 				Still no success? Skip over to Step 7 and don't continue after it, as you have an unresponsive body and it cannot be cloned.
-				If you got "Error: Unable to locate valid genetic data.", you are trying to clone a monkey - start over.
 
 				<a name='5'><h3>Step 5: Clone body</h3>
 				Now that the body has a record, click 'View Records,' click the subject's name, and then click 'Clone' to start the cloning process. Congratulations! You're halfway there.
 				Remember not to 'Eject' the cloning pod as this will kill the developing clone and you'll have to start the process again.
 
-				<a name='6'><h3>Step 6: Get clean SEs for body</h3>
-				Cloning is a finicky and unreliable process. Whilst it will most certainly bring someone back from the dead, they can have any number of nasty disabilities given to them during the cloning process!
-				For this reason, you need to prepare a clean, defect-free Structural Enzyme (SE) injection for when they're done. If you're a competent Geneticist, you will already have one ready on your working computer.
-				If, for any reason, you do not, then eject the body from the DNA modifier (NOT THE CLONING POD) and take it next door to the Genetics research room. Put the body in one of those DNA modifiers and then go onto the console.
-				Go into View/Edit/Transfer Buffer, find an open slot and click "SE" to save it. Then click 'Injector' to get the SEs in syringe form. Put this in your pocket or something for when the body is done.
+				<a name='6'><h3>Step 6: Put body in morgue</h3>
+				Now that the cloning process has been initiated, you no longer need the body! Drag it to the morgue and tell the Chef over the radio that they have some fresh meat waiting for them in there.
+				To put a body in a morgue bed, simply open the tray, grab the body, put it on the open tray, then close the tray again. Use one of the nearby pens to label the bed "Lastname, Initial - " and then the status of the body as cloned, DNC, or MIF.
 
-				<a name='7'><h3>Step 7: Put body in morgue</h3>
-				Now that the cloning process has been initiated and you have some clean Structural Enzymes, you no longer need the body! Drag it to the morgue and tell the Chef over the radio that they have some fresh meat waiting for them in there.
-				To put a body in a morgue bed, simply open the tray, grab the body, put it on the open tray, then close the tray again. Use one of the nearby pens to label the bed "CHEF MEAT" in order to avoid confusion.
-
-				<a name='8'><h3>Step 8: Await cloned body</h3>
+				<a name='8'><h3>Step 7: Await cloned body</h3>
 				Now go back to the lab and wait for your patient to be cloned. It won't be long now, I promise.
 
-				<a name='9'><h3>Step 9: Cryo and clean SE injector on person</h3>
-				Has your body been cloned yet? Great! As soon as the guy pops out, grab them and stick them in cryo. Clonexadone and Cryoxadone help rebuild their genetic material. Then grab your clean SE injector and jab it in them. Once you've injected them,
-				they now have clean Structural Enzymes and their defects, if any, will disappear in a short while.
+				<a name='9'><h3>Step 8: Place patient in cryogenic cell</h3>
+				Has their body been cloned yet? Great! As soon as the patient pops out, grab them and stick them in cryo. Clonexadone and Cryoxadone help rebuild their genetic material.
 
-				<a name='10'><h3>Step 10: Give person clothes back</h3>
-				Obviously the person will be naked after they have been cloned. Provided you weren't an irresponsible little shit, you should have protected their possessions from thieves and should be able to give them back to the patient.
-				No matter how cruel you are, it's simply against protocol to force your patients to walk outside naked.
+				<a name='10'><h3>Step 9: Give patient their clothes back</h3>
+				Obviously the person will be naked after they have been cloned. Provided you weren't irresponsible, you should have protected their possessions from thieves and should be able to give them back to the patient.
+				No matter how annoyed you are, it's simply against protocol to force your patients to walk outside naked.
 
-				<a name='11'><h3>Step 11: Send person on their way</h3>
-				Give the patient one last check-over - make sure they don't still have any defects and that they have all their possessions. Ask them how they died, if they know, so that you can report any foul play over the radio.
-				Once you're done, your patient is ready to go back to work! Chances are they do not have Medbay access, so you should let them out of Genetics and the Medbay main entrance.
+				<a name='11'><h3>Step 11: Send patient to receive psychiatric treatment, if necessary</h3>
+				Give the patient one last check-over - make sure they don't still have any defects and that they have all their possessions. If they have a need for psychiatric treatment, send them to the psychiatrist (or pharmacist) to provide it. Otherwise, allow them to leave.
 
-				<p>If you've gotten this far, congratulations! You have mastered the art of cloning. Now, the real problem is how to resurrect yourself after that traitor had his way with you for cloning his target.
+				<p>If you've gotten this far, congratulations! You have mastered the art of cloning. Now, the real problem is how to clone yourself when something happens to you...</p>
 
 				</body>
 				</html>
@@ -674,8 +663,8 @@
 	author = "The Company"
 	title = "Corporate Regulations"
 
-/obj/item/weapon/book/manual/security_space_law/New()
-	..()
+/obj/item/weapon/book/manual/security_space_law/Initialize()
+	. = ..()
 	dat = {"
 
 		<html><head>
@@ -698,8 +687,8 @@
 	author = "Medical Department"
 	title = "Medical Diagnostics Manual"
 
-/obj/item/weapon/book/manual/medical_diagnostics_manual/New()
-	..()
+/obj/item/weapon/book/manual/medical_diagnostics_manual/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -738,6 +727,63 @@
 
 		"}
 
+/obj/item/weapon/book/manual/emt_manual
+	name = "Emergency Response and You"
+	desc = "MARCH, soldier! A detailed guide to basic emergency response procedures, for new emergency medical responders."
+	icon_state = "bookEMT"
+	author = "Trafalgar Daniels"
+	title = "Emergency Response and You"
+
+/obj/item/weapon/book/manual/emt_manual/Initialize()
+	. = ..()
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li, dd {margin: 2px 0px 2px 15px;}
+				ul, ol, dl {margin: 5px; padding: 0px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<br>
+
+				<h1> Emergency Response and You: An Emergency Medical Technician's Handbook</h1>
+				<h2> Glossary of Terms </h2>
+				<em>A basic list of the terms needed to understand this guide, and your work as a whole.</em>
+				<dl>
+					<dt>Basic Assessment (BA)</dt>
+						<dd>- Immediate assessment via a health analyser for basic injuries. This does not involve </dd>
+					<dt>Rapid On Scene Assessment (ROSA)</dt>
+						<dd>- Upon arriving on scene, examine the patient to check for visible damage such as amputation or compound fractures, and then check their vitals with your medical analyser for damage, internal bleeding and non-visible fractures.</dd>
+
+					<dt>Advanced On Scene Assessment (AOSA)</dt>
+						<dd>- Upon stabilising the patient enough to take a more in depth look, you should record their pulse (manually or via a health analyser), shine your penlight in their eyes, ask them about what happened and for them to check themselves to see if they have anything you can’t see, such as dislocations.</dd>
+
+					<dt>Rapid Transportation (RT)</dt>
+						<dd>- Performing basic stabilisation in order to rapidly move the patient to the medbay. (i.e bandaging bleeding wounds, salving burns and administering inaprovaline). Used for immediately life-threatening, non-field-treatable injuries, or mass casualty situations.</dd>
+
+					<dt>Stabilisation</dt>
+						<dd>- Specific medical intervention that is necessary to keep your patient alive. This can be easily remembered with the following mnemonics:
+							<dl>
+								<dt>MARCH</dt><dd>- <b>M</b>assive bleeding, <b>A</b>irway/<b>A</b>tmosphere, <b>R</b>espiration, <b>C</b>irculation, <b>H</b>ypovolemia (blood loss)</dd>
+								<dt>DR. HCAB</dt><dd>- <b>D</b>anger (to yourself), <b>R</b>esponse of the patient, <b>H</b>aemorrhaging of blood, <b>C</b>irculation of the heart, <b>A</b>irway <em>or</em> <b>A</b>tmosphere, <b>B</b>reathing</dd>
+							</dl></dd>
+				</dl>
+				<h2>Guide to Treatment</h2>
+				<em>Now that you understand the basic terms of emergency medical care, these are the steps of the most common treatment routines. Experienced EMS personnel can adapt these as needed.</em>
+				<dl>
+					<dt>Basic Stabilisation</dt>
+						<dd><ol><li>Administer Inaprovaline</li><li>Perform ROSA</li><li>Bandage bleeding wounds / salve burn wounds to prevent infection.</li></ol></dd>
+					<dt>Stabilisation</dt>
+						<dd><ol><li>Administer Inaprovaline</li><li>Perform ROSA</li><li>Bandage bleeding wounds / salve burn wounds to prevent infection.</li><li>Administer painkillers as necessary.</li><li>Perform AOSA</li><li>Relocate dislocated joints and splint fractures.</li></ol></dd>
+					<dt>Advanced Stabilisation</dt>
+						<dd><ol><li>Administer Inaprovaline</li><li>Perform ROSA</li><li>Bandage bleeding wounds / salve burn wounds to prevent infection.</li><li>Administer painkillers as necessary.</li><li>Treat asphyxiation with dexalin or dexalin plus</li><li>Place in stasis bag. Transport after all other patients have been stabilised.</li></ol></dd>
+					<dt>Rapid Transport</dt>
+						<dd><ol><li>Basic Stabilisation</li><li>Transport patient to Medbay immediately, delegate other patients to a colleague or trained bystander.</li></ol></dd>
+					<dt>Transportation</dt>
+						<dd><ol><li>Basic Stabilisation</li><li>Treat patient as much as is possible using medications on-hand</li><li>Transport patient to Medbay after all other patients are stabilised</li></ol></dd></body></html>"}
 
 /obj/item/weapon/book/manual/engineering_guide
 	name = "Engineering Textbook"
@@ -745,8 +791,8 @@
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
 
-/obj/item/weapon/book/manual/engineering_guide/New()
-	..()
+/obj/item/weapon/book/manual/engineering_guide/Initialize()
+	. = ..()
 	dat = {"
 
 		<html><head>
@@ -1285,8 +1331,8 @@
 	author = "NTCC Odin Psychiatry Wing"
 	title = "Sigmund Freud for Dummies"
 
-/obj/item/weapon/book/manual/psych/New()
-	..()
+/obj/item/weapon/book/manual/psych/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -1424,8 +1470,8 @@
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"
 
-/obj/item/weapon/book/manual/battlemonsters/New()
-	..()
+/obj/item/weapon/book/manual/battlemonsters/Initialize()
+	. = ..()
 	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
 
 /obj/item/weapon/book/manual/pra_manifesto

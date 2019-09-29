@@ -90,8 +90,8 @@
 							/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large = 2,
 							/obj/item/weapon/reagent_containers/glass/bottle/dexalin_plus = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/epinephrine = 1,
-							/obj/item/weapon/reagent_containers/glass/bottle/spaceacillin = 1,
-							
+							/obj/item/weapon/reagent_containers/glass/bottle/deltamivir = 1,
+
 						)
 	accessory_contents = list(/obj/item/weapon/gun/energy/pulse/pistol = 1)
 	var/id_access = "Lance Medic"

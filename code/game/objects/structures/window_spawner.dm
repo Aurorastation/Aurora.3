@@ -11,6 +11,7 @@
 	anchored = 1.0
 	var/win_path = /obj/structure/window/basic
 	var/activated
+	var/shutter = FALSE
 
 // stops ZAS expanding zones past us, the windows will block the zone anyway
 /obj/effect/wingrille_spawn/CanPass()
@@ -62,9 +63,10 @@
 /obj/effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
 	return
 
-// Currently unused, could be useful for pre-wired electrified windows.
 /obj/effect/wingrille_spawn/proc/handle_grille_spawn(var/obj/structure/grille/G)
-	return
+	if(shutter)
+		var/turf/T = get_turf(G)
+		new /obj/machinery/door/firedoor(T)
 
 /obj/effect/wingrille_spawn/reinforced
 	name = "reinforced window grille spawner"

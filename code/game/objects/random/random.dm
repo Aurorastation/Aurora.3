@@ -729,7 +729,7 @@
 		/obj/item/clothing/shoes/workboots = 1,
 		/obj/item/clothing/shoes/cyborg = 0.4,
 		/obj/item/clothing/shoes/galoshes = 0.6,
-		/obj/item/clothing/shoes/slippers_worn = 0.5,
+		/obj/item/clothing/shoes/slippers/worn = 0.5,
 		/obj/item/clothing/shoes/combat = 0.2,
 		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/winter = 0.3,

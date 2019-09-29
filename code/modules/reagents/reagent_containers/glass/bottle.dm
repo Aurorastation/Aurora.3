@@ -65,7 +65,7 @@
 	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
 	icon_state = "bottle-4"
 	reagents_to_add = list("inaprovaline" = 60)
-	
+
 
 /obj/item/weapon/reagent_containers/glass/bottle/toxin
 	name = "toxin bottle"
@@ -127,13 +127,13 @@
 	if(!icon_state)
 		icon_state = "bottle-[rand(1,4)]"
 	reagents.add_reagent("blood", 20, data)
-	
+
 	update_icon()
 
 /obj/item/weapon/reagent_containers/glass/bottle/with_virus/flu_virion
 	name = "Flu virion culture bottle"
 	desc = "A small bottle. Contains H13N1 flu virion culture in synthblood medium."
-	disease = /datum/disease/advance/flu	
+	disease = /datum/disease/advance/flu
 
 /obj/item/weapon/reagent_containers/glass/bottle/with_virus/epiglottis_virion
 	name = "Epiglottis virion culture bottle"
@@ -242,7 +242,7 @@
 
 /obj/item/weapon/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
-	desc = "A small bottle. Contains epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
+	desc = "A small bottle. Contains epinephrine, also known as adrenaline, which is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
 	icon_state = "bottle-4"
 	reagents_to_add = list("epinephrine" = 60)
 
@@ -252,11 +252,11 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list("dexalinp" = 60)
 
-/obj/item/weapon/reagent_containers/glass/bottle/spaceacillin
+/obj/item/weapon/reagent_containers/glass/bottle/deltamivir
 	name = "spaceacillin bottle"
-	desc = "A small bottle. Contains spaceacillin. An all-purpose antiviral agent."
+	desc = "A small bottle. Contains deltamivir, an all-purpose antiviral agent with flu-like symptoms as a side-effect."
 	icon_state = "bottle-4"
-	reagents_to_add = list("spaceacillin" = 60)
+	reagents_to_add = list("deltamivir" = 60)
 
 /obj/item/weapon/reagent_containers/glass/bottle/coughsyrup
 	name = "cough syrup bottle"

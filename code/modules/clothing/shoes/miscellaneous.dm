@@ -60,6 +60,7 @@
 	name = "flip flops"
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
+	hard = 0
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
@@ -103,6 +104,8 @@
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"
 	icon_state = "boots"
+	force = 0 // it's cardboard
+	hard = 0 // still cardboard
 
 /obj/item/clothing/shoes/slippers
 	name = "bunny slippers"
@@ -114,15 +117,20 @@
 	w_class = 2
 	silent = 1
 	drop_sound = 'sound/items/drop/clothing.ogg'
+	hard = 0 // shards WILL punch through them. no more solid snaking in bunny slippers unless you're careful
 
-/obj/item/clothing/shoes/slippers_worn
+/obj/item/clothing/shoes/slippers/worn
 	name = "worn bunny slippers"
 	desc = "Fluffy..."
 	icon_state = "slippers_worn"
 	item_state = "slippers_worn"
-	force = 0
-	w_class = 2
-	silent = 1
+
+/obj/item/clothing/shoes/slippers/patient
+	name = "patient slippers"
+	desc = "The first thing you feel upon starting your new life could definitely be a lot worse."
+	icon_state = "slippers_patient"
+	item_state = "slippers_patient"
+
 
 /obj/item/clothing/shoes/laceup
 	name = "laceup shoes"
@@ -144,6 +152,7 @@
 	w_class = 2
 	species_restricted = null
 	silent = 1
+	hard = 0
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/clothing/shoes/winter_old

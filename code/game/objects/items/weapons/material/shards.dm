@@ -71,7 +71,11 @@
 			if(H.species.siemens_coefficient<0.5 || isunathi(H) || isvaurca(H) || (H.species.flags & (NO_EMBED))) //Thick skin.
 				return
 
-			if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
+			if ( H.shoes )
+				var/obj/item/clothing/shoes/shoe = H.shoes
+				if (shoe.hard)
+					return
+			if ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) )
 				return
 
 			var/list/check = list("l_foot", "r_foot")

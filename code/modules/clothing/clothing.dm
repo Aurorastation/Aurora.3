@@ -617,6 +617,7 @@
 	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
+	var/hard = 1 // most shoes should stop shards
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/shoes.dmi'
 		)

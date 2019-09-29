@@ -103,7 +103,7 @@
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"
-	color = COLOR_RED_GRAY
+	color = COLOR_MAROON
 	icon_state = "white"
 	initial_flooring = /decl/flooring/tiling/red
 
@@ -128,6 +128,12 @@
 	color = COLOR_BROWN
 	icon_state = "white"
 	initial_flooring = /decl/flooring/tiling/yellow
+
+/turf/simulated/floor/tiled/orange
+	name = "orange floor"
+	color = COLOR_ORANGE
+	icon_state = "white"
+	initial_flooring = /decl/flooring/tiling/orange
 
 /turf/simulated/floor/tiled/freezer
 	name = "tiles"

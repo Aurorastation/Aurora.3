@@ -224,6 +224,19 @@
 	new /obj/item/clothing/shoes/white(src)
 	return
 
+/obj/structure/closet/wardrobe/patient
+	name = "patient wardrobe"
+	desc = "A wardrobe for patient gowns and slippers."
+	icon_state = "white"
+	icon_closed = "white"
+
+/obj/structure/closet/wardrobe/patient/fill()
+	new /obj/item/clothing/under/medical_gown/white(src)
+	new /obj/item/clothing/under/medical_gown/white(src)
+	new /obj/item/clothing/under/medical_gown/white(src)
+	new /obj/item/clothing/shoes/slippers/patient(src)
+	new /obj/item/clothing/shoes/slippers/patient(src)
+	new /obj/item/clothing/shoes/slippers/patient(src)
 
 /obj/structure/closet/wardrobe/pjs
 	name = "pajama wardrobe"

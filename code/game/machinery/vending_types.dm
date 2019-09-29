@@ -342,7 +342,7 @@
 	restock_items = 1
 	random_itemcount = 0
 
-/obj/machinery/vending/wallmed1
+/obj/machinery/vending/wallmed
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
@@ -366,14 +366,8 @@
 	random_itemcount = 0
 	temperature_setting = -1
 
-/obj/machinery/vending/wallmed2
-	name = "NanoMed"
+/obj/machinery/vending/wallmed/aid
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
-	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
-	req_access = list(access_medical)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
-	vend_id = "meds"
 	products = list(
 		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/weapon/reagent_containers/syringe/antitoxin = 3,

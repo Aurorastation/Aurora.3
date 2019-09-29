@@ -240,21 +240,40 @@
 	icon_state = "folded"
 	var/obj/item/roller/held
 
-/obj/item/roller_holder/New()
-	..()
+/obj/item/roller_holder/Initialize()
+	. = ..()
 	held = new /obj/item/roller(src)
 
 /obj/item/roller_holder/attack_self(mob/user as mob)
 
 	if(!held)
 		to_chat(user, "<span class='notice'>The rack is empty.</span>")
-		return
+		return 0
 
 	to_chat(user, "<span class='notice'>You deploy the roller bed.</span>")
 	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
+	return 1
+
+/obj/item/weapon/storage/backpack/roller_holder
+	name = "roller bed rack"
+	desc = "A rack for carrying a collapsed rollerbed on your back, and some other things too. Used as a lower-tech alternative for the paramedic hardsuit, for those who lack access or training. Warning: May result in topheaviness."
+	icon = 'icons/obj/rollerbed.dmi'
+	icon_state = "folded"
+	max_storage_space = 8 // bit worse than a tunnel cloak
+	max_w_class = 2 // for holding medicines and a few tools and such
+	var/obj/item/roller_holder/rh
+
+/obj/item/weapon/storage/backpack/roller_holder/attack_self(mob/user)
+	if(rh.attack_self(user))
+		return 1
+	. = ..() // no idea if storage objects even have a parent attack_self, but better safe than sorry.
+
+/obj/item/weapon/storage/backpack/roller_holder/Initialize()
+	. = ..()
+	rh = new /obj/item/roller_holder(src)
 
 
 /obj/structure/bed/roller/Move()
