@@ -332,6 +332,6 @@ main ui datum.
   * @return themes class - text
   */
 /datum/vueui/proc/get_theme_class()
-	return SSvueui.get_html_theme_class(user)
+	return SStheming.get_html_theme_class(user)
 
 #undef UIDEBUG
