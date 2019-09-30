@@ -133,7 +133,7 @@
 /obj/structure/sign/greencross
 	name = "medbay"
 	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
-	icon_state = "greencross"
+	icon_state = "bluecross"
 
 /obj/structure/sign/goldenplaque
 	name = "The Most Robust Men Award for Robustness"
