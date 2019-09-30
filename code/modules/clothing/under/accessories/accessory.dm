@@ -11,7 +11,7 @@
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/image/mob_overlay = null
-	var/flippable = 0
+	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
 
 /obj/item/clothing/accessory/Destroy()

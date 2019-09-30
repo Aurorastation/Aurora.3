@@ -129,12 +129,15 @@
 		return
 	if (usr.stat || usr.restrained())
 		return
+	if (!flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
 
 	src.flipped = !src.flipped
 	if(src.flipped)
-		src.item_state = "[item_state]_flip"
+		src.overlay_state = "[overlay_state]_flip"
 	else
-		src.item_state = initial(item_state)
+		src.overlay_state = initial(overlay_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	mob_icon_update()
 
@@ -164,7 +167,7 @@
 		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/pen,
 		/obj/item/weapon/photo)
-	flippable = 0
+	flippable = 0 //until a cleaner way is implemented to just simply have the verb not show up at all
 	var/plastic_film_overlay_state = "plasticfilm"
 	var/front_id_overlay_state
 

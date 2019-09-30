@@ -68,6 +68,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/obj/item/weapon/pen/pen
 	var/list/obj/machinery/requests_console/linked_consoles
 
+	var/flippable = 1
+	var/flipped = 0
+
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
 		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
@@ -1119,6 +1122,34 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 
+/obj/item/device/pda/proc/mob_icon_update()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wear_id()
+
+/obj/item/device/pda/verb/verb_flip_id_icon()
+	set category = "Object"
+	set name = "Flip PDA side"
+	set src in usr
+
+	if(issilicon(usr))
+		return
+	if(!istype(usr, /mob/living))
+		return
+	if (usr.stat || usr.restrained())
+		return
+	if (!flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.overlay_state = "[overlay_state]_flip"
+	else
+		src.overlay_state = initial(overlay_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
 /obj/item/device/pda/verb/verb_reset_pda()
 	set category = "Object"
 	set name = "Reset PDA"
@@ -1259,7 +1290,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(user)
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
-		
+
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
 		switch(scanmode)

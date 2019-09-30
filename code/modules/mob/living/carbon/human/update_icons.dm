@@ -568,15 +568,15 @@ There are several things that need to be remembered:
 			if (wear_id.color)
 				result_layer.color = wear_id.color
 
-			if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //tacky as bejesus but...
+			if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
 				var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
 				var/image/plastic_film
-				var/image/lanyard_card = "lanyard"
+				var/image/lanyard_card
 				if(lanyard.front_id)
 					lanyard_card = image("icon" = 'icons/mob/card.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
-					result_layer += lanyard_card
-
-				result_layer += plastic_film
+					result_layer = list(result_layer, lanyard_card, plastic_film)
+				else
+					result_layer =  list(result_layer, plastic_film)
 			overlays_raw[ID_LAYER] = result_layer
 
 	BITSET(hud_updateflag, ID_HUD)

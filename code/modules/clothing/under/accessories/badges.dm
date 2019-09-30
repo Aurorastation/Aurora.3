@@ -81,6 +81,9 @@
 
 	if (usr.stat || usr.restrained())
 		return
+	if (!flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
 
 	src.flipped = !src.flipped
 	if(src.flipped)
