@@ -60827,6 +60827,10 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ceS" = (
@@ -61024,9 +61028,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/status_display{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
@@ -61155,9 +61156,6 @@
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 9
-	},
-/obj/machinery/status_display/supply_display{
-	pixel_x = -32
 	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -67458,6 +67456,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"qZA" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "qZF" = (
 /obj/item/weapon/material/shard/shrapnel,
 /obj/effect/decal/cleanable/dirt,
@@ -67941,18 +67951,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"syx" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "szC" = (
 /obj/effect/landmark/costume/elpresidente,
 /obj/effect/decal/cleanable/dirt,
@@ -68809,6 +68807,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"uPw" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "uRt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -69456,14 +69462,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"wDT" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "wEn" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -94182,7 +94180,7 @@ cfZ
 cgq
 cgG
 cgW
-syx
+qZA
 cho
 chC
 chM
@@ -94439,7 +94437,7 @@ cfk
 cgr
 cgH
 cgX
-wDT
+uPw
 chp
 cfk
 cfk
