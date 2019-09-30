@@ -218,6 +218,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
+"au" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
 "aw" = (
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
@@ -238,6 +251,21 @@
 "ay" = (
 /turf/simulated/open,
 /area/turbolift/main_mid)
+"az" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
 "aB" = (
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -893,6 +921,21 @@
 "bO" = (
 /turf/simulated/open,
 /area/crew_quarters/locker/locker_toilet)
+"bP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
 "bQ" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -908,6 +951,21 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
+"bR" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
 "bS" = (
 /turf/simulated/floor/plating,
@@ -5673,18 +5731,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
-"kw" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "kx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5980,6 +6026,27 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
+"kY" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/psych)
 "kZ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full";
@@ -6119,6 +6186,26 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
+/area/medical/psych)
+"lm" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
 /area/medical/psych)
 "ln" = (
 /obj/effect/floor_decal/corner/green{
@@ -6275,6 +6362,27 @@
 	pixel_y = -2
 	},
 /turf/simulated/floor/carpet,
+/area/medical/psych)
+"lD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
 /area/medical/psych)
 "lE" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -6741,21 +6849,24 @@
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/maintenance/interstitial_construction_site/zone_2)
-"mZ" = (
+"na" = (
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
 	},
+/obj/structure/window/reinforced,
 /obj/structure/grille,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "virologylab_lockdown";
-	name = "Virology Blast Doors"
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 1;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/medical/virologyaccess)
 "nm" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -6835,21 +6946,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
-"nD" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "nE" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Construction Level Substation Bypass"
@@ -6871,12 +6967,39 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"nJ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "nN" = (
 /obj/structure/lattice,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/open,
+/area/medical/virology)
+"nT" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open{
+	id = "virologylab_lockdown";
+	name = "Virology Blast Doors"
+	},
+/turf/simulated/floor/plating,
 /area/medical/virology)
 "oc" = (
 /obj/structure/grille,
@@ -6944,6 +7067,9 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
+"oF" = (
+/turf/simulated/open,
+/area/medical/virologyaccess)
 "oJ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -7018,6 +7144,18 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
+"pm" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_construction_site/office)
 "pp" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/r_wall,
@@ -7123,6 +7261,18 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
+"qk" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/maintenance/interstitial_construction_site/office)
 "qo" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -7174,6 +7324,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/virology)
+"qQ" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/medical/upperlevel)
 "qT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7238,27 +7398,23 @@
 	roof_type = null
 	},
 /area/maintenance/maintcentral)
-"rk" = (
+"rt" = (
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open{
+	id = "virologylab_lockdown";
+	name = "Virology Blast Doors"
 	},
 /turf/simulated/floor/plating,
-/area/medical/psych)
+/area/medical/virology)
 "rA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/floodlight{
@@ -7457,19 +7613,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
-"sW" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "sX" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -7538,6 +7681,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"tz" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open{
+	id = "virologylab_lockdown";
+	name = "Virology Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "tB" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -7600,19 +7759,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/virology)
-"tX" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "ua" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
@@ -7665,17 +7811,31 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"uK" = (
+"uD" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
+"uX" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
 	icon_state = "rwindow";
-	dir = 1
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
-	dir = 1;
+	dir = 8;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
@@ -7683,18 +7843,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/virologyaccess)
-"uS" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "va" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -7764,21 +7912,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
-"vl" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "vm" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -7823,24 +7956,6 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/maintenance/medbay_interstitial)
-"vE" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "vS" = (
 /obj/structure/bed/chair/office/light{
@@ -7926,18 +8041,6 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
-"ws" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/maintenance/interstitial_construction_site/office)
 "wt" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -8003,19 +8106,6 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/medical/virology)
-"xC" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
 "xH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -8050,20 +8140,6 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
-"xX" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "yb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -8162,7 +8238,29 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"yI" = (
+"yE" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 1;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/virologyaccess)
+"yF" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -8247,20 +8345,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"zq" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/medical/upperlevel)
 "zQ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full"
@@ -8271,22 +8355,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
-"zS" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/regular/open{
-	id = "virologylab_lockdown";
-	name = "Virology Blast Doors"
-	},
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "zU" = (
 /obj/structure/table/standard,
 /obj/item/weapon/hemostat,
@@ -8340,6 +8408,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"Al" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
 "Am" = (
 /turf/simulated/wall/r_wall,
 /area/medical/virology)
@@ -8374,6 +8453,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"AL" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "virologylab_lockdown";
+	name = "Virology Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "AO" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
@@ -8398,22 +8492,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
-"Bt" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(5)
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
 "Bu" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
@@ -8518,27 +8596,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/open,
 /area/medical/virology)
-"Cv" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/virologyaccess)
 "Cz" = (
 /obj/structure/track{
 	icon_state = "track13"
@@ -8558,23 +8615,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
-"CL" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular/open{
-	id = "virologylab_lockdown";
-	name = "Virology Blast Doors"
-	},
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "CN" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8630,19 +8670,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
-"Df" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/regular/open{
-	id = "virologylab_lockdown";
-	name = "Virology Blast Doors"
-	},
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "Dk" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -9036,18 +9063,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
-"FV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_construction_site/office)
 "Ga" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -9097,17 +9112,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"Gk" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virologyaccess)
 "Gm" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -9157,6 +9161,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"GE" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
 "GI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9250,17 +9268,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
-"Ht" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
 "HC" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Construction Level"
@@ -9368,25 +9375,6 @@
 	temperature = 278
 	},
 /area/medical/virology)
-"HS" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "virologylab_lockdown";
-	name = "Virology Blast Doors"
-	},
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "HV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -9425,27 +9413,6 @@
 "Ie" = (
 /turf/simulated/open/airless,
 /area/mine/unexplored)
-"In" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/upperlevel)
 "Ir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9910,6 +9877,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"JH" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
 "JI" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -9928,6 +9909,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
+"JK" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
 "JQ" = (
 /obj/machinery/door/firedoor,
@@ -9953,47 +9946,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/virologyaccess)
-"JT" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 1;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/virologyaccess)
-"JX" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "virologylab_lockdown";
-	name = "Virology Blast Doors"
-	},
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "Kc" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -10025,26 +9977,6 @@
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"Km" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/virologyaccess)
 "Kq" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -10267,6 +10199,19 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"KU" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "KW" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -10658,20 +10603,6 @@
 "LL" = (
 /turf/simulated/wall,
 /area/medical/virologyaccess)
-"LV" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/medical/virology)
 "LY" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -10822,6 +10753,18 @@
 	},
 /turf/simulated/open,
 /area/maintenance/maintcentral)
+"MV" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/substation/interstitial)
 "MX" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -10855,46 +10798,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Nt" = (
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
-"Nw" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/upperlevel)
 "Ny" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -10961,17 +10864,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"Ob" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
 "Om" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille,
@@ -11193,38 +11085,6 @@
 /obj/item/weapon/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Qa" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
-"Qf" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_interstitial)
 "Qk" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11235,6 +11095,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
+"Qp" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "virologylab_lockdown";
+	name = "Virology Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "Qt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11397,26 +11276,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
-"Rt" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/psych)
 "Rz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11425,27 +11284,6 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
-"RG" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/psych)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -11460,6 +11298,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
+"RK" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_main)
 "RM" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -11481,6 +11331,46 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"RN" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
+"RP" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/upperlevel)
 "RS" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -11500,6 +11390,22 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
+"Sb" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(5)
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
 "Sc" = (
 /obj/structure/track{
 	icon_state = "track12"
@@ -11513,6 +11419,24 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Si" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
 "Sk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -11548,6 +11472,26 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Sx" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/virologyaccess)
 "SE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille/broken,
@@ -11692,6 +11636,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"Ty" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "TB" = (
 /obj/machinery/floodlight{
 	name = "Construction Floodlight"
@@ -11721,16 +11678,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
-"TJ" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/medical/upperlevel)
 "TP" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -11759,6 +11706,25 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Ui" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "virologylab_lockdown";
+	name = "Virology Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "Un" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -11780,18 +11746,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Us" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/maintenance/substation/interstitial)
 "Uv" = (
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -11958,9 +11912,6 @@
 /obj/structure/closet/l3closet/virology,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"Ve" = (
-/turf/simulated/open,
-/area/medical/virologyaccess)
 "Vv" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/structure/extinguisher_cabinet{
@@ -12095,6 +12046,24 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/medical/upperlevel)
+"Wo" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_interstitial)
 "Wr" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -12141,6 +12110,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site/zone_2)
+"WL" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virologyaccess)
 "WO" = (
 /obj/machinery/alarm{
 	pixel_y = 23
@@ -12160,21 +12140,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
-"WU" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/interstitial_main)
 "WV" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/interstitial)
@@ -12387,6 +12352,27 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"YA" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/upperlevel)
 "YE" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	icon_state = "warningcorner_dust";
@@ -12537,6 +12523,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"ZY" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/medical/upperlevel)
 
 (1,1,1) = {"
 aa
@@ -39152,7 +39152,7 @@ NB
 TY
 TY
 SV
-FV
+pm
 TY
 TY
 ab
@@ -39392,15 +39392,15 @@ ab
 iD
 iD
 iD
-nD
-kw
+az
+RK
 iD
 iD
 mG
 iD
 iD
-nD
-kw
+az
+RK
 iD
 iD
 aL
@@ -39668,7 +39668,7 @@ Ge
 CC
 GP
 Uq
-ws
+qk
 ab
 ab
 ab
@@ -39903,7 +39903,7 @@ aa
 ab
 ab
 ab
-tX
+au
 ax
 Mv
 aw
@@ -39925,7 +39925,7 @@ qo
 Gw
 Bz
 Cf
-yI
+yF
 ab
 ab
 ab
@@ -40687,7 +40687,7 @@ aG
 aG
 aG
 aG
-xC
+KU
 Wk
 Pq
 Gz
@@ -40697,8 +40697,8 @@ wL
 aw
 IJ
 iD
-xX
-uS
+JH
+JK
 iD
 ab
 ab
@@ -40953,10 +40953,10 @@ Jm
 bu
 bG
 bQ
-vl
+bP
 bV
 bY
-vl
+bP
 md
 Lc
 ab
@@ -41458,7 +41458,7 @@ aG
 aG
 aG
 aG
-xC
+KU
 aM
 nz
 Pm
@@ -41467,10 +41467,10 @@ bk
 Bl
 bH
 XJ
-WU
+bR
 JG
 pq
-vl
+bP
 me
 mj
 ab
@@ -42745,8 +42745,8 @@ mJ
 ar
 ar
 cZ
-Ht
-Us
+Al
+MV
 WV
 Am
 mo
@@ -43769,9 +43769,9 @@ mo
 Am
 Am
 tR
-JX
-zS
-Df
+Ui
+tz
+nT
 DU
 xy
 DU
@@ -44028,7 +44028,7 @@ of
 BP
 py
 tM
-mZ
+AL
 DU
 xy
 DU
@@ -44285,7 +44285,7 @@ CP
 GA
 zW
 zd
-mZ
+AL
 DU
 xy
 DU
@@ -44532,9 +44532,9 @@ ab
 ab
 LL
 JQ
-Km
-Km
-Cv
+Sx
+Sx
+uX
 UK
 UK
 UK
@@ -44542,7 +44542,7 @@ UK
 Xu
 xP
 CT
-mZ
+AL
 xy
 xy
 xy
@@ -44799,7 +44799,7 @@ UK
 on
 qU
 zi
-HS
+Qp
 DU
 xy
 DU
@@ -45044,7 +45044,7 @@ aa
 ab
 ab
 ab
-uK
+na
 yX
 Bg
 Ex
@@ -45058,9 +45058,9 @@ pa
 yT
 Am
 tR
-zS
-zS
-CL
+tz
+tz
+rt
 Am
 mo
 mo
@@ -45301,9 +45301,9 @@ aa
 ab
 ab
 ab
-uK
-Ve
-Gk
+na
+oF
+WL
 PJ
 Zr
 UK
@@ -45313,7 +45313,7 @@ UK
 qs
 wn
 yD
-sW
+Ty
 XX
 qu
 PA
@@ -45558,8 +45558,8 @@ aa
 aa
 ab
 ab
-JT
-Ve
+yE
+oF
 HE
 Mf
 VO
@@ -45570,7 +45570,7 @@ UK
 QO
 UO
 Nl
-LV
+nJ
 pO
 qU
 Ff
@@ -49159,7 +49159,7 @@ aa
 aa
 YS
 YS
-Qf
+Wo
 YS
 YS
 aa
@@ -49673,10 +49673,10 @@ yS
 yS
 yS
 yS
-Nt
-Qa
-Qa
-vE
+RN
+GE
+GE
+Si
 YS
 aa
 aa
@@ -50704,13 +50704,13 @@ GT
 GT
 GT
 YS
-Nt
-Ob
-Ob
-Ob
-Ob
-Ob
-Bt
+RN
+uD
+uD
+uD
+uD
+uD
+Sb
 Db
 EZ
 zm
@@ -50719,7 +50719,7 @@ oJ
 FP
 sX
 zQ
-In
+YA
 ab
 ab
 ab
@@ -50976,7 +50976,7 @@ Bu
 Bu
 Bu
 Ye
-Nw
+RP
 ab
 ab
 ab
@@ -51212,7 +51212,7 @@ jA
 kB
 kP
 kU
-RG
+kY
 GT
 GT
 GT
@@ -51741,7 +51741,7 @@ GT
 Nf
 QM
 sl
-zq
+ZY
 Zz
 Zz
 Zz
@@ -51995,7 +51995,7 @@ aa
 hZ
 GT
 GT
-TJ
+qQ
 yO
 sU
 mT
@@ -52242,17 +52242,17 @@ hZ
 hZ
 hZ
 lg
-Rt
-Rt
-Rt
-rk
+lm
+lm
+lm
+lD
 hZ
 hZ
 hZ
 hZ
 kh
 kR
-zq
+ZY
 QM
 sl
 Nf
@@ -52512,7 +52512,7 @@ kL
 Lp
 Op
 IG
-zq
+ZY
 Zz
 Zz
 Zz
