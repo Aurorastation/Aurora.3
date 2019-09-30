@@ -469,3 +469,9 @@ var/const/NO_EMAG_ACT = -50
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
 	overlay_state = "necrosec_card"
+
+/obj/item/weapon/card/id/einstein
+	name = "\improper Einstein Engines identification card"
+	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
+	icon_state = "einstein_card"
+	overlay_state = "einstein_card"

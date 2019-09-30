@@ -558,7 +558,7 @@ There are several things that need to be remembered:
 	if(wear_id)
 		var/image/result_layer
 		wear_id.screen_loc = ui_id	//TODO
-		if(w_uniform && w_uniform:displays_id)
+		if(w_uniform:displays_id)
 			if(wear_id.contained_sprite)
 				wear_id.auto_adapt_species(src)
 				if(!(wear_id.overlay_state)) //legacy check
