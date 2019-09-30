@@ -4,13 +4,13 @@
 	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "bluetie"
 	item_state = ""	//no inhands
+	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = 2.0
 	var/slot = "decor"
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/image/mob_overlay = null
-	var/overlay_state = null
 	var/flippable = 0
 	var/flipped = 0
 

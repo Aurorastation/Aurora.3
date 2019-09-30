@@ -38,6 +38,8 @@
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null
+	var/flipped = null
+	var/flippable = 1
 
 
 /obj/item/weapon/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -114,6 +116,28 @@
 	if(item3_type)
 		new item3_type(src)
 
+/obj/item/weapon/storage/wallet/proc/mob_icon_update()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wear_id()
+
+/obj/item/weapon/storage/wallet/verb/flip_side()
+	set name = "Flip wallet side"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living))
+		return
+	if (usr.stat || usr.restrained())
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.item_state = "[item_state]_flip"
+	else
+		src.item_state = initial(item_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
 /obj/item/weapon/storage/wallet/colourable
 	icon_state = "wallet-white"
 
@@ -127,6 +151,8 @@
 	desc = "A thick cord with a hook and plastic film designed for the hunter of elk, lover of women, sovereign of the moon."
 	storage_slots = 2
 	icon_state = "lanyard"
+	item_state = "lanyard"
+	overlay_state = "lanyard"
 	w_class = 1
 	max_w_class = 1
 	can_hold = list(
@@ -138,6 +164,7 @@
 		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/pen,
 		/obj/item/weapon/photo)
+	flippable = 0
 
 /obj/item/weapon/storage/wallet/lanyard/New()
 	..()
@@ -146,7 +173,18 @@
 	overlays += film_image
 
 /obj/item/weapon/storage/wallet/lanyard/update_icon()
-	..()
+	overlays.Cut()
+	if(front_id)
+		var/tiny_state = "id-generic"
+		var/tiny_worn = "lanyard"
+		if("id-"+front_id.icon_state in icon_states(icon))
+			tiny_state = "id-"+front_id.icon_state
+		if("lanyard-"+front_id.item_state in icon_states(icon))
+			tiny_worn = "lanyard-"+front_id.icon_state
+		var/image/tiny_image = new/image(icon, icon_state = tiny_state)
+		tiny_image.appearance_flags = RESET_COLOR
+		overlays += tiny_image
+		item_state = tiny_worn
 	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image

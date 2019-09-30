@@ -559,11 +559,11 @@ There are several things that need to be remembered:
 		if(w_uniform && w_uniform:displays_id)
 			if(wear_id.contained_sprite)
 				wear_id.auto_adapt_species(src)
-				overlays_raw[ID_LAYER] = image(wear_id.icon_override || wear_id.icon, "[wear_id.item_state][WORN_ID]")
-			else if(wear_id.icon_override)
-				overlays_raw[ID_LAYER] = image(wear_id.icon_override, "[wear_id.item_state]")
+				if(!(wear_id.overlay_state)) //legacy check
+					wear_id.overlay_state = wear_id.item_state
+				overlays_raw[ID_LAYER] = image(wear_id.icon_override || wear_id.icon, "[wear_id.overlay_state][WORN_ID]")
 			else
-				overlays_raw[ID_LAYER] = image("icon" = 'icons/mob/card.dmi', "icon_state" = "id")
+				overlays_raw[ID_LAYER] = image("icon" = 'icons/mob/card.dmi', "icon_state" = "[wear_id.overlay_state]")
 
 	BITSET(hud_updateflag, ID_HUD)
 	BITSET(hud_updateflag, WANTED_HUD)
