@@ -165,6 +165,8 @@
 		/obj/item/weapon/pen,
 		/obj/item/weapon/photo)
 	flippable = 0
+	var/plastic_film_overlay_state = "plasticfilm"
+	var/front_id_overlay_state
 
 /obj/item/weapon/storage/wallet/lanyard/New()
 	..()
@@ -173,18 +175,9 @@
 	overlays += film_image
 
 /obj/item/weapon/storage/wallet/lanyard/update_icon()
-	overlays.Cut()
+	..()
 	if(front_id)
-		var/tiny_state = "id-generic"
-		var/tiny_worn = "lanyard"
-		if("id-"+front_id.icon_state in icon_states(icon))
-			tiny_state = "id-"+front_id.icon_state
-		if("lanyard-"+front_id.item_state in icon_states(icon))
-			tiny_worn = "lanyard-"+front_id.icon_state
-		var/image/tiny_image = new/image(icon, icon_state = tiny_state)
-		tiny_image.appearance_flags = RESET_COLOR
-		overlays += tiny_image
-		item_state = tiny_worn
+		front_id_overlay_state = front_id.icon_state
 	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image

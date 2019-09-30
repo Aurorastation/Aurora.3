@@ -554,16 +554,34 @@ There are several things that need to be remembered:
 
 	overlays_raw[ID_LAYER] = null
 	if(wear_id)
-
+		var/image/result_layer
 		wear_id.screen_loc = ui_id	//TODO
 		if(w_uniform && w_uniform:displays_id)
 			if(wear_id.contained_sprite)
 				wear_id.auto_adapt_species(src)
 				if(!(wear_id.overlay_state)) //legacy check
 					wear_id.overlay_state = wear_id.item_state
-				overlays_raw[ID_LAYER] = image(wear_id.icon_override || wear_id.icon, "[wear_id.overlay_state][WORN_ID]")
+				result_layer = image(wear_id.icon_override || wear_id.icon, "[wear_id.overlay_state][WORN_ID]")
 			else
-				overlays_raw[ID_LAYER] = image("icon" = 'icons/mob/card.dmi', "icon_state" = "[wear_id.overlay_state]")
+				result_layer = image("icon" = 'icons/mob/card.dmi', "icon_state" = "[wear_id.overlay_state]")
+
+			if (wear_id.color)
+				result_layer.color = wear_id.color
+
+			if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //tacky as bejesus but...
+				var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
+				var/image/lanyard_card
+				var/image/plastic_film
+				if(lanyard.front_id)
+					result_layer += lanyard_card
+				result_layer += plastic_film
+
+			if(gloves.blood_DNA)
+				var/image/bloodsies = image(species.blood_mask, "bloodyhands")
+				bloodsies.color = gloves.blood_color
+				result_layer = list(result_layer, bloodsies)
+
+			overlays_raw[ID_LAYER] = result_layer
 
 	BITSET(hud_updateflag, ID_HUD)
 	BITSET(hud_updateflag, WANTED_HUD)
