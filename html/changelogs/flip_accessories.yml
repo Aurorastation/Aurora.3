@@ -39,10 +39,10 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Made accessories like armbands, badges, holsters, medals, stethoscopes, scarves, ribbons, medallions, pins, shoulder capes, bandoliers, contractor cards and patches, as well as ID cards, PDAs and wallets horizontally flippable when worn."
-  - rscadd: "Added additional medals and badges, a lanyard, contractor patches, colourable wallets, colourable wallet purses, and some new okayish ID card overlays for in-wallet icons (all except for the medals and most badges are added to the loadout menu)."
+  - rscadd: "Added additional medals and badges, a lanyard, contractor patches, colourable wallets, colourable wallet purses, and some new okayish ID card overlays for in-wallet icons (all except for the medals and most badges are added to the loadout menu; one has been added to arcade prize pool)."
   - rscadd: "Added other holsters to HoS and detective lockers."
   - rscadd: "Added holobadges to the loadout list for security roles only (excluding investigative roles)."
-  - rscadd: "Added the ability to customise loadout item names and descriptions."
+  - rscadd: "Added the ability to customise loadout item names and descriptions. BE CAREFUL: disabling the item will delete its custom name and description!"
   - rscadd: "Added the ability to wear ID cards, wallets (including lanyards), and PDAs over your suit by toggling it."
   - rscadd: "Gave job-restricted loadout items a small descriptor showing what jobs they can be spawned in."
   - imageadd: "Gave the locket an opened sprite."
