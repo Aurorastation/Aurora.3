@@ -217,6 +217,11 @@
 	icon_state = base_icon_state
 	find_control_computer()
 
+/obj/machinery/cryopod/examine(mob/user)
+	..(user)
+	if(occupant)
+		to_chat(user, "[occupant] [gender_datums[occupant.gender].is] inside \the [src].")
+
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
 	//control_computer = locate(/obj/machinery/computer/cryopod) in src.loc.loc
 	for(var/obj/machinery/computer/cryopod/C in src.loc.loc)
