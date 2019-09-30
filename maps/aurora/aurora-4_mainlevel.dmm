@@ -58163,7 +58163,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "gcN" = (
@@ -65619,19 +65618,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet,
 /area/maintenance/bar)
-"sPv" = (
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/iv_drip,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
 "sQo" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -68282,6 +68268,14 @@
 /area/medical/med_office{
 	name = "\improper Medical - Psych Stairway"
 	})
+"wWS" = (
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgeryobs)
 "wZe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -104032,8 +104026,8 @@ ldL
 fwf
 rrD
 gcs
-iTy
-sPv
+wWS
+gcs
 uIi
 paw
 iTy

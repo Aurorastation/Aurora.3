@@ -1,0 +1,19 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - maptweak: "Various remaps of parts of Medical, including the lobby, chemistry, breakroom, main storage (now secondary storage), cryotube setup, and the EMT bay."
+  - rscadd: "Adds a new EMT manual."
+  - backend: "Repaths wall nanomed vendors."
+  - rscadd: "Adds patient slippers."
+  - backend: "Repaths slippers to remove duplicate code."
+  - maptweak: "Makes patient gowns and slippers accessible via the patient wardrobes in Cloning and Virology Quarantine."
+  - tweak: "Makes certain shoes (foam flip flops, cloth footwraps, and slippers) not block stepping on shards."
+  - tweak: "Changes latex glove boxes to nitrile glove boxes (and resprites them), which have 5 nitrile gloves and 2 latex gloves. Latex allergies are no joke, people."
+  - maptweak: "Adds a spare can of espresso grounds to Medical's breakroom. This is clear coffee powercreep."
+  - bugfix: "Renames 'A can of Coffee Beans' to 'can of espresso grounds'. No path changed."
+  - wip: "FOR MAPPERS ONLY: Uses wingrille spawners (which can now be configured to add shutters automatically!) instead of manually mapping in most non-electrochromic Medical windows. I was lazy with this, PR to completely do this Soon(tm)."
+  - bugfix: "Removes one last instance of spaceacillin."
+  - bugfix: "Fixes cryo always ejecting to the south regardless of the mapped-in direction. Changes nothing gameplay-wise for now."
+  - rscadd: "Adds a roller-bed holder, which is an alternative to the paramedic RIG for lesser-trained personnel. Holds several tiny to small items as well as one rollerbed, goes in the back slot, clicking with it on a rollerbed picks it up."
+  - maptweak: "Removes the MediExpress delivery system until it can be properly remapped without going under walls, like some kind of madman. The only part remaining is the interstitial Virology to Virology Quarantine delivery system, which is mapped somewhat sensibly and serves an important purpose."
+  - backend: "Apologises to Skull for making such a large PR again."

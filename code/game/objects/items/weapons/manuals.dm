@@ -731,7 +731,7 @@
 	name = "Emergency Response and You"
 	desc = "MARCH, soldier! A detailed guide to basic emergency response procedures, for new emergency medical responders."
 	icon_state = "bookEMT"
-	author = "Trafalgar Daniels"
+	author = "Amelie Aura"
 	title = "Emergency Response and You"
 
 /obj/item/weapon/book/manual/emt_manual/Initialize()
@@ -750,6 +750,7 @@
 				<br>
 
 				<h1> Emergency Response and You: An Emergency Medical Technician's Handbook</h1>
+				<em>By Amelie Aura</em>
 				<h2> Glossary of Terms </h2>
 				<em>A basic list of the terms needed to understand this guide, and your work as a whole.</em>
 				<dl>
