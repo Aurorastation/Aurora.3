@@ -57491,13 +57491,13 @@
 /area/maintenance/atmos_control)
 "caA" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd/construction,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "caB" = (

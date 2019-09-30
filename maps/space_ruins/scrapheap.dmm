@@ -1722,7 +1722,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eV" = (
-/obj/item/mecha_parts/mecha_equipment/tool/rcd,
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2230,13 +2230,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gD" = (
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -11722,7 +11722,7 @@
 "Hx" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/weapon/rsf,
+/obj/item/weapon/rfd/service,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "Hy" = (
@@ -13178,7 +13178,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "LR" = (
-/obj/structure/closet/crate/rcd,
+/obj/structure/closet/crate/rfd,
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
