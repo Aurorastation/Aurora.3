@@ -570,17 +570,13 @@ There are several things that need to be remembered:
 
 			if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //tacky as bejesus but...
 				var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
-				var/image/lanyard_card
 				var/image/plastic_film
+				var/image/lanyard_card = "lanyard"
 				if(lanyard.front_id)
+					lanyard_card = image("icon" = 'icons/mob/card.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
 					result_layer += lanyard_card
+
 				result_layer += plastic_film
-
-			if(gloves.blood_DNA)
-				var/image/bloodsies = image(species.blood_mask, "bloodyhands")
-				bloodsies.color = gloves.blood_color
-				result_layer = list(result_layer, bloodsies)
-
 			overlays_raw[ID_LAYER] = result_layer
 
 	BITSET(hud_updateflag, ID_HUD)

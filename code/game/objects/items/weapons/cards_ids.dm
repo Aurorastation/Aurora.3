@@ -29,6 +29,7 @@
 	var/data = "null"
 	var/special = null
 	item_state = "card-id"
+	overlay_state = "data"
 
 /obj/item/weapon/card/data/verb/label(t as text)
 	set name = "Label Disk"
