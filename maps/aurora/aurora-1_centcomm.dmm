@@ -6587,7 +6587,7 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "apw" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
@@ -7410,7 +7410,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_ship/start)
 "arD" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -12564,7 +12564,7 @@
 	pixel_x = 4;
 	pixel_y = 32
 	},
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -28;
@@ -14405,7 +14405,7 @@
 	},
 /area/centcom/holding)
 "aGJ" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = 0;
 	pixel_y = 29
@@ -15700,7 +15700,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = 28
 	},
