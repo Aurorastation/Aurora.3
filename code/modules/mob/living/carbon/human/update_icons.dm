@@ -593,6 +593,8 @@ There are several things that need to be remembered:
 			var/image/lanyard_card
 			if(lanyard.front_id)
 				lanyard_card = image("icon" = 'icons/mob/card.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
+				if(!(lanyard_card in icon_states(icon)))
+					lanyard_card = "lanyard-generic"
 				result_layer = list(result_layer, lanyard_card, plastic_film)
 			else
 				result_layer =  list(result_layer, plastic_film)
