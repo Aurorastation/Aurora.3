@@ -10725,7 +10725,7 @@
 /area/bridge/aibunker)
 "aur" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/machinery/vending/wallmed2{
+/obj/machinery/vending/wallmed/aid{
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
@@ -15214,7 +15214,7 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = 32;
 	req_access = null
 	},
@@ -15437,7 +15437,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "aLO" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = 32;
 	req_access = null
 	},
@@ -17062,7 +17062,7 @@
 	pixel_y = 2
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_x = -32;
 	req_access = null
 	},

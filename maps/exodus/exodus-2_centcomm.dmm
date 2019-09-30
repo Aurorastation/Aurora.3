@@ -3313,7 +3313,7 @@
 /turf/simulated/shuttle/plating,
 /area/centcom/evac)
 "ajt" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = -30;
 	pixel_y = 0
@@ -3343,7 +3343,7 @@
 	},
 /area/centcom/evac)
 "ajx" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = 30;
 	pixel_y = 0
@@ -3737,7 +3737,7 @@
 /turf/space/transit/north/shuttlespace_ns8,
 /area/template_noop)
 "akK" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = -30;
 	pixel_y = 0
@@ -8570,7 +8570,7 @@
 	pixel_x = 4;
 	pixel_y = 32
 	},
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = 28;
@@ -13162,7 +13162,7 @@
 	},
 /area/centcom/living)
 "aMP" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -15005,7 +15005,7 @@
 	},
 /area/centcom/control)
 "aQT" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
@@ -17012,7 +17012,7 @@
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = 28
 	},
@@ -17192,7 +17192,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aVG" = (
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = 0;
 	pixel_y = 29

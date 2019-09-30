@@ -119,13 +119,6 @@ var/list/flooring_types
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_yellow
 
-/decl/flooring/tiling/orange
-	name = "floor"
-	icon_base = "white"
-	has_damage_range = null
-	flags = TURF_REMOVE_CROWBAR
-	build_type = /obj/item/stack/tile/floor_orange
-
 /decl/flooring/tiling/dark
 	name = "floor"
 	desc = "How ominous."

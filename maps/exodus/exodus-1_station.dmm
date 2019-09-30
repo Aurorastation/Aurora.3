@@ -9399,7 +9399,7 @@
 /area/security/prison)
 "aqQ" = (
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = -32
 	},
 /obj/structure/disposalpipe/segment{
@@ -38328,7 +38328,7 @@
 	pixel_y = 0
 	},
 /obj/item/weapon/pen,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "NanoMed Wall";
 	pixel_x = 25;
 	pixel_y = 16
@@ -49208,7 +49208,7 @@
 /obj/item/weapon/crowbar,
 /obj/item/weapon/crowbar,
 /obj/item/weapon/storage/toolbox/mechanical,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_x = -32;
 	pixel_y = 0
 	},
@@ -53341,7 +53341,7 @@
 "bSY" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "NanoMed Wall";
 	pixel_x = 25;
 	pixel_y = 0
@@ -53376,7 +53376,7 @@
 "bTb" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "NanoMed Wall";
 	pixel_x = 25;
 	pixel_y = 0
@@ -58498,7 +58498,7 @@
 "ccq" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_x = -26
 	},
 /obj/effect/floor_decal/corner/pink{
@@ -58518,7 +58518,7 @@
 "cct" = (
 /obj/structure/bed/padded,
 /obj/item/weapon/bedsheet/medical,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "NanoMed Wall";
 	pixel_x = 25;
 	pixel_y = 0
@@ -65159,7 +65159,7 @@
 /area/medical/surgery2)
 "cot" = (
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -65194,7 +65194,7 @@
 /area/medical/surgery2)
 "cox" = (
 /obj/structure/table/standard,
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -70219,7 +70219,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/vending/wallmed1{
+/obj/machinery/vending/wallmed{
 	name = "Emergency NanoMed";
 	pixel_x = -7;
 	pixel_y = -32;
