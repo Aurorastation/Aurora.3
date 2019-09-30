@@ -558,43 +558,45 @@ There are several things that need to be remembered:
 	if(wear_id)
 		var/image/result_layer
 		wear_id.screen_loc = ui_id	//TODO
-		if(w_uniform:displays_id)
-			if(wear_id.contained_sprite)
-				wear_id.auto_adapt_species(src)
-				if(!(wear_id.overlay_state)) //legacy check
-					wear_id.overlay_state = wear_id.item_state
-				result_layer = image(wear_id.icon_override || wear_id.icon, "[wear_id.overlay_state][WORN_ID]")
+		if(w_uniform)
+			if(!w_uniform:displays_id)
+				return
+		if(wear_id.contained_sprite)
+			wear_id.auto_adapt_species(src)
+			if(!(wear_id.overlay_state)) //legacy check
+				wear_id.overlay_state = wear_id.item_state
+			result_layer = image(wear_id.icon_override || wear_id.icon, "[wear_id.overlay_state][WORN_ID]")
+		else
+			result_layer = image("icon" = 'icons/mob/card.dmi', "icon_state" = "[wear_id.overlay_state]")
+
+		//Layering under/over suit
+		var/id_layer = ID_LAYER
+		if(istype(wear_id, /obj/item/weapon/storage/wallet))
+			var/obj/item/weapon/storage/wallet/wallet = wear_id
+			if(wallet.wear_over_suit == 1)
+				id_layer = ID_LAYER_ALT
+		else if(istype(wear_id, /obj/item/weapon/card/id))
+			var/obj/item/weapon/card/id/id_card = wear_id
+			if(id_card.wear_over_suit == 1)
+				id_layer = ID_LAYER_ALT
+		else if(istype(wear_id, /obj/item/device/pda))
+			var/obj/item/device/pda/pda_device = wear_id
+			if(pda_device.wear_over_suit == 1)
+				id_layer = ID_LAYER_ALT
+
+		if (wear_id.color)
+			result_layer.color = wear_id.color
+
+		if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
+			var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
+			var/image/plastic_film
+			var/image/lanyard_card
+			if(lanyard.front_id)
+				lanyard_card = image("icon" = 'icons/mob/card.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
+				result_layer = list(result_layer, lanyard_card, plastic_film)
 			else
-				result_layer = image("icon" = 'icons/mob/card.dmi', "icon_state" = "[wear_id.overlay_state]")
-
-			//Layering under/over suit
-			var/id_layer = ID_LAYER
-			if(istype(wear_id, /obj/item/weapon/storage/wallet))
-				var/obj/item/weapon/storage/wallet/wallet = wear_id
-				if(wallet.wear_over_suit == 1)
-					id_layer = ID_LAYER_ALT
-			else if(istype(wear_id, /obj/item/weapon/card/id))
-				var/obj/item/weapon/card/id/id_card = wear_id
-				if(id_card.wear_over_suit == 1)
-					id_layer = ID_LAYER_ALT
-			else if(istype(wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda_device = wear_id
-				if(pda_device.wear_over_suit == 1)
-					id_layer = ID_LAYER_ALT
-
-			if (wear_id.color)
-				result_layer.color = wear_id.color
-
-			if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
-				var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
-				var/image/plastic_film
-				var/image/lanyard_card
-				if(lanyard.front_id)
-					lanyard_card = image("icon" = 'icons/mob/card.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
-					result_layer = list(result_layer, lanyard_card, plastic_film)
-				else
-					result_layer =  list(result_layer, plastic_film)
-			overlays_raw[id_layer] = result_layer
+				result_layer =  list(result_layer, plastic_film)
+		overlays_raw[id_layer] = result_layer
 
 	BITSET(hud_updateflag, ID_HUD)
 	BITSET(hud_updateflag, WANTED_HUD)
