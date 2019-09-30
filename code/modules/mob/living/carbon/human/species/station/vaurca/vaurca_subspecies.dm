@@ -73,8 +73,7 @@
 	flags = NO_SCAN | NO_SLIP
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite,
-		/mob/living/carbon/human/proc/hivenet
+		/mob/living/carbon/human/proc/bugbite
 		)
 
 	default_h_style = "Bald"
