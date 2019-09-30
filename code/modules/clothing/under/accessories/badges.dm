@@ -39,7 +39,7 @@
 	name = "plastic press pass"
 	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
 	icon_state = "pbadge"
-	badge_string = "Security Journalist"
+	badge_string = "Sicurity Journelist"
 	w_class = 2
 
 /obj/item/clothing/accessory/badge/old
