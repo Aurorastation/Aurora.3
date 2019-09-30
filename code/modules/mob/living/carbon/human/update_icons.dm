@@ -589,12 +589,10 @@ There are several things that need to be remembered:
 
 		if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
 			var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
-			var/image/plastic_film
+			var/image/plastic_film = image("icon" = 'icons/mob/lanyard_overlays.dmi', "icon_state" = "plasticfilm")
 			var/image/lanyard_card
 			if(lanyard.front_id)
-				lanyard_card = image("icon" = 'icons/mob/card.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
-				if(!(lanyard_card.icon_state in icon_states(lanyard_card.icon)))
-					lanyard_card = "lanyard-generic"
+				lanyard_card = image("icon" = 'icons/mob/lanyard_overlays.dmi', "icon_state" = "lanyard-[lanyard.front_id_overlay_state]")
 				result_layer = list(result_layer, lanyard_card, plastic_film)
 			else
 				result_layer =  list(result_layer, plastic_film)
