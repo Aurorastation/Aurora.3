@@ -184,6 +184,8 @@
 	var/plastic_film_overlay_state = "plasticfilm"
 	var/front_id_overlay_state
 
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
 /obj/item/weapon/storage/wallet/lanyard/New()
 	..()
 	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
