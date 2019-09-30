@@ -211,3 +211,7 @@
 	name = "\improper Medical - Main Storage"
 	icon_state = "exam_room"
 
+/area/medical/second_storage
+	name = "\improper Medical - Secondary Storage"
+	icon_state = "exam_room"
+
