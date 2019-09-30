@@ -33767,7 +33767,7 @@
 	icon_state = "warning";
 	dir = 5
 	},
-/obj/structure/closet/wardrobe/white,
+/obj/structure/closet/wardrobe/patient,
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
 "tMU" = (

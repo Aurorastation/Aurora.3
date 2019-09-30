@@ -83,7 +83,6 @@
 	singular_name = "red floor tile"
 	color = COLOR_RED_GRAY
 	icon_state = "tile_white"
-	matter = list("plastic" = 937.5)
 
 /obj/item/stack/tile/floor_steel
 	name = "steel floor tile"
@@ -102,14 +101,6 @@
 	singular_name = "yellow floor tile"
 	color = COLOR_BROWN
 	icon_state = "tile_white"
-	matter = list("plastic" = 937.5)
-
-/obj/item/stack/tile/floor_orange
-	name = "orange floor tile"
-	singular_name = "orange floor tile"
-	color = COLOR_ORANGE
-	icon_state = "tile_white"
-	matter = list("plastic" = 937.5)
 
 /obj/item/stack/tile/floor_dark
 	name = "dark floor tile"
