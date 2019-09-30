@@ -417,13 +417,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 80000, "glass" = 6000, "gold" = 5000)
 	build_path = /obj/item/borg/upgrade/vtec
 
-/datum/design/item/robot_upgrade/tasercooler
-	name = "Rapid taser cooling module"
-	desc = "Used to cool a mounted taser, increasing the potential current in it and thus its recharge rate."
-	id = "borg_taser_module"
-	materials = list(DEFAULT_WALL_MATERIAL = 80000, "glass" = 6000, "gold" = 2000, "diamond" = 500)
-	build_path = /obj/item/borg/upgrade/tasercooler
-
 /datum/design/item/robot_upgrade/jetpack
 	name = "Jetpack module"
 	desc = "A carbon dioxide jetpack suitable for low-gravity mining operations."
@@ -431,19 +424,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "phoron" = 15000, "uranium" = 20000)
 	build_path = /obj/item/robot_parts/robot_component/jetpack
 
-
-
-
-
-/*
-//Commented out by nanako
-/datum/design/item/robot_upgrade/rcd
-	name = "RCD module"
-	desc = "A rapid construction device module for use during construction operations."
-	id = "borg_rcd_module"
-	materials = list(DEFAULT_WALL_MATERIAL = 25000, "phoron" = 15000, "uranium" = 20000)
-	build_path = /obj/item/borg/upgrade/rcd
-*/
 /datum/design/item/robot_upgrade/syndicate
 	name = "Illegal upgrade"
 	desc = "Allows for the construction of lethal upgrades for cyborgs."
@@ -672,14 +652,14 @@
 	req_tech = list(TECH_BLUESPACE = 6, TECH_MAGNET = 5)
 	build_path = /obj/item/mecha_parts/mecha_equipment/teleporter
 
-/datum/design/item/mecha/rcd
-	name = "RCD"
-	desc = "An exosuit-mounted rapid construction device."
-	id = "mech_rcd"
+/datum/design/item/mecha/rfd_c
+	name = "RFD-C"
+	desc = "An exosuit-mounted Rapid-Fabrication-Device C-Class."
+	id = "mech_rfd_c"
 	time = 120
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, "phoron" = 25000, "silver" = 20000, "gold" = 20000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
-	build_path = /obj/item/mecha_parts/mecha_equipment/tool/rcd
+	build_path = /obj/item/mecha_parts/mecha_equipment/tool/rfd_c
 
 /datum/design/item/mecha/gravcatapult
 	name = "Gravitational catapult"
@@ -845,13 +825,13 @@
 	materials = list("glass" = 2250, DEFAULT_WALL_MATERIAL = 55000, "silver" = 5250, "diamond" = 3750)
 	build_path = /obj/item/rig_module/device/drill
 
-/datum/design/hardsuitmodules/rcd_module
-	name = "RCD mount"
-	desc = "A cell-powered rapid construction device for a hardsuit."
+/datum/design/hardsuitmodules/rfd_c_module
+	name = "RFD-C mount"
+	desc = "A cell-powered Rapid-Fabrication-Device C-Class for a hardsuit."
 	id = "rcd_module"
 	req_tech = list(TECH_ENGINEERING = 6, TECH_MATERIAL = 5, TECH_POWER = 5, TECH_BLUESPACE = 4)
 	materials = list(DEFAULT_WALL_MATERIAL= 30000, "phoron" = 12500, "silver" = 10000, "gold" = 10000)
-	build_path = /obj/item/rig_module/device/rcd
+	build_path = /obj/item/rig_module/device/rfd_c
 
 /datum/design/hardsuitmodules/actuators_module
 	name = "leg actuators"

@@ -71,11 +71,19 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		//The heartfix to end all heartfixes
 		if(species && species.has_organ["heart"])
 			var/obj/item/organ/heart/heart = internal_organs_by_name["heart"]
-			if(!heart)
-				blood_volume = 0
-			else if (heart.is_damaged())
-				blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
-				blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - heart.damage/heart.min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
+			// Before we do that, we check for lifesupport.
+			var/onlifesupport = 0
+			if (buckled && istype(buckled, /obj/machinery/optable/lifesupport))
+				var/obj/machinery/optable/lifesupport/A = buckled
+				onlifesupport = A.onlifesupport()
+
+
+			if (!onlifesupport)
+				if(!heart)
+					blood_volume = 0
+				else if (heart.is_damaged())
+					blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
+					blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - heart.damage/heart.min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
 
 		//Effects of bloodloss
 		if(blood_volume < BLOOD_VOLUME_SAFE && oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))
@@ -91,10 +99,10 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					pale = 1
 					update_body()
 					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel [word]</span>")
+					to_chat(src, "<span class='warning'>You feel [word]...</span>")
 				if(prob(1))
 					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel [word]</span>")
+					to_chat(src, "<span class='warning'>You feel [word]...</span>")
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 				if(!pale)
 					pale = 1
@@ -104,13 +112,13 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				if(prob(15))
 					Paralyse(rand(1,3))
 					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel extremely [word]</span>")
+					to_chat(src, "<span class='warning'>You feel extremely [word]...</span>")
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 				oxyloss += 3
 				toxloss += 3
 				if(prob(15))
 					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel extremely [word]</span>")
+					to_chat(src, "<span class='warning'>You feel extremely [word]...</span>")
 			if(0 to BLOOD_VOLUME_SURVIVE)
 				// There currently is a strange bug here. If the mob is not below -100 health
 				// when death() is called, apparently they will be just fine, and this way it'll

@@ -197,7 +197,7 @@
 
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
-obj/machinery/door/blast/regular
+/obj/machinery/door/blast/regular
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -206,7 +206,7 @@ obj/machinery/door/blast/regular
 	maxhealth = 600
 	block_air_zones = 1
 
-obj/machinery/door/blast/regular/open
+/obj/machinery/door/blast/regular/open
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0
@@ -225,6 +225,41 @@ obj/machinery/door/blast/regular/open
 	icon_state = "shutter0"
 	density = 0
 	opacity = 0
+
+// SUBTYPE: Odin
+// Found on the odin, or where people really shouldnt get into
+/obj/machinery/door/blast/odin
+	icon_state_open = "pdoor0"
+	icon_state_opening = "pdoorc0"
+	icon_state_closed = "pdoor1"
+	icon_state_closing = "pdoorc1"
+	icon_state = "pdoor1"
+	maxhealth = 1000
+	block_air_zones = 1
+
+/obj/machinery/door/blast/odin/open
+	icon_state = "pdoor0"
+	density = 0
+	opacity = 0
+
+/obj/machinery/door/blast/odin/attackby(obj/item/weapon/C as obj, mob/user as mob)
+	return
+
+/obj/machinery/door/blast/odin/ex_act(var/severity)
+	return
+
+/obj/machinery/door/blast/odin/take_damage(var/damage)
+	return
+
+/obj/machinery/door/blast/odin/shuttle
+	icon_state = "pdoor0"
+	density = 0
+	opacity = 0
+/obj/machinery/door/blast/odin/shuttle/ert
+	_wifi_id = "ert_shuttle_lockdown"
+
+/obj/machinery/door/blast/odin/shuttle/tcfl
+	_wifi_id = "tcfl_shuttle_lockdown"
 
 #undef BLAST_DOOR_CRUSH_DAMAGE
 #undef SHUTTER_CRUSH_DAMAGE

@@ -72,10 +72,10 @@
 	var/uses = 10
 
 var/const/NO_EMAG_ACT = -50
-/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user)
+/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	var/used_uses = A.emag_act(uses, user, src)
 	if(used_uses == NO_EMAG_ACT)
-		return ..(A, user)
+		return ..(A, user, click_parameters)
 
 	uses -= used_uses
 	A.add_fingerprint(user)
@@ -162,9 +162,9 @@ var/const/NO_EMAG_ACT = -50
 
 /mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
 	..()
-	id_card.age = age
+	id_card.age 				= age
 	id_card.citizenship			= citizenship
-	id_card.religion			= religion
+	id_card.religion 			= SSrecords.get_religion_record_name(religion)
 	id_card.mob					= src
 
 /obj/item/weapon/card/id/proc/dat()
@@ -199,7 +199,7 @@ var/const/NO_EMAG_ACT = -50
 				dna_hash = H.dna.unique_enzymes
 				fingerprint_hash = md5(H.dna.uni_identity)
 				citizenship = H.citizenship
-				religion = H.religion
+				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
 				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
 				return

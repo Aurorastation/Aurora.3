@@ -1,6 +1,52 @@
 // These should all be procs, you can add them to humans/subspecies by
 // species.dm's inherent_verbs ~ Z
 
+/mob/living/carbon/human/proc/tie_hair()
+	set name = "Tie Hair"
+	set desc = "Style your hair."
+	set category = "IC"
+
+	if(h_style)
+		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/selected_string
+		if(hair_style.length <= 1)
+			to_chat(src, "<span class ='warning'>Your hair isn't long enough to tie.</span>")
+			return
+		else
+			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
+			for(var/hair_string in hair_styles_list)
+				var/list/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+				if(test.length >= 2 && (species.bodytype in test.species_allowed))
+					valid_hairstyles.Add(hair_string)
+			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
+		if(selected_string && h_style != selected_string)
+			h_style = selected_string
+			regenerate_icons()
+			visible_message("<span class='notice'>[src] pauses a moment to style their hair.</span>")
+		else
+			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
+
+mob/living/carbon/human/proc/change_monitor()
+	set name = "Change IPC Screen"
+	set desc = "Change the display on your screen."
+	set category = "IC"
+
+	if(f_style)
+		var/datum/sprite_accessory/facial_hair/screen_style = facial_hair_styles_list[f_style]
+		var/selected_string
+		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
+		for(var/screen_string in facial_hair_styles_list)
+			var/list/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
+			if(species.bodytype in test.species_allowed)
+				valid_screenstyles.Add(screen_string)
+		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
+		if(selected_string && f_style != selected_string)
+			f_style = selected_string
+			regenerate_icons()
+			visible_message("<span class='notice'>[src]'s screen switches to a different display.</span>")
+		else
+			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
+
 /mob/living/carbon/human/proc/tackle()
 	set category = "Abilities"
 	set name = "Tackle"
@@ -1034,7 +1080,7 @@
 		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
 		return
 
-		last_special = world.time + 10
+	last_special = world.time + 25
 
 	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
 	var/list/dirs = list()

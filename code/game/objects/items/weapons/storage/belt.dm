@@ -53,7 +53,8 @@
 		/obj/item/weapon/material/hatchet,
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/weapon/extinguisher/mini,
-		/obj/item/weapon/pipewrench
+		/obj/item/weapon/pipewrench,
+		/obj/item/powerdrill
 		)
 
 
@@ -64,7 +65,8 @@
 		/obj/item/weapon/weldingtool = 1,
 		/obj/item/weapon/crowbar = 1,
 		/obj/item/weapon/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
 	)
 
 
@@ -233,15 +235,20 @@
 	w_class = 3
 	max_w_class = 3
 	can_hold = list(
-		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
-		/obj/item/device/lightreplacer,
-		/obj/item/device/flashlight,
-		/obj/item/weapon/reagent_containers/spray,
-		/obj/item/weapon/soap,
-		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/wrench,
-		/obj/item/weapon/crowbar
+		/obj/item/device/flashlight,
+		/obj/item/weapon/extinguisher/mini,
+		/obj/item/device/radio,
+		/obj/item/clothing/gloves,
+		/obj/item/clothing/glasses/material,
+		/obj/item/weapon/reagent_containers/spray,
+		/obj/item/weapon/grenade/chem_grenade, //if I'm going to be doing a full allowance on one belt, I need to do the other.
+		/obj/item/device/lightreplacer,
+		/obj/item/weapon/soap,
+		/obj/item/weapon/storage/bag/trash,
+		/obj/item/weapon/reagent_containers/glass/rag
 		)
 
 /obj/item/weapon/storage/belt/wands
@@ -273,7 +280,8 @@
 	storage_slots = 9
 	w_class = 4
 	max_w_class = 4 //Pickaxes are big.
-	can_hold = list(/obj/item/weapon/crowbar,
+	can_hold = list(
+		/obj/item/weapon/crowbar,
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/weldingtool,
 		/obj/item/weapon/wirecutters,
@@ -310,7 +318,7 @@
 		/obj/item/weapon/storage/bag/plants,
 		/obj/item/warp_core,
 		/obj/item/weapon/extraction_pack,
-		/obj/item/weapon/rrf,
+		/obj/item/weapon/rfd/mining,
 		/obj/item/weapon/gun/custom_ka
 		)
 
@@ -339,17 +347,43 @@
 		/obj/item/clothing/gloves/botanic_leather,
 	)
 
-/obj/item/weapon/storage/belt/hydro
-	starts_with = list(
-		/obj/item/weapon/plantspray/pests = 1,
-		/obj/item/weapon/material/minihoe = 1,
-		/obj/item/weapon/storage/bag/plants = 1,
-		/obj/item/clothing/gloves/botanic_leather = 1,
-		/obj/item/device/analyzer/plant_analyzer = 1,
-		/obj/item/weapon/material/hatchet = 1,
-		/obj/item/weapon/reagent_containers/glass/fertilizer/rh = 1,
-		/obj/item/weapon/reagent_containers/spray/plantbgone = 1,
-		/obj/item/weapon/wirecutters/clippers = 1
+/obj/item/weapon/storage/belt/ninja //credits to BurgerBB
+	name = "advanced combat belt"
+	desc = "A very robust belt that can hold various specialized gear such as swords, grenades, shurikens, and food rations."
+	icon_state = "securitybelt"
+	item_state = "security"
+	storage_slots = 9
+	max_w_class = 4
+	max_storage_space = 28
+
+	can_hold = list(
+		/obj/item/weapon/grenade,
+		/obj/item/weapon/handcuffs,
+		/obj/item/device/flash,
+		/obj/item/device/paicard,
+		/obj/item/clothing/glasses,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/ammo_magazine,
+		/obj/item/weapon/melee/baton,
+		/obj/item/device/flashlight,
+		/obj/item/device/pda,
+		/obj/item/device/radio/headset,
+		/obj/item/weapon/melee,
+		/obj/item/weapon/crowbar,
+		/obj/item/weapon/screwdriver,
+		/obj/item/weapon/shield/energy,
+		/obj/item/weapon/pinpointer,
+		/obj/item/weapon/plastique,
+		/obj/item/weapon/gun/projectile/pistol,
+		/obj/item/weapon/gun/energy/crossbow,
+		/obj/item/ammo_casing/a145,
+		/obj/item/device/radio/uplink,
+		/obj/item/weapon/card/emag,
+		/obj/item/device/multitool/hacktool,
+		/obj/item/weapon/reagent_containers,
+		/obj/item/stack/telecrystal,
+		/obj/item/weapon/material/sword,
+		/obj/item/weapon/material/star
 	)
 
 /obj/item/weapon/storage/belt/fannypack

@@ -949,6 +949,17 @@
 	glass_name = "glass of onion juice"
 	glass_desc = "Juice from an onion, for when you need to cry."
 
+/datum/reagent/drink/applejuice
+	name = "Apple Juice"
+	id = "applejuice"
+	description = "Juice from an apple. The most basic beverage you can imagine."
+	taste_description = "apple juice"
+	color = "#f2d779"
+
+	glass_icon_state = "glass_apple"
+	glass_name = "glass of apple juice"
+	glass_desc = "Juice from an apple. The most basic beverage you can imagine."
+
 /datum/reagent/drink/dynjuice
 	name = "Dyn Juice"
 	id = "dynjuice"
@@ -3752,6 +3763,41 @@
 	if(alien != IS_DIONA)
 		M.make_jittery(10)
 
+/datum/reagent/drink/algaesuprise
+	name = "Pl'iuop Algae Surprise"
+	id = "algaesuprise"
+	color = "#FFFF80"
+	description = "This bubbling drink gives off a faint moldy aroma."
+	taste_description = "swamp fungus"
+
+	glass_icon_state = "algae_surprise"
+	glass_name = "glass of Pl'iuop Algae Surprise"
+	glass_desc = "This bubbling drink gives off a faint moldy aroma."
+
+/datum/reagent/drink/xrim
+	name = "Xrim Garden"
+	id = "xrim"
+	color = "#F6668E"
+	description = "A colorful drink that smells a lot like rotten fruit."
+	taste_description = "sweet, fruity slime"
+
+	glass_icon_state = "xrim"
+	glass_name = "glass of Xrim Garden"
+	glass_desc = "A colorful drink that smells a lot like rotten fruit."
+
+/datum/reagent/alcohol/ethanol/rixulin_sundae
+	name = "Rixulin Sundae"
+	id = "rixulin_sundae"
+	color = "#83E2C6"
+	description = "A fizzing drink that looks like a really great time."
+	taste_description = "spacetime and warbling music"
+
+	strength = 15
+	druggy = 30
+
+	glass_icon_state = "rixulin_sundae"
+	glass_name = "glass of Rixulin Sundae"
+	glass_desc = "A fizzing drink that looks like a really great time."
 
 // Butanol-based alcoholic drinks
 //=====================================

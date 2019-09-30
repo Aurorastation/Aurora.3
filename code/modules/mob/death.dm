@@ -48,7 +48,7 @@
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)
 
-/mob/proc/death(gibbed,deathmessage="seizes up and falls limp...")
+/mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", messagerange = world.view)
 
 	if(stat == DEAD)
 		return 0
@@ -56,7 +56,7 @@
 	facing_dir = null
 
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
-		src.visible_message("<b>\The [src.name]</b> [deathmessage]")
+		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
 
 	stat = DEAD
 
@@ -87,7 +87,8 @@
 		set_death_time(MINISYNTH, world.time)
 	else if (isliving(src))
 		set_death_time(CREW, world.time)//Crew is the fallback
-	if(mind) mind.store_memory("Time of death: [worldtime2text()]", 0)
+	if(mind)
+		mind.store_memory("Time of death: [worldtime2text()]", 0)
 	living_mob_list -= src
 	dead_mob_list |= src
 

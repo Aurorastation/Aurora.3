@@ -81,6 +81,7 @@
 			H.heal_organ_damage(2 * removed, 2 * removed)
 			H.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 			H.adjustToxLoss(-2 * removed)
+			return
 
 		if(alien == IS_VAURCA && H.species.has_organ["filtration bit"])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
@@ -688,7 +689,7 @@
 			var/obj/item/organ/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
 
-		if(ishuman_species(H))
+		if(H.species.zombie_type)
 			if(!H.internal_organs_by_name["brain"])	//destroying the brain stops trioxin from bringing the dead back to life
 				return
 
@@ -698,7 +699,12 @@
 			for(var/datum/language/L in H.languages)
 				H.remove_language(L.name)
 
-			H.set_species("Zombie")
+			var/r = H.r_skin
+			var/g = H.g_skin
+			var/b = H.b_skin
+
+			H.set_species(H.species.zombie_type, 0, 0, 0)
 			H.revive()
+			H.change_skin_color(r, g, b)
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")

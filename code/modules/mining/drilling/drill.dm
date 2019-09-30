@@ -201,12 +201,7 @@
 				system_error("unbraced drill error")
 				sleep(30)
 				if(!supported) //if you can resolve it manually in three seconds then power to you good-sir.
-					if(prob(50))
-						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
-					else
-						visible_message("<span class='danger'>\The [src] explodes!</span>")
-						fragem(src,10,35,2,1,5,1,0)
-						qdel(src)
+					visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
 				else
 					visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\"</span>")
 			if(supported && panel_open)
@@ -388,18 +383,12 @@
 				connected.system_error("unbraced drill error")
 				sleep(30)
 				if(connected && connected.active) //if you can resolve it manually in three seconds then power to you good-sir.
-					if(prob(50))
-						visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
-					else
-						visible_message("<span class='danger'>\The [src] explodes!</span>")
-						fragem(src,10,35,2,1,5,1,0)
-						qdel(src)
-						return
+					visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\"</span>")
 			else
 				connected.system_error("unexpected user interface error")
 				return
 
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the brace.</span>")
 
 		anchored = !anchored

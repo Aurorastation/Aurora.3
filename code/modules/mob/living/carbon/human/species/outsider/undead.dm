@@ -46,6 +46,7 @@
 	remains_type = /obj/effect/decal/cleanable/ash
 
 	death_message = "collapses, their bones clattering in a symphony of demise..."
+	death_message_range = 7
 	death_sound = 'sound/effects/falling_bones.ogg'
 
 	breath_type = null
@@ -135,9 +136,9 @@
 /datum/species/zombie
 	name = "Zombie"
 	name_plural = "Zombies"
-	bodytype = "Zombie"
-	icobase = 'icons/mob/human_races/r_zombie.dmi'
-	deform = 'icons/mob/human_races/r_zombie.dmi'
+	bodytype = "Human"
+	icobase = 'icons/mob/human_races/zombie/r_zombie.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie.dmi'
 
 	hide_name = TRUE
 
@@ -196,3 +197,83 @@
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)
 	return ..()
+
+/datum/species/zombie/tajara
+	name = "Tajara Zombie"
+	name_plural = "Tajara Zombies"
+	bodytype = "Tajara"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
+	tail = "tajtail"
+	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
+
+	slowdown = -1
+	brute_mod = 1.2
+	fall_mod = 0.5
+
+	name_language = LANGUAGE_SIIK_MAAS
+
+	remains_type = /obj/effect/decal/remains/xeno
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
+
+	default_h_style = "Tajaran Ears"
+
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+
+/datum/species/zombie/unathi
+	name = "Unathi Zombie"
+	name_plural = "Unathi Zombies"
+	bodytype = "Unathi"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
+	tail = "sogtail"
+	tail_animation = 'icons/mob/species/unathi/tail.dmi'
+
+	slowdown = 0.5
+	brute_mod = 0.8
+	grab_mod = 0.75
+	fall_mod = 1.2
+
+	mob_size = 10
+	climb_coeff = 1.35
+
+	name_language = LANGUAGE_UNATHI
+
+	remains_type = /obj/effect/decal/remains/xeno
+
+	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
+
+/datum/species/zombie/skrell
+	name = "Skrell Zombie"
+	name_plural = "Skrell Zombies"
+	bodytype = "Skrell"
+	icobase = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
+	deform = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
+
+	grab_mod = 1.25
+
+	name_language = LANGUAGE_SKRELLIAN
+
+	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
+
+	inherent_verbs = list(
+	/mob/living/carbon/human/proc/commune,
+	/mob/living/carbon/human/proc/sonar_ping,
+	/mob/living/carbon/human/proc/darkness_eyes,
+	/mob/living/proc/devour
+	)
+
+	flesh_color = "#8CD7A3"
+	blood_color = "#1D2CBF"
+
+	remains_type = /obj/effect/decal/remains/xeno
+
+	has_organ = list(
+		"zombie" =    /obj/item/organ/parasite/zombie,
+		/obj/item/organ/brain/skrell
+		)
+
+	default_h_style = "Skrell Short Tentacles"

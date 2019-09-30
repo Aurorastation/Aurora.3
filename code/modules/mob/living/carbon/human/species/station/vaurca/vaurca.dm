@@ -64,7 +64,6 @@
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 
-	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
 	heat_discomfort_strings = list(
@@ -114,6 +113,9 @@
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
+
+	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
+	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

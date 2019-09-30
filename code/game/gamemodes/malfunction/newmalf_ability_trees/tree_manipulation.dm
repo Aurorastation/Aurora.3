@@ -26,9 +26,14 @@
 /datum/malf_research_ability/manipulation/emergency_forcefield
 	ability = new/datum/game_mode/malfunction/verb/emergency_forcefield()
 	price = 1750
-	next = new/datum/malf_research_ability/manipulation/machine_overload()
+	next = new/datum/malf_research_ability/manipulation/gravity_malfunction()
 	name = "Emergency Forcefield"
 
+/datum/malf_research_ability/manipulation/gravity_malfunction
+	ability = new/datum/game_mode/malfunction/verb/gravity_malfunction()
+	price = 2500
+	next = new/datum/malf_research_ability/manipulation/machine_overload()
+	name = "Gravity Malfunction"
 
 /datum/malf_research_ability/manipulation/machine_overload
 	ability = new/datum/game_mode/malfunction/verb/machine_overload()
@@ -211,5 +216,22 @@
 	explosion(get_turf(M), round(explosion_intensity/4),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
 	if(M)
 		qdel(M)
+
+/datum/game_mode/malfunction/verb/gravity_malfunction()
+	set name = "Gravity Malfunction"
+	set desc = "300 CPU - Hacks the gravity generator. Making gravity reverse for short moment and making victims fall down really hard on the floor."
+	set category = "Software"
+	var/price = 300
+	var/mob/living/silicon/ai/user = usr
+	var/area/Area = get_area(user?.eyeobj.loc)
+	if(!Area)
+		return
+	if(!ability_prechecks(user, price) || !ability_pay(user,price))
+		return
+
+	for(var/A in SSmachinery.gravity_generators)
+		var/obj/machinery/gravity_generator/main/B = A
+		B.throw_up_and_down(Area)
+	log_ability_use(user, "gravity malfunction")
 
 // END ABILITY VERBS

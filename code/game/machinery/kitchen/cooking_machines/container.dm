@@ -148,6 +148,7 @@
 	shortname = "shelf"
 	desc = "Put ingredients in this; designed for use with an oven. Warranty void if used."
 	icon_state = "ovendish"
+	center_of_mass = list("x" = 16,"y" = 12)
 	max_space = 30
 	max_reagents = 120
 
