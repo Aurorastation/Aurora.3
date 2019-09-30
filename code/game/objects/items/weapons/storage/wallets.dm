@@ -40,6 +40,7 @@
 	var/obj/item/weapon/card/id/front_id = null
 	var/flipped = null
 	var/flippable = 1
+	var/wear_over_suit = 0
 
 
 /obj/item/weapon/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -67,6 +68,7 @@
 		var/image/tiny_image = new/image(icon, icon_state = tiny_state)
 		tiny_image.appearance_flags = RESET_COLOR
 		overlays += tiny_image
+	mob_icon_update()
 
 /obj/item/weapon/storage/wallet/GetID()
 	return front_id
@@ -141,6 +143,16 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	mob_icon_update()
 
+/obj/item/weapon/storage/wallet/verb/toggle_icon_layer()
+	set name = "Switch Wallet Layer"
+	set category = "Object"
+
+	if(wear_over_suit == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		return
+	wear_over_suit = !wear_over_suit
+	mob_icon_update()
+
 /obj/item/weapon/storage/wallet/colourable
 	icon_state = "wallet-white"
 
@@ -156,6 +168,7 @@
 	icon_state = "lanyard"
 	item_state = "lanyard"
 	overlay_state = "lanyard"
+	attack_verb = list("whipped", "lashed", "lightly garroted")
 	w_class = 1
 	max_w_class = 1
 	can_hold = list(
@@ -184,3 +197,4 @@
 	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
 	film_image.appearance_flags = RESET_COLOR
 	overlays += film_image
+	mob_icon_update()

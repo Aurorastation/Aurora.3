@@ -116,6 +116,7 @@ var/const/NO_EMAG_ACT = -50
 	var/mining_points //miners gotta eat
 
 	var/flipped = 0
+	var/wear_over_suit = 0
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
@@ -305,6 +306,16 @@ var/const/NO_EMAG_ACT = -50
 	else
 		src.overlay_state = initial(overlay_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
+/obj/item/weapon/card/id/verb/toggle_icon_layer()
+	set name = "Switch ID Layer"
+	set category = "Object"
+
+	if(wear_over_suit == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		return
+	wear_over_suit = !wear_over_suit
 	mob_icon_update()
 
 /obj/item/weapon/card/id/silver

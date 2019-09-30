@@ -14,6 +14,7 @@
 
 	var/stored_name
 	var/badge_string = "Corporate Security"
+	var/v_flippable = 1
 
 	drop_sound = 'sound/items/drop/ring.ogg'
 
@@ -81,7 +82,7 @@
 
 	if (usr.stat || usr.restrained())
 		return
-	if (!flippable)
+	if (!v_flippable)
 		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
 		return
 

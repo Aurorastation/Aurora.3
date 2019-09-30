@@ -70,6 +70,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	var/flippable = 1
 	var/flipped = 0
+	var/wear_over_suit = 0
 
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
@@ -1148,6 +1149,16 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else
 		src.overlay_state = initial(overlay_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
+/obj/item/device/pda/verb/toggle_icon_layer()
+	set name = "Switch PDA Layer"
+	set category = "Object"
+
+	if(wear_over_suit == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		return
+	wear_over_suit = !wear_over_suit
 	mob_icon_update()
 
 /obj/item/device/pda/verb/verb_reset_pda()
