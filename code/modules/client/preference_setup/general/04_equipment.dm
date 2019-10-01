@@ -112,10 +112,10 @@
 	dat += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
 	dat += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
 	dat += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdachoicelist[pref.pdachoice]]</b></a><br>"
-	dat += "PDA Ringer: <a href='?src=\ref[src];toggle_pda_mute=1'><b>[(pref.pdaringer) ? "On" : "Off"]</b></a><br>"
+	dat += "PDA Ringer: <a href='?src=\ref[src];toggle_pda_mute=1'><b>[(pref.pdaringer) ? "Off" : "On"]</b></a><br>"
 	dat += "PDA Ringtone: <a href='?src=\ref[src];change_pda_ringtone=1'><b>[pref.pdatone]</b></a><br>"
-	dat += "PDA News Ringer: <a href='?src=\ref[src];toggle_pda_news_mute=1'><b>[(pref.pdanews) ? "On" : "Off"]</b></a><br>"
-	dat += "PDA News Ringtone: <a href='src=\ref[src];change_pda_news_ringtone=1'><b>[pref.pdanewstone]</b></a><br>"
+	dat += "PDA News Ringer: <a href='?src=\ref[src];toggle_pda_news_mute=1'><b>[(pref.pdanews) ? "Off" : "On"]</b></a><br>"
+	dat += "PDA News Ringtone: <a href='?src=\ref[src];change_pda_news_ringtone=1'><b>[pref.pdanewstone]</b></a><br>"
 
 	. = dat.Join()
 
