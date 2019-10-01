@@ -38,6 +38,10 @@
 	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Backpack, Satchel, Satchel Alt, Duffel Bag, or Messenger Bag.
 	var/backbag_style = 1 //Which backpack style the player has chosen. Job-specific or Grey.
 	var/pdachoice = 1 //Which PDA type the player has chosen. Default, Slate, Slim, Old, Rugged, or Smart.
+	var/pdaringer = 1 //Whether they have the PDA ringer on or off.
+	var/pdatone = "beep" //Ringtone for PDA
+	var/pdanews = 0   //Whether they have the PDA news ringer on or off.
+	var/pdanewstone = "beep, beep" //News ringtone for PDA
 
 	var/last_chew = 0 // Used for hand chewing
 

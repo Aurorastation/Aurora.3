@@ -9,6 +9,10 @@
 	S["backbag"]       >> pref.backbag
 	S["backbag_style"] >> pref.backbag_style
 	S["pdachoice"]     >> pref.pdachoice
+	S["pdaringer"]     >> pref.pdaringer
+	S["pdatone"]       >> pref.pdatone
+	S["pdanews"]       >> pref.pdanews
+	S["pdanewstone"]   >> pref.pdanewstone
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
 	S["underwear"]     << pref.underwear
@@ -17,6 +21,10 @@
 	S["backbag"]       << pref.backbag
 	S["backbag_style"] << pref.backbag_style
 	S["pdachoice"]     << pref.pdachoice
+	S["pdaringer"]     << pref.pdaringer
+	S["pdatone"]       << pref.pdatone
+	S["pdanews"]       << pref.pdanews
+	S["pdanewstone"]   << pref.pdanewstone
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
@@ -27,7 +35,11 @@
 				"socks",
 				"backbag",
 				"backbag_style",
-				"pdachoice"
+				"pdachoice",
+				"pdaringer",
+				"pdatone",
+				"pdanews",
+				"pdanewstone"
 			),
 			"args" = list("id")
 		)
@@ -45,6 +57,10 @@
 			"backbag",
 			"backbag_style",
 			"pdachoice",
+			"pdaringer",
+			"pdatone",
+			"pdanews",
+			"pdanewstone",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -58,6 +74,10 @@
 		"backbag" = pref.backbag,
 		"backbag_style" = pref.backbag_style,
 		"pdachoice" = pref.pdachoice,
+		"pdaringer" = pref.pdaringer,
+		"pdatone" = pref.pdatone,
+		"pdanews" = pref.pdanews,
+		"pdanewstone" = pref.pdanewstone,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -69,6 +89,10 @@
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 	pref.pdachoice = sanitize_integer(pref.pdachoice, 1, pdachoicelist.len, initial(pref.pdachoice))
+	pref.pdaringer = sanitize_integer(pref.pdaringer, 0, 1, initial(pref.pdaringer))
+	pref.pdatone = sanitize(pref.pdatone, 20)
+	pref.pdanews = sanitize_integer(pref.pdanews, 0, 1, initial(pref.pdanews))
+	pref.pdanewstone = sanitize(pref.pdanewstone, 20)
 
 	var/undies = get_undies()
 	var/gender_socks = get_gender_socks()
@@ -88,6 +112,10 @@
 	dat += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
 	dat += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
 	dat += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdachoicelist[pref.pdachoice]]</b></a><br>"
+	dat += "PDA Ringer: <a href='?src=\ref[src];toggle_pda_mute=1'><b>[(pref.pdaringer) ? "On" : "Off"]</b></a><br>"
+	dat += "PDA Ringtone: <a href='?src=\ref[src];change_pda_ringtone=1'><b>[pref.pdatone]</b></a><br>"
+	dat += "PDA News Ringer: <a href='?src=\ref[src];toggle_pda_news_mute=1'><b>[(pref.pdanews) ? "On" : "Off"]</b></a><br>"
+	dat += "PDA News Ringtone: <a href='src=\ref[src];change_pda_news_ringtone=1'><b>[pref.pdanewstone]</b></a><br>"
 
 	. = dat.Join()
 
@@ -135,5 +163,37 @@
 		if(!isnull(new_pdachoice) && CanUseTopic(user))
 			pref.pdachoice = pdachoicelist.Find(new_pdachoice)
 			return TOPIC_REFRESH
+
+	else if(href_list["toggle_pda_mute"])
+		if(CanUseTopic(user))
+			pref.pdaringer = !pref.pdaringer
+			return TOPIC_REFRESH
+
+	else if(href_list["change_pda_ringtone"])
+		var/raw_ringtone = input(user, "Please enter new ringtone") as text|null
+		if(!isnull(raw_ringtone) && CanUseTopic(user))
+			var/new_ringtone = sanitize(new_ringtone, 20)
+			if(new_ringtone)
+				pref.pdatone = new_ringtone
+				return TOPIC_REFRESH
+			else
+				to_chat(user, "<span class='warning'>Please make sure your ringtone is no more than 20 characters long.")
+				return TOPIC_NOACTION
+
+	else if(href_list["toggle_pda_news_mute"])
+		if(CanUseTopic(user))
+			pref.pdanews = !pref.pdanews
+			return TOPIC_REFRESH
+
+	else if(href_list["change_pda_news_ringtone"])
+		var/raw_newsringtone = input(user, "Please enter new news ringtone") as text|null
+		if(!isnull(raw_newringtone) && CanUseTopic(user))
+			var/new_newringtone = sanitize(new_newringtone, 20)
+			if(new_newringtone)
+				pref.newstone = new_newringtone
+				return TOPIC_REFRESH
+			else
+				to_chat(user, "<span class='warning'>Please make sure your news tone is no more than 20 characters long.")
+				return TOPIC_NOACTION
 
 	return ..()

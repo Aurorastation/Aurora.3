@@ -44,6 +44,10 @@ datum/preferences
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1				//backpack style and colour
 	var/pdachoice = 1					//PDA type
+	var/pdaringer = 1					//PDA ringer
+	var/pdatone = "beep"				//PDA ringtone
+	var/pdanews = 0						//PDA news ringer
+	var/pdanewstone = "beep, beep"		//PDA newstone
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -386,6 +390,10 @@ datum/preferences
 	if(pref.pdachoice > 6 || pref.pdachoice < 1)
 		pref.pdachoice = 1
 	character.pdachoice = pref.pdachoice
+	character.pdaringer = pdaringer
+	character.pdatone = pdatone
+	character.pdanews = pdanews
+	character.pdanewstone = pdanewstone
 
 	if(icon_updates)
 		character.force_update_limbs()
