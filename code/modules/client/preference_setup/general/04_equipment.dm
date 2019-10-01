@@ -172,7 +172,7 @@
 	else if(href_list["change_pda_ringtone"])
 		var/raw_ringtone = sanitize(input(user, "Please enter new ringtone. 20 characters maximum.", "Ringtone", html_decode(pref.pdatone)) as text|null, 20)
 		if(!isnull(raw_ringtone) && CanUseTopic(user))
-			pref.pdatone = raw_ringtone
+			pref.pdatone = html(_decode(raw_ringtone)
 			return TOPIC_REFRESH
 
 	else if(href_list["toggle_pda_news_mute"])
@@ -183,7 +183,7 @@
 	else if(href_list["change_pda_news_ringtone"])
 		var/raw_newsringtone = sanitize(input(user, "Please enter new news ringtone. 20 characters maximum.", "News Ringtone", html_decode(pref.pdanewstone)) as text|null, 20)
 		if(!isnull(raw_newsringtone) && CanUseTopic(user))
-			pref.pdanewstone = raw_newsringtone
+			pref.pdanewstone = html_decode(raw_newsringtone)
 			return TOPIC_REFRESH
 
 	return ..()
