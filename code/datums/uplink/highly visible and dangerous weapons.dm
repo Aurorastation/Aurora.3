@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/visible_weapons/forcegloves
 	name = "Force Gloves"
-	item_cost = 8
+	item_cost = 5
 	path = /obj/item/clothing/gloves/force/syndicate
 
 /datum/uplink_item/item/visible_weapons/energy_sword
@@ -36,7 +36,7 @@
 
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
-	item_cost = 7
+	item_cost = 5
 	path = /obj/item/weapon/melee/hammer
 
 /datum/uplink_item/item/visible_weapons/revolver
@@ -73,6 +73,11 @@
 	name = "Clawed Gauntlets"
 	item_cost = 5
 	path = /obj/item/clothing/gloves/claws
+
+/datum/uplink_item/item/visible_weapons/ballisticgauntlet
+	name = "Ballistic Gauntlet"
+	item_cost = 12
+	path = /obj/item/clothing/gloves/ballistic
 
 /datum/uplink_item/item/visible_weapons/wrestling
 	name = "Wrestling Manual"

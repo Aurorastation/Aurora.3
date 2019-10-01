@@ -8,34 +8,9 @@ Byond Vue UI framework's management subsystem
 	flags = 0
 	init_order = SS_INIT_MISC_FIRST
 	priority = SS_PRIORITY_NANOUI
-	init_order = SS_INIT_MISC_FIRST
 	stat_tag = "O"
 
 	var/list/open_uis
-
-	var/list/available_html_themes = list(
-		"Nano" = list(
-			"name" = "Nano Dark",
-			"class" = "theme-nano",
-			"type" = THEME_TYPE_DARK
-		),
-		"Nano Light" = list(
-			"name" = "Nano Light",
-			"class" = "theme-nano-light",
-			"type" = THEME_TYPE_LIGHT
-		),
-		"Basic" = list(
-			"name" = "Basic Light",
-			"class" = "theme-basic",
-			"type" = THEME_TYPE_LIGHT
-		),
-		"Basic Dark" = list(
-			"name" = "Basic Dark",
-			"class" = "theme-basic-dark",
-			"type" = THEME_TYPE_DARK
-		)
-	)
-
 	var/list/var_monitor_map
 
 /datum/controller/subsystem/processing/vueui/New()
@@ -47,7 +22,6 @@ Byond Vue UI framework's management subsystem
 	for (var/path in subtypesof(/datum/vueui_var_monitor))
 		var/datum/vueui_var_monitor/VM = new path()
 		var_monitor_map[VM.subject_type] = VM
-
 	..()
 
 /**
@@ -221,26 +195,5 @@ Byond Vue UI framework's management subsystem
 
 	if (!LAZYLEN(open_uis[old_object_key]))
 		open_uis -= old_object_key
-
-/datum/controller/subsystem/processing/vueui/proc/get_html_theme_header()
-	return {"<meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">"}
-
-/datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
-	if(user.client)
-		var/style = user.client.prefs.html_UI_style
-		if(!(style in available_html_themes))
-			style = "Nano"
-		var/list/theme = available_html_themes[style]
-		var/class = ""
-		class += "[theme["class"]]"
-		if(theme["type"] == THEME_TYPE_DARK)
-			class += " dark-theme"
-		return class
-	return ""
-
-/datum/controller/subsystem/processing/vueui/proc/send_theme_resources(var/mob/user)
-	if(user.client)
-		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui_theming)
-		assets.send(user.client)
 
 #undef NULL_OR_EQUAL

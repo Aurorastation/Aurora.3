@@ -299,7 +299,7 @@
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
-			if(do_after(user, 20))
+			if(do_after(user, 20/I.toolspeed))
 				if(prob(70) && !no_salvage)
 					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
 					if(installation)
@@ -334,15 +334,15 @@
 			)
 
 		wrenching = 1
-		if(do_after(user, 50))
+		if(do_after(user, 50/I.toolspeed))
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				anchored = 1
 				update_icon()
 				to_chat(user, "<span class='notice'>You secure the exterior bolts on the turret.</span>")
 			else if(anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				anchored = 0
 				to_chat(user, "<span class='notice'>You unsecure the exterior bolts on the turret.</span>")
 				update_icon()
@@ -768,7 +768,7 @@
 	switch(build_step)
 		if(0)	//first step
 			if(I.iswrench() && !anchored)
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
 				anchored = 1
 				build_step = 1
@@ -794,7 +794,7 @@
 				return
 
 			else if(I.iswrench())
-				playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You unfasten the external bolts.</span>")
 				anchored = 0
 				build_step = 0
@@ -804,7 +804,7 @@
 
 		if(2)
 			if(I.iswrench())
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You bolt the metal armor into place.</span>")
 				build_step = 3
 				icon_state = "turret_frame_3_[case_sprite_set]"
@@ -819,7 +819,7 @@
 					return
 
 				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
-				if(do_after(user, 20))
+				if(do_after(user, 20/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user)) return
 					build_step = 1
 					to_chat(user, "You remove the turret's interior metal armor.")
@@ -847,7 +847,7 @@
 					return
 
 			else if(I.iswrench())
-				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You remove the turret's metal armor bolts.</span>")
 				build_step = 2
 				icon_state = "turret_frame_2_[case_sprite_set]"
@@ -867,7 +867,7 @@
 
 		if(5)
 			if(I.isscrewdriver())
-				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				build_step = 6
 				to_chat(user, "<span class='notice'>You close the access hatch.</span>")
 				icon_state = "turret_frame_5a_[case_sprite_set]"
@@ -892,7 +892,7 @@
 				return
 
 			else if(I.isscrewdriver())
-				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				playsound(loc, I.usesound, 100, 1)
 				build_step = 5
 				to_chat(user, "<span class='notice'>You open the access hatch.</span>")
 				cut_overlays()
@@ -908,7 +908,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
 				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
-				if(do_after(user, 30))
+				if(do_after(user, 30/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user))
 						return
 					build_step = 8

@@ -337,7 +337,7 @@
 	for(var/areatype in areas_without_air_alarm)
 		to_world("* [areatype]")
 
-	to_world("<b>AREAS WITHOUT A REQUEST CONSOLE:</b>")
+	to_world("<b>AREAS WITHOUT A REQUESTS CONSOLE:</b>")
 	for(var/areatype in areas_without_RC)
 		to_world("* [areatype]")
 

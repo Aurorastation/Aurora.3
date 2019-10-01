@@ -20,7 +20,10 @@
 
 	gibbed_anim = "gibbed-m"
 	dusted_anim = "dust-m"
+
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
+	death_message_range = 7
+
 	tail = "chimptail"
 
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
@@ -139,9 +142,6 @@
 	blood_color = "#E6E600"
 	flesh_color = "#E6E600"
 	//base_color = "#E6E600"
-	breath_type = "oxygen"
-	poison_type = ""
-	exhale_type = "phoron"
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	siemens_coefficient = 0.2

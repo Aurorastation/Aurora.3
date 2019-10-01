@@ -3,6 +3,7 @@
 	desc = "A desk lamp with an adjustable mount."
 	icon_state = "lamp"
 	item_state = "lamp"
+	center_of_mass = list("x" = 13,"y" = 11)
 	brightness_on = 5
 	w_class = 5
 	flags = CONDUCT
@@ -17,6 +18,7 @@
 	desc = "A classic green-shaded desk lamp."
 	icon_state = "lampgreen"
 	item_state = "lampgreen"
+	center_of_mass = list("x" = 15,"y" = 11)
 	brightness_on = 5
 	light_color = "#FFC58F"
 

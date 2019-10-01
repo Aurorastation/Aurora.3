@@ -371,6 +371,8 @@
 	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
+	if(SStheming)
+		SStheming.apply_theme_from_perfs(src)
 
 /client/proc/InitClient()
 	if(initialized)

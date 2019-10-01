@@ -276,7 +276,7 @@
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")

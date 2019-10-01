@@ -60,7 +60,7 @@
 	*/
 
 	//Movement parameters
-	var/speed = 0.8			//Amount of deciseconds it takes for projectile to travel
+	var/speed = 0.4			//Amount of deciseconds it takes for projectile to travel
 	var/pixel_speed = 33	//pixels per move - DO NOT FUCK WITH THIS UNLESS YOU ABSOLUTELY KNOW WHAT YOU ARE DOING OR UNEXPECTED THINGS /WILL/ HAPPEN!
 	var/Angle = 0
 	var/original_angle = 0		//Angle at firing
@@ -184,7 +184,7 @@
 	if(silenced)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \the [src]!</span>")
 	else
-		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>", "<span class='danger'><font size='2'>You're hit by \the [src] in the [parse_zone(def_zone)]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
 	if(!no_attack_log)

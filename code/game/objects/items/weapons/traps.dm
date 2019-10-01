@@ -6,6 +6,8 @@
 	icon = 'icons/obj/items.dmi'
 	var/icon_base = "beartrap"
 	icon_state = "beartrap0"
+	randpixel = 0
+	center_of_mass = null
 	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
 	throwforce = 0
 	w_class = 3
@@ -267,7 +269,7 @@
 	if(!ishuman(usr))
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 		return
-	
+
 	var/datum/M = captured ? captured.resolve() : null
 
 	if(deployed)
@@ -349,7 +351,7 @@
 	else if (istype(L, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = L
 		msg = "<span class='warning'>[S] jumps out of \the [src].</span>"
-	
+
 	unbuckle_mob()
 	captured = null
 	visible_message(msg)
@@ -572,6 +574,7 @@
 	spider = FALSE
 
 /obj/item/weapon/trap/animal/medium/Initialize()
+	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/cat, /mob/living/simple_animal/corgi, /mob/living/simple_animal/hostile/diyaab, /mob/living/carbon/human/monkey, /mob/living/simple_animal/penguin, /mob/living/simple_animal/crab,
 						/mob/living/simple_animal/chicken, /mob/living/simple_animal/yithian, /mob/living/carbon/alien/diona, /mob/living/silicon/robot/drone, /mob/living/silicon/pai,
@@ -593,6 +596,7 @@
 	spider = FALSE
 
 /obj/item/weapon/trap/animal/large/Initialize()
+	. = ..()
 	allowed_mobs = list(
 						/mob/living/simple_animal/hostile/retaliate/goat, /mob/living/simple_animal/cow, /mob/living/simple_animal/corgi/fox,
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
@@ -610,7 +614,7 @@
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
 							  "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 
 		if (!do_after(user, 3 SECONDS, act_target = src))
 			return

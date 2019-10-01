@@ -24,7 +24,7 @@
 
 
 
-/obj/item/weapon/bee_net/resolve_attackby(atom/A, mob/user)
+/obj/item/weapon/bee_net/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if (istype(A, /turf))
 		var/turf/T = A
 		for(var/mob/living/simple_animal/bee/B in T)
@@ -36,7 +36,7 @@
 	else if (istype(A, /obj/machinery/beehive) && caught_bees)
 		deposit_bees(A, user)
 		return 1
-	..()
+	..(A, user, click_parameters)
 
 
 /obj/item/weapon/bee_net/proc/capture_bees(var/mob/living/simple_animal/bee/target, var/mob/living/user)

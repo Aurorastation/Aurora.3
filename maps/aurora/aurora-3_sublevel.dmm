@@ -4867,7 +4867,10 @@
 /area/maintenance/engsublevel)
 "akz" = (
 /obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/ramp/bottom{
+	icon_state = "rampbot";
+	dir = 4
+	},
 /area/engineering/atmos)
 "akB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12640,16 +12643,6 @@
 	temperature = 278
 	},
 /area/medical/quarantineautopsy)
-"ayD" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Disposals, Lower";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/disposal)
 "ayE" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -12760,7 +12753,7 @@
 /obj/machinery/requests_console{
 	department = "Xenoarcheology";
 	departmentType = 2;
-	name = "Xenoarcheology Request Console";
+	name = "Xenoarcheology Requests Console";
 	pixel_x = -32;
 	pixel_y = 0
 	},
@@ -17053,7 +17046,7 @@
 /obj/machinery/requests_console{
 	department = "Test Range";
 	departmentType = 2;
-	name = "Test Range Request Console";
+	name = "Test Range Requests Console";
 	pixel_x = 0;
 	pixel_y = 32
 	},
@@ -17603,6 +17596,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aIA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aIB" = (
@@ -18080,13 +18076,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
@@ -18822,6 +18818,9 @@
 "aKD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aKE" = (
@@ -19253,7 +19252,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
 "aLz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "aLC" = (
@@ -20437,7 +20439,7 @@
 "aOc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/requests_console{
-	department = "Medical Bay";
+	department = "Autopsy Laboratory";
 	departmentType = 1;
 	pixel_x = 0;
 	pixel_y = -30
@@ -21143,7 +21145,8 @@
 /area/crew_quarters/sleep/medical)
 "aPE" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cane,
+/obj/item/weapon/cane/crutch,
+/obj/item/weapon/cane/crutch,
 /obj/item/weapon/storage/box/rxglasses,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
@@ -24275,14 +24278,6 @@
 /obj/structure/sign/securearea,
 /turf/simulated/wall/r_wall,
 /area/rnd/test_area)
-"bap" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "bar" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	tag = "icon-warning_dust (SOUTHWEST)";
@@ -24912,6 +24907,10 @@
 "bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
 	pixel_x = -32
+	},
+/obj/machinery/camera/network/supply{
+	c_tag = "Cargo - Disposals, Lower";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
@@ -26073,10 +26072,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"bhZ" = (
-/mob/living/simple_animal/hostile/bear,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "bic" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -27436,6 +27431,16 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
+"bvn" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "bvB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/lime{
@@ -28181,6 +28186,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"dLr" = (
+/obj/structure/sign/securearea{
+	pixel_x = 32;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "dMi" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -28370,6 +28382,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"dXc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "dYP" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -28627,6 +28645,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/isolation_a)
+"eHN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/test_range)
 "eIl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -29722,6 +29746,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/virologytesting)
+"iec" = (
+/obj/machinery/button/crematorium{
+	_wifi_id = "sci_crema1";
+	pixel_x = 28;
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "ieK" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -29822,6 +29860,14 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"iKh" = (
+/obj/structure/crematorium{
+	_wifi_id = "sci_crema1";
+	dir = 2;
+	icon_state = "crema1"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "iOl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -29955,6 +30001,10 @@
 	icon_state = "body_scannerconsole"
 	},
 /obj/machinery/firealarm/south,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "jew" = (
@@ -30005,6 +30055,20 @@
 	},
 /turf/simulated/floor/greengrid,
 /area/rnd/xenoarch_atrium)
+"jfT" = (
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_x = 14;
+	status = 0
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "jhg" = (
 /obj/effect/floor_decal/corner/red/full{
 	icon_state = "corner_white_full";
@@ -30201,6 +30265,13 @@
 "jDy" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/isolation_a)
+"jED" = (
+/obj/structure/table/standard,
+/obj/item/weapon/hemostat,
+/obj/item/weapon/retractor,
+/obj/item/weapon/circular_saw,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "jHy" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -30212,6 +30283,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"jHU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "jIZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -30793,6 +30874,12 @@
 "lLx" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
+"lLO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "lMm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -31203,7 +31290,7 @@
 /obj/machinery/requests_console{
 	department = "Xenobotany";
 	departmentType = 2;
-	name = "Xenobotany Request Console";
+	name = "Xenobotany Requests Console";
 	pixel_x = 0;
 	pixel_y = 30
 	},
@@ -31712,10 +31799,6 @@
 /area/outpost/research/anomaly_harvest)
 "nTr" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/light_switch{
-	pixel_x = 0;
-	pixel_y = -26
-	},
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "nTE" = (
@@ -32063,10 +32146,8 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "pjJ" = (
@@ -32539,6 +32620,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"qHz" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "qId" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -32835,6 +32928,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
+"ryu" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/research{
+	name = "Autopsy and Incineration"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "rze" = (
 /obj/machinery/door/window/southleft{
 	name = "Section B";
@@ -33277,6 +33381,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
+"sLJ" = (
+/obj/machinery/optable{
+	name = "Autopsy Table"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "sOK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -33520,6 +33630,13 @@
 /obj/item/target,
 /obj/item/target,
 /obj/item/target,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
+"trB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "tsX" = (
@@ -33781,9 +33898,6 @@
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"tYu" = (
-/turf/unsimulated/chasm_mask,
-/area/space)
 "udb" = (
 /obj/structure/table/steel,
 /obj/machinery/alarm{
@@ -33975,6 +34089,7 @@
 "uui" = (
 /obj/structure/table/reinforced,
 /obj/machinery/requests_console{
+	department = "Quarantine Ward";
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
@@ -34371,10 +34486,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/machinery/light_switch{
-	pixel_x = 0;
-	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -35478,6 +35589,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/quarantine)
+"xSj" = (
+/obj/structure/table/standard,
+/obj/item/weapon/autopsy_scanner,
+/obj/item/weapon/scalpel{
+	desc = "Cut, cut, and once more cut. This one is extra shiny!";
+	name = "shiny scalpel"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/test_range)
 "xSP" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -42534,7 +42654,7 @@ bal
 bal
 ale
 aba
-bhZ
+aba
 aba
 aba
 aba
@@ -48607,7 +48727,7 @@ aaa
 aaa
 aaa
 aaa
-tYu
+aaa
 aaa
 aaa
 acn
@@ -52545,7 +52665,7 @@ aGy
 ale
 aba
 bgG
-aba
+dLr
 aba
 aba
 beI
@@ -52799,9 +52919,9 @@ dcf
 dcf
 eSg
 aGy
-ale
-ale
-bam
+aGy
+aGy
+bal
 bgf
 bde
 bdD
@@ -53055,10 +53175,10 @@ aJD
 aKD
 aLz
 piW
+ryu
+trB
+bvn
 aGy
-ale
-ale
-aQr
 aQr
 bdf
 bfI
@@ -53310,12 +53430,12 @@ aHv
 dsZ
 aJE
 aIA
-aIA
+eHN
 jcB
 aGy
-ale
-ale
-ale
+dXc
+aMB
+xSj
 aQr
 bdg
 bfJ
@@ -53570,9 +53690,9 @@ aKE
 usm
 aMC
 aGy
-ale
-ale
-ale
+iec
+lLO
+sLJ
 aQr
 bdh
 bdG
@@ -53827,9 +53947,9 @@ aKF
 aLC
 gHy
 aGy
-ale
-ale
-ale
+iKh
+jHU
+jED
 aQr
 bdi
 bdJ
@@ -57988,11 +58108,11 @@ aba
 aba
 aba
 aba
-aaa
-aba
-aba
 aba
 aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -58250,7 +58370,7 @@ aba
 aba
 aba
 aba
-aaa
+aba
 aaa
 aaa
 aaa
@@ -58410,7 +58530,7 @@ aaa
 aaa
 aaa
 aaa
-aqy
+qHz
 ard
 arG
 aba
@@ -58503,12 +58623,12 @@ aba
 aba
 aba
 aba
+aba
 aqy
 auJ
 bar
 aba
 aba
-aaa
 aaa
 aaa
 aaa
@@ -58760,12 +58880,12 @@ aba
 aba
 aba
 aba
+aba
 akG
-bap
+jfT
 ayi
 aba
 aba
-aaa
 aaa
 aaa
 aaa
@@ -59015,6 +59135,7 @@ aaa
 aaa
 aaa
 aaa
+aaa
 aba
 aba
 aqz
@@ -59022,7 +59143,6 @@ arh
 arH
 aba
 aba
-aaa
 aaa
 aaa
 aaa
@@ -59273,12 +59393,12 @@ aaa
 aaa
 aaa
 aaa
-aba
-aba
-aba
-aba
-aba
 aaa
+aba
+aba
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -59531,10 +59651,10 @@ aaa
 aaa
 aaa
 aaa
-aba
-aba
-aba
 aaa
+aba
+aba
+aba
 aaa
 aaa
 aaa
@@ -64915,7 +65035,7 @@ aZW
 bca
 aZW
 bcb
-ayD
+bca
 bcd
 aZV
 aaa
@@ -74852,7 +74972,7 @@ aba
 aba
 aba
 aba
-aba
+aaa
 aaa
 aaa
 ale
@@ -75610,12 +75730,12 @@ aba
 aba
 aba
 akG
+aba
+aba
+aba
+aba
 akG
 aba
-aaa
-aba
-akG
-akG
 aba
 akG
 akG
@@ -75865,19 +75985,19 @@ aaa
 aaa
 aba
 aba
-aba
+akG
 akG
 aba
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 akG
 aba
 aba
-aaa
+aba
 aba
 aba
 akG
@@ -76133,8 +76253,8 @@ aba
 aba
 aba
 aba
-aaa
-aaa
+aba
+akG
 aba
 aba
 aba
@@ -76382,7 +76502,7 @@ aaa
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 aba
@@ -76390,9 +76510,9 @@ aba
 aba
 aba
 aba
-aaa
 akG
-aba
+akG
+akG
 aba
 aba
 aba
@@ -76648,7 +76768,7 @@ aba
 aba
 aba
 aba
-aba
+akG
 aba
 aba
 aba
@@ -76893,13 +77013,13 @@ aba
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 aba
 aba
 aba
-aba
+akG
 akG
 aba
 akG
@@ -77152,12 +77272,12 @@ aba
 aba
 aba
 akG
-akG
 aba
 aba
 aba
+aba
 akG
-akG
+aba
 aba
 akG
 akG

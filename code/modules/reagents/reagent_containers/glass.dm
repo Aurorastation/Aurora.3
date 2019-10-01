@@ -75,6 +75,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
+	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list("glass" = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
 
@@ -126,6 +127,7 @@
 	name = "large beaker"
 	desc = "A large beaker."
 	icon_state = "beakerlarge"
+	center_of_mass = list("x" = 16,"y" = 11)
 	matter = list("glass" = 5000)
 	volume = 120
 	amount_per_transfer_from_this = 10
@@ -137,6 +139,7 @@
 	desc = "A large mixing bowl."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
+	center_of_mass = list("x" = 17,"y" = 7)
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10
@@ -148,6 +151,7 @@
 	name = "cryostasis beaker"
 	desc = "A cryostasis beaker that allows for chemical storage without reactions."
 	icon_state = "beakernoreact"
+	center_of_mass = list("x" = 16,"y" = 13)
 	matter = list("glass" = 500)
 	volume = 60
 	amount_per_transfer_from_this = 10
@@ -157,6 +161,7 @@
 	name = "bluespace beaker"
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
+	center_of_mass = list("x" = 16,"y" = 11)
 	matter = list("glass" = 5000)
 	volume = 300
 	amount_per_transfer_from_this = 10
@@ -167,6 +172,7 @@
 	name = "vial"
 	desc = "A small glass vial."
 	icon_state = "vial"
+	center_of_mass = list("x" = 15,"y" = 9)
 	matter = list("glass" = 250)
 	volume = 30
 	amount_per_transfer_from_this = 10
@@ -191,6 +197,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
+	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	w_class = 3.0
@@ -246,6 +253,7 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
+	center_of_mass = list("x" = 16,"y" = 8)
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	carving_weapon = /obj/item/weapon/material/hatchet

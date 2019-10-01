@@ -111,10 +111,10 @@
 
 /obj/item/integrated_circuit/manipulation/grenade
 	name = "grenade primer"
-	desc = "This circuit comes with the ability to attach most types of grenades at prime them at will."
+	desc = "This circuit comes with the ability to attach most types of grenades and prime them at will."
 	extended_desc = "Time between priming and detonation is limited to between 1 to 12 seconds but is optional. \
 					If unset, not a number, or a number less than 1 then the grenade's built-in timing will be used. \
-					Beware: Once primed there is no aborting the process!"
+					Beware: Once primed, there is no aborting the process!"
 	icon_state = "grenade"
 	complexity = 30
 	size = 2
@@ -185,3 +185,124 @@
 	pre_attached_grenade_type = /obj/item/weapon/grenade/frag
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 10)
 	spawn_flags = null			// Used for world initializing, see the #defines above.
+
+/obj/item/integrated_circuit/manipulation/grabber
+	name = "grabber"
+	desc = "A circuit with its own inventory for small/medium items, used to grab and store things."
+	icon_state = "grabber"
+	extended_desc = "The circuit accepts a reference to thing to be grabbed. It can store up to 10 things. Modes: 1 for grab. 0 for eject the first thing. -1 for eject all."
+	w_class = ITEMSIZE_TINY
+	size = 3
+
+	complexity = 10
+	inputs = list("target" = IC_PINTYPE_REF,"mode" = IC_PINTYPE_NUMBER)
+	outputs = list("first" = IC_PINTYPE_REF, "last" = IC_PINTYPE_REF, "amount" = IC_PINTYPE_NUMBER)
+	activators = list("pulse in" = IC_PINTYPE_PULSE_IN,"pulse out" = IC_PINTYPE_PULSE_OUT)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 50
+
+/obj/item/integrated_circuit/manipulation/grabber/do_work()
+	var/turf/T = get_turf(src)
+	var/atom/movable/AM = get_pin_data_as_type(IC_INPUT, 1, /obj/item)
+	var/mode = get_pin_data(IC_INPUT, 2)
+	if(mode == 1)
+		if(AM.Adjacent(T))
+			if(contents.len < 10)
+				if(istype(AM,/obj/item))
+					var/obj/item/A = AM
+					if(A.w_class < ITEMSIZE_NORMAL)
+						AM.forceMove(src)
+	if(mode == 0)
+		if(contents.len)
+			var/obj/item/U = contents[1]
+			U.forceMove(T)
+	if(mode == -1)
+		if(contents.len)
+			var/obj/item/U
+			for(U in contents)
+				U.forceMove(T)
+	set_pin_data(IC_OUTPUT, 1, contents[1])
+	set_pin_data(IC_OUTPUT, 2, contents[contents.len])
+	set_pin_data(IC_OUTPUT, 3, src.contents.len)
+	push_data()
+	activate_pin(2)
+
+
+
+/obj/item/integrated_circuit/manipulation/thrower
+	name = "thrower"
+	desc = "A compact launcher to throw things from inside or nearby tiles"
+	extended_desc = "The first and second inputs need to be numbers.  They are coordinates to throw thing at, relative to the machine itself.  \
+	The 'fire' activator will cause the mechanism to attempt to throw thing at the coordinates, if possible.  Note that the \
+	projectile need to be inside the machine, or to be on an adjacent tile, and to be up to medium size."
+	complexity = 15
+	w_class = ITEMSIZE_TINY
+	size = 2
+	inputs = list(
+		"target X rel" = IC_PINTYPE_NUMBER,
+		"target Y rel" = IC_PINTYPE_NUMBER,
+		"projectile" = IC_PINTYPE_REF
+		)
+	outputs = list()
+	activators = list(
+		"fire" = IC_PINTYPE_PULSE_IN
+	)
+	spawn_flags = IC_SPAWN_RESEARCH
+	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
+	power_draw_per_use = 50
+
+/obj/item/integrated_circuit/manipulation/thrower/do_work()
+
+	var/datum/integrated_io/target_x = inputs[1]
+	var/datum/integrated_io/target_y = inputs[2]
+	var/datum/integrated_io/projectile = inputs[3]
+	if(!isweakref(projectile.data))
+		return
+	var/obj/item/A = projectile.data.resolve()
+	if(A.anchored)
+		return
+	if(A.w_class>ITEMSIZE_NORMAL)
+		return
+	var/turf/T = get_turf(src.assembly)
+	var/turf/TP = get_turf(A)
+	if(!(TP.Adjacent(T)))
+		return
+	if(src.assembly)
+		if(isnum(target_x.data))
+			target_x.data = round(target_x.data)
+		if(isnum(target_y.data))
+			target_y.data = round(target_y.data)
+
+		if(target_x.data == 0 && target_y.data == 0)
+			return
+
+		// We need to do this in order to enable relative coordinates, as locate() only works for absolute coordinates.
+		var/i
+		if(target_x.data > 0)
+			i = abs(target_x.data)
+			while(i > 0)
+				T = get_step(T, EAST)
+				i--
+		else
+			i = abs(target_x.data)
+			while(i > 0)
+				T = get_step(T, WEST)
+				i--
+
+		i = 0
+		if(target_y.data > 0)
+			i = abs(target_y.data)
+			while(i > 0)
+				T = get_step(T, NORTH)
+				i--
+		else if(target_y.data < 0)
+			i = abs(target_y.data)
+			while(i > 0)
+				T = get_step(T, SOUTH)
+				i--
+
+		if(!T)
+			return
+
+		A.forceMove(get_turf(src))
+		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
