@@ -61,7 +61,7 @@
 	item_state = "kneehammer"
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
-	force = 20
+	force = 25
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 7
