@@ -107,7 +107,7 @@
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
 	icon_state = "helmet_bulletproof"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
