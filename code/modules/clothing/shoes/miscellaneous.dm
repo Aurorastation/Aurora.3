@@ -35,7 +35,7 @@
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 	can_hold_knife = 1
 
 	cold_protection = FEET
@@ -87,7 +87,7 @@
 	item_state = "cult"
 	force = 5
 	silent = 1
-	siemens_coefficient = 0.25 //antags don't get exceptions, it's just heavy armor by magical standards
+	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
 	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
 
 	cold_protection = FEET
