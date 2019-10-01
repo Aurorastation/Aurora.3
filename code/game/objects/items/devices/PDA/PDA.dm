@@ -741,7 +741,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				pdafilter = sanitize_integer(text2num(href_list["option"]), 0, 8, pdafilter)
 
 		if("Ringtone")
-			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
+			var/t = input(U, "Please enter new ringtone", name, html_decode(ttone)) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
 					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(lock_code)))
@@ -754,7 +754,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				ui.close()
 				return 0
 		if("Newstone")
-			var/t = input(U, "Please enter new news tone", name, newstone) as text|null
+			var/t = input(U, "Please enter new news tone", name, html_decode(newstone)) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
 					t = sanitize(t, 20)
