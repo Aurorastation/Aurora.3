@@ -41,4 +41,3 @@ changes:
   - rscadd: "Ported over PDA sprites from Polaris, BS12, and Eris."
   - rscadd: "Added the ability to change your PDA sprite type on the character setup."
   - rscadd: "Added the ability to customise your PDA ringer and news settings from the character setup."
-  - tweak: "Made Set Pose display the previously inputted message, and turns it into a message box instead of a text box (like writing on paper)."
