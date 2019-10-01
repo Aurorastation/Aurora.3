@@ -1529,7 +1529,8 @@
 	set desc = "Shows/hides selected parts of your underwear."
 	set category = "Object"
 
-	if(stat) return
+	if(stat)
+		return
 	var/datum/category_group/underwear/UWC = input(usr, "Choose underwear:", "Show/hide underwear") as null|anything in global_underwear.categories
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
 	if(!UWI || UWI.name == "None")
