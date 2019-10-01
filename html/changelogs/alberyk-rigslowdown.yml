@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Rig slowdown is now tied to the module, instead of the chest piece."
