@@ -416,7 +416,7 @@
 	item_state = "webvest"
 	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
 	slowdown = 1
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/suit/storage/vest/heavy/officer
 	name = "officer heavy armor vest"
