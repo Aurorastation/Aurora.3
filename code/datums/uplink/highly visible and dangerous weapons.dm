@@ -36,7 +36,7 @@
 
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
-	item_cost = 7
+	item_cost = 5
 	path = /obj/item/weapon/melee/hammer
 
 /datum/uplink_item/item/visible_weapons/revolver
