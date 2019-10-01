@@ -73,7 +73,7 @@
 	icon_state = "legion_rig"
 	suit_type = "retrofitted military hardsuit"
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 30)
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 	slowdown = 2
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
