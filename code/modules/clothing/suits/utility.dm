@@ -36,7 +36,7 @@
 	name = "firesuit"
 	desc = "A suit that protects against extreme fire and heat."
 	//icon_state = "thermal"
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 	item_state = "ro_suit"
 	w_class = 4//bulky item
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 25000
@@ -45,7 +45,7 @@
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"
 	desc = "A suit that protects against fire and heat, this one is designed for atmospheric technicians."
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
 	icon_state = "atmos_firesuit"
 	item_state = "atmos_firesuit"
@@ -178,7 +178,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 
 
 /obj/item/clothing/suit/radiation
@@ -193,7 +193,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
 	slowdown = 1.5
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
-	siemens_coefficient = 0.25
+	siemens_coefficient = 0.35
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 
 
