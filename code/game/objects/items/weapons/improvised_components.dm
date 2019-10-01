@@ -157,31 +157,21 @@
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/woodcirclet/attackby(obj/item/W as obj, mob/user as mob)
-	var/obj/item/complete
-	if(istype(W,/obj/item/seeds/poppyseed))
-		to_chat(user, "<span class='notice'>You attach the poppy to the circlet and create a beautiful flower crown.</span>")
-		complete = new /obj/item/clothing/head/poppy_crown(get_turf(user))
-		user.drop_from_inventory(W)
-		user.drop_from_inventory(src)
-		qdel(W)
-		qdel(src)
-		user.put_in_hands(complete)
-		return
-	else if(istype(W,/obj/item/seeds/sunflowerseed))
-		to_chat(user, "<span class='notice'>You attach the sunflower to the circlet and create a beautiful flower crown.</span>")
-		complete = new /obj/item/clothing/head/sunflower_crown(get_turf(user))
-		user.drop_from_inventory(W)
-		user.drop_from_inventory(src)
-		qdel(W)
-		qdel(src)
-		user.put_in_hands(complete)
-		return
-	else if(istype(W,/obj/item/seeds/harebell))
-		to_chat(user, "<span class='notice'>You attach the harebell to the circlet and create a beautiful flower crown.</span>")
-		complete = new /obj/item/clothing/head/lavender_crown(get_turf(user))
-		user.drop_from_inventory(W)
-		user.drop_from_inventory(src)
-		qdel(W)
-		qdel(src)
-		user.put_in_hands(complete)
-		return
+	var/obj/item/complete = null
+	if(istype(W, /obj/item/seeds))	// Only allow seeds, since we rely on their structure
+		var/obj/item/seeds/S = W
+		if(istype(S.seed, /datum/seed/flower/poppy))
+			complete = new /obj/item/clothing/head/poppy_crown(get_turf(user))
+		else if(istype(S.seed, /datum/seed/flower/sunflower))
+			complete = new /obj/item/clothing/head/sunflower_crown(get_turf(user))
+		else if(istype(S.seed, /datum/seed/flower))  // Note: might be a problem if more flowers are added
+			complete = new /obj/item/clothing/head/lavender_crown(get_turf(user))
+
+		if(complete != null)
+			to_chat(user, "<span class='notice'>You attach the " + S.seed.seed_name + " to the circlet and create a beautiful flower crown.</span>")
+			user.drop_from_inventory(W)
+			user.drop_from_inventory(src)
+			qdel(W)
+			qdel(src)
+			user.put_in_hands(complete)
+			return
