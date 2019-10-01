@@ -8,6 +8,7 @@
 	S["socks"]         >> pref.socks
 	S["backbag"]       >> pref.backbag
 	S["backbag_style"] >> pref.backbag_style
+	S["pdachoice"]     >> pref.pdachoice
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
 	S["underwear"]     << pref.underwear
@@ -15,6 +16,7 @@
 	S["socks"]         << pref.socks
 	S["backbag"]       << pref.backbag
 	S["backbag_style"] << pref.backbag_style
+	S["pdachoice"]     << pref.pdachoice
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
@@ -24,7 +26,8 @@
 				"undershirt",
 				"socks",
 				"backbag",
-				"backbag_style"
+				"backbag_style",
+				"pdachoice"
 			),
 			"args" = list("id")
 		)
@@ -41,6 +44,7 @@
 			"socks",
 			"backbag",
 			"backbag_style",
+			"pdachoice",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -53,6 +57,7 @@
 		"socks" = pref.socks,
 		"backbag" = pref.backbag,
 		"backbag_style" = pref.backbag_style,
+		"pdachoice" = pref.pdachoice,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -63,6 +68,7 @@
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
+	pref.pdachoice = sanitize_integer(pref.pdachoice, 1, pdachoicelist.len, initial(pref.pdachoice))
 
 	var/undies = get_undies()
 	var/gender_socks = get_gender_socks()
@@ -81,6 +87,7 @@
 	dat += "Socks: <a href='?src=\ref[src];change_socks=1'><b>[get_key_by_value(get_gender_socks(),pref.socks)]</b></a><br>"
 	dat += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
 	dat += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
+	dat += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdachoicelist[pref.pdachoice]]</b></a><br>"
 
 	. = dat.Join()
 
@@ -121,6 +128,12 @@
 		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbagstyles[pref.backbag_style]) as null|anything in backbagstyles
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag_style = backbagstyles.Find(new_backbag)
+			return TOPIC_REFRESH
+
+	else if(href_list["change_pda"])
+		var/new_pdachoice = input(user, "Choose your character's style of PDA:", "Character Preference", pdachoicelist[pref.pdachoice]) as null|anything in pdachoicelist
+		if(!isnull(new_pdachoice) && CanUseTopic(user))
+			pref.pdachoice = pdachoicelist.Find(new_pdachoice)
 			return TOPIC_REFRESH
 
 	return ..()

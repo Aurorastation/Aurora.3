@@ -35,8 +35,9 @@
 	var/underwear = 1	//Which underwear the player wants
 	var/undershirt = 0	//Which undershirt the player wants.
 	var/socks = 0		//Which socks the player wants.
-	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
-	var/backbag_style = 1
+	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Backpack, Satchel, Satchel Alt, Duffel Bag, or Messenger Bag.
+	var/backbag_style = 1 //Which backpack style the player has chosen. Job-specific or Grey.
+	var/pdachoice = 1 //Which PDA type the player has chosen. Default, Slate, Slim, Old, or Rugged.
 
 	var/last_chew = 0 // Used for hand chewing
 

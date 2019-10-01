@@ -32,6 +32,7 @@ datum/preferences
 		randomize_hair_color("facial")
 
 		backbag = 2
+		pdachoice = rand(1,5)
 		age = rand(getMinAge(),getMaxAge())
 		if(H)
 			copy_to(H,1)

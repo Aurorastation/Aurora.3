@@ -14,6 +14,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	uv_intensity = 15
 
 	//Main variables
+	var/pdachoice = 1
 	var/owner = null
 	var/default_cartridge = 0 // Access level defined by cartridge
 	var/obj/item/weapon/cartridge/cartridge = null //current cartridge
@@ -73,6 +74,16 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
 		if (pen)
 			to_chat(user, "There is \a [pen] in the pen slot.")
+
+/obj/item/device/pda/New(var/mob/living/carbon/human/H)
+	..()
+	pdachoice = isnull(H) ? 1 : (ishuman(H) ? H.pdachoice : 1)
+	switch(pdachoice)
+		if(2) icon = 'icons/obj/pda_slate.dmi'
+		if(3) icon = 'icons/obj/pda_slim.dmi'
+		if(4) icon = 'icons/obj/pda_old.dmi'
+		if(5) icon = 'icons/obj/pda_rugged.dmi'
+		else icon = 'icons/obj/pda.dmi'
 
 /obj/item/device/pda/medical
 	default_cartridge = /obj/item/weapon/cartridge/medical
@@ -1259,7 +1270,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(user)
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
-		
+
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
 		switch(scanmode)

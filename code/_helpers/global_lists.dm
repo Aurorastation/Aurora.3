@@ -88,6 +88,9 @@ var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Al
 var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
 
+	//PDAs
+var/global/list/pdachoicelist = list("Default", "Slate", "Slim", "Old", "Rugged")
+
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
