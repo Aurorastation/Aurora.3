@@ -170,15 +170,10 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["change_pda_ringtone"])
-		var/raw_ringtone = input(user, "Please enter new ringtone") as text|null
+		var/raw_ringtone = sanitize(input(user, "Please enter new ringtone. 20 characters maximum.", "Ringtone", pref.pdatone) as text|null, 20)
 		if(!isnull(raw_ringtone) && CanUseTopic(user))
-			var/new_ringtone = sanitize(new_ringtone, 20)
-			if(new_ringtone)
-				pref.pdatone = new_ringtone
-				return TOPIC_REFRESH
-			else
-				to_chat(user, "<span class='warning'>Please make sure your ringtone is no more than 20 characters long.")
-				return TOPIC_NOACTION
+			pref.pdatone = raw_ringtone
+			return TOPIC_REFRESH
 
 	else if(href_list["toggle_pda_news_mute"])
 		if(CanUseTopic(user))
@@ -186,14 +181,9 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["change_pda_news_ringtone"])
-		var/raw_newsringtone = input(user, "Please enter new news ringtone") as text|null
-		if(!isnull(raw_newringtone) && CanUseTopic(user))
-			var/new_newringtone = sanitize(new_newringtone, 20)
-			if(new_newringtone)
-				pref.newstone = new_newringtone
-				return TOPIC_REFRESH
-			else
-				to_chat(user, "<span class='warning'>Please make sure your news tone is no more than 20 characters long.")
-				return TOPIC_NOACTION
+		var/raw_newsringtone = sanitize(input(user, "Please enter new news ringtone. 20 characters maximum.", "News Ringtone", pref.pdanewstone) as text|null, 20)
+		if(!isnull(raw_newsringtone) && CanUseTopic(user))
+			pref.pdanewstone = raw_newsringtone
+			return TOPIC_REFRESH
 
 	return ..()
