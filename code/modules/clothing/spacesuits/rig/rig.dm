@@ -137,7 +137,6 @@
 		chest = new chest_type(src)
 		if(allowed)
 			chest.allowed = allowed
-		chest.slowdown = offline_slowdown
 		verbs |= /obj/item/weapon/rig/proc/toggle_chest
 
 	for(var/obj/item/clothing/piece in list(gloves,helmet,boots,chest))
@@ -354,7 +353,7 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			chest.slowdown = initial(slowdown)
+			slowdown = initial(slowdown)
 
 	set_vision(!offline)
 	if(offline)
@@ -362,7 +361,7 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			chest.slowdown = offline_slowdown
+			slowdown = offline_slowdown
 		return
 
 	if(cell && cell.charge > 0 && electrified > 0)

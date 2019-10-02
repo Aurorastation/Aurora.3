@@ -60823,19 +60823,13 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ceR" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/status_display{
+	pixel_x = 0;
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -61034,9 +61028,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/status_display{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
@@ -61047,11 +61038,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cfl" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -61171,20 +61157,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/status_display/supply_display{
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
-"cfz" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -61315,11 +61290,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cfN" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/door/window/southleft,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -61645,20 +61615,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -61666,6 +61626,11 @@
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -61835,6 +61800,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgJ" = (
@@ -61842,6 +61812,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgK" = (
@@ -62010,6 +61981,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "cgZ" = (
@@ -62030,9 +62006,6 @@
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 6
-	},
-/obj/structure/noticeboard{
-	pixel_y = 27
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -62071,7 +62044,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "chf" = (
-/obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/brown/full,
 /obj/structure/table/rack{
 	dir = 1
@@ -62088,11 +62060,24 @@
 	icon_state = "warning";
 	dir = 8
 	},
+/obj/machinery/power/apc/super{
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "chh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "chi" = (
@@ -67471,6 +67456,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"qZA" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "qZF" = (
 /obj/item/weapon/material/shard/shrapnel,
 /obj/effect/decal/cleanable/dirt,
@@ -68810,6 +68807,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"uPw" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "uRt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -94175,7 +94180,7 @@ cfZ
 cgq
 cgG
 cgW
-cia
+qZA
 cho
 chC
 chM
@@ -94426,13 +94431,13 @@ cdT
 cey
 ceR
 cfl
-cfz
+cfk
 cfN
-cfz
+cfk
 cgr
 cgH
 cgX
-cfk
+uPw
 chp
 cfk
 cfk
