@@ -162,6 +162,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	info += copied
 	info += "</font>"//</font>
 	pname = copy.name // -- Doohl
+	c.color = "#f0f0f0"
 	c.fields = copy.fields
 	c.stamps = copy.stamps
 	c.stamped = copy.stamped
