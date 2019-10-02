@@ -48,8 +48,8 @@
 
 /datum/category_item/player_setup_item/general/equipment/gather_save_parameters()
 	return list(
-		"all_underwear" = pref.all_underwear,
-		"all_underwear_metadata" = pref.all_underwear_metadata,
+		"all_underwear" = json_encode(pref.all_underwear),
+		"all_underwear_metadata" = json_encode(pref.all_underwear_metadata),
 		"backbag" = pref.backbag,
 		"backbag_style" = pref.backbag_style,
 		"id" = pref.current_character,
@@ -84,6 +84,21 @@
 
 	if (sql_load)
 		pref.backbag = text2num(pref.backbag)
+		pref.backbag_style = text2num(pref.backbag_style)
+		if(istext(pref.all_underwear))
+			var/before = pref.all_underwear
+			try
+				pref.all_underwear = json_decode(pref.all_underwear)
+			catch(var/exception/e)
+				log_debug("UNDERWEAR: Caught [e]. Initial value: [before]")
+				pref.all_underwear = list()
+		if(istext(pref.all_underwear_metadata))
+			var/before = pref.all_underwear_metadata
+			try
+				pref.all_underwear_metadata = json_decode(pref.all_underwear_metadata)
+			catch(var/exception/e)
+				log_debug("UNDERWEAR METADATA: Caught [e]. Initial value: [before]")
+				pref.all_underwear_metadata = list()
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
