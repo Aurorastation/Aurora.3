@@ -26072,10 +26072,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"bhZ" = (
-/mob/living/simple_animal/hostile/bear,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "bic" = (
 /obj/structure/window/phoronreinforced{
 	icon_state = "phoronrwindow";
@@ -42658,7 +42654,7 @@ bal
 bal
 ale
 aba
-bhZ
+aba
 aba
 aba
 aba

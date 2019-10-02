@@ -19,8 +19,8 @@
 	if (can_feel_pain())
 		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
-	if(wear_suit)
-		tally += wear_suit.slowdown
+	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
+		tally += I.slowdown
 
 	if(species)
 		tally += species.get_species_tally(src)
