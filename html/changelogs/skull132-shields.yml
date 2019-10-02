@@ -1,0 +1,5 @@
+author: skull132
+delete-after: true
+
+changes:
+  - tweak: "'energy field' type shields (regular hull shields) no longer block air."
