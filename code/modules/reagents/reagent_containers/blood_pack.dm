@@ -180,8 +180,8 @@
 	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
 	return
 
-/obj/item/weapon/reagent_containers/blood/attack_self
-	to_chat(user, span("notice", "You [is_open_container ? "close" : "open"] [src]."))
+/obj/item/weapon/reagent_containers/blood/attack_self(mob/user)
+	to_chat(user, span("notice", "You [is_open_container() ? "close" : "open"] [src]."))
 	flags ^= OPENCONTAINER
 
 /obj/item/weapon/reagent_containers/blood/secondary
@@ -189,8 +189,8 @@
 	desc = "A small IV bag for use in addition to a primary blood bag or other container."
 	volume = 100
 	icon_state = "secondary"
-	var/name_unlabel
 	var/label
+	var/name_unlabeled
 
 /obj/item/weapon/storage/box/bloodpacks/secondary
 	name = "IV bag box"
@@ -205,13 +205,13 @@
 	if (istype(P, /obj/item/weapon/pen))
 		label = sanitizeSafe(input(user, "What would you like to label [src]?", "Label", ""), MAX_NAME_LEN)
 		if(!label || !length(label))
-			to_chat(user, span("notice", "You decide not to label [src].")
+			to_chat(user, span("notice", "You decide not to label [src]."))
 			return
 		var/obj/item/i = usr.get_active_hand()
 		if (!istype(i, /obj/item/weapon/pen) || !in_range(user, src)) return //Checks to see if pen is still held or IV bag is in range
-		to_chat(usr, "<span class='notice'>You [name_unlabel) ? 'remove the old label and ' : '']label \the [name_unlabel ? name_unlabel : name] as [label].</span>")
-		if(!name_unlabel)
-			name_unlabel = name
-		name = "[name_unlabel] ([label])"
+		to_chat(usr, "<span class='notice'>You [name_unlabeled ? "peel off the old label and " : ""]label \the [name_unlabeled ? name_unlabeled : name] as [label].</span>")
+		if(!name_unlabeled)
+			name_unlabeled = name
+		name = "[name_unlabeled] ([label])"
 		desc = "Contains medicine used for transfusion. Hopefully."
 		return

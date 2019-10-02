@@ -78,7 +78,7 @@
 		if(W.is_open_container())
 			to_chat(user, "\The [W] must be closed to put it on an IV drip.")
 		if(!isnull(primary))
-			if(R.maximum_volume > 120)
+			if(R.volume > 120)
 				to_chat(user, span("warning", "\The [R] is too big for the secondary slot!"))
 			user.drop_from_inventory(W,src)
 			secondary = W
@@ -125,10 +125,10 @@
 
 		// Give blood
 		if(mode)
-			if(primary.total_volume > 0)
+			if(primary.reagents.total_volume > 0)
 				primary.reagents.trans_to_mob(attached, primary_transfer_amount, CHEM_BLOOD)
 				update_icon()
-			if(!isnull(secondary) && secondary.total_volume > 0)
+			if(istype(secondary) && secondary.reagents.total_volume > 0)
 				secondary.reagents.trans_to_mob(attached, secondary_transfer_amount, CHEM_BLOOD)
 
 		// Take blood
@@ -193,7 +193,7 @@
 
 	if(primary)
 		if(primary.reagents && primary.reagents.reagent_list.len)
-			to_chat(usr, span("notice", "Attached is \a [primary] with [primary.total_volume] units of liquid."))
+			to_chat(usr, "<span class='notice'>Attached is \a [primary] with [primary.reagents.total_volume] units of liquid.</span>")
 		else
 			to_chat(usr, span("notice", "Attached is an empty [primary]."))
 	if(secondary)
@@ -206,8 +206,7 @@
 
 	to_chat(usr, span("notice", "[attached ? attached : "No one"] is attached."))
 
-// Let's doctors set the rate of transfer. Useful if you want to set the rate at the rate of metabolisation.
-// No longer have to take someone to dialysis because they have leftover sleeptox after surgery.
+// Lets doctors set the rate of transfer.
 /obj/machinery/iv_drip/verb/transfer_rate()
 	set category = "Object"
 	set name = "Set Transfer Rate"
@@ -218,9 +217,9 @@
 	var/container = input("Select which transfer rate you want to modify:") as null|anything in list("Primary", "Secondary")
 	if(!container)
 		return
-	var/amount = min(input("Set transfer rate as u/sec (between 4 and 0.001)") as num, 4)
+	var/amount = min(input("Set transfer rate as units per second (between 4 and 0.001).", "[container] Transfer Rate") as null|num, 4)
 	transfer_amount[container] = max(amount || REM, 0.001)
-	to_chat(usr, span("notice", "Transfer rate set to [transfer_amount[container]] u/sec"))
+	to_chat(usr, span("notice", "[container] transfer rate set to [transfer_amount[container]] units per second."))
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.

@@ -23,7 +23,7 @@
 
 /obj/item/storage/firstaid/fire
 	name = "fire first-aid kit"
-	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
+	desc = "It's an emergency medical kit for when the toxins lab <i>\"spontaneously\"</i> burns down."
 	icon_state = "ointment"
 	item_state = "firstaid-ointment"
 	starts_with = list(
