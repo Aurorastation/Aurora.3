@@ -153,7 +153,7 @@
 	if(!prog || !istype(prog))
 		return
 	if(program)
-		data = program.get_header_data()
+		data = list("_PC" = program.get_header_data())
 
 	// This IF cuts on data transferred to client, so i guess it's worth it.
 	if(prog.downloaderror) // Download errored. Wait until user resets the program.
