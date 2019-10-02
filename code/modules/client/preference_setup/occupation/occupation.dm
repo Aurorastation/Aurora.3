@@ -185,7 +185,7 @@
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		else if(species.respects_age_requirements && (character_age < job.minimum_character_age))
-			dat += "<del>[rank]</del></td><td> \[MIN CHAR AGE: [job.minimum_character_age]]</td></tr>"
+			dat += "<del>[rank]</del></td><td> \[MINIMUM AGE: [job.minimum_character_age]]</td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
