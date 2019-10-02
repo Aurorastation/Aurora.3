@@ -283,6 +283,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
 
+	var/character_age = client.prefs.age
+	var/datum/species/species = global.all_species[client.prefs.species]
+	if(species.respects_age_requirements && (character_age < job.minimum_character_age))
+		return FALSE
+
 	return TRUE
 
 

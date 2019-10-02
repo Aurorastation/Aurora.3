@@ -102,6 +102,12 @@
 		if(jobban_isbanned(player, rank))
 			return FALSE
 
+		var/character_age = player.client.prefs.age
+		var/datum/species/species = global.all_species[player.client.prefs.species]
+		if(species.respects_age_requirements && (character_age < job.minimum_character_age))
+			to_chat(player, "<span class='warning'>Your character is too young!</span>")
+			return FALSE
+
 		var/position_limit = job.total_positions
 		if(!latejoin)
 			position_limit = job.spawn_positions
