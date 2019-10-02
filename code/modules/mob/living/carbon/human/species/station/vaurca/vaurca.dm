@@ -3,6 +3,7 @@
 	short_name = "vau"
 	name_plural = "Type A"
 	bodytype = "Vaurca"
+	respects_age_requirements = FALSE
 	age_min = 1
 	age_max = 20
 	economic_modifier = 2

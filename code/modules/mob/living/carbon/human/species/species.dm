@@ -11,6 +11,7 @@
 	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
 	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
 	var/bodytype
+	var/respects_age_requirements = TRUE                 // Does this species respect the job minimum age requirements? For diona, IPC, vaurca.
 	var/age_min = 17
 	var/age_max = 85
 	var/economic_modifier = 0
