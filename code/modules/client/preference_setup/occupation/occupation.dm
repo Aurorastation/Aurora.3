@@ -173,7 +173,7 @@
 		lastJob = job
 		var/ban_reason = jobban_isbanned(user, rank)
 		var/character_age = user.client.prefs.age
-		var/species = user.client.prefs.species
+		var/datum/species/species = global.all_species[user.client.prefs.species]
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
@@ -184,7 +184,7 @@
 		else if (ban_reason)
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
-		else if((job.minimum_character_age[species]) && (character_age < job.minimum_character_age[species]) && )
+		else if((job.minimum_character_age[species.name]) && (character_age < job.minimum_character_age[species.name]) && species.respects_age_requirement)
 			dat += "<del>[rank]</del></td><td> \[MIN CHAR AGE: [job.minimum_character_age]]</td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
