@@ -1,7 +1,0 @@
-author: Karolis2011
-delete-after: True
-changes: 
-  - refactor: "Computers now support both UI systems."
-  - rscadd: "Ported main computer screen to VueUI."
-  - rscadd: "Ported computer configurator to VueUI."
-  - rscadd: "Ported computer management to VueUI."
