@@ -23,7 +23,7 @@
 
 /obj/item/weapon/storage/firstaid/fire
 	name = "fire first-aid kit"
-	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
+	desc = "It's an emergency medical kit for when the toxins lab <i>\"spontaneously\"</i> burns down."
 	icon_state = "ointment"
 	item_state = "firstaid-ointment"
 	starts_with = list(
@@ -68,7 +68,7 @@
 	item_state = "firstaid-o2"
 	starts_with = list(
 		/obj/item/weapon/reagent_containers/inhaler/dexalin = 4,
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/epinephrine = 2,
 		/obj/item/device/breath_analyzer = 1
 	)
 
@@ -78,7 +78,7 @@
 	icon_state = "advfirstaid"
 	item_state = "firstaid-advanced"
 	starts_with = list(
-		/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
+		/obj/item/weapon/reagent_containers/hypospray/autoinjector/epinephrine = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1
