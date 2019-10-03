@@ -316,6 +316,7 @@
 	// shouldn't be reachable if occupant is invalid
 	if (href_list["print"])
 		var/obj/item/weapon/paper/R = new(src.loc)
+		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([src.connected.occupant])", format_occupant_data(src.connected.get_occupant_data()))
 
 		print(R, "[src] beeps, printing [R.name] after a moment.")

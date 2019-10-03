@@ -84,7 +84,7 @@ Byond Vue UI framework's management subsystem
   */
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
-		ui.check_for_change()
+		ui.update_status(1)
 
 /**
   * Initiates check for data change of specified object
@@ -178,20 +178,24 @@ Byond Vue UI framework's management subsystem
   * @param new_activeui - Vue component name to be used in ui with new object
   * @param new_data - initial data for this transfered ui
   *
-  * @return 0 if failed, 1 if success
+  * @return list of transfered uis
   */
-/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_data = null)
+/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/nwidth = 0, var/nheight = 0, var/new_title = null, var/new_data = null)
 	var/old_object_key = SOFTREF(old_object)
 	var/new_object_key = SOFTREF(new_object)
+	. = list()
 	LAZYINITLIST(open_uis[new_object_key])
 
 	for(var/datum/vueui/ui in open_uis[old_object_key])
 		ui.object = new_object
-		if(new_activeui) ui.activeui = new_activeui
+		if(new_activeui) {ui.activeui = new_activeui}
+		if(new_title) {ui.title = new_title}
 		ui.data = new_data
 		open_uis[old_object_key] -= ui
 		LAZYADD(open_uis[new_object_key], ui)
-		ui.check_for_change()
+		ui.resize(nwidth, nheight)
+		ui.update_status(1)
+		. += ui
 
 	if (!LAZYLEN(open_uis[old_object_key]))
 		open_uis -= old_object_key

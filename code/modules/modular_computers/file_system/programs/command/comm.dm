@@ -297,7 +297,7 @@ var/last_message_id = 0
 		if(computer && computer.working && !!computer.nano_printer)
 			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
 			if(C && C.intercept)
-				computer.nano_printer.print_text(message_text, message_title)
+				computer.nano_printer.print_text(message_text, message_title, "#deebff")
 
 
 /datum/comm_message_listener
