@@ -311,7 +311,7 @@ main ui datum.
 		if(!nopush)
 			push_change(null)
 			return 1
-		return
+		else
 			return 2
 
 /**
