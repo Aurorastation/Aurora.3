@@ -286,7 +286,7 @@ main ui datum.
   * @param force - determines should data be pushed even if no change is present
   * @param nopush - determines new data be imediatly pushed.
   *
-  * @return 1 if push happened, 0 if it didn't happen
+  * @return 2 if push should happen, but didn't, 1 if push happened, 0 if it didn't happen
   */
 /datum/vueui/proc/check_for_change(var/force = FALSE, var/nopush = FALSE)
 	. = 0
@@ -300,14 +300,19 @@ main ui datum.
 				return 1
 			else
 				src.data = ret
+				return 2
 		else if (force)
 			if(!nopush) 
 				push_change(null)
 				return 1
+			else
+				return 2
 	else if (force && status == STATUS_DISABLED)
 		if(!nopush)
 			push_change(null)
 			return 1
+		return
+			return 2
 
 /**
   * Set the current status (also known as visibility) of this ui.
@@ -319,17 +324,28 @@ main ui datum.
   * @return 1 if push should happen, 0 if shouldn't happen.
   */
 /datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE, var/checkforchange = FALSE)
+	. = 0
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			return check_for_change(TRUE, !autopush) // Gather data and update it
+			. = check_for_change(TRUE, !autopush) // Gather data and update it
+			if(. == 2)
+				return 1
+			else
+				return 0
 		else if (nstatus == STATUS_DISABLED && autopush)
-			if(autopush) push_change(null) // Only update ui data
-			return 1
+			if(autopush) 
+				push_change(null) // Only update ui data
+			else
+				return 1
 		else
 			close()
 	else if (status > STATUS_DISABLED && checkforchange)
-		return check_for_change(TRUE, !autopush)
+		. = check_for_change(TRUE, !autopush)
+		if(. == 2)
+			return 1
+		else
+			return 0
 
 
 /**
