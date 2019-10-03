@@ -297,15 +297,17 @@ main ui datum.
 		if(ret)
 			if(!nopush)
 				push_change(ret)
+				return 1
 			else
 				src.data = ret
-			return 1
 		else if (force)
-			if(!nopush) push_change(null)
-			return 1
+			if(!nopush) 
+				push_change(null)
+				return 1
 	else if (force && status == STATUS_DISABLED)
-		if(!nopush) push_change(null)
-		return 1
+		if(!nopush)
+			push_change(null)
+			return 1
 
 /**
   * Set the current status (also known as visibility) of this ui.
@@ -336,7 +338,7 @@ main ui datum.
   * @param autopush - determines if data with new status should be automaticly pushed
   * @param checkforchange - determines if check for change should be done, even if status didn't chnage.
   *
-  * @return nothing
+  * @return 1 if push should happen, 0 if shouldn't happen.
   */
 /datum/vueui/proc/update_status(var/autopush = TRUE, var/checkforchange = FALSE)
 	. = set_status(object.CanUseTopic(user, state), autopush, checkforchange)

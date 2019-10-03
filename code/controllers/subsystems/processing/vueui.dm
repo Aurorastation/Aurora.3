@@ -84,7 +84,7 @@ Byond Vue UI framework's management subsystem
   */
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
-		ui.update_status(1)
+		ui.update_status(TRUE, TRUE)
 
 /**
   * Initiates check for data change of specified object
