@@ -333,6 +333,10 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
+			if(M.stamina <= 5)
+				to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
+				return 0
+
 			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 				return 0
@@ -346,11 +350,13 @@
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
 
+			M.stamina = M.stamina - (M.max_stamina / 6) //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 
-			var/list/holding = list(get_active_hand() = 40, get_inactive_hand = 20)
+			var/list/holding = list(M.get_active_hand() = 40, M.get_inactive_hand() = 20)
 
 			//See if they have any guns that might go off
 			for(var/obj/item/weapon/gun/W in holding)
@@ -362,6 +368,13 @@
 						var/turf/target = pick(turfs)
 						visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
 						return W.afterattack(target,src)
+
+			if(prob(20))
+				if(istype(M.get_active_hand(),/obj/item/weapon))
+					var/obj/item/weapon/wep = M.get_active_hand()
+					if(M.Adjacent(src))
+						visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with their [wep]!</span>")
+						return M.attackby(wep,src)
 
 			var/randn = rand(1, 100)
 			if(randn <= 25)
