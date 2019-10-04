@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - bugfix: "VueUI uis, like records, voting and others, now will update once again."
