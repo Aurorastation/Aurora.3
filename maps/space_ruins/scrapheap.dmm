@@ -743,7 +743,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cm" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/simulated/wall/r_wall,
 /area/derelict/ship)
 "cn" = (

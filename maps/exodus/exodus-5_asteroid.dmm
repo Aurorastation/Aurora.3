@@ -3809,7 +3809,7 @@
 	dir = 5;
 	health = 1e+007
 	},
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /obj/machinery/door/firedoor{
 	dir = 4;
 	name = "Firelock"
