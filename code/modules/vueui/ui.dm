@@ -328,11 +328,7 @@ main ui datum.
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			. = check_for_change(TRUE, !autopush) // Gather data and update it
-			if(. == 2)
-				return 1
-			else
-				return 0
+			return check_for_change(TRUE, !autopush) == 2 // Gather data and update it
 		else if (nstatus == STATUS_DISABLED && autopush)
 			if(autopush) 
 				push_change(null) // Only update ui data
@@ -341,11 +337,7 @@ main ui datum.
 		else
 			close()
 	else if (status > STATUS_DISABLED && checkforchange)
-		. = check_for_change(TRUE, !autopush)
-		if(. == 2)
-			return 1
-		else
-			return 0
+		return check_for_change(TRUE, !autopush) == 2
 
 
 /**
