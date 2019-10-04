@@ -34434,7 +34434,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -47709,7 +47710,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer_maint{
 	name = "Transfusion Supplies";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
@@ -47720,7 +47722,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -49800,7 +49803,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -51038,7 +51042,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/medical{
 	name = "Room 3";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
@@ -51632,7 +51637,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -51707,7 +51713,8 @@
 "bLQ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Starboard Ward";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -52007,11 +52014,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bMs" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bMu" = (
@@ -63475,7 +63483,8 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -65101,7 +65110,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/medical{
 	name = "Room 1";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
@@ -65873,7 +65883,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Medbay Maintance";
-	req_access = list(12)
+	req_access = list(12);
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
@@ -66195,6 +66206,18 @@
 /obj/structure/curtain/medical,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"mRu" = (
+/obj/effect/floor_decal/corner/brown{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "mUs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -66522,7 +66545,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/medical{
 	name = "Room 2";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
@@ -66646,7 +66670,8 @@
 "ovg" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Starboard Ward";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -66744,6 +66769,14 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/bar)
+"oST" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "oVj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -66980,7 +67013,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock{
 	name = "Patient Bathroom";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
@@ -67456,18 +67490,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"qZA" = (
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "qZF" = (
 /obj/item/weapon/material/shard/shrapnel,
 /obj/effect/decal/cleanable/dirt,
@@ -68690,7 +68712,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Physical Therapy";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
@@ -68807,14 +68830,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"uPw" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/eva)
 "uRt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -69668,7 +69683,8 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,66)
 	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -94180,7 +94196,7 @@ cfZ
 cgq
 cgG
 cgW
-qZA
+mRu
 cho
 chC
 chM
@@ -94437,7 +94453,7 @@ cfk
 cgr
 cgH
 cgX
-uPw
+oST
 chp
 cfk
 cfk
