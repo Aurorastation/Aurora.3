@@ -493,7 +493,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(..())
 		return 1
 
-	if(amount <= 10 && !(affecting.status & ORGAN_ROBOT))
+	if(amount <= 10)
 		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
 		return
 	
@@ -535,11 +535,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 						to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
 				affecting.update_damages()
 		else
-			if (can_operate(H))
+			if(can_operate(H))
 				if (do_surgery(H,user,src))
 					return
-			else
-				to_chat(user, "<span class='notice'>You can't suture this kind of wound!</span>")
 	return
 
 /obj/item/stack/cable_coil/iscoil()
