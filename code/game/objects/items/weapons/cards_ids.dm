@@ -313,7 +313,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 
 	if(wear_over_suit == -1)
-		to_chat(user, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
