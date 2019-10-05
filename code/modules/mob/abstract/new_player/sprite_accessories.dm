@@ -2799,6 +2799,13 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("l_arm","r_arm","l_hand","r_hand")
 		species_allowed = list("Skrell")
 
+/datum/sprite_accessory/marking/diona
+		name = "Diona Leaves"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_leaves"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		species_allowed = list("Diona")
+
 
 // Branded IPC markings - disabled for now, some layering issues.
 /*
