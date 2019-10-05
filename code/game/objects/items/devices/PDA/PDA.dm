@@ -333,7 +333,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  *	The Actual PDA
  */
 
-/obj/item/device/pda/Initialize(mapload, var/mob/living/carbon/human/H)
+/obj/item/device/pda/Initialize(mapload)
 	. = ..()
 	if(!(src in PDAs))
 		PDAs += src
