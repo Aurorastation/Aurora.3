@@ -1156,7 +1156,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	set category = "Object"
 
 	if(wear_over_suit == -1)
-		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		to_chat(user, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
