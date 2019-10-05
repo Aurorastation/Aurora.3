@@ -351,6 +351,7 @@
 			M.do_attack_animation(src)
 
 			M.stamina = M.stamina - (M.max_stamina / 6) //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+			M.stamina = Clamp(M.stamina, 0, M.max_stamina)
 
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
