@@ -493,7 +493,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(..())
 		return 1
 
-	if(amount <= 10)
+	if(amount <= 10 && !(affecting.status & ORGAN_ROBOT))
 		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
 	
 	if (ishuman(M))
