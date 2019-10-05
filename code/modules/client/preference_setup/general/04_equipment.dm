@@ -113,9 +113,9 @@
 	dat += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
 	dat += "PDA Type: <a href='?src=\ref[src];change_pda=1'><b>[pdachoicelist[pref.pdachoice]]</b></a><br>"
 	dat += "PDA Ringer: <a href='?src=\ref[src];toggle_pda_mute=1'><b>[(pref.pdaringer) ? "Off" : "On"]</b></a><br>"
-	dat += "PDA Ringtone: <a href='?src=\ref[src];change_pda_ringtone=1'><b>[pref.pdatone]</b></a><br>"
+	dat += "PDA Ringtone: <a href='?src=\ref[src];change_pda_ringtone=1'>[pref.pdatone]</a><br>"
 	dat += "PDA News Ringer: <a href='?src=\ref[src];toggle_pda_news_mute=1'><b>[(pref.pdanews) ? "Off" : "On"]</b></a><br>"
-	dat += "PDA News Ringtone: <a href='?src=\ref[src];change_pda_news_ringtone=1'><b>[pref.pdanewstone]</b></a><br>"
+	dat += "PDA News Ringtone: <a href='?src=\ref[src];change_pda_news_ringtone=1'>[pref.pdanewstone]</a><br>"
 
 	. = dat.Join()
 
@@ -170,10 +170,10 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["change_pda_ringtone"])
-		var/raw_ringtone = sanitize(input(user, "Please enter new ringtone. 20 characters maximum.", "Ringtone", html_decode(pref.pdatone)) as text|null, 20)
+		var/raw_ringtone = sanitize(input(user, "Please enter new ringtone. 20 characters maximum.", "Ringtone", html_decode(pref.pdatone)) as text|null, 20, extra = 0)
 		if(!isnull(raw_ringtone) && CanUseTopic(user))
 			pref.pdatone = html_decode(raw_ringtone)
-			return TOPIC_REFRESH
+		return TOPIC_REFRESH
 
 	else if(href_list["toggle_pda_news_mute"])
 		if(CanUseTopic(user))
@@ -181,9 +181,9 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["change_pda_news_ringtone"])
-		var/raw_newsringtone = sanitize(input(user, "Please enter new news ringtone. 20 characters maximum.", "News Ringtone", html_decode(pref.pdanewstone)) as text|null, 20)
+		var/raw_newsringtone = sanitize(input(user, "Please enter new news ringtone. 20 characters maximum.", "News Ringtone", html_decode(pref.pdanewstone)) as text|null, 20, extra = 0)
 		if(!isnull(raw_newsringtone) && CanUseTopic(user))
 			pref.pdanewstone = html_decode(raw_newsringtone)
-			return TOPIC_REFRESH
+		return TOPIC_REFRESH
 
 	return ..()
