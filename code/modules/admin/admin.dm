@@ -332,7 +332,7 @@ proc/admin_notice(var/message, var/rights)
 	if (!admincaster_signature)
 		update_newscaster_sig()
 	var/dat
-	dat = "<HEAD><TITLE>Admin Newscaster</TITLE></HEAD><H3>Admin Newscaster Unit</H3>"
+	dat = "<H3>Admin Newscaster Unit</H3>"
 
 	switch(admincaster_screen)
 		if(0)
@@ -573,7 +573,8 @@ proc/admin_notice(var/message, var/rights)
 		else
 			dat+="Please report this on GitHub, along with what you did to make this appear."
 
-	usr << browse(dat, "window=admincaster_main;size=400x600")
+	send_theme_resources(usr)
+	usr << browse(enable_ui_theme(usr, dat), "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 

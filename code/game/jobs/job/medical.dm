@@ -245,7 +245,7 @@
 	name = "Medical Resident"
 	jobtype = /datum/job/intern_med
 
-	uniform = /obj/item/clothing/under/rank/medical
+	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 
