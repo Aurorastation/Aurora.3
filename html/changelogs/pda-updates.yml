@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Ported over PDA sprites from Polaris, BS12, and Eris."
+  - rscadd: "Ported over PDA sprites from Polaris, BS12, Eris, and Hypatia."
   - rscadd: "Added the ability to change your PDA sprite type on the character setup."
   - rscadd: "Added the ability to customise your PDA ringer and news settings from the character setup."
   - tweak: "Makes the Set Pose box retain its previously inputted information and turns it into a chunky message box instead of a skinny text box."

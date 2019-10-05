@@ -84,6 +84,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if(4) icon = 'icons/obj/pda_old.dmi'
 		if(5) icon = 'icons/obj/pda_rugged.dmi'
 		if(6) icon = 'icons/obj/pda_smart.dmi'
+		if(7) icon = 'icons/obj/pda_glass.dmi'
 		else icon = 'icons/obj/pda.dmi'
 	message_silent = isnull(H) ? 0 : (ishuman(H) ? H.pdaringer : 0)
 	news_silent = isnull(H) ? 1 : (ishuman(H) ? H.pdanews : 1)

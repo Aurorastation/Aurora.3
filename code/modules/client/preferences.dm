@@ -387,7 +387,7 @@ datum/preferences
 	character.backbag = backbag
 	character.backbag_style = backbag_style
 
-	if(pdachoice > 6 || pdachoice < 1)
+	if(pdachoice > 7 || pdachoice < 1)
 		pdachoice = 1
 	character.pdachoice = pdachoice
 	character.pdaringer = pdaringer
