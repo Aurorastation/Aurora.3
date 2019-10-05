@@ -88,8 +88,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		else icon = 'icons/obj/pda.dmi'
 	message_silent = isnull(H) ? 0 : (ishuman(H) ? H.pdaringer : 0)
 	news_silent = isnull(H) ? 1 : (ishuman(H) ? H.pdanews : 1)
-	ttone = isnull(H) ? ttone : (ishuman(H) ? H.pdatone : ttone)
-	newstone = isnull(H) ? newstone : (ishuman(H) ? H.pdanewstone : newstone)
+	ttone = isnull(H) ? ttone : (ishuman(H) ? html_decode(H.pdatone) : ttone)
+	newstone = isnull(H) ? newstone : (ishuman(H) ? html_decode(H.pdanewstone) : newstone)
 
 /obj/item/device/pda/medical
 	default_cartridge = /obj/item/weapon/cartridge/medical
