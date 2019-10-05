@@ -2648,6 +2648,29 @@ Follow by example and make good judgement based on length which list to include 
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
 
+	diona_eye
+		icon = 'icons/mob/human_face/dionae_hair.dmi'
+		name = "Mono Eye"
+		icon_state = "monoeye"
+		species_allowed = list("Diona")
+		gender = NEUTER
+		do_colouration = FALSE
+
+		diona_eye_trioptics
+			name = "Trioptics"
+			icon_state = "trioptics"
+
+		diona_eye_lopsided
+			name = "Lopsided Eyes"
+			icon_state = "lopsided"
+
+		diona_eye_helmethead
+			name = "Helmethead"
+			icon_state = "helmethead"
+
+		diona_eye_eyestalk
+			name = "Eyestalk"
+			icon_state = "eyestalk"
 
 /*
 ////////////////////////////
