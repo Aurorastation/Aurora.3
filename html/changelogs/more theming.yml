@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Added theme support to multiple UIs."

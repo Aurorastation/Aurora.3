@@ -654,7 +654,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.species_preview = "Human"
 	var/datum/species/current_species = all_species[pref.species_preview]
 	var/list/dat = list(
-		"<body>",
 		"<center><h2>[current_species.name] \[<a href='?src=\ref[src];show_species=1'>change</a>\]</h2></center><hr/>",
 		"<table padding='8px'>",
 		"<tr>",
@@ -710,9 +709,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			dat += "<font color='red'><b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></font></br>"
 	if(!restricted || check_rights(R_ADMIN, 0))
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
-	dat += "</center></body>"
+	dat += "</center>"
 
-	user << browse(dat.Join(), "window=species;size=700x400")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat.Join()), "window=species;size=700x400")
 
 /*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
 
