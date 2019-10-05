@@ -286,7 +286,7 @@ main ui datum.
   * @param force - determines should data be pushed even if no change is present
   * @param nopush - determines new data be imediatly pushed.
   *
-  * @return 1 if push happened, 0 if it didn't happen
+  * @return 2 if push should happen, but didn't, 1 if push happened, 0 if it didn't happen
   */
 /datum/vueui/proc/check_for_change(var/force = FALSE, var/nopush = FALSE)
 	. = 0
@@ -297,15 +297,22 @@ main ui datum.
 		if(ret)
 			if(!nopush)
 				push_change(ret)
+				return 1
 			else
 				src.data = ret
-			return 1
+				return 2
 		else if (force)
-			if(!nopush) push_change(null)
-			return 1
+			if(!nopush) 
+				push_change(null)
+				return 1
+			else
+				return 2
 	else if (force && status == STATUS_DISABLED)
-		if(!nopush) push_change(null)
-		return 1
+		if(!nopush)
+			push_change(null)
+			return 1
+		else
+			return 2
 
 /**
   * Set the current status (also known as visibility) of this ui.
@@ -317,17 +324,20 @@ main ui datum.
   * @return 1 if push should happen, 0 if shouldn't happen.
   */
 /datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE, var/checkforchange = FALSE)
+	. = 0
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			return check_for_change(TRUE, !autopush) // Gather data and update it
+			return check_for_change(TRUE, !autopush) == 2 // Gather data and update it
 		else if (nstatus == STATUS_DISABLED && autopush)
-			if(autopush) push_change(null) // Only update ui data
-			return 1
+			if(autopush) 
+				push_change(null) // Only update ui data
+			else
+				return 1
 		else
 			close()
 	else if (status > STATUS_DISABLED && checkforchange)
-		return check_for_change(TRUE, !autopush)
+		return check_for_change(TRUE, !autopush) == 2
 
 
 /**
@@ -336,7 +346,7 @@ main ui datum.
   * @param autopush - determines if data with new status should be automaticly pushed
   * @param checkforchange - determines if check for change should be done, even if status didn't chnage.
   *
-  * @return nothing
+  * @return 1 if push should happen, 0 if shouldn't happen.
   */
 /datum/vueui/proc/update_status(var/autopush = TRUE, var/checkforchange = FALSE)
 	. = set_status(object.CanUseTopic(user, state), autopush, checkforchange)
