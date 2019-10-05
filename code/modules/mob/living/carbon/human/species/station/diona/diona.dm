@@ -76,7 +76,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	appearance_flags = HAS_SKIN_TONE | HAS_HAIR_COLOR
+	appearance_flags = HAS_HAIR_COLOR
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 
