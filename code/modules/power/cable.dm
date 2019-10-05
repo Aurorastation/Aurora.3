@@ -495,6 +495,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(amount <= 10 && !(affecting.status & ORGAN_ROBOT))
 		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
+		return
 	
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
