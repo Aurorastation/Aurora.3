@@ -333,7 +333,9 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
-			if(M.stamina <= 5)
+			var/disarm_cost = M.max_stamina / 6
+
+			if(M.stamina <= disarm_cost)
 				to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
 				return 0
 
@@ -350,7 +352,7 @@
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
 
-			M.stamina = M.stamina - (M.max_stamina / 6) //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+			M.stamina = M.stamina - disarm_cost //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 			M.stamina = Clamp(M.stamina, 0, M.max_stamina)
 
 			if(w_uniform)
