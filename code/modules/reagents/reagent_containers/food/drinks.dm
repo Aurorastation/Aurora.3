@@ -131,7 +131,7 @@
 	name = "Robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
-	item_state = "cont_vapour"
+	item_state = "contvapour"
 	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
