@@ -148,7 +148,7 @@
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 
-	uniform = /obj/item/clothing/under/rank/scientist
+	uniform = /obj/item/clothing/under/rank/scientist/intern
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
 

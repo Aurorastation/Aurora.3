@@ -3585,7 +3585,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "agB" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/simulated/wall,
 /area/hallway/primary/starboard)
 "agC" = (
@@ -17361,7 +17361,7 @@
 /area/chapel/main)
 "aGj" = (
 /obj/effect/floor_decal/corner/paleblue/full,
-/obj/structure/sign/greencross{
+/obj/structure/sign/bluecross{
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/white,
@@ -21189,7 +21189,7 @@
 	icon_state = "corner_white_full";
 	dir = 4
 	},
-/obj/structure/sign/greencross{
+/obj/structure/sign/bluecross{
 	pixel_x = 32
 	},
 /obj/structure/cable/green{
@@ -39137,7 +39137,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
 "bum" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/simulated/wall/r_wall,
 /area/hallway/primary/central_two)
 "bun" = (
@@ -44854,7 +44854,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bDX" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/simulated/wall,
 /area/hallway/primary/central_two)
 "bDY" = (
@@ -57204,7 +57204,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "bZS" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/simulated/wall,
 /area/medical/medbay4)
 "bZT" = (
