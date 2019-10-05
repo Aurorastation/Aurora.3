@@ -3,7 +3,6 @@
 	short_name = "vau"
 	name_plural = "Type A"
 	bodytype = "Vaurca"
-	respects_age_requirements = FALSE
 	age_min = 1
 	age_max = 20
 	economic_modifier = 2
@@ -59,7 +58,7 @@
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
 	flags = NO_SLIP | NO_CHUBBY
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
