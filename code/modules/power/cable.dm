@@ -501,7 +501,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
-		if(affecting.open == 0)
+		if(affecting.open == 0 && !(affecting.status & ORGAN_ROBOT))
+
 			if(affecting.is_bandaged())
 				to_chat(user, "<span class='warning'>The cuts on [M]'s [affecting.name] have already been closed.</span>")
 				return 1
