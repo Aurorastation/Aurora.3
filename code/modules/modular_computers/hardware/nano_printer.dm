@@ -13,7 +13,7 @@
 	..()
 	to_chat(user, "Paper buffer level: [stored_paper]/[max_paper]")
 
-/obj/item/weapon/computer_hardware/nano_printer/proc/print_text(var/text_to_print, var/paper_title = null)
+/obj/item/weapon/computer_hardware/nano_printer/proc/print_text(var/text_to_print, var/paper_title = null, var/paper_color = null)
 	if(!stored_paper)
 		return 0
 	if(!enabled)
@@ -24,7 +24,9 @@
 	// Damaged printer causes the resulting paper to be somewhat harder to read.
 	if(damage > damage_malfunction)
 		text_to_print = stars(text_to_print, 100-malfunction_probability)
-	new/obj/item/weapon/paper(get_turf(holder2),text_to_print, paper_title)
+	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(holder2),text_to_print, paper_title)
+	if (paper_color)
+		P.color = paper_color
 
 	stored_paper--
 	return 1
