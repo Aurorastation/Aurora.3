@@ -127,9 +127,7 @@
 	set name = "Flip wallet side"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living))
-		return
-	if (usr.stat || usr.restrained())
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
 	if (!flippable)
 		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
@@ -143,12 +141,13 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	mob_icon_update()
 
-/obj/item/weapon/storage/wallet/verb/toggle_icon_layer(mob/user as mob)
+/obj/item/weapon/storage/wallet/verb/toggle_icon_layer()
 	set name = "Switch Wallet Layer"
 	set category = "Object"
+	set src in usr
 
 	if(wear_over_suit == -1)
-		to_chat(user, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()

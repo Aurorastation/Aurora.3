@@ -80,7 +80,7 @@
 	set name = "Flip badge"
 	set src in usr
 
-	if (usr.stat || usr.restrained())
+	if (use_check_and_message(usr))
 		return
 	if (!v_flippable)
 		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")

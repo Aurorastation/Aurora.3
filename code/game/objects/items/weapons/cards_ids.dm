@@ -295,9 +295,7 @@ var/const/NO_EMAG_ACT = -50
 	set name = "Flip ID card"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living))
-		return
-	if (usr.stat || usr.restrained())
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
 
 	src.flipped = !src.flipped
@@ -308,12 +306,13 @@ var/const/NO_EMAG_ACT = -50
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	mob_icon_update()
 
-/obj/item/weapon/card/id/verb/toggle_icon_layer(mob/user as mob)
+/obj/item/weapon/card/id/verb/toggle_icon_layer()
 	set name = "Switch ID Layer"
 	set category = "Object"
+	set src in usr
 
 	if(wear_over_suit == -1)
-		to_chat(user, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
