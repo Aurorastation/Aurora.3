@@ -295,12 +295,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
 
 	if(has_flag(mob_species, HAS_SKIN_COLOR))
-		out += "<br><b>Body Color</b><br>"
-		out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
+		if(has_flag(mob_species, HAS_SKIN_PRESET))
+			out += "<br><b>Body Color Presets</b><br>"
+			out += "<a href='?src=\ref[src];skin_color=1'>Choose Preset</a><br>"
+		else
+			out += "<br><b>Body Color</b><br>"
+			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
 
-	if(has_flag(mob_species, HAS_SKIN_PRESET))
-		out += "<br><b>Body Color Presets</b><br>"
-		out += "<a href='?src=\ref[src];skin_color=1'>Choose Preset</a><br>"
+	
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -454,9 +456,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			return TOPIC_REFRESH
 
 	else if(href_list["skin_color"])
-		if(!has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
+		if(!has_flag(mob_species, HAS_SKIN_COLOR) || !has_flag(mob_species, HAS_SKIN_PRESET))
 			return TOPIC_NOACTION
-		if(has_flag(mob_species, HAS_SKIN_COLOR))
+		if(has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
 			var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
 			if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
 				pref.r_skin = GetRedPart(new_skin)
@@ -464,16 +466,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				pref.b_skin = GetBluePart(new_skin)
 			return TOPIC_REFRESH
 
-		if(has_flag(mob_species, HAS_SKIN_PRESET))
-			var/new_preset = input(user, "Choose your character's body color preset:", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as null|anything in character_color_presets
-			new_preset = character_color_presets[new_preset]
+		else if(has_flag(mob_species, HAS_SKIN_PRESET))
+			var/new_preset = input(user, "Choose your character's body color preset:", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as null|anything in mob_species.character_color_presets
+			new_preset = mob_species.character_color_presets[new_preset]
 			pref.r_skin = GetRedPart(new_preset)
 			pref.g_skin = GetGreenPart(new_preset)
 			pref.b_skin = GetBluePart(new_preset)
 			return TOPIC_REFRESH
-
-
-	else if(href_list[""])
 
 	else if(href_list["facial_style"])
 		if(mob_species.bald)
@@ -701,7 +700,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		dat += "</br><b>Immune to most poisons.</b>"
 	if(current_species.appearance_flags & HAS_SKIN_TONE)
 		dat += "</br><b>Has a variety of skin tones.</b>"
-	if((current_species.appearance_flags & HAS_SKIN_COLOR) || (current_species.appearance_flags & HAS_SKIN_PRESET))
+	if(current_species.appearance_flags & HAS_SKIN_COLOR)
 		dat += "</br><b>Has a variety of skin colours.</b>"
 	if(current_species.appearance_flags & HAS_EYE_COLOR)
 		dat += "</br><b>Has a variety of eye colours.</b>"

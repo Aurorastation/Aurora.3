@@ -48,6 +48,16 @@
 				if(owner.change_skin_color(r_skin, g_skin, b_skin))
 					update_dna()
 					return 1
+	if(href_list["skin_preset"])
+		if(can_change_skin_color())
+			var/new_preset = input(usr, "Choose your character's body color preset:", "Character Preference", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as null|anything in owner.species.character_color_presets
+			if(new_preset && can_still_topic(state))
+				var/r_skin = GetRedPart(new_preset)
+				var/g_skin = GetGreenPart(new_preset)
+				var/b_skin = GetBluePart(new_preset)
+				if(owner.change_skin_color(r_skin, g_skin, b_skin))
+					update_dna()
+					return 1
 	if(href_list["hair"])
 		if(can_change(APPEARANCE_HAIR) && (href_list["hair"] in valid_hairstyles))
 			if(owner.change_hair(href_list["hair"]))
@@ -110,6 +120,7 @@
 	data["change_gender"] = can_change(APPEARANCE_GENDER)
 	data["change_skin_tone"] = can_change_skin_tone()
 	data["change_skin_color"] = can_change_skin_color()
+	data["change_skin_preset"] = can_change_skin_preset()
 	data["change_eye_color"] = can_change(APPEARANCE_EYE_COLOR)
 	data["change_hair"] = can_change(APPEARANCE_HAIR)
 	if(data["change_hair"])
@@ -148,6 +159,9 @@
 
 /datum/nano_module/appearance_changer/proc/can_change_skin_color()
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_COLOR
+
+/datum/nano_module/appearance_changer/proc/can_change_skin_preset()
+	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_PRESET
 
 /datum/nano_module/appearance_changer/proc/cut_and_generate_data()
 	// Making the assumption that the available species remain constant

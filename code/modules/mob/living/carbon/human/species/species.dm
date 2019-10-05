@@ -212,6 +212,7 @@
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY)
 
 	var/zombie_type	//What zombie species they become
+	var/list/character_color_presets
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
