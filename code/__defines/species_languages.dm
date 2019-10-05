@@ -19,7 +19,7 @@
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.
 #define CAN_JOIN          0x2    // Species is selectable in chargen.
 #define IS_RESTRICTED     0x4    // Is not a core/normally playable species. (castes, mutantraces)
-#define NO_AGE_MINIMUM    0x5    // Doesn't respect minimum job age requirements.
+#define NO_AGE_MINIMUM    0x8    // Doesn't respect minimum job age requirements.
 
 // Species appearance flags
 #define HAS_SKIN_TONE     0x1    // Skin tone selectable in chargen. (0-255)

@@ -104,7 +104,7 @@
 
 		var/character_age = player.client.prefs.age
 		var/datum/species/species = global.all_species[player.client.prefs.species]
-		if((character_age < job.minimum_character_age) && (species.spawn_flags & ~NO_AGE_MINIMUM))
+		if((character_age < job.minimum_character_age) && !(species.spawn_flags & NO_AGE_MINIMUM))
 			to_chat(player, "<span class='warning'>Your character is too young!</span>")
 			return FALSE
 

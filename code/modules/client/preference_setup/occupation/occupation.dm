@@ -184,7 +184,7 @@
 		else if (ban_reason)
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
-		else if((character_age < job.minimum_character_age) && (species.spawn_flags & ~NO_AGE_MINIMUM))
+		else if((character_age < job.minimum_character_age) && !(species.spawn_flags & NO_AGE_MINIMUM))
 			dat += "<del>[rank]</del></td><td> \[MINIMUM AGE: [job.minimum_character_age]]</td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
