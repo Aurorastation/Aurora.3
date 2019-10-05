@@ -784,6 +784,7 @@
 					buildstage = 2
 					update_icon()
 					first_run()
+					set_frequency(frequency)
 					return
 				else
 					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
