@@ -2822,7 +2822,7 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("l_arm","r_arm","l_hand","r_hand")
 		species_allowed = list("Skrell")
 
-/datum/sprite_accessory/marking/diona
+	diona_leaves
 		name = "Diona Leaves"
 		icon = 'icons/mob/human_races/markings_diona.dmi'
 		icon_state = "diona_leaves"
