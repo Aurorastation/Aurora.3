@@ -356,25 +356,23 @@
 				w_uniform.add_fingerprint(M)
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 
-			var/list/holding = list(M.get_active_hand() = 40, M.get_inactive_hand() = 20)
+			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
 
-			//See if they have any guns that might go off
-			for(var/obj/item/weapon/gun/W in holding)
+			//See if they have any weapons to retaliate with
+			for(var/obj/item/weapon/W in holding)
 				if(W && prob(holding[W]))
-					var/list/turfs = list()
-					for(var/turf/T in view())
-						turfs += T
-					if(turfs.len)
-						var/turf/target = pick(turfs)
-						visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
-						return W.afterattack(target,src)
-
-			if(prob(20))
-				if(istype(M.get_active_hand(),/obj/item/weapon))
-					var/obj/item/weapon/wep = M.get_active_hand()
-					if(M.Adjacent(src))
-						visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with their [wep]!</span>")
-						return M.attackby(wep,src)
+					if(istype(W,/obj/item/weapon/gun))
+						var/list/turfs = list()
+						for(var/turf/T in view())
+							turfs += T
+						if(turfs.len)
+							var/turf/target = pick(turfs)
+							visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
+							return W.afterattack(target,src)
+					else
+						if(M.Adjacent(src))
+							visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
+							return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
 			if(randn <= 25)
