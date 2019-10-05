@@ -57,6 +57,24 @@
 	)
 
 /datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)
+	if (sql_load)
+		pref.backbag = text2num(pref.backbag)
+		pref.backbag_style = text2num(pref.backbag_style)
+		if(istext(pref.all_underwear))
+			var/before = pref.all_underwear
+			try
+				pref.all_underwear = json_decode(pref.all_underwear)
+			catch(var/exception/e)
+				log_debug("UNDERWEAR: Caught [e]. Initial value: [before]")
+				pref.all_underwear = list()
+		if(istext(pref.all_underwear_metadata))
+			var/before = pref.all_underwear_metadata
+			try
+				pref.all_underwear_metadata = json_decode(pref.all_underwear_metadata)
+			catch(var/exception/e)
+				log_debug("UNDERWEAR METADATA: Caught [e]. Initial value: [before]")
+				pref.all_underwear_metadata = list()
+
 	if(!istype(pref.all_underwear))
 		pref.all_underwear = list()
 
@@ -81,24 +99,6 @@
 	for(var/underwear_metadata in pref.all_underwear_metadata)
 		if(!(underwear_metadata in pref.all_underwear))
 			pref.all_underwear_metadata -= underwear_metadata
-
-	if (sql_load)
-		pref.backbag = text2num(pref.backbag)
-		pref.backbag_style = text2num(pref.backbag_style)
-		if(istext(pref.all_underwear))
-			var/before = pref.all_underwear
-			try
-				pref.all_underwear = json_decode(pref.all_underwear)
-			catch(var/exception/e)
-				log_debug("UNDERWEAR: Caught [e]. Initial value: [before]")
-				pref.all_underwear = list()
-		if(istext(pref.all_underwear_metadata))
-			var/before = pref.all_underwear_metadata
-			try
-				pref.all_underwear_metadata = json_decode(pref.all_underwear_metadata)
-			catch(var/exception/e)
-				log_debug("UNDERWEAR METADATA: Caught [e]. Initial value: [before]")
-				pref.all_underwear_metadata = list()
 
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
