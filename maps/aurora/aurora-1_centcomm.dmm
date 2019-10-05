@@ -11400,7 +11400,7 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/control)
 "aAg" = (
-/obj/structure/sign/greencross{
+/obj/structure/sign/bluecross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -14267,7 +14267,7 @@
 	},
 /area/centcom/holding)
 "aGr" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
 "aGs" = (
@@ -17298,7 +17298,7 @@
 	},
 /area/centcom/holding)
 "aMS" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "aMT" = (

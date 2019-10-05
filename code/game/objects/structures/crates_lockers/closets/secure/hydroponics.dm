@@ -44,6 +44,7 @@
 				new /obj/item/clothing/suit/apron(src)
 			if(2)
 				new /obj/item/clothing/suit/apron/overalls/blue(src)
+		new /obj/item/clothing/under/rank/scientist/botany(src)
 		new /obj/item/weapon/storage/bag/plants(src)
 		new /obj/item/clothing/under/rank/scientist(src)
 		new /obj/item/device/analyzer/plant_analyzer(src)

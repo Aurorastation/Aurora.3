@@ -69,6 +69,11 @@
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
+/datum/gear/head/beret/medical
+	display_name = "beret, medical"
+	path = /obj/item/clothing/head/beret/medical
+	allowed_roles = list("Medical Doctor", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp

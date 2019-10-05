@@ -106,7 +106,7 @@ var/datum/controller/subsystem/theming/SStheming
 #endif
 
 /proc/get_html_theme_header(var/themeclass, var/extra_header = "")
-	return {"<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">[extra_header]</head><body class="[themeclass]">"}
+	return {"<html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">[extra_header]</head><body class="[themeclass]">"}
 
 /proc/get_html_theme_footer()
 	return {"</body></html>"}
