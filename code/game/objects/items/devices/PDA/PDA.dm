@@ -75,22 +75,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if (pen)
 			to_chat(user, "There is \a [pen] in the pen slot.")
 
-/obj/item/device/pda/New(var/mob/living/carbon/human/H)
-	..()
-	pdachoice = isnull(H) ? 1 : (ishuman(H) ? H.pdachoice : 1)
-	switch(pdachoice)
-		if(2) icon = 'icons/obj/pda_slate.dmi'
-		if(3) icon = 'icons/obj/pda_slim.dmi'
-		if(4) icon = 'icons/obj/pda_old.dmi'
-		if(5) icon = 'icons/obj/pda_rugged.dmi'
-		if(6) icon = 'icons/obj/pda_smart.dmi'
-		if(7) icon = 'icons/obj/pda_glass.dmi'
-		else icon = 'icons/obj/pda.dmi'
-	message_silent = isnull(H) ? 0 : (ishuman(H) ? H.pdaringer : 0)
-	news_silent = isnull(H) ? 1 : (ishuman(H) ? H.pdanews : 1)
-	ttone = isnull(H) ? ttone : (ishuman(H) ? H.pdatone : ttone)
-	newstone = isnull(H) ? newstone : (ishuman(H) ? H.pdanewstone : newstone)
-
 /obj/item/device/pda/medical
 	default_cartridge = /obj/item/weapon/cartridge/medical
 	icon_state = "pda-m"
@@ -341,6 +325,20 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		try_sort_pda_list()
 	if(default_cartridge)
 		cartridge = new default_cartridge(src)
+
+	pdachoice = isnull(H) ? 1 : (ishuman(H) ? H.pdachoice : 1)
+	switch(pdachoice)
+		if(2) icon = 'icons/obj/pda_slate.dmi'
+		if(3) icon = 'icons/obj/pda_slim.dmi'
+		if(4) icon = 'icons/obj/pda_old.dmi'
+		if(5) icon = 'icons/obj/pda_rugged.dmi'
+		if(6) icon = 'icons/obj/pda_smart.dmi'
+		if(7) icon = 'icons/obj/pda_glass.dmi'
+		else icon = 'icons/obj/pda.dmi'
+	message_silent = isnull(H) ? 0 : (ishuman(H) ? H.pdaringer : 0)
+	news_silent = isnull(H) ? 1 : (ishuman(H) ? H.pdanews : 1)
+	ttone = isnull(H) ? ttone : (ishuman(H) ? H.pdatone : ttone)
+	newstone = isnull(H) ? newstone : (ishuman(H) ? H.pdanewstone : newstone)
 
 	if (has_pen)
 		pen = new /obj/item/weapon/pen(src)
