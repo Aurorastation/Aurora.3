@@ -1151,12 +1151,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	mob_icon_update()
 
-/obj/item/device/pda/verb/toggle_icon_layer()
+/obj/item/device/pda/verb/toggle_icon_layer(mob/user as mob)
 	set name = "Switch PDA Layer"
 	set category = "Object"
 
 	if(wear_over_suit == -1)
-		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(user, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
