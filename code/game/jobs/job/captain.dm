@@ -16,6 +16,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimal_player_age = 14
 	economic_modifier = 20
 
+	minimum_character_age = 35
+
 	ideal_character_age = 70 // Old geezer captains ftw
 
 	outfit = /datum/outfit/job/captain
@@ -75,6 +77,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50
+
+	minimum_character_age = 30
 
 	outfit = /datum/outfit/job/hop
 
