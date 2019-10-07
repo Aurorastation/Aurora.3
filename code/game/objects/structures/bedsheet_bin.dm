@@ -24,9 +24,14 @@ LINEN BINS
 	var/inuse = FALSE
 	var/list/dream_messages = list("white")
 
+/obj/item/weapon/bedsheet/afterattack(atom/A, mob/user)
+	if(istype(A, /obj/structure/bed))
+		user.drop_item()
+		forceMove(get_turf(A))
+		add_fingerprint(user)
+		return
+
 /obj/item/weapon/bedsheet/attack_hand(mob/user as mob)
-	if(fold)
-		user.put_in_hands(src)
 	if(!istype(loc,/mob))
 		toggle_roll(user)
 	else
