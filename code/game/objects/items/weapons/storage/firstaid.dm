@@ -160,7 +160,7 @@
 		if(!remove_from_storage(I,user))
 			return
 		if(user.put_in_inactive_hand(I))
-			to_chat(user, "<span class='notice'>You take \the [I] out of \the [src].</span>")
+			to_chat(user, span("notice","You take \the [I] out of \the [src]."))
 			if(iscarbon(user))
 				var/mob/living/carbon/C = user
 				C.swap_hand()
