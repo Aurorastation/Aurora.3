@@ -132,8 +132,10 @@
     
     .uiTitleWrapper {
         background: url(resources/theme-nano/uiTitleBackground.png) repeat center;
-        color: #E9C183;
         box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+        .uiTitleText {
+            color: #E9C183;
+        }
     }
 
     .uiTitleFluff {
@@ -205,7 +207,9 @@
     }
     .uiTitleWrapper {
         background: url(resources/theme-nano/uiTitleBackground-light.png) repeat center;
-        color: #4C401C
+        .uiTitleText {
+            color: #4C401C;
+        }
     }
     .uiTitleFluff {
         background: url(resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;

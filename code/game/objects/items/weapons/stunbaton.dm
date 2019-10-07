@@ -157,7 +157,7 @@
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
 					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
-					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src] \the")
+					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src]")
 					if(!sheathed)
 						H.electrocute_act(force * 2, src, ground_zero = target_zone)
 		if(isslime(L))
