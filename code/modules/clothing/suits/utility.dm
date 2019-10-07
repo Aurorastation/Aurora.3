@@ -18,6 +18,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
+	siemens_coefficient = 0.5
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/extinguisher)
 	slowdown = 1.0
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
@@ -35,6 +36,7 @@
 	name = "firesuit"
 	desc = "A suit that protects against extreme fire and heat."
 	//icon_state = "thermal"
+	siemens_coefficient = 0.35
 	item_state = "ro_suit"
 	w_class = 4//bulky item
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 25000
@@ -43,6 +45,7 @@
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"
 	desc = "A suit that protects against fire and heat, this one is designed for atmospheric technicians."
+	siemens_coefficient = 0.35
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
 	icon_state = "atmos_firesuit"
 	item_state = "atmos_firesuit"
@@ -57,6 +60,7 @@
 	w_class = 5//Too large to fit in a backpack
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
 	armor = list(melee = 30, bullet = 20, laser = 25,energy = 30, bomb = 100, bio = 60, rad = 60)
+	siemens_coefficient = 0.1
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
 	siemens_coefficient = 0
@@ -78,6 +82,7 @@
 	permeability_coefficient = 0.01
 	slowdown = 8
 	armor = list(melee = 55, bullet = 55, laser = 55,energy = 60, bomb = 100, bio = 60, rad = 60)
+	siemens_coefficient = 0.1
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
@@ -173,6 +178,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	siemens_coefficient = 0.35
 
 
 /obj/item/clothing/suit/radiation
@@ -187,6 +193,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/clothing/head/radiation,/obj/item/clothing/mask/gas)
 	slowdown = 1.5
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	siemens_coefficient = 0.35
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 
 

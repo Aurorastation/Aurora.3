@@ -6,7 +6,7 @@
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	punch_force = 3
 	w_class = 3
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.35
 	drop_sound = 'sound/items/drop/metalshield.ogg'
 
 /obj/item/clothing/gloves/arm_guard/mob_can_equip(var/mob/living/carbon/human/H, slot)
