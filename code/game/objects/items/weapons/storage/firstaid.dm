@@ -166,7 +166,7 @@
 				C.swap_hand()
 		else
 			I.dropInto(loc)
-			to_chat(user, "<span class='notice'>You fumble around with \the [src] and drop \the [I] on the floor.</span>")
+			to_chat(user, span("notice","You fumble around with \the [src] and drop \the [I] on the floor."))
 	else
 		to_chat(user, span("warning","\The [src] is empty."))
 
