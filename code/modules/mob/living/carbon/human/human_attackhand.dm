@@ -362,20 +362,21 @@
 			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
 
 			//See if they have any weapons to retaliate with
-			for(var/obj/item/weapon/W in holding)
-				if(W && prob(holding[W]))
-					if(istype(W,/obj/item/weapon/gun))
-						var/list/turfs = list()
-						for(var/turf/T in view())
-							turfs += T
-						if(turfs.len)
-							var/turf/target = pick(turfs)
-							visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
-							return W.afterattack(target,src)
-					else
-						if(M.Adjacent(src))
-							visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
-							return M.attackby(W,src)
+			if(src.a_intent != I_HELP)
+				for(var/obj/item/weapon/W in holding)
+					if(W && prob(holding[W]))
+						if(istype(W,/obj/item/weapon/gun))
+							var/list/turfs = list()
+							for(var/turf/T in view())
+								turfs += T
+							if(turfs.len)
+								var/turf/target = pick(turfs)
+								visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
+								return W.afterattack(target,src)
+						else
+							if(M.Adjacent(src))
+								visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
+								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
 			if(randn <= 25)
