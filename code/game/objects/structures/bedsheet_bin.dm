@@ -32,6 +32,8 @@ LINEN BINS
 		return
 
 /obj/item/weapon/bedsheet/attack_hand(mob/user as mob)
+	if(fold)
+		user.put_in_hands(src)
 	if(!istype(loc,/mob))
 		toggle_roll(user)
 	else
