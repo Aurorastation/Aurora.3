@@ -143,7 +143,6 @@
 					if(supplies["2"] != 0)
 						event_actions += "<a href='?src=\ref[src];continue=1;fix=2'>Fix using a part.</a><BR>"
 				if(ORION_TRAIL_BREAKDOWN)
-
 					event_info = ""
 					event_desc = "The ship's engines broke down! You can choose to fix it with a part or risk something going awry."
 					event_actions  = "<a href='?src=\ref[src];continue=1;risky=25'>Continue as normal</a><BR>"
