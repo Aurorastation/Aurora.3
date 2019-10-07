@@ -84,7 +84,7 @@ STOCK_ITEM_RARE(exogear, 1.5)
 		/obj/item/mecha_parts/mecha_equipment/tool/drill = 1,
 		/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill = 0.7,
 		/obj/item/mecha_parts/mecha_equipment/tool/extinguisher = 1,
-		/obj/item/mecha_parts/mecha_equipment/tool/rcd = 0.08,
+		/obj/item/mecha_parts/mecha_equipment/tool/rfd_c = 0.08,
 		/obj/item/mecha_parts/mecha_equipment/teleporter = 0.3,
 		/obj/item/mecha_parts/mecha_equipment/wormhole_generator = 0.5,
 		/obj/item/mecha_parts/mecha_equipment/gravcatapult = 0.8,

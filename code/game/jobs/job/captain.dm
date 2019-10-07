@@ -10,11 +10,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials and Corporate Regulations"
-	selection_color = "#ccccff"
+	selection_color = "#4747FF"
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
 	minimal_player_age = 14
 	economic_modifier = 20
+
+	minimum_character_age = 35
 
 	ideal_character_age = 70 // Old geezer captains ftw
 
@@ -71,10 +73,12 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the captain"
-	selection_color = "#ddddff"
+	selection_color = "#9696FF"
 	minimal_player_age = 10
 	economic_modifier = 10
 	ideal_character_age = 50
+
+	minimum_character_age = 30
 
 	outfit = /datum/outfit/job/hop
 

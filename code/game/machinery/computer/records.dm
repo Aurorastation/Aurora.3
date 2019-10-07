@@ -25,7 +25,7 @@
 	light_color = "#315ab4"
 	req_one_access = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
 	circuit = /obj/item/weapon/circuitboard/med_data
-	records_type = RECORD_MEDICAL
+	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
 
@@ -36,6 +36,7 @@
 	icon_state = "medlaptop0"
 	icon_screen = "medlaptop"
 	is_holographic = FALSE
+	density = 0 // so you can walk through them. because, well, they're goddamn laptops.
 
 /obj/machinery/computer/records/security
 	name = "security records console"
@@ -94,12 +95,12 @@
 			"editingvalue" = "",
 			"choices" = typechoices
 			)
-	
+
 	if(!authenticated)
 		VUEUI_SET_CHECK(ui.activeui, "records-login", ., data)
 	else
 		VUEUI_SET_CHECK(ui.activeui, "records-main", ., data)
-	
+
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
 	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
 	LAZYINITLIST(data["allrecords"])
@@ -121,7 +122,7 @@
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["blood"], R.medical.blood_type, ., data)
 				VUEUI_SET_CHECK(data["allrecords"][R.id]["dna"], R.medical.blood_dna, ., data)
 
-		
+
 		if(records_type & RECORD_LOCKED)
 			if(data["allrecords_locked"].len != SSrecords.records_locked.len)
 				data["allrecords_locked"].Cut()
@@ -300,7 +301,7 @@
 			. = TRUE
 		if(.)
 			SSvueui.check_uis_for_change(t)
-		
+
 /listener/record/rconsole/on_modify(var/datum/record/r)
 	var/obj/machinery/computer/records/t = target
 	if(istype(t) && !t.isEditing)

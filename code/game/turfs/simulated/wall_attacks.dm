@@ -354,6 +354,6 @@
 		F.try_build(src)
 		return
 
-	else if(!istype(W,/obj/item/weapon/rcd) && !istype(W, /obj/item/weapon/reagent_containers))
+	else if(!istype(W,/obj/item/weapon/rfd/construction) && !istype(W, /obj/item/weapon/reagent_containers))
 		return attack_hand(user)
 

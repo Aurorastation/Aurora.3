@@ -219,7 +219,8 @@ log transactions
 				dat += "<input type='submit' value='Submit'><br>"
 				dat += "</form>"
 
-		user << browse(dat,"window=atm;size=550x650")
+		send_theme_resources(user)
+		user << browse(enable_ui_theme(user, dat),"window=atm;size=550x650")
 	else
 		user << browse(null,"window=atm")
 

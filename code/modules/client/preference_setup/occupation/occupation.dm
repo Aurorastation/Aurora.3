@@ -165,18 +165,15 @@
 	for(var/datum/job/job in faction.get_occupations())
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
-			if((index < limit) && (lastJob != null))
-				//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
-				//the last job's selection color. Creating a rather nice effect.
-				for(var/i = 0, i < (limit - index), i += 1)
-					dat += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'><a>&nbsp</a></td><td><a>&nbsp</a></td></tr>"
 			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
-		dat += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
+		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
 		var/ban_reason = jobban_isbanned(user, rank)
+		var/character_age = user.client.prefs.age
+		var/datum/species/species = global.all_species[user.client.prefs.species]
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
@@ -186,6 +183,9 @@
 			continue
 		else if (ban_reason)
 			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
+			continue
+		else if((character_age < job.minimum_character_age) && !(species.spawn_flags & NO_AGE_MINIMUM))
+			dat += "<del>[rank]</del></td><td> \[MINIMUM AGE: [job.minimum_character_age]]</td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
@@ -205,7 +205,7 @@
 			else
 				dat += " <font color=red>\[No]</font>"
 			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -218,7 +218,7 @@
 		else
 			dat += " <font color=red>\[NEVER]</font>"
 		if(job.alt_titles)
-			dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"
