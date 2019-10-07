@@ -236,7 +236,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			old_position = dpos + 1
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
-				crash_with("Invalid type in map. [path_str]")
+				stack_trace("Invalid type in map. [path_str]")
 				continue
 
 			members += atom_def

@@ -29,7 +29,7 @@
 	if (lighting_overlay)
 		if (lighting_overlay.loc != src)
 			var/turf/badT = lighting_overlay.loc
-			crash_with("Lighting overlay variable on turf [DEBUG_REF(src)] is insane, lighting overlay actually located on [DEBUG_REF(lighting_overlay.loc)] at ([badT.x],[badT.y],[badT.z])!")
+			stack_trace("Lighting overlay variable on turf [DEBUG_REF(src)] is insane, lighting overlay actually located on [DEBUG_REF(lighting_overlay.loc)] at ([badT.x],[badT.y],[badT.z])!")
 
 		qdel(lighting_overlay, TRUE)
 		lighting_overlay = null

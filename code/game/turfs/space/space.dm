@@ -22,7 +22,7 @@
 		update_starlight()
 
 	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
 
 	initialized = TRUE
 

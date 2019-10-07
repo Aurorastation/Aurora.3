@@ -256,7 +256,7 @@
 		citizenships[citizenship.name] = citizenship
 
 	if (!citizenships.len)
-		crash_with("No citizenships located in SSrecords.")
+		stack_trace("No citizenships located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/InitializeReligions()
 	for (var/type in subtypesof(/datum/religion))
@@ -265,7 +265,7 @@
 		religions[religion.name] = religion
 
 	if (!religions.len)
-		crash_with("No citizenships located in SSrecords.")
+		stack_trace("No citizenships located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
 	var/datum/religion/religion = SSrecords.religions[target_religion]

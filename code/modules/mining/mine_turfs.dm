@@ -71,7 +71,7 @@ var/list/mineral_can_smooth_with = list(
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
 	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
 
 	if (icon != actual_icon)
 		icon = actual_icon
@@ -561,7 +561,7 @@ var/list/asteroid_floor_smooth = list(
 // Copypaste parent for performance.
 /turf/unsimulated/floor/asteroid/Initialize(mapload)
 	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 
 	if (icon != base_icon)	// Setting icon is an appearance change, so avoid it if we can.

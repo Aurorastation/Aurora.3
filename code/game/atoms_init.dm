@@ -22,7 +22,7 @@
 
 /atom/proc/Initialize(mapload, ...)
 	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	initialized = TRUE
 
 	if (light_power && light_range)

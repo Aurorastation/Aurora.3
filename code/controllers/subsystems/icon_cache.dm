@@ -130,7 +130,7 @@
 
 	if (!istext(state))
 		// non-fatal, so just print a message then carry on.
-		crash_with("Received non-text icon_state '[state || "(NULL)"]'; normalizing, but this shouldn't happen.")
+		stack_trace("Received non-text icon_state '[state || "(NULL)"]'; normalizing, but this shouldn't happen.")
 		state = "[state]"
 
 	var/list/cache = istate_cache[I]

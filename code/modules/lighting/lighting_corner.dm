@@ -222,7 +222,7 @@ var/list/REVERSE_LIGHTING_CORNER_DIAGONAL = list(0, 0, 0, 0, 3, 4, 0, 0, 2, 1)
 #undef UPDATE_ABOVE_CORNER
 
 /datum/lighting_corner/Destroy(force = FALSE)
-	crash_with("Some fuck [force ? "force-" : ""]deleted a lighting corner.")
+	stack_trace("Some fuck [force ? "force-" : ""]deleted a lighting corner.")
 	if (!force)
 		return QDEL_HINT_LETMELIVE
 

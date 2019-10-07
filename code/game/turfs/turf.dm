@@ -48,7 +48,7 @@
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
 	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
 
 	initialized = TRUE
 
@@ -90,7 +90,7 @@
 
 /turf/Destroy()
 	if (!changing_turf)
-		crash_with("Improper turf qdeletion.")
+		stack_trace("Improper turf qdeletion.")
 
 	changing_turf = FALSE
 	turfs -= src

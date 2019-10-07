@@ -1006,8 +1006,9 @@ var/list/wall_items = typecacheof(list(
 		color = origin.color
 		set_light(origin.light_range, origin.light_power, origin.light_color)
 
-// call to generate a stack trace and print to runtime logs
-/proc/crash_with(msg)
+
+//gives us the stack trace from CRASH() without ending the current proc.
+/proc/stack_trace(msg)
 	CRASH(msg)
 
 /atom/proc/find_up_hierarchy(var/atom/target)
@@ -1197,3 +1198,19 @@ var/list/wall_items = typecacheof(list(
 		return 0
 	return 1
 
+/proc/CallAsync(datum/source, proctype, list/arguments)
+	set waitfor = FALSE
+	return call(source, proctype)(arglist(arguments))
+
+#define TURF_FROM_COORDS_LIST(List) (locate(List[1], List[2], List[3]))
+
+/proc/REF(input)
+	if(istype(input, /datum))
+		var/datum/thing = input
+		if(thing.datum_flags & DF_USE_TAG)
+			if(!thing.tag)
+				stack_trace("A ref was requested of an object with DF_USE_TAG set but no tag: [thing]")
+				thing.datum_flags &= ~DF_USE_TAG
+			else
+				return "\[[url_encode(thing.tag)]\]"
+	return "\ref[input]"

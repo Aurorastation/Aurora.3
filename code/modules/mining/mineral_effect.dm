@@ -16,12 +16,12 @@
 	var/turf/simulated/mineral/T = get_turf(src)
 	layer = T.layer+0.1
 	if (!istype(T))
-		crash_with("Invalid loc for mineral overlay: [T ? T.type : "NULL"].")
+		stack_trace("Invalid loc for mineral overlay: [T ? T.type : "NULL"].")
 		qdel(src)
 		return
 
 	if (T.my_mineral)
-		crash_with("Mineral overlay created on turf that already had one.")
+		stack_trace("Mineral overlay created on turf that already had one.")
 		qdel(T.my_mineral)
 
 	T.my_mineral = src
@@ -39,7 +39,7 @@
 		if(O)
 			scanner_image = image(icon, loc = get_turf(src), icon_state = (O.scan_icon ? O.scan_icon : icon_state))
 		else
-			crash_with("No ore data for [src]!")
+			stack_trace("No ore data for [src]!")
 	return scanner_image
 
 /obj/effect/mineral/singularity_pull()

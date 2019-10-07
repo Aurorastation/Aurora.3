@@ -559,7 +559,7 @@
 	if (!loc)
 		STOP_PROCESSING(SSdisposals, src)
 		tick_last = null
-		crash_with("disposalholder processing in nullspace!")
+		stack_trace("disposalholder processing in nullspace!")
 		return
 
 	tick_last = curr

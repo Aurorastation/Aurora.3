@@ -362,10 +362,10 @@ var/datum/controller/subsystem/timer/SStimer
 		CRASH("addtimer called without a callback")
 
 	if (wait < 0)
-		crash_with("addtimer called with a negative wait. Converting to 0")
+		stack_trace("addtimer called with a negative wait. Converting to 0")
 
 	if (callback.object != GLOBAL_PROC && QDELETED(callback.object) && !QDESTROYING(callback.object))
-		crash_with("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not be supported and may refuse to run or run with a 0 wait")
+		stack_trace("addtimer called with a callback assigned to a qdeleted object. In the future such timers will not be supported and may refuse to run or run with a 0 wait")
 
 	wait = max(wait, 0)
 

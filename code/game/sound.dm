@@ -170,13 +170,13 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
 	if (isarea(source))
-		crash_with("[source] is an area and is trying to make the sound: [soundin]")
+		stack_trace("[source] is an area and is trying to make the sound: [soundin]")
 		return
 
 	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, get_rand_frequency(), environment)
 
 	if (!original_sound)
-		crash_with("Could not construct original sound.")
+		stack_trace("Could not construct original sound.")
 		return
 
 	if (is_global)

@@ -604,15 +604,15 @@
 
 		if (faction.is_default)
 			if (default_faction)
-				crash_with("Two default factions detected in SSjobs.")
+				stack_trace("Two default factions detected in SSjobs.")
 			else
 				default_faction = faction
 
 	if (!default_faction)
-		crash_with("No default faction assigned to SSjobs.")
+		stack_trace("No default faction assigned to SSjobs.")
 
 	if (!factions.len)
-		crash_with("No factions located in SSjobs.")
+		stack_trace("No factions located in SSjobs.")
 
 /datum/controller/subsystem/jobs/proc/HandleFeedbackGathering()
 	for(var/thing in occupations)

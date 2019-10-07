@@ -24,7 +24,7 @@
 /*/atom/movable/Del()
 	if(!QDELING(src) && loc)
 		testing("GC: -- [type] was deleted via del() rather than qdel() --")
-		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
+		stack_trace("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
 	..()*/
 
 /atom/movable/Destroy()

@@ -578,7 +578,7 @@
 	if(LAZYLEN(starts_with))
 		for(var/t in starts_with)
 			if(!ispath(t))
-				crash_with("[t] in [src]'s starts_with list is not a path!")
+				stack_trace("[t] in [src]'s starts_with list is not a path!")
 				continue
 			for(var/i=0, i<starts_with[t], i++)
 				new t(src)

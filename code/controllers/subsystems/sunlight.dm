@@ -63,7 +63,7 @@
 
 /atom/movable/sunobj/Destroy(force = FALSE)
 	if (!force)
-		crash_with("Something attempted to delete a sunobj!")
+		stack_trace("Something attempted to delete a sunobj!")
 		return QDEL_HINT_LETMELIVE
 
 	SSsunlight.light_points -= src

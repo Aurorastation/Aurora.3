@@ -21,7 +21,7 @@
 		WRITE_LOG(diary, "[log_end]\n[log_end]\nStarting up. (ID: [game_id]) [log_end]\n---------------------[log_end]")
 		already_logged = TRUE
 	else
-		crash_with("log_startup() was called more then once")
+		stack_trace("log_startup() was called more then once")
 
 /proc/log_topic(T, addr, master, key, var/list/queryparams)
 	WRITE_LOG(diary, "[game_id] TOPIC: \"[T]\", from:[addr], master:[master], key:[key], auth:[queryparams["auth"] ? queryparams["auth"] : "null"] [log_end]")

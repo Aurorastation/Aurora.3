@@ -198,12 +198,12 @@
  */
 /proc/add_machine(obj/machinery/M)
 	if (QDELETED(M))
-		crash_with("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
+		stack_trace("Attempted add of QDELETED machine [M ? M : "NULL"] to machines list, ignoring.")
 		return
 
 	M.machinery_processing = TRUE
 	if (SSmachinery.processing_machines[M])
-		crash_with("Type [M.type] was added to the processing machines list twice! Ignoring duplicate.")
+		stack_trace("Type [M.type] was added to the processing machines list twice! Ignoring duplicate.")
 
 	SSmachinery.processing_machines[M] = TRUE
 	SSmachinery.all_machines[M] = TRUE
