@@ -235,6 +235,16 @@
 	path = /obj/item/weapon/reagent_containers/glass/beaker/vial
 	category = "Medical"
 
+/datum/autolathe/recipe/autoinjector
+	name = "autoinjector"
+	path = /obj/item/weapon/reagent_containers/hypospray/autoinjector
+	category = "Medical"
+
+/datum/autolathe/recipe/autoinhaler
+	name = "autoinhaler"
+	path = /obj/item/weapon/reagent_containers/inhaler
+	category = "Medical"
+
 /datum/autolathe/recipe/syringe
 	name = "syringe"
 	path = /obj/item/weapon/reagent_containers/syringe

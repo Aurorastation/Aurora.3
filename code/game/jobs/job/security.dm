@@ -10,6 +10,9 @@
 	supervisors = "the captain"
 	selection_color = "#FF6363"
 	economic_modifier = 10
+
+	minimum_character_age = 30
+
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
@@ -68,6 +71,9 @@
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
+
+	minimum_character_age = 25
+
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
@@ -114,6 +120,9 @@
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
+
+	minimum_character_age = 25
+
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_morgue, access_maint_tunnels, access_detective, access_weapons)
 	minimal_player_age = 7
@@ -152,6 +161,9 @@
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
+
+	minimum_character_age = 25
+
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	alt_titles = list("Crime Scene Investigator")
@@ -198,8 +210,10 @@
 	spawn_positions = 4
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
-//	alt_titles = list("Junior Officer") //aurora already has security cadets
 	economic_modifier = 4
+
+	minimum_character_age = 18
+
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_weapons)
 	minimal_player_age = 7

@@ -52,7 +52,7 @@
 
 /obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
 	var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
-	if(isnum(new_input) && CanInteract(user, physical_state))
+	if(isnum(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
@@ -71,7 +71,7 @@
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
 	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
-	if(istext(new_input) && CanInteract(user, physical_state))
+	if(istext(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
@@ -90,7 +90,7 @@
 
 /obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
 	var/new_color = input(user, "Enter a color, please.", "Color pad", get_pin_data(IC_OUTPUT, 1)) as color|null
-	if(new_color && CanInteract(user, physical_state))
+	if(new_color && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_color)
 		push_data()
 		activate_pin(1)
