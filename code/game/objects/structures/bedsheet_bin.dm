@@ -49,7 +49,7 @@ LINEN BINS
 	add_fingerprint(user)
 
 /obj/item/weapon/bedsheet/MouseDrop(mob/user as mob)
-	if((user && (!( user.restrained() ) && (!( user.stat ) && (user.contents.Find(src) || in_range(src, user))))))
+	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !usr.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
@@ -162,7 +162,14 @@ LINEN BINS
 	return FALSE
 
 /obj/item/weapon/bedsheet/attackby(obj/item/I, mob/user)
-	if(is_sharp(I))
+	if(I.isscrewdriver())
+		user.visible_message("<span class='notice'>\The [user] begins poking eyeholes in \the [src] with \the [I].</span>", "<span class='notice'>You begin poking eyeholes in \the [src] with \the [I].</span>")
+		if(do_after(user, 50/I.toolspeed))
+			to_chat(user, "<span class='notice'>You poke eyeholes in \the [src]!</span>")
+			new /obj/item/weapon/bedsheet/costume(get_turf(src))
+			qdel(src)
+		return
+	else if(is_sharp(I))
 		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
@@ -290,6 +297,13 @@ LINEN BINS
 	desc = "It has a syndicate emblem and it has an aura of evil."
 	icon_state = "sheetsyndie"
 	item_state = "sheetsyndie"
+
+/obj/item/weapon/bedsheet/costume
+	name = "ghost bedsheet"
+	desc = "It seems to be flipped inside out with eyeholes poked out. "
+	icon_state = "sheetcostume"
+	item_state = "sheetcostume"
+	slot_flags = SLOT_OCLOTHING
 
 /obj/structure/bedsheetbin
 	name = "linen bin"
