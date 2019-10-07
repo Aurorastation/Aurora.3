@@ -60,6 +60,10 @@
 			e_turf.dir = P.dir
 			e_turf.update_icon()
 			e_turf.add_overlay("engine_mount")
+		else if(istype(A, /obj/machinery/door/airlock/external))
+			var/turf/T = get_turf(A)
+			exterior_walls_and_engines += list(list(T.x, T.y, T.z))
+
 	center = list((max_x + min_x) / 2, (max_y + min_y) / 2)
 	length = max_x - min_x
 	width = max_y - min_y
@@ -402,8 +406,9 @@
 	if(!user)
 		return
 	
-	var/mob/abstract/observer/shuttle/O = new /mob/abstract/observer/shuttle(pick(the_station_areas))
+	var/mob/abstract/observer/shuttle/O = new (pick(the_station_areas))
 	O.client = user.client
 	O.client.view = sqrt(ship_size)
-	O.sight &= ~SEE_MOBS
+	O.sight &= ~(SEE_MOBS|SEE_OBJS)
 	O.S = src
+	O.mainbody = WEAKREF(user)
