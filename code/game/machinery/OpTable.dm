@@ -94,6 +94,7 @@
 		if(locate(/mob/living/carbon/human) in loc)
 			for(var/mob/living/carbon/human/H in loc)
 				if(H.lying)
+					icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
 					victim = H
 					break
 	if(victim)
