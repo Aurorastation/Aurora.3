@@ -168,7 +168,7 @@
 			I.dropInto(loc)
 			to_chat(user, "<span class='notice'>You fumble around with \the [src] and drop \the [I] on the floor.</span>")
 	else
-		to_chat(user, "<span class='warning'>\The [src] is empty.</span>")
+		to_chat(user, span("warning","\The [src] is empty."))
 
 
 /obj/item/weapon/storage/pill_bottle/antitox
