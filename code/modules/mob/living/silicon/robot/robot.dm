@@ -1055,16 +1055,6 @@
 	lockcharge = state
 	update_canmove()
 
-/mob/living/silicon/robot/mode()
-	set name = "Activate Held Object"
-	set category = "IC"
-	set src = usr
-
-	var/obj/item/W = get_active_hand()
-	if (W)
-		W.attack_self(src)
-
-	return
 
 /mob/living/silicon/robot/proc/choose_icon()
 	set category = "Robot Commands"
