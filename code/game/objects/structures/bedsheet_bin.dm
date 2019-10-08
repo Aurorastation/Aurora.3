@@ -22,7 +22,7 @@ LINEN BINS
 	var/roll = FALSE
 	var/fold = FALSE
 	var/inuse = FALSE
-	var/list/dream_messages = list("white")
+	var/inside_storage_item = FALSE
 
 /obj/item/weapon/bedsheet/afterattack(atom/A, mob/user)
 	if(istype(A, /obj/structure/bed))
@@ -32,13 +32,23 @@ LINEN BINS
 		return
 
 /obj/item/weapon/bedsheet/attack_hand(mob/user as mob)
-	if(fold)
+	if(fold || inside_storage_item)
+		if(inside_storage_item)
+			inside_storage_item = FALSE
 		user.put_in_hands(src)
 	if(!istype(loc,/mob))
 		toggle_roll(user)
 	else
 		..()
 	add_fingerprint(user)
+
+/obj/item/weapon/bedsheet/on_enter_storage(obj/item/weapon/storage/S as obj)
+	inside_storage_item = TRUE
+	return
+
+/obj/item/weapon/bedsheet/on_exit_storage(obj/item/weapon/storage/S as obj)
+	inside_storage_item = FALSE
+	return
 
 /obj/item/weapon/bedsheet/AltClick(mob/user as mob)
 	if(!istype(loc,/mob))
