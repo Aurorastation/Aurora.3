@@ -13,10 +13,10 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
-	var/agonyforce = 120
+	var/agonyforce = 70
 	var/status = 0		//whether the thing is on or not
 	var/obj/item/weapon/cell/bcell
-	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
+	var/hitcost = 1000
 	var/baton_color = "#FF6A00"
 	var/sheathed = 1 //electrocutes only on harm intent
 
@@ -237,8 +237,8 @@
 	force = 3
 	throwforce = 5
 	stunforce = 0
-	agonyforce = 120	//same force as a stunbaton, but uses way more charge.
-	hitcost = 2500
+	agonyforce = 60	//Marginally more inefficient.
+	hitcost = 2000
 	attack_verb = list("poked")
 	slot_flags = null
 	baton_color = "#FFDF00"
@@ -251,6 +251,8 @@
 	icon_state = "stunrod"
 	item_state = "stunrod"
 	force = 7
+	agonyforce = 80
+	hitcost = 1000
 	baton_color = "#75ACFF"
 	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
@@ -281,7 +283,8 @@
 	item_state = "stunrod"
 	baton_color = "#75ACFF"
 	force = 3
-	agonyforce = 60
+	hitcost = 1000
+	agonyforce = 50
 
 /obj/item/weapon/melee/baton/slime/Initialize()
 	bcell = new/obj/item/weapon/cell/high(src)
