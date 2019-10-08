@@ -7,7 +7,7 @@
 		slot_r_hand_str = "wizhat"
 		)
 	//Not given any special protective value since the magic robes are full-body protection --NEO
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 	body_parts_covered = 0
 	wizard_garb = 1
 
@@ -15,7 +15,6 @@
 	name = "red wizard hat"
 	desc = "Strange-looking, red, hat-wear that most certainly belongs to a real magic user."
 	icon_state = "redwizard"
-	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/wizard/fake
 	name = "wizard hat"
@@ -28,7 +27,6 @@
 	name = "witch Hat"
 	desc = "Strange-looking hat-wear, makes you want to cast fireballs."
 	icon_state = "marisa"
-	siemens_coefficient = 0.7
 
 /obj/item/clothing/head/wizard/magus
 	name = "magus Helm"
@@ -39,7 +37,6 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/wizard/amp
@@ -70,7 +67,7 @@
 	armor = list(melee = 30, bullet = 20, laser = 20,energy = 20, bomb = 20, bio = 20, rad = 20)
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
 	flags_inv = HIDEJUMPSUIT
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 	wizard_garb = 1
 
 /obj/item/clothing/suit/wizrobe/red
@@ -117,7 +114,7 @@
 	armor = list(melee = 30, bullet = 20, laser = 20,energy = 20, bomb = 20, bio = 20, rad = 20)
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
 	flags_inv = HIDEJUMPSUIT
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 	wizard_garb = 1
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
