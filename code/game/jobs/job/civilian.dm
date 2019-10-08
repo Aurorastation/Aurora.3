@@ -37,9 +37,6 @@
 	spawn_positions = 2
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
-
-	minimum_character_age = 18
-
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
 	alt_titles = list("Cook")
@@ -70,9 +67,6 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
-
-	minimum_character_age = 18
-
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
 	alt_titles = list("Hydroponicist")
