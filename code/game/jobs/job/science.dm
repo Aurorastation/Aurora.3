@@ -10,6 +10,9 @@
 	supervisors = "the captain"
 	selection_color = "#FF40FF"
 	economic_modifier = 15
+
+	minimum_character_age = 30
+
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
@@ -51,6 +54,9 @@
 	supervisors = "the research director"
 	selection_color = "#FFAAFF"
 	economic_modifier = 7
+
+	minimum_character_age = 25
+
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
@@ -84,6 +90,9 @@
 	supervisors = "the research director"
 	selection_color = "#FFAAFF"
 	economic_modifier = 7
+
+	minimum_character_age = 25
+
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
 	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
 	alt_titles = list("Xenobotanist")
@@ -107,6 +116,9 @@
 	supervisors = "research director"
 	selection_color = "#FFAAFF"
 	economic_modifier = 5
+
+	minimum_character_age = 25
+
 	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
