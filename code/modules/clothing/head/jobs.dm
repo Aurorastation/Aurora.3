@@ -173,7 +173,7 @@
 		)
 	allowed = list(/obj/item/weapon/reagent_containers/food/snacks/candy_corn, /obj/item/weapon/pen)
 	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/det/grey
 	icon_state = "grey_fedora"
