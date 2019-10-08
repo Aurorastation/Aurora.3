@@ -35,7 +35,8 @@ LINEN BINS
 	if(fold || inside_storage_item)
 		if(inside_storage_item)
 			inside_storage_item = FALSE
-		user.put_in_hands(src)
+		if(!istype(loc,/mob))
+			user.put_in_hands(src)
 	if(!istype(loc,/mob))
 		toggle_roll(user)
 	else
