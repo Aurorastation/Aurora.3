@@ -62,7 +62,7 @@ LINEN BINS
 /obj/item/weapon/bedsheet/MouseDrop(mob/user as mob)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
-			if( !usr.get_active_hand() )		//if active hand is empty
+			if( !user.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 				if (H.hand)
