@@ -8,19 +8,15 @@
 	suit_type = "ERT commander"
 	icon_state = "ert_commander_rig"
 	emp_protection = 35
-
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ert
-
 	req_access = list(access_cent_specops)
-
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
-
+	siemens_coefficient = 0.1
 	allowed = list(
 	/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rfd/construction, /obj/item/weapon/crowbar, \
 	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
 	/obj/item/device/radio, /obj/item/device/analyzer,/obj/item/weapon/storage/briefcase/inflatable, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, \
 	/obj/item/weapon/storage/firstaid, /obj/item/weapon/reagent_containers/hypospray, /obj/item/roller)
-
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/nvg,
@@ -37,11 +33,8 @@
 	suit_type = "ERT engineer"
 	icon_state = "ert_engineer_rig"
 	emp_protection = 30
-
 	armor = list(melee = 55, bullet = 45, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
-
 	glove_type = /obj/item/clothing/gloves/rig/eva
-
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/meson,
@@ -58,9 +51,7 @@
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 	emp_protection = 30
-
 	armor = list(melee = 55, bullet = 45, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
-
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/medhud,
@@ -78,9 +69,7 @@
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
 	emp_protection = 30
-
 	armor = list(melee = 65, bullet = 55, laser = 40, energy = 15, bomb = 30, bio = 100, rad = 80)
-
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/sechud,
@@ -96,7 +85,6 @@
 	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Less armoured than security the variant, but offers full radiation protection."
 	suit_type = "ERT janitor"
 	icon_state = "ert_janitor_rig"
-
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -106,7 +94,6 @@
 		/obj/item/rig_module/actuators
 		)
 	armor = list(melee = 55, bullet = 45, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 100)
-
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/weapon/rig/ert/assetprotection
@@ -116,9 +103,7 @@
 	icon_state = "asset_protection_rig"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 40, bomb = 80, bio = 100, rad =100)
 	slowdown = 0
-	siemens_coefficient = 0
 	emp_protection = 50
-
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
