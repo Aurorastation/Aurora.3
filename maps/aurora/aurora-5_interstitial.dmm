@@ -3080,12 +3080,6 @@
 	},
 /obj/item/device/camera_film,
 /obj/item/device/camera,
-/obj/machinery/requests_console{
-	department = "Forensic Technician";
-	departmentType = 5;
-	pixel_x = -32;
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
@@ -3468,7 +3462,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_security{
+/obj/machinery/door/airlock/security{
 	name = "Forensic Technician";
 	req_access = list(4)
 	},
@@ -3479,11 +3473,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -3492,6 +3481,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
@@ -3504,6 +3498,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
@@ -3758,6 +3757,12 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/csi,
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "gT" = (
@@ -10966,6 +10971,12 @@
 	dir = 9
 	},
 /obj/machinery/computer/records/security,
+/obj/machinery/requests_console{
+	department = "Forensic Technician";
+	departmentType = 5;
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Pm" = (
@@ -11661,17 +11672,8 @@
 /area/maintenance/interstitial_main)
 "TH" = (
 /obj/structure/table/standard,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
@@ -49379,8 +49381,8 @@ fw
 fN
 gj
 fw
-fw
-fw
+fN
+gj
 gx
 fw
 fw

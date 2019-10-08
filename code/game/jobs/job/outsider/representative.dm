@@ -10,6 +10,9 @@
 	selection_color = "#C0C0C0"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
+
+	minimum_character_age = 25
+
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative

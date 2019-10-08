@@ -78,7 +78,7 @@
 
 	appearance_flags = HAS_HAIR_COLOR
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
