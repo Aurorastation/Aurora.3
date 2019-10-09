@@ -26,12 +26,17 @@
 
 /obj/item/clothing/under/rank/cargotech
 	name = "cargo technician's jumpsuit"
-	desc = "Shooooorts! They're comfy and easy to wear!"
+	desc = "Not shorts anymore, unfortunately. Literal budget cuts."
 	icon_state = "cargotech"
 	item_state = "lb_suit"
-	worn_state = "cargo"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	worn_state = "cargotech"
 
+/obj/item/clothing/under/rank/cargotech/alt
+	name = "cargo technician's shorts"
+	desc = "The actual shorts."
+	icon_state = "cargotech_alt"
+	item_state = "cargotech_alt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/chaplain
 	desc = "It's a black jumpsuit, often worn by religious folk."

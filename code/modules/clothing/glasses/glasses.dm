@@ -84,6 +84,38 @@ BLIND     // can't see anything
 	. = ..()
 	overlay = global_hud.meson
 
+/obj/item/clothing/glasses/goggles
+	name = "standard goggles"
+	desc = "Used to prevent the screwdriver from making a bowl out of your brain."
+	icon_state = "goggles_standard"
+	item_state = "goggles_standard"
+	action_button_name = "Raise Goggles"
+	toggleable = 1
+	vision_flags = SEE_TURFS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	item_flags = AIRTIGHT
+	activated_color = LIGHT_COLOR_GREEN
+
+/obj/item/clothing/glasses/goggles/verb/raise()
+	set category = "Object"
+	set name = "Raise Goggles"
+	set src in usr
+
+	attack_self(usr)
+
+/obj/item/clothing/glasses/goggles/attack_self(mob/user)
+	active = !active
+	if(active)
+		to_chat(user, "<span class='notice'>You raise [src] out of the way.</span>")
+		icon_state += "_up"
+	if(!active)
+		to_chat(user, "<span class='notice'>You lower [src] to protect your eyes.</span>")
+		icon_state = initial(icon_state)
+
+/obj/item/clothing/glasses/meson/Initialize()
+	. = ..()
+	overlay = global_hud.meson
+
 /obj/item/clothing/glasses/meson/prescription
 	name = "prescription mesons"
 	desc = "Optical Meson Scanner with prescription lenses."

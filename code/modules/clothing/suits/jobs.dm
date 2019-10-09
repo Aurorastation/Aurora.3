@@ -30,6 +30,24 @@ obj/item/clothing/suit/apron/overalls/blue
 	allowed = list(/obj/item/stack/medical, /obj/item/weapon/reagent_containers/dropper, /obj/item/weapon/reagent_containers/hypospray, /obj/item/weapon/reagent_containers/syringe, \
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/weapon/tank/emergency_oxygen, /obj/item/device/breath_analyzer)
 
+/obj/item/clothing/suit/apron/overalls/engineer
+	name = "engineer's overalls"
+	desc = "A set of brown overalls."
+	icon_state = "engineering_overalls"
+	item_state = "engineering_overalls"
+
+/obj/item/clothing/suit/apron/overalls/chief
+	name = "chief engineer's overalls"
+	desc = "A set of white overalls."
+	icon_state = "ce_overalls"
+	item_state = "ce_overalls"
+
+/obj/item/clothing/suit/apron/overalls/miner
+	name = "miner's overalls"
+	desc = "A set of dark gray overalls."
+	icon_state = "mining_overalls"
+	item_state = "mining_overalls"
+
 //Captain
 /obj/item/clothing/suit/captunic
 	name = "captain's parade tunic"
