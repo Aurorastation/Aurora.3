@@ -7,6 +7,7 @@
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
+	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -75,8 +76,8 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
+	appearance_flags = HAS_HAIR_COLOR
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
-	appearance_flags = 0
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_color = "#97dd7c"
