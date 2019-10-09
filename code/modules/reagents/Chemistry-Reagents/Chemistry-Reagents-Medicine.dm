@@ -1207,6 +1207,36 @@
 	if (prob(dose))
 		M.vomit()
 
+
+/datum/reagent/mental/kokoreed
+	name = "KoKo Reed Juice"
+	id = "kokoreed"
+	description = "A tall, green, grass-like plant grows up to 7 feet tall. In the past it thrived in the wet marshlands outside Iz'iz, having evolved to take nutrients from the otherwise toxic byproducts of the algae-contaminated waters. It was discovered by the Unathi colonists that the stalk can be chewed to induce a soothing sense of warmth and comfort, but only to Unathi due to its unique interactions with Unathi physiology. Other species simply taste a sweet, stringy reed. ."
+	reagent_state = LIQUID
+	color = "#008000"
+	metabolism = 0.0016 * REM
+	overdose = 3
+	data = 0
+	taste_description = "sugar"
+	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm..")
+	badmessage = list()
+	worstmessage = list()
+	suppress_traumas  = list()
+	conflicting_reagent = null
+	min_dose = 0.0064 * REM
+	var/datum/modifier/modifier
+
+/datum/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/datum/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	if(isunathi(M))
+		if (!modifier)
+			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 /datum/reagent/mannitol
 	name = "Mannitol"
 	id = "mannitol"
