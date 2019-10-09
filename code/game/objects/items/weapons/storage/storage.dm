@@ -565,7 +565,9 @@
 	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
 
-	visible_message("\The [usr] starts to empty the contents of \the [src].")
+	if(empty_delay)
+		visible_message("\The [usr] starts to empty the contents of \the [src].")
+
 	if(!do_after(usr, empty_delay, act_target=usr))
 		return
 
@@ -577,7 +579,9 @@
 		CHECK_TICK
 
 	post_remove_from_storage_deferred(loc, usr)
-	visible_message("\The [usr] empties the contents of \the [src].")
+
+	if(empty_delay)
+		visible_message("\The [usr] empties the contents of \the [src].")
 
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
