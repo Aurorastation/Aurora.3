@@ -283,7 +283,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
 
-	if(!rank in client.prefs.GetAvailableTitles(job)) // does age/species check for us!
+	if(!(rank in client.prefs.GetAvailableTitles(job))) // does age/species check for us!
 		return FALSE
 
 	return TRUE

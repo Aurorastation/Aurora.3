@@ -102,7 +102,7 @@
 		if(jobban_isbanned(player, rank))
 			return FALSE
 
-		if(!rank in player.client.prefs.GetAvailableTitles(job))
+		if(!(rank in player.client.prefs.GetAvailableTitles(job)))
 			to_chat(player, "<span class='warning'>Your character is too young!</span>")
 			return FALSE
 
