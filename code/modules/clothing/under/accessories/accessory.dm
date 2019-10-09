@@ -593,7 +593,7 @@
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
 
-/obj/item/clothing/suit/apron/overalls/engineer
+/obj/item/clothing/accessory/engineer
 	name = "engineer's overalls"
 	desc = "A set of brown overalls."
 	icon_state = "engineering_overalls"
