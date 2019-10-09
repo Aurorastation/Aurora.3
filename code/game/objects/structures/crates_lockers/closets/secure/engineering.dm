@@ -34,7 +34,7 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
-	new /obj/item/clothing/suit/apron/overalls/chief(src)
+	new /obj/item/clothing/accessory/chief(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
@@ -128,7 +128,7 @@
 	new /obj/item/clothing/glasses/meson/aviator(src)
 	new /obj/item/weapon/cartridge/engineering(src)
 	new /obj/item/taperoll/engineering(src)
-	new /obj/item/clothing/suit/apron/overalls/engineer(src)
+	new /obj/item/clothing/accessory/engineer(src)
 
 /obj/structure/closet/secure_closet/atmos_personal
 	name = "atmospheric technician's locker"
@@ -158,5 +158,5 @@
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/weapon/cartridge/atmos(src)
 	new /obj/item/taperoll/engineering(src)
-	new /obj/item/clothing/suit/apron/overalls/engineer(src)
+	new /obj/item/clothing/accessory/engineer(src)
 	new /obj/item/clothing/suit/storage/hazardvest/atmos(src)

@@ -12,22 +12,22 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/hardhat/orange
-	icon_state = "hardhat0_orange"
+	icon_state = "hardhat_orange"
 
 /obj/item/clothing/head/hardhat/red
-	icon_state = "hardhat0_red"
+	icon_state = "hardhat_red"
 	name = "firefighter helmet"
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/white
-	icon_state = "hardhat0_white"
+	icon_state = "hardhat_white"
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/dblue
-	icon_state = "hardhat0_dblue"
-	item_state = "hardhat0_dblue"
+	icon_state = "hardhat_blue"
+	item_state = "hardhat_blue"
 
 /obj/item/clothing/head/hardhat/red/atmos
 	name = "atmospheric firefighter helmet"
