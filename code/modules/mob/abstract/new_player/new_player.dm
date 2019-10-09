@@ -283,9 +283,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
 
-	var/character_age = client.prefs.age
-	var/datum/species/species = global.all_species[client.prefs.species]
-	if((character_age < job.minimum_character_age) && !(species.spawn_flags & NO_AGE_MINIMUM))
+	if(!rank in client.prefs.GetAvailableTitles(job)) // does age/species check for us!
 		return FALSE
 
 	return TRUE
@@ -388,9 +386,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
-				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
+				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
 					active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
+			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a><br>"
 
 	dat += "</center>"
 	send_theme_resources(src)
