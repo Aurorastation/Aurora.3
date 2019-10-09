@@ -205,14 +205,6 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
-
-/obj/item/clothing/glasses/goggles
-	name = "goggles"
-	desc = "A simple pair of plain goggles."
-	icon_state = "plaingoggles"
-	item_flags = AIRTIGHT
-	unacidable = 1
-
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
 	desc = "Yarr."
