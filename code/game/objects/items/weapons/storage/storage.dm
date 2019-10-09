@@ -37,6 +37,7 @@
 	var/collection_mode = 1  //0 = pick one at a time, 1 = pick all on tile
 	var/use_sound = "rustle"	//sound played when used. null for no sound.
 	var/list/starts_with // for pre-filled items
+	var/empty_delay = 0 SECOND
 
 /obj/item/weapon/storage/Destroy()
 	close_all()
@@ -564,6 +565,10 @@
 	if((!ishuman(usr) && (src.loc != usr)) || usr.stat || usr.restrained())
 		return
 
+	visible_message("\The [usr] starts to empty the contents of \the [src].")
+	if(!do_after(usr, empty_delay, act_target=usr))
+		return
+
 	var/turf/T = get_turf(src)
 	hide_from(usr)
 	for(var/obj/item/I in contents)
@@ -572,6 +577,7 @@
 		CHECK_TICK
 
 	post_remove_from_storage_deferred(loc, usr)
+	visible_message("\The [usr] empties the contents of \the [src].")
 
 // Override this to fill the storage object with stuff.
 /obj/item/weapon/storage/proc/fill()
