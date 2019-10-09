@@ -740,7 +740,7 @@
 	// Reset the machine.
 	spawn(60)
 		inuse = 0
-		interact(usr)
+		src.updateUsrDialog()
 
 	// Process.
 	for (var/obj/item/O in holdingitems)
