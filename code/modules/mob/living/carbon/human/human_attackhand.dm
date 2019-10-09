@@ -337,7 +337,7 @@
 
 			if(M.stamina <= disarm_cost)
 				to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
-				return 0
+				return FALSE
 
 			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
