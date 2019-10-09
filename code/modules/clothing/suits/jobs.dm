@@ -244,6 +244,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "hazard_g"
 	item_state = "hazard_g"
 
+/obj/item/clothing/suit/storage/hazardvest/atmos
+	name = "atmospheric hazard vest"
+	desc = "A high-visibility vest used in work zones. This one represents an atmospheric technician."
+	icon_state = "hazard_atmospheric"
+	item_state = "hazard_atmospheric"
+
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket
 	name = "blue suit Jacket"

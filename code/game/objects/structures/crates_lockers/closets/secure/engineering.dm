@@ -131,7 +131,7 @@
 	new /obj/item/clothing/suit/apron/overalls/engineer(src)
 
 /obj/structure/closet/secure_closet/atmos_personal
-	name = "technician's locker"
+	name = "atmospheric technician's locker"
 	req_access = list(access_atmospherics)
 	icon_state = "secureatm1"
 	icon_closed = "secureatm"
@@ -159,3 +159,4 @@
 	new /obj/item/weapon/cartridge/atmos(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/suit/apron/overalls/engineer(src)
+	new /obj/item/clothing/suit/storage/hazardvest/atmos(src)
