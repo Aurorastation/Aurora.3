@@ -1,7 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Job age requirements now take into account alt titles. Alt titles are automatically limited to only ones a character is old enough for."
-  - bugfix: "The latejoin screen now shows what alt-title you have selected."
-  - tweak: "The occupation preferences screen now functions differently if only one alt-title is available, or if the base job is not available."
-  - backend: "Tidies up the job age requirement system."
