@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Dionae can now speak Sol Common and Nral'Malic."
+  - rscadd: "Dionae can now speak Sol Common, Sinta'Azaziba and Nral'Malic."
   - rscadd: "Dionae have an additional optional language slot."
