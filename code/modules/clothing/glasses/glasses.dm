@@ -91,10 +91,6 @@ BLIND     // can't see anything
 	item_state = "goggles_standard"
 	action_button_name = "Raise Goggles"
 	toggleable = 1
-	vision_flags = SEE_TURFS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
-	item_flags = AIRTIGHT
-	activated_color = LIGHT_COLOR_GREEN
 
 /obj/item/clothing/glasses/goggles/verb/raise()
 	set category = "Object"
@@ -105,12 +101,14 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/goggles/attack_self(mob/user)
 	active = !active
-	if(active)
-		to_chat(user, "<span class='notice'>You raise [src] out of the way.</span>")
-		icon_state += "_up"
 	if(!active)
+		to_chat(user, "<span class='notice'>You raise [src] out of the way.</span>")
+		item_state += "_up"
+	if(active)
 		to_chat(user, "<span class='notice'>You lower [src] to protect your eyes.</span>")
-		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+	update_clothing_icon()
+	update_icon()
 
 /obj/item/clothing/glasses/meson/Initialize()
 	. = ..()

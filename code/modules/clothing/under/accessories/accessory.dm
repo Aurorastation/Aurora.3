@@ -592,3 +592,21 @@
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+
+/obj/item/clothing/suit/apron/overalls/engineer
+	name = "engineer's overalls"
+	desc = "A set of brown overalls."
+	icon_state = "engineering_overalls"
+	item_state = "engineering_overalls"
+
+/obj/item/clothing/accessory/chief
+	name = "chief engineer's overalls"
+	desc = "A set of white overalls."
+	icon_state = "ce_overalls"
+	item_state = "ce_overalls"
+
+/obj/item/clothing/accessory/miner
+	name = "miner's overalls"
+	desc = "A set of dark gray overalls."
+	icon_state = "mining_overalls"
+	item_state = "mining_overalls"
