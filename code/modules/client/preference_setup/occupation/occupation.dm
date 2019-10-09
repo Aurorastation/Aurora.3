@@ -136,7 +136,7 @@
 		var/alt_title = pref.player_alt_titles[job.title]
 		if(alt_title && !(alt_title in job.alt_titles))
 			pref.player_alt_titles -= job.title
-		var/list/available = pref.GetAvailableTitles(job)
+		var/list/available = pref.GetValidTitles(job)
 		if(LAZYLEN(available) == 1)
 			SetPlayerAltTitle(job, LAZYACCESS(available, 1))
 
@@ -174,7 +174,7 @@
 		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		var/dispRank = LAZYACCESS(pref.GetAvailableTitles(job), 1) || rank
+		var/dispRank = LAZYACCESS(pref.GetValidTitles(job), 1) || rank
 		var/ban_reason = jobban_isbanned(user, rank)
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
@@ -183,7 +183,7 @@
 			var/available_in_days = player_old_enough_for_role(user.client, rank)
 			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
 			continue
-		else if(!LAZYLEN(pref.GetAvailableTitles(job))) // we have no available jobs the character is old enough for
+		else if(!LAZYLEN(pref.GetValidTitles(job))) // we have no available jobs the character is old enough for
 			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.alt_ages[min(job.alt_ages)], job.minimum_character_age) : job.minimum_character_age]]</td></tr>"
 			continue
 		else if (ban_reason)
@@ -219,7 +219,7 @@
 			dat += " <font color=orange>\[Low]</font>"
 		else
 			dat += " <font color=red>\[NEVER]</font>"
-		if(job.alt_titles && (LAZYLEN(pref.GetAvailableTitles(job)) > 1))
+		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
 			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
 
@@ -254,7 +254,7 @@
 		var/datum/job/job = locate(href_list["select_alt_title"])
 		if (!job)
 			return ..()
-		var/list/choices = pref.GetAvailableTitles(job)
+		var/list/choices = pref.GetValidTitles(job)
 		if(!LAZYLEN(choices))
 			return ..()// should never happen
 		var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
@@ -430,7 +430,7 @@
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
 	return player_alt_titles[job.title] || job.title
 
-/datum/preferences/proc/GetAvailableTitles(datum/job/job)
+/datum/preferences/proc/GetValidTitles(datum/job/job)
 	if (!job)
 		return
 	var/choices = list(job.title) + job.alt_titles
