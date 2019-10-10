@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - imageadd: "New sprites for PDAs, IDs, and PDA cartridges."
+  - bugfix: "PDA inserting and ejecting stuff should make the correct sounds now."
