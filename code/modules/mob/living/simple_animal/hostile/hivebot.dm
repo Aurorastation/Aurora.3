@@ -71,10 +71,24 @@
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 
+/mob/living/simple_animal/hostile/hivebot/guardian
+	icon_state = "hivebotguardian"
+
+/mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
+	.=..()
+	if(hivebotbeacon && linked_parent)
+		linked_parent.guard_amt++
+
+/mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
+	if(linked_parent)
+		linked_parent.guard_amt--
+	..()
+
 /mob/living/simple_animal/hostile/hivebot/bomber
 	desc = "Placeholder"
+	icon_state = "hivebotbomber"
 	attacktext = "bumped"
-	move_to_delay = 10
+	move_to_delay = 8
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
@@ -140,10 +154,11 @@
 	if(severity == 1.0)
 		apply_damage(10)
 
-#define NORMAL 1
-#define RANGED 2
-#define RAPID  3
+#define NORMAL 0
+#define RANGED 1
+#define RAPID  2
 #define BOMBER 4
+#define GUARDIAN 8
 
 /mob/living/simple_animal/hostile/hivebotbeacon
 	name = "Hivebot beacon"
@@ -172,16 +187,17 @@
 	minbodytemp = 0
 	speed = -10
 	see_in_dark = 8
-	smart = 1
 	destroy_surroundings = 0
-	var/bot_type = NORMAL // type of bot, 1 is normal, 2 is ranged, 3 is rapid ranged
+	var/bot_type = GUARDIAN
 	var/bot_amt = 96 //Number of total bots that are spawned before the beacon disappears completely.
-	var/max_bots = 32 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
+	var/max_bots = 48 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
-	var/spawn_delay = 300
+	var/guard_amt = 0
+	var/spawn_delay
 	var/activated = 0
-	var/snoozing = 0 //If set to 1, it will be prevented from spawning bots, unless it spots an enemy.
+	var/max_bots_reached
 	var/list/destinations = list()
+	var/list/close_destinations = list()
 	var/area/latest_area
 	attack_emote = "focuses on"
 
@@ -203,16 +219,18 @@
 		S.start()
 		visible_message("<span class='danger'>[src] warps in!</span>")
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		addtimer(CALLBACK(src, .proc/activate_beacon), 300)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
 	generate_warp_destinations()
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
+
+	destinations.Cut()
 	for(var/turf/simulated/floor/T in circlerange(src,10))
 		if(turf_clear(T))
 			destinations += T
-
 	var/area/A = get_area(src)
 	if(!isNotStationLevel(A.z))
 		var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
@@ -222,6 +240,15 @@
 				floor_turfs += T
 		if(floor_turfs.len)
 			destinations |= floor_turfs
+
+	close_destinations.Cut()
+	for(var/turf/simulated/floor/T in oview(src,3))
+		if(turf_clear(T))
+			close_destinations += T
+	if(!close_destinations.len)
+		close_destinations += src.loc
+
+	latest_area = get_area(src)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
@@ -244,42 +271,53 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
 	if(stance != HOSTILE_STANCE_IDLE && activated == 0)
-		visible_message("<span class='warning'>[src] suddenly activates!</span>")
-		icon_state = "hivebotbeacon_raising"
-		addtimer(CALLBACK(src, .proc/reset_activation), 16)
-	else if(activated == 1)
+		activate_beacon()
+	else if(activated == 1 && icon_state != "hivebotbeacon_active")
 		icon_state = "hivebotbeacon_active"
 
 /mob/living/simple_animal/hostile/hivebotbeacon/MoveToTarget()
-    ..()
-    walk(src, 0)
+	if(!stop_automated_movement)
+		stop_automated_movement = 1
+	if(QDELETED(target_mob) || SA_attackable(target_mob))
+		LoseTarget()
+	if(!see_target())
+		LoseTarget()
+	if(target_mob in targets)
+		if(get_dist(src, target_mob) <= 6)
+			walk(src, 0)
+			OpenFire(target_mob)
 
-/mob/living/simple_animal/hostile/hivebotbeacon/proc/reset_activation()
-	icon_state = "hivebotbeacon_active"
-	activated = 1
-	snoozing = 0
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/activate_beacon()
+	if(activated != 1)
+		if(activated == -1)
+			return
+		else
+			visible_message("<span class='warning'>[src] suddenly activates!</span>")
+			icon_state = "hivebotbeacon_raising"
+			sleep(16)
+			icon_state = "hivebotbeacon_active"
+			sleep(4)
+			activated = 1
+			warpbots()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
-	LoseTarget()
-	stance = HOSTILE_STANCE_TIRED
-	icon_state = "hivebotbeacon_off"
-	activated = -1
-	addtimer(CALLBACK(src, .proc/wakeup), 100)
+	if(activated != -1)
+		LoseTarget()
+		stance = HOSTILE_STANCE_TIRED
+		icon_state = "hivebotbeacon_off"
+		activated = -1
+		addtimer(CALLBACK(src, .proc/wakeup), 600)
 
-	var/list/scrambled_warp_destinations = list()
-	for(var/turf/T in range(world.view,src))
-		scrambled_warp_destinations += T
+	var/area/random_area = random_station_area(TRUE)
+	var/turf/random_turf = random_area.random_space()
 
-	if(scrambled_warp_destinations.len)
-		visible_message(span("danger","\The [src] goes haywire!"))
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1, extrarange = 20)
-		for(var/atom/movable/M in range(world.view,src))
-			if(!M.anchored)
-				do_teleport(M, pick(scrambled_warp_destinations))
+	if(random_turf)
+		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
 	stance = HOSTILE_STANCE_IDLE
 	activated = 0
+	activate_beacon()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!bot_amt)
@@ -289,20 +327,13 @@
 		qdel(src)
 		return
 
-	if(activated != 1)
-		if(activated == -1)
-			return
-		else
-			icon_state = "hivebotbeacon_raising"
-			sleep(16)
-			icon_state = "hivebotbeacon_active"
-			sleep(4)
-			activated = 1
+	if(activated == -1)
+		return
 
 	if(linked_bots.len < max_bots)
 		visible_message("<span class='warning'>[src] radiates with energy!</span>")
 
-		if(!latest_area == get_area(src))
+		if(latest_area != get_area(src))
 			generate_warp_destinations()
 
 		var/turf/Destination = pick(destinations)
@@ -310,131 +341,60 @@
 		var/mob/living/simple_animal/hostile/hivebot/latest_child
 		switch(bot_type)
 			if(NORMAL)
-				latest_child = new /mob/living/simple_animal/hostile/hivebot(Destination)
+				latest_child = new /mob/living/simple_animal/hostile/hivebot(Destination, src)
 			if(RANGED)
-				latest_child = new /mob/living/simple_animal/hostile/hivebot/range(Destination)
+				latest_child = new /mob/living/simple_animal/hostile/hivebot/range(Destination, src)
 			if(RAPID)
-				latest_child = new /mob/living/simple_animal/hostile/hivebot/range/rapid(Destination)
+				latest_child = new /mob/living/simple_animal/hostile/hivebot/range/rapid(Destination, src)
+			if(BOMBER)
+				latest_child = new /mob/living/simple_animal/hostile/hivebot/bomber(Destination, src)
+			if(GUARDIAN)
+				Destination = pick(close_destinations)
+				latest_child = new /mob/living/simple_animal/hostile/hivebot/guardian(Destination, src)
+
 		linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
-		if(prob(30))
-			if(prob(65))
-				bot_type = RANGED
-			else
-				bot_type = RAPID
+
+		if(guard_amt < 4)
+			bot_type = GUARDIAN
 		else
-			bot_type = NORMAL
+			var/selection = rand(1,100)
+			switch(selection)
+				if(1 to 65)
+					bot_type = NORMAL
+				if(66 to 77)
+					bot_type = RANGED
+				if(78 to 89)
+					bot_type = RAPID
+				if(90 to 100)
+					bot_type = BOMBER
+
+		message_admins("[bot_type]")
 		bot_amt--
+
 	if(bot_amt>0 && linked_bots.len < max_bots)
+		calc_spawn_delay()
+		message_admins("[spawn_delay]")
 		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+	else
+		max_bots_reached = 1
+
+/mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
+	spawn_delay = 30*1.075**(linked_bots.len + 1)
+	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
 	..()
-	if(stat == 0)
-		if((!snoozing) && (prob(10)))
-			warpbots()
 	if(wander)
 		wander = 0
 		stop_automated_movement = 1
+	if(max_bots_reached && activated == 1 && linked_bots.len < max_bots)
+		max_bots_reached = 0
+		calc_spawn_delay()
+		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
+
 
 #undef NORMAL
 #undef RANGED
 #undef RAPID
 #undef BOMBER
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester
-	name = "Hivebot Harvester"
-	desc = "Placeholder."
-	icon = 'icons/mob/npc/hivebot.dmi'
-	icon_state = "hivebotharvester"
-	health = 200
-	maxHealth = 200
-	harm_intent_damage = 3
-	melee_damage_lower = 20
-	melee_damage_upper = 20
-	destroy_surroundings = 0
-	wander = 0
-	attacktext = "slashed"
-	projectilesound = 'sound/weapons/bladeslice.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebotincendiary
-	faction = "hivebot"
-	min_oxy = 0
-	max_oxy = 0
-	min_tox = 0
-	max_tox = 0
-	min_co2 = 0
-	max_co2 = 0
-	min_n2 = 0
-	max_n2 = 0
-	minbodytemp = 0
-	speed = 4
-	tameable = FALSE
-	flying = 1
-	see_in_dark = 8
-	pass_flags = PASSTABLE
-	attack_emote = "focuses on"
-
-	var/atom/harvest_target
-	var/busy
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
-	..(null,"blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
-	qdel(src)
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/think()
-	..()
-	if(!stat)
-		if(stance == HOSTILE_STANCE_IDLE)
-			process_turf()
-			prospect()
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/prospect()
-	var/destination = pick(cardinal)
-	var/turf/T = get_step(src, destination)
-
-	if(istype(T, /turf/unsimulated) || istype(T, /turf/simulated/open) || istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
-		return
-
-	if(istype(T, /turf/simulated/wall))
-		var/turf/simulated/wall/W = T
-		W.ex_act(2)
-		return
-
-	for(var/obj/O in T)
-		if(O.density)
-			O.ex_act(2)
-
-	for(var/obj/machinery/M in T)
-		if(M)
-			M.ex_act(2)
-
-	if(T)
-		walk_to(src, T)
-		process_turf()
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/process_turf()
-	var/obj/item/I = (locate() in src.loc)
-	if(I)
-		harvest_items()
-	if(istype(src.loc, /turf/simulated/floor))
-		var/turf/simulated/floor/T = src.loc
-		if(!T.is_plating())
-			reshape(T)
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/harvest_items()
-	for(var/obj/item/I in src.loc)
-		if(istype(I, /obj/item/weapon/storage))
-			var/obj/item/weapon/storage/S = I
-			S.spill()
-			qdel(I)
-			continue
-		if(I.matter)
-			src.visible_message("<span class='notice'>\The [src] begins to melt down \the [I].</span>")
-			qdel(I)
-			continue
-
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/reshape(var/turf/simulated/floor/F)
-	if(F && F == src.loc)
-		F.make_plating()
+#undef GUARDIAN
