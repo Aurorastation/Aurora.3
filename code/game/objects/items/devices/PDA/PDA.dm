@@ -108,6 +108,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	icon_state = "pda-tox"
 	ttone = "boom"
 
+/obj/item/device/pda/xenobio
+	default_cartridge = /obj/item/weapon/cartridge/signal/science
+	icon_state = "pda-xenobio"
+
 /obj/item/device/pda/clown
 	default_cartridge = /obj/item/weapon/cartridge/clown
 	icon_state = "pda-clown"
@@ -219,9 +223,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	default_cartridge = /obj/item/weapon/cartridge/chemistry
 	icon_state = "pda-chem"
 
-/obj/item/device/pda/geneticist
+/obj/item/device/pda/psych
 	default_cartridge = /obj/item/weapon/cartridge/medical
-	icon_state = "pda-gene"
+	icon_state = "pda-psych"
+
+/obj/item/device/pda/paramedic
+	default_cartridge = /obj/item/weapon/cartridge/medical
+	icon_state = "pda-paramedic"
 
 /obj/item/device/pda/merchant
 	icon_state = "pda-chef"
@@ -959,6 +967,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/mob/M = loc
 			M.put_in_hands(id)
 			to_chat(usr, "<span class='notice'>You remove the ID from the [name].</span>")
+			playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else
 			id.forceMove(get_turf(src))
 		id = null
@@ -1186,7 +1195,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
 				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
-				playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+				playsound(loc, 'sound/machines/click.ogg', 100, 1)
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
@@ -1217,6 +1226,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		cartridge = C
 		user.drop_from_inventory(cartridge,src)
 		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
+		playsound(loc, 'sound/machines/click.ogg', 100, 1)
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
@@ -1233,6 +1243,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
 				if(id_check(user, 2))
 					to_chat(user, "<span class='notice'>You put the ID into \the [src]'s slot.</span>")
+					playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
 					updateSelfDialog()//Update self dialog on success.
 			return	//Return in case of failed check or when successful.
 		updateSelfDialog()//For the non-input related code.
@@ -1259,7 +1270,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(user)
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
-		
+
 /obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
 	if (istype(C, /mob/living/carbon))
 		switch(scanmode)
@@ -1454,7 +1465,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/weapon/storage/box/PDAs
 	name = "box of spare PDAs"
 	desc = "A box of spare PDA microcomputers."
-	icon = 'icons/obj/pda.dmi'
 	icon_state = "pdabox"
 
 /obj/item/weapon/storage/box/PDAs/fill()

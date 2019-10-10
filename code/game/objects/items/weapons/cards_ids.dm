@@ -55,14 +55,6 @@
 /*
  * ID CARDS
  */
-
-/obj/item/weapon/card/emag_broken
-	desc = "It's a card with a magnetic strip attached to some circuitry. It looks too busted to be used for anything but salvage."
-	name = "broken cryptographic sequencer"
-	icon_state = "emag"
-	item_state = "card-id"
-	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
-
 /obj/item/weapon/card/emag
 	desc = "It's a card with a magnetic strip attached to some circuitry."
 	name = "cryptographic sequencer"
@@ -70,6 +62,13 @@
 	item_state = "card-id"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	var/uses = 10
+
+/obj/item/weapon/card/emag_broken
+	desc = "It's a card with a magnetic strip attached to some circuitry. It looks too busted to be used for anything but salvage."
+	name = "broken cryptographic sequencer"
+	icon_state = "emag_broken"
+	item_state = "card-id"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 
 var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
@@ -282,13 +281,17 @@ var/const/NO_EMAG_ACT = -50
 	return
 
 /obj/item/weapon/card/id/silver
-	name = "identification card"
-	desc = "A silver card which shows honour and dedication."
 	icon_state = "silver"
-	item_state = "silver_id"
+
+/obj/item/weapon/card/id/white
+	icon_state = "white"
+
+/obj/item/weapon/card/id/navy
+	desc = "A navy card which shows honour and dedication."
+	icon_state = "navy"
+	item_state = "navy_id"
 
 /obj/item/weapon/card/id/gold
-	name = "identification card"
 	desc = "A golden card which shows power and might."
 	icon_state = "gold"
 	item_state = "gold_id"
@@ -296,6 +299,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/syndicate_command
 	name = "syndicate ID card"
 	desc = "An ID straight from the Syndicate."
+	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
 	access = list(access_syndicate, access_external_airlocks)
