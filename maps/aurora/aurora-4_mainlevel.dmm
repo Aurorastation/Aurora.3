@@ -30222,7 +30222,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "baT" = (
@@ -40433,7 +40433,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "brG" = (
@@ -42781,7 +42781,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bvh" = (

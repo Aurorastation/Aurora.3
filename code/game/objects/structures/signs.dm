@@ -130,10 +130,10 @@
 	desc = "A warning sign which reads 'NO SMOKING'."
 	icon_state = "nosmoking2"
 
-/obj/structure/sign/bluecross
+/obj/structure/sign/greencross
 	name = "medbay"
 	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
-	icon_state = "bluecross"
+	icon_state = "greencross"
 
 /obj/structure/sign/goldenplaque
 	name = "The Most Robust Men Award for Robustness"
