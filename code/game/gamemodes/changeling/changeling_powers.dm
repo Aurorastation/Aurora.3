@@ -419,6 +419,10 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
 		return
 
+	if(H.handcuffed)
+		qdel(H.handcuffed)
+		H.handcuffed = null
+
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
@@ -972,11 +976,15 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling)	return 0
 	src.mind.changeling.chem_charges -= 20
 
-	var/mob/living/M = src
+	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
+	
+	if(M.handcuffed)
+		qdel(M.handcuffed)
+		M.handcuffed = null
 
 	var/obj/item/weapon/melee/arm_blade/blade = new(M)
 	blade.creator = M
@@ -995,11 +1003,15 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling)	return 0
 	src.mind.changeling.chem_charges -= 20
 
-	var/mob/living/M = src
+	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
+
+	if(M.handcuffed)
+		qdel(M.handcuffed)
+		M.handcuffed = null
 
 	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
 	shield.creator = M

@@ -47,6 +47,9 @@
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
+/obj/item/weapon/melee/arm_blade/iscrowbar()
+	return TRUE
+
 /obj/item/weapon/shield/riot/changeling
 	name = "shield-like mass"
 	desc = "A mass of tough, boney tissue. You can still see the fingers as a twisted pattern in the shield."
