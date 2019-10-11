@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Forming armblades and flesh riot shields as ling now break cuffs."
+  - rscadd: "Forming armblades and flesh riot shields as ling now break cuffs and straitjackets."
   - rscadd: "Changing into a lesser form now uncuffs you."
   - rscadd: "You can use an armblade is a crowbar, to do crowbar based activities."
   - rscadd: "The armblade can be used to slice and dice through non-reinforced walls and girders."

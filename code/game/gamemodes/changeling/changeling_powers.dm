@@ -986,6 +986,15 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		qdel(M.handcuffed)
 		M.handcuffed = null
 
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque arm blades!</span>",
+								"<span class='danger'>We tear through the [H.wear_suit] with our arm blades!</span>",
+								"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			qdel(H.wear_suit)
+			H.wear_suit = null
+
 	var/obj/item/weapon/melee/arm_blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
@@ -1012,6 +1021,15 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(M.handcuffed)
 		qdel(M.handcuffed)
 		M.handcuffed = null
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque shield!</span>",
+							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
+							"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			qdel(H.wear_suit)
+			H.wear_suit = null
 
 	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
 	shield.creator = M
