@@ -2416,7 +2416,7 @@
 /area/security/main)
 "aeu" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -4933,7 +4933,7 @@
 /area/security/warden)
 "ajh" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law{
+/obj/item/weapon/book/manual/wiki/security_space_law{
 	pixel_x = -3;
 	pixel_y = 5
 	},
@@ -8278,7 +8278,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law{
+/obj/item/weapon/book/manual/wiki/security_space_law{
 	pixel_y = 6
 	},
 /obj/machinery/camera/network/security{
@@ -9766,7 +9766,7 @@
 /area/security/prison)
 "arz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "arA" = (
@@ -32418,7 +32418,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "bip" = (
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/structure/table/wood,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -36006,7 +36006,7 @@
 /area/crew_quarters/captain)
 "boF" = (
 /obj/structure/table/wood,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "boG" = (
@@ -80440,7 +80440,7 @@
 "xWq" = (
 /obj/structure/window/reinforced,
 /obj/structure/closet/secure_closet/detective,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "ykG" = (

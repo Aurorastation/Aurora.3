@@ -3017,7 +3017,7 @@
 "fJ" = (
 /obj/structure/window/reinforced,
 /obj/structure/closet/secure_closet/detective,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "fK" = (
