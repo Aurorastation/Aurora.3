@@ -5,27 +5,29 @@
 	due_date = 0 // Game time in 1/10th seconds
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
 
+/obj/item/weapon/book/manual/wiki
+	var/sub_page = ""
 
-/obj/item/weapon/book/manual/engineering_construction
+/obj/item/weapon/book/manual/wiki/Initialize()
+	. = ..()
+
+	dat = {"
+		<html>
+		<head></head>
+
+		<body>
+		<iframe width='100%' height='97%' src="[config.wikiurl][sub_page]&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+	"}
+
+/obj/item/weapon/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
 	icon_state ="bookEngineering"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Station Repairs and Construction"
-
-/obj/item/weapon/book/manual/engineering_construction/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Guide_to_construction&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
+	sub_page = "Guide_to_construction"
 
 /obj/item/weapon/book/manual/engineering_particle_accelerator
 	name = "Particle Accelerator User's Guide"
@@ -33,8 +35,8 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
-/obj/item/weapon/book/manual/engineering_particle_accelerator/New()
-	..()
+/obj/item/weapon/book/manual/engineering_particle_accelerator/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -80,8 +82,8 @@
 	author = "Central Engineering Division"
 	title = "Supermatter Engine Operating Manual"
 
-/obj/item/weapon/book/manual/supermatter_engine/New()
-	..()
+/obj/item/weapon/book/manual/supermatter_engine/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -147,27 +149,12 @@
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/engineering_hacking
+/obj/item/weapon/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Hacking"
-
-/obj/item/weapon/book/manual/engineering_hacking/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Hacking&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
+	sub_page = "Hacking"
 
 /obj/item/weapon/book/manual/engineering_singularity_safety
 	name = "Singularity Safety in Special Circumstances"
@@ -201,7 +188,7 @@
 					<li>Open the console and disengage the cover lock.</li>
 					<li>Pry open the APC with a <b>Crowbar.</b></li>
 					<li>Take out the empty <b>power cell.</b></li>
-					<li>Put in the new, <b>full power cell</b> - if you don't have one, continue with step 15.</li>
+					<li>Put in the Initialize, <b>full power cell</b> - if you don't have one, continue with step 15.</li>
 					<li>Quickly put on a <b>Radiation suit.</b></li>
 					<li>Check if the <b>singularity field generators</b> withstood the down-time - if they didn't, continue with step 15.</li>
 					<li>Since disaster was averted you now have to ensure it doesn't repeat. If it was a powersink which caused it and if the engineering APC is wired to the same powernet, which the powersink is on, you have to remove the piece of wire which links the APC to the powernet. If it wasn't a powersink which caused it, then skip to step 14.</li>
@@ -219,9 +206,6 @@
 				</body>
 			</html>
 			"}
-
-
-
 
 /obj/item/weapon/book/manual/medical_cloning
 	name = "Cloning Techniques of the 26th Century"
@@ -425,13 +409,13 @@
 
 				<h2>The R&D Console</h2>
 				The R&D console is the cornerstone of any research lab. It is the central system from which the Destructive Analyzer, Protolathe, and Circuit Imprinter (your R&D systems) are controlled. More on those systems in their own sections.
-				On its own, the R&D console acts as a database for all your technological gains and new devices you discover. So long as the R&D console remains intact, you'll retain all that SCIENCE you've discovered. Protect it though,
+				On its own, the R&D console acts as a database for all your technological gains and Initialize devices you discover. So long as the R&D console remains intact, you'll retain all that SCIENCE you've discovered. Protect it though,
 				because if it gets damaged, you'll lose your data!
 				In addition to this important purpose, the R&D console has a disk menu that lets you transfer data from the database onto disk or from the disk into the database.
 				It also has a settings menu that lets you re-sync with nearby R&D devices (if they've become disconnected), lock the console from the unworthy,
 				upload the data to all other R&D consoles in the network (all R&D consoles are networked by default), connect/disconnect from the network, and purge all data from the database.<br><br>
 
-				<b>NOTE:</b> The technology list screen, circuit imprinter, and protolathe menus are accessible by non-scientists. This is intended to allow 'public' systems for the plebians to utilize some new devices.
+				<b>NOTE:</b> The technology list screen, circuit imprinter, and protolathe menus are accessible by non-scientists. This is intended to allow 'public' systems for the plebians to utilize some Initialize devices.
 
 				<h2>Destructive Analyzer</h2>
 				This is the source of all technology. Whenever you put a handheld object in it, it analyzes it and determines what sort of technological advancements you can discover from it. If the technology of the object is equal or higher then your current knowledge,
@@ -440,7 +424,7 @@
 				If their reliability is high enough, it'll also advance their related technologies.
 
 				<h2>Circuit Imprinter</h2>
-				This machine, along with the Protolathe, is used to actually produce new devices. The Circuit Imprinter takes glass and various chemicals (depends on the design) to produce new circuit boards to build new machines or computers. It can even be used to print AI modules.
+				This machine, along with the Protolathe, is used to actually produce Initialize devices. The Circuit Imprinter takes glass and various chemicals (depends on the design) to produce Initialize circuit boards to build Initialize machines or computers. It can even be used to print AI modules.
 
 				<h2>Protolathe</h2>
 				This machine is an advanced form of the Autolathe that produce non-circuit designs. Unlike the Autolathe, it can use processed metal, glass, solid phoron, silver, gold, and diamonds along with a variety of chemicals to produce devices.
@@ -587,7 +571,7 @@
 				  <li>Once you have your Robot Chest, wire the Robot chest, then insert the power cell</li>
 				  <li>Attach all of the Robot parts to the Robot frame</li>
 				  <li>Insert the Man-Machine Interface (With the Brain inside) into the Robot Body</li>
-				  <li>Congratulations! You have a new cyborg!</li>
+				  <li>Congratulations! You have a Initialize cyborg!</li>
 				</ol>
 
 				<h2><a name="Maintenance">Cyborg Maintenance</h2>
@@ -599,7 +583,7 @@
 				  <li>Unlock the Cyborg's Interface by swiping your ID on it</li>
 				  <li>Open the Cyborg's outer panel using a crowbar</li>
 				  <li>Remove the old power cell</li>
-				  <li>Insert the new power cell</li>
+				  <li>Insert the Initialize power cell</li>
 				  <li>Close the Cyborg's outer panel using a crowbar</li>
 				  <li>Lock the Cyborg's Interface by swiping your ID on it, this will prevent non-qualified personnel from attempting to remove the power cell</li>
 				</ol>
@@ -666,30 +650,21 @@
 			</html>
 		"}
 
-
-/obj/item/weapon/book/manual/security_space_law
+/obj/item/weapon/book/manual/wiki/security_space_law
 	name = "Corporate Regulations"
 	desc = "A set of corporate guidelines for keeping law and order on privately-owned space stations."
 	icon_state = "bookSpaceLaw"
 	author = "The Company"
 	title = "Corporate Regulations"
+	sub_page = "Corporate_Regulations"
 
-/obj/item/weapon/book/manual/security_space_law/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
+/obj/item/weapon/book/manual/wiki/station_procedure
+	name = "Station Procedure"
+	desc = "A set of uniform procedures followed on all NanoTrasen installations."
+	icon_state = "corporate-procedure"
+	title = "The Company"
+	title = "Station Procedure"
+	sub_page = "Guide_to_Station_Procedure"
 
 /obj/item/weapon/book/manual/medical_diagnostics_manual
 	name = "Medical Diagnostics Manual"
@@ -698,8 +673,8 @@
 	author = "Medical Department"
 	title = "Medical Diagnostics Manual"
 
-/obj/item/weapon/book/manual/medical_diagnostics_manual/New()
-	..()
+/obj/item/weapon/book/manual/medical_diagnostics_manual/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -718,7 +693,7 @@
 				<i>The Medical Oath sworn by recognised medical practitioners in the employ of [current_map.company_name]</i><br>
 
 				<ol>
-					<li>Now, as a new doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>
+					<li>Now, as a Initialize doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>
 					<li>I recognise that the practice of medicine is a privilege with which comes considerable responsibility and I will not abuse my position.</li>
 					<li>I will practise medicine with integrity, humility, honesty, and compassion-working with my fellow doctors and other colleagues to meet the needs of my patients.</li>
 					<li>I shall never intentionally do or administer anything to the overall harm of my patients.</li>
@@ -739,26 +714,12 @@
 		"}
 
 
-/obj/item/weapon/book/manual/engineering_guide
+/obj/item/weapon/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state ="bookEngineering2"
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
-
-/obj/item/weapon/book/manual/engineering_guide/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Engineering&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>		</body>
-
-		</html>
-
-		"}
-
+	sub_page = "Guide_to_Engineering"
 
 /obj/item/weapon/book/manual/chef_recipes
 	name = "Chef Recipes"
@@ -905,7 +866,7 @@
 					<li>Using your forensic scanning computer, scan your scanner to upload all of your evidence into the database.</li>
 					<li>Browse through the resulting dossiers, looking for the one that either has the most complete set of prints, or the most suspicious items handled. </li>
 					<li>If you have 80% or more of the print (The print is displayed), go to step 10, otherwise continue to step 8.</li>
-					<li>Look for clues from the suit fibres you found on your perpetrator, and go about looking for more evidence with this new information, scanning as you go. </li>
+					<li>Look for clues from the suit fibres you found on your perpetrator, and go about looking for more evidence with this Initialize information, scanning as you go. </li>
 					<li>Try to get a fingerprint card of your perpetrator, as if used in the computer, the prints will be completed on their dossier.</li>
 					<li>Assuming you have enough of a print to see it, grab the biggest complete piece of the print and search the security records for it. </li>
 					<li>Since you now have both your dossier and the name of the person, print both out as evidence and get security to nab your baddie.</li>
@@ -1182,7 +1143,7 @@
 				</head>
 				<body>
 				<a name="Foreword"><h1>Gravity Generation for dummies!</h1></a>
-				Thank you for your purchase of the newest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaing your gravity generation system.<br><br>
+				Thank you for your purchase of the Initializeest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaing your gravity generation system.<br><br>
 
 				<h2><a name="Contents">Contents</a></h2>
 				<ol>
@@ -1285,8 +1246,8 @@
 	author = "NTCC Odin Psychiatry Wing"
 	title = "Sigmund Freud for Dummies"
 
-/obj/item/weapon/book/manual/psych/New()
-	..()
+/obj/item/weapon/book/manual/psych/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -1418,15 +1379,12 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/battlemonsters
+/obj/item/weapon/book/manual/wiki/battlemonsters
 	name = "\improper Guide to Battlemonsters"
 	icon_state ="battlemonsters"
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"
-
-/obj/item/weapon/book/manual/battlemonsters/New()
-	..()
-	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
+	sub_page = "Guide_to_Battlemonsters"
 
 /obj/item/weapon/book/manual/pra_manifesto
 	name = "hadiist manifesto"

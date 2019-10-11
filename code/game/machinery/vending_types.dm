@@ -875,7 +875,7 @@
 	icon_state = "battlemonsters"
 	vend_id = "battlemonsters"
 	products = list(
-		/obj/item/weapon/book/manual/battlemonsters = 10,
+		/obj/item/weapon/book/manual/wiki/battlemonsters = 10,
 		/obj/item/battle_monsters/wrapped = 10,
 		/obj/item/battle_monsters/wrapped/pro = 10,
 		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters
@@ -885,7 +885,7 @@
 		/obj/item/battle_monsters/wrapped/rare = 4
 	)
 	prices = list(
-		/obj/item/weapon/book/manual/battlemonsters = 12,
+		/obj/item/weapon/book/manual/wiki/battlemonsters = 12,
 		/obj/item/battle_monsters/wrapped = 100,
 		/obj/item/battle_monsters/wrapped/pro = 75,
 		/obj/item/battle_monsters/wrapped/species = 100,
