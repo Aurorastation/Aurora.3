@@ -23396,6 +23396,18 @@
 /obj/item/weapon/gun/launcher/syringe,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
+"aVg" = (
+/obj/structure/closet/l3closet/general,
+/obj/item/clothing/suit/bio_suit/general,
+/obj/item/clothing/head/bio_hood/general,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/weapon/tank/oxygen,
+/obj/item/clothing/suit/bio_suit/general,
+/obj/item/clothing/head/bio_hood/general,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/weapon/tank/oxygen,
+/turf/simulated/floor/tiled,
+/area/medical/medbay4)
 "aVi" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
@@ -24185,6 +24197,21 @@
 	name = "Medical Doctor"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"aYT" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Medical Doctor"
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aZd" = (
@@ -27680,6 +27707,13 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"cfH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
 "cgg" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -29898,10 +29932,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
-"iDu" = (
-/obj/item/clothing/mask/gas,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "iFn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -31103,10 +31133,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"mmy" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/hallway)
 "mmQ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -33492,13 +33518,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"sRg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/outpost/research/hallway)
 "sRQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -33605,6 +33624,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"tbx" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/outpost/research/hallway)
 "tcJ" = (
 /obj/machinery/optable{
 	name = "Autopsy Table"
@@ -35237,21 +35260,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
-"wUV" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Doctor"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
 "wVj" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -54570,7 +54578,7 @@ aEs
 eBJ
 aGz
 awY
-mmy
+tbx
 rzs
 rhI
 aLE
@@ -57403,7 +57411,7 @@ aym
 axP
 aMH
 aNG
-sRg
+cfH
 aPh
 aPQ
 aOr
@@ -71030,7 +71038,7 @@ qnU
 gDH
 wWU
 aba
-iDu
+aba
 aba
 aaa
 aaa
@@ -76686,7 +76694,7 @@ aLm
 aSJ
 aTx
 aUn
-aXi
+aVg
 aLk
 aWE
 aXo
@@ -76943,7 +76951,7 @@ aLm
 aSK
 aTx
 aTx
-aXi
+aVg
 aVO
 aWF
 aXp
@@ -77207,7 +77215,7 @@ aXq
 bbY
 aYn
 aYC
-wUV
+aYT
 aZe
 aZx
 aSM
