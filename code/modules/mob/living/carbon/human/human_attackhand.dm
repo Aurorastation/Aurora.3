@@ -346,18 +346,18 @@
 			if(usesStamina)
 				if(M.stamina <= disarm_cost)
 					to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
-					return 0
+					return FALSE
 			else
 				if(M.nutrition <= disarm_cost)
 					to_chat(M, "<span class='danger'>You don't have enough power to disarm someone!</span>")
-					return 0
+					return FALSE
 
 			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
-				return 0
+				return FALSE
 
 			if(attacker_style && attacker_style.disarm_act(H, src))
-				return 1
+				return TRUE
 
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
