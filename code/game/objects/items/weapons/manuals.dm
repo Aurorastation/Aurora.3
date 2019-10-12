@@ -571,7 +571,7 @@
 				  <li>Once you have your Robot Chest, wire the Robot chest, then insert the power cell</li>
 				  <li>Attach all of the Robot parts to the Robot frame</li>
 				  <li>Insert the Man-Machine Interface (With the Brain inside) into the Robot Body</li>
-				  <li>Congratulations! You have a Initialize cyborg!</li>
+				  <li>Congratulations! You have a new cyborg!</li>
 				</ol>
 
 				<h2><a name="Maintenance">Cyborg Maintenance</h2>
