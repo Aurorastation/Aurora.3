@@ -866,7 +866,7 @@
 					<li>Using your forensic scanning computer, scan your scanner to upload all of your evidence into the database.</li>
 					<li>Browse through the resulting dossiers, looking for the one that either has the most complete set of prints, or the most suspicious items handled. </li>
 					<li>If you have 80% or more of the print (The print is displayed), go to step 10, otherwise continue to step 8.</li>
-					<li>Look for clues from the suit fibres you found on your perpetrator, and go about looking for more evidence with this Initialize information, scanning as you go. </li>
+					<li>Look for clues from the suit fibres you found on your perpetrator, and go about looking for more evidence with this new information, scanning as you go. </li>
 					<li>Try to get a fingerprint card of your perpetrator, as if used in the computer, the prints will be completed on their dossier.</li>
 					<li>Assuming you have enough of a print to see it, grab the biggest complete piece of the print and search the security records for it. </li>
 					<li>Since you now have both your dossier and the name of the person, print both out as evidence and get security to nab your baddie.</li>
