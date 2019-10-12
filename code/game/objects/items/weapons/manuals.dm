@@ -583,7 +583,7 @@
 				  <li>Unlock the Cyborg's Interface by swiping your ID on it</li>
 				  <li>Open the Cyborg's outer panel using a crowbar</li>
 				  <li>Remove the old power cell</li>
-				  <li>Insert the Initialize power cell</li>
+				  <li>Insert the new power cell</li>
 				  <li>Close the Cyborg's outer panel using a crowbar</li>
 				  <li>Lock the Cyborg's Interface by swiping your ID on it, this will prevent non-qualified personnel from attempting to remove the power cell</li>
 				</ol>
