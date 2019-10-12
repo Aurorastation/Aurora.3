@@ -1143,7 +1143,7 @@
 				</head>
 				<body>
 				<a name="Foreword"><h1>Gravity Generation for dummies!</h1></a>
-				Thank you for your purchase of the Initializeest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaing your gravity generation system.<br><br>
+				Thank you for your purchase of the newest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaining your gravity generation system.<br><br>
 
 				<h2><a name="Contents">Contents</a></h2>
 				<ol>
