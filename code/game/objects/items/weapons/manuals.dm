@@ -424,7 +424,7 @@
 				If their reliability is high enough, it'll also advance their related technologies.
 
 				<h2>Circuit Imprinter</h2>
-				This machine, along with the Protolathe, is used to actually produce Initialize devices. The Circuit Imprinter takes glass and various chemicals (depends on the design) to produce Initialize circuit boards to build Initialize machines or computers. It can even be used to print AI modules.
+				This machine, along with the Protolathe, is used to actually produce new devices. The Circuit Imprinter takes glass and various chemicals (depends on the design) to produce new circuit boards to build new machines or computers. It can even be used to print AI modules.
 
 				<h2>Protolathe</h2>
 				This machine is an advanced form of the Autolathe that produce non-circuit designs. Unlike the Autolathe, it can use processed metal, glass, solid phoron, silver, gold, and diamonds along with a variety of chemicals to produce devices.
