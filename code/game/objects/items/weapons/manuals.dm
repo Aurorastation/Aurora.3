@@ -188,7 +188,7 @@
 					<li>Open the console and disengage the cover lock.</li>
 					<li>Pry open the APC with a <b>Crowbar.</b></li>
 					<li>Take out the empty <b>power cell.</b></li>
-					<li>Put in the Initialize, <b>full power cell</b> - if you don't have one, continue with step 15.</li>
+					<li>Put in the new, <b>full power cell</b> - if you don't have one, continue with step 15.</li>
 					<li>Quickly put on a <b>Radiation suit.</b></li>
 					<li>Check if the <b>singularity field generators</b> withstood the down-time - if they didn't, continue with step 15.</li>
 					<li>Since disaster was averted you now have to ensure it doesn't repeat. If it was a powersink which caused it and if the engineering APC is wired to the same powernet, which the powersink is on, you have to remove the piece of wire which links the APC to the powernet. If it wasn't a powersink which caused it, then skip to step 14.</li>
