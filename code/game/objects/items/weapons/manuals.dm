@@ -693,7 +693,7 @@
 				<i>The Medical Oath sworn by recognised medical practitioners in the employ of [current_map.company_name]</i><br>
 
 				<ol>
-					<li>Now, as a Initialize doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>
+					<li>Now, as a new doctor, I solemnly promise that I will, to the best of my ability, serve humanity-caring for the sick, promoting good health, and alleviating pain and suffering.</li>
 					<li>I recognise that the practice of medicine is a privilege with which comes considerable responsibility and I will not abuse my position.</li>
 					<li>I will practise medicine with integrity, humility, honesty, and compassion-working with my fellow doctors and other colleagues to meet the needs of my patients.</li>
 					<li>I shall never intentionally do or administer anything to the overall harm of my patients.</li>
