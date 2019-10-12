@@ -44,8 +44,8 @@
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebot"
-	health = 10
-	maxHealth = 10
+	health = 15
+	maxHealth = 15
 	harm_intent_damage = 3
 	melee_damage_lower = 10
 	melee_damage_upper = 10
@@ -188,7 +188,7 @@
 	speed = -10
 	see_in_dark = 8
 	destroy_surroundings = 0
-	var/bot_type = GUARDIAN
+	var/bot_type
 	var/bot_amt = 96 //Number of total bots that are spawned before the beacon disappears completely.
 	var/max_bots = 48 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
@@ -333,6 +333,20 @@
 	if(linked_bots.len < max_bots)
 		visible_message("<span class='warning'>[src] radiates with energy!</span>")
 
+		if(guard_amt < 4)
+			bot_type = GUARDIAN
+		else
+			var/selection = rand(1,100)
+			switch(selection)
+				if(1 to 65)
+					bot_type = NORMAL
+				if(66 to 77)
+					bot_type = RANGED
+				if(78 to 89)
+					bot_type = RAPID
+				if(90 to 100)
+					bot_type = BOMBER
+
 		if(latest_area != get_area(src))
 			generate_warp_destinations()
 
@@ -353,33 +367,17 @@
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/guardian(Destination, src)
 
 		linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
-
-		if(guard_amt < 4)
-			bot_type = GUARDIAN
-		else
-			var/selection = rand(1,100)
-			switch(selection)
-				if(1 to 65)
-					bot_type = NORMAL
-				if(66 to 77)
-					bot_type = RANGED
-				if(78 to 89)
-					bot_type = RAPID
-				if(90 to 100)
-					bot_type = BOMBER
-
-		message_admins("[bot_type]")
+		latest_child.faction = faction
 		bot_amt--
 
 	if(bot_amt>0 && linked_bots.len < max_bots)
 		calc_spawn_delay()
-		message_admins("[spawn_delay]")
 		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
 	else
 		max_bots_reached = 1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
-	spawn_delay = 30*1.075**(linked_bots.len + 1)
+	spawn_delay = 40*1.075**(linked_bots.len + 1)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
@@ -392,9 +390,274 @@
 		calc_spawn_delay()
 		addtimer(CALLBACK(src, .proc/warpbots), spawn_delay)
 
-
 #undef NORMAL
 #undef RANGED
 #undef RAPID
 #undef BOMBER
 #undef GUARDIAN
+
+/obj/item/projectile/beam/hivebotincendiary/heavy
+	name = "archaic mining laser"
+	damage = 25
+	incinerate = 8
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester
+	name = "Hivebot Harvester"
+	desc = "Placeholder."
+	icon = 'icons/mob/npc/hivebot.dmi'
+	icon_state = "hivebotharvester"
+	health = 200
+	maxHealth = 200
+	harm_intent_damage = 3
+	melee_damage_lower = 30
+	melee_damage_upper = 30
+	destroy_surroundings = 0
+	wander = 0
+	ranged = 1
+	rapid = 1
+	attacktext = "slashed"
+	projectilesound = 'sound/weapons/lasercannonfire.ogg'
+	projectiletype = /obj/item/projectile/beam/hivebotincendiary/heavy
+	faction = "hivebot"
+	min_oxy = 0
+	max_oxy = 0
+	min_tox = 0
+	max_tox = 0
+	min_co2 = 0
+	max_co2 = 0
+	min_n2 = 0
+	max_n2 = 0
+	minbodytemp = 0
+	speed = 4
+	tameable = FALSE
+	flying = 1
+	mob_size = MOB_LARGE
+	see_in_dark = 8
+	pass_flags = PASSTABLE
+	attack_emote = "focuses on"
+
+	var/turf/last_processed_turf
+	var/turf/last_prospect_target
+	var/turf/last_prospect_loc
+	var/busy
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
+	..(null,"blows apart!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	spark(T, 1, alldirs)
+	qdel(src)
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/think()
+	..()
+	if(!stat)
+		if(stance == HOSTILE_STANCE_IDLE)
+			if(last_processed_turf == src.loc)
+				INVOKE_ASYNC(src, .proc/prospect)
+			else
+				INVOKE_ASYNC(src, .proc/process_turf)
+		else if(busy)
+			busy = 0
+			update_icon()
+	if(wander)
+		wander = 0
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/process_turf()
+	if(busy)
+		return
+	for(var/obj/O in src.loc)
+		if(istype(O, /obj/item))
+			var/obj/item/I = O
+			for(I in src.loc)
+
+				if(I.matter)
+					busy = 1
+					update_icon()
+					src.visible_message("<span class='notice'>\The [src] begins to harvest \the [I].</span>")
+					if(do_after(src, 48))
+						src.visible_message("<span class='warning'>\The [src] harvests \the [I].</span>")
+						qdel(I)
+					busy = 0
+					update_icon()
+					continue
+
+				if(istype(O, /obj/item/weapon/storage))
+					var/obj/item/weapon/storage/S = O
+					src.visible_message("<span class='notice'>\The [src] begins to rip apart \the [S].</span>")
+					busy = 1
+					update_icon()
+					if(do_after(src, 48))
+						src.visible_message("<span class='warning'>\The [src] rips \the [S] apart.</span>")
+						S.spill(3, src.loc)
+						qdel(S)
+					busy = 0
+					update_icon()
+					return
+
+		if(istype(O, /obj/structure/table))
+			var/obj/structure/table/TB = O
+			src.visible_message("<span class='notice'>\The [src] starts to dismantle \the [TB].</span>")
+			busy = 1
+			update_icon()
+			if(do_after(src, 48))
+				src.visible_message("<span class='warning'>\The [src] dismantles \the [TB].</span>")
+				TB.break_to_parts(1)
+			busy = 0
+			update_icon()
+			return
+
+		if(istype(O, /obj/structure/bed))
+			var/obj/structure/bed/B = O
+			if(B.can_dismantle)
+				src.visible_message("<span class='notice'>\The [src] starts to dismantle \the [B].</span>")
+				busy = 1
+				update_icon()
+				if(do_after(src, 48))
+					src.visible_message("<span class='warning'>\The [src] dismantles \the [B].</span>")
+					B.dismantle()
+					qdel(B)
+				busy = 0
+				update_icon()
+				return
+
+		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
+			src.visible_message("<span class='notice'>\The [src] starts to recycle \the [O].</span>")
+			busy = 1
+			update_icon()
+			if(do_after(src, 48))
+				src.visible_message("<span class='warning'>\The [src] recycles \the [O].</span>")
+				qdel(O)
+			busy = 0
+			update_icon()
+			continue
+
+		if(istype(O, /obj/structure/cable))
+			var/turf/simulated/floor/T = src.loc
+			if(T.is_plating())
+				var/obj/structure/cable/C = O
+				src.visible_message("<span class='notice'>\The [src] starts ripping up \the [C].</span>")
+				busy = 1
+				update_icon()
+				if(do_after(src, 48))
+					src.visible_message("<span class='warning'>\The [src] rips \the [C].</span>")
+					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
+					qdel(C)
+				busy = 0
+				update_icon()
+				return
+
+	if(istype(src.loc, /turf/simulated/floor))
+		var/turf/simulated/floor/T = src.loc
+		if(!T.is_plating())
+			src.visible_message("<span class='notice'>\The [src] starts ripping up \the [T].</span>")
+			busy = 1
+			update_icon()
+			if(do_after(src, 16))
+				src.visible_message("<span class='warning'>\The [src] rips up \the [T].</span>")
+				T.make_plating(1)
+			busy = 0
+			update_icon()
+			return
+
+	last_processed_turf = src.loc
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/update_icon()
+	if(busy)
+		icon_state = "hivebotharvester_harvesting"
+	else
+		icon_state = "hivebotharvester"
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/prospect()
+
+	var/destination
+	var/turf/T
+
+	if((!last_prospect_target) || (last_prospect_loc != src.loc))
+		destination = pick(cardinal)
+		T = get_step(src, destination)
+		last_prospect_target = T
+		last_prospect_loc = src.loc
+		busy = 0
+	else
+		T = last_prospect_target
+
+	if(busy)
+		return
+
+	if(istype(T, /turf/unsimulated) || istype(T, /turf/simulated/open) || istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
+		last_prospect_target = null
+		last_prospect_loc = null
+		return
+
+	if(istype(T, /turf/simulated/wall))
+		var/turf/simulated/wall/W = T
+		OpenFire(W)
+		return
+
+	for(var/obj/O in T)
+		if(istype(O, /obj/structure/girder))
+			var/obj/structure/girder/G = O
+			src.visible_message("<span class='notice'>\The [src] starts to tear \the [O] apart.</span>")
+			busy = 1
+			if(do_after(src, 48))
+				src.do_attack_animation(G)
+				src.visible_message("<span class='warning'>\The [src] tears \the [O] apart!</span>")
+				G.dismantle()
+			busy = 0
+			return
+
+		if((istype(O, /obj/machinery/door/firedoor) && O.density) || istype(O, /obj/machinery/door/airlock) && O.density)
+			var/obj/machinery/door/D = O
+			if(D.stat & BROKEN)
+				src.visible_message("<span class='notice'>\The [src] starts to tear \the [D] open.</span>")
+				busy = 1
+				if(do_after(src, 48))
+					src.visible_message("<span class='warning'>\The [src] tears \the [D] apart!</span>")
+					src.do_attack_animation(D)
+					new /obj/item/stack/material/steel(get_turf(D))
+					new /obj/item/stack/material/steel(get_turf(D))
+					new /obj/item/stack/material/steel(get_turf(D))
+					new /obj/item/stack/material/steel(get_turf(D))
+					new /obj/item/stack/material/steel(get_turf(D))
+					qdel(D)
+				busy = 0
+			else
+				OpenFire(D)
+			return
+
+		if(istype(O, /obj/structure/window))
+			var/dir = get_dir(src.loc,T)
+			var/obj/structure/window/W = O
+			if(W.dir == reverse_dir[dir])
+				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+			else
+				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+			return
+
+		if(istype(O, /obj/structure/grille) || istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
+			var/obj/structure/S = O
+			OpenFire(S)
+			return
+
+		if(istype(O, /obj/structure/reagent_dispensers))
+			var/obj/structure/reagent_dispensers/RD = O
+			src.visible_message(span("notice", "\The [src] starts taking apart the [RD]."))
+			busy = 1
+			if(do_after(src, 48))
+				src.do_attack_animation(RD)
+				RD.reagents.splash_turf(get_turf(RD.loc), RD.reagents.total_volume)
+				src.visible_message(span("danger", "\The [RD] gets torn open, spreading its contents all over the area!"))
+				new /obj/item/stack/material/steel(get_turf(RD))
+				new /obj/item/stack/material/steel(get_turf(RD))
+				qdel(RD)
+			busy = 0
+			return
+
+	if(T)
+		Move(T)
+
+	last_prospect_target = null
+	last_prospect_loc = null
