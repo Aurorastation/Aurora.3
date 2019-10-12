@@ -63,6 +63,7 @@
 
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/scientist
+	alt_outfits = list("Xenoarcheologist"=/datum/outfit/job/scientist/xenoarcheologist)
 
 /datum/outfit/job/scientist
 	name = "Scientist"
@@ -78,6 +79,11 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_tox
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+
+/datum/outfit/job/scientist/xenoarcheologist
+    name = "Xenoarcheologist"
+
+    uniform = /obj/item/clothing/under/rank/xenoarcheologist
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"

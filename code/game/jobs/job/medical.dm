@@ -154,6 +154,7 @@
 
 	uniform = /obj/item/clothing/under/rank/biochemist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
+	shoes = /obj/item/clothing/shoes/biochem
 
 	backpack = /obj/item/weapon/storage/backpack/virology
 	satchel = /obj/item/weapon/storage/backpack/satchel_vir
@@ -187,7 +188,7 @@
 
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 
@@ -212,7 +213,7 @@
 
 	minimum_character_age = 24
 	alt_ages = list("Emergency Medical Technician" = 20)
-	
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
 	alt_titles = list("Emergency Medical Technician")
