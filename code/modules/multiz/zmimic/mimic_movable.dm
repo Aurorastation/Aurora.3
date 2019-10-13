@@ -140,7 +140,7 @@
 
 // Object used to hold a mimiced atom's appearance.
 /atom/movable/openspace/overlay
-	plane = OPENTURF_MAX_PLANE
+	plane = OPENTURF_CAP_PLANE
 	var/atom/movable/associated_atom
 	var/depth
 	var/queued = FALSE
