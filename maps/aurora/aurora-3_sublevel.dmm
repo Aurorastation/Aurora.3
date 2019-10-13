@@ -23574,7 +23574,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aWG" = (
-/obj/structure/sign/bluecross{
+/obj/structure/sign/greencross{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/white,
