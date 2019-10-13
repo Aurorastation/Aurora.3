@@ -9,7 +9,7 @@
 
 /atom/movable/forceMove(atom/dest)
 	. = ..(dest)
-	if (bound_overlay)
+	if (. && bound_overlay)
 		// The overlay will handle cleaning itself up on non-openspace turfs.
 		if (isturf(dest))
 			bound_overlay.forceMove(get_step(src, UP))
@@ -17,16 +17,25 @@
 		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
 			qdel(bound_overlay)
 
+/atom/movable/Move()
+	. = ..()
+	if (. && bound_overlay)
+		bound_overlay.forceMove(get_step(src, UP))
+		if (bound_overlay.dir != dir)
+			bound_overlay.set_dir(dir)
+
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)
 		bound_overlay.set_dir(ndir)
 
 /atom/movable/update_above()
-	if (!bound_overlay)
+	if (!bound_overlay || !isturf(loc))
 		return
 
-	if (TURF_IS_MIMICING(loc))
+	var/turf/T = loc
+
+	if (TURF_IS_MIMICING(T.above))
 		if (!bound_overlay.queued)
 			SSzcopy.queued_overlays += bound_overlay
 			bound_overlay.queued = TRUE
@@ -95,6 +104,7 @@
 	layer = LIGHTING_LAYER + 0.001
 	plane = OPENTURF_CAP_PLANE
 	invisibility = 0
+	blend_mode = BLEND_MULTIPLY
 	if (icon_state == LIGHTING_BASE_ICON_STATE)
 		// We're using a color matrix, so just darken the colors across the board.
 		var/list/c_list = color
@@ -112,17 +122,20 @@
 		c_list[CL_MATRIX_AB] *= SHADOWER_DARKENING_FACTOR
 		color = c_list
 	else
-		// Not a color matrix, so we can just use the color var ourselves.
+		// Not a color matrix, so we just ignore the lighting values.
+		icon_state = "blank"	// this is actually just a white sprite, which is what this blending needs
 		color = list(
 			SHADOWER_DARKENING_FACTOR, 0, 0,
 			0, SHADOWER_DARKENING_FACTOR, 0,
 			0, 0, SHADOWER_DARKENING_FACTOR
 		)
 
-	if (our_overlays || priority_overlays)
-		compile_overlays()
-	else if (bound_overlay)
-		// compile_overlays() calls update_above().
+	var/turf/parent = loc
+	ASSERT(isturf(parent))
+	if (LAZYLEN(parent.ao_overlays_mimic))
+		overlays += parent.ao_overlays_mimic
+
+	if (bound_overlay)
 		update_above()
 
 // Object used to hold a mimiced atom's appearance.
@@ -132,13 +145,14 @@
 	var/depth
 	var/queued = FALSE
 	var/destruction_timer
+	var/mimiced_type
 
 /atom/movable/openspace/overlay/New()
 	initialized = TRUE
-	SSzcopy.openspace_overlays += src
+	SSzcopy.openspace_overlays += 1
 
 /atom/movable/openspace/overlay/Destroy()
-	SSzcopy.openspace_overlays -= src
+	SSzcopy.openspace_overlays -= 1
 
 	if (associated_atom)
 		associated_atom.bound_overlay = null
@@ -158,8 +172,8 @@
 /atom/movable/openspace/overlay/attack_generic(mob/user as mob)
 	to_chat(user, span("notice", "You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/overlay/examine(mob/examiner)
-	associated_atom.examine(examiner)
+/atom/movable/openspace/overlay/examine(...)
+	associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
 /atom/movable/openspace/overlay/forceMove(turf/dest)
 	. = ..()

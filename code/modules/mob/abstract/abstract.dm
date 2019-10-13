@@ -8,6 +8,7 @@
 	simulated = FALSE
 
 	mob_thinks = FALSE
+	no_z_overlay = TRUE
 
 	var/allow_falling = FALSE
 

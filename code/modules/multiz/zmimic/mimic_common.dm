@@ -27,10 +27,19 @@
  */
 /turf/proc/is_above_space()
 	var/turf/T = GetBelow(src)
-	while (T && (T.flags & MIMIC_BELOW))
+	while (T && (T.flags & ZM_MIMIC_BELOW))
 		T = GetBelow(T)
 
 	return istype(T, /turf/space)
+
+/turf/update_icon()
+	..()
+	if (above)
+		update_above()
+
+/atom/movable/update_icon()
+	..()
+	UPDATE_OO_IF_PRESENT
 
 /turf/simulated/open/CanZPass(atom, direction)
 	return TRUE

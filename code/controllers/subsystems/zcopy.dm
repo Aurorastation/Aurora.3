@@ -1,7 +1,7 @@
-#define OPENTURF_MAX_PLANE -71
-#define OPENTURF_CAP_PLANE -70      // The multiplier goes here so it'll be on top of every other overlay.
+#define OPENTURF_MAX_PLANE -70
+#define OPENTURF_CAP_PLANE -69
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
-#define SHADOWER_DARKENING_FACTOR 0.85	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
+#define SHADOWER_DARKENING_FACTOR 0.6	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
 
 /var/datum/controller/subsystem/zcopy/SSzcopy
 
@@ -17,31 +17,39 @@
 	var/list/queued_overlays = list()
 	var/qo_idex = 1
 
-	var/list/openspace_overlays = list()
-	var/list/openspace_turfs = list()
-
-	var/starlight_enabled = FALSE
+	var/openspace_overlays = 0
+	var/openspace_turfs = 0
 
 /datum/controller/subsystem/zcopy/New()
 	NEW_SS_GLOBAL(SSzcopy)
 
 /datum/controller/subsystem/zcopy/proc/update_all()
 	disable()
-	for (var/thing in openspace_overlays)
-		var/atom/movable/AM = thing
+	log_debug("SSzcopy: update_all() invoked.")
 
-		var/turf/T = get_turf(AM)
-		if (TURF_IS_MIMICING(T))
-			if (!(T.flags & MIMIC_QUEUED))
+	var/turf/T 	// putting the declaration up here totally speeds it up, right?
+	var/num_upd = 0
+	var/num_del = 0
+	var/num_amupd = 0
+	for (var/atom/A in world)
+		if (isturf(A))
+			T = A
+			if (T.flags & ZM_MIMIC_BELOW)
 				T.update_mimic()
-		else
-			qdel(AM)
+				num_upd += 1
+
+		else if (istype(A, /atom/movable/openspace/overlay))
+			var/turf/Tloc = A.loc
+			if (TURF_IS_MIMICING(Tloc))
+				Tloc.update_mimic()
+				num_upd += 1
+			else
+				qdel(A)
+				num_del += 1
 
 		CHECK_TICK
 
-	for (var/thing in openspace_turfs)
-		var/turf/T = thing
-		T.update_mimic()
+	log_debug("SSzcopy: [num_upd + num_amupd] turf updates queued ([num_upd] direct, [num_amupd] indirect), [num_del] orphans destroyed.")
 
 	enable()
 
@@ -49,46 +57,33 @@
 	disable()
 	log_debug("SSzcopy: hard_reset() invoked.")
 	var/num_deleted = 0
-	var/thing
-	for (thing in openspace_overlays)
-		qdel(thing)
-		num_deleted++
-		CHECK_TICK
-
-	log_debug("SSzcopy: deleted [num_deleted] overlays.")
-
 	var/num_turfs = 0
-	for (thing in turfs)
-		var/turf/T = thing
-		if (T.flags & MIMIC_BELOW)
-			T.update_mimic()
-			num_turfs++
+
+	var/turf/T
+	for (var/atom/A in world)
+		if (isturf(A))
+			T = A
+			if (T.flags & ZM_MIMIC_BELOW)
+				T.update_mimic()
+				num_turfs += 1
+
+		else if (istype(A, /atom/movable/openspace/overlay))
+			qdel(A)
+			num_deleted += 1
 
 		CHECK_TICK
 
-	log_debug("SSzcopy: queued [num_turfs] turfs for update. hard_reset() complete.")
+	log_debug("SSzcopy: deleted [num_deleted] overlays, and queued [num_turfs] turfs for update.")
+
 	enable()
 
 /datum/controller/subsystem/zcopy/stat_entry()
-	..("Q:{T:[queued_turfs.len - (qt_idex - 1)]|O:[queued_overlays.len - (qo_idex - 1)]} T:{T:[openspace_turfs.len]|O:[openspace_overlays.len]}")
+	..("Q:{T:[queued_turfs.len - (qt_idex - 1)]|O:[queued_overlays.len - (qo_idex - 1)]} T:{T:[openspace_turfs]|O:[openspace_overlays]}")
 
 /datum/controller/subsystem/zcopy/Initialize(timeofday)
-	starlight_enabled = config.starlight && config.openturf_starlight_permitted
 	// Flush the queue.
 	fire(FALSE, TRUE)
-	if (starlight_enabled)
-		var/t = REALTIMEOFDAY
-		admin_notice("<span class='danger'>[src] setup completed in [(t - timeofday)/10] seconds!</span>", R_DEBUG)
-
-		SSlighting.fire(FALSE, TRUE)
-		admin_notice("<span class='danger'>Secondary [SSlighting] flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
-
-		t = REALTIMEOFDAY
-
-		fire(FALSE, TRUE)	// Fire /again/ to flush updates caused by the above.
-		admin_notice("<span class='danger'>Secondary [src] flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
-
-	..()
+	return ..()
 
 /datum/controller/subsystem/zcopy/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -114,32 +109,31 @@
 				break
 			continue
 
-		if (!T.shadower)	// If we don't have our shadower yet, create it.
-			T.shadower = new(T)
+		if (!T.shadower)
+			WARNING("Turf [T] at [T.x],[T.y],[T.z] was queued, but had no shadower.")
+			continue
 
 		// Figure out how many z-levels down we are.
 		var/depth = 0
 		var/turf/Td = T
-		while (Td && TURF_IS_MIMICING(Td.below))
-			Td = Td.below
-			depth++
+
+		while (Td.above)
+			Td = Td.above
+			depth += 1
+
 		if (depth > OPENTURF_MAX_DEPTH)
 			depth = OPENTURF_MAX_DEPTH
 
-		var/oo_target = OPENTURF_MAX_PLANE - depth
-		var/t_target
+		var/t_target = OPENTURF_MAX_PLANE	// this is where the openturf gets put
 
-		// Handle space parallax & starlight.
-		if (T.is_above_space())
-			t_target = PLANE_SPACE_BACKGROUND
-			if (starlight_enabled && !T.light_range)
-				T.set_light(config.starlight, 0.5)
-		else
-			t_target = oo_target
-			if (starlight_enabled && T.light_range)
-				T.set_light(0)
+		// Handle space parallax.
+		if (T.below.z_eventually_space)
+			T.z_eventually_space = TRUE
 
-		if (!(T.flags & MIMIC_OVERWRITE))
+			if (istype(T.below, /turf/space))
+				t_target = PLANE_SPACE
+
+		if (!(T.flags & ZM_MIMIC_OVERWRITE))
 			// Some openturfs have icons, so we can't overwrite their appearance.
 			if (!T.below.bound_overlay)
 				T.below.bound_overlay = new(T)
@@ -147,35 +141,41 @@
 			TO.appearance = T.below
 			TO.name = T.name
 			TO.opacity = FALSE
-			T.desc = TO.desc = "Below seems to be \a [T.below]."
 			TO.plane = t_target
-			TO.mouse_opacity = FALSE
 		else
 			// This openturf doesn't care about its icon, so we can just overwrite it.
 			if (T.below.bound_overlay)
 				QDEL_NULL(T.below.bound_overlay)
 			T.appearance = T.below
 			T.name = initial(T.name)
+			T.desc = initial(T.desc)
 			T.gender = NEUTER
 			T.opacity = FALSE
-			T.plane = t_target
+			T.plane = t_target - depth
 
-		T.desc = "Below seems to be \a [T.below]."
 		T.queue_ao()	// No need to recalculate ajacencies, shouldn't have changed.
 
 		// Add everything below us to the update queue.
 		for (var/thing in T.below)
 			var/atom/movable/object = thing
-			if (QDELETED(object) || object.no_z_overlay || object.loc != T.below)
-				// Don't queue deleted stuff or stuff that doesn't need an overlay.
+			if (QDELETED(object) || object.no_z_overlay || object.loc != T.below || object.invisibility == INVISIBILITY_ABSTRACT)
+				// Don't queue deleted stuff, stuff that's not visible, blacklisted stuff, or stuff that's centered on another tile but intersects ours.
 				continue
 
-			if (object.type == /atom/movable/lighting_overlay)	// Special case.
-				T.shadower.copy_lighting(object)
+			// Special case: these are merged into the shadower to reduce memory usage.
+			if (object.type == /atom/movable/lighting_overlay)
+				// T.shadower.copy_lighting(object)
 			else
 				if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 					object.bound_overlay = new(T)
 					object.bound_overlay.associated_atom = object
+
+				var/target_depth = depth
+				var/original_type = object.type
+				if (object.type == /atom/movable/openspace/overlay)
+					var/atom/movable/openspace/overlay/OOO = object
+					target_depth = OOO.depth
+					original_type = OOO.mimiced_type
 
 				var/atom/movable/openspace/overlay/OO = object.bound_overlay
 
@@ -184,12 +184,16 @@
 					deltimer(OO.destruction_timer)
 					OO.destruction_timer = null
 
-				// Cache our already-calculated depth so we don't need to re-calculate it a bunch of times.
-				OO.depth = oo_target
+				OO.depth = target_depth
+				OO.mimiced_type = original_type
 
-				queued_overlays += OO
+				if (!OO.queued)
+					OO.queued = TRUE
+					queued_overlays += OO
 
-		T.flags &= ~MIMIC_QUEUED
+		T.z_queued -= 1
+		if (!no_mc_tick && T.above)
+			T.above.update_mimic(FALSE)
 
 		if (no_mc_tick)
 			CHECK_TICK
@@ -227,7 +231,11 @@
 		// Actually update the overlay.
 		OO.dir = OO.associated_atom.dir
 		OO.appearance = OO.associated_atom
-		OO.plane = OO.depth
+		OO.plane = OPENTURF_MAX_PLANE - OO.depth
+		switch (OO.mimiced_type)
+			if (/atom/movable/openspace/multiplier, /atom/movable/openspace/turf_overlay)
+				OO.plane -= 1
+
 		OO.opacity = FALSE
 		OO.queued = FALSE
 
@@ -243,7 +251,6 @@
 			curr_ov.Cut(1, qo_idex)
 			qo_idex = 1
 
-
 /client/proc/analyze_openturf(turf/T)
 	set name = "Analyze Openturf"
 	set desc = "Show the layering of an openturf and everything it's mimicking."
@@ -254,7 +261,9 @@
 
 	var/list/out = list(
 		"<h1>Analysis of [T] at [T.x],[T.y],[T.z]</h1>",
-		"<b>Z Flags</b>: [english_list(bitfield2list(T.flags, list("NOJAUNT", "MIMIC_BELOW", "MIMIC_OVERWRITE", "MIMIC_QUEUED", "MIMIC_NO_AO")), "(none)")]",
+		"<b>Queue occurrences:</b> [T.z_queued]",
+		"<b>Above space:</b> [T.is_above_space() ? "Yes" : "No"]",
+		"<b>Z Flags</b>: [english_list(bitfield2list(T.flags, global.mimic_defines), "(none)")]",
 		"<b>Has Shadower:</b> [T.shadower ? "Yes" : "No"]",
 		"<b>Below:</b> [!T.below ? "(nothing)" : "[T.below] at [T.below.x],[T.below.y],[T.below.z]"]",
 		"<ul>"
@@ -265,11 +274,23 @@
 		if (istype(thing, /atom/movable/openspace))
 			found_oo += thing
 
+	var/turf/Td = T
+	while (Td.below)
+		Td = Td.below
+		found_oo += Td
+
 	sortTim(found_oo, /proc/cmp_planelayer)
 	for (var/thing in found_oo)
 		var/atom/A = thing
-		out += "<li>[A] ([A.type]) at plane [A.plane], layer [A.layer][istype(A, /atom/movable/openspace/overlay) ? ", Z-level [A:associated_atom.z]." : "."]</li>"
+		if (istype(A, /atom/movable/openspace/overlay))
+			var/atom/movable/openspace/overlay/OO = A
+			var/atom/movable/AA = OO.associated_atom
+			out += "<li>\icon[A] plane [A.plane], layer [A.layer], depth [OO.depth], associated Z-level [AA.z] - [OO.type] copying [AA] ([AA.type])</li>"
+		else if (isturf(A) && A != T)	// foreign turfs - not visible here, but good for figuring out layering
+			out += "<li>\icon[A] plane [A.plane], layer [A.layer], Z-level [A.z] - [A] ([A.type]) - <font color='red'>FOREIGN</font></li>"
+		else
+			out += "<li>\icon[A] plane [A.plane], layer [A.layer], Z-level [A.z] - [A] ([A.type])</li>"
 
 	out += "</ul>"
 
-	usr << browse(out.Join("<br>"), "window=openturfanalysis-\ref[T]")
+	show_browser(usr, out.Join("<br>"), "window=openturfanalysis-\ref[T]")

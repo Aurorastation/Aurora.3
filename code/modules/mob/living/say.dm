@@ -267,16 +267,34 @@ proc/get_radio_key_from_channel(var/channel)
 		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
 
 
+	
+	// Build speech bubbles
+	var/list/speech_bubbles = list()
+	var/speech_bubble_test = say_test(message)
+	speech_bubbles["[src.z]"] = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
+	// VOREStation Port - Attempt Multi-Z Talking
+	for (var/atom/movable/AM in get_above_oo())
+		var/turf/ST = get_turf(AM)
+		get_mobs_and_objs_in_view_fast(ST, world.view, listening, listening_obj)
+		speech_bubbles["[ST.z]"] = image('icons/mob/talk.dmi', AM, "h[speech_bubble_test]")
+		
+
+	// VOREStation Port End
+
 	var/list/hear_clients = list()
+	// Send out messages
 	for(var/m in listening)		
 		var/mob/M = m
 		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 		if (M.client)
-			hear_clients += M.client
+			var/turf/t = get_turf(M)
+			LAZYINITLIST(hear_clients["[t.z]"])
+			hear_clients["[t.z]"] += M.client
 
-	var/speech_bubble_test = say_test(message)
-	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
-	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
+	// Send out chat bubles
+	for(var/zl in speech_bubbles)
+		var/image/speech_bubble = speech_bubbles[zl]
+		INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients[zl], 30)
 
 	for(var/o in listening_obj)
 		var/obj/O = o

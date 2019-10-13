@@ -33,6 +33,26 @@
 	return
 
 /mob/living/carbon/human/RangedAttack(var/atom/A)
+	if((istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/lattice/catwalk)) && isturf(loc) && bound_overlay && !is_physically_disabled()) //Climbing through openspace
+		var/turf/T = get_turf(A)
+		var/turf/above = bound_overlay.loc
+		if(T.Adjacent(bound_overlay) && above.CanZPass(src, UP)) //Certain structures will block passage from below, others not
+ 
+			var/area/location = get_area(loc)
+			if(location.has_gravity)
+				return FALSE
+ 
+			visible_message("<span class='notice'>[src] starts climbing onto \the [A]!</span>", "<span class='notice'>You start climbing onto \the [A]!</span>")
+			bound_overlay.visible_message("<span class='notice'>[bound_overlay] starts climbing onto \the [A]!</span>")
+			if(do_after(src, 50, A))
+				visible_message("<span class='notice'>[src] climbs onto \the [A]!</span>", "<span class='notice'>You climb onto \the [A]!</span>")
+				bound_overlay.visible_message("<span class='notice'>[bound_overlay] climbs onto \the [A]!</span>")
+				src.Move(T)
+			else
+				visible_message("<span class='warning'>[src] gives up on trying to climb onto \the [A]!</span>", "<span class='warning'>You give up on trying to climb onto \the [A]!</span>")
+				bound_overlay.visible_message("<span class='warning'>[bound_overlay] gives up on trying to climb onto \the [A]!</span>")
+			return TRUE
+
 	if(!(gloves || mutations.len || glasses)) return
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses

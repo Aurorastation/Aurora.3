@@ -7,11 +7,10 @@
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "opendebug"
-	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
-	flags = MIMIC_BELOW | MIMIC_OVERWRITE | MIMIC_NO_AO
+	flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 
 	roof_type = null
 
@@ -107,7 +106,7 @@
 	icon_state = "debug"
 	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
-	flags = MIMIC_BELOW
+	flags = ZM_MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless

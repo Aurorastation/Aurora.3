@@ -7,7 +7,12 @@
 	var/tmp/list/datum/light_source/affecting_lights       // List of light sources affecting this turf.
 	var/tmp/atom/movable/lighting_overlay/lighting_overlay // Our lighting overlay.
 	var/tmp/list/datum/lighting_corner/corners
+	var/opaque_counter
 	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
+
+/turf/New()
+	opaque_counter = opacity
+	..()
 
 // Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
