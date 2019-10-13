@@ -47,7 +47,7 @@
 /obj/item/clothing/under/rank/scientist/science_alt
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
 	name = "scientist's uniform"
-	icon_state = "scientice_alt"
+	icon_state = "science_alt"
 	item_state = "w_suit"
 	worn_state = "science_alt"
 	permeability_coefficient = 0.50
