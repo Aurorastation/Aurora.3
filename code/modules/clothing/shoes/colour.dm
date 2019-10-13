@@ -75,8 +75,15 @@
 
 /obj/item/clothing/shoes/psych
 	name = "psychologist shoes"
-	desc = "A pair of turquoise and white shoes resistant to biological and chemical hazards."
+	desc = "A pair of teal and white shoes resistant to biological and chemical hazards."
 	icon_state = "psych"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+
+/obj/item/clothing/shoes/surgeon
+	name = "surgeon shoes"
+	desc = "A pair of light blue and white shoes resistant to biological and chemical hazards."
+	icon_state = "surgeon"
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 

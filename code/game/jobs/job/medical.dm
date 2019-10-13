@@ -75,7 +75,7 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
@@ -99,7 +99,8 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical/blue
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	shoes = /obj/item/clothing/shoes/surgeon
 	head = /obj/item/clothing/head/surgery/blue
 
 /datum/outfit/job/doctor/nurse
@@ -187,7 +188,7 @@
 	jobtype = /datum/job/psychiatrist
 
 	uniform = /obj/item/clothing/under/rank/psych
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist

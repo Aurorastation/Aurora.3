@@ -80,6 +80,14 @@
 	icon_open = "labcoat_gen_open"
 	icon_closed = "labcoat_gen"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/medical
+	name = "medical labcoat"
+	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a green stripe on the shoulder."
+	icon_state = "labcoat_med_open"
+	icon_open = "labcoat_med_open"
+	icon_closed = "labcoat_med"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+
 /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	name = "pharmacist labcoat"
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has an orange stripe on the shoulder."
@@ -94,6 +102,22 @@
 	icon_state = "labcoat_vir_open"
 	icon_open = "labcoat_vir_open"
 	icon_closed = "labcoat_vir"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/psych
+	name = "psychiatrist labcoat"
+	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a teal stripe on the shoulder."
+	icon_state = "labcoat_psych_open"
+	icon_open = "labcoat_psych_open"
+	icon_closed = "labcoat_psych"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	name = "surgeon labcoat"
+	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a light blue stripe on the shoulder."
+	icon_state = "labcoat_surgeon_open"
+	icon_open = "labcoat_surgeon_open"
+	icon_closed = "labcoat_surgeon"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/science
