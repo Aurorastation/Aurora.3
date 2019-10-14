@@ -276,7 +276,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<br><br>"
 
 	out += "</td><td><b>Preview</b><br>"
-	out += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
+	out += "<div class='statusDisplay'><center><img style=\"background: rgba(255, 255, 255, 0.5);\" src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
 	out += "<br><a href='?src=\ref[src];toggle_clothing=1'>[pref.dress_mob ? "Hide equipment" : "Show equipment"]</a>"
 	out += "</td></tr></table>"
 

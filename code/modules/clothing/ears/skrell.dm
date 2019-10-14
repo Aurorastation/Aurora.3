@@ -219,3 +219,22 @@
 	desc = "A purple cloth band worn by skrell around their head tails."
 	icon_state = "skrell_cloth_purple_male"
 	item_state = "skrell_cloth_purple_male"
+
+/obj/item/clothing/ears/skrell/goop
+	name = "glowing algae"
+	desc = "A mixture of glowing algae applied by skrell on their head tails."
+	icon_state = "skrell_dots"
+	item_state = "skrell_dots"
+
+/obj/item/clothing/ears/skrell/goop/Initialize()
+	. = ..()
+	if(color)
+		set_light(1,1,color)
+
+/obj/item/clothing/ears/skrell/goop/stripes
+	icon_state = "skrell_stripes"
+	item_state = "skrell_stripes"
+
+/obj/item/clothing/ears/skrell/goop/circles
+	icon_state = "skrell_circles"
+	item_state = "skrell_circles"
