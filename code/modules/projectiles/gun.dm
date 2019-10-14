@@ -254,11 +254,6 @@
 			to_chat(user, "<span class='warning'>[src] is not ready to fire again!</span>")
 		return 0
 
-	var/shoot_time = (burst - 1)* burst_delay
-	user.setClickCooldown(shoot_time)
-	user.setMoveCooldown(shoot_time)
-	next_fire_time = world.time + shoot_time
-
 	return 1
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
