@@ -439,7 +439,8 @@
 		var/mob/living/carbon/human/H = M
 		
 		if(prob(dose)) //Peri should be painful now
-			to_chat(M, span("Your breath causes a sharp pain to erupt inside your body", "Your heart beats painfully", "Your organs ache in pulsing pain"))
+			M.Weaken(5 * removed)
+			to_chat(M, span("Your breath causes a sharp pain to erupt inside your body", "Your heart erupts with pain", "Your organs ache in pulsing pain"))
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
