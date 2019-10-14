@@ -104,21 +104,7 @@
 	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(5 * removed, 0)
-
-/datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
-	..()//Bicard overdose heals internal wounds
-	if(ishuman(M))
-		var/healpower = 1
-		var/mob/living/carbon/human/H = M
-		for (var/a in H.organs)
-			var/obj/item/organ/external/E = a
-			for (var/w in E.wounds)
-				var/datum/wound/W = w
-				if (W && W.internal)
-					healpower = W.heal_damage(healpower,1)
-					if (healpower <= 0)
-						return
+	M.heal_organ_damage(5 * removed, 0) //No more OD Internal Bleeding Repair
 
 /datum/reagent/kelotane
 	name = "Kelotane"
