@@ -219,7 +219,7 @@ var/global/list/additional_antag_types = list()
 		antag.build_candidate_list() //compile a list of all eligible candidates
 
 		//can't find enough antags? check again but don't apply the antag chance restrictions per job
-		if(antag.candidates < required_enemies)
+		if(antag.candidates.len < required_enemies)
 			antag.build_candidate_list(FALSE, FALSE, FALSE)
 
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
