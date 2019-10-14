@@ -39732,6 +39732,8 @@
 	},
 /obj/structure/closet/wardrobe/robotics_black,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/under/rank/roboticistalt,
+/obj/item/clothing/under/rank/roboticistalt,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqx" = (
