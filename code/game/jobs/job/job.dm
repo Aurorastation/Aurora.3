@@ -19,6 +19,7 @@
 	var/department = null                 // Does this position have a department tag?
 	var/head_position = 0                 // Is this position Command?
 	var/minimum_character_age = 17
+	var/list/alt_ages = null // assoc list of alt titles to minimum character ages
 	var/ideal_character_age = 30
 
 	var/latejoin_at_spawnpoints = FALSE          //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
