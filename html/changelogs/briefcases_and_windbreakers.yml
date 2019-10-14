@@ -40,3 +40,5 @@ delete-after: True
 changes: 
   - rscadd: "Added an ISD windbreaker for forensic scientists. Sprites by Happy_Fox!"
   - rscadd: "Made forensic scientist jackets available on the loadout for detectives and forensic scientists. Hard-worn suits as well for detectives and forensics."
+  - imageadd: "New briefcase and secure briefcase icons by Happy_Fox!"
+  - rscadd: "Added more types of briefcases, all available on the loadout."
