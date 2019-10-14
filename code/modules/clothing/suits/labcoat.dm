@@ -57,6 +57,7 @@
 	item_state = "labcoat_cmo"
 	icon_open = "labcoat_cmo_open"
 	icon_closed = "labcoat_cmo"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt
 	name = "chief medical officer labcoat"
@@ -64,6 +65,15 @@
 	icon_state = "labcoat_cmoalt_open"
 	icon_open = "labcoat_cmoalt_open"
 	icon_closed = "labcoat_cmoalt"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2
+	name = "chief medical officer labcoat"
+	desc = "A labcoat with command gold highlights."
+	icon_state = "labcoat_cmoalt2_open"
+	icon_open = "labcoat_cmoalt2_open"
+	icon_closed = "labcoat_cmoalt2"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/mad
 	name = "the mad's labcoat"
