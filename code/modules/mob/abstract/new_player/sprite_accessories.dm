@@ -2648,6 +2648,29 @@ Follow by example and make good judgement based on length which list to include 
 			name = "yellow IPC screen"
 			icon_state = "ipc_yellow"
 
+	diona_eye
+		icon = 'icons/mob/human_face/dionae_hair.dmi'
+		name = "Mono Eye"
+		icon_state = "monoeye"
+		species_allowed = list("Diona")
+		gender = NEUTER
+		do_colouration = FALSE
+
+		diona_eye_trioptics
+			name = "Trioptics"
+			icon_state = "trioptics"
+
+		diona_eye_lopsided
+			name = "Lopsided Eyes"
+			icon_state = "lopsided"
+
+		diona_eye_helmethead
+			name = "Helmethead"
+			icon_state = "helmethead"
+
+		diona_eye_eyestalk
+			name = "Eyestalk"
+			icon_state = "eyestalk"
 
 /*
 ////////////////////////////
@@ -2798,6 +2821,13 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skrell_arms"
 		body_parts = list("l_arm","r_arm","l_hand","r_hand")
 		species_allowed = list("Skrell")
+
+	diona_leaves
+		name = "Diona Leaves"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_leaves"
+		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		species_allowed = list("Diona")
 
 
 // Branded IPC markings - disabled for now, some layering issues.

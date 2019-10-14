@@ -4,6 +4,7 @@
 	var/list/restricted_jobs =     list()   // Jobs that cannot be this antagonist (depending on config)
 	var/list/protected_jobs =      list()   // As above.
 	var/list/restricted_species =   list()   // species that cannot be this antag - Ryan784
+	var/list/chance_restricted_jobs = list() // chance based restrictions
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
@@ -93,7 +94,7 @@
 	return 1
 
 // Get the raw list of potential players.
-/datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0)
+/datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0, var/chance_per_job = TRUE)
 	candidates = list() // Clear.
 
 	// Prune restricted status. Broke it up for readability.
@@ -111,6 +112,8 @@
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
+		else if(!can_become_antag_chance(player) && chance_per_job)
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are unlucky (based on job)!")
 		else
 			candidates += player
 

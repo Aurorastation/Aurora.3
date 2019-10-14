@@ -670,6 +670,7 @@ There are several things that need to be remembered:
 
 			if (result_layer)
 				result_layer = list(result_layer, I)
+				I.color = r_ear.color
 			else
 				result_layer = I
 

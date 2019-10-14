@@ -93,6 +93,7 @@
 	initial_modules = list(
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
+		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/stealth_field,
 		/obj/item/rig_module/electrowarfare_suite,
