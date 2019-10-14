@@ -168,7 +168,19 @@
 					I.Blend(hair_color, ICON_ADD)
 					limb_icon_cache[cache_key] = I
 				mob_icon.Blend(limb_icon_cache[cache_key], ICON_OVERLAY)
-
+/* WIP for markings over certain layers; synth, Skrell headtails
+	if(model)
+		icon_cache_key += "_model_[model]"
+		apply_
+		if(owner && owner.synth_markings)
+			for(var/M in markings)
+				var/datum/sprite_accessory/marking/mark_style = markings[M]["datum"]
+				var/icon/mark_s = new/icon("icon" = mark_style.icon, "icon_state" = "[mark_style.icon_state]-[organ_tag]")
+				mark_s.Blend(markings[M]["color"], ICON_ADD)
+				add_overlay(mark_s) //So when it's not on your body, it has icons
+				mob_icon.Blend(mark_s, ICON_OVERLAY) //So when it's on your body, it has icons
+				icon_cache_key += "[M][markings[M]["color"]]"
+*/
 	icon = mob_icon
 
 	return mob_icon

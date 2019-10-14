@@ -39,6 +39,8 @@
 	//This is to provide safe names to use for hair/sprite to text. See Skrell tentacles for example
 	var/chatname = null
 
+	//To allow markings to show over hair layer, often used for IPC and Skrell markings.
+	var/over_hair = 0
 
 /*
 ////////////////////////////
@@ -3204,6 +3206,12 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("chest")
 		species_allowed = list("Human","Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
+	tat_heart_back
+		name = "Tattoo (Heart, Lower Back)"
+		icon_state = "tat_heartback"
+		body_parts = list("chest")
+		species_allowed = list("Human")
+
 	tat_hunter_left
 		name = "Tattoo (Hunter, Left Eye)"
 		icon_state = "tat_hunter_l"
@@ -3404,15 +3412,9 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Human", "Skrell", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
-	tat_tramp
-		name = "Tattoo (Tramp, Lower Back)"
-		icon_state = "tat_tramp"
-		body_parts = list("chest")
-		species_allowed = list("Human")
-
-	tat_trampheart
-		name = "Tattoo (Tramp Heart, Lower Back)"
-		icon_state = "tat_trampheart"
+	tat_wings_back
+		name = "Tattoo (Wings, Lower Back)"
+		icon_state = "tat_wingsback"
 		body_parts = list("chest")
 		species_allowed = list("Human")
 
@@ -3758,18 +3760,21 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skrell_circles_l"
 		body_parts = list("head")
 		species_allowed = list("Skrell")
+		over_hair = 1
 
 	skr_circles_right
 		name = "Skrell Circles (Right)"
 		icon_state = "skrell_circles_r"
 		body_parts = list("head")
 		species_allowed = list("Skrell")
+		over_hair = 1
 
 	skr_dots
 		name = "Skrell Dots"
 		icon_state = "skrell_dots"
 		body_parts = list("head")
 		species_allowed = list("Skrell")
+		over_hair = 1
 
 	skr_heterochromia_left
 		name = "Skrell Heterochromia (Left Eye)"
@@ -3788,6 +3793,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skrell_stripes"
 		body_parts = list("head")
 		species_allowed = list("Skrell")
+		over_hair = 1
 
 	skr_tears
 		name = "Tear Stains"
@@ -3798,7 +3804,7 @@ Follow by example and make good judgement based on length which list to include 
 
 
 // Branded IPC markings - disabled for now, some layering issues.
-/*
+
 	bishop
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
 		icon_state = "face_lights"
@@ -3807,6 +3813,7 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list("head")
 		species_allowed = list("Bishop Accessory Frame")
 		is_painted = TRUE
+		over_hair = 1
 
 		monoeye
 			name = "Eye"
@@ -3874,4 +3881,4 @@ Follow by example and make good judgement based on length which list to include 
 		crest_greater
 			name = "Head Coloration (Greater)"
 			icon_state = "greater"
-*/
+
