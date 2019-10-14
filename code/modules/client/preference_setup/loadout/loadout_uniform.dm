@@ -256,7 +256,6 @@
 	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
-
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
@@ -265,3 +264,17 @@
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
 	path = /obj/item/clothing/under/circuitry
+
+
+/datum/gear/uniform/hard_worn
+	display_name = "suits, (Investigation)"
+	description = "A selection of hard-worn suits used by Detectives and Forensic Scientists."
+	path = /obj/item/clothing/under/det/black
+	allowed_roles = list("Detective","Forensic Technician")
+
+/datum/gear/uniform/hard_worn/New()
+	..()
+	var/uniform = list()
+	uniform["hard-worn suit, black"] = /obj/item/clothing/under/det/black
+	uniform["hard-worn suit, brown"] = /obj/item/clothing/under/det/classic
+	gear_tweaks += new/datum/gear_tweak/path(uniform)

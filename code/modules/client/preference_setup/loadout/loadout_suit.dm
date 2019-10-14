@@ -140,6 +140,19 @@
 	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
+/datum/gear/suit/forensic_jacket
+	display_name = "forensic scienist jacket selection"
+	description = "A selection of forensic technician and CSI jackets."
+	path = /obj/item/clothing/suit/storage/forensics/blue
+	allowed_roles = list("Forensic Technician")
+
+/datum/gear/suit/forensic_jacket/New()
+	..()
+	var/coat = list()
+	coat["blue forensic jacket"] = /obj/item/clothing/suit/storage/forensics/blue
+	coat["red forensic jacket"] = /obj/item/clothing/suit/storage/forensics/red
+	coat["ISD windbreaker"] = /obj/item/clothing/suit/storage/toggle/forensic_windbreaker
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"

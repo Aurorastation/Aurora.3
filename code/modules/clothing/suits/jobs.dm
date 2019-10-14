@@ -180,7 +180,7 @@ obj/item/clothing/suit/apron/overalls/blue
 //Forensics
 /obj/item/clothing/suit/storage/forensics
 	name = "jacket"
-	desc = "A forensics technician jacket."
+	desc = "A forensic scientist jacket."
 	item_state = "det_suit"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/taperecorder)
@@ -188,13 +188,20 @@ obj/item/clothing/suit/apron/overalls/blue
 
 /obj/item/clothing/suit/storage/forensics/red
 	name = "red jacket"
-	desc = "A red forensics technician jacket."
+	desc = "A red forensic scientist jacket."
 	icon_state = "forensics_red"
 
 /obj/item/clothing/suit/storage/forensics/blue
 	name = "blue jacket"
-	desc = "A blue forensics technician jacket."
+	desc = "A blue forensic scientist jacket."
 	icon_state = "forensics_blue"
+
+/obj/item/clothing/suit/storage/toggle/forensic_windbreaker
+	name = "windbreaker"
+	desc = "A blue windbreaker typically used by forensic scientists."
+	icon_state = "isd_windbreaker"
+	icon_open = "isd_windbreaker_open"
+	icon_closed = "isd_windbreaker"
 
 //Engineering
 /obj/item/clothing/suit/storage/hazardvest
