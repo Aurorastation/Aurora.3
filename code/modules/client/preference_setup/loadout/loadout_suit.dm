@@ -141,7 +141,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/forensic_jacket
-	display_name = "forensic scienist jacket selection"
+	display_name = "forensic scientist jacket selection"
 	description = "A selection of forensic technician and CSI jackets."
 	path = /obj/item/clothing/suit/storage/forensics/blue
 	allowed_roles = list("Forensic Technician")
