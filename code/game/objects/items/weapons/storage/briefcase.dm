@@ -32,4 +32,4 @@
 /obj/item/weapon/storage/briefcase/nt/corporate
 	desc = "" //todo
 	icon_state = "briefcase_corpnt"
-	item_stage = "briefcase_corpnt"
+	item_state = "briefcase_corpnt"
