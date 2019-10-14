@@ -6379,10 +6379,10 @@
 /area/security/nuke_storage)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Ion Rifle)";
+	name = "Weaponry (En. Carbine)";
 	req_access = list(3)
 	},
-/obj/item/weapon/gun/energy/rifle/ionrifle,
+/obj/item/weapon/gun/energy/gun,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "amR" = (
@@ -6830,11 +6830,11 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (En. Carbine)";
+	name = "Weaponry (Shotgun)";
 	req_access = list(3)
 	},
-/obj/item/weapon/gun/energy/gun,
-/obj/item/weapon/gun/energy/gun,
+/obj/item/weapon/gun/projectile/shotgun/pump,
+/obj/item/weapon/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "anY" = (
@@ -7559,15 +7559,6 @@
 /area/security/armoury)
 "apg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"aph" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Shotgun)";
-	req_access = list(3)
-	},
-/obj/item/weapon/gun/projectile/shotgun/pump,
-/obj/item/weapon/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "api" = (
@@ -97429,7 +97420,7 @@ ajR
 alK
 amQ
 anX
-aph
+amO
 anU
 arH
 asR
