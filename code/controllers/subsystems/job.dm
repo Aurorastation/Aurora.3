@@ -102,6 +102,10 @@
 		if(jobban_isbanned(player, rank))
 			return FALSE
 
+		if(!(rank in player.client.prefs.GetValidTitles(job)))
+			to_chat(player, "<span class='warning'>Your character is too young!</span>")
+			return FALSE
+
 		var/position_limit = job.total_positions
 		if(!latejoin)
 			position_limit = job.spawn_positions

@@ -19,6 +19,7 @@ var/datum/antagonist/cultist/cult
 	bantype = "cultist"
 	restricted_jobs = list("Chaplain","AI", "Cyborg", "Internal Affairs Agent", "Head of Security", "Captain")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 40, "Detective" = 50, "Forensic Technician" = 50, "Head of Personnel" = 25, "Chief Engineer" = 25, "Research Director" = 25, "Chief Medical Officer" = 25) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
 	feedback_tag = "cult_objective"
 	antag_indicator = "cult"
 	welcome_text = "You have a talisman in your possession; one that will help you start the cult on this station. Use it well and remember - there are others."

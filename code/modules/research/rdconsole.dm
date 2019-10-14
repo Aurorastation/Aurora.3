@@ -105,6 +105,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			break
 	SyncRDevices()
 
+/obj/machinery/computer/rdconsole/Destroy()
+	if(linked_destroy != null)
+		linked_destroy.linked_console = null
+	if(linked_lathe != null)
+		linked_lathe.linked_console = null
+	if(linked_imprinter != null)
+		linked_imprinter.linked_console = null
+	return ..()
+
 /obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
 	//Loading a disk into it.
 	if(istype(D, /obj/item/weapon/disk))

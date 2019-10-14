@@ -7816,7 +7816,7 @@
 	},
 /area/centcom/living)
 "awN" = (
-/obj/structure/sign/greencross{
+/obj/structure/sign/bluecross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -14042,7 +14042,7 @@
 	},
 /area/centcom/control)
 "aOM" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
 "aON" = (
@@ -17855,7 +17855,7 @@
 	},
 /area/centcom/holding)
 "aWZ" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "aXa" = (
