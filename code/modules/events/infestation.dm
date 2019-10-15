@@ -61,11 +61,13 @@
 			chosen_verb = "have been breeding in"
 			for(var/i = 1, i < rand(3,5),i++)
 				chosen_mob_types += /mob/living/simple_animal/hostile/scarybat
+
 		if(INFESTATION_LIZARDS)
 			event_name = "Lizard Nest"
 			chosen_verb = "have been breeding in"
 			for(var/i = 1, i < rand(6,8),i++)
 				chosen_mob_types += /mob/living/simple_animal/lizard
+
 		if(INFESTATION_MICE)
 			event_name = "Rat Nest"
 			chosen_verb = "have been breeding in"
@@ -78,11 +80,30 @@
 			)
 			for(var/i = 1, i < rand(8,24),i++)
 				chosen_mob_types += pickweight(rat_breeds)
+
 		if(INFESTATION_SLIMES)
-			event_name = "Slime Leak"
+			event_name = "Xenobiology Containment Breach"
 			chosen_verb = "have leaked into"
-			for(var/i = 1, i < rand(2,4),i++)
-				chosen_mob_types += /mob/living/carbon/slime/
+			//List excludes gold, adamantine and black slimes due to their grief potential.
+			var/list/slime_types = list(
+				/mob/living/carbon/slime,
+				/mob/living/carbon/slime/purple,
+				/mob/living/carbon/slime/metal,
+				/mob/living/carbon/slime/orange,
+				/mob/living/carbon/slime/blue,
+				/mob/living/carbon/slime/dark_blue,
+				/mob/living/carbon/slime/dark_purple,
+				/mob/living/carbon/slime/yellow,
+				/mob/living/carbon/slime/silver,
+				/mob/living/carbon/slime/pink,
+				/mob/living/carbon/slime/red,
+				/mob/living/carbon/slime/green,
+				/mob/living/carbon/slime/oil
+			)
+			var/chosen_slime_type = pick(slime_types)
+			for(var/i = 1, i < rand(5,8),i++)
+				chosen_mob_types += chosen_slime_type
+
 		if(INFESTATION_SPIDERLINGS)
 			event_name = "Spiderling Infestation"
 			chosen_verb = "have burrowed into"
