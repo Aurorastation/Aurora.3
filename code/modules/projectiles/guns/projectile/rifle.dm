@@ -266,7 +266,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	max_shells = 12
 	ammo_type = /obj/item/ammo_casing/a556
-	magazine_type = /obj/item/ammo_magazine/mk43/emp
+	magazine_type = /obj/item/ammo_magazine/mk43/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mk43)
 	accuracy = 2
 	recoil_wielded = 1

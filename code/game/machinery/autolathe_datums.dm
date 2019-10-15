@@ -280,6 +280,11 @@
 	path = /obj/item/ammo_magazine/c45m/flash
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_mk43_rubber
+	name = "ammunition (service rifle, 5.56mm rubber)"
+	path = /obj/item/ammo_magazine/mk43/rubber
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/magazine_smg_rubber
 	name = "ammunition (9mm rubber top mounted)"
 	path = /obj/item/ammo_magazine/mc9mmt/rubber
@@ -448,6 +453,12 @@
 /datum/autolathe/recipe/magazine_carbine
 	name = "ammunition (5.56mm)"
 	path = /obj/item/ammo_magazine/a556
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_mk43
+	name = "ammunition (service rifle, 5.56mm)"
+	path = /obj/item/ammo_magazine/mk43/rubber
 	hidden = 1
 	category = "Arms and Ammunition"
 

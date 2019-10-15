@@ -468,3 +468,13 @@ other types of metals and chemistry for reagents).
 	materials = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
 	build_path = /obj/item/weapon/implanter
 	sort_string = "VCBAC"
+
+// Special Ammunition
+
+/datum/design/item/mk43_haywires
+	name = "ammunition (service rifle, 5.56mm haywire)"
+	desc = "A magazine for the NT MK43 service rifle, stocked with 5.56mm miniaturized haywire rounds."
+	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1500)
+	build_path = /obj/item/ammo_magazine/mk43/emp
+	sort_string = "VDAMA"

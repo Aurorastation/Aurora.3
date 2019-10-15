@@ -38,6 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "The armory Ion rifle has been replaced by the NanoTrasen MK43 Service rifle, loaded with haywire rounds, with an extra spare magazine."
+  - tweak: "The armory Ion rifle has been replaced by the NanoTrasen MK43 Service rifle, loaded with rubber rounds, with an extra spare magazine."
   - tweak: "Swapped 7.62mm and 5.56mm round damage values to make more sense. Also reduced the 5.56mm AP damage a minor amount."
   - rscadd: "Added rubber 5.56mm rounds, added miniturized haywire 5.56mm rounds."
+  - rscadd: "Allowed the rubber rounds to be printed in an autolathe, the lethals in a hacked one."
+  - rscadd: "RnD can produce haywire rounds for the MK43 once they have reached a sufficient tech level."
