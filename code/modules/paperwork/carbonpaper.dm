@@ -2,8 +2,8 @@
 	name = "paper"
 	icon_state = "paper_stack"
 	item_state = "paper"
-	var copied = 0
-	var iscopy = 0
+	var/copied = 0
+	var/iscopy = 0
 
 
 /obj/item/weapon/paper/carbon/update_icon()
@@ -33,7 +33,7 @@
 	if (copied == 0)
 		var/obj/item/weapon/paper/carbon/c = src
 		var/copycontents = html_decode(c.info)
-		var/obj/item/weapon/paper/carbon/copy = new /obj/item/weapon/paper/carbon (usr.loc)
+		var/obj/item/weapon/paper/carbon/copy = new /obj/item/weapon/paper/carbon (usr.loc) // TODO: a better way of making copies that maintains icon state without bloating paper.dm and also doesn't give copies the remove copy verb
 		// <font>
 		copycontents = replacetext(copycontents, "<font face=\"[c.deffont]\" color=", "<font face=\"[c.deffont]\" nocolor=")	//state of the art techniques in action
 		copycontents = replacetext(copycontents, "<font face=\"[c.crayonfont]\" color=", "<font face=\"[c.crayonfont]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
@@ -45,6 +45,8 @@
 		to_chat(usr, "<span class='notice'>You tear off the carbon-copy!</span>")
 		c.copied = 1
 		copy.iscopy = 1
+		copy.copied = 1 // no more infinite copy chains
+		copy.verbs -= /obj/item/weapon/paper/carbon/verb/removecopy // TODO: anything but this, see above
 		copy.update_icon()
 		c.update_icon()
 	else
