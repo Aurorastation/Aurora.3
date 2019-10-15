@@ -8,9 +8,11 @@
 	var/percentage_antagonists = 0
 	var/percentage_dead = 0
 	var/can_call_ert = TRUE
-	var/ert_type = "NT-ERT" //what ert type will be deployed
 	var/send_emergency_team = 0
 	var/ert_count = 0
+
+	var/datum/responseteam/available_teams
+	var/datum/responseteam/picked_team
 
 	var/pg_green = 0
 	var/pg_yellow = 0
@@ -20,7 +22,6 @@
 /datum/controller/subsystem/responseteam/Recover()
 	progression_chance = SSresponseteam.progression_chance
 	can_call_ert = SSresponseteam.can_call_ert
-	ert_type = SSresponseteam.ert_type
 	send_emergency_team = SSresponseteam.send_emergency_team
 	pg_green = SSresponseteam.pg_green
 	pg_yellow = SSresponseteam.pg_yellow
@@ -43,7 +44,22 @@
 	..(out)
 
 /datum/controller/subsystem/responseteam/fire()
-	if(send_emergency_team == 0) // There is no ERT at the time.
+
+	if(!available_teams.len)
+		var/list/all_teams = subtypesof(/datum/responseteam)
+		if(!all_teams)
+			to_world("No response teams found!")
+			return
+		else
+			for(var/team in all_teams)
+				var/datum/responseteam/ert = new team
+				if(!ert) 
+					continue
+				available_teams += ert
+
+
+
+	/*if(send_emergency_team == 0) // There is no ERT at the time. TODO-MATT: Look into this.
 		var/total = 0
 		var/deadcount = 0
 		var/antagonists = 0
@@ -75,7 +91,24 @@
 				progression_chance += config.ert_delta_inc
 				pg_delta += config.ert_delta_inc
 			else
-				progression_chance += 1
+				progression_chance += 1*/
+
+/datum/controller/subsystem/responseteam/proc/pick_random_team()
+	var/datum/responseteam/result
+	var/prob = rand(1, 100)
+	var/tally = 0
+	for(var/datum/responseteam/ert in available_teams) //We need a loop to keep going through each candidate to be sure we find a good result.
+		if((ert.chance + tally) <= prob) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
+			tally += ert.chance
+			continue
+		result = ert
+
+	if(!result)
+		log_debug("We didn't find an ERT pick result!")
+		return null
+	else
+		return result
+
 
 /datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = FALSE)
 	if(!can_call_ert && !forced_choice)
@@ -86,18 +119,25 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	var/ert_chance = progression_chance + config.ert_base_chance // Is incremented by fire.
+	/*var/ert_chance = progression_chance + config.ert_base_chance // Is incremented by fire.
 	ert_chance += config.ert_scaling_factor_dead*percentage_dead // the more people are dead, the higher the chance
 	ert_chance += config.ert_scaling_factor_antag*percentage_antagonists // the more antagonists, the higher the chance
 	ert_chance *= config.ert_scaling_factor
-	ert_chance = min(ert_chance, 100)
+	ert_chance = min(ert_chance, 100)*/ //TODO-MATT: Look into this.
 
-	command_announcement.Announce("It would appear that an emergency response team was requested for [station_name()]. We will prepare and send one as soon as possible.", "[current_map.boss_name]")
+	command_announcement.Announce("A distress beacon has been launched. Please remain calm.", "[current_map.boss_name]")
+
+	
 
 	if(forced_choice)
-		ert_type = forced_choice
-	else if(!forced_choice && !prob(ert_chance)) 
-		ert_type = "TCFL"
+		forced_choice = text2path(forced_choice)
+		if(forced_choice in available_teams)
+			picked_team = forced_choice
+		else 
+			log_debug("Someone entered an invalid path for an ERT call!")
+			picked_team = pick_random_team()
+	else
+		picked_team = pick_random_team()
 
 	feedback_set("responseteam[ert_count]",world.time)
 	feedback_add_details("responseteam[ert_count]","BC:[config.ert_base_chance]")
@@ -111,14 +151,12 @@
 	feedback_add_details("responseteam[ert_count]","PD:[percentage_dead]")
 	feedback_add_details("responseteam[ert_count]","PDF:[config.ert_scaling_factor_dead]")
 	feedback_add_details("responseteam[ert_count]","SF:[config.ert_scaling_factor]")
-	feedback_add_details("responseteam[ert_count]","RT:[ert_type]")
 
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
 
 	sleep(600 * 5)
 	send_emergency_team = 0 // Can no longer join the ERT.
-	ert_type = "NT-ERT"
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
@@ -162,42 +200,6 @@
 	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].",admin_key=key_name(usr))
 	SSresponseteam.trigger_armed_response_team(choice)
 
-/client/verb/JoinResponseTeam()
-
-	set name = "Join Response Team"
-	set category = "IC"
-
-	if(!MayRespawn(1))
-		to_chat(usr, "<span class='warning'>You cannot join the response team at this time.</span>")
-		return
-
-	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
-
-		if(!SSresponseteam.send_emergency_team)
-			to_chat(usr, "No emergency response team is currently being sent.")
-			return
-
-		if(jobban_isbanned(usr, "Antagonist") || jobban_isbanned(usr, "Emergency Response Team") || jobban_isbanned(usr, "Security Officer"))
-			to_chat(usr, "<span class='danger'>You are jobbanned from the emergency reponse team!</span>")
-			return
-
-		switch(SSresponseteam.ert_type)
-
-			if("TCFL")
-				if(legion.current_antagonists.len >= legion.hard_cap)
-					to_chat(usr, "The emergency response team is already full!")
-					return
-
-				legion.create_default(usr)
-
-			else
-				if(ert.current_antagonists.len >= ert.hard_cap)
-					to_chat(usr, "The emergency response team is already full!")
-					return
-
-				ert.create_default(usr)
-	else
-		to_chat(usr, "You need to be an observer or new player to use this.")
 
 /hook/shuttle_moved/proc/close_response_blastdoors(var/area/departing, var/area/destination)
 	//Check if we are departing from the Odin
