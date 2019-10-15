@@ -8,37 +8,6 @@
 	name = "needle"
 	damage = 5
 
-/obj/item/projectile/beam/hivebotdischarge
-	name = "electrical discharge"
-	damage = 3
-	damage_type = HALLOSS
-	taser_effect = 1
-	agony = 20
-	nodamage = 1
-	armor_penetration = 30
-	muzzle_type = /obj/effect/projectile/muzzle/stun
-	tracer_type = /obj/effect/projectile/tracer/stun
-	impact_type = /obj/effect/projectile/impact/stun
-
-/obj/item/projectile/beam/hivebotbeam
-	name = "concentrated gamma burst"
-	damage = 12
-	damage_type = TOX
-	irradiate = 30
-	agony = 30
-	armor_penetration = 30
-	muzzle_type = /obj/effect/projectile/muzzle/bfg
-	tracer_type = /obj/effect/projectile/tracer/bfg
-	impact_type = /obj/effect/projectile/impact/bfg
-
-/obj/item/projectile/beam/hivebotincendiary
-	name = "archaic energy welder"
-	damage = 10
-	incinerate = 3
-	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
-	tracer_type = /obj/effect/projectile/tracer/laser/blue
-	impact_type = /obj/effect/projectile/impact/laser/blue
-
 /mob/living/simple_animal/hostile/hivebot
 	name = "Hivebot"
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind."
@@ -72,7 +41,12 @@
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 
 /mob/living/simple_animal/hostile/hivebot/guardian
+	health = 80
+	maxHealth = 80
+	melee_damage_lower = 20
+	melee_damage_upper = 20
 	icon_state = "hivebotguardian"
+	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one seems to be of a larger design."
 
 /mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	.=..()
@@ -80,12 +54,14 @@
 		linked_parent.guard_amt++
 
 /mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
+	.=..()
 	if(linked_parent)
 		linked_parent.guard_amt--
-	..()
 
 /mob/living/simple_animal/hostile/hivebot/bomber
-	desc = "Placeholder"
+	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one appears round in design and moves slower than its brethren."
+	health = 100
+	maxHealth = 100
 	icon_state = "hivebotbomber"
 	attacktext = "bumped"
 	move_to_delay = 8
@@ -102,12 +78,19 @@
 		fragem(src,10,30,2,3,5,1,0)
 		src.gib()
 
+/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+		Proj.no_attack_log = 1
+		return PROJECTILE_CONTINUE
+	else
+		fragem(src,10,30,2,3,5,1,0)
+		src.gib()
+
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
 	desc = "A primitive in design, hovering robot, with a simple looking launcher sticking out of it. It bears no manufacturer markings of any kind."
 	icon_state = "hivebotranged"
 	ranged = 1
-	smart = TRUE
 
 /mob/living/simple_animal/hostile/hivebot/range/rapid
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
@@ -121,6 +104,13 @@
 	if(!mapload)
 		new /obj/effect/effect/smoke(src.loc,30)
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+
+/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+		Proj.no_attack_log = 1
+		return PROJECTILE_CONTINUE
+	else
+		return ..(Proj)
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
@@ -147,6 +137,9 @@
 /mob/living/simple_animal/hostile/hivebot/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
+/mob/living/simple_animal/hostile/hivebot/AirflowCanMove(n)
+	return 0
+
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
@@ -154,11 +147,45 @@
 	if(severity == 1.0)
 		apply_damage(10)
 
+
+//---Hivebot Beacon---//
+
+/obj/item/projectile/beam/hivebotdischarge
+	name = "electrical discharge"
+	damage = 10
+	damage_type = HALLOSS
+	taser_effect = 1
+	agony = 40
+	armor_penetration = 40
+	muzzle_type = /obj/effect/projectile/muzzle/stun
+	tracer_type = /obj/effect/projectile/tracer/stun
+	impact_type = /obj/effect/projectile/impact/stun
+
+/obj/item/projectile/beam/hivebotbeam
+	name = "concentrated gamma burst"
+	damage = 15
+	damage_type = TOX
+	irradiate = 30
+	agony = 40
+	armor_penetration = 40
+	muzzle_type = /obj/effect/projectile/muzzle/bfg
+	tracer_type = /obj/effect/projectile/tracer/bfg
+	impact_type = /obj/effect/projectile/impact/bfg
+
+/obj/item/projectile/beam/hivebotincendiary
+	name = "archaic energy welder"
+	damage = 20
+	incinerate = 10
+	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
+	tracer_type = /obj/effect/projectile/tracer/laser/blue
+	impact_type = /obj/effect/projectile/impact/laser/blue
+
 #define NORMAL 0
 #define RANGED 1
 #define RAPID  2
 #define BOMBER 4
 #define GUARDIAN 8
+#define HARVESTER 16
 
 /mob/living/simple_animal/hostile/hivebotbeacon
 	name = "Hivebot beacon"
@@ -166,8 +193,8 @@
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotbeacon_active"
 	icon_living = "hivebotbeacon_active"
-	health = 200
-	maxHealth = 200
+	health = 300
+	maxHealth = 300
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebotdischarge
 	wander = 0
@@ -193,6 +220,7 @@
 	var/max_bots = 48 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
 	var/guard_amt = 0
+	var/harvester_amt = 0
 	var/spawn_delay
 	var/activated = 0
 	var/max_bots_reached
@@ -217,7 +245,7 @@
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
 		S.start()
-		visible_message("<span class='danger'>[src] warps in!</span>")
+		visible_message(span("danger","[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, .proc/activate_beacon), 300)
 	latest_area = get_area(src)
@@ -249,6 +277,11 @@
 		close_destinations += src.loc
 
 	latest_area = get_area(src)
+
+/mob/living/simple_animal/hostile/hivebotbeacon/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	..()
+	if(health < maxHealth/2)
+		do_teleport(src, pick(destinations))
 
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
@@ -292,13 +325,25 @@
 		if(activated == -1)
 			return
 		else
-			visible_message("<span class='warning'>[src] suddenly activates!</span>")
+			visible_message(span("warning","[src] suddenly activates!"))
 			icon_state = "hivebotbeacon_raising"
 			sleep(16)
 			icon_state = "hivebotbeacon_active"
 			sleep(4)
 			activated = 1
 			warpbots()
+
+/mob/living/simple_animal/hostile/hivebotbeacon/AirflowCanMove(n)
+	return 0
+
+/mob/living/simple_animal/hostile/hivebotbeacon/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+		Proj.no_attack_log = 1
+		return PROJECTILE_CONTINUE
+	else
+		..(Proj)
+		if(health < maxHealth/2)
+			do_teleport(src, pick(destinations))
 
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
 	if(activated != -1)
@@ -321,7 +366,7 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!bot_amt)
-		visible_message("<span class='danger'>[src] disappears in a cloud of smoke!</span>")
+		visible_message(span("danger","[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		qdel(src)
@@ -331,7 +376,7 @@
 		return
 
 	if(linked_bots.len < max_bots)
-		visible_message("<span class='warning'>[src] radiates with energy!</span>")
+		visible_message(span("warning","[src] radiates with energy!"))
 
 		if(guard_amt < 4)
 			bot_type = GUARDIAN
@@ -347,10 +392,18 @@
 				if(90 to 100)
 					bot_type = BOMBER
 
+		if(guard_amt == 4 && harvester_amt < 2 && stance == HOSTILE_STANCE_IDLE)
+			if(!harvester_amt || 24 < linked_bots.len)
+				bot_type = HARVESTER
+
 		if(latest_area != get_area(src))
 			generate_warp_destinations()
 
-		var/turf/Destination = pick(destinations)
+		var/turf/Destination
+		if(stance == HOSTILE_STANCE_IDLE)
+			Destination = pick(destinations)
+		else
+			Destination = pick(close_destinations)
 
 		var/mob/living/simple_animal/hostile/hivebot/latest_child
 		switch(bot_type)
@@ -365,6 +418,8 @@
 			if(GUARDIAN)
 				Destination = pick(close_destinations)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/guardian(Destination, src)
+			if(HARVESTER)
+				latest_child = new /mob/living/simple_animal/hostile/retaliate/hivebotharvester(Destination, src)
 
 		linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
 		latest_child.faction = faction
@@ -395,22 +450,23 @@
 #undef RAPID
 #undef BOMBER
 #undef GUARDIAN
+#undef HARVESTER
+
+
+//---Hivebot Harvester---//
 
 /obj/item/projectile/beam/hivebotincendiary/heavy
 	name = "archaic mining laser"
 	damage = 25
-	incinerate = 8
-	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
-	tracer_type = /obj/effect/projectile/tracer/laser/blue
-	impact_type = /obj/effect/projectile/impact/laser/blue
+	incinerate = 10
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester
 	name = "Hivebot Harvester"
-	desc = "Placeholder."
+	desc = "An odd and primitive looking machine. It emanates of powerful thermal radiation. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebotharvester"
-	health = 200
-	maxHealth = 200
+	health = 100
+	maxHealth = 100
 	harm_intent_damage = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
@@ -418,7 +474,7 @@
 	wander = 0
 	ranged = 1
 	rapid = 1
-	attacktext = "slashed"
+	attacktext = "stabbed"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebotincendiary/heavy
 	faction = "hivebot"
@@ -438,19 +494,47 @@
 	see_in_dark = 8
 	pass_flags = PASSTABLE
 	attack_emote = "focuses on"
-
+	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 	var/turf/last_processed_turf
 	var/turf/last_prospect_target
 	var/turf/last_prospect_loc
 	var/busy
 
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
+	if(hivebotbeacon)
+		linked_parent = hivebotbeacon
+		linked_parent.harvester_amt ++
+	.=..()
+	set_light(3,2,LIGHT_COLOR_RED)
+	if(!mapload)
+		new /obj/effect/effect/smoke(src.loc,30)
+		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
-	..(null,"blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
+	..(null,"teleports away!")
+	if(linked_parent)
+		linked_parent.harvester_amt --
+	new /obj/effect/effect/smoke(src.loc,30)
+	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 	qdel(src)
 
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
+	. = ..()
+	if(linked_parent)
+		linked_parent.linked_bots -= src
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/Allow_Spacemove(var/check_drift = 0)
+	return 1
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/AirflowCanMove(n)
+	return 0
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/item/projectile/Proj)
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+		Proj.no_attack_log = 1
+		return PROJECTILE_CONTINUE
+	else
+		return ..(Proj)
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/think()
 	..()
 	if(!stat)
@@ -476,9 +560,9 @@
 				if(I.matter)
 					busy = 1
 					update_icon()
-					src.visible_message("<span class='notice'>\The [src] begins to harvest \the [I].</span>")
-					if(do_after(src, 48))
-						src.visible_message("<span class='warning'>\The [src] harvests \the [I].</span>")
+					src.visible_message(span("notice","[src] begins to harvest \the [I]."))
+					if(do_after(src, 32))
+						src.visible_message(span("warning","[src] harvests \the [I]."))
 						qdel(I)
 					busy = 0
 					update_icon()
@@ -486,11 +570,11 @@
 
 				if(istype(O, /obj/item/weapon/storage))
 					var/obj/item/weapon/storage/S = O
-					src.visible_message("<span class='notice'>\The [src] begins to rip apart \the [S].</span>")
-					busy = 1
+					src.visible_message(span("notice","[src] begins to rip apart \the [S]."))
+					busy = 2
 					update_icon()
-					if(do_after(src, 48))
-						src.visible_message("<span class='warning'>\The [src] rips \the [S] apart.</span>")
+					if(do_after(src, 32))
+						src.visible_message(span("warning","[src] rips \the [S] apart."))
 						S.spill(3, src.loc)
 						qdel(S)
 					busy = 0
@@ -499,11 +583,11 @@
 
 		if(istype(O, /obj/structure/table))
 			var/obj/structure/table/TB = O
-			src.visible_message("<span class='notice'>\The [src] starts to dismantle \the [TB].</span>")
-			busy = 1
+			src.visible_message(span("notice","[src] starts to dismantle \the [TB]."))
+			busy = 2
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message("<span class='warning'>\The [src] dismantles \the [TB].</span>")
+				src.visible_message(span("warning","[src] dismantles \the [TB]."))
 				TB.break_to_parts(1)
 			busy = 0
 			update_icon()
@@ -512,23 +596,35 @@
 		if(istype(O, /obj/structure/bed))
 			var/obj/structure/bed/B = O
 			if(B.can_dismantle)
-				src.visible_message("<span class='notice'>\The [src] starts to dismantle \the [B].</span>")
-				busy = 1
+				src.visible_message(span("notice","[src] starts to dismantle \the [B]."))
+				busy = 2
 				update_icon()
 				if(do_after(src, 48))
-					src.visible_message("<span class='warning'>\The [src] dismantles \the [B].</span>")
+					src.visible_message(span("warning","[src] dismantles \the [B]."))
 					B.dismantle()
 					qdel(B)
 				busy = 0
 				update_icon()
 				return
 
+		if(istype(O, /obj/item/weapon/stool))
+			var/obj/item/weapon/stool/S = O
+			src.visible_message(span("notice","[src] starts to dismantle \the [S]."))
+			busy = 2
+			update_icon()
+			if(do_after(src, 32))
+				src.visible_message(span("warning","[src] dismantles \the [S]."))
+				S.dismantle()
+			busy = 0
+			update_icon()
+			return
+
 		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
-			src.visible_message("<span class='notice'>\The [src] starts to recycle \the [O].</span>")
+			src.visible_message(span("notice","[src] starts to recycle \the [O]."))
 			busy = 1
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message("<span class='warning'>\The [src] recycles \the [O].</span>")
+				src.visible_message(span("warning","[src] recycles \the [O]."))
 				qdel(O)
 			busy = 0
 			update_icon()
@@ -538,11 +634,13 @@
 			var/turf/simulated/floor/T = src.loc
 			if(T.is_plating())
 				var/obj/structure/cable/C = O
-				src.visible_message("<span class='notice'>\The [src] starts ripping up \the [C].</span>")
-				busy = 1
+				src.visible_message(span("notice","[src] starts ripping up \the [C]."))
+				busy = 2
 				update_icon()
-				if(do_after(src, 48))
-					src.visible_message("<span class='warning'>\The [src] rips \the [C].</span>")
+				if(do_after(src, 32))
+					src.visible_message(span("warning","[src] rips \the [C]."))
+					if(C.powernet && C.powernet.avail)
+						spark(src, 3, alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
 					qdel(C)
 				busy = 0
@@ -552,11 +650,12 @@
 	if(istype(src.loc, /turf/simulated/floor))
 		var/turf/simulated/floor/T = src.loc
 		if(!T.is_plating())
-			src.visible_message("<span class='notice'>\The [src] starts ripping up \the [T].</span>")
-			busy = 1
+			src.visible_message(span("notice","[src] starts ripping up \the [T]."))
+			busy = 2
 			update_icon()
-			if(do_after(src, 16))
-				src.visible_message("<span class='warning'>\The [src] rips up \the [T].</span>")
+			if(do_after(src, 32))
+				src.visible_message(span("warning","[src] rips up \the [T]."))
+				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()
@@ -566,7 +665,10 @@
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/update_icon()
 	if(busy)
-		icon_state = "hivebotharvester_harvesting"
+		if(busy == 1)
+			icon_state = "hivebotharvester_harvesting"
+		else
+			icon_state = "hivebotharvester_ripping"
 	else
 		icon_state = "hivebotharvester"
 
@@ -587,7 +689,7 @@
 	if(busy)
 		return
 
-	if(istype(T, /turf/unsimulated) || istype(T, /turf/simulated/open) || istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
+	if(istype(T, /turf/unsimulated) || istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
 		last_prospect_target = null
 		last_prospect_loc = null
 		return
@@ -600,22 +702,22 @@
 	for(var/obj/O in T)
 		if(istype(O, /obj/structure/girder))
 			var/obj/structure/girder/G = O
-			src.visible_message("<span class='notice'>\The [src] starts to tear \the [O] apart.</span>")
+			src.visible_message(span("notice","[src] starts to tear \the [O] apart."))
 			busy = 1
-			if(do_after(src, 48))
+			if(do_after(src, 32))
 				src.do_attack_animation(G)
-				src.visible_message("<span class='warning'>\The [src] tears \the [O] apart!</span>")
+				src.visible_message(span("warning","[src] tears \the [O] apart!"))
 				G.dismantle()
 			busy = 0
-			return
+			continue
 
-		if((istype(O, /obj/machinery/door/firedoor) && O.density) || istype(O, /obj/machinery/door/airlock) && O.density)
+		if((istype(O, /obj/machinery/door/firedoor) && O.density) || (istype(O, /obj/machinery/door/airlock) && O.density) || istype(O, /obj/machinery/door/blast) && O.density)
 			var/obj/machinery/door/D = O
 			if(D.stat & BROKEN)
-				src.visible_message("<span class='notice'>\The [src] starts to tear \the [D] open.</span>")
+				src.visible_message(span("notice","[src] starts to tear \the [D] open."))
 				busy = 1
 				if(do_after(src, 48))
-					src.visible_message("<span class='warning'>\The [src] tears \the [D] apart!</span>")
+					src.visible_message(span("warning","[src] tears \the [D] apart!"))
 					src.do_attack_animation(D)
 					new /obj/item/stack/material/steel(get_turf(D))
 					new /obj/item/stack/material/steel(get_turf(D))
@@ -624,12 +726,14 @@
 					new /obj/item/stack/material/steel(get_turf(D))
 					qdel(D)
 				busy = 0
+			else if(istype(D, /obj/machinery/door/airlock/multi_tile))
+				D.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				OpenFire(D)
 			return
 
 		if(istype(O, /obj/structure/window))
-			var/dir = get_dir(src.loc,T)
+			var/dir = get_dir(T,src.loc)
 			var/obj/structure/window/W = O
 			if(W.dir == reverse_dir[dir])
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -637,19 +741,24 @@
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			return
 
-		if(istype(O, /obj/structure/grille) || istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
+		if(istype(O, /obj/structure/grille))
+			var/obj/structure/grille/G = O
+			G.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
+			return
+
+		if(istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
 			var/obj/structure/S = O
 			OpenFire(S)
 			return
 
 		if(istype(O, /obj/structure/reagent_dispensers))
 			var/obj/structure/reagent_dispensers/RD = O
-			src.visible_message(span("notice", "\The [src] starts taking apart the [RD]."))
+			src.visible_message(span("notice","[src] starts taking apart \the [RD]."))
 			busy = 1
 			if(do_after(src, 48))
 				src.do_attack_animation(RD)
 				RD.reagents.splash_turf(get_turf(RD.loc), RD.reagents.total_volume)
-				src.visible_message(span("danger", "\The [RD] gets torn open, spreading its contents all over the area!"))
+				src.visible_message(span("danger","[RD] gets torn open, spreading its contents all over the area!"))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				qdel(RD)
@@ -661,3 +770,10 @@
 
 	last_prospect_target = null
 	last_prospect_loc = null
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/shoot_wrapper(target, location, user)
+	target_mob = target
+	if(see_target())
+		Shoot(target, location, user)
+	target_mob = null
+	return
