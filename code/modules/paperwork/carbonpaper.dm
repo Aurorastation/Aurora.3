@@ -2,8 +2,8 @@
 	name = "paper"
 	icon_state = "paper_stack"
 	item_state = "paper"
-	var/copied = 0
-	var/iscopy = 0
+	var/copied = FALSE
+	var/iscopy = FALSE
 
 
 /obj/item/weapon/paper/carbon/update_icon()
@@ -43,9 +43,9 @@
 		copy.fields = c.fields
 		copy.updateinfolinks()
 		to_chat(usr, "<span class='notice'>You tear off the carbon-copy!</span>")
-		c.copied = 1
-		copy.iscopy = 1
-		copy.copied = 1 // no more infinite copy chains
+		c.copied = TRUE
+		copy.iscopy = TRUE
+		copy.copied = TRUE // no more infinite copy chains
 		copy.verbs -= /obj/item/weapon/paper/carbon/verb/removecopy // TODO: anything but this, see above
 		copy.update_icon()
 		c.update_icon()

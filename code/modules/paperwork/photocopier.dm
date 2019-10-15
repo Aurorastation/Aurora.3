@@ -137,7 +137,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		return B
 	else
 		to_chat(usr, "<span class='warning'>\The [c_item] can't be copied by \the [src].</span>")
-		return 0
+		return FALSE
 
 /obj/machinery/photocopier/ex_act(severity)
 	switch(severity)
