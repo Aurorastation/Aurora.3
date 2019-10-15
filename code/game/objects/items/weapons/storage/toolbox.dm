@@ -74,18 +74,6 @@
 	else
 		new /obj/item/stack/cable_coil(src,30,color)
 
-/obj/item/weapon/storage/toolbox/drill
-	name = "drilling kit"
-	icon_state = "blue" //can add a custom one if we desire, no need for it tho
-	item_state = "toolbox_blue" //ditto
-	starts_with = list(\
-		/obj/item/weapon/crowbar = 1,\
-		/obj/item/powerdrill = 1,\
-		/obj/item/weapon/mining_scanner = 1,\
-		/obj/item/weapon/cell/high = 1,\
-		/obj/item/device/drill_dropper = 1\
-	)
-
 /obj/item/weapon/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
 	icon_state = "syndicate"
