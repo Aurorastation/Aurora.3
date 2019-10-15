@@ -289,6 +289,7 @@
 #include "code\datums\diseases\advance\symptoms\voice_change.dm"
 #include "code\datums\diseases\advance\symptoms\vomit.dm"
 #include "code\datums\diseases\advance\symptoms\weight.dm"
+#include "code\datums\ert\responseteam.dm"
 #include "code\datums\expansions\expansion.dm"
 #include "code\datums\expansions\multitool\_multitool.dm"
 #include "code\datums\expansions\multitool\multitool.dm"
