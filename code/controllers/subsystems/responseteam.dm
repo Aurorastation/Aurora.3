@@ -32,6 +32,20 @@
 	NEW_SS_GLOBAL(SSresponseteam)
 	feedback_set("responseteam_count",0)
 
+/datum/controller/subsystem/responseteam/Initialize(start_timeofday)
+	. = ..()
+	var/list/all_teams = subtypesof(/datum/responseteam)
+	if(!all_teams)
+		log_debug("No response teams found!")
+		return
+	else
+		for(var/team in all_teams)
+			CHECK_TICK
+			var/datum/responseteam/ert = new team
+			if(!ert) 
+				continue
+			available_teams += ert
+
 /datum/controller/subsystem/responseteam/stat_entry()
 	var/out = "PGC:[progression_chance] "
 	out += "BC:[config.ert_base_chance]\n"
@@ -42,19 +56,6 @@
 	out += "SF:[config.ert_scaling_factor] "
 	out += "CC:[can_call_ert] "
 	..(out)
-
-/datum/controller/subsystem/responseteam/fire()
-	if(!available_teams.len)
-		var/list/all_teams = subtypesof(/datum/responseteam)
-		if(!all_teams)
-			log_debug("No response teams found!")
-			return
-		else
-			for(var/team in all_teams)
-				var/datum/responseteam/ert = new team
-				if(!ert) 
-					continue
-				available_teams += ert
 
 /datum/controller/subsystem/responseteam/proc/pick_random_team()
 	var/datum/responseteam/result
@@ -116,7 +117,6 @@
 	send_emergency_team = 0 // Can no longer join the ERT.
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
-	var/datum/ghostspawner/ert/spawner = new
 	spawner.chosen_team = picked_team
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
