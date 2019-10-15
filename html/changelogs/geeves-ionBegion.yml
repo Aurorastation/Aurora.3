@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: ChangeMe
+author: Geeves
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
-  - rscdel: "Killed innocent kittens."
+  - tweak: "The armory Ion rifle has been replaced by the NanoTrasen MK43 Service rifle, loaded with haywire rounds, with an extra spare magazine."
+  - tweak: "Swapped 7.62mm and 5.56mm round damage values to make more sense. Also reduced the 5.56mm AP damage a minor amount."
+  - rscadd: "Added rubber 5.56mm rounds, added miniturized haywire 5.56mm rounds."
