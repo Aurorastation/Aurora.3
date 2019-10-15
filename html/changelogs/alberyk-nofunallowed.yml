@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Ghost roles will now respect alien whitelist restrictions."
