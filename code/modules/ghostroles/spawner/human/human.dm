@@ -21,7 +21,7 @@
 	var/faction = null
 
 	mob_name = null
-	
+
 
 //Proc executed before someone is spawned in
 /datum/ghostspawner/human/pre_spawn(mob/user)
@@ -36,7 +36,7 @@
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
 		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
-	
+
 	if(mob_name_prefix)
 		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
 		mname = "[mob_name_prefix][mname]"
@@ -54,9 +54,14 @@
 		return FALSE
 
 	//Pick a species
-	var/picked_species = input(user,"Select your species") as null|anything in possible_species
+	var/list/species_selection = list()
+	for (var/S in possible_species)
+		if(is_alien_whitelisted(user, S))
+			species_selection += S
+
+	var/picked_species = input(user,"Select your species") as null|anything in species_selection
 	if(!picked_species)
-		picked_species = pick(possible_species)
+		picked_species = "Human"
 
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species)
@@ -76,14 +81,14 @@
 	M.key = user.ckey //!! After that USER is invalid, so we have to use M
 
 	M.mind_initialize()
-	
+
 	if(assigned_role)
 		M.mind.assigned_role = assigned_role
 	if(special_role)
 		M.mind.special_role = special_role
 	if(faction)
 		M.faction = faction
-	
+
 	//Move the mob
 	M.forceMove(T)
 	M.lastarea = get_area(M.loc) //So gravity doesnt fuck them.
@@ -94,16 +99,16 @@
 		M.change_appearance(allow_appearance_change, M.loc, check_species_whitelist = 1)
 	else //otherwise randomize
 		M.client.prefs.randomize_appearance_for(M, FALSE)
-	
+
 	//Setup the mob age and name
 	if(!mname)
 		mname = random_name(M.gender, M.species.name)
-	
+
 	M.fully_replace_character_name(M.real_name, mname)
 
 	if(!age)
 		age = rand(35, 50)
-	M.age = Clamp(age, 21, 65) 
+	M.age = Clamp(age, 21, 65)
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
@@ -121,5 +126,5 @@
 	return M
 
 //Proc executed after someone is spawned in
-/datum/ghostspawner/human/post_spawn(mob/user) 
+/datum/ghostspawner/human/post_spawn(mob/user)
 	. = ..()
