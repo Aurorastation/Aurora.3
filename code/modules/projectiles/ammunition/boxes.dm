@@ -207,6 +207,29 @@
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
+/obj/item/ammo_magazine/mk43
+	name = "magazine (5.56mm)"
+	desc = "A magazine specifically made to fit the NTMK43 Service Rifle."
+	icon_state = "mk43"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "a556"
+	matter = list(DEFAULT_WALL_MATERIAL = 2200)
+	ammo_type = /obj/item/ammo_casing/a556
+	max_ammo = 12
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/mk43/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/mk43/rubber
+	name = "magazine (5.56mm rubber)"
+	ammo_type = /obj/item/ammo_casing/a556/rubber
+
+/obj/item/ammo_magazine/mk43/emp
+	name = "magazine (5.56mm haywire)"
+	ammo_type = /obj/item/ammo_casing/a556/emp
+
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
 	icon_state = "50ae"

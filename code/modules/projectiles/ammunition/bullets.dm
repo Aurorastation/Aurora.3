@@ -209,6 +209,16 @@
 	desc = "A 5.56mm armor piercing round."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
 
+/obj/item/ammo_casing/a556/rubber
+	desc = "A 5.56mm rubber round."
+	icon_state = "rrifle-casing"
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/rubber
+
+/obj/item/ammo_casing/a556/emp
+	desc = "A 5.56mm miniaturized haywire round."
+	icon_state = "erifle-casing"
+	projectile_type = /obj/item/projectile/ion/small
+
 /obj/item/ammo_casing/a556/practice
 	desc = "A 5.56mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
