@@ -253,6 +253,7 @@ CREATE TABLE `ss13_player_pai` (
 CREATE TABLE `ss13_player_preferences` (
   `ckey` varchar(32) NOT NULL,
   `ooccolor` text,
+  `clientfps` int(11) DEFAULT '0',
   `lastchangelog` text,
   `UI_style` text,
   `current_character` int(11) DEFAULT '0',

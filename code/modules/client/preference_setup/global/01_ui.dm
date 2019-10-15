@@ -29,7 +29,8 @@
 				"UI_style_alpha",
 				"html_UI_style",
 				"skin_theme",
-				"ooccolor"
+				"ooccolor",
+				"clientfps"
 			),
 			"args" = list("ckey")
 		)
@@ -47,6 +48,7 @@
 			"html_UI_style",
 			"skin_theme",
 			"ooccolor",
+			"clientfps",
 			"ckey" = 1
 		)
 	)
@@ -59,7 +61,8 @@
 		"UI_style" = pref.UI_style,
 		"html_UI_style" = pref.html_UI_style,
 		"skin_theme" = pref.skin_theme,
-		"ooccolor" = pref.ooccolor
+		"ooccolor" = pref.ooccolor,
+		"clientfps" = pref.clientfps
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
@@ -136,10 +139,10 @@
 		if (world.byond_version < 511)
 			version_message += "\nThis server does not currently support client side fps. You can set now for when it does."
 		var/desiredfps = input(user, "Choose your desired fps.[version_message]\n(0 = synced with server tick rate (currently:[world.fps]))", "Character Preference")  as null|num
-		if (!isnull(desiredfps))
-			pref.clientfps = desiredfps
-			if (world.byond_version >= 511 && user.client && user.client.byond_version >= 511)
-				user.client.vars["fps"] = pref.clientfps
+		#if DM_VERSION >= 511
+					if (user?.byond_version >= 511)
+						user.client.fps = pref.clientfps = sanitize_integer(desiredfps, 0, 1000, initial(pref.clientfps))
+		#endif // DM_VERSION >= 511
 
 
 
