@@ -278,11 +278,6 @@
 
 	latest_area = get_area(src)
 
-/mob/living/simple_animal/hostile/hivebotbeacon/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	..()
-	if(health < maxHealth/2)
-		do_teleport(src, pick(destinations))
-
 /mob/living/simple_animal/hostile/hivebotbeacon/death()
 	..(null,"blows apart and erupts in a cloud of noxious smoke!")
 	new /obj/effect/decal/cleanable/greenglow(src.loc)
@@ -342,8 +337,6 @@
 		return PROJECTILE_CONTINUE
 	else
 		..(Proj)
-		if(health < maxHealth/2)
-			do_teleport(src, pick(destinations))
 
 /mob/living/simple_animal/hostile/hivebotbeacon/emp_act()
 	if(activated != -1)
