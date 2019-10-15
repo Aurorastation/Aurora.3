@@ -1,7 +1,4 @@
 /datum/ghostspawner/human/ert
-	short_name = "ert"
-	name = "Responder"
-	desc = "You're an emergency response team's rank and file!"
 	tags = list("External")
 
 	enabled = FALSE
@@ -49,8 +46,10 @@
 	name = "Nanotrasen Specialist"
 	short_name = "ntspec"
 	desc = "You're a specialist of the Nanotrasen Phoenix ERT! Assist the station as needed."
+	max_count = 2
 
 /datum/ghostspawner/human/ert/nanotrasen/leader
 	name = "Nanotrasen Leader"
 	short_name = "ntlead"
 	desc = "You're the leader of the Nanotrasen Phoenix ERT! Assist the station as needed. Remember that you're in charge here."
+	max_count = 1
