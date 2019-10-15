@@ -12,7 +12,7 @@
 	var/send_emergency_team = 0
 	var/ert_count = 0
 
-	var/datum/responseteam/available_teams
+	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
 
 	var/pg_green = 0
@@ -66,11 +66,11 @@
 		if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
 			tally += ert.chance
 			continue
-		result = ert
+			result = ert
 
 	if(!result)
-		log_debug("We didn't find an ERT pick result!")
-		return null
+		to_world("We didn't find an ERT pick result!")
+		return pick(available_teams)
 	else
 		return result
 
@@ -96,7 +96,7 @@
 	else
 		picked_team = pick_random_team()
 
-	say_dead_direct("<span class='deadsay'><b><size='3'>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></size></span>")
+	say_dead_direct("<span class='deadsay'><b><size=3>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></size></span>")
 
 	feedback_set("responseteam[ert_count]",world.time)
 	feedback_add_details("responseteam[ert_count]","BC:[config.ert_base_chance]")
@@ -123,8 +123,10 @@
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
 	var/datum/ghostspawner/human/ert/ertchoice = picked_team.spawner
-	for(var/datum/ghostspawner/human/ert/A in subtypesof(ertchoice))
-		A.enable()
+	for(var/A in subtypesof(ertchoice))
+		var/datum/ghostspawner/human/ert/E = A
+		to_world(E.name)
+		E.enable()
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
