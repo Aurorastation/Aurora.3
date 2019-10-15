@@ -467,7 +467,7 @@
 	wander = 0
 	ranged = 1
 	rapid = 1
-	attacktext = "stabbed"
+	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebotincendiary/heavy
 	faction = "hivebot"

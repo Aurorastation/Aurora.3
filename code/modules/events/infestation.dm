@@ -84,7 +84,6 @@
 		if(INFESTATION_SLIMES)
 			event_name = "Xenobiology Containment Breach"
 			chosen_verb = "have leaked into"
-			//List excludes gold, adamantine and black slimes due to their grief potential.
 			var/list/slime_types = list(
 				/mob/living/carbon/slime,
 				/mob/living/carbon/slime/purple,
