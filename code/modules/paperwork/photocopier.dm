@@ -54,17 +54,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			if(toner <= 0)
 				break
 
-			if (istype(copyitem, /obj/item/weapon/paper))
-				copy(copyitem)
-				sleep(20)
-			else if (istype(copyitem, /obj/item/weapon/photo))
-				photocopy(copyitem)
-				sleep(15)
-			else if (istype(copyitem, /obj/item/weapon/paper_bundle))
-				var/obj/item/weapon/paper_bundle/B = bundlecopy(copyitem)
-				sleep(15*B.pages.len)
-			else
-				to_chat(usr, "<span class='warning'>\The [copyitem] can't be copied by \the [src].</span>")
+			var/c_type = copy_type()
+
+			if(!c_type) // if there's something that can't be copied
 				break
 
 			use_power(active_power_usage)
@@ -130,6 +122,23 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 	return
 
+/obj/machinery/photocopier/proc/copy_type(var/c_item = copyitem) // helper proc to reduce ctrl+c ctrl+v
+	if (istype(c_item, /obj/item/weapon/paper))
+		var/obj/item/weapon/paper/C = copy(c_item)
+		sleep(20)
+		return C
+	else if (istype(c_item, /obj/item/weapon/photo))
+		var/obj/item/weapon/photo/P = photocopy(c_item)
+		sleep(20)
+		return P
+	else if (istype(c_item, /obj/item/weapon/paper_bundle))
+		var/obj/item/weapon/paper_bundle/B = bundlecopy(c_item)
+		sleep(15*B.pages.len)
+		return B
+	else
+		to_chat(usr, "<span class='warning'>\The [c_item] can't be copied by \the [src].</span>")
+		return FALSE
+
 /obj/machinery/photocopier/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -148,7 +157,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 					toner = 0
 	return
 
-/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy, var/print = 1, var/use_sound = 1, var/delay = 20)
+/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy, var/print = 1, var/use_sound = 1, var/delay = 10) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
 	var/obj/item/weapon/paper/c = new /obj/item/weapon/paper()
 	var/info
 	var/pname
@@ -229,10 +238,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			break
 
 
-		if(istype(W, /obj/item/weapon/paper))
-			W = copy(W)
-		else if(istype(W, /obj/item/weapon/photo))
-			W = photocopy(W)
+		W = copy_type(W)
 		W.forceMove(p)
 		p.pages += W
 
