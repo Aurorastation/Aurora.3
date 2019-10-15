@@ -44,11 +44,10 @@
 	..(out)
 
 /datum/controller/subsystem/responseteam/fire()
-
 	if(!available_teams.len)
 		var/list/all_teams = subtypesof(/datum/responseteam)
 		if(!all_teams)
-			to_world("No response teams found!")
+			log_debug("No response teams found!")
 			return
 		else
 			for(var/team in all_teams)
@@ -56,42 +55,6 @@
 				if(!ert) 
 					continue
 				available_teams += ert
-
-
-
-	/*if(send_emergency_team == 0) // There is no ERT at the time. TODO-MATT: Look into this.
-		var/total = 0
-		var/deadcount = 0
-		var/antagonists = 0
-		for(var/mob/living/carbon/human/H in mob_list)
-			if(!H.isMonkey() || H.client) 
-				total++
-				if(is_special_character(H) >= 1) antagonists++
-				if(H.stat == 2) deadcount++
-				
-		if(total == 0)
-			percentage_antagonists = 0
-			percentage_dead = 0
-		else
-			percentage_antagonists = round(100 * antagonists / total)
-			percentage_dead = round(100 * deadcount / total)
-		
-
-		switch(get_security_level())
-			if("green")
-				progression_chance += config.ert_green_inc
-				pg_green += config.ert_green_inc
-			if("blue")
-				progression_chance += config.ert_yellow_inc
-				pg_yellow += config.ert_yellow_inc
-			if("red")
-				progression_chance += config.ert_blue_inc
-				pg_red += config.ert_red_inc
-			if("delta")
-				progression_chance += config.ert_delta_inc
-				pg_delta += config.ert_delta_inc
-			else
-				progression_chance += 1*/
 
 /datum/controller/subsystem/responseteam/proc/pick_random_team()
 	var/datum/responseteam/result
@@ -119,15 +82,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	/*var/ert_chance = progression_chance + config.ert_base_chance // Is incremented by fire.
-	ert_chance += config.ert_scaling_factor_dead*percentage_dead // the more people are dead, the higher the chance
-	ert_chance += config.ert_scaling_factor_antag*percentage_antagonists // the more antagonists, the higher the chance
-	ert_chance *= config.ert_scaling_factor
-	ert_chance = min(ert_chance, 100)*/ //TODO-MATT: Look into this.
-
 	command_announcement.Announce("A distress beacon has been launched. Please remain calm.", "[current_map.boss_name]")
-
-	
 
 	if(forced_choice)
 		forced_choice = text2path(forced_choice)
@@ -155,8 +110,14 @@
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
 
+	handle_spawner()
+
 	sleep(600 * 5)
 	send_emergency_team = 0 // Can no longer join the ERT.
+
+/datum/controller/subsystem/responseteam/proc/handle_spawner()
+	var/datum/ghostspawner/ert/spawner = new
+	spawner.chosen_team = picked_team
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
