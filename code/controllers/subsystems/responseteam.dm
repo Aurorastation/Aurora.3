@@ -3,6 +3,7 @@
 /datum/controller/subsystem/responseteam
 	name = "Response Team"
 	wait = 1800 //Fire only every 3 minutes - Not more often needed for now
+	flags = SS_NO_FIRE
 
 	var/progression_chance = 0
 	var/percentage_antagonists = 0
@@ -59,10 +60,10 @@
 
 /datum/controller/subsystem/responseteam/proc/pick_random_team()
 	var/datum/responseteam/result
-	var/prob = rand(1, 100)
+	var/probability = rand(1, 100)
 	var/tally = 0
 	for(var/datum/responseteam/ert in available_teams) //We need a loop to keep going through each candidate to be sure we find a good result.
-		if((ert.chance + tally) <= prob) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
+		if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
 			tally += ert.chance
 			continue
 		result = ert
@@ -83,7 +84,7 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been launched. Please remain calm.", "[current_map.boss_name]")
+	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
 
 	if(forced_choice)
 		forced_choice = text2path(forced_choice)
@@ -94,6 +95,8 @@
 			picked_team = pick_random_team()
 	else
 		picked_team = pick_random_team()
+
+	say_dead_direct("<span class='deadsay'><b><size='3'>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></size></span>")
 
 	feedback_set("responseteam[ert_count]",world.time)
 	feedback_add_details("responseteam[ert_count]","BC:[config.ert_base_chance]")
@@ -114,10 +117,14 @@
 	handle_spawner()
 
 	sleep(600 * 5)
-	send_emergency_team = 0 // Can no longer join the ERT.
+	for(var/datum/ghostspawner/human/ert/g_ert in SSghostroles.spawners)
+		if(istype(g_ert, picked_team))
+			g_ert.disable()
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
-	spawner.chosen_team = picked_team
+	var/datum/ghostspawner/human/ert/ertchoice = picked_team.spawner
+	for(var/datum/ghostspawner/human/ert/A in subtypesof(ertchoice))
+		A.enable()
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
@@ -148,8 +155,8 @@
 			if("No")
 				return
 
-	var/choice = input("Select the response team type","Response team selection") as null|anything in list("NT-ERT", "TCFL")
-
+	var/choice = input("Select the response team type","Response team selection") as text
+	
 	if(!choice)
 		choice = FALSE
 
