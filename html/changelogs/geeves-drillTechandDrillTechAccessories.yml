@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a Drill Technician alt title to shaft miner, it spawns with slightly different gear."
-  - rscadd: "Added two mapped in machine drills to the north of the mining exit, with accompanying braces."
+  - rscadd: "Added a drill dropper item. It drops drills. Can't be used near station areas, unless tampered with.."
+  - rscadd: "Added the drill dropper to the QM locker, to be distributed to trusted miners."
