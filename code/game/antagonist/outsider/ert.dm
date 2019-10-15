@@ -27,9 +27,4 @@ var/datum/antagonist/ert/ert
 	..()
 	ert = src
 
-/datum/antagonist/ert/greet(var/datum/mind/player)
-	if(!..())
-		return
-	to_chat(player.current, "MATTATLAS CHANGE THIS")
-	to_chat(player.current, "CHANGE")
 
