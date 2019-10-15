@@ -15,7 +15,7 @@
 	item_state = "jackboots"
 	force = 3
 	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
 
@@ -33,7 +33,7 @@
 	item_state = "workboots"
 	force = 3
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
 

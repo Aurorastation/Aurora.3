@@ -25,7 +25,7 @@
 	desc = "Prepare for paperwork."
 	icon_state = "internalaffairs_rig"
 	armor = null
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.9 
 	slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = TINT_HEAVY
@@ -63,6 +63,7 @@
 	desc = "A heavy, powerful rig used by construction crews and mining corporations."
 	icon_state = "industrial_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
+	siemens_coefficient = 0.35
 	slowdown = 2
 	offline_slowdown = 7
 	offline_vision_restriction = TINT_HEAVY
@@ -83,7 +84,7 @@
 		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
@@ -105,7 +106,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
@@ -119,7 +120,7 @@
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/vision/meson
 		)
 
@@ -141,7 +142,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
@@ -156,7 +157,7 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
-		/obj/item/rig_module/device/rcd,
+		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
@@ -171,6 +172,7 @@
 	desc = "An Anomalous Material Interaction hardsuit that protects against the strangest energies the universe can throw at it."
 	icon_state = "hazmat_rig"
 	armor = list(melee = 45, bullet = 5, laser = 40, energy = 65, bomb = 60, bio = 100, rad = 100)
+	siemens_coefficient = 0.50
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 40
 
@@ -199,6 +201,7 @@
 	desc = "A durable suit designed for medical rescue in high risk areas."
 	icon_state = "medical_rig"
 	armor = list(melee = 30, bullet = 15, laser = 20, energy = 60, bomb = 30, bio = 100, rad = 100)
+	siemens_coefficient = 0.50
 	slowdown = 0
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
@@ -270,7 +273,7 @@
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()

@@ -276,6 +276,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 30))
+		is_charging = 0
 		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
@@ -368,6 +369,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 20))
+		is_charging = 0
 		return 0
 	is_charging = 0
 	if(!istype(user.get_active_hand(), src))
@@ -495,6 +497,7 @@
 					)
 	is_charging = 1
 	if(!do_after(user, 20))
+		is_charging = 0
 		return 0
 	is_charging = 0
 	msg_admin_attack("[key_name_admin(user)] shot with \a [src.type] [key_name_admin(src)]'s target (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(src))

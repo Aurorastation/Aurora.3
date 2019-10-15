@@ -17,6 +17,7 @@
 	center_of_mass = null
 	var/armorcheck = 1
 	var/time = 3 SECONDS
+	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/weapon/reagent_containers/hypospray/cmo
 	name = "premium hypospray"

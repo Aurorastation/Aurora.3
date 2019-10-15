@@ -20,7 +20,7 @@
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.2
+	siemens_coefficient = 0.35
 	permeability_coefficient = 0.1
 	unacidable = 1
 	slowdown = 1 // All rigs by default should have slowdown.
@@ -85,7 +85,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
-	var/list/species_restricted = list("exclude","Diona","Vaurca","Golem", "Vox")
+	var/list/species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine")
 
 /obj/item/weapon/rig/examine()
 	to_chat(usr, "This is \icon[src][src.name].")
@@ -137,7 +137,6 @@
 		chest = new chest_type(src)
 		if(allowed)
 			chest.allowed = allowed
-		chest.slowdown = offline_slowdown
 		verbs |= /obj/item/weapon/rig/proc/toggle_chest
 
 	for(var/obj/item/clothing/piece in list(gloves,helmet,boots,chest))
@@ -354,7 +353,7 @@
 			offline = 0
 			if(istype(wearer) && !wearer.wearing_rig)
 				wearer.wearing_rig = src
-			chest.slowdown = initial(slowdown)
+			slowdown = initial(slowdown)
 
 	set_vision(!offline)
 	if(offline)
@@ -362,7 +361,7 @@
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
-			chest.slowdown = offline_slowdown
+			slowdown = offline_slowdown
 		return
 
 	if(cell && cell.charge > 0 && electrified > 0)

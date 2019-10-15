@@ -128,7 +128,7 @@
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "saw3"
+	icon_state = "saw"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
@@ -167,7 +167,7 @@
 /obj/item/weapon/bonesetter
 	name = "bone setter"
 	icon = 'icons/obj/surgery.dmi'
-	icon_state = "bone setter"
+	icon_state = "bonesetter"
 	force = 8.0
 	throwforce = 9.0
 	throw_speed = 3
@@ -176,14 +176,18 @@
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
-/obj/item/weapon/storage/box/tray
+/obj/item/weapon/storage/fancy/tray
 	name = "surgery tray"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgerytray"
+	use_sound = null
+	drop_sound = 'sound/items/drop/axe.ogg'
 	force = 2
 	w_class = 5.0
-	max_storage_space = 30
+	storage_slots = 10
 	attack_verb = list("slammed")
+	icon_type = "surgery tool"
+	storage_type = "tray"
 	can_hold = list(
 		/obj/item/weapon/bonesetter,
 		/obj/item/weapon/cautery,
@@ -198,7 +202,7 @@
 		/obj/item/stack/nanopaste
 		)
 
-	starts_with = list(	
+	starts_with = list(
 		/obj/item/weapon/bonesetter = 1,
 		/obj/item/weapon/cautery = 1,
 		/obj/item/weapon/circular_saw = 1,
@@ -210,3 +214,65 @@
 		/obj/item/weapon/FixOVein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
+
+/obj/item/weapon/storage/fancy/tray/update_icon()
+	cut_overlays()
+
+	var/list/types_and_overlays = list(
+		/obj/item/weapon/bonesetter = "tray_bonesetter",
+		/obj/item/weapon/cautery = "tray_cautery",
+		/obj/item/weapon/circular_saw = "tray_saw",
+		/obj/item/weapon/hemostat = "tray_hemostat",
+		/obj/item/weapon/retractor = "tray_retractor",
+		/obj/item/weapon/scalpel = "tray_scalpel",
+		/obj/item/weapon/surgicaldrill = "tray_drill",
+		/obj/item/weapon/bonegel = "tray_bone-gel",
+		/obj/item/weapon/FixOVein = "tray_fixovein",
+		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
+	)
+	for (var/obj/item/W in contents)
+		if (types_and_overlays[W.type])
+			add_overlay(types_and_overlays[W.type])
+			types_and_overlays -= W.type
+
+/obj/item/weapon/storage/fancy/tray/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/weapon/storage/fancy/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+	update_icon()
+
+/obj/item/weapon/storage/fancy/tray/attack_hand(mob/user as mob)
+	if(ishuman(user))
+		src.open(user)
+
+/obj/item/weapon/storage/fancy/tray/MouseDrop(mob/user as mob)
+	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+		if(ishuman(user) && !user.get_active_hand())
+			var/mob/living/carbon/human/H = user
+			var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+
+			if (H.hand)
+				temp = H.organs_by_name["l_hand"]
+			if(temp && !temp.is_usable())
+				to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+				return
+
+			to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+			pixel_x = 0
+			pixel_y = 0
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
+
+	return
+
+/obj/item/weapon/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+	if(..() && contents.len)
+		spill(3, get_turf(M))
+		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
+		user.visible_message(span("danger", "[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
+
+/obj/item/weapon/storage/fancy/tray/throw_impact(atom/hit_atom)
+	..()
+	spill(3, src.loc)

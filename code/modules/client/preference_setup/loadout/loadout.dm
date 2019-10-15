@@ -134,12 +134,12 @@ var/list/gear_datums = list()
 			. += " [category] "
 		else
 			var/datum/loadout_category/LC = loadout_categories[category]
-			var/tcolor =  "#3366CC"
+			var/style = ""
 			for(var/thing in LC.gear)
 				if(thing in pref.gear)
-					tcolor = "#E67300"
+					style = "style='color: #FF8000;'"
 					break
-			. += " <a href='?src=\ref[src];select_category=[category]'><font color = '[tcolor]'>[category]</font></a> "
+			. += " <a href='?src=\ref[src];select_category=[category]'><font [style]>[category]</font></a> "
 	. += "</b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
@@ -151,7 +151,10 @@ var/list/gear_datums = list()
 			continue
 		var/datum/gear/G = LC.gear[gear_name]
 		var/ticked = (G.display_name in pref.gear)
-		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font color='[ticked ? "#E67300" : "#3366CC"]'>[G.display_name]</font></a></td>"
+		var/style = ""
+		if(ticked)
+			style = "style='color: #FF8000;'"
+		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
 		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
 		. += "<td><font size=2><i>[G.description]</i></font></td></tr>"
 		if(ticked)

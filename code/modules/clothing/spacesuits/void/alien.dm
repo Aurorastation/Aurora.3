@@ -4,7 +4,7 @@
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
-	siemens_coefficient = 0.4
+	siemens_coefficient = 0.5
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/skrell/white
@@ -17,11 +17,11 @@
 	name = "skrellian voidsuit"
 	desc = "Seems like a wetsuit with reinforced plating seamlessly attached to it. Very chic."
 	armor = list(melee = 20, bullet = 20, laser = 50,energy = 50, bomb = 50, bio = 100, rad = 100)
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rcd)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rfd/construction)
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list("Skrell","Human")
-	siemens_coefficient = 0.4
+	siemens_coefficient = 0.5
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/skrell/white
@@ -34,7 +34,7 @@
 
 
 /obj/item/clothing/head/helmet/space/void/pra
-	name = "cosmonaut voidsuit helmet"
+	name = "kosmostrelki voidsuit helmet"
 	desc = "A tajaran helmet used by the crew of the Republican Orbital Fleet."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"
@@ -47,7 +47,7 @@
 	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 
 /obj/item/clothing/suit/space/void/pra
-	name = "cosmonaut voidsuit"
+	name = "kosmostrelki voidsuit"
 	desc = "A tajaran voidsuit used by the crew of the Republican Orbital Fleet."
 	icon_state = "cosmo_suit"
 	item_state = "cosmo_suit"

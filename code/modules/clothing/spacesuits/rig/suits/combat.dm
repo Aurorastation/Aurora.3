@@ -4,6 +4,7 @@
 	icon_state = "combat_rig"
 	suit_type = "combat hardsuit"
 	armor = list(melee = 70, bullet = 55, laser = 45, energy = 15, bomb = 75, bio = 100, rad = 60)
+	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 
@@ -36,6 +37,7 @@
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
+	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
@@ -71,6 +73,7 @@
 	icon_state = "legion_rig"
 	suit_type = "retrofitted military hardsuit"
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 30)
+	siemens_coefficient = 0.35
 	slowdown = 2
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
@@ -87,7 +90,7 @@
 		/obj/item/weapon/handcuffs
 	)
 
-	species_restricted = list("exclude","Diona", "Golem")
+	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
@@ -106,6 +109,7 @@
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
 	armor = list(melee = 50, bullet = 60, laser = 40, energy = 30, bomb = 30, bio = 100, rad = 60)
+	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
@@ -130,6 +134,7 @@
 	icon_state = "strikesuit"
 	suit_type = "strike hardsuit"
 	armor = list(melee = 80, bullet = 45, laser = 45, energy = 25, bomb = 25, bio = 100, rad = 100)
+	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
@@ -154,6 +159,7 @@
 	icon_state = "elyran_rig"
 	suit_type = "elyran battlesuit"
 	armor = list(melee = 60, bullet = 40, laser = 60, energy = 60, bomb = 25, bio = 100, rad = 100)
+	siemens_coefficient = 0.1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 

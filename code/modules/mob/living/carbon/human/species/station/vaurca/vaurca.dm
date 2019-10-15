@@ -58,13 +58,12 @@
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
 	flags = NO_SLIP | NO_CHUBBY
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 
-	death_message = "chitters faintly before crumbling to the ground, their eyes dead and lifeless..."
 	halloss_message = "crumbles to the ground, too weak to continue fighting."
 
 	heat_discomfort_strings = list(

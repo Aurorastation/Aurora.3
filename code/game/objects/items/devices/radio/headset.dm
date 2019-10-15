@@ -83,6 +83,11 @@
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/raider
 
+/obj/item/device/radio/headset/ninja
+	origin_tech = list(TECH_ILLEGAL = 3)
+	syndie = 1
+	ks1type = /obj/item/device/encryptionkey/ninja
+
 /obj/item/device/radio/headset/binary
 	origin_tech = list(TECH_ILLEGAL = 3)
 	ks1type = /obj/item/device/encryptionkey/binary

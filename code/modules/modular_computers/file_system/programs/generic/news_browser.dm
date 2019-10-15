@@ -93,7 +93,7 @@
 	var/datum/computer_file/program/newsbrowser/PRG
 	var/list/data = list()
 	if(program)
-		data = program.get_header_data()
+		data = list("_PC" = program.get_header_data())
 		PRG = program
 	else
 		return

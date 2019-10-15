@@ -3788,6 +3788,7 @@
 "aki" = (
 /obj/structure/table/rack,
 /obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit/improved,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -10517,21 +10518,21 @@
 /obj/item/device/multitool,
 /obj/item/device/flash,
 /obj/item/device/flash,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	dir = 4;
@@ -10638,7 +10639,7 @@
 /area/centcom/specops)
 "ayG" = (
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
-/obj/item/mecha_parts/mecha_equipment/tool/rcd,
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
 /obj/item/weapon/pickaxe/diamonddrill,
 /obj/structure/table/reinforced/steel,
 /obj/item/weapon/pickaxe/diamonddrill,
@@ -11091,8 +11092,8 @@
 /obj/item/rig_module/device/healthscanner,
 /obj/item/rig_module/mounted/plasmacutter,
 /obj/item/rig_module/mounted/plasmacutter,
-/obj/item/rig_module/device/rcd,
-/obj/item/rig_module/device/rcd,
+/obj/item/rig_module/device/rfd_c,
+/obj/item/rig_module/device/rfd_c,
 /obj/item/rig_module/chem_dispenser/injector,
 /obj/item/rig_module/chem_dispenser/injector,
 /obj/item/rig_module/chem_dispenser/combat,
@@ -11399,7 +11400,7 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/control)
 "aAg" = (
-/obj/structure/sign/greencross{
+/obj/structure/sign/bluecross{
 	pixel_y = -32
 	},
 /turf/unsimulated/floor{
@@ -14266,7 +14267,7 @@
 	},
 /area/centcom/holding)
 "aGr" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
 "aGs" = (
@@ -17297,7 +17298,7 @@
 	},
 /area/centcom/holding)
 "aMS" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/bluecross,
 /turf/unsimulated/wall/riveted,
 /area/centcom/spawning)
 "aMT" = (
@@ -22216,6 +22217,7 @@
 /obj/item/weapon/storage/toolbox/syndicate,
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/weapon/storage/toolbox/syndicate,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor4"
 	},
@@ -23502,21 +23504,21 @@
 /obj/item/device/multitool,
 /obj/item/device/flash,
 /obj/item/device/flash,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
-/obj/item/weapon/rcd_ammo,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd/construction,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	dir = 4;
@@ -23977,7 +23979,7 @@
 /area/centcom/legion)
 "bbH" = (
 /obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
-/obj/item/mecha_parts/mecha_equipment/tool/rcd,
+/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
 /obj/item/weapon/pickaxe/diamonddrill,
 /obj/structure/table/reinforced/steel,
 /obj/item/weapon/pickaxe/diamonddrill,
@@ -25376,6 +25378,19 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
+"wQa" = (
+/obj/effect/landmark{
+	name = "ninjastart"
+	},
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/shuttle/floor{
+	icon_state = "floor4"
+	},
+/area/syndicate_mothership{
+	name = "\improper Ninja Base"
+	})
 "xhq" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -65562,7 +65577,7 @@ ahn
 ajU
 aXO
 akh
-akh
+wQa
 akF
 akh
 akN
