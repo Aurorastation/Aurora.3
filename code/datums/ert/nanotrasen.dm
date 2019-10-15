@@ -2,7 +2,8 @@
 	name = "Nanotrasen ERT"
 	grunts = 2
 	specialists = 2
-	arrival_message = "You're part of the Nanotrasen Phoenix ERT! Assist the station as needed."
+	leaders = 1
+	spawn_message = "You're part of the Nanotrasen Phoenix ERT! Assist the station as needed."
 	hance = 40
 	species = list("Human", "Tajara", "Unathi", "Skrell")
 
