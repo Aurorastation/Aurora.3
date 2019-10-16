@@ -4,30 +4,14 @@
 	name = "Response Team"
 	flags = SS_NO_FIRE
 
-	var/progression_chance = 0
-	var/percentage_antagonists = 0
-	var/percentage_dead = 0
-	var/can_call_ert = TRUE
-	var/send_emergency_team = 0
 	var/ert_count = 0
 
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
 	var/list/datum/ghostspawner/human/ert/sent_teams = list()
 
-	var/pg_green = 0
-	var/pg_yellow = 0
-	var/pg_red = 0
-	var/pg_delta = 0
-
 /datum/controller/subsystem/responseteam/Recover()
-	progression_chance = SSresponseteam.progression_chance
-	can_call_ert = SSresponseteam.can_call_ert
 	send_emergency_team = SSresponseteam.send_emergency_team
-	pg_green = SSresponseteam.pg_green
-	pg_yellow = SSresponseteam.pg_yellow
-	pg_red = SSresponseteam.pg_red
-	pg_delta = SSresponseteam.pg_delta
 
 /datum/controller/subsystem/responseteam/New()
 	NEW_SS_GLOBAL(SSresponseteam)
@@ -48,14 +32,7 @@
 			available_teams += ert
 
 /datum/controller/subsystem/responseteam/stat_entry()
-	var/out = "PGC:[progression_chance] "
-	out += "BC:[config.ert_base_chance]\n"
-	out += "PA:[percentage_antagonists] "
-	out += "PAF:[config.ert_scaling_factor_antag]\n"
-	out += "PD:[percentage_dead] "
-	out += "PDF:[config.ert_scaling_factor_dead]\n"
-	out += "SF:[config.ert_scaling_factor] "
-	out += "CC:[can_call_ert] "
+	var/out += "CC:[can_call_ert] "
 	..(out)
 
 /datum/controller/subsystem/responseteam/proc/pick_random_team()
@@ -96,17 +73,6 @@
 	say_dead_direct("<span class='deadsay'><b>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></span>")
 
 	feedback_set("responseteam[ert_count]",world.time)
-	feedback_add_details("responseteam[ert_count]","BC:[config.ert_base_chance]")
-	feedback_add_details("responseteam[ert_count]","PGC:[progression_chance]")
-	feedback_add_details("responseteam[ert_count]","PGG:[pg_green]")
-	feedback_add_details("responseteam[ert_count]","PGY:[pg_yellow]")
-	feedback_add_details("responseteam[ert_count]","PGR:[pg_red]")
-	feedback_add_details("responseteam[ert_count]","PGD:[pg_delta]")
-	feedback_add_details("responseteam[ert_count]","PA:[percentage_antagonists]")
-	feedback_add_details("responseteam[ert_count]","PAF:[config.ert_scaling_factor_antag]")
-	feedback_add_details("responseteam[ert_count]","PD:[percentage_dead]")
-	feedback_add_details("responseteam[ert_count]","PDF:[config.ert_scaling_factor_dead]")
-	feedback_add_details("responseteam[ert_count]","SF:[config.ert_scaling_factor]")
 
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
