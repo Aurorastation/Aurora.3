@@ -9,11 +9,11 @@
       <h4>Ingredients</h4>
       <ul>
         <li v-if="cookingobjs.length == 0 && cookingreas.length == 0">The microwave is empty!</li>
-        <li v-for="obj in cookingobjs">
+        <li v-for="obj in cookingobjs" :key="obj.name">
           <vui-button push-state :params="{ eject: obj.name }"> {{ obj.name }} • {{ obj.qty }}
           </vui-button>
         </li>
-        <li v-for="r in cookingreas">
+        <li v-for="r in cookingreas" :key="r.name">
           <vui-button push-state :params="{ eject: r.name }"> {{ r.name }} • {{ r.amt }} units
           </vui-button>
         </li>
