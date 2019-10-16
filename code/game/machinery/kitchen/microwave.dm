@@ -1,6 +1,5 @@
-
 /obj/machinery/microwave
-	name = "Microwave"
+	name = "microwave"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mw"
 	layer = 2.9
@@ -17,6 +16,7 @@
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
 	var/appliancetype = MICROWAVE
+	var/abort = FALSE
 	var/datum/looping_sound/microwave/soundloop
 
 	component_types = list(
@@ -58,6 +58,35 @@
 		// impure carbon. ~Z
 		acceptable_items[/obj/item/weapon/holder] = TRUE
 		acceptable_items[/obj/item/weapon/reagent_containers/food/snacks/grown] = TRUE
+
+VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
+	watch_var("operating", "on", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+
+/obj/machinery/microwave/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
+	var/monitordata = ..()
+	if(monitordata)
+		. = newdata = monitordata
+	if(newdata["cookingobjs"] && contents && newdata["cookingobjs"].len != contents.len)
+		. = newdata
+
+	newdata["cookingobjs"] = list()
+	newdata["cookingreas"] = list()
+	if (contents && contents.len)
+		var/list/cook_count = list()
+		for (var/obj/O in contents)
+			cook_count[O.name]++
+		for (var/C in cook_count)
+			newdata["cookingobjs"] += list(list("name" = "[C]", "qty" = "[cook_count[C]]"))
+	if (reagents.reagent_list && reagents.reagent_list.len)
+		for (var/datum/reagent/R in reagents.reagent_list)
+			newdata["cookingreas"] += list(list("name" = "[R.name]", "amt" = "[R.volume]"))
+
+
+/obj/machinery/microwave/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "cooking-microwave", 300, 300, capitalize(src.name))
+	ui.open()
 
 /*******************
 *   Item Adding
@@ -122,6 +151,7 @@
 			user.visible_message( \
 				"<span class='notice'>\The [user] has added one of [O] to \the [src].</span>", \
 				"<span class='notice'>You add one of [O] to \the [src].</span>")
+			SSvueui.check_uis_for_change(src)
 			return
 		else
 		//	user.remove_from_mob(O)	//This just causes problems so far as I can tell. -Pete
@@ -129,6 +159,7 @@
 			user.visible_message( \
 				"<span class='notice'>\The [user] has added \the [O] to \the [src].</span>", \
 				"<span class='notice'>You add \the [O] to \the [src].</span>")
+			SSvueui.check_uis_for_change(src)
 			return
 	else if(istype(O,/obj/item/weapon/reagent_containers/glass) || \
 	        istype(O,/obj/item/weapon/reagent_containers/food/drinks) || \
@@ -170,7 +201,7 @@
 
 		to_chat(user, "<span class='warning'>You have no idea what you can cook with this [O].</span>")
 	..()
-	src.updateUsrDialog()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/attack_ai(mob/user as mob)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
@@ -178,7 +209,12 @@
 
 /obj/machinery/microwave/attack_hand(mob/user as mob)
 	user.set_machine(src)
-	interact(user)
+	if(src.broken > 0)
+		to_chat(user, "<span class='warning'>\The [src.name] is broken! You'll need to fix it before using it.</span>")
+	else if(src.dirty == 100)
+		to_chat(user, "<span class='warning'>\The [src.name] is dirty! You'll need to clean it before using it.</span>")
+	else
+		ui_interact(user)
 
 /*******************
 *   Microwave Menu
@@ -257,7 +293,7 @@
 		return
 	start()
 	if (reagents.total_volume==0 && !(locate(/obj) in contents)) //dry run
-		if (!wzhzhzh(16))
+		if (!cook_for_time(16))
 			abort()
 			return
 		stop()
@@ -268,17 +304,17 @@
 	if (!recipe)
 		dirty += 1
 		if (prob(max(10,dirty*5)))
-			if (!wzhzhzh(16))
+			if (!cook_for_time(16))
 				abort()
 				return
 			muck_start()
-			wzhzhzh(16)
+			cook_for_time(16)
 			muck_finish()
 			cooked = fail()
 			cooked.forceMove(src.loc)
 			return
 		else if (has_extra_item())
-			if (!wzhzhzh(16))
+			if (!cook_for_time(16))
 				abort()
 				return
 			broke()
@@ -286,7 +322,7 @@
 			cooked.forceMove(src.loc)
 			return
 		else
-			if (!wzhzhzh(40))
+			if (!cook_for_time(40))
 				abort()
 				return
 			stop()
@@ -294,11 +330,15 @@
 			cooked.forceMove(src.loc)
 			return
 	else
-		var/halftime = round((recipe.time*4)/10/2)
-		if (!wzhzhzh(halftime))
-			abort()
-			return
-		if (!wzhzhzh(halftime))
+		var/cut_time = round((recipe.time*4)/10)
+		// if (!cook_for_time(halftime))
+		// 	abort()
+		// 	return
+		// because...why?
+		if (!cook_for_time(cut_time))
+			if(abort)
+				abort()
+				return
 			abort()
 			cooked = fail()
 			cooked.forceMove(src.loc)
@@ -344,11 +384,16 @@
 
 		return
 
-/obj/machinery/microwave/proc/wzhzhzh(var/seconds as num) // Whoever named this proc is fucking literally Satan. ~ Z
-	for (var/i=1 to seconds)
-		if (stat & (NOPOWER|BROKEN))
+/obj/machinery/microwave/proc/cook_for_time(var/cook_time as num) // Formerly proc/wzhzhzh, may it rest in peace
+	for (var/i=1 to cook_time)
+		if ((stat & (NOPOWER|BROKEN)) || abort)
 			return 0
 		use_power(active_power_usage)
+		for(var/datum/vueui/ui in SSvueui.get_open_uis(src))
+			ui.data["cook_time"] = cook_time
+			ui.data["cur_time"] = i
+			ui.push_change()
+			SSvueui.check_uis_for_change(src)
 		sleep(10)
 	return 1
 
@@ -365,7 +410,7 @@
 	src.visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
 	src.operating = 1
 	src.icon_state = "mw1"
-	src.updateUsrDialog()
+	SSvueui.check_uis_for_change(src)
 	set_light(1.5)
 	soundloop.start()
 
@@ -373,23 +418,27 @@
 	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
-	src.updateUsrDialog()
+	src.abort = FALSE
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/stop()
 	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
-	src.updateUsrDialog()
+	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/microwave/proc/dispose(var/message = 1)
-	for (var/atom/movable/A in contents)
-		A.forceMove(loc)
-	if (src.reagents.total_volume)
-		src.dirty++
-	src.reagents.clear_reagents()
-	if (message)
-		to_chat(usr, "<span class='notice'>You dispose of the microwave contents.</span>")
-	src.updateUsrDialog()
+/obj/machinery/microwave/proc/dispose(var/message = 1, var/obj/EJ = null)
+	if (EJ)
+		EJ.forceMove(loc)
+	else
+		for (var/atom/movable/A in contents)
+			A.forceMove(loc)
+		if (src.reagents.total_volume)
+			src.dirty++
+		src.reagents.clear_reagents()
+		if (message)
+			to_chat(usr, "<span class='notice'>You dispose of the microwave contents.</span>")
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/muck_start()
 	playsound(src.loc, 'sound/effects/splat.ogg', 50, 1) // Play a splat sound
@@ -402,7 +451,7 @@
 	src.flags = null //So you can't add condiments
 	src.icon_state = "mwbloody" // Make it look dirty too
 	src.operating = 0 // Turn it off again aferwards
-	src.updateUsrDialog()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/broke()
 	after_finish_loop()
@@ -412,7 +461,7 @@
 	src.broken = 2 // Make it broken so it can't be used util fixed
 	src.flags = null //So you can't add condiments
 	src.operating = 0 // Turn it off again aferwards
-	src.updateUsrDialog()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/fail()
 	after_finish_loop()
@@ -435,16 +484,24 @@
 		return
 
 	usr.set_machine(src)
+
 	if(src.operating)
-		src.updateUsrDialog()
+		if(href_list["abort"])
+			abort = TRUE
+		SSvueui.check_uis_for_change(src)
 		return
 
-	switch(href_list["action"])
-		if ("cook")
-			cook()
+	if(href_list["cook"])
+		SSvueui.check_uis_for_change(src)
+		cook()
+	else if(href_list["dispose"])
+		dispose()
+	else if(href_list["eject"])
+		for (var/obj/O in contents)
+			if(O.name == href_list["eject"])
+				dispose(0, O)
+				break
 
-		if ("dispose")
-			dispose()
 	return
 
 /obj/machinery/microwave/verb/Eject()
