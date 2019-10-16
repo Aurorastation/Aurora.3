@@ -38,3 +38,15 @@
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/medical/advanced/ointment
 	)
+
+//TCFL
+/datum/outfit/admin/ert/legion
+	name = "TCFL Responder"
+
+	uniform = /obj/item/clothing/under/legion
+	l_ear = /obj/item/device/radio/headset/legion
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/swat
+	glasses =  /obj/item/clothing/glasses/sunglasses
+	back = /obj/item/weapon/storage/backpack/legion
+	l_hand = /obj/item/weapon/storage/box/engineer

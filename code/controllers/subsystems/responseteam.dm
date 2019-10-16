@@ -5,6 +5,8 @@
 	flags = SS_NO_FIRE
 
 	var/ert_count = 0
+	var/send_emergency_team = FALSE
+	var/can_call_ert = FALSE
 
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
@@ -32,7 +34,7 @@
 			available_teams += ert
 
 /datum/controller/subsystem/responseteam/stat_entry()
-	var/out += "CC:[can_call_ert] "
+	var/out = "CC:[can_call_ert]"
 	..(out)
 
 /datum/controller/subsystem/responseteam/proc/pick_random_team()

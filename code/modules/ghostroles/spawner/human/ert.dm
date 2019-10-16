@@ -63,3 +63,10 @@
 	desc = "You're the leader of the Nanotrasen Phoenix ERT! Assist the station as needed. Remember that you're in charge here."
 	max_count = 1
 	mob_name_prefix = "L/Tpr"
+
+//TCFL ERT
+/datum/ghostspawner/human/ert/tcfl
+	name = "TCFL Volounteer"
+	short_name = "tcflv"
+	max_count = 3
+	outfit = /datum/outfit/admin/ert/legion
