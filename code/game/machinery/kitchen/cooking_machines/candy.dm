@@ -15,6 +15,13 @@
 		"Jelly" = /obj/item/weapon/reagent_containers/food/snacks/variable/jelly
 	)
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/candymachine,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 /obj/machinery/appliance/mixer/candy/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/cooked/product)
 	food_color = get_random_colour(1)
 	. = ..()

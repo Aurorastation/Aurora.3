@@ -41,13 +41,6 @@
 
 	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
 
-	component_types = list(
-			/obj/item/weapon/circuitboard/cooking,
-			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/matter_bin = 2
-		)
-
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(output_options.len)
@@ -214,6 +207,8 @@
 	else if(istype(check, /obj/item/weapon/disk/nuclear))
 		to_chat(user, "<span class='warning'>You can't cook that.</span>")
 		return 0
+	else if(istype(I, /obj/item/weapon/crowbar) || istype(I, /obj/item/weapon/screwdriver) || istype(I, /obj/item/weapon/storage/part_replacer))
+		return 0
 	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
 		to_chat(user, "<span class='warning'>That's not edible.</span>")
 		return 0
@@ -238,6 +233,8 @@
 		if(default_deconstruction_screwdriver(user, I))
 			return
 		else if(default_part_replacement(user, I))
+			return
+		else if(default_deconstruction_crowbar(user, I))
 			return
 		else
 			return
@@ -679,11 +676,11 @@
 	heating_power = initial(heating_power) + cap_rating * 25
 	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // 100% eff. becomes 120%, 140%, 160% w/ better parts
 
-/obj/item/weapon/circuitboard/cooking
-	name = "kitchen appliance circuitry"
-	desc = "The circuitboard for many kitchen appliances. Not of much use."
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	req_components = list(
-							"/obj/item/weapon/stock_parts/capacitor" = 3,
-							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-							"/obj/item/weapon/stock_parts/matter_bin" = 2)
+// /obj/item/weapon/circuitboard/cooking
+// 	name = "kitchen appliance circuitry"
+// 	desc = "The circuitboard for many kitchen appliances. Not of much use."
+// 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+// 	req_components = list(
+// 							"/obj/item/weapon/stock_parts/capacitor" = 3,
+// 							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+// 							"/obj/item/weapon/stock_parts/matter_bin" = 2)

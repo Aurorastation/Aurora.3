@@ -36,6 +36,13 @@
 		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
 	)
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/oven,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 
 /obj/machinery/appliance/cooker/oven/update_icon()
 	if (!open)
@@ -72,17 +79,25 @@
 
 	if (open)
 		open = 0
-		loss = (active_power_usage / resistance)*0.5
+		loss = (heating_power / resistance) * 0.5
 	else
 		open = 1
-		loss = (active_power_usage / resistance)*4
-		//When the oven door is opened, heat is lost MUCH faster
+		loss = (heating_power / resistance) * 1.5
+		//When the oven door is opened, oven slowly loses heat
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()
 
+/obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
+	// check if someone's trying to manipulate the machine
+
+	if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/weapon/storage/part_replacer))
+		return TRUE
+	else
+		return FALSE
+
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
-	if (!open)
+	if (!open && !manip(I))
 		to_chat(user, "<span class='warning'>You can't put anything in while the door is closed!</span>")
 		return 0
 
