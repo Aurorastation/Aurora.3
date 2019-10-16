@@ -9,6 +9,11 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
+		)
+
 	//Species-specific stuff.
 	species_restricted = list("Human", "Bishop Accessory Frame")
 	sprite_sheets_refit = list(
@@ -39,6 +44,11 @@
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
+
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
+		)
 
 	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame")
 	sprite_sheets_refit = list(
