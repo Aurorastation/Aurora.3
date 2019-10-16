@@ -59,35 +59,6 @@
 		acceptable_items[/obj/item/weapon/holder] = TRUE
 		acceptable_items[/obj/item/weapon/reagent_containers/food/snacks/grown] = TRUE
 
-VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
-	watch_var("operating", "on", CALLBACK(null, .proc/transform_to_boolean, FALSE))
-
-/obj/machinery/microwave/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
-	var/monitordata = ..()
-	if(monitordata)
-		. = newdata = monitordata
-	if(newdata["cookingobjs"] && contents && newdata["cookingobjs"].len != contents.len)
-		. = newdata
-
-	newdata["cookingobjs"] = list()
-	newdata["cookingreas"] = list()
-	if (contents && contents.len)
-		var/list/cook_count = list()
-		for (var/obj/O in contents)
-			cook_count[O.name]++
-		for (var/C in cook_count)
-			newdata["cookingobjs"] += list(list("name" = "[C]", "qty" = "[cook_count[C]]"))
-	if (reagents.reagent_list && reagents.reagent_list.len)
-		for (var/datum/reagent/R in reagents.reagent_list)
-			newdata["cookingreas"] += list(list("name" = "[R.name]", "amt" = "[R.volume]"))
-
-
-/obj/machinery/microwave/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "cooking-microwave", 300, 300, capitalize(src.name))
-	ui.open()
-
 /*******************
 *   Item Adding
 ********************/
@@ -200,8 +171,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	else
 
 		to_chat(user, "<span class='warning'>You have no idea what you can cook with this [O].</span>")
-	..()
 	SSvueui.check_uis_for_change(src)
+	..()
 
 /obj/machinery/microwave/attack_ai(mob/user as mob)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
@@ -220,69 +191,40 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 *   Microwave Menu
 ********************/
 
-/obj/machinery/microwave/interact(mob/user as mob) // The microwave Menu
-	var/dat = ""
-	if(src.broken > 0)
-		dat = {"<TT>Bzzzzttttt</TT>"}
-	else if(src.operating)
-		dat = {"<TT>Microwaving in progress!<BR>Please wait...!</TT>"}
-	else if(src.dirty==100)
-		dat = {"<TT>This microwave is dirty!<BR>Please clean it before use!</TT>"}
-	else
-		var/list/items_counts = new
-		var/list/items_measures = new
-		var/list/items_measures_p = new
+VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
+	watch_var("operating", "on", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+
+/obj/machinery/microwave/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
+	var/monitordata = ..()
+	if(monitordata)
+		. = newdata = monitordata
+
+	newdata["cookingobjs"] = list()
+	newdata["cookingreas"] = list()
+
+	VUEUI_SET_CHECK_IFNOTSET(newdata["cook_time"], 40, ., newdata)
+	VUEUI_SET_CHECK_IFNOTSET(newdata["cur_time"], 0, ., newdata)
+
+	if (contents && contents.len)
+		var/list/cook_count = list()
 		for (var/obj/O in contents)
-			var/display_name = O.name
-			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/egg))
-				items_measures[display_name] = "egg"
-				items_measures_p[display_name] = "eggs"
-			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/tofu))
-				items_measures[display_name] = "tofu chunk"
-				items_measures_p[display_name] = "tofu chunks"
-			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/meat)) //any meat
-				items_measures[display_name] = "slab of meat"
-				items_measures_p[display_name] = "slabs of meat"
-			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/donkpocket))
-				display_name = "Turnovers"
-				items_measures[display_name] = "turnover"
-				items_measures_p[display_name] = "turnovers"
-			if (istype(O,/obj/item/weapon/reagent_containers/food/snacks/carpmeat))
-				items_measures[display_name] = "fillet of meat"
-				items_measures_p[display_name] = "fillets of meat"
-			items_counts[display_name]++
-		for (var/O in items_counts)
-			var/N = items_counts[O]
-			if (!(O in items_measures))
-				dat += {"<B>[capitalize(O)]:</B> [N] [lowertext(O)]\s<BR>"}
-			else
-				if (N==1)
-					dat += {"<B>[capitalize(O)]:</B> [N] [items_measures[O]]<BR>"}
-				else
-					dat += {"<B>[capitalize(O)]:</B> [N] [items_measures_p[O]]<BR>"}
-
+			cook_count[O.name]++
+		for (var/C in cook_count)
+			newdata["cookingobjs"] += list(list("name" = "[C]", "qty" = "[cook_count[C]]"))
+	if (reagents.reagent_list && reagents.reagent_list.len)
 		for (var/datum/reagent/R in reagents.reagent_list)
-			var/display_name = R.name
-			if (R.id == "capsaicin")
-				display_name = "Hotsauce"
-			if (R.id == "frostoil")
-				display_name = "Coldsauce"
-			dat += {"<B>[display_name]:</B> [R.volume] unit\s<BR>"}
+			newdata["cookingreas"] += list(list("name" = "[R.name]", "amt" = "[R.volume]"))
 
-		if (items_counts.len==0 && reagents.reagent_list.len==0)
-			dat = {"<B>The microwave is empty</B><BR>"}
-		else
-			dat = {"<b>Ingredients:</b><br>[dat]"}
-		dat += {"<HR><BR>\
-<A href='?src=\ref[src];action=cook'>Turn on!<BR>\
-<A href='?src=\ref[src];action=dispose'>Eject ingredients!<BR>\
-"}
+	if(newdata["cookingobjs"] && contents && newdata["cookingobjs"].len != contents.len)
+		. = newdata
+	if(newdata["cookingreas"] && reagents.reagent_list && newdata["cookingreas"].len != reagents.reagent_list.len)
+		. = newdata
 
-	user << browse("<HEAD><TITLE>Microwave Controls</TITLE></HEAD><TT>[dat]</TT>", "window=microwave")
-	onclose(user, "microwave")
-	return
-
-
+/obj/machinery/microwave/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "cooking-microwave", 300, 300, capitalize(src.name))
+	ui.open()
 
 /***********************************
 *   Microwave Menu Handling/Cooking
@@ -294,7 +236,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	start()
 	if (reagents.total_volume==0 && !(locate(/obj) in contents)) //dry run
 		if (!cook_for_time(16))
-			abort()
+			stop()
 			return
 		stop()
 		return
@@ -305,7 +247,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		dirty += 1
 		if (prob(max(10,dirty*5)))
 			if (!cook_for_time(16))
-				abort()
+				stop()
 				return
 			muck_start()
 			cook_for_time(16)
@@ -315,7 +257,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			return
 		else if (has_extra_item())
 			if (!cook_for_time(16))
-				abort()
+				stop()
 				return
 			broke()
 			cooked = fail()
@@ -323,7 +265,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			return
 		else
 			if (!cook_for_time(40))
-				abort()
+				stop()
 				return
 			stop()
 			cooked = fail()
@@ -337,9 +279,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		// because...why?
 		if (!cook_for_time(cut_time))
 			if(abort)
-				abort()
+				stop()
 				return
-			abort()
+			stop()
 			cooked = fail()
 			cooked.forceMove(src.loc)
 			return
@@ -379,7 +321,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		for (var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
 			S.cook()
 
-		dispose(0) //clear out anything left
+		eject(0) //clear out anything left
 		stop()
 
 		return
@@ -392,8 +334,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		for(var/datum/vueui/ui in SSvueui.get_open_uis(src))
 			ui.data["cook_time"] = cook_time
 			ui.data["cur_time"] = i
-			ui.push_change()
-			SSvueui.check_uis_for_change(src)
+			ui.push_change(ui.data)
+		SSvueui.check_uis_for_change(src)
 		sleep(10)
 	return 1
 
@@ -410,24 +352,18 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	src.visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
 	src.operating = 1
 	src.icon_state = "mw1"
-	SSvueui.check_uis_for_change(src)
+	// SSvueui.check_uis_for_change(src)
 	set_light(1.5)
 	soundloop.start()
 
-/obj/machinery/microwave/proc/abort()
+/obj/machinery/microwave/proc/stop()
 	after_finish_loop()
 	src.operating = 0 // Turn it off again aferwards
 	src.icon_state = "mw"
 	src.abort = FALSE
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/microwave/proc/stop()
-	after_finish_loop()
-	src.operating = 0 // Turn it off again aferwards
-	src.icon_state = "mw"
-	SSvueui.check_uis_for_change(src)
-
-/obj/machinery/microwave/proc/dispose(var/message = 1, var/obj/EJ = null)
+/obj/machinery/microwave/proc/eject(var/message = 1, var/obj/EJ = null)
 	if (EJ)
 		EJ.forceMove(loc)
 	else
@@ -480,6 +416,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	return ffuu
 
 /obj/machinery/microwave/Topic(href, href_list)
+	SSvueui.check_uis_for_change(src)
 	if(..())
 		return
 
@@ -492,35 +429,33 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		return
 
 	if(href_list["cook"])
-		SSvueui.check_uis_for_change(src)
 		cook()
-	else if(href_list["dispose"])
-		dispose()
+	else if(href_list["eject_all"])
+		eject()
 	else if(href_list["eject"])
+		for (var/datum/reagent/R in src.reagents.reagent_list)
+			if(R.name == href_list["eject"])
+				if(istype(usr.l_hand, /obj/item/weapon/reagent_containers) || istype(usr.r_hand, /obj/item/weapon/reagent_containers))
+					var/obj/item/weapon/reagent_containers/RC = usr.l_hand || usr.r_hand
+					var/vol_diff = R.volume - RC.reagents.get_free_space()
+					if(vol_diff > R.volume)
+						to_chat(usr, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
+						RC.reagents.add_reagent(R.id, R.volume)
+						src.reagents.remove_reagent(R.id, R.volume)
+					else
+						to_chat(usr, "<span class='notice'>You empty [vol_diff] units of [R.name] into your [RC.name].</span>")
+						RC.reagents.add_reagent(R.id, vol_diff)
+						src.reagents.remove_reagent(R.id, vol_diff)
+					SSvueui.check_uis_for_change(src)
+					break
+				else
+					to_chat(usr, "<span class='warning'>You need to be holding a valid container to empty [R.name]!</span>")
 		for (var/obj/O in contents)
 			if(O.name == href_list["eject"])
-				dispose(0, O)
+				eject(0, O)
 				break
 
 	return
-
-/obj/machinery/microwave/verb/Eject()
-	set src in oview(1)
-	set category = "Object"
-	set name = "Eject content"
-	usr.visible_message(
-	"<span class='notice'>[usr] is trying to open [src] to take out its content.</span>" ,
-	"<span class='notice'>You are trying to open [src] to take out its content</span>"
-	)
-
-	if (!do_after(usr, 1 SECONDS, act_target = src))
-		return
-
-	usr.visible_message(
-	"<span class='notice'>[usr] opened [src] and has taken out [english_list(contents)].</span>" ,
-	"<span class='notice'>You have opened [src] and taken out [english_list(contents)].</span>"
-	)
-	dispose()
 
 /obj/machinery/microwave/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!mover)

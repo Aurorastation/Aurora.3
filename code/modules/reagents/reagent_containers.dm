@@ -70,6 +70,8 @@
 	if(standard_splash_mob(user, target))
 		return
 	if(standard_pour_into(user, target))
+		if(SSvueui.get_open_uis(target)) // blame whoever decided beakers should go in afterattack()
+			SSvueui.check_uis_for_change(target)
 		return
 	if(standard_splash_obj(user, target))
 		return
