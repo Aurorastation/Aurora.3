@@ -14,6 +14,7 @@
 
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
+	var/list/datum/ghostspawner/human/ert/sent_teams = list()
 
 	var/pg_green = 0
 	var/pg_yellow = 0
@@ -84,7 +85,6 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
 
 	if(forced_choice)
 		forced_choice = text2path(forced_choice)
@@ -92,11 +92,13 @@
 			picked_team = forced_choice
 		else 
 			log_debug("Someone entered an invalid path for an ERT call!")
-			picked_team = pick_random_team()
-	else
+			return
+	if(!forced_choice)
 		picked_team = pick_random_team()
 
-	say_dead_direct("<span class='deadsay'><b><size=3>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></size></span>")
+	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
+
+	say_dead_direct("<span class='deadsay'><b>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></span>")
 
 	feedback_set("responseteam[ert_count]",world.time)
 	feedback_add_details("responseteam[ert_count]","BC:[config.ert_base_chance]")
@@ -117,16 +119,18 @@
 	handle_spawner()
 
 	sleep(600 * 5)
-	for(var/datum/ghostspawner/human/ert/g_ert in SSghostroles.spawners)
-		if(istype(g_ert, picked_team))
-			g_ert.disable()
+
+	for(var/datum/ghostspawner/human/ert/G in sent_teams)
+		G.disable()
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
-	var/datum/ghostspawner/human/ert/ertchoice = picked_team.spawner
-	for(var/A in subtypesof(ertchoice))
-		var/datum/ghostspawner/human/ert/E = A
-		to_world(E.name)
-		E.enable()
+	for(var/N in typesof(picked_team.spawner))
+		var/datum/ghostspawner/human/ert/new_spawner = new N
+		for(var/role_spawner in SSghostroles.spawners)
+			if(new_spawner.short_name == role_spawner)
+				var/datum/ghostspawner/human/ert/good_spawner = SSghostroles.spawners[role_spawner]
+				sent_teams += good_spawner
+				good_spawner.enable()
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)

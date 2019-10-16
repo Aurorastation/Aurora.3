@@ -43,10 +43,16 @@
 	outfit = /datum/outfit/admin
 
 /datum/ghostspawner/human/ert/nanotrasen/specialist
-	name = "Nanotrasen Specialist"
-	short_name = "ntspec"
-	desc = "You're a specialist of the Nanotrasen Phoenix ERT! Assist the station as needed."
-	max_count = 2
+	name = "Nanotrasen Engineering Specialist"
+	short_name = "nteng"
+	desc = "You're an engineering specialist of the Nanotrasen Phoenix ERT! Assist the station as needed."
+	max_count = 1
+
+/datum/ghostspawner/human/ert/nanotrasen/specialist/med
+	name = "Nanotrasen Medical Specialist"
+	short_name = "ntmed"
+	desc = "You're a medical specialist of the Nanotrasen Phoenix ERT! Assist the station as needed."
+	max_count = 1
 
 /datum/ghostspawner/human/ert/nanotrasen/leader
 	name = "Nanotrasen Leader"
