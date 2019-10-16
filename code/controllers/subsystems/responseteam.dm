@@ -2,7 +2,6 @@
 
 /datum/controller/subsystem/responseteam
 	name = "Response Team"
-	wait = 1800 //Fire only every 3 minutes - Not more often needed for now
 	flags = SS_NO_FIRE
 
 	var/progression_chance = 0
@@ -70,13 +69,13 @@
 			result = ert
 
 	if(!result)
-		to_world("We didn't find an ERT pick result!")
+		log_debug("We didn't find an ERT pick result!")
 		return pick(available_teams)
 	else
 		return result
 
 
-/datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = FALSE)
+/datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice)
 	if(!can_call_ert && !forced_choice)
 		return
 	if(send_emergency_team)
@@ -85,15 +84,11 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
-
-	if(forced_choice)
-		forced_choice = text2path(forced_choice)
-		if(forced_choice in available_teams)
-			picked_team = forced_choice
-		else 
-			log_debug("Someone entered an invalid path for an ERT call!")
-			return
-	if(!forced_choice)
+	if(forced_choice && forced_choice != "Random")
+		for(var/datum/responseteam/R in available_teams)
+			if(R.name == forced_choice)
+				picked_team = R
+	else
 		picked_team = pick_random_team()
 
 	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
@@ -118,9 +113,9 @@
 
 	handle_spawner()
 
-	sleep(600 * 5)
+	sleep(120 SECONDS)
 
-	for(var/datum/ghostspawner/human/ert/G in sent_teams)
+	for(var/datum/ghostspawner/G in sent_teams)
 		G.disable()
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
@@ -161,10 +156,11 @@
 			if("No")
 				return
 
-	var/choice = input("Select the response team type","Response team selection") as text
-	
-	if(!choice)
-		choice = FALSE
+	var/list/plaintext_teams = list("Random")
+	for(var/datum/responseteam/A in SSresponseteam.available_teams)
+		plaintext_teams += A.name
+
+	var/choice = input("Select the response team type","Response team selection") as null|anything in plaintext_teams
 
 	if(SSresponseteam.send_emergency_team)
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
