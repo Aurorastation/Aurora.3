@@ -218,7 +218,7 @@
 		if(L.incorporeal_move)//Move though walls
 			Process_Incorpmove(direct)
 			return
-		if(mob.client && (mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0))		// If mob moves while zoomed in with device, unzoom them.
+		if(mob.client && ((mob.client.view != world.view) || (mob.client.pixel_x != 0) || (mob.client.pixel_y != 0)))		// If mob moves while zoomed in with device, unzoom them.
 			for(var/obj/item/item in mob)
 				if(item.zoom)
 					item.zoom(mob)
