@@ -56,6 +56,8 @@
 		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi'
 		)
 
+	action_button_name = "Toggle Helmet"
+
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
 	//With 0.2 resiliance, will reach 10 breach damage after 3 laser carbine blasts or 8 smg hits.
 	breach_threshold = 18
@@ -193,6 +195,9 @@
 	tank.canremove = 1
 	H.drop_from_inventory(tank)
 	src.tank = null
+
+/obj/item/clothing/suit/space/void/attack_self()
+	toggle_helmet()
 
 /obj/item/clothing/suit/space/void/attackby(obj/item/W as obj, mob/user as mob)
 
