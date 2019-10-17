@@ -88,6 +88,29 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				D.linked_console = src
 	return
 
+/obj/machinery/computer/rdconsole/proc/SyncTechs()
+	if(src)
+		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+			var/server_processed = 0
+			if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
+				for(var/datum/tech/T in files.known_tech)
+					S.files.AddTech2Known(T)
+				for(var/datum/design/D in files.known_designs)
+					S.files.AddDesign2Known(D)
+				S.files.RefreshResearch()
+				server_processed = 1
+			if((id in S.id_with_download) && !istype(S, /obj/machinery/r_n_d/server/centcom))
+				for(var/datum/tech/T in S.files.known_tech)
+					files.AddTech2Known(T)
+				for(var/datum/design/D in S.files.known_designs)
+					files.AddDesign2Known(D)
+				files.RefreshResearch()
+				server_processed = 1
+			if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
+				S.produce_heat()
+		screen = 1.6
+		updateUsrDialog()
+
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
 		for(var/datum/tech/T in files.known_tech)
@@ -104,6 +127,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			S.setup()
 			break
 	SyncRDevices()
+	spawn(30)
+		SyncTechs()
 
 /obj/machinery/computer/rdconsole/Destroy()
 	if(linked_destroy != null)
@@ -276,27 +301,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		else
 			griefProtection() //Putting this here because I dont trust the sync process
 			spawn(30)
-				if(src)
-					for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
-						var/server_processed = 0
-						if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
-							for(var/datum/tech/T in files.known_tech)
-								S.files.AddTech2Known(T)
-							for(var/datum/design/D in files.known_designs)
-								S.files.AddDesign2Known(D)
-							S.files.RefreshResearch()
-							server_processed = 1
-						if((id in S.id_with_download) && !istype(S, /obj/machinery/r_n_d/server/centcom))
-							for(var/datum/tech/T in S.files.known_tech)
-								files.AddTech2Known(T)
-							for(var/datum/design/D in S.files.known_designs)
-								files.AddDesign2Known(D)
-							files.RefreshResearch()
-							server_processed = 1
-						if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
-							S.produce_heat()
-					screen = 1.6
-					updateUsrDialog()
+				SyncTechs()
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync
