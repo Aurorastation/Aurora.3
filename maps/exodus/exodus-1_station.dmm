@@ -47623,7 +47623,7 @@
 /turf/simulated/wall/r_wall,
 /area/server)
 "bIN" = (
-/obj/machinery/r_n_d/server/robotics,
+/obj/machinery/r_n_d/server/advanced/robotics,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -49480,7 +49480,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bLR" = (
-/obj/machinery/r_n_d/server/core,
+/obj/machinery/r_n_d/server/advanced/core,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
