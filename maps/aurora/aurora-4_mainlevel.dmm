@@ -19719,7 +19719,7 @@
 "aJn" = (
 /obj/structure/bookcase/manuals/engineering,
 /obj/item/weapon/book/manual/atmospipes,
-/obj/item/weapon/book/manual/engineering_guide,
+/obj/item/weapon/book/manual/wiki/engineering_guide,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6

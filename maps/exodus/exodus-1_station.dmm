@@ -55385,7 +55385,7 @@
 /area/engineering/break_room)
 "bWD" = (
 /obj/structure/table/wood,
-/obj/item/weapon/book/manual/engineering_guide{
+/obj/item/weapon/book/manual/wiki/engineering_guide{
 	pixel_x = 3;
 	pixel_y = 2
 	},
