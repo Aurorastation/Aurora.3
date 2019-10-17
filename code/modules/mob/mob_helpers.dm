@@ -16,6 +16,9 @@
 			return 0
 	return 1
 
+/mob/living/bot/isSynthetic()
+	return 1
+
 /mob/living/silicon/isSynthetic()
 	return 1
 
