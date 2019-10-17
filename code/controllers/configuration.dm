@@ -289,16 +289,6 @@ var/list/gamemode_cache = list()
 	var/load_customsynths_from
 	var/docs_image_host
 
-	var/ert_base_chance = 10
-	var/ert_green_inc = 1
-	var/ert_yellow_inc = 1
-	var/ert_blue_inc = 2
-	var/ert_red_inc = 3
-	var/ert_delta_inc = 10
-	var/ert_scaling_factor = 1
-	var/ert_scaling_factor_antag = 1
-	var/ert_scaling_factor_dead = 2
-
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
 	var/ntsl_port = "1945"

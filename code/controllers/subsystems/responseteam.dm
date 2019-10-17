@@ -45,10 +45,10 @@
 		if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
 			tally += ert.chance
 			continue
-			result = ert
+		result = ert
 
 	if(!result)
-		log_debug("We didn't find an ERT pick result!")
+		log_debug("SSresponseteam: We didn't find an ERT pick result!")
 		return pick(available_teams)
 	else
 		return result
