@@ -448,7 +448,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			RC.reagents.add_reagent(R.id, R.volume)
 			reagents.remove_reagent(R.id, R.volume)
 		else if(free_space == 0)
-			to_chat(usr, "<span class='warning'>[RC.name] is full!")
+			to_chat(usr, "<span class='warning'>[RC.name] is full!</span>")
 		else
 			to_chat(usr, "<span class='notice'>You empty [free_space] units of [R.name] into your [RC.name].</span>")
 			RC.reagents.add_reagent(R.id, free_space)
