@@ -271,7 +271,7 @@
 
 //Code for dipping food in batter
 /obj/item/weapon/reagent_containers/food/snacks/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)))
+	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)) && proximity)
 		for (var/r in O.reagents.reagent_list)
 
 			var/datum/reagent/R = r
@@ -4442,13 +4442,13 @@
 	icon_state = "lasagna"
 	trash = /obj/item/trash/grease
 	center_of_mass = list("x"=16, "y"=17)
-	nutriment_amt = 5
+	nutriment_amt = 12
 	nutriment_desc = list("pasta" = 4, "tomato" = 2)
 	bitesize = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/classichotdog/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/lasagna/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("protein", 12)
 
 /obj/item/weapon/reagent_containers/food/snacks/donerkebab
 	name = "doner kebab"
@@ -4460,7 +4460,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/donerkebab/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("protein", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/sashimi
 	name = "carp sashimi"

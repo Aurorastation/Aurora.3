@@ -113,6 +113,7 @@
 /obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
 		CI.result_type = 3//Combination type. We're making something out of our ingredients
+		src.visible_message("<span class='notice'>\The [src] pings!</span>")
 		combination_cook(CI)
 		return
 	else

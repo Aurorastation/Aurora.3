@@ -169,6 +169,14 @@
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		return 1
 
+	var/mob/living/list/eaters = list(
+		/mob/living/carbon,
+		/mob/living/simple_animal
+	)
+
+	if(!is_type_in_list(target, eaters))
+		return 0
+
 	//var/types = target.find_type()
 
 	var/mob/living/carbon/human/H
