@@ -3,7 +3,7 @@
     <template v-if="on == true">
       <p>Cooking...</p>
       <vui-progress v-if="cook_time" :value="cur_time" :max="cook_time"/>
-      <vui-button class="danger" icon="exclamation-triangle" push-state :params="{abort: 1}">Abort!</vui-button>
+      <vui-button class="danger danger-control" icon="exclamation-triangle" push-state :params="{abort: 1}">Abort!</vui-button>
     </template>
     <template v-else>
       <h4>Ingredients</h4>
@@ -18,8 +18,8 @@
           </vui-button>
         </li>
       </ul>
-      <vui-button class="danger" icon="trash" push-state :params="{eject_all: 1}">Eject All</vui-button>
-      <vui-button class="control" :params="{cook: 1}">Cook!</vui-button>
+      <vui-button class="danger danger-control" icon="trash" push-state :params="{eject_all: 1}">Eject All</vui-button>
+      <vui-button class="control" push-state :params="{cook: 1}">Cook!</vui-button>
     </template>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
   ul {
     padding: 4px 4px 10px 10px;
   }
-  .danger {
+  .danger-control {
     position: fixed;
     right: 20px;
     bottom: 20px;
