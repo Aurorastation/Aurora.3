@@ -6532,9 +6532,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/landmark{
-	name = "tripai"
-	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";
 	temperature = 278
@@ -6627,6 +6624,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/effect/landmark/start{
+	name = "Cyborg"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_cyborg_station)
@@ -7330,7 +7330,8 @@
 	pixel_y = 36
 	},
 /obj/machinery/turretid/stun{
-	check_synth = 1;
+	check_synth = 0;
+	enabled = 0;
 	name = "AI Chamber turret control";
 	pixel_x = 36;
 	pixel_y = 36
@@ -7390,9 +7391,6 @@
 /obj/structure/cable/cyan{
 	d2 = 4;
 	icon_state = "0-4"
-	},
-/obj/effect/landmark/start{
-	name = "AI"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "cooled mainframe floor";

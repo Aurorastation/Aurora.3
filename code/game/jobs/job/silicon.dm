@@ -4,7 +4,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
-	spawn_positions = 1
+	spawn_positions = 0
 	selection_color = "#00ff00"
 	supervisors = "your laws"
 	minimal_player_age = 7
@@ -27,8 +27,8 @@
 	flag = CYBORG
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "your laws and the AI"	//Nodrak
 	selection_color = "#4dff4d"
 	minimal_player_age = 1
