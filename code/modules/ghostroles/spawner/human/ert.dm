@@ -29,6 +29,7 @@
 	max_count = 2
 	outfit = /datum/outfit/admin/ert/nanotrasen
 	mob_name_prefix = "Tpr."
+	spawnpoints = list("NTERTSpawn")
 
 /datum/ghostspawner/human/ert/nanotrasen/specialist
 	name = "Nanotrasen Engineering Specialist"
@@ -58,6 +59,7 @@
 	desc = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to. You're responding to a code red situation you are tasked to go and fix the problem."
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
+	spawnpoints = list("TCFLERTSpawn")
 
 /datum/ghostspawner/human/ert/tcfl/specialist
 	name = "TCFL Medical Specialist"

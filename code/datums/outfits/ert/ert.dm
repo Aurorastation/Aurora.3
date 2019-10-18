@@ -51,7 +51,7 @@
 		/obj/item/weapon/handcuffs = 1,
 		/obj/item/weapon/shield/riot/tact = 1,
 		/obj/item/ammo_magazine/a556 = 2,
-		/obj/item/ammo_magazine/a556/ap = 2,
+		/obj/item/ammo_magazine/a556/ap = 2
 	)
 
 //TCFL
@@ -75,7 +75,7 @@
 
 	belt_contents = list(
 		/obj/item/weapon/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack, = 1
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin = 1
 	)
@@ -109,7 +109,7 @@
 
 	backpack_contents = list(
 		/obj/item/weapon/gun/projectile/automatic/c20r = 1,
-		/obj/item/ammo_magazine/a10mm = 2,
+		/obj/item/ammo_magazine/a10mm = 2
 	)
 
 	belt_contents = list(

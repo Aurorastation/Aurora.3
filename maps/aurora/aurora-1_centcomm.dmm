@@ -11565,6 +11565,10 @@
 /area/centcom/specops)
 "aAh" = (
 /obj/structure/bed/chair,
+/obj/effect/ghostspawpoint{
+	identifier = "NTERTSpawn";
+	name = "igs - NTERT"
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -11939,9 +11943,6 @@
 /area/centcom/specops)
 "aAR" = (
 /obj/effect/landmark{
-	name = "Response Team"
-	},
-/obj/effect/landmark{
 	name = "Commando"
 	},
 /turf/unsimulated/floor{
@@ -12011,6 +12012,10 @@
 "aAX" = (
 /obj/structure/bed/chair{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "NTERTSpawn";
+	name = "igs - NTERT"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12633,9 +12638,6 @@
 	},
 /area/centcom/specops)
 "aCi" = (
-/obj/effect/landmark{
-	name = "Response Team"
-	},
 /obj/effect/landmark{
 	name = "Commando"
 	},
@@ -23185,10 +23187,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZF" = (
-/obj/effect/landmark{
-	name = "Tau Ceti Legion"
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn";
+	name = "igs - TCFLERT"
 	},
-/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "aZG" = (
@@ -26393,6 +26395,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
+"uAe" = (
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn";
+	name = "igs - TCFLERT"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/centcom/legion)
 "uIG" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Fore Checkpoint";
@@ -28981,7 +28991,7 @@ aaM
 aaM
 ahM
 aZD
-aZF
+uAe
 asU
 asU
 aZD
@@ -29238,7 +29248,7 @@ aaM
 aaM
 ahM
 aZD
-aZF
+uAe
 asU
 asU
 aZO
@@ -29495,7 +29505,7 @@ aaM
 aaM
 ahM
 aZD
-aZF
+uAe
 asU
 asU
 aZO
@@ -29752,7 +29762,7 @@ aaM
 aaM
 ahM
 aZD
-aZF
+uAe
 asU
 asU
 aZD
@@ -30009,7 +30019,7 @@ aaM
 aaM
 ahM
 aZD
-aZF
+uAe
 asU
 baS
 asK
