@@ -79,7 +79,7 @@
 		src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
 	else
@@ -106,7 +106,7 @@
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 
 /mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
 	else
@@ -151,7 +151,7 @@
 
 //---Hivebot Beacon---//
 
-/obj/item/projectile/beam/hivebotdischarge
+/obj/item/projectile/beam/hivebot
 	name = "electrical discharge"
 	damage = 10
 	damage_type = HALLOSS
@@ -162,21 +162,21 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
-/obj/item/projectile/beam/hivebotbeam
+/obj/item/projectile/beam/hivebot/toxic
 	name = "concentrated gamma burst"
 	damage = 15
 	damage_type = TOX
 	irradiate = 30
-	agony = 40
-	armor_penetration = 40
+	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/bfg
 	tracer_type = /obj/effect/projectile/tracer/bfg
 	impact_type = /obj/effect/projectile/impact/bfg
 
-/obj/item/projectile/beam/hivebotincendiary
+/obj/item/projectile/beam/hivebot/incendiary
 	name = "archaic energy welder"
 	damage = 20
 	incinerate = 10
+	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
 	impact_type = /obj/effect/projectile/impact/laser/blue
@@ -197,7 +197,7 @@
 	health = 300
 	maxHealth = 300
 	projectilesound = 'sound/weapons/taser2.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebotdischarge
+	projectiletype = /obj/item/projectile/beam/hivebot
 	wander = 0
 	stop_automated_movement = 1
 	status_flags = 0
@@ -231,12 +231,12 @@
 	attack_emote = "focuses on"
 
 /mob/living/simple_animal/hostile/hivebotbeacon/toxic
-	projectiletype = /obj/item/projectile/beam/hivebotbeam
+	projectiletype = /obj/item/projectile/beam/hivebot/toxic
 	projectilesound = 'sound/weapons/laser3.ogg'
 	rapid = 0
 
 /mob/living/simple_animal/hostile/hivebotbeacon/incendiary
-	projectiletype = /obj/item/projectile/beam/hivebotincendiary
+	projectiletype = /obj/item/projectile/beam/hivebot/incendiary
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'
 	rapid = 0
 
@@ -333,7 +333,7 @@
 	return 0
 
 /mob/living/simple_animal/hostile/hivebotbeacon/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
 	else
@@ -529,7 +529,7 @@
 	return 0
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebotdischarge) || istype(Proj, /obj/item/projectile/beam/hivebotbeam) || istype(Proj, /obj/item/projectile/beam/hivebotincendiary))
+	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
 	else
