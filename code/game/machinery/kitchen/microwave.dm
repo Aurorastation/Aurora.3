@@ -1,4 +1,3 @@
-#define UIDEBUG
 /obj/machinery/microwave
 	name = "microwave"
 	icon = 'icons/obj/kitchen.dmi'
