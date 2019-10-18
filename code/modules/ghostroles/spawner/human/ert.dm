@@ -5,6 +5,8 @@
 	req_perms = null
 	max_count = 5
 
+	spawnpoints = list("ERTSpawn")
+
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random
 	possible_species = list("Human","Skrell","Tajara","Unathi")
@@ -16,23 +18,6 @@
 	respawn_flag = null
 
 	mob_name = FALSE
-
-/datum/ghostspawner/human/ert/select_spawnpoint(var/use=TRUE)
-	//Randomly select a Turf on the asteroid. TODO-MATT: Placeholder
-	var/turf/T = pick_area_turf(/area/mine/unexplored)
-	if(!use) //If we are just checking if we can get one, return the turf we found
-		return T
-
-	if(!T) //If we didnt find a turn, return now
-		return null
-
-	//Otherwise spawn a droppod at that location
-	var/x = T.x
-	var/y = T.y
-	var/z = T.z
-
-	new /datum/random_map/droppod(null,x,y,z,supplied_drop="custom",do_not_announce=TRUE,automated=FALSE)
-	return get_turf(locate(x+1,y+1,z)) //Get the turf again, so we end up inside of the pod - There is probs a better way to do this
 
 //Nanotrasen ERT
 /datum/ghostspawner/human/ert/nanotrasen
@@ -68,7 +53,7 @@
 /datum/ghostspawner/human/ert/tcfl
 	name = "TCFL Responder"
 	short_name = "tcflr"
-	desc = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect [current_map.company_name]. There is a code red alert on [station_name()], you are tasked to go and fix the problem."
+	desc = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to. You're responding to a code red situation you are tasked to go and fix the problem."
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
 
@@ -99,7 +84,7 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/mercenary/specialist
 
-/datum/ghostspawner/ert/mercenary/leader
+/datum/ghostspawner/human/ert/mercenary/leader
 	name = "Mercenary Leader"
 	short_name = "mercl"
 	max_count = 1

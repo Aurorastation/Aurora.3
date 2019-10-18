@@ -20,7 +20,7 @@
 		/obj/item/ammo_magazine/a556,
 		/obj/item/ammo_magazine/a556/ap
 	)
-	
+
 /datum/outfit/admin/ert/nanotrasen/specialist
 	name = "Nanotrasen ERT Engineer Specialist"
 
@@ -53,7 +53,7 @@
 		/obj/item/weapon/shield/riot/tact,
 		/obj/item/ammo_magazine/a556,
 		/obj/item/ammo_magazine/a556,
-		/obj/item/ammo_magazine/a556/ap
+		/obj/item/ammo_magazine/a556/ap,
 		/obj/item/ammo_magazine/a556/ap
 	)
 
@@ -91,7 +91,7 @@
 	shoes = /obj/item/clothing/shoes/swat
 	gloves = /obj/item/clothing/gloves/swat
 	belt = /obj/item/weapon/storage/belt/military
-	backpack = obj/item/weapon/storage/backpack/satchel_syndie
+	back = /obj/item/weapon/storage/backpack/satchel_syndie
 	l_hand = /obj/item/weapon/gun/projectile/automatic/c20r
 	suit = /obj/item/clothing/suit/space/void/merc
 	head = /obj/item/clothing/head/helmet/space/void/merc
@@ -112,7 +112,7 @@
 	belt = /obj/item/weapon/storage/belt/medical
 	l_hand = /obj/item/weapon/storage/firstaid/adv
 	r_hand = /obj/item/weapon/storage/firstaid/combat
-	
+
 	backpack_contents = list(
 		/obj/item/weapon/gun/projectile/automatic/c20r,
 		/obj/item/ammo_magazine/a10mm,
@@ -129,7 +129,7 @@
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary ERT Leader"
 	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle
-	backpack = /obj/item/weapon/rig/merc
+	back = /obj/item/weapon/rig/merc
 	suit_store = null
 	suit = null
 	head = null
