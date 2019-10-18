@@ -54,8 +54,8 @@
 		return result
 
 
-/datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice)
-	if(!can_call_ert && !forced_choice)
+/datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = null)
+	if(!can_call_ert)
 		return
 	if(send_emergency_team)
 		return
