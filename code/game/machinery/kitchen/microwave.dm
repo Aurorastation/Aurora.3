@@ -1,3 +1,4 @@
+#define UIDEBUG
 /obj/machinery/microwave
 	name = "microwave"
 	icon = 'icons/obj/kitchen.dmi'
@@ -24,12 +25,17 @@
 	var/abort = FALSE
 	var/datum/looping_sound/microwave/soundloop
 
+<<<<<<< HEAD
 	component_types = list(
 			/obj/item/weapon/circuitboard/microwave,
 			/obj/item/weapon/stock_parts/capacitor = 3,
 			/obj/item/weapon/stock_parts/scanning_module,
 			/obj/item/weapon/stock_parts/matter_bin = 2
 		)
+=======
+	var/cook_time = 40
+	var/start_time = 0
+>>>>>>> refactor ui code to not be awful
 
 // see code/modules/food/recipes_microwave.dm for recipes
 
@@ -200,31 +206,36 @@
 VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	watch_var("operating", "on", CALLBACK(null, .proc/transform_to_boolean, FALSE))
 
-/obj/machinery/microwave/vueui_data_change(var/list/newdata, var/mob/user, var/datum/vueui/ui)
+/obj/machinery/microwave/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	var/monitordata = ..()
 	if(monitordata)
-		. = newdata = monitordata
+		. = data = monitordata
 
-	newdata["cookingobjs"] = list()
-	newdata["cookingreas"] = list()
+	// init data objects if they aren't already
+	LAZYINITLIST(data["cookingobjs"])
+	LAZYINITLIST(data["cookingreas"])
 
-	VUEUI_SET_CHECK_IFNOTSET(newdata["cook_time"], 40, ., newdata)
-	VUEUI_SET_CHECK_IFNOTSET(newdata["cur_time"], 0, ., newdata)
+	// set up the progress bar vars
+	VUEUI_SET_CHECK(data["cook_start"], start_time, ., data)
+	VUEUI_SET_CHECK(data["cook_elapsed"], world.time, ., data) // needed to update progress
+	VUEUI_SET_CHECK(data["cook_duration"], start_time + (cook_time * 10), ., data)
 
-	if (contents && contents.len)
+	// if BYOND lists are smaller than UI, then something (or everything) was removed - wipe the list
+	if(LAZYLEN(contents) < LAZYLEN(data["cookingobjs"]))
+		VUEUI_SET_CHECK(data["cookingobjs"], list(), ., data)
+	if(LAZYLEN(reagents.reagent_list) < LAZYLEN(data["cookingreas"]))
+		VUEUI_SET_CHECK(data["cookingreas"], list(), ., data)
+
+	// build the list of objs and reagents
+	if (LAZYLEN(contents))
 		var/list/cook_count = list()
 		for (var/obj/O in contents)
 			cook_count[O.name]++
 		for (var/C in cook_count)
-			newdata["cookingobjs"] += list(list("name" = "[C]", "qty" = "[cook_count[C]]"))
-	if (reagents.reagent_list && reagents.reagent_list.len)
+			VUEUI_SET_CHECK(data["cookingobjs"][C], cook_count[C], ., data)
+	if (LAZYLEN(reagents.reagent_list))
 		for (var/datum/reagent/R in reagents.reagent_list)
-			newdata["cookingreas"] += list(list("name" = "[R.name]", "amt" = "[R.volume]"))
-
-	if(newdata["cookingobjs"] && contents && newdata["cookingobjs"].len != contents.len)
-		. = newdata
-	if(newdata["cookingreas"] && reagents.reagent_list && newdata["cookingreas"].len != reagents.reagent_list.len)
-		. = newdata
+			VUEUI_SET_CHECK(data["cookingreas"][R], R.volume, ., data)
 
 /obj/machinery/microwave/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -245,24 +256,24 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		return
 
 	var/datum/recipe/recipe = select_recipe(RECIPE_LIST(appliancetype),src)
-	var/default_time = 20
 	if (!recipe)
+		cook_time = 20
 		dirty += 1
 		if (prob(max(10, dirty*5)))
 			// It's dirty enough to mess up the microwave
-			cook_for_time(default_time, TRUE, TRUE)
+			cook_for_time(TRUE, TRUE)
 			return
 		else if (has_extra_item())
 			// Something's in the microwave that shouldn't be! Time to break!
 			// Can this even happen?
-			cook_for_time(default_time, TRUE, FALSE, TRUE)
+			cook_for_time(TRUE, FALSE, TRUE)
 			return
 		else
-			cook_for_time(default_time, TRUE)
+			cook_for_time(TRUE)
 			return
 	else
-		var/cooking_time = round((recipe.time*4)/10)
-		if(!cook_for_time(cooking_time))
+		cook_time = round((recipe.time*4)/10)
+		if(!cook_for_time())
 			return
 
 		//Making multiple copies of a recipe
@@ -302,19 +313,20 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 		return
 
-/obj/machinery/microwave/proc/cook_for_time(var/cook_time = 20, var/failed = FALSE, var/dirt = FALSE, var/broke = FALSE) // Formerly proc/wzhzhzh, may it rest in peace
-	start(dirt)
-
+/obj/machinery/microwave/proc/cook_for_time(var/failed = FALSE, var/dirt = FALSE, var/broke = FALSE) // Formerly proc/wzhzhzh, may it rest in peace
+	start_time = world.time
 	var/half_time = cook_time / 2
 	var/obj/cooked
+
+	start(dirt)
+
 	for (var/i=1 to half_time)
 		if ((stat & (NOPOWER|BROKEN)) || abort) // Safe to abort early on
 			stop(dirt, broke)
 			return FALSE
-		else
-			use_power(active_power_usage)
-			update_cooking_ui(cook_time, i)
-			sleep(10)
+		use_power(active_power_usage)
+		sleep(10)
+		SSvueui.check_uis_for_change(src)
 
 	playsound(src, 'sound/machines/click.ogg', 20, 1) // Mid-way through cooking 'click'
 
@@ -328,10 +340,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 				cooked.forceMove(loc)
 			stop(dirt, broke)
 			return FALSE
-		else
-			use_power(active_power_usage)
-			update_cooking_ui(cook_time, j)
-			sleep(10)
+		use_power(active_power_usage)
+		sleep(10)
+		SSvueui.check_uis_for_change(src)
 
 	if(failed)
 		cooked = fail()
@@ -342,16 +353,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	stop(dirt, broke)
 
 	return TRUE
-
-/obj/machinery/microwave/proc/update_cooking_ui(var/cook_time, var/cur_time)
-	for(var/datum/vueui/ui in SSvueui.get_open_uis(src))
-		ui.data["cook_time"] = cook_time
-		ui.data["cur_time"] = cur_time
-	SSvueui.check_uis_for_change(src)
-
-/obj/machinery/microwave/proc/close_cooking_uis()
-	for(var/datum/vueui/ui in SSvueui.get_open_uis(src))
-		ui.close()
 
 /obj/machinery/microwave/proc/has_extra_item()
 	for (var/obj/O in contents)
@@ -372,13 +373,14 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		icon_state = "mw1"
 	set_light(1.5)
 	soundloop.start()
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/stop(var/muck = FALSE, var/broken = FALSE)
 	after_finish_loop()
 	operating = FALSE // Turn it off again aferwards
 	if(muck || broken)
 		flags = null //So you can't add condiments
-		close_cooking_uis() // Can't use this anymore!
+		// SSvueui.close_uis(src)
 	if(muck)
 		visible_message("<span class='warning'>The microwave gets covered in muck!</span>")
 		dirty = 100 // Make it dirty so it can't be used util cleaned
@@ -412,6 +414,14 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 /obj/machinery/microwave/Topic(href, href_list)
 	SSvueui.check_uis_for_change(src)
 	if(..())
+		return
+
+	if(dirty == 100)
+		to_chat(usr, "<span class='warning'>\The [name] is dirty! You'll need to clean it before using it.</span>")
+		return
+
+	if(broken > 0)
+		to_chat(usr, "<span class='warning'>\The [name] is broken! You'll need to fix it before using it.</span>")
 		return
 
 	usr.set_machine(src)

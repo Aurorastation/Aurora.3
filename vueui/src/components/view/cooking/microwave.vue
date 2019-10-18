@@ -1,20 +1,20 @@
 <template>
   <div>
-    <template v-if="on == true">
+    <template v-if="on">
       <p>Cooking...</p>
-      <vui-progress v-if="cook_time" :value="cur_time" :max="cook_time"/>
-      <vui-button class="danger danger-control" icon="exclamation-triangle" push-state :params="{abort: 1}">Abort!</vui-button>
+      <vui-progress :value="cook_elapsed" :min="cook_start" :max="cook_duration"/>
+      <vui-button class="danger danger-control" icon="exclamation-triangle" :params="{abort: 1}">Abort!</vui-button>
     </template>
     <template v-else>
       <h4>Ingredients</h4>
       <ul>
-        <li v-if="cookingobjs.length == 0 && cookingreas.length == 0">The microwave is empty!</li>
-        <li v-for="obj in cookingobjs" :key="obj.name">
-          <vui-button push-state :params="{ eject: obj.name }"> {{ obj.name }} • {{ obj.qty }}
+        <li v-if="!ingredientsPresent">The microwave is empty!</li>
+        <li v-for="(amt, name) in cookingobjs" :key="name">
+          <vui-button push-state :params="{ eject: name }"> {{ name }} • {{ amt }}
           </vui-button>
         </li>
-        <li v-for="r in cookingreas" :key="r.name">
-          <vui-button push-state :params="{ eject: r.name }"> {{ r.name }} • {{ r.amt }} units
+        <li v-for="(amt, name) in cookingreas" :key="name">
+          <vui-button push-state :params="{ eject: name }"> {{ name }} • {{ amt }} units
           </vui-button>
         </li>
       </ul>
@@ -28,6 +28,11 @@
 export default {
   data() {
     return this.$root.$data.state; // Make data more easily accessible
+  },
+  computed: {
+    ingredientsPresent() {
+      return (Object.keys(this.cookingobjs).length > 0 || Object.keys(this.cookingreas).length > 0);
+    }
   }
 };
 </script>
