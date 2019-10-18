@@ -248,5 +248,5 @@
 
 /obj/machinery/computer/shuttle_control/distress
 	name = "shuttle control computer"
-	req_access = list()
+	req_access = list(access_distress)
 	shuttle_tag = "Distress"
