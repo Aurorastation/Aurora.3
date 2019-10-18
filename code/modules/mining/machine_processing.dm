@@ -17,7 +17,7 @@
 
 	var/ore/list/input_mats = list()
 	var/material/list/output_mats = list()
-	var/datum/alloy/alloy_mats = list()
+	var/datum/alloy/list/alloy_mats = list()
 	var/waste = 0
 	var/idx = 0
 
@@ -173,7 +173,7 @@
 	if(!inserted_id)
 		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
 		return
-	if(!input_mats.len && !output_mats.len && !alloy_mats.len)
+	if(!input_mats.len && !output_mats.len && !alloy_mats)
 		to_chat(user, span("warning", "There is no data to print."))
 		return
 
