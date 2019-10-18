@@ -17,7 +17,9 @@
 	special_role = "Emergency Responder"
 	respawn_flag = null
 
-	mob_name = FALSE
+	mob_name_pick_message = "Pick a callsign or last-name."
+
+	mob_name = null
 
 //Nanotrasen ERT
 /datum/ghostspawner/human/ert/nanotrasen

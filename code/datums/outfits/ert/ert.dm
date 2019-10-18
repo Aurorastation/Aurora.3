@@ -14,11 +14,10 @@
 	l_ear = /obj/item/device/radio/headset/ert
 
 	belt_contents = list(
-		/obj/item/weapon/handcuffs,
-		/obj/item/weapon/shield/riot/tact,
-		/obj/item/ammo_magazine/a556,
-		/obj/item/ammo_magazine/a556,
-		/obj/item/ammo_magazine/a556/ap
+		/obj/item/weapon/handcuffs = 2,
+		/obj/item/weapon/shield/riot/tact = 1,
+		/obj/item/ammo_magazine/a556 = 2,
+		/obj/item/ammo_magazine/a556/ap = 1
 	)
 
 /datum/outfit/admin/ert/nanotrasen/specialist
@@ -37,10 +36,10 @@
 	r_hand = /obj/item/weapon/storage/firstaid/combat
 
 	belt_contents = list(
-		/obj/item/weapon/reagent_containers/hypospray,
-		/obj/item/stack/medical/advanced/bruise_pack,
-		/obj/item/stack/medical/advanced/ointment,
-		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin
+		/obj/item/weapon/reagent_containers/hypospray = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+		/obj/item/stack/medical/advanced/ointment = 1,
+		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin = 1
 	)
 
 /datum/outfit/admin/ert/nanotrasen/leader
@@ -49,12 +48,10 @@
 	back = /obj/item/weapon/rig/ert
 
 	belt_contents = list(
-		/obj/item/weapon/handcuffs,
-		/obj/item/weapon/shield/riot/tact,
-		/obj/item/ammo_magazine/a556,
-		/obj/item/ammo_magazine/a556,
-		/obj/item/ammo_magazine/a556/ap,
-		/obj/item/ammo_magazine/a556/ap
+		/obj/item/weapon/handcuffs = 1,
+		/obj/item/weapon/shield/riot/tact = 1,
+		/obj/item/ammo_magazine/a556 = 2,
+		/obj/item/ammo_magazine/a556/ap = 2,
 	)
 
 //TCFL
@@ -77,10 +74,10 @@
 	belt = /obj/item/weapon/storage/belt/medical
 
 	belt_contents = list(
-		/obj/item/weapon/reagent_containers/hypospray,
-		/obj/item/stack/medical/advanced/bruise_pack,
-		/obj/item/stack/medical/advanced/ointment,
-		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin
+		/obj/item/weapon/reagent_containers/hypospray = 1,
+		/obj/item/stack/medical/advanced/bruise_pack, = 1
+		/obj/item/stack/medical/advanced/ointment = 1,
+		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin = 1
 	)
 
 //Mercenary
@@ -98,12 +95,9 @@
 	suit_store = /obj/item/weapon/tank/oxygen
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/a10mm,
-		/obj/item/ammo_magazine/a10mm,
-		/obj/item/ammo_magazine/a10mm,
-		/obj/item/weapon/handcuffs/ziptie,
-		/obj/item/weapon/handcuffs/ziptie,
-		/obj/item/weapon/shield/energy
+		/obj/item/ammo_magazine/a10mm = 3,
+		/obj/item/weapon/handcuffs/ziptie = 2,
+		/obj/item/weapon/shield/energy = 1
 	)
 
 /datum/outfit/admin/ert/mercenary/specialist
@@ -114,16 +108,15 @@
 	r_hand = /obj/item/weapon/storage/firstaid/combat
 
 	backpack_contents = list(
-		/obj/item/weapon/gun/projectile/automatic/c20r,
-		/obj/item/ammo_magazine/a10mm,
-		/obj/item/ammo_magazine/a10mm
+		/obj/item/weapon/gun/projectile/automatic/c20r = 1,
+		/obj/item/ammo_magazine/a10mm = 2,
 	)
 
 	belt_contents = list(
-		/obj/item/weapon/reagent_containers/hypospray,
-		/obj/item/stack/medical/advanced/bruise_pack,
-		/obj/item/stack/medical/advanced/ointment,
-		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin
+		/obj/item/weapon/reagent_containers/hypospray = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 1,
+		/obj/item/stack/medical/advanced/ointment = 1,
+		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin = 1
 	)
 
 /datum/outfit/admin/ert/mercenary/leader
@@ -135,10 +128,7 @@
 	head = null
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c762,
-		/obj/item/ammo_magazine/c762,
-		/obj/item/ammo_magazine/c762,
-		/obj/item/weapon/handcuffs/ziptie,
-		/obj/item/weapon/handcuffs/ziptie,
-		/obj/item/weapon/shield/energy
+		/obj/item/ammo_magazine/c762 = 3,
+		/obj/item/weapon/handcuffs/ziptie = 2,
+		/obj/item/weapon/shield/energy = 1
 	)

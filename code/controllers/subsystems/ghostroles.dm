@@ -159,6 +159,8 @@
 			S.enable()
 			to_chat(usr, "Ghost spawner enabled: [S.name]")
 			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
+			for(var/i in spawnpoints)
+				update_spawnpoint_status_by_identifier(i)
 	if(href_list["disable"])
 		var/datum/ghostspawner/S = spawners[href_list["disable"]]
 		if(!S)
@@ -169,4 +171,6 @@
 			S.disable()
 			to_chat(usr, "Ghost spawner disabled: [S.name]")
 			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
+			for(var/i in spawnpoints)
+				update_spawnpoint_status_by_identifier(i)
 	return
