@@ -6,7 +6,7 @@
 
 	var/ert_count = 0
 	var/send_emergency_team = FALSE
-	var/can_call_ert = FALSE
+	var/can_call_ert = TRUE
 
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team

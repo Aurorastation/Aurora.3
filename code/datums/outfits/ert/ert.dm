@@ -65,6 +65,7 @@
 	glasses =  /obj/item/clothing/glasses/sunglasses
 	back = /obj/item/weapon/storage/backpack/legion
 	l_hand = /obj/item/weapon/storage/belt/utility/full
+	id = /obj/item/weapon/card/id/legion
 
 /datum/outfit/admin/ert/legion/specialist
 	name = "TCFL ERT Medic"
