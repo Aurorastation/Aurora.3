@@ -59,7 +59,7 @@
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
+	possible_species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
 
 /datum/ghostspawner/human/ert/tcfl/specialist
 	name = "TCFL Medical Specialist"
@@ -81,7 +81,7 @@
 	max_count = 2
 	desc = "Part of a freelancing mercenary crew, you're a neutral party whose intentions should be swayed by who has the biggest amount of money available."
 	outfit = /datum/outfit/admin/ert/mercenary
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
+	possible_species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
 
 /datum/ghostspawner/human/ert/mercenary/specialist
 	name = "Mercenary Medical Specialist"
