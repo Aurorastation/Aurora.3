@@ -173,7 +173,7 @@
 	if(!inserted_id)
 		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
 		return
-	if(!input_mats.len && !output_mats.len)
+	if(!input_mats.len && !output_mats.len && !alloy_mats.len)
 		to_chat(user, span("warning", "There is no data to print."))
 		return
 
