@@ -1,0 +1,5 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Added look-up verb to look what's above you."
+  - rscadd: "Added cross-z talking."
