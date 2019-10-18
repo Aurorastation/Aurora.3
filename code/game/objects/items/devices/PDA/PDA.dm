@@ -1152,6 +1152,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	set category = "Object"
 	set src in usr
 
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
 	if(wear_over_suit == -1)
 		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
 		return
