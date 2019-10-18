@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "The config option that adds maintenance access to assistants now takes in consideration the visitor alt title."
