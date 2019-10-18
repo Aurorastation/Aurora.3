@@ -1,4 +1,3 @@
-#define UIDEBUG
 /obj/machinery/microwave
 	name = "microwave"
 	desc = "A NanoTrasen branded microwave, although the sticker has long since faded." + \
