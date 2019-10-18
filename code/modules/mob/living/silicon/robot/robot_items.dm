@@ -286,8 +286,11 @@
 	to_chat(user, "It is set to deploy [mode ? "doors" : "walls"]")
 
 /obj/item/weapon/inflatable_dispenser/attack_self()
-	mode = !mode
-	to_chat(usr, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
+	if(!deploying)
+		mode = !mode
+		to_chat(usr, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
+	else
+		to_chat(usr, span("warning", "You can't do that while deploying a [mode ? "door" : "wall"]!"))
 
 /obj/item/weapon/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)
