@@ -6,7 +6,7 @@
 	on_icon = "mixer_on"
 	cook_type = "candied"
 	appliancetype = CANDYMAKER
-	cooking_power = 0.6
+	cooking_coeff = 1.0
 
 	output_options = list(
 		"Jawbreaker" = /obj/item/weapon/reagent_containers/food/snacks/variable/jawbreaker,

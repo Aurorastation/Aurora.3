@@ -45,3 +45,4 @@ changes:
   - tweak: "Deconstructing a machine now returns cable coil. Wirecutting a blueprint on the cable-coil stage lowers it to the 'secured blueprint' stage, and as such now requires a wrench to remove."
   - bugfix: "Printing a smart-fridge board no longer gives you an operating table circuit board."
   - bugfix: "Deconstructing a machine no longer displays the incorrect icon state."
+  - bugfix: "Candy and cereal makers no longer fail to cook."

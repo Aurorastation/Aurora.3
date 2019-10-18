@@ -675,12 +675,3 @@
 	active_power_usage = initial(active_power_usage) - scan_rating * 25
 	heating_power = initial(heating_power) + cap_rating * 25
 	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // 100% eff. becomes 120%, 140%, 160% w/ better parts
-
-// /obj/item/weapon/circuitboard/cooking
-// 	name = "kitchen appliance circuitry"
-// 	desc = "The circuitboard for many kitchen appliances. Not of much use."
-// 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-// 	req_components = list(
-// 							"/obj/item/weapon/stock_parts/capacitor" = 3,
-// 							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-// 							"/obj/item/weapon/stock_parts/matter_bin" = 2)
