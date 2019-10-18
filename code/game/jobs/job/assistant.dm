@@ -15,8 +15,8 @@
 	alt_titles = list("Visitor")
 	outfit = /datum/outfit/job/assistant
 
-/datum/job/assistant/get_access()
-	if(config.assistant_maint)
+/datum/job/assistant/get_access(selected_title)
+	if(config.assistant_maint && selected_title == "Assistant")
 		return list(access_maint_tunnels)
 	else
 		return list()
