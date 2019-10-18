@@ -1,0 +1,53 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: Mwahahahaha
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Made accessories like armbands, badges, holsters, medals, stethoscopes, scarves, ribbons, medallions, pins, shoulder capes, bandoliers, contractor cards and patches, as well as ID cards, PDAs and wallets horizontally flippable when worn."
+  - rscadd: "Added additional medals and badges, a lanyard, contractor patches, colourable wallets, colourable wallet purses, and some new okayish ID card overlays for in-wallet icons (all except for the medals and most badges are added to the loadout menu; one has been added to arcade prize pool)."
+  - rscadd: "Added other holsters to HoS and detective lockers."
+  - rscadd: "Added holobadges to the loadout list for security roles only (excluding investigative roles)."
+  - rscadd: "Added the ability to customise loadout item names and descriptions. BE CAREFUL: disabling the item will delete its custom name and description!"
+  - rscadd: "Added the ability to wear ID cards, wallets (including lanyards), and PDAs over your suit by toggling it."
+  - rscadd: "Gave job-restricted loadout items a small descriptor showing what jobs they can be spawned in."
+  - imageadd: "Gave the locket an opened sprite."
+  - imageadd: "Added ID card on-mob (when it's worn) icon variants for contractor ID cards and reworked the vanilla ones."
+  - soundadd: "Made certain accessories have arguably more accurate drop sounds."
+  - tweak: "Made simple drop pouches colourable."
+  - tweak: "You no longer need a jumpsuit to wear things on the ID slot. They will still drop if you take your clothes off."
+  - bugfix: "Fixed missing sprites for some medals and missing direction icons for Lucy stethoscope and bandolier."

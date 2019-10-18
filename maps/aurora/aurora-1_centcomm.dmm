@@ -5220,9 +5220,9 @@
 /area/syndicate_mothership)
 "anb" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/black_pouches,
-/obj/item/clothing/accessory/storage/black_pouches,
-/obj/item/clothing/accessory/storage/black_pouches,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/black_vest,
@@ -5232,9 +5232,9 @@
 /area/syndicate_mothership)
 "anc" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/brown_pouches,
-/obj/item/clothing/accessory/storage/brown_pouches,
-/obj/item/clothing/accessory/storage/brown_pouches,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
@@ -5244,9 +5244,9 @@
 /area/syndicate_mothership)
 "and" = (
 /obj/structure/table/rack,
-/obj/item/clothing/accessory/storage/white_pouches,
-/obj/item/clothing/accessory/storage/white_pouches,
-/obj/item/clothing/accessory/storage/white_pouches,
+/obj/item/clothing/accessory/storage/pouches/white,
+/obj/item/clothing/accessory/storage/pouches/white,
+/obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/white_vest,

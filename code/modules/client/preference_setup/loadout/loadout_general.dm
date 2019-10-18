@@ -130,7 +130,7 @@
 
 /datum/gear/towel/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/checkers
 	display_name = "checkers game kit"
