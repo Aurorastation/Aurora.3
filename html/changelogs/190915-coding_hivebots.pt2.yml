@@ -42,4 +42,4 @@ changes:
   - tweak: "Tweaked the slime infestation event to be a bit more colorful."
   - bugfix: "Made it so infestation events should no longer trigger outside the station, inside xenobiology cells and some other misc. areas."
   - bugfix: "Fixed the prison break event from not working entirely correctly with virology, added a chance for it to happen at the bridge."
-  - bugfix: "Fixed some announcements missing their custom titles. Particularly those used by events. Tweaked their font and size as well."
+  - bugfix: "Fixed some announcements missing their custom titles. Particularly those used by random events. Tweaked their font and size as well."
