@@ -131,9 +131,6 @@
 	else
 		icon_state = "[initial(icon_state)]_armed"
 
-/mob/living/simple_animal/hostile/hivebot/proc/wakeup()
-	stance = HOSTILE_STANCE_IDLE
-
 /mob/living/simple_animal/hostile/hivebot/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
@@ -143,10 +140,14 @@
 /mob/living/simple_animal/hostile/hivebot/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
-	addtimer(CALLBACK(src, .proc/wakeup), 150)
-	if(severity == 1.0)
-		apply_damage(10)
+	addtimer(CALLBACK(src, .proc/wakeup), 50)
+	visible_message(span("danger","[src] suffers a teleportation malfunction!"))
+	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
+	var/turf/random_turf = get_turf(pick(orange(src,7)))
+	do_teleport(src, random_turf)
 
+/mob/living/simple_animal/hostile/hivebot/proc/wakeup()
+	stance = HOSTILE_STANCE_IDLE
 
 //---Hivebot Beacon---//
 
@@ -216,8 +217,8 @@
 	see_in_dark = 8
 	destroy_surroundings = 0
 	var/bot_type
-	var/bot_amt = 96 //Number of total bots that are spawned before the beacon disappears completely.
-	var/max_bots = 48 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
+	var/bot_amt = 160 //Number of total bots that are spawned before the beacon disappears completely.
+	var/max_bots = 40 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
 	var/list/linked_bots = list()
 	var/guard_amt = 0
 	var/harvester_amt = 0
@@ -344,12 +345,17 @@
 		stance = HOSTILE_STANCE_TIRED
 		icon_state = "hivebotbeacon_off"
 		activated = -1
-		addtimer(CALLBACK(src, .proc/wakeup), 600)
+		addtimer(CALLBACK(src, .proc/wakeup), 900)
 
 	var/area/random_area = random_station_area(TRUE)
 	var/turf/random_turf = random_area.random_space()
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, src.loc)
+	S.start()
 
 	if(random_turf)
+		visible_message(span("danger","[src] disappears in a cloud of smoke!"))
+		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		do_teleport(src, random_turf)
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/wakeup()
@@ -528,6 +534,15 @@
 		return PROJECTILE_CONTINUE
 	else
 		return ..(Proj)
+
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
+	LoseTarget()
+	stance = HOSTILE_STANCE_IDLE
+	visible_message(span("danger","[src] suffers a teleportation malfunction!"))
+	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
+	var/turf/random_turf = get_turf(pick(orange(src,7)))
+	do_teleport(src, random_turf)
+
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/think()
 	..()
 	if(!stat)

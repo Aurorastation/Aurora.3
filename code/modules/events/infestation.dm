@@ -1,4 +1,4 @@
-#define INFESTATION_MICE "rats"
+#define INFESTATION_RATS "rats"
 #define INFESTATION_LIZARDS "lizards"
 #define INFESTATION_SPACE_BATS "space bats"
 #define INFESTATION_SPIDERLINGS "spiderlings"
@@ -15,8 +15,9 @@
 	var/chosen_mob = INFESTATION_SLIMES
 	var/chosen_verb = "have leaked into"
 	var/list/chosen_mob_types = list()
+	var/chosen_scan_type = "Bioscans"
 	var/list/possible_mobs = list(
-		INFESTATION_MICE = 1,
+		INFESTATION_RATS = 1,
 		INFESTATION_LIZARDS = 1
 	)
 
@@ -49,6 +50,7 @@
 		if(INFESTATION_HIVEBOTS)
 			event_name = "Hivebot Invasion"
 			chosen_verb = "have invaded"
+			chosen_scan_type = "Bluespace readings"
 			var/list/beacon_types = list(
 				/mob/living/simple_animal/hostile/hivebotbeacon = 1,
 				/mob/living/simple_animal/hostile/hivebotbeacon/toxic = 1,
@@ -68,7 +70,7 @@
 			for(var/i = 1, i < rand(6,8),i++)
 				chosen_mob_types += /mob/living/simple_animal/lizard
 
-		if(INFESTATION_MICE)
+		if(INFESTATION_RATS)
 			event_name = "Rat Nest"
 			chosen_verb = "have been breeding in"
 			var/list/rat_breeds = list(
@@ -115,4 +117,4 @@
 		new spawned_mob(chosen_area.random_space())
 
 /datum/event/infestation/announce()
-	command_announcement.Announce("Bioscans indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg')
+	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg')
