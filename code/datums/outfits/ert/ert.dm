@@ -87,13 +87,15 @@
 
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	gloves = /obj/item/clothing/gloves/yellow
 	belt = /obj/item/weapon/storage/belt/military
 	back = /obj/item/weapon/storage/backpack/satchel_syndie
 	l_hand = /obj/item/weapon/gun/projectile/automatic/c20r
+	r_hand = /obj/item/weapon/storage/belt/utility/full
 	suit = /obj/item/clothing/suit/space/void/merc
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	suit_store = /obj/item/weapon/tank/oxygen
+	id = /obj/item/weapon/card/id/distress
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/a10mm = 3,

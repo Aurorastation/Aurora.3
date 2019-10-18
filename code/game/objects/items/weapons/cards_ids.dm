@@ -352,7 +352,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/weapon/card/id/ert
-	name = "\improper Emergency Response Team ID"
+	name = "\improper Nanotrasen Emergency Response Team ID"
 	icon_state = "centcom"
 	assignment = "Emergency Response Team"
 
@@ -365,6 +365,12 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "centcom"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+
+/obj/item/weapon/card/id/distress
+	name = "\improper Emergency Responder ID"
+	icon_state = "centcom"
+	assignment = "Emergency Responder"
+	access = list(access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"
