@@ -138,7 +138,7 @@
 		pref.clientfps = sanitize_integer(desiredfps, 0, 1000, initial(pref.clientfps))
 		user.client.fps = pref.clientfps
 		#else
-				to_user_chat("\nThis server does not currently support client side fps. You can set now for when it does.")
+		to_user_chat("\nThis server does not currently support client side fps. You can set now for when it does.")
 		#endif // DM_VERSION >= 511
 
 
