@@ -177,7 +177,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
-		/obj/item/weapon/reagent_containers/food/snacks/candy/koko
+		/obj/item/weapon/reagent_containers/food/snacks/candy/koko = 5
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
