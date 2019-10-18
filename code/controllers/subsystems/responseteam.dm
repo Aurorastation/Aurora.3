@@ -63,16 +63,14 @@
 	ert_count++
 	feedback_inc("responseteam_count")
 
+	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
+
 	if(forced_choice && forced_choice != "Random")
 		for(var/datum/responseteam/R in available_teams)
 			if(R.name == forced_choice)
 				picked_team = R
 	else
 		picked_team = pick_random_team()
-
-	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
-
-	say_dead_direct("<span class='deadsay'><b>A [picked_team.name] response team has been enabled! Join via the Ghost Spawners menu.</b></span>")
 
 	feedback_set("responseteam[ert_count]",world.time)
 

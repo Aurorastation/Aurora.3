@@ -292,6 +292,7 @@
 #include "code\datums\ert\nanotrasen.dm"
 #include "code\datums\ert\outsider.dm"
 #include "code\datums\ert\responseteam.dm"
+#include "code\datums\ert\tcfl.dm"
 #include "code\datums\expansions\expansion.dm"
 #include "code\datums\expansions\multitool\_multitool.dm"
 #include "code\datums\expansions\multitool\multitool.dm"

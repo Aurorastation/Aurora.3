@@ -13645,7 +13645,8 @@
 "aED" = (
 /obj/item/weapon/stool/padded,
 /obj/effect/ghostspawpoint{
-	identifier = "ERTSpawn"
+	identifier = "ERTSpawn";
+	name = "igs - ERT"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
