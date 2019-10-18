@@ -16,10 +16,10 @@
 	use_power = 0
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
-	var/initalactive_power_usage = 1000
 
-	var/cooking_power  = 1
-	var/inital_cooking_power  = 1
+	var/cooking_power = 0			// Effectiveness/speed at cooking
+	var/cooking_coeff = 0			// Optimal power * proximity to optimal temp; used to calc. cooking power.
+	var/heating_power = 1000		// Effectiveness at heating up; not used for mixers, should be equal to active_power_usage
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
 	var/on_icon						// Icon state used when cooking.
 	var/off_icon					// Icon state used when not cooking.
@@ -52,8 +52,7 @@
 	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
-	inital_cooking_power = cooking_power
-	initalactive_power_usage = active_power_usage
+
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)
 		var/datum/cooking_item/CI = a
@@ -264,8 +263,8 @@
 		CI = new /datum/cooking_item/(CC)
 		I.forceMove(src)
 		cooking_objs.Add(CI)
-		user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
+			user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 			return
 	else
 		if (CI && istype(CI))
@@ -672,12 +671,13 @@
 
 	for(var/obj/item/weapon/stock_parts/P in component_parts)
 		if(isscanner(P))
-			scan_rating += P.rating
+			scan_rating += P.rating - 1 // Default parts shouldn't change stats
 		else if(iscapacitor(P))
-			cap_rating += P.rating
+			cap_rating += P.rating - 1
 
-	active_power_usage = initalactive_power_usage - scan_rating*10
-	cooking_power = inital_cooking_power + (scan_rating+cap_rating)/10
+	active_power_usage = initial(active_power_usage) - scan_rating * 25
+	heating_power = initial(heating_power) + cap_rating * 25
+	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // 100% eff. becomes 120%, 140%, 160% w/ better parts
 
 /obj/item/weapon/circuitboard/cooking
 	name = "kitchen appliance circuitry"

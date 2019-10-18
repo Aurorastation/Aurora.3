@@ -678,7 +678,7 @@
 			if(!is_diona(src))
 				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
 				return
-			message = "<B>The [src.name]</B> chirps!"
+			message = "chirps!"
 			playsound(src.loc, 'sound/misc/nymphchirp.ogg', 50, 0)
 			m_type = 2
 
@@ -686,7 +686,7 @@
 			if(!is_diona(src))
 				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
 				return
-			message = "<B>The [src.name]</B> chirps a song!"
+			message = "chirps a song!"
 			for(var/mob/living/carbon/alien/diona/D in src)
 				playsound(src.loc, 'sound/misc/nymphchirp.ogg', pick(list(5, 10, 20, 40)), 0)
 				sleep(pick(list(5, 10, 15, 20)))

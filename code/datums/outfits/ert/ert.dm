@@ -9,7 +9,7 @@
 	accessory = /obj/item/clothing/accessory/storage/black_vest
 	gloves = null
 	id = /obj/item/weapon/card/id/ert
-	backpack = /obj/item/weapon/rig/ert
+	back = /obj/item/weapon/rig/ert
 
 	l_ear = /obj/item/device/radio/headset/ert
 	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle/z8
@@ -23,18 +23,30 @@
 	)
 	
 /datum/outfit/admin/ert/nanotrasen/specialist
-	belt = null
+	belt = /obj/item/weapon/storage/belt/utility/full
+	back = /obj/item/weapon/rig/ert/engineer
+
 	belt_contents = null
 
-/datum/outfit/admin/ert/nanotrasen/specialist/post_equip(mob/living/carbon/human/H)
-	switch(alert("Do you want to be an engineering or medical specialist?", "Response Team", "Engineering", "Medical")
-		if("Engineering")
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/utility/full(H), slot_belt)
-			H.equip_to_slot_or_del(new /obj/item/weapon/rig/ert/engineer(H), slot_back)
-		if("Medical")
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/combat(H), slot_r_hand)
-			H.equip_to_slot_or_del(new /obj/item/weapon/rig/ert/medical(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/medical(H), slot_belt)
-			H.equip_or_collect(new /obj/item/weapon/reagent_containers/hypospray(H), slot_belt)
-			H.equip_or_collect(new /obj/item/stack/medical/advanced/bruise_pack(H), slot_belt)
-			H.equip_or_collect(new /obj/item/stack/medical/advanced/ointment(H), slot_belt)
+/datum/outfit/admin/ert/nanotrasen/specialist/medical
+	belt = /obj/item/weapon/storage/belt/medical
+	back = /obj/item/weapon/rig/ert/medical
+	r_hand = /obj/item/weapon/storage/firstaid/combat
+
+	belt_contents = list(
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/medical/advanced/ointment
+	)
+
+//TCFL
+/datum/outfit/admin/ert/legion
+	name = "TCFL Responder"
+
+	uniform = /obj/item/clothing/under/legion
+	l_ear = /obj/item/device/radio/headset/legion
+	shoes = /obj/item/clothing/shoes/swat
+	gloves = /obj/item/clothing/gloves/swat
+	glasses =  /obj/item/clothing/glasses/sunglasses
+	back = /obj/item/weapon/storage/backpack/legion
+	l_hand = /obj/item/weapon/storage/box/engineer

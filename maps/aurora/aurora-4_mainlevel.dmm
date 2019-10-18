@@ -30720,10 +30720,6 @@
 "bbN" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -30736,6 +30732,10 @@
 	icon_state = "camera";
 	network = list("Medical")
 	},
+/obj/effect/floor_decal/corner/beige/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bbO" = (
@@ -30744,7 +30744,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -30756,7 +30756,7 @@
 	pixel_y = 30
 	},
 /obj/item/weapon/reagent_containers/glass/beaker/large,
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -30769,7 +30769,7 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/mauve/full{
+/obj/effect/floor_decal/corner/beige/full{
 	icon_state = "corner_white_full";
 	dir = 1
 	},
@@ -30779,7 +30779,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/storage/fancy/vials,
 /obj/item/weapon/reagent_containers/dropper,
-/obj/effect/floor_decal/corner/mauve/full{
+/obj/effect/floor_decal/corner/beige/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
@@ -30788,10 +30788,6 @@
 "bbS" = (
 /obj/structure/table/standard,
 /obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -30803,16 +30799,20 @@
 	dir = 8;
 	icon_state = "camera"
 	},
+/obj/effect/floor_decal/corner/beige/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bbT" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -31592,7 +31592,7 @@
 /area/medical/pharmacy)
 "bdr" = (
 /obj/machinery/chemical_dispenser/full,
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -31603,7 +31603,7 @@
 	icon_state = "dispenser";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -31615,21 +31615,21 @@
 /area/medical/pharmacy)
 "bdu" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light_switch{
 	pixel_w = 0;
 	pixel_x = 26;
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bdv" = (
 /obj/machinery/chem_master,
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -31644,14 +31644,14 @@
 	pixel_y = -24
 	},
 /obj/structure/cable/green,
-/obj/effect/floor_decal/corner/mauve/full{
+/obj/effect/floor_decal/corner/beige/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bdx" = (
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -32493,18 +32493,18 @@
 	icon_state = "mixer0";
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "beV" = (
-/obj/effect/floor_decal/corner/mauve{
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "beW" = (
@@ -32516,6 +32516,7 @@
 	name = "\improper Secure Refrigerated Medicine Storage";
 	req_one_access = list(33)
 	},
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "beX" = (
@@ -33267,7 +33268,7 @@
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
 /obj/item/weapon/screwdriver,
-/obj/effect/floor_decal/corner/mauve/full{
+/obj/effect/floor_decal/corner/beige/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
@@ -33297,7 +33298,7 @@
 	pixel_y = 0;
 	req_access = list(33)
 	},
-/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bgn" = (
@@ -34048,7 +34049,7 @@
 /area/medical/pharmacy)
 "bhx" = (
 /obj/structure/bed/chair/office/light,
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -34082,7 +34083,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -34094,7 +34095,7 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -34185,11 +34186,11 @@
 "bhG" = (
 /obj/structure/table/standard,
 /obj/machinery/computer/records/medical/laptop,
-/obj/effect/floor_decal/corner/mauve{
+/obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bhH" = (
@@ -34871,11 +34872,11 @@
 /area/hallway/primary/central_one)
 "biO" = (
 /obj/machinery/chem_heater,
-/obj/effect/floor_decal/corner/mauve{
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "biP" = (
@@ -34883,16 +34884,16 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 7
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/machinery/requests_console{
 	department = "Pharmacy";
 	departmentType = 2;
 	name = "Pharmacy Requests Console";
 	pixel_x = 0;
 	pixel_y = -30
+	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -34904,21 +34905,21 @@
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/machinery/ringer{
 	department = "Pharmacy Frontdesk";
 	id = "pharmacy_ringer";
 	pixel_y = -28;
 	req_access = list(33)
 	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "biR" = (
 /obj/structure/closet/secure_closet/chemical,
-/obj/effect/floor_decal/corner/mauve{
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -36169,10 +36170,6 @@
 /turf/simulated/wall,
 /area/medical/reception)
 "bkV" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 4
-	},
 /obj/structure/flora/pottedplant/random,
 /obj/machinery/power/apc{
 	dir = 8;
@@ -36183,26 +36180,30 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bkW" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bkX" = (
-/obj/effect/floor_decal/corner/mauve{
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 1
 	},
-/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bkY" = (
@@ -36296,6 +36297,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "blg" = (
@@ -36394,6 +36396,10 @@
 "blp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
@@ -37202,6 +37208,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmI" = (
@@ -37220,6 +37227,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmJ" = (
@@ -37238,6 +37246,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmK" = (
@@ -37255,6 +37264,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmL" = (
@@ -37274,6 +37284,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmM" = (
@@ -37292,6 +37303,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmN" = (
@@ -37311,6 +37323,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bmO" = (
@@ -38165,6 +38178,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bog" = (
@@ -38251,6 +38265,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bop" = (
@@ -38368,7 +38383,6 @@
 	name = "\improper Medical - Exam Room 1"
 	})
 "bov" = (
-/obj/effect/floor_decal/sign/ex,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -38383,6 +38397,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/sign/ex,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bow" = (
@@ -38405,7 +38420,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "box" = (
-/obj/effect/floor_decal/sign/p,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -38420,6 +38434,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/sign/p,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "boy" = (
@@ -39160,6 +39175,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bpz" = (
@@ -39230,6 +39246,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bpF" = (
@@ -39944,6 +39961,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bqO" = (
@@ -40097,15 +40115,15 @@
 /turf/simulated/wall,
 /area/medical/medbay2)
 "bra" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Starboard 3";
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -40130,11 +40148,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "brc" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "brd" = (
@@ -40707,6 +40725,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsf" = (
@@ -40714,6 +40733,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsg" = (
@@ -40731,6 +40751,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsh" = (
@@ -40753,6 +40774,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsi" = (
@@ -41130,9 +41152,6 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/research)
-"bsF" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 4
@@ -41197,6 +41216,10 @@
 /obj/structure/sink{
 	pixel_y = 16
 	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bsN" = (
@@ -41204,10 +41227,18 @@
 	c_tag = "Research - Entrance"
 	},
 /obj/structure/closet/firecloset,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bsO" = (
 /obj/structure/closet/firecloset,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bsP" = (
@@ -41384,6 +41415,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "btb" = (
@@ -41489,6 +41521,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "btk" = (
@@ -41507,6 +41540,7 @@
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "btl" = (
@@ -41522,6 +41556,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "btm" = (
@@ -41539,6 +41574,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btn" = (
@@ -41560,6 +41596,7 @@
 	name = "CMO's Office";
 	sortType = "CMO's Office"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bto" = (
@@ -41580,6 +41617,7 @@
 	name = "Medical Bay";
 	sortType = "Medical Bay"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btp" = (
@@ -41604,6 +41642,7 @@
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btq" = (
@@ -41622,6 +41661,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btr" = (
@@ -41640,6 +41680,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bts" = (
@@ -41657,6 +41698,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btt" = (
@@ -41675,10 +41717,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btu" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -41691,10 +41733,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btv" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -41709,10 +41752,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btw" = (
-/obj/effect/floor_decal/sign/c2,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -41731,6 +41778,11 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/sign/c2,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btx" = (
@@ -41889,6 +41941,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "btK" = (
@@ -41903,6 +41956,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "btL" = (
@@ -41922,6 +41976,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "btM" = (
@@ -41938,6 +41993,7 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "btN" = (
@@ -41950,6 +42006,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "btO" = (
@@ -41981,17 +42038,7 @@
 	name = "Biohazard Shutter";
 	opacity = 0
 	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/research)
-"btQ" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "btR" = (
@@ -42204,8 +42251,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
@@ -42218,19 +42266,16 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
 /obj/structure/table/standard,
 /obj/item/roller{
 	pixel_y = 4
 	},
 /obj/item/roller{
 	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
@@ -42238,19 +42283,16 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/masks{
 	pixel_x = 4;
 	pixel_y = 4
 	},
 /obj/item/weapon/storage/box/gloves,
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bul" = (
@@ -42267,10 +42309,7 @@
 /obj/machinery/disposal,
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
@@ -42350,6 +42389,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "but" = (
@@ -42624,6 +42664,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "buR" = (
@@ -42702,10 +42743,18 @@
 /obj/machinery/shower{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bva" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bvb" = (
@@ -42715,6 +42764,10 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -42970,16 +43023,13 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bvC" = (
 /turf/simulated/open,
 /area/turbolift/medical_station)
 "bvD" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/bodybags,
 /obj/item/weapon/storage/box/bodybags,
@@ -42989,6 +43039,10 @@
 	pixel_x = -25
 	},
 /obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bvE" = (
@@ -43018,10 +43072,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bvG" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -43033,10 +43083,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/sign/m,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/sign/m,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bvH" = (
@@ -43312,6 +43366,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bwg" = (
@@ -43543,13 +43598,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bwA" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/structure/closet/wardrobe/white,
 /obj/machinery/alarm{
 	dir = 4;
@@ -43561,6 +43613,10 @@
 	c_tag = "Medical - Cloning Laboratory";
 	dir = 4;
 	icon_state = "camera"
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -43584,15 +43640,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bwD" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/machinery/hologram/holopad,
 /obj/machinery/firealarm/east,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -43919,6 +43975,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bxb" = (
@@ -44240,6 +44297,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/weapon/reagent_containers/hypospray,
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bxy" = (
@@ -44290,6 +44348,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/item/weapon/reagent_containers/hypospray,
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bxA" = (
@@ -44396,6 +44455,7 @@
 	icon_state = "pipe-y";
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bxF" = (
@@ -44579,11 +44639,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bxY" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/machinery/dna_scannernew,
+/obj/effect/floor_decal/corner/grey{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/dna_scannernew,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bxZ" = (
@@ -44596,14 +44656,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bya" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/machinery/computer/records/medical,
 /obj/machinery/light_switch{
 	pixel_x = 24;
 	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -45118,6 +45178,7 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bzb" = (
@@ -45254,16 +45315,17 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bzp" = (
 /obj/machinery/computer/cloning,
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -45274,11 +45336,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bzr" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/structure/closet,
+/obj/effect/floor_decal/corner/grey{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/structure/closet,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bzs" = (
@@ -45596,10 +45658,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "bzS" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/structure/table/standard,
 /obj/item/weapon/hand_labeler,
 /obj/item/stack/packageWrap,
@@ -45859,11 +45917,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bAr" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/machinery/clonepod,
+/obj/effect/floor_decal/corner/grey{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/clonepod,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bAs" = (
@@ -45892,13 +45950,13 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bAu" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/structure/closet,
 /obj/machinery/newscaster{
 	pixel_y = -30
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
@@ -46050,6 +46108,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bAM" = (
@@ -46953,6 +47012,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bCy" = (
@@ -47425,6 +47485,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bDp" = (
@@ -47757,24 +47818,24 @@
 /area/maintenance/research_port)
 "bEd" = (
 /obj/machinery/vending/cola,
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEe" = (
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/research)
-"bEf" = (
-/obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEg" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Break Room"
 	},
+/obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
-	dir = 8
+	dir = 5
 	},
-/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEh" = (
@@ -47786,14 +47847,17 @@
 	},
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
-	dir = 8
+	dir = 5
 	},
-/obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEi" = (
 /obj/structure/sink{
 	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
@@ -47804,6 +47868,10 @@
 	pixel_y = 9
 	},
 /obj/item/weapon/pen,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEk" = (
@@ -47811,6 +47879,10 @@
 /obj/machinery/status_display{
 	pixel_x = 0;
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
@@ -47834,21 +47906,6 @@
 "bEm" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/mauve/full,
-/turf/simulated/floor/tiled/white,
-/area/rnd/research)
-"bEn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bEo" = (
@@ -48147,64 +48204,46 @@
 /area/turbolift/command_sub)
 "bER" = (
 /obj/machinery/vending/cigarette,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bES" = (
 /obj/effect/landmark/start{
 	name = "Xenobiologist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bET" = (
 /obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 1
-	},
 /obj/effect/landmark/start{
 	name = "Scientist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEU" = (
 /obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 4
-	},
 /obj/effect/landmark/start{
 	name = "Geneticist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEV" = (
 /obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 4
-	},
 /obj/effect/landmark/start{
 	name = "Lab Assistant"
 	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/research)
-"bEW" = (
-/obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/landmark/start{
-	name = "Lab Assistant"
-	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEY" = (
@@ -48215,6 +48254,10 @@
 	pixel_w = 0;
 	pixel_x = 26;
 	pixel_y = -6
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
@@ -48247,6 +48290,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bFb" = (
@@ -48740,53 +48784,45 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/research)
-"bFV" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/research)
+"bFV" = (
 /obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bFW" = (
 /obj/structure/table/standard,
 /obj/item/weapon/folder/purple,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bFX" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/weapon/folder/purple,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bFY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/structure/bed/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/landmark/start{
 	name = "Research Director"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bFZ" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -48794,14 +48830,14 @@
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Corridor Camera 1"
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 25;
 	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
@@ -49254,6 +49290,10 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGS" = (
@@ -49269,6 +49309,7 @@
 /obj/effect/landmark/start{
 	name = "Xenobiologist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGT" = (
@@ -49284,13 +49325,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 8
-	},
 /obj/effect/landmark/start{
 	name = "Roboticist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGU" = (
@@ -49304,10 +49342,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve,
 /obj/effect/landmark/start{
 	name = "Roboticist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGV" = (
@@ -49323,13 +49361,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 8
-	},
 /obj/effect/landmark/start{
 	name = "Scientist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGW" = (
@@ -49345,14 +49380,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve,
 /obj/effect/landmark/start{
 	name = "Scientist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGX" = (
@@ -49366,10 +49397,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/mauve,
 /obj/effect/landmark/start{
 	name = "Geneticist"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGY" = (
@@ -49385,6 +49416,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGZ" = (
@@ -49404,6 +49436,7 @@
 	name = "Research Conference Room";
 	sortType = "Research Conference Room"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bHa" = (
@@ -49443,6 +49476,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bHc" = (
@@ -49466,6 +49500,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bHd" = (
@@ -49864,6 +49899,7 @@
 	pixel_x = -23;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bHM" = (
@@ -49879,30 +49915,16 @@
 	pixel_y = -22
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bHN" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/research)
-"bHO" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/sleep/research)
-"bHP" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 1
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
@@ -49910,6 +49932,7 @@
 /obj/structure/noticeboard{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bHR" = (
@@ -49920,6 +49943,10 @@
 	pixel_y = -24
 	},
 /obj/structure/cable/green,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bHS" = (
@@ -49930,21 +49957,28 @@
 /obj/structure/sign/drop{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bHT" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bHU" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
 /obj/machinery/firealarm/east,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bHV" = (
@@ -63660,6 +63694,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"eKX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "eMv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -63942,6 +63988,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"fLv" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay2)
 "fMf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -63994,6 +64050,13 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"fXi" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "fXR" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/beret/sec{
@@ -64193,6 +64256,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"gGk" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/research)
 "gHJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/medical_wall{
@@ -64457,6 +64527,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
 /area/maintenance/research_port)
+"hoV" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay2)
 "hqy" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -64809,10 +64886,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "iqX" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -64821,6 +64894,10 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	icon_state = "corner_white";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -65634,6 +65711,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "lpw" = (
@@ -66503,6 +66581,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"nPy" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/research)
 "nQp" = (
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 4
@@ -66747,6 +66832,13 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
+"oOq" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/research)
 "oOS" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -67455,6 +67547,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"qNo" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "qOK" = (
 /obj/structure/sign/flag/dpra{
 	pixel_y = 30
@@ -68005,6 +68101,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "sCx" = (
@@ -69053,9 +69150,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
+/obj/effect/floor_decal/corner/lime,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "vpt" = (
@@ -69549,20 +69644,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"wUa" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
 "wZe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -89511,7 +89592,7 @@ bAB
 bBy
 bCq
 bDk
-bEe
+nPy
 bES
 bFV
 bGS
@@ -89772,7 +89853,7 @@ bEe
 bET
 bFW
 bGT
-bEe
+gGk
 bIK
 bJx
 bJx
@@ -90025,7 +90106,7 @@ bAD
 bBA
 bBA
 bDm
-bEf
+nPy
 bEU
 bFX
 bGU
@@ -90286,7 +90367,7 @@ bEg
 bET
 bFW
 bGV
-bHO
+bEe
 bIK
 bJx
 bJx
@@ -90543,7 +90624,7 @@ bEh
 bEV
 bFW
 bGW
-bHP
+bHN
 bIK
 bJx
 bJx
@@ -90797,7 +90878,7 @@ bAG
 bCt
 bvS
 bEi
-bEW
+bEV
 bFX
 bGX
 bHQ
@@ -91312,7 +91393,7 @@ bCv
 bvS
 bEk
 bEY
-bEe
+oOq
 bGZ
 bHS
 bHd
@@ -92073,19 +92154,19 @@ baE
 bsD
 btJ
 buQ
-bvU
+eKX
 bwZ
-bvU
-bvU
+eKX
+eKX
 bAJ
-bvU
+eKX
 bCx
 bDo
-bEn
+bvU
 bFa
-bvU
+eKX
 bHc
-bvU
+eKX
 bIM
 bJA
 bKx
@@ -92341,7 +92422,7 @@ bsC
 bEo
 bFb
 bGa
-bsC
+btO
 bHU
 bIN
 bJB
@@ -92841,7 +92922,7 @@ bnJ
 bmu
 bqq
 brt
-bsC
+fXi
 btK
 buR
 bDu
@@ -93098,7 +93179,7 @@ bnK
 bpf
 bqr
 bru
-bsC
+fXi
 btK
 buT
 tXo
@@ -93355,7 +93436,7 @@ bnL
 bpg
 bqs
 brv
-bsC
+fXi
 btL
 buU
 bvX
@@ -93612,7 +93693,7 @@ bnM
 bph
 bqt
 brw
-bsF
+fXi
 btK
 azn
 dTN
@@ -94898,7 +94979,7 @@ bpk
 bqv
 bbu
 bsK
-btO
+qNo
 bEo
 bvY
 bxj
@@ -95412,7 +95493,7 @@ bpm
 bqx
 baE
 bsM
-btQ
+qNo
 buZ
 bvY
 bxl
@@ -95669,7 +95750,7 @@ bpn
 bqx
 baE
 bsN
-btQ
+qNo
 bva
 bvY
 bxm
@@ -95926,7 +96007,7 @@ baE
 baE
 baE
 bsO
-bsC
+qNo
 bvb
 bvY
 bxn
@@ -108524,7 +108605,7 @@ sCs
 bwz
 bvB
 bzo
-wUa
+bvB
 voO
 clK
 bBl
@@ -110830,7 +110911,7 @@ bne
 boF
 bpV
 brd
-bsc
+hoV
 btv
 buz
 bvE
@@ -111345,7 +111426,7 @@ boG
 bpW
 iqX
 bsh
-bmW
+fLv
 buB
 bvG
 bwD
