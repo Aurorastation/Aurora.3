@@ -177,7 +177,7 @@
 		to_chat(user, span("warning", "There is no data to print."))
 		return
 
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
+	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(user.loc)
 	var/date_string = worlddate2text()
 	idx++
 
@@ -247,7 +247,7 @@
 	input_mats = list()
 	waste = 0
 
-	if(istype(user,/mob/living/carbon/human) && !(user.l_hand && user.r_hand))
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(P)
 
 	return
