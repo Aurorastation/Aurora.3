@@ -133,15 +133,12 @@
 			return TOPIC_REFRESH
 
 	else if ("select_fps")
-		var/version_message
-		if (user.client && user.client.byond_version < 511)
-			version_message = "\nYou need to be using byond version 511 or later to take advantage of this feature, your version of [user.client.byond_version] is too low"
-		if (world.byond_version < 511)
-			version_message += "\nThis server does not currently support client side fps. You can set now for when it does."
-		var/desiredfps = input(user, "Choose your desired fps.[version_message]\n(0 = synced with server tick rate (currently:[world.fps]))", "Character Preference")  as null|num
 		#if DM_VERSION >= 511
-					if (user?.byond_version >= 511)
-						user.client.fps = pref.clientfps = sanitize_integer(desiredfps, 0, 1000, initial(pref.clientfps))
+		var/desiredfps = input(user, "Choose your desired fps.\n(0 = synced with server tick rate (currently:[world.fps]))", "Character Preference")  as null|num
+		pref.clientfps = sanitize_integer(desiredfps, 0, 1000, initial(pref.clientfps))
+		user.client.fps = pref.clientfps
+		#else
+				to_user_chat("\nThis server does not currently support client side fps. You can set now for when it does.")
 		#endif // DM_VERSION >= 511
 
 
