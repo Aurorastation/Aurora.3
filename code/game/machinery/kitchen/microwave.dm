@@ -1,5 +1,8 @@
+#define UIDEBUG
 /obj/machinery/microwave
 	name = "microwave"
+	desc = "A NanoTrasen branded microwave, although the sticker has long since faded." + \
+	"All that's left are two warnings, 'Choking Hazard!' and 'Do not place non-food objects inside during operation.'"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mw"
 	layer = 2.9
@@ -113,8 +116,8 @@
 		else
 			to_chat(user, "<span class='warning'>It's broken!</span>")
 			return 1
-	else if(dirty==100) // The microwave is all dirty so can't be used!
-		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner) || istype(O, /obj/item/weapon/soap)) // If they're trying to clean it then let them
+	else if(dirty >= 100) // The microwave is all dirty so can't be used!
+		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner) || istype(O, /obj/item/weapon/soap) || istype(O, /obj/item/weapon/reagent_containers/glass/rag)) // If they're trying to clean it then let them
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
 				"<span class='notice'>You start to clean the microwave.</span>" \
@@ -131,25 +134,6 @@
 		else //Otherwise bad luck!!
 			to_chat(user, "<span class='warning'>It's dirty!</span>")
 			return 1
-	else if(is_type_in_list(O,acceptable_items))
-		if (contents.len>=max_n_of_items)
-			to_chat(user, "<span class='warning'>This [src] is full of ingredients, you can't fit any more!</span>")
-			return 1
-		if(istype(O, /obj/item/stack))
-			var/obj/item/stack/S = O
-			if(S.get_amount() > 1)
-				new O.type (src)
-				S.use(1)
-				user.visible_message( \
-					"<span class='notice'>\The [user] has added one of [O] to \the [src].</span>", \
-					"<span class='notice'>You add one of [O] to \the [src].</span>")
-				SSvueui.check_uis_for_change(src)
-				return
-			else
-				add_item(O, user)
-		else
-			add_item(O, user)
-			return
 	else if(is_type_in_list(O, acceptable_containers))
 		if (!O.reagents)
 			return 1
@@ -184,7 +168,24 @@
 	else if(default_part_replacement(user, O))
 		return
 	else
-		to_chat(user, "<span class='warning'>You have no idea what you can cook with this [O].</span>")
+		if (contents.len>=max_n_of_items)
+			to_chat(user, "<span class='warning'>This [src] is full of ingredients, you can't fit any more!</span>")
+			return 1
+		if(istype(O, /obj/item/stack))
+			var/obj/item/stack/S = O
+			if(S.get_amount() > 1)
+				new O.type (src)
+				S.use(1)
+				user.visible_message( \
+					"<span class='notice'>\The [user] has added one of [O] to \the [src].</span>", \
+					"<span class='notice'>You add one of [O] to \the [src].</span>")
+				SSvueui.check_uis_for_change(src)
+				return
+			else
+				add_item(O, user)
+		else
+			add_item(O, user)
+			return
 	SSvueui.check_uis_for_change(src)
 	..()
 
@@ -196,10 +197,23 @@
 	user.set_machine(src)
 	if(broken > 0)
 		to_chat(user, "<span class='warning'>\The [name] is broken! You'll need to fix it before using it.</span>")
-	else if(dirty == 100)
+	else if(dirty >= 100)
 		to_chat(user, "<span class='warning'>\The [name] is dirty! You'll need to clean it before using it.</span>")
 	else
 		ui_interact(user)
+
+/obj/machinery/microwave/examine(var/mob/user)
+	..()
+	if(broken > 0)
+		to_chat(user, "It's broken!")
+	else if(dirty >= 100)
+		to_chat(user, "The insides are completely filthy!")
+	else if(dirty > 75)
+		to_chat(user, "It's covered in stains.")
+	else if(dirty > 50)
+		to_chat(user, "It's pretty messy.")
+	else if(dirty > 25)
+		to_chat(user, "It's a bit dirty.")
 
 /*******************
 *   Microwave Menu
@@ -207,6 +221,7 @@
 
 VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	watch_var("operating", "on", CALLBACK(null, .proc/transform_to_boolean, FALSE))
+	watch_var("recipe", "recipe")
 	watch_var("cook_time", "cook_time")
 	watch_var("start_time", "start_time")
 
@@ -250,31 +265,29 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
-	if (reagents.get_reagents() && !(locate(/obj) in contents)) //dry run
+	if (!reagents.get_reagents() && !(locate(/obj) in contents)) //dry run
 		start()
 		return
 
+	if (reagents.get_reagents() && prob(50)) // 50% chance a liquid recipe gets messy
+		dirty += 1
+
 	recipe = select_recipe(RECIPE_LIST(appliancetype),src)
+	SSvueui.check_uis_for_change()
+
 	if (!recipe)
 		cook_time = 200
 		dirty += 1
 		if (prob(max(10, dirty*5)))
 			// It's dirty enough to mess up the microwave
 			cook_dirty = TRUE
-			start()
-			return
 		else if (has_extra_item())
 			// Something's in the microwave that shouldn't be! Time to break!
-			// Can this even happen?
 			cook_break = TRUE
-			start()
-			return
-		else
-			start()
-			return
 	else
 		cook_time = round(recipe.time*4)
-		start()
+
+	start()
 
 /obj/machinery/microwave/proc/finish_cooking()
 		var/result = recipe.result
@@ -322,8 +335,12 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	if(world.time > end_time)
 		stop()
-		return
 
+/obj/machinery/microwave/proc/half_time_process()
+	playsound(src, 'sound/machines/click.ogg', 20, 1)
+
+	if(!recipe)
+		visible_message(span("warning", "\The [src] begins to leak an acrid smoke..."))
 
 /obj/machinery/microwave/proc/has_extra_item()
 	for (var/obj/O in contents)
@@ -331,38 +348,43 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 				!istype(O,/obj/item/weapon/reagent_containers/food) && \
 				!istype(O, /obj/item/weapon/grown) \
 			)
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /obj/machinery/microwave/proc/start()
 	start_time = world.time
 	end_time = cook_time + start_time
-	visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
 	operating = TRUE
+
+	START_PROCESSING(SSprocessing, src)
+	addtimer(CALLBACK(src, .proc/half_time_process), cook_time / 2)
+	visible_message("<span class='notice'>The microwave turns on.</span>", "<span class='notice'>You hear a microwave.</span>")
+
 	if(cook_dirty)
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1) // Play a splat sound
 		icon_state = "mwbloody1" // Make it look dirty!!
 	else
 		icon_state = "mw1"
+
 	set_light(1.5)
 	soundloop.start()
-	START_PROCESSING(SSprocessing, src)
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/stop()
 	STOP_PROCESSING(SSprocessing, src)
 	after_finish_loop()
+
 	operating = FALSE // Turn it off again aferwards
 	if(cook_dirty || cook_break)
 		flags = null //So you can't add condiments
 	if(cook_dirty)
-		visible_message("<span class='warning'>The microwave gets covered in muck!</span>")
+		visible_message(span("warning", "The insides of the microwave get covered in muck!"))
 		dirty = 100 // Make it dirty so it can't be used util cleaned
 		icon_state = "mwbloody" // Make it look dirty too
 	else if(cook_break)
 		spark(src, 2, alldirs)
 		icon_state = "mwb" // Make it look all busted up and shit
-		visible_message("<span class='warning'>The microwave breaks!</span>") //Let them know they're stupid
+		visible_message(span("warning", "The microwave sprays out a shower of sparks - it's broken!")) //Let them know they're stupid
 		broken = 2 // Make it broken so it can't be used util
 	else
 		icon_state = "mw"
@@ -371,6 +393,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		fail()
 	else if(recipe && !abort)
 		finish_cooking()
+
 	abort = FALSE
 	SSvueui.check_uis_for_change(src)
 
@@ -388,6 +411,14 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	SSvueui.check_uis_for_change(src)
 	ffuu.reagents.add_reagent("carbon", amount)
 	ffuu.reagents.add_reagent("toxin", amount/10)
+
+	if(!abort)
+		visible_message("<span class='danger'>\The [src] belches out foul-smelling smoke!</span>")
+		var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
+		smoke.attach(src)
+		smoke.set_up(10, 0, get_turf(src), 300)
+		smoke.start()
+
 	ffuu.forceMove(loc)
 	return ffuu
 
@@ -396,7 +427,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	if(..())
 		return
 
-	if(dirty == 100)
+	if(dirty >= 100)
 		to_chat(usr, "<span class='warning'>\The [name] is dirty! You'll need to clean it before using it.</span>")
 		return
 
