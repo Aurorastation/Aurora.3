@@ -2,7 +2,7 @@
   <div>
     <template v-if="on">
       <p>Cooking...</p>
-      <vui-progress :value="cook_elapsed" :min="cook_start" :max="cook_duration"/>
+      <vui-progress :value="$root.$data.wtime" :min="start_time" :max="start_time + cook_time"/>
       <vui-button class="danger danger-control" icon="exclamation-triangle" :params="{abort: 1}">Abort!</vui-button>
     </template>
     <template v-else>
@@ -18,8 +18,8 @@
           </vui-button>
         </li>
       </ul>
-      <vui-button class="danger danger-control" icon="trash" push-state :params="{eject_all: 1}">Eject All</vui-button>
-      <vui-button class="control" push-state :params="{cook: 1}">Cook!</vui-button>
+      <vui-button class="danger danger-control" icon="trash" :params="{eject_all: 1}">Eject All</vui-button>
+      <vui-button class="control" :params="{cook: 1}">Cook!</vui-button>
     </template>
   </div>
 </template>
