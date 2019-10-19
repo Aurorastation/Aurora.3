@@ -20134,6 +20134,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/clothing/mask/chewable/tobacco/nico,
+/obj/item/clothing/mask/chewable/tobacco/nico,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aJV" = (
@@ -22144,13 +22146,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aNl" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/machinery/gumballmachine/sucker,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aNm" = (
@@ -25208,6 +25208,7 @@
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aSo" = (
@@ -37147,6 +37148,12 @@
 /obj/item/roller{
 	pixel_y = 4
 	},
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds,
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds,
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds,
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds,
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds,
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bmC" = (
@@ -42872,20 +42879,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvl" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/machinery/gumballmachine/sucker,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvm" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -53085,6 +53088,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/gumballmachine/sucker,
 /turf/simulated/floor/wood,
 /area/library)
 "bOI" = (
@@ -53859,6 +53863,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/wood,
 /area/library)
 "bQJ" = (
@@ -67375,6 +67380,18 @@
 /mob/living/simple_animal/rat/brown,
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"qpg" = (
+/obj/machinery/shower{
+	dir = 8;
+	icon_state = "shower";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/obj/structure/curtain/open/shower,
+/obj/random/soap,
+/obj/item/clothing/mask/chewable/tobacco/nico,
+/turf/simulated/floor/tiled/freezer,
+/area/security/prison)
 "qqx" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/lights/mixed,
@@ -102152,7 +102169,7 @@ aIw
 aJP
 aBe
 aNv
-aNv
+qpg
 aQO
 aws
 aUa
