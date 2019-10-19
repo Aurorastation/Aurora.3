@@ -420,7 +420,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		return
 
 	if(H.handcuffed)
-		qdel(H.handcuffed)
 		var/cuffs = H.handcuffed
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
@@ -984,9 +983,10 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
 	
-	if(M.handcuffed)
-		qdel(M.handcuffed)
-		M.handcuffed = null
+	if(H.handcuffed)
+		var/cuffs = H.handcuffed
+		H.u_equip(H.handcuffed)
+		qdel(cuffs)
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -1020,9 +1020,10 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
 
-	if(M.handcuffed)
-		qdel(M.handcuffed)
-		M.handcuffed = null
+	if(H.handcuffed)
+		var/cuffs = H.handcuffed
+		H.u_equip(H.handcuffed)
+		qdel(cuffs)
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
