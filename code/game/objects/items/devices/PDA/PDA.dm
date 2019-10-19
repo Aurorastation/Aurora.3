@@ -1057,16 +1057,16 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 
 		if (prob(15)) //Give the AI a chance of intercepting the message
-			var/who = src.owner
+			var/who = src.owner // revealing sender
 			if(prob(50))
-				who = P.owner
+				who = P.owner // revealing recipient
 
 			for(var/mob/living/silicon/ai/ai in mob_list)
 				if(ai.aiPDA != P && ai.aiPDA != src)
-					if(who != P.owner)
-						ai.show_message("<i>Intercepted message to <b>[who]</b>: [t]</i>")
-					else
+					if(who != P.owner) // if not revealing the recipient
 						ai.show_message("<i>Intercepted message from <b>[who]</b>: [t]</i>")
+					else // if not revealing the sender
+						ai.show_message("<i>Intercepted message to <b>[who]</b>: [t]</i>")
 
 		P.new_message_from_pda(src, t)
 		SSnanoui.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
