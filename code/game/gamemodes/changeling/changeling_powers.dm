@@ -994,8 +994,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque arm blades!</span>",
 								"<span class='danger'>We tear through the [H.wear_suit] with our arm blades!</span>",
 								"<span class='danger'>You hear cloth ripping and tearing!</span>")
-			qdel(H.wear_suit)
-			H.wear_suit = null
+			QDEL_IN(H.wear_suit, 0)
+			H.unEquip(H.wear_suit, use_force = TRUE)
 
 	var/obj/item/weapon/melee/arm_blade/blade = new(M)
 	blade.creator = M
@@ -1031,8 +1031,8 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque shield!</span>",
 							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
 							"<span class='danger'>You hear cloth ripping and tearing!</span>")
-			qdel(H.wear_suit)
-			H.wear_suit = null
+			QDEL_IN(H.wear_suit, 0)
+			H.unEquip(H.wear_suit, use_force = TRUE)
 
 	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
 	shield.creator = M
