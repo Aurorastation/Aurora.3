@@ -1,5 +1,5 @@
 /obj/machinery/gumballmachine
-	name = "Gumball Machine"
+	name = "gumball machine"
 	desc = "A colorful candy machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
