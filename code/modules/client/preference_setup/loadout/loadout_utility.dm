@@ -14,6 +14,7 @@
 	briefcases["black briefcase"] = /obj/item/weapon/storage/briefcase/black
 	briefcases["metal briefcase"] = /obj/item/weapon/storage/briefcase/aluminium
 	briefcases["NT briefcase"] = /obj/item/weapon/storage/briefcase/nt
+	gear_tweaks += new/datum/gear_tweak/path(briefcases)
 
 /datum/gear/utility/secure
 	display_name = "secure briefcase"
