@@ -8,7 +8,7 @@
 	density = 1
 	use_power = 1
 	idle_power_usage = 10
-	var/typeofcandy = "gumball"
+	var/typeofcandy = "gumballs"
 	var/initialicon = "gumball"
 	var/amountleft = 20
 	var/vendingtype = /obj/item/clothing/mask/chewable/candy/gum
@@ -93,14 +93,14 @@
 		var/amountleftinside = amountleft
 		for(var/i = 1;i<=amountleftinside,i++)
 			new vendingtype(src.loc)
-		src.visible_message("\The [src] shatters! [typeofcandy]s falls out.", "You hear glass shatter!")
+		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", "You hear glass shatter!")
 	stat |= BROKEN
-	anchored = 0
-	broken = 1
-	amountleft = 0
+	anchored = FALSE
+	broken = TRUE
+	amountleft = FALSE
 
 /obj/machinery/gumballmachine/sucker
-	name = "Sucker Machine"
+	name = "sucker machine"
 
 	icon_state = "sucker_100"
 	typeofcandy = "sucker"

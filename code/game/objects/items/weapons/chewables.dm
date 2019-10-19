@@ -170,11 +170,10 @@ obj/item/clothing/mask/chewable/Destroy()
 	var/datum/reagent/payload = pick(list(
 				"paracetamol",
 				"tramadol",
-				"hyperzine",
 				"dylovene"))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
-	desc = "[desc]. This one is labeled '[initial(payload.name)]'."
+	desc = "[desc] This one is labeled '[initial(payload.name)]'."
 
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds
 	name = "medicine lollipop"
@@ -188,4 +187,4 @@ obj/item/clothing/mask/chewable/Destroy()
 				"inaprovaline"))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
-	desc = "[desc]. This one is labeled '[initial(payload.name)]'."
+	desc = "[desc] This one is labeled '[initial(payload.name)]'."
