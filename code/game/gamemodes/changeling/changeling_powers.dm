@@ -983,9 +983,9 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
 	
-	if(H.handcuffed)
-		var/cuffs = H.handcuffed
-		H.u_equip(H.handcuffed)
+	if(M.handcuffed)
+		var/cuffs = M.handcuffed
+		M.u_equip(M.handcuffed)
 		qdel(cuffs)
 
 	if(ishuman(M))
@@ -1020,9 +1020,9 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
 
-	if(H.handcuffed)
-		var/cuffs = H.handcuffed
-		H.u_equip(H.handcuffed)
+	if(M.handcuffed)
+		var/cuffs = M.handcuffed
+		M.u_equip(M.handcuffed)
 		qdel(cuffs)
 
 	if(ishuman(M))
