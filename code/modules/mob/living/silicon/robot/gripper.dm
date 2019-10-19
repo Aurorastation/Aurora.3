@@ -207,7 +207,8 @@
 		/obj/item/weapon/card/id,
 		/obj/item/weapon/book,
 		/obj/item/weapon/newspaper,
-		/obj/item/weapon/stamp
+		/obj/item/weapon/stamp,
+		/obj/item/weapon/ducttape
 		)
 
 /obj/item/weapon/gripper/research //A general usage gripper, used for toxins/robotics/xenobio/etc
@@ -233,7 +234,9 @@
 		/obj/item/weapon/disk,
 		/obj/item/device/analyzer/plant_analyzer,//For farmbot construction
 		/obj/item/weapon/material/minihoe,//Farmbots and xenoflora
-		/obj/item/weapon/computer_hardware
+		/obj/item/weapon/computer_hardware,
+		/obj/item/weapon/slimesteroid,
+		/obj/item/weapon/slimesteroid2
 		)
 
 /obj/item/weapon/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab

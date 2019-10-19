@@ -1965,6 +1965,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Expand()
 	src.visible_message("<span class='notice'>\The [src] expands!</span>")
+	if(istype(loc, /obj/item/weapon/gripper/research)) // fixes ghost cube when using syringe
+		var/obj/item/weapon/gripper/research/G = loc
+		G.drop_item()
 	var/mob/living/carbon/human/H = new(src.loc)
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()

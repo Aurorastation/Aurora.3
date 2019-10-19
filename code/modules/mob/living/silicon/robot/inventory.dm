@@ -3,6 +3,7 @@
 
 //Returns the thing in our active hand (whatever is in our active module-slot, in this case)
 /mob/living/silicon/robot/get_active_hand()
+	// TODO: see if refactoring this to return the gripped object (should one exist) works - would make a lot of edge cases a lot simpler
 	return module_active
 
 /*-------TODOOOOOOOOOO--------*/
@@ -11,7 +12,7 @@
 /mob/living/silicon/robot/verb/cmd_unequip_module()
 	set name = "unequip-module"
 	set hidden = 1
-	uneq_active()
+	drop_item()
 
 /mob/living/silicon/robot/verb/cmd_toggle_module(module as num)
 	set name = "toggle-module"
@@ -52,7 +53,9 @@
 		module_state_3:loc = module
 		module_state_3 = null
 		inv3.icon_state = "inv3"
+
 	updateicon()
+	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/uneq_all()
 	module_active = null
@@ -268,12 +271,14 @@
 	return 0
 
 
-//If our active module is a gripper, drop the thing in it.
-//Otherwise do nothing. We don't drop our modules
-/mob/living/silicon/robot/drop_item(var/atom/target)
+/mob/living/silicon/robot/drop_item()
 	if (istype(module_active, /obj/item/weapon/gripper))
 		var/obj/item/weapon/gripper/G = module_active
-		G.drop(target)
+		if (G.wrapped)
+			G.drop_item()
+			return
+
+	uneq_active()
 
 
 
