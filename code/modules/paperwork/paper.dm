@@ -361,7 +361,7 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
-		/var/obj/item/weapon/clipboard/c
+		var/obj/item/weapon/clipboard/c
 		var/iscrayon = 0
 		if(!istype(i, /obj/item/weapon/pen))
 			if(usr.back && istype(usr.back,/obj/item/weapon/rig))
