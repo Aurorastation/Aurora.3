@@ -91,7 +91,7 @@
 							/obj/item/weapon/reagent_containers/glass/bottle/dexalin_plus = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/epinephrine = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/spaceacillin = 1,
-							
+
 						)
 	accessory_contents = list(/obj/item/weapon/gun/energy/pulse/pistol = 1)
 	var/id_access = "Lance Medic"
@@ -238,7 +238,7 @@
 	id = /obj/item/weapon/card/id/syndicate
 	l_pocket = null
 	r_pocket = null
-	accessory = /obj/item/clothing/accessory/storage/black_pouches
+	accessory = /obj/item/clothing/accessory/storage/pouches/black
 
 	backpack_contents = list()
 

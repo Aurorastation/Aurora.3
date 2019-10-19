@@ -47,7 +47,8 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/tajaran,
-		/datum/species/unathi
+		/datum/species/unathi,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(

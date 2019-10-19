@@ -32,7 +32,7 @@
 
 /datum/gear/gloves/evening/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/gloves/ring
 	display_name = "ring"

@@ -70,9 +70,9 @@
 	cold_level_2 = 223
 	cold_level_3 = 173
 
-	heat_level_1 = 420 //Default 360 - Higher is better
-	heat_level_2 = 480 //Default 400
-	heat_level_3 = 1100 //Default 1000
+	heat_level_1 = 800 //Default 360 - Higher is better
+	heat_level_2 = 850 //Default 400
+	heat_level_3 = 1500 //Default 1000
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 

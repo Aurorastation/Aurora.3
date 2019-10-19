@@ -141,7 +141,7 @@
 
 /datum/gear/uniform/customdress/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
@@ -221,7 +221,7 @@
 
 /datum/gear/uniform/miscellaneous/kimono/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"
