@@ -41,7 +41,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
-	QDEL_NULL(reagents)
+	reagents.clear_reagents()
 	flags |= OPENCONTAINER
 	shaken = 0
 
