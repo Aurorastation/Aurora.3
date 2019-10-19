@@ -50,6 +50,11 @@
 /obj/item/weapon/melee/arm_blade/iscrowbar()
 	return TRUE
 
+/obj/item/weapon/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
+	if(istype(A,/turf/simulated/floor) && user.a_intent != I_HELP)
+		return
+	else
+		..()
 /obj/item/weapon/shield/riot/changeling
 	name = "shield-like mass"
 	desc = "A mass of tough, boney tissue. You can still see the fingers as a twisted pattern in the shield."
