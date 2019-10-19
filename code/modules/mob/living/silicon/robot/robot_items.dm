@@ -290,7 +290,7 @@
 		mode = !mode
 		to_chat(user, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
 	else
-		to_chat(user, span("warning", "You can't do that while deploying a [mode ? "door" : "wall"]!"))
+		to_chat(user, span("warning", "You can't switch modes while deploying a [mode ? "door" : "wall"]!"))
 
 /obj/item/weapon/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)
