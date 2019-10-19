@@ -91,12 +91,12 @@
 	if(!victim || !victim.lying || victim.loc != loc)
 		suppressing = FALSE
 		victim = null
-		if(locate(/mob/living/carbon/human) in loc)
-			for(var/mob/living/carbon/human/H in loc)
-				if(H.lying)
-					icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
-					victim = H
-					break
+		var/mob/living/carbon/human/H = locate() in loc
+		if(istype(H))
+			if(H.lying)
+				icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
+				victim = H
+				break
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
