@@ -38,7 +38,7 @@ export default {
         if(!this.ingredientsPresent) {
           return "There's nothing inside. Microwave works, though.";
         }
-        if(this.recipe) {
+        if(!this.failed) {
           return "It's cooking nicely!";
         } else {
           return "Something doesn't look right...";

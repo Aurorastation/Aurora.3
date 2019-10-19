@@ -30,6 +30,7 @@
 	var/cook_break = FALSE
 	var/cook_dirty = FALSE
 	var/abort = FALSE
+	var/failed = FALSE // pretty much exclusively for sending the fail state across to the UI, using recipe elsewhere is preferred
 
 	component_types = list(
 			/obj/item/weapon/circuitboard/microwave,
@@ -220,7 +221,7 @@
 
 VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	watch_var("operating", "on", CALLBACK(null, .proc/transform_to_boolean, FALSE))
-	watch_var("recipe", "recipe")
+	watch_var("failed", "failed")
 	watch_var("cook_time", "cook_time")
 	watch_var("start_time", "start_time")
 
@@ -268,13 +269,13 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		start()
 		return
 
+	recipe = select_recipe(RECIPE_LIST(appliancetype),src)
+
 	if (reagents.get_reagents() && prob(50)) // 50% chance a liquid recipe gets messy
 		dirty += 1
 
-	recipe = select_recipe(RECIPE_LIST(appliancetype),src)
-	SSvueui.check_uis_for_change()
-
 	if (!recipe)
+		failed = TRUE
 		cook_time = 200
 		dirty += 1
 		if (prob(max(10, dirty*5)))
@@ -284,6 +285,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			// Something's in the microwave that shouldn't be! Time to break!
 			cook_break = TRUE
 	else
+		failed = FALSE
 		cook_time = round(recipe.time*4)
 
 	start()
@@ -338,7 +340,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 /obj/machinery/microwave/proc/half_time_process()
 	playsound(src, 'sound/machines/click.ogg', 20, 1)
 
-	if(!recipe)
+	if(failed)
 		visible_message(span("warning", "\The [src] begins to leak an acrid smoke..."))
 
 /obj/machinery/microwave/proc/has_extra_item()
@@ -388,9 +390,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	else
 		icon_state = "mw"
 
-	if(!recipe)
+	if(failed)
 		fail()
-	else if(recipe && !abort)
+		failed = FALSE
+	else if(!failed && !abort)
 		finish_cooking()
 
 	abort = FALSE
