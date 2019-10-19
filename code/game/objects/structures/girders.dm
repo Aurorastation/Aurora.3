@@ -114,7 +114,8 @@
 	else if(istype(W, /obj/item/weapon/melee/arm_blade/))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
 		if(do_after(user,150))
-			if(!src) return
+			if(!src)
+				return
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 
