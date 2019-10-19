@@ -107,18 +107,9 @@
 
 /obj/machinery/gumballmachine/sucker
 	name = "Sucker Machine"
-	desc = "A colorful candy machine."
-	icon = 'icons/obj/vending.dmi'
 	icon_state = "sucker_100"
-	layer = 2.9
-	anchored = 1
-	density = 1
-	use_power = 1
-	idle_power_usage = 10
-	var/typeofcandy = "sucker"
-	var/initialicon = "sucker"
-	var/amountleft = 25
-	var/vendingtype = /obj/item/clothing/mask/chewable/candy/lolli
-	var/gumprice = 10
-	var/on = 1
-	var/broken = 0
+	typeofcandy = "sucker"
+	initialicon = "sucker"
+	amountleft = 25
+	vendingtype = /obj/item/clothing/mask/chewable/candy/lolli
+	gumprice = 10
