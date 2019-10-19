@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/chewable
 	name = "chewable item master"
-	desc = "if you are holding this, ahelp it."
+	desc = "If you are seeing this, ahelp it."
 	icon = 'icons/obj/clothing/masks.dmi'
 	body_parts_covered = 0
 
@@ -24,7 +24,7 @@ obj/item/clothing/mask/chewable/New()
 		if(C.check_has_mouth())
 			START_PROCESSING(SSprocessing, src)
 		else
-			to_chat(user, "<span class='notice'>You don't have a mouth, and can't make much use of \the [src].</span>")
+			to_chat(user, span("notice", "You don't have a mouth, and can't make much use of \the [src]."))
 
 /obj/item/clothing/mask/chewable/dropped()
 	STOP_PROCESSING(SSprocessing, src)
@@ -34,8 +34,8 @@ obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/chewable/proc/chew(amount)
-	chewtime -= amount
+/obj/item/clothing/mask/chewable/proc/chew()
+	chewtime--
 	if(reagents && reagents.total_volume)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/C = loc
@@ -45,13 +45,13 @@ obj/item/clothing/mask/chewable/Destroy()
 			STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/chewable/process()
-	chew(1)
+	chew()
 	if(chewtime < 1)
 		spitout()
 
 /obj/item/clothing/mask/chewable/tobacco
 	name = "wad"
-	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrups so it doesn't taste like a ash-tray when you stuff it into your face."
+	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitwad
@@ -77,17 +77,17 @@ obj/item/clothing/mask/chewable/Destroy()
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!no_message)
-				to_chat(M, "<span class='notice'>You spit out the [name].</span>")
+				to_chat(M, span("notice", "You spit out the [name]."))
 		qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/lenni
 	name = "chewing tobacco"
-	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrups so it tastes less like a ash-tray when you stuff it into your face."
+	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
 	filling = list("nicotine" = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/redlady
 	name = "chewing tobacco"
-	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrups so it doesn't taste like a ash-tray when you stuff it into your face"
+	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
 	filling = list("nicotine" = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
@@ -95,6 +95,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A chewy wad of synthetic rubber, laced with nicotine. Possibly the least disgusting method of nicotine delivery."
 	icon_state = "nic_gum"
 	type_butt = /obj/item/trash/spitgum
+
 /obj/item/clothing/mask/chewable/tobacco/nico/New()
 	..()
 	reagents.add_reagent("nicotine", 2)
@@ -111,8 +112,6 @@ obj/item/clothing/mask/chewable/Destroy()
 	chem_volume = 50
 	chewtime = 300
 	filling = list("sugar" = 2)
-
-
 
 /obj/item/trash/spitgum
 	name = "old gum"
@@ -144,13 +143,9 @@ obj/item/clothing/mask/chewable/Destroy()
 		var/mob/M = usr
 		var/blowposition = M.loc
 		if (M.loc != blowposition)
-			to_chat(M, "<span class='notice'>You moved, popping your bubble!</span>")
-			spitout()
+			to_chat(M, span("notice", "You moved, popping your bubble!"))
 		else
-			src.visible_message("[M.name] blows a bubble, what a cool cat!.", "You blow a bubble!.")
-		
-	
-
+			src.visible_message("[M.name] blows a bubble, what a cool cat!", "You blow a bubble!")
 
 /obj/item/clothing/mask/chewable/candy/lolli
 	name = "lollipop"
@@ -172,8 +167,14 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli/meds/New()
 	..()
-	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),4)
+	var/datum/reagent/payload = pick(list(
+				"paracetamol",
+				"tramadol",
+				"hyperzine",
+				"dylovene"))
+	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
+	desc = "[desc]. This one is labeled '[initial(payload.name)]'."
 
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds
 	name = "medicine lollipop"
@@ -187,4 +188,4 @@ obj/item/clothing/mask/chewable/Destroy()
 				"inaprovaline"))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
-	desc = "[desc]. This one is labeled '[initial(payload.name)]'"
+	desc = "[desc]. This one is labeled '[initial(payload.name)]'."

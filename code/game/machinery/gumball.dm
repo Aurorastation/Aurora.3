@@ -36,16 +36,16 @@
 			desc = "A colorful [typeofcandy] machine. It is full!"
 		if(15)
 			icon_state = "[initialicon]_75"
-			desc = "A colorful [typeofcandy] machine. Some are missing"
+			desc = "A colorful [typeofcandy] machine. Some candy is missing."
 		if(10)
 			icon_state = "[initialicon]_50"
-			desc = "A colorful [typeofcandy] machine. Its half full!"
+			desc = "A colorful [typeofcandy] machine. It's half full!"
 		if(5)
 			icon_state = "[initialicon]_25"
-			desc = "A colorful [typeofcandy] machine. There is a few left"
+			desc = "A colorful [typeofcandy] machine. There is few candy left."
 		if(0)
 			icon_state = "[initialicon]_empty"
-			desc = "A colorful [typeofcandy] machine. Its empty!"
+			desc = "A colorful [typeofcandy] machine. It's empty!"
 
 /obj/machinery/gumballmachine/proc/update_power()
 
@@ -59,16 +59,16 @@
 	if (istype(W, /obj/item/weapon/spacecash))
 		var/obj/item/weapon/spacecash/C = W
 		if(!on)
-			to_chat(user, "<span class='warning'>There is no power!.</span>")
+			to_chat(user, span("warning", "\The [src] has no power!"))
 			return
 		if(amountleft <= 0)
-			to_chat(user, "<span class='warning'>There is no more [typeofcandy] left!.</span>")
+			to_chat(user, span("warning", "There's no more [typeofcandy] left!"))
 			return
 		if(C.worth < gumprice)
-			to_chat(user, "<span class='warning'>You dont think this is enough to buy what you want from this.</span>")
+			to_chat(user, span("warning", "You don't think this is enough to buy what you want from this."))
 			return
 		else
-			visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
+			visible_message(span("info", "\The [usr] inserts a bill into \the [src]."))
 			var/changeleftover = C.worth - gumprice
 			usr.drop_from_inventory(C,get_turf(src))
 			qdel(C)
@@ -84,7 +84,6 @@
 
 /obj/machinery/gumballmachine/proc/buygumball()
 	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, -4)
-	sleep(50)
 	new vendingtype(src.loc, 1)
 	amountleft -= 1
 
@@ -95,7 +94,7 @@
 		var/amountleftinside = amountleft
 		for(var/i = 1;i<=amountleftinside,i++)
 			new vendingtype(src.loc)
-		src.visible_message("\The [src] shatters! [typeofcandy]'s falls out.", "You hear glass shatter!.")
+		src.visible_message("\The [src] shatters! [typeofcandy]s falls out.", "You hear glass shatter!")
 	stat |= BROKEN
 	anchored = 0
 	broken = 1
