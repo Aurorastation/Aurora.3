@@ -39,7 +39,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Microwave, oven, deep fryer, cereal maker, and candy maker circuit boards added."
-  - rscadd: "You can now upgrade and deconstruct/reconstruct microwaves and other cooking appliances. Note: upgrading microwaves has no effect (TBC)."
+  - rscadd: "You can now upgrade and deconstruct/reconstruct microwaves and other cooking appliances. Note: advanced parts currently do not affect microwaves, and deconstructing a microwave yields no parts. This will be fixed in the overhaul."
   - tweak: "Oven efficiency now starts at 70% and grows slower to 100%."
   - tweak: "Oven heat loss due to door open cut down massively, to 1.5x heating from 4x."
   - tweak: "Deconstructing a machine now returns cable coil. Wirecutting a blueprint on the cable-coil stage lowers it to the 'secured blueprint' stage, and as such now requires a wrench to remove."

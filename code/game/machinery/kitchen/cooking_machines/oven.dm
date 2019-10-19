@@ -22,7 +22,7 @@
 
 	stat = POWEROFF	//Starts turned off
 
-	var/open = 0 // Start closed so people don't heat up ovens with the door open
+	var/open = FALSE // Start closed so people don't heat up ovens with the door open
 
 	output_options = list(
 		"Pizza" = /obj/item/weapon/reagent_containers/food/snacks/variable/pizza,
@@ -78,10 +78,10 @@
 		return
 
 	if (open)
-		open = 0
+		open = FALSE
 		loss = (heating_power / resistance) * 0.5
 	else
-		open = 1
+		open = TRUE
 		loss = (heating_power / resistance) * 1.5
 		//When the oven door is opened, oven slowly loses heat
 
@@ -117,7 +117,7 @@
 /obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
 	if (!open)
 		to_chat(user, "<span class='warning'>You can't take anything out while the door is closed!</span>")
-		return 0
+		return FALSE
 
 	else
 		return ..()
