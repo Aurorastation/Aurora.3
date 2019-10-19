@@ -1032,7 +1032,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
 							"<span class='danger'>You hear cloth ripping and tearing!</span>")
 			QDEL_IN(H.wear_suit, 0)
-			H.unEquip(H.wear_suit, use_force = TRUE)
+			H.unEquip(H.wear_suit, force = TRUE)
 
 	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
 	shield.creator = M
