@@ -180,7 +180,7 @@
 	name = "syndicate rucksack"
 	desc = "The latest in carbon fiber and red satin combat rucksack technology. Comfortable and tough!"
 	icon_state = "syndiepack"
-	empty_delay = 2 SECOND
+	empty_delay = 0.8 SECOND
 
 /obj/item/weapon/storage/backpack/wizard
 	name = "wizard federation sack"
