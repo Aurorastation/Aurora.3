@@ -48,7 +48,6 @@
 			desc = "A colorful [typeofcandy] machine. It's empty!"
 
 /obj/machinery/gumballmachine/proc/update_power()
-
 	if(stat & (BROKEN|NOPOWER|EMPED))
 		on = 0
 	else
