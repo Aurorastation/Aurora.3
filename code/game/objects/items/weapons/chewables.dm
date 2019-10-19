@@ -132,8 +132,24 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/gum/New()
 	..()
-	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),4)
+	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),10)
 	color = reagents.get_color()
+
+/obj/item/clothing/mask/chewable/candy/gum/verb/blowbubble()
+	set name = "Blow bubble"
+	set category = "Object"
+
+
+	if (ismob(usr))
+		var/mob/M = usr
+		var/blowposition = M.loc
+		if (M.loc != blowposition)
+			to_chat(M, "<span class='notice'>You moved, popping your bubble!</span>")
+			spitout()
+		else
+			src.visible_message("[M.name] blows a bubble, what a cool cat!.", "You blow a bubble!.")
+		
+	
 
 
 /obj/item/clothing/mask/chewable/candy/lolli
@@ -145,7 +161,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli/New()
 	..()
-	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),4)
+	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),20)
 	color = reagents.get_color()
 
 /obj/item/clothing/mask/chewable/candy/lolli/meds
