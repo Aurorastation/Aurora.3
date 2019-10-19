@@ -361,6 +361,7 @@
 			return
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
+		/var/obj/item/weapon/clipboard/c
 		var/iscrayon = 0
 		if(!istype(i, /obj/item/weapon/pen))
 			if(usr.back && istype(usr.back,/obj/item/weapon/rig))
@@ -368,6 +369,12 @@
 				var/obj/item/rig_module/device/pen/m = locate(/obj/item/rig_module/device/pen) in r.installed_modules
 				if(!r.offline && m)
 					i = m.device
+				else
+					return
+			else if(istype(src.loc, /obj/item/weapon/clipboard))
+				c = src.loc
+				if(c.haspen)
+					i = c.haspen
 				else
 					return
 			else
@@ -403,6 +410,8 @@
 
 		playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 		update_icon()
+		if(c)
+			c.update_icon()
 
 
 /obj/item/weapon/paper/attackby(obj/item/weapon/P as obj, mob/user as mob)
@@ -519,6 +528,7 @@
 	else if(P.iswelder())
 		burnpaper(P, user)
 
+	update_icon()
 	add_fingerprint(user)
 	return
 
