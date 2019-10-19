@@ -886,6 +886,17 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
+"cF" = (
+/turf/simulated/floor,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/shuttle/wall/dark{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
 "cG" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -3301,7 +3312,6 @@
 	dir = 8
 	},
 /turf/simulated/shuttle/wall/dark{
-	dir = 8;
 	icon_state = "diagonalWall3"
 	},
 /area/derelict/ship)
@@ -13400,16 +13410,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
-"MD" = (
-/turf/simulated/floor,
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion";
-	dir = 8
-	},
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/ship)
 "ME" = (
 /turf/simulated/shuttle/wall/dark,
 /area/mine/unexplored)
@@ -72710,13 +72710,13 @@ gh
 gh
 gh
 gh
-jN
+cF
 pN
 pJ
 pJ
 pJ
 pJ
-MD
+jN
 gh
 gh
 gh
@@ -73479,7 +73479,7 @@ ad
 fN
 gh
 pG
-jN
+cF
 pJ
 pK
 kx
@@ -73489,7 +73489,7 @@ kx
 kx
 pU
 pJ
-MD
+jN
 pG
 fN
 ad

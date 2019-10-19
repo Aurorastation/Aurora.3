@@ -46,8 +46,8 @@
 	else
 		if(istype(W, /obj/item/weapon/tape_roll))
 			return 0
-		if(istype(W, /obj/item/weapon/pen))
-			usr << browse("", "window=[name]") //Closes the dialog)
+		// if(istype(W, /obj/item/weapon/pen))
+			// usr << browse("", "window=[name]") // TODO: actually does nothing, either fix it so you can write directly to the bundle screen or actually prevent the window from opening until you're done
 		var/obj/P = pages[page]
 		P.attackby(W, user)
 
@@ -102,14 +102,14 @@
 
 	// first
 	if(page == 1)
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Front</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'>Front</DIV>"
 		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/weapon/paper)) ? "paper" : "photo"]</A></DIV>"
 		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=\ref[src];next_page=1'>Next Page</A></DIV><BR><HR>"
 	// last
 	else if(page == pages.len)
 		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Previous Page</A></DIV>"
 		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=\ref[src];remove=1'>Remove [(istype(W, /obj/item/weapon/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float;left; text-align:right; with:33.33333%'><A href='?src=\ref[src];next_page=1'>Back</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'>Back</DIV><BR><HR>"
 	// middle pages
 	else
 		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=\ref[src];prev_page=1'>Previous Page</A></DIV>"

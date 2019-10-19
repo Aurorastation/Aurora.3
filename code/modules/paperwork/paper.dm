@@ -424,9 +424,9 @@
 				add_fingerprint(user)
 				return
 		var/obj/item/weapon/paper_bundle/B = new(src.loc)
-		if (name != "paper")
+		if (name != initial(name))
 			B.name = name
-		else if (P.name != "paper" && P.name != "photo")
+		else if (P.name != initial(P.name))
 			B.name = P.name
 		user.drop_from_inventory(P,B)
 		//TODO: Look into this stuff

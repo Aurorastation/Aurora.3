@@ -29,6 +29,7 @@
 	var/data = "null"
 	var/special = null
 	item_state = "card-id"
+	overlay_state = "data"
 
 /obj/item/weapon/card/data/verb/label(t as text)
 	set name = "Label Disk"
@@ -96,6 +97,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A card used to provide ID and determine access across the station."
 	icon_state = "id"
 	item_state = "card-id"
+	overlay_state = "id"
 
 	var/list/access = list()
 	var/registered_name = "Unknown" // The name registered_name on the card
@@ -112,6 +114,9 @@ var/const/NO_EMAG_ACT = -50
 	var/icon/front
 	var/icon/side
 	var/mining_points //miners gotta eat
+
+	var/flipped = 0
+	var/wear_over_suit = 0
 
 	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
 	var/assignment = null	//can be alt title or the actual job
@@ -281,17 +286,52 @@ var/const/NO_EMAG_ACT = -50
 		to_chat(usr, "A ticker indicates the card has [mining_points] ore redemption points available.")
 	return
 
+/obj/item/weapon/card/id/proc/mob_icon_update()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wear_id()
+
+/obj/item/weapon/card/id/verb/flip_side()
+	set name = "Flip ID card"
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.overlay_state = "[overlay_state]_flip"
+	else
+		src.overlay_state = initial(overlay_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
+/obj/item/weapon/card/id/verb/toggle_icon_layer()
+	set name = "Switch ID Layer"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+	if(wear_over_suit == -1)
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		return
+	wear_over_suit = !wear_over_suit
+	mob_icon_update()
+
 /obj/item/weapon/card/id/silver
 	name = "identification card"
 	desc = "A silver card which shows honour and dedication."
 	icon_state = "silver"
 	item_state = "silver_id"
+	overlay_state = "silver"
 
 /obj/item/weapon/card/id/gold
 	name = "identification card"
 	desc = "A golden card which shows power and might."
 	icon_state = "gold"
 	item_state = "gold_id"
+	overlay_state = "gold"
 
 /obj/item/weapon/card/id/syndicate_command
 	name = "syndicate ID card"
@@ -305,6 +345,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "The spare ID of the High Lord himself."
 	icon_state = "gold"
 	item_state = "gold_id"
+	overlay_state = "gold"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -315,6 +356,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/merchant
 	name = "merchant pass"
 	icon_state = "centcom"
+	overlay_state = "centcom"
 	desc = "An identification card issued to NanoTrasen sanctioned merchants, indicating their right to sell and buy goods."
 	access = list(access_merchant)
 
@@ -344,6 +386,7 @@ var/const/NO_EMAG_ACT = -50
 	name = "\improper CentCom. ID"
 	desc = "An ID straight from Cent. Com."
 	icon_state = "centcom"
+	overlay_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
 
@@ -354,6 +397,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/ert
 	name = "\improper Emergency Response Team ID"
 	icon_state = "centcom"
+	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
 
 /obj/item/weapon/card/id/ert/New()
@@ -363,6 +407,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/legion
 	name = "\improper Tau Ceti Foreign Legion ID"
 	icon_state = "centcom"
+	overlay_state = "centcom"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 
@@ -371,6 +416,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "The spare ID of the Lord of Lords himself."
 	icon_state = "data"
 	item_state = "tdgreen"
+	overlay_state = "data"
 	registered_name = "Administrator"
 	assignment = "Administrator"
 
@@ -384,35 +430,49 @@ var/const/NO_EMAG_ACT = -50
 	name = "\improper Idris Incorporated identification card"
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
+	overlay_state = "idris_card"
 
 /obj/item/weapon/card/id/idris/sec
 	icon_state = "idrissec_card"
+	overlay_state = "idrissec_card"
 
 /obj/item/weapon/card/id/iru
 	name = "\improper IRU identification card"
 	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris Incorporated."
 	icon_state = "iru_card"
+	overlay_state = "iru_card"
 
 /obj/item/weapon/card/id/eridani
 	name = "\improper Eridani identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	icon_state = "erisec_card"
+	overlay_state = "erisec_card"
 
 /obj/item/weapon/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
+	overlay_state = "zhu_card"
 
 /obj/item/weapon/card/id/hephaestus
 	name = "\improper Hephaestus Industries identification card"
 	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
 	icon_state = "heph_card"
+	overlay_state = "heph_card"
 
 /obj/item/weapon/card/id/necropolis
 	name = "\improper Necropolis Incorporated identification card"
 	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
 	icon_state = "necro_card"
+	overlay_state = "necro_card"
 
 /obj/item/weapon/card/id/necropolis/sec
-	icon_state = "necrosec_card"
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
+	icon_state = "necrosec_card"
+	overlay_state = "necrosec_card"
+
+/obj/item/weapon/card/id/einstein
+	name = "\improper Einstein Engines identification card"
+	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
+	icon_state = "einstein_card"
+	overlay_state = "einstein_card"

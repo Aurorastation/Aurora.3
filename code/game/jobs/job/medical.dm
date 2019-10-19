@@ -10,6 +10,9 @@
 	supervisors = "the captain"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
+
+	minimum_character_age = 35
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
@@ -52,9 +55,13 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
 	economic_modifier = 7
+
+	minimum_character_age = 30
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
 	alt_titles = list("Surgeon","Emergency Physician","Nurse")
+	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
 		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
@@ -68,7 +75,7 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
@@ -92,7 +99,8 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical/blue
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	shoes = /obj/item/clothing/shoes/surgeon
 	head = /obj/item/clothing/head/surgery/blue
 
 /datum/outfit/job/doctor/nurse
@@ -115,6 +123,9 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
 	economic_modifier = 5
+
+	minimum_character_age = 26
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
 	alt_titles = list("Biochemist")
@@ -144,6 +155,7 @@
 
 	uniform = /obj/item/clothing/under/rank/biochemist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
+	shoes = /obj/item/clothing/shoes/biochem
 
 	backpack = /obj/item/weapon/storage/backpack/virology
 	satchel = /obj/item/weapon/storage/backpack/satchel_vir
@@ -159,6 +171,9 @@
 	total_positions = 1
 	spawn_positions = 1
 	economic_modifier = 5
+
+	minimum_character_age = 30
+
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
@@ -173,8 +188,8 @@
 	jobtype = /datum/job/psychiatrist
 
 	uniform = /obj/item/clothing/under/rank/psych
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/laceup
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
+	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 
@@ -196,6 +211,10 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
 	economic_modifier = 4
+
+	minimum_character_age = 24
+	alt_ages = list("Emergency Medical Technician" = 20)
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
 	alt_titles = list("Emergency Medical Technician")
@@ -238,14 +257,16 @@
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
+	minimum_character_age = 25
 	alt_titles = list("Medical Intern")
+	alt_ages = list("Medical Intern" = 18)
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
 	name = "Medical Resident"
 	jobtype = /datum/job/intern_med
 
-	uniform = /obj/item/clothing/under/rank/medical
+	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 

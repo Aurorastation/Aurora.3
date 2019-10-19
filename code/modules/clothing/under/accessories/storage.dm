@@ -71,24 +71,60 @@
 	name = "drop pouches"
 	desc = "Synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_brown" //todo: get a different sprite for it
+	overlay_state = "thigh_brown"
 
-/obj/item/clothing/accessory/storage/black_pouches
+
+/obj/item/clothing/accessory/storage/pouches/verb/flip_side()
+	set category = "Object"
+	set name = "Flip drop pouches"
+	set src in usr
+
+	if (use_check_and_message(usr))
+		return
+	if (!flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		if(!overlay_state)
+			src.icon_state = "[icon_state]_flip"
+		else
+			src.overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			src.icon_state = initial(icon_state)
+		else
+			src.overlay_state = initial(overlay_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	update_clothing_icon()
+	src.inv_overlay = null
+	src.mob_overlay = null
+
+/obj/item/clothing/accessory/storage/pouches/black
 	name = "black drop pouches"
 	desc = "Robust black synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_black"
+	overlay_state = "thigh_black"
 	slots = 5
 
-/obj/item/clothing/accessory/storage/brown_pouches
+/obj/item/clothing/accessory/storage/pouches/brown
 	name = "brown drop pouches"
 	desc = "Worn brownish synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_brown"
+	overlay_state = "thigh_brown"
 	slots = 5
 
-/obj/item/clothing/accessory/storage/white_pouches
+/obj/item/clothing/accessory/storage/pouches/white
 	name = "white drop pouches"
 	desc = "Durable white synthcotton bags to hold whatever you need, but cannot hold in hands."
 	icon_state = "thigh_white"
+	overlay_state = "thigh_white"
 	slots = 5
+
+/obj/item/clothing/accessory/storage/pouches/colour
+	icon_state = "thigh_colour"
+	overlay_state = "thigh_white"
 
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"

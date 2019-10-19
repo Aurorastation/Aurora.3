@@ -589,7 +589,7 @@
 	desc = "Goes great with Robust Coffee."
 	icon_state = "donut1"
 	filling_color = "#D9C386"
-	var/overlay_state = "box-donut1"
+	overlay_state = "box-donut1"
 	nutriment_desc = list("sweetness" = 1, "donut" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/normal

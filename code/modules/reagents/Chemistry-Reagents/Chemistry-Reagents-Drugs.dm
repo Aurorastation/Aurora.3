@@ -326,6 +326,6 @@
 	taste_description = "sourness"
 	fallback_specific_heat = 1
 
-/datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.druggy = max(M.druggy, 50)
 	M.silent += 15
