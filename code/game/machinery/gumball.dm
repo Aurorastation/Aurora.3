@@ -30,10 +30,6 @@
 		update_icon()
 
 /obj/machinery/gumballmachine/update_icon()
-	if(on)
-		add_overlay(image('icons/obj/vending.dmi', "[icon_state]_on", MOB_LAYER + 1))
-	else
-		cut_overlays()
 	switch(amountleft)
 		if(20)
 			icon_state = "[initialicon]_100"
@@ -97,7 +93,7 @@
 	playsound(get_turf(src), 'sound/effects/Glassbr3.ogg', 75, 1)
 	if(amountleft)
 		var/amountleftinside = amountleft
-		for(var/i = 0;i<=amountleftinside;i++)
+		for(var/i = 1;i<=amountleftinside,i++)
 			new vendingtype(src.loc)
 		src.visible_message("\The [src] shatters! [typeofcandy]'s rains out.", "You hear glass shatter!.")
 	stat |= BROKEN
@@ -107,6 +103,7 @@
 
 /obj/machinery/gumballmachine/sucker
 	name = "Sucker Machine"
+
 	icon_state = "sucker_100"
 	typeofcandy = "sucker"
 	initialicon = "sucker"
