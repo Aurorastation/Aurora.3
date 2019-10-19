@@ -1209,16 +1209,16 @@
 
 
 /datum/reagent/mental/kokoreed
-	name = "KoKo Reed Juice"
+	name = "Koko Reed Juice"
 	id = "kokoreed"
-	description = "A tall, green, grass-like plant grows up to 7 feet tall. In the past it thrived in the wet marshlands outside Iz'iz, having evolved to take nutrients from the otherwise toxic byproducts of the algae-contaminated waters. It was discovered by the Unathi colonists that the stalk can be chewed to induce a soothing sense of warmth and comfort, but only to Unathi due to its unique interactions with Unathi physiology. Other species simply taste a sweet, stringy reed. ."
+	description = "Juice from the Koko reed plant. Caused unique mental effects in unathi"
 	reagent_state = LIQUID
 	color = "#008000"
 	metabolism = 0.0016 * REM
 	overdose = 3
 	data = 0
 	taste_description = "sugar"
-	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm..")
+	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
 	badmessage = list()
 	worstmessage = list()
 	suppress_traumas  = list()
