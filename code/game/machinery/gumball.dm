@@ -95,7 +95,7 @@
 		var/amountleftinside = amountleft
 		for(var/i = 1;i<=amountleftinside,i++)
 			new vendingtype(src.loc)
-		src.visible_message("\The [src] shatters! [typeofcandy]'s rains out.", "You hear glass shatter!.")
+		src.visible_message("\The [src] shatters! [typeofcandy]'s falls out.", "You hear glass shatter!.")
 	stat |= BROKEN
 	anchored = 0
 	broken = 1
