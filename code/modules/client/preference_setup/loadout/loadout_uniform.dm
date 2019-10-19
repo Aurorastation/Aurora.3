@@ -265,3 +265,8 @@
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
 	path = /obj/item/clothing/under/circuitry
+
+/datum/gear/uniform/science_alt
+	display_name = "scientist, alt"
+	path = /obj/item/clothing/under/rank/scientist/science_alt
+	allowed_roles = list("Scientist", "Xenobiologist")

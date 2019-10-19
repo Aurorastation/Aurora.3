@@ -30222,7 +30222,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "baT" = (
@@ -35190,6 +35190,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - CMO's Office"
 	},
+/obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjq" = (
@@ -39748,6 +39749,8 @@
 	},
 /obj/structure/closet/wardrobe/robotics_black,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/under/rank/roboticistalt,
+/obj/item/clothing/under/rank/roboticistalt,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqx" = (
@@ -40451,7 +40454,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "brG" = (
@@ -42834,7 +42837,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bvh" = (
