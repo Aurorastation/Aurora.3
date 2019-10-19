@@ -171,6 +171,6 @@
 			S.disable()
 			to_chat(usr, "Ghost spawner disabled: [S.name]")
 			SSvueui.check_uis_for_change(src) //Update all the UIs to update the status of the spawner
-			for(var/i in spawnpoints)
+			for(var/i in S.spawnpoints)
 				update_spawnpoint_status_by_identifier(i)
 	return
