@@ -153,6 +153,10 @@
 	if(!ability_prechecks(user, price))
 		return
 
+	if(istype(M,/obj/machinery/shield))
+		to_chat(user, span("notice", "ERROR: Generated shields cannot be overloaded!"))
+		return
+
 	var/obj/machinery/power/N = M
 
 	var/explosion_intensity = 2 //Base explosion intensity

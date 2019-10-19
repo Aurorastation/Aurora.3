@@ -694,7 +694,6 @@ About the new airlock wires panel:
 
 	data["main_power_loss"]		= round(main_power_lost_until 	> 0 ? max(main_power_lost_until - world.time,	0) / 10 : main_power_lost_until,	1)
 	data["backup_power_loss"]	= round(backup_power_lost_until	> 0 ? max(backup_power_lost_until - world.time,	0) / 10 : backup_power_lost_until,	1)
-	data["electrified"] 		= round(electrified_until		> 0 ? max(electrified_until - world.time, 	0) / 10 	: electrified_until,		1)
 	data["open"] = !density
 
 	var/commands[0]
@@ -847,14 +846,14 @@ About the new airlock wires panel:
 		if("bolts")
 			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
 				to_chat(usr, "The door bolt control wire is cut - Door bolts permanently dropped.")
-			else if(activate && src.lock())
-				to_chat(usr, "The door bolts have been dropped.")
-			else if(!activate && src.unlock())
-				to_chat(usr, "The door bolts have been raised.")
-		if("electrify_temporary")
-			electrify(30 * activate, 1)
-		if("electrify_permanently")
-			electrify(-1 * activate, 1)
+			else if(activate)
+				to_chat(usr, "The door bolts will drop in three seconds.")
+				src.visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in THREE SECONDS.\"</span>")
+				addtimer(CALLBACK(src, .proc/lock), 30)
+			else if(!activate)
+				to_chat(usr, "The door bolts will raise in three seconds.")
+				src.visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in THREE SECONDS.\"</span>")
+				addtimer(CALLBACK(src, .proc/unlock), 30)
 		if("open")
 			if(src.welded)
 				to_chat(usr, text("The airlock has been welded shut!"))
