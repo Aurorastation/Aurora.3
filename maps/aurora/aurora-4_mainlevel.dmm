@@ -36144,7 +36144,7 @@
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/reagent_containers/spray,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bkS" = (
