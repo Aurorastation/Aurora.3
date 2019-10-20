@@ -3,11 +3,9 @@ var/global/list/robot_modules = list(
 	"Clerical" 		= /obj/item/weapon/robot_module/clerical/general,
 	"Research" 		= /obj/item/weapon/robot_module/research,
 	"Mining" 		= /obj/item/weapon/robot_module/miner,
-	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
 	"Combat" 		= /obj/item/weapon/robot_module/combat,
 	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
-	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
 	"Custodial" 	= /obj/item/weapon/robot_module/janitor
 	)
 
@@ -201,6 +199,7 @@ var/global/list/robot_modules = list(
 				"Sleek - Medical" = "sleekmedic",
 				"Sleek - Chemistry" = "sleekchemistry"
 				)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/weapon/robot_module/medical/general
 	name = "medical robot module"
@@ -223,25 +222,38 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/surgicaldrill(src)
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
+	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
 	src.modules += new /obj/item/device/breath_analyzer(src)
+	src.modules += new /obj/item/weapon/extinguisher/mini(src)
+	src.modules += new /obj/item/stack/medical/advanced/ointment(src)
+	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
+	src.modules += new /obj/item/device/gps(src) // for coordinating with medical suit health sensors console
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
 
-	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
+	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
 	synths += medicine
 
 	var/obj/item/stack/nanopaste/N = new /obj/item/stack/nanopaste(src)
 	var/obj/item/stack/medical/advanced/bruise_pack/B = new /obj/item/stack/medical/advanced/bruise_pack(src)
+	var/obj/item/stack/medical/advanced/ointment/O = new /obj/item/stack/medical/ointment(src)
+	var/obj/item/stack/medical/splint/S = new /obj/item/stack/medical/splint(src)
 	N.uses_charge = 1
 	N.charge_costs = list(1000)
 	N.synths = list(medicine)
+	O.uses_charge = 1
+	O.charge_costs = list(1000)
+	O.synths = list(medicine)
 	B.uses_charge = 1
 	B.charge_costs = list(1000)
 	B.synths = list(medicine)
+	S.uses_charge = 1
+	S.charge_costs = list(1000)
+	S.synths = list(medicine)
 	src.modules += N
 	src.modules += B
 
@@ -258,75 +270,6 @@ var/global/list/robot_modules = list(
 		var/obj/item/weapon/reagent_containers/spray/PS = src.emag
 		PS.reagents.add_reagent("pacid", 2 * amount)
 	..()
-
-/obj/item/weapon/robot_module/medical/rescue
-	name = "rescue robot module"
-	sprites = list(
-			"Basic" = "robotmedi",
-			"Classic" = "medbot",
-			"Standard" = "surgeon",
-			"Advanced Droid" = "droid-rescue",
-			"Sleek" = "sleekrescue",
-			"Needles" = "medicalrobot",
-			"Drone" = "drone-medical",
-			"Heavy" = "heavymed"
-			)
-
-	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-
-/obj/item/weapon/robot_module/medical/rescue/New()
-	..()
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/hud/med(src)
-	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/device/reagent_scanner/adv(src)
-	src.modules += new /obj/item/device/breath_analyzer(src)
-	src.modules += new /obj/item/weapon/crowbar/robotic(src)
-	src.modules += new /obj/item/roller_holder(src)
-	src.modules += new /obj/item/weapon/reagent_containers/borghypo/rescue(src)
-	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
-	src.modules += new /obj/item/weapon/extinguisher/mini(src)
-	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
-	src.modules += new /obj/item/device/gps(src) // for coordinating with medical suit health sensors console
-	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("pacid", 250)
-	src.emag.name = "Polyacid spray"
-
-	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
-	synths += medicine
-
-	var/obj/item/stack/medical/ointment/O = new /obj/item/stack/medical/ointment(src)
-	var/obj/item/stack/medical/bruise_pack/B = new /obj/item/stack/medical/bruise_pack(src)
-	var/obj/item/stack/medical/splint/S = new /obj/item/stack/medical/splint(src)
-	O.uses_charge = 1
-	O.charge_costs = list(1000)
-	O.synths = list(medicine)
-	B.uses_charge = 1
-	B.charge_costs = list(1000)
-	B.synths = list(medicine)
-	S.uses_charge = 1
-	S.charge_costs = list(1000)
-	S.synths = list(medicine)
-	src.modules += O
-	src.modules += B
-	src.modules += S
-
-
-/obj/item/weapon/robot_module/medical/rescue/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/weapon/reagent_containers/syringe/S = locate() in src.modules
-	if(S.mode == 2)
-		S.reagents.clear_reagents()
-		S.mode = initial(S.mode)
-		S.desc = initial(S.desc)
-		S.update_icon()
-
-	if(src.emag)
-		var/obj/item/weapon/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent("pacid", 2 * amount)
-
-	..()
-
 
 /obj/item/weapon/robot_module/engineering
 	name = "engineering robot module"
@@ -349,66 +292,6 @@ var/global/list/robot_modules = list(
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/weapon/robot_module/engineering/construction
-	name = "construction robot module"
-	no_slip = 1
-
-/obj/item/weapon/robot_module/engineering/construction/New()
-	..()
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/powerdrill(src)
-	src.modules += new /obj/item/borg/sight/meson(src)
-	src.modules += new /obj/item/weapon/extinguisher(src)
-	src.modules += new /obj/item/weapon/rfd/construction/borg(src)
-	src.modules += new /obj/item/weapon/screwdriver/robotic(src)
-	src.modules += new /obj/item/weapon/wrench/robotic(src)
-	src.modules += new /obj/item/weapon/crowbar/robotic(src)
-	src.modules += new /obj/item/weapon/weldingtool/experimental(src)
-	src.modules += new /obj/item/device/pipe_painter(src)
-	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
-	src.modules += new /obj/item/weapon/gripper(src)
-	src.modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
-	src.modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
-	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
-	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
-	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone
-	src.modules += new /obj/item/weapon/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
-	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	src.malfAImodule += new /obj/item/weapon/rfd/transformer(src)
-
-	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
-	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
-	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
-	synths += metal
-	synths += plasteel
-	synths += glass
-	synths += wire
-
-	var/obj/item/stack/material/cyborg/steel/M = new (src)
-	M.synths = list(metal)
-	src.modules += M
-
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	src.modules += R
-
-	var/obj/item/stack/material/cyborg/plasteel/S = new (src)
-	S.synths = list(plasteel)
-	src.modules += S
-
-	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new (src)
-	RG.synths = list(metal, glass)
-	src.modules += RG
-
-	var/obj/item/stack/tile/floor/cyborg/FT = new /obj/item/stack/tile/floor/cyborg(src) // to add floor over the metal rods lattice
-	FT.synths = list(metal)
-	src.modules += FT
-
-	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src) // Let there be light electric said and after that did cut the wire
-	C.synths = list(wire)
-	src.modules += C
-
 /obj/item/weapon/robot_module/engineering/general/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
@@ -422,6 +305,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool/robotic(src)
 	src.modules += new /obj/item/device/t_scanner(src)
 	src.modules += new /obj/item/device/analyzer(src)
+	src.modules += new /obj/item/weapon/rfd/construction/borg(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/weapon/gripper(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
@@ -431,10 +315,10 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src)
 	src.emag = new /obj/item/weapon/melee/baton/robot/arm(src)
 
-	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
-	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
-	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(20000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(45)
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
+	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
+	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
 	var/datum/matter_synth/wood = new /datum/matter_synth/wood(20000)
 	var/datum/matter_synth/plastic = new /datum/matter_synth/plastic(15000)
 	synths += metal
@@ -1006,7 +890,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
-	src.modules += new /obj/item/weapon/reagent_containers/borghypo/rescue(src)
+	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
 	src.modules += new /obj/item/roller_holder(src)
 	// Security
 	src.modules += new /obj/item/weapon/handcuffs/cyborg(src)

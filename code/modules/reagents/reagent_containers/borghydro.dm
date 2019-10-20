@@ -20,10 +20,7 @@
 	center_of_mass = null
 
 /obj/item/weapon/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "kelotane", "anti_toxin", "dexalin", "inaprovaline", "tramadol", "deltamivir", "thetamycin")
-
-/obj/item/weapon/reagent_containers/borghypo/rescue
-	reagent_ids = list("tricordrazine", "inaprovaline", "tramadol")
+	reagent_ids = list("bicaridine", "kelotane", "anti_toxin", "dexalin", "inaprovaline", "tramadol", "deltamivir", "thetamycin", "tricordrazine")
 
 /obj/item/weapon/reagent_containers/borghypo/Initialize()
 	. = ..()
