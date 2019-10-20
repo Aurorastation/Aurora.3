@@ -24,7 +24,8 @@
 /datum/ghostspawner/human/ert/nanotrasen
 	name = "Nanotrasen Responder"
 	short_name = "ntert"
-	desc = "You're a responder of the Nanotrasen Phoenix ERT! Assist the station as needed. War is hell."
+	desc = "A responder of the Nanotrasen Phoenix ERT."
+	welcome_message = "You're part of the Nanotrasen Phoenix ERT, stationed at the Odin. Your usual powers apply here."
 	max_count = 2
 	outfit = /datum/outfit/admin/ert/nanotrasen
 	mob_name_prefix = "Tpr."
@@ -33,7 +34,7 @@
 /datum/ghostspawner/human/ert/nanotrasen/specialist
 	name = "Nanotrasen Engineering Specialist"
 	short_name = "nteng"
-	desc = "You're an engineering specialist of the Nanotrasen Phoenix ERT! Assist the station as needed."
+	desc = "An engineering specialist of the Nanotrasen Phoenix ERT."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/nanotrasen/specialist
 	mob_name_prefix = "S/Tpr."
@@ -41,13 +42,13 @@
 /datum/ghostspawner/human/ert/nanotrasen/specialist/med
 	name = "Nanotrasen Medical Specialist"
 	short_name = "ntmed"
-	desc = "You're a medical specialist of the Nanotrasen Phoenix ERT! Assist the station as needed."
+	desc = "A medical specialist of the Nanotrasen Phoenix ERT."
 	outfit = /datum/outfit/admin/ert/nanotrasen/specialist/medical
 
 /datum/ghostspawner/human/ert/nanotrasen/leader
 	name = "Nanotrasen Leader"
 	short_name = "ntlead"
-	desc = "You're the leader of the Nanotrasen Phoenix ERT! Assist the station as needed. Remember that you're in charge here."
+	desc = "The leader of the Nanotrasen Phoenix ERT."
 	max_count = 1
 	mob_name_prefix = "L/Tpr."
 
@@ -55,7 +56,8 @@
 /datum/ghostspawner/human/ert/tcfl
 	name = "TCFL Responder"
 	short_name = "tcflr"
-	desc = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to. You're responding to a code red situation you are tasked to go and fix the problem."
+	desc = "The Tau Ceti Foreign Legion's rank and file."
+	welcome_message = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to and fix the problem. You can be a volounteer (Vol.) or a legionnaire (Lgn.). The former is reccomended for new players."
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
@@ -79,7 +81,8 @@
 	name = "Mercenary Responder"
 	short_name = "mercr"
 	max_count = 2
-	desc = "Part of a freelancing mercenary crew, you're a neutral party whose intentions should be swayed by who has the biggest amount of money available."
+	desc = "Rank and file of a freelancer mercenary team."
+	welcome_message = "You're part of a freelancing mercenary team who just picked up a distress beacon coming from the Aurora. You have no affiliation to anyone, but you sure do want a quick buck."
 	outfit = /datum/outfit/admin/ert/mercenary
 	possible_species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
 
@@ -87,10 +90,12 @@
 	name = "Mercenary Medical Specialist"
 	short_name = "mercs"
 	max_count = 1
+	desc = "The only medic of the freelancer mercenary team."
 	outfit = /datum/outfit/admin/ert/mercenary/specialist
 
 /datum/ghostspawner/human/ert/mercenary/leader
 	name = "Mercenary Leader"
 	short_name = "mercl"
 	max_count = 1
+	desc = "The leader of the freelancer mercenary team."
 	outfit = /datum/outfit/admin/ert/mercenary/leader
