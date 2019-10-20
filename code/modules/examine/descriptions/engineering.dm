@@ -16,7 +16,7 @@
 
 /obj/machinery/power/apc
 	description_info = "An APC (Area Power Controller) regulates and supplies backup power for the area they are in. Their power channels are divided \
-	out into 'environmental' (Items that manipulate airflow and temperature), 'lighting' (the lights), and 'equipment' (Everything else that consumes power).  \
+	out into 'environmental' (Items that manipulate airflow and temperature), 'lighting' (the lights), and 'equipment' (everything else that consumes power).  \
 	Power consumption and backup power cell charge can be seen from the interface, further controls (turning a specific channel on, off or automatic, \
 	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \
 	with an ID with Engineering access or by one of the station's robots or the artificial intelligence."

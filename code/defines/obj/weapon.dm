@@ -1,6 +1,6 @@
 /obj/item/weapon/phone
 	name = "red phone"
-	desc = "Should anything ever go wrong..."
+	desc = "A 20th-cenctury handset-style red telephone complete with receiver and base station."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
@@ -14,7 +14,7 @@
 
 /obj/item/weapon/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
-	desc = "A device used to rapidly deploy seeds."
+	desc = "A handheld device with a pistol grip, push-trigger, and two barrels. A small vibrating canister can be seen near the front."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rfd"
 	opacity = 0
@@ -26,7 +26,7 @@
 
 /obj/item/weapon/bikehorn
 	name = "bike horn"
-	desc = "A horn off of a bicycle."
+	desc = "A rubber bulb attached to a metal horn."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
@@ -48,7 +48,7 @@
 
 /obj/item/weapon/cane
 	name = "cane"
-	desc = "A cane used by a true gentlemen. Or a clown."
+	desc = "A stylish hooked walking cane of fashionable design."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
