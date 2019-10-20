@@ -29,6 +29,11 @@
 
 		update_icon()
 
+
+/obj/machinery/gumballmachine/examine()
+	..()
+	to_chat(usr, span("notice", "\The [src] costs [gumprice] credits"))
+
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)
 		if(20)
