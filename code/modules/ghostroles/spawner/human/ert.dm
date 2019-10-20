@@ -67,6 +67,7 @@
 	name = "TCFL Medical Specialist"
 	short_name = "tcfls"
 	max_count = 2
+	desc = "A medic of the Tau Ceti Foreign Legion."
 	outfit = /datum/outfit/admin/ert/legion/specialist
 	mob_name_prefix = "Lgn."
 
