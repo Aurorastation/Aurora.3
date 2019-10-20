@@ -1041,7 +1041,7 @@
 /area/security/vacantoffice2)
 "acg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice2)
 "ach" = (
@@ -11193,7 +11193,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/item/device/taperecorder,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -19279,7 +19279,7 @@
 /area/security/prison)
 "aIB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
 	icon_state = "intact"
@@ -19719,7 +19719,7 @@
 "aJn" = (
 /obj/structure/bookcase/manuals/engineering,
 /obj/item/weapon/book/manual/atmospipes,
-/obj/item/weapon/book/manual/engineering_guide,
+/obj/item/weapon/book/manual/wiki/engineering_guide,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
@@ -19841,10 +19841,12 @@
 /area/crew_quarters/heads/hos)
 "aJy" = (
 /obj/structure/bookcase/manuals,
-/obj/item/weapon/book/manual/security_space_law,
-/obj/item/weapon/book/manual/security_space_law,
-/obj/item/weapon/book/manual/security_space_law,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/station_procedure,
+/obj/item/weapon/book/manual/wiki/station_procedure,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJz" = (
@@ -20041,7 +20043,7 @@
 /area/security/warden)
 "aJN" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/item/device/eftpos{
 	eftpos_name = "Brig EFTPOS scanner"
 	},
@@ -22706,7 +22708,7 @@
 /area/crew_quarters/captain)
 "aOm" = (
 /obj/structure/table/wood,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aOn" = (
@@ -25575,7 +25577,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aSX" = (
@@ -27248,7 +27250,7 @@
 /area/crew_quarters/heads/hop)
 "aVJ" = (
 /obj/structure/closet/secure_closet/hop,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVK" = (
@@ -65836,7 +65838,7 @@
 /obj/structure/bookcase/manuals{
 	opacity = 0
 	},
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "lNA" = (

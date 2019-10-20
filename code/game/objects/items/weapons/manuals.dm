@@ -5,27 +5,29 @@
 	due_date = 0 // Game time in 1/10th seconds
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
 
+/obj/item/weapon/book/manual/wiki
+	var/sub_page = ""
 
-/obj/item/weapon/book/manual/engineering_construction
+/obj/item/weapon/book/manual/wiki/Initialize()
+	. = ..()
+
+	dat = {"
+		<html>
+		<head></head>
+
+		<body>
+		<iframe width='100%' height='97%' src="[config.wikiurl][sub_page]&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+	"}
+
+/obj/item/weapon/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
 	icon_state ="bookEngineering"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Station Repairs and Construction"
-
-/obj/item/weapon/book/manual/engineering_construction/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Guide_to_construction&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
+	sub_page = "Guide_to_construction"
 
 /obj/item/weapon/book/manual/engineering_particle_accelerator
 	name = "Particle Accelerator User's Guide"
@@ -33,8 +35,8 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
-/obj/item/weapon/book/manual/engineering_particle_accelerator/New()
-	..()
+/obj/item/weapon/book/manual/engineering_particle_accelerator/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -80,8 +82,8 @@
 	author = "Central Engineering Division"
 	title = "Supermatter Engine Operating Manual"
 
-/obj/item/weapon/book/manual/supermatter_engine/New()
-	..()
+/obj/item/weapon/book/manual/supermatter_engine/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -147,27 +149,12 @@
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/engineering_hacking
+/obj/item/weapon/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Hacking"
-
-/obj/item/weapon/book/manual/engineering_hacking/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Hacking&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
+	sub_page = "Hacking"
 
 /obj/item/weapon/book/manual/engineering_singularity_safety
 	name = "Singularity Safety in Special Circumstances"
@@ -219,9 +206,6 @@
 				</body>
 			</html>
 			"}
-
-
-
 
 /obj/item/weapon/book/manual/medical_cloning
 	name = "Cloning Techniques of the 26th Century"
@@ -666,30 +650,21 @@
 			</html>
 		"}
 
-
-/obj/item/weapon/book/manual/security_space_law
+/obj/item/weapon/book/manual/wiki/security_space_law
 	name = "Corporate Regulations"
 	desc = "A set of corporate guidelines for keeping law and order on privately-owned space stations."
 	icon_state = "bookSpaceLaw"
 	author = "The Company"
 	title = "Corporate Regulations"
+	sub_page = "Corporate_Regulations"
 
-/obj/item/weapon/book/manual/security_space_law/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
+/obj/item/weapon/book/manual/wiki/station_procedure
+	name = "Station Procedure"
+	desc = "A set of uniform procedures followed on all NanoTrasen installations."
+	icon_state = "corporate-procedure"
+	title = "The Company"
+	title = "Station Procedure"
+	sub_page = "Guide_to_Station_Procedure"
 
 /obj/item/weapon/book/manual/medical_diagnostics_manual
 	name = "Medical Diagnostics Manual"
@@ -698,8 +673,8 @@
 	author = "Medical Department"
 	title = "Medical Diagnostics Manual"
 
-/obj/item/weapon/book/manual/medical_diagnostics_manual/New()
-	..()
+/obj/item/weapon/book/manual/medical_diagnostics_manual/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -739,26 +714,12 @@
 		"}
 
 
-/obj/item/weapon/book/manual/engineering_guide
+/obj/item/weapon/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state ="bookEngineering2"
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
-
-/obj/item/weapon/book/manual/engineering_guide/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Engineering&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>		</body>
-
-		</html>
-
-		"}
-
+	sub_page = "Guide_to_Engineering"
 
 /obj/item/weapon/book/manual/chef_recipes
 	name = "Chef Recipes"
@@ -1182,7 +1143,7 @@
 				</head>
 				<body>
 				<a name="Foreword"><h1>Gravity Generation for dummies!</h1></a>
-				Thank you for your purchase of the newest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaing your gravity generation system.<br><br>
+				Thank you for your purchase of the newest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaining your gravity generation system.<br><br>
 
 				<h2><a name="Contents">Contents</a></h2>
 				<ol>
@@ -1285,8 +1246,8 @@
 	author = "NTCC Odin Psychiatry Wing"
 	title = "Sigmund Freud for Dummies"
 
-/obj/item/weapon/book/manual/psych/New()
-	..()
+/obj/item/weapon/book/manual/psych/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -1418,15 +1379,12 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/battlemonsters
+/obj/item/weapon/book/manual/wiki/battlemonsters
 	name = "\improper Guide to Battlemonsters"
 	icon_state ="battlemonsters"
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"
-
-/obj/item/weapon/book/manual/battlemonsters/New()
-	..()
-	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
+	sub_page = "Guide_to_Battlemonsters"
 
 /obj/item/weapon/book/manual/pra_manifesto
 	name = "hadiist manifesto"
