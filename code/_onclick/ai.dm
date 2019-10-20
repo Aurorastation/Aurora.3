@@ -136,6 +136,13 @@
 /atom/proc/AICtrlClick(mob/user)
 	return
 
+/obj/machinery/door/airlock/AICtrlClick() // Bolts doors
+	if(locked)
+		Topic(src, list("command"="bolts", "activate" = "0"))
+	else
+		Topic(src, list("command"="bolts", "activate" = "1"))
+	return 1
+
 /obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
 	Topic(src, list("breaker"="1"))
 	return 1
