@@ -55376,7 +55376,7 @@
 /area/engineering/break_room)
 "bWC" = (
 /obj/structure/table/wood,
-/obj/item/weapon/book/manual/engineering_construction,
+/obj/item/weapon/book/manual/wiki/engineering_construction,
 /obj/item/weapon/book/manual/evaguide{
 	pixel_x = -2;
 	pixel_y = 7
