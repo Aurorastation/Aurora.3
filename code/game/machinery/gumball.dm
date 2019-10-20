@@ -42,7 +42,7 @@
 			desc = "A colorful [typeofcandy] machine. It's half full!"
 		if(5)
 			icon_state = "[initialicon]_25"
-			desc = "A colorful [typeofcandy] machine. There is few candy left."
+			desc = "A colorful [typeofcandy] machine. There are a few candies left."
 		if(0)
 			icon_state = "[initialicon]_empty"
 			desc = "A colorful [typeofcandy] machine. It's empty!"
