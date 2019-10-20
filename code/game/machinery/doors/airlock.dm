@@ -973,6 +973,11 @@ About the new airlock wires panel:
 		var/obj/item/weapon/pai_cable/cable = C
 		cable.plugin(src, user)
 	else if(!repairing && C.iscrowbar())
+		if(istype(C, /obj/item/weapon/melee/arm_blade))
+			if(!arePowerSystemsOn()) //if this check isn't done and empty, the armblade will never be used to hit the airlock
+			else if(!(stat & BROKEN))
+				..()
+				return
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && (!src.locked || (stat & BROKEN)))) )
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")

@@ -111,6 +111,14 @@
 		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
 		dismantle()
 
+	else if(istype(W, /obj/item/weapon/melee/arm_blade/))
+		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+		if(do_after(user,150))
+			if(!src)
+				return
+			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+			dismantle()
+
 	else if(W.isscrewdriver())
 		if(state == 2)
 			playsound(src.loc, W.usesound, 100, 1)
