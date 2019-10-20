@@ -511,6 +511,22 @@
 	. = ..()
 	reagents.add_reagent("sugar", 3)
 
+
+/obj/item/weapon/reagent_containers/food/snacks/candy/koko
+	name = "\improper Koko bar"
+	desc = "A sweet, yet gritty candy bar cultivated exclusively on the Compact ruled world of Ha zana. It's a good pick-me-up for Unathi, but has no affect on other species."
+	icon_state = "kokobar"
+	trash = /obj/item/trash/kokobar
+	filling_color = "#7D5F46"
+	nutriment_amt = 4
+	nutriment_desc = list("Koko Reed" = 2, "fibers" = 1)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/candy/koko/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 3)
+	reagents.add_reagent("kokoreed", 7)
+
 /obj/item/weapon/reagent_containers/food/snacks/candy/donor
 	name = "donor candy"
 	desc = "A little treat for blood donors. Made with real sugar!"
