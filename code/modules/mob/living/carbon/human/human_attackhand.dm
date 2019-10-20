@@ -438,6 +438,9 @@
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)
 	var/has_grab = 0
+
+	if(user.limb_breaking)
+		return 0
 	for(var/obj/item/weapon/grab/G in list(user.l_hand, user.r_hand))
 		if(G.affecting == src && G.state == GRAB_NECK)
 			has_grab = 1
@@ -455,10 +458,12 @@
 		return 0
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
+	user.limb_breaking = TRUE
 	if(do_after(user, 100))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		user.limb_breaking = FALSE
 		return 1
 	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
 	return 0
