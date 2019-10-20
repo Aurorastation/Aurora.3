@@ -37,8 +37,7 @@ delete-after: True
 # SCREW THIS UP AND IT WON'T WORK.
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
-changes: 
-  - tweak: "AI can no longer hotkey click to bolt or electrify airlocks. They have to use the menu to do these actions."
+changes:
   - rscadd: "Remotely bolting an airlock is no longer instant, taking THREE seconds to finish. The airlock announces when this process begins."
   - tweak: "Airlocks can no longer be remotely electrified."
   - bugfix: "Forcefields can no longer be machine overloaded."
