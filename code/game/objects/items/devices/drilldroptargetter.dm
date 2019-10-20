@@ -1,6 +1,6 @@
 /obj/item/device/drill_dropper
 	name = "laser targeting dropper"
-	desc = "Your drill shall pierce the heavens."
+	desc = "This drill literally pierces the heavens."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "drillpointer"
 	item_state = "binoculars"
