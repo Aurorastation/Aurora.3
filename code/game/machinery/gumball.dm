@@ -32,7 +32,7 @@
 
 /obj/machinery/gumballmachine/examine()
 	..()
-	to_chat(usr, span("notice", "\The [src] costs [gumprice] credits"))
+	to_chat(usr, span("notice", "\The [src] costs [gumprice] credits to use."))
 
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)
