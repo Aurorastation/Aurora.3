@@ -63,7 +63,7 @@
 
 	if(user != victim && !suppressing) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message("<span class='warning'>\The [user] begins switching on \the [src]'s neural suppressor.</span>")
-		if(!do_after(user, 30, src) || !user || !src || user.incapacitated() || !user.Adjacent(src))
+		if(!do_after(user, 30, src) || !use_check_and_message(user))
 			return 
 		if(!victim)
 			to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
@@ -96,6 +96,7 @@
 			if(H.lying)
 				icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
+				return 1
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
