@@ -252,6 +252,7 @@
 		/obj/item/weapon/reagent_containers/spray,
 		/obj/item/weapon/storage/pill_bottle,
 		/obj/item/weapon/hand_labeler,
+		/obj/item/weapon/paper,
 		/obj/item/stack/material/phoron
 		)
 

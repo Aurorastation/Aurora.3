@@ -38,11 +38,12 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "With the grabber, hitting the drop hotkey (Q) now drops the held item. If there is no held item, the grabber is put away as normal."
-  - tweak: "The scientific grabber can now hold slime steroids."
+  - tweak: "With the gripper, hitting the drop hotkey (Q) now drops the held item. If there is no held item, the gripper is put away as normal."
+  - tweak: "The scientific gripper can now hold slime steroids."
+  - tweak: "The chemistry gripper can now hold paper. This is mostly to assist medical borgs handling scans and the like."
   - bugfix: "Modules relying on cyborg synthesizers (nanopaste, ATKs, etc.) now cannot be used once the synthesizer is depleted."
-  - bugfix: "Injecting a monkey cube in a cyborg grabber no longer places the monkey inside the grabber's pocket dimension."
-  - bugfix: "Service cyborgs can no longer open a plane to infinite grass tiles via their service grabber."
+  - bugfix: "Injecting a monkey cube in a cyborg gripper no longer places the monkey inside the gripper's pocket dimension."
+  - bugfix: "Service cyborgs can no longer open a plane to infinite grass tiles via their service gripper."
   - bugfix: "Cyborgs can now re-lock secure crates."
-  - bugfix: "Clerical cyborgs can now browse paper bundles and pick up duct-taped paper with their grabber."
+  - bugfix: "Clerical cyborgs can now browse paper bundles and pick up duct-taped paper with their gripper."
   - bugfix: "The cyborg module inventory now correctly updates when using the drop hotkey (Q, default) to put away a module."
