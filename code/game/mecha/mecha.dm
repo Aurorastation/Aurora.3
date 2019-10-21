@@ -468,6 +468,8 @@
 /obj/mecha/Collide(var/atom/obstacle)
 	. = ..()
 //	src.inertia_dir = null
+	if(istype(obstacle, /obj/structure/stairs))
+		return
 	if(istype(obstacle, /obj))
 		var/obj/O = obstacle
 		if(istype(O, /obj/effect/portal)) //derpfix
