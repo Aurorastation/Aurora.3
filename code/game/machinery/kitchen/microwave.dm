@@ -293,7 +293,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	recipe = select_recipe(RECIPE_LIST(appliancetype),src)
 
 	if (reagents.get_reagents() && prob(50)) // 50% chance a liquid recipe gets messy
-		dirty += 1
+		dirty += Ceiling(reagents.total_volume / 10)
 
 	if (!recipe)
 		failed = TRUE
@@ -488,23 +488,23 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	return
 
-/obj/machinery/microwave/proc/eject_reagent(datum/reagent/R)
-	if(istype(usr.l_hand, /obj/item/weapon/reagent_containers) || istype(usr.r_hand, /obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = usr.l_hand || usr.r_hand
+/obj/machinery/microwave/proc/eject_reagent(datum/reagent/R, mob/user = usr)
+	if(istype(user.l_hand, /obj/item/weapon/reagent_containers) || istype(user.r_hand, /obj/item/weapon/reagent_containers))
+		var/obj/item/weapon/reagent_containers/RC = user.l_hand || user.r_hand
 		var/free_space = RC.reagents.get_free_space()
 		if(free_space > R.volume)
-			to_chat(usr, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
+			to_chat(user, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
 			RC.reagents.add_reagent(R.id, R.volume)
 			reagents.remove_reagent(R.id, R.volume)
 		else if(free_space == 0)
-			to_chat(usr, "<span class='warning'>[RC.name] is full!</span>")
+			to_chat(user, "<span class='warning'>[RC.name] is full!</span>")
 		else
-			to_chat(usr, "<span class='notice'>You empty [free_space] units of [R.name] into your [RC.name].</span>")
+			to_chat(user, "<span class='notice'>You empty [free_space] units of [R.name] into your [RC.name].</span>")
 			RC.reagents.add_reagent(R.id, free_space)
 			reagents.remove_reagent(R.id, free_space)
 		SSvueui.check_uis_for_change(src)
 	else
-		to_chat(usr, "<span class='warning'>You need to be holding a valid container to empty [R.name]!</span>")
+		to_chat(user, "<span class='warning'>You need to be holding a valid container to empty [R.name]!</span>")
 
 /obj/machinery/microwave/proc/eject(var/message = 1, var/obj/EJ = null)
 	if (EJ)
@@ -513,8 +513,11 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		for (var/atom/movable/A in contents)
 			A.forceMove(loc)
 		if (reagents.total_volume)
-			dirty++
-		reagents.clear_reagents()
+			dirty += round(reagents.total_volume / 10)
+		for (var/datum/reagent/R in reagents.reagent_list)
+			eject_reagent(R)
+		if (reagents.total_volume)
+			reagents.clear_reagents()
 		if (message)
 			to_chat(usr, "<span class='notice'>You dispose of the microwave contents.</span>")
 	SSvueui.check_uis_for_change(src)
