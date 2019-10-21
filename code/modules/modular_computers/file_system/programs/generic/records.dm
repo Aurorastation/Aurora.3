@@ -6,7 +6,11 @@
 	program_icon_state = "generic"
 	color = LIGHT_COLOR_BLUE
 	available_on_ntnet = 0
+	size = 6
 
+	requires_ntnet = 1
+	requires_ntnet_feature = NTNET_SYSTEMCONTROL
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
@@ -30,7 +34,7 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 
 	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
-	required_access_download = list(access_heads)
+	required_access_download = access_heads
 	available_on_ntnet = 1
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
@@ -43,7 +47,7 @@
 	extended_desc = "Used to view, edit and maintain security records"
 
 	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
-	required_access_download = list(access_heads)
+	required_access_download = access_heads
 	available_on_ntnet = 1
 
 	records_type = RECORD_SECURITY
@@ -56,7 +60,7 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 
 	required_access_run = list(access_heads)
-	required_access_download = list(access_heads)
+	required_access_download = access_heads
 	available_on_ntnet = 1
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
@@ -69,10 +73,17 @@
 /datum/computer_file/program/records/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "records-main", 450, 520, filedesc)
+		ui = new /datum/vueui/modularcomputer(user, src, "records-main", 450, 520, filedesc)
 		if(!authenticated)
 			ui.activeui = "records-login"
 	ui.open()
+
+/datum/computer_file/program/records/vueui_transfer(oldobj)
+	var/ui_name = "records-main"
+	if(!authenticated)
+		ui_name = "records-login"
+	SSvueui.transfer_uis(oldobj, src, ui_name, 450, 520, filedesc)
+	return TRUE
 
 /datum/computer_file/program/records/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
@@ -82,6 +93,11 @@
 			"editingvalue" = "",
 			"choices" = typechoices
 			)
+
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
 
 	if(!authenticated)
 		VUEUI_SET_CHECK(ui.activeui, "records-login", ., data)
@@ -162,13 +178,14 @@
 		VUEUI_SET_CHECK(data["active"], 0, ., data)
 
 /datum/computer_file/program/records/Topic(href, href_list)
+	if(..())
+		return 1
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
 	if(href_list["login"])
-		var/obj/item/weapon/card/id/id = usr.GetIdCard()
-		if(id && check_access(id))
-			authenticated = id.registered_name
+		if(can_run(usr, TRUE))
+			authenticated = TRUE
 		else
 			to_chat(usr, "[src] beeps: Access Denied")
 		SSvueui.check_uis_for_change(src)
