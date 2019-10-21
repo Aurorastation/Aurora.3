@@ -13,7 +13,7 @@
 	w_class = 3
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
-	var/deployed = 0
+	var/deployed = FALSE
 	var/time_to_escape = 60
 
 /obj/item/weapon/trap/proc/can_use(mob/user)
@@ -35,7 +35,7 @@
 				"You hear a latch click loudly."
 				)
 
-			deployed = 1
+			deployed = TRUE
 			user.drop_from_inventory(src)
 			update_icon()
 			anchored = 1
@@ -61,7 +61,7 @@
 		if(do_after(user, time_to_escape))
 			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
 			unbuckle_mob()
-			anchored = 0
+			anchored = FALSE
 	else if(deployed && can_use(user))
 		user.visible_message(
 			"<span class='danger'>[user] starts to disarm \the [src].</span>",
@@ -73,8 +73,8 @@
 				"<span class='danger'>[user] has disarmed \the [src].</span>",
 				"<span class='notice'>You have disarmed \the [src]!</span>"
 				)
-			deployed = 0
-			anchored = 0
+			deployed = FALSE
+			anchored = FALSE
 			update_icon()
 	else
 		..()
@@ -120,8 +120,8 @@
 			)
 		attack_mob(L)
 		if(!buckled_mob)
-			anchored = 0
-		deployed = 0
+			anchored = FALSE
+		deployed = FALSE
 		update_icon()
 	..()
 
@@ -143,7 +143,7 @@
 	w_class = 2
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
-	deployed = 0
+	deployed = FALSE
 	time_to_escape = 3 // Minutes
 	can_buckle = TRUE
 	var/breakout = FALSE
@@ -155,6 +155,11 @@
 	health = 100
 	var/datum/weakref/captured = null
 
+/obj/item/weapon/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
+	if(captured || !M)
+		return
+
+	capture(M)
 
 /obj/item/weapon/trap/animal/update_icon()
 	icon = initial(icon)
@@ -164,48 +169,44 @@
 	..()
 	if(captured)
 		var/datum/L = captured.resolve()
-		if (!L)
-			return
-		to_chat(user, "<span class='notice'>\The [src] has [L].</span>")
+		if (L)
+			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
 
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 
 /obj/item/weapon/trap/animal/Crossed(AM as mob|obj)
-	if(world.time - release_time < 50) // If we just released the animal, not to let it get caught again right away
+	if(!deployed || !anchored) // remember to set deployed as a timer on release
 		return
 
-	if(contents.len) // It is full
+	if(captured) // just in case but this shouldn't happen
 		return
+
 	capture(AM)
 
 /obj/item/weapon/trap/animal/proc/capture(var/mob/AM)
-	if(isliving(AM))
+	if(isliving(AM) && is_type_in_list(AM, allowed_mobs))
 		var/mob/living/L = AM
-		for(var/f in allowed_mobs)
-			if(istype(AM, f))
-				L.visible_message(
-					"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
-					"<span class='danger'>You enter \the [src], and it snaps shut with a clatter!</span>",
-					"<b>You hear a loud metallic snap!</b>"
-					)
-				captured = WEAKREF(L)
-				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-				deployed = 1
-				buckle_mob(L)
-				src.animate_shake()
+		L.visible_message(
+			"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
+			"<span class='danger'>You enter \the [src], and it snaps shut with a clatter!</span>",
+			"<b>You hear a loud metallic snap!</b>"
+			)
+		captured = WEAKREF(L)
+		buckle_mob(L)
 
 	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
 		var/obj/effect/spider/spiderling/S = AM
 		captured = WEAKREF(S)
-		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-		deployed = 1
 		buckle_mob(S)
-		src.animate_shake()
+
+	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+	deployed = FALSE
+	src.animate_shake()
 	update_icon()
 
 /obj/item/weapon/trap/animal/proc/req_breakout()
-	if(!deployed)
+	if(deployed)
 		return 0 // Cage is open... wait, why are you in it's contents then?
 	if(breakout)
 		return -1 //Already breaking out.
@@ -246,14 +247,8 @@
 
 	release()
 
-/obj/item/weapon/trap/animal/Collide(AM as mob|obj)
-	if(isliving(AM))
-		Crossed(AM)
-	else
-		..()
-
 /obj/item/weapon/trap/animal/CollidedWith(atom/AM)
-	if(isliving(AM))
+	if(isliving(AM) && deployed)
 		Crossed(AM)
 	else
 		..()
@@ -272,7 +267,7 @@
 
 	var/datum/M = captured ? captured.resolve() : null
 
-	if(deployed)
+	if(M)
 		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
 
 		if(open == "No")
@@ -283,7 +278,7 @@
 			return
 
 		if(usr == M)
-			to_chat(usr, "<span class='warning'>You cannot open lock \the [src] from the inside. You would have to forcefully open it.</span>")
+			to_chat(usr, "<span class='warning'>You can't open \the [src] from the inside! You'll need to force it open.</span>")
 			return
 
 		var/turf/T_cage = get_turf(src)
@@ -339,7 +334,6 @@
 
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
-		deployed = FALSE
 		captured = null
 		release_time = world.time
 		return
@@ -356,7 +350,6 @@
 	captured = null
 	visible_message(msg)
 	animate_shake()
-	deployed = FALSE
 	update_icon()
 	release_time = world.time
 
@@ -456,57 +449,32 @@
 	return
 
 /obj/item/weapon/trap/animal/MouseDrop(over_object, src_location, over_location)
-	if(isliving(usr))
-		if(usr.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) // Because monkeys can be of type of just human.
-			usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
-							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
-			)
-			if (!do_after(usr, 2 SECONDS, act_target = src))
-				return
+	if(!isliving(usr))
+		return
+
+	if((usr.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) || is_type_in_list(usr, allowed_mobs)) // Because monkeys can be of type of just human.
+		usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+						"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
+		)
+		if(do_after(usr, 2 SECONDS, act_target = src))
 			if(prob(50)) // 50% chance to pass by without getting caught.
-				usr.forceMove(src.loc)
+				usr.forceMove(loc)
 				usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
 								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
 				)
-				return
-			usr.forceMove(src)
-
-			usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
-							"<span class='notice'>You accidentally triggered \the [src]</span>"
-			)
-			playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-			deployed = 1
-			update_icon()
-			src.animate_shake()
-			return
-		for(var/f in allowed_mobs)
-			if(istype(usr, f))
-				usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
-							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
-				)
-				if (!do_after(usr, 2 SECONDS, act_target = src))
-					return
-				if(prob(50)) // 50% chance to pass by without getting caught.
-					usr.forceMove(src.loc)
-					usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
-								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
-					)
-					return
-				usr.forceMove(src)
-
+			else
+				usr.forceMove(loc)
 				usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
-							"<span class='notice'>You accidentally triggered \the [src]</span>"
+								"<span class='notice'>You accidentally triggered \the [src]</span>"
 				)
-				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-				deployed = 1
-				update_icon()
-				src.animate_shake()
-		if(iscarbon(usr))
-			usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
-							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
-			)
-			if (!do_after(usr, 2 SECONDS, act_target = src))
-				return
+				capture(usr)
+		return
+
+	else if(iscarbon(usr))
+		usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+						"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
+		)
+		if (do_after(usr, 2 SECONDS, act_target = src))
 			usr.forceMove(src.loc)
 			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
 								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
@@ -569,7 +537,7 @@
 	w_class = 4
 	origin_tech = list(TECH_MATERIAL = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
-	deployed = 0
+	deployed = FALSE
 	resources = list(rods = 12)
 	spider = FALSE
 
@@ -591,7 +559,7 @@
 	density = 1
 	origin_tech = list(TECH_MATERIAL = 4)
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
-	deployed = 0
+	deployed = FALSE
 	resources = list(rods = 12, metal = 4)
 	spider = FALSE
 
@@ -606,7 +574,7 @@
 	return
 
 /obj/item/weapon/trap/animal/large/attackby(obj/item/W as obj, mob/user as mob)
-	if(iswrench(W))
+	if(W.iswrench())
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
@@ -616,41 +584,38 @@
 							  "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
 		playsound(src.loc, W.usesound, 50, 1)
 
-		if (!do_after(user, 3 SECONDS, act_target = src))
-			return
+		if(do_after(user, 3/W.toolspeed))
+			anchored = !anchored
+			user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
+								"You have [anchored ? "" : "un" ]secured \the [src]!")
 
-		anchored = !anchored
-		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
-							  "You have [anchored ? "" : "un" ]secured \the [src]!")
-	else if(istype(W, /obj/item/weapon/screwdriver))
+	else if(W.isscrewdriver())
+		// Unlike smaller traps, screwdriver shouldn't work on this.
 		return
 	else
 		..()
 
 /obj/item/weapon/trap/animal/large/MouseDrop(over_object, src_location, over_location)
-	if(isliving(usr) && ishuman(usr))
-		usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
-							"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
-		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
-			return
+	if(!ishuman(usr))
+		..()
+		return
+
+	usr.visible_message("<span class='notice'>[usr] is attempting to pass through \the [src] without triggering it.</span>",
+						"<span class='notice'>You are attempting to pass through \the [src] without triggering it. </span>"
+	)
+
+	if(do_after(usr, 2 SECONDS))
 		if(usr.a_intent == I_HELP || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
-			usr.forceMove(src.loc)
+			usr.forceMove(loc)
 			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
 								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
 			)
-			return
-		usr.forceMove(src)
-
-		usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
-							"<span class='notice'>You accidentally triggered \the [src]</span>"
-		)
-		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-		deployed = 1
-		update_icon()
-		src.animate_shake()
-	else
-		..()
+		else
+			usr.forceMove(loc)
+			usr.visible_message("<span class='warning'>[usr] accidentally triggered \the [src]!</span>",
+								"<span class='warning'>You accidentally triggered \the [src]!</span>"
+			)
+			capture(usr)
 
 /obj/item/weapon/large_trap_foundation
 	name = "large trap foundation"
