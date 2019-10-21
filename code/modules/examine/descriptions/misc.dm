@@ -15,7 +15,7 @@
 
 /obj/item/weapon/gift
 	description_info = "Activating this in your active hand unwraps it."
-	description_fluff = "Also known as presents, gifts are items one gives to another without anything in return. The presentation of them vary, but this one appears \
+	description_fluff = "Also known as 'presents', gifts are items one gives to another without anything in return. The presentation of them vary, but this one appears \
 	to be based on the Western cultures of humanity in which it is wrapped with wrapping paper with the optional ribbon.<br>\
 	Gifts can be given for all manners of occasions typically of some sort of celebration or congratulations, though do not necessarily have to be given during these \
 	festivities. Gifts can be given by anyone to anyone at any moment of time, and the usual, ultimate intention is to simply bring a smile on the receiver's face."

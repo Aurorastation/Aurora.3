@@ -11,5 +11,6 @@
 	an adapter installed."
 
 /obj/item/weapon/antag_spawner/borg_tele
+	description_fluff = null //todo
 	description_antag = "A single-use teleporter used to deploy a Syndicate Cyborg on the field. Due to budget restrictions, it is only possible to deploy a single \
 	cyborg at time."

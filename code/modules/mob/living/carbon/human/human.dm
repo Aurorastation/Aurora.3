@@ -735,6 +735,12 @@
 			return
 		src.examinate(I)
 
+	if (href_list["lookitem_desc_only"])
+		var/obj/item/I = locate(href_list["lookitem_desc_only"])
+		if(!I)
+			return
+		to_chat(usr, I.desc)
+
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
 		if(!M)

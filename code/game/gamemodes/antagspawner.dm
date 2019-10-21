@@ -17,7 +17,7 @@
 
 /obj/item/weapon/antag_spawner/borg_tele
 	name = "syndicate cyborg teleporter"
-	desc = "A small pad with two unlabelled buttons and flimsy coiled antenna."
+	desc = "A small pad with two unlabelled buttons and a flimsy coiled antenna."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 
