@@ -1372,6 +1372,7 @@
 	adj_dizzy = -5
 	adj_drowsy = -3
 	taste_description = "carbonated water"
+	carbonated = TRUE
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of soda water"
@@ -1384,6 +1385,7 @@
 	color = "#421C52"
 	adj_drowsy = -3
 	taste_description = "grape soda"
+	carbonated = TRUE
 
 	glass_icon_state = "gsodaglass"
 	glass_name = "glass of grape soda"
@@ -1398,6 +1400,7 @@
 	adj_drowsy = -3
 	adj_sleepy = -2
 	taste_description = "tart and fresh"
+	carbonated = TRUE
 
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of tonic water"
@@ -1431,6 +1434,7 @@
 	id = "kiraspecial"
 	color = "#CCCC99"
 	taste_description = "fruity sweetness"
+	carbonated = TRUE
 
 	glass_icon_state = "kiraspecial"
 	glass_name = "glass of Kira Special"
@@ -1443,6 +1447,7 @@
 	id = "brownstar"
 	color = "#9F3400"
 	taste_description = "orange and cola soda"
+	carbonated = TRUE
 
 	glass_icon_state = "brownstar"
 	glass_name = "glass of Brown Star"
@@ -1479,6 +1484,7 @@
 	color = "#485000"
 	caffeine = 0.4
 	taste_description = "soda and coffee"
+	carbonated = TRUE
 
 	glass_icon_state = "rewriter"
 	glass_name = "glass of Rewriter"
@@ -1498,6 +1504,7 @@
 	adj_sleepy = -2
 	caffeine = 1
 	taste_description = "cola"
+	carbonated = TRUE
 
 	glass_icon_state = "nuka_colaglass"
 	glass_name = "glass of Nuka-Cola"
@@ -1533,6 +1540,7 @@
 	color = "#100800"
 	adj_drowsy = -3
 	taste_description = "cola"
+	carbonated = TRUE
 
 	glass_icon_state  = "glass_brown"
 	glass_name = "glass of Space Cola"
@@ -1546,6 +1554,7 @@
 	adj_drowsy = -7
 	adj_sleepy = -1
 	taste_description = "sweet citrus soda"
+	carbonated = TRUE
 
 	glass_icon_state = "Space_mountain_wind_glass"
 	glass_name = "glass of Space Mountain Wind"
@@ -1558,6 +1567,7 @@
 	color = "#102000"
 	adj_drowsy = -6
 	taste_description = "cherry soda"
+	carbonated = TRUE
 
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of Dr. Gibb"
@@ -1570,6 +1580,7 @@
 	color = "#211100"
 	adj_drowsy = -6
 	taste_description = "sassafras and anise soda"
+	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
 	glass_name = "glass of R&D Root Beer"
@@ -1581,6 +1592,7 @@
 	description = "Tastes like a hull breach in your mouth."
 	color = "#202800"
 	taste_description = "a hull breach"
+	carbonated = TRUE
 
 	glass_icon_state = "space-up_glass"
 	glass_name = "glass of Space-up"
@@ -1790,6 +1802,7 @@
 	color = "#664300"
 	strength = 6
 	taste_description = "hearty barley ale"
+	carbonated = TRUE
 
 	glass_icon_state = "aleglass"
 	glass_name = "glass of ale"
@@ -1804,6 +1817,7 @@
 	strength = 5
 	nutriment_factor = 1
 	taste_description = "beer"
+	carbonated = TRUE
 
 	glass_icon_state = "beerglass"
 	glass_name = "glass of beer"
@@ -1848,6 +1862,7 @@
 	color = "#EBECC0"
 	strength = 15
 	taste_description = "bubbly bitter-sweetness"
+	carbonated = TRUE
 
 	glass_icon_state = "champagneglass"
 	glass_name = "glass of champagne"
@@ -2003,6 +2018,7 @@
 	nutriment_factor = 1
 	caffeine = 0.5
 	taste_description = "jitters and death"
+	carbonated = TRUE
 
 	glass_icon_state = "thirteen_loko_glass"
 	glass_name = "glass of Thirteen Loko"
@@ -2340,6 +2356,7 @@
 	color = "#9a8922"
 	strength = 20
 	taste_description = "sour and bitter"
+	carbonated = TRUE
 
 	glass_icon_state = "classic"
 	glass_name = "glass of the classic"
@@ -2379,6 +2396,7 @@
 	color = "#3E1B00"
 	strength = 10
 	taste_description = "cola"
+	carbonated = TRUE
 
 	glass_icon_state = "cubalibreglass"
 	glass_name = "glass of Cuba Libre"
@@ -2392,6 +2410,7 @@
 	color = "#820000"
 	strength = 15
 	taste_description = "sweet tasting iron"
+	carbonated = TRUE
 
 	glass_icon_state = "demonsblood"
 	glass_name = "glass of Demons' Blood"
@@ -2432,6 +2451,7 @@
 	color = "#F4E68D"
 	strength = 25
 	taste_description = "sour and classy"
+	carbonated = TRUE
 
 	glass_icon_state = "french75"
 	glass_name = "glass of french 75"
@@ -2445,6 +2465,7 @@
 	color = "#664300"
 	strength = 20
 	taste_description = "dry, tart lemons"
+	carbonated = TRUE
 
 	glass_icon_state = "ginfizzglass"
 	glass_name = "glass of gin fizz"
@@ -2498,6 +2519,7 @@
 	color = "#664300"
 	strength = 12
 	taste_description = "mild and tart"
+	carbonated = TRUE
 
 	glass_icon_state = "gintonicglass"
 	glass_name = "glass of gin and tonic"
@@ -2552,6 +2574,7 @@
 	strength = 5
 	targ_temp = 270
 	taste_description = "refreshingly cold"
+	carbonated = TRUE
 
 	glass_icon_state = "iced_beerglass"
 	glass_name = "glass of iced beer"
@@ -2565,6 +2588,7 @@
 	color = "#2E6671"
 	strength = 50
 	taste_description = "delicious anger"
+	carbonated = TRUE
 
 	glass_icon_state = "irishcarbomb"
 	glass_name = "glass of Irish Car Bomb"
@@ -2605,6 +2629,7 @@
 	color = "#664300"
 	strength = 40
 	taste_description = "a mixture of cola and alcohol"
+	carbonated = TRUE
 
 	glass_icon_state = "longislandicedteaglass"
 	glass_name = "glass of Long Island iced tea"
@@ -2645,6 +2670,7 @@
 	color = "#664300"
 	strength = 45
 	taste_description = "hair on your chest and your chin"
+	carbonated = TRUE
 
 	glass_icon_state = "manlydorfglass"
 	glass_name = "glass of The Manly Dorf"
@@ -2732,6 +2758,7 @@
 	color = "#F4A121"
 	strength = 15
 	taste_description = "fizzy orange"
+	carbonated = TRUE
 
 	glass_icon_state = "omimosa"
 	glass_name = "glass of orange mimosa"
@@ -2770,6 +2797,7 @@
 	color = "#F4BDDB"
 	strength = 25
 	taste_description = "very bitter christmas tree"
+	carbonated = TRUE
 
 	glass_icon_state = "pinkgintonic"
 	glass_name = "glass of pink gin and tonic"
@@ -2905,6 +2933,7 @@
 	color = "#FFFFFF"
 	strength = 7
 	taste_description = "refreshing cold"
+	carbonated = TRUE
 
 	glass_icon_state = "snowwhite"
 	glass_name = "glass of Snow White"
@@ -2931,6 +2960,7 @@
 	color = "#00A86B"
 	strength = 5
 	taste_description = "fruit"
+	carbonated = TRUE
 
 	glass_icon_state = "sdreamglass"
 	glass_name = "glass of Sui Dream"
@@ -2944,6 +2974,7 @@
 	color = "#2E6671"
 	strength = 65
 	taste_description = "purified antagonism"
+	carbonated = TRUE
 
 	glass_icon_state = "syndicatebomb"
 	glass_name = "glass of Syndicate Bomb"
@@ -2970,6 +3001,7 @@
 	strength = 60
 	druggy = 50
 	taste_description = "dry"
+	carbonated = TRUE
 
 	glass_icon_state = "threemileislandglass"
 	glass_name = "glass of Three Mile Island iced tea"
@@ -3037,6 +3069,7 @@
 	color = "#3E1B00"
 	strength = 15
 	taste_description = "cola"
+	carbonated = TRUE
 
 	glass_icon_state = "whiskeycolaglass"
 	glass_name = "glass of whiskey cola"
@@ -3050,6 +3083,7 @@
 	color = "#664300"
 	strength = 15
 	taste_description = "cola"
+	carbonated = TRUE
 
 	glass_icon_state = "whiskeysodaglass2"
 	glass_name = "glass of whiskey soda"
@@ -3076,6 +3110,7 @@
 	description = "A delicious blend of 42 different flavours, one of which is water."
 	color = "#102000"
 	taste_description = "watered down liquid sunshine"
+	carbonated = TRUE
 
 	glass_icon_state = "dr_gibb_glass"
 	glass_name = "glass of Diet Dr. Gibb"
@@ -3091,6 +3126,7 @@
 	strength = 20
 	nutriment_factor = 2
 	taste_description = "smooth, honeyed carbonation"
+	carbonated = TRUE
 
 	glass_icon_state = "drdaniels"
 	glass_name = "glass of Dr. Daniels"
@@ -3153,6 +3189,7 @@
 	color = "#664300"
 	strength = 25
 	taste_description = "whiskey"
+	carbonated = TRUE
 
 	glass_icon_state = "johnscollins"
 	glass_name = "glass of John Collins"
@@ -3165,6 +3202,7 @@
 	color = "#664300"
 	strength = 20
 	taste_description = "gin and class"
+	carbonated = TRUE
 
 	glass_icon_state = "gimlet"
 	glass_name = "glass of Gimlet"
@@ -3309,6 +3347,7 @@
 	color = "#2E6671"
 	strength = 8
 	taste_description = "dryness"
+	carbonated = TRUE
 
 	glass_icon_state = "guinnes_glass"
 	glass_name = "glass of Guinness"
@@ -3369,6 +3408,7 @@
 	color = "#2E6671"
 	strength = 25
 	taste_description = "tall bitterness"
+	carbonated = TRUE
 
 	glass_icon_state = "tallblackrussian"
 	glass_name = "glass of Tall Black Russian"
@@ -3471,6 +3511,7 @@
 	color = "#a3ecf7"
 	strength = 25
 	taste_description = "neon champagne"
+	carbonated = TRUE
 
 	glass_icon_state = "cobaltvelvet"
 	glass_name = "glass of Cobalt Velvet"
@@ -3530,6 +3571,7 @@
 	color = "#13144c"
 	strength = 25
 	taste_description = "a late-night promise"
+	carbonated = TRUE
 
 	glass_icon_state = "midnightkiss"
 	glass_name = "glass of Midnight Kiss"
@@ -3599,6 +3641,7 @@
 	color = "#d51d5d"
 	strength = 15
 	taste_description = "sweet soda"
+	carbonated = TRUE
 
 	glass_icon_state = "sugarrush"
 	glass_name = "glass of Sugar Rush"
@@ -3978,6 +4021,7 @@
 	color = "#3E1B00"
 	strength = 15
 	taste_description = "cola"
+	carbonated = TRUE
 
 	glass_icon_state = "whiskeycolaglass"
 	glass_name = "glass of Cactus Cola"
@@ -4019,6 +4063,7 @@
 	adj_sleepy = -2
 	caffeine = 0.4
 	taste_description = "electric cherry"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/phoron
 	name = "Zo'ra Soda Phoron Passion"
@@ -4028,6 +4073,7 @@
 	adj_sleepy = -2
 	caffeine = 0.4
 	taste_description = "electric grape"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/kois
 	name = "Zo'ra Soda K'ois Twist"
@@ -4037,6 +4083,7 @@
 	adj_sleepy = -2
 	caffeine = 0.4
 	taste_description = "sugary cabbage"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/kois/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -4051,6 +4098,7 @@
 	adj_sleepy = -3
 	caffeine = 0.6
 	taste_description = "a full-body bite into an acidic lemon"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/hozm/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -4067,6 +4115,7 @@
 	adj_sleepy = -3
 	caffeine = 0.4
 	taste_description = "fizzy nettles"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/venomgrass/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -4082,6 +4131,7 @@
 	caffeine = 0.4
 	unaffected_species = IS_MACHINE
 	taste_description = "orange cream"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/klax/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -4096,6 +4146,7 @@
 	adj_sleepy = -3
 	caffeine = 0.4
 	taste_description = "flat raspberry"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/cthur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -4109,6 +4160,7 @@
 	color = "#31004A"
 	adj_sleepy = -3
 	taste_description = "viscous cola"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/drone/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
@@ -4134,6 +4186,7 @@
 	adj_sleepy = -3
 	caffeine = 0.3
 	taste_description = "a reassuring spectrum of color"
+	carbonated = TRUE
 
 /datum/reagent/drink/zorasoda/jelly/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
