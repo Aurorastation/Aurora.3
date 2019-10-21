@@ -714,7 +714,7 @@
 
 /obj/item/weapon/neuralbroke
 	name = "fried neural socket"
-	desc = "A Vaurca neural socket subjected to extreme heat. It's security chip appears to be fried."
+	desc = "A chip with wires on it. There is some transparent, viscous fluid coating. The chip seems badly damaged."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
@@ -728,7 +728,7 @@
 
 /obj/item/weapon/storage/part_replacer
 	name = "rapid part exchange device"
-	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
+	desc = "A hefty contraption with a large panelled compartment and sensor array. There is a tube from which the sensors extend from which is also fitted with small grippers."
 	icon_state = "RPED"
 	item_state = "RPED"
 	w_class = 5
@@ -744,14 +744,14 @@
 
 /obj/item/weapon/ectoplasm
 	name = "ectoplasm"
-	desc = "spooky"
+	desc = "An unwordly pile of... something."
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
 
 /obj/item/weapon/anomaly_core
 	name = "anomaly core"
-	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
+	desc = "A pulsating device which seems to have an unfathomable view-bending display through its narrow apertures when looked at."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)

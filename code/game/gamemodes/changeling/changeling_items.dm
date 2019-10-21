@@ -1,6 +1,6 @@
 /obj/item/weapon/melee/arm_blade
 	name = "arm blade"
-	desc = "A grotesque blade made out of bone and flesh that cleaves through people as a hot knife through butter."
+	desc = "A grotesque blade made out of bone and flesh."
 	icon = 'icons/obj/changeling.dmi'
 	icon_state = "arm_blade"
 	item_state = "arm_blade"
@@ -99,7 +99,7 @@
 			host.embedded -= src
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
-		
+
 /obj/item/weapon/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
@@ -109,7 +109,7 @@
 
 /obj/item/weapon/bone_dart
 	name = "bone dart"
-	desc = "A sharp piece of bone shapped as small dart."
+	desc = "A sharp piece of bone shaped like a small dart."
 	icon = 'icons/obj/changeling.dmi'
 	icon_state = "bone_dart"
 	item_state = "bolt"

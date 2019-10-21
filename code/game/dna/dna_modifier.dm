@@ -39,7 +39,7 @@
 /////////////////////////// DNA MACHINES
 /obj/machinery/dna_scannernew
 	name = "\improper DNA modifier"
-	desc = "An imposing chamber with space to fit about one humanoid being. It has a reinforced screen door."
+	desc = "An imposing teched-out chamber with space to fit about one humanoid being. It has a reinforced screen door and an electronic latch on its exterior."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "scanner_0"
 	density = 1
@@ -206,7 +206,7 @@
 
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
-	desc = "Scand DNA."
+	desc = "A console with a modified operating system. It is locked to display certain operations pertaining to genetics when powered."
 	icon_screen = "dna"
 	density = 1
 	circuit = /obj/item/weapon/circuitboard/scan_consolenew

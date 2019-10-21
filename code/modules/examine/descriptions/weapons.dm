@@ -82,3 +82,68 @@
 
 /obj/item/weapon/melee/cultblade
 	description_antag = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted.  Non-believers are unable to use this weapon."
+
+//********
+//*Staves*
+//********
+
+/obj/item/weapon/staff
+	description_info =  "Apparently a staff used by the wizard."
+	description_fluff = "The staff calls back on the outdated appearance of the devices used by wizards in media, such as those found in human board games and film."
+	description_antag = "This pulses with magical energy.<br>\
+	It isn't actually needed to cast spells, but DAMN does it have pizzazz."
+
+/obj/item/weapon/staff/broom
+	description_info = "Used for sweeping, and flying into the night while cackling. Black cat not included."
+	description_fluff = "This broom is based on a dated appearance used during the second millennium of the Common Era of humanity. This design in particular \
+	was once better known as a besom, though is now called broom after the shrubs it acquired its twigs from (Genisteae).<br>\
+	Associations with magic and witchcraft have first been referenced somewhere around 1453 CE by confessed male witch Guillaume Edelin."
+	description_antag = "This pulses with magical energy.<br>\
+	It isn't actually needed to cast spells, but DAMN does it have schmow-zow."
+
+/obj/item/weapon/staff/gentcane
+	description_info = "A cane used by a true gentlemen. Or a clown."
+	description_fluff = "Walking canes have long been used throughout humanity's history for reasons including (but not limited to) posture support, walking assistance, \
+	and fashion.<br>\
+	Canes comes in an incredibly diverse range of styles, but most generally have a hooked end for gripping, which then straightens down to the user's feet.<br>\
+	These items have also been used for defensive and offensive purposes. In the late 19th century, a martial art called Bartitsu was developed in England which utilises \
+	a form of fighting with canes. Readers of the Sherlock Holmes novels may already be somewhat familiar with this form of self-defence."
+	description_antag = "This pulses with magical energy.<br>\
+	It isn't actually needed to cast spells, but DAMN does it have dazzling panache."
+
+/obj/item/weapon/staff/stick
+	description_info = "A great tool to drag someone else's drinks across the bar."
+	description_antag = "This pulses with magical energy.<br>\
+	It isn't actually needed to cast spells, but DAMN does it have razz-ma-tazz."
+
+//************
+//*Bioweapons*
+//************
+
+/obj/item/weapon/melee/arm_blade
+	description_info = "It cleaves through people as a hot knife through butter.<br>\
+	Dropping this will cause it to reform back into a normal arm."
+	description_fluff = "Whatever machinations lay behind the instantaneous modification of one's arm can actually be achieved through a whole manner of methods. \
+	One of the more common ways in which this is done is through a pathogen capable of assimilating and mimicking the cell structure of the host before undergoing, on \
+	command, an extreme alteration of genetic structure following what would be perceived as self-inflicted physical trauma.<br>\
+	However, other unknown possibilities include extreme specimens of fungi, parasites, viruses, bacteria, cybernetics (which may or may not include nanotechnology), \
+	and even alterations of brain signals over a transmitted medium. That is, of course, assuming this is anything non-surreal and comprehensible by current knowledge of \
+	biology.<br>\
+	Regardless of how this radically configured transformation can be explained, the product is that of one of the most grisly horrors never seen before by the eyes \
+	of this galaxy."
+
+/obj/item/weapon/shield/riot/changeling
+	description_info = "Dropping this will cause it to reform back into a normal arm."
+	description_fluff = "Whatever machinations lay behind the instantaneous modification of one's arm can actually be achieved through a whole manner of methods. \
+	One of the more common ways in which this is done is through a pathogen capable of assimilating and mimicking the cell structure of the host before undergoing, on \
+	command, an extreme alteration of genetic structure following what would be perceived as self-inflicted physical trauma.<br>\
+	However, other unknown possibilities include extreme specimens of fungi, parasites, viruses, bacteria, cybernetics (which may or may not include nanotechnology), \
+	and even alterations of brain signals over a transmitted medium. That is, of course, assuming this is anything non-surreal and comprehensible by current knowledge of \
+	biology.<br>\
+	Regardless of how this radically configured transformation can be explained, the product is that of one of the most grisly horrors never seen before by the eyes \
+	of this galaxy."
+
+/obj/item/weapon/bone_dart
+	description_fluff = "Most solid skeletons found in animals can be used as weapons if sharpened to a particular edge or point. In this case, a dart made of organic \
+	materials such as this could easily be made from human, tajaran, skrellian, or unathi ribs, fingers, toes, ossicles, horns, clavicles, teeth, and even vertebrae. \
+	Of course, fragments of bone may work just as well."
