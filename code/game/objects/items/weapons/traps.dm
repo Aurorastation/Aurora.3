@@ -156,7 +156,15 @@
 	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
-	if(captured || !M)
+	if(!M)
+		return
+
+	if(captured)
+		user.visible_message(	
+			"<span class='warning'>[user] traps [M] inside of \the [src].</span>",
+			"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
+			"<b>You hear a loud metallic snap!</b>"
+		)
 		return
 
 	capture(M)
@@ -207,7 +215,7 @@
 
 /obj/item/weapon/trap/animal/proc/req_breakout()
 	if(deployed)
-		return 0 // Cage is open... wait, why are you in it's contents then?
+		return 0 // Trap-door is open.
 	if(breakout)
 		return -1 //Already breaking out.
 	return 1
@@ -281,19 +289,12 @@
 			to_chat(usr, "<span class='warning'>You can't open \the [src] from the inside! You'll need to force it open.</span>")
 			return
 
-		var/turf/T_cage = get_turf(src)
-		var/turf/T_user= get_turf(usr)
-
-		if(!T_cage)
+		var/adj = src.Adjacent(usr)
+		if(!adj)
 			attack_self(src)
 			return
 
-		var/turf/target = get_turf(locate(T_cage.x + (T_cage.x - T_user.x), T_cage.y + (T_cage.y - T_user.y), T_cage.z))
-		if(!target)
-			attack_self(src)
-			return
-
-		release(usr, target)
+		release(usr)
 
 /obj/item/weapon/trap/animal/crush_act()
 	for (var/atom/movable/A in src)
@@ -354,9 +355,10 @@
 	release_time = world.time
 
 /obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
-		var/mob/living/L = pick(contents)
-		W.afterattack(L, user, TRUE)
+	if(istype(W, /obj/item/weapon/reagent_containers) && captured)
+		var/mob/living/L = captured.resolve()
+		if(L)
+			W.afterattack(L, user, TRUE)
 	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src]!</span>",
@@ -390,9 +392,10 @@
 		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 							 "You have [anchored ? "" : "un" ]secured \the [src]!")
 
-	else if(istype(W, /obj/item/weapon) && contents.len)
-		var/mob/living/L = pick(contents)
-		L.attackby(W, user)
+	else if(istype(W, /obj/item/weapon) && captured)
+		var/mob/living/L = captured.resolve()
+		if(L)
+			L.attackby(W, user)
 	else
 		..()
 
@@ -487,7 +490,7 @@
 		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
 		return
 
-	if(!contents.len)
+	if(!captured)
 		return
 
 	release(user, user.loc)
@@ -496,7 +499,7 @@
 	if(world.time - release_time < 50) // If we just released the animal, not to let it get caught again right away
 		return
 
-	if(contents.len) // It is full
+	if(captured) // It is full
 		return
 
 	if(isliving(target))
