@@ -53,9 +53,6 @@ export default {
 
 <style lang="scss" scoped>
   // I am so sorry.
-  vui-progress {
-    width: 300px;
-  }
   ul {
     padding: 4px 4px 10px 10px;
   }

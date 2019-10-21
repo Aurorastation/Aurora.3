@@ -35,12 +35,14 @@
 	component_types = list(
 			/obj/item/weapon/circuitboard/microwave,
 			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/micro_laser,
 			/obj/item/weapon/stock_parts/matter_bin = 2
 		)
+
 	var/cook_time = 400
 	var/start_time = 0
 	var/end_time = 0
+	var/cooking_power = 1
 
 // see code/modules/food/recipes_microwave.dm for recipes
 
@@ -57,6 +59,25 @@
 		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
 	else
 		setup_recipes()
+
+	if(component_parts)
+		component_parts.Cut()
+	else
+		component_parts = list()
+
+	for (var/type in component_types)
+		var/count = component_types[type]
+		if (count > 1)
+			for (var/i in 1 to count)
+				var/obj/t = new type
+				component_parts += t
+				t.forceMove(null)
+		else
+			var/obj/t = new type
+			component_parts += t
+			t.forceMove(null)
+
+	RefreshParts()
 
 /obj/machinery/microwave/proc/setup_recipes()
 	if (!LAZYLEN(acceptable_items))
@@ -276,7 +297,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	if (!recipe)
 		failed = TRUE
-		cook_time = 200
+		cook_time = update_cook_time()
 		dirty += 1
 		if (prob(max(10, dirty*5)))
 			// It's dirty enough to mess up the microwave
@@ -286,46 +307,50 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			cook_break = TRUE
 	else
 		failed = FALSE
-		cook_time = round(recipe.time*4)
+		cook_time = update_cook_time(round(recipe.time * 2))
 
 	start()
 
+/obj/machinery/microwave/proc/update_cook_time(var/ct = 200)
+	RefreshParts()
+	return (ct / cooking_power)
+
 /obj/machinery/microwave/proc/finish_cooking()
-		var/result = recipe.result
-		var/valid = TRUE
-		var/list/cooked_items = list()
-		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
-		while(valid)
-			var/list/things = list()
-			things.Add(recipe.make_food(src))
-			cooked_items += things
-			//Move cooked things to the buffer so they're not considered as ingredients
-			for (var/atom/movable/AM in things)
-				AM.forceMove(temp)
+	var/result = recipe.result
+	var/valid = TRUE
+	var/list/cooked_items = list()
+	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
+	while(valid)
+		var/list/things = list()
+		things.Add(recipe.make_food(src))
+		cooked_items += things
+		//Move cooked things to the buffer so they're not considered as ingredients
+		for (var/atom/movable/AM in things)
+			AM.forceMove(temp)
 
-			valid = FALSE
-			recipe = select_recipe(RECIPE_LIST(appliancetype),src)
-			if (recipe && recipe.result == result)
-				sleep(2)
-				valid = TRUE
+		valid = FALSE
+		recipe = select_recipe(RECIPE_LIST(appliancetype),src)
+		if (recipe && recipe.result == result)
+			sleep(2)
+			valid = TRUE
 
-		for (var/r in cooked_items)
-			var/atom/movable/R = r
-			R.forceMove(src) //Move everything from the buffer back to the container
+	for (var/r in cooked_items)
+		var/atom/movable/R = r
+		R.forceMove(src) //Move everything from the buffer back to the container
 
-		QDEL_NULL(temp)//Delete buffer object
+	QDEL_NULL(temp)//Delete buffer object
 
-		//Any leftover reagents are divided amongst the foods
-		var/total = reagents.total_volume
-		for (var/obj/item/weapon/reagent_containers/food/snacks/S in cooked_items)
-			reagents.trans_to_holder(S.reagents, total/cooked_items.len)
+	//Any leftover reagents are divided amongst the foods
+	var/total = reagents.total_volume
+	for (var/obj/item/weapon/reagent_containers/food/snacks/S in cooked_items)
+		reagents.trans_to_holder(S.reagents, total/cooked_items.len)
 
-		for (var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
-			S.cook()
+	for (var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
+		S.cook()
 
-		eject(0) //clear out anything left
+	eject(0) //clear out anything left
 
-		return
+	return
 
 /obj/machinery/microwave/process()
 	if (stat & (NOPOWER|BROKEN))
@@ -506,3 +531,22 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	set_light(0)
 	soundloop.stop()
 	update_icon()
+
+/obj/machinery/microwave/RefreshParts()
+	..()
+	var/bin_rating = 0 // 2
+	var/cap_rating = 0 // 3
+	var/las_rating = 0 // 1
+
+	for (var/obj/item/weapon/stock_parts/P in component_parts)
+		if(ismatterbin(P))
+			bin_rating += (P.rating - 1)
+		else if(iscapacitor(P))
+			cap_rating += (P.rating - 1)
+		else if(ismicrolaser(P))
+			las_rating += (P.rating - 1)
+
+	active_power_usage = initial(active_power_usage) - (cap_rating * 25)
+	max_n_of_items = initial(max_n_of_items) + Floor(bin_rating)
+	cooking_power = initial(cooking_power) + (las_rating / 3)
+
