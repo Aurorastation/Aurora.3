@@ -29,8 +29,6 @@
 		for(var/team in all_teams)
 			CHECK_TICK
 			var/datum/responseteam/ert = new team
-			if(!ert) 
-				continue
 			available_teams += ert
 
 /datum/controller/subsystem/responseteam/stat_entry()
@@ -69,6 +67,7 @@
 		for(var/datum/responseteam/R in available_teams)
 			if(R.name == forced_choice)
 				picked_team = R
+				break
 	else
 		picked_team = pick_random_team()
 
