@@ -1,6 +1,6 @@
 /obj/item/weapon/phone
 	name = "red phone"
-	desc = "A 20th-cenctury handset-style red telephone complete with receiver and base station."
+	desc = "A 20th-cenctury handset-style red telephone complete with receiver, base station, and rotary dial."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
@@ -121,7 +121,7 @@
 							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
 								shoulddisarm += 2
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to its original position.</span>", "<span class='[class]'>You flip the [name] back to its original position.</span>")
 					return 0
 			damageamount *= 0.25
 		if(I_GRAB)
@@ -135,7 +135,7 @@
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to its original position.</span>", "<span class='[class]'>You flip the [name] back to its original position.</span>")
 					return 0
 			else
 				soundname = "punch"
@@ -271,7 +271,7 @@
 
 /obj/item/weapon/cane/crutch
 	name ="crutch"
-	desc = "A long stick with a crosspiece at the top, used to help with walking."
+	desc = "A long stick with a padded crosspiece at the top."
 	icon_state = "crutch"
 	item_state = "crutch"
 
@@ -308,7 +308,7 @@
 
 /obj/item/weapon/legcuffs
 	name = "legcuffs"
-	desc = "Use this to keep prisoners in line."
+	desc = "Metal manacles just the right size for most humanoid ankles."
 	gender = PLURAL
 	icon = 'icons/obj/items.dmi'
 	icon_state = "handcuff"
@@ -319,7 +319,7 @@
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
 
 /obj/item/weapon/caution
-	desc = "Caution! Wet Floor!"
+	desc = "A bright yellow sign displaying a large exclamation mark. There are hazard lights on either side with a small switch at the top of the sign."
 	name = "wet floor sign"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "caution"
@@ -349,7 +349,7 @@
 		to_chat(usr, "You turn the sign off.")
 
 /obj/item/weapon/caution/cone
-	desc = "This cone is trying to warn you of something!"
+	desc = "A fluorescent orange cone with white stripes."
 	name = "warning cone"
 	icon_state = "cone"
 	item_state = "cone"
@@ -402,8 +402,8 @@
 	origin_tech = list(TECH_MAGNET = 1)
 
 /obj/item/weapon/staff
-	name = "wizards staff"
-	desc = "Apparently a staff used by the wizard."
+	name = "wizard staff"
+	desc = "A long wooden staff with some sort of glowing orb mounted at the top."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
 	force = 3.0
@@ -415,20 +415,20 @@
 
 /obj/item/weapon/staff/broom
 	name = "broom"
-	desc = "Used for sweeping, and flying into the night while cackling. Black cat not included."
+	desc = "A simple wooden broomstick."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "broom"
 
 /obj/item/weapon/staff/gentcane
-	name = "Gentlemans Cane"
-	desc = "An ebony can with an ivory tip."
+	name = "gentleman cane"
+	desc = "An ebony cane with an ivory tip."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
 
 /obj/item/weapon/staff/stick
 	name = "stick"
-	desc = "A great tool to drag someone else's drinks across the bar."
+	desc = "A simple stick."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "stick"
 	item_state = "stick"

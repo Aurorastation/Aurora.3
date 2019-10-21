@@ -39,7 +39,7 @@
 /////////////////////////// DNA MACHINES
 /obj/machinery/dna_scannernew
 	name = "\improper DNA modifier"
-	desc = "It scans DNA structures."
+	desc = "An imposing chamber with space to fit about one humanoid being. It has a reinforced screen door."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "scanner_0"
 	density = 1
