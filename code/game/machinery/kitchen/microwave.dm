@@ -298,7 +298,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	if (!recipe)
 		failed = TRUE
 		cook_time = update_cook_time()
-		dirty += 1
+		dirty += 5
 		if (prob(max(10, dirty*5)))
 			// It's dirty enough to mess up the microwave
 			cook_dirty = TRUE
@@ -496,7 +496,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			to_chat(user, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
 			RC.reagents.add_reagent(R.id, R.volume)
 			reagents.remove_reagent(R.id, R.volume)
-		else if(free_space == 0)
+		else if(free_space <= 0)
 			to_chat(user, "<span class='warning'>[RC.name] is full!</span>")
 		else
 			to_chat(user, "<span class='notice'>You empty [free_space] units of [R.name] into your [RC.name].</span>")
