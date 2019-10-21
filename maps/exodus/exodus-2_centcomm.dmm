@@ -11817,7 +11817,7 @@
 /area/wizard_station)
 "aJI" = (
 /obj/structure/table/wood,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

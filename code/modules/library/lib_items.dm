@@ -165,10 +165,10 @@
 
 	New()
 		..()
-		new /obj/item/weapon/book/manual/engineering_construction(src)
+		new /obj/item/weapon/book/manual/wiki/engineering_construction(src)
 		new /obj/item/weapon/book/manual/engineering_particle_accelerator(src)
-		new /obj/item/weapon/book/manual/engineering_hacking(src)
-		new /obj/item/weapon/book/manual/engineering_guide(src)
+		new /obj/item/weapon/book/manual/wiki/engineering_hacking(src)
+		new /obj/item/weapon/book/manual/wiki/engineering_guide(src)
 		new /obj/item/weapon/book/manual/atmospipes(src)
 		new /obj/item/weapon/book/manual/engineering_singularity_safety(src)
 		new /obj/item/weapon/book/manual/evaguide(src)

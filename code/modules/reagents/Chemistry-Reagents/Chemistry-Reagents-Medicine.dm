@@ -1207,6 +1207,36 @@
 	if (prob(dose))
 		M.vomit()
 
+
+/datum/reagent/mental/kokoreed
+	name = "Koko Reed Juice"
+	id = "kokoreed"
+	description = "Juice from the Koko reed plant. Caused unique mental effects in unathi"
+	reagent_state = LIQUID
+	color = "#008000"
+	metabolism = 0.0016 * REM
+	overdose = 3
+	data = 0
+	taste_description = "sugar"
+	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+	badmessage = list()
+	worstmessage = list()
+	suppress_traumas  = list()
+	conflicting_reagent = null
+	min_dose = 0.0064 * REM
+	var/datum/modifier/modifier
+
+/datum/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	. = ..()
+	if(M.bodytemperature > 310)
+		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/datum/reagent/mental/kokoreed/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+	. = ..()
+	if(isunathi(M))
+		if (!modifier)
+			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
 /datum/reagent/mannitol
 	name = "Mannitol"
 	id = "mannitol"
