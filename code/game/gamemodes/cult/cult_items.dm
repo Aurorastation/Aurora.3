@@ -71,7 +71,7 @@
 /obj/item/clothing/head/culthood/magus
 	name = "magus helm"
 	icon_state = "magus"
-	desc = "A helm worn by the followers of Nar-Sie."
+	desc = "A helmet adorned with small tear-shaped ornaments on the sides of the eye port."
 	flags_inv = HIDEFACE | BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 

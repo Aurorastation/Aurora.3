@@ -81,6 +81,7 @@
 	it can be concealed in your pocket or bag."
 
 /obj/item/weapon/melee/cultblade
+	description_fluff = "While it is still recognisable as a large sword, it's almost as if the blade itself was made of some unrecognisable material."
 	description_antag = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted.  Non-believers are unable to use this weapon."
 
 //********
@@ -126,9 +127,9 @@
 	description_fluff = "Whatever machinations lay behind the instantaneous modification of one's arm can actually be achieved through a whole manner of methods. \
 	One of the more common ways in which this is done is through a pathogen capable of assimilating and mimicking the cell structure of the host before undergoing, on \
 	command, an extreme alteration of genetic structure following what would be perceived as self-inflicted physical trauma.<br>\
-	However, other unknown possibilities include extreme specimens of fungi, parasites, viruses, bacteria, cybernetics (which may or may not include nanotechnology), \
-	and even alterations of brain signals over a transmitted medium. That is, of course, assuming this is anything non-surreal and comprehensible by current knowledge of \
-	biology.<br>\
+	However, other unknown possibilities include extreme specimens of fungi, parasites, viruses, bacteria, protozoa, cybernetics (which may or may not include \
+	nanotechnology), and even alterations of brain signals over a transmitted medium. That is, of course, assuming this is anything non-surreal and comprehensible by \
+	current knowledge of biology.<br>\
 	Regardless of how this radically configured transformation can be explained, the product is that of one of the most grisly horrors never seen before by the eyes \
 	of this galaxy."
 
@@ -137,9 +138,9 @@
 	description_fluff = "Whatever machinations lay behind the instantaneous modification of one's arm can actually be achieved through a whole manner of methods. \
 	One of the more common ways in which this is done is through a pathogen capable of assimilating and mimicking the cell structure of the host before undergoing, on \
 	command, an extreme alteration of genetic structure following what would be perceived as self-inflicted physical trauma.<br>\
-	However, other unknown possibilities include extreme specimens of fungi, parasites, viruses, bacteria, cybernetics (which may or may not include nanotechnology), \
-	and even alterations of brain signals over a transmitted medium. That is, of course, assuming this is anything non-surreal and comprehensible by current knowledge of \
-	biology.<br>\
+	However, other unknown possibilities include extreme specimens of fungi, parasites, viruses, bacteria, protozoa, cybernetics (which may or may not include \
+	nanotechnology), and even alterations of brain signals over a transmitted medium. That is, of course, assuming this is anything non-surreal and comprehensible by \
+	current knowledge of biology.<br>\
 	Regardless of how this radically configured transformation can be explained, the product is that of one of the most grisly horrors never seen before by the eyes \
 	of this galaxy."
 

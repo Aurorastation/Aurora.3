@@ -1470,6 +1470,7 @@
 #include "code\modules\examine\examine.dm"
 #include "code\modules\examine\descriptions\armor.dm"
 #include "code\modules\examine\descriptions\atmospherics.dm"
+#include "code\modules\examine\descriptions\clothing.dm"
 #include "code\modules\examine\descriptions\containers.dm"
 #include "code\modules\examine\descriptions\devices.dm"
 #include "code\modules\examine\descriptions\food.dm"
