@@ -156,10 +156,6 @@
 	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> minor changes wip
 	if(!M)
 		return
 
@@ -169,12 +165,6 @@
 			"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
 			"<b>You hear a loud metallic snap!</b>"
 		)
-<<<<<<< HEAD
-=======
-	if(captured || !M)
->>>>>>> refactor WIP
-=======
->>>>>>> minor changes wip
 		return
 
 	capture(M)
@@ -225,15 +215,7 @@
 
 /obj/item/weapon/trap/animal/proc/req_breakout()
 	if(deployed)
-<<<<<<< HEAD
-<<<<<<< HEAD
 		return 0 // Trap-door is open.
-=======
-		return 0 // Cage is open... wait, why are you in it's contents then?
->>>>>>> refactor WIP
-=======
-		return 0 // Trap-door is open.
->>>>>>> minor changes wip
 	if(breakout)
 		return -1 //Already breaking out.
 	return 1
