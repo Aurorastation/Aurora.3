@@ -378,7 +378,7 @@
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
-		playsound(src, fire_sound, 75, 1, 5, 0.9, 1)
+		playsound(user, fire_sound, 75, 1, 5, 0.9, 1)
 
 		if (playemote)
 			if(reflex)
@@ -490,7 +490,7 @@
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
-			playsound(src, fire_sound, 75, 1, 5, 0.9, 1)
+			playsound(user, fire_sound, 75, 1, 5, 0.9, 1)
 
 		in_chamber.on_hit(M)
 
