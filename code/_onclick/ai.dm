@@ -154,6 +154,15 @@
 /atom/proc/AIAltClick(var/atom/A)
 	return AltClick(A)
 
+/obj/machinery/door/airlock/AIAltClick() // Electrifies doors.
+	if(!electrified_until)
+		// permanent shock
+		Topic(src, list("command"="electrify_permanently", "activate" = "1"))
+	else
+		// disable/6 is not in Topic; disable/5 disables both temporary and permanent shock
+		Topic(src, list("command"="electrify_permanently", "activate" = "0"))
+	return 1
+
 /obj/machinery/turretid/AIAltClick() //toggles lethal on turrets
 	Topic(src, list("command"="lethal", "value"="[!lethal]"))
 	return 1
