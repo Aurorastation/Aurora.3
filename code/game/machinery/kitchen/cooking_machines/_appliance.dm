@@ -39,14 +39,7 @@
 
 	var/container_type = null
 
-	var/combine_first = 0//If 1, this appliance will do combinaiton cooking before checking recipes
-
-	component_types = list(
-			/obj/item/weapon/circuitboard/cooking,
-			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/matter_bin = 2
-		)
+	var/combine_first = FALSE//If 1, this appliance will do combinaiton cooking before checking recipes
 
 /obj/machinery/appliance/Initialize()
 	. = ..()
@@ -65,7 +58,7 @@
 	..()
 	if(Adjacent(usr))
 		list_contents(user)
-		return 1
+		return TRUE
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
 	if (cooking_objs.len)
@@ -214,6 +207,8 @@
 	else if(istype(check, /obj/item/weapon/disk/nuclear))
 		to_chat(user, "<span class='warning'>You can't cook that.</span>")
 		return 0
+	else if(istype(I, /obj/item/weapon/crowbar) || istype(I, /obj/item/weapon/screwdriver) || istype(I, /obj/item/weapon/storage/part_replacer))
+		return 0
 	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
 		to_chat(user, "<span class='warning'>That's not edible.</span>")
 		return 0
@@ -224,9 +219,9 @@
 //This function is overridden by cookers that do stuff with containers
 /obj/machinery/appliance/proc/has_space(var/obj/item/I)
 	if (cooking_objs.len >= max_contents)
-		return 0
+		return FALSE
 
-	else return 1
+	else return TRUE
 
 /obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
 	if(!cook_type || (stat & (BROKEN)))
@@ -238,6 +233,8 @@
 		if(default_deconstruction_screwdriver(user, I))
 			return
 		else if(default_part_replacement(user, I))
+			return
+		else if(default_deconstruction_crowbar(user, I))
 			return
 		else
 			return
@@ -258,7 +255,7 @@
 		return
 
 	var/datum/cooking_item/CI = has_space(I)
-	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container) && CI == 1)
+	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container) && CI)
 		var/obj/item/weapon/reagent_containers/cooking_container/CC = I
 		CI = new /datum/cooking_item/(CC)
 		I.forceMove(src)
@@ -280,7 +277,7 @@
 	user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
 
 	get_cooking_work(CI)
-	cooking = 1
+	cooking = TRUE
 	return CI
 
 /obj/machinery/appliance/proc/get_cooking_work(var/datum/cooking_item/CI)
@@ -340,11 +337,11 @@
 //Called every tick while we're cooking something
 /obj/machinery/appliance/proc/do_cooking_tick(var/datum/cooking_item/CI)
 	if (!CI.max_cookwork)
-		return 0
+		return FALSE
 
-	var/was_done = 0
+	var/was_done = FALSE
 	if (CI.cookwork >= CI.max_cookwork)
-		was_done = 1
+		was_done = TRUE
 
 	CI.cookwork += cooking_power
 
@@ -361,7 +358,7 @@
 		if (M)
 			M.apply_damage(rand(1,3), mobdamagetype, "chest")
 
-	return 1
+	return TRUE
 
 /obj/machinery/appliance/machinery_process()
 	if (cooking_power > 0 && cooking)
@@ -518,7 +515,7 @@
 
 /obj/machinery/appliance/proc/burn_food(var/datum/cooking_item/CI)
 	// You dun goofed.
-	CI.burned = 1
+	CI.burned = TRUE
 	CI.container.clear()
 	new /obj/item/weapon/reagent_containers/food/snacks/badrecipe(CI.container)
 
@@ -549,25 +546,25 @@
 			var/datum/cooking_item/CI = menuoptions[selection]
 			eject(CI, user)
 			update_icon()
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/appliance/proc/can_remove_items(var/mob/user)
 	if (!Adjacent(user))
-		return 0
+		return FALSE
 
 	if (isanimal(user))
-		return 0
+		return FALSE
 
-	return 1
+	return TRUE
 
 /obj/machinery/appliance/proc/eject(var/datum/cooking_item/CI, var/mob/user = null)
 	var/obj/item/thing
-	var/delete = 1
+	var/delete = TRUE
 	var/status = CI.container.check_contents()
 	if (status == 1)//If theres only one object in a container then we extract that
 		thing = locate(/obj/item) in CI.container
-		delete = 0
+		delete = FALSE
 	else//If the container is empty OR contains more than one thing, then we must extract the container
 		thing = CI.container
 	if (!user || !user.put_in_hands(thing))
@@ -645,7 +642,7 @@
 		//3 Combination cooking, EG Donut Bread, Donk pocket pizza, etc
 		//4:Specific recipe cooking. EG: Turning raw potato sticks into fries
 
-	var/burned = 0
+	var/burned = FALSE
 
 	var/oil = 0
 	var/max_oil = 0//Used for fryers.
@@ -658,7 +655,7 @@
 	max_cookwork = 0
 	cookwork = 0
 	result_type = 0
-	burned = 0
+	burned = FALSE
 	max_oil = 0
 	oil = 0
 	combine_target = null
@@ -678,12 +675,3 @@
 	active_power_usage = initial(active_power_usage) - scan_rating * 25
 	heating_power = initial(heating_power) + cap_rating * 25
 	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // 100% eff. becomes 120%, 140%, 160% w/ better parts
-
-/obj/item/weapon/circuitboard/cooking
-	name = "kitchen appliance circuitry"
-	desc = "The circuitboard for many kitchen appliances. Not of much use."
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	req_components = list(
-							"/obj/item/weapon/stock_parts/capacitor" = 3,
-							"/obj/item/weapon/stock_parts/scanning_module" = 1,
-							"/obj/item/weapon/stock_parts/matter_bin" = 2)

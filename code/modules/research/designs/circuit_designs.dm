@@ -294,7 +294,7 @@
 	name = "smart fridge board"
 	id = "fridge_board"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/weapon/circuitboard/optable
+	build_path = /obj/item/weapon/circuitboard/smartfridge
 	sort_string = "HACAJ"
 
 /datum/design/circuit/requestconsole
@@ -325,6 +325,41 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/weapon/circuitboard/crystelpodconsole
 	sort_string = "HACAL"
+
+/datum/design/circuit/microwave
+	name = "microwave board"
+	id = "microwave_board"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/microwave
+	sort_string = "HACAM"
+
+/datum/design/circuit/oven
+	name = "oven board"
+	id = "oven_board"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/oven
+	sort_string = "HACAN"
+
+/datum/design/circuit/fryer
+	name = "deep fryer board"
+	id = "fryer_board"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/fryer
+	sort_string = "HACAO"
+
+/datum/design/circuit/cerealmaker
+	name = "cereal maker board"
+	id = "cerealmaker_board"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/cerealmaker
+	sort_string = "HACAP"
+
+/datum/design/circuit/candymaker
+	name = "candy machine board"
+	id = "candymachine_board"
+	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/weapon/circuitboard/candymachine
+	sort_string = "HACAQ"
 
 
 

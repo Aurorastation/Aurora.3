@@ -110,7 +110,7 @@
 					if(P.iswirecutter())
 						playsound(src.loc, P.usesound, 50, 1, pitch_toggle)
 						to_chat(user, span("notice", "You remove the cables."))
-						state = 1
+						state = 2
 						icon_state = "blueprint_0"
 						var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( src.loc )
 						A.amount = 5

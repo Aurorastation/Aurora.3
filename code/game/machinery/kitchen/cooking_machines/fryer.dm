@@ -28,6 +28,13 @@
 	var/optimal_oil = 9000//90 litres of cooking oil
 	var/datum/looping_sound/deep_fryer/fry_loop
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/fryer,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
 		to_chat(user, "Oil Level: [oil.total_volume]/[optimal_oil]")
