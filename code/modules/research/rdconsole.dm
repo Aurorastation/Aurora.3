@@ -127,8 +127,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			S.setup()
 			break
 	SyncRDevices()
-	spawn(30)
-		SyncTechs()
+	addtimer(CALLBACK(src, .proc/SyncTechs), 30)
 
 /obj/machinery/computer/rdconsole/Destroy()
 	if(linked_destroy != null)
@@ -300,8 +299,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			to_chat(usr, "<span class='notice'>You must connect to the network first.</span>")
 		else
 			griefProtection() //Putting this here because I dont trust the sync process
-			spawn(30)
-				SyncTechs()
+			addtimer(CALLBACK(src, .proc/SyncTechs), 30)
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync
