@@ -151,7 +151,7 @@
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10,
-		/obj/item/weapon/reagent_containers/food/drinks/soymilk
+		/obj/item/weapon/reagent_containers/food/drinks/soymilk = 2
 	)
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
