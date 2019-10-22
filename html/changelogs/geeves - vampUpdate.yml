@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Vampires can now choose whether they want their victims to remember the sucking, or forget and be paralyzed."
   - tweak: "Vamps now inject fake blood into the victim, to trick medical scanners into thinking no blood has been lost."
-  - rscadd: "A new vampire ability has been added, "Kiss of Life", which gives the target beneficial chemicals."
+  - rscadd: "A new vampire ability has been added, "Touch of Life", which gives the target beneficial chemicals."

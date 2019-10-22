@@ -44,12 +44,11 @@ var/list/datum/power/vampire/vampirepowers = list()
 	blood_cost = 50
 	verbpath = /mob/living/carbon/human/proc/vampire_presence
 
-/datum/power/vampire/kiss_of_life
-	name = "Kiss of Life"
-	desc = "You kiss the target, transferring healing chemicals to them."
-	helptext = "This will likely get you shouted at by security. Disguise it as CPR, or do it in shadows."
+/datum/power/vampire/touch_of_life
+	name = "Touch of Life"
+	desc = "You touch the target, transferring healing chemicals to them."
 	blood_cost = 50
-	verbpath = /mob/living/carbon/human/proc/vampire_kiss_of_life
+	verbpath = /mob/living/carbon/human/proc/vampire_touch_of_life
 
 /datum/power/vampire/veil_step
 	name = "Veil Step"

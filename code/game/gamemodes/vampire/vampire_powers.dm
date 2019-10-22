@@ -827,10 +827,10 @@
 			to_chat(src, "<span class='warning'>You are no longer influencing those weak of mind.</span>")
 			break
 
-/mob/living/carbon/human/proc/vampire_kiss_of_life()
+/mob/living/carbon/human/proc/vampire_touch_of_life()
 	set category = "Vampire"
-	set name = "Kiss of Life (50)"
-	set desc = "You plant a kiss on the target, transferring healing chemicals to them."
+	set name = "Touch of Life (50)"
+	set desc = "You lay your hands on the target, transferring healing chemicals to them."
 
 	var/datum/vampire/vampire = vampire_power(50, 0)
 	if (!vampire)
@@ -845,12 +845,9 @@
 	if (T.species.flags & NO_BLOOD)
 		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
 		return
-	if (vampire.status & VAMP_DRAINING)
-		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
-		return
 
-	visible_message("<b>[src]</b> kisses [T].")
-	to_chat(T, span("notice", "You feel pure bliss as [src] kisses you."))
+	visible_message("<b>[src]</b> gently touches [T].")
+	to_chat(T, span("notice", "You feel pure bliss as [src] touches you."))
 
 	T.reagents.add_reagent("rezadone", 3)
 	T.reagents.add_reagent("oxycodone", 0.15) //enough to get back onto their feet
