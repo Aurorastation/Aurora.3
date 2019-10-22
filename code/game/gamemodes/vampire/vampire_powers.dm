@@ -849,7 +849,7 @@
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
 
-	visible_message("[src] kisses [T].")
+	visible_message("<b>[src]</b> kisses [T].")
 	to_chat(T, span("notice", "You feel pure bliss as [src] kisses you."))
 
 	T.reagents.add_reagent("rezadone", 3)
