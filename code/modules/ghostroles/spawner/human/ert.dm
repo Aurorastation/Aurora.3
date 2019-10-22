@@ -28,7 +28,7 @@
 	welcome_message = "You're part of the Nanotrasen Phoenix ERT, stationed at the Odin. Your usual powers apply here."
 	max_count = 2
 	outfit = /datum/outfit/admin/ert/nanotrasen
-	mob_name_prefix = "Tpr."
+	mob_name_prefix = "Tpr. "
 	spawnpoints = list("NTERTSpawn")
 
 /datum/ghostspawner/human/ert/nanotrasen/specialist
