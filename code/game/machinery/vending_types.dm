@@ -368,7 +368,7 @@
 		/obj/item/weapon/reagent_containers/food/drinks/medcup = 4
 	)
 	contraband = list(
-		/obj/item/weapon/reagent_containers/glass/bottle/chloralhydrate = 2,
+		/obj/item/weapon/reagent_containers/inhaler/space_drugs = 2,
 		/obj/item/weapon/reagent_containers/pill/tox = 3,
 		/obj/item/weapon/reagent_containers/pill/stox = 4
 	)
