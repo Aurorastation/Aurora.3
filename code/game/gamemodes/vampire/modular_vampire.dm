@@ -4,6 +4,13 @@ var/list/datum/power/vampire/vampirepowers = list()
 /datum/power/vampire
 	var/blood_cost = 0
 
+/datum/power/vampire/alertness
+	name = "Alertness"
+	desc = "Toggle whether you wish for your victims to get paralyzed and forget your deeds."
+	helptext = "If active, victims will become paralyzed and forget that you fed on them, instead remembering only a pleasant encounter."
+	blood_cost = 0
+	verbpath = /mob/living/carbon/human/proc/vampire_alertness
+
 /datum/power/vampire/drain_blood
 	name = "Drain Blood"
 	desc = "Feed on the blood of a humanoid creature in order to gain further power."
@@ -36,6 +43,13 @@ var/list/datum/power/vampire/vampirepowers = list()
 	helptext = "While active, people around will receive social cues to be friendlier towards your character."
 	blood_cost = 50
 	verbpath = /mob/living/carbon/human/proc/vampire_presence
+
+/datum/power/vampire/kiss_of_life
+	name = "Kiss of Life"
+	desc = "You kiss the target, transferring healing chemicals to them."
+	helptext = "This will likely get you shouted at by security. Disguise it as CPR, or do it in shadows."
+	blood_cost = 50
+	verbpath = /mob/living/carbon/human/proc/vampire_kiss_of_life
 
 /datum/power/vampire/veil_step
 	name = "Veil Step"

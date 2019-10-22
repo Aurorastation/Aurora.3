@@ -129,6 +129,26 @@
 			var/datum/disease/D = thing
 			. += D
 
+//Fake blood for vampires to inject to trick health analyzers
+/datum/reagent/fakeblood
+	name = "Blood"
+	id = "fakeblood"
+	reagent_state = LIQUID
+	color = "#C80000"
+	metabolism = REM * 5
+	taste_description = "iron"
+	taste_mult = 1.3
+
+	scannable = FALSE
+
+	glass_icon_state = "glass_red"
+	glass_name = "glass of tomato juice"
+	glass_desc = "Are you sure this is tomato juice?"
+
+	fallback_specific_heat = 3.617
+
+	unaffected_species = IS_MACHINE
+
 /datum/reagent/vaccine
 	name = "Vaccine"
 	id = "vaccine"

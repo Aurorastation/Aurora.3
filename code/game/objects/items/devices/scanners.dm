@@ -212,8 +212,8 @@ BREATH ANALYZER
 		if (IB == TRUE)
 			user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
 		if(M:vessel)
-			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
-			var/blood_percent =  blood_volume / 560
+			var/blood_volume = round(M:vessel.get_reagent_amount("blood") + M:vessel.get_reagent_amount("fakeblood"))
+			var/blood_percent = blood_volume / 560
 			var/blood_type = M.dna.b_type
 			blood_percent *= 100
 			if(blood_volume <= 500 && blood_volume > 336)

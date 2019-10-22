@@ -352,7 +352,7 @@
 		data["paralysis"]		= occupant.paralysis
 		data["bodytemp"]		= occupant.bodytemperature
 		data["occupant"] 		= occupant
-		data["bloodAmt"] 		= B.get_reagent_amount("blood")
+		data["bloodAmt"] 		= B.get_reagent_amount("blood") + B.get_reagent_amount("fakeblood")
 		data["bloodMax"] 		= 560	// You'd think this'd be defined somewhere.
 		data["bloodPerc"]		= (data["bloodAmt"] / data["bloodMax"]) * 100
 		data["bloodStatus"]		= val2status(data["bloodAmt"], B.total_volume * 0.9, B.total_volume * 0.8, inverse = 1)
