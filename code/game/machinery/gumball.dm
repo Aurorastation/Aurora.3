@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
 	layer = 2.9
-	anchored = 0
+	anchored = 1
 	density = 1
 	use_power = 1
 	idle_power_usage = 10
@@ -104,6 +104,7 @@
 			new vendingtype(src.loc)
 		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", "You hear glass shatter!")
 	stat |= BROKEN
+	anchored = FALSE
 	broken = TRUE
 	amountleft = FALSE
 
