@@ -15293,11 +15293,6 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
-"aCd" = (
-/obj/machinery/vending/snack,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
 "aCe" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -16404,11 +16399,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aDZ" = (
-/obj/structure/table/standard,
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/machinery/ringer{
 	department = "Engineering";
 	id = "engie_ringer";
@@ -16416,7 +16406,7 @@
 	pixel_y = 0;
 	req_access = list(10)
 	},
-/obj/item/weapon/storage/box/donkpockets,
+/obj/effect/floor_decal/corner/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aEa" = (
@@ -17457,7 +17447,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFJ" = (
-/obj/item/weapon/stool/padded,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -17473,10 +17462,10 @@
 /obj/effect/landmark/start{
 	name = "Atmospheric Technician"
 	},
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFK" = (
-/obj/item/weapon/stool/padded,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -17492,10 +17481,10 @@
 /obj/effect/landmark/start{
 	name = "Station Engineer"
 	},
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFL" = (
-/obj/item/weapon/stool/padded,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -17511,6 +17500,7 @@
 /obj/effect/landmark/start{
 	name = "Engineering Apprentice"
 	},
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFM" = (
@@ -17559,10 +17549,6 @@
 /area/engineering/foyer)
 "aFP" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 32
 	},
@@ -17570,6 +17556,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/machinery/recharger,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aFQ" = (
@@ -18700,16 +18687,10 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHK" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/machinery/recharger,
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
-"aHL" = (
-/obj/structure/table/wood/gamblingtable,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHN" = (
-/obj/item/weapon/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
@@ -18719,39 +18700,22 @@
 /obj/effect/landmark/start{
 	name = "Station Engineer"
 	},
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHO" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
-"aHP" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/box/drinkingglasses{
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
 "aHQ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
-	dir = 5
+	dir = 6
 	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full,
+/obj/item/weapon/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -19681,7 +19645,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJj" = (
-/obj/item/weapon/stool/padded,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -19695,20 +19658,20 @@
 /obj/effect/landmark/start{
 	name = "Chief Engineer"
 	},
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
-"aJk" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/device/flashlight/lamp/green,
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJl" = (
-/obj/item/weapon/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/structure/bed/chair/office/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -20728,7 +20691,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLa" = (
-/obj/item/weapon/stool/padded,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
@@ -20736,10 +20698,12 @@
 /obj/effect/landmark/start{
 	name = "Engineering Apprentice"
 	},
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLb" = (
-/obj/item/weapon/stool/padded,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
@@ -20747,16 +20711,21 @@
 /obj/effect/landmark/start{
 	name = "Station Engineer"
 	},
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aLc" = (
-/obj/item/weapon/stool/padded,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/landmark/start{
 	name = "Atmospheric Technician"
+	},
+/obj/structure/bed/chair/office/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -63599,11 +63568,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
-"elB" = (
-/obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/storage/fancy/crayons/chalkbox,
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
 "enl" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/decal/cleanable/dirt,
@@ -89306,7 +89270,7 @@ aBZ
 aDU
 aFJ
 aHK
-aHL
+aHK
 aLa
 aMS
 aOG
@@ -89562,8 +89526,8 @@ auf
 aCa
 aDU
 aFJ
-aHL
-elB
+aHK
+aHK
 aLb
 aMS
 aOH
@@ -89819,8 +89783,8 @@ aAE
 aCb
 aDU
 aFK
-aHL
-aJk
+aHK
+aHK
 aLb
 aMS
 aOI
@@ -90076,8 +90040,8 @@ aAF
 aCc
 aDU
 aFL
-aHL
-aHL
+aHK
+aHK
 aLc
 aMS
 aOJ
@@ -90587,7 +90551,7 @@ avT
 axA
 azj
 aAH
-aCd
+aDW
 aDW
 aFN
 aDW
@@ -91104,7 +91068,7 @@ aAJ
 aCf
 aDY
 aDY
-aHP
+aDY
 aJm
 aLg
 aDY
