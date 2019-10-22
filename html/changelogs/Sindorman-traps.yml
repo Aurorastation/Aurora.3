@@ -43,3 +43,4 @@ changes:
   - bugfix: "Deconstructing trap with prey inside no longer makes prey anchored to the turf."
   - bugfix: "You cannot buckle a person into a trap."
   - bugfix: "You can no longer deconstruct trap with welder off."
+  - bugfix: "Passing throuh trap no longer traps you if it is full."
