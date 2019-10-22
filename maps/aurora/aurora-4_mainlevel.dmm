@@ -42820,14 +42820,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvi" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -42846,20 +42844,18 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvl" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
-"bvm" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/white,
+/area/medical/reception)
+"bvm" = (
+/obj/machinery/gumballmachine/sucker,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -55875,6 +55871,7 @@
 	dir = 4;
 	network = list("Service")
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVz" = (
@@ -64856,6 +64853,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"ipZ" = (
+/obj/machinery/gumballmachine/sucker,
+/turf/simulated/floor/carpet,
+/area/library)
 "iqX" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -65537,6 +65538,14 @@
 /mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"kVO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/machinery/gumballmachine/sucker,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "kWH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -67720,6 +67729,10 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"rvM" = (
+/obj/machinery/gumballmachine,
+/turf/simulated/floor/carpet,
+/area/library)
 "rxp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -96002,7 +96015,7 @@ bMF
 bJN
 bOl
 bOK
-bJL
+ipZ
 bPR
 bJL
 bQO
@@ -96259,7 +96272,7 @@ bMF
 bJN
 bOm
 bOK
-bJL
+rvM
 bPS
 bJL
 bQP
@@ -99360,7 +99373,7 @@ bVX
 bWl
 bVx
 bVX
-bVX
+kVO
 bVX
 bVX
 bWL
