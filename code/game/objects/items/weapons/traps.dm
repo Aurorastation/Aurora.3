@@ -639,7 +639,7 @@
 		)
 		if (!do_after(usr, 2 SECONDS, act_target = src))
 			return
-		if(usr.a_intent == I_HELP || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
+		if(usr.a_intent == I_HELP || captured?.resolve() || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
 			usr.forceMove(src.loc)
 			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
 								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
