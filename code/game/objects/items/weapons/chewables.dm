@@ -134,19 +134,6 @@ obj/item/clothing/mask/chewable/Destroy()
 	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),10)
 	color = reagents.get_color()
 
-/obj/item/clothing/mask/chewable/candy/gum/verb/blowbubble()
-	set name = "Blow bubble"
-	set category = "Object"
-
-
-	if (ismob(usr))
-		var/mob/M = usr
-		var/blowposition = M.loc
-		if (M.loc != blowposition)
-			to_chat(M, span("notice", "You moved, popping your bubble!"))
-		else
-			src.visible_message("[M.name] blows a bubble, what a cool cat!", "You blow a bubble!")
-
 /obj/item/clothing/mask/chewable/candy/lolli
 	name = "lollipop"
 	desc = "A simple artificially flavored sphere of sugar on a handle. Colloquially known as a sucker. Allegedly one is born every minute."

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
 	layer = 2.9
-	anchored = 1
+	anchored = 0
 	density = 1
 	use_power = 1
 	idle_power_usage = 10
@@ -30,9 +30,9 @@
 		update_icon()
 
 
-/obj/machinery/gumballmachine/examine()
-	..()
-	to_chat(usr, span("notice", "\The [src] costs [gumprice] credits to use."))
+/obj/machinery/gumballmachine/examine(mob/user)
+	..(user)
+	to_chat(user, span("notice", "\The [src] costs [gumprice] credits to use."))
 
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)
@@ -72,18 +72,22 @@
 			to_chat(user, span("warning", "You don't think this is enough to buy what you want from this."))
 			return
 		else
-			visible_message(span("info", "\The [usr] inserts a bill into \the [src]."))
+			visible_message(span("info", "\The [user] inserts a bill into \the [src]."))
 			var/changeleftover = C.worth - gumprice
-			usr.drop_from_inventory(C,get_turf(src))
+			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			buygumball()
 
 			if(changeleftover)
 				spawn_money(changeleftover, src.loc, user)
-	if(istype(W, /obj/item/weapon/material/twohanded/baseballbat))
+	if(istype(W, /obj/item/weapon) && user.a_intent == I_HURT && !istype(W, /obj/item/weapon/spacecash))
 		if(broken)
 			return
-		smashgumball()
+		if(prob(25))
+			smashgumball()
+		else
+			visible_message(span("warning", "\The [user] bash's \the [src] with \the [W]."))
+
 
 
 /obj/machinery/gumballmachine/proc/buygumball()
@@ -100,7 +104,6 @@
 			new vendingtype(src.loc)
 		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", "You hear glass shatter!")
 	stat |= BROKEN
-	anchored = FALSE
 	broken = TRUE
 	amountleft = FALSE
 
