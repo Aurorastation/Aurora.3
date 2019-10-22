@@ -96,7 +96,6 @@
 			if(H.lying)
 				icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
-				break
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
