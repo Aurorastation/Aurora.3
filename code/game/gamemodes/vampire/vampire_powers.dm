@@ -838,7 +838,7 @@
 
 	var/obj/item/weapon/grab/G = get_active_hand()
 	if (!istype(G))
-		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to kiss them.</span>")
+		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to touch them.</span>")
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
