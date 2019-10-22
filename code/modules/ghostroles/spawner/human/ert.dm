@@ -50,7 +50,7 @@
 	short_name = "ntlead"
 	desc = "The leader of the Nanotrasen Phoenix ERT."
 	max_count = 1
-	mob_name_prefix = "L/Tpr."
+	mob_name_prefix = "L/Tpr. "
 
 //TCFL ERT
 /datum/ghostspawner/human/ert/tcfl
