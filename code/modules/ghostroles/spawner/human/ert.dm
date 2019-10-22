@@ -37,7 +37,7 @@
 	desc = "An engineering specialist of the Nanotrasen Phoenix ERT."
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/nanotrasen/specialist
-	mob_name_prefix = "S/Tpr."
+	mob_name_prefix = "S/Tpr. "
 
 /datum/ghostspawner/human/ert/nanotrasen/specialist/med
 	name = "Nanotrasen Medical Specialist"
