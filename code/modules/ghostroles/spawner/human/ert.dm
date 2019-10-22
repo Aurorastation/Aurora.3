@@ -75,7 +75,7 @@
 	name = "TCFL Leader"
 	short_name = "tcfll"
 	max_count = 1
-	mob_name_prefix = "Pfct."
+	mob_name_prefix = "Pfct. "
 
 //Mercenary ERT
 /datum/ghostspawner/human/ert/mercenary
