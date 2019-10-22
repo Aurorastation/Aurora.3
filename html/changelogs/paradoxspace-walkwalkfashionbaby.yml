@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Suit slot items can now support armband and decor slot accessories."
   - rscadd: "You can now have multiple armbands."
+  - rscadd: "Shoulder patches are now flippable."
