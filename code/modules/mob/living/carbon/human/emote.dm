@@ -697,7 +697,7 @@
 				to_chat(src, "<span class='warning'>You don't have the means to do this!</span>")
 				return
 			message = "chitters."
-			playsound(src.loc, pick('sound/misc/chitter1.ogg', 'sound/misc/chitter2.ogg', 'sound/misc/chitter3.ogg'), 50, 0)
+			playsound(src.loc, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg'), 50, 0)
 			m_type = 2
 
 		if("vomit")
