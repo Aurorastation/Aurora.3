@@ -47,7 +47,8 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargoorder(),
-		new/datum/computer_file/program/suit_sensors()
+		new/datum/computer_file/program/suit_sensors(),
+		new/datum/computer_file/program/records/medical()
 	)
 	return _prg_list
 
@@ -78,7 +79,8 @@
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/card_mod(),
-		new/datum/computer_file/program/comm(1)
+		new/datum/computer_file/program/comm(1),
+		new/datum/computer_file/program/records/employment()
 	)
 	return _prg_list
 
@@ -97,7 +99,11 @@
 		new/datum/computer_file/program/digitalwarrant(),
 		new/datum/computer_file/program/civilian/cargocontrol(),
 		new/datum/computer_file/program/civilian/cargoorder(),
-		new/datum/computer_file/program/alarm_monitor()
+		new/datum/computer_file/program/alarm_monitor(),
+		new/datum/computer_file/program/records/employment(),
+		new/datum/computer_file/program/records/medical(),
+		new/datum/computer_file/program/records/security()
+
 	)
 	return _prg_list
 
@@ -113,7 +119,8 @@
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/comm(),
-		new/datum/computer_file/program/digitalwarrant()
+		new/datum/computer_file/program/digitalwarrant(),
+		new/datum/computer_file/program/records/security()
 	)
 	return _prg_list
 
@@ -202,7 +209,8 @@
 		new/datum/computer_file/program/suit_sensors(),
 		new/datum/computer_file/program/alarm_monitor(),
 		new/datum/computer_file/program/lighting_control(),
-		new/datum/computer_file/program/aidiag()
+		new/datum/computer_file/program/aidiag(),
+		new/datum/computer_file/program/records()
 	)
 	return _prg_list
 

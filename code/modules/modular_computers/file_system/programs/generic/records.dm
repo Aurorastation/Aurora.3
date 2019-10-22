@@ -1,5 +1,5 @@
 /datum/computer_file/program/records
-	//filename = "record"
+	filename = "record"
 	filedesc = "Recrods"
 	extended_desc = "Used to view, edit and maintain records."
 
