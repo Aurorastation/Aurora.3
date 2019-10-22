@@ -39,5 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Remotely bolting an airlock is no longer instant, taking THREE seconds to finish. The airlock announces when this process begins."
-  - tweak: "Airlocks can no longer be remotely electrified."
+  - rscadd: "Remotely electrifying an airlock is no longer instant, taking THREE seconds to finish. The airlock announces when this process begins."
   - bugfix: "Forcefields can no longer be machine overloaded."
