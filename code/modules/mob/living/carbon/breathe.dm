@@ -20,9 +20,11 @@
 
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
-/mob/living/carbon/proc/breathe()
+/mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
 	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
 	if(species && (species.flags & NO_BREATHE)) return
+	
+	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null
 
@@ -36,9 +38,9 @@
 			spawn emote("gasp")
 	else
 		//Okay, we can breathe, now check if we can get air
-		breath = get_breath_from_internal() //First, check for air from internals
+		breath = get_breath_from_internal(volume_needed) //First, check for air from internals
 		if(!breath)
-			breath = get_breath_from_environment() //No breath from internals so let's try to get air from our location
+			breath = get_breath_from_environment(volume_needed) //No breath from internals so let's try to get air from our location
 
 	handle_breath(breath)
 	handle_post_breath(breath)
@@ -100,14 +102,4 @@
 /mob/living/carbon/proc/handle_post_breath(datum/gas_mixture/breath)
 	if(!breath)
 		return
-	if (!internal)
-		loc.assume_air(breath) //by default, exhale into the environment
-		return
-	if(breath.gas["carbon_dioxide"])
-		var/datum/gas_mixture/filtered = new
-		filtered.gas["carbon_dioxide"] = breath.gas["carbon_dioxide"]
-		breath.gas["carbon_dioxide"] = 0
-		filtered.update_values()
-		breath.update_values()
-		loc.assume_air(filtered) // filters CO2 into the environment
-	internal.assume_air(breath) // recycles CO2-free air back into the tank
+	loc.assume_air(breath) //exhale into the environment

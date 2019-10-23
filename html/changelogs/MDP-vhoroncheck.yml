@@ -1,5 +1,4 @@
 author: MoondancerPony
 delete-after: True
 changes: 
-  - bugfix: "Vaurca no longer exhale phoron from their tank into the air."
-  - tweak: "Internals are breathed back into and will filter out CO2 to prevent suffocation. This may mean internals last longer."
+  - bugfix: "Vaurca no longer exhale leftover phoron from their breath into the air. They also now breathe 1/6 the volume of air at 6x (100%) efficiency, meaning that all the phoron they breathe is converted to CO2."
