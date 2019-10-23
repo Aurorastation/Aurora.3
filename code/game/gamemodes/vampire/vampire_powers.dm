@@ -56,7 +56,12 @@
 	vampire.status |= VAMP_DRAINING
 
 	visible_message("<span class='danger'>[src.name] bites [T.name]'s neck!</span>", "<span class='danger'>You bite [T.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
-	admin_attack_log(src, T, "drained blood from [key_name(T)]", "was drained blood from by [key_name(src)]", "is draining blood from")
+	var/remembrance
+	if(vampire.stealth)
+		remembrance = "forget"
+	else
+		remembrance = "remember"
+	admin_attack_log(src, T, "drained blood from [key_name(T)], who [remembrance]s the encounter.", "was drained blood from by [key_name(src)], [remembrance]ing the encounter.", "is draining blood from")
 
 	if(vampire.stealth)
 		to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
