@@ -22,9 +22,9 @@
 /obj/item/weapon/trap/attack_self(mob/user as mob)
 	..()
 	if(!deployed && can_use(user))
-		deploy(user)
-		user.drop_from_inventory(src)
-		anchored = TRUE
+		if(deploy(user))
+			user.drop_from_inventory(src)
+			anchored = TRUE
 
 /obj/item/weapon/trap/proc/deploy(mob/user)
 	user.visible_message(
@@ -42,6 +42,8 @@
 
 		deployed = TRUE
 		update_icon()
+		return TRUE
+	return FALSE
 
 /obj/item/weapon/trap/user_unbuckle_mob(mob/user as mob)
 	if(buckled_mob && can_use(user))
@@ -157,7 +159,7 @@
 	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
-	if(!M || !istype(M, /mob/living))
+	if(!istype(M))
 		return
 
 	if(!captured)
@@ -393,7 +395,7 @@
 	..()
 	if(captured)
 		var/datum/M = captured.resolve()
-		if(M && isliving(M))
+		if(isliving(M))
 			var/mob/living/L = M
 			if(L && buckled_mob.buckled == src)
 				L.forceMove(loc)
@@ -413,7 +415,7 @@
 	else
 		..()
 
-/obj/item/weapon/trap/animal/proc/pass_without_trace(mob/user = usr, pct = 100)
+/obj/item/weapon/trap/animal/proc/pass_without_trace(mob/user, pct = 100)
 	usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
 						"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
 	)
