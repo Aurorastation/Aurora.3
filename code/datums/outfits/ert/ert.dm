@@ -20,6 +20,9 @@
 		/obj/item/ammo_magazine/a556/ap = 1
 	)
 
+/datum/outfit/admin/ert/nanotrasen/get_id_access()
+	return get_all_accesses() | get_centcom_access("Emergency Response Team")
+
 /datum/outfit/admin/ert/nanotrasen/specialist
 	name = "Nanotrasen ERT Engineer Specialist"
 
@@ -67,6 +70,9 @@
 	l_hand = /obj/item/weapon/storage/belt/utility/full
 	id = /obj/item/weapon/card/id/distress/legion
 
+/datum/outfit/admin/ert/legion/get_id_access()
+	return get_distress_access()
+
 /datum/outfit/admin/ert/legion/specialist
 	name = "TCFL ERT Medic"
 
@@ -105,6 +111,9 @@
 		/obj/item/weapon/handcuffs/ziptie = 2,
 		/obj/item/weapon/shield/energy = 1
 	)
+
+/datum/outfit/admin/ert/mercenary/get_id_access()
+	return get_distress_access()
 
 /datum/outfit/admin/ert/mercenary/specialist
 	name = "Mercenary ERT Medic"
