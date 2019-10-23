@@ -13,6 +13,8 @@
 	var/amountleft = 20
 	var/vendingtype = /obj/item/clothing/mask/chewable/candy/gum
 	var/gumprice = 5
+	var/machinehealth = 40
+	var/machinemaxhealth = 40
 	var/on = 1
 	var/broken = 0
 
@@ -59,6 +61,16 @@
 		on = 1
 
 
+/obj/machinery/gumballmachine/bullet_act(var/obj/item/projectile/Proj)
+
+
+	var/proj_damage = Proj.get_structure_damage()
+	if(!proj_damage) return
+
+	..()
+	damagemachine(proj_damage)
+	return
+
 /obj/machinery/gumballmachine/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/spacecash))
 		var/obj/item/weapon/spacecash/C = W
@@ -80,13 +92,53 @@
 
 			if(changeleftover)
 				spawn_money(changeleftover, src.loc, user)
-	if(istype(W, /obj/item/weapon) && user.a_intent == I_HURT && !istype(W, /obj/item/weapon/spacecash))
-		if(broken)
+	if(W.iswrench())
+		if(anchored)
+			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the floor...</span>")
+			if(!do_after(user,40/W.toolspeed))
+				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
+				return
+			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
+			anchored = 0
 			return
-		if(prob(25))
-			smashgumball()
 		else
-			visible_message(span("warning", "\The [user] bash's \the [src] with \the [W]."))
+			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the floor...</span>")
+			if(!do_after(user,40/W.toolspeed))
+				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
+				return
+			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
+			anchored = 1
+			return
+	if(W.damtype == BRUTE || W.damtype == BURN && user.a_intent == I_HURT && !istype(W, /obj/item/weapon/spacecash))
+		user.do_attack_animation(src)
+		damagemachine(W.force)
+		visible_message(span("warning", "\The [user] bash's \the [src] with \the [W]."))
+
+
+
+
+/obj/machinery/gumballmachine/proc/damagemachine(var/damage = 0,  var/sound_effect = 1)
+
+	machinehealth = max(0, machinehealth - damage)
+
+	if(machinehealth <= 0)
+		smashgumball()
+
+
+/obj/machinery/gumballmachine/emag_act(var/remaining_charges, var/mob/user)
+	if(!emagged)
+		visible_message(span("warning", "\The [src] spews blood out from its cracks!"))
+		emagged = 1
+		addtimer(CALLBACK(src, .proc/gumballdemon), 3 SECONDS)
+		var/T = get_turf(src)
+		new /obj/effect/gibspawner/human(T)
+		return 1
+
+
+/obj/machinery/gumballmachine/proc/gumballdemon()
+	playsound(loc, 'sound/misc/bubblegumspawn.ogg', 100, 1)
+	new /mob/living/simple_animal/hostile/gumballmachine(src.loc)
+	qdel(src)
 
 
 
