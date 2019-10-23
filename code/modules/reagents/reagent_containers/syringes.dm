@@ -129,11 +129,10 @@
 		if (user.zone_sel.selecting == "chest") // impromptu needle thoracostomy, re-inflate a collapsed lung
 			var/P = (user == target) ? "their" : (target + "\'s")
 			var/SM = (user == target) ? "your" : (target + "\'s")
-			var/S = (user == target) ? "themselves" : target
 			user.visible_message(span("danger", "[user] aims \the [src] between [P] ribs!"), span("danger", "You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
-			user.visible_message(span("warning", "[user] jabs [S] between the ribs with \the [src]!"), span("warning", "You jab [S] between [SM] ribs!"))
+			user.visible_message(span("warning", "[user] jabs \the [src] between [P] ribs with \the [src]!"), span("warning", "You jab \the [src] between [SM] ribs!"))
 			if(H.is_lung_ruptured())
 				var/obj/item/organ/lungs/L = H.internal_organs_by_name["lungs"]
 				if(!L.rescued)
