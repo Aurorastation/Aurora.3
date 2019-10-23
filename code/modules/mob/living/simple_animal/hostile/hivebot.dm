@@ -42,7 +42,7 @@
 
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
-	maxHealth = 80
+	maxHealth = 45
 	melee_damage_lower = 20
 	melee_damage_upper = 20
 	icon_state = "hivebotguardian"
@@ -174,6 +174,7 @@
 
 /obj/item/projectile/beam/hivebot/incendiary
 	name = "archaic energy welder"
+	damage_type = BURN
 	damage = 20
 	incinerate = 10
 	taser_effect = 0
@@ -454,7 +455,7 @@
 
 //---Hivebot Harvester---//
 
-/obj/item/projectile/beam/hivebotincendiary/heavy
+/obj/item/projectile/beam/hivebot/incendiary/heavy
 	name = "archaic mining laser"
 	damage = 25
 	incinerate = 10
@@ -475,7 +476,7 @@
 	rapid = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebotincendiary/heavy
+	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
