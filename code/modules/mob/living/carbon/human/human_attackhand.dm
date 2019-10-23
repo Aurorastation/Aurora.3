@@ -466,6 +466,7 @@
 		user.limb_breaking = FALSE
 		return 1
 	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
+	user.limb_breaking = FALSE
 	return 0
 
 //Breaks all grips and pulls that the mob currently has.
