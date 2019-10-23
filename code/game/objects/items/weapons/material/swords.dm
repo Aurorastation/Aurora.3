@@ -150,3 +150,60 @@
 	item_state = "amohdan_sword"
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
+
+// improvised sword
+/obj/item/weapon/material/sword/improvised_sword
+	name = "selfmade sword"
+	desc = "A crudely made, rough looking sword. Still appears to be quite deadly."
+	use_material_name = FALSE
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "sword"
+	item_state = "sword"
+	force_divisor = 0.3 // 18 damage
+	contained_sprite = 1
+	slot_flags = SLOT_BELT
+
+// the things needed to create the above
+/obj/item/weapon/material/sword_hilt
+	name = "hilt"
+	desc = "A hilt without a blade, quite useless."
+	use_material_name = FALSE
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "hilt"
+	unbreakable = TRUE
+	force_divisor = 0.05
+	thrown_force_divisor = 0.2
+
+/obj/item/weapon/material/sword_hilt/attackby(var/obj/O, mob/user)
+	if(istype(O, /obj/item/weapon/material/sword_blade))
+		var/obj/item/weapon/material/sword_blade/blade = O
+		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
+		user.drop_from_inventory(src,new_sword)
+		user.drop_from_inventory(blade,new_sword)
+		user.put_in_hands(new_sword)
+		qdel(blade)
+		qdel(src)
+	else
+		..()
+
+/obj/item/weapon/material/sword_blade
+	name = "blade"
+	desc = "A blade without a hilt, don't cut yourself!"
+	use_material_name = FALSE
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "blade"
+	unbreakable = TRUE
+	force_divisor = 0.20
+	thrown_force_divisor = 0.3
+
+/obj/item/weapon/material/sword_blade/attackby(var/obj/O, mob/user)
+	if(istype(O, /obj/item/weapon/material/sword_hilt))
+		var/obj/item/weapon/material/sword_hilt/hilt = O
+		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
+		user.drop_from_inventory(src,new_sword)
+		user.drop_from_inventory(hilt,new_sword)
+		user.put_in_hands(new_sword)
+		qdel(hilt)
+		qdel(src)
+	else
+		..()

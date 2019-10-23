@@ -102,6 +102,8 @@
 	recipes += new/datum/stack_recipe("AI core", /obj/structure/AIcore, 4, time = 50, one_per_turf = 1)
 	recipes += new/datum/stack_recipe("Metal crate", /obj/structure/closet/crate, 10, time = 50, one_per_turf = 1)
 	recipes += new/datum/stack_recipe("knife grip", /obj/item/weapon/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
+	recipes += new/datum/stack_recipe("sword hilt", /obj/item/weapon/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1)
+	recipes += new/datum/stack_recipe("sword blade", /obj/item/weapon/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1)
 	recipes += new/datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20)
 
 /material/plastic/generate_recipes()
