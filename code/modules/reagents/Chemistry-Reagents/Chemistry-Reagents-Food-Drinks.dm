@@ -74,7 +74,7 @@
 	ingest_met = REM * 4
 	var/nutriment_factor = 12 // Per removed in digest.
 	var/hydration_factor = 0 // Per removed in digest.
-	var/blood_factor = 6
+	var/blood_factor = 1
 	var/regen_factor = 0.8
 	var/injectable = 0
 	var/attrition_factor = -(REM * 4)/BASE_MAX_NUTRITION // Decreases attrition rate.
@@ -218,7 +218,7 @@
 	name = "animal protein"
 	id = "protein"
 	color = "#440000"
-	blood_factor = 12
+	blood_factor = 2
 	taste_description = "meat"
 
 /datum/reagent/nutriment/protein/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
