@@ -61,8 +61,9 @@
 /obj/structure/closet/jcloset
 	name = "custodial closet"
 	desc = "It's a storage unit for janitorial clothes and gear."
-	icon_state = "mixed"
-	icon_closed = "mixed"
+	icon_state = "janitorial"
+	icon_closed = "janitorial"
+	icon_opened = "janitorialopen"
 
 /obj/structure/closet/jcloset/fill()
 	new /obj/item/clothing/under/rank/janitor(src)

@@ -270,3 +270,9 @@
 	display_name = "scientist, alt"
 	path = /obj/item/clothing/under/rank/scientist/science_alt
 	allowed_roles = list("Scientist", "Xenobiologist")
+
+/datum/gear/uniform/cargo_alt
+	display_name = "cargo technician, shorts"
+	description = "For those that value leg-room."
+	path = /obj/item/clothing/under/rank/cargotech/alt
+	allowed_roles = list("Cargo Technician")

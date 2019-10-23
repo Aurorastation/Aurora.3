@@ -26,10 +26,16 @@
 
 /obj/item/clothing/under/rank/cargotech
 	name = "cargo technician's jumpsuit"
-	desc = "Shooooorts! They're comfy and easy to wear!"
+	desc = "The future of cargo tech apparel: long, stuffy slacks. We never said it was a bright future."
 	icon_state = "cargotech"
 	item_state = "lb_suit"
 	worn_state = "cargo"
+
+
+/obj/item/clothing/under/rank/cargotech/alt
+	desc = "Shooooorts! They're comfy and easy to wear!"
+	icon_state = "cargotech_alt"
+	worn_state = "cargo_alt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 
@@ -168,7 +174,7 @@
 	worn_state = "mime"
 
 /obj/item/clothing/under/rank/miner
-	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
+	desc = "It's a snappy miner's jumpsuit, sans overalls and caked with dirt."
 	name = "shaft miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "lb_suit"

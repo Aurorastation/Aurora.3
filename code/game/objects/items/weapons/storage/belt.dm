@@ -32,7 +32,7 @@
 
 /obj/item/weapon/storage/belt/utility
 	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
-	desc = "Can hold various tools."
+	desc = "A sturdy belt for holding various tools."
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	can_hold = list(
@@ -80,7 +80,10 @@
 		/obj/item/device/t_scanner = 1
 	)
 
-
+/obj/item/weapon/storage/belt/utility/alt
+	desc = "A sturdy belt for holding various tools. This one eschews pouches for tight loops to hold your tools."
+	icon_state = "utilitybelt_alt"
+	item_state = "utility_alt"
 
 /obj/item/weapon/storage/belt/medical
 	name = "medical belt"
