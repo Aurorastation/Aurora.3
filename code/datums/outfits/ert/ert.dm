@@ -59,7 +59,7 @@
 
 //TCFL
 /datum/outfit/admin/ert/legion
-	name = "TCFL ERT Responder"
+	name = "TCFL Responder"
 
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
@@ -67,14 +67,17 @@
 	gloves = /obj/item/clothing/gloves/swat
 	glasses =  /obj/item/clothing/glasses/sunglasses
 	back = /obj/item/weapon/storage/backpack/legion
-	l_hand = /obj/item/weapon/storage/belt/utility/full
 	id = /obj/item/weapon/card/id/distress/legion
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/belt/utility/full = 1
+	)
 
 /datum/outfit/admin/ert/legion/get_id_access()
 	return get_distress_access()
 
 /datum/outfit/admin/ert/legion/specialist
-	name = "TCFL ERT Medic"
+	name = "TCFL Medic"
 
 	l_hand = /obj/item/weapon/storage/firstaid/adv
 	r_hand = /obj/item/weapon/storage/firstaid/combat
@@ -89,7 +92,7 @@
 
 //Mercenary
 /datum/outfit/admin/ert/mercenary
-	name = "Mercenary ERT Responder"
+	name = "Mercenary Freelancer"
 
 	uniform = /obj/item/clothing/under/syndicate
 	shoes = /obj/item/clothing/shoes/swat
@@ -116,7 +119,7 @@
 	return get_distress_access()
 
 /datum/outfit/admin/ert/mercenary/specialist
-	name = "Mercenary ERT Medic"
+	name = "Mercenary Freelancer Medic"
 
 	belt = /obj/item/weapon/storage/belt/medical
 	l_hand = /obj/item/weapon/storage/firstaid/adv
@@ -135,7 +138,7 @@
 	)
 
 /datum/outfit/admin/ert/mercenary/leader
-	name = "Mercenary ERT Leader"
+	name = "Mercenary Freelancer Leader"
 	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle
 	back = /obj/item/weapon/rig/merc
 	suit_store = null
