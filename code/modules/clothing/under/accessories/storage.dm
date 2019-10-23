@@ -72,25 +72,24 @@
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
 	icon_state = "mining_overalls"
 	overlay_state = "mining_overalls"
+	slots = 5
 
 /obj/item/clothing/accessory/storage/overalls/mining
 	name = "shaft miner's overalls"
 	desc = "Heavy-duty overalls. Ostensibly for your protection, not vacuum-rated. Comes with convenient pockets for miscellaneous tools."
-	slots = 5
+
 
 /obj/item/clothing/accessory/storage/overalls/engineer
 	name = "engineer's overalls"
 	desc = "Heavy-duty overalls to keep all your extra tools and notes in place, and keep the inevitable oil off your jumpsuit."
 	icon_state = "engineering_overalls"
 	overlay_state = "engineering_overalls"
-	slots = 5
 
 /obj/item/clothing/accessory/storage/overalls/chief
 	name = "chief engineer's overalls"
 	desc = "Heavy duty overalls, bleached white to signify a \"Chief Engineer.\" Keeping them clean until the end of shift is a challenge unto itself."
 	icon_state = "ce_overalls"
 	overlay_state = "ce_overalls"
-	slots = 5
 
 /obj/item/clothing/accessory/storage/pouches
 	name = "drop pouches"
