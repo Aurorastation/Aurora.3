@@ -98,5 +98,16 @@
 	return
 
 /mob/living/carbon/proc/handle_post_breath(datum/gas_mixture/breath)
-	if(breath)
-		loc.assume_air(breath) //by default, exhale
+	if(!breath)
+		return
+	if (!internal)
+		loc.assume_air(breath) //by default, exhale into the environment
+		return
+	if(breath.gas["carbon_dioxide"])
+		var/datum/gas_mixture/filtered = new
+		filtered.gas["carbon_dioxide"] = breath.gas["carbon_dioxide"]
+		breath.gas["carbon_dioxide"] = 0
+		filtered.update_values()
+		breath.update_values()
+		loc.assume_air(filtered) // filters CO2 into the environment
+	internal.assume_air(breath) // recycles CO2-free air back into the tank
