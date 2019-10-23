@@ -57,7 +57,7 @@
 	name = "TCFL Responder"
 	short_name = "tcflr"
 	desc = "The Tau Ceti Foreign Legion's rank and file."
-	welcome_message = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to and fix the problem. You can be a volounteer (Vol.) or a legionnaire (Lgn.). The former is reccomended for new players."
+	welcome_message = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to and fix the problem. You can be a volounteer (Vol.) or a legionnaire (Lgn.). The former is recommended for new players."
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
