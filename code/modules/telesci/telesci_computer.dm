@@ -214,8 +214,8 @@
 			var/total_lifespawn = 25 * crystals.len
 			var/total_failchance = crystals.len
 
-			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn)
-			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn)
+			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn, 0)
+			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn, 0)
 
 			origin.target = destination
 			destination.target = origin
