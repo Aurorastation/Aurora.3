@@ -360,17 +360,18 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
-/obj/item/weapon/card/id/legion
-	name = "\improper Tau Ceti Foreign Legion ID"
-	icon_state = "centcom"
-	assignment = "Tau Ceti Foreign Legion Volunteer"
-	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
-
 /obj/item/weapon/card/id/distress
-	name = "\improper Emergency Responder ID"
+	name = "\improper Freelancer Mercenary ID"
 	icon_state = "centcom"
-	assignment = "Emergency Responder"
+	assignment = "Freelancer Mercenary"
+
+/obj/item/weapon/card/id/distress/New()
 	access = list(access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	..()
+
+/obj/item/weapon/card/id/distress/legion
+	name = "\improper Tau Ceti Foreign Legion ID"
+	assignment = "Tau Ceti Foreign Legion Volunteer"
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"

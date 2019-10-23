@@ -65,7 +65,7 @@
 	glasses =  /obj/item/clothing/glasses/sunglasses
 	back = /obj/item/weapon/storage/backpack/legion
 	l_hand = /obj/item/weapon/storage/belt/utility/full
-	id = /obj/item/weapon/card/id/legion
+	id = /obj/item/weapon/card/id/distress/legion
 
 /datum/outfit/admin/ert/legion/specialist
 	name = "TCFL ERT Medic"
@@ -90,12 +90,15 @@
 	gloves = /obj/item/clothing/gloves/yellow
 	belt = /obj/item/weapon/storage/belt/military
 	back = /obj/item/weapon/storage/backpack/satchel_syndie
-	l_hand = /obj/item/weapon/gun/projectile/automatic/c20r
-	r_hand = /obj/item/weapon/storage/belt/utility/full
 	suit = /obj/item/clothing/suit/space/void/merc
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	suit_store = /obj/item/weapon/tank/oxygen
 	id = /obj/item/weapon/card/id/distress
+
+	backpack_contents = list(
+		/obj/item/weapon/gun/projectile/automatic/c20r = 1,
+		/obj/item/weapon/storage/belt/utility/full = 1
+	)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/a10mm = 3,
