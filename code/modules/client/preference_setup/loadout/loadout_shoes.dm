@@ -78,7 +78,7 @@
 
 /datum/gear/shoes/heels/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/shoes/tongs
 	display_name = "flip flops"
@@ -86,7 +86,7 @@
 
 /datum/gear/shoes/tongs/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"

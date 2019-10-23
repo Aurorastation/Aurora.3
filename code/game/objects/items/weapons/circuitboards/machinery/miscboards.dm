@@ -108,15 +108,61 @@
 							/obj/item/weapon/stock_parts/matter_bin = 1,
 							/obj/item/weapon/stock_parts/micro_laser = 2)
 
-/obj/item/weapon/circuitboard/cooking
-	name = T_BOARD("kitchen appliance")
-	desc = "The circuitboard for many kitchen appliances. Not of much use."
+/obj/item/weapon/circuitboard/microwave
+	name = T_BOARD("microwave")
+	desc = "The circuitboard for a microwave."
+	build_path = "/obj/machinery/microwave"
+	contain_parts = 0
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "other"
+	board_type = "machine"
 	req_components = list(
-							/obj/item/weapon/stock_parts/capacitor = 3,
-							/obj/item/weapon/stock_parts/scanning_module = 1,
-							/obj/item/weapon/stock_parts/matter_bin = 2)
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)
+
+/obj/item/weapon/circuitboard/oven
+	name = T_BOARD("oven")
+	desc = "The circuitboard for an oven."
+	build_path = "/obj/machinery/appliance/cooker/oven"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)
+
+/obj/item/weapon/circuitboard/fryer
+	name = T_BOARD("deep fryer")
+	desc = "The circuitboard for a deep fryer."
+	build_path = "/obj/machinery/appliance/cooker/fryer"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)
+
+/obj/item/weapon/circuitboard/cerealmaker
+	name = T_BOARD("cereal maker")
+	desc = "The circuitboard for a cereal maker."
+	build_path = "/obj/machinery/appliance/mixer/cereal"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)
+
+/obj/item/weapon/circuitboard/candymachine
+	name = T_BOARD("candy machine")
+	desc = "The circuitboard for a candy machine."
+	build_path = "/obj/machinery/appliance/mixer/candy"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/weapon/stock_parts/capacitor" = 3,
+							"/obj/item/weapon/stock_parts/scanning_module" = 1,
+							"/obj/item/weapon/stock_parts/matter_bin" = 2)
 
 /obj/item/weapon/circuitboard/holopad
 	name = T_BOARD("Holopad")

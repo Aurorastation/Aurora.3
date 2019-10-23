@@ -562,6 +562,8 @@
 	return
 
 /obj/item/clothing/mask/proc/adjust_mask(mob/user)
+	set name = "Adjust Mask"
+	set category = "Object"
 	if(!adjustable)
 		return
 	if(use_check_and_message(user))

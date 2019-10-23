@@ -1041,7 +1041,7 @@
 /area/security/vacantoffice2)
 "acg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice2)
 "ach" = (
@@ -11193,7 +11193,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/item/device/taperecorder,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -19279,7 +19279,7 @@
 /area/security/prison)
 "aIB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
 	icon_state = "intact"
@@ -19719,7 +19719,7 @@
 "aJn" = (
 /obj/structure/bookcase/manuals/engineering,
 /obj/item/weapon/book/manual/atmospipes,
-/obj/item/weapon/book/manual/engineering_guide,
+/obj/item/weapon/book/manual/wiki/engineering_guide,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
@@ -19841,10 +19841,12 @@
 /area/crew_quarters/heads/hos)
 "aJy" = (
 /obj/structure/bookcase/manuals,
-/obj/item/weapon/book/manual/security_space_law,
-/obj/item/weapon/book/manual/security_space_law,
-/obj/item/weapon/book/manual/security_space_law,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/weapon/book/manual/wiki/station_procedure,
+/obj/item/weapon/book/manual/wiki/station_procedure,
 /turf/simulated/floor/tiled,
 /area/security/lobby)
 "aJz" = (
@@ -20041,7 +20043,7 @@
 /area/security/warden)
 "aJN" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/item/device/eftpos{
 	eftpos_name = "Brig EFTPOS scanner"
 	},
@@ -22706,7 +22708,7 @@
 /area/crew_quarters/captain)
 "aOm" = (
 /obj/structure/table/wood,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aOn" = (
@@ -25575,7 +25577,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_room)
 "aSX" = (
@@ -27248,7 +27250,7 @@
 /area/crew_quarters/heads/hop)
 "aVJ" = (
 /obj/structure/closet/secure_closet/hop,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVK" = (
@@ -30222,7 +30224,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "baT" = (
@@ -35190,6 +35192,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - CMO's Office"
 	},
+/obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjq" = (
@@ -36144,7 +36147,7 @@
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
 /obj/item/weapon/hand_labeler,
-/obj/item/weapon/reagent_containers/spray,
+/obj/item/weapon/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bkS" = (
@@ -39748,6 +39751,8 @@
 	},
 /obj/structure/closet/wardrobe/robotics_black,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/under/rank/roboticistalt,
+/obj/item/clothing/under/rank/roboticistalt,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bqx" = (
@@ -40451,7 +40456,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "brG" = (
@@ -41593,8 +41598,8 @@
 /obj/structure/disposalpipe/sortjunction{
 	dir = 8;
 	icon_state = "pipe-j1s";
-	name = "CMO's Office";
-	sortType = "CMO's Office"
+	name = "CMO Office";
+	sortType = "CMO Office"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -42834,7 +42839,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/floor/plating,
 /area/medical/reception)
 "bvh" = (
@@ -42846,14 +42851,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvi" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 2;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -42872,20 +42875,18 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvl" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/reception)
-"bvm" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/white,
+/area/medical/reception)
+"bvm" = (
+/obj/machinery/gumballmachine/sucker,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -55901,6 +55902,7 @@
 	dir = 4;
 	network = list("Service")
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVz" = (
@@ -59207,6 +59209,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/break_room)
 "ccc" = (
@@ -59879,6 +59882,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/break_room)
 "cdu" = (
@@ -64885,6 +64889,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"ipZ" = (
+/obj/machinery/gumballmachine/sucker,
+/turf/simulated/floor/carpet,
+/area/library)
 "iqX" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -65566,6 +65574,14 @@
 /mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"kVO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/machinery/gumballmachine/sucker,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "kWH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65833,7 +65849,7 @@
 /obj/structure/bookcase/manuals{
 	opacity = 0
 	},
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/lawoffice)
 "lNA" = (
@@ -67749,6 +67765,10 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"rvM" = (
+/obj/machinery/gumballmachine,
+/turf/simulated/floor/carpet,
+/area/library)
 "rxp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -96031,7 +96051,7 @@ bMF
 bJN
 bOl
 bOK
-bJL
+ipZ
 bPR
 bJL
 bQO
@@ -96288,7 +96308,7 @@ bMF
 bJN
 bOm
 bOK
-bJL
+rvM
 bPS
 bJL
 bQP
@@ -99389,7 +99409,7 @@ bVX
 bWl
 bVx
 bVX
-bVX
+kVO
 bVX
 bVX
 bWL

@@ -394,8 +394,8 @@ Class Procs:
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
-	M.state = 2
-	M.icon_state = "box_1"
+	M.state = 3
+	M.icon_state = "blueprint_1"
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
 	qdel(src)

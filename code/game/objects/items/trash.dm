@@ -15,6 +15,10 @@
 	name = "\improper K'ois Bar Wrapper"
 	icon_state = "koisbar"
 
+/obj/item/trash/kokobar
+	name = "\improper Koko Bar Wrapper"
+	icon_state = "kokobar"
+
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
 	icon_state= "4no_raisins"

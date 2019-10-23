@@ -948,6 +948,12 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			else if(istype(human_user.wear_id, /obj/item/weapon/card/id) )
 				var/obj/item/weapon/card/id/ID = human_user.wear_id
 				src.scanned_user = GetNameAndAssignmentFromId(ID)
+			else if(istype(human_user.wear_id, /obj/item/weapon/storage/wallet))
+				var/obj/item/weapon/storage/wallet/W = human_user.wear_id
+				if(W.GetID())
+					src.scanned_user = GetNameAndAssignmentFromId(W.GetID())
+				else
+					src.scanned_user = "Unknown"
 			else
 				src.scanned_user ="Unknown"
 		else

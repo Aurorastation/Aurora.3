@@ -1437,7 +1437,7 @@
 /area/derelict/hallway/northeast)
 "eO" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/security_space_law,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eP" = (
@@ -2823,7 +2823,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "iZ" = (
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /turf/simulated/wall,
 /area/derelict/hallway/southeast)
 "ja" = (
@@ -3518,7 +3518,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "li" = (
-/obj/structure/sign/bluecross{
+/obj/structure/sign/greencross{
 	pixel_x = 32
 	},
 /obj/effect/decal/cleanable/dirt,

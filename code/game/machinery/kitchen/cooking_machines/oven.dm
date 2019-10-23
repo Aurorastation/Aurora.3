@@ -22,7 +22,7 @@
 
 	stat = POWEROFF	//Starts turned off
 
-	var/open = 0 // Start closed so people don't heat up ovens with the door open
+	var/open = FALSE // Start closed so people don't heat up ovens with the door open
 
 	output_options = list(
 		"Pizza" = /obj/item/weapon/reagent_containers/food/snacks/variable/pizza,
@@ -35,6 +35,13 @@
 		"Cookie" = /obj/item/weapon/reagent_containers/food/snacks/variable/cookie,
 		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
 	)
+
+	component_types = list(
+			/obj/item/weapon/circuitboard/oven,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
 
 
 /obj/machinery/appliance/cooker/oven/update_icon()
@@ -71,18 +78,26 @@
 		return
 
 	if (open)
-		open = 0
-		loss = (active_power_usage / resistance)*0.5
+		open = FALSE
+		loss = (heating_power / resistance) * 0.5
 	else
-		open = 1
-		loss = (active_power_usage / resistance)*4
-		//When the oven door is opened, heat is lost MUCH faster
+		open = TRUE
+		loss = (heating_power / resistance) * 1.5
+		//When the oven door is opened, oven slowly loses heat
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()
 
+/obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
+	// check if someone's trying to manipulate the machine
+
+	if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/weapon/storage/part_replacer))
+		return TRUE
+	else
+		return FALSE
+
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
-	if (!open)
+	if (!open && !manip(I))
 		to_chat(user, "<span class='warning'>You can't put anything in while the door is closed!</span>")
 		return 0
 
@@ -102,7 +117,7 @@
 /obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
 	if (!open)
 		to_chat(user, "<span class='warning'>You can't take anything out while the door is closed!</span>")
-		return 0
+		return FALSE
 
 	else
 		return ..()
@@ -113,6 +128,7 @@
 /obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
 		CI.result_type = 3//Combination type. We're making something out of our ingredients
+		src.visible_message("<span class='notice'>\The [src] pings!</span>")
 		combination_cook(CI)
 		return
 	else

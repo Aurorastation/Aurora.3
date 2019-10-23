@@ -26,9 +26,18 @@
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/roboticist
-	desc = "It's a slimming black jumpsuit with reinforced seams; great for industrial work."
+	desc = "It's a white and purple jumpsuit with reinforced seams; great for industrial work."
 	name = "roboticist's jumpsuit"
 	icon_state = "robotics"
 	item_state = "bl_suit"
 	worn_state = "robotics"
 	siemens_coefficient = 0.75
+
+/obj/item/clothing/under/rank/roboticistalt
+	desc = "It's a slimming black jumpsuit with reinforced seams; great for industrial work."
+	name = "roboticist's jumpsuit"
+	icon_state = "robotics_alt"
+	item_state = "bl_suit"
+	worn_state = "robotics_alt"
+	siemens_coefficient = 0.75
+

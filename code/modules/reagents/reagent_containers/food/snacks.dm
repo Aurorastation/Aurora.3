@@ -271,7 +271,7 @@
 
 //Code for dipping food in batter
 /obj/item/weapon/reagent_containers/food/snacks/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)))
+	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)) && proximity)
 		for (var/r in O.reagents.reagent_list)
 
 			var/datum/reagent/R = r
@@ -511,6 +511,22 @@
 	. = ..()
 	reagents.add_reagent("sugar", 3)
 
+
+/obj/item/weapon/reagent_containers/food/snacks/candy/koko
+	name = "\improper Koko bar"
+	desc = "A sweet, yet gritty candy bar cultivated exclusively on the Compact ruled world of Ha zana. It's a good pick-me-up for Unathi, but has no affect on other species."
+	icon_state = "kokobar"
+	trash = /obj/item/trash/kokobar
+	filling_color = "#7D5F46"
+	nutriment_amt = 4
+	nutriment_desc = list("Koko Reed" = 2, "fibers" = 1)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/candy/koko/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 3)
+	reagents.add_reagent("kokoreed", 7)
+
 /obj/item/weapon/reagent_containers/food/snacks/candy/donor
 	name = "donor candy"
 	desc = "A little treat for blood donors. Made with real sugar!"
@@ -589,7 +605,7 @@
 	desc = "Goes great with Robust Coffee."
 	icon_state = "donut1"
 	filling_color = "#D9C386"
-	var/overlay_state = "box-donut1"
+	overlay_state = "box-donut1"
 	nutriment_desc = list("sweetness" = 1, "donut" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/normal
@@ -4442,13 +4458,13 @@
 	icon_state = "lasagna"
 	trash = /obj/item/trash/grease
 	center_of_mass = list("x"=16, "y"=17)
-	nutriment_amt = 5
+	nutriment_amt = 12
 	nutriment_desc = list("pasta" = 4, "tomato" = 2)
 	bitesize = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/classichotdog/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/lasagna/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("protein", 12)
 
 /obj/item/weapon/reagent_containers/food/snacks/donerkebab
 	name = "doner kebab"
@@ -4460,7 +4476,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/donerkebab/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("protein", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/sashimi
 	name = "carp sashimi"

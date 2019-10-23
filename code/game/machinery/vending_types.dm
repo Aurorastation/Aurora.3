@@ -176,7 +176,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
+		/obj/item/weapon/reagent_containers/food/snacks/candy/koko = 5
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -195,7 +196,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60
+		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
+		/obj/item/weapon/reagent_containers/food/snacks/candy/koko = 40
 	)
 
 /obj/machinery/vending/cola
@@ -875,7 +877,7 @@
 	icon_state = "battlemonsters"
 	vend_id = "battlemonsters"
 	products = list(
-		/obj/item/weapon/book/manual/battlemonsters = 10,
+		/obj/item/weapon/book/manual/wiki/battlemonsters = 10,
 		/obj/item/battle_monsters/wrapped = 10,
 		/obj/item/battle_monsters/wrapped/pro = 10,
 		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters
@@ -885,7 +887,7 @@
 		/obj/item/battle_monsters/wrapped/rare = 4
 	)
 	prices = list(
-		/obj/item/weapon/book/manual/battlemonsters = 12,
+		/obj/item/weapon/book/manual/wiki/battlemonsters = 12,
 		/obj/item/battle_monsters/wrapped = 100,
 		/obj/item/battle_monsters/wrapped/pro = 75,
 		/obj/item/battle_monsters/wrapped/species = 100,

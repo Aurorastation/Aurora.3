@@ -45,7 +45,8 @@
 		/datum/species/machine,
 		/datum/species/unathi,
 		/datum/species/bug,
-		/datum/species/tajaran
+		/datum/species/tajaran,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
