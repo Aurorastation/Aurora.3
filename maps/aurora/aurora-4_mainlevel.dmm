@@ -30742,7 +30742,7 @@
 /area/medical/pharmacy)
 "bbO" = (
 /obj/structure/table/standard,
-/obj/item/clothing/glasses/goggles,
+/obj/item/clothing/glasses/safety/goggles,
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
