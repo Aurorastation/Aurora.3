@@ -3168,8 +3168,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "djikstra_hood"
 	item_state = "djikstra_hood"
 	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR|BLOCKHEADHAIR|HIDEEARS
-	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEEARS|BLOCKHAIR|BLOCKHEADHAIR|HIDEEARS|HIDEMASK|HIDEEARS|HIDEEYES
+	body_parts_covered = HEAD
 
 /obj/item/clothing/suit/fluff/djikstra_robe //Stellar Robe - Msizi Djikstra - happyfox
 	name = "stellar robe"
@@ -3187,4 +3187,4 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/djikstra_items.dmi'
 	icon_state = "djikstra_blade"
 	item_state = "djikstra_blade"
-	w_class = 2
+	contained_sprite = TRUE
