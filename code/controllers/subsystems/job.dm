@@ -324,11 +324,11 @@
 		//Equip job items.
 		if(!megavend)	//Equip custom gear loadout.
 			Debug("ER/([H]): Equipping custom loadout.")
-			job.pre_equip(H)
 			job.setup_account(H)
 
 			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
-
+			job.pre_equip(H) // to prevent overwriting masks etc.
+			return
 		job.equip(H)
 
 		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
@@ -513,7 +513,7 @@
 
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
-		Debug("EP/([H]): EC Complated, running pre_equip and late_equip.")
+		Debug("EP/([H]): EC Completed, running pre_equip and late_equip.")
 
 		//Equip job items.
 		job.pre_equip(H) // Spawn in the backpack
@@ -753,7 +753,7 @@
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/metadata = prefs.gear[G.display_name]
 				var/obj/item/CI = G.spawn_item(null,metadata)
-				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
+				if (G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
 						leftovers += thing
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")

@@ -58,8 +58,8 @@
 	if(!H)
 		return 0
 
-	H.species.before_equip(H, visualsOnly, src)
 	H.preEquipOutfit(get_outfit(H, alt_title), visualsOnly)
+	H.species.before_equip(H, visualsOnly, src)
 
 /datum/job/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, announce = TRUE, alt_title = null)
 	if(!H)

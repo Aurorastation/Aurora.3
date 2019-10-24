@@ -11,6 +11,7 @@
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_wear_mask
 
 /datum/gear/mask/filterport
 	display_name = "filter port"
@@ -18,6 +19,7 @@
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_wear_mask
 
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask"
@@ -58,6 +60,7 @@
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_wear_suit
 
 /datum/gear/vaurca_robe/New()
 	..()
@@ -73,6 +76,7 @@
 	path = /obj/item/clothing/under/vaurca
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_w_uniform
 
 /datum/gear/uniform/vaurca/New()
 	..()
@@ -95,6 +99,7 @@
 	path = /obj/item/clothing/shoes/vaurca
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_shoes
 
 /datum/gear/shoes/vaurca/New()
 	..()
@@ -107,6 +112,7 @@
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_head
 
 /datum/gear/suit/vaurca_shroud/New()
 	..()
@@ -124,6 +130,7 @@
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+	slot = slot_wear_suit
 
 /datum/gear/suit/vaurca_mantle/New()
 	..()
