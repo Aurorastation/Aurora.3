@@ -1,14 +1,14 @@
 /datum/gear/eyes/blindfold
 	display_name = "vaurca blindfold"
 	path = /obj/item/clothing/glasses/sunglasses/blinders
-	cost = 2
+	cost = 1 // as it is important to protect their eyesight
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment"
 	path = /obj/item/clothing/mask/breath/vaurca
-	cost = 1
+	cost = 1/2 // needed to live
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 
