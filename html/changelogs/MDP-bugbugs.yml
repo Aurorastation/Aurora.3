@@ -42,3 +42,4 @@ changes:
   - bugfix: "Fixes getting autotraitored during crew transfer."
   - bugfix: "Fixes loadout items getting duplicated by the autodrobe."
   - bugfix: "Fixes the autodrobe murdering Vaurca like it's a member of a Tajaran gang."
+  - tweak: "Removes 'captainship not forced on anyone' message, as it served no purpose."

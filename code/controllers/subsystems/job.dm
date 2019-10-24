@@ -328,7 +328,7 @@
 
 			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 			job.pre_equip(H) // to prevent overwriting masks etc.
-			return
+			
 		job.equip(H)
 
 		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
