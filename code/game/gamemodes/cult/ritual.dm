@@ -398,9 +398,14 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 		var/list/scribewords = list("none")
 
+
+		//this only seems to be for teleportation words, which makes sense since it's the what's in the input for teleport below
 		for (var/entry in words)
 			if (words[entry] != entry)
 				english += list(words[entry] = entry)
+				user << "entry: [entry]"
+				user <<"words: [words]" //list
+				user<<"words\[entry]: [words[entry]]"
 
 		for (var/entry in dictionary)
 			scribewords += entry
@@ -414,8 +419,13 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			if (chosen_rune == "none")
 				to_chat(user, "<span class='notice'>You decide against scribing a rune, perhaps you should take this time to study your notes.</span>")
 				return
+			//choose last word of teleportation here
 			if (chosen_rune == "teleport")
 				dictionary[chosen_rune] += input ("Choose a destination word") in english
+				user<<"Final word selected:"
+				for(var/word in dictionary[chosen_rune])
+					//this records the right words (travel, self, [input]) but needs to be cleared, as it will become (travel, self, [input1], [input2])
+					user<< "[word]"
 			if (chosen_rune == "teleport other")
 				dictionary[chosen_rune] += input ("Choose a destination word") in english
 
@@ -435,9 +445,15 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
 			to_chat(user, "<span class='notice'>You finish drawing the arcane markings of the Geometer.</span>")
 			var/list/required = dictionary[chosen_rune]
+			//this seems confusing to me, as what it outputs is actually cult speak?
+			//removing the english[] reference actually makes it output english
 			R.word1 = english[required[1]]
 			R.word2 = english[required[2]]
 			R.word3 = english[required[3]]
+			user << "Required:"
+			user << "[R.word1]"
+			user << R.word2
+			user << "[R.word3]" //for teleport, word 3 is always ire(or the same within a game, at least) so teleports always lead to each other and become mingled
 			R.check_icon()
 			R.blood_DNA = list()
 			R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
