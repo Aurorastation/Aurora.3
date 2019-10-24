@@ -443,6 +443,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			R.word1 = english[required[1]]
 			R.word2 = english[required[2]]
 			R.word3 = english[required[3]]
+			R.check_icon()
 			R.blood_DNA = list()
 			R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
 		return
