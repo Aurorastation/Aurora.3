@@ -153,6 +153,24 @@ Reagents adjustment
 	I.reagents.add_reagent(., I.reagents.get_free_space())
 
 /*
+Reagent Temperature Adjustment
+*/
+/datum/gear_tweak/temperature/get_contents(var/metadata)
+	return "Temperature: [metadata - T0C]C"
+
+/datum/gear_tweak/temperature/get_default()
+	return T20C
+
+/datum/gear_tweak/temperature/get_metadata(var/user, var/metadata)
+	. = Clamp(input(user, "Choose a temperature.", "Character Preference", metadata) as null|num, T0C+1, T0C+45)
+	if(!.)
+		return metadata 
+
+/datum/gear_tweak/temperature/tweak_item(var/obj/item/I, var/metadata)
+	. = metadata
+	I?.reagents?.set_temperature(.)
+	
+/*
 Custom Name
 */
 

@@ -4,6 +4,7 @@
 	path = /obj/item/clothing/under/blazer
 	slot = slot_w_uniform
 	sort_category = "Uniforms and Casual Dress"
+	cost = 1 // as they replace job uniforms
 
 /datum/gear/uniform/kilt
 	display_name = "kilt"
@@ -13,6 +14,7 @@
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -91,6 +93,7 @@
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
 	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -134,6 +137,7 @@
 	display_name = "uniform, captain dress"
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/customdress
 	display_name = "evening gown"
@@ -152,6 +156,7 @@
 	display_name = "uniform, HR director (HoP)"
 	path = /obj/item/clothing/under/dress/dress_hr
 	allowed_roles = list("Head of Personnel")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -232,6 +237,7 @@
 	description = "A selection of officer uniforms."
 	path = /obj/item/clothing/under/rank/security
 	allowed_roles = list("Security Officer")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/officer/New()
 	..()
@@ -247,6 +253,7 @@
 	description = "A selection of Warden uniforms."
 	path = /obj/item/clothing/under/rank/warden
 	allowed_roles = list("Warden")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/warden/New()
 	..()
@@ -261,12 +268,15 @@
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
 	allowed_roles = list("Head of Security")
+	cost = 1/2 // as it's job restricted
 
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
 	path = /obj/item/clothing/under/circuitry
+	cost = 2 // as it provides Special Functions and replaces job items
 
 /datum/gear/uniform/science_alt
 	display_name = "scientist, alt"
 	path = /obj/item/clothing/under/rank/scientist/science_alt
 	allowed_roles = list("Scientist", "Xenobiologist")
+	cost = 1/2 // as it's job restricted

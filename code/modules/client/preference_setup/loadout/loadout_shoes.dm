@@ -112,3 +112,4 @@
 /datum/gear/shoes/circuitry
 	display_name = "boots, circuitry (empty)"
 	path = /obj/item/clothing/shoes/circuitry
+	cost = 3/2 // special functionality but doesn't replace uniform items

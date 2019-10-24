@@ -5,17 +5,17 @@
 	path = /obj/item/clothing/ears/earmuffs
 	sort_category = "Earwear"
 
-/datum/gear/ears/bandanna
-	display_name = "neck bandanna selection"
-	path = /obj/item/clothing/ears/bandanna
+/datum/gear/ears/bandana
+	display_name = "neck bandana selection"
+	path = /obj/item/clothing/ears/bandana
 
-/datum/gear/ears/bandanna/New()
+/datum/gear/ears/bandana/New()
 	..()
-	var/bandanna = list()
-	bandanna["red bandanna"] =  /obj/item/clothing/ears/bandanna
-	bandanna["blue bandanna"] = /obj/item/clothing/ears/bandanna/blue
-	bandanna["black bandanna"] = /obj/item/clothing/ears/bandanna/black
-	gear_tweaks += new/datum/gear_tweak/path(bandanna)
+	var/bandana = list()
+	bandana["red bandana"] =  /obj/item/clothing/ears/bandana
+	bandana["blue bandana"] = /obj/item/clothing/ears/bandana/blue
+	bandana["black bandana"] = /obj/item/clothing/ears/bandana/black
+	gear_tweaks += new/datum/gear_tweak/path(bandana)
 
 /datum/gear/ears/headphones
 	display_name = "headphones"
@@ -24,3 +24,4 @@
 /datum/gear/ears/circuitry
 	display_name = "earwear, circuitry (empty)"
 	path = /obj/item/clothing/ears/circuitry
+	cost = 3/2

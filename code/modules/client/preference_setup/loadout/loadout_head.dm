@@ -3,6 +3,7 @@
 	path = /obj/item/clothing/head/ushanka
 	slot = slot_head
 	sort_category = "Hats and Headwear"
+	cost = 1
 
 /datum/gear/head/ushanka_grey
 	display_name = "ushanka, grey"
@@ -49,6 +50,7 @@
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+	cost = 1/2
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -58,36 +60,43 @@
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 1/2
 
 /datum/gear/head/beret/warden
 	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
 	allowed_roles = list("Head of Security", "Warden")
+	cost = 1/2
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
+	cost = 1/2
 
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
 	path = /obj/item/clothing/head/beret/medical
 	allowed_roles = list("Medical Doctor", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+	cost = 1/2
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 1/2
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 1/2
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 1/2
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -181,6 +190,7 @@
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	cost = 1/2
 
 /datum/gear/head/surgical/New()
 	..()
@@ -220,6 +230,7 @@
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	cost = 1/2
 
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
@@ -228,3 +239,4 @@
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
+	cost = 3/2 // special functionality but doesn't replace uniform items

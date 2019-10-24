@@ -62,3 +62,4 @@
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"
 	path = /obj/item/clothing/gloves/circuitry
+	cost = 3/2 // special functionality but doesn't replace uniform items

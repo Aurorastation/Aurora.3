@@ -36,35 +36,15 @@
 
 /datum/gear/flask/New()
 	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents())
-
-/datum/gear/vacflask_cold
-	display_name = "cold vacuum-flask"
-	path = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
-
-/datum/gear/vacflask_cold/New()
-	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
-
-/datum/gear/vacflask_cold/spawn_item(var/location, var/metadata)
-	. = ..()
-	var/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
-	if(istype(spawned_flask) && spawned_flask.reagents)
-		spawned_flask.reagents.set_temperature(T0C + 5)
-
-/datum/gear/vacflask_hot
-	display_name = "hot vacuum-flask"
-	path = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
-
-/datum/gear/vacflask_hot/New()
-	..()
-	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_drink_reagents())
-
-/datum/gear/vacflask_hot/spawn_item(var/location, var/metadata)
-	. = ..()
-	var/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask/spawned_flask = .
-	if(istype(spawned_flask) && spawned_flask.reagents)
-		spawned_flask.reagents.set_temperature(T0C + 45)
+	var/flasks = list()
+	flasks["glass flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/barflask
+	flasks["vacuum flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
+	flasks["lambda symbol flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/shiny
+	flasks["lithium atom flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/lithium
+	
+	gear_tweaks += new/datum/gear_tweak/path(flasks)
+	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents() + lunchables_drink_reagents())
+	gear_tweaks += new/datum/gear_tweak/temperature()
 
 /datum/gear/lunchbox
 	display_name = "lunchbox"

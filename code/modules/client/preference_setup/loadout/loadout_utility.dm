@@ -63,17 +63,23 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/utility/computer
+	display_name = "advanced tablet computer"
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+	cost = 4 // equivalent to two storage items
 
-/datum/gear/utility/cheaptablet
+/datum/gear/utility/computer/cheap
 	display_name = "cheap tablet computer"
 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
 	cost = 2 // equivalent to a storage item
 
-/datum/gear/utility/normaltablet
-	display_name = "tablet computer"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
-	cost = 4 // equivalent to two storage items
+/datum/gear/utility/computer/laptop
+	display_name = "advanced laptop"
+	path = /obj/item/modular_computer/laptop/preset/custom_loadout/advanced
 
+/datum/gear/utility/computer/cheap/laptop
+	display_name = "cheap laptop"
+	path = /obj/item/modular_computer/laptop/preset/custom_loadout/cheap
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
