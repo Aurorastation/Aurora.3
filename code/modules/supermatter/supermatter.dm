@@ -226,7 +226,7 @@
 		removed = env.remove(gasefficency * env.total_moles)	//Remove gas from surrounding area
 
 	if(!env || !removed || !removed.total_moles)
-		damage += max((SPACED_DAMAGE_FACTOR*power - 15*POWER_FACTOR)/10, 0)
+		damage += max((SPACED_DAMAGE_FACTOR*(power - 15*POWER_FACTOR))/10, 0)
 	else if (grav_pulling) //If supermatter is detonating, remove all air from the zone
 		env.remove(env.total_moles)
 	else
