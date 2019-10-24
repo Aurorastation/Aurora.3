@@ -22,7 +22,7 @@
 	set waitfor = FALSE
 	src.teleport(user)
 
-/obj/effect/portal/New(loc, turf/target, creator=null, lifespan=rand(300,600))
+/obj/effect/portal/New(loc, turf/target, creator=null, lifespan=rand(240,480))
 	..()
 	src.target = target
 	src.creator = creator
