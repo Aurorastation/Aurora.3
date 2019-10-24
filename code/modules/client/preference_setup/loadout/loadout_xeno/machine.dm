@@ -1,7 +1,6 @@
 /datum/gear/head/goldenchains
 	display_name = "golden deep headchains"
 	path = /obj/item/clothing/head/headchain
-	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 
@@ -16,7 +15,6 @@
 /datum/gear/head/goldencrests
 	display_name = "golden deep crests"
 	path = /obj/item/clothing/head/crest
-	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 
@@ -31,7 +29,6 @@
 /datum/gear/gloves/armchains
 	display_name = "golden deep armchains"
 	path = /obj/item/clothing/gloves/armchain
-	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 
@@ -46,7 +43,6 @@
 /datum/gear/gloves/bracers
 	display_name = "golden deep bracers"
 	path = /obj/item/clothing/gloves/goldbracer
-	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 
@@ -61,7 +57,6 @@
 /datum/gear/ears/antennae
 	display_name = "antennae"
 	path = /obj/item/clothing/head/antenna
-	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 
@@ -82,13 +77,14 @@
 /datum/gear/ears/headlights
 	display_name = "headlights"
 	path = /obj/item/device/flashlight/headlights
-	cost = 2
+	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
 	display_name = "Idris Reclamation Unit coat"
 	path = /obj/item/clothing/suit/armor/vest/idris
+	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
 	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")

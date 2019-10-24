@@ -34,6 +34,7 @@
 /datum/gear/suit/hazard_vest
 	display_name = "hazard vest selection"
 	path = /obj/item/clothing/suit/storage/hazardvest
+	cost = 1
 
 /datum/gear/suit/hazard_vest/New()
 	..()
@@ -55,6 +56,7 @@
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
+	cost = 1
 
 /datum/gear/suit/labcoat/New()
 	..()
@@ -63,7 +65,6 @@
 /datum/gear/suit/overalls
 	display_name = "overalls"
 	path = /obj/item/clothing/suit/apron/overalls
-	cost = 1
 
 /datum/gear/suit/overalls/New()
 	..()
@@ -72,19 +73,20 @@
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
-	cost = 1
 	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	cost = 1
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	cost = 1
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
 	path = /obj/item/clothing/accessory/poncho
-	cost = 1
+	cost = 1/2
 
 /datum/gear/suit/poncho/New()
 	..()
@@ -131,6 +133,7 @@
 	description = "A selection of detective trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/det_trench
 	allowed_roles = list("Detective")
+	cost = 1
 
 /datum/gear/suit/det_trenchcoat/New()
 	..()
@@ -145,70 +148,84 @@
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
 	path = /obj/item/clothing/suit/ianshirt
+	cost = 1 // no storage
 
 /datum/gear/suit/winter
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
+	cost = 3/2 // since unathi could need these, they're cheaper but not as cheap as departmental items
 
 /datum/gear/suit/winter/captain
 	display_name = "winter coat, captain"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	allowed_roles = list("Captain")
+	cost = 1
 
 /datum/gear/suit/winter/security
 	display_name = "winter coat, security"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 1
 
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
+	cost = 1
 
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
+	cost = 1
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
+	cost = 1
 
 /datum/gear/suit/winter/atmos
 	display_name = "winter coat, atmospherics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
+	cost = 1
 
 /datum/gear/suit/winter/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	allowed_roles = list("Head of Personnel", "Gardener")
+	cost = 1
 
 /datum/gear/suit/winter/cargo
 	display_name = "winter coat, cargo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
 	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
+	cost = 1
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
+	cost = 1
 
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
 	path = /obj/item/clothing/suit/security/navyofficer
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	cost = 1
 
 /datum/gear/suit/secjacketwarden
 	display_name = "navy security jacket (Warden)"
 	path = /obj/item/clothing/suit/security/navywarden
 	allowed_roles = list("Head of Security", "Warden")
+	cost = 1
 
 /datum/gear/suit/secjackethos
 	display_name = "navy security jacket (Head of Security)"
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
+	cost = 1
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
@@ -246,6 +263,7 @@
 	display_name = "department jackets selection"
 	description = "A selection of department jackets."
 	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+	cost = 1
 
 /datum/gear/suit/dep_jacket/New()
 	..()
@@ -305,7 +323,6 @@
 /datum/gear/suit/cardigan
 	display_name = "cardigan"
 	path = /obj/item/clothing/suit/cardigan
-	cost = 1 // has no pockets or any use whatsoever anyway
 
 /datum/gear/suit/cardigan/New()
 	..()

@@ -49,40 +49,35 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/datum/gear/autakh_engineering
+/datum/gear/autakh
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
-	cost = 3
+	cost = 2 // as it is job-restricted
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 
-/datum/gear/autakh_mining
+/datum/gear/autakh/mining
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-	whitelisted = list("Aut'akh Unathi")
-	sort_category = "Xenowear - Unathi"
-	cost = 3
 	allowed_roles = list("Shaft Miner")
 
-/datum/gear/autakh_medical
+/datum/gear/autakh/medical
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
-	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
-/datum/gear/autakh_security
+/datum/gear/autakh/security
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
-	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
 
 /datum/gear/uniform/unathi/jizixi

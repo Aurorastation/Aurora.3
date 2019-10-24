@@ -105,7 +105,7 @@
 
 /datum/gear/flag
 	display_name = "flag selection"
-	cost = 2
+	cost = 1
 	path = /obj/item/weapon/flag
 
 /datum/gear/flag/New()

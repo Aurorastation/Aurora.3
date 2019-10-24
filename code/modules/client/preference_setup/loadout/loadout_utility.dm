@@ -1,12 +1,16 @@
 /datum/gear/utility
-	display_name = "briefcase"
-	path = /obj/item/weapon/storage/briefcase
+	display_name = "clipboard"
+	path = /obj/item/weapon/clipboard
 	sort_category = "Utility"
 
-/datum/gear/utility/secure
+/datum/gear/utility/storage
+	display_name = "briefcase"
+	path = /obj/item/weapon/storage/briefcase
+	cost = 2
+
+/datum/gear/utility/storage/secure
 	display_name = "secure briefcase"
 	path = /obj/item/weapon/storage/secure/briefcase
-	cost = 2
 
 /datum/gear/utility/clipboard
 	display_name = "clipboard"
@@ -30,45 +34,46 @@
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
 
-/datum/gear/utility/wallet
+/datum/gear/utility/smallstore
 	display_name = "wallet, orange"
 	path = 	/obj/item/weapon/storage/wallet
+	cost = 3/2 // small storage item
 
-/datum/gear/utility/wallet_colourable
+/datum/gear/utility/smallstore/wallet_colourable
 	display_name = "wallet, colourable"
 	path = /obj/item/weapon/storage/wallet/colourable
 
-/datum/gear/utility/wallet_colourable/New()
+/datum/gear/utility/smallstore/wallet_colourable/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/datum/gear/utility/wallet_purse
+/datum/gear/utility/smallstore/wallet_purse
 	display_name = "wallet, purse"
 	path = /obj/item/weapon/storage/wallet/purse
 
-/datum/gear/utility/wallet_purse/New()
+/datum/gear/utility/smallstore/wallet_purse/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/datum/gear/utility/lanyard
+/datum/gear/utility/smallstore/lanyard
 	display_name = "lanyard"
 	path = /obj/item/weapon/storage/wallet/lanyard
 
-/datum/gear/utility/lanyard/New()
+/datum/gear/utility/smallstore/lanyard/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/*
+
 /datum/gear/utility/cheaptablet
 	display_name = "cheap tablet computer"
 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
-	cost = 3
+	cost = 2 // equivalent to a storage item
 
 /datum/gear/utility/normaltablet
 	display_name = "tablet computer"
 	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
-	cost = 4
-*/
+	cost = 4 // equivalent to two storage items
+
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
@@ -78,12 +83,11 @@
 	display_name = "camera"
 	path = 	/obj/item/device/camera
 
-/datum/gear/utility/fannypack
+/datum/gear/utility/smallstore/fannypack
 	display_name = "fannypack selection"
-	cost = 2
 	path = /obj/item/weapon/storage/belt/fannypack
 
-/datum/gear/utility/fannypack/New()
+/datum/gear/utility/smallstore/fannypack/New()
 	..()
 	var/list/fannys = list()
 	for(var/fanny in typesof(/obj/item/weapon/storage/belt/fannypack))

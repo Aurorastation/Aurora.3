@@ -151,7 +151,7 @@
 /datum/gear/mask/tajara
 	display_name = "sun sister veil"
 	path = /obj/item/clothing/mask/tajara
-	cost = 1
+	cost = 1/2
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
 
@@ -166,3 +166,4 @@
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	cost = 1 // because it's annoying but justifiable, i guess

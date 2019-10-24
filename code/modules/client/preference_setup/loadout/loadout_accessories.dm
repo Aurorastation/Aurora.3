@@ -86,16 +86,19 @@
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 1
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
 	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 1
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	cost = 1
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -106,16 +109,19 @@
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 1
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
 	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	cost = 1
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist","Psychiatrist", "Paramedic", "Medical Resident")
+	cost = 1
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
