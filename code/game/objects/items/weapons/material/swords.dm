@@ -158,7 +158,6 @@
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "sword"
 	item_state = "sword"
-	var/obj/item/weapon/material/blade //what is the blade made of?
 	var/obj/item/weapon/material/hilt //what is the handle made of?
 	force_divisor = 0.3
 	contained_sprite = TRUE
@@ -173,17 +172,11 @@
 			health--
 		check_health()
 
-/obj/item/weapon/material/sword/improvised_sword/Initialize()
-	. = ..()
-	force_divisor *= (material.weight / 20)
-
 /obj/item/weapon/material/sword/improvised_sword/proc/assignDescription()
-	if(blade && hilt)
-		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a blade of [blade.material], and a hilt of [hilt.material]."
-	else if(blade)
-		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a blade of [blade.material]."
-	else if(hilt)
-		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a hilt of [hilt.material]."
+	if(hilt)
+		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a blade of [src.material], and a hilt of [hilt.material]."
+	else
+		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a blade of [src.material]."
 
 // the things needed to create the above
 /obj/item/weapon/material/sword_hilt
@@ -199,7 +192,6 @@
 	if(istype(O, /obj/item/weapon/material/sword_blade))
 		var/obj/item/weapon/material/sword_blade/blade = O
 		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.name)
-		new_sword.blade = blade
 		new_sword.hilt = src
 		user.drop_from_inventory(src,new_sword)
 		user.drop_from_inventory(blade,new_sword)
@@ -223,7 +215,6 @@
 	if(istype(O, /obj/item/weapon/material/sword_hilt))
 		var/obj/item/weapon/material/sword_hilt/hilt = O
 		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
-		new_sword.blade = src.material
 		new_sword.hilt = hilt.material
 		new_sword.assignDescription()
 		user.drop_from_inventory(src,new_sword)
