@@ -415,13 +415,9 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				to_chat(user, "<span class='notice'>You decide against scribing a rune, perhaps you should take this time to study your notes.</span>")
 				return
 			//choose last word of teleportation here
-			if (chosen_rune == "teleport")
+			if(chosen_rune == "teleport" || chosen_rune == "teleport other")
 				if(dictionary[chosen_rune].len > 2)
 					dictionary[chosen_rune].Cut(3, 4) //removes the third teleport word, if it exists (which it always will after the first teleport rune is drawn)
-				dictionary[chosen_rune] += input ("Choose a destination word") in english
-			if (chosen_rune == "teleport other")
-				if(dictionary[chosen_rune].len > 2)
-					dictionary[chosen_rune].Cut(3, 4)
 				dictionary[chosen_rune] += input ("Choose a destination word") in english
 
 		if(user.get_active_hand() != src)
