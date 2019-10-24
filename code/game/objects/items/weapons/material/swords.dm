@@ -163,6 +163,9 @@
 	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
+/obj/item/weapon/material/sword/improvised_sword/Initialize()
+	. = ..()
+	force_divisor *= (material.weight / 20)
 // the things needed to create the above
 /obj/item/weapon/material/sword_hilt
 	name = "hilt"
@@ -177,7 +180,7 @@
 /obj/item/weapon/material/sword_hilt/attackby(var/obj/O, mob/user)
 	if(istype(O, /obj/item/weapon/material/sword_blade))
 		var/obj/item/weapon/material/sword_blade/blade = O
-		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
+		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.name)
 		user.drop_from_inventory(src,new_sword)
 		user.drop_from_inventory(blade,new_sword)
 		user.put_in_hands(new_sword)
