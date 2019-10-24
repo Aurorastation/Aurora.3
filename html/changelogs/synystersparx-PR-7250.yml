@@ -1,0 +1,6 @@
+author: SynysterSparx
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed cultist teleport runes all being on the same network."
