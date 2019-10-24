@@ -155,24 +155,42 @@
 /obj/item/weapon/material/sword/improvised_sword
 	name = "selfmade sword"
 	desc = "A crudely made, rough looking sword. Still appears to be quite deadly."
-	use_material_name = FALSE
 	icon = 'icons/obj/improvised.dmi'
 	icon_state = "sword"
 	item_state = "sword"
-	force_divisor = 0.3 // 18 damage
-	contained_sprite = 1
+	var/obj/item/weapon/material/blade //what is the blade made of?
+	var/obj/item/weapon/material/hilt //what is the handle made of?
+	force_divisor = 0.3
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
+
+/obj/item/weapon/material/sword/improvised_sword/apply_hit_effect()
+	. = ..()
+	if(!unbreakable)
+		if(hilt.material.is_brittle())
+			health = 0
+		else if(!prob(hilt.material.hardness))
+			health--
+		check_health()
 
 /obj/item/weapon/material/sword/improvised_sword/Initialize()
 	. = ..()
 	force_divisor *= (material.weight / 20)
+
+/obj/item/weapon/material/sword/improvised_sword/proc/assignDescription()
+	if(blade && hilt)
+		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a blade of [blade.material], and a hilt of [hilt.material]."
+	else if(blade)
+		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a blade of [blade.material]."
+	else if(hilt)
+		desc = "A crudely made, rough looking sword. Still appears to be quite deadly. It has a hilt of [hilt.material]."
+
 // the things needed to create the above
 /obj/item/weapon/material/sword_hilt
 	name = "hilt"
 	desc = "A hilt without a blade, quite useless."
-	use_material_name = FALSE
 	icon = 'icons/obj/improvised.dmi'
-	icon_state = "hilt"
+	icon_state = "swordhilt"
 	unbreakable = TRUE
 	force_divisor = 0.05
 	thrown_force_divisor = 0.2
@@ -181,20 +199,22 @@
 	if(istype(O, /obj/item/weapon/material/sword_blade))
 		var/obj/item/weapon/material/sword_blade/blade = O
 		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.name)
+		new_sword.blade = blade
+		new_sword.hilt = src
 		user.drop_from_inventory(src,new_sword)
 		user.drop_from_inventory(blade,new_sword)
 		user.put_in_hands(new_sword)
 		qdel(blade)
 		qdel(src)
+		new_sword.assignDescription()
 	else
 		..()
 
 /obj/item/weapon/material/sword_blade
 	name = "blade"
 	desc = "A blade without a hilt, don't cut yourself!"
-	use_material_name = FALSE
 	icon = 'icons/obj/improvised.dmi'
-	icon_state = "blade"
+	icon_state = "swordblade"
 	unbreakable = TRUE
 	force_divisor = 0.20
 	thrown_force_divisor = 0.3
@@ -203,10 +223,14 @@
 	if(istype(O, /obj/item/weapon/material/sword_hilt))
 		var/obj/item/weapon/material/sword_hilt/hilt = O
 		var/obj/item/weapon/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
+		new_sword.blade = src.material
+		new_sword.hilt = hilt.material
+		new_sword.assignDescription()
 		user.drop_from_inventory(src,new_sword)
 		user.drop_from_inventory(hilt,new_sword)
 		user.put_in_hands(new_sword)
 		qdel(hilt)
 		qdel(src)
+		new_sword.assignDescription()
 	else
 		..()
