@@ -2,12 +2,13 @@
 //"Vaurca" in the item path at some point, so they can be easily spawned in-game.
 
 /obj/item/clothing/mask/breath/vaurca
-	desc = "A Vaurcae mandible garment with an attached gas filter and air-tube."
+	desc = "A Vaurcaesian mandible garment with an attached gas filter and air-tube."
 	name = "mandible garment"
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
 	contained_sprite = 1
+	autodrobe_no_remove = 1
 
 /obj/item/clothing/mask/breath/vaurca/adjust_mask(mob/user)
 	to_chat(user, "This mask is too tight to adjust.")
@@ -75,7 +76,7 @@
 
 /obj/item/weapon/melee/energy/vaurca
 	name = "thermal knife"
-	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
+	desc = "A Vaurca-designed combat knife with a thermal energy blade designed for close-quarter encounters."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "eknife0"
 	item_state = "eknife0"
@@ -179,7 +180,7 @@
 
 /obj/item/weapon/melee/vaurca/rock
 	name = "Sedantis rock"
-	desc = "A large chunk of alien earth from the distant Vaurcae world of Sedantis I. Just looking at it makes you feel funny."
+	desc = "A large chunk of alien earth from the distant Vaurcaesian world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 15
@@ -220,7 +221,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "void"
 	item_state = "void"
-	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
+	desc = "A lightweight Zo'rane designed Vaurcaesian softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
 	species_restricted = list("Vaurca")

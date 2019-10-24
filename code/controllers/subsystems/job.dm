@@ -409,9 +409,6 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 
-	if(H.species)
-		H.species.equip_later_gear(H)
-
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
@@ -503,7 +500,7 @@
 
 	H.job = rank
 
-	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
+	if(job.latejoin_at_spawnpoints)
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()

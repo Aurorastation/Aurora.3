@@ -6,7 +6,7 @@
 ///process()
 ///Called by the gameticker
 /datum/game_mode/process()
-	if(round_autoantag && world.time >= next_spawn && !emergency_shuttle.departed)
+	if(round_autoantag && world.time >= next_spawn && emergency_shuttle.shuttle.moving_status == SHUTTLE_IDLE)
 		process_autoantag()
 
 	// Process loop for objectives like the brig one.

@@ -138,8 +138,6 @@
 	if(!H)
 		return 0
 
-	H.species.before_equip(H, FALSE, src)
-
 	var/loyalty = 1
 	if(H.client)
 		switch(H.client.prefs.nanotrasen_relation)
