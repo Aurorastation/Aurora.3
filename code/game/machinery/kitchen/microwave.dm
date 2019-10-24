@@ -1,7 +1,6 @@
 /obj/machinery/microwave
 	name = "microwave"
-	desc = "A NanoTrasen branded microwave, although the sticker has long since faded." + \
-	"All that's left are two warnings, 'Choking Hazard!' and 'Do not place non-food objects inside during operation.'"
+	desc = "A Getmore-brand microwave. It's seen better days. Below the oven door, a faded label warns to keep non-food items out, and to beware of choking."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mw"
 	layer = 2.9
@@ -210,6 +209,10 @@
 	SSvueui.check_uis_for_change(src)
 	..()
 
+/obj/machinery/microwave/AltClick()
+	if(!operating)
+		cook()
+
 /obj/machinery/microwave/attack_ai(mob/user as mob)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
 		attack_hand(user)
@@ -286,13 +289,13 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
-	if (!reagents.get_reagents() && !(locate(/obj) in contents)) //dry run
+	if (!reagents.reagent_list.len && !(locate(/obj) in contents)) //dry run
 		start()
 		return
 
 	recipe = select_recipe(RECIPE_LIST(appliancetype),src)
 
-	if (reagents.get_reagents() && prob(50)) // 50% chance a liquid recipe gets messy
+	if (reagents.reagent_list.len && prob(50)) // 50% chance a liquid recipe gets messy
 		dirty += Ceiling(reagents.total_volume / 10)
 
 	if (!recipe)
@@ -352,7 +355,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	return
 
-/obj/machinery/microwave/process()
+/obj/machinery/microwave/process() // What you see here are the remains of proc/wzhzhzh, 2010 - 2019. RIP.
 	if (stat & (NOPOWER|BROKEN))
 		stop()
 		return

@@ -41,6 +41,7 @@ changes:
   - refactor: "Microwaves have been reworked from the ground up on the back-end. Microwaves have been moved to a process-based system for cooking, and behave more similarly to other cooking devices."
   - rscadd: "Microwaves have had their UI rebuilt from scratch in Vue."
   - rscadd: "You can now eject individual ingredients and reagents from a microwave. To perform the latter, you must be holding a reagent container with enough space in your hands."
+  - rscadd: "You can now start microwaves by alt-clicking on them."
   - rscadd: "Microwaves can now be upgraded, with matter bins, capacitors, and the micro laser affecting maximum cookable items, power usage, and cook time respectively."
   - tweak: "Microwaves now display their cook time as a progress bar in the UI. Cook time has been reduced across the board."
   - tweak: "Eject verb for microwaves removed. All interfacing should now be done via the UI."
