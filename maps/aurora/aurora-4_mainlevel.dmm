@@ -25514,16 +25514,12 @@
 	},
 /obj/machinery/button/remote/airlock{
 	name = "Office Door";
-	step_x = 21;
-	step_y = -10;
 	pixel_x = -27;
 	pixel_y = 37;
 	req_access = list(10,69);
 	id = "EngSecDoor"
 	},
 /obj/machinery/button/windowtint{
-	step_x = 1;
-	step_y = -1;
 	pixel_x = -26;
 	pixel_y = 29;
 	req_access = list(10,69);
@@ -25532,11 +25528,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "engineeringshutters01";
 	name = "Desk Shutter Control";
-	pixel_x = -34;
-	pixel_y = 24;
-	req_access = list(10,69);
-	step_x = 7;
-	step_y = -18
+	pixel_x = -37;
+	pixel_y = 37;
+	req_access = list(10,69)
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
@@ -39551,8 +39545,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/button/remote/blast_door{
 	name = "Entrance Shutters Control";
-	step_x = -4;
-	step_y = 3;
 	pixel_x = 0;
 	pixel_y = -6;
 	req_access = list(66);
@@ -67263,9 +67255,7 @@
 	name = "Office Door";
 	pixel_x = 0;
 	pixel_y = -6;
-	req_access = list(47,69);
-	step_x = -4;
-	step_y = 3
+	req_access = list(47,69)
 	},
 /obj/item/device/radio/intercom{
 	dir = 8;
