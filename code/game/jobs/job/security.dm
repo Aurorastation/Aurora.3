@@ -202,7 +202,7 @@
 
 /datum/job/officer
 	title = "General Officer"
-	flag = OFFICER
+	flag = BRIGSEC
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
@@ -236,7 +236,7 @@
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs = 1
+		/obj/item/weapon/handcuffs = 1,
 		/obj/item/clothing/accessory/armband = 1
 	)
 
