@@ -176,6 +176,10 @@
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
 		to_chat(user, span("warning", "There is no data to print."))
 		return
+	if(printing)
+		return
+
+	printing = TRUE
 
 	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(user.loc)
 	var/date_string = worlddate2text()
@@ -194,18 +198,22 @@
 	dat += "Ore Yields: <br>"
 
 	dat += "<table>"
-	for(var/material/OM in output_mats) {
+
+	for(var/material/OM in output_mats)
 		if(output_mats[OM] > 1)
 			dat += "<tr><td><b><small>[output_mats[OM]]</b></small></td><td><small>[OM.display_name] [OM.sheet_plural_name]</small></td></tr>"
 		else
 			dat += "<tr><td><b><small>[output_mats[OM]]</b></small></td><td><small>[OM.display_name] [OM.sheet_singular_name]</small></td></tr>"
-	}
-	for(var/datum/alloy/AM in alloy_mats) {
+
+	CHECK_TICK
+
+	for(var/datum/alloy/AM in alloy_mats)
 		if(alloy_mats[AM] > 1)
 			dat += "<tr><td><b><small>[alloy_mats[AM]]</b></td><td><small>[AM.metaltag] sheets</small></td></tr>"
 		else
 			dat += "<tr><td><b><small>[alloy_mats[AM]]</b></td><td><small>[AM.metaltag] sheet</small></td></tr>"
-	}
+
+	CHECK_TICK
 
 	dat += "</table><br>"
 
@@ -213,12 +221,14 @@
 		dat += "Waste detected: "
 		dat += "[waste] unit(s) of material were wasted due to operator error. This includes: <br>"
 		dat += "<table>"
-		for(var/ore/IM in input_mats) {
+		for(var/ore/IM in input_mats)
 			if(input_mats[IM] > 1)
 				dat += "<tr><td><b><small>[input_mats[IM]]</small></b></td><td><small>[IM.display_name]</small></td></tr>"
 			else
 				dat += "<tr><td><b><small>[input_mats[IM]]</small></b></td><td><small>[IM.display_name]</small></td></tr>"
-		}
+
+		CHECK_TICK
+
 		dat += "</table><br>"
 
 	dat += "Additional Notes: <span class=\"paper_field\"></span><br><br>"
@@ -250,6 +260,7 @@
 	if(ishuman(user) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(P)
 
+	printing = FALSE
 	return
 
 /**********************Mineral processing unit**************************/
