@@ -860,28 +860,28 @@
 	problist = list(
 
 		/obj/item/clothing/gloves/chameleon = 1,
-		/obj/item/clothing/gloves/black = 1,
+		/obj/item/clothing/gloves/black = 10,
 
 		/obj/item/clothing/head/chameleon = 0.5,
-		/obj/item/clothing/head/soft/grey = 0.5,
+		/obj/item/clothing/head/soft/grey = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
-		/obj/item/clothing/mask/gas/ = 1,
+		/obj/item/clothing/mask/gas/ = 10,
 
 		/obj/item/clothing/shoes/chameleon = 0.5,
-		/obj/item/clothing/shoes/black = 0.5,
+		/obj/item/clothing/shoes/black = 5,
 
 		/obj/item/clothing/suit/chameleon = 0.1,
-		/obj/item/clothing/suit/armor/vest = 0.1,
+		/obj/item/clothing/suit/armor/vest = 1,
 
 		/obj/item/clothing/under/chameleon = 0.75,
-		/obj/item/clothing/under/color/black = 0.75,
+		/obj/item/clothing/under/color/black = 7.5,
 
 		/obj/item/weapon/gun/energy/chameleon = 0.1,
 		/obj/item/weapon/gun/bang/deagle = 0.1,
 
 		/obj/item/weapon/storage/backpack/chameleon = 1,
-		/obj/item/weapon/storage/backpack/ = 1,
+		/obj/item/weapon/storage/backpack/ = 10,
 
 		/obj/item/clothing/glasses/chameleon = 1,
 		/obj/item/clothing/glasses/meson = 1
