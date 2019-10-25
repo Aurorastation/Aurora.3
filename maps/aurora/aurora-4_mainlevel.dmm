@@ -3857,10 +3857,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"ahn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/quartermaster/sec)
 "ahp" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -23323,6 +23319,7 @@
 	dir = 1;
 	id = "EngSecWindow"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aOL" = (
@@ -23350,6 +23347,7 @@
 	dir = 2;
 	id = "EngSecWindow"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aON" = (
@@ -27301,7 +27299,6 @@
 /area/engineering/sec)
 "aVi" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -27320,11 +27317,11 @@
 	id = "engineeringshutters01";
 	name = "Engineering Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/sec)
 "aVj" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -27348,11 +27345,11 @@
 	id = "engineeringshutters01";
 	name = "Engineering Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/sec)
 "aVk" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -27372,6 +27369,7 @@
 	id = "engineeringshutters01";
 	name = "Engineering Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/sec)
 "aVl" = (
@@ -59733,6 +59731,7 @@
 	dir = 8;
 	id = "CargoSecOffice"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/sec)
 "ccy" = (
@@ -60281,6 +60280,7 @@
 	dir = 8;
 	id = "CargoSecOffice"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/sec)
 "cdE" = (
@@ -63447,6 +63447,7 @@
 	dir = 4;
 	id = "CargoSecOffice"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/quartermaster/sec)
 "cPy" = (
@@ -64902,7 +64903,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "hhN" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d2 = 8;
 	icon_state = "0-8"
@@ -64922,6 +64922,7 @@
 	id = "engineeringshutters01";
 	name = "Engineering Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/sec)
 "hib" = (
@@ -65228,6 +65229,7 @@
 	dir = 1;
 	id = "EngSecWindow"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "hRF" = (
@@ -67111,6 +67113,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"nvJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/quartermaster/sec)
 "nwF" = (
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/carpet,
@@ -67327,7 +67333,6 @@
 /area/maintenance/medbay)
 "onq" = (
 /obj/structure/grille,
-/obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -67350,6 +67355,7 @@
 	id = "engineeringshutters01";
 	name = "Engineering Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/engineering/sec)
 "onC" = (
@@ -68517,7 +68523,6 @@
 	name = "Engineering Desk";
 	req_access = list(32,69)
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
@@ -68533,6 +68538,7 @@
 	id = "engineeringshutters01";
 	name = "Engineering Shutters"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "rzp" = (
@@ -69292,6 +69298,7 @@
 	dir = 1;
 	id = "EngSecWindow"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "tEq" = (
@@ -95924,7 +95931,7 @@ cae
 caA
 lNj
 iRW
-ahn
+nvJ
 mZc
 cqL
 mQl
