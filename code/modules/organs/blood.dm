@@ -65,6 +65,9 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 							break
 
 				B.volume += 0.1 // regenerate blood VERY slowly
+				if(blood_volume <= BLOOD_VOLUME_SAFE) //We loose nutrition and hydration very slowly if our blood is too low
+					adjustNutritionLoss(2)
+					adjustHydrationLoss(1)
 				if(CE_BLOODRESTORE in chem_effects)
 					B.volume += chem_effects[CE_BLOODRESTORE]
 
@@ -125,11 +128,6 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 				// spam deathgasp. Adjusting toxloss ensures the mob will stay dead.
 				toxloss += 300 // just to be safe!
 				death()
-
-		// Without enough blood you slowly go hungry and thirsty
-		if(blood_volume <= BLOOD_VOLUME_SAFE)
-			adjustNutritionLoss(7)
-			adjustHydrationLoss(3)
 
 		//Bleeding out
 		var/blood_max = 0
