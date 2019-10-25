@@ -751,7 +751,7 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Medical Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -1352,6 +1352,12 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Supply Officer"
+	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "acK" = (
@@ -1367,7 +1373,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Science Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -63361,6 +63367,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
+"dgD" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "General Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "dgV" = (
 /obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -63741,6 +63757,23 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
+"ely" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/landmark/start{
+	name = "Engineering Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "elB" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/weapon/storage/fancy/crayons/chalkbox,
@@ -68763,6 +68796,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"sNW" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/start{
+	name = "General Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "sOQ" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 2;
@@ -100483,7 +100526,7 @@ aad
 aaJ
 aaU
 abb
-aby
+sNW
 abR
 acg
 abR
@@ -101001,7 +101044,7 @@ abA
 abR
 aci
 abR
-acK
+ely
 aby
 adr
 aaU
@@ -101254,7 +101297,7 @@ aad
 aaJ
 aaU
 abd
-abz
+dgD
 abR
 ach
 abR
