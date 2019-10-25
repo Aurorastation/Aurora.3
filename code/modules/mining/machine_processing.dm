@@ -205,7 +205,7 @@
 		else
 			dat += "<tr><td><b><small>[output_mats[OM]]</b></small></td><td><small>[OM.display_name] [OM.sheet_singular_name]</small></td></tr>"
 
-	CHECK_TICK
+		CHECK_TICK
 
 	for(var/datum/alloy/AM in alloy_mats)
 		if(alloy_mats[AM] > 1)
@@ -213,7 +213,7 @@
 		else
 			dat += "<tr><td><b><small>[alloy_mats[AM]]</b></td><td><small>[AM.metaltag] sheet</small></td></tr>"
 
-	CHECK_TICK
+		CHECK_TICK
 
 	dat += "</table><br>"
 
@@ -227,7 +227,7 @@
 			else
 				dat += "<tr><td><b><small>[input_mats[IM]]</small></b></td><td><small>[IM.display_name]</small></td></tr>"
 
-		CHECK_TICK
+			CHECK_TICK
 
 		dat += "</table><br>"
 
