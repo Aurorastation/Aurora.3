@@ -155,12 +155,11 @@
 /obj/item/weapon/material/sword/improvised_sword
 	name = "selfmade sword"
 	desc = "A crudely made, rough looking sword. Still appears to be quite deadly."
-	icon = 'icons/obj/improvised.dmi'
-	icon_state = "sword"
-	item_state = "sword"
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "improvsword"
+	item_state = "improvsword"
 	var/obj/item/weapon/material/hilt //what is the handle made of?
 	force_divisor = 0.3
-	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 
 /obj/item/weapon/material/sword/improvised_sword/apply_hit_effect()
@@ -182,7 +181,7 @@
 /obj/item/weapon/material/sword_hilt
 	name = "hilt"
 	desc = "A hilt without a blade, quite useless."
-	icon = 'icons/obj/improvised.dmi'
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "swordhilt"
 	unbreakable = TRUE
 	force_divisor = 0.05
@@ -205,7 +204,7 @@
 /obj/item/weapon/material/sword_blade
 	name = "blade"
 	desc = "A blade without a hilt, don't cut yourself!"
-	icon = 'icons/obj/improvised.dmi'
+	icon = 'icons/obj/weapons_build.dmi'
 	icon_state = "swordblade"
 	unbreakable = TRUE
 	force_divisor = 0.20
