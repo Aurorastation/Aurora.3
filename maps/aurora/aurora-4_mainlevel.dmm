@@ -55849,6 +55849,11 @@
 /obj/machinery/door/airlock/maintenance{
 	req_one_access = list(12,25,66)
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/bar)
 "bVb" = (
@@ -56520,6 +56525,11 @@
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/firealarm/south,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "bWv" = (
@@ -56531,23 +56541,17 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bWw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/alarm{
 	pixel_y = 22
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
@@ -56763,8 +56767,13 @@
 	icon_state = "bulb1";
 	dir = 4
 	},
-/obj/structure/closet,
-/obj/random/loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "bWY" = (
@@ -57036,10 +57045,6 @@
 /obj/structure/curtain/black,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bXH" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "bXI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -57354,7 +57359,7 @@
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bYn" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -57371,7 +57376,7 @@
 	pixel_y = 23
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bYo" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Civilian Main Substation Bypass"
@@ -57521,7 +57526,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bYF" = (
 /obj/machinery/power/smes/buildable{
 	charge = 0;
@@ -57533,7 +57538,7 @@
 	},
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bYG" = (
 /obj/item/weapon/storage/belt/utility,
 /obj/structure/table/standard{
@@ -57635,7 +57640,7 @@
 	pixel_x = -24
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bYP" = (
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Civilian (Main Level)";
@@ -57651,7 +57656,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bYQ" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 4
@@ -57759,7 +57764,7 @@
 "bZf" = (
 /obj/structure/sign/electricshock,
 /turf/simulated/wall,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bZg" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -57773,7 +57778,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
+/area/maintenance/substation/supply)
 "bZh" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
@@ -63316,6 +63321,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"cXR" = (
+/turf/simulated/wall,
+/area/maintenance/substation/supply)
 "cZf" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -63460,6 +63468,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"dwj" = (
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Civilian Main Substation Bypass"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "dwP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -64032,6 +64046,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fis" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "fiA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -64403,6 +64435,15 @@
 "gpK" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"gqV" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "grF" = (
@@ -65515,6 +65556,19 @@
 "jPX" = (
 /turf/simulated/wall,
 /area/crew_quarters/kitchen/freezer)
+"jQs" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "jSO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -65669,6 +65723,24 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"khh" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Civilian (Main Level)";
+	name_tag = "Civilian (Main Level) Subgrid"
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "khX" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
@@ -66205,6 +66277,19 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"lPr" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "lQu" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -67033,6 +67118,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"nRw" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "nXe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/gladiator,
@@ -67567,6 +67668,19 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"plY" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "pnC" = (
 /obj/structure/table/wood,
 /obj/item/weapon/folder{
@@ -68554,6 +68668,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
+"shq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "siH" = (
 /obj/effect/decal/cleanable/flour,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -69030,6 +69159,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"tCs" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Civilian - Civilian Substation";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "tCB" = (
 /obj/structure/sink{
 	icon_state = "sink";
@@ -69339,16 +69486,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "ubY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
@@ -69772,6 +69915,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"vnj" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "vnR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
@@ -70075,6 +70237,15 @@
 "vSe" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/sec)
+"vWQ" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "vYh" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -70796,6 +70967,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"xXk" = (
+/obj/machinery/power/smes/buildable{
+	charge = 0;
+	RCon_tag = "Substation - Civilian Main"
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "ych" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
@@ -93177,11 +93361,11 @@ kSB
 mbS
 drO
 bXI
-bXX
+cXR
 bYm
-bXX
-bXX
-bXX
+cXR
+cXR
+cXR
 bZx
 bZx
 bZx
@@ -93434,7 +93618,7 @@ cbQ
 cdX
 cdX
 bXI
-bXX
+cXR
 bYn
 bYE
 bYO
@@ -93691,8 +93875,8 @@ bWy
 izC
 bWy
 bXJ
-bXX
-bYo
+cXR
+dwj
 bYF
 bYP
 bZg
@@ -105509,10 +105693,10 @@ bSU
 bSU
 bSU
 bWw
-bRC
-bRC
-bRC
-bRC
+gqV
+vWQ
+cbg
+nRw
 bRC
 bYD
 pYZ
@@ -105766,11 +105950,11 @@ vNC
 vNC
 uxI
 ubY
-bGC
-bGC
+ubY
+shq
 bWW
+vnj
 bPH
-bXH
 bEK
 bEK
 bEK
@@ -106024,10 +106208,10 @@ bEK
 bEK
 bRA
 bEK
-bEK
-bEK
-bEK
-bEK
+plY
+bXX
+jQs
+bXX
 bEK
 aaa
 aaa
@@ -106281,10 +106465,10 @@ pie
 bEK
 bGC
 bEK
-aaa
-aaa
-aaa
-aaa
+fis
+tCs
+lPr
+bXX
 aaa
 aaa
 aaa
@@ -106538,10 +106722,10 @@ prp
 bRB
 bGC
 bEK
-aaa
-aaa
-aaa
-aaa
+khh
+xXk
+bYo
+bXX
 aaa
 aaa
 aaa
@@ -106795,10 +106979,10 @@ prp
 bEK
 bGC
 bEK
-aaa
-aaa
-aaa
-aaa
+bXX
+bXX
+bXX
+bXX
 aaa
 aaa
 aaa
