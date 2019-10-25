@@ -1,5 +1,0 @@
-author: MoondancerPony
-delete-after: True
-changes: 
-  - bugfix: "Vaurca no longer exhale leftover phoron from their breath into the air. They also now breathe 1/6 the volume of air at 6x (100%) efficiency, meaning that all the phoron they breathe is converted to CO2."
-  - bugfix: "Thoracostomies now work properly."
