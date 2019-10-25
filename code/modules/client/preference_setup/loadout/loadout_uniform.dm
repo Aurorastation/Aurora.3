@@ -231,7 +231,7 @@
 	display_name = "uniforms, (Security Officer)"
 	description = "A selection of officer uniforms."
 	path = /obj/item/clothing/under/rank/security
-	allowed_roles = list("Security Officer")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer")
 
 /datum/gear/uniform/officer/New()
 	..()

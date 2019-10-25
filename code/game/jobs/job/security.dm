@@ -201,14 +201,14 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /datum/job/officer
-	title = "Security Officer"
+	title = "General Officer"
 	flag = OFFICER
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
-	supervisors = "the head of security"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the warden and head of security"
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 
@@ -220,7 +220,7 @@
 	outfit = /datum/outfit/job/officer
 
 /datum/outfit/job/officer
-	name = "Security Officer"
+	name = "General Officer"
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
@@ -228,6 +228,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/security
 	l_pocket = /obj/item/device/flash
+	r_pocket = /obj/item/device/radio
 
 	backpack = /obj/item/weapon/storage/backpack/security
 	satchel = /obj/item/weapon/storage/backpack/satchel_sec
@@ -236,6 +237,7 @@
 
 	backpack_contents = list(
 		/obj/item/weapon/handcuffs = 1
+		/obj/item/clothing/accessory/armband = 1
 	)
 
 /datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

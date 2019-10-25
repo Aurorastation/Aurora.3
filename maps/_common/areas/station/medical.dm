@@ -54,6 +54,10 @@
 	name = "\improper Medical - Upper-Level Hallway"
 	icon_state = "medbay2"
 
+/area/medical/sec
+	name = "\improper Medical - Security Office"
+	icon_state = "medbay2"
+
 /area/crew_quarters/medbreak
 	name = "\improper Medical - Break Room"
 	icon_state = "medbay3"

@@ -164,6 +164,10 @@
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
+/area/quartermaster/sec
+	name = "\improper Cargo Security Office"
+	icon_state = "quartoffice"
+
 /area/quartermaster/office
 	name = "\improper Cargo Office"
 	icon_state = "quartoffice"
