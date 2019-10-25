@@ -326,7 +326,6 @@
 	fill()
 		..()
 		new /obj/item/clothing/head/helmet/brigsec(src)
-		new /obj/item/clothing/accessory/armband/cargo(src)
 		new /obj/item/device/encryptionkey/headset_cargo(src)
 
 /obj/structure/closet/secure_closet/security/cargo

@@ -160,10 +160,13 @@
 	supervisors = "the chief engineer"
 	selection_color = "#fff5cc"
 	economic_modifier = 4
+
+	minimum_character_age = 18
+
 	access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics)
 	minimal_access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics,)
 	minimal_player_age = 7
-	outfit = /datum/outfit/job/engofficer
+	outfit = /datum/outfit/job/officer/eng
 
 /datum/outfit/job/officer/eng
 	name = "Engineering Officer"
@@ -175,12 +178,3 @@
 		/obj/item/weapon/handcuffs = 1,
 		/obj/item/clothing/accessory/armband/engine = 1
 	)
-
-/datum/outfit/job/engofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
