@@ -407,8 +407,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			scribewords += entry
 
 		var/chosen_rune = null
-		var/teleport_word = null
-
+		var/list/required = null
 		if(user)
 			chosen_rune = input ("Choose a rune to scribe.") in scribewords
 			if (!chosen_rune)
@@ -416,8 +415,9 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			if (chosen_rune == "none")
 				to_chat(user, "<span class='notice'>You decide against scribing a rune, perhaps you should take this time to study your notes.</span>")
 				return
+			required = dictionary[chosen_rune].Copy()
 			if(chosen_rune == "teleport" || chosen_rune == "teleport other")
-				teleport_word = input ("Choose a destination word") in english
+				required += input ("Choose a destination word") in english
 
 		if(user.get_active_hand() != src)
 			return
@@ -442,10 +442,9 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			var/mob/living/carbon/human/H = user
 			var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
 			to_chat(user, "<span class='notice'>You finish drawing the arcane markings of the Geometer.</span>")
-			var/list/required = dictionary[chosen_rune]
 			R.word1 = english[required[1]]
 			R.word2 = english[required[2]]
-			R.word3 = teleport_word ? english[teleport_word] : english[required[3]] //if teleport word exists, use it. else use regular cultist word.
+			R.word3 = english[required[3]]
 			R.check_icon()
 			R.blood_DNA = list()
 			R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
