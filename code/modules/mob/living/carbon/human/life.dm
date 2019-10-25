@@ -393,7 +393,7 @@
 		return
 
 	//exposure to extreme pressures can rupture lungs
-	if(breath && (breath.total_moles < BREATH_MOLES / 5 || breath.total_moles > BREATH_MOLES * 5))
+	if(breath && (breath.total_moles/(species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
 		if(!is_lung_ruptured() && prob(5))
 			rupture_lung()
 
