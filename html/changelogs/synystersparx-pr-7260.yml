@@ -4,5 +4,6 @@ delete-after: True
 
 changes: 
   - bugfix: "Fixed cultist teleport rune. Now uses proper user selected third word."
-  - bugfix: "Hide runes can now be imbued into talismans."
-  - bugfix: "Improved prevention of multiple runes on same location."
+  - bugfix: "Cultist hide rune can now be imbued into a talisman."
+  - bugfix: "Improved prevention of multiple cultist runes on same location."
+  - bugfix: "Cultist reveal talisman now works properly."
