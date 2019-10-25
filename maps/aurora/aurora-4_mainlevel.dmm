@@ -63367,16 +63367,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
-"dgD" = (
-/obj/structure/bed/chair/office/dark,
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/effect/landmark/start{
-	name = "General Officer"
-	},
-/turf/simulated/floor/tiled,
-/area/security/vacantoffice2)
 "dgV" = (
 /obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -63757,23 +63747,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
-"ely" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/effect/landmark/start{
-	name = "Engineering Officer"
-	},
-/turf/simulated/floor/tiled,
-/area/security/vacantoffice2)
 "elB" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/weapon/storage/fancy/crayons/chalkbox,
@@ -66000,6 +65973,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"ldo" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/start{
+	name = "General Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "lgq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -68796,16 +68779,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"sNW" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/structure/bed/chair/office/dark,
-/obj/effect/landmark/start{
-	name = "General Officer"
-	},
-/turf/simulated/floor/tiled,
-/area/security/vacantoffice2)
 "sOQ" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 2;
@@ -70120,6 +70093,33 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"wfu" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "General Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
+"wfB" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/landmark/start{
+	name = "Engineering Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "wfI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood{
@@ -100526,7 +100526,7 @@ aad
 aaJ
 aaU
 abb
-sNW
+ldo
 abR
 acg
 abR
@@ -101044,7 +101044,7 @@ abA
 abR
 aci
 abR
-ely
+wfB
 aby
 adr
 aaU
@@ -101297,7 +101297,7 @@ aad
 aaJ
 aaU
 abd
-dgD
+wfu
 abR
 ach
 abR
