@@ -1616,6 +1616,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
+"add" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/firealarm/south,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/bar)
 "ade" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -1631,6 +1644,36 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
+"adf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access = list(12,25,66)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/bar)
+"adg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "adh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1665,6 +1708,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"adl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "adm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -1677,6 +1730,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adn" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "ado" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
@@ -1770,6 +1832,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/brig)
+"adw" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "adx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/engineering{
@@ -1829,6 +1900,34 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
+"adE" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "adF" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -1837,10 +1936,60 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adG" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "adH" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adI" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Civilian (Main Level)";
+	name_tag = "Civilian (Main Level) Subgrid"
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
+"adJ" = (
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "adK" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
@@ -2099,6 +2248,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aec" = (
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Civilian - Civilian Substation";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "aed" = (
 /obj/machinery/light_construct{
 	icon_state = "tube-construct-stage1";
@@ -2123,6 +2290,35 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
+"aeg" = (
+/obj/machinery/power/smes/buildable{
+	charge = 0;
+	RCon_tag = "Substation - Civilian Main"
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
+"aeh" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "aei" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
@@ -2133,11 +2329,43 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"aek" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bar)
 "ael" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"aem" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_one_access = list(11,24)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
 "aen" = (
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
@@ -2157,6 +2385,52 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"aep" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/civilian_west)
+"aeq" = (
+/turf/simulated/wall,
+/area/maintenance/substation/supply)
+"aer" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_one_access = list(11,24)
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/substation/supply)
+"aes" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "aet" = (
 /obj/item/weapon/material/shard{
 	icon_state = "small"
@@ -2439,6 +2713,38 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"aeQ" = (
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Civilian Main Substation Bypass"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
+"aeR" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Civilian - Civilian Substation";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
+"aeS" = (
+/obj/machinery/power/smes/buildable{
+	charge = 0;
+	RCon_tag = "Substation - Civilian Main"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "aeT" = (
 /obj/effect/landmark{
 	name = "carpspawn"
@@ -2558,6 +2864,34 @@
 	temperature = 278
 	},
 /area/security/investigations)
+"afg" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
+"afh" = (
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - Civilian (Main Level)";
+	name_tag = "Civilian (Main Level) Subgrid"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/green,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "afi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -2602,6 +2936,10 @@
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"afm" = (
+/obj/structure/sign/electricshock,
+/turf/simulated/wall,
+/area/maintenance/substation/supply)
 "afn" = (
 /obj/structure/table/standard,
 /obj/random/loot,
@@ -2805,6 +3143,20 @@
 	temperature = 278
 	},
 /area/security/investigations)
+"afF" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/engineering{
+	name = "Civilian (Main Level) Substation";
+	req_access = list(31,10);
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/substation/supply)
 "afI" = (
 /obj/structure/barricade,
 /obj/structure/grille,
@@ -55835,16 +56187,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/bar)
-"bUZ" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	req_one_access = list(12,25,66)
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/bar)
 "bVb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -56508,14 +56850,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
-"bWu" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/bar)
 "bWv" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Bar -Theatre";
@@ -56524,27 +56858,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bWw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/alarm{
-	pixel_y = 22
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "bWy" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -56752,15 +57065,6 @@
 /obj/structure/sign/double/barsign,
 /turf/simulated/wall,
 /area/crew_quarters/bar)
-"bWW" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/obj/structure/closet,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "bWY" = (
 /obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled/dark,
@@ -57030,10 +57334,6 @@
 /obj/structure/curtain/black,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"bXH" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "bXI" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -57336,36 +57636,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"bYm" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Civilian (Main Level) Substation";
-	req_one_access = list(11,24)
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/substation/civilian_west)
-"bYn" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
 "bYo" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Civilian Main Substation Bypass"
@@ -57502,32 +57772,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"bYE" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Civilian - Civilian Substation";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
-"bYF" = (
-/obj/machinery/power/smes/buildable{
-	charge = 0;
-	RCon_tag = "Substation - Civilian Main"
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green,
-/turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
 "bYG" = (
 /obj/item/weapon/storage/belt/utility,
 /obj/structure/table/standard{
@@ -57618,34 +57862,6 @@
 "bYN" = (
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
-"bYO" = (
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
-"bYP" = (
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - Civilian (Main Level)";
-	name_tag = "Civilian (Main Level) Subgrid"
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/green,
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
 "bYQ" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 4
@@ -57750,24 +57966,6 @@
 /obj/item/weapon/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/bar)
-"bZf" = (
-/obj/structure/sign/electricshock,
-/turf/simulated/wall,
-/area/maintenance/substation/civilian_west)
-"bZg" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/engineering{
-	name = "Civilian (Main Level) Substation";
-	req_access = list(31,10);
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/substation/civilian_west)
 "bZh" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
@@ -69322,20 +69520,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"ubY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "ucD" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/toolbox/electrical,
@@ -93134,11 +93318,11 @@ kSB
 mbS
 drO
 bXI
-bXX
-bYm
-bXX
-bXX
-bXX
+aeq
+aer
+aeq
+aeq
+aeq
 bZx
 bZx
 bZx
@@ -93391,11 +93575,11 @@ cbQ
 cdX
 cdX
 bXI
-bXX
-bYn
-bYE
-bYO
-bZf
+aeq
+aes
+aeR
+afg
+afm
 bZy
 bZV
 cas
@@ -93648,11 +93832,11 @@ bWy
 izC
 bWy
 bXJ
-bXX
-bYo
-bYF
-bYP
-bZg
+aeq
+aeQ
+aeS
+afh
+afF
 bZz
 bZW
 cat
@@ -104951,7 +105135,7 @@ bUK
 bSU
 bVH
 bSU
-bWu
+add
 bSM
 bXq
 mxd
@@ -105208,7 +105392,7 @@ bUL
 bSU
 bVI
 bSU
-bUZ
+adf
 bSM
 bSM
 bSM
@@ -105465,11 +105649,11 @@ bSU
 bSU
 bSU
 bSU
-bWw
-bRC
-bRC
-bRC
-bRC
+adg
+adn
+adw
+cbg
+aeh
 bRC
 bYD
 pYZ
@@ -105722,12 +105906,12 @@ vNC
 vNC
 vNC
 uxI
-ubY
-bGC
-bGC
-bWW
+adl
+adl
+adD
+adJ
+aek
 bPH
-bXH
 bEK
 bEK
 bEK
@@ -105981,10 +106165,10 @@ bEK
 bEK
 bRA
 bEK
-bEK
-bEK
-bEK
-bEK
+adE
+bXX
+aem
+bXX
 bEK
 aaa
 aaa
@@ -106238,10 +106422,10 @@ pie
 bEK
 bGC
 bEK
-aaa
-aaa
-aaa
-aaa
+adG
+aec
+aep
+bXX
 aaa
 aaa
 aaa
@@ -106495,10 +106679,10 @@ prp
 bRB
 bGC
 bEK
-aaa
-aaa
-aaa
-aaa
+adI
+aeg
+bYo
+bXX
 aaa
 aaa
 aaa
@@ -106752,10 +106936,10 @@ prp
 bEK
 bGC
 bEK
-aaa
-aaa
-aaa
-aaa
+bXX
+bXX
+bXX
+bXX
 aaa
 aaa
 aaa
