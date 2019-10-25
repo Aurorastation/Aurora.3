@@ -23302,6 +23302,7 @@
 	name = "Engineering Security Office";
 	req_access = list(10,69)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aOK" = (
@@ -64312,6 +64313,7 @@
 	name = "Maintenance Access";
 	req_access = list(47,69)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "frq" = (
@@ -66121,6 +66123,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "kVD" = (

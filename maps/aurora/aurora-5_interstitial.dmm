@@ -358,6 +358,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/sec)
 "aQ" = (
@@ -8173,6 +8174,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/sec)
 "xv" = (
@@ -8195,6 +8197,7 @@
 	dir = 4
 	},
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/sec)
 "xH" = (
@@ -8216,6 +8219,7 @@
 	name = "Maintenance Access";
 	req_access = list(5,69)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/sec)
 "xO" = (
@@ -11148,6 +11152,7 @@
 	dir = 1
 	},
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/sec)
 "Pg" = (
@@ -11160,6 +11165,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/sec)
 "Pk" = (
