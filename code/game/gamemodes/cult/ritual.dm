@@ -343,10 +343,6 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			to_chat(user, "<span class='warning'>You are unable to write a rune here.</span>")
 			return
 
-		if(locate(/obj/effect/rune) in user.loc)
-			to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
-			return
-
 		if (C>=26 + runedec + cult.current_antagonists.len) //including the useless rune at the secret room, shouldn't count against the limit of 25 runes - Urist
 			alert("The cloth of reality can't take that much of a strain. Remove some runes first!")
 			return
@@ -360,6 +356,11 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 						return
 					user << browse("[tomedat]", "window=Arcane Tome")
 					return
+		//only check if they want to scribe a rune, so they can still read if standing on a rune
+		if(locate(/obj/effect/rune) in user.loc)
+			to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
+			return
+
 		if(isipc(user))
 			to_chat(user, "<span class='notice'>You cannot draw runes, as you have no blood.</span>")
 			return
@@ -427,9 +428,17 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
-			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")
+			
 			if(user.get_active_hand() != src)
 				return
+			
+			//prevents using multiple dialogs to layer runes. 
+			if(locate(/obj/effect/rune) in user.loc) //This is check is done twice. once when choosing to scribe a rune, once here
+				to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
+				return
+
+			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
+
 			var/mob/living/carbon/human/H = user
 			var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
 			to_chat(user, "<span class='notice'>You finish drawing the arcane markings of the Geometer.</span>")
