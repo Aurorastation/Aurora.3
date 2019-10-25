@@ -34,6 +34,10 @@
 	name = "\improper Research - Exploratory Chemistry"
 	icon_state = "chem"
 
+/area/rnd/sec
+	name = "\improper Research - Security Office"
+	icon_state = "research"
+
 /area/rnd/docking
 	name = "\improper Research Dock"
 	icon_state = "research_dock"

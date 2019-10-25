@@ -164,6 +164,42 @@
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 
+/datum/job/cargoofficer
+	title = "Supply Officer"
+	flag = CARSEC
+	department = "Cargo"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the quartermaster and the head of personnel"
+	selection_color = "#dddddd"
+	economic_modifier = 4
+	access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_maint_tunnels, access_mailsorting, access_cargo, access_qm, access_mining, access_mining_station)
+	minimal_access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_mining, access_mining_station, access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/cargoofficer
+
+/datum/outfit/job/cargoofficer
+	name = "Supply Officer"
+	jobtype = /datum/job/cargoofficer
+
+	l_ear = /obj/item/device/radio/headset/headset_cargo
+
+	backpack_contents = list(
+		/obj/item/weapon/handcuffs = 1,
+		/obj/item/clothing/accessory/armband/cargo = 1
+	)
+
+/datum/outfit/job/cargoofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(istajara(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+	else if(isunathi(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+	else
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+
 
 /datum/job/mining
 	title = "Shaft Miner"
