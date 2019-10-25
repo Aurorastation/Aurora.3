@@ -792,7 +792,6 @@
 		/obj/item/weapon/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/weapon/reagent_containers/food/drinks/teapot = 0.4,
 		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 0.8,
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 0.1,
 		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/weapon/reagent_containers/spray/cleaner = 0.6,
 		/obj/item/weapon/reagent_containers/spray/sterilizine = 0.4,
