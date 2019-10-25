@@ -431,7 +431,7 @@
 	var/SA_sleep_min = 5
 	var/inhaled_gas_used = 0
 
-	var/breath_pressure = (breath.total_moles*R_IDEAL_GAS_EQUATION*breath.temperature)/BREATH_VOLUME
+	var/breath_pressure = (breath.total_moles*R_IDEAL_GAS_EQUATION*breath.temperature)/(BREATH_VOLUME * species.breath_vol_mul)
 
 	var/inhaling
 	var/poison
@@ -482,7 +482,7 @@
 		// We're in safe limits
 		oxygen_alert = 0
 
-	inhaled_gas_used = inhaling/6
+	inhaled_gas_used = inhaling/6 * (species?.breath_eff_mul || 1)
 
 	breath.adjust_gas(breath_type, -inhaled_gas_used, update = 0) //update afterwards
 
