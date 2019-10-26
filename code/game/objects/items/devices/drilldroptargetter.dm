@@ -42,6 +42,7 @@
 				to_chat(user, "<span class='warning'>You can't do this beneath the station, point the laser further away from it!</span>")
 				return
 	if(!(user in (viewers(14,target))) )
+		to_chat(user, "<span class='warning'>You can't paint the target that far away!</span>")
 		return
 	if (!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
