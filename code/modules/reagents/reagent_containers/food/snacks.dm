@@ -1040,7 +1040,7 @@
 		return
 	has_been_heated = TRUE
 	user.visible_message("<span class='notice'>[user] crushes \the [src] package.</span>", "You crush \the [src] package and feel it rapidly heat up.")
-	name = "warm Sin-pocket"
+	name = "cooked Sin-pocket"
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
 	reagents.add_reagent("doctorsdelight", 5)
 	reagents.add_reagent("hyperzine", 1.5)
