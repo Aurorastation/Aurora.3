@@ -208,7 +208,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the warden and head of security"
+	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 
