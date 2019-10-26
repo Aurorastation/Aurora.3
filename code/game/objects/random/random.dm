@@ -1007,7 +1007,7 @@
 		/obj/item/weapon/bananapeel = 0.1, //honk,
 		/obj/item/weapon/key = 0.1,
 		/obj/item/weapon/reagent_containers/blood/ripped = 0.1,
-		/obj/item/weapon/shreddedp/ = 0.1,
+		/obj/item/weapon/shreddedp = 0.1
 
 	)
 
