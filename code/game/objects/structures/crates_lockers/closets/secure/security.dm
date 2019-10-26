@@ -323,46 +323,46 @@
 /obj/structure/closet/secure_closet/security/brig
 	req_access = list(access_security, access_weapons)
 
-	fill()
-		..()
-		new /obj/item/clothing/head/helmet/brigsec(src)
-		new /obj/item/device/radio/headset/headset_sec(src)
+/obj/structure/closet/secure_closet/security/brig/fill()
+	..()
+	new /obj/item/clothing/head/helmet/brigsec(src)
+	new /obj/item/device/radio/headset/headset_sec(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 	req_access = list(access_cargo, access_weapons)
 
-	fill()
-		..()
-		new /obj/item/clothing/head/helmet/carsec(src)
-		new /obj/item/clothing/accessory/armband/cargo(src)
-		new /obj/item/device/radio/headset/headset_cargo/sec(src)
+/obj/structure/closet/secure_closet/security/cargo/fill()
+	..()
+	new /obj/item/clothing/head/helmet/carsec(src)
+	new /obj/item/clothing/accessory/armband/cargo(src)
+	new /obj/item/device/radio/headset/headset_cargo/sec(src)
 
 /obj/structure/closet/secure_closet/security/engine
 	req_access = list(access_engine, access_weapons)
 
-	fill()
-		..()
-		new /obj/item/clothing/head/helmet/engsec(src)
-		new /obj/item/clothing/accessory/armband/engine(src)
-		new /obj/item/device/radio/headset/headset_eng/sec(src)
+/obj/structure/closet/secure_closet/security/engine/fill()
+	..()
+	new /obj/item/clothing/head/helmet/engsec(src)
+	new /obj/item/clothing/accessory/armband/engine(src)
+	new /obj/item/device/radio/headset/headset_eng/sec(src)
 
 /obj/structure/closet/secure_closet/security/science
 	req_access = list(access_research, access_weapons)
 
-	fill()
-		..()
-		new /obj/item/clothing/head/helmet/scisec(src)
-		new /obj/item/clothing/accessory/armband/science(src)
-		new /obj/item/device/radio/headset/headset_sci/sec(src)
+/obj/structure/closet/secure_closet/security/science/fill()
+	..()
+	new /obj/item/clothing/head/helmet/scisec(src)
+	new /obj/item/clothing/accessory/armband/science(src)
+	new /obj/item/device/radio/headset/headset_sci/sec(src)
 
 /obj/structure/closet/secure_closet/security/med
 	req_access = list(access_medical, access_weapons)
 
-	fill()
-		..()
-		new /obj/item/clothing/head/helmet/medsec(src)
-		new /obj/item/clothing/accessory/armband/medgreen(src)
-		new /obj/item/device/radio/headset/headset_med/sec(src)
+/obj/structure/closet/secure_closet/security/med/fill()
+	..()
+	new /obj/item/clothing/head/helmet/medsec(src)
+	new /obj/item/clothing/accessory/armband/medgreen(src)
+	new /obj/item/device/radio/headset/headset_med/sec(src)
 
 
 /obj/structure/closet/secure_closet/detective
@@ -375,26 +375,26 @@
 	icon_broken = "secbroken"
 	icon_off = "secoff"
 
-	fill()
-		//Appearance
-		new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
-		new /obj/item/clothing/under/det(src)
-		new /obj/item/clothing/under/det/black(src)
-		new /obj/item/clothing/under/det/classic(src)
-		new /obj/item/clothing/gloves/black(src)
-		new /obj/item/clothing/shoes/brown(src)
-		//Tools
-		new /obj/item/device/radio/headset/headset_sec(src)
-		new /obj/item/clothing/suit/storage/vest/detective(src)
-		new /obj/item/ammo_magazine/c38(src)
-		new /obj/item/ammo_magazine/c38(src)
-		new /obj/item/weapon/gun/projectile/revolver/detective(src)
-		new /obj/item/taperoll/police(src)
-		//Belts
-		new /obj/item/clothing/accessory/holster/armpit(src)
-		new /obj/item/clothing/accessory/holster/waist(src)
-		new /obj/item/clothing/accessory/holster/hip(src)
-		new /obj/item/clothing/accessory/holster/thigh(src)
+/obj/structure/closet/secure_closet/detective/fill()
+	//Appearance
+	new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
+	new /obj/item/clothing/under/det(src)
+	new /obj/item/clothing/under/det/black(src)
+	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/gloves/black(src)
+	new /obj/item/clothing/shoes/brown(src)
+	//Tools
+	new /obj/item/device/radio/headset/headset_sec(src)
+	new /obj/item/clothing/suit/storage/vest/detective(src)
+	new /obj/item/ammo_magazine/c38(src)
+	new /obj/item/ammo_magazine/c38(src)
+	new /obj/item/weapon/gun/projectile/revolver/detective(src)
+	new /obj/item/taperoll/police(src)
+	//Belts
+	new /obj/item/clothing/accessory/holster/armpit(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/thigh(src)
 
 /obj/structure/closet/secure_closet/detective/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(opened)

@@ -48271,6 +48271,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bEi" = (
@@ -49736,7 +49737,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bGR" = (
-/obj/machinery/vending/coffee,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -50376,10 +50376,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
-	},
-/obj/machinery/light_switch{
-	pixel_x = -23;
-	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
@@ -63371,6 +63367,11 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cwS" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "cyq" = (
@@ -64517,6 +64518,12 @@
 	pixel_x = 27;
 	pixel_y = 27;
 	req_access = list(10,69)
+	},
+/obj/machinery/button/windowtint{
+	id = "SciSecWindow";
+	pixel_x = 26;
+	pixel_y = 19;
+	range = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
@@ -66028,6 +66035,22 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/maintenance/bar)
+"kxi" = (
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "SciSecWindow"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "SciSecWindow"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "SciSecWindow"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/rnd/sec)
 "kzl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -67331,15 +67354,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"ogZ" = (
-/obj/structure/table/standard,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/sec)
 "ohn" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -68495,6 +68509,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"rqM" = (
+/obj/structure/window/reinforced/polarized{
+	id = "SciSecWindow"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "SciSecWindow"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "SciSecWindow"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/rnd/sec)
 "rsL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/window/reinforced,
@@ -89761,7 +89790,7 @@ sfg
 evT
 fyo
 oIG
-ogZ
+kkU
 pUy
 sfg
 wje
@@ -90018,8 +90047,8 @@ vSe
 vSe
 kUE
 vSe
-vSe
-vSe
+kxi
+rqM
 vSe
 sNG
 bcY
