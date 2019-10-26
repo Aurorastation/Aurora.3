@@ -1,0 +1,9 @@
+
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Kitchen staff are now equipped with Arodentia guns, capable of keeping any well-meaning establishment clear of pests."
+  - rscadd: "Kitchen staff now have armpit holsters to keep their Arodentia guns in."
+  - tweak: "Rats now have their health reduced to reasonable levels."
