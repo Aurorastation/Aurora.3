@@ -774,7 +774,7 @@
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
-		/obj/item/powerdrill = 2,
+		/obj/item/weapon/powerdrill = 2,
 		/obj/item/weapon/airlock_electronics = 10,
 		/obj/item/weapon/module/power_control = 10,
 		/obj/item/weapon/airalarm_electronics = 10,

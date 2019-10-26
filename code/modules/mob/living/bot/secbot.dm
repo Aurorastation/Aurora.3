@@ -597,7 +597,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/weapon/pen) || istype(O, /obj/item/device/pda))
+	if(istype(O, /obj/item/weapon/card/id) || O.ispen() || istype(O, /obj/item/device/pda))
 		return
 
 	target = user
@@ -708,7 +708,7 @@
 		qdel(src)
 		return 1
 
-	else if(istype(O, /obj/item/weapon/pen))
+	else if(O.ispen())
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return

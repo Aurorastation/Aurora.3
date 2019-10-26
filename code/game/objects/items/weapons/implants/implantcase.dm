@@ -20,7 +20,7 @@
 
 /obj/item/weapon/implantcase/attackby(obj/item/weapon/I as obj, mob/user as mob)
 	..()
-	if (istype(I, /obj/item/weapon/pen))
+	if (I.ispen())
 		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
 		if (user.get_active_hand() != I)
 			return

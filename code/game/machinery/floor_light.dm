@@ -45,7 +45,7 @@ var/list/floor_light_cache = list()
 		update_brightness()
 	else if(W.force && user.a_intent == "hurt")
 		attack_hand(user)
-	else if(istype(W, /obj/item/weapon/crowbar))
+	else if(W.iscrowbar())
 		if(anchored)
 			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
 			return

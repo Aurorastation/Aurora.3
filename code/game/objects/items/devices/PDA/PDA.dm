@@ -1283,7 +1283,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
 		SSnanoui.update_uis(src) // update all UIs attached to src
-	else if(istype(C, /obj/item/weapon/pen))
+	else if(C.ispen())
 		if(pen)
 			to_chat(user, "<span class='notice'>There is already a pen in \the [src].</span>")
 		else
