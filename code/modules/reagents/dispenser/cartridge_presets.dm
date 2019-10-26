@@ -64,12 +64,15 @@
 	watermelon	spawn_reagent = "watermelonjuice"
 	apple   	spawn_reagent = "applejuice"
 
-	// Bar, coffee
+	// Bar, coffee and tea
 	coffee		spawn_reagent = "coffee"
 	espresso	spawn_reagent = "espresso"
 	cream		spawn_reagent = "cream"
 	milk		spawn_reagent = "milk"
 	soymilk		spawn_reagent = "soymilk"
+	greentea	spawn_reagent = "greentea"
+	chaitea		spawn_reagent = "chaitea"
+	ciderhot	spawn_reagent = "ciderhot"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"

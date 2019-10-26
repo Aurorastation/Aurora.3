@@ -3109,6 +3109,223 @@
 	required_reagents = list("virusfood" = 3, "wulumunusha" = 1, "whitewine" = 2)
 	result_amount = 6
 
+//Tea and cider
+//=======================
+
+/datum/chemical_reaction/drink/cidercheap
+	name = "Apple Cider Juice"
+	id = "cidercheap"
+	result = "cidercheap"
+	required_reagents = list("applejuice" = 2, "sugar" = 1, "spacespice" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/cinnamonapplewhiskey
+	name = "Cinnamon Apple Whiskey"
+	id = "cinnamonapplewhiskey"
+	result = "cinnamonapplewhiskey"
+	required_reagents = list("ciderhot" = 3, "fireball" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/drink/chailatte
+	name = "Chai Latte"
+	id = "chailatte"
+	result = "chailatte"
+	required_reagents = list("chaitea" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/chailatte/soy
+	required_reagents = list("chaitea" = 1, "soymilk" = 1)
+
+/datum/chemical_reaction/drink/coco_chaitea
+	name = "Chocolate Chai"
+	id = "coco_chaitea"
+	result = "coco_chaitea"
+	required_reagents = list("chaitea" = 2, "coco" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/coco_chailatte
+	name = "Chocolate Chai Latte"
+	id = "coco_chailatte"
+	result = "coco_chailatte"
+	required_reagents = list("coco_chaitea" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/coco_chailatte/soy
+	required_reagents = list("coco_chaitea" = 1, "soymilk" = 1)
+
+/datum/chemical_reaction/drink/cofftea
+	name = "Cofftea"
+	id = "cofftea"
+	result = "cofftea"
+	required_reagents = list("tea" = 1, "coffee" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/contract_tea
+	name = "Contract Tea"
+	id = "contract_tea"
+	result = "contract_tea"
+	required_reagents = list("tea" = 1, "espresso" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/desert_tea
+	name = "Desert Blossom Tea"
+	id = "desert_tea"
+	result = "desert_tea"
+	required_reagents = list("greentea" = 2, "xuizijuice" = 1, "sugar" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/drink/halfandhalf
+	name = "Half and Half"
+	id = "halfandhalf"
+	result = "halfandhalf"
+	required_reagents = list("icetea" = 1, "lemonade" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/heretic_tea
+	name = "Heretics Tea"
+	id = "heretic_tea"
+	result = "heretic_tea"
+	required_reagents = list("icetea" = 3, "blood" = 1, "spacemountainwind" = 1, "dr_gibb" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/kira_tea
+	name = "Kira tea"
+	id = "kira_tea"
+	result = "kira_tea"
+	required_reagents = list("icetea" = 1, "kiraspecial" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/librarian_special
+	name = "Librarian Special"
+	id = "librarian_special"
+	result = "librarian_special"
+	required_reagents = list("tea" = 2, "nothing" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/mars_tea
+	name = "Martian Tea"
+	id = "mars_tea"
+	result = "mars_tea"
+	required_reagents = list("tea" = 4, "blackpepper" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/mars_tea/green
+	required_reagents = list("greentea" = 4, "blackpepper" = 1)
+
+/datum/chemical_reaction/drink/mendell_tea
+	name = "Mendell Afternoon Tea"
+	id = "mendell_tea"
+	result = "mendell_tea"
+	required_reagents = list("greentea" = 4, "mintsyrup" = 1, "lemonjuice" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/berry_tea
+	name = "Mixed Berry Tea"
+	id = "berry_tea"
+	result = "berry_tea"
+	required_reagents = list("tea" = 2, "berryjuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/berry_tea/green
+	required_reagents = list("greentea" = 2, "berryjuice" = 1)
+
+/datum/chemical_reaction/drink/pomegranate_icetea
+	name = "Pomegranate Iced Tea"
+	id = "pomegranate_icetea"
+	result = "pomegranate_icetea"
+	required_reagents = list("icetea" = 1, "grenadine" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/potatea
+	name = "Potatea"
+	id = "potatea"
+	result = "potatea"
+	required_reagents = list("tea" = 2, "potato_juice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/securitea
+	name = "Securitea"
+	id = "securitea"
+	result = "securitea"
+	required_reagents = list("tea" = 2, "crayon_dust" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/securitea/red
+	required_reagents = list("tea" = 2, "crayon_dust_red" = 1)
+/datum/chemical_reaction/drink/securitea/orange
+	required_reagents = list("tea" = 2, "crayon_dust_orange" = 1)
+/datum/chemical_reaction/drink/securitea/yellow
+	required_reagents = list("tea" = 2, "crayon_dust_yellow" = 1)
+/datum/chemical_reaction/drink/securitea/green
+	required_reagents = list("tea" = 2, "crayon_dust_green" = 1)
+/datum/chemical_reaction/drink/securitea/blue
+	required_reagents = list("tea" = 2, "crayon_dust_blue" = 1)
+/datum/chemical_reaction/drink/securitea/purple
+	required_reagents = list("tea" = 2, "crayon_dust_purple" = 1)
+/datum/chemical_reaction/drink/securitea/grey
+	required_reagents = list("tea" = 2, "crayon_dust_grey" = 1)
+/datum/chemical_reaction/drink/securitea/brown
+	required_reagents = list("tea" = 2, "crayon_dust_brown" = 1)
+
+/datum/chemical_reaction/drink/sleepytime_tea
+	name = "Sleepytime Tea"
+	id = "sleepytime_tea"
+	result = "sleepytime_tea"
+	required_reagents = list("tea" = 5, "stoxin" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/sleepytime_tea/green
+	required_reagents = list("greentea" = 5, "stoxin" = 1)
+
+/datum/chemical_reaction/drink/hakhma_tea
+	name = "Spiced Hakhma Tea"
+	id = "hakhma_tea"
+	result = "hakhma_tea"
+	required_reagents = list("tea" = 2, "beetle_milk" = 2, "spacespice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/sweet_tea
+	name = "Sweet Tea"
+	id = "sweet_tea"
+	result = "sweet_tea"
+	required_reagents = list("icetea" = 1, "sugar" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/teathpaste
+	name = "Teathpaste"
+	id = "teathpaste"
+	result = "teathpaste"
+	required_reagents = list("tea" = 2, "toothpaste" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/thewake
+	name = "The Wake"
+	id = "thewake"
+	result = "thewake"
+	required_reagents = list("dynjuice" = 1, "orangejuice" = 1, "tea" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/tomatea
+	name = "Tomatea"
+	id = "tomatea"
+	result = "tomatea"
+	required_reagents = list("tea" = 2, "tomatojuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/trizkizki_tea
+	name = "Trizkizki Tea"
+	id = "trizkizki_tea"
+	result = "trizkizki_tea"
+	required_reagents = list("greentea" = 1, "sarezhiwine" = 1, "grenadine" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/tropical_icetea
+	name = "Tropical Iced Tea"
+	id = "tropical_icetea"
+	result = "tropical_icetea"
+	required_reagents = list("icetea" = 3, "limejuice" = 1, "orangejuice" = 1, "watermelonjuice" = 1)
+	result_amount = 6
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
