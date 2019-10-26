@@ -3240,7 +3240,7 @@
 	name = "Potatea"
 	id = "potatea"
 	result = "potatea"
-	required_reagents = list("tea" = 2, "potato_juice" = 1)
+	required_reagents = list("tea" = 2, "potato" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/securitea
