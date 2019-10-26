@@ -48,6 +48,8 @@
 	new /obj/item/clothing/under/sundress(src)
 	new /obj/item/clothing/under/waiter(src)
 	new /obj/item/clothing/under/waiter(src)
+	if(prob(1))
+		new /obj/item/weapon/gun/energy/mousegun(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/weapon/storage/box/gloves(src)
