@@ -22,14 +22,10 @@
 /datum/controller/subsystem/responseteam/Initialize(start_timeofday)
 	. = ..()
 	var/list/all_teams = subtypesof(/datum/responseteam)
-	if(!all_teams)
-		log_debug("No response teams found!")
-		return
-	else
-		for(var/team in all_teams)
-			CHECK_TICK
-			var/datum/responseteam/ert = new team
-			available_teams += ert
+	for(var/team in all_teams)
+		CHECK_TICK
+		var/datum/responseteam/ert = new team
+		available_teams += ert
 
 /datum/controller/subsystem/responseteam/stat_entry()
 	var/out = "CC:[can_call_ert]"
@@ -85,12 +81,12 @@
 		G.disable()
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
-	for(var/N in typesof(picked_team.spawner))
+	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
 		var/datum/ghostspawner/human/ert/new_spawner = new N
 		for(var/role_spawner in SSghostroles.spawners)
-			if(new_spawner.short_name == role_spawner)
+			if(new_spawner.short_name == role_spawner) //Create the spawner, then use its name to find the spawner in SSghostroles' spawner lists.
 				var/datum/ghostspawner/human/ert/good_spawner = SSghostroles.spawners[role_spawner]
-				sent_teams += good_spawner
+				sent_teams += good_spawner //Enable that spawner.
 				good_spawner.enable()
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
