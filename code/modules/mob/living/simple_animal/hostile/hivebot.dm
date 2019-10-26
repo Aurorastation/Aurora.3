@@ -450,7 +450,6 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
 	spawn_delay = 60*1.085**(linked_bots.len + 1)
-	message_admins("[spawn_delay]")
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
