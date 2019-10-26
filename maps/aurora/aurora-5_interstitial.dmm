@@ -7102,7 +7102,7 @@
 /obj/machinery/door/airlock/security{
 	id_tag = "MedSecDoor";
 	name = "Medical Security Office";
-	req_access = list(5,69)
+	req_access = list(5,69);
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8021,7 +8021,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	status = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
@@ -8217,7 +8217,7 @@
 "xJ" = (
 /obj/machinery/door/airlock/security{
 	name = "Maintenance Access";
-	req_access = list(5,69)
+	req_access = list(5,69);
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,

@@ -25554,7 +25554,7 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	status = 0
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Security Office";
@@ -59260,7 +59260,8 @@
 /obj/machinery/door/airlock/security{
 	id_tag = "CargoSecDoor";
 	name = "Cargo Security Office";
-	req_access = list(31,69)
+	req_access = list(31,69);
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -60525,7 +60526,8 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Maintenance Access";
-	req_access = list(31,69)
+	req_access = list(31,69);
+	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -64317,7 +64319,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
 	name = "Maintenance Access";
-	req_access = list(47,69)
+	req_access = list(47,69);
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -64517,7 +64520,7 @@
 	name = "Office Door";
 	pixel_x = 27;
 	pixel_y = 27;
-	req_access = list(10,69)
+	req_access = list(47,69)
 	},
 /obj/machinery/button/windowtint{
 	id = "SciSecWindow";
@@ -66183,7 +66186,8 @@
 /obj/machinery/door/airlock/security{
 	id_tag = "SciSecDoor";
 	name = "Research Security Office";
-	req_access = list(47,69)
+	req_access = list(47,69);
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)

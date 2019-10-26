@@ -157,8 +157,8 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the chief engineer"
-	selection_color = "#fff5cc"
+	supervisors = "the chief engineer and head of security"
+	selection_color = "#dbba35"
 	economic_modifier = 4
 
 	minimum_character_age = 18
