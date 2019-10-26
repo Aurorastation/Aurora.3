@@ -5,7 +5,6 @@
 	icon_state = "portal"
 	density = 1
 	unacidable = 1//Can't destroy energy portals.
-	var/failchance = 0
 	var/obj/target = null
 	var/creator = null
 	anchored = 1.0
