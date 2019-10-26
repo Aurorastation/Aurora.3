@@ -285,9 +285,12 @@
 	to_chat(user, "It has [stored_walls] wall segment\s and [stored_doors] door segment\s stored.")
 	to_chat(user, "It is set to deploy [mode ? "doors" : "walls"]")
 
-/obj/item/weapon/inflatable_dispenser/attack_self()
-	mode = !mode
-	to_chat(usr, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
+/obj/item/weapon/inflatable_dispenser/attack_self(mob/user)
+	if(!deploying)
+		mode = !mode
+		to_chat(user, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
+	else
+		to_chat(user, span("warning", "You can't switch modes while deploying a [mode ? "door" : "wall"]!"))
 
 /obj/item/weapon/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)

@@ -29,9 +29,11 @@
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
-			boom(user)
-		else
-			open(user)
+			for(var/datum/reagent/R in reagents.reagent_list)
+				if(R.carbonated)
+					boom(user)
+					return
+		open(user)
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
@@ -41,7 +43,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
-	QDEL_NULL(reagents)
+	reagents.clear_reagents()
 	flags |= OPENCONTAINER
 	shaken = 0
 
@@ -131,7 +133,7 @@
 	name = "Robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
-	item_state = "cont_vapour"
+	item_state = "contvapour"
 	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()

@@ -31,8 +31,32 @@
 	path = /obj/item/device/paicard
 
 /datum/gear/utility/wallet
-	display_name = "wallet"
+	display_name = "wallet, orange"
 	path = 	/obj/item/weapon/storage/wallet
+
+/datum/gear/utility/wallet_colourable
+	display_name = "wallet, colourable"
+	path = /obj/item/weapon/storage/wallet/colourable
+
+/datum/gear/utility/wallet_colourable/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/utility/wallet_purse
+	display_name = "wallet, purse"
+	path = /obj/item/weapon/storage/wallet/purse
+
+/datum/gear/utility/wallet_purse/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/utility/lanyard
+	display_name = "lanyard"
+	path = /obj/item/weapon/storage/wallet/lanyard
+
+/datum/gear/utility/lanyard/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
 
 /*
 /datum/gear/utility/cheaptablet

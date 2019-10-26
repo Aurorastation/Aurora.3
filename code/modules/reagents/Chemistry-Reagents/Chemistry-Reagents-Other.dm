@@ -826,7 +826,3 @@
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
-
-/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
-	if(volume >= 5)
-		tesla_zap(T, 6, 1500)

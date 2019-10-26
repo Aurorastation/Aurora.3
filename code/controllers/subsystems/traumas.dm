@@ -59,7 +59,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/clothing/head/soft/sec, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
 												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/navyofficer, /obj/item/clothing/suit/space/void/security,
 												 /obj/item/clothing/suit/storage/hooded/wintercoat/security, /obj/item/device/magnetic_lock/security,/obj/item/toy/figure/secofficer,
-												 /obj/item/weapon/gun/bang/sec, /obj/item/weapon/gun/projectile/sec, /obj/item/weapon/book/manual/security_space_law)),
+												 /obj/item/weapon/gun/bang/sec, /obj/item/weapon/gun/projectile/sec, /obj/item/weapon/book/manual/wiki/security_space_law)),
 
 					   "clowns"    = typecacheof(list(/obj/item/clothing/under/rank/clown, /obj/item/clothing/shoes/clown_shoes,
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/weapon/bananapeel,

@@ -20,6 +20,8 @@
 		/obj/item/weapon/implanter,
 		/obj/item/weapon/flame/lighter,
 		/obj/item/weapon/flame/match,
+		/obj/item/weapon/lipstick,
+		/obj/item/weapon/haircomb,
 		/obj/item/weapon/paper,
 		/obj/item/weapon/paper_bundle,
 		/obj/item/weapon/pen,
@@ -31,10 +33,14 @@
 		/obj/item/weapon/screwdriver,
 		/obj/item/weapon/stamp,
 		/obj/item/device/paicard,
+		/obj/item/device/encryptionkey,
 		/obj/item/fluff)
 	slot_flags = SLOT_ID
 
 	var/obj/item/weapon/card/id/front_id = null
+	var/flipped = null
+	var/flippable = 1
+	var/wear_over_suit = 0
 
 
 /obj/item/weapon/storage/wallet/remove_from_storage(obj/item/W as obj, atom/new_location)
@@ -54,26 +60,15 @@
 			update_icon()
 
 /obj/item/weapon/storage/wallet/update_icon()
-
+	overlays.Cut()
 	if(front_id)
-		switch(front_id.icon_state)
-			if("id")
-				icon_state = "walletid"
-				return
-			if("guest")
-				icon_state = "walletid"
-				return
-			if("silver")
-				icon_state = "walletid_silver"
-				return
-			if("gold")
-				icon_state = "walletid_gold"
-				return
-			if("centcom")
-				icon_state = "walletid_centcom"
-				return
-	icon_state = "wallet"
-
+		var/tiny_state = "id-generic"
+		if("id-"+front_id.icon_state in icon_states(icon))
+			tiny_state = "id-"+front_id.icon_state
+		var/image/tiny_image = new/image(icon, icon_state = tiny_state)
+		tiny_image.appearance_flags = RESET_COLOR
+		overlays += tiny_image
+	mob_icon_update()
 
 /obj/item/weapon/storage/wallet/GetID()
 	return front_id
@@ -122,3 +117,87 @@
 		new item2_type(src)
 	if(item3_type)
 		new item3_type(src)
+
+/obj/item/weapon/storage/wallet/proc/mob_icon_update()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wear_id()
+
+/obj/item/weapon/storage/wallet/verb/flip_side()
+	set name = "Flip wallet side"
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+	if (!flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.overlay_state = "[overlay_state]_flip"
+	else
+		src.overlay_state = initial(overlay_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
+/obj/item/weapon/storage/wallet/verb/toggle_icon_layer()
+	set name = "Switch Wallet Layer"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+	if(wear_over_suit == -1)
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		return
+	wear_over_suit = !wear_over_suit
+	mob_icon_update()
+
+/obj/item/weapon/storage/wallet/colourable
+	icon_state = "wallet-white"
+
+/obj/item/weapon/storage/wallet/purse
+	name = "wallet purse"
+	desc = "A stylish long wallet purse with several slots."
+	icon_state = "wallet-purse"
+
+/obj/item/weapon/storage/wallet/lanyard
+	name = "lanyard"
+	desc = "A thick cord with a hook and plastic film designed for the hunter of elk, lover of women, sovereign of the moon."
+	storage_slots = 2
+	icon_state = "lanyard"
+	item_state = "lanyard"
+	overlay_state = "lanyard"
+	attack_verb = list("whipped", "lashed", "lightly garroted")
+	w_class = 1
+	max_w_class = 1
+	can_hold = list(
+		/obj/item/weapon/card,
+		/obj/item/clothing/accessory/badge,
+		/obj/item/clothing/accessory/locket,
+		/obj/item/weapon/disk,
+		/obj/item/weapon/paper,
+		/obj/item/weapon/paper_bundle,
+		/obj/item/weapon/pen,
+		/obj/item/weapon/photo)
+	flippable = 0 //until a cleaner way is implemented to just simply have the verb not show up at all
+	var/plastic_film_overlay_state = "plasticfilm"
+	var/front_id_overlay_state
+
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/weapon/storage/wallet/lanyard/New()
+	..()
+	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
+	film_image.appearance_flags = RESET_COLOR
+	overlays += film_image
+
+/obj/item/weapon/storage/wallet/lanyard/update_icon()
+	..()
+	if(front_id)
+		front_id_overlay_state = front_id.icon_state
+	var/image/film_image = new/image(icon, icon_state = "lanyard_film")
+	film_image.appearance_flags = RESET_COLOR
+	overlays += film_image
+	mob_icon_update()

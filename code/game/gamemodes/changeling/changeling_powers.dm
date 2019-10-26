@@ -419,6 +419,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
 		return
 
+	if(H.handcuffed)
+		var/cuffs = H.handcuffed
+		H.u_equip(H.handcuffed)
+		qdel(cuffs)
+
 	changeling.chem_charges--
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
@@ -972,11 +977,25 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling)	return 0
 	src.mind.changeling.chem_charges -= 20
 
-	var/mob/living/M = src
+	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
+	
+	if(M.handcuffed)
+		var/cuffs = M.handcuffed
+		M.u_equip(M.handcuffed)
+		qdel(cuffs)
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque arm blades!</span>",
+								"<span class='danger'>We tear through the [H.wear_suit] with our arm blades!</span>",
+								"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			QDEL_IN(H.wear_suit, 0)
+			H.unEquip(H.wear_suit, force = TRUE)
 
 	var/obj/item/weapon/melee/arm_blade/blade = new(M)
 	blade.creator = M
@@ -995,11 +1014,25 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 	if(!changeling)	return 0
 	src.mind.changeling.chem_charges -= 20
 
-	var/mob/living/M = src
+	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
+
+	if(M.handcuffed)
+		var/cuffs = M.handcuffed
+		M.u_equip(M.handcuffed)
+		qdel(cuffs)
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque shield!</span>",
+							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
+							"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			QDEL_IN(H.wear_suit, 0)
+			H.unEquip(H.wear_suit, force = TRUE)
 
 	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
 	shield.creator = M

@@ -3169,7 +3169,7 @@
 	id = "ice_to_water"
 	result = "water"
 	required_reagents = list("ice" = 1)
-	required_temperatures_min = list("ice" = T0C + 1)
+	required_temperatures_min = list("ice" = T0C + 25) // stop-gap fix to allow recipes requiring ice to be made without breaking the server with HALF_LIFE
 	result_amount = 1
 	mix_message = "The ice melts."
 	reaction_sound = ""

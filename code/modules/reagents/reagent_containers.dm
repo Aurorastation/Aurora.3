@@ -157,7 +157,7 @@
 /obj/item/weapon/reagent_containers/proc/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
-/obj/item/weapon/reagent_containers/proc/standard_feed_mob(var/mob/user, var/mob/target) // This goes into attack
+/obj/item/weapon/reagent_containers/proc/standard_feed_mob(var/mob/user, var/mob/living/target) // This goes into attack
 
 	if(!istype(target))
 		return 0
@@ -168,6 +168,9 @@
 	if(!reagents || !reagents.total_volume)
 		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
 		return 1
+
+	if(target.isSynthetic() && !isipc(target))
+		return FALSE
 
 	//var/types = target.find_type()
 

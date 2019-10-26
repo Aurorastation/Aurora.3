@@ -220,6 +220,11 @@
 /obj/item/weapon/gun/attack(atom/A, mob/living/user, def_zone)
 	if (A == user && user.zone_sel.selecting == "mouth" && !mouthshoot)
 		handle_suicide(user)
+	else if(user.a_intent != I_HURT && user.aiming && user.aiming.active) //if aim mode, don't pistol whip
+		if (user.aiming.aiming_at != A)
+			PreFire(A, user)
+		else
+			Fire(A, user, pointblank=1)
 	else if(user.a_intent == I_HURT) //point blank shooting
 		Fire(A, user, pointblank=1)
 	else if(bayonet)
@@ -330,7 +335,7 @@
 			if(silenced)
 				playsound(src, fire_sound, 10, 1)
 			else
-				playsound(src, fire_sound, 50, 1)
+				playsound(src, fire_sound, 75, 1, 5, 0.9, 1)
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
@@ -373,7 +378,7 @@
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
-		playsound(user, fire_sound, 50, 1)
+		playsound(user, fire_sound, 75, 1, 5, 0.9, 1)
 
 		if (playemote)
 			if(reflex)
@@ -485,7 +490,7 @@
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
-			playsound(user, fire_sound, 50, 1)
+			playsound(user, fire_sound, 75, 1, 5, 0.9, 1)
 
 		in_chamber.on_hit(M)
 

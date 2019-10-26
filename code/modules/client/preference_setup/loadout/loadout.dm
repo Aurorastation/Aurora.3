@@ -156,7 +156,19 @@ var/list/gear_datums = list()
 			style = "style='color: #FF8000;'"
 		. += "<tr style='vertical-align:top'><td width=25%><a href='?src=\ref[src];toggle_gear=[G.display_name]'><font [style]>[G.display_name]</font></a></td>"
 		. += "<td width = 10% style='vertical-align:top'>[G.cost]</td>"
-		. += "<td><font size=2><i>[G.description]</i></font></td></tr>"
+		. += "<td><font size=2><i>[G.description]</i><br>"
+		if(G.allowed_roles)
+			. += "</font><font size = 1>("
+			var/role_count = 0
+			for(var/role in G.allowed_roles)
+				. += "[role]"
+				role_count++
+				if(role_count == G.allowed_roles.len)
+					. += ")"
+					break
+				else
+					. += ", "
+		. += "</font></td></tr>"
 		if(ticked)
 			. += "<tr><td colspan=3>"
 			for(var/datum/gear_tweak/tweak in G.gear_tweaks)
@@ -230,6 +242,7 @@ var/list/gear_datums = list()
 	if(!description)
 		var/obj/O = path
 		description = initial(O.desc)
+	gear_tweaks = list(gear_tweak_free_name, gear_tweak_free_desc)
 
 /datum/gear_data
 	var/path

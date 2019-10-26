@@ -250,7 +250,7 @@
 /area/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
 	name = "Surface Lvl. Civilian Substation"
 
-/area/maintenance/substation/civilian_west // Cargo, PTS, locker room, probably arrivals, ...)
+/area/maintenance/substation/civilian_west // PTS, locker room, probably arrivals, ...)
 	name = "Main Lvl. Civilian Substation"
 
 /area/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
@@ -261,6 +261,9 @@
 
 /area/maintenance/substation/interstitial // Construction Level.
 	name = "Construction Level Substation"
+
+/area/maintenance/substation/supply // Cargo and Mining.
+	name = "Main Lvl. Supply Substation"
 
 //Solars
 
