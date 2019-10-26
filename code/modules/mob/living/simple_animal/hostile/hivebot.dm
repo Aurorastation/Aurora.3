@@ -402,7 +402,7 @@
 				if(93 to 100)
 					bot_type = BOMBER
 
-		if(guard_amt == 4 && !harvester_amt && stance == HOSTILE_STANCE_IDLE)
+		if(guard_amt == 4 && !harvester_amt && stance == HOSTILE_STANCE_IDLE && prob(10))
 			bot_type = HARVESTER
 
 		if(latest_area != get_area(src))
@@ -449,7 +449,7 @@
 		max_bots_reached = 1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
-	spawn_delay = 60*1.065**(linked_bots.len + 1)
+	spawn_delay = 60*1.085**(linked_bots.len + 1)
 	message_admins("[spawn_delay]")
 	return
 
@@ -720,7 +720,7 @@
 	if(busy)
 		return
 
-	if(istype(T, /turf/unsimulated) || istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
+	if(istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
 		last_prospect_target = null
 		last_prospect_loc = null
 		return
