@@ -50,7 +50,7 @@
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one seems to be of a larger design."
 	mob_bump_flag = HEAVY
 	mob_swap_flags = ~HEAVY
-	mob_push_flags = null
+	mob_push_flags = 0
 
 
 /mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
