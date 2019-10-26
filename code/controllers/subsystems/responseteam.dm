@@ -44,6 +44,7 @@
 			tally += ert.chance
 			continue
 		result = ert
+		break
 
 	if(!result)
 		log_debug("SSresponseteam: We didn't find an ERT pick result!")

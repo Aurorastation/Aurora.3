@@ -1,4 +1,4 @@
 /datum/responseteam/mercenary
 	name = "Independent Mercenaries"
-	chance = 15
+	chance = 10
 	spawner = /datum/ghostspawner/human/ert/mercenary
