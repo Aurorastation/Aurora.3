@@ -1012,8 +1012,8 @@
 	reagents.add_reagent("protein", 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/warm
-	name = "warm Donk-pocket"
-	desc = "The warm, reheatable food of choice for the seasoned spaceman."
+	name = "baked Donk-pocket"
+	desc = "The baked, reheatable food of choice for the seasoned spaceman."
 	nutriment_desc = list("warm heartiness" = 1, "dough" = 2)
 	nutriment_amt = 3
 
