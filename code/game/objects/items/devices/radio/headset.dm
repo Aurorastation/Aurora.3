@@ -106,6 +106,11 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_eng
 
+/obj/item/device/radio/headset/headset_eng/sec
+	name = "engineering security radio headset"
+	desc = "What's a wrench to a baton, anyway?"
+	ks2type = /obj/item/device/encryptionkey/headset_eng/sec
+
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
 	desc = "Made specifically for the roboticists who cannot decide between departments."
@@ -120,12 +125,22 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_med
 
+/obj/item/device/radio/headset/headset_med/sec
+	name = "medical security radio headset"
+	desc = "Think we can bash the injuries away?"
+	ks2type = /obj/item/device/encryptionkey/headset_med/sec
+
 /obj/item/device/radio/headset/headset_sci
 	name = "science radio headset"
 	desc = "A sciency headset. Like usual."
 	icon_state = "com_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
+
+/obj/item/device/radio/headset/headset_sci/sec
+	name = "science security radio headset"
+	desc = "We can baton them, we have the technology."
+	ks2type = /obj/item/device/encryptionkey/headset_sci/sec
 
 /obj/item/device/radio/headset/headset_medsci
 	name = "medical research radio headset"
@@ -208,6 +223,11 @@
 	icon_state = "cargo_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
+/obj/item/device/radio/headset/headset_cargo/sec
+	name = "supply security radio headset"
+	desc = "Pick up that crate."
+	ks2type = /obj/item/device/encryptionkey/headset_cargo/sec
 
 /obj/item/device/radio/headset/headset_service
 	name = "service radio headset"

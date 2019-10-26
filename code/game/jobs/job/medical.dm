@@ -298,7 +298,7 @@
 	name = "Medical Officer"
 	jobtype = /datum/job/medofficer
 
-	l_ear = /obj/item/device/radio/headset/headset_med
+	l_ear = /obj/item/device/radio/headset/headset_med/sec
 
 	backpack_contents = list(
 		/obj/item/weapon/handcuffs = 1,

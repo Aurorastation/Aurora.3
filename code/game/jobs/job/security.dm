@@ -228,7 +228,6 @@
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/security
 	l_pocket = /obj/item/device/flash
-	r_pocket = /obj/item/device/radio
 
 	backpack = /obj/item/weapon/storage/backpack/security
 	satchel = /obj/item/weapon/storage/backpack/satchel_sec

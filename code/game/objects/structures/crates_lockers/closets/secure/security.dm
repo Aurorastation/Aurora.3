@@ -326,7 +326,7 @@
 	fill()
 		..()
 		new /obj/item/clothing/head/helmet/brigsec(src)
-		new /obj/item/device/encryptionkey/headset_cargo(src)
+		new /obj/item/device/radio/headset/headset_sec(src)
 
 /obj/structure/closet/secure_closet/security/cargo
 	req_access = list(access_cargo, access_weapons)
@@ -335,7 +335,7 @@
 		..()
 		new /obj/item/clothing/head/helmet/carsec(src)
 		new /obj/item/clothing/accessory/armband/cargo(src)
-		new /obj/item/device/encryptionkey/headset_cargo(src)
+		new /obj/item/device/radio/headset/headset_cargo/sec(src)
 
 /obj/structure/closet/secure_closet/security/engine
 	req_access = list(access_engine, access_weapons)
@@ -344,7 +344,7 @@
 		..()
 		new /obj/item/clothing/head/helmet/engsec(src)
 		new /obj/item/clothing/accessory/armband/engine(src)
-		new /obj/item/device/encryptionkey/headset_eng(src)
+		new /obj/item/device/radio/headset/headset_eng/sec(src)
 
 /obj/structure/closet/secure_closet/security/science
 	req_access = list(access_research, access_weapons)
@@ -353,7 +353,7 @@
 		..()
 		new /obj/item/clothing/head/helmet/scisec(src)
 		new /obj/item/clothing/accessory/armband/science(src)
-		new /obj/item/device/encryptionkey/headset_sci(src)
+		new /obj/item/device/radio/headset/headset_sci/sec(src)
 
 /obj/structure/closet/secure_closet/security/med
 	req_access = list(access_medical, access_weapons)
@@ -362,7 +362,7 @@
 		..()
 		new /obj/item/clothing/head/helmet/medsec(src)
 		new /obj/item/clothing/accessory/armband/medgreen(src)
-		new /obj/item/device/encryptionkey/headset_med(src)
+		new /obj/item/device/radio/headset/headset_med/sec(src)
 
 
 /obj/structure/closet/secure_closet/detective

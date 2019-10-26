@@ -751,7 +751,7 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Medical Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -1352,6 +1352,12 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Engineering Officer"
+	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "acK" = (
@@ -1367,7 +1373,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/start{
-	name = "Security Officer"
+	name = "Supply Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -23296,13 +23302,12 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock/command{
-	desc = "It opens and closes. It does not look very robust.";
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security{
 	id_tag = "EngSecDoor";
 	name = "Engineering Security Office";
 	req_access = list(10,69)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aOK" = (
@@ -59267,7 +59272,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "cbu" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -64308,12 +64313,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "fqd" = (
-/obj/machinery/door/airlock/command{
-	id_tag = null;
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security{
 	name = "Maintenance Access";
 	req_access = list(47,69)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "frq" = (
@@ -64404,6 +64408,23 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fJf" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/landmark/start{
+	name = "Science Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "fJU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -64489,6 +64510,13 @@
 "fWq" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
+	},
+/obj/machinery/button/remote/airlock{
+	id = "SciSecDoor";
+	name = "Office Door";
+	pixel_x = 27;
+	pixel_y = 27;
+	req_access = list(10,69)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
@@ -65656,6 +65684,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"jAE" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/landmark/start{
+	name = "General Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "jBK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -66107,11 +66145,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "kUE" = (
-/obj/machinery/door/airlock/command{
-	id_tag = "SciSecDoor";
-	name = "Research Security Office";
-	req_access = list(47,69)
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -66124,6 +66157,11 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/security{
+	id_tag = "SciSecDoor";
+	name = "Research Security Office";
+	req_access = list(47,69)
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "kVD" = (
@@ -67295,13 +67333,6 @@
 /area/maintenance/medbay)
 "ogZ" = (
 /obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
-	id = "SciSecDoor";
-	name = "Office Door";
-	pixel_x = 0;
-	pixel_y = -6;
-	req_access = list(47,69)
-	},
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
@@ -68698,6 +68729,16 @@
 /obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
+"rZK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/bed/chair/office/dark,
+/obj/effect/landmark/start{
+	name = "General Officer"
+	},
+/turf/simulated/floor/tiled,
+/area/security/vacantoffice2)
 "saL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -70118,12 +70159,6 @@
 /obj/effect/floor_decal/corner/grey,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"vKN" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/table/wood,
-/obj/structure/table/wood,
-/turf/simulated/floor/tiled,
-/area/quartermaster/sec)
 "vKR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant{
@@ -95680,7 +95715,7 @@ cbr
 cbW
 rtM
 rtM
-vKN
+rtM
 cdC
 cdY
 ceh
@@ -100703,7 +100738,7 @@ aad
 aaJ
 aaU
 abb
-aby
+rZK
 abR
 acg
 abR
@@ -101221,7 +101256,7 @@ abA
 abR
 aci
 abR
-acK
+fJf
 aby
 adr
 aaU
@@ -101474,7 +101509,7 @@ aad
 aaJ
 aaU
 abd
-abz
+jAE
 abR
 ach
 abR

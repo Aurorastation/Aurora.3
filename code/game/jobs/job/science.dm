@@ -198,7 +198,7 @@
 	name = "Science Officer"
 	jobtype = /datum/job/sciofficer
 
-	l_ear = /obj/item/device/radio/headset/headset_sci
+	l_ear = /obj/item/device/radio/headset/headset_sci/sec
 
 	backpack_contents = list(
 		/obj/item/weapon/handcuffs = 1,

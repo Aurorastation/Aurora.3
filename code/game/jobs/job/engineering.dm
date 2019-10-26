@@ -172,7 +172,7 @@
 	name = "Engineering Officer"
 	jobtype = /datum/job/engofficer
 
-	l_ear = /obj/item/device/radio/headset/headset_eng
+	l_ear = /obj/item/device/radio/headset/headset_eng/sec
 
 	backpack_contents = list(
 		/obj/item/weapon/handcuffs = 1,

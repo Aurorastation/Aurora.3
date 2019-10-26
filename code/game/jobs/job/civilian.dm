@@ -187,7 +187,7 @@
 	name = "Supply Officer"
 	jobtype = /datum/job/cargoofficer
 
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
 
 	backpack_contents = list(
 		/obj/item/weapon/handcuffs = 1,
