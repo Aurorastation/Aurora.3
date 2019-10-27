@@ -229,7 +229,7 @@
 /obj/item/clothing/ears/skrell/goop/update_icon()
 	. = ..()
 	if(color)
-		set_light(3,3,color)
+		set_light(1.5,1.5,color)
 
 /obj/item/clothing/ears/skrell/goop/Initialize()
 	. = ..()
