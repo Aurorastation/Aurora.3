@@ -262,7 +262,8 @@
 /datum/reagent/atropine/touch_obj(var/obj/O)
 	if(istype(O, /obj/structure/closet/statue/eternal/triti))
 		var/obj/structure/closet/statue/eternal/triti/S = O
-		O.visible_message(span("warning", "[S] begins to crack and melt..."))
+		S.eternal = FALSE
+		S.visible_message(span("warning", "[S] begins to crack and melt..."))
 		S.timer = 5
 
 /datum/reagent/cryoxadone

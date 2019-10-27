@@ -17,10 +17,11 @@
 	anchored = 1
 	health = 0 //destroying the statue kills the mob within
 	var/timer = 90 //eventually the person will be freed
+	var/eternal = FALSE
 	var/mob/statue_mob/imprisoned = null //the temporary mob that is created when someone is put inside a statue
 
 /obj/structure/closet/statue/eternal
-	timer = -1
+	eternal = TRUE
 
 /obj/structure/closet/statue/eternal/triti
 	name = "petrified human"
@@ -82,7 +83,7 @@
 	if (timer == 10)
 		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
 
-	if (timer <= 0)
+	if (timer <= 0 && !eternal)
 		dump_contents()
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
