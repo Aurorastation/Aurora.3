@@ -1203,7 +1203,7 @@
 	caffeine = 0.3
 	taste_description = "properly completed paperwork, filed well before the deadline, with all the necessary signatures"
 
-	glass_icon_state = "contracttea"
+	glass_icon_state = "bureacratea"
 	glass_name = "cup of bureacratea"
 	glass_desc = "An Eridani favorite for long nights of contract review."
 
@@ -1271,7 +1271,7 @@
 	color = "#101000"
 	taste_description = "peace and quiet"
 
-	glass_icon_state = "contracttea"
+	glass_icon_state = "bureacratea"
 	glass_name = "cup of Librarian Special"
 	glass_desc = "Shhhhhh!"
 
