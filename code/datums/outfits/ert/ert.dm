@@ -145,6 +145,8 @@
 	suit = null
 	head = null
 
+	backpack_contents = list()
+
 	belt_contents = list(
 		/obj/item/ammo_magazine/c762 = 3,
 		/obj/item/weapon/handcuffs/ziptie = 2,
