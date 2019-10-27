@@ -750,9 +750,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "Medical Officer"
-	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "abA" = (
@@ -1352,12 +1349,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Engineering Officer"
-	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
 "acK" = (
@@ -1371,9 +1362,6 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
-	},
-/obj/effect/landmark/start{
-	name = "Supply Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -25543,6 +25531,9 @@
 	pixel_x = -37;
 	pixel_y = 37;
 	req_access = list(10,69)
+	},
+/obj/effect/landmark/start{
+	name = "Engineering Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
@@ -64457,7 +64448,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/start{
-	name = "Science Officer"
+	name = "General Officer"
 	},
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice2)
@@ -64559,6 +64550,9 @@
 	pixel_x = 26;
 	pixel_y = 19;
 	range = 3
+	},
+/obj/effect/landmark/start{
+	name = "Science Officer"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
@@ -66976,6 +66970,9 @@
 	pixel_x = -30;
 	pixel_y = 0
 	},
+/obj/effect/landmark/start{
+	name = "Supply Officer"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "mKz" = (
@@ -68817,16 +68814,6 @@
 /obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
-"rZK" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/structure/bed/chair/office/dark,
-/obj/effect/landmark/start{
-	name = "General Officer"
-	},
-/turf/simulated/floor/tiled,
-/area/security/vacantoffice2)
 "saL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -100832,7 +100819,7 @@ aad
 aaJ
 aaU
 abb
-rZK
+aby
 abR
 acg
 abR

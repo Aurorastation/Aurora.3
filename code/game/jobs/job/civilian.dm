@@ -178,8 +178,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_maint_tunnels, access_mailsorting, access_cargo, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_mining, access_mining_station, access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
+	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_mining, access_mining_station, access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_mining, access_mining_station, access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/cargo
 

@@ -12140,6 +12140,9 @@
 	pixel_y = -10;
 	req_access = list(5,69)
 	},
+/obj/effect/landmark/start{
+	name = "Medical Officer"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
 "Vv" = (

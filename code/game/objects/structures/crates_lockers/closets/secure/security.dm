@@ -281,7 +281,7 @@
 
 /obj/structure/closet/secure_closet/security
 	name = "security officer's locker"
-	req_access = list(access_weapons)
+	req_access = list(access_brig)
 	icon_state = "sec1"
 	icon_closed = "sec"
 	icon_locked = "sec1"
@@ -321,7 +321,7 @@
 	new /obj/item/weapon/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security/brig
-	req_access = list(access_security, access_weapons)
+	req_access = list(access_security, access_brig)
 
 /obj/structure/closet/secure_closet/security/brig/fill()
 	..()
@@ -329,7 +329,7 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 
 /obj/structure/closet/secure_closet/security/cargo
-	req_access = list(access_cargo, access_weapons)
+	req_access = list(access_cargo, access_brig)
 
 /obj/structure/closet/secure_closet/security/cargo/fill()
 	..()
@@ -338,7 +338,7 @@
 	new /obj/item/device/radio/headset/headset_cargo/sec(src)
 
 /obj/structure/closet/secure_closet/security/engine
-	req_access = list(access_engine, access_weapons)
+	req_access = list(access_engine, access_brig)
 
 /obj/structure/closet/secure_closet/security/engine/fill()
 	..()
@@ -347,7 +347,7 @@
 	new /obj/item/device/radio/headset/headset_eng/sec(src)
 
 /obj/structure/closet/secure_closet/security/science
-	req_access = list(access_research, access_weapons)
+	req_access = list(access_research, access_brig)
 
 /obj/structure/closet/secure_closet/security/science/fill()
 	..()
@@ -356,7 +356,7 @@
 	new /obj/item/device/radio/headset/headset_sci/sec(src)
 
 /obj/structure/closet/secure_closet/security/med
-	req_access = list(access_medical, access_weapons)
+	req_access = list(access_medical, access_brig)
 
 /obj/structure/closet/secure_closet/security/med/fill()
 	..()
