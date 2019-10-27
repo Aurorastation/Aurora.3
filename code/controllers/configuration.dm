@@ -280,6 +280,7 @@ var/list/gamemode_cache = list()
 
 	var/iterative_explosives_z_threshold = 10
 	var/iterative_explosives_z_multiplier = 0.75
+	var/iterative_explosives_z_subtraction = 2
 
 	var/ticket_reminder_period = 0
 
@@ -885,6 +886,9 @@ var/list/gamemode_cache = list()
 
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
+
+				if ("explosion_z_sub")
+					iterative_explosives_z_subtraction = text2num(value)
 
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
