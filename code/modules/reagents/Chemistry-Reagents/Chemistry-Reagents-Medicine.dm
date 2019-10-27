@@ -104,7 +104,7 @@
 	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(5 * removed, 0)
+	M.heal_organ_damage(2 * removed, 0)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals internal wounds
@@ -131,7 +131,7 @@
 	taste_description = "bitterness"
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0, 6 * removed)
+	M.heal_organ_damage(0, 2 * removed)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -145,7 +145,7 @@
 	taste_mult = 1.5
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0, 12 * removed)
+	M.heal_organ_damage(0, 3 * removed)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
