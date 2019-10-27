@@ -140,7 +140,7 @@
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
 	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle
-	back = /obj/item/weapon/rig/merc
+	back = /obj/item/weapon/rig/merc/distress
 	suit_store = null
 	suit = null
 	head = null

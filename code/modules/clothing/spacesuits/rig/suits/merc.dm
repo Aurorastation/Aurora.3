@@ -40,3 +40,6 @@
 		/obj/item/rig_module/electrowarfare_suite, //might as well
 		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
+
+/obj/item/weapon/rig/merc/distress
+	req_access = list(access_distress)

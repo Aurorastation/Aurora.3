@@ -410,7 +410,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Freelancer Mercenary"
 
 /obj/item/weapon/card/id/distress/New()
-	access = list(access_syndicate, access_distress, access_maint_tunnels, access_external_airlocks)
+	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
 	..()
 
 /obj/item/weapon/card/id/distress/legion
