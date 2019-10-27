@@ -227,7 +227,7 @@
 	item_state = "skrell_dots"
 
 /obj/item/clothing/ears/skrell/goop/update_icon()
-	. = ..()
+	..()
 	if(color)
 		set_light(1.5,1.5,color)
 
