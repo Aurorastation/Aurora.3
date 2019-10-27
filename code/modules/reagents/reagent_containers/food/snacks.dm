@@ -176,14 +176,14 @@
 
 		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
 		if(selection == "Name")
-			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null)
+			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
 				user.visible_message("<span class='notice'>\The [user] labels \the [name] as \"[input_clean_name]\".</span>")
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
-			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null)
+			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
 				user.visible_message("<span class='notice'>\The [user] adds a note to \the [name].</span>")
 				desc = input_clean_desc
