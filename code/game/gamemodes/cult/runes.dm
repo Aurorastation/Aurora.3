@@ -523,7 +523,7 @@ var/list/sacrificed = list()
 			T.imbue = "emp"
 			imbued_from = R
 			break
-		if(R.word1==cultwords["blood"] && R.word2==cultwords["see"] && R.word3==cultwords["destroy"]) //conceal
+		if(R.word1==cultwords["hide"] && R.word2==cultwords["see"] && R.word3==cultwords["blood"]) //conceal
 			T = new(src.loc)
 			T.imbue = "conceal"
 			imbued_from = R
