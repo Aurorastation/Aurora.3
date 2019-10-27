@@ -22,6 +22,10 @@
 /obj/structure/closet/statue/eternal
 	timer = -1
 
+/obj/structure/closet/statue/eternal/triti
+	name = "petrified human"
+	desc = "You swear you can hear a <b>scream</b> coming from inside..."
+
 /obj/structure/closet/statue/Destroy()
 	QDEL_NULL(imprisoned)
 	STOP_PROCESSING(SSprocessing, src)
