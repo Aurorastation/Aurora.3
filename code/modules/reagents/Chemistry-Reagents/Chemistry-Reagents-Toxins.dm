@@ -721,14 +721,14 @@
 /datum/reagent/toxin/triti/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(H.getFireLoss() >= 150 && dose >= 60) //Turn them to stone.
-		H.visible_message(span("warning", "[H]'s skin rapidly melds into stone as they immobilize, a final scream chiseled into their now-petrified face...'"))
+		H.visible_message(span("danger", "[H]'s skin rapidly melds into stone as they immobilize, a final scream chiseled into their now-petrified face..."))
 		holder.remove_reagent("triti", dose)
 		new /obj/structure/closet/statue/eternal/triti(H.loc, H)
 	H.take_organ_damage(0, 3 * removed)
 	if(prob(20))
-		var/stone_message = pick("Your limbs feel heavy...", "Every breath hurts...", "Your bones creak with every step...", "Your hands feel like rock...")
+		var/stone_message = pick("Your limbs feel heavy...", "Every breath hurts...", "Your bones creak with every movement...", "Your hands feel like rock...")
 		to_chat(H, span("warning", stone_message))
 	else if(prob(2))
 		H.drop_item()
-		H.visible_message(span("warning", "[H]'s hand suddenly stiffens, the skin turning to stone!"))
+		H.visible_message(span("danger", "[H]'s hand suddenly stiffens, the skin turning to stone!"), span("danger", "Your hand stiffens as it turns to stone!"))
 		H.emote("scream")
