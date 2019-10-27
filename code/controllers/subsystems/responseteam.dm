@@ -50,7 +50,7 @@
 
 
 /datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = null)
-	if(!can_call_ert)
+	if(!can_call_ert && !forced_choice)
 		return
 	if(send_emergency_team)
 		return
@@ -73,12 +73,17 @@
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
 
+	if(LAZYLEN(sent_teams))
+		LAZYCLEARLIST(sent_teams)
+
 	handle_spawner()
 
 	sleep(120 SECONDS)
 
 	for(var/datum/ghostspawner/G in sent_teams)
 		G.disable()
+
+	send_emergency_team = FALSE //We completed the ERT handling, so let's allow admins to call another.
 
 /datum/controller/subsystem/responseteam/proc/handle_spawner()
 	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
