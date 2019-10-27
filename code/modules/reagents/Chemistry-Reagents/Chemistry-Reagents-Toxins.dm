@@ -714,15 +714,16 @@
 	id = "triti"
 	description = "A toxin that transforms cellular tissue into stone via excess burn skin creation."
 	color = "#A88332"
+	metabolism = REM * 2
 	taste_description = "guilt and stone"
-	tfallback_specific_heat = 1
+	fallback_specific_heat = 1
 
 /datum/reagent/toxin/triti/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(H.getFireLoss() >= 150 && dose >= 60) //Turn them to stone.
 		H.visible_message(span("warning", "[H]'s skin rapidly melds into stone as they immobilize, a final scream chiseled into their now-petrified face...'"))
 		holder.remove_reagent("triti", dose)
-		new /obj/structure/closet/statue/triti(H.loc, H)
+		new /obj/structure/closet/statue/eternal/triti(H.loc, H)
 	H.take_organ_damage(0, 3 * removed)
 	if(prob(20))
 		var/stone_message = pick("Your limbs feel heavy...", "Every breath hurts...", "Your bones creak with every step...", "Your hands feel like rock...")
