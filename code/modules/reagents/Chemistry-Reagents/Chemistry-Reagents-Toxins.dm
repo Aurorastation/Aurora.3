@@ -722,7 +722,7 @@
 	var/mob/living/carbon/human/H = M
 	if(H.getFireLoss() >= 150 && dose >= 60) //Turn them to stone.
 		H.visible_message(span("danger", "[H]'s skin rapidly melds into stone as they immobilize, a final scream chiseled into their now-petrified face..."))
-		holder.clear_reagents()
+		holder.del_reagent("triti")
 		new /obj/structure/closet/statue/eternal/triti(H.loc, H)
 	H.take_organ_damage(0, 3 * removed)
 	if(prob(20))

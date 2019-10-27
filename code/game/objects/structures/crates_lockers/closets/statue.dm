@@ -24,7 +24,6 @@
 	eternal = TRUE
 
 /obj/structure/closet/statue/eternal/triti
-	name = "petrified human"
 	desc = "You swear you can hear a <b>scream</b> coming from inside..."
 
 /obj/structure/closet/statue/Destroy()
@@ -80,7 +79,7 @@
 /obj/structure/closet/statue/process()
 	timer -= 2
 
-	if (timer == 10)
+	if (timer == 10 && !eternal)
 		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
 
 	if (timer <= 0 && !eternal)
