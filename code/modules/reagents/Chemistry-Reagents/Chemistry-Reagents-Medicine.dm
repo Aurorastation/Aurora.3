@@ -131,12 +131,12 @@
 	taste_description = "bitterness"
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0, 2 * removed)
+	M.heal_organ_damage(0, 4 * removed)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
 	id = "dermaline"
-	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
+	description = "Dermaline is the next step in burn medication. Works better than kelotane and enables the body to restore even the direst heat-damaged tissue."
 	reagent_state = LIQUID
 	color = "#FF8000"
 	overdose = REAGENTS_OVERDOSE * 0.5
@@ -145,7 +145,7 @@
 	taste_mult = 1.5
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0, 3 * removed)
+	M.heal_organ_damage(0, 5 * removed)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
