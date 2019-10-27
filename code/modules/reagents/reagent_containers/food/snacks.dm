@@ -1014,61 +1014,53 @@
 	reagents.add_reagent("batter", 2)
 	reagents.add_reagent("oil", 2)
 
-
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket
-	name = "\improper Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
-	filling_color = "#6D6D00"
-	heated_reagents = list("doctorsdelight" = 5, "hyperzine" = 0.75, "synaptizine" = 0.25)
-	var/has_been_heated = 0
-
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
-	if(has_been_heated)
-		to_chat(user, "<span class='notice'>The heating chemicals have already been spent.</span>")
-		return
-	has_been_heated = 1
-	user.visible_message("<span class='notice'>[user] crushes \the [src] package.</span>", "You crush \the [src] package and feel a comfortable heat build up.")
-	spawn(200)
-		to_chat(user, "You think \the [src] is ready to eat about now.")
-		heat()
-
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket
 	name = "Donk-pocket"
-	desc = "The food of choice for the seasoned traitor."
+	desc = "The cold, reheatable food of choice for the seasoned spaceman."
 	icon_state = "donkpocket"
 	filling_color = "#DEDEAB"
 	center_of_mass = list("x"=16, "y"=10)
 	nutriment_desc = list("heartiness" = 1, "dough" = 2)
 	nutriment_amt = 2
-	var/warm = 0
-	var/list/heated_reagents = list("tricordrazine" = 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/heat()
-	warm = 1
-	for(var/reagent in heated_reagents)
-		reagents.add_reagent(reagent, heated_reagents[reagent])
-	bitesize = 6
-	name = "Warm " + name
-	cooltime()
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/warm
+	name = "cooked Donk-pocket"
+	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
+	nutriment_desc = list("warm heartiness" = 1, "dough" = 2)
+	nutriment_amt = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cooltime()
-	if (src.warm)
-		addtimer(CALLBACK(src, .proc/cool_down))
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/warm/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 1)
+	reagents.add_reagent("tricordrazine", 5)
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cool_down()
-	warm = FALSE
-	for(var/reagent in heated_reagents)
-		reagents.del_reagent(reagent)
-	name = initial(name)
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket
+	name = "\improper Sin-pocket"
+	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume. Use it in hand to heat and release chemicals."
+	nutriment_desc = list("delicious cruelty" = 1, "dough" = 2)
+	filling_color = "#6D6D00"
+	nutriment_amt = 3
+	var/has_been_heated = FALSE
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/cook()
-	..()
-	if (!warm)
-		heat()
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
+	if(has_been_heated)
+		to_chat(user, "<span class='notice'>The heating chemicals have already been spent.</span>")
+		return
+	has_been_heated = TRUE
+	user.visible_message("<span class='notice'>[user] crushes \the [src] package.</span>", "You crush \the [src] package and feel it rapidly heat up.")
+	name = "cooked Sin-pocket"
+	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
+	reagents.add_reagent("doctorsdelight", 5)
+	reagents.add_reagent("hyperzine", 1.5)
+	reagents.add_reagent("synaptizine", 1.25)
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/brain
 	name = "brainburger"
