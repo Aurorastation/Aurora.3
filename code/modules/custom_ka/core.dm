@@ -398,7 +398,7 @@
 		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
-	else if(istype(I,/obj/item/weapon/wrench))
+	else if(I.iswrench())
 		if(installed_upgrade_chip)
 			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")

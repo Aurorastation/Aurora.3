@@ -37,6 +37,7 @@
 	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
 
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
+	var/carbonated = FALSE // if it's carbonated or not
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))

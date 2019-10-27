@@ -333,12 +333,31 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
+			var/disarm_cost
+			var/usesStamina
+
+			if(M.max_stamina > 0)
+				disarm_cost = M.max_stamina / 6
+				usesStamina = TRUE
+			else if(M.max_stamina <= 0)
+				disarm_cost = M.max_nutrition / 8
+				usesStamina = FALSE
+
+			if(usesStamina)
+				if(M.stamina <= disarm_cost)
+					to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
+					return FALSE
+			else
+				if(M.nutrition <= disarm_cost)
+					to_chat(M, "<span class='danger'>You don't have enough power to disarm someone!</span>")
+					return FALSE
+
 			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
-				return 0
+				return FALSE
 
 			if(attacker_style && attacker_style.disarm_act(H, src))
-				return 1
+				return TRUE
 
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
@@ -346,22 +365,35 @@
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
 
+			if(usesStamina)
+				M.stamina = M.stamina - disarm_cost //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+				M.stamina = Clamp(M.stamina, 0, M.max_stamina)
+			else
+				M.nutrition = M.nutrition - disarm_cost
+				M.nutrition = Clamp(M.nutrition, 0, M.max_nutrition)
+
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 
-			var/list/holding = list(get_active_hand() = 40, get_inactive_hand = 20)
+			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
 
-			//See if they have any guns that might go off
-			for(var/obj/item/weapon/gun/W in holding)
-				if(W && prob(holding[W]))
-					var/list/turfs = list()
-					for(var/turf/T in view())
-						turfs += T
-					if(turfs.len)
-						var/turf/target = pick(turfs)
-						visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
-						return W.afterattack(target,src)
+			//See if they have any weapons to retaliate with
+			if(src.a_intent != I_HELP)
+				for(var/obj/item/weapon/W in holding)
+					if(W && prob(holding[W]))
+						if(istype(W,/obj/item/weapon/gun))
+							var/list/turfs = list()
+							for(var/turf/T in view())
+								turfs += T
+							if(turfs.len)
+								var/turf/target = pick(turfs)
+								visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
+								return W.afterattack(target,src)
+						else
+							if(M.Adjacent(src))
+								visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
+								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
 			if(randn <= 25)
@@ -438,6 +470,9 @@
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)
 	var/has_grab = 0
+
+	if(user.limb_breaking)
+		return 0
 	for(var/obj/item/weapon/grab/G in list(user.l_hand, user.r_hand))
 		if(G.affecting == src && G.state == GRAB_NECK)
 			has_grab = 1
@@ -455,12 +490,15 @@
 		return 0
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
+	user.limb_breaking = TRUE
 	if(do_after(user, 100))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		user.limb_breaking = FALSE
 		return 1
 	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
+	user.limb_breaking = FALSE
 	return 0
 
 //Breaks all grips and pulls that the mob currently has.

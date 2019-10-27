@@ -702,6 +702,7 @@
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
 	icon_state = "patch"
 	overlay_state = "patch"
+	flippable = 1
 
 /obj/item/clothing/accessory/sleevepatch/necro
 	name = "\improper Necropolis Industries sleeve patch"

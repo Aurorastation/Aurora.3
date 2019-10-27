@@ -18,7 +18,7 @@
 			if("conceal")
 				call(/obj/effect/rune/proc/obscure)(user, 2)
 			if("revealrunes")
-				call(/obj/effect/rune/proc/revealrunes)(src)
+				call(/obj/effect/rune/proc/revealrunes)(user, src)
 			if("ire", "ego", "nahlizet", "certum", "veri", "jatkaa", "balaq", "mgar", "karazet", "geeri")
 				call(/obj/effect/rune/proc/teleport)(user, imbue)
 			if("communicate")

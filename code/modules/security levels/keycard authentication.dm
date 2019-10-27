@@ -66,7 +66,7 @@
 		dat += "Select an event to trigger:<ul>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
 		if(!config.ert_admin_call_only)
-			dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
+			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Distress Beacon</A></li>"
 
 		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
@@ -150,9 +150,9 @@
 		if("Revoke Emergency Maintenance Access")
 			revoke_maint_all_access()
 			feedback_inc("alert_keycard_auth_maintRevoke",1)
-		if("Emergency Response Team")
+		if("Distress Beacon")
 			if(is_ert_blocked())
-				to_chat(usr, "<span class='warning'>All emergency response teams are dispatched and can not be called at this time.</span>")
+				to_chat(usr, "<span class='warning'>The distress beacon is disabled!</span>")
 				return
 			SSresponseteam.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)

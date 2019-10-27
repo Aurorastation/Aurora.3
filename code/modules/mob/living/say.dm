@@ -178,7 +178,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
+	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
 		message += "."
 
 	//parse the language code and consume it

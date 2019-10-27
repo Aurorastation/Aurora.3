@@ -324,15 +324,15 @@ Class Procs:
 			return 1
 	return 0
 
-/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
-	if(!istype(C))
+/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
+	if(!istype(C) || !C.iscrowbar())
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
-/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/weapon/screwdriver/S)
-	if(!istype(S))
+/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
+	if(!istype(S) || !S.isscrewdriver())
 		return 0
 	playsound(src.loc,  S.usesound, 50, 1)
 	panel_open = !panel_open
@@ -394,8 +394,8 @@ Class Procs:
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
-	M.state = 2
-	M.icon_state = "box_1"
+	M.state = 3
+	M.icon_state = "blueprint_1"
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
 	qdel(src)
