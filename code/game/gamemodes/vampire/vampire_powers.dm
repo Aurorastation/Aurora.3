@@ -125,7 +125,6 @@
 			to_chat(src, update_msg)
 		check_vampire_upgrade()
 		T.vessel.remove_reagent("blood", 25)
-		T.vessel.add_reagent("fakeblood", 25) //replace stolen blood with fake blood to trick scanners
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -931,7 +930,6 @@
 			break
 
 		T.vessel.remove_reagent("blood", 50)
-		T.vessel.add_reagent("fakeblood", 50)
 
 	T.revive()
 
