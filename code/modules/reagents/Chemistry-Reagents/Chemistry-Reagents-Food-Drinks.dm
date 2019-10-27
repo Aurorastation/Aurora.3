@@ -1192,9 +1192,9 @@
 	glass_name = "cup of cofftea"
 	glass_desc = "The only neutral ground in the tea versus coffee debate."
 
-/datum/reagent/drink/tea/contract_tea
-	name = "Contract Tea"
-	id = "contract_tea"
+/datum/reagent/drink/tea/bureacratea
+	name = "Bureacratea"
+	id = "bureacratea"
 	description = "An Eridani favorite for long nights of contract review."
 	color = "#2B1902"
 	adj_dizzy = -2
@@ -1204,7 +1204,7 @@
 	taste_description = "properly completed paperwork, filed well before the deadline, with all the necessary signatures"
 
 	glass_icon_state = "contracttea"
-	glass_name = "cup of contract tea"
+	glass_name = "cup of bureacratea"
 	glass_desc = "An Eridani favorite for long nights of contract review."
 
 /datum/reagent/drink/tea/desert_tea //not in butanol path since xuizi is strength 5 by itself so the alcohol content is negligible when mixed

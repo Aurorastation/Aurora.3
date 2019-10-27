@@ -3160,10 +3160,10 @@
 	required_reagents = list("tea" = 1, "coffee" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/contract_tea
-	name = "Contract Tea"
-	id = "contract_tea"
-	result = "contract_tea"
+/datum/chemical_reaction/drink/bureacratea
+	name = "Bureacratea"
+	id = "bureacratea"
+	result = "bureacratea"
 	required_reagents = list("tea" = 1, "espresso" = 1)
 	result_amount = 2
 
