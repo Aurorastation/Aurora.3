@@ -1,0 +1,8 @@
+author: MattAtlas
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added Triti. It's mixed by combining Kelotane and Dermaline. It causes burn damage and turns the skin to stone over time. If someone has over 150 burn damage and 60 units of Triti metabolized, they will turn into a statue. Statue transformation can be undone by spraying Atropine on it."
+  - rscdel: "You can no longer have a random chance to block all damage with armor."
+  - tweak: "Severely nerfed kelotane and dermaline."
