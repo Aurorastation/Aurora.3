@@ -290,16 +290,6 @@ var/list/gamemode_cache = list()
 	var/load_customsynths_from
 	var/docs_image_host
 
-	var/ert_base_chance = 10
-	var/ert_green_inc = 1
-	var/ert_yellow_inc = 1
-	var/ert_blue_inc = 2
-	var/ert_red_inc = 3
-	var/ert_delta_inc = 10
-	var/ert_scaling_factor = 1
-	var/ert_scaling_factor_antag = 1
-	var/ert_scaling_factor_dead = 2
-
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
 	var/ntsl_port = "1945"
@@ -907,25 +897,6 @@ var/list/gamemode_cache = list()
 					load_customsynths_from = value
 				if ("docs_image_host")
 					docs_image_host = value
-
-				if ("ert_base_chance")
-					ert_base_chance = text2num(value)
-				if ("ert_green_inc")
-					ert_green_inc = text2num(value)
-				if ("ert_yellow_inc")
-					ert_yellow_inc = text2num(value)
-				if ("ert_blue_inc")
-					ert_blue_inc = text2num(value)
-				if ("ert_red_inc")
-					ert_red_inc = text2num(value)
-				if ("ert_delta_inc")
-					ert_delta_inc = text2num(value)
-				if ("ert_scaling_factor")
-					ert_scaling_factor = text2num(value)
-				if ("ert_scaling_factor_antag")
-					ert_scaling_factor_antag = text2num(value)
-				if ("ert_scaling_factor_dead")
-					ert_scaling_factor_dead = text2num(value)
 
 				if ("ntsl_hostname")
 					ntsl_hostname = value
