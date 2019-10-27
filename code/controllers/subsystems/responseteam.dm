@@ -73,8 +73,7 @@
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
 
-	if(LAZYLEN(sent_teams))
-		LAZYCLEARLIST(sent_teams)
+	sent_teams = list() //Make sure this list is clear before we use it.
 
 	handle_spawner()
 
