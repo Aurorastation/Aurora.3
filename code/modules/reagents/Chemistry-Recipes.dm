@@ -3320,3 +3320,10 @@
 	result = "rmt"
 	result_amount = 1
 	required_reagents = list("potassium" = 1, "inaprovaline" = 1)
+
+/datum/chemical_reaction/triti
+	name = "Triti"
+	id = "triti"
+	result = "triti"
+	result_amount = 0.5
+	required_reagents = list("kelotane" = 1, "dermaline" = 1)

@@ -97,7 +97,7 @@
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	metabolism = REM * 1.5//Get to overdose state a bit faster
+	metabolism = REM * 1.5 //Get to overdose state a bit faster
 	taste_description = "bitterness"
 	taste_mult = 3
 	breathe_met = REM * 1.5 * 0.5

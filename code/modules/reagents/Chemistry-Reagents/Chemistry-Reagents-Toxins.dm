@@ -708,3 +708,22 @@
 			H.change_skin_color(r, g, b)
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+
+/datum/reagent/toxin/triti
+	name = "Triti"
+	id = "triti"
+	description = "A toxin that transforms cellular tissue into stone via excess burn skin creation."
+	color = "#A88332"
+	taste_description = "guilt and stone"
+	tfallback_specific_heat = 1
+
+/datum/reagent/toxin/triti/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/mob/living/carbon/human/H = M
+	H.take_organ_damage(0, 3 * removed)
+	if(prob(20))
+		var/stone_message = pick("Your limbs feel heavy...", "Every breath hurts...", "Your bones creak with every step...", "Your hands feel like rock...")
+		to_chat(H, span("warning", stone_message))
+	else if(prob(2))
+		H.drop_item()
+		H.visible_message(span("warning", "[H]'s hand suddenly stiffens, the skin turning to stone!"))
+		H.emote("scream")
