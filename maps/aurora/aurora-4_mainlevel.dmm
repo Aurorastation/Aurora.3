@@ -25499,6 +25499,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/light_switch{
+	pixel_x = -24;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aSe" = (
@@ -25543,15 +25547,6 @@
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aSi" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 0
@@ -25559,6 +25554,13 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Security Office";
 	dir = 8
+	},
+/obj/machinery/requests_console{
+	department = "Engineering - Security Office";
+	departmentType = 2;
+	name = "Engineering Security Office Requests Console";
+	pixel_x = 30;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
@@ -26232,6 +26234,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/blue/full,
+/obj/machinery/newscaster{
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aTv" = (
@@ -26276,15 +26282,19 @@
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
 "aTz" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/structure/closet/secure_closet/security/engine,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/sec)
@@ -45701,11 +45711,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bzm" = (
-/obj/structure/closet/secure_closet/security/cargo,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "bzn" = (
@@ -48641,6 +48654,9 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bES" = (
@@ -48658,6 +48674,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
@@ -49245,6 +49265,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bFW" = (
@@ -49748,9 +49769,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "bGS" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -49765,6 +49783,9 @@
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
@@ -59235,15 +59256,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cbr" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/security/cargo,
+/obj/structure/disposalpipe/junction/yjunction,
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "cbs" = (
@@ -63997,6 +64015,9 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "eqc" = (
@@ -64041,6 +64062,10 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
 	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "exH" = (
@@ -64050,6 +64075,10 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/newscaster{
+	pixel_x = -32;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
@@ -64353,6 +64382,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -65520,6 +65552,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "iSy" = (
@@ -66189,6 +66225,9 @@
 	req_access = list(47,69);
 	req_one_access = null
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "kVD" = (
@@ -66773,6 +66812,8 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
 "mBl" = (
@@ -66928,10 +66969,12 @@
 	pixel_y = 18;
 	req_access = list(31,69)
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = -25
+/obj/machinery/requests_console{
+	department = "Cargo - Security Office";
+	departmentType = 2;
+	name = "Cargo Security Office Requests Console";
+	pixel_x = -30;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
@@ -67285,6 +67328,7 @@
 /area/maintenance/medbay)
 "nMs" = (
 /obj/effect/floor_decal/corner/blue/full,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "nOE" = (
@@ -67587,6 +67631,13 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/machinery/requests_console{
+	department = "Research - Security Office";
+	departmentType = 2;
+	name = "Research Security Office Requests Console";
+	pixel_x = 30;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
@@ -68721,6 +68772,10 @@
 	c_tag = "Cargo - Security Office";
 	dir = 4
 	},
+/obj/machinery/newscaster{
+	pixel_x = -32;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
 "rUd" = (
@@ -68824,9 +68879,6 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"sfg" = (
-/turf/simulated/wall,
-/area/rnd/sec)
 "sfh" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger{
@@ -69230,6 +69282,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/sec)
@@ -70557,6 +70613,11 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/sec)
@@ -89019,13 +89080,13 @@ eOZ
 aab
 bBw
 beG
-sfg
-sfg
-sfg
-sfg
-sfg
+vSe
+vSe
+vSe
+vSe
+vSe
 fqd
-sfg
+vSe
 beG
 bcY
 bcY
@@ -89276,13 +89337,13 @@ bbs
 aab
 bbs
 bCn
-sfg
+vSe
 mAs
 trX
 exH
 cwS
 jnX
-sfg
+vSe
 aOv
 cXM
 bcY
@@ -89533,13 +89594,13 @@ bbs
 bbs
 bbs
 beG
-sfg
+vSe
 sIv
 eqb
 kkU
 fWq
 cTh
-sfg
+vSe
 qqW
 jBK
 bLf
@@ -89790,13 +89851,13 @@ bbs
 bAz
 bbt
 bCp
-sfg
+vSe
 evT
 fyo
 oIG
 kkU
 pUy
-sfg
+vSe
 wje
 kzl
 bcY

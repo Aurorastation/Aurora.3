@@ -7102,7 +7102,7 @@
 /obj/machinery/door/airlock/security{
 	id_tag = "MedSecDoor";
 	name = "Medical Security Office";
-	req_access = list(5,69);
+	req_access = list(5,69)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7114,6 +7114,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
@@ -7149,6 +7152,9 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
@@ -7351,6 +7357,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"qF" = (
+/obj/machinery/requests_console{
+	department = "Medical - Security Office";
+	departmentType = 2;
+	pixel_x = -30
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/sec)
 "qG" = (
 /obj/machinery/disposal{
 	name = "MediExpress - Quarantine"
@@ -7651,6 +7665,7 @@
 	pixel_x = 24
 	},
 /obj/structure/cable/green,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
 "sU" = (
@@ -8023,6 +8038,12 @@
 	dir = 4;
 	status = 0
 	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
 "vS" = (
@@ -8217,7 +8238,7 @@
 "xJ" = (
 /obj/machinery/door/airlock/security{
 	name = "Maintenance Access";
-	req_access = list(5,69);
+	req_access = list(5,69)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -8236,6 +8257,10 @@
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
@@ -8953,11 +8978,14 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "Eo" = (
-/obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
 "Er" = (
@@ -8999,10 +9027,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -9014,6 +9038,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/junction{
+	icon_state = "pipe-j1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologyaccess)
@@ -12444,6 +12472,9 @@
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/newscaster{
+	pixel_y = -30
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/sec)
@@ -43478,7 +43509,7 @@ mo
 oh
 FG
 vl
-NO
+qF
 ZJ
 Pg
 QE
