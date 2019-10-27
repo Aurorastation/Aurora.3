@@ -24,7 +24,7 @@
 	var/effective_armor = (armor - armour_pen)/100
 	var/fullblock = (effective_armor*effective_armor) * ARMOR_BLOCK_CHANCE_MULT
 
-	if(fullblock >= 1 || prob(fullblock*100))
+	if(fullblock >= 1)
 		if(absorb_text)
 			show_message("<span class='warning'>[absorb_text]</span>")
 		else
