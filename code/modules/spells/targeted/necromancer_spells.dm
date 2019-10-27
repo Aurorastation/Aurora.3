@@ -103,11 +103,14 @@
 			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
+		//Save the mind so we can give them first dibs
+		var/datum/mind/M = target.mind
 		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
 		target.gib()
 		var/datum/ghosttrap/ghost = get_ghost_trap("skeleton minion")
-		ghost.request_player(F,"A wizard is requesting a skeleton minion.", 60 SECONDS)
+		if(!M || !ghost.transfer_personality(M.current,F))
+			ghost.request_player(F,"A wizard is requesting a skeleton minion.", 60 SECONDS)
 		spawn(600)
 			if(F)
 				if(!F.ckey || !F.client)
