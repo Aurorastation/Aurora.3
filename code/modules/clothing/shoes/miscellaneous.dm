@@ -175,6 +175,18 @@
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
+	slowdown = 0
+	force = 5
+	sharp = TRUE
+
+/obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
+	if(!istype(M) || user.a_intent == "help")
+		return ..()
+	if(target_zone != "eyes" && target_zone != "head")
+		return ..()
+	if((user.is_clumsy()) && prob(50))
+		M = user
+	return eyestab(M,user)
 
 /obj/item/clothing/shoes/winter
 	name = "winter boots"
