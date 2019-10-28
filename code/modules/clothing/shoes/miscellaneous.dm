@@ -176,7 +176,7 @@
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
 	slowdown = 0
-	force = 5
+	force = 2
 	sharp = TRUE
 
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
