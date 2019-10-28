@@ -382,6 +382,8 @@
 			if(src.a_intent != I_HELP)
 				for(var/obj/item/weapon/W in holding)
 					if(W && prob(holding[W]))
+						if(istype(W, /obj/item/weapon/grab))
+							continue
 						if(istype(W,/obj/item/weapon/gun))
 							var/list/turfs = list()
 							for(var/turf/T in view())
