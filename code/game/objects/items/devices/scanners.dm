@@ -20,7 +20,8 @@ BREATH ANALYZER
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
-	var/mode = 1
+	var/adv = FALSE
+	var/mode = 0
 
 /obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
 	health_scan_mob(M, user, FALSE)
@@ -28,7 +29,7 @@ BREATH ANALYZER
 	return
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user, FALSE)
+	health_scan_mob(user, user)
 	src.add_fingerprint(user)
 	return
 
@@ -49,7 +50,17 @@ BREATH ANALYZER
 		if (200 to INFINITY)
 			return "Fatal"
 
-/proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/adv, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
+/obj/item/device/healthanalyzer/proc/scan_mob_limb(var/mob/living/carbon/human/H, var/mob/living/user)
+	var/obj/item/organ/external/sel_organ = H.get_organ(user.zone_sel.selecting)
+	user.show_message(span("notice", "You scan \the [H]'s [sel_organ.name]."))
+	for(var/datum/wound/W in sel_organ)
+		if(W.internal || (!adv && prob(Clamp(sel_organ.brute_dam*2, 0, 100))))
+			user.show_message(span("warning", "Severe hematoma detected in [sel_organ.name]. Potential internal bleeding."))
+			break
+	if(LAZYLEN(sel_organ.implants))
+		user.show_message(span("warning", "Foreign body present in [sel_organ.name]."))
+
+/obj/item/device/healthanalyzer/proc/health_scan_mob(var/mob/living/M, var/mob/living/user)
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 		user.visible_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", "<span class='warning'>You try to analyze the floor's vitals!</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 		user.show_message("<span class='notice'>Analyzing Results for The floor:</span>", 1)
@@ -72,7 +83,10 @@ BREATH ANALYZER
 		user.show_message("<span class='warning'>Warning: Blood Level ERROR: --% --cl.</span> <span class='notice'>Type: ERROR</span>")
 		user.show_message("<span class='notice'>Subject's pulse: <font color='red'>-- bpm.</font></span>")
 		return
-
+	
+	if(mode)
+		scan_mob_limb(M, user)
+		return
 	var/fake_oxy = max(rand(1,40), M.getOxyLoss(), (300 - (M.getToxLoss() + M.getFireLoss() + M.getBruteLoss())))
 	
 	var/OX = 0
@@ -110,7 +124,7 @@ BREATH ANALYZER
 		user.show_message("<span class='notice'>Time of Death: [M.tod]</span>")
 	else if(M.timeofdeath > 0 && M.stat == DEAD)
 		user.show_message("<span class='notice'>Time of Death: [worldtime2text(M.timeofdeath)]</span>")
-	if(istype(M, /mob/living/carbon/human) && show_limb_damage)
+	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/list/damaged = H.get_damaged_organs(1,1)
 		user.show_message("<span class='notice'>Localized Damage, Brute/Burn:</span>",1)
@@ -196,20 +210,11 @@ BREATH ANALYZER
 					to_chat(user, "<span class='warning'>Unsecured fracture in subject [limb]. Splinting recommended for transport.</span>")
 			if(e.has_infected_wound())
 				to_chat(user, "<span class='warning'>Infected wound detected in subject [limb]. Disinfection recommended.</span>")
-
 		for(var/name in H.organs_by_name)
 			var/obj/item/organ/external/e = H.organs_by_name[name]
 			if(e && e.status & ORGAN_BROKEN)
-				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
+				user.show_message(text("<span class='warning'>Bone fractures detected.</span>"), 1)
 				break
-		var/obj/item/organ/external/sel_organ = H.get_organ(user.zone_sel.selecting)
-		user.show_message(span("notice", "You scan \the [src]'s [sel_organ.name]."))
-		for(var/datum/wound/W in sel_organ)
-			if(W.internal || (!adv && prob(Clamp(sel_organ.brute_dam*2, 0, 100))))
-				user.show_message(span("warning", "Severe hematoma detected in [sel_organ.name]. Potential internal bleeding."))
-				break
-		if(LAZYLEN(sel_organ.implants))
-			user.show_message(span("warning", "Foreign body present in [sel_organ.name]."))
 		if(M:vessel)
 			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
 			var/blood_percent =  blood_volume / 560
@@ -224,15 +229,15 @@ BREATH ANALYZER
 		user.show_message("<span class='notice'>Subject's pulse: <font color='[H.pulse == PULSE_THREADY || H.pulse == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font></span>")
 		
 /obj/item/device/healthanalyzer/verb/toggle_mode()
-	set name = "Switch Verbosity"
+	set name = "Switch to Ultrasound"
 	set category = "Object"
 
 	mode = !mode
 
 	if(mode)
-		to_chat(usr, "The scanner now shows specific limb damage.")
+		to_chat(usr, "The scanner now scans individual limbs.")
 	else
-		to_chat(usr, "The scanner no longer shows limb damage.")
+		to_chat(usr, "The scanner now scans the organism as a whole.")
 		
 /obj/item/device/healthanalyzer/adv
 	name = "advanced health analyzer"
@@ -240,16 +245,7 @@ BREATH ANALYZER
 	icon_state = "advhealth"
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	
-/obj/item/device/healthanalyzer/adv/attack(mob/living/M as mob, mob/living/user as mob)
-	health_scan_mob(M, user, TRUE)
-	src.add_fingerprint(user)
-	return
-	
-/obj/item/device/healthanalyzer/adv/attack_self(mob/user)
-	health_scan_mob(user, user, TRUE)
-	src.add_fingerprint(user)
-	return
+	adv = TRUE
 
 /obj/item/device/analyzer
 	name = "analyzer"

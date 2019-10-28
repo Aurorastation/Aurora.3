@@ -368,6 +368,7 @@
 /obj/item/organ/external/hand/right/autakh/medical
 	name = "medical grasper"
 	action_button_name = "Deploy Mounted Health Scanner"
+	var/obj/item/device/healthanalyzer/analyser
 
 /obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
 	. = ..()
@@ -396,6 +397,9 @@
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
+		if(!analyser)
+			analyser = new(src)
+
 		var/obj/item/weapon/grab/G = owner.get_active_hand()
 		if(!istype(G))
 			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
@@ -404,7 +408,7 @@
 		owner.last_special = world.time + 50
 		if(ishuman(G.affecting))
 			var/mob/living/carbon/human/H = G.affecting
-			health_scan_mob(H, owner)
+			analyser.health_scan_mob(H, owner)
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"
