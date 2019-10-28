@@ -516,10 +516,10 @@
 /datum/reagent/tricordrazine
 	value = 6
 
-/datum/reagent/cryoxadone
+/datum/reagent/anadaxon
 	value = 3.9
 
-/datum/reagent/clonexadone
+/datum/reagent/feredaxon
 	value = 5.5
 
 /datum/reagent/paracetamol

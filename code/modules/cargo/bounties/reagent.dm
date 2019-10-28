@@ -107,7 +107,7 @@
 	// Don't worry about making this comprehensive. It doesn't matter if some chems are skipped.
 	var/static/list/possible_reagents = list(\
 		/datum/reagent/leporazine,\
-		/datum/reagent/clonexadone,\
+		/datum/reagent/feredaxon,\
 		/datum/reagent/rezadone,\
 		/datum/reagent/space_drugs,\
 		/datum/reagent/thermite,\

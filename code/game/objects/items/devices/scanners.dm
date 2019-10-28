@@ -202,15 +202,14 @@ BREATH ANALYZER
 			if(e && e.status & ORGAN_BROKEN)
 				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
 				break
-		var/IB = FALSE
-		for(var/obj/item/organ/external/e in H.organs)
-			if(!e)
-				continue
-			for(var/datum/wound/W in e.wounds) if(W.internal)
-				IB = TRUE
+		var/obj/item/organ/external/sel_organ = H.get_organ(user.zone_sel.selecting)
+		user.show_message(span("notice", "You scan \the [src]'s [sel_organ.name]."))
+		for(var/datum/wound/W in sel_organ)
+			if(W.internal || (!adv && prob(Clamp(sel_organ.brute_dam*2, 0, 100))))
+				user.show_message(span("warning", "Severe hematoma detected in [sel_organ.name]. Potential internal bleeding."))
 				break
-		if (IB == TRUE)
-			user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
+		if(LAZYLEN(sel_organ.implants))
+			user.show_message(span("warning", "Foreign body present in [sel_organ.name]."))
 		if(M:vessel)
 			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
 			var/blood_percent =  blood_volume / 560

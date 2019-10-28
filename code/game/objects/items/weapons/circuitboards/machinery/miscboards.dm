@@ -1,5 +1,5 @@
 #ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it! 
+#error T_BOARD macro is not defined but we need it!
 #endif
 
 //Stuff that doesn't fit into any category goes here
@@ -20,18 +20,6 @@
 							"/obj/item/weapon/stock_parts/scanning_module" = 2,
 							"/obj/item/weapon/stock_parts/console_screen" = 1,
 							"/obj/item/weapon/reagent_containers/glass/beaker/large" = 1)
-
-/obj/item/weapon/circuitboard/cryotube
-	name = T_BOARD("Cryo Cell")
-	desc = "The circuitboard for a cryo tube."
-	build_path = "/obj/machinery/atmospherics/unary/cryo_cell"
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/weapon/stock_parts/scanning_module" = 2,
-							"/obj/item/weapon/stock_parts/console_screen" = 1,
-							"/obj/item/weapon/reagent_containers/glass/beaker/large" = 1)
-
 
 /obj/item/weapon/circuitboard/bodyscanner
 	name = T_BOARD("Body Scanner Machine")
@@ -169,7 +157,7 @@
 	desc = "The circuitboard for a holopad."
 	build_path = "/obj/machinery/hologram/holopad"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 2)
-	board_type = "machine" 
+	board_type = "machine"
 	req_components = list(
 							"/obj/item/weapon/stock_parts/capacitor" = 2,
 							"/obj/item/weapon/stock_parts/scanning_module" = 1)

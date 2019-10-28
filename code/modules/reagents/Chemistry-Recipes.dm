@@ -263,7 +263,7 @@
 	name = "Peridaxon"
 	id = "peridaxon"
 	result = "peridaxon"
-	required_reagents = list("bicaridine" = 1, "clonexadone" = 1)
+	required_reagents = list("bicaridine" = 1, "feredaxon" = 1)
 	catalysts = list("phoron" = 5)
 	result_amount = 1
 
@@ -348,18 +348,18 @@
 	required_reagents = list("arithrazine" = 1, "carbon" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/cryoxadone
-	name = "Cryoxadone"
-	id = "cryoxadone"
-	result = "cryoxadone"
+/datum/chemical_reaction/anadaxon
+	name = "Anadaxon"
+	id = "anadaxon"
+	result = "anadaxon"
 	required_reagents = list("dexalin" = 1, "water" = 1, "acetone" = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/clonexadone
-	name = "Clonexadone"
-	id = "clonexadone"
-	result = "clonexadone"
-	required_reagents = list("cryoxadone" = 1, "sodium" = 1, "phoron" = 0.1)
+/datum/chemical_reaction/feredaxon
+	name = "Feredaxon"
+	id = "feredaxon"
+	result = "feredaxon"
+	required_reagents = list("anadaxon" = 1, "sodium" = 1, "phoron" = 0.1)
 	catalysts = list("phoron" = 5)
 	result_amount = 2
 
@@ -611,7 +611,7 @@
 	name = "Mannitol"
 	id = "mannitol"
 	result = "mannitol"
-	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
+	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "anadaxon" = 0.1)
 	result_amount = 1
 
 /datum/chemical_reaction/omnizine
@@ -1759,7 +1759,7 @@
 	name = "Syntiflesh"
 	id = "syntiflesh"
 	result = null
-	required_reagents = list("blood" = 5, "clonexadone" = 1)
+	required_reagents = list("blood" = 5, "feredaxon" = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/syntiflesh/on_reaction(var/datum/reagents/holder, var/created_volume)

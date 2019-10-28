@@ -23,7 +23,7 @@
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
 	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
 	if(species && (species.flags & NO_BREATHE)) return
-	
+
 	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null

@@ -65,6 +65,9 @@
 		water_overlay = null
 	return ..()
 
+/atom/proc/return_air_for_internal_lifeform(var/mob/living/lifeform)
+	return return_air()
+
 /turf/simulated/floor/beach/water/return_air_for_internal_lifeform(var/mob/living/carbon/L)
 	if(L && L.lying)
 		if(L.can_breathe_water() || (istype(L.wear_mask, /obj/item/clothing/mask/snorkel)))
