@@ -390,7 +390,7 @@
 			"woodpulp",
 			"bicaridine",
 			"hyperzine",
-			"cryoxadone",
+			"anadaxon",
 			"blood",
 			"water",
 			"potassium",

@@ -57,7 +57,7 @@
 	coolant_reagents_purity["sterilizine"] = 0.7
 	coolant_reagents_purity["dermaline"] = 0.7
 	coolant_reagents_purity["hyperzine"] = 0.8
-	coolant_reagents_purity["cryoxadone"] = 0.9
+	coolant_reagents_purity["frostoil"] = 0.9
 	coolant_reagents_purity["coolant"] = 1
 	coolant_reagents_purity["adminordrazine"] = 2
 

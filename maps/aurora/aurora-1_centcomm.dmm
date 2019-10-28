@@ -14576,15 +14576,10 @@
 /area/centcom/holding)
 "aGG" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
+/obj/item/weapon/bedsheet/medical,
+/obj/structure/bed,
 /turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/holding)
-"aGH" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "aGI" = (
@@ -14743,28 +14738,10 @@
 	},
 /area/centcom/holding)
 "aHe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "whitegreencorner"
-	},
-/area/centcom/holding)
-"aHf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
-"aHg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
-	},
-/turf/unsimulated/floor{
-	icon_state = "white"
 	},
 /area/centcom/holding)
 "aHh" = (
@@ -15011,6 +14988,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "whitegreen"
@@ -15033,6 +15011,8 @@
 	pixel_x = 28;
 	pixel_y = 0
 	},
+/obj/item/weapon/bedsheet/medical,
+/obj/structure/bed,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "whitegreencorner"
@@ -15150,20 +15130,8 @@
 	},
 /area/centcom/holding)
 "aHX" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/weapon/wrench,
+/obj/item/weapon/bedsheet/medical,
+/obj/structure/bed,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "whitegreen"
@@ -15181,12 +15149,6 @@
 	icon_state = "whitegreen"
 	},
 /area/centcom/holding)
-"aIa" = (
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "whitehall"
-	},
-/area/centcom/holding)
 "aIb" = (
 /obj/machinery/sleeper{
 	icon_state = "sleeper_0";
@@ -15196,8 +15158,9 @@
 	dir = 4;
 	status = 0
 	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "aIc" = (
@@ -15400,8 +15363,9 @@
 	icon_state = "sleeper_0";
 	dir = 8
 	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "aIA" = (
@@ -24382,6 +24346,19 @@
 	name = "plating"
 	},
 /area/centcom/distress_prep)
+"diP" = (
+/obj/machinery/atmospherics/unary/cryo_cell,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "O- Blood Locker";
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/holding)
 "djI" = (
 /obj/machinery/light{
 	dir = 2;
@@ -26255,6 +26232,14 @@
 "sBS" = (
 /turf/space/transit/east/shuttlespace_ew2,
 /area/shuttle/distress/transit)
+"sGf" = (
+/obj/structure/bed,
+/obj/item/weapon/bedsheet/medical,
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "whitegreencorner"
+	},
+/area/centcom/holding)
 "sQk" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/ghostspawpoint{
@@ -63559,8 +63544,8 @@ aCo
 aCo
 aWw
 aCq
-aGG
-aHf
+diP
+aGI
 aGI
 aGI
 aCq
@@ -63816,8 +63801,8 @@ aCo
 aCo
 aCo
 aCq
-aGG
-aHf
+diP
+aGI
 aGI
 aGI
 aCq
@@ -64073,8 +64058,8 @@ aCo
 aCo
 aCo
 aGr
-aGH
-aHg
+aGI
+aGI
 aGI
 aHE
 aIw
@@ -65104,8 +65089,8 @@ aWo
 aWo
 aWo
 aGI
-aIa
-aIa
+aGI
+aGI
 aGI
 aGI
 aGI
@@ -65363,7 +65348,7 @@ aWo
 aHG
 aIb
 aIz
-aHE
+sGf
 aIr
 aJB
 aKh

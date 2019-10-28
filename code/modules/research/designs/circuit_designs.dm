@@ -305,13 +305,6 @@
 	sort_string = "HACAI"
 
 
-/datum/design/circuit/cryopod
-	name = "cryo cellboard"
-	id = "cryocell_board"
-	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/weapon/circuitboard/cryotube
-	sort_string = "HACAJ"
-
 /datum/design/circuit/crystelpod
 	name = "crystel therapy pod"
 	id = "therapypod"

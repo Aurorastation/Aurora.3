@@ -10248,21 +10248,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/holding)
-"aEk" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
-"aEl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
-	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "aEm" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -12464,8 +12449,10 @@
 /area/centcom/control)
 "aLh" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
+/obj/item/weapon/bedsheet/medical,
+/obj/structure/bed,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "aLi" = (
@@ -13543,8 +13530,9 @@
 	icon_state = "sleeper_0";
 	dir = 8
 	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "aNI" = (
@@ -13568,12 +13556,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/shuttle/floor,
 /area/centcom/spawning)
-"aNL" = (
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "whitehall"
-	},
-/area/centcom/holding)
 "aNM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -13878,8 +13860,9 @@
 	dir = 4;
 	status = 0
 	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "white"
 	},
 /area/centcom/holding)
 "aOu" = (
@@ -16085,20 +16068,8 @@
 	},
 /area/centcom/holding)
 "aTm" = (
-/obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/weapon/wrench,
+/obj/item/weapon/bedsheet/medical,
+/obj/structure/bed,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "whitegreen"
@@ -17022,6 +16993,8 @@
 	pixel_x = 28;
 	pixel_y = 0
 	},
+/obj/item/weapon/bedsheet/medical,
+/obj/structure/bed,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "whitegreencorner"
@@ -17597,10 +17570,7 @@
 	},
 /area/centcom/control)
 "aWw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "whitegreencorner"
@@ -17890,13 +17860,6 @@
 	dir = 8
 	},
 /area/centcom/specops)
-"aXf" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/holding)
 "aXg" = (
 /obj/machinery/door/blast/regular{
 	dir = 1;
@@ -18498,13 +18461,6 @@
 	dir = 5
 	},
 /area/centcom/spawning)
-"aYE" = (
-/obj/machinery/hologram/holopad,
-/turf/unsimulated/floor{
-	dir = 9;
-	icon_state = "whitegreen"
-	},
-/area/centcom/holding)
 "aYF" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -18860,6 +18816,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/machinery/iv_drip,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "whitegreen"
@@ -19836,6 +19793,14 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"eBE" = (
+/obj/structure/bed,
+/obj/item/weapon/bedsheet/medical,
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "whitegreencorner"
+	},
+/area/centcom/holding)
 "eFI" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -23642,6 +23607,19 @@
 	icon_state = "floor"
 	},
 /area/tdome)
+"vXZ" = (
+/obj/machinery/atmospherics/unary/cryo_cell,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/item/weapon/reagent_containers/blood/OMinus,
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "O- Blood Locker";
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/centcom/holding)
 "vYL" = (
 /obj/structure/sink{
 	dir = 8;
@@ -57804,8 +57782,8 @@ aPT
 aPT
 aPT
 aZW
-aLh
-aEk
+vXZ
+aDQ
 aDQ
 aDQ
 aZW
@@ -58061,8 +58039,8 @@ aNx
 aUd
 aIP
 aZW
-aLh
-aEk
+vXZ
+aDQ
 aDQ
 aDQ
 aZW
@@ -58318,8 +58296,8 @@ aOB
 aOB
 aOo
 aOM
-aXf
-aEl
+aDQ
+aDQ
 aDQ
 aZG
 aWu
@@ -58836,7 +58814,7 @@ aDQ
 aDQ
 aMT
 aZS
-aYE
+aSc
 aZN
 aDQ
 aDQ
@@ -59349,8 +59327,8 @@ aZW
 aZW
 aZW
 aDQ
-aNL
-aNL
+aDQ
+aDQ
 aDQ
 aDQ
 aDQ
@@ -59608,7 +59586,7 @@ aZW
 aVp
 aOt
 aNH
-aZG
+eBE
 aVY
 aRM
 aXK

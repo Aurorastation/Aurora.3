@@ -179,13 +179,11 @@
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
 
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone/Initialize()
+/obj/item/weapon/reagent_containers/glass/beaker/anadaxon/Initialize()
 	. = ..()
-	reagents.add_reagent("cryoxadone", 30)
+	reagents.add_reagent("anadaxon", 30)
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/sulphuric
 /obj/item/weapon/reagent_containers/glass/beaker/sulphuric/Initialize()
 	. = ..()
 	reagents.add_reagent("sacid", 60)

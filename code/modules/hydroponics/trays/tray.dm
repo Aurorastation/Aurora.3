@@ -59,7 +59,7 @@
 		"hclacid" =			1.5,
 		"pacid" =			3,
 		"plantbgone" =		3,
-		"cryoxadone" =		-3,
+		"rezadone" =		-3,
 		"radium" =			2,
 		"raskara_dust" =	2.5
 		)
@@ -114,7 +114,7 @@
 		"hclacid" =        list( -1,    0,   0  ),
 		"pacid" =          list( -2,    0,   0  ),
 		"plantbgone" =     list( -2,    0,   0.2),
-		"cryoxadone" =     list(  3,    0,   0  ),
+		"rezadone" =     list(  3,    0,   0  ),
 		"ammonia" =        list(  0.5,  0,   0  ),
 		"diethylamine" =   list(  1,    0,   0  ),
 		"nutriment" =      list(  0.5,  0.1, 0  ),

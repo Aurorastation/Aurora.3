@@ -168,7 +168,7 @@
 				The scanner relies on a gyro-rotational system that varies in speed and intensity. Over the course of an ordinary scan, the RPMs can change dramatically. Higher RPMs
 					means greater heat generation, but is necessary for the ongoing continuation of the scan. To offset heat production, spectrometers have an inbuilt cooling system.
 					Researchers can modify the flow rate of coolant to aid in dropping temperature as necessary, but are advised that frequent coolant replacements may be necessary
-					depending on coolant purity. Water and substances such as cryoxadone are viable substitutes, but nowhere near as effective as pure coolant itself.<br>
+					depending on coolant purity. Water and substances such as frost oil are viable substitutes, but nowhere near as effective as pure coolant itself.<br>
 				<br>
 				<a href="#Contents">Contents</a>
 

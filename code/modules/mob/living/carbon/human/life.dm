@@ -648,8 +648,6 @@
 		if(istype(loc, /obj/mecha))
 			var/obj/mecha/M = loc
 			loc_temp =  M.return_temperature()
-		else if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			loc_temp = loc:air_contents.temperature
 		else
 			loc_temp = environment.temperature
 
@@ -697,16 +695,15 @@
 
 		if(status_flags & GODMODE)	return 1	//godmode
 
-		if(!istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			if(bodytemperature > species.cold_level_2)
-				take_overall_damage(burn=COLD_DAMAGE_LEVEL_1, used_weapon = "High Body Temperature")
-				fire_alert = max(fire_alert, 1)
-			else if(bodytemperature > species.cold_level_3)
-				take_overall_damage(burn=COLD_DAMAGE_LEVEL_2, used_weapon = "High Body Temperature")
-				fire_alert = max(fire_alert, 1)
-			else
-				take_overall_damage(burn=COLD_DAMAGE_LEVEL_3, used_weapon = "High Body Temperature")
-				fire_alert = max(fire_alert, 1)
+		if(bodytemperature > species.cold_level_2)
+			take_overall_damage(burn=COLD_DAMAGE_LEVEL_1, used_weapon = "Low Body Temperature")
+			fire_alert = max(fire_alert, 1)
+		else if(bodytemperature > species.cold_level_3)
+			take_overall_damage(burn=COLD_DAMAGE_LEVEL_2, used_weapon = "Low Body Temperature")
+			fire_alert = max(fire_alert, 1)
+		else
+			take_overall_damage(burn=COLD_DAMAGE_LEVEL_3, used_weapon = "Low Body Temperature")
+			fire_alert = max(fire_alert, 1)
 
 	// Account for massive pressure differences.  Done by Polymorph
 	// Made it possible to actually have something that can protect against high pressure... Done by Errorage. Polymorph now has an axe sticking from his head for his previous hardcoded nonsense!

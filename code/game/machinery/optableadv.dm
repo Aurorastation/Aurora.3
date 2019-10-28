@@ -26,8 +26,7 @@
 	var/obj/item/clothing/mask/breath/medical/airmask		//Stores the medical mask used for anesthesia.
 	var/requiredchems = list(
 							"peridaxon" = 0.06,
-							"cryoxadone" = 0.2)				//Details what chemicals (use ids, not names) it keeps track of, and the minimum quantities required for operation. Each time process() is called, the associated amount of that chemical is removed from storage.
-															//Cryoxadone will last you around 10 minutes, Clonexadone around 30. (Provided you use the standard, 60 unit beaker.)
+							"dexalinp" = 0.2)				//Details what chemicals (use ids, not names) it keeps track of, and the minimum quantities required for operation. Each time process() is called, the associated amount of that chemical is removed from storage.
 	var/list/internallog = list()								//A log of everything that has happened on the table. Has two keys per entry: "time" and "message".
 
 	component_types = list(
