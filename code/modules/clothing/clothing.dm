@@ -715,7 +715,7 @@
 		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
 
-	valid_accessory_slots = list("over")
+	valid_accessory_slots = list("armband","decor", "over")
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
@@ -755,7 +755,7 @@
 	//Also used by rolling/unrolling.
 	var/worn_state = null
 	valid_accessory_slots = list("utility","armband","decor", "over")
-	restricted_accessory_slots = list("utility", "armband")
+	restricted_accessory_slots = list("utility")
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)

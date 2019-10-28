@@ -1,3 +1,6 @@
+/obj/effect/decal/tesla_act()
+	return
+
 /obj/effect/decal/point
 	name = "arrow"
 	desc = "It's an arrow hanging in mid-air. There may be a wizard about."

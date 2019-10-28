@@ -1263,6 +1263,7 @@ var/list/total_extraction_beacons = list()
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
+	target.cut_overlay(image_overlay, TRUE)
 	if(location)
 		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)
@@ -1286,11 +1287,11 @@ var/list/total_extraction_beacons = list()
 					if(!isipc(L))
 						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
 
-		spawn(2)
-			for(var/turf/simulated/mineral/M in range(7,location))
-				if(prob(75))
-					M.GetDrilled(1)
+		addtimer(CALLBACK(src, .proc/drill, location), 2)
 
-	if(target)
-		target.overlays -= image_overlay
 	qdel(src)
+
+/obj/item/weapon/plastique/seismic/proc/drill(var/turf/drill_loc)
+	for(var/turf/simulated/mineral/M in range(7,drill_loc))
+		if(prob(75))
+			M.GetDrilled(1)

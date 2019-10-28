@@ -54,7 +54,7 @@
 	if(istype(W,/obj/item/weapon/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
-	if(istype(W, /obj/item/weapon/pen) || istype(W, /obj/item/device/flashlight/pen))
+	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > 15)
 			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")

@@ -39,7 +39,7 @@
 	IC.examine(user)
 
 /obj/item/weapon/implant/integrated_circuit/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/crowbar) || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || istype(O, /obj/item/weapon/screwdriver) || istype(O, /obj/item/weapon/cell/device) )
+	if(O.iscrowbar() || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || O.isscrewdriver() || istype(O, /obj/item/weapon/cell/device) )
 		IC.attackby(O, user)
 	else
 		..()

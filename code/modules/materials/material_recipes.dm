@@ -8,6 +8,8 @@
 
 	// If is_brittle() returns true, these are only good for a single strike.
 	recipes += new/datum/stack_recipe("[display_name] baseball bat", /obj/item/weapon/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
+	recipes += new/datum/stack_recipe("[display_name] sword hilt", /obj/item/weapon/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
+	recipes += new/datum/stack_recipe("[display_name] sword blade", /obj/item/weapon/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 	recipes += new/datum/stack_recipe("[display_name] spoon", /obj/item/weapon/material/kitchen/utensil/spoon/plastic, 1, on_floor = 1, supplied_material = "[name]")
 	recipes += new/datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]")
 	recipes += new/datum/stack_recipe("[display_name] armor plate", /obj/item/weapon/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]")

@@ -207,7 +207,7 @@
 	else if(istype(check, /obj/item/weapon/disk/nuclear))
 		to_chat(user, "<span class='warning'>You can't cook that.</span>")
 		return 0
-	else if(istype(I, /obj/item/weapon/crowbar) || istype(I, /obj/item/weapon/screwdriver) || istype(I, /obj/item/weapon/storage/part_replacer))
+	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/weapon/storage/part_replacer))
 		return 0
 	else if(!istype(check) && !istype(check, /obj/item/weapon/holder))
 		to_chat(user, "<span class='warning'>That's not edible.</span>")
