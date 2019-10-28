@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Headgear should be a bit less restricting when stopping things from being equipped on the ear slot."
-  - bugfix: "Fixed renaming food having no character limit."
