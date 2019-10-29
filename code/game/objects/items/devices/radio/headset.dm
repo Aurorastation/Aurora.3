@@ -233,8 +233,6 @@
 /obj/item/device/radio/headset/distress
 	name = "specialist radio headset"
 	desc = "A headset used by specialists."
-	icon_state = "com_headset"
-	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/onlyert
 
 /obj/item/device/radio/headset/representative
