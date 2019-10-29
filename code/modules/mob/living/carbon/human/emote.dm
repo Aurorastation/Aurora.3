@@ -595,10 +595,66 @@
 			else
 				if (!muzzled)
 					message = "screams!"
+
+					var/sound_to_play
+
+					if(gender == FEMALE)
+						var/list/possible_sounds = list(
+							'sound/voice/human_female_scream_1.ogg',
+							'sound/voice/human_female_scream_2.ogg',
+							'sound/voice/human_female_scream_3.ogg',
+							'sound/voice/human_female_scream_4.ogg',
+							'sound/voice/human_female_scream_5.ogg',
+						)
+						sound_to_play = pick(possible_sounds)
+					else
+						var/list/possible_sounds = list(
+							'sound/voice/human_male_scream_1.ogg',
+							'sound/voice/human_male_scream_2.ogg',
+							'sound/voice/human_male_scream_3.ogg',
+							'sound/voice/human_male_scream_4.ogg',
+							'sound/voice/human_male_scream_5.ogg',
+						)
+						sound_to_play = pick(possible_sounds)
+
+						playsound(src.loc, sound_to_play, 50, 0)
+
 					m_type = 2
 				else
 					message = "makes a very loud noise."
 					m_type = 2
+		if("pain")
+			if(miming)
+				message = "acts out a cry of pain!"
+				m_type = 1
+			else
+				if(!muzzled)
+					message = "lets out a cry of pain!"
+
+					var/sound_to_play
+
+					if(gender == FEMALE)
+						var/list/possible_sounds = list(
+							'sound/voice/human_female_pain_1.ogg',
+							'sound/voice/human_female_pain_2.ogg',
+							'sound/voice/human_female_pain_3.ogg',
+						)
+						sound_to_play = pick(possible_sounds)
+					else
+						var/list/possible_sounds = list(
+							'sound/voice/human_male_pain_1.ogg',
+							'sound/voice/human_male_pain_2.ogg',
+							'sound/voice/human_male_pain_3.ogg',
+						)
+						sound_to_play = pick(possible_sounds)
+
+						playsound(src.loc, sound_to_play, 50, 0)
+
+					m_type = 2
+				else
+					message = "makes a loud noise."
+					m_type = 2
+
 		if("swish")
 			src.animate_tail_once()
 
