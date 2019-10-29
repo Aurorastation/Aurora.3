@@ -24286,16 +24286,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
-"ccH" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew8,
-/area/shuttle/distress/transit)
 "cDH" = (
 /turf/space/transit/east/shuttlespace_ew13,
 /area/shuttle/distress/transit)
@@ -24501,6 +24491,16 @@
 "dYm" = (
 /turf/space/transit/east/shuttlespace_ew6,
 /area/shuttle/distress/transit)
+"dYv" = (
+/obj/effect/step_trigger/thrower{
+	affect_ghosts = 1;
+	direction = 2;
+	name = "thrower_throwdownside";
+	nostop = 1;
+	tiles = 0
+	},
+/turf/space/transit/east/shuttlespace_ew12,
+/area/template_noop)
 "efQ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Washroom";
@@ -24656,16 +24656,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"fwz" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew9,
-/area/shuttle/distress/transit)
 "fzQ" = (
 /obj/machinery/vending/snack{
 	density = 0;
@@ -24794,32 +24784,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/distress_prep)
-"gMy" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew6,
-/area/shuttle/distress/transit)
 "gVd" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/storage/firstaid/fire,
 /obj/item/weapon/storage/firstaid/o2,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"gVN" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew11,
-/area/shuttle/distress/transit)
 "gXE" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin,
@@ -25581,13 +25551,6 @@
 	},
 /area/centcom/living)
 "nte" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
 /turf/space/transit/east/shuttlespace_ew5,
 /area/shuttle/distress/transit)
 "ntk" = (
@@ -26133,16 +26096,6 @@
 	dir = 4
 	},
 /area/shuttle/distress/centcom)
-"rEP" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew13,
-/area/shuttle/distress/transit)
 "rLu" = (
 /obj/structure/table/wood,
 /obj/item/weapon/paper_bin{
@@ -26214,16 +26167,6 @@
 	name = "plating"
 	},
 /area/centcom/distress_prep)
-"snR" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew7,
-/area/shuttle/distress/transit)
 "srl" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
@@ -26472,16 +26415,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
-"viB" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew1,
-/area/shuttle/distress/transit)
 "vjK" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/unsimulated/floor{
@@ -26787,16 +26720,6 @@
 	dir = 2
 	},
 /area/centcom/spawning)
-"xjH" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/space/transit/east/shuttlespace_ew3,
-/area/shuttle/distress/transit)
 "xkE" = (
 /turf/simulated/shuttle/wall/dark,
 /area/shuttle/distress/centcom)
@@ -43322,32 +43245,32 @@ aaM
 aaM
 "}
 (65,1,1) = {"
-aaq
-aau
-aar
-abf
-abk
-abf
-aas
-abm
-abl
-abh
-aat
-abg
-aar
-aav
-abi
-abj
-aaw
-abm
-aas
-abh
-aau
-abl
-abj
-aav
-abg
-aat
+aaF
+aaJ
+aaG
+aax
+aaD
+aax
+aaH
+aaB
+aaE
+aaz
+aaI
+aay
+aaG
+aaK
+aaA
+aaC
+aaL
+aaB
+aaH
+aaz
+aaJ
+aaE
+aaC
+aaK
+aay
+aaI
 aaM
 ahn
 aaQ
@@ -43579,7 +43502,7 @@ aaM
 aaM
 "}
 (66,1,1) = {"
-aar
+aaG
 aav
 aas
 abg
@@ -43604,7 +43527,7 @@ aaq
 abk
 aaw
 abh
-aau
+aaJ
 aaM
 ahn
 aaX
@@ -43836,7 +43759,7 @@ aaM
 aaM
 "}
 (67,1,1) = {"
-aas
+aaH
 aaw
 aat
 abh
@@ -43861,7 +43784,7 @@ aar
 abl
 abf
 abi
-aav
+aaK
 aaM
 ahn
 aaY
@@ -44093,7 +44016,7 @@ aaM
 aaM
 "}
 (68,1,1) = {"
-aat
+aaI
 abf
 aau
 abi
@@ -44118,7 +44041,7 @@ aas
 aaq
 abg
 abm
-aaw
+aaL
 aaM
 ahn
 aaX
@@ -44350,7 +44273,7 @@ aaM
 aaM
 "}
 (69,1,1) = {"
-aau
+aaJ
 abg
 aav
 abm
@@ -44375,7 +44298,7 @@ aat
 aar
 abh
 abj
-abf
+aax
 aaM
 ahn
 aaY
@@ -44607,7 +44530,7 @@ aaM
 aaM
 "}
 (70,1,1) = {"
-aav
+aaK
 abh
 aaw
 abj
@@ -44632,7 +44555,7 @@ aau
 aas
 abi
 abk
-abg
+aay
 aaM
 ahn
 aaQ
@@ -44864,7 +44787,7 @@ aaM
 aaM
 "}
 (71,1,1) = {"
-aaw
+aaL
 abi
 abf
 abk
@@ -44889,7 +44812,7 @@ aav
 aat
 abm
 abl
-abh
+aaz
 aaM
 ahn
 aaX
@@ -45122,30 +45045,30 @@ aaM
 "}
 (72,1,1) = {"
 aax
-aaB
-aay
-aaE
-aaK
-aaE
-aaz
-aaI
-aaL
-aaG
-aaA
-aaF
-aay
-aaC
-aaH
-aaJ
-aaD
-aaI
-aaz
-aaG
-aaB
-aaL
-aaJ
-aaC
-aaF
+abm
+abg
+abl
+aav
+abl
+abh
+aat
+aaw
+aar
+abi
+aaq
+abg
+abj
+aas
+aau
+abk
+aat
+abh
+aar
+abm
+aaw
+aau
+abj
+aaq
 aaA
 aaM
 ahn
@@ -45388,13 +45311,13 @@ abi
 aau
 abf
 aas
-abm
-aar
-abh
-abk
-aat
-aav
-abl
+adY
+aeb
+adX
+aem
+aeM
+adT
+dYv
 aau
 abi
 aas
@@ -45645,13 +45568,13 @@ abm
 aav
 abg
 abg
-aat
+aeM
 drL
 yhQ
-abi
+adZ
 meG
 sBS
-aaq
+afq
 aav
 abm
 aat
@@ -45903,13 +45826,13 @@ aaw
 abh
 abh
 adS
-gVN
-viB
-fwz
-rEP
-xjH
+cDW
+bEh
+fQF
+cDH
+oYt
 aeb
-adU
+aaw
 abj
 aau
 abl
@@ -46165,8 +46088,8 @@ cDH
 wyu
 cDH
 uKy
-aar
-adV
+aeb
+abf
 abk
 aav
 aaq
@@ -46415,15 +46338,15 @@ aau
 abl
 abg
 abm
-abm
+adY
 adU
 iUt
 qCq
 yhQ
 qCq
 iUt
-aas
-adW
+aec
+abg
 abl
 aaw
 aar
@@ -46672,15 +46595,15 @@ aav
 aaq
 abh
 abj
-abj
+aea
 nte
 fQF
 yhQ
 qCq
 yhQ
 fQF
-aat
-adX
+aeM
+abh
 aaq
 abf
 aas
@@ -46929,15 +46852,15 @@ aaw
 aar
 abi
 abk
-abk
-gMy
+aem
+dYm
 drL
 bEh
 dYm
 bEh
 drL
-aau
-adZ
+adS
+abi
 aar
 abg
 aat
@@ -47186,15 +47109,15 @@ abf
 aas
 abm
 abl
-abl
-snR
+dYv
+uKy
 cDW
 dYm
 oYt
 fQF
 qCq
-abj
-adY
+aea
+abm
 aas
 abh
 aau
@@ -47443,15 +47366,15 @@ abg
 aat
 abh
 aaw
-aaw
-fwz
+adU
+fQF
 meG
 uKy
 bEh
 wyu
 qCq
-aaq
-adV
+afq
+abf
 abj
 abi
 aav
@@ -47700,15 +47623,15 @@ abh
 aaq
 aaw
 aaq
-aaq
-snR
+afq
+uKy
 cDH
 iUt
-aau
-abf
-aas
-aar
+adS
+adV
+aec
 aeb
+aar
 abk
 abm
 aaw
@@ -47957,15 +47880,15 @@ abi
 aar
 aas
 aar
-aar
-ccH
+aeb
+iUt
 qCq
 fQF
-aav
+adT
 abg
 aat
 aas
-aec
+aas
 abl
 abj
 abf
@@ -48215,14 +48138,14 @@ aas
 aar
 aas
 adY
-aas
-abj
-aaw
-abh
+aec
+aea
+adU
+adX
 aau
 abk
 aat
-aeM
+aat
 aaq
 abk
 abg
@@ -48471,7 +48394,7 @@ abj
 aat
 abg
 aat
-aea
+abj
 aat
 abk
 abf
@@ -48479,7 +48402,7 @@ abi
 aav
 abl
 aau
-adS
+aau
 aar
 abl
 abh
@@ -48728,7 +48651,7 @@ abk
 abg
 aav
 abm
-aeb
+aar
 aau
 abl
 abg
@@ -48736,7 +48659,7 @@ abm
 aaw
 aaq
 aav
-aea
+abj
 aas
 aaq
 abi
@@ -48985,7 +48908,7 @@ abl
 abh
 aat
 aaw
-aeb
+aar
 aav
 aaq
 abh
@@ -48993,7 +48916,7 @@ abj
 abf
 aar
 aaw
-aeM
+aat
 abh
 aar
 abm
@@ -49242,15 +49165,15 @@ aaq
 abi
 aau
 abf
-aec
-adU
+aas
+aaw
 aar
 abi
 abk
 abg
 aas
-adV
-adS
+abf
+aau
 abi
 aas
 abj
@@ -49500,13 +49423,13 @@ abm
 aav
 abg
 aat
-adV
+abf
 aas
 abm
 abl
 abh
 aat
-adW
+abg
 aav
 abm
 aat
@@ -49757,13 +49680,13 @@ abj
 aaw
 abh
 aau
-aem
-aeM
-adY
-afq
-adT
-adV
-aeb
+abk
+aat
+abm
+aaq
+aav
+abf
+aar
 aaw
 abj
 aau
@@ -50519,30 +50442,30 @@ aaM
 "}
 (93,1,1) = {"
 aaD
-aas
-abl
-aav
-abm
-aav
-aaq
-abh
-abj
-abf
-aar
-aaw
-abl
-aat
-abg
-abi
-aau
-abh
-aaq
-abf
-aas
-abj
-abi
-aat
-aaw
+aaH
+aaE
+aaK
+aaB
+aaK
+aaF
+aaz
+aaC
+aax
+aaG
+aaL
+aaE
+aaI
+aay
+aaA
+aaJ
+aaz
+aaF
+aax
+aaH
+aaC
+aaA
+aaI
+aaL
 aaG
 aaM
 ahn
@@ -50775,7 +50698,6 @@ aaM
 aaM
 "}
 (94,1,1) = {"
-ahn
 aaM
 aaM
 aaM
@@ -50800,7 +50722,8 @@ aaM
 aaM
 aaM
 aaM
-ahn
+aaM
+aaM
 aaM
 ahn
 aaX
@@ -51032,7 +50955,6 @@ aaM
 aaM
 "}
 (95,1,1) = {"
-ahn
 aaM
 aaM
 aaM
@@ -51057,7 +50979,8 @@ aaM
 aaM
 aaM
 aaM
-ahn
+aaM
+aaM
 aaM
 ahn
 aaY
@@ -51289,32 +51212,32 @@ aaM
 aaM
 "}
 (96,1,1) = {"
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
-ahn
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
 aaM
 ahn
 aaQ
