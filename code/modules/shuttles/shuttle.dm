@@ -114,17 +114,34 @@
 	origin.move_contents_to(destination)
 
 	for(var/mob/M in destination)
-		if(M.client)
-			spawn(0)
-				if(M.buckled)
-					to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
-					shake_camera(M, 3, 1)
-				else
-					to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
-					shake_camera(M, 10, 1)
-		if(istype(M, /mob/living/carbon))
-			if(!M.buckled)
-				M.Weaken(3)
+		if(istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(istype(H.shoes, /obj/item/clothing/shoes/magboots))
+				var/obj/item/clothing/shoes/magboots/boots = H.shoes
+				if(boots.magpulse)
+					magboot_effect(H)
+			else if(H.buckled)
+				buckled_effect(H)
+			else
+				loose_effect(H)
+		else if(M.client)
+			if(M.buckled)
+				buckled_effect(M)
+			else
+				loose_effect(M)
+
+/datum/shuttle/proc/buckled_effect(mob/M)
+	to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
+	shake_camera(M, 3, 1)
+
+/datum/shuttle/proc/magboot_effect(mob/M)
+	to_chat(M, "<span class='warning'>You manage to maintain your footing with the magboots!</span>")
+	shake_camera(M, 5, 1)
+
+/datum/shuttle/proc/loose_effect(mob/M)
+	to_chat(M, "<span class='warning'>You lose your footing as the floor lurches beneath you!</span>")
+	shake_camera(M, 10, 1)
+	M.Weaken(3)
 
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
