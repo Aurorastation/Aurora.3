@@ -121,16 +121,6 @@
 	board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/hacker
 	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
 
-/obj/item/rig_assembly/combat/illegal/stealth
-	name = "stealth suit control module assembly"
-	desc = "An assembly for a highly advanced and expensive suit designed for covert operations."
-	icon_base = "stealth"
-	icon_state = "stealth1"
-	rig_type = /obj/item/weapon/rig/light/stealth
-	board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
-	target_board_type = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
-	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 5, TECH_COMBAT = 6, TECH_ILLEGAL = 6)
-
 /datum/construction/reversible/rig_assembly
 	result = null
 	var/obj/item/weapon/circuitboard/rig_assembly/board_type = null
