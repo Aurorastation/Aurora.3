@@ -1349,7 +1349,8 @@
 		/mob/living/simple_animal/hostile/lesserworm,
 		/mob/living/simple_animal/hostile/greatwormking,
 		/mob/living/simple_animal/hostile/krampus,
-		/mob/living/simple_animal/hostile/gift
+		/mob/living/simple_animal/hostile/gift,
+		/mob/living/simple_animal/hostile/hivebotbeacon
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs

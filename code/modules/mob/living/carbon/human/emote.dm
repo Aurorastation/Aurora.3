@@ -692,6 +692,14 @@
 				sleep(pick(list(5, 10, 15, 20)))
 			m_type = 2
 
+		if("chitter")
+			if(!isvaurca(src))
+				to_chat(src, "<span class='warning'>You don't have the means to do this!</span>")
+				return
+			message = "chitters."
+			playsound(src.loc, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg'), 50, 0)
+			m_type = 2
+
 		if("vomit")
 			if (!check_has_mouth(src))
 				to_chat(src, "<span class='warning'>You are unable to vomit.</span>")
@@ -701,7 +709,7 @@
 
 
 		if ("help")
-			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit")
+			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, chitter, vomit")
 
 		else
 			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))

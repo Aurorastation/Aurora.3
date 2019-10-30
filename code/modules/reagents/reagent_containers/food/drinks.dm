@@ -29,9 +29,11 @@
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
-			boom(user)
-		else
-			open(user)
+			for(var/datum/reagent/R in reagents.reagent_list)
+				if(R.carbonated)
+					boom(user)
+					return
+		open(user)
 
 /obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)

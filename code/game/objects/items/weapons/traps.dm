@@ -151,7 +151,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
 	time_to_escape = 3 // Minutes
-	can_buckle = TRUE
+	can_buckle = FALSE
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -347,6 +347,7 @@
 	animate_shake()
 	update_icon()
 	release_time = world.time
+	can_buckle = FALSE
 
 /obj/item/weapon/trap/animal/attackby(obj/item/W, mob/user)
 	if(W.iswelder())

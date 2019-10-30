@@ -54,7 +54,7 @@
 		"Maintenance Technician" = /datum/outfit/job/engineer/hephaestus,
 		"Engine Technician" = /datum/outfit/job/engineer/hephaestus,
 		"Electrician" = /datum/outfit/job/engineer/hephaestus,
-		"Atmospherics Technician" = /datum/outfit/job/atmos/hephaestus,
+		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
 		"Scientist" = /datum/outfit/job/scientist/hephaestus,
 		"Phoron Researcher" = /datum/outfit/job/scientist/hephaestus,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/hephaestus,
