@@ -67,3 +67,12 @@
 
 /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
 	name = "cybersuit rig control and targeting board"
+
+/obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
+	name = "stealth rig central circuit board"
+	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 6)
+
+/obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
+	name = "stealth rig control and targeting board"
+	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 6, TECH_ILLEGAL = 6)
+
