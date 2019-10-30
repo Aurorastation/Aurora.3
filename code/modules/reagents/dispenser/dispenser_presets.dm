@@ -85,7 +85,8 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lime,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/apple,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/watermelon,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/clean_kois
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/clean_kois,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/banana
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc
