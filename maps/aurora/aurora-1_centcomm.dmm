@@ -8519,14 +8519,6 @@
 	icon_state = "floor2"
 	},
 /area/shuttle/administration/centcom)
-"aud" = (
-/obj/machinery/atmospherics/unary/cryo_cell{
-	layer = 3.3
-	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/administration/centcom)
 "aue" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
@@ -8594,10 +8586,6 @@
 	dir = 5
 	},
 /obj/item/weapon/wrench,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = -4;
-	pixel_y = 0
-	},
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -14575,7 +14563,6 @@
 	},
 /area/centcom/holding)
 "aGG" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
 /obj/item/weapon/bedsheet/medical,
 /obj/structure/bed,
 /turf/unsimulated/floor{
@@ -21933,12 +21920,6 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/escape/centcom)
-"aWT" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor3"
-	},
-/area/shuttle/escape/centcom)
 "aWU" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -22050,18 +22031,6 @@
 /area/shuttle/escape/centcom)
 "aXd" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone{
-	pixel_x = 7;
-	pixel_y = 1
-	},
 /obj/item/weapon/wrench,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
@@ -24347,7 +24316,6 @@
 	},
 /area/centcom/distress_prep)
 "diP" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/item/weapon/reagent_containers/blood/OMinus,
 /obj/structure/closet/secure_closet/medical_wall{
@@ -57844,7 +57812,7 @@ aqU
 aqU
 aqU
 aqC
-aud
+auf
 aum
 aux
 auB
@@ -71254,7 +71222,7 @@ aWn
 aDs
 aWD
 aCP
-aWT
+aGQ
 aWZ
 aXd
 aXg

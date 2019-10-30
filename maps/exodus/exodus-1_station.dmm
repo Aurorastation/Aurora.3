@@ -54455,10 +54455,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"bVg" = (
-/obj/machinery/atmospherics/unary/cryo_cell,
-/turf/simulated/floor/tiled/white,
-/area/medical/sleeper)
 "bVh" = (
 /obj/structure/sink{
 	icon_state = "sink";
@@ -114120,7 +114116,7 @@ bPO
 bRi
 bSD
 bDD
-bVg
+bJQ
 bJQ
 bNc
 bJQ
