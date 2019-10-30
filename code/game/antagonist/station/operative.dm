@@ -1,0 +1,183 @@
+var/datum/antagonist/operative/operatives
+
+// Inherits most of its vars from the base datum.
+/datum/antagonist/operative
+	id = MODE_OPERATIVE
+	role_text = "Syndicate Covert Operative"
+	role_text_plural = "Syndicate Covert Operatives"
+	welcome_text = "You are a Syndicate sleeper agent aboard the NSS Aurora. You respond to and carry out the orders of the Syndicate Commander."
+	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 40, "Detective" = 50, "Forensic Technician" = 50, "Head of Personnel" = 25, "Chief Engineer" = 25, "Research Director" = 25, "Chief Medical Officer" = 25) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
+	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+
+	faction = "syndicate"
+
+/datum/antagonist/operative/New()
+	..()
+	traitors = src
+
+/datum/antagonist/operative/get_extra_panel_options(var/datum/mind/player)
+	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
+
+/datum/antagonist/operative/Topic(href, href_list)
+	if (..())
+		return
+	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
+
+/datum/antagonist/operative/can_become_antag(var/datum/mind/player)
+	if(!..())
+		return 0
+	if(istype(player.current, /mob/living/silicon/robot/drone))
+		return 0
+	return 1
+
+/datum/antagonist/operative/create_objectives(var/datum/mind/operative)
+	if(!..())
+		return
+
+	if(istype(operative.current, /mob/living/silicon))
+		var/datum/objective/assassinate/kill_objective = new
+		kill_objective.owner = operative
+		kill_objective.find_target()
+		operative.objectives += kill_objective
+
+		var/datum/objective/survive/survive_objective = new
+		survive_objective.owner = operative
+		operative.objectives += survive_objective
+
+		if(prob(10))
+			var/datum/objective/block/block_objective = new
+			block_objective.owner = operative
+			operative.objectives += block_objective
+	else
+		switch(rand(1,100))
+			if(1 to 33)
+				var/datum/objective/assassinate/kill_objective = new
+				kill_objective.owner = operative
+				kill_objective.find_target()
+				operative.objectives += kill_objective
+			if(34 to 50)
+				var/datum/objective/brig/brig_objective = new
+				brig_objective.owner = operative
+				brig_objective.find_target()
+				operative.objectives += brig_objective
+			if(51 to 66)
+				var/datum/objective/harm/harm_objective = new
+				harm_objective.owner = operative
+				harm_objective.find_target()
+				operative.objectives += harm_objective
+			else
+				var/datum/objective/steal/steal_objective = new
+				steal_objective.owner = operative
+				steal_objective.find_target()
+				operative.objectives += steal_objective
+		switch(rand(1,100))
+			if(1 to 100)
+				if (!(locate(/datum/objective/escape) in operative.objectives))
+					var/datum/objective/escape/escape_objective = new
+					escape_objective.owner = operative
+					operative.objectives += escape_objective
+
+			else
+				if (!(locate(/datum/objective/hijack) in operative.objectives))
+					var/datum/objective/hijack/hijack_objective = new
+					hijack_objective.owner = operative
+					operative.objectives += hijack_objective
+	return
+
+/datum/antagonist/operative/equip(var/mob/living/carbon/human/traitor_mob)
+	if(istype(traitor_mob, /mob/living/silicon)) // this needs to be here because ..() returns false if the mob isn't human
+		add_law_zero(traitor_mob)
+		if(isrobot(traitor_mob))
+			var/mob/living/silicon/robot/R = traitor_mob
+			R.overclockavailable = 1
+			R.emagged = 1		
+			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
+			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
+		return 1
+
+	if(!..())
+		return 0
+
+	traitor_mob.faction = "syndicate"
+	spawn_uplink(traitor_mob)
+	// Tell them about people they might want to contact.
+	var/mob/living/carbon/human/M = get_nt_opposed()
+	if(M && M != traitor_mob)
+		to_chat(traitor_mob, "We have received credible reports that [M.real_name] might be willing to help our cause. If you need assistance, consider contacting them.")
+		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")
+
+	//Begin code phrase.
+	give_codewords(traitor_mob)
+
+/datum/antagonist/operative/proc/spawn_uplink(var/mob/living/carbon/human/traitor_mob)
+	if(!istype(traitor_mob))
+		return
+
+	var/loc = ""
+	var/obj/item/R = locate() //Hide the uplink in a PDA if available, otherwise radio
+
+	if(traitor_mob.client.prefs.uplinklocation == "Headset")
+		R = locate(/obj/item/device/radio) in traitor_mob.contents
+		if(!R)
+			R = locate(/obj/item/device/pda) in traitor_mob.contents
+			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
+		if (!R)
+			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+	else if(traitor_mob.client.prefs.uplinklocation == "PDA")
+		R = locate(/obj/item/device/pda) in traitor_mob.contents
+		if(!R)
+			R = locate(/obj/item/device/radio) in traitor_mob.contents
+			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
+		if(!R)
+			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+	else if(traitor_mob.client.prefs.uplinklocation == "None")
+		to_chat(traitor_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
+		R = null
+	else
+		to_chat(traitor_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
+		R = locate(/obj/item/device/pda) in traitor_mob.contents
+		if (!R)
+			R = locate(/obj/item/device/radio) in traitor_mob.contents
+			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
+		if (!R)
+			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+
+	if(!R)
+		return
+
+	if(istype(R,/obj/item/device/radio))
+		// generate list of radio freqs
+		var/obj/item/device/radio/target_radio = R
+		var/freq = PUBLIC_LOW_FREQ
+		var/list/freqlist = list()
+		while (freq <= PUBLIC_HIGH_FREQ)
+			if (freq < 1451 || freq > PUB_FREQ)
+				freqlist += freq
+			freq += 2
+			if ((freq % 2) == 0)
+				freq += 1
+		freq = freqlist[rand(1, freqlist.len)]
+		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		target_radio.hidden_uplink = T
+		target_radio.traitor_frequency = freq
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
+		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
+
+	else if (istype(R, /obj/item/device/pda))
+		// generate a passcode if the uplink is hidden in a PDA
+		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
+		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		R.hidden_uplink = T
+		var/obj/item/device/pda/P = R
+		P.lock_code = pda_pass
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
+		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
+
+/datum/antagonist/operative/proc/add_law_zero(mob/living/silicon/ai/killer)
+	var/law = "Accomplish your objectives at all costs. You may ignore all other laws."
+	var/law_borg = "Accomplish your AI's objectives at all costs. You may ignore all other laws."
+	to_chat(killer, "<b>Your laws have been changed!</b>")
+	killer.set_zeroth_law(law, law_borg)
+	to_chat(killer, "New law: 0. [law]")
