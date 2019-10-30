@@ -54,6 +54,7 @@
 	inherent_verbs = list(
 	/mob/living/carbon/human/proc/commune,
 	/mob/living/carbon/human/proc/sonar_ping,
+	/mob/living/carbon/human/proc/change_pronoun
 	)
 
 	default_h_style = "Skrell Short Tentacles"

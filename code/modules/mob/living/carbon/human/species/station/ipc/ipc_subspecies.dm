@@ -64,7 +64,8 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/tie_hair)
+		/mob/living/carbon/human/proc/tie_hair,
+		/mob/living/carbon/human/proc/change_pronoun)
 
 /datum/species/machine/shell/get_light_color()
 	return

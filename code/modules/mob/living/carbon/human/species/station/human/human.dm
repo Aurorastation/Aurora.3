@@ -36,6 +36,7 @@
 	climb_coeff = 1
 
 	inherent_verbs = list(
+		/mob/living/carbon/human/proc/change_pronoun,
 		/mob/living/carbon/human/proc/tie_hair)
 
 	zombie_type = "Zombie"
