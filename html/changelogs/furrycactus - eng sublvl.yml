@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - maptweak: "Remodeled the Engineering Sublevel. It now has its own substation, as well as a revamped break room to incentivise its use. The Tesla Bay has also been moved more northward to make it more resistant to damage from Supermatter delaminations."
   - maptweak: "Added a smoking lounge to the Engineering Sublevel, so engineers have somewhere they're actually allowed to smoke if they don't just want to walk out into the main hall instead."
+  - spellcheck: "Renamed the 'emergency singularity beacon' in Engineering Hard Storage to 'emergency tesla beacon', for additional clarity as to its purpose."
