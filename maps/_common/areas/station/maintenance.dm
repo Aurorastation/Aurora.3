@@ -229,7 +229,10 @@
 	sound_env = SMALL_ENCLOSED
 
 /area/maintenance/substation/engineering // Probably will be connected to engineering SMES room, as wires cannot be crossed properly without them sharing powernets.
-	name = "Engineering Substation"
+	name = "Main Lvl. Engineering Substation"
+
+/area/maintenance/substation/engineering_sublevel // Sublevel
+	name = "Engineering Sublevel - Substation"
 
 // No longer used:
 /area/maintenance/substation/medical_science // Medbay and Science. Each has it's own separated machinery, but it originates from the same room.

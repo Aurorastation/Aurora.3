@@ -96,8 +96,16 @@
 /area/engineering/gravity_gen
 	name = "\improper Engineering - Gravity Generator"
 	icon_state = "engine"
-	
+
 /area/engineering/backup_SMES
 	name = "\improper Engineering - Backup Power Storage"
 	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED	
+	sound_env = SMALL_ENCLOSED
+
+/area/engineering/tesla_storage
+	name = "\improper Engineering - Tesla Parts Storage"
+	icon_state = "engineering_locker"
+
+/area/engineering/bathroom
+	name = "\improper Engineering - Bathroom"
+	icon_state = "engineering_locker"

@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - spellcheck: "Renamed the 'emergency singulatiry beacon' in Engineering Hard Storage to 'emergency tesla beacon' for better clarity as to its purpose."
+  - maptweak: "Remodeled the Engineering Sublevel. It now has its own substation, as well as a revamped break room to incentivise its use. The Tesla Bay has also been moved more northward to make it more resistant to damage from Supermatter delaminations."
+  - maptweak: "Added a smoking lounge to the Engineering Sublevel, so engineers have somewhere they're actually allowed to smoke if they don't just want to walk out into the main hall instead."

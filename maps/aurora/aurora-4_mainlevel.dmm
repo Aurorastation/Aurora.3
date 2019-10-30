@@ -16416,7 +16416,7 @@
 	pixel_y = 0;
 	req_access = list(10)
 	},
-/obj/item/weapon/storage/box/donkpockets,
+/obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aEa" = (
@@ -17559,16 +17559,16 @@
 /area/engineering/foyer)
 "aFP" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
+	},
+/obj/item/weapon/storage/box/drinkingglasses{
+	pixel_x = 1;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -18725,33 +18725,13 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
-"aHP" = (
-/obj/structure/table/standard,
-/obj/item/weapon/storage/box/drinkingglasses{
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/foyer)
 "aHQ" = (
 /obj/structure/table/standard,
+/obj/machinery/microwave,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
-	dir = 5
+	dir = 6
 	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -91124,7 +91104,7 @@ aAJ
 aCf
 aDY
 aDY
-aHP
+aDY
 aJm
 aLg
 aDY
