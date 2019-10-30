@@ -250,3 +250,18 @@
 	base_turf = /turf/space
 	icon_state = "shuttle"
 	centcomm_area = 1
+
+/area/shuttle/syndicate_commander/centcom
+	name = "\improper Unidentified Spacecraft"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/space
+	icon_state = "shuttlegrn"
+	dynamic_lighting = 0
+	centcomm_area = 1
+
+/area/shuttle/syndicate_commander/station
+	name = "\improper Running Track Exterior"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/simulated/open/airless
+	icon_state = "shuttle"
+	station_area = 1

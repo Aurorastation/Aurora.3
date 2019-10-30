@@ -82,6 +82,10 @@
 	icon_state = "syndie-control"
 	dynamic_lighting = 1
 
+/area/syndicate_mothership/command_wing
+	name = "\improper Syndicate Command Wing"
+	icon_state = "syndie-control"
+
 //THUNDERDOME
 
 /area/tdome

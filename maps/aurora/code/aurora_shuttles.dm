@@ -187,3 +187,13 @@
 
 	shuttles["Distress"] = distress
 	START_PROCESSING(shuttle_controller, distress)
+
+	// Syndicate Commander Shuttle
+
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 20
+	shuttle.area_offsite = locate(/area/shuttle/syndicate_commander/centcom)
+	shuttle.area_station = locate(/area/shuttle/syndicate_commander/station)
+	shuttles["Syndicate Commander"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
