@@ -695,6 +695,7 @@ default behaviour is:
 
 /mob/living/proc/resist_grab()
 	if (last_resist + 10 > world.time)
+		to_chat(src, "<span class='notice'>Your muscles hurt too much to move..</span>")
 		return
 	last_resist = world.time
 	if(stunned > 10)
