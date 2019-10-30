@@ -10,6 +10,7 @@
 	selection_color = "#C0C0C0"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
+	announced = 1
 
 	minimum_character_age = 25
 

@@ -349,11 +349,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			SSrecords.generate_record(character)
 			SSticker.minds += character.mind//Cyborgs and AIs handle this in the transform proc.	//TODO!!!!! ~Carn
 
-		//Grab some data from the character prefs for use in random news procs.
-
-			AnnounceArrival(character, rank, join_message)
-		else
-			AnnounceCyborg(character, rank, join_message)
+			if(job.announced)
+				AnnounceArrival(character, rank, join_message)
 
 	qdel(src)
 

@@ -10,6 +10,7 @@
 	supervisors = "the captain"
 	selection_color = "#FF40FF"
 	economic_modifier = 15
+	announced = 1
 
 	minimum_character_age = 30
 

@@ -237,6 +237,7 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
+	announced = 1
 
 	minimum_character_age = 20
 

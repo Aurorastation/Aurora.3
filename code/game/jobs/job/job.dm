@@ -31,6 +31,8 @@
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 
+	var/announced                         //If their arrival is announced on radio.
+
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
 
