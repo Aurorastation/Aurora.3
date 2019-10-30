@@ -149,7 +149,7 @@
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
 
-/datum/job/engofficer
+/datum/job/officer/eng
 	title = "Engineering Officer"
 	flag = ENGISEC
 	department = "Engineering"
@@ -170,11 +170,11 @@
 
 /datum/outfit/job/officer/eng
 	name = "Engineering Officer"
-	jobtype = /datum/job/engofficer
+	jobtype = /datum/job/officer/eng
 
+	accessory = /obj/item/clothing/accessory/armband/engine
 	l_ear = /obj/item/device/radio/headset/headset_eng/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs = 1,
-		/obj/item/clothing/accessory/armband/engine = 1
+		/obj/item/weapon/handcuffs = 1
 	)

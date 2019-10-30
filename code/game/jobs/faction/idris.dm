@@ -33,6 +33,10 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/officer/cargo,
+		/datum/job/officer/med,
+		/datum/job/officer/sci,
+		/datum/job/officer/eng,
 		/datum/job/detective,
 		/datum/job/bartender,
 		/datum/job/chef,
@@ -51,7 +55,10 @@
 	)
 
 	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/idris,
+		"General Officer" = /datum/outfit/job/officer/idris,
+		"Supply Officer" = /datum/outfit/job/officer/idris/cargo,
+		"Medical Officer" = /datum/outfit/job/officer/idris/medical,
+		"Research Officer" = /datum/outfit/job/officer/idris/research,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Cook" = /datum/outfit/job/chef/idris,
@@ -64,9 +71,21 @@
 	)
 
 /datum/outfit/job/officer/idris
-	name = "Security Officer - Idris"
+	name = "General Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/weapon/card/id/idris/sec
+
+/datum/outfit/job/officer/idris/cargo
+	name = "Supply Officer - Idris"
+
+/datum/outfit/job/officer/idris/medical
+	name = "Medical Officer - Idris"
+
+/datum/outfit/job/officer/idris/research
+	name = "Research Officer - Idris"
+
+/datum/outfit/job/officer/idris/engineering
+	name = "Engineering Officer - Idris"
 
 /datum/outfit/job/detective/idris
 	name = "Detective - Idris"

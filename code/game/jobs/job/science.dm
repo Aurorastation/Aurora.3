@@ -175,7 +175,7 @@
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
 
-/datum/job/sciofficer
+/datum/job/officer/sci
 	title = "Science Officer"
 	flag = SCISEC
 	department = "Science"
@@ -196,11 +196,11 @@
 
 /datum/outfit/job/officer/sci
 	name = "Science Officer"
-	jobtype = /datum/job/sciofficer
+	jobtype = /datum/job/officer/sci
 
+	accessory = /obj/item/clothing/accessory/armband/science
 	l_ear = /obj/item/device/radio/headset/headset_sci/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs = 1,
-		/obj/item/clothing/accessory/armband/science = 1
+		/obj/item/weapon/handcuffs = 1
 	)

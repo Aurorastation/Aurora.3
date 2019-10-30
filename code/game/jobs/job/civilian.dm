@@ -164,7 +164,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 
-/datum/job/cargoofficer
+/datum/job/officer/cargo
 	title = "Supply Officer"
 	flag = CARSEC
 	department = "Cargo"
@@ -185,13 +185,13 @@
 
 /datum/outfit/job/officer/cargo
 	name = "Supply Officer"
-	jobtype = /datum/job/cargoofficer
+	jobtype = /datum/job/officer/cargo
 
+	accessory = /obj/item/clothing/accessory/armband/cargo
 	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs = 1,
-		/obj/item/clothing/accessory/armband/cargo = 1
+		/obj/item/weapon/handcuffs = 1
 	)
 
 /datum/job/mining

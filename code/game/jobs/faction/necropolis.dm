@@ -34,6 +34,10 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/officer/cargo,
+		/datum/job/officer/med,
+		/datum/job/officer/sci,
+		/datum/job/officer/eng,
 		/datum/job/forensics,
 		/datum/job/warden,
 		/datum/job/doctor,
@@ -52,7 +56,10 @@
 	)
 
 	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/necropolis,
+		"General Officer" = /datum/outfit/job/officer/necropolis,
+		"Supply Officer" = /datum/outfit/job/officer/necropolis/cargo,
+		"Medical Officer" = /datum/outfit/job/officer/necropolis/medical,
+		"Research Officer" = /datum/outfit/job/officer/necropolis/research,
 		"Warden" = /datum/outfit/job/warden/necropolis,
 		"Medical Doctor" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
@@ -73,9 +80,21 @@
 	)
 
 /datum/outfit/job/officer/necropolis
-	name = "Security Officer - Necropolis"
+	name = "General Officer - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
 	id = /obj/item/weapon/card/id/necropolis/sec
+
+/datum/outfit/job/officer/necropolis/cargo
+	name = "Supply Officer - Necropolis"
+
+/datum/outfit/job/officer/necropolis/medical
+	name = "Medical Officer - Necropolis"
+
+/datum/outfit/job/officer/necropolis/research
+	name = "Research Officer - Necropolis"
+
+/datum/outfit/job/officer/necropolis/engineering
+	name = "Engineering Officer - Necropolis"
 
 /datum/outfit/job/forensics/necropolis
 	name = "Forensics Technician - Necropolis"

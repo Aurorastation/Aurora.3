@@ -24,6 +24,10 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/officer/cargo,
+		/datum/job/officer/med,
+		/datum/job/officer/sci,
+		/datum/job/officer/eng,
 		/datum/job/warden,
 		/datum/job/forensics,
 		/datum/job/paramedic,
@@ -40,7 +44,11 @@
 	)
 
 	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/eridani,
+		"General Officer" = /datum/outfit/job/officer/eridani,
+		"Supply Officer" = /datum/outfit/job/officer/eridani/cargo,
+		"Medical Officer" = /datum/outfit/job/officer/eridani/medical,
+		"Research Officer" = /datum/outfit/job/officer/eridani/research,
+		"Engineering Officer" = /datum/outfit/job/officer/eridani/engineering,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
@@ -50,9 +58,21 @@
 	)
 
 /datum/outfit/job/officer/eridani
-	name = "Security Officer - Eridani"
+	name = "General Officer - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	id = /obj/item/weapon/card/id/eridani
+
+/datum/outfit/job/officer/eridani/cargo
+	name = "Supply Officer - Eridani"
+
+/datum/outfit/job/officer/eridani/medical
+	name = "Medical Officer - Eridani"
+
+/datum/outfit/job/officer/eridani/research
+	name = "Research Officer - Eridani"
+
+/datum/outfit/job/officer/eridani/engineering
+	name = "Engineering Officer - Eridani"
 
 /datum/outfit/job/warden/eridani
 	name = "Warden - Eridani"

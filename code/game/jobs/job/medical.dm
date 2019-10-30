@@ -275,7 +275,7 @@
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
 
-/datum/job/medofficer
+/datum/job/officer/med
 	title = "Medical Officer"
 	flag = MEDSEC
 	department = "Medical"
@@ -296,11 +296,11 @@
 
 /datum/outfit/job/officer/med
 	name = "Medical Officer"
-	jobtype = /datum/job/medofficer
+	jobtype = /datum/job/officer/med
 
+	accessory = /obj/item/clothing/accessory/armband/medgreen
 	l_ear = /obj/item/device/radio/headset/headset_med/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs = 1,
-		/obj/item/clothing/accessory/armband/medgreen = 1
+		/obj/item/weapon/handcuffs = 1
 	)
