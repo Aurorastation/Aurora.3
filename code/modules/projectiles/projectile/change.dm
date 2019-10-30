@@ -66,13 +66,12 @@
 					new_mob = new /mob/living/carbon/human(M.loc)
 					H = new_mob
 
-				if(M.gender == MALE)
-					H.gender = MALE
-					H.name = pick(first_names_male)
-				else
-					H.gender = FEMALE
-					H.name = pick(first_names_female)
-				H.name += " [pick(last_names)]"
+				var/fnames = list()
+				if(gender != MALE)
+					fnames += first_names_female
+				if(gender != FEMALE)
+					fnames += first_names_male
+				return capitalize(pick(fnames)) + " " + capitalize(pick(last_names))
 				H.real_name = H.name
 
 				addtimer(CALLBACK(H, /mob/living/carbon/human.proc/set_species, randomize), 0)

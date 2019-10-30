@@ -159,9 +159,9 @@
 		H.s_tone   = 35 - dna.GetUIValueRange(DNA_UI_SKIN_TONE, 220) // Value can be negative.
 
 		if (dna.GetUIState(DNA_UI_GENDER))
-			H.gender = FEMALE
+			H.gsprite = FEMALE
 		else
-			H.gender = MALE
+			H.gsprite = MALE
 
 		//Body markings
 		for(var/tag in dna.body_markings)

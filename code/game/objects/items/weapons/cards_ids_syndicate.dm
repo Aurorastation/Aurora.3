@@ -48,7 +48,6 @@
 	entries[++entries.len] = list("name" = "Fingerprint Hash",	"value" = fingerprint_hash)
 	entries[++entries.len] = list("name" = "Name", 				"value" = registered_name)
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
-	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
@@ -156,12 +155,6 @@
 				set_id_photo(user)
 				to_chat(user, "<span class='notice'>Photo changed.</span>")
 				. = 1
-			if("Sex")
-				var/new_sex = sanitize(input(user,"What sex would you like to put on this card?","Agent Card Sex", sex) as null|text)
-				if(!isnull(new_sex) && CanUseTopic(user, state))
-					src.sex = new_sex
-					to_chat(user, "<span class='notice'>Sex changed to '[new_sex]'.</span>")
-					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
 					age = initial(age)
@@ -175,7 +168,6 @@
 					name = initial(name)
 					registered_name = initial(registered_name)
 					unset_registered_user()
-					sex = initial(sex)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
 

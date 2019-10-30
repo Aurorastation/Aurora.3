@@ -145,7 +145,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 	SetUIValueRange(DNA_UI_SKIN_TONE, 35-character.s_tone, 220,    1) // Value can be negative.
 
-	SetUIState(DNA_UI_GENDER,         character.gender!=MALE,        1)
+	SetUIState(DNA_UI_GENDER,         character.gsprite!=MALE,        1)
 
 	SetUIValueRange(DNA_UI_HAIR_STYLE,  hair,  hair_styles_list.len,       1)
 	SetUIValueRange(DNA_UI_BEARD_STYLE, beard, facial_hair_styles_list.len,1)

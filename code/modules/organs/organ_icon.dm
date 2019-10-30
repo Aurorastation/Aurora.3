@@ -116,7 +116,7 @@
 /obj/item/organ/external/proc/get_icon(var/skeletal)
 
 	var/gender = "f"
-	if(owner && owner.gender == MALE)
+	if(owner && owner.gsprite == MALE)
 		gender = "m"
 
 	if(force_icon)

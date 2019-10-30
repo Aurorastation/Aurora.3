@@ -17,11 +17,11 @@
 	reset_hair()
 	return 1
 
-/mob/living/carbon/human/proc/change_gender(var/gender)
-	if(src.gender == gender)
+/mob/living/carbon/human/proc/change_gender(var/gender) // technically it's gsprite but we're keeping this to avoid a massive number of changes
+	if(src.gsprite == gender)
 		return
 
-	src.gender = gender
+	src.gsprite = gender
 	reset_hair()
 	update_body()
 	update_dna()
@@ -163,9 +163,9 @@
 	for(var/hairstyle in hair_styles_list)
 		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
 
-		if(check_gender && gender == MALE && S.gender == FEMALE)
+		if(check_gender && gsprite == MALE && S.gender == FEMALE)
 			continue
-		if(check_gender && gender == FEMALE && S.gender == MALE)
+		if(check_gender && gsprite == FEMALE && S.gender == MALE)
 			continue
 		if(!(species.get_bodytype() in S.species_allowed))
 			continue
@@ -180,9 +180,9 @@
 	for(var/facialhairstyle in facial_hair_styles_list)
 		var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
 
-		if(gender == MALE && S.gender == FEMALE)
+		if(gsprite == MALE && S.gender == FEMALE)
 			continue
-		if(gender == FEMALE && S.gender == MALE)
+		if(gsprite == FEMALE && S.gender == MALE)
 			continue
 		if(!(species.get_bodytype() in S.species_allowed))
 			continue

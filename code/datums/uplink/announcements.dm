@@ -55,7 +55,6 @@
 		record.rank = I.assignment
 		record.real_rank = I.assignment
 		record.name = I.registered_name
-		record.sex = I.sex
 	else
 		var/mob/living/carbon/human/H
 		if(istype(user,/mob/living/carbon/human))
@@ -67,7 +66,6 @@
 		record.rank = assignment
 		record.real_rank = assignment
 		record.name = user.real_name
-		record.sex = capitalize(user.gender)
 
 	record.species = user.get_species()
 	record.security = new(null, record.id)

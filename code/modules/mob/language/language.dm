@@ -23,10 +23,12 @@
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
-		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
-		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+		var/fnames = list()
+		if(gender != MALE)
+			fnames += first_names_female
+		if(gender != FEMALE)
+			fnames += first_names_male
+		return capitalize(pick(fnames)) + " " + capitalize(pick(last_names))
 
 	var/full_name = ""
 	var/new_name = ""

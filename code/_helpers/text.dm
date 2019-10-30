@@ -403,7 +403,7 @@ proc/TextPreview(var/string,var/len=40)
 
 #define starts_with(string, substring) (copytext(string,1,1+length(substring)) == substring)
 
-#define gender2text(gender) capitalize(gender)
+#define gender2text(gender) capitalize(gender) 
 
 /**
  * Strip out the special beyond characters for \proper and \improper

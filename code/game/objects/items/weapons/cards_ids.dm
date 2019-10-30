@@ -110,7 +110,6 @@ var/const/NO_EMAG_ACT = -50
 	var/fingerprint_hash = "\[UNSET\]"
 	var/citizenship = "\[UNSET\]"
 	var/religion = "\[UNSET\]"
-	var/sex = "\[UNSET\]"
 	var/icon/front
 	var/icon/side
 	var/mining_points //miners gotta eat
@@ -156,7 +155,6 @@ var/const/NO_EMAG_ACT = -50
 /mob/proc/set_id_info(var/obj/item/weapon/card/id/id_card)
 	id_card.age = 0
 	id_card.registered_name		= real_name
-	id_card.sex 				= capitalize(gender)
 	id_card.set_id_photo(src)
 
 	if(dna)
@@ -175,7 +173,6 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/weapon/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
 	dat += text("Name: []</A><BR>", registered_name)
-	dat += text("Sex: []</A><BR>\n", sex)
 	dat += text("Age: []</A><BR>\n", age)
 	dat += text("Citizenship: []</A><BR>\n", citizenship)
 	dat += text("Religion: []</A><BR>\n", religion)

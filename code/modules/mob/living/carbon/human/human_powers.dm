@@ -26,6 +26,16 @@
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
+/mob/living/carbon/human/proc/change_pronoun()
+	set name = "Change Pronoun"
+	set desc = "Changes your pronoun. Does not change your sprite."
+	set category = "IC"
+
+	var/gen = input("Select a new pronoun:", "Pronoun", gender) as null|anything in (all_genders_define_list - gender)
+	if(gender != gen)
+		gender = gen
+		regenerate_icons()
+
 mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."

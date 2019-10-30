@@ -6,6 +6,7 @@
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]  >> pref.real_name
 	S["gender"]     >> pref.gender
+	S["gsprite"]	>> pref.gsprite
 	S["age"]        >> pref.age
 	S["species"]    >> pref.species
 	S["spawnpoint"] >> pref.spawnpoint
@@ -14,6 +15,7 @@
 /datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
 	S["real_name"]  << pref.real_name
 	S["gender"]     << pref.gender
+	S["gsprite"]	<< pref.gsprite
 	S["age"]        << pref.age
 	S["species"]    << pref.species
 	S["spawnpoint"] << pref.spawnpoint
@@ -25,6 +27,7 @@
 			"vars" = list(
 				"name" = "real_name",
 				"gender",
+				"gsprite",
 				"age",
 				"metadata",
 				"spawnpoint",
@@ -42,6 +45,7 @@
 		"ss13_characters" = list(
 			"name",
 			"gender",
+			"gsprite",
 			"age",
 			"metadata",
 			"spawnpoint",
@@ -55,6 +59,7 @@
 	return list(
 		"name" = pref.real_name,
 		"gender" = pref.gender,
+		"gsprite" = pref.gsprite,
 		"age" = pref.age,
 		"metadata" = pref.metadata,
 		"spawnpoint" = pref.spawnpoint,
@@ -87,7 +92,8 @@
 		pref.species = "Human"
 
 	pref.age           = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
-	pref.gender        = sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
+	pref.gender        = sanitize_inlist(pref.gender, all_genders_define_list, pick(all_genders_define_list))
+	pref.gsprite        = sanitize_inlist(pref.gsprite, valid_player_genders, valid_player_genders)
 	pref.real_name     = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name = random_name(pref.gender, pref.species)
@@ -103,6 +109,7 @@
 		dat += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>)"
 	dat += "<br>"
 	dat += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
+	dat += "<b>Gender Sprite:</b> <a href='?src=\ref[src];gsprite=1'><b>[capitalize(lowertext(pref.gsprite))]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
 	if(config.allow_Metadata)
@@ -139,7 +146,14 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		pref.gender = next_in_list(pref.gender, valid_player_genders)
+		pref.gender = next_in_list(pref.gender, all_genders_define_list)
+
+		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
+		equipment_item.sanitize_character()	// sanitize equipment
+		return TOPIC_REFRESH
+
+	else if(href_list["gsprite"])
+		pref.gsprite = next_in_list(pref.gender, valid_player_genders)
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment

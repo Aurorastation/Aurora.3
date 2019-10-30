@@ -85,10 +85,10 @@
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/general/equipment/proc/get_undies()
-	return pref.gender == MALE ? underwear_m : underwear_f
+	return pref.gsprite == MALE ? underwear_m : underwear_f
 
 /datum/category_item/player_setup_item/general/equipment/proc/get_gender_socks()
-	return pref.gender == MALE ? socks_m : socks_f
+	return pref.gsprite == MALE ? socks_m : socks_f
 
 /datum/category_item/player_setup_item/general/equipment/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["change_underwear"])

@@ -177,7 +177,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				nanoui_data["exploit"]["nanoui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
 				nanoui_data["exploit"]["nanoui_exploit_record"] = replacetext(nanoui_data["exploit"]["nanoui_exploit_record"], "\n", "<br>") // change line breaks into <br>
 				nanoui_data["exploit"]["name"] =  html_encode(L.name)
-				nanoui_data["exploit"]["sex"] =  html_encode(L.sex)
 				nanoui_data["exploit"]["age"] =  html_encode(L.age)
 				nanoui_data["exploit"]["species"] =  html_encode(L.species)
 				nanoui_data["exploit"]["rank"] =  html_encode(L.rank)

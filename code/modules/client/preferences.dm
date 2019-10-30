@@ -35,6 +35,7 @@ datum/preferences
 	var/real_name						//our character's name
 	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/gender = MALE					//gender of character (well duh)
+	var/gsprite = MALE
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
@@ -336,6 +337,7 @@ datum/preferences
 	character.gender = gender
 	character.age = age
 	character.b_type = b_type
+	character.gsprite = gsprite
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
@@ -471,7 +473,8 @@ datum/preferences
 		player_setup = null
 
 	player_setup = new(src)
-	gender = pick(MALE, FEMALE)
+	gender = pick(all_genders_define_list)
+	gsprite = gender
 	real_name = random_name(gender,species)
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	signature = "<i>[real_name]</i>"

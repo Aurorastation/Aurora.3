@@ -397,7 +397,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(record_found)//If they have a record we can determine a few things.
 		new_character.real_name = record_found.name
-		new_character.gender = record_found.sex
 		new_character.age = record_found.age
 		new_character.b_type = record_found.medical.blood_type
 	else

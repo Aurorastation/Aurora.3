@@ -32,6 +32,9 @@ var/global/list/turfs = list()						//list of all turfs
 var/global/list/areas_by_type = list()
 var/global/list/all_areas = list()
 
+#define all_genders_define_list list(MALE,FEMALE,PLURAL,NEUTER)
+#define all_genders_text_list list("Male","Female","Plural","Neuter")
+
 //Languages/species/whitelist.
 var/global/list/all_species = list()
 var/global/list/all_languages = list()

@@ -4,7 +4,7 @@ datum/preferences
 		if(random_gender)
 			gender = pick(MALE, FEMALE)
 		else
-			gender = H.gender
+			gender = H.gsprite
 		var/datum/species/current_species = all_species[species]
 
 		if(current_species)

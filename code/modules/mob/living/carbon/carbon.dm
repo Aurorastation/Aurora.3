@@ -99,11 +99,6 @@
 				action = "pushed"
 			if(I_HURT)
 				action = "punched"
-		var/t_him = "it"
-		if (src.gender == MALE)
-			t_him = "him"
-		else if (src.gender == FEMALE)
-			t_him = "her"
 		var/show_ssd
 		var/mob/living/carbon/human/H
 		if(ishuman(src))
@@ -113,9 +108,9 @@
 			if(H.bg)
 				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
 			else
-				visible_message("<span class='notice'>[M] [action] [src], but they do not respond... Maybe they have S.S.D?</span>")
+				visible_message("<span class='notice'>[M] [action] [src], but [gender_datums[src.gender].he] [gender_datums[src.gender].does] not respond... Maybe [gender_datums[src.gender].he] [gender_datums[src.gender].has] S.S.D?</span>")
 		else if(client && willfully_sleeping)
-			visible_message("<span class='notice'>[M] [action] [src] waking [t_him] up!</span>")
+			visible_message("<span class='notice'>[M] [action] [src] waking [gender_datums[src.gender].him] up!</span>")
 			sleeping = 0
 			willfully_sleeping = 0
 
@@ -268,11 +263,6 @@
 							M.visible_message("<span class='warning'>[M] successfully pats out [src]'s flames.</span>",
 							"<span class='warning'>You successfully pat out [src]'s flames.</span>")
 		else
-			var/t_him = "it"
-			if (src.gender == MALE)
-				t_him = "him"
-			else if (src.gender == FEMALE)
-				t_him = "her"
 			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
 				var/mob/living/carbon/human/H = src
 				H.w_uniform.add_fingerprint(M)
@@ -286,21 +276,21 @@
 				if(H.bg)
 					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
 				else
-					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
+					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [gender_datums[src.gender].him] up!</span>", \
+										"<span class='notice'>You shake [src], but [gender_datums[src.gender].he] [gender_datums[src.gender].does] not respond... Maybe [gender_datums[src.gender].he] [gender_datums[src.gender].has] S.S.D?</span>")
 			else if(lying || src.sleeping)
 				src.sleeping = max(0,src.sleeping-5)
 				if(src.sleeping == 0)
 					src.resting = 0
-				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
+				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [gender_datums[src.gender].him] up!</span>", \
+									"<span class='notice'>You shake [src] trying to wake [gender_datums[src.gender].him] up!</span>")
 			else
 				var/mob/living/carbon/human/tapper = M
 				if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
-								"<span class='notice'>You tap [src] to get their attention!</span>")
+					M.visible_message("<span class='notice'>[M] taps [src] to get [gender_datums[src.gender].his] attention!</span>", \
+								"<span class='notice'>You tap [src] to get [gender_datums[src.gender].his] attention!</span>")
 			AdjustParalysis(-3)
 			AdjustStunned(-3)
 			AdjustWeakened(-3)

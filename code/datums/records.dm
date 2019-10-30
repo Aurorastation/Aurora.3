@@ -68,7 +68,6 @@
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
 	var/age = 0
-	var/sex = "Unknown"
 	var/fingerprint = "Unknown"
 	var/phisical_status = "Active"
 	var/mental_status = "Stable"
@@ -102,7 +101,6 @@
 		rank = GetAssignment(H)
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
-		sex = H.gender
 		species = H.get_species()
 		citizenship = H.citizenship
 		employer = H.employer_faction

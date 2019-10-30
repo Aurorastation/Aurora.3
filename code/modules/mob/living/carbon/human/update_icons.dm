@@ -225,7 +225,7 @@ There are several things that need to be remembered:
 	var/fat = (FAT in mutations)
 	var/hulk = (HULK in mutations)
 	var/skeleton = (SKELETON in mutations)
-	var/g = (gender == FEMALE ? "f" : "m")
+	var/g = (gsprite == FEMALE ? "f" : "m")
 
 	pixel_x = species.icon_x_offset
 	pixel_y = species.icon_y_offset
@@ -405,7 +405,7 @@ There are several things that need to be remembered:
 	var/image/standing	= image("icon" = 'icons/effects/genetics.dmi')
 	var/add_image = 0
 	var/g = "m"
-	if(gender == FEMALE)	g = "f"
+	if(gsprite == FEMALE)	g = "f"
 	// DNA2 - Drawing underlays.
 	for(var/datum/dna/gene/gene in dna_genes)
 		if(!gene.block)

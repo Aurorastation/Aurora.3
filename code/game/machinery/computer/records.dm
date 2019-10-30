@@ -115,7 +115,6 @@
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["id"], R.id, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["name"], R.name, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["rank"], R.rank, ., data)
-			VUEUI_SET_CHECK(data["allrecords"][R.id]["sex"], R.sex, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["age"], R.age, ., data)
 			VUEUI_SET_CHECK(data["allrecords"][R.id]["fingerprint"], R.fingerprint, ., data)
 			if(R.medical)

@@ -113,7 +113,6 @@
 				P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
 				P.info += {"
 Name: [R.name] ID: [R.id]<BR>
-Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
 Physical Status: [R.phisical_status]<BR>
@@ -156,7 +155,6 @@ Important Notes:<BR>
 				var/info = "<CENTER><B>Medical Record</B></CENTER><BR>"
 				info += {"
 Name: [R.name] ID: [R.id]<BR>
-Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
 Physical Status: [R.phisical_status]<BR>
