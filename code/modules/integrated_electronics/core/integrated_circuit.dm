@@ -211,14 +211,14 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				ea.interact(usr)
 
 	if(href_list["pin_name"])
-		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
+		if (!held_item.ismultitool() || !allow_multitool)
 			href_list["wire"] = 1
 		else
 			var/obj/item/device/multitool/M = held_item
 			M.wire(pin,usr)
 
 	if(href_list["pin_data"])
-		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
+		if (!held_item.ismultitool() || !allow_multitool)
 			href_list["wire"] = 1
 
 		else
@@ -226,7 +226,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
 
 	if(href_list["pin_unwire"])
-		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
+		if (!held_item.ismultitool() || !allow_multitool)
 			href_list["wire"] = 1
 		else
 			var/obj/item/device/multitool/M = held_item

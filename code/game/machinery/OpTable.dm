@@ -1,5 +1,5 @@
 /obj/machinery/optable
-	name = "Operating Table"
+	name = "operating table"
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
@@ -61,15 +61,15 @@
 		to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
 		return TRUE
 
-	if(user != victim && !suppressing) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
-		user.visible_message("<span class='warning'>\The [user] begins switching on \the [src]'s neural suppressor.</span>")
-		if(!do_after(user, 30, src) || !use_check_and_message(user))
+	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
+		user.visible_message("<span class='warning'>\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor.</span>")
+		if(!do_after(user, 30, src))
 			return 
 		if(!victim)
 			to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
 
-	suppressing = !suppressing
-	user.visible_message("<span class='notice'>\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor.</span>")
+		suppressing = !suppressing
+		user.visible_message("<span class='notice'>\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor.</span>")
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1

@@ -24,6 +24,7 @@
 	var/produced_power
 	var/energy_to_raise = 32
 	var/energy_to_lower = -20
+	var/list/immune_things = list(/obj/effect/projectile/muzzle/emitter, /obj/effect/ebeam, /obj/effect/decal/cleanable/ash, /obj/singularity)
 
 /obj/singularity/energy_ball/ex_act(severity, target)
 	return
@@ -199,18 +200,36 @@
 
 
 /obj/singularity/energy_ball/Collide(atom/A)
+	if(check_for_immune(A))
+		return
 	if(isliving(A))
 		dust_mobs(A)
 	else if(isobj(A))
+		if(istype(A, /obj/effect/accelerated_particle))
+			consume(A)
+			return
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
 
 /obj/singularity/energy_ball/CollidedWith(atom/A)
+	if(check_for_immune(A))
+		return
 	if(isliving(A))
 		dust_mobs(A)
 	else if(isobj(A))
+		if(istype(A, /obj/effect/accelerated_particle))
+			consume(A)
+			return
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
+
+/obj/singularity/energy_ball/proc/check_for_immune(var/O)
+	if(!O)
+		return FALSE
+	for(var/v in immune_things)
+		if(istype(O, v))
+			return TRUE
+	return FALSE
 
 /obj/singularity/energy_ball/Move(NewLoc, Dir)
 	. = ..()
@@ -248,6 +267,9 @@
 			return
 	var/mob/living/carbon/C = A
 	C.dust()
+
+/obj/singularity/energy_ball/tesla_act()
+	return
 
 /proc/tesla_zap(atom/source, zap_range = 3, power, explosive = FALSE, stun_mobs = TRUE)
 	. = source.dir

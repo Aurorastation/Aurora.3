@@ -56,6 +56,9 @@
 /area/centcom/legion
 	name = "\improper Tau Ceti Foreign Legion Base"
 
+/area/centcom/distress_prep
+	name = "\improper Distress Team Preparation"
+
 //SYNDICATES
 
 /area/syndicate_mothership

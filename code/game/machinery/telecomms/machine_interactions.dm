@@ -107,16 +107,13 @@
 
 /obj/machinery/telecomms/attack_hand(var/mob/user as mob)
 
-	// You need a multitool to use this, or be silicon
-	if(!issilicon(user))
-		// istype returns false if the value is null
-		if(!istype(user.get_active_hand(), /obj/item/device/multitool))
-			return
-
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	var/obj/item/device/multitool/P = get_multitool(user)
+	var/obj/item/device/multitool/P = user.get_multitool()
+
+	if(!P)
+		return
 
 	user.set_machine(src)
 	var/dat
@@ -172,22 +169,6 @@
 	temp = ""
 	user << browse(dat, "window=tcommachine;size=520x500;can_resize=0")
 	onclose(user, "dormitory")
-
-// Returns a multitool from a user depending on their mobtype.
-
-/obj/machinery/telecomms/proc/get_multitool(mob/user as mob)
-
-	var/obj/item/device/multitool/P = null
-	// Let's double check
-	if(!issilicon(user) && istype(user.get_active_hand(), /obj/item/device/multitool))
-		P = user.get_active_hand()
-	else if(isAI(user))
-		var/mob/living/silicon/ai/U = user
-		P = U.aiMulti
-	else if(isrobot(user) && in_range(user, src))
-		if(istype(user.get_active_hand(), /obj/item/device/multitool))
-			P = user.get_active_hand()
-	return P
 
 // Additional Options for certain machines. Use this when you want to add an option to a specific machine.
 // Example of how to use below.
@@ -255,14 +236,13 @@
 
 /obj/machinery/telecomms/Topic(href, href_list)
 
-	if(!issilicon(usr))
-		if(!istype(usr.get_active_hand(), /obj/item/device/multitool))
-			return
+	if(!isliving(usr))
+		return
 
 	if(stat & (BROKEN|NOPOWER))
 		return
 
-	var/obj/item/device/multitool/P = get_multitool(usr)
+	var/obj/item/device/multitool/P = usr.get_multitool()
 
 	if(href_list["input"])
 		switch(href_list["input"])
