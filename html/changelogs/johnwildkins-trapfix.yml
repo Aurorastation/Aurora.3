@@ -40,7 +40,7 @@ delete-after: True
 changes: 
   - refactor: "Traps have been overhauled on the back-end, and their interactions simplified to the end-user."
   - tweak: "Large traps must now be anchored and then set before use. The process takes three seconds with a wrench and five seconds with an open hand respectively. Large traps can only deploy once anchored."
-  - tweak: "You can no longer pass through a large trap that has caught something."
   - tweak: "You can place someone/thing into a large trap (via buckling) regardless of the trap's deployment."
-  - bugfix: "You can now anchor large traps to the floor with a wrench."
+  - bugfix: "You can once again anchor large traps to the floor with a wrench."
   - bugfix: "Fixed certain parts of the trap capture event not firing depending on the method of capture."
+  - bugfix: "You can no longer teleport inside of traps by attempting to sneak through them from a long distance away."

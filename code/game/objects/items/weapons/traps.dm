@@ -19,7 +19,7 @@
 /obj/item/weapon/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
 
-/obj/item/weapon/trap/attack_self(mob/user as mob)
+/obj/item/weapon/trap/attack_self(mob/user)
 	..()
 	if(!deployed && can_use(user))
 		if(deploy(user))
@@ -45,7 +45,7 @@
 		return TRUE
 	return FALSE
 
-/obj/item/weapon/trap/user_unbuckle_mob(mob/user as mob)
+/obj/item/weapon/trap/user_unbuckle_mob(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
 			"<span class='notice'>\The [user] begins freeing \the [buckled_mob] from \the [src].</span>",
@@ -55,9 +55,9 @@
 		if(do_after(user, time_to_escape))
 			user.visible_message("<span class='notice'>\The [buckled_mob] has been freed from \the [src] by \the [user].</span>")
 			unbuckle_mob()
-			anchored = 0
+			anchored = FALSE
 
-/obj/item/weapon/trap/attack_hand(mob/user as mob)
+/obj/item/weapon/trap/attack_hand(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
 			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
@@ -66,18 +66,21 @@
 		if(do_after(user, time_to_escape))
 			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
 			unbuckle_mob()
+			anchored = FALSE
+
 	else if(deployed && can_use(user))
 		user.visible_message(
 			"<span class='danger'>[user] starts to disarm \the [src].</span>",
 			"<span class='notice'>You begin disarming \the [src]!</span>",
 			"You hear a latch click followed by the slow creaking of a spring."
 			)
-		if(do_after(user, 60))
+		if(do_after(user, 6 SECONDS))
 			user.visible_message(
 				"<span class='danger'>[user] has disarmed \the [src].</span>",
 				"<span class='notice'>You have disarmed \the [src]!</span>"
 				)
 			deployed = FALSE
+			anchored = FALSE
 			update_icon()
 	else
 		..()
@@ -101,10 +104,10 @@
 
 	//trap the victim in place
 	set_dir(L.dir)
-	can_buckle = 1
+	can_buckle = TRUE
 	buckle_mob(L)
 	to_chat(L, "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>")
-	deployed = 0
+	deployed = FALSE
 	can_buckle = initial(can_buckle)
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
 
@@ -113,7 +116,7 @@
 		bear.anger += 15//traps make bears really angry
 		bear.instant_aggro()
 
-/obj/item/weapon/trap/Crossed(AM as mob|obj)
+/obj/item/weapon/trap/Crossed(AM)
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
@@ -140,7 +143,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_base = "small"
 	icon_state = "small0"
-	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, chicks and spiderlings."
+	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	throwforce = 2
 	force = 1
 	w_class = 2
@@ -163,7 +166,8 @@
 		return
 
 	if(!captured)
-		capture(M)
+		if(do_after(user, 3 SECONDS))
+			capture(M)
 	else
 		to_chat(user, "<span class='warning'>\The [src] is already full!</span>")
 
@@ -183,7 +187,7 @@
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
 
-/obj/item/weapon/trap/animal/Crossed(AM as mob|obj)
+/obj/item/weapon/trap/animal/Crossed(AM)
 	if(!deployed || !anchored)
 		return
 
@@ -202,16 +206,10 @@
 			)
 		captured = WEAKREF(L)
 		buckle_mob(L)
-
-	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
-		var/obj/effect/spider/spiderling/S = AM
-		captured = WEAKREF(S)
-		buckle_mob(S)
-
-	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-	deployed = FALSE
-	src.animate_shake()
-	update_icon()
+		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
+		deployed = FALSE
+		src.animate_shake()
+		update_icon()
 
 /obj/item/weapon/trap/animal/proc/req_breakout()
 	if(deployed || !captured)
@@ -256,7 +254,7 @@
 	release()
 
 /obj/item/weapon/trap/animal/CollidedWith(atom/AM)
-	if(isliving(AM) && deployed)
+	if(deployed && is_type_in_list(AM, allowed_mobs))
 		Crossed(AM)
 	else
 		..()
@@ -297,12 +295,11 @@
 		release(usr)
 
 /obj/item/weapon/trap/animal/crush_act()
-	for (var/atom/movable/A in src)
-		if(istype(A, /mob/living))
-			var/mob/living/M = A
-			M.gib()
-		else if(A.simulated)
-			A.ex_act(1)
+	if(captured)
+		var/datum/L = captured ? captured.resolve() : null
+		if(L && isliving(L))
+			var/mob/living/LL = L
+			LL.gib()
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
@@ -316,8 +313,8 @@
 			health -= rand(30, 60)
 
 	if (health <= 0)
-		for (var/atom/movable/A as mob|obj in src)
-			A.ex_act(severity + 1)
+		if(captured)
+			release()
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
@@ -343,9 +340,6 @@
 	if (isliving(L))
 		var/mob/living/ll = L
 		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
-	else if (istype(L, /obj/effect/spider/spiderling))
-		var/obj/effect/spider/spiderling/S = L
-		msg = "<span class='warning'>[S] jumps out of \the [src].</span>"
 
 	unbuckle_mob()
 	captured = null
@@ -354,7 +348,7 @@
 	update_icon()
 	release_time = world.time
 
-/obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/trap/animal/attackby(obj/item/W, mob/user)
 	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.welding)
@@ -363,7 +357,7 @@
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src]!</span>",
 							 "You are trying to slice \the [src]!")
 
-		if (do_after(user, 3 SECONDS, act_target = src))
+		if (do_after(user, 30/W.toolspeed, act_target = src))
 			if(WT.remove_fuel(0, user))
 				user.visible_message("<span class='notice'>[user] is sliced \the [src]!</span>",
 									"You sliced \the [src]!")
@@ -383,7 +377,7 @@
 							 "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
-		if (do_after(user, 3 SECONDS, act_target = src))
+		if (do_after(user, 30/W.toolspeed, act_target = src))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
@@ -404,14 +398,14 @@
 		else
 			captured = null
 
-/obj/item/weapon/trap/animal/attack_hand(mob/user as mob)
-	if(user.loc == src)
+/obj/item/weapon/trap/animal/attack_hand(mob/user)
+	if(user.loc == src || captured)
 		return
 
 	if(anchored && deployed)
 		to_chat(user, span("warning", "\The [src] is anchored and set!"))
 	else if(anchored)
-		attack_self()
+		deploy(user)
 	else
 		..()
 
@@ -427,13 +421,13 @@
 			)
 		else
 			usr.forceMove(loc)
-			usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
-							"<span class='notice'>You accidentally triggered \the [src]</span>"
+			usr.visible_message("<span class='warning'>[usr] accidentally triggered \the [src]!</span>",
+							"<span class='warning'>You accidentally trigger \the [src]!</span>"
 			)
 			capture(usr)
 
 /obj/item/weapon/trap/animal/MouseDrop(over_object, src_location, over_location)
-	if(!isliving(usr))
+	if(!isliving(usr) || !src.Adjacent(usr))
 		return
 
 	if(captured)
@@ -449,15 +443,13 @@
 	else
 		..()
 
-/obj/item/weapon/trap/animal/attack_self(mob/user as mob)
+/obj/item/weapon/trap/animal/attack_self(mob/user)
 	if(!can_use(user))
 		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
 		return
 
-	if(!captured)
-		return
-
-	release(user, user.loc)
+	if(captured)
+		release(user, user.loc)
 
 /obj/item/weapon/trap/animal/attack(var/target, mob/living/user)
 	if(!deployed)
@@ -481,18 +473,11 @@
 				deployed = FALSE
 				update_icon()
 				src.animate_shake()
-
-	else if(istype(target, /obj/effect/spider/spiderling) && spider) // for spiderlings
-		var/obj/effect/spider/spiderling/S = target
-		captured = WEAKREF(S)
-		S.forceMove(src)
-		STOP_PROCESSING(SSprocessing, S)
-		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-		deployed = FALSE
-		update_icon()
-		src.animate_shake()
 	else
 		..()
+
+/obj/item/weapon/trap/animal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	return TRUE
 
 /obj/item/weapon/trap/animal/medium
 	name = "medium trap"
@@ -537,7 +522,7 @@
 						/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/hostile/bear, /mob/living/simple_animal/hostile/alien, /mob/living/simple_animal/hostile/giant_spider,
 						/mob/living/simple_animal/hostile/commanded/dog, /mob/living/simple_animal/hostile/retaliate/cavern_dweller, /mob/living/carbon/human/)
 
-/obj/item/weapon/trap/animal/large/attack_hand(mob/user as mob)
+/obj/item/weapon/trap/animal/large/attack_hand(mob/user)
 	if(user.loc == loc)
 		to_chat(user, span("warning", "You can't do that from the inside!"))
 	else if(!anchored)
@@ -547,7 +532,7 @@
 	else
 		..()
 
-/obj/item/weapon/trap/animal/large/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/trap/animal/large/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		var/turf/T = get_turf(src)
 		if(!T)
@@ -578,6 +563,9 @@
 		to_chat(usr, span("warning", "The trap door's down, you can't get through there!"))
 		return
 
+	if(!src.Adjacent(usr))
+		return
+
 	if(!ishuman(usr))
 		..()
 		return
@@ -591,7 +579,7 @@
 	pass_without_trace(usr, pct)
 
 /obj/item/weapon/trap/animal/large/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(deployed || (!captured && anchored))
+	if(deployed)
 		return TRUE
 	return FALSE
 
@@ -604,7 +592,7 @@
 	force = 5
 	w_class = 5
 
-/obj/item/weapon/large_trap_foundation/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weapon/large_trap_foundation/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/O = W
 		if(O.get_amount() >= 12)
