@@ -10,4 +10,4 @@
 html/changelog.html merge=union
 
 # prevents changelogs from adding to contribution stats
-html/changelogs/*.yml linguist-generated=true
+html/changelogs/*.yml linguist-detectable=false
