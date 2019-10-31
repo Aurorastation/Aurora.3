@@ -1,0 +1,10 @@
+
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Janitorial staff are now equipped with an Arodentia gun, capable of keeping any well-meaning establishment clear of pests."
+  - rscadd: "Janitorial staff now have an armpit holster to keep their Arodentia gun in."
+  - tweak: "Arodentia guns have come out of the experimental phase, now featuring new abilities."
+  - tweak: "Rats now have their health reduced to reasonable levels."
