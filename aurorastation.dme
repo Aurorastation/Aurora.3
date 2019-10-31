@@ -317,6 +317,7 @@
 #include "code\datums\observation\observation.dm"
 #include "code\datums\outfits\outfit.dm"
 #include "code\datums\outfits\outfit_admin.dm"
+#include "code\datums\outfits\outfit_antag.dm"
 #include "code\datums\outfits\ert\ert.dm"
 #include "code\datums\radio\frequency.dm"
 #include "code\datums\radio\signal.dm"
