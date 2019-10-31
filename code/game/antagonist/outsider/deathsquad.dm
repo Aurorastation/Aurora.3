@@ -12,7 +12,7 @@ var/datum/antagonist/deathsquad/deathsquad
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_OVERRIDE_MOB | ANTAG_HAS_NUKE | ANTAG_HAS_LEADER | ANTAG_RANDOM_EXCEPTED | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "huddeathsquad"
 
-	var/deployed = 0
+	var/deployed = FALSE
 
 /datum/antagonist/ert/create_default(var/mob/source)
 	var/mob/living/carbon/human/M = ..()
@@ -20,5 +20,6 @@ var/datum/antagonist/deathsquad/deathsquad
 
 /datum/antagonist/deathsquad/New(var/no_reference)
 	..()
+	deployed = TRUE
 	if(!no_reference)
 		deathsquad = src

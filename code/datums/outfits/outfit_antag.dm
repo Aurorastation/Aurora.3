@@ -2,9 +2,15 @@
 
 /datum/outfit/admin/syndicate
 	name = "Syndicate Agent"
+	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/syndicate
-	back = /obj/item/weapon/storage/backpack
+	back = null
+	backpack = /obj/item/weapon/storage/backpack/syndie
+	satchel = /obj/item/weapon/storage/backpack/satchel_syndie
+	satchel_alt = /obj/item/weapon/storage/backpack/satchel
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/syndie
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/syndie
 	belt = /obj/item/weapon/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/combat
@@ -18,6 +24,7 @@
 		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/device/multitool = 1
 	)
+
 	var/id_access = "Syndicate Operative"
 	var/uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT
 
@@ -135,13 +142,6 @@
 	name = "Mercenary"
 
 	uniform = /obj/item/clothing/under/syndicate
-	back = list(
-		/obj/item/weapon/storage/backpack/syndie,
-		/obj/item/weapon/storage/backpack/satchel_syndie,
-		/obj/item/weapon/storage/backpack/satchel,
-		/obj/item/weapon/storage/backpack/duffel/syndie,
-		/obj/item/weapon/storage/backpack/messenger/syndie
-	)
 	belt = /obj/item/weapon/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -211,6 +211,8 @@
 	r_pocket = null
 	id = /obj/item/weapon/storage/wallet
 
+	backpack_contents = list()
+
 /datum/outfit/admin/syndicate/raider/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
@@ -253,15 +255,15 @@
 
 /datum/outfit/admin/wizard
 	name = "Wizard"
+	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/lightpurple
-	back = list(
-		/obj/item/weapon/storage/backpack/wizard,
-		/obj/item/weapon/storage/backpack/satchel_wizard,
-		/obj/item/weapon/storage/backpack/satchel,
-		/obj/item/weapon/storage/backpack/duffel/wizard,
-		/obj/item/weapon/storage/backpack/messenger/wizard
-	)
+	back = null
+	backpack = /obj/item/weapon/storage/backpack/wizard
+	satchel = /obj/item/weapon/storage/backpack/satchel_wizard
+	satchel_alt = /obj/item/weapon/storage/backpack/satchel
+	dufflebag = /obj/item/weapon/storage/backpack/duffel/wizard
+	messengerbag = /obj/item/weapon/storage/backpack/messenger/wizard
 	suit = /obj/item/clothing/suit/wizrobe
 	head = /obj/item/clothing/head/wizard
 	shoes = /obj/item/clothing/shoes/sandal
