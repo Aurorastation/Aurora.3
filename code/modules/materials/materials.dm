@@ -667,22 +667,17 @@ var/list/name_to_material
 	hitsound = 'sound/weapons/smash.ogg'
 
 // Adminspawn only, do not let anyone get this.
-/material/voxalloy
-	name = "voxalloy"
-	display_name = "durable alloy"
-	stack_type = null
-	icon_colour = "#6C7364"
-	integrity = 1200
-	melting_point = 6000       // Hull plating.
-	explosion_resistance = 200 // Hull plating.
-	hardness = 500
-	weight = 500
-	protectiveness = 80 // 80%
-
-/material/voxalloy/elevatorium
+/material/elevatorium
 	name = "elevatorium"
 	display_name = "elevator panelling"
+	stack_type = null
 	icon_colour = "#666666"
+	integrity = 1200
+	melting_point = 6000
+	explosion_resistance = 200
+	hardness = 500
+	weight = 500
+	protectiveness = 80
 
 /material/wood
 	name = "wood"

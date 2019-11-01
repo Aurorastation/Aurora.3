@@ -17562,7 +17562,7 @@
 	},
 /area/centcom/spawning)
 "aNd" = (
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/wall/shuttle/raider,
 /area/skipjack_station/start)
 "aNe" = (
 /obj/machinery/access_button{
@@ -17571,7 +17571,7 @@
 	master_tag = "vox_west_control";
 	req_one_access = list(150)
 	},
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/wall/shuttle/raider,
 /area/skipjack_station/start)
 "aNf" = (
 /obj/machinery/door/airlock/hatch{
@@ -17645,7 +17645,7 @@
 	master_tag = "vox_east_control";
 	req_access = list(150)
 	},
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/wall/shuttle/raider,
 /area/skipjack_station/start)
 "aNl" = (
 /turf/unsimulated/floor{
@@ -17781,7 +17781,7 @@
 	name = "remote shutter control";
 	req_access = list(150)
 	},
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/wall/shuttle/raider,
 /area/skipjack_station/start)
 "aND" = (
 /obj/machinery/airlock_sensor{

@@ -82,6 +82,13 @@
 	smooth = null
 	canSmoothWith = null
 
+/turf/simulated/wall/shuttle/raider
+	icon = 'icons/turf/smooth/composite_metal.dmi'
+	icon_state = "composite_metal"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = null
+	color = "#6C7364"
+
 //--Floors--//
 
 /turf/simulated/floor/shuttle

@@ -170,3 +170,7 @@
 	SSair.mark_for_update(other)
 
 	other.update_icon()
+
+/turf/simulated/wall/copy_turf(turf/simulated/wall/other, ignore_air = FALSE)
+	.=..()
+	other.damage = damage
