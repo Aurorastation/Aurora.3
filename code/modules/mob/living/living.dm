@@ -630,14 +630,15 @@ default behaviour is:
 		stop_pulling()
 		. = ..()
 	
-	for (var/obj/screen/movable/storage/S in client.screen)
-		if(S.master in contents)
-			continue
-		if(src.Adjacent(S.master))
-			continue
-		if(istype(S.master, /obj/item/weapon/storage/))
-			var/obj/item/weapon/storage/ST = S.master
-			ST.close(src)
+	if (client?.screen) // oof, forgot to check for client
+		for (var/obj/screen/movable/storage/S in client.screen)
+			if(S.master in contents)
+				continue
+			if(src.Adjacent(S.master))
+				continue
+			if(istype(S.master, /obj/item/weapon/storage/))
+				var/obj/item/weapon/storage/ST = S.master
+				ST.close(src)
 
 	if(update_slimes)
 		for(var/mob/living/carbon/slime/M in view(1,src))
