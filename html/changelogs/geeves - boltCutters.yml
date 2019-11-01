@@ -1,0 +1,8 @@
+
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Adds the ability to cut door bolts."
+  - rscdel: "Adds more examine details to airlocks. (Has maglock, door bolt cover busted, door bolts gone?)"
