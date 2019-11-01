@@ -66,12 +66,14 @@
 	if(!istype(W, /obj/item/weapon/reagent_containers))
 		return attack_hand(user)
 
+/turf/simulated/wall/shuttle/cardinal
+	smooth = SMOOTH_TRUE
+
 /turf/simulated/wall/shuttle/dark
 	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	canSmoothWith = null
 
 /turf/simulated/wall/shuttle/dark/cardinal
-	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	smooth = SMOOTH_TRUE
 	canSmoothWith = null
 
@@ -81,6 +83,22 @@
 	use_set_icon_state = 1
 	smooth = null
 	canSmoothWith = null
+
+/turf/simulated/wall/shuttle/dark/corner/underlay
+	var/underlay_dir
+
+/turf/simulated/wall/shuttle/dark/corner/underlay/update_icon()
+	..()
+	underlays.Cut()
+	var/underlay_fetch_dir = dir
+	if(underlay_dir)
+		underlay_fetch_dir = underlay_dir
+	var/turf/T = get_step(src, underlay_fetch_dir)
+	var/mutable_appearance/underlay_appearance = new(layer = TURF_LAYER)
+	var/list/U = list(underlay_appearance)
+	if(T && !istype(T, /turf/simulated/open))
+		underlay_appearance.appearance = T
+		underlays = U
 
 /turf/simulated/wall/shuttle/raider
 	icon = 'icons/turf/smooth/composite_metal.dmi'
