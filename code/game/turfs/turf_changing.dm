@@ -66,7 +66,7 @@
 	if (lighting_overlay && lighting_overlay.loc != src)
 		// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
 		lighting_overlay.forceMove(src, harderforce = TRUE)
-		
+
 	affecting_lights = old_affecting_lights
 	corners = old_corners
 
@@ -142,6 +142,11 @@
 	other.icon = icon
 	other.icon_state = icon_state
 	other.underlays = underlays.Copy()
+	other.name = name
+	other.layer = layer
+	other.decals = decals
+	other.roof_flags = roof_flags
+	other.roof_type = roof_type
 
 	if (our_overlays)
 		other.our_overlays = our_overlays

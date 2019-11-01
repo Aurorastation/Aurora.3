@@ -184,6 +184,8 @@ var/list/name_to_material
 		if ("vaurca")
 			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
 			skip_blend = TRUE
+		if ("shuttle")
+			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
@@ -293,7 +295,7 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/gold
 	icon_colour = "#EDD12F"
 	weight = 30
-	hardness = 15 
+	hardness = 15
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
@@ -708,7 +710,7 @@ var/list/name_to_material
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = "log"
-	stack_type = /obj/item/stack/material/woodlog 
+	stack_type = /obj/item/stack/material/woodlog
 	icon_colour = "#824B28"
 	integrity = 50
 	icon_base = "solid"
@@ -731,7 +733,7 @@ var/list/name_to_material
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
-	melting_point = T0C+220 
+	melting_point = T0C+220
 	ignition_point = T0C+218
 	sheet_singular_name = "branch"
 	sheet_plural_name = "branch"
@@ -1007,3 +1009,16 @@ var/list/name_to_material
 	weight = 23
 	protectiveness = 20 // 50%
 	conductivity = 10
+
+/material/shuttle
+	name = "shuttle"
+	display_name = "spaceship alloy"
+	stack_type = null
+	icon_colour = "#6C7364"
+	icon_base = "shuttle"
+	integrity = 1200
+	melting_point = 6000       // Hull plating.
+	explosion_resistance = 200 // Hull plating.
+	hardness = 500
+	weight = 500
+	protectiveness = 80 // 80%
