@@ -635,7 +635,9 @@ default behaviour is:
 			continue
 		if(src.Adjacent(S.master))
 			continue
-		S.master.close(src)
+		if(istype(S.master, /obj/item/weapon/storage/))
+			var/obj/item/weapon/storage/ST = S.master
+			ST.close(src)
 
 	if(update_slimes)
 		for(var/mob/living/carbon/slime/M in view(1,src))
