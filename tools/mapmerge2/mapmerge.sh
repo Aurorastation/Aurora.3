@@ -1,4 +1,3 @@
-cd ./tools/mapmerge2/
 export MAPROOT="../../maps/aurora/"
 export TGM="1"
 python3 mapmerge.py
