@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Allows variable-length storage objects to move. Webbing et al. coming soon."
+  - rscadd: "Allows storage objects to be dragged around the screen."
   - tweak: "You can have multiple storage items open at once."
   - backend: "Destroys the s_active var."
