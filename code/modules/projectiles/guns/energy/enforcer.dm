@@ -116,7 +116,7 @@
 			move_delay = 4,
 			multi_aim = TRUE, // Can aim at multiple targets
 			accuracy = list(1, 1),
-			dispersion = list(0, 10),
+			dispersion = list(0, 25),
 			projectile_type = /obj/item/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		)
