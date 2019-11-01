@@ -152,7 +152,6 @@
 /obj/item/weapon/storage/proc/slot_orient_objs(var/rows, var/cols, var/list/obj/item/display_contents)
 	var/cx = 4
 	var/cy = 2+rows
-	var/cy = 2+rows
 
 	var/list/screen_loc_xyfull = text2list(storage.screen_loc," to ")
 	var/list/screen_loc_xy = list(screen_loc_xyfull[1])
