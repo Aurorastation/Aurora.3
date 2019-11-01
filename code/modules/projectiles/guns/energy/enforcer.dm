@@ -1,5 +1,5 @@
 /obj/item/weapon/gun/energy/enforcer
-	name = "\improper Enforcer Pistol"
+	name = "enforcer"
 	icon_state = "enforcer"
 	item_state = "gun"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)

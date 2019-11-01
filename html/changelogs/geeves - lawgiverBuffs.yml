@@ -4,5 +4,5 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - tweak: "Lawgiver has been renamed to Enforcer Pistol."
-  - rscadd: "Added double whammy to the Enforcer Pistol."
+  - tweak: "Lawgiver has been renamed to Enforcer."
+  - rscadd: "Added double whammy to the Enforcer."
