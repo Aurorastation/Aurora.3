@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - security: "Fixed an exploit relating to the anti-spam filter."
