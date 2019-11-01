@@ -1,4 +1,4 @@
-cd maps/dungeon_spawns
+cd ../../maps/dungeon_spawns
 
 for f in *.dmm; do
     cp -- "$f" "${f%.dmm}.dmm.backup"

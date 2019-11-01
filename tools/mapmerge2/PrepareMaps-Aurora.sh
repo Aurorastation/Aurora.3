@@ -1,4 +1,4 @@
-cd maps/aurora
+cd ../../maps/aurora
 
 for f in *.dmm; do
     cp -- "$f" "${f%.dmm}.dmm.backup"

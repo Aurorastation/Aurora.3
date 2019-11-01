@@ -1,4 +1,4 @@
-cd maps/runtime
+cd ../../maps/runtime
 
 for f in *.dmm; do
     cp -- "$f" "${f%.dmm}.dmm.backup"

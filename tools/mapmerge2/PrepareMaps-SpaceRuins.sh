@@ -1,4 +1,4 @@
-cd maps/space_ruins
+cd ../../maps/space_ruins
 
 for f in *.dmm; do
     cp -- "$f" "${f%.dmm}.dmm.backup"

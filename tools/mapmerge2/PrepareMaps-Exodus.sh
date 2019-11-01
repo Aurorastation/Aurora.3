@@ -1,4 +1,4 @@
-cd maps/exodus
+cd ../../maps/exodus
 
 for f in *.dmm; do
     cp -- "$f" "${f%.dmm}.dmm.backup"
