@@ -152,11 +152,24 @@
 /obj/item/weapon/storage/proc/slot_orient_objs(var/rows, var/cols, var/list/obj/item/display_contents)
 	var/cx = 4
 	var/cy = 2+rows
-	src.boxes.screen_loc = "4:16,2:16 to [4+cols]:16,[2+rows]:16"
+	var/cy = 2+rows
+
+	var/list/screen_loc_xyfull = text2list(storage.screen_loc," to ")
+	var/list/screen_loc_xy = list(screen_loc_xyfull[1])
+
+	//Create list of X offsets
+	var/list/screen_loc_X = text2list(screen_loc_xy[1],":")
+	var/x_position = storage.decode_screen_X(screen_loc_X[1]) || 4
+	var/x_pix = text2num(screen_loc_X[2]) || 16
+
+	//Create list of Y offsets
+	var/list/screen_loc_Y = text2list(screen_loc_xy[2],":")
+	var/y_position = storage.decode_screen_Y(screen_loc_Y[1]) || 2
+	var/y_pix = text2num(screen_loc_Y[2]) || 16
 
 	if(display_contents_with_number)
 		for(var/datum/numbered_display/ND in display_contents)
-			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
+			ND.sample_object.screen_loc = "[cx+x_position]:[x_pix],[cy+y_position]:[y_pix]"
 			ND.sample_object.maptext = "<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>"
 			ND.sample_object.layer = 20
 			cx++
@@ -165,14 +178,15 @@
 				cy--
 	else
 		for(var/obj/O in contents)
-			O.screen_loc = "[cx]:16,[cy]:16"
+			O.screen_loc = "[cx+x_position]:[x_pix],[cy+y_position]:[y_pix]"
 			O.maptext = ""
 			O.layer = 20
 			cx++
 			if (cx > (4+cols))
 				cx = 4
 				cy--
-	closer.screen_loc = "[4+cols+1]:16,2:16"
+	src.boxes.screen_loc = "[x_position]:[x_pix],[y_position]:[y_pix] to [x_position+cols]:[x_pix],[y_position+rows]:[y_pix]"
+	closer.screen_loc = "[cols+1+x_position]:[x_pix],[y_position]:[y_pix]"
 	return
 
 /obj/item/weapon/storage/proc/space_orient_objs(list/obj/item/display_contents, defer_overlays = FALSE)
@@ -579,7 +593,7 @@
 	if(!allow_quick_gather)
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/movable/storage{icon_state = "block"; movable = FALSE}
+	boxes = new /obj/screen/movable/storage{icon_state = "block"}
 	boxes.master = src
 
 	storage = new /obj/screen/movable/storage
