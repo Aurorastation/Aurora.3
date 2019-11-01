@@ -11,8 +11,7 @@
 var/list/mineral_can_smooth_with = list(
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
-	/turf/unsimulated/wall,
-	/turf/simulated/shuttle
+	/turf/unsimulated/wall
 )
 
 // Some extra types for the surface to keep things pretty.
@@ -599,8 +598,7 @@ var/list/mineral_can_smooth_with = list(
 var/list/asteroid_floor_smooth = list(
 	/turf/unsimulated/floor/asteroid/ash,
 	/turf/simulated/mineral,
-	/turf/simulated/wall,
-	/turf/simulated/shuttle
+	/turf/simulated/wall
 )
 
 // Copypaste parent for performance.
