@@ -84,11 +84,11 @@
 	req_access = list(access_security)
 	starts_with = list(/obj/item/weapon/grenade/flashbang/clusterbang = 1)
 
-/obj/item/weapon/storage/lockbox/lawgiver
-	name = "Weapons lockbox"
-	desc = "A high security weapons lockbox"
+/obj/item/weapon/storage/lockbox/enforcer
+	name = "dangerous weapons lockbox"
+	desc = "A high security weapons lockbox."
 	req_access = list(access_armory)
-	starts_with = list(/obj/item/weapon/gun/energy/lawgiver = 1)
+	starts_with = list(/obj/item/weapon/gun/energy/enforcer = 1)
 
 /obj/item/weapon/storage/lockbox/medal
 	name = "medal box"

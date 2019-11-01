@@ -1,18 +1,18 @@
-/obj/item/weapon/gun/energy/lawgiver
-	name = "\improper Lawgiver Mk II"
-	icon_state = "lawgiver"
+/obj/item/weapon/gun/energy/enforcer
+	name = "\improper Enforcer Pistol"
+	icon_state = "enforcer"
 	item_state = "gun"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	sel_mode = 1
 	var/mode_check = 1
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
-	var/dna	= null//dna-locking the firearm
-	var/emagged = 0 //if the gun is emagged or not
-	var/owner_name = null //Name of the (initial) owner
-	var/message = null //Message that should be played to the user
-	var/message_delay = 100 //Delay of the message_delay
-	var/message_enabled = 0 //If playing the message should be enabled
-	var/message_disable = 0 //If the loop should be stopped
+	var/dna = null	//dna-locking the firearm
+	var/emagged = 0	//if the gun is emagged or not
+	var/owner_name = null	//Name of the (initial) owner
+	var/message = null	//Message that should be played to the user
+	var/message_delay = 100	//Delay of the message_delay
+	var/message_enabled = 0	//If playing the message should be enabled
+	var/message_disable = 0	//If the loop should be stopped
 	var/default_desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."
 
 	firemodes = list(
@@ -23,6 +23,7 @@
 			recoil = 1,
 			burst = null,
 			move_delay = null,
+			multi_aim = FALSE,
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pistol,
@@ -35,6 +36,7 @@
 			recoil = 1,
 			burst = 3,
 			move_delay = 4,
+			multi_aim = FALSE,
 			accuracy = list(1, 0, 0,-1,-1),
 			dispersion = list(0, 10, 10),
 			projectile_type = /obj/item/projectile/bullet/pistol,
@@ -47,6 +49,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
+			multi_aim = FALSE,
 			accuracy = 0,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/gyro/law,
@@ -59,6 +62,7 @@
 			recoil = 0,
 			burst = null,
 			move_delay = null,
+			multi_aim = FALSE,
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/energy/electrode,
@@ -71,6 +75,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
+			multi_aim = FALSE,
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
@@ -83,6 +88,7 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
+			multi_aim = FALSE,
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/rifle/a556,
@@ -95,25 +101,39 @@
 			recoil = 3,
 			burst = null,
 			move_delay = null,
+			multi_aim = FALSE,
 			accuracy = 0,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
+		),
+		list(
+			mode_name = "doublewhammy",
+			charge_cost = 100,
+			fire_delay = 2,
+			recoil = 1,
+			burst = 2,
+			move_delay = 4,
+			multi_aim = TRUE, // Can aim at multiple targets
+			accuracy = list(1, 1),
+			dispersion = list(0, 10),
+			projectile_type = /obj/item/projectile/bullet/pistol,
+			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		)
 	)
 
-/obj/item/weapon/gun/energy/lawgiver/Initialize()
+/obj/item/weapon/gun/energy/enforcer/Initialize()
 	. = ..()
 	listening_objects += src
 	power_supply = new /obj/item/weapon/cell/device/variable(src, 2000)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
-/obj/item/weapon/gun/energy/lawgiver/Destroy()
+/obj/item/weapon/gun/energy/enforcer/Destroy()
 	listening_objects -= src
 	return ..()
 
-/obj/item/weapon/gun/energy/lawgiver/proc/play_message()
+/obj/item/weapon/gun/energy/enforcer/proc/play_message()
 	while (message_enabled && !message_disable) //Shut down command issued. Inform user that boardcasting has been stopped
 		usr.audible_message("<span class='warning'>[usr]'s [src.name] broadcasts: [message]</span>","")
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
@@ -122,7 +142,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/weapon/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
+/obj/item/weapon/gun/energy/enforcer/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else
@@ -132,7 +152,7 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
+/obj/item/weapon/gun/energy/enforcer/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -153,18 +173,18 @@
 		return 0
 	..()
 
-/obj/item/weapon/gun/energy/lawgiver/proc/Emag(mob/user as mob)
+/obj/item/weapon/gun/energy/enforcer/proc/Emag(mob/user as mob)
 	to_chat(usr, "<span class='warning'>You short out [src]'s id check</span>")
 	emagged = 1
 	return 1
 
-/obj/item/weapon/gun/energy/lawgiver/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/weapon/gun/energy/enforcer/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/card/emag) && !emagged)
 		Emag(user)
 	else
 		..()
 
-/obj/item/weapon/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
+/obj/item/weapon/gun/energy/enforcer/hear_talk(mob/living/M in range(0,src), msg)
 	var/mob/living/carbon/human/H = M
 	if (!H || !istype(H))
 		return
@@ -172,7 +192,7 @@
 		hear(msg)
 	return
 
-/obj/item/weapon/gun/energy/lawgiver/proc/hear(var/msg)
+/obj/item/weapon/gun/energy/enforcer/proc/hear(var/msg)
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = ""," " = "")
 	msg = sanitize_old(msg, replacechars)
 	/* Firing Modes*/
@@ -197,6 +217,9 @@
 	else if(findtext(msg,"pellets"))
 		sel_mode = 7
 		to_chat(usr, "<span class='warning'>[src.name] is now set to pellet mode.</span>")
+	else if(findtext(msg,"doublewhammy") || findtext(msg,"double whammy"))
+		sel_mode = 8
+		to_chat(usr, "<span class='warning'>[src.name] is now set to double whammy mode.</span>")
 	/* Other Stuff */
 	else if(findtext(msg,"reset") && (findtext(msg,"user") || findtext(msg,"dna")))
 		dna = null

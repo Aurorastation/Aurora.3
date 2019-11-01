@@ -8573,7 +8573,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/device/radio/headset/ert,
 /obj/item/clothing/head/beret/centcom/captain,
-/obj/item/weapon/gun/energy/lawgiver,
+/obj/item/weapon/gun/energy/enforcer,
 /obj/item/weapon/card/id/centcom,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor2"

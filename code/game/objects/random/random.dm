@@ -938,7 +938,7 @@
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
-		/obj/item/weapon/gun/energy/lawgiver = 0.5,
+		/obj/item/weapon/gun/energy/enforcer = 0.5,
 		/obj/item/weapon/melee/energy/axe = 0.5,
 		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
 		/obj/item/weapon/rig/military = 0.5,

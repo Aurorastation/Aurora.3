@@ -57,7 +57,7 @@
 	new /obj/item/weapon/gun/energy/stunrevolver(src)
 	new /obj/item/weapon/gun/energy/stunrevolver(src)
 	new /obj/item/weapon/gun/energy/net(src)
-	new /obj/item/weapon/gun/energy/lawgiver(src)
+	new /obj/item/weapon/gun/energy/enforcer(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani_single/fill()
 	new /obj/item/clothing/head/helmet/space/void/cruiser(src)
