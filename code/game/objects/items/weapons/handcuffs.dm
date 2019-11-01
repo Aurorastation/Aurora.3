@@ -36,17 +36,17 @@
 
 		var/can_place
 		if(istype(user, /mob/living/silicon/robot))
-			can_place = 1
+			can_place = TRUE
 		else
 			for (var/obj/item/weapon/grab/G in C.grabbed_by)
 				if (G.loc == user && G.state >= GRAB_AGGRESSIVE)
-					can_place = 1
+					can_place = TRUE
 					break
 
 		if(can_place)
 			place_handcuffs(C, user)
 		else
-			user << "<span class='danger'>You need to have a firm grip on [C] before you can put \the [src] on!</span>"
+			to_chat(user, "<span class='danger'>You need to have a firm grip on [C] before you can put \the [src] on!</span>")
 
 /obj/item/weapon/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
