@@ -159,8 +159,8 @@
 		else
 			..()
 			for(var/mob/M in range(1))
-				if (M.s_active == src)
-					src.close(M)
+				if (M.client && (storage in M.client.screen))
+					close(M)
 		src.add_fingerprint(user)
 		return
 

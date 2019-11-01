@@ -11,6 +11,7 @@
 /obj/screen/movable
 	var/snap2grid = FALSE
 	var/moved = FALSE
+	var/movable = TRUE // in case we want to lock it in place
 
 //Snap Screen Object
 //Tied to the grid, snaps to the nearest turf
@@ -19,7 +20,9 @@
 	snap2grid = TRUE
 
 
-/obj/screen/movable/MouseDrop(over_object, src_location, over_location, src_control, over_control, params)
+/obj/screen/movable/MouseDrag(over_object, src_location, over_location, src_control, over_control, params)
+	if(!movable)
+		return
 	var/list/PM = params2list(params)
 
 	//No screen-loc information? abort.
@@ -88,6 +91,34 @@
 		. = num+1
 	else if(findtext(Y,"CENTER"))
 		. = usr.client.view+1
+
+// STORAGE
+/obj/screen/movable/storage
+	name = "storage"
+	layer = 19
+	screen_loc = "4:16,2:16"
+	mouse_opacity = 2
+
+/obj/screen/movable/storage/MouseDrag(over_object, src_location, over_location, src_control, over_control, params)
+	..()
+	if(!movable)
+		return
+	if(istype(master, /obj/item/weapon/storage/))
+		var/obj/item/weapon/storage/S = master
+		S.space_orient_objs()
+
+/obj/screen/movable/storage/Click()
+	if(!usr.canClick())
+		return 1
+	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
+		return 1
+	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
+		return 1
+	if(master)
+		var/obj/item/I = usr.get_active_hand()
+		if(I)
+			usr.ClickOn(master)
+	return 1
 
 //Debug procs
 /client/proc/test_movable_UI()

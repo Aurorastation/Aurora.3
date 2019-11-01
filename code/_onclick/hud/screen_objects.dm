@@ -79,25 +79,6 @@
 /obj/screen/grab/attackby()
 	return
 
-
-/obj/screen/storage
-	name = "storage"
-	layer = 19
-	screen_loc = "7,7 to 10,8"
-
-/obj/screen/storage/Click()
-	if(!usr.canClick())
-		return 1
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return 1
-	if(master)
-		var/obj/item/I = usr.get_active_hand()
-		if(I)
-			usr.ClickOn(master)
-	return 1
-
 /obj/screen/zone_sel
 	name = "damage zone"
 	icon_state = "zone_sel"

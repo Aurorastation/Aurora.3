@@ -96,8 +96,7 @@
 	var/found = 0
 	// Close any open UI windows first
 	for(var/mob/M in range(1))
-		if (M.s_active == src)
-			src.close(M)
+		src.close(M)
 		if ( M == user )
 			found = 1
 	if ( !found )	// User is too far away

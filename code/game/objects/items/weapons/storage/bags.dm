@@ -217,7 +217,7 @@
 	if(!inserted || !S.amount)
 		usr.remove_from_mob(S)
 		usr.update_icons()	//update our overlays
-		if (usr.client && usr.s_active != src)
+		if (usr.client && (storage in usr.client.screen))
 			usr.client.screen -= S
 		S.dropped(usr)
 		if(!S.amount)
@@ -226,8 +226,7 @@
 			S.forceMove(src)
 
 	orient2hud(usr)
-	if(usr.s_active)
-		usr.s_active.show_to(usr)
+	show_to(usr)
 	update_icon()
 	return 1
 
@@ -268,8 +267,7 @@
 		if(!S.amount)
 			qdel(S) // todo: there's probably something missing here
 	orient2hud(usr)
-	if(usr.s_active)
-		usr.s_active.show_to(usr)
+	show_to(usr)
 	update_icon()
 
 // Instead of removing

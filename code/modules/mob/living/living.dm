@@ -629,9 +629,13 @@ default behaviour is:
 	else
 		stop_pulling()
 		. = ..()
-
-	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
-		s_active.close(src)
+	
+	for (var/obj/screen/movable/storage/S in client.screen)
+		if(S.master in contents)
+			continue
+		if(src.Adjacent(S.master))
+			continue
+		S.master.close(src)
 
 	if(update_slimes)
 		for(var/mob/living/carbon/slime/M in view(1,src))

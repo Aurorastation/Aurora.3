@@ -22,13 +22,13 @@
 	var/max_w_class = 3 //Max size of objects that this object can store (in effect only if can_hold isn't set)
 	var/max_storage_space = 8 //The sum of the storage costs of all the items in this storage item.
 	var/storage_slots //The number of storage slots in this container.
-	var/obj/screen/storage/boxes
-	var/obj/screen/storage/storage_start //storage UI
-	var/obj/screen/storage/storage_continue
-	var/obj/screen/storage/storage_end
-	var/obj/screen/storage/stored_start
-	var/obj/screen/storage/stored_continue
-	var/obj/screen/storage/stored_end
+	var/obj/screen/movable/storage/boxes
+	var/obj/screen/movable/storage/storage //storage UI
+	var/obj/storage_continue // these must be objects so that
+	var/obj/storage_end      // we can use matrix ops on them
+	var/obj/stored_start 
+	var/obj/stored_continue
+	var/obj/stored_end
 	var/obj/screen/close/closer
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
 	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
@@ -42,7 +42,6 @@
 /obj/item/weapon/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
-	QDEL_NULL(storage_start)
 	QDEL_NULL(storage_continue)
 	QDEL_NULL(storage_end)
 	QDEL_NULL(stored_start)
@@ -100,27 +99,16 @@
 			. += G.gift:return_inv()
 
 /obj/item/weapon/storage/proc/show_to(mob/user as mob)
-	if(user.s_active != src)
-		for(var/obj/item/I in src)
-			if(I.on_found(user))
-				return
-	if(user.s_active)
-		user.s_active.hide_from(user)
-	user.client.screen -= boxes
-	user.client.screen -= storage_start
-	user.client.screen -= storage_continue
-	user.client.screen -= storage_end
-	user.client.screen -= closer
-	user.client.screen -= contents
-	user.client.screen += closer
-	user.client.screen += contents
+	for(var/obj/item/I in src)
+		if(I.on_found(user))
+			return
+	
+	user.client.screen |= closer
+	user.client.screen |= contents
 	if(storage_slots)
-		user.client.screen += boxes
+		user.client.screen |= boxes
 	else
-		user.client.screen += storage_start
-		user.client.screen += storage_continue
-		user.client.screen += storage_end
-	user.s_active = src
+		user.client.screen |= storage
 	LAZYADD(is_seeing, user)
 	return
 
@@ -129,13 +117,9 @@
 	if(!user.client)
 		return
 	user.client.screen -= boxes
-	user.client.screen -= storage_start
-	user.client.screen -= storage_continue
-	user.client.screen -= storage_end
+	user.client.screen -= storage
 	user.client.screen -= closer
 	user.client.screen -= contents
-	if(user.s_active == src)
-		user.s_active = null
 
 	LAZYREMOVE(is_seeing, user)
 
@@ -144,13 +128,10 @@
 		playsound(src.loc, src.use_sound, 50, 0, -5)
 
 	orient2hud(user)
-	if (user.s_active)
-		user.s_active.close(user)
 	show_to(user)
 
 /obj/item/weapon/storage/proc/close(mob/user as mob)
 	hide_from(user)
-	user.s_active = null
 	return
 
 /obj/item/weapon/storage/proc/close_all()
@@ -161,27 +142,11 @@
 /obj/item/weapon/storage/proc/can_see_contents()
 	var/list/cansee = list()
 	for(var/mob/M in is_seeing)
-		if(M.s_active == src && M.client)
+		if(M.client && (storage in M.client.screen))
 			cansee |= M
 		else
 			LAZYREMOVE(is_seeing, M)
 	return cansee
-
-//This proc draws out the inventory and places the items on it. tx and ty are the upper left tile and mx, my are the bottm right.
-//The numbers are calculated from the bottom-left The bottom-left slot being 1,1.
-/obj/item/weapon/storage/proc/orient_objs(tx, ty, mx, my)
-	var/cx = tx
-	var/cy = ty
-	src.boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
-	for(var/obj/O in src.contents)
-		O.screen_loc = "[cx],[cy]"
-		O.layer = 20
-		cx++
-		if (cx > mx)
-			cx = tx
-			cy--
-	src.closer.screen_loc = "[mx+1],[my]"
-	return
 
 //This proc draws out the inventory and places the items on it. It uses the standard position.
 /obj/item/weapon/storage/proc/slot_orient_objs(var/rows, var/cols, var/list/obj/item/display_contents)
@@ -217,18 +182,32 @@
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.cut_overlays()
+	storage.cut_overlays()
 
-	var/matrix/M = matrix()
-	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
-	storage_continue.transform = M
-
-	storage_start.screen_loc = "4:16,2:16"
-	storage_continue.screen_loc = "4:[storage_cap_width+(storage_width-storage_cap_width*2)/2+2],2:16"
-	storage_end.screen_loc = "4:[19+storage_width-storage_cap_width],2:16"
+	var/matrix/Mcont = matrix()
+	Mcont.Scale((storage_width-storage_cap_width*2+3)/32,1)
+	Mcont.Translate(storage_cap_width+storage_width/2-18, 0)
+	storage_continue.transform = Mcont
+	var/matrix/Mend = matrix()
+	Mend.Translate(storage_width-storage_cap_width, 0)
+	storage_end.transform = Mend
+	storage.icon_state = "storage_start"
+	storage.add_overlay(list(storage_continue, storage_end))
 
 	var/startpoint = 0
 	var/endpoint = 1
+
+	var/list/screen_loc_xy = text2list(storage.screen_loc,",")
+
+	//Create list of X offsets
+	var/list/screen_loc_X = text2list(screen_loc_xy[1],":")
+	var/x_position = storage.decode_screen_X(screen_loc_X[1]) || 4
+	var/x_pix = text2num(screen_loc_X[2]) || 16
+
+	//Create list of Y offsets
+	var/list/screen_loc_Y = text2list(screen_loc_xy[2],":")
+	var/y_position = storage.decode_screen_Y(screen_loc_Y[1]) || 2
+	var/y_pix = text2num(screen_loc_Y[2]) || 16
 
 	for(var/obj/item/O in contents)
 		startpoint = endpoint + 1
@@ -244,16 +223,15 @@
 		stored_start.transform = M_start
 		stored_continue.transform = M_continue
 		stored_end.transform = M_end
-		storage_start.add_overlay(list(stored_start, stored_continue, stored_end))
-
-		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
+		storage.add_overlay(list(stored_start, stored_continue, stored_end))
+		O.screen_loc = "[x_position]:[round((startpoint+endpoint)/2)+2+x_pix-16],[y_position]:[y_pix]"
 		O.maptext = ""
 		O.layer = 20
 
 	if (!defer_overlays)
-		storage_start.compile_overlays()
+		storage.compile_overlays()
 
-	closer.screen_loc = "4:[storage_width+19],2:16"
+	closer.screen_loc = "[x_position]:[storage_width+3+x_pix],[y_position]:[y_pix]"
 	return
 
 /datum/numbered_display
@@ -378,8 +356,7 @@
 					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
 
 		orient2hud(user)
-		if(user.s_active)
-			user.s_active.show_to(user)
+		show_to(user)
 	queue_icon_update()
 	return 1
 
@@ -400,8 +377,7 @@
 	add_fingerprint(user)
 	user.update_icons()
 	orient2hud(user)
-	if (user.s_active)
-		user.s_active.show_to(user)
+	show_to(user)
 	queue_icon_update()
 
 //Call this proc to handle the removal of an item from the storage item. The item will be moved to the atom sent as new_target
@@ -413,7 +389,7 @@
 		F.update_icon(1)
 
 	for(var/mob/M in range(1, src.loc))
-		if (M.s_active == src)
+		if (M.client && (storage in M.client.screen))
 			if (M.client)
 				M.client.screen -= W
 
@@ -430,8 +406,7 @@
 
 	if(usr)
 		src.orient2hud(usr)
-		if(usr.s_active)
-			usr.s_active.show_to(usr)
+		show_to(usr)
 	if(W.maptext)
 		W.maptext = ""
 	W.on_exit_storage(src)
@@ -444,9 +419,8 @@
 
 	// fuck if I know.
 	for(var/mob/M in range(1, src.loc))
-		if (M.s_active == src)
-			if (M.client)
-				M.client.screen -= W
+		if(M.client && (storage in M.client.screen))
+			M.client.screen -= W
 
 	if (new_location)
 		if (ismob(loc))
@@ -469,8 +443,7 @@
 
 /obj/item/weapon/storage/proc/post_remove_from_storage_deferred(atom/oldloc, mob/user)
 	orient2hud(user)
-	if (user.s_active)
-		user.s_active.show_to(user)
+	show_to(user)
 
 	// who knows what the fuck this does
 	if (istype(src, /obj/item/weapon/storage/fancy))
@@ -540,9 +513,6 @@
 		src.open(user)
 	else
 		..()
-		for(var/mob/M in range(1))
-			if (M.s_active == src)
-				src.close(M)
 	src.add_fingerprint(user)
 	return
 
@@ -609,22 +579,17 @@
 	if(!allow_quick_gather)
 		verbs -= /obj/item/weapon/storage/verb/toggle_gathering_mode
 
-	boxes = new /obj/screen/storage{icon_state = "block"}
+	boxes = new /obj/screen/movable/storage{icon_state = "block"; movable = FALSE}
 	boxes.master = src
 
-	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
-	storage_start.master = src
+	storage = new /obj/screen/movable/storage
+	storage.master = src
 
-	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
-	storage_continue.master = src
+	storage_continue = new /obj/storage_bullshit{icon_state = "storage_continue"}
+	storage_end = new /obj/storage_bullshit{icon_state = "storage_end"}
 
-	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
-	storage_end.master = src
-
-	stored_start = new /obj/storage_bullshit{icon_state = "stored_start"} //we just need these to hold the icon
-
+	stored_start = new /obj/storage_bullshit{icon_state = "stored_start"}
 	stored_continue = new /obj/storage_bullshit{icon_state = "stored_continue"}
-
 	stored_end = new /obj/storage_bullshit{icon_state = "stored_end"}
 
 	closer = new /obj/screen/close{
