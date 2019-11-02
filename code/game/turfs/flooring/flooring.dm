@@ -280,8 +280,3 @@ var/list/flooring_types
 
 /decl/flooring/shuttle/dark_blue
 	icon_base = "floor9"
-
-/decl/flooring/shuttle/engine_mount
-	name = "engine mount"
-	desc = "The spot to mount an engine."
-	icon_base = "vfloor"
