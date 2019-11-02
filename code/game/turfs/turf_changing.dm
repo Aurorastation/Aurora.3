@@ -26,14 +26,14 @@
 
 //Creates a new turf.
 // N is the type of the turf.
-/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE)
+/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, var/ignore_override)
 	if (!N)
 		return
 	if(!use_preloader && N == type) // Don't no-op if the map loader requires it to be reconstructed
 		return src
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(N == /turf/space && HasBelow(z))
+	if(N == /turf/space && HasBelow(z) && !ignore_override)
 		N = openspace_override_type || /turf/simulated/open/airless
 
 	var/obj/fire/old_fire = fire

@@ -16212,9 +16212,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/centcom)
 "aLi" = (
 /obj/structure/bed/chair{
@@ -16451,9 +16449,7 @@
 	icon_state = "heater";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/centcom)
 "aLF" = (
 /obj/machinery/hologram/holopad,
@@ -16497,9 +16493,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/centcom)
 "aLJ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -21426,9 +21420,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXf" = (
 /obj/structure/shuttle/engine/heater,
@@ -21436,9 +21428,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXg" = (
 /obj/structure/shuttle/engine/heater,
@@ -21450,31 +21440,23 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXh" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXi" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXj" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXk" = (
 /obj/machinery/door/airlock/centcom{
@@ -25290,7 +25272,7 @@
 	icon_state = "blue";
 	dir = 6
 	},
-/area/space)
+/area/centcom/holding)
 "qNk" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/unsimulated/floor{
@@ -64294,7 +64276,7 @@ aCq
 aCq
 aCq
 aCq
-lkF
+ifh
 jon
 jon
 nhD
