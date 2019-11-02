@@ -1,0 +1,7 @@
+
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "You can now use magboots to maintain your balance during shuttle transit."
