@@ -34,6 +34,7 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
+	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
@@ -53,6 +54,7 @@
 	new /obj/item/clothing/under/rank/chief_engineer(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/device/radio/headset/heads/ce(src)
+	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
 	name = "electrical supplies"
@@ -127,9 +129,10 @@
 	new /obj/item/clothing/glasses/meson/aviator(src)
 	new /obj/item/weapon/cartridge/engineering(src)
 	new /obj/item/taperoll/engineering(src)
+	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 
 /obj/structure/closet/secure_closet/atmos_personal
-	name = "technician's locker"
+	name = "atmospheric technician's locker"
 	req_access = list(access_atmospherics)
 	icon_state = "secureatm1"
 	icon_closed = "secureatm"
@@ -152,7 +155,8 @@
 	new /obj/item/device/flashlight(src)
 	new /obj/item/weapon/extinguisher(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
-	new /obj/item/clothing/suit/storage/hazardvest(src)
+	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/weapon/cartridge/atmos(src)
 	new /obj/item/taperoll/engineering(src)
+	new /obj/item/clothing/accessory/storage/overalls/engineer(src)

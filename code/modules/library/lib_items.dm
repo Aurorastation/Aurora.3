@@ -30,7 +30,7 @@
 	if(istype(O, /obj/item/weapon/book))
 		user.drop_from_inventory(O,src)
 		update_icon()
-	else if(istype(O, /obj/item/weapon/pen))
+	else if(O.ispen())
 		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
 		if(!newname)
 			return
@@ -235,7 +235,7 @@
 		else
 			to_chat(user, "<span class='notice'>There's already something in [title]!</span>")
 			return
-	if(istype(W, /obj/item/weapon/pen))
+	if(W.ispen())
 		if(unique)
 			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
 			return

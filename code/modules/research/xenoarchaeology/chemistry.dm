@@ -14,7 +14,7 @@
 	flags = OPENCONTAINER
 
 obj/item/weapon/reagent_containers/glass/solution_tray/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/weapon/pen))
+	if(W.ispen())
 		var/new_label = sanitizeSafe(input("What should the new label be?","Label solution tray"), MAX_NAME_LEN)
 		if(new_label)
 			name = "solution tray ([new_label])"

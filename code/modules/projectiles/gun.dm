@@ -642,11 +642,12 @@
 	update_icon()
 	update_held_icon()
 
-/obj/item/weapon/gun/mob_can_equip(M as mob, slot)
+/obj/item/weapon/gun/mob_can_equip(M as mob, slot, disable_warning, ignore_blocked)
 	//Cannot equip wielded items.
 	if(is_wieldable)
 		if(wielded)
-			to_chat(M, "<span class='warning'>Lower the [initial(name)] first!</span>")
+			if(!disable_warning) // unfortunately not sure there's a way to get this to only fire once when it's looped
+				to_chat(M, "<span class='warning'>Lower the [initial(name)] first!</span>")
 			return 0
 
 	return ..()

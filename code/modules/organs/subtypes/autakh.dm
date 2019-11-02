@@ -291,7 +291,7 @@
 /obj/item/organ/external/hand/right/autakh/tool
 	name = "engineering grasper"
 	action_button_name = "Deploy Mechanical Combitool"
-	var/augment_type = /obj/item/combitool/robotic
+	var/augment_type = /obj/item/weapon/combitool/robotic
 
 /obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
 	. = ..()
@@ -329,15 +329,15 @@
 		owner.put_in_active_hand(M)
 		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
 
-/obj/item/combitool/robotic
+/obj/item/weapon/combitool/robotic
 	name = "robotic combitool"
 	desc = "An integrated combitool module."
 	icon_state = "digitool"
 
-/obj/item/combitool/robotic/throw_at()
+/obj/item/weapon/combitool/robotic/throw_at()
 	usr.drop_from_inventory(src)
 
-/obj/item/combitool/robotic/dropped()
+/obj/item/weapon/combitool/robotic/dropped()
 	loc = null
 	qdel(src)
 

@@ -234,6 +234,7 @@
 	r_hand = /obj/item/weapon/reagent_containers/hypospray
 	belt = /obj/item/weapon/storage/belt/medical/emt
 	pda =  /obj/item/device/pda/medical
+	head = /obj/item/clothing/head/hardhat/emt
 
 	backpack = /obj/item/weapon/storage/backpack/medic
 	satchel = /obj/item/weapon/storage/backpack/satchel_med

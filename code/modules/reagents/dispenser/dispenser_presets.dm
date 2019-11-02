@@ -131,6 +131,10 @@
 	spawn_cartridges = list(
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/greentea{temperature_override = 349},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/chaitea{temperature_override = 349},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ciderhot{temperature_override = 349},
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,

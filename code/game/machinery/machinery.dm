@@ -324,15 +324,15 @@ Class Procs:
 			return 1
 	return 0
 
-/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
-	if(!istype(C))
+/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
+	if(!istype(C) || !C.iscrowbar())
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
-/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/weapon/screwdriver/S)
-	if(!istype(S))
+/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
+	if(!istype(S) || !S.isscrewdriver())
 		return 0
 	playsound(src.loc,  S.usesound, 50, 1)
 	panel_open = !panel_open

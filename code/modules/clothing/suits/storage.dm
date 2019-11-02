@@ -23,6 +23,8 @@
 
 /obj/item/clothing/suit/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+	if(istype(W, /obj/item/clothing/accessory))
+		return
 	pockets.attackby(W, user)
 
 /obj/item/clothing/suit/storage/emp_act(severity)

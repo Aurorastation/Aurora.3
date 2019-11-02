@@ -11,6 +11,7 @@
 	fill()
 		..()
 		new /obj/item/clothing/under/rank/cargotech(src)
+		new /obj/item/clothing/under/rank/cargotech/alt(src)
 		new /obj/item/clothing/shoes/black(src)
 		new /obj/item/device/radio/headset/headset_cargo(src)
 		new /obj/item/clothing/gloves/black(src)
