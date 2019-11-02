@@ -202,29 +202,60 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc = "A high-visibility vest used in work zones."
 	icon_state = "hazard"
 	item_state = "hazard"
+	var/icon_open = "hazard_open"
+	var/icon_closed = "hazard"
 	blood_overlay_type = "armor"
 	allowed = list (/obj/item/device/analyzer, /obj/item/device/flashlight, /obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
 	/obj/item/weapon/crowbar, /obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/weapon/tank/emergency_oxygen, \
 	/obj/item/clothing/mask/gas, /obj/item/taperoll/engineering)
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/hazardvest/verb/Toggle() //copied from storage toggle
+	set name = "Toggle Hazard Vest"
+	set category = "Object"
+	set src in usr
+	if(use_check_and_message(usr))
+		return FALSE
+	if(icon_state == icon_open)
+		item_state = icon_closed
+		icon_state = icon_closed
+		to_chat(usr, span("notice", "You zip up the hazard vest."))
+	else if(icon_state == icon_closed)
+		item_state = icon_open
+		icon_state = icon_open
+		to_chat(usr, span("notice", "You unzip the hazard vest."))
+	else
+		to_chat(usr, span("notice", "You attempt to zip up your [src], before promptly realising how silly you are."))
+		return
+	update_clothing_icon()
+
 /obj/item/clothing/suit/storage/hazardvest/blue
 	name = "blue hazard vest"
 	desc = "A high-visibility vest used in work zones. This one is blue."
 	icon_state = "hazard_b"
 	item_state = "hazard_b"
+	icon_open = "hazard_b_open"
+	icon_closed = "hazard_b"
+
+/obj/item/clothing/suit/storage/hazardvest/blue/atmos
+	name = "atmospheric hazard vest"
+	desc = "A high-visibility vest used in work zones. This one is used by atmospheric technicians."
 
 /obj/item/clothing/suit/storage/hazardvest/white
 	name = "white hazard vest"
 	desc = "A high-visibility vest used in work zones. This one is white."
 	icon_state = "hazard_w"
 	item_state = "hazard_w"
+	icon_open = "hazard_w_open"
+	icon_closed = "hazard_w"
 
 /obj/item/clothing/suit/storage/hazardvest/green
 	name = "green hazard vest"
 	desc = "A high-visibility vest used in work zones. This one is green."
 	icon_state = "hazard_g"
 	item_state = "hazard_g"
+	icon_open = "hazard_g_open"
+	icon_closed = "hazard_g"
 
 //Lawyer
 /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket

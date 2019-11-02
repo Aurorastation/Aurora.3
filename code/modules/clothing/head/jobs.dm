@@ -100,7 +100,7 @@
 /obj/item/clothing/head/beret/engineering
 	name = "engineering beret"
 	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
-	icon_state = "e_beret_badge"
+	icon_state = "e_beret"
 
 /obj/item/clothing/head/beret/medical
 	name = "medical beret"

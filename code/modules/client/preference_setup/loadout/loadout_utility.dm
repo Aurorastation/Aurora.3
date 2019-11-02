@@ -90,3 +90,9 @@
 		var/obj/item/weapon/storage/belt/fannypack/fanny_type = fanny
 		fannys[initial(fanny_type.name)] = fanny_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(fannys))
+
+/datum/gear/utility/toolbelt_alt
+	display_name = "tool-belt, alt"
+	cost = 2
+	path = /obj/item/weapon/storage/belt/utility/alt
+	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
