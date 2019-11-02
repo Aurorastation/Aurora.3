@@ -263,7 +263,9 @@
 			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
-	spam_alert = max(0, spam_alert - 1)
+	else
+		spam_alert = max(0, spam_alert - 1)
+
 	return FALSE
 
 /client/proc/automute_by_duplicate(message, mute_type)
