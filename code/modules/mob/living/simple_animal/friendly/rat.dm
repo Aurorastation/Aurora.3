@@ -18,21 +18,21 @@
 	'sound/effects/creatures/rat_squeaks_2.ogg',
 	'sound/effects/creatures/rat_squeaks_3.ogg',
 	'sound/effects/creatures/rat_squeaks_4.ogg')
-	var/last_softsqueak = null//Used to prevent the same soft squeak twice in a row
-	var/squeals = 5//Spam control.
-	var/maxSqueals = 2//SPAM PROTECTION
-	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
+	var/last_softsqueak = null //Used to prevent the same soft squeak twice in a row
+	var/squeals = 5 //Spam control.
+	var/maxSqueals = 2 //SPAM PROTECTION
+	var/last_squealgain = 0 // #TODO-FUTURE: Remove from life() once something else is created
 	var/squeakcooldown = 0
 	pass_flags = PASSTABLE
 	speak_chance = 3
 	turns_per_move = 5
 	see_in_dark = 6
-	maxHealth = 10
-	health = 10
+	maxHealth = 5
+	health = 5
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/rat
-	response_help  = "pets"
+	response_help = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps on"
+	response_harm = "stomps on"
 	density = 0
 	meat_amount = 2 // Rats are a bit bigger, so a bit more meat for dreg-feeding.
 	var/body_color //brown, gray, white, american irish, hooded leave blank for random

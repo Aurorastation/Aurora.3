@@ -102,7 +102,9 @@
 	suit = /obj/item/clothing/suit/space/void/merc
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	suit_store = /obj/item/weapon/tank/oxygen
-	id = /obj/item/weapon/card/id/distress
+	id = /obj/item/weapon/card/id/syndicate
+
+	l_ear = /obj/item/device/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/weapon/gun/projectile/automatic/c20r = 1,
@@ -139,7 +141,7 @@
 
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
-	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle
+	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle/sts35
 	back = /obj/item/weapon/rig/merc/distress
 	suit_store = null
 	suit = null
