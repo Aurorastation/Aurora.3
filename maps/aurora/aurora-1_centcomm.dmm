@@ -6184,7 +6184,7 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "aoY" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station)
 "aoZ" = (
 /obj/structure/table/standard,
