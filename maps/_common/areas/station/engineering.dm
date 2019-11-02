@@ -68,8 +68,20 @@
 	icon_state = "engineering_foyer"
 	allow_nightmode = 1
 
-/area/engineering/storage
-	name = "\improper Engineering - Storage"
+/area/engineering/storage_eva
+	name = "\improper Engineering - EVA Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_hard
+	name = "\improper Engineering - Hard Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_tesla
+	name = "\improper Engineering - Tesla Parts Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_sublevel
+	name = "\improper Engineering - Sublevel Storage"
 	icon_state = "engineering_storage"
 
 /area/engineering/break_room
@@ -96,8 +108,12 @@
 /area/engineering/gravity_gen
 	name = "\improper Engineering - Gravity Generator"
 	icon_state = "engine"
-	
+
 /area/engineering/backup_SMES
 	name = "\improper Engineering - Backup Power Storage"
 	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED	
+	sound_env = SMALL_ENCLOSED
+
+/area/engineering/bathroom
+	name = "\improper Engineering - Bathroom"
+	icon_state = "engineering_locker"
