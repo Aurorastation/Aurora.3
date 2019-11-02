@@ -20,8 +20,9 @@
 	var/isEditing = FALSE
 	var/authenticated = 0
 	var/default_screen = "general"
+	var/record_prefix = ""
 	var/typechoices = list(
-		"phisical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
 			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
@@ -32,6 +33,7 @@
 	filename = "medrec"
 	filedesc = "Medical records"
 	extended_desc = "Used to view, edit and maintain medical records."
+	record_prefix = "Medical "
 
 	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
 	required_access_download = access_heads
@@ -45,6 +47,7 @@
 	filename = "secrec"
 	filedesc = "Security records"
 	extended_desc = "Used to view, edit and maintain security records"
+	record_prefix = "Security "
 
 	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
 	required_access_download = access_heads
@@ -58,6 +61,7 @@
 	filename = "emprec"
 	filedesc = "Employment records"
 	extended_desc = "Used to view, edit and maintain employment records."
+	record_prefix = "Employment "
 
 	required_access_run = list(access_heads)
 	required_access_download = access_heads
@@ -103,6 +107,8 @@
 		VUEUI_SET_CHECK(ui.activeui, "records-login", ., data)
 	else
 		VUEUI_SET_CHECK(ui.activeui, "records-main", ., data)
+
+	VUEUI_SET_CHECK(data["canprint"], !!(computer?.nano_printer), ., data)
 
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
 	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
@@ -268,6 +274,21 @@
 			SSrecords.onModify(vars[key[1]])
 			isEditing = FALSE
 			. = TRUE
+	if(href_list["print"])
+		if(!(href_list["print"] in list("active", "active_virus")))
+			return
+		if(computer?.nano_printer && vars[href_list["print"]])
+			var/excluded = list()
+			if(href_list["print"] == "active")
+				if(!(records_type & RECORD_GENERAL))
+					excluded += active.advanced_fields
+				if(!(records_type & RECORD_SECURITY))
+					excluded += "security"
+				if(!(records_type & RECORD_MEDICAL))
+					excluded += "medical"
+			var/out = vars[href_list["print"]].Printify(excluded)
+			computer.nano_printer.print_text(out, "[record_prefix]Record ([vars[href_list["print"]].name])")
+
 
 /datum/computer_file/program/records/proc/canEdit(list/key)
 	if(!(key[1] in list("active", "active_virus")))

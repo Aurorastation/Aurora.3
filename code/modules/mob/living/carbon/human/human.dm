@@ -634,11 +634,11 @@
 
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R))
-				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.phisical_status) in list("*SSD*", "*Deceased*", "Physically Unfit", "Active", "Disabled", "Cancel")
+				var/setmedical = input(usr, "Specify a new medical status for this person.", "Medical HUD", R.physical_status) in list("*SSD*", "*Deceased*", "Physically Unfit", "Active", "Disabled", "Cancel")
 
 				if(hasHUD(usr,"medical"))
 					if(setmedical != "Cancel")
-						R.phisical_status = setmedical
+						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
 
