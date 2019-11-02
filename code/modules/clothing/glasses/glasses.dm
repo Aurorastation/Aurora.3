@@ -199,23 +199,24 @@ BLIND     // can't see anything
 	set src in usr
 
 	if(use_check_and_message(usr))
-		if(src.up)
-			src.up = !src.up
-			flags_inv |= HIDEEYES
-			body_parts_covered |= EYES
-			item_state = initial(item_state)
-			icon_state = initial(item_state)
-			to_chat(usr, span("notice", "You flip \the [src] down to protect your eyes."))
-		else
-			src.up = !src.up
-			flags_inv &= ~HIDEEYES
-			body_parts_covered &= ~EYES
-			item_state = "[initial(item_state)]_up"
-			icon_state = "[initial(icon_state)]_up"
-			to_chat(usr, span("notice", "You push \the [src] up out of your face."))
-		update_clothing_icon()
-		update_icon()
-		usr.update_action_buttons()
+		return
+	if(src.up)
+		src.up = !src.up
+		flags_inv |= HIDEEYES
+		body_parts_covered |= EYES
+		item_state = initial(item_state)
+		icon_state = initial(item_state)
+		to_chat(usr, span("notice", "You flip \the [src] down to protect your eyes."))
+	else
+		src.up = !src.up
+		flags_inv &= ~HIDEEYES
+		body_parts_covered &= ~EYES
+		item_state = "[initial(item_state)]_up"
+		icon_state = "[initial(icon_state)]_up"
+		to_chat(usr, span("notice", "You push \the [src] up out of your face."))
+	update_clothing_icon()
+	update_icon()
+	usr.update_action_buttons()
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"

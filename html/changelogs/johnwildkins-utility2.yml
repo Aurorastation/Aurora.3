@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes: 
+  - bugfix: "Sec. cadet hazard vests can now be properly zipped/unzipped."
+  - bugfix: "Safety goggles can now be properly adjusted."

@@ -402,12 +402,16 @@
 	icon_badge = "csivest_badge"
 	icon_nobadge = "csivest_nobadge"
 
-/obj/item/clothing/suit/storage/vest/cadet
+/obj/item/clothing/suit/storage/hazardvest/cadet
 	name = "cadet hazard vest"
 	desc = "A sturdy high-visibility vest intended for in training security personnel."
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
+	icon_open = "hazard_cadet_open"
+	icon_closed = "hazard_cadet"
+	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight)
 	armor = list(melee = 10, bullet = 0, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
+	siemens_coefficient = 0.5
 
 /obj/item/clothing/suit/storage/vest/heavy
 	name = "heavy armor vest"
