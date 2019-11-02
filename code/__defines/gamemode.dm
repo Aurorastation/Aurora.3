@@ -54,9 +54,12 @@
 #define MODE_TRAITOR "traitor"
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
+<<<<<<< HEAD
 #define MODE_LEGION "tau ceti foreign legion"
 #define MODE_COMMANDER "commander"
 #define MODE_OPERATIVE "operative"
+=======
+>>>>>>> fernerr/syndie_commander_mapping
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 

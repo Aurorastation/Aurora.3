@@ -231,3 +231,37 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/distress/centcom
+	name = "\improper Unidentified Shuttle"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/space
+	icon_state = "shuttlegrn"
+	centcomm_area = 1
+
+/area/shuttle/distress/station
+	name = "\improper Blue Dock Exterior"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	icon_state = "shuttle"
+	station_area = 1
+
+/area/shuttle/distress/transit
+	name = "\improper Unidentified Shuttle"
+	base_turf = /turf/space
+	icon_state = "shuttle"
+	centcomm_area = 1
+
+/area/shuttle/syndicate_commander/centcom
+	name = "\improper Unidentified Spacecraft"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/space
+	icon_state = "shuttlegrn"
+	dynamic_lighting = 0
+	centcomm_area = 1
+
+/area/shuttle/syndicate_commander/station
+	name = "\improper Running Track Exterior"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/simulated/open/airless
+	icon_state = "shuttle"
+	station_area = 1

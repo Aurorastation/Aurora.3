@@ -56,6 +56,9 @@
 /area/centcom/legion
 	name = "\improper Tau Ceti Foreign Legion Base"
 
+/area/centcom/distress_prep
+	name = "\improper Distress Team Preparation"
+
 //SYNDICATES
 
 /area/syndicate_mothership
@@ -78,6 +81,10 @@
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
 	dynamic_lighting = 1
+
+/area/syndicate_mothership/command_wing
+	name = "\improper Syndicate Command Wing"
+	icon_state = "syndie-control"
 
 //THUNDERDOME
 
