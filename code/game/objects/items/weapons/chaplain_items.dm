@@ -12,9 +12,9 @@
 	throwforce = 10
 	w_class = 2
 	var/cooldown = 0 // floor tap cooldown
-	var/static/list/nullchoices
+	var/static/list/nullchoices = list("Null Rod" = /obj/item/weapon/nullrod/, "Null Staff" = /obj/item/weapon/nullrod/staff, "Null Orb" = /obj/item/weapon/nullrod/orb, "Null Athame" = /obj/item/weapon/nullrod/athame)
 
-/obj/item/weapon/nullrod/nullstaff
+/obj/item/weapon/nullrod/staff
 	name = "null staff"
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullstaff"
@@ -22,13 +22,13 @@
 	slot_flags = SLOT_BACK
 	w_class = 4
 
-/obj/item/weapon/nullrod/nullorb
+/obj/item/weapon/nullrod/orb
 	name = "null sphere"
 	desc = "An orb of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullorb"
 	item_state = "nullorb"
 
-/obj/item/weapon/nullrod/nullathame
+/obj/item/weapon/nullrod/athame
 	name = "null athame"
 	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullathame"
@@ -40,31 +40,25 @@
 	icon_state = "nullshards"
 	item_state = "nullshards"
 
-/obj/item/weapon/nullrod/Initialize()
-	. = ..()
-	if(!nullchoices)
-		var/blocked = list(src.type, /obj/item/weapon/nullrod/nullorb) + typesof(/obj/item/weapon/nullrod/fluff)
-		nullchoices = generate_chameleon_choices(/obj/item/weapon/nullrod, blocked)
-
-/obj/item/weapon/nullrod/verb/change()
+/obj/item/weapon/nullrod/verb/change(mob/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
 	set src in usr
 
-	if (use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
+	if(use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
 		return
 
 	var/picked = input("What form would you like your obsidian relic to take?", "Reassembling your obsidian relic") as null|anything in nullchoices
 
-	if (use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
+	if(use_check_and_message(usr, USE_FORCE_SRC_IN_USER))
 		return
-
 	if(!ispath(nullchoices[picked]))
 		return
 
-	var/obj/item/weapon/nullrod/chosenitem = new picked(get_turf(src))
-	usr.put_in_hands(chosenitem)
+	var/obj/item/weapon/nullrod/chosenitem = nullchoices[picked]
+	new chosenitem(get_turf(user))
 	qdel(src)
+	user.put_in_hands(chosenitem)
 
 /obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob)
 
@@ -130,7 +124,7 @@
 		return
 	if (istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))
 		cooldown = world.time
-		user.visible_message(span("notice", "[user] loudly taps their [src] against the floor."))
+		user.visible_message(span("notice", "[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		call(/obj/effect/rune/proc/revealrunes)(src)
 		return
@@ -158,7 +152,7 @@
 /obj/item/weapon/material/urn/attack(var/obj/A, var/mob/user, var/proximity)
 	if(!istype(A, /obj/effect/decal/cleanable/ash))
 		return ..()
-	else if(proximity))
+	else if(proximity)
 		if(contents.len)
 			to_chat(user, span("warning", "\The [src] is already full!"))
 			return
@@ -174,4 +168,4 @@
 		for(var/obj/effect/decal/cleanable/ash/A in contents)
 			A.dropInto(loc)
 			user.visible_message("[user] pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
-			desc = "A vase used to store the ashes of the deceased.""
+			desc = "A vase used to store the ashes of the deceased."

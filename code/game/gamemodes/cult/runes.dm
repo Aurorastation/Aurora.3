@@ -750,8 +750,7 @@ var/list/sacrificed = list()
 			S=1
 	if(S)
 		if(istype(W,/obj/item/weapon/nullrod))
-			for (var/mob/V in viewers(src))
-				V.show_message("<span class='warning'>Arcane markings suddenly glow from underneath a thin layer of dust!</span>", 3)
+			visible_message(span("warning", "Arcane markings suddenly glow from underneath a thin layer of dust!"))
 			return
 		if(istype(W,/obj/effect/rune))
 			user.say("Nikt[pick("'","`")]o barada kla'atu!")

@@ -14,3 +14,4 @@ changes:
   - rscadd: "Added new bible types, as well as a generic variant with no face."
   - rscadd: "You can now only bless up to 60u of water, the amount that's in a flask. No more blessing water tanks."
   - rscadd: "Adds craftable burial urns."
+  - rscadd: "Added null orb sprite."

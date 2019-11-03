@@ -33,37 +33,39 @@
 				A.reagents.add_reagent("holywater", water2holy)
 
 /obj/item/weapon/storage/bible/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (src.use_sound)
+	if(src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	..()
 
 /obj/item/weapon/storage/bible/proc/Set_Religion(mob/user)
 	if(use_check(user))
 		return
-
 	if(!ishuman(user))
 		return
 
 	var/religion_name = "Christianity"
 	var/new_religion = sanitize(input(user, "You are the crew services officer. Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
 
-	if (!new_religion)
+	if(!new_religion)
 		new_religion = religion_name
 
 	var/book_name = sanitize(input(user, "Would you like the change your bible name? Default is holy bible.", "Book name change", name), MAX_NAME_LEN)
 
-	if (book_name)
+	if(book_name)
 		name = book_name
 		SSticker.Bible_name = book_name
 
-	var/new_book_style = input(user,"Which bible style would you like?") in list("Generic", "Bible", "White Bible", "Quran", "Torah", "Holy Light", "Tome", "Scroll", "The King in Yellow", "Ithaqua", "Trinary", "Stars", "Scrapbook", "Atheist", "Necronomicon")
+	var/new_book_style = input(user,"Which bible style would you like?") in list("Generic", "Bible", "White Bible", "Melted Bible", "Quran", "Torah", "Holy Light", "Tome", "Scroll", "The King in Yellow", "Ithaqua", "Trinary", "Stars", "Scrapbook", "Atheist", "Necronomicon")
 	switch(new_book_style)
 		if("Bible")
-			icon_state = "white"
-			item_state = "white"
+			icon_state = "bible"
+			item_state = "bible"
 		if("White Bible")
 			icon_state = "white"
 			item_state = "white"
+		if("Melted Bible")
+			icon_state = "melted"
+			item_state = "melted"
 		if("Quran")
 			icon_state = "quran"
 			item_state = "quran"
