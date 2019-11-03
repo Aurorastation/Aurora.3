@@ -1,6 +1,6 @@
 /datum/computer_file/program/records
 	filename = "record"
-	filedesc = "Recrods"
+	filedesc = "Records"
 	extended_desc = "Used to view, edit and maintain records."
 
 	program_icon_state = "generic"
