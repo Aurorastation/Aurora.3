@@ -1,9 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - refactor: "All off-station antags / those with extensive spawned loadouts now use the outfit datum system."
-  - tweak: "ERT/Ghost roles should now have a clearer message as to your particular role and objective."
-  - rscadd: "NT Asset Protection and Syndicate Commandos (aka 'Deathsquads') have been moved and re-tooled as ghost spawner ERTs. They will only appear upon admin intervention."
-  - tweak: "Outfit datums should now take backpack choice into account, if options are provided."
