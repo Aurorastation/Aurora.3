@@ -100,7 +100,7 @@ var/datum/antagonist/ninja/ninjas
 
 /datum/antagonist/ninja/equip(var/mob/living/carbon/human/player)
 	if(!..())
-		return 0
+		return FALSE
 
 	for (var/obj/item/I in player)
 		if (istype(I, /obj/item/weapon/implant))
@@ -113,6 +113,7 @@ var/datum/antagonist/ninja/ninjas
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
+	return TRUE
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)
 	var/directive = "[side=="face"?"[current_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.
