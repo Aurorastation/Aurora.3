@@ -1,7 +1,7 @@
 /obj/item/weapon/storage/bible
 	name = "bible"
-	desc = "Apply to head repeatedly."
-	icon_state ="bible"
+	desc = "A holy item, containing the written words of a religion."
+	icon_state = "bible"
 	icon = 'icons/obj/library.dmi'
 	throw_speed = 1
 	throw_range = 5
@@ -12,7 +12,7 @@
 
 /obj/item/weapon/storage/bible/booze
 	name = "bible"
-	desc = "To be applied to the head repeatedly."
+	desc = "Praise the mighty keg!"
 	icon_state = "bible"
 	starts_with = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 2,
@@ -20,13 +20,17 @@
 	)
 
 /obj/item/weapon/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
-	if(!proximity) return
+	if(!proximity)
+		return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent("water")) //blesses all the water in the holder
-			to_chat(user, "<span class='notice'>You bless [A].</span>")
-			var/water2holy = A.reagents.get_reagent_amount("water")
-			A.reagents.del_reagent("water")
-			A.reagents.add_reagent("holywater",water2holy)
+			if(A.reagents.get_reagent_amount("water") > 60)
+				to_chat(user, span("notice", "There's too much water for you to bless at once!"))
+			else
+				to_chat(user, span("notice", "You bless the water in [A], turning it into holy water."))
+				var/water2holy = A.reagents.get_reagent_amount("water")
+				A.reagents.del_reagent("water")
+				A.reagents.add_reagent("holywater", water2holy)
 
 /obj/item/weapon/storage/bible/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if (src.use_sound)
@@ -52,47 +56,57 @@
 		name = book_name
 		SSticker.Bible_name = book_name
 
-	var/new_book_style = input(user,"Which bible style would you like?") in list("Bible", "Quran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Atheist", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+	var/new_book_style = input(user,"Which bible style would you like?") in list("Generic", "Bible", "White Bible", "Quran", "Torah", "Holy Light", "Tome", "Scroll", "The King in Yellow", "Ithaqua", "Trinary", "Stars", "Scrapbook", "Atheist", "Necronomicon")
 	switch(new_book_style)
-		if("Quran")
-			icon_state = "quran"
-			item_state = "quran"
-		if("Scrapbook")
-			icon_state = "scrapbook"
-			item_state = "scrapbook"
-		if("Creeper")
-			icon_state = "creeper"
-			item_state = "creeper"
+		if("Bible")
+			icon_state = "white"
+			item_state = "white"
 		if("White Bible")
 			icon_state = "white"
 			item_state = "white"
+		if("Quran")
+			icon_state = "quran"
+			item_state = "quran"
+		if("Torah")
+			icon_state = "torah"
+			item_state = "torah"
+		if("Kojiki")
+			icon_state = "kojiki"
+			item_state = "kojiki"
 		if("Holy Light")
 			icon_state = "holylight"
 			item_state = "holylight"
-		if("Atheist")
-			icon_state = "atheist"
-			item_state = "atheist"
 		if("Tome")
 			icon_state = "tome"
 			item_state = "tome"
+		if("Scroll")
+			icon_state = "scroll"
+			item_state = "scroll"
 		if("The King in Yellow")
 			icon_state = "kingyellow"
 			item_state = "kingyellow"
 		if("Ithaqua")
 			icon_state = "ithaqua"
 			item_state = "ithaqua"
-		if("Scientology")
-			icon_state = "scientology"
-			item_state = "scientology"
-		if("the bible melts")
-			icon_state = "melted"
-			item_state = "melted"
+		if("Trinary")
+			icon_state = "trinary"
+			item_state = "trinary"
+		if("Stars")
+			icon_state = "skrellbible"
+			item_state = "skrellbible"
+		if("Scrapbook")
+			icon_state = "scrapbook"
+			item_state = "scrapbook"
+		if("Atheist")
+			icon_state = "atheist"
+			item_state = "atheist"
 		if("Necronomicon")
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
 		else
-			icon_state = "bible"
-			item_state = "bible"
+			var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7")
+			icon_state = randbook
+			item_state = randbook
 
 	SSticker.Bible_icon_state = icon_state
 	SSticker.Bible_item_state = item_state
