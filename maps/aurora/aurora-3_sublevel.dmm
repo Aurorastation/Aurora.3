@@ -30926,7 +30926,7 @@
 "ltb" = (
 /obj/structure/table/wood,
 /obj/item/weapon/deck/cards,
-/obj/item/weapon/deck/holder,
+/obj/item/weapon/storage/card,
 /obj/item/weapon/deck/tarot,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
