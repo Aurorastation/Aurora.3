@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Reverts the sec antag chances changes, gamemodes should be normal again now."
