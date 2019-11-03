@@ -19,7 +19,7 @@
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullstaff"
 	item_state = "nullstaff"
-	slot_flags = SLOT_BACK
+	slot_flags = SLOT_BELT | SLOT_BACK
 	w_class = 4
 
 /obj/item/weapon/nullrod/orb
@@ -35,7 +35,7 @@
 	item_state = "nullathame"
 
 /obj/item/weapon/nullrod/obsidianshards
-	name = "Obsidian Shards"
+	name = "obsidian shards"
 	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
 	icon_state = "nullshards"
 	item_state = "nullshards"
