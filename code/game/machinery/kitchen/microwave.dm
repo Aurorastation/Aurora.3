@@ -66,12 +66,7 @@
 
 	for (var/type in component_types)
 		var/count = component_types[type]
-		if (count > 1)
-			for (var/i in 1 to count)
-				var/obj/t = new type
-				component_parts += t
-				t.forceMove(null)
-		else
+		for(var/i in 1 to count)
 			var/obj/t = new type
 			component_parts += t
 			t.forceMove(null)
