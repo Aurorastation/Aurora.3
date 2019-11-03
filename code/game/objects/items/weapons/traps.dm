@@ -411,21 +411,21 @@
 		..()
 
 /obj/item/weapon/trap/animal/proc/pass_without_trace(mob/user, pct = 100)
-	usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
+	user.visible_message("<span class='notice'>[user] is attempting to enter \the [src] without triggering it to pass through.</span>",
 						"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
 	)
-	if(do_after(usr, 2 SECONDS, act_target = src))
+	if(do_after(user, 2 SECONDS, act_target = src))
 		if(prob(pct))
-			usr.forceMove(loc)
-			usr.visible_message("<span class='notice'>[usr] passes through \the [src] without triggering it.</span>",
+			user.forceMove(loc)
+			user.visible_message("<span class='notice'>[user] passes through \the [src] without triggering it.</span>",
 							"<span class='notice'>You pass through \the [src] without triggering it.</span>"
 			)
 		else
-			usr.forceMove(loc)
-			usr.visible_message("<span class='warning'>[usr] accidentally triggered \the [src]!</span>",
+			user.forceMove(loc)
+			user.visible_message("<span class='warning'>[user] accidentally triggered \the [src]!</span>",
 							"<span class='warning'>You accidentally trigger \the [src]!</span>"
 			)
-			capture(usr)
+			capture(user)
 
 /obj/item/weapon/trap/animal/MouseDrop(over_object, src_location, over_location)
 	if(!isliving(usr) || !src.Adjacent(usr))
