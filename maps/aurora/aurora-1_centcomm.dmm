@@ -3962,8 +3962,9 @@
 	},
 /area/syndicate_mothership/elite_squad)
 "akA" = (
-/obj/effect/landmark{
-	name = "Syndicate-Commando"
+/obj/effect/ghostspawpoint{
+	identifier = "SyndERTSpawn";
+	name = "igs - SyndERT"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor4"
@@ -11884,8 +11885,9 @@
 	},
 /area/centcom/specops)
 "aAR" = (
-/obj/effect/landmark{
-	name = "Commando"
+/obj/effect/ghostspawpoint{
+	identifier = "DeathERTSpawn";
+	name = "igs - DeathERT"
 	},
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -12580,8 +12582,9 @@
 	},
 /area/centcom/specops)
 "aCi" = (
-/obj/effect/landmark{
-	name = "Commando"
+/obj/effect/ghostspawpoint{
+	identifier = "DeathERTSpawn";
+	name = "igs - DeathERT"
 	},
 /obj/structure/mirror{
 	pixel_y = -30

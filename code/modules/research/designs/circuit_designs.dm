@@ -730,17 +730,3 @@
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/hacker
 	sort_string = "WAAAP"
-
-/datum/design/circuit/stealth
-	name = "stealth rig central circuit board"
-	id = "stealth_rig"
-	req_tech = list(TECH_DATA = 6, TECH_ILLEGAL = 5)
-	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/stealth
-	sort_string = "WAAAQ"
-
-/datum/design/circuit/stealth_target
-	name = "stealth rig control and targeting board"
-	id = "stealth_rig_target"
-	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 5, TECH_ILLEGAL = 5)
-	build_path = /obj/item/weapon/circuitboard/rig_assembly/illegal/targeting/stealth
-	sort_string = "WAAAR"

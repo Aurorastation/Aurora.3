@@ -29,6 +29,7 @@
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/weapon/book/manual/ka_custom(src)
+	new /obj/item/clothing/accessory/storage/overalls/mining(src)
 
 /******************************Lantern*******************************/
 
