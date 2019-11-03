@@ -38255,6 +38255,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bnP" = (
@@ -63254,9 +63259,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"cAf" = (
-/turf/simulated/floor/tiled/dark,
-/area/assembly/chargebay)
 "cBC" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -63895,6 +63897,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"eHu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/assembly/chargebay)
 "eJM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -64032,12 +64040,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"fak" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
 "fbL" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
@@ -64192,6 +64194,9 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
+"fBg" = (
+/turf/simulated/wall/r_wall,
+/area/assembly/chargebay)
 "fBZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -64201,6 +64206,9 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"fDF" = (
+/turf/simulated/wall/r_wall,
+/area/assembly/robotics_cyborgification)
 "fFb" = (
 /obj/item/ammo_casing/c45/rubber,
 /turf/simulated/floor/plating,
@@ -65049,9 +65057,6 @@
 /obj/structure/closet/crate/autakh,
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
-"hQw" = (
-/turf/simulated/wall/r_wall,
-/area/assembly/robotics_cyborgification)
 "hRF" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -65120,20 +65125,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"hVm" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/engineering_hallway_main)
 "hXd" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 1
@@ -65189,9 +65180,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"inA" = (
-/turf/simulated/floor/tiled,
-/area/engineering/engineering_hallway_main)
 "ipL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65256,9 +65244,20 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
-"iCT" = (
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics_cyborgification)
+"iCQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/assembly/chargebay)
 "iNI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -65293,6 +65292,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"iTz" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/engineering_hallway_main)
 "iXN" = (
 /obj/item/bodybag,
 /obj/effect/decal/cleanable/blood,
@@ -65810,6 +65812,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
+"kDF" = (
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics_cyborgification)
 "kIj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
@@ -65877,20 +65882,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"kTF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
 "kVD" = (
 /obj/item/weapon/stool/padded,
 /mob/living/simple_animal/rat/gray,
@@ -66067,21 +66058,14 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
+"lrX" = (
+/turf/simulated/floor/tiled,
+/area/engineering/engineering_hallway_main)
 "luK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
-"luQ" = (
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
-	icon_state = "radiation";
-	name = "RADIOACTIVE AREA";
-	pixel_x = 0;
-	pixel_y = 0
-	},
-/turf/simulated/wall/r_wall,
-/area/engineering/engineering_hallway_main)
 "lyh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Maintenance - Atmospherics"
@@ -67944,6 +67928,9 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"ral" = (
+/turf/simulated/wall,
+/area/assembly/chargebay)
 "rbC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/power/singularity_beacon/emergency{
@@ -68267,6 +68254,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
+"saV" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/assembly/chargebay)
 "sbf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -68283,6 +68279,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"scH" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engineering_hallway_main)
 "sdW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -68320,9 +68330,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"shB" = (
-/turf/simulated/wall,
-/area/assembly/robotics_cyborgification)
 "siH" = (
 /obj/effect/decal/cleanable/flour,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -68402,9 +68409,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
-"sqR" = (
-/turf/simulated/wall/r_wall,
-/area/assembly/chargebay)
 "ssY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/wood,
@@ -68851,6 +68855,16 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/lawoffice)
+"tHB" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE AREA";
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/engineering_hallway_main)
 "tHD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -69114,9 +69128,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"ufF" = (
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
+"uex" = (
+/turf/simulated/wall,
+/area/assembly/robotics_cyborgification)
 "uiD" = (
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -69258,9 +69272,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"uCu" = (
-/turf/simulated/wall,
-/area/assembly/chargebay)
 "uKO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -69416,15 +69427,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/medical/medbay2)
-"vgD" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
 "vgH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -69437,6 +69439,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"vhe" = (
+/turf/simulated/floor/tiled,
+/area/assembly/chargebay)
 "vhg" = (
 /obj/structure/sign/directions/medical{
 	dir = 1;
@@ -69542,9 +69547,9 @@
 /obj/item/weapon/material/shard,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"vrt" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/storage_eva)
+"vvP" = (
+/turf/simulated/floor/tiled/dark,
+/area/assembly/chargebay)
 "vvS" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -69617,6 +69622,9 @@
 "vHT" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/library)
+"vHX" = (
+/turf/simulated/wall/r_wall,
+/area/engineering/storage_eva)
 "vIC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair/office/light{
@@ -70038,9 +70046,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"wLU" = (
-/turf/simulated/wall/r_wall,
-/area/engineering/engineering_hallway_main)
 "wOo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/c45/rubber,
@@ -85352,7 +85357,7 @@ asw
 aDK
 aFy
 aHx
-luQ
+tHB
 aKU
 aMF
 njF
@@ -85595,8 +85600,8 @@ udn
 akw
 ahk
 amq
-inA
-inA
+lrX
+lrX
 apV
 ari
 asx
@@ -86114,17 +86119,17 @@ ajL
 ajL
 ajL
 ajL
-inA
+lrX
 avH
-hVm
+scH
 ayW
-vrt
+vHX
 aBO
 aDN
 aDN
 aHz
-vrt
-vrt
+vHX
+vHX
 aKT
 aKT
 aKU
@@ -86373,7 +86378,7 @@ ark
 ajL
 atZ
 avH
-hVm
+scH
 ayW
 aAw
 aBP
@@ -86381,7 +86386,7 @@ aDO
 aFB
 aHA
 aIZ
-vrt
+vHX
 adn
 aMH
 aMH
@@ -86638,7 +86643,7 @@ aBQ
 aBQ
 aBQ
 aJa
-vrt
+vHX
 aMH
 aMH
 aQd
@@ -86887,7 +86892,7 @@ anE
 asA
 aub
 avH
-hVm
+scH
 ayW
 aAy
 aBR
@@ -86895,7 +86900,7 @@ aBQ
 aBQ
 aBQ
 aJb
-vrt
+vHX
 aMI
 aOx
 aQe
@@ -87152,7 +87157,7 @@ aBQ
 aBQ
 aHB
 aJc
-vrt
+vHX
 aMJ
 aOy
 aQf
@@ -87401,7 +87406,7 @@ arn
 ajL
 aud
 avH
-hVm
+scH
 ayW
 aAz
 aBS
@@ -87409,7 +87414,7 @@ aBQ
 aFC
 aHC
 aJd
-vrt
+vHX
 aMK
 aOy
 aQg
@@ -87666,7 +87671,7 @@ aDP
 aFD
 aHD
 aJe
-vrt
+vHX
 aML
 aOz
 aQh
@@ -87908,22 +87913,22 @@ ahk
 ahk
 ahk
 ahk
-wLU
-wLU
-wLU
-wLU
-wLU
-wLU
+iTz
+iTz
+iTz
+iTz
+iTz
+iTz
 avK
 axs
 ayZ
-vrt
+vHX
 aBT
 aBQ
 aBQ
 aHE
 aJe
-vrt
+vHX
 aMM
 aOy
 aQe
@@ -88170,7 +88175,7 @@ anJ
 anJ
 anJ
 anJ
-wLU
+iTz
 avL
 axt
 aza
@@ -88180,7 +88185,7 @@ aBQ
 aBQ
 aHE
 aJf
-vrt
+vHX
 aMN
 aOA
 aQi
@@ -88427,9 +88432,9 @@ anJ
 anJ
 anJ
 anJ
-wLU
+iTz
 avM
-hVm
+scH
 azb
 aAA
 aBV
@@ -88437,7 +88442,7 @@ aDQ
 aFE
 aHF
 aJg
-vrt
+vHX
 aMO
 aOB
 aQj
@@ -88684,17 +88689,17 @@ anJ
 anJ
 anJ
 anJ
-wLU
+iTz
 avM
-hVm
+scH
 azc
-vrt
-vrt
-vrt
+vHX
+vHX
+vHX
 aFF
 aHG
-vrt
-vrt
+vHX
+vHX
 aMP
 aOC
 aQk
@@ -88941,9 +88946,9 @@ anJ
 anJ
 anJ
 anJ
-wLU
+iTz
 avM
-hVm
+scH
 azd
 aAB
 aBW
@@ -89198,7 +89203,7 @@ anJ
 anJ
 anJ
 anJ
-wLU
+iTz
 avN
 axu
 aze
@@ -89455,7 +89460,7 @@ anJ
 anJ
 anJ
 anJ
-wLU
+iTz
 avO
 axv
 azf
@@ -94101,10 +94106,10 @@ aVp
 aWu
 aYc
 aZg
-hQw
-hQw
-hQw
-hQw
+fDF
+fDF
+fDF
+fDF
 bfX
 baE
 biB
@@ -94358,10 +94363,10 @@ aEa
 aWv
 aYf
 aZg
-hQw
+fDF
 bbv
 bbv
-hQw
+fDF
 bfX
 baE
 biC
@@ -94615,10 +94620,10 @@ aEa
 aWs
 aYc
 aZg
-hQw
+fDF
 bbw
 bcZ
-hQw
+fDF
 bfX
 baE
 bbu
@@ -94872,12 +94877,12 @@ aEa
 aWw
 aYc
 aZg
-hQw
+fDF
 bbx
 bda
-hQw
+fDF
 bfX
-sqR
+fBg
 biD
 hPs
 biD
@@ -94885,7 +94890,7 @@ bmr
 bnP
 bpj
 bqu
-uCu
+ral
 bsI
 btN
 buR
@@ -95129,20 +95134,20 @@ aEa
 aWx
 aYc
 aZi
-hQw
+fDF
 bby
 bdb
-hQw
+fDF
 bfX
-sqR
+fBg
 biE
 bkO
 bkO
 bms
 bnQ
-ufF
+vhe
 bqu
-uCu
+ral
 bsJ
 lnw
 uwI
@@ -95386,20 +95391,20 @@ aVq
 aWs
 aYg
 aZj
-hQw
+fDF
 bbz
-shB
-hQw
+uex
+fDF
 bfY
-sqR
+fBg
 biD
-cAf
+vvP
 biD
-vgD
-kTF
+saV
+iCQ
 bpk
 bqv
-uCu
+ral
 bsK
 qNo
 bEo
@@ -95643,7 +95648,7 @@ aVq
 aWs
 aYc
 aZg
-hQw
+fDF
 bbA
 bdc
 beJ
@@ -95656,7 +95661,7 @@ bmt
 bnR
 bpl
 bqw
-sqR
+fBg
 bsL
 btP
 bsL
@@ -95900,7 +95905,7 @@ aVr
 aWy
 aYh
 aZk
-hQw
+fDF
 bbB
 bdd
 beK
@@ -95909,11 +95914,11 @@ bho
 biG
 bjU
 bkQ
-fak
-ufF
+eHu
+vhe
 bpm
 bqx
-sqR
+fBg
 bsM
 qNo
 buZ
@@ -96157,20 +96162,20 @@ aVq
 aWz
 aYi
 aZl
-hQw
+fDF
 bbC
 bde
 beL
-iCT
+kDF
 bhp
 biH
 bjV
 bkR
-fak
-ufF
+eHu
+vhe
 bpn
 bqx
-sqR
+fBg
 bsN
 qNo
 bva
@@ -96414,7 +96419,7 @@ aVq
 aWA
 aYj
 aZm
-hQw
+fDF
 aaE
 bdf
 beM
@@ -96422,12 +96427,12 @@ bgb
 bhq
 biI
 bjW
-sqR
+fBg
 bmv
 bnS
-sqR
-sqR
-sqR
+fBg
+fBg
+fBg
 bsO
 qNo
 bvb
@@ -96671,12 +96676,12 @@ aVs
 aWB
 aYk
 aZn
-hQw
-hQw
+fDF
+fDF
 bdg
 beN
 bgc
-hQw
+fDF
 bdl
 aZs
 bkS
