@@ -75,7 +75,7 @@
 	icon_state = "hivebotbomber"
 	attacktext = "bumped"
 	move_to_delay = 8
-	var/has_exploded
+	var/has_exploded = FALSE
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
@@ -85,7 +85,7 @@
 	wander = 0
 	if(!has_exploded)
 		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
-		has_exploded = 1
+		has_exploded = TRUE
 		spawn(20)
 			fragem(src,10,30,2,3,5,1,0)
 			src.gib()
@@ -95,7 +95,7 @@
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
 	else if(!has_exploded)
-		has_exploded = 1
+		has_exploded = TRUE
 		fragem(src,10,30,2,3,5,1,0)
 		src.gib()
 
