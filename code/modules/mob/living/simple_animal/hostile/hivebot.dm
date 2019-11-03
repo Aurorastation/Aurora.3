@@ -86,9 +86,7 @@
 	if(!has_exploded)
 		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
 		has_exploded = TRUE
-		spawn(20)
-			fragem(src,10,30,2,3,5,1,0)
-			src.gib()
+		addtimer(CALLBACK(src, .proc/burst), 20)
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
@@ -96,8 +94,11 @@
 		return PROJECTILE_CONTINUE
 	else if(!has_exploded)
 		has_exploded = TRUE
-		fragem(src,10,30,2,3,5,1,0)
-		src.gib()
+		burst()
+
+/mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
+	fragem(src,10,30,2,3,5,1,0)
+	src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
