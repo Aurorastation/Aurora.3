@@ -72,6 +72,11 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos)
+"aao" = (
+/obj/structure/table/glass,
+/obj/item/weapon/material/ashtray/bronze,
+/turf/simulated/floor/tiled/dark,
+/area/engineering/break_room)
 "aap" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -48392,7 +48397,7 @@ abJ
 jQw
 ieT
 dsh
-dsh
+aao
 iIs
 alM
 iye
@@ -48648,7 +48653,7 @@ jiW
 abJ
 ajp
 ieT
-dsh
+aao
 dsh
 iIs
 skA

@@ -47,3 +47,4 @@ changes:
   - maptweak: "Un-fucks the Engineering Storage area designation. Engineering EVA Storage and Hard Storage no longer share the exact same area designation, both with their own APCs for some reason. They're split into their own respective areas, and Sublevel storage has its own area now too."
   - maptweak: "Gives the Robotics Lab a highcap APC, instead of a 5000 'heavy-duty' cell, because they really need it."
   - maptweak: "Splits the entire 'Robotics Lab' area into 'Robotics Lab', 'Robotics Charging Bay', and 'Cyborgification Bay'. This means three APCs for different objects to draw from, rather than having a cell charger, four exosuit chargers, two borg chargers, and the rest of the robotics equipment being on a single APC with a 5000 cap cell inside it."
+  - maptweak: "Renames the 'emergency singularity beacon' in Engineering Hard Storage to 'emergency tesla beacon', for clarity, and because we don't use a Singularity on the Aurora."
