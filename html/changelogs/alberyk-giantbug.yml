@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added the hakhma as one of the animals that you can find in cargo random crates."
