@@ -32,9 +32,9 @@
 	var/failed = FALSE // pretty much exclusively for sending the fail state across to the UI, using recipe elsewhere is preferred
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/microwave,
+			/obj/item/weapon/circuitboard/microwave = 1,
 			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/micro_laser,
+			/obj/item/weapon/stock_parts/micro_laser = 1,
 			/obj/item/weapon/stock_parts/matter_bin = 2
 		)
 
@@ -66,7 +66,7 @@
 
 	for (var/type in component_types)
 		var/count = component_types[type]
-		for(var/i in 1 to count)
+		for (var/i in 1 to count)
 			var/obj/t = new type
 			component_parts += t
 			t.forceMove(null)
@@ -361,6 +361,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		stop()
 
 /obj/machinery/microwave/proc/half_time_process()
+	if (stat & (NOPOWER|BROKEN))
+		return
+
 	playsound(src, 'sound/machines/click.ogg', 20, 1)
 
 	if(failed)
@@ -477,7 +480,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	else if(href_list["eject"])
 		for (var/datum/reagent/R in reagents.reagent_list)
 			if(R.name == href_list["eject"])
-				eject_reagent(R)
+				eject_reagent(R, usr)
 				break
 		for (var/obj/O in contents)
 			if(O.name == href_list["eject"])
@@ -486,7 +489,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	return
 
-/obj/machinery/microwave/proc/eject_reagent(datum/reagent/R, mob/user = usr)
+/obj/machinery/microwave/proc/eject_reagent(datum/reagent/R, mob/user)
 	if(istype(user.l_hand, /obj/item/weapon/reagent_containers) || istype(user.r_hand, /obj/item/weapon/reagent_containers))
 		var/obj/item/weapon/reagent_containers/RC = user.l_hand || user.r_hand
 		var/free_space = RC.reagents.get_free_space()
@@ -512,9 +515,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 			A.forceMove(loc)
 		if (reagents.total_volume)
 			dirty += round(reagents.total_volume / 10)
-		for (var/datum/reagent/R in reagents.reagent_list)
-			eject_reagent(R)
-		if (reagents.total_volume)
 			reagents.clear_reagents()
 		if (message)
 			to_chat(usr, "<span class='notice'>You dispose of the microwave contents.</span>")

@@ -1,7 +1,12 @@
 <template>
   <div>
     <template v-if="on">
-      <p>{{ cookingMessage }}</p>
+      <template v-if="pastHalfTime">
+        <p v-if="!ingredientsPresent">There's nothing inside. Microwave's working, though!</p>
+        <p v-else-if="failed">Something doesn't look right...</p>
+        <p v-else>It's cooking nicely!</p>
+      </template>
+      <p v-else>It's starting to cook...</p>
       <vui-progress :value="$root.$data.wtime" :min="start_time" :max="start_time + cook_time"/>
       <vui-button class="danger danger-control" icon="exclamation-triangle" :params="{abort: 1}">Abort!</vui-button>
     </template>
@@ -10,11 +15,11 @@
       <ul>
         <li v-if="!ingredientsPresent">The microwave is empty!</li>
         <li v-for="(amt, name) in cookingobjs" :key="name">
-          <vui-button push-state :params="{ eject: name }"> {{ name }} • {{ amt }}
+          <vui-button :params="{ eject: name }"> {{ name }} • {{ amt }}
           </vui-button>
         </li>
         <li v-for="(amt, name) in cookingreas" :key="name">
-          <vui-button push-state :params="{ eject: name }"> {{ name }} • {{ amt }} units
+          <vui-button :params="{ eject: name }"> {{ name }} • {{ amt }} units
           </vui-button>
         </li>
       </ul>
@@ -33,19 +38,8 @@ export default {
     ingredientsPresent() {
       return (Object.keys(this.cookingobjs).length > 0 || Object.keys(this.cookingreas).length > 0);
     },
-    cookingMessage() {
-      if(this.$root.$data.wtime > (this.start_time + (this.cook_time / 2))) {
-        if(!this.ingredientsPresent) {
-          return "There's nothing inside. Microwave works, though.";
-        }
-        if(!this.failed) {
-          return "It's cooking nicely!";
-        } else {
-          return "Something doesn't look right...";
-        }
-      } else {
-        return "It's starting to cook...";
-      }
+    pastHalfTime() {
+      return this.$root.$data.wtime > (this.start_time + (this.cook_time / 2))
     }
   }
 };

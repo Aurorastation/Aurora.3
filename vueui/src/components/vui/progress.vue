@@ -23,7 +23,8 @@ export default {
   },
   computed: {
     percentage() {
-      return (this.value - this.min) / (this.max - this.min) * 100
+      var pct = (this.value - this.min) / (this.max - this.min) * 100;
+      return pct > 100 ? 100 : pct;
     }
   }
 }
