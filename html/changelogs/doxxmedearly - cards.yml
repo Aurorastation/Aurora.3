@@ -1,9 +1,0 @@
-author: Doxxmedearly
-
-
-delete-after: True
-
-
-changes: 
-  - rscadd: "Card holders actually hold cards now. It can hold a single deck, pack, or hand of cards. Or use it to hide an ID or other card."
-  - imageadd: "Added a sprite for card holders for when it's holding something."
