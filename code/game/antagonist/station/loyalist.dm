@@ -28,7 +28,6 @@ var/datum/antagonist/loyalists/loyalists
 	faction_indicator = "loyal"
 	faction_invisible = 1
 	restricted_jobs = list("AI", "Cyborg")
-	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 40, "Detective" = 50, "Forensic Technician" = 50) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
 
 /datum/antagonist/loyalists/New()
 	..()
