@@ -2496,11 +2496,8 @@
 /turf/simulated/floor/plating,
 /area/security/detectives_office)
 "eD" = (
-/obj/machinery/computer/records/medical,
-/turf/simulated/floor/lino,
-/area/security/detectives_office)
-"eE" = (
-/obj/machinery/computer/records/security,
+/obj/structure/bookcase,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "eF" = (
@@ -2516,7 +2513,7 @@
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "eH" = (
-/obj/machinery/computer/security,
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
 "eI" = (
@@ -2623,10 +2620,6 @@
 	id = "Detective"
 	},
 /turf/simulated/floor/plating,
-/area/security/detectives_office)
-"eP" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/floor/lino,
 /area/security/detectives_office)
 "eQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -3017,7 +3010,6 @@
 "fJ" = (
 /obj/structure/window/reinforced,
 /obj/structure/closet/secure_closet/detective,
-/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "fK" = (
@@ -4474,7 +4466,6 @@
 /area/security/training)
 "im" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -5228,7 +5219,6 @@
 /area/medical/psych)
 "jH" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/green/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -5236,6 +5226,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/item/weapon/book/manual/psych,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jI" = (
@@ -5378,7 +5369,6 @@
 	pixel_x = -1;
 	pixel_y = 7
 	},
-/obj/item/weapon/book/manual/psych,
 /obj/effect/floor_decal/corner/green/full{
 	icon_state = "corner_white_full";
 	dir = 4
@@ -5387,11 +5377,11 @@
 /area/medical/psych)
 "jT" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/item/weapon/book/manual/psych,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jU" = (
@@ -5633,7 +5623,6 @@
 	pixel_y = 7
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/psych,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -6302,7 +6291,7 @@
 	pixel_y = 32
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/records/medical/laptop,
+/obj/item/modular_computer/laptop/preset/medical,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lx" = (
@@ -7210,11 +7199,11 @@
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
 "pO" = (
-/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "pQ" = (
@@ -7302,7 +7291,6 @@
 /area/medical/virology)
 "qu" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 9
@@ -9906,7 +9894,7 @@
 /area/maintenance/interstitial_main)
 "JI" = (
 /obj/structure/bed/chair/office/dark{
-	dir = 1
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
@@ -10976,13 +10964,13 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/security,
 /obj/machinery/requests_console{
 	department = "Forensic Technician";
 	departmentType = 5;
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Pm" = (
@@ -11738,7 +11726,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Uq" = (
@@ -47329,7 +47317,7 @@ ef
 eo
 eu
 eD
-eP
+fo
 fa
 fk
 fr
@@ -47585,7 +47573,7 @@ dW
 eg
 ep
 ev
-eE
+fo
 eQ
 fb
 fl

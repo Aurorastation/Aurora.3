@@ -28,7 +28,7 @@
 /turf/template_noop,
 /area/derelict/ship)
 "an" = (
-/obj/machinery/computer/records/medical,
+/obj/structure/computerframe,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},

@@ -6649,7 +6649,7 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/item/device/radio/phone,
+/obj/item/weapon/handcuffs,
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
 "amX" = (
@@ -7083,13 +7083,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
 "aob" = (
-/obj/item/weapon/handcuffs,
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/item/modular_computer/laptop/preset/security{
+	desc = "A portable computer belonging to the security department. A note on its side says: 'Make sure it's back in the office after every shift or there'll be hell to pay!'";
+	name = "worn security laptop";
+	pixel_x = -3;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
@@ -8061,7 +8066,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/weapon/wrench,
-/obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "apJ" = (
@@ -8089,7 +8093,7 @@
 	dir = 5
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/regular,
+/obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "apL" = (
@@ -8739,7 +8743,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/medical/laptop,
+/obj/item/weapon/storage/firstaid/regular,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aqW" = (
@@ -9572,7 +9576,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aso" = (
-/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
@@ -9580,6 +9583,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "asp" = (
@@ -10550,12 +10554,12 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/item/modular_computer/console/preset/medical,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "atI" = (
@@ -13466,18 +13470,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge)
-"ayD" = (
-/obj/machinery/computer/records/security,
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/bridge)
 "ayE" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -14878,7 +14870,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aBb" = (
@@ -15123,12 +15115,7 @@
 /area/lawoffice)
 "aBu" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment{
-	density = 0;
-	icon_state = "medlaptop";
-	pixel_y = 4;
-	req_one_access = list(19,38)
-	},
+/obj/item/weapon/clipboard,
 /turf/simulated/floor/carpet,
 /area/lawoffice)
 "aBv" = (
@@ -16276,14 +16263,12 @@
 /area/crew_quarters/captain)
 "aDw" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop"
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/item/modular_computer/laptop/preset/command/captain,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aDx" = (
@@ -16939,7 +16924,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEx" = (
-/obj/machinery/computer/records/security,
+/obj/structure/table/standard,
+/obj/item/weapon/book/manual/wiki/security_space_law,
 /turf/simulated/floor/tiled/dark,
 /area/security/warden)
 "aEy" = (
@@ -18393,6 +18379,10 @@
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
+	},
+/obj/structure/noticeboard{
+	pixel_x = 32;
+	pixel_y = 0
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -20029,7 +20019,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/suit_cycler/hos,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aJx" = (
@@ -20140,7 +20129,6 @@
 /turf/simulated/floor/plating,
 /area/security/brig)
 "aJF" = (
-/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -20154,6 +20142,7 @@
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aJG" = (
@@ -20249,7 +20238,6 @@
 /area/security/warden)
 "aJN" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/wiki/security_space_law,
 /obj/item/device/eftpos{
 	eftpos_name = "Brig EFTPOS scanner"
 	},
@@ -20432,13 +20420,6 @@
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
-"aKc" = (
-/obj/machinery/computer/guestpass{
-	pixel_x = 1;
-	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
@@ -21108,7 +21089,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "aLp" = (
-/obj/structure/filingcabinet,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24;
 	pixel_y = 0
@@ -21117,6 +21097,7 @@
 	pixel_x = -23;
 	pixel_y = -7
 	},
+/obj/machinery/suit_cycler/hos,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aLq" = (
@@ -22262,7 +22243,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aNe" = (
-/obj/machinery/computer/records/security,
 /obj/structure/sign/goldenplaque{
 	pixel_x = -32
 	},
@@ -22275,37 +22255,12 @@
 	c_tag = "Security - Head of Security's Office";
 	dir = 4
 	},
+/obj/structure/filingcabinet,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/hos)
 "aNf" = (
 /obj/structure/bed/chair/comfy/red{
 	dir = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "Security Lockdown";
-	name = "Security Lockdown";
-	pixel_x = 38;
-	pixel_y = 38;
-	req_access = list(58)
-	},
-/obj/machinery/button/remote/airlock{
-	id = "HoSdoor";
-	name = "Office Door";
-	pixel_x = 27;
-	pixel_y = 38
-	},
-/obj/machinery/button/windowtint{
-	id = "HoS Windows";
-	pixel_x = 26;
-	pixel_y = 28;
-	req_access = list(58)
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "armoury";
-	name = "Armoury Shutters";
-	pixel_x = 38;
-	pixel_y = 28;
-	req_access = list(58)
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
@@ -22620,6 +22575,10 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/machinery/computer/guestpass{
+	pixel_x = 0;
+	pixel_y = -28
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aNO" = (
@@ -23226,13 +23185,8 @@
 /obj/machinery/keycard_auth{
 	pixel_x = -28
 	},
-/obj/item/modular_computer/console/preset/security,
+/obj/item/modular_computer/console/preset/security/hos,
 /turf/simulated/floor/tiled/dark,
-/area/crew_quarters/heads/hos)
-"aOS" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
-/turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hos)
 "aOT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24030,8 +23984,9 @@
 /area/crew_quarters/heads/chief)
 "aQg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/modular_computer/laptop/preset/engineering/ce{
+	pixel_x = 4
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aQh" = (
@@ -24041,7 +23996,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/computer/records/employment,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aQi" = (
@@ -25883,7 +25839,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "aTj" = (
-/obj/item/modular_computer/console/preset/engineering,
 /obj/machinery/light_switch{
 	pixel_y = -28
 	},
@@ -26713,7 +26668,8 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
 "aUy" = (
-/obj/machinery/computer/records/security,
+/obj/structure/table/reinforced,
+/obj/item/weapon/hand_labeler,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aUz" = (
@@ -27442,7 +27398,8 @@
 /area/hallway/primary/starboard)
 "aVG" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/records/employment,
+/obj/item/stack/packageWrap,
+/obj/item/device/destTagger,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aVH" = (
@@ -30034,6 +29991,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/light_switch{
+	pixel_x = 26;
+	pixel_y = 26
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "aZY" = (
@@ -30518,20 +30479,40 @@
 /area/crew_quarters/heads/hop)
 "bba" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bbb" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bbc" = (
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bbd" = (
-/obj/machinery/light_switch{
-	pixel_x = 32
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
 	},
+/obj/machinery/door/window/brigdoor{
+	base_state = "rightsecure";
+	dir = 8;
+	icon_state = "rightsecure";
+	req_access = list(57)
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/mob/living/simple_animal/corgi/Ian,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bbe" = (
@@ -31376,35 +31357,12 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bcz" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
+/obj/machinery/atm{
+	pixel_x = 28
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/window/brigdoor{
-	base_state = "rightsecure";
-	dir = 8;
-	icon_state = "rightsecure";
-	req_access = list(57)
-	},
-/mob/living/simple_animal/corgi/Ian,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bcA" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Restroom";
-	dir = 4
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /obj/machinery/light_switch{
 	pixel_x = -5;
 	pixel_y = 24
@@ -32183,8 +32141,6 @@
 /area/crew_quarters/heads/hop)
 "bea" = (
 /obj/structure/table/wood,
-/obj/item/stack/packageWrap,
-/obj/item/weapon/hand_labeler,
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
 	},
@@ -32213,7 +32169,8 @@
 	pixel_x = 0;
 	pixel_y = -36
 	},
-/obj/machinery/account_database,
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/command/hop,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bec" = (
@@ -32221,17 +32178,20 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop)
 "bed" = (
-/obj/machinery/computer/security/mining,
-/obj/machinery/atm{
-	pixel_x = 32
-	},
 /obj/item/weapon/storage/secure/safe{
 	pixel_x = 5;
 	pixel_y = -28
 	},
+/obj/machinery/account_database,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop)
 "bee" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/bridge/meeting_room)
 "bef" = (
@@ -32456,17 +32416,9 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/weapon/circuitboard/secure_data{
-	pixel_x = -2;
-	pixel_y = 2
-	},
 /obj/item/weapon/circuitboard/security{
 	pixel_x = 1;
 	pixel_y = -1
-	},
-/obj/item/weapon/circuitboard/skills{
-	pixel_x = 4;
-	pixel_y = -3
 	},
 /turf/simulated/floor/plating,
 /area/storage/tech)
@@ -32835,8 +32787,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bff" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 2"
@@ -34080,10 +34031,6 @@
 	},
 /obj/item/weapon/circuitboard/clonescanner,
 /obj/item/weapon/circuitboard/clonepod,
-/obj/item/weapon/circuitboard/med_data{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bhk" = (
@@ -34342,11 +34289,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bhE" = (
@@ -34387,11 +34333,13 @@
 /area/medical/pharmacy)
 "bhG" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/item/modular_computer/laptop/preset/medical{
+	desc = "A portable computer belonging to the medical department. It's covered in chemical stains."
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
@@ -35396,19 +35344,19 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjq" = (
-/obj/item/modular_computer/console/preset/medical,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjr" = (
-/obj/machinery/computer/records/medical,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjs" = (
@@ -36048,8 +35996,8 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/button/windowtint{
 	id = "CMO";
-	pixel_x = 16;
-	pixel_y = -28;
+	pixel_x = 14;
+	pixel_y = -26;
 	req_access = list(40)
 	},
 /obj/machinery/button/remote/blast_door{
@@ -36819,7 +36767,6 @@
 /area/crew_quarters/heads/cmo)
 "blH" = (
 /obj/structure/table/glass,
-/obj/machinery/computer/records/employment,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 6
@@ -36828,6 +36775,10 @@
 	dir = 4;
 	icon_state = "tube1";
 	pixel_x = 0
+	},
+/obj/item/modular_computer/laptop/preset/medical/cmo{
+	pixel_x = 2;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
@@ -39336,20 +39287,20 @@
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bpw" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/button/remote/blast_door{
-	id = "entrance_shutters";
-	name = "Entrance Shutters Control";
-	pixel_x = 0;
-	pixel_y = -6;
-	req_access = list(66)
-	},
+/obj/structure/table/standard,
 /obj/machinery/button/remote/airlock{
 	id = "main_door";
 	name = "Triage Door Control";
-	pixel_x = 0;
+	pixel_x = 6;
 	pixel_y = 6;
+	req_access = list(66)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "entrance_shutters";
+	name = "Entrance Shutters Control";
+	pixel_x = 6;
+	pixel_y = -3;
 	req_access = list(66)
 	},
 /turf/simulated/floor/tiled,
@@ -39474,8 +39425,7 @@
 	name = "\improper Medical - Exam Room 1"
 	})
 "bpH" = (
-/obj/machinery/computer/records/medical/laptop,
-/obj/structure/table/standard,
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/carpet/blue,
 /area/medical/exam_room{
 	name = "\improper Medical - Exam Room 1"
@@ -40030,8 +39980,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqC" = (
@@ -40044,28 +39993,25 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
-	pixel_x = -1;
-	pixel_y = 7
-	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqD" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/crew,
 /obj/structure/window/reinforced,
+/obj/structure/table/standard,
+/obj/item/weapon/paper_bin,
+/obj/item/weapon/pen,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqE" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled,
 /area/medical/reception)
 "bqF" = (
@@ -44853,7 +44799,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "bya" = (
-/obj/machinery/computer/records/medical,
 /obj/machinery/light_switch{
 	pixel_x = 24;
 	pixel_y = 8
@@ -44862,6 +44807,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/genetics_cloning)
 "byb" = (
@@ -45681,9 +45627,7 @@
 "bzC" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/device/eftpos{
-	eftpos_name = "Research EFTPOS scanner"
-	},
+/obj/item/modular_computer/laptop/preset/research/rd,
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
 "bzD" = (
@@ -46639,8 +46583,8 @@
 /area/rnd/rdoffice)
 "bBz" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop"
+/obj/item/device/eftpos{
+	eftpos_name = "Research EFTPOS scanner"
 	},
 /turf/simulated/floor/carpet/blue,
 /area/rnd/rdoffice)
@@ -65039,13 +64983,6 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"iap" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/starboard)
 "ifx" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
@@ -66070,6 +66007,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"lVt" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/security/hos,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
 "lVA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -66107,13 +66049,6 @@
 /area/maintenance/vault)
 "maP" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment{
-	density = 0;
-	icon_state = "medlaptop";
-	pixel_x = 1;
-	pixel_y = 6;
-	req_one_access = list(19,38)
-	},
 /obj/machinery/button/remote/airlock{
 	id = "rep_office";
 	name = "Office Door Control";
@@ -66128,6 +66063,10 @@
 	pixel_y = -15;
 	req_access = list(38);
 	specialfunctions = 4
+	},
+/obj/item/modular_computer/laptop/preset/representative{
+	pixel_x = 1;
+	pixel_y = 8
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
@@ -66953,6 +66892,35 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"oCY" = (
+/obj/machinery/button/windowtint{
+	id = "HoS Windows";
+	pixel_x = 26;
+	pixel_y = -4;
+	req_access = list(58)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "armoury";
+	name = "Armoury Shutters";
+	pixel_x = 38;
+	pixel_y = -4;
+	req_access = list(58)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "Security Lockdown";
+	name = "Security Lockdown";
+	pixel_x = 38;
+	pixel_y = 6;
+	req_access = list(58)
+	},
+/obj/machinery/button/remote/airlock{
+	id = "HoSdoor";
+	name = "Office Door";
+	pixel_x = 27;
+	pixel_y = 6
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
 "oDA" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -67183,6 +67151,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"phY" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/item/modular_computer/console/preset/command,
+/turf/simulated/floor/tiled,
+/area/bridge)
 "pie" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -67592,6 +67572,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"qtr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "qtu" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -67621,6 +67614,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"quz" = (
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop)
 "qvD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/meter{
@@ -69845,10 +69842,6 @@
 "wJm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/structure/noticeboard{
-	pixel_x = 0;
-	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
@@ -95960,7 +95953,7 @@ aIc
 aJt
 aLq
 aNf
-aLq
+oCY
 aQC
 aIa
 amK
@@ -96215,9 +96208,9 @@ aEf
 aGc
 aId
 aJt
-aLr
+lVt
 aNg
-aOS
+aLr
 aQD
 aIa
 amK
@@ -107015,7 +107008,7 @@ aNF
 awK
 aSD
 aNS
-aNS
+qtr
 aXb
 aYs
 aZL
@@ -107265,7 +107258,7 @@ atr
 atr
 atr
 atr
-aKc
+awK
 aLO
 aNG
 aPt
@@ -107522,7 +107515,7 @@ aCV
 oQU
 aGI
 atr
-iap
+aWW
 gfO
 aNH
 azX
@@ -108550,7 +108543,7 @@ aCW
 pcx
 aGM
 atr
-aKf
+awK
 fiA
 awK
 aPv
@@ -110092,7 +110085,7 @@ aiN
 aiN
 aiN
 avf
-awK
+aKf
 aLT
 aNO
 avd
@@ -111644,7 +111637,7 @@ aUv
 aVF
 aXm
 aPC
-aYC
+quz
 baY
 bcv
 bdY
@@ -114453,8 +114446,8 @@ aqP
 ash
 atx
 avi
+phY
 awM
-ayD
 aAa
 aBx
 aBx

@@ -3754,7 +3754,7 @@
 	},
 /area/centcom/evac)
 "akM" = (
-/obj/machinery/computer/records/security,
+/obj/structure/computerframe,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor4"
@@ -8582,7 +8582,6 @@
 	},
 /area/centcom/living)
 "azf" = (
-/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -8590,6 +8589,7 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -13930,12 +13930,12 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop";
-	pixel_x = 3;
-	pixel_y = 4
-	},
 /obj/structure/window/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -14237,7 +14237,7 @@
 	},
 /area/centcom/holding)
 "aPi" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -14661,11 +14661,6 @@
 /area/centcom/spawning)
 "aQh" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen,
 /obj/machinery/door/window/southright{
 	name = "Arrivals Processing";
 	req_access = list(101)
@@ -15905,11 +15900,11 @@
 	},
 /area/centcom/holding)
 "aSU" = (
-/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -16373,7 +16368,7 @@
 	},
 /area/centcom/control)
 "aTT" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17981,7 +17976,7 @@
 	},
 /area/centcom/control)
 "aXp" = (
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19722,7 +19717,6 @@
 /area/tdome)
 "egp" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20011,7 +20005,7 @@
 	},
 /area/centcom/legion)
 "fok" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21559,7 +21553,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "lQh" = (
-/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -21567,6 +21560,7 @@
 	icon_state = "spline_plain";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -22959,7 +22953,7 @@
 	},
 /area/space)
 "tcD" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},

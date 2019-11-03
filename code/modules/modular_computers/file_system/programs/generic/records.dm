@@ -42,6 +42,7 @@
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
+	program_icon_state = "medcomp"
 
 /datum/computer_file/program/records/security
 	filename = "secrec"
@@ -56,6 +57,8 @@
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
 	default_screen = "security"
+	program_icon_state = "security"
+	color = LIGHT_COLOR_RED
 
 /datum/computer_file/program/records/employment
 	filename = "emprec"
@@ -63,12 +66,13 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(access_heads)
+	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
 	required_access_download = access_heads
 	available_on_ntnet = 1
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
+	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/records/New()
 	. = ..()

@@ -6247,10 +6247,6 @@
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "lq" = (
-/obj/structure/table/reinforced,
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop"
-	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -6261,6 +6257,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lr" = (
@@ -6317,10 +6314,6 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lu" = (
-/obj/structure/table/reinforced,
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop"
-	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -6333,6 +6326,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lv" = (
@@ -6611,8 +6605,6 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/weapon/crowbar,
-/obj/item/device/flash,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -6626,7 +6618,6 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lW" = (
-/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -6635,6 +6626,9 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/crowbar,
+/obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lX" = (
@@ -6651,10 +6645,12 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lY" = (
-/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/structure/table/reinforced,
+/obj/item/weapon/crowbar,
+/obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lZ" = (
@@ -6662,8 +6658,6 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/weapon/crowbar,
-/obj/item/device/flash,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4
