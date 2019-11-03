@@ -75,6 +75,7 @@
 	icon_state = "hivebotbomber"
 	attacktext = "bumped"
 	move_to_delay = 8
+	var/has_exploded
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
@@ -82,17 +83,19 @@
 	stance = HOSTILE_STANCE_TIRED
 	stop_automated_movement = 1
 	wander = 0
-
-	playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
-	spawn(20)
-		fragem(src,10,30,2,3,5,1,0)
-		src.gib()
+	if(!has_exploded)
+		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
+		has_exploded = 1
+		spawn(20)
+			fragem(src,10,30,2,3,5,1,0)
+			src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
-	else
+	else if(!has_exploded)
+		has_exploded = 1
 		fragem(src,10,30,2,3,5,1,0)
 		src.gib()
 
