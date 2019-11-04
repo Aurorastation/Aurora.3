@@ -831,7 +831,7 @@ About the new airlock wires panel:
 		if(!WT.isOn())
 			return
 		if(!WT.remove_fuel(0,user))
-			to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+			to_chat(user, span("notice", "You need more welding fuel to complete this task."))
 			return
 		cut_verb = "cutting"
 		cut_sound = 'sound/items/Welder.ogg'
@@ -858,7 +858,7 @@ About the new airlock wires panel:
 		if (!F.wielded)
 			return FALSE
 		if(src.bolt_cut_state == BOLTS_FINE)
-			to_chat(user, "You smash the bolt cover open!")
+			to_chat(user, span("warning", "You smash the bolt cover open!"))
 			playsound(src, 'sound/weapons/smash.ogg', 100, 1)
 			src.bolt_cut_state = BOLTS_EXPOSED
 		else if(src.bolt_cut_state != BOLTS_FINE)
