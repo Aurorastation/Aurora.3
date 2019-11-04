@@ -36,9 +36,10 @@
 	var/probability = rand(1, 100)
 	var/tally = 0
 	for(var/datum/responseteam/ert in available_teams) //We need a loop to keep going through each candidate to be sure we find a good result.
-		if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
-			tally += ert.chance
-			continue
+		if(!ert.admin)
+			if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
+				tally += ert.chance
+				continue
 		result = ert
 		break
 
@@ -54,7 +55,7 @@
 		return
 	if(send_emergency_team)
 		return
-	
+
 	ert_count++
 	feedback_inc("responseteam_count")
 
@@ -107,7 +108,7 @@
 	set desc = "Send an emergency response team to the station"
 
 	if(!holder)
-		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>") 
+		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
 		return
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
