@@ -17,10 +17,19 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
-	display_name = "toeless workboots"
+	display_name = "toeless workboots selection"
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+/datum/gear/shoes/workboots_toeless/New()
+	..()
+	var/boots = list()
+	boots["toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless
+	boots["toeless workboots, light"] = /obj/item/clothing/shoes/workboots/toeless/light
+	boots["toeless workboots, grey"] = /obj/item/clothing/shoes/workboots/toeless/grey
+	boots["toeless workboots, dark"] = /obj/item/clothing/shoes/workboots/toeless/dark
+	gear_tweaks += new/datum/gear_tweak/path(boots)
 
 /datum/gear/shoes/caligae
 	display_name = "caligae"

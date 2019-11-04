@@ -129,6 +129,12 @@
 	desc = "The height of fashion, and they're pre-polished!"
 	icon_state = "laceups"
 
+/obj/item/clothing/shoes/laceup/grey
+	icon_state = "laceups_grey"
+
+/obj/item/clothing/shoes/laceup/brown
+	icon_state = "laceups_brown"
+
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"
@@ -161,10 +167,14 @@
 	icon_state = "cowboy"
 	drop_sound = 'sound/items/drop/leather.ogg'
 
-/obj/item/clothing/shoes/cowboy/classic
+/obj/item/clothing/shoes/cowboy/light
 	name = "classic cowboy boots"
 	desc = "A classic looking pair of durable cowboy boots."
-	icon_state = "cowboy_classic"
+	icon_state = "cowboy_light"
+
+/obj/item/clothing/shoes/cowboy/dark
+	name = "dark cowboy boots"
+	icon_state = "cowboy_dark"
 
 /obj/item/clothing/shoes/cowboy/snakeskin
 	name = "snakeskin cowboy boots"

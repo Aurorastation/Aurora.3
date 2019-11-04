@@ -37,9 +37,29 @@
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
 
+/obj/item/clothing/shoes/workboots/grey
+	icon_state = "workboots_grey"
+	item_state = "workboots_grey"
+
+/obj/item/clothing/shoes/workboots/dark
+	icon_state = "workboots_dark"
+	item_state = "workboots_dark"
+
 /obj/item/clothing/shoes/workboots/toeless
 	name = "toe-less workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workbootstoeless"
 	item_state = "workbootstoeless"
 	species_restricted = null
+
+/obj/item/clothing/shoes/workboots/toeless/light
+	icon_state = "workbootstoeless_light"
+	item_state = "workbootstoeless_light"
+
+/obj/item/clothing/shoes/workboots/toeless/grey
+	icon_state = "workbootstoeless_grey"
+	item_state = "workbootstoeless_grey"
+
+/obj/item/clothing/shoes/workboots/toeless/dark
+	icon_state = "workbootstoeless_dark"
+	item_state = "workbootstoeless_dark"
