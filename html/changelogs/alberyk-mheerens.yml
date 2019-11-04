@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "NanoTrasen should not longer deploy deathsquads by accident when using a distress beacon."
