@@ -254,7 +254,7 @@
 		W.registered_name = H.real_name
 
 /datum/outfit/admin/wizard
-	name = "Wizard"
+	name = "Space Wizard"
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/lightpurple
