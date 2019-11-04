@@ -1373,9 +1373,9 @@
 
 	if(shock_stage >= 120)
 		if (prob(2))
-			var/blacked = pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")
+			var/blacked = pick("You feel like you could die any moment now", "You can't think straight anymore", "You feel like your heart isn't beating")
 			to_chat(src, "<span class='danger'>[blacked]!</span>")
-			Paralyse(5)
+			Weaken(30) //You're knocking on death's door, so it's only right that you shouldn't really be able to stand.
 
 	if(shock_stage == 150)
 		emote("me",1,"can no longer stand, collapsing!")
