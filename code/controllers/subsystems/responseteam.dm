@@ -8,6 +8,7 @@
 	var/send_emergency_team = FALSE
 	var/can_call_ert = TRUE
 
+	var/list/datum/responseteam/all_ert_teams = list()
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
 	var/list/datum/ghostspawner/human/ert/sent_teams = list()
@@ -25,7 +26,9 @@
 	for(var/team in all_teams)
 		CHECK_TICK
 		var/datum/responseteam/ert = new team
-		available_teams += ert
+		if(!ert.admin)
+			available_teams += ert
+		all_ert_teams += ert
 
 /datum/controller/subsystem/responseteam/stat_entry()
 	var/out = "CC:[can_call_ert]"
@@ -36,10 +39,9 @@
 	var/probability = rand(1, 100)
 	var/tally = 0
 	for(var/datum/responseteam/ert in available_teams) //We need a loop to keep going through each candidate to be sure we find a good result.
-		if(!ert.admin)
-			if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
-				tally += ert.chance
-				continue
+		if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
+			tally += ert.chance
+			continue
 		result = ert
 		break
 
@@ -124,7 +126,7 @@
 				return
 
 	var/list/plaintext_teams = list("Random")
-	for(var/datum/responseteam/A in SSresponseteam.available_teams)
+	for(var/datum/responseteam/A in SSresponseteam.all_ert_teams)
 		plaintext_teams += A.name
 
 	var/choice = input("Select the response team type","Response team selection") as null|anything in plaintext_teams

@@ -7,3 +7,4 @@
 	name = "Syndicate Commandos"
 	spawner = /datum/ghostspawner/human/ert/commando
 	admin = TRUE
+	chance = 1
