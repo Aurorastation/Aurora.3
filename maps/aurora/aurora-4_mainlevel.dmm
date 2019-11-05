@@ -6298,6 +6298,7 @@
 	dir = 8
 	},
 /obj/random/vault_weapon,
+/obj/item/weapon/rig/unathi,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "amh" = (
@@ -25395,8 +25396,6 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -25404,11 +25403,8 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/clothing/suit/space/void/skrell/black,
 /obj/item/clothing/suit/space/void/skrell/white,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
 /obj/item/clothing/head/helmet/space/void/skrell/white,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
@@ -26198,12 +26194,13 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/weapon/rig/unathi,
-/obj/item/clothing/mask/breath,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aTI" = (
