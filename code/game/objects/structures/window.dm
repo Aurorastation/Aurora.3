@@ -494,6 +494,12 @@
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 
+/obj/structure/window/shuttle/legion
+	name = "cockpit window"
+	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
+	health = 160
+	maxhealth = 160
+
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
 

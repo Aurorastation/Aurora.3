@@ -107,6 +107,9 @@
 	canSmoothWith = null
 	color = "#6C7364"
 
+/turf/simulated/wall/shuttle/legion
+	icon = 'icons/turf/smooth/shuttle_wall_legion.dmi'
+
 //--Floors--//
 
 /turf/simulated/floor/shuttle
@@ -165,6 +168,14 @@
 	icon_state = "roof_dark"
 	canSmoothWith = list(
 			/turf/simulated/shuttle_roof/dark
+	)
+
+/turf/simulated/shuttle_roof/legion
+	name = "dropship roof"
+	icon = 'icons/turf/smooth/roof_legion.dmi'
+	icon_state = "roof_legion"
+	canSmoothWith = list(
+			/turf/simulated/shuttle_roof/legion
 	)
 
 /turf/simulated/shuttle_roof/ex_act(severity)
