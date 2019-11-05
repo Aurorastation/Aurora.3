@@ -59,6 +59,7 @@
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
 		)
 
+	base_color = "#25032"
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	sprint_temperature_factor = 1.3
