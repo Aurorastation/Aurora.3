@@ -17696,7 +17696,7 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -18923,7 +18923,7 @@
 	dir = 9
 	},
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
@@ -20951,7 +20951,7 @@
 	dir = 5
 	},
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)

@@ -5,7 +5,7 @@ Chief Engineer=1
 Research Director=1
 Chief Medical Officer=1
 
-Station Engineer=5
+Maintenance Technician=5
 Roboticist=1
 
 Medical Doctor=5

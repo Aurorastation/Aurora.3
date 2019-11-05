@@ -48,7 +48,7 @@
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
+	allowed_roles = list("Maintenance Technician","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -87,7 +87,7 @@
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Maintenance Technician", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
 
 /datum/gear/head/hardhat/New()
 	..()

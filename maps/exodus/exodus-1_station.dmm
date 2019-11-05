@@ -56017,7 +56017,7 @@
 /area/engineering/break_room)
 "bXT" = (
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/carpet,
@@ -57013,7 +57013,7 @@
 /area/engineering/break_room)
 "bZz" = (
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -58413,7 +58413,7 @@
 /area/engineering/break_room)
 "cch" = (
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -66375,7 +66375,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -66932,7 +66932,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -70888,7 +70888,7 @@
 "cyS" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/workshop)
@@ -75207,7 +75207,7 @@
 "cGD" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/landmark/start{
-	name = "Station Engineer"
+	name = "Maintenance Technician"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)

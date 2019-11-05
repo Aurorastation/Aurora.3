@@ -50,7 +50,6 @@
 	)
 
 	titles_to_loadout = list(
-		"Station Engineer" = /datum/outfit/job/engineer/hephaestus,
 		"Maintenance Technician" = /datum/outfit/job/engineer/hephaestus,
 		"Engine Technician" = /datum/outfit/job/engineer/hephaestus,
 		"Electrician" = /datum/outfit/job/engineer/hephaestus,
@@ -67,7 +66,7 @@
 	)
 
 /datum/outfit/job/engineer/hephaestus
-	name = "Station Engineer - Hephaestus"
+	name = "Maintenance Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
 	id = /obj/item/weapon/card/id/hephaestus
 

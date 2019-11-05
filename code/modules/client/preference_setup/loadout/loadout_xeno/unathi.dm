@@ -56,7 +56,7 @@
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+	allowed_roles = list("Maintenance Technician", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 
 /datum/gear/autakh_mining
 	display_name = "mining grasper"
