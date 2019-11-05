@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes: 
+  - bugfix: "Stuttering no longer breaks markup tags (bold, italics, etc.)."
+  - backend: "All carbon life now uses the NewStutter proc, which now uses regex to handle stutter replacement."
