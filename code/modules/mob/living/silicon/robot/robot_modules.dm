@@ -682,7 +682,7 @@ var/global/list/robot_modules = list(
 	channels = list("Science" = 1)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
-				    "Classic" = "robotjani",
+				    "Basic" = "robotjani",
 					"Landmate" = "landmatejani",
 					"Treadmate" = "treadmatejani",
 					"Droid" = "droid-science",
