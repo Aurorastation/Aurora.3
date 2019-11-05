@@ -503,9 +503,9 @@ datum/preferences
 		r_facial = 0
 		g_facial = 0
 		b_facial = 0
-		r_skin = 37
-		g_skin = 3
-		b_skin = 2
+		r_skin = 0
+		g_skin = 0
+		b_skin = 0
 		r_eyes = 0
 		g_eyes = 0
 		b_eyes = 0

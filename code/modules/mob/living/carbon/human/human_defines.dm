@@ -19,9 +19,9 @@
 	var/s_tone = 0	//Skin tone
 
 	//Skin colour
-	var/r_skin = 37
-	var/g_skin = 3
-	var/b_skin = 2
+	var/r_skin = 0
+	var/g_skin = 0
+	var/b_skin = 0
 
 	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
