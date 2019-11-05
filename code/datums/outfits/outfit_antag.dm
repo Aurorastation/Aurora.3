@@ -91,6 +91,26 @@
 	)
 	id_access = "Syndicate Operative Leader"
 
+/datum/outfit/admin/syndicate/officer/commander
+	name = "Syndicate Commander"
+
+	belt = /obj/item/weapon/storage/belt/military/syndicate
+	r_pocket = /obj/item/device/radio/uplink
+
+	belt_contents = list(
+		/obj/item/ammo_magazine/a50 = 2
+	)
+
+	backpack_contents = list(
+		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/weapon/flame/lighter/zippo = 1,
+		/obj/item/weapon/reagent_containers/pill/cyanide = 1
+	)
+
+	uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT * 2
+
+	id_access = "Syndicate Commander"
+
 /datum/outfit/admin/syndicate/spy
 	name = "Syndicate Spy"
 	uniform = /obj/item/clothing/under/suit_jacket/really_black

@@ -74,6 +74,8 @@
 			return list(access_syndicate)
 		if("Syndicate Operative Leader")
 			return list(access_syndicate, access_syndicate_leader)
+		if("Syndicate Commander")
+			return list(access_syndicate, access_syndicate_leader)
 		if("Syndicate Agent")
 			return list(access_syndicate, access_maint_tunnels)
 		if("Syndicate Commando")

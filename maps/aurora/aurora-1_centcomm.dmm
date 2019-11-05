@@ -24275,6 +24275,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
+"bSF" = (
+/obj/effect/landmark{
+	name = "SyndiCommander"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/command_wing)
 "bVt" = (
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "diagonalWall3"
@@ -24630,6 +24638,16 @@
 	dir = 4
 	},
 /area/centcom/living)
+"ezd" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Deliveries";
+	opacity = 1;
+	req_access = list(151)
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/command_wing)
 "eHf" = (
 /obj/structure/bed/chair/office/bridge,
 /turf/unsimulated/floor{
@@ -24651,6 +24669,11 @@
 	icon_state = "floor"
 	},
 /area/centcom/holding)
+"eWN" = (
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership/command_wing)
 "eZa" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -24847,6 +24870,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/distress/centcom)
+"fZC" = (
+/obj/machinery/mass_driver{
+	desc = "Used to discreetly send packages off to syndicate command.";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership/command_wing)
 "gaq" = (
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/light{
@@ -24990,6 +25026,13 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
+"hio" = (
+/obj/structure/table/reinforced/steel,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor7"
+	},
+/area/syndicate_mothership/command_wing)
 "hkT" = (
 /obj/structure/shuttle/engine/heater{
 	icon_state = "router"
@@ -25233,6 +25276,11 @@
 	icon_state = "floor"
 	},
 /area/centcom/distress_prep)
+"iLK" = (
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/template_noop)
 "iMV" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -25894,6 +25942,18 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"mSa" = (
+/obj/machinery/conveyor{
+	backwards = 4;
+	desc = "A conveyor belt.";
+	dir = 8;
+	id = "SyndConv"
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership/command_wing)
 "mVG" = (
 /obj/structure/cryofeed,
 /turf/simulated/floor/tiled,
@@ -26387,6 +26447,15 @@
 	dir = 4
 	},
 /area/centcom/distress_prep)
+"pBZ" = (
+/obj/effect/floor_decal/industrial/warning/cee{
+	icon_state = "warningcee";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership/command_wing)
 "pDD" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/phoronreinforced{
@@ -26661,6 +26730,12 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/distress/centcom)
+"rza" = (
+/obj/structure/table/reinforced/steel,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/syndicate_mothership/command_wing)
 "rzy" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
@@ -27193,6 +27268,17 @@
 	icon_state = "engine"
 	},
 /area/syndicate_mothership/command_wing)
+"vSC" = (
+/obj/machinery/conveyor{
+	backwards = 4;
+	desc = "A conveyor belt.";
+	dir = 8;
+	id = "SyndConv"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership/command_wing)
 "vUd" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -27283,6 +27369,14 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/syndicate_commander/centcom)
+"wdS" = (
+/obj/machinery/conveyor_switch/oneway{
+	id = "SyndConv"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/syndicate_mothership/command_wing)
 "wfn" = (
 /turf/simulated/shuttle/wall/dark{
 	icon_state = "wall3";
@@ -27555,6 +27649,17 @@
 	},
 /turf/simulated/shuttle/plating,
 /area/shuttle/syndicate_commander/centcom)
+"xUi" = (
+/obj/machinery/conveyor{
+	backwards = 4;
+	desc = "A conveyor belt.";
+	dir = 8;
+	id = "SyndConv"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor5"
+	},
+/area/template_noop)
 "yhL" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Representative Office";
@@ -82897,9 +83002,9 @@ aaM
 ahM
 aaM
 aaM
-aaM
-aaM
-aaM
+iLK
+iLK
+xUi
 ale
 alf
 ale
@@ -83154,9 +83259,9 @@ aaM
 ahM
 aaM
 aaM
-aaM
-aaM
-ueH
+iLK
+iLK
+vSC
 ueH
 ait
 aaM
@@ -83411,9 +83516,9 @@ aaM
 ahM
 aaM
 aaM
-ueH
-ueH
-ueH
+eWN
+eWN
+mSa
 iez
 wGm
 wGm
@@ -83668,9 +83773,9 @@ aaM
 ahM
 aaM
 ueH
-ueH
-ueH
-ueH
+fZC
+wdS
+vSC
 iez
 uMu
 wom
@@ -83924,10 +84029,10 @@ aaM
 aaM
 ahM
 aaM
-ueH
-ueH
-ueH
-ueH
+iez
+pBZ
+eWN
+vSC
 iez
 wVm
 fir
@@ -84181,9 +84286,9 @@ aaM
 aaM
 ahM
 aaM
+wGm
 iez
-iez
-iez
+ezd
 iez
 iez
 vpb
@@ -84439,7 +84544,7 @@ aaM
 ahM
 aaM
 wGm
-ixF
+tUh
 oYs
 oYs
 iez
@@ -84953,7 +85058,7 @@ aaM
 ahM
 aaM
 wGm
-tUh
+ixF
 oYs
 oYs
 iez
@@ -85210,7 +85315,7 @@ aaM
 ahM
 aaM
 wGm
-oYs
+rza
 oYs
 oYs
 gdC
@@ -86241,8 +86346,8 @@ aaM
 aaM
 iez
 iez
-lqq
-lqq
+hio
+hio
 vom
 oYs
 qWB
@@ -86760,7 +86865,7 @@ bZk
 oar
 rBZ
 oYs
-oYs
+bSF
 oYs
 qLy
 iez
@@ -87269,8 +87374,8 @@ aaM
 aaM
 iez
 iez
-lqq
-lqq
+hio
+hio
 vom
 qgO
 oYs
