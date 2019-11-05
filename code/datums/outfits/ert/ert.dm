@@ -154,3 +154,101 @@
 		/obj/item/weapon/handcuffs/ziptie = 2,
 		/obj/item/weapon/shield/energy = 1
 	)
+
+// Deathsquads -- Admin Spawn Only
+/datum/outfit/admin/deathsquad
+	name = "Asset Protection"
+
+	uniform = /obj/item/clothing/under/ert
+	back = null
+	belt = /obj/item/weapon/storage/belt/security/tactical
+	shoes = null
+	gloves = null
+	mask = /obj/item/clothing/mask/gas/swat
+	l_ear = /obj/item/device/radio/headset/ert
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
+	id = /obj/item/weapon/card/id/asset_protection
+	l_pocket = /obj/item/weapon/plastique
+	r_pocket = /obj/item/weapon/melee/energy/sword
+	l_hand = /obj/item/weapon/gun/energy/rifle/pulse
+
+	belt_contents = list(
+		/obj/item/ammo_magazine/a454 = 2,
+		/obj/item/weapon/melee/baton/loaded = 1,
+		/obj/item/weapon/shield/energy = 1,
+		/obj/item/weapon/grenade/flashbang = 2,
+		/obj/item/weapon/handcuffs = 2,
+		/obj/item/weapon/grenade/frag = 1
+	)
+
+	var/syndie = FALSE
+
+/datum/outfit/admin/deathsquad/leader
+	name = "Asset Protection Lead"
+
+	l_pocket = /obj/item/weapon/pinpointer
+
+/datum/outfit/admin/deathsquad/syndicate
+	name = "Syndicate Commando"
+
+	uniform = /obj/item/clothing/under/syndicate
+	belt = /obj/item/weapon/storage/belt/military/syndicate
+	mask = /obj/item/clothing/mask/gas/syndicate
+	l_ear = /obj/item/device/radio/headset/syndicate
+	glasses = /obj/item/clothing/glasses/thermal
+	id = /obj/item/weapon/card/id/syndicate_ert
+	l_pocket = /obj/item/ammo_magazine/c45m
+	l_hand = /obj/item/weapon/gun/projectile/automatic/rifle/sts35
+
+	belt_contents = list(
+		/obj/item/ammo_magazine/c762 = 3,
+		/obj/item/weapon/pinpointer = 1,
+		/obj/item/weapon/shield/energy = 1,
+		/obj/item/weapon/handcuffs = 1,
+		/obj/item/weapon/grenade/flashbang = 1,
+		/obj/item/weapon/grenade/frag = 1,
+		/obj/item/weapon/plastique = 1
+	)
+
+	syndie = TRUE
+
+/datum/outfit/admin/deathsquad/syndicate/leader
+	name = "Syndicate Commando Lead"
+
+	l_pocket = /obj/item/weapon/pinpointer
+
+/datum/outfit/admin/deathsquad/get_id_access()
+	return get_all_accesses()
+
+/datum/outfit/admin/deathsquad/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/clothing/accessory/holster/armpit/hold = new(H)
+	var/obj/item/weapon/gun/projectile/weapon
+
+
+	if(syndie)
+		weapon = new /obj/item/weapon/gun/projectile/silenced(H)
+	else
+		weapon = new /obj/item/weapon/gun/projectile/revolver/mateba(H)
+
+	if(weapon)
+		hold.contents += weapon
+		hold.holstered = weapon
+
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	U.attackby(hold, H)
+
+	var/obj/item/weapon/rig/mercrig
+
+	if(syndie)
+		mercrig = new /obj/item/weapon/rig/merc(get_turf(H))
+	else
+		mercrig = new /obj/item/weapon/rig/ert/assetprotection(get_turf(H))
+
+	if(mercrig)
+		H.put_in_hands(mercrig)
+		H.equip_to_slot_or_del(mercrig, slot_back)
+		addtimer(CALLBACK(mercrig, /obj/item/weapon/rig/.proc/toggle_seals, H, TRUE), 2 SECONDS)

@@ -115,7 +115,7 @@
 //Proc executed after someone is spawned in
 /datum/ghostspawner/proc/post_spawn(mob/user)
 	if(welcome_message)
-		to_chat(user, welcome_message)
+		to_chat(user, span("notice", welcome_message))
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
