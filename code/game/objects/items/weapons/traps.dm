@@ -40,24 +40,10 @@
 			"You hear a latch click loudly."
 			)
 
-<<<<<<< HEAD
-		if (do_after(user, 60))
-			user.visible_message(
-				"<span class='danger'>[user] has deployed \the [src].</span>",
-				"<span class='danger'>You have deployed \the [src]!</span>",
-				"You hear a latch click loudly."
-				)
-
-			deployed = TRUE
-			user.drop_from_inventory(src)
-			update_icon()
-			anchored = 1
-=======
 		deployed = TRUE
 		update_icon()
 		return TRUE
 	return FALSE
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 
 /obj/item/weapon/trap/user_unbuckle_mob(mob/user)
 	if(buckled_mob && can_use(user))
@@ -81,10 +67,6 @@
 			user.visible_message("<span class='notice'>[buckled_mob] has been freed from \the [src] by [user].</span>")
 			unbuckle_mob()
 			anchored = FALSE
-<<<<<<< HEAD
-=======
-
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	else if(deployed && can_use(user))
 		user.visible_message(
 			"<span class='danger'>[user] starts to disarm \the [src].</span>",
@@ -179,20 +161,6 @@
 	var/datum/weakref/captured = null
 
 /obj/item/weapon/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
-<<<<<<< HEAD
-	if(!M)
-		return
-
-	if(captured)
-		user.visible_message(	
-			"<span class='warning'>[user] traps [M] inside of \the [src].</span>",
-			"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
-			"<b>You hear a loud metallic snap!</b>"
-		)
-		return
-
-	capture(M)
-=======
 	if(!istype(M))
 		return
 
@@ -201,7 +169,6 @@
 			capture(M)
 	else
 		to_chat(user, "<span class='warning'>\The [src] is already full!</span>")
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 
 /obj/item/weapon/trap/animal/update_icon()
 	icon = initial(icon)
@@ -213,23 +180,14 @@
 		var/datum/L = captured.resolve()
 		if (L)
 			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
-<<<<<<< HEAD
-
-=======
 			return
 	else if(deployed)
 		to_chat(user, span("warning", "It's set up and ready to capture something."))
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
 
-<<<<<<< HEAD
-/obj/item/weapon/trap/animal/Crossed(AM as mob|obj)
-	if(!deployed || !anchored) // remember to set deployed as a timer on release
-=======
 /obj/item/weapon/trap/animal/Crossed(AM)
 	if(!deployed || !anchored)
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 		return
 
 	if(captured) // just in case but this shouldn't happen
@@ -247,22 +205,6 @@
 			)
 		captured = WEAKREF(L)
 		buckle_mob(L)
-<<<<<<< HEAD
-
-	else if(istype(AM, /obj/effect/spider/spiderling) && spider) // for spiderlings
-		var/obj/effect/spider/spiderling/S = AM
-		captured = WEAKREF(S)
-		buckle_mob(S)
-
-	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
-	deployed = FALSE
-	src.animate_shake()
-	update_icon()
-
-/obj/item/weapon/trap/animal/proc/req_breakout()
-	if(deployed)
-		return 0 // Trap-door is open.
-=======
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
 		src.animate_shake()
@@ -271,7 +213,6 @@
 /obj/item/weapon/trap/animal/proc/req_breakout()
 	if(deployed || !captured)
 		return 0 // Trap-door is open, no one is captured.
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	if(breakout)
 		return -1 //Already breaking out.
 	return 1
@@ -332,11 +273,7 @@
 	var/datum/M = captured ? captured.resolve() : null
 
 	if(M)
-<<<<<<< HEAD
-		var/open = alert("Do you want to open the cage and free what is inside?",,"No","Yes")
-=======
 		var/open = alert("Do you want to open the cage and free \the [M]?",,"No","Yes")
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 
 		if(open == "No")
 			return
@@ -347,7 +284,6 @@
 
 		if(usr == M)
 			to_chat(usr, "<span class='warning'>You can't open \the [src] from the inside! You'll need to force it open.</span>")
-<<<<<<< HEAD
 			return
 
 		var/adj = src.Adjacent(usr)
@@ -355,15 +291,6 @@
 			attack_self(src)
 			return
 
-=======
-			return
-
-		var/adj = src.Adjacent(usr)
-		if(!adj)
-			attack_self(src)
-			return
-
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 		release(usr)
 
 /obj/item/weapon/trap/animal/crush_act()
@@ -421,17 +348,8 @@
 	release_time = world.time
 	can_buckle = FALSE
 
-<<<<<<< HEAD
-/obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/reagent_containers) && captured)
-		var/mob/living/L = captured.resolve()
-		if(L)
-			W.afterattack(L, user, TRUE)
-	else if(W.iswelder())
-=======
 /obj/item/weapon/trap/animal/attackby(obj/item/W, mob/user)
 	if(W.iswelder())
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 		var/obj/item/weapon/weldingtool/WT = W
 		if(!WT.welding)
 			to_chat(user, "Your \the [W] is off!")
@@ -459,25 +377,11 @@
 							 "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
 		playsound(src.loc, "sound/items/[pick("Screwdriver", "Screwdriver2")].ogg", 50, 1)
 
-<<<<<<< HEAD
-		if (!do_after(user, 3 SECONDS, act_target = src))
-			return
-		density = !density
-		anchored = !anchored
-		user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
-							 "You have [anchored ? "" : "un" ]secured \the [src]!")
-
-	else if(istype(W, /obj/item/weapon) && captured)
-		var/mob/living/L = captured.resolve()
-		if(L)
-			L.attackby(W, user)
-=======
 		if (do_after(user, 30/W.toolspeed, act_target = src))
 			density = !density
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 								"You have [anchored ? "" : "un" ]secured \the [src]!")
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	else
 		..()
 
@@ -529,39 +433,6 @@
 	if(captured)
 		pass_without_trace(usr) // It's full
 
-<<<<<<< HEAD
-/obj/item/weapon/trap/animal/MouseDrop(over_object, src_location, over_location)
-	if(!isliving(usr))
-		return
-
-	if((usr.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) || is_type_in_list(usr, allowed_mobs)) // Because monkeys can be of type of just human.
-		usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
-						"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
-		)
-		if(do_after(usr, 2 SECONDS, act_target = src))
-			if(prob(50)) // 50% chance to pass by without getting caught.
-				usr.forceMove(loc)
-				usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
-								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
-				)
-			else
-				usr.forceMove(loc)
-				usr.visible_message("<span class='notice'>[usr] accidentally triggered \the [src]</span>",
-								"<span class='notice'>You accidentally triggered \the [src]</span>"
-				)
-				capture(usr)
-		return
-
-	else if(iscarbon(usr))
-		usr.visible_message("<span class='notice'>[usr] is attempting to enter \the [src] without triggering it to pass through.</span>",
-						"<span class='notice'>You are attempting to enter \the [src] without triggering it to pass through. </span>"
-		)
-		if (do_after(usr, 2 SECONDS, act_target = src))
-			usr.forceMove(src.loc)
-			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
-								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
-			)
-=======
 	if((usr.isMonkey() && (/mob/living/carbon/human/monkey in allowed_mobs)) || is_type_in_list(usr, allowed_mobs)) // Because monkeys can be of type of just human.
 		pass_without_trace(usr, 50)
 		return
@@ -569,7 +440,6 @@
 	else if(iscarbon(usr))
 		pass_without_trace(usr)
 
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	else
 		..()
 
@@ -578,15 +448,8 @@
 		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
 		return
 
-<<<<<<< HEAD
-	if(!captured)
-		return
-
-	release(user, user.loc)
-=======
 	if(captured)
 		release(user, user.loc)
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 
 /obj/item/weapon/trap/animal/attack(var/target, mob/living/user)
 	if(!deployed)
@@ -669,11 +532,7 @@
 	else
 		..()
 
-<<<<<<< HEAD
-/obj/item/weapon/trap/animal/large/attackby(obj/item/W as obj, mob/user as mob)
-=======
 /obj/item/weapon/trap/animal/large/attackby(obj/item/W, mob/user)
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	if(W.iswrench())
 		var/turf/T = get_turf(src)
 		if(!T)
@@ -688,11 +547,7 @@
 							  "You are trying to [anchored ? "un" : "" ]secure \the [src]!")
 		playsound(src.loc, W.usesound, 50, 1)
 
-<<<<<<< HEAD
-		if(do_after(user, 3/W.toolspeed))
-=======
 		if(do_after(user, 30/W.toolspeed, act_target = src))
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] has [anchored ? "" : "un" ]secured \the [src]!</span>",
 								"You have [anchored ? "" : "un" ]secured \the [src]!")
@@ -704,8 +559,6 @@
 		..()
 
 /obj/item/weapon/trap/animal/large/MouseDrop(over_object, src_location, over_location)
-<<<<<<< HEAD
-=======
 	if(captured)
 		to_chat(usr, span("warning", "The trap door's down, you can't get through there!"))
 		return
@@ -713,29 +566,10 @@
 	if(!src.Adjacent(usr))
 		return
 
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 	if(!ishuman(usr))
 		..()
 		return
 
-<<<<<<< HEAD
-	usr.visible_message("<span class='notice'>[usr] is attempting to pass through \the [src] without triggering it.</span>",
-						"<span class='notice'>You are attempting to pass through \the [src] without triggering it. </span>"
-	)
-
-	if(do_after(usr, 2 SECONDS))
-		if(usr.a_intent == I_HELP || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
-			usr.forceMove(loc)
-			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
-								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
-			)
-		else
-			usr.forceMove(loc)
-			usr.visible_message("<span class='warning'>[usr] accidentally triggered \the [src]!</span>",
-								"<span class='warning'>You accidentally triggered \the [src]!</span>"
-			)
-			capture(usr)
-=======
 	var/pct = 0
 	if(usr.a_intent == I_HELP)
 		pct = 100
@@ -748,7 +582,6 @@
 	if(deployed)
 		return TRUE
 	return FALSE
->>>>>>> d84a163861b7c0e13badde9e49059d522f4502ac
 
 /obj/item/weapon/large_trap_foundation
 	name = "large trap foundation"
