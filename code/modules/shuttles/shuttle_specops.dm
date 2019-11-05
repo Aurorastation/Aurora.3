@@ -245,3 +245,8 @@
 	name = "deployment shuttle control console"
 	req_access = list(access_legion)
 	shuttle_tag = "Tau Ceti Foreign Legion"
+
+/obj/machinery/computer/shuttle_control/distress
+	name = "shuttle control computer"
+	req_access = list(access_distress)
+	shuttle_tag = "Distress"

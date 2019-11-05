@@ -578,7 +578,7 @@
 
 //combitool
 
-/obj/item/combitool
+/obj/item/weapon/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
 	icon = 'icons/obj/tools.dmi'
@@ -595,36 +595,36 @@
 		)
 	var/current_tool = 1
 
-/obj/item/combitool/Initialize()
+/obj/item/weapon/combitool/Initialize()
 	desc = "[initial(desc)] ([tools.len]. [tools.len] possibilit[tools.len == 1 ? "y" : "ies"])"
 	. = ..()
 
-/obj/item/combitool/examine(var/mob/user)
+/obj/item/weapon/combitool/examine(var/mob/user)
 	. = ..()
 	if(. && tools.len)
 		to_chat(user, "It has the following fittings:")
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
 
-/obj/item/combitool/iswrench()
+/obj/item/weapon/combitool/iswrench()
 	return tools[current_tool] == "wrench"
 
-/obj/item/combitool/isscrewdriver()
+/obj/item/weapon/combitool/isscrewdriver()
 	return tools[current_tool] == "screwdriver"
 
-/obj/item/combitool/iswirecutter()
+/obj/item/weapon/combitool/iswirecutter()
 	return tools[current_tool] == "wirecutters"
 
-/obj/item/combitool/iscrowbar()
+/obj/item/weapon/combitool/iscrowbar()
 	return tools[current_tool] == "crowbar"
 
-/obj/item/combitool/ismultitool()
+/obj/item/weapon/combitool/ismultitool()
 	return tools[current_tool] == "multitool"
 
-/obj/item/combitool/proc/update_tool()
+/obj/item/weapon/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
 
-/obj/item/combitool/attack_self(var/mob/user)
+/obj/item/weapon/combitool/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
 		current_tool = 1
 	var/tool = tools[current_tool]
@@ -636,7 +636,7 @@
 	return 1
 
 
-/obj/item/powerdrill
+/obj/item/weapon/powerdrill
 	name = "impact wrench"
 	desc = " The screwdriver's big brother."
 	icon = 'icons/obj/tools.dmi'
@@ -653,7 +653,7 @@
 		)
 	var/current_tool = 1
 
-/obj/item/powerdrill/Initialize()
+/obj/item/weapon/powerdrill/Initialize()
 	. = ..()
 
 	switch(pick("red","blue","yellow","green"))
@@ -667,23 +667,23 @@
 			drillcolor = "yellow"
 	icon_state = "powerdrill[drillcolor]"
 
-/obj/item/powerdrill/examine(var/mob/user)
+/obj/item/weapon/powerdrill/examine(var/mob/user)
 	. = ..()
 	if(. && tools.len)
 		to_chat(user, "It has the following fittings:")
 		for(var/tool in tools)
 			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
 
-/obj/item/powerdrill/iswrench()
+/obj/item/weapon/powerdrill/iswrench()
 	usesound = 'sound/items/air_wrench.ogg'
 	return tools[current_tool] == "wrenchbit"
 
-/obj/item/powerdrill/isscrewdriver()
+/obj/item/weapon/powerdrill/isscrewdriver()
 	usesound = 'sound/items/drill_use.ogg'
 
 	return tools[current_tool] == "screwdriverbit"
 
-/obj/item/powerdrill/proc/update_tool()
+/obj/item/weapon/powerdrill/proc/update_tool()
 	if(isscrewdriver())
 		cut_overlays()
 		add_overlay("screwdriverbit")
@@ -691,7 +691,7 @@
 		cut_overlays()
 		add_overlay("wrenchbit")
 
-/obj/item/powerdrill/attack_self(var/mob/user)
+/obj/item/weapon/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
 		current_tool = 1
 	var/tool = tools[current_tool]

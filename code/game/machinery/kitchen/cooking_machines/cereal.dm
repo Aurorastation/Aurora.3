@@ -12,6 +12,13 @@
 		"Cereal" = /obj/item/weapon/reagent_containers/food/snacks/variable/cereal
 	)
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/cerealmaker,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 /*
 /obj/machinery/appliance/cereal/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	. = ..()

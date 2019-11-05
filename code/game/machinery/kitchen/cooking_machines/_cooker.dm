@@ -77,16 +77,11 @@
 /obj/machinery/appliance/cooker/proc/update_cooking_power()
 	var/temp_scale = 0
 	if(temperature > min_temp)
-
-		temp_scale = (temperature - 273.15) / (optimal_temp - 273.15)
-		//If we're between min and optimal this will yield a value in the range 0.4-1
-
-		if (temp_scale > 1)
-			//We're above optimal, efficiency goes down as we pass too much over it
-			if (temp_scale >= 2)
-				temp_scale = 0
-			else
-				temp_scale = 1 - (temp_scale - 1)
+		if(temperature >= optimal_temp)
+			temp_scale = 1
+		else
+			temp_scale = (temperature - 73.15) / (optimal_temp - 73.15)
+		//If we're between min and optimal this will yield a value in the range 0.7 to 1
 
 	cooking_coeff = optimal_power * temp_scale
 	RefreshParts()
