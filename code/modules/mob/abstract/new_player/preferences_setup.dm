@@ -150,7 +150,7 @@
 	var/green
 	var/blue
 
-	if(current_species && current_species & HAS_SKIN_PRESET)
+	if(current_species && current_species.appearance_flags & HAS_SKIN_PRESET)
 		var/hex = pick(current_species.character_color_presets)
 		r_skin = GetRedPart(hex)
 		g_skin = GetGreenPart(hex)
