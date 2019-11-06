@@ -154,7 +154,7 @@
 	var/cy = 2+rows
 
 	var/list/screen_loc_xyfull = text2list(storage.screen_loc," to ")
-	var/list/screen_loc_xy = list(screen_loc_xyfull[1])
+	var/list/screen_loc_xy = text2list(screen_loc_xyfull[1], ",")
 
 	//Create list of X offsets
 	var/list/screen_loc_X = text2list(screen_loc_xy[1],":")
