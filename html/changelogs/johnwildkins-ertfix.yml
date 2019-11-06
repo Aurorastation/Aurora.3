@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes: 
+  - bugfix: "ERTs should no longer stop the emergency shuttle from being called."
