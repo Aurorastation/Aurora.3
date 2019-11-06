@@ -5,7 +5,7 @@
 	icon = 'icons/obj/library.dmi'
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_SMALL // POKKET - geeves
 	var/mob/affecting = null
 	use_sound = 'sound/bureaucracy/bookopen.ogg'
 	drop_sound = 'sound/bureaucracy/bookclose.ogg'
@@ -60,12 +60,15 @@
 		if("Bible")
 			icon_state = "bible"
 			item_state = "bible"
+			new /obj/item/clothing/accessory/rosary(src)
 		if("White Bible")
 			icon_state = "white"
 			item_state = "white"
+			new /obj/item/clothing/accessory/rosary(src)
 		if("Melted Bible")
 			icon_state = "melted"
 			item_state = "melted"
+			new /obj/item/clothing/accessory/rosary(src)
 		if("Quran")
 			icon_state = "quran"
 			item_state = "quran"
