@@ -110,7 +110,7 @@
 /obj/screen/movable/storage/Click()
 	if(!usr.canClick())
 		return 1
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
+	if(use_check(usr, USE_ALLOW_NON_ADV_TOOL_USR))
 		return 1
 	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
