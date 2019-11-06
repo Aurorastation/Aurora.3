@@ -27,11 +27,11 @@
 	)
 
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && H.wear_suit)
+	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/poncho/big/poncho = new(H)
 		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
 		S.attach_accessory(null, poncho)
-	if(H && H.shoes)
+	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
@@ -60,11 +60,11 @@
 	)
 
 /datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && H.wear_suit)
+	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/poncho/green/big/poncho = new(H)
 		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
 		S.attach_accessory(null, poncho)
-	if(H && H.shoes)
+	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
@@ -74,10 +74,10 @@
 	glasses = /obj/item/clothing/glasses/thermal
 
 /datum/outfit/admin/ert/kataphract/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H && H.wear_suit)
+	if(H?.wear_suit)
 		var/obj/item/clothing/accessory/poncho/red/big/poncho = new(H)
 		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
 		S.attach_accessory(null, poncho)
-	if(H && H.shoes)
+	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
