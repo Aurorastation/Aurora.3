@@ -213,7 +213,7 @@
 	icon_state = "garden"
 
 /area/store
-	name = "\improper Station Store"
+	name = "\improper Surface - Commissary"
 	icon_state = "quartstorage"
 	station_area = 1
 

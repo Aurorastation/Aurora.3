@@ -70,3 +70,7 @@
 	name = "\improper Surface - Blue Dock"
 	icon_state = "arrivals_dock"
 	holomap_color = HOLOMAP_AREACOLOR_ARRIVALS
+
+/area/hallway/secondary/entry/emergency
+	name = "\improper Emergency Services Dock"
+	icon_state = "escape"

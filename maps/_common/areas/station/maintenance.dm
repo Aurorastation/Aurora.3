@@ -81,6 +81,10 @@
 	name = "Surface Maintenance"
 	icon_state = "maint_arrivals"
 
+/area/maintenance/store
+	name = "\improper Commissary Maintenance"
+	icon_state = "maint_cargo"
+
 /area/maintenance/bar
 	name = "Bar Maintenance"
 	icon_state = "maint_bar"
