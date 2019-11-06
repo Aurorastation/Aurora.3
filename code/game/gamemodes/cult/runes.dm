@@ -1060,13 +1060,13 @@ var/list/sacrificed = list()
 			if(issilicon(T))
 				flick("e_flash", T.flash)
 				T.silent += 15
-				admin_attack_log(user, T, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+				admin_attack_log(user, T, "Used a stun talisman.", "Was victim of a stun talisman.", "used a stun talisman on")
 			else if(iscarbon(T))
 				var/mob/living/carbon/C = T
 				flick("e_flash", C.flash)
 				if(!(HULK in C.mutations))
 					C.silent += 15
-				admin_attack_log(user, C, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+				admin_attack_log(user, C, "Used a stun talisman.", "Was victim of a stun talisman.", "used a stun talisman on")
 		return
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE
