@@ -136,40 +136,49 @@
 
 /obj/item/weapon/paper_bundle/Topic(href, href_list)
 	..()
+	var/obj/item/weapon/in_hand = null
 	if((src in usr.contents) || (istype(src.loc, /obj/item/weapon/folder) && (src.loc in usr.contents)))
-		usr.set_machine(src)
-		var/obj/item/weapon/in_hand = usr.get_active_hand()
-		if(href_list["next_page"])
-			if(in_hand && (istype(in_hand, /obj/item/weapon/paper) || istype(in_hand, /obj/item/weapon/photo)))
-				insert_sheet_at(usr, page+1, in_hand)
-			else if(page != pages.len)
-				page++
-				playsound(src.loc, "pageturn", 50, 1)
-		if(href_list["prev_page"])
-			if(in_hand && (istype(in_hand, /obj/item/weapon/paper) || istype(in_hand, /obj/item/weapon/photo)))
-				insert_sheet_at(usr, page, in_hand)
-			else if(page > 1)
-				page--
-				playsound(src.loc, "pageturn", 50, 1)
-		if(href_list["remove"])
-			var/obj/item/weapon/W = pages[page]
-			usr.put_in_hands(W)
-			pages.Remove(pages[page])
-
-			to_chat(usr, "<span class='notice'>You remove the [W.name] from the bundle.</span>")
-
-			if(pages.len <= 1)
-				var/obj/item/weapon/paper/P = src[1]
-				usr.put_in_hands(P)
-				qdel(src)
-				return
-
-			if(page > pages.len)
-				page = pages.len
-
-			update_icon()
+		in_hand = usr.get_active_hand()
+	else if(isrobot(usr) && istype(usr.get_active_hand(), /obj/item/weapon/gripper/paperwork))
+		var/obj/item/weapon/gripper/paperwork/PW = usr.get_active_hand()
+		if(!(src in PW.contents) && !(istype(src.loc, /obj/item/weapon/folder) || !(src.loc in PW.contents)))
+			return // paper bundle isn't in the gripper
 	else
 		to_chat(usr, "<span class='notice'>You need to hold it in hands!</span>")
+		return
+
+	usr.set_machine(src)
+
+	if(href_list["next_page"])
+		if(in_hand && (istype(in_hand, /obj/item/weapon/paper) || istype(in_hand, /obj/item/weapon/photo)))
+			insert_sheet_at(usr, page+1, in_hand)
+		else if(page != pages.len)
+			page++
+			playsound(src.loc, "pageturn", 50, 1)
+	if(href_list["prev_page"])
+		if(in_hand && (istype(in_hand, /obj/item/weapon/paper) || istype(in_hand, /obj/item/weapon/photo)))
+			insert_sheet_at(usr, page, in_hand)
+		else if(page > 1)
+			page--
+			playsound(src.loc, "pageturn", 50, 1)
+	if(href_list["remove"])
+		var/obj/item/weapon/W = pages[page]
+		usr.put_in_hands(W)
+		pages.Remove(pages[page])
+
+		to_chat(usr, "<span class='notice'>You remove the [W.name] from the bundle.</span>")
+
+		if(pages.len <= 1)
+			var/obj/item/weapon/paper/P = src[1]
+			usr.put_in_hands(P)
+			qdel(src)
+			return
+
+		if(page > pages.len)
+			page = pages.len
+
+		update_icon()
+
 	if (istype(src.loc, /mob) ||istype(src.loc.loc, /mob))
 		src.attack_self(usr)
 		updateUsrDialog()

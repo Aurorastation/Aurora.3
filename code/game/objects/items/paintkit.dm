@@ -160,7 +160,7 @@
 
 /obj/item/device/kit/paint/ripley/random/New()
 	..()
-	var/list/ripleys = (typesof(/obj/item/device/kit/paint/ripley) - typesof(/obj/item/device/kit/paint/ripley/fluff))
+	var/list/ripleys = (typesof(/obj/item/device/kit/paint/ripley) - typesof(/obj/item/device/kit/paint/ripley/fluff) - /obj/item/device/kit/paint/ripley/shire)
 	var/build_path = pick(ripleys)
 	new build_path(src.loc)
 	qdel(src)

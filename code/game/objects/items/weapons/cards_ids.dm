@@ -206,7 +206,7 @@ var/const/NO_EMAG_ACT = -50
 				citizenship = H.citizenship
 				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
-				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
+				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
 				return
 
 	for(var/mob/O in viewers(user, null))
@@ -340,6 +340,28 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Syndicate Overlord"
 	access = list(access_syndicate, access_external_airlocks)
 
+/obj/item/weapon/card/id/syndicate_ert
+	name = "\improper Syndicate Commando ID"
+	assignment = "Commando"
+	icon_state = "centcom"
+
+/obj/item/weapon/card/id/syndicate_ert/New()
+	access = get_all_accesses()
+	..()
+
+/obj/item/weapon/card/id/raider
+	name = "passport"
+	assignment = "Visitor"
+
+/obj/item/weapon/card/id/highlander
+	name = "\improper Highlander ID"
+	assignment = "Highlander"
+	icon_state = "centcom"
+
+/obj/item/weapon/card/id/highlander/New()
+	access = get_all_station_access() | get_all_centcom_access()
+	..()
+
 /obj/item/weapon/card/id/captains_spare
 	name = "captain's spare ID"
 	desc = "The spare ID of the High Lord himself."
@@ -395,7 +417,7 @@ var/const/NO_EMAG_ACT = -50
 	..()
 
 /obj/item/weapon/card/id/ert
-	name = "\improper Emergency Response Team ID"
+	name = "\improper Nanotrasen Emergency Response Team ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
@@ -404,12 +426,32 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
-/obj/item/weapon/card/id/legion
-	name = "\improper Tau Ceti Foreign Legion ID"
+/obj/item/weapon/card/id/asset_protection
+	name = "\improper Nanotrasen Asset Protection ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
+	assignment = "Asset Protection"
+
+/obj/item/weapon/card/id/asset_protection/New()
+	access = get_all_accesses()
+	..()
+
+/obj/item/weapon/card/id/distress
+	name = "\improper Freelancer Mercenary ID"
+	icon_state = "centcom"
+	assignment = "Freelancer Mercenary"
+
+/obj/item/weapon/card/id/distress/New()
+	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
+	..()
+
+/obj/item/weapon/card/id/distress/legion
+	name = "\improper Tau Ceti Foreign Legion ID"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
+
+/obj/item/weapon/card/id/distress/legion/New()
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	..()
 
 /obj/item/weapon/card/id/all_access
 	name = "\improper Administrator's spare ID"

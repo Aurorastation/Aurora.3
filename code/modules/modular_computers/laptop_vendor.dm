@@ -332,6 +332,8 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			S.worth -= total_price
 			if(S.worth <= 0)
 				qdel(S)
+			else
+				S.update_icon()
 			return 1
 
 	else // just incase

@@ -96,7 +96,9 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette = 4,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/beetle_milk = 2,
+		/obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk = 2
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 10
@@ -145,9 +147,12 @@
 	products = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/greentea = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/chaitea = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/hotcider = 25,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 25,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 20,
-		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 10
+		/obj/item/weapon/reagent_containers/food/drinks/pslatte = 10
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/drinks/ice = 10,
@@ -156,9 +161,12 @@
 	prices = list(
 		/obj/item/weapon/reagent_containers/food/drinks/coffee = 20,
 		/obj/item/weapon/reagent_containers/food/drinks/tea = 20,
+		/obj/item/weapon/reagent_containers/food/drinks/greentea = 20,
+		/obj/item/weapon/reagent_containers/food/drinks/chaitea = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/hotcider = 28,
 		/obj/item/weapon/reagent_containers/food/drinks/h_chocolate = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 6,
-		/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte = 25
+		/obj/item/weapon/reagent_containers/food/drinks/pslatte = 25
 	)
 	premium = list(
 		/obj/item/weapon/reagent_containers/food/drinks/teapot/ = 5
@@ -566,7 +574,8 @@
 		/obj/item/seeds/watermelonseed = 3,
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
-		/obj/item/seeds/dynseed = 2
+		/obj/item/seeds/dynseed = 3,
+		/obj/item/seeds/wulumunushaseed = 2
 	)
 	contraband = list(
 		/obj/item/seeds/ambrosiavulgarisseed = 3,
@@ -624,7 +633,8 @@
 		/obj/item/seeds/watermelonseed = 30,
 		/obj/item/seeds/wheatseed = 20,
 		/obj/item/seeds/whitebeetseed = 20,
-		/obj/item/seeds/dynseed = 80
+		/obj/item/seeds/dynseed = 80,
+		/obj/item/seeds/wulumunushaseed = 90
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -774,7 +784,7 @@
 	products = list(
 		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
-		/obj/item/powerdrill = 2,
+		/obj/item/weapon/powerdrill = 2,
 		/obj/item/weapon/airlock_electronics = 10,
 		/obj/item/weapon/module/power_control = 10,
 		/obj/item/weapon/airalarm_electronics = 10,

@@ -37,6 +37,7 @@
 
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"
+	base_turf = /turf/space/transit/east
 	centcomm_area = 1
 
 /area/shuttle/arrival/station
@@ -63,6 +64,7 @@
 /area/shuttle/escape/transit // the area to pass through for 3 minute transit
 	name = "\improper Emergency Shuttle Transit"
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/shuttle/escape_pod1
@@ -81,6 +83,7 @@
 
 /area/shuttle/escape_pod1/transit
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/shuttle/escape_pod2
@@ -99,6 +102,7 @@
 
 /area/shuttle/escape_pod2/transit
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/shuttle/escape_pod3
@@ -117,6 +121,7 @@
 
 /area/shuttle/escape_pod3/transit
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
@@ -135,6 +140,7 @@
 
 /area/shuttle/escape_pod5/transit
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/shuttle/mining
@@ -231,3 +237,22 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/distress/centcom
+	name = "\improper Unidentified Shuttle"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/space
+	icon_state = "shuttlegrn"
+	centcomm_area = 1
+
+/area/shuttle/distress/station
+	name = "\improper Blue Dock Exterior"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	icon_state = "shuttle"
+	station_area = 1
+
+/area/shuttle/distress/transit
+	name = "\improper Unidentified Shuttle"
+	base_turf = /turf/space/transit/east
+	icon_state = "shuttle"
+	centcomm_area = 1

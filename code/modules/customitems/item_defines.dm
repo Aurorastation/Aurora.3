@@ -2493,7 +2493,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aavs_mask"
 	item_state = "aavs_mask"
 	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR
+	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR|BLOCKHEADHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
 
@@ -3156,6 +3156,36 @@ All custom items with worn sprites must follow the contained sprite system: http
 			has_bedroll = FALSE
 	if(do_after(usr, 50 SECONDS, act_target = src))
 		to_chat(usr, "<span class='notice'>You take down \the [src].</span>")
+		dump_contents()
 		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
 		qdel(src)
 		return
+
+
+/obj/item/clothing/head/fluff/djikstra_hood //Stellar Hood - Msizi Djikstra - happyfox
+	name = "stellar hood"
+	desc = "A more encompassing version of the Starveil, made from a resilient xeno-silk, intended to protect not just the eyes but also the soul of the wearer."
+	icon = 'icons/obj/custom_items/djikstra_items.dmi'
+	icon_state = "djikstra_hood"
+	item_state = "djikstra_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|BLOCKHAIR|BLOCKHEADHAIR|HIDEEARS|HIDEMASK|HIDEEARS|HIDEEYES
+	body_parts_covered = HEAD
+
+/obj/item/clothing/suit/fluff/djikstra_robe //Stellar Robe - Msizi Djikstra - happyfox
+	name = "stellar robe"
+	desc = "A finely made robe of resilient xeno-silk, shimmering like starlight."
+	icon = 'icons/obj/custom_items/djikstra_items.dmi'
+	icon_state = "djikstra_robe"
+	item_state = "djikstra_robe"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+	valid_accessory_slots = list("decor")
+
+/obj/item/clothing/accessory/fluff/djikstra_blade //Symbolic Khanjbiya - Msizi Djikstra - happyfox
+	name = "symbolic khanjbiya"
+	desc = "A xeno-silk belt carrying an ornate, but entirely symbolic, curved dagger. The blade is fused to the sheath, preventing it from being drawn."
+	icon = 'icons/obj/custom_items/djikstra_items.dmi'
+	icon_state = "djikstra_blade"
+	item_state = "djikstra_blade"
+	contained_sprite = TRUE

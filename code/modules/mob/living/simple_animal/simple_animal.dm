@@ -772,3 +772,17 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/simple_animal/emp_act(severity)
+	if(!isSynthetic())
+		return
+
+	switch(severity)
+		if(1)
+			adjustFireLoss(rand(20, 25))
+		if(2)
+			adjustFireLoss(rand(10, 15))
+		if(3)
+			adjustFireLoss(rand(5, 10))
+		if(4)
+			adjustFireLoss(rand(3, 5))

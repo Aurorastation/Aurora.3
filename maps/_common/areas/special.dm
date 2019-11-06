@@ -56,6 +56,9 @@
 /area/centcom/legion
 	name = "\improper Tau Ceti Foreign Legion Base"
 
+/area/centcom/distress_prep
+	name = "\improper Distress Team Preparation"
+
 //SYNDICATES
 
 /area/syndicate_mothership
@@ -167,6 +170,7 @@
 /area/syndicate_station/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/wizard_station
@@ -193,6 +197,7 @@
 /area/skipjack_station/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/skipjack_station/surface

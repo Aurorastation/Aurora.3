@@ -226,10 +226,14 @@
 	icon_state = "skrell_dots"
 	item_state = "skrell_dots"
 
+/obj/item/clothing/ears/skrell/goop/update_icon()
+	..()
+	if(color)
+		set_light(1.5,1.5,color)
+
 /obj/item/clothing/ears/skrell/goop/Initialize()
 	. = ..()
-	if(color)
-		set_light(1,1,color)
+	update_icon()
 
 /obj/item/clothing/ears/skrell/goop/stripes
 	icon_state = "skrell_stripes"
