@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Replace in game references about rig with hardsuit, to make things more consistent."

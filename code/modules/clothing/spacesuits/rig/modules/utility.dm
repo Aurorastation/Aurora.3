@@ -443,7 +443,7 @@
 	deactivate_string = "Deactivate Thrusters"
 
 	interface_name = "maneuvering jets"
-	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
+	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
 
 	var/obj/item/weapon/tank/jetpack/rig/jets
 
