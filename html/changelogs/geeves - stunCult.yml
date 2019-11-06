@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscdel: "Stun talismans no longer floor, only mute and flash. Note, stun runes unaffected."

@@ -1058,15 +1058,14 @@ var/list/sacrificed = list()
 				O.show_message(text("<span class='warning'><B>[] invokes a talisman at []</B></span>", user, T), 1)
 
 			if(issilicon(T))
-				T.Weaken(15)
+				flick("e_flash", T.flash)
+				T.silent += 15
 				admin_attack_log(user, T, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 			else if(iscarbon(T))
 				var/mob/living/carbon/C = T
 				flick("e_flash", C.flash)
-				if (!(HULK in C.mutations))
+				if(!(HULK in C.mutations))
 					C.silent += 15
-				C.Weaken(25)
-				C.Stun(25)
 				admin_attack_log(user, C, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 		return
 
