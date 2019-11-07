@@ -23,27 +23,49 @@ proc/Intoxicated(phrase)
 		newphrase+="[newletter]";counter-=1
 	return newphrase
 
-proc/NewStutter(phrase,stunned)
+proc/NewStutter(phrase, str = 1)
+	if(str < 1)
+		return phrase
+	else
+		str = Ceiling(str/5)
+
 	var/list/split_phrase = text2list(phrase," ") //Split it up into words.
-
 	var/list/unstuttered_words = split_phrase.Copy()
-	var/i = rand(1,3)
-	if(stunned) i = split_phrase.len
-	for(,i > 0,i--) //Pick a few words to stutter on.
 
+	var/max_stutter = str <= split_phrase.len ? str : split_phrase.len
+	var/stutters = rand(1, max_stutter)
+
+	for(var/i = 0, i < stutters, i++)
 		if (!unstuttered_words.len)
 			break
+
 		var/word = pick(unstuttered_words)
 		unstuttered_words -= word //Remove from unstuttered words so we don't stutter it again.
 		var/index = split_phrase.Find(word) //Find the word in the split phrase so we can replace it.
+		var/regex/R = regex("^(\\W*)((?:\[Tt\]|\[Cc\]|\[Ss\])\[Hh\]|\\w)(\\w*)(\\W*)$")
 
-		var/regex/R = regex("^(\\W*)((?:\[Tt\]|\[Cc\]|\[Ss\])\[Hh\]|\\w)")
-		// regex replacement of prior logic; it strips everything that isn't a letter from the front so we don't stutter markup
-		// it also looks for dipthongs (th, ch, sh) before defaulting to stuttering the first letter
-		if(prob(66)) // two-thirds chance of normal stutter
-			word = R.Replace(word, "$1$2-$2")
-		else // double stutter
-			word = R.Replace(word, "$1$2-$2-$2")
+		if(!R.Find(word))
+			continue
+
+		if (lentext(word) > 1)
+			if(prob(25) && str > 1) // stutter word instead
+				word = R.Replace(word, "$1$2$3-\\L$2$3")
+			else if(prob(50) && str > 1) // prolong word
+				var/prolonged = ""
+				for(var/j = 0, j < str, j++)
+					prolonged += R.group[2]
+				var/regex/upper = regex("\[A-Z\]")
+				if(!upper.Find(R.group[3]))
+					prolonged = lowertext(prolonged)
+				word = R.Replace(word, "$1$2[prolonged]$3$4")
+			else
+				if(prob(10 * str)) // harder stutter if stronger
+					word = R.Replace(word, "$1$2-$2-$2$3$4")
+				else // normal stutter
+					word = R.Replace(word, "$1$2-$2$3$4")
+
+		if(prob(3 * str)) // stammer / pause
+			word = R.Replace(word, "$0 ... ")
 
 		split_phrase[index] = word
 
