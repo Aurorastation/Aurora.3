@@ -17762,57 +17762,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
-"aOH" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
-	},
-/turf/simulated/floor/shuttle{
-	icon_state = "floor4"
-	},
-/area/skipjack_station/start)
-"aOI" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
-	},
-/turf/simulated/floor/shuttle{
-	icon_state = "floor4"
-	},
-/area/skipjack_station/start)
-"aOJ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	dir = 4;
-	id = "skipjackshutters";
-	name = "Skipjack Blast Shielding"
-	},
-/turf/simulated/floor/shuttle{
-	icon_state = "floor4"
-	},
-/area/skipjack_station/start)
 "aOK" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
@@ -37609,7 +37558,7 @@ aNd
 aNd
 aOc
 aOt
-aOH
+aNg
 aOd
 aPn
 aNd
@@ -37866,7 +37815,7 @@ aNd
 aNP
 aOd
 aOd
-aOI
+aNh
 aOd
 aPo
 aNd
@@ -38123,7 +38072,7 @@ aNz
 aNQ
 aOd
 aOd
-aOJ
+aNi
 aOd
 aOd
 aPE
@@ -38637,7 +38586,7 @@ aNB
 aNQ
 aOd
 aOd
-aOH
+aNg
 aOd
 aOd
 aPG
@@ -38894,7 +38843,7 @@ aNC
 aNS
 aOd
 aOd
-aOI
+aNh
 aOd
 aPp
 aNd
@@ -39151,7 +39100,7 @@ aNd
 aNd
 aOe
 aOe
-aOJ
+aNi
 aOd
 aPq
 aNd
