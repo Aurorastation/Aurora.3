@@ -858,6 +858,7 @@
 
 	visible_message("<b>[src]</b> gently touches [T].")
 	to_chat(T, span("notice", "You feel pure bliss as [src] touches you."))
+	vampire.use_blood(50)
 
 	T.reagents.add_reagent("rezadone", 3)
 	T.reagents.add_reagent("oxycodone", 0.15) //enough to get back onto their feet
