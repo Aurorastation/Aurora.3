@@ -328,4 +328,4 @@
 
 /datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.druggy = max(M.druggy, 100)
-	M.silent += 5
+	M.silent = max(M.silent, 5)
