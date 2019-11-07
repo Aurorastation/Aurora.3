@@ -1701,7 +1701,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsteak
 	name = "meat steak"
 	desc = "A piece of hot spicy meat."
-	icon_state = "meatstake"
+	icon_state = "stake"
 	trash = /obj/item/trash/plate
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
