@@ -84,7 +84,7 @@ proc/get_radio_key_from_channel(var/channel)
 		if(dongle.translate_binary) return 1
 
 /mob/living/proc/get_stuttered_message(message)
-	return NewStutter(message, stuttering)
+	return stutter(message, stuttering)
 
 /mob/living/proc/get_default_language()
 	return default_language
