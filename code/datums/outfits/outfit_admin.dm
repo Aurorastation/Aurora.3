@@ -91,7 +91,7 @@
 							/obj/item/weapon/reagent_containers/glass/bottle/dexalin_plus = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/epinephrine = 1,
 							/obj/item/weapon/reagent_containers/glass/bottle/spaceacillin = 1,
-							
+
 						)
 	accessory_contents = list(/obj/item/weapon/gun/energy/pulse/pistol = 1)
 	var/id_access = "Lance Medic"
@@ -126,138 +126,6 @@
 
 /datum/outfit/admin/lance_operative/get_id_access()
 	return get_syndicate_access(id_access)
-
-/datum/outfit/admin/syndicate
-	name = "Syndicate Agent"
-
-	uniform = /obj/item/clothing/under/syndicate
-	back = /obj/item/weapon/storage/backpack
-	belt = /obj/item/weapon/storage/belt/utility/full
-	gloves = /obj/item/clothing/gloves/combat
-	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/device/radio/headset/syndicate
-	id = /obj/item/weapon/card/id/syndicate
-	r_pocket = /obj/item/device/radio/uplink
-	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
-		/obj/item/device/flashlight = 1,
-		/obj/item/weapon/card/emag = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
-		/obj/item/device/multitool = 1
-	)
-	var/id_access = "Syndicate Operative"
-	var/uplink_uses = 20
-
-/datum/outfit/admin/syndicate/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(visualsOnly)
-		return
-
-	var/obj/item/device/radio/uplink/U = H.r_store
-	if(istype(U))
-		U.hidden_uplink.uplink_owner = "[H.key]"
-		U.hidden_uplink.uses = uplink_uses
-
-/datum/outfit/admin/syndicate/get_id_access()
-	return get_syndicate_access(id_access)
-
-
-/datum/outfit/admin/syndicate/operative
-	name = "Syndicate Operative"
-
-	suit = /obj/item/clothing/suit/space/void/merc
-	belt = /obj/item/weapon/storage/belt/military/syndicate
-	head = /obj/item/clothing/head/helmet/space/void/merc
-	mask = /obj/item/clothing/mask/gas/syndicate
-	l_ear = /obj/item/device/radio/headset/syndicate
-	glasses = /obj/item/clothing/glasses/night
-	shoes = /obj/item/clothing/shoes/magboots
-	l_pocket = /obj/item/weapon/pinpointer/nukeop
-	l_hand = /obj/item/weapon/tank/jetpack/void
-
-	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
-		/obj/item/weapon/reagent_containers/pill/cyanide = 1,
-		/obj/item/weapon/gun/projectile/automatic/x9 = 1,
-		/obj/item/ammo_magazine/c45x = 1,
-		/obj/item/weapon/crowbar/red = 1,
-		/obj/item/weapon/plastique = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
-		/obj/item/device/flashlight = 1,
-		/obj/item/clothing/shoes/combat = 1
-)
-
-
-/datum/outfit/admin/syndicate/officer
-	name = "Syndicate Officer"
-
-	head = /obj/item/clothing/head/beret
-	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/havana
-	belt = /obj/item/weapon/gun/projectile/deagle
-	l_ear = /obj/item/device/radio/headset/syndicate
-	l_pocket = /obj/item/weapon/pinpointer/advpinpointer
-	r_pocket = null // stop them getting a radio uplink, they get an implant instead
-
-	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
-		/obj/item/device/flashlight = 1,
-		/obj/item/weapon/reagent_containers/pill/cyanide = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
-		/obj/item/ammo_magazine/a50 = 2,
-		/obj/item/clothing/shoes/magboots = 1,
-		/obj/item/weapon/flame/lighter/zippo = 1
-	)
-	implants = list(
-		/obj/item/weapon/implant/explosive
-	)
-	id_access = "Syndicate Operative Leader"
-
-
-/datum/outfit/admin/syndicate/spy
-	name = "Syndicate Spy"
-	uniform = /obj/item/clothing/under/suit_jacket/really_black
-	shoes = /obj/item/clothing/shoes/black/noslip
-	uplink_uses = 40
-	id_access = "Syndicate Agent"
-
-	implants = list(
-		/obj/item/weapon/implant/explosive
-	)
-
-/datum/outfit/admin/syndicate/ninja
-	name = "Infiltrator"
-
-	uniform = /obj/item/clothing/under/syndicate/ninja
-	back = /obj/item/weapon/rig/light/ninja
-	belt = /obj/item/weapon/storage/belt/ninja
-	shoes = /obj/item/clothing/shoes/swat/ert
-	gloves = /obj/item/clothing/ring/ninja
-	mask = /obj/item/clothing/mask/balaclava
-	l_ear = /obj/item/device/radio/headset/ninja
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
-	id = /obj/item/weapon/card/id/syndicate
-	l_pocket = null
-	r_pocket = null
-	accessory = /obj/item/clothing/accessory/storage/black_pouches
-
-	backpack_contents = list()
-
-	belt_contents = list(
-		/obj/item/device/flashlight/maglight = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/screwdriver = 1,
-		/obj/item/device/paicard = 1
-	)
-
-	id_access = "Syndicate Agent"
-
-/datum/outfit/admin/syndicate/ninja/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(visualsOnly)
-		return
-
-	H.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(H, H.mind), slot_l_store)
-
 
 /datum/outfit/admin/nt
 	name = "NanoTrasen Representative"

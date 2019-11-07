@@ -387,7 +387,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
 		qdel(src)
 
-	else if(istype(O, /obj/item/weapon/pen))
+	else if(O.ispen())
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return

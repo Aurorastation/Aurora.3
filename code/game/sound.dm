@@ -173,7 +173,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		crash_with("[source] is an area and is trying to make the sound: [soundin]")
 		return
 
-	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, get_rand_frequency(), environment)
+	var/sound/original_sound = playsound_get_sound(soundin, vol, falloff, 0, environment)
 
 	if (!original_sound)
 		crash_with("Could not construct original sound.")

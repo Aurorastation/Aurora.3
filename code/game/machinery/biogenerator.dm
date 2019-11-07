@@ -182,6 +182,14 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"crayon_box" = list(
+			name = "Crayon Box",
+			class = "Items",
+			object = /obj/item/weapon/storage/fancy/crayons,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		"animalhide" = list(
 			name = "Animal Hide",
 			class = "Construction",

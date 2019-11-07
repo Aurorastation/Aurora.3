@@ -392,7 +392,7 @@
 		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
-/obj/structure/closet/airbubble/attackby(W as obj, mob/user as mob)
+/obj/structure/closet/airbubble/attackby(obj/W, mob/user as mob)
 	if(istype(W, /obj/item/weapon/tank))
 		if(!isnull(use_internal_tank))
 			user.visible_message(
@@ -442,7 +442,7 @@
 
 		qdel(W)
 		update_icon()
-	else if(istype(W, /obj/item/weapon/wirecutters))
+	else if(W.iswirecutter())
 		if(!zipped)
 			to_chat(user, "<span class='warning'>[src] has no cables to cut.</span>")
 			attack_hand(user)

@@ -263,3 +263,9 @@
 	desc = "A small bottle of cough syrup. Don't take too much!"
 	icon_state = "bottle-3"
 	reagents_to_add = list("coughsyrup" = 60)
+
+/obj/item/weapon/reagent_containers/glass/bottle/thetamycin
+	name = "thetamycin bottle"
+	desc = "A small bottle of thetamycin. Used for disinfecting whatever wounds security caused."
+	icon_state = "bottle-4"
+	reagents_to_add = list("thetamycin" = 60)

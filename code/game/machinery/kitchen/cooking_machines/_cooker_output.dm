@@ -34,7 +34,7 @@
 	M.Scale(scale)
 	src.transform = M
 
-	w_class *= scale
+	w_class = round(w_class * scale)
 	if (!prefix)
 		if (scale == min_scale)
 			prefix = "tiny"

@@ -5,6 +5,7 @@
 	name = "guest pass"
 	desc = "Allows temporary access to station areas."
 	icon_state = "guest"
+	overlay_state = "guest"
 
 	var/temp_access = list() //to prevent agent cards stealing access as permanent
 	var/expiration_time = 0
@@ -42,6 +43,7 @@
 
 /obj/item/weapon/card/id/guest/proc/expire()
 	icon_state += "_invalid"
+	overlay_state += "_invalid"
 
 /////////////////////////////////////////////
 //Guest pass terminal////////////////////////

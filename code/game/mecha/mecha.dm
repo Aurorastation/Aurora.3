@@ -468,6 +468,8 @@
 /obj/mecha/Collide(var/atom/obstacle)
 	. = ..()
 //	src.inertia_dir = null
+	if(istype(obstacle, /obj/structure/stairs))
+		return
 	if(istype(obstacle, /obj))
 		var/obj/O = obstacle
 		if(istype(O, /obj/effect/portal)) //derpfix
@@ -1582,7 +1584,7 @@
 			file = 'sound/mecha/weapdestrnano.ogg'
 		else
 
-	playsound(src.loc, file, 100, 0, -6.6, environment=1) // using padded room environment to reduce echo
+	playsound(src.loc, file, 50, 0, -6, 0, 0, 1)
 
 /////////////////
 ///// Topic /////

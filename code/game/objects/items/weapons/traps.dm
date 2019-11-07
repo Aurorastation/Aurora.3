@@ -145,7 +145,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = 0
 	time_to_escape = 3 // Minutes
-	can_buckle = TRUE
+	can_buckle = FALSE
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
@@ -175,7 +175,7 @@
 	if(world.time - release_time < 50) // If we just released the animal, not to let it get caught again right away
 		return
 
-	if(contents.len) // It is full
+	if(captured?.resolve()) // It is full
 		return
 	capture(AM)
 
@@ -189,6 +189,7 @@
 					"<span class='danger'>You enter \the [src], and it snaps shut with a clatter!</span>",
 					"<b>You hear a loud metallic snap!</b>"
 					)
+				can_buckle = TRUE
 				captured = WEAKREF(L)
 				playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 				deployed = 1
@@ -359,6 +360,7 @@
 	deployed = FALSE
 	update_icon()
 	release_time = world.time
+	can_buckle = FALSE
 
 /obj/item/weapon/trap/animal/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/reagent_containers) && contents.len)
@@ -366,6 +368,9 @@
 		W.afterattack(L, user, TRUE)
 	else if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
+		if (!WT.welding)
+			to_chat(user, "Your \the [W] is off!")
+			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src]!</span>",
 							 "You are trying to slice \the [src]!")
 
@@ -377,7 +382,7 @@
 			new /obj/item/stack/rods(src.loc, resources["rods"])
 			if(resources.len == 2)
 				new /obj/item/stack/material/steel(src.loc, resources["metal"])
-			release()
+			release(user)
 			qdel(src)
 
 	else if(W.isscrewdriver())
@@ -634,7 +639,7 @@
 		)
 		if (!do_after(usr, 2 SECONDS, act_target = src))
 			return
-		if(usr.a_intent == I_HELP || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
+		if(usr.a_intent == I_HELP || captured?.resolve() || (usr.a_intent != I_HURT && prob(50))) // 50% chance to pass by without getting caught on disarm, drag, 100% on help. Harm will get you caught.
 			usr.forceMove(src.loc)
 			usr.visible_message("<span class='notice'>[usr] pass through \the [src] without triggering it.</span>",
 								"<span class='notice'>You pass through \the [src] without triggering it.</span>"

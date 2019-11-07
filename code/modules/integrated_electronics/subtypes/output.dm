@@ -77,7 +77,7 @@
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(light_toggled)
 		if(assembly)
-			assembly.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb)
+			assembly.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb, uv_power = 0)
 	else
 		if(assembly)
 			assembly.set_light(0)

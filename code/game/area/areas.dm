@@ -414,13 +414,17 @@ var/list/mob/living/forced_ambiance_list = new
 		if(!Y)
 			continue
 		var/area/A = Y
-		if(!(A.z in current_map.station_levels))
+		if (isNotStationLevel(A.z))
 			continue
-		if (istype(A, /area/shuttle))
+		if (istype(A, /area/shuttle) || findtext(A.name, "Docked") || findtext(A.name, "Shuttle"))
 			continue
 		if (istype(A, /area/solar) || findtext(A.name, "solar"))
 			continue
-		if (istype(A, /area/constructionsite))
+		if (istype(A, /area/constructionsite) || istype(A, /area/maintenance/interstitial_construction_site))
+			continue
+		if (istype(A, /area/rnd/xenobiology))
+			continue
+		if (istype(A, /area/maintenance/substation))
 			continue
 		if (istype(A, /area/turbolift))
 			continue

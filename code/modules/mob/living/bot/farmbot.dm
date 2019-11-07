@@ -380,7 +380,7 @@
 		qdel(src)
 		return 1
 
-	else if(istype(W, /obj/item/weapon/pen))
+	else if(W.ispen())
 		var/t = input(user, "Enter new robot name", name, created_name) as text
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)

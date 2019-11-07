@@ -9,6 +9,11 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
+		)
+
 	//Species-specific stuff.
 	species_restricted = list("Human", "Bishop Accessory Frame")
 	sprite_sheets_refit = list(
@@ -40,6 +45,11 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
+		)
+
 	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
@@ -55,6 +65,8 @@
 		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi',
 		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi'
 		)
+
+	action_button_name = "Toggle Helmet"
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
 	//With 0.2 resiliance, will reach 10 breach damage after 3 laser carbine blasts or 8 smg hits.
@@ -193,6 +205,9 @@
 	tank.canremove = 1
 	H.drop_from_inventory(tank)
 	src.tank = null
+
+/obj/item/clothing/suit/space/void/attack_self()
+	toggle_helmet()
 
 /obj/item/clothing/suit/space/void/attackby(obj/item/W as obj, mob/user as mob)
 

@@ -5,27 +5,29 @@
 	due_date = 0 // Game time in 1/10th seconds
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
 
+/obj/item/weapon/book/manual/wiki
+	var/sub_page = ""
 
-/obj/item/weapon/book/manual/engineering_construction
+/obj/item/weapon/book/manual/wiki/Initialize()
+	. = ..()
+
+	dat = {"
+		<html>
+		<head></head>
+
+		<body>
+		<iframe width='100%' height='97%' src="[config.wikiurl][sub_page]&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		</body>
+
+		</html>
+	"}
+
+/obj/item/weapon/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
 	icon_state ="bookEngineering"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Station Repairs and Construction"
-
-/obj/item/weapon/book/manual/engineering_construction/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Guide_to_construction&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
+	sub_page = "Guide_to_construction"
 
 /obj/item/weapon/book/manual/engineering_particle_accelerator
 	name = "Particle Accelerator User's Guide"
@@ -33,8 +35,8 @@
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
-/obj/item/weapon/book/manual/engineering_particle_accelerator/New()
-	..()
+/obj/item/weapon/book/manual/engineering_particle_accelerator/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -77,11 +79,11 @@
 /obj/item/weapon/book/manual/supermatter_engine
 	name = "Supermatter Engine Operating Manual"
 	icon_state = "bookSupermatter"
-	author = "Central Engineering Division"
+	author = "Engineering Encyclopedia"
 	title = "Supermatter Engine Operating Manual"
 
-/obj/item/weapon/book/manual/supermatter_engine/New()
-	..()
+/obj/item/weapon/book/manual/supermatter_engine/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -110,20 +112,29 @@
 				<br>
 				<h2>SUPERMATTER HANDLING</h2>
 				<li>Do not expose supermatter to oxygen.</li>
-				<li>Do not <del>touch supermatter</del> <del>without gloves</del> <del>without exosuit protection</del> allow supermatter to contact any solid object apart from specially-designed supporting pallet.</li>
-				<li>Do not directly view supermatter without meson goggles.</li>
-				<li>While handles on pallet allow moving the supermatter via pulling, pushing should not be attempted.</li>
+				<li><b>NEVER</b> allow the supermatter to come into contact any solid object apart from the specially-designed supporting pallet.</li>
+				<li>Never directly look at the supermatter, it has a poorly documented psychological effect on those that do.</li>
+				<li>While handles on pallet allow moving the supermatter via pulling, pushing should <b>NEVER</b> be attempted.</li>
 				<br>
 				<h2>STARTUP PROCEDURE</h2>
 				<ol>
-				<li>Fill reactor loop and radiator loop with two (2) standard canisters of nitrogen gas each.</li>
-				<li>Ensure that pumps and filters are on and operating at maximum power.</li>
-				<li>Fire <del>5</del> <del>15</del> <del>2</del> <del>UNKNOWN</del> 8-12 pulses from emitter at supermatter crystal. Reactor blast doors must be open for this procedure.</li>
+				<li>Don radiation hood, radiation suit and meson goggles, without these PPE, you <b>will</b> become irradiated.</li>
+				<li>Fill the hot loop's (northernmost) port with <b>ONE</b> canister of phoron.</li>
+				<li>Fill the cold loop's (southernmost) port with <b>TWO</b> canisters of phoron.</li>
+				<li>Ensure that <b>ALL</b> pumps and filters in the engine and waste room are on and operating at maximum power.</li>
+				<li>Ensure the both the emergency coolant valves (located to the west and east of the TEGs) are <b>NOT</b> active.</li>
+				<li>Set the two waste loop filters to filter <b>PHORON</b>.</li>
+				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>293k</b>.</li>
+				<li>Fire <b>twenty-one to twenty-five</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
+				<li>Set the SMES in the adjacent room (not the one in the engine bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
+				<li>Go to hard storage and retrieve two coils, Transmission and Capacitance.</li>
+				<li>Open the SMES unit's maintenance panel with your screwdriver and insert both coils, close panel once finished.</li>
+				<li>Set input to maximum, and output to 1400000 (1.4 MW).</li>
 				</ol>
 				<br>
 				<h2>OPERATION AND MAINTENANCE</h2>
 				<ol>
-				<li>Ensure that radiation protection and meson goggles are worn at all times while working in the engine room.</li>
+				<li>Ensure that radiation protection and meson goggles are worn at <b>ALL</b> times while working in the engine room.</li>
 				<li>Ensure that reactor and radiator loops are undamaged and unobstructed.</li>
 				<li>Ensure that phoron and oxygen gas exhaust from filters is properly contained or disposed. Do not allow exhaust pressure to exceed 4500 kPa.</li>
 				<li>Ensure that engine room Area Power Controller (APC) and engine Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
@@ -135,6 +146,7 @@
 				<ol>
 				<li>Open Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
 				<li>When reactor temperature returns to safe operating levels, close Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
+				<li>Add additional phoron canister to the COLD LOOP.</li>
 				<li>If reactor temperature does not return to safe operating levels, see EJECTION PROCEDURE.</li>
 				</ol>
 				<br>
@@ -142,32 +154,52 @@
 				<ol>
 				<li>Press Engine Ventilatory Control button to open engine core vent to space.</li>
 				<li>Press Emergency Core Eject button to eject supermatter crystal. NOTE: Attempting crystal ejection while engine core vent is closed will result in ejection failure.</li>
-				<li>In event of ejection failure, <i>pending</i></li>
+				<li>In event of ejection failure, evacuate the area immediately, inform medical and prepare anti-radiation medicine.</li>
+				<li>Start work on repairing telecommunications and setting up an alternate method of power generation (Solars, Tesla).</li>
 				</ol>
+				<h2>Frequently Asked Questions</h2>
+				<br>
+				<li><b>Q:</b> Why do some Chief Engineers ask me to use a set-up that isn't in this book?</li>
+				<br>
+				<li><b>A:</b> There are a few different ways of setting up things in engineering, some Chief Engineers may want more power to be generated, some may want it to be run safely. Trust them.</li>
+				<br>
+				<li><b>Q:</b> Why is the Chief telling me to run the SMES at X MegaWatt output?</li>
+				<br>
+				<li><b>A:</b> Sometimes the station needs more power, sometimes it needs less. On a lazy day with no shields, 1.2 MW output is enough to keep the station running, and prevent people getting shocked from the main loop from getting injured.</li>
+				<br>
+				<li><b>Q:</b> What is that port south east of the waste loop blast doors?</li>
+				<br>
+				<li><b>A:</b> That's the emergency gas flushing port. Notice how it bypasses the filter. You use that to pull all the gas out of the pipes and into that port.</li>
+				<br>
+				<li><b>Q:</b> Why do my co-workers sometimes wrench a canister into the port inside the waste room?</li>
+				<br>
+				<li><b>A:</b> That's the canister you use an analyzer on to check the contents of the waste loop. It contains a miniscule amount of gas, but it's in the correct ratio to let you know. It's also a nice back-up in the event of backed up pipes.</li>
+				<br>
+				<li><b>Q:</b> I accidentally put way too many emitter shots into the crystal! What do I do!?</li>
+				<br>
+				<li><b>A:</b> The supermatter will heat up more, so all you do is place more coolant (likely phoron) into the cold loop. Once the situation settles, check if you're producing too little power, and emitter it some more.</li>
+				<br>
+				<li><b>Q:</b> Are other gasses safe to use in the loops?</li>
+				<br>
+				<li><b>A:</b> Mostly, yes. More skilled engineers will likely teach you new methods of using other gasses. Our recommendation is to use phoron if you're unsure. The best idea is to ask your co-workers for help, especially if they set up the engine.</li>
+				<br>
+				<li><b>Q:</b> What do the emergency valves actually do?</li>
+				<br>
+				<li><b>A:</b> They combine the loops, which will lead to to the rapid cooling of the hot loop and the minor heating of the cold. Eventually they will normalize again. Pressure will be equalized in both.</li>
+				<br>
+				<li><b>Q:</b> An engineer walked into the room with no PPE, why did they do that?</li>
+				<br>
+				<li><b>A:</b> If the supermatter engine hasn't been started yet, it will not output radiation. Our recommendation is to be safe instead of sorry, however. If the engine has started, call medical and security, they may be attempting to do an emergency fix, or they are mentally unwell. Remember that non-organics do not suffer from radiation poisoning.</li>
+				<br>
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/engineering_hacking
+/obj/item/weapon/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Hacking"
-
-/obj/item/weapon/book/manual/engineering_hacking/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Hacking&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
+	sub_page = "Hacking"
 
 /obj/item/weapon/book/manual/engineering_singularity_safety
 	name = "Singularity Safety in Special Circumstances"
@@ -219,9 +251,6 @@
 				</body>
 			</html>
 			"}
-
-
-
 
 /obj/item/weapon/book/manual/medical_cloning
 	name = "Cloning Techniques of the 26th Century"
@@ -666,30 +695,21 @@
 			</html>
 		"}
 
-
-/obj/item/weapon/book/manual/security_space_law
+/obj/item/weapon/book/manual/wiki/security_space_law
 	name = "Corporate Regulations"
 	desc = "A set of corporate guidelines for keeping law and order on privately-owned space stations."
 	icon_state = "bookSpaceLaw"
 	author = "The Company"
 	title = "Corporate Regulations"
+	sub_page = "Corporate_Regulations"
 
-/obj/item/weapon/book/manual/security_space_law/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='97%' src="[config.wikiurl]Corporate_Regulations&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
-		</body>
-
-		</html>
-
-		"}
-
-
+/obj/item/weapon/book/manual/wiki/station_procedure
+	name = "Station Procedure"
+	desc = "A set of uniform procedures followed on all NanoTrasen installations."
+	icon_state = "corporate-procedure"
+	title = "The Company"
+	title = "Station Procedure"
+	sub_page = "Guide_to_Station_Procedure"
 
 /obj/item/weapon/book/manual/medical_diagnostics_manual
 	name = "Medical Diagnostics Manual"
@@ -698,8 +718,8 @@
 	author = "Medical Department"
 	title = "Medical Diagnostics Manual"
 
-/obj/item/weapon/book/manual/medical_diagnostics_manual/New()
-	..()
+/obj/item/weapon/book/manual/medical_diagnostics_manual/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -739,26 +759,12 @@
 		"}
 
 
-/obj/item/weapon/book/manual/engineering_guide
+/obj/item/weapon/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state ="bookEngineering2"
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
-
-/obj/item/weapon/book/manual/engineering_guide/New()
-	..()
-	dat = {"
-
-		<html><head>
-		</head>
-
-		<body>
-		<iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Engineering&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>		</body>
-
-		</html>
-
-		"}
-
+	sub_page = "Guide_to_Engineering"
 
 /obj/item/weapon/book/manual/chef_recipes
 	name = "Chef Recipes"
@@ -1182,7 +1188,7 @@
 				</head>
 				<body>
 				<a name="Foreword"><h1>Gravity Generation for dummies!</h1></a>
-				Thank you for your purchase of the newest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaing your gravity generation system.<br><br>
+				Thank you for your purchase of the newest model of the SA Grade Gravity Generator! This operation manual will cover the basics required for safely operating and maintaining your gravity generation system.<br><br>
 
 				<h2><a name="Contents">Contents</a></h2>
 				<ol>
@@ -1285,8 +1291,8 @@
 	author = "NTCC Odin Psychiatry Wing"
 	title = "Sigmund Freud for Dummies"
 
-/obj/item/weapon/book/manual/psych/New()
-	..()
+/obj/item/weapon/book/manual/psych/Initialize()
+	. = ..()
 	dat = {"<html>
 				<head>
 				<style>
@@ -1418,15 +1424,12 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/battlemonsters
+/obj/item/weapon/book/manual/wiki/battlemonsters
 	name = "\improper Guide to Battlemonsters"
 	icon_state ="battlemonsters"
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"
-
-/obj/item/weapon/book/manual/battlemonsters/New()
-	..()
-	dat = {"<html><head></head><body><iframe width='100%' height='100%' src="[config.wikiurl]Guide_to_Battlemonsters&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe></body></html>"}
+	sub_page = "Guide_to_Battlemonsters"
 
 /obj/item/weapon/book/manual/pra_manifesto
 	name = "hadiist manifesto"

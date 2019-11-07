@@ -50,7 +50,7 @@
 
 /datum/gear/suit/hoodie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
@@ -58,7 +58,7 @@
 
 /datum/gear/suit/labcoat/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/overalls
 	display_name = "overalls"
@@ -67,7 +67,7 @@
 
 /datum/gear/suit/overalls/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
@@ -107,7 +107,7 @@
 
 /datum/gear/suit/suitjacket/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 
 
@@ -264,7 +264,7 @@
 
 /datum/gear/suit/miscellaneous/peacoat/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/varsity
 	display_name = "varsity jacket selection"
@@ -309,4 +309,4 @@
 
 /datum/gear/suit/cardigan/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice

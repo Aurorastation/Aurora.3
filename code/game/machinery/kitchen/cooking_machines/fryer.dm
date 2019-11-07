@@ -9,14 +9,15 @@
 	food_color = "#FFAD33"
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
+	heating_power = 12000
 
-	optimal_power = 0.35
+	optimal_power = 1.35
 
 	idle_power_usage = 3.6 KILOWATTS
 	//Power used to maintain temperature once it's heated.
 	//Going with 25% of the active power. This is a somewhat arbitrary value
 
-	resistance = 20000	// Approx. 8-9 minutes to heat up.
+	resistance = 60000	// Approx. 10 minutes.
 
 	max_contents = 2
 	container_type = /obj/item/weapon/reagent_containers/cooking_container/fryer
@@ -26,6 +27,13 @@
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
 	var/datum/looping_sound/deep_fryer/fry_loop
+
+	component_types = list(
+			/obj/item/weapon/circuitboard/fryer,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check

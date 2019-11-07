@@ -4,9 +4,9 @@
 /obj/item/clothing/under/rank/research_director
 	desc = "It's a jumpsuit worn by those with the know-how to achieve the position of \"Research Director\". Its fabric provides minor protection from biological contaminants."
 	name = "research director's jumpsuit"
-	icon_state = "director"
+	icon_state = "rd"
 	item_state = "lb_suit"
-	worn_state = "director"
+	worn_state = "rd"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/under/rank/research_director/rdalt
@@ -35,6 +35,24 @@
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
+/obj/item/clothing/under/rank/scientist/xenoarcheologist
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
+	name = "xenoarcheologist's jumpsuit"
+	icon_state = "xenoarcheology"
+	item_state = "w_suit"
+	worn_state = "xenoarcheology"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+
+/obj/item/clothing/under/rank/scientist/science_alt
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
+	name = "scientist's uniform"
+	icon_state = "science_alt"
+	item_state = "w_suit"
+	worn_state = "science_alt"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
+
 /obj/item/clothing/under/rank/scientist/botany
 	desc = "It's made of a special fiber that provides minor protection against biohazards. Its colour denotes the wearer as a xenobotanist."
 	icon_state = "botany"
@@ -55,6 +73,15 @@
 	worn_state = "chemistry"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+
+/obj/item/clothing/under/rank/xenoarcheologist
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a xenoarcheologist."
+	name = "xenoarcheologist's jumpsuit"
+	icon_state = "xenoarcheology"
+	item_state = "w_suit"
+	worn_state = "xenoarcheology"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
 /*
  * Medical
@@ -223,9 +250,9 @@
 
 /obj/item/clothing/under/rank/biochemist
 	desc = "Made of a special fiber that gives increased protection against biohazards."
-	name = "virologist's jumpsuit"
-	icon_state = "virologist_new"
+	name = "biochemist's jumpsuit"
+	icon_state = "virology"
 	item_state = "w_suit"
-	worn_state = "virologist_new"
+	worn_state = "virology"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)

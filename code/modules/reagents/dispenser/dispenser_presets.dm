@@ -85,7 +85,8 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/lime,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/apple,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/watermelon,
-			/obj/item/weapon/reagent_containers/chem_disp_cartridge/clean_kois
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/clean_kois,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/banana
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc
@@ -131,6 +132,10 @@
 	spawn_cartridges = list(
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/greentea{temperature_override = 349},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/chaitea{temperature_override = 349},
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ciderhot{temperature_override = 349},
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,

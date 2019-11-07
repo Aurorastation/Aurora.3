@@ -28,7 +28,7 @@
 
 /datum/gear/mask/vaurca_expression/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/mask/vaurca_expression/skrell
 	display_name = "skrell expression mask"
@@ -42,7 +42,7 @@
 
 /datum/gear/head/shaper/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/cape
 	display_name = "tunnel cloak"
@@ -76,7 +76,7 @@
 
 /datum/gear/uniform/vaurca/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/vaurca
 	display_name = "shaper robes"
@@ -88,7 +88,7 @@
 
 /datum/gear/suit/vaurca/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/shoes/vaurca
 	display_name = "vaurca shoes"
@@ -98,7 +98,7 @@
 
 /datum/gear/shoes/vaurca/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/vaurca_shroud
 	display_name = "vaurcan shroud"
@@ -127,4 +127,4 @@
 
 /datum/gear/suit/vaurca_mantle/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice

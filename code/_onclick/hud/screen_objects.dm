@@ -262,7 +262,6 @@
 				var/mob/living/silicon/robot/R = usr
 				if(R.module)
 					R.uneq_active()
-					R.hud_used.update_robot_modules_display()
 				else
 					to_chat(R, "You haven't selected a module yet.")
 
