@@ -308,7 +308,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
-	desc = "A, military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
+	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
 	icon_state = "mgreen"
 	item_state = "mgreen"
 	icon_open = "mgreen_open"
