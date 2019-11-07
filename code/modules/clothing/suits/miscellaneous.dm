@@ -258,6 +258,69 @@
 	icon_closed = "leather_jacket_sleeveless"
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/biker
+	name = "biker jacket"
+	desc = "A thick, black leather jacket with silver zippers and buttons, crafted to evoke the image of rebellious space-biker gangs."
+	icon_state = "biker"
+	item_state = "biker"
+	icon_open = "biker_open"
+	icon_closed = "biker"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer
+	name = "designer leather jacket"
+	desc = "A sophisticated, stylish leather jacket. It doesn't look cheap."
+	icon_state = "designer_jacket"
+	item_state = "designer_jacket"
+	icon_open = "designer_jacket_open"
+	icon_closed = "designer_jacket"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black
+	icon_state = "blackdesigner_jacket"
+	item_state = "blackdesigner_jacket"
+	icon_open = "blackdesigner_jacket_open"
+	icon_closed = "blackdesigner_jacket"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red
+	icon_state = "reddesigner_jacket"
+	item_state = "reddesigner_jacket"
+	icon_open = "reddesigner_jacket_open"
+	icon_closed = "reddesigner_jacket"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight
+	name = "flight jacket"
+	desc = "A modern pilot's jacket made from a silky, shiny nanonylon material. Not to be confused with the vintage stylings of a bomber jacket."
+	icon_state = "flight"
+	item_state = "flight"
+	icon_open = "flight_open"
+	icon_closed = "flight"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green
+	icon_state = "gflight"
+	item_state = "gflight"
+	icon_open = "gflight_open"
+	icon_closed = "gflight"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white
+	icon_state = "wflight"
+	item_state = "wflight"
+	icon_open = "wflight_open"
+	icon_closed = "wflight"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military
+	name = "military jacket"
+	desc = "A, military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
+	icon_state = "mgreen"
+	item_state = "mgreen"
+	icon_open = "mgreen_open"
+	icon_closed = "mgreen"
+	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
+	icon_state = "mtan"
+	item_state = "mtan"
+	icon_open = "mtan_open"
+	icon_closed = "mtan"
+
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"
@@ -480,25 +543,6 @@
 	name = "brown varsity jacket"
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
-
-/obj/item/clothing/suit/storage/miljacket
-	name = "military jacket"
-	desc = "A canvas jacket styled after classical American military garb. Feels sturdy, yet comfortable."
-	icon_state = "militaryjacket_nobadge"
-	item_state = "militaryjacket_nobadge"
-	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
-
-/obj/item/clothing/suit/storage/miljacket/alt
-	name = "military jacket"
-	desc = "A canvas jacket styled after classical American military garb. Feels sturdy, yet comfortable."
-	icon_state = "militaryjacket_badge"
-	item_state = "militaryjacket_badge"
-
-/obj/item/clothing/suit/storage/miljacket/green
-	name = "military jacket"
-	desc = "A dark green canvas jacket. Feels sturdy, yet comfortable."
-	icon_state = "militaryjacket_green"
-	item_state = "militaryjacket_green"
 
 /obj/item/clothing/suit/storage/legion
 	name = "tcfl jacket"
