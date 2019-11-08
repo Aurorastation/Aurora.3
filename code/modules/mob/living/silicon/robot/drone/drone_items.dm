@@ -58,9 +58,10 @@
 				plastic.add_charge(1000)
 
 
-		else if(istype(M,/mob/living/simple_animal/lizard) || (istype(M,/mob/living/simple_animal/rat) && M.mob_size <= 2))
+		else if(istype(M,/mob/living/simple_animal) && M.mob_size <= 3 && !istype(M, /mob/living/simple_animal/cat)) //includes things like rats, lizards, tindalos while excluding bigger things and station pets.
 			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			playsound(src.loc, 'sound/effects/squelch1.ogg')
 			qdel(M)
 			if(wood)
 				wood.add_charge(2000)
