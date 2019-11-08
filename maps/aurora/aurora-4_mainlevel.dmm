@@ -20843,7 +20843,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aKQ" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
@@ -20855,7 +20855,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aKR" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
@@ -20866,14 +20866,14 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aKS" = (
 /obj/structure/ladder{
 	icon_state = "ladder01";
 	pixel_y = 16
 	},
 /turf/simulated/open,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aKT" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/research_port)
@@ -21956,7 +21956,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aMD" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -21967,7 +21967,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aME" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -21977,7 +21977,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aMF" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -22954,7 +22954,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aOs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -22972,7 +22972,7 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aOt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -22987,7 +22987,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aOu" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(12)
@@ -23005,7 +23005,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "aOv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -63107,6 +63107,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"csz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "ctD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	icon_state = "intact";
@@ -63370,6 +63379,28 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"drY" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "dsl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -63943,6 +63974,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"fdI" = (
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "feo" = (
 /obj/structure/grille/broken,
 /obj/machinery/door/firedoor,
@@ -64079,6 +64113,24 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
+"fAg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "fBZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -65183,6 +65235,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
+"iZX" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "jdn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -65258,6 +65314,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"jsP" = (
+/turf/simulated/wall/r_wall,
+/area/maintenance/engineering_ladder)
 "juv" = (
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
@@ -65403,6 +65462,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"jVw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(12)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "kaW" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -66015,6 +66089,21 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"lPy" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
 "lQu" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -66348,7 +66437,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/telecoms_ladder)
+/area/maintenance/engineering_ladder)
 "mEf" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -67522,6 +67611,20 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/maintenance/research_port)
+"qfD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "qgC" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
@@ -67874,6 +67977,24 @@
 /obj/structure/largecrate/animal/cow,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"rnz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_access = list(12)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "rnR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/trashcart,
@@ -68237,6 +68358,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
+"srP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "ssY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/wood,
@@ -68329,6 +68465,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"sMZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "sNG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -68420,6 +68571,20 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/open,
 /area/maintenance/medbay)
+"sXa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "sYg" = (
 /obj/random/loot,
 /turf/simulated/floor/reinforced,
@@ -68671,6 +68836,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"tFv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
 "tGq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -68946,6 +69126,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"uhw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/cargo)
 "uiD" = (
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -69819,6 +70010,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"wFf" = (
+/obj/structure/cable{
+	d1 = 16;
+	d2 = 0;
+	icon_state = "12-0"
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply,
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "wFz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -70151,6 +70357,25 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"xya" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/telecoms_ladder)
 "xBY" = (
 /obj/structure/coatrack{
 	pixel_x = -10;
@@ -83430,15 +83655,15 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
 aaa
 aaa
 aaa
@@ -83625,7 +83850,7 @@ alk
 alk
 alk
 alk
-efu
+jsP
 aab
 aab
 aab
@@ -83686,16 +83911,16 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aab
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
 aaa
 aaa
 aaa
@@ -83882,7 +84107,7 @@ aBL
 aKP
 aMC
 aOr
-efu
+jsP
 aab
 aab
 aab
@@ -83943,16 +84168,16 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -84139,7 +84364,7 @@ aBL
 aKQ
 aMD
 aOs
-efu
+jsP
 aaa
 aab
 aab
@@ -84200,16 +84425,16 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
 aaa
 aaa
 aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -84396,7 +84621,7 @@ aBL
 aKR
 aMC
 aOt
-efu
+jsP
 aaa
 aab
 aab
@@ -84456,6 +84681,8 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -84464,10 +84691,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -84653,79 +84878,79 @@ aBL
 aKS
 aME
 mCz
+jsP
+aaa
+aaa
+aab
+aab
+aab
+aab
+aab
+aab
+aab
+aaa
+aaa
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aab
+aab
+aaa
+aaa
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aab
+aab
+aab
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aab
+aaa
+aaa
+efu
+efu
+efu
+efu
 efu
 aaa
 aaa
 aab
 aab
 aab
-aab
-aab
-aab
-aab
-aaa
-aaa
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
-aaa
-aaa
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
-aab
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -84907,82 +85132,82 @@ aBL
 aFx
 aBL
 aBL
-efu
-efu
+jsP
+jsP
 aOu
+jsP
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aab
+aab
+aab
+aab
+aab
+aaa
+aaa
+aaa
+aaa
+aab
+aab
+aaa
+aaa
 efu
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-bbs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wFf
+xya
+fdI
+efu
 aaa
 aaa
 aab
 aab
 aab
-aab
-aab
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -85226,21 +85451,21 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
 aaa
 aaa
+efu
+csz
+fAg
+iZX
+efu
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
 aaa
 aaa
 aab
@@ -85483,21 +85708,21 @@ aaa
 aaa
 aaa
 aaa
+aab
+aab
+aaa
+aaa
+efu
+fdI
+sXa
+fdI
+efu
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -85739,21 +85964,21 @@ aab
 aab
 aab
 aaa
+aab
+aab
+aab
 aaa
 aaa
+efu
+efu
+rnz
+efu
+efu
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -85997,19 +86222,19 @@ aab
 aab
 aab
 aab
+aab
 aaa
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -86259,14 +86484,14 @@ aaa
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -86516,14 +86741,14 @@ aaa
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -86773,14 +86998,14 @@ aaa
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -87030,13 +87255,13 @@ aaa
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -87287,13 +87512,13 @@ aab
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -87544,12 +87769,12 @@ aab
 aab
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -87801,12 +88026,12 @@ aab
 aab
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -88058,12 +88283,12 @@ aaa
 aab
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
 aaa
 aaa
 aaa
@@ -88315,13 +88540,13 @@ bbs
 aab
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -88572,14 +88797,14 @@ bbs
 aab
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -88829,14 +89054,14 @@ bbs
 aab
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -89086,15 +89311,15 @@ bbs
 aab
 aab
 aaa
+bbs
+qfD
+bbs
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aab
+aab
+aab
+aab
 aaa
 aaa
 aaa
@@ -89343,14 +89568,14 @@ bbs
 aab
 aab
 aab
+bbs
+qfD
+bbs
+aaa
+aaa
 aab
 aab
-aaa
-aaa
-aaa
-aaa
 aab
-aaa
 aaa
 aaa
 aaa
@@ -89600,14 +89825,14 @@ aaa
 aaa
 aaa
 aaa
+bbs
+qfD
+bbs
 aaa
 aab
-aaa
-aaa
 aab
 aab
 aab
-aaa
 aaa
 aaa
 aaa
@@ -89853,13 +90078,13 @@ bPs
 bbs
 bcY
 bbs
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
+bbs
+bbs
+bbs
+bbs
+bbs
+qfD
+bbs
 aaa
 aab
 aab
@@ -90108,15 +90333,15 @@ bPL
 bPM
 bSf
 bbs
-bcY
+sMZ
+jVw
+aUW
+aUW
+aUW
+aUW
+aUW
+srP
 bbs
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
-aab
 aab
 aab
 aab
@@ -90365,15 +90590,15 @@ bPL
 bNi
 bPs
 bbs
-bcY
+qfD
 bbs
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aab
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
+bbs
 aab
 aab
 aab
@@ -90622,7 +90847,7 @@ bcY
 bPs
 puy
 bbs
-bcY
+qfD
 bbs
 aaa
 aaa
@@ -90879,7 +91104,7 @@ bbs
 bbs
 bbs
 cbQ
-eSN
+lPy
 cbQ
 cbQ
 cbQ
@@ -91126,17 +91351,17 @@ bOe
 adG
 bPu
 bbs
-bfQ
-bcY
-bcY
-bcY
-bcY
-bcY
-bcY
-bcY
-bcY
-cdX
-cdX
+drY
+aUW
+aUW
+aUW
+aUW
+aUW
+aUW
+aUW
+aUW
+uhw
+tFv
 mbS
 wAi
 cdX
