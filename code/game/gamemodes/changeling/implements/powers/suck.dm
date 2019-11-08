@@ -54,7 +54,7 @@
 	to_chat(src, "<span class='notice'>We have finished infesting [T], and withdraw from their flesh, taking some of their genetic data.</span>")
 	to_chat(src, "<span class='notice'>We will need a minute to process this sample, before we can begin absorbing another.</span>")
 
-	addtimer(CALLBACK(T, /mob/living/.proc/adjustToxLoss, rand(10, 15)), rand(10, 15) SECONDS)
+	addtimer(CALLBACK(T, /mob/living/.proc/add_reagent, "toxin", rand(10, 15)) rand(3, 5) SECONDS)
 
 	changeling.justate = world.time
 
