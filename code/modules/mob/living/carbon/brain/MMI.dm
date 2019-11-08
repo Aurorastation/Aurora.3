@@ -36,7 +36,7 @@
 		if(istype(O,/obj/item/organ/brain) && !brainmob) //Time to stick a brain in it --NEO
 			var/obj/item/organ/brain/B = O
 			if(!B.can_lobotomize)
-				to_chat(user, "<span class='warning'>The [B] is incompatible with [src]!</span>")
+				to_chat(user, "<span class='warning'>\The [B] is incompatible with [src]!</span>")
 				return
 			if(B.health <= 0)
 				to_chat(user, "<span class='warning'>That brain is well and truly dead.</span>")
