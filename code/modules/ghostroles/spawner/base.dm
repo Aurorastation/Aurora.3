@@ -115,7 +115,7 @@
 //Proc executed after someone is spawned in
 /datum/ghostspawner/proc/post_spawn(mob/user)
 	if(welcome_message)
-		to_chat(user, welcome_message)
+		to_chat(user, span("notice", welcome_message))
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -139,9 +139,13 @@
 					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")
 				else
 					to_chat(O, "<span class='deadsay'><b>[enable_dmessage]</b></span>")
+	for(var/i in spawnpoints)
+		SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE
 
 //Proc to disable the ghostspawner
 /datum/ghostspawner/proc/disable()
 	enabled = FALSE
+	for(var/i in SSghostroles.spawnpoints)
+		SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE

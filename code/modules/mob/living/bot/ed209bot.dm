@@ -296,7 +296,7 @@
 /obj/item/weapon/secbot_assembly/ed209_assembly/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
 	..()
 
-	if(istype(W, /obj/item/weapon/pen))
+	if(W.ispen())
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return

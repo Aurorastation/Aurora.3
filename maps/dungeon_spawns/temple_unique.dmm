@@ -21,10 +21,6 @@
 /obj/structure/alien/weeds/node,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
-"h" = (
-/obj/structure/simple_door/gold,
-/turf/unsimulated/chasm_mask,
-/area/mine/unexplored)
 "i" = (
 /obj/structure/simple_door/gold,
 /turf/simulated/floor/cult,
@@ -562,7 +558,7 @@ i
 d
 d
 m
-h
+i
 d
 d
 b

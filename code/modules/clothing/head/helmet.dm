@@ -77,6 +77,7 @@
 	icon_state = "riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
@@ -106,12 +107,14 @@
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
 	icon_state = "helmet_bulletproof"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
 	icon_state = "helmet_tac"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
@@ -122,6 +125,7 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/swat/peacekeeper
 	name = "\improper ERT civil protection helmet"
@@ -173,6 +177,7 @@
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
+	siemens_coefficient = 0.35
 
 
 /obj/item/clothing/head/helmet/augment
@@ -184,6 +189,7 @@
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"
@@ -201,6 +207,7 @@
 	contained_sprite = 1
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
@@ -209,6 +216,7 @@
 	flags_inv = BLOCKHEADHAIR
 	color = "#5f5f5f"
 	armor = list(melee = 25, bullet = 5, laser = 5, energy = 10, bomb = 5, bio = 0, rad = 0)
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/helmet/tank/olive
 	color = "#727c58"
@@ -226,6 +234,7 @@
 		slot_r_hand_str = "syndicate-helm-green"
 		)
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
+	siemens_coefficient = 0.35
 
 //Commander
 /obj/item/clothing/head/helmet/ert/command
@@ -257,6 +266,7 @@
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/tajara
 	name = "amohdan swordsmen helmet"
@@ -274,3 +284,4 @@
 	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
 	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
 	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+	siemens_coefficient = 0.35

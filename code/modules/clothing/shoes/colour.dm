@@ -48,7 +48,7 @@
 
 /obj/item/clothing/shoes/medical
 	name = "doctor shoes"
-	desc = "A pair of blue and white shoes intended for safety around patients."
+	desc = "A pair of green and white shoes intended for safety around patients."
 	icon_state = "doctor"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 80, rad = 0)
 
@@ -60,9 +60,30 @@
 	permeability_coefficient = 0.01
 
 /obj/item/clothing/shoes/chemist
-	name = "biochemist shoes"
-	desc = "A pair of green and white shoes resistant to biological and chemical hazards."
+	name = "pharmacist shoes"
+	desc = "A pair of orange and white shoes resistant to biological and chemical hazards."
 	icon_state = "chemist"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+
+/obj/item/clothing/shoes/biochem
+	name = "biochemist shoes"
+	desc = "A pair of red and white shoes resistant to biological and chemical hazards."
+	icon_state = "biochem"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+
+/obj/item/clothing/shoes/psych
+	name = "psychologist shoes"
+	desc = "A pair of teal and white shoes resistant to biological and chemical hazards."
+	icon_state = "psych"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+
+/obj/item/clothing/shoes/surgeon
+	name = "surgeon shoes"
+	desc = "A pair of light blue and white shoes resistant to biological and chemical hazards."
+	icon_state = "surgeon"
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 

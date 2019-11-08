@@ -886,6 +886,17 @@
 /obj/effect/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
+"cF" = (
+/turf/simulated/floor,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
 "cG" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -1734,7 +1745,7 @@
 	},
 /area/derelict/ship)
 "eX" = (
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "eY" = (
 /obj/machinery/deployable/barrier,
@@ -2821,7 +2832,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/organ/stack/vox,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3118,7 +3129,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "jk" = (
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/wall/shuttle/raider,
 /area/derelict/ship)
 "jl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3300,8 +3311,7 @@
 	icon_state = "propulsion";
 	dir = 8
 	},
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
+/turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "diagonalWall3"
 	},
 /area/derelict/ship)
@@ -3493,7 +3503,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "kx" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3505,7 +3515,7 @@
 "kz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kA" = (
 /obj/structure/grille,
@@ -3513,7 +3523,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kB" = (
 /obj/structure/grille,
@@ -3524,7 +3534,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kC" = (
 /obj/item/clothing/shoes/magboots/vox,
@@ -3534,17 +3544,17 @@
 "kD" = (
 /obj/machinery/shield,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "kE" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kF" = (
 /obj/structure/window/reinforced,
 /obj/item/weapon/material/shard,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kG" = (
 /obj/random/junk,
@@ -3553,13 +3563,13 @@
 /area/derelict/ship)
 "kH" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "kI" = (
 /obj/structure/girder,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3586,14 +3596,14 @@
 /area/derelict/ship)
 "kO" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "kP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3614,7 +3624,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kS" = (
 /obj/structure/grille,
@@ -3624,11 +3634,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kT" = (
 /obj/machinery/floodlight,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3646,16 +3656,16 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kW" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "kX" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3678,7 +3688,7 @@
 "la" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3699,13 +3709,13 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "le" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "lf" = (
 /obj/structure/window/reinforced,
@@ -3734,7 +3744,7 @@
 /area/derelict/ship)
 "lh" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict/ship)
 "li" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -3763,7 +3773,7 @@
 /area/derelict/ship)
 "lm" = (
 /obj/machinery/mech_recharger,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3783,12 +3793,12 @@
 /area/derelict/ship)
 "lp" = (
 /obj/structure/shuttle/engine/heater,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "lq" = (
 /obj/machinery/replicator,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3813,7 +3823,7 @@
 /area/derelict/ship)
 "lu" = (
 /obj/machinery/shieldwallgen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3847,7 +3857,7 @@
 	icon_state = "bridge";
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3926,7 +3936,7 @@
 /area/derelict/ship)
 "lN" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "lO" = (
 /obj/structure/bed/chair/office/bridge{
@@ -3934,7 +3944,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3944,7 +3954,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -3980,7 +3990,7 @@
 /area/derelict/ship)
 "lV" = (
 /turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 8;
 	icon_state = "diagonalWall3"
 	},
@@ -3988,48 +3998,47 @@
 "lW" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "lX" = (
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "lY" = (
-/turf/simulated/floor/tiled/dark,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 5
 	},
 /area/derelict/ship)
 "lZ" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "ma" = (
 /obj/item/weapon/paper/crumpled,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "mc" = (
 /obj/structure/table/rack,
 /obj/random/energy_antag,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4037,7 +4046,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4046,7 +4055,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4060,7 +4069,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4068,14 +4077,14 @@
 /obj/structure/girder,
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mh" = (
 /obj/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4086,7 +4095,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4100,7 +4109,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4108,20 +4117,20 @@
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "ml" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "mm" = (
 /obj/structure/girder,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4134,21 +4143,21 @@
 "mo" = (
 /obj/machinery/floodlight,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mp" = (
 /obj/machinery/shield_gen,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mq" = (
 /obj/machinery/shield_capacitor,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4156,7 +4165,7 @@
 /obj/item/weapon/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4165,7 +4174,7 @@
 	req_access = list(150)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4174,13 +4183,13 @@
 /obj/item/ammo_magazine/d762,
 /obj/item/weapon/gun/projectile/dragunov,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mu" = (
 /obj/random/junk,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4188,29 +4197,27 @@
 /obj/structure/table/rack,
 /obj/random/melee,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mw" = (
 /obj/machinery/porta_turret_construct,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "mx" = (
-/turf/unsimulated/floor/asteroid/ash,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
 	},
 /area/derelict/ship)
 "my" = (
-/turf/unsimulated/floor/asteroid/ash,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 10
 	},
 /area/derelict/ship)
 "mz" = (
@@ -4296,7 +4303,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/custom_ka,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4308,7 +4315,7 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/arcade,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4326,7 +4333,7 @@
 /area/derelict/ship)
 "mS" = (
 /obj/structure/computerframe,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4518,13 +4525,13 @@
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/gun/launcher/spikethrower,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "nA" = (
 /turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 6;
 	icon_state = "diagonalWall3"
 	},
@@ -4548,13 +4555,6 @@
 /obj/structure/girder,
 /turf/simulated/floor,
 /area/derelict/ship)
-"nF" = (
-/turf/simulated/floor/wood,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/ship)
 "nG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4572,7 +4572,7 @@
 "nJ" = (
 /obj/structure/table/rack,
 /obj/item/weapon/gun/launcher/spikethrower,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4709,7 +4709,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4750,22 +4750,14 @@
 /obj/machinery/door/airlock/hatch{
 	req_access = list(150)
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "on" = (
-/turf/simulated/floor/tiled/dark,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/ship)
-"oo" = (
-/turf/simulated/floor/wood,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
 	},
 /area/derelict/ship)
 "op" = (
@@ -4835,7 +4827,7 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/smokebombs,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4843,7 +4835,7 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/flashbangs,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4968,7 +4960,7 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/flashshells,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -4976,7 +4968,7 @@
 /obj/structure/table/rack,
 /obj/item/weapon/gun/launcher/spikethrower,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -5114,7 +5106,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ps" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -5128,7 +5120,7 @@
 /area/derelict/ship)
 "pu" = (
 /obj/structure/computerframe,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -5210,29 +5202,37 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "pJ" = (
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict/ship)
 "pK" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 4;
 	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 6
 	},
 /area/derelict/ship)
 "pL" = (
 /obj/structure/table/standard,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "pM" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 10
 	},
 /area/derelict/ship)
 "pN" = (
@@ -5244,13 +5244,13 @@
 	icon_state = "bridge";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "pP" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -5267,7 +5267,7 @@
 "pR" = (
 /obj/structure/table/standard,
 /obj/item/weapon/fossil/shell,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -5286,39 +5286,41 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "pU" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 6;
 	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 5
 	},
 /area/derelict/ship)
 "pV" = (
 /obj/machinery/constructable_frame,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
 "pW" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 8;
 	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 9
 	},
 /area/derelict/ship)
 "pX" = (
 /turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/ship)
-"pY" = (
-/turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
 	icon_state = "diagonalWall3"
 	},
 /area/derelict/ship)
@@ -5876,7 +5878,7 @@
 /area/derelict/ship)
 "rV" = (
 /obj/machinery/mech_recharger,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -5899,15 +5901,14 @@
 	},
 /area/mine/unexplored)
 "rZ" = (
-/turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
 	},
 /area/derelict)
 "sa" = (
 /obj/machinery/porta_turret/xray,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "sb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5917,7 +5918,7 @@
 /area/derelict/ship)
 "sc" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict/ship)
 "sd" = (
 /obj/structure/closet/radiation,
@@ -5981,7 +5982,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -5994,7 +5995,7 @@
 /area/derelict)
 "sp" = (
 /turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 6;
 	icon_state = "diagonalWall3"
 	},
@@ -6006,19 +6007,22 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "ss" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "st" = (
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
+	},
 /area/derelict)
 "su" = (
 /obj/machinery/door/blast/shutters,
@@ -6047,7 +6051,7 @@
 /area/derelict)
 "sw" = (
 /turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 5;
 	icon_state = "diagonalWall3"
 	},
@@ -6061,15 +6065,14 @@
 	name = "Arrivals Airlock";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "sy" = (
-/turf/simulated/floor,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
 	},
 /area/derelict)
 "sz" = (
@@ -6188,13 +6191,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "sL" = (
 /obj/structure/closet/crate/secure/weapon,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6209,13 +6212,13 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "sO" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6230,7 +6233,7 @@
 "sR" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6240,34 +6243,34 @@
 /area/mine/unexplored)
 "sT" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "sU" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "sV" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "sW" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "sX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6310,7 +6313,7 @@
 /area/derelict)
 "ta" = (
 /obj/machinery/vending/engivend,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6323,18 +6326,18 @@
 /area/mine/unexplored)
 "tc" = (
 /obj/machinery/vending/tool,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "td" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "te" = (
 /obj/machinery/floodlight,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6348,7 +6351,7 @@
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6366,7 +6369,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6376,7 +6379,7 @@
 /obj/item/clothing/suit/space/syndicate/black/red,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/syndicate/black/red,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6384,7 +6387,7 @@
 /obj/structure/closet/syndicate/suit{
 	name = "suit closet"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6395,28 +6398,28 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tk" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tm" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/firedoor,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6425,7 +6428,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6476,34 +6479,34 @@
 /obj/structure/bed,
 /obj/item/weapon/bedsheet/hos,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "tw" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "tx" = (
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "ty" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/west,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tz" = (
 /obj/machinery/mech_recharger,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6511,21 +6514,21 @@
 /obj/effect/decal/mecha_wreckage/mauler,
 /obj/machinery/mech_recharger,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tB" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/retaliate/malf_drone,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/deployable/barrier,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6533,13 +6536,13 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "tE" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -6584,7 +6587,7 @@
 "tK" = (
 /obj/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6620,13 +6623,13 @@
 	dir = 8
 	},
 /obj/item/robot_parts/robot_component/diagnosis_unit,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "tQ" = (
 /obj/structure/closet/secure_closet/engineering_personal,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6638,14 +6641,14 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "tS" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6653,21 +6656,21 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/viscerator,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "tV" = (
 /obj/structure/closet/emcloset,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6681,7 +6684,7 @@
 	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -6736,7 +6739,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6744,26 +6747,26 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "ue" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "uf" = (
 /obj/structure/dispenser/oxygen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "ug" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6771,14 +6774,14 @@
 /obj/machinery/cryopod,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "ui" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -6786,42 +6789,42 @@
 /obj/structure/table/rack,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "uk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "ul" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "um" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/west,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "un" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "uo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -6861,12 +6864,12 @@
 /area/derelict)
 "ut" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "uu" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -6875,20 +6878,20 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "uw" = (
 /obj/structure/closet/firecloset,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "ux" = (
 /obj/structure/shotgun_rack/pump,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "uy" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6900,13 +6903,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "uA" = (
 /obj/machinery/drone_fabricator/derelict,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6917,25 +6920,25 @@
 /obj/item/stack/material/titanium,
 /obj/item/stack/material/titanium,
 /obj/item/stack/material/titanium,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "uC" = (
 /obj/machinery/vending/engineering,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "uD" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "uE" = (
 /obj/machinery/floorlayer,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6945,7 +6948,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6953,7 +6956,7 @@
 /obj/machinery/suit_cycler/syndicate{
 	locked = 0
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -6997,7 +7000,7 @@
 "uK" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7005,7 +7008,7 @@
 /obj/machinery/door/firedoor,
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7029,7 +7032,7 @@
 /area/derelict)
 "uP" = (
 /obj/structure/mirror,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/derelict)
 "uQ" = (
 /obj/structure/sink{
@@ -7049,14 +7052,14 @@
 /obj/machinery/suit_cycler/syndicate{
 	locked = 0
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "uT" = (
 /obj/structure/table/rack,
 /obj/item/weapon/tank/oxygen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7066,7 +7069,7 @@
 /obj/item/clothing/suit/space/syndicate/black/red,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/syndicate/black/red,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7074,19 +7077,19 @@
 /obj/structure/closet/syndicate/suit{
 	name = "suit closet"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "uW" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "uX" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7111,7 +7114,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7119,7 +7122,7 @@
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7128,21 +7131,21 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "ve" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "vf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/flasher/portable,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7150,14 +7153,14 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
 "vh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7167,7 +7170,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7197,14 +7200,14 @@
 "vn" = (
 /obj/machinery/door/airlock/hatch,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "vo" = (
 /obj/item/weapon/caution,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7226,19 +7229,19 @@
 "vq" = (
 /obj/structure/bed/chair/comfy/black,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "vr" = (
 /obj/structure/dispenser/oxygen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "vs" = (
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7253,7 +7256,7 @@
 "vu" = (
 /obj/structure/table/rack,
 /obj/item/weapon/shield/energy,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7265,7 +7268,7 @@
 "vw" = (
 /obj/machinery/cryopod,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7273,7 +7276,7 @@
 /obj/structure/mopbucket,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/mop,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7293,7 +7296,7 @@
 "vz" = (
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7304,7 +7307,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7313,7 +7316,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7322,7 +7325,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7332,7 +7335,7 @@
 	},
 /obj/structure/table/glass,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7346,7 +7349,7 @@
 	},
 /obj/structure/table/glass,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7355,13 +7358,13 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "vG" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7411,14 +7414,14 @@
 "vL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "vM" = (
 /obj/structure/janitorialcart,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7427,13 +7430,13 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "vO" = (
 /obj/machinery/light,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7477,7 +7480,7 @@
 /obj/structure/computerframe,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7485,7 +7488,7 @@
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -7555,14 +7558,14 @@
 "wb" = (
 /obj/structure/closet/emcloset,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "wc" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7640,7 +7643,7 @@
 "wh" = (
 /obj/structure/closet/crate/secure/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7704,14 +7707,14 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "wo" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7720,7 +7723,7 @@
 /obj/random/glowstick,
 /obj/item/weapon/shield/energy,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7729,7 +7732,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7765,7 +7768,7 @@
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7773,7 +7776,7 @@
 /obj/structure/table/rack,
 /obj/random/plushie,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7784,7 +7787,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "wz" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "wA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7797,13 +7800,13 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "wC" = (
 /obj/structure/crematorium,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7838,13 +7841,13 @@
 "wH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/flasher/portable,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "wI" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7864,14 +7867,14 @@
 "wL" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "wM" = (
 /obj/structure/closet/crate/internals,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7889,7 +7892,7 @@
 	id_tag = "RobMechBay";
 	req_access = list(29)
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7918,7 +7921,7 @@
 /obj/structure/closet/firecloset,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -7927,7 +7930,7 @@
 /obj/structure/table/rack,
 /obj/random/firstaid,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7938,13 +7941,13 @@
 	},
 /obj/item/weapon/plastique,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "wV" = (
 /obj/machinery/light,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -7997,13 +8000,13 @@
 /area/derelict)
 "xd" = (
 /obj/machinery/mineral/rigpress,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "xe" = (
-/obj/machinery/mineral/equipment_vendor,
-/turf/simulated/shuttle/floor{
+/obj/machinery/floodlight
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -8062,7 +8065,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -8072,7 +8075,7 @@
 /area/mine/unexplored)
 "xp" = (
 /obj/machinery/firealarm/east,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -8121,7 +8124,7 @@
 "xw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8143,7 +8146,7 @@
 /obj/random/loot,
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -8151,7 +8154,7 @@
 /obj/random/loot,
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -8171,14 +8174,14 @@
 	dir = 4
 	},
 /obj/effect/decal/remains/robot,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "xE" = (
 /obj/machinery/light,
 /obj/random/junk,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict)
@@ -8242,7 +8245,7 @@
 /obj/random/junk,
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8250,7 +8253,7 @@
 /obj/structure/table/reinforced,
 /obj/random/coin,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8323,7 +8326,7 @@
 "ya" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/remains/robot,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8352,7 +8355,7 @@
 /obj/machinery/light,
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8362,7 +8365,7 @@
 /area/derelict)
 "yh" = (
 /obj/machinery/door/airlock/vault/bolted,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8387,7 +8390,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8402,7 +8405,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8429,7 +8432,7 @@
 "yq" = (
 /obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8488,14 +8491,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "yx" = (
 /obj/machinery/porta_turret/sniper,
 /obj/effect/decal/warning_stripes,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8515,7 +8518,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8524,7 +8527,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8536,25 +8539,25 @@
 "yD" = (
 /obj/structure/table/reinforced,
 /obj/item/weapon/spacecash/c1000,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "yE" = (
 /obj/structure/closet/syndicate/resources,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "yF" = (
 /obj/structure/table/reinforced,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
 "yG" = (
 /obj/structure/safe/station,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict)
@@ -8564,12 +8567,12 @@
 /area/derelict)
 "yI" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "yJ" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "yK" = (
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller,
@@ -8583,29 +8586,22 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "yN" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "yO" = (
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
-"yP" = (
-/turf/unsimulated/floor/asteroid/ash,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/ship)
 "yQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "yR" = (
 /obj/effect/floor_decal/asteroid,
@@ -8623,7 +8619,7 @@
 /area/mine/unexplored)
 "yU" = (
 /turf/unsimulated/floor/asteroid/ash,
-/turf/simulated/shuttle/wall/dark{
+/turf/simulated/wall/shuttle/dark/cardinal{
 	dir = 4;
 	icon_state = "diagonalWall3"
 	},
@@ -8698,7 +8694,7 @@
 "zj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/computerframe,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -8929,7 +8925,7 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/weapon/gun/energy/blaster,
-/obj/item/weapon/card/id/legion,
+/obj/item/weapon/card/id/distress/legion,
 /obj/item/weapon/shield/energy/legion,
 /obj/item/weapon/melee/whip,
 /obj/item/weapon/melee/telebaton,
@@ -10050,7 +10046,7 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/weapon/gun/energy/blaster,
-/obj/item/weapon/card/id/legion,
+/obj/item/weapon/card/id/distress/legion,
 /obj/item/weapon/shield/energy/legion,
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
@@ -13400,18 +13396,8 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/storage/engine_storage)
-"MD" = (
-/turf/simulated/floor,
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion";
-	dir = 8
-	},
-/turf/simulated/shuttle/wall/dark{
-	icon_state = "diagonalWall3"
-	},
-/area/derelict/ship)
 "ME" = (
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/mine/unexplored)
 "MF" = (
 /obj/machinery/door/blast/regular/open,
@@ -13580,7 +13566,7 @@
 /area/derelict/storage/engine_storage)
 "Nd" = (
 /obj/structure/fireaxecabinet,
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/cardinal,
 /area/mine/unexplored)
 "Ne" = (
 /obj/machinery/door/blast/regular/open,
@@ -13600,7 +13586,7 @@
 /area/mine/unexplored)
 "Nf" = (
 /obj/item/hoist_kit,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
@@ -13608,24 +13594,24 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
 "Nh" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
 "Ni" = (
 /obj/machinery/floodlight,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
 "Nj" = (
 /obj/item/poppet,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
@@ -13667,7 +13653,7 @@
 /area/mine/unexplored)
 "No" = (
 /obj/machinery/light/small,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
@@ -13715,7 +13701,7 @@
 /area/derelict/ship)
 "Nx" = (
 /obj/random/melee,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
@@ -13725,7 +13711,7 @@
 	brightness_power = 1;
 	brightness_range = 5
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/mine/unexplored)
@@ -14123,7 +14109,7 @@
 /area/derelict/ship)
 "OI" = (
 /obj/machinery/light,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -14140,7 +14126,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -14160,7 +14146,7 @@
 "ON" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
 /area/derelict/ship)
@@ -14260,7 +14246,7 @@
 /turf/simulated/floor,
 /area/derelict/arrival)
 "Pd" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "Pe" = (
 /obj/effect/blob/core,
@@ -14315,7 +14301,7 @@
 /area/derelict/arrival)
 "Pi" = (
 /obj/effect/blob/core,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "Pj" = (
 /obj/structure/grille,
@@ -14674,7 +14660,7 @@
 	locked = 1;
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "PR" = (
 /obj/structure/window/reinforced{
@@ -14852,11 +14838,11 @@
 "Ql" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/door/firedoor,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "Qm" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "Qn" = (
 /obj/structure/closet/crate/secure/loot,
@@ -14953,7 +14939,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/firedoor,
 /obj/machinery/light,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "QG" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -14980,23 +14966,23 @@
 /area/derelict/arrival)
 "QK" = (
 /obj/item/stack/cable_coil,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "QL" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/firedoor,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "QM" = (
 /obj/machinery/power/terminal{
 	icon_state = "term";
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "QN" = (
 /obj/machinery/light,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "QO" = (
 /obj/effect/floor_decal/industrial/outline,
@@ -15066,7 +15052,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "QX" = (
 /obj/structure/table/rack,
@@ -15484,7 +15470,7 @@
 /area/mine/unexplored)
 "RQ" = (
 /obj/structure/inflatable/wall,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "RR" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -15493,11 +15479,11 @@
 /area/derelict/arrival)
 "RS" = (
 /obj/item/sarcophagus_key,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "RT" = (
 /obj/random/junk,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "RU" = (
 /obj/item/weapon/material/shard{
@@ -15517,7 +15503,7 @@
 /area/mine/unexplored)
 "RX" = (
 /obj/machinery/door/airlock/research,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/arrival)
 "RY" = (
 /obj/structure/table/glass,
@@ -15851,7 +15837,7 @@
 	anchored = 1;
 	deployed = 1
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/mine/unexplored)
 "SR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -15920,6 +15906,19 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
+"Ww" = (
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict/ship)
+"WM" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/mine/unexplored)
 "WQ" = (
 /obj/machinery/porta_turret/xray,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -15939,6 +15938,13 @@
 /obj/machinery/light,
 /turf/simulated/floor,
 /area/derelict/ship)
+"Ya" = (
+/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict)
 "ZO" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret/cannon,
@@ -49332,7 +49338,7 @@ jk
 jk
 jk
 jk
-my
+Ww
 bj
 bj
 bj
@@ -50568,11 +50574,11 @@ bn
 bf
 ad
 gh
-nF
+lY
 jk
 om
 jk
-oo
+on
 gh
 ad
 ot
@@ -71210,7 +71216,7 @@ kw
 lf
 eX
 eX
-sy
+Ya
 kw
 eX
 ps
@@ -72710,13 +72716,13 @@ gh
 gh
 gh
 gh
-jN
+cF
 pN
 pJ
 pJ
 pJ
 pJ
-MD
+jN
 gh
 gh
 gh
@@ -72898,7 +72904,7 @@ bj
 bj
 bj
 bj
-yP
+lY
 jk
 jk
 jk
@@ -72910,7 +72916,7 @@ mo
 kT
 kI
 jk
-yU
+on
 bj
 bj
 bj
@@ -73223,7 +73229,7 @@ fN
 gh
 gh
 gh
-lV
+mx
 pJ
 pN
 pJ
@@ -73231,7 +73237,7 @@ pL
 kx
 kx
 pJ
-pY
+my
 gh
 gh
 fN
@@ -73415,7 +73421,7 @@ bj
 wz
 bj
 bj
-bj
+WM
 jk
 kO
 kP
@@ -73479,7 +73485,7 @@ ad
 fN
 gh
 pG
-jN
+cF
 pJ
 pK
 kx
@@ -73489,7 +73495,7 @@ kx
 kx
 pU
 pJ
-MD
+jN
 pG
 fN
 ad
@@ -73735,7 +73741,7 @@ bj
 ad
 fN
 gh
-nA
+lY
 pJ
 pJ
 pL
@@ -73747,7 +73753,7 @@ kx
 pV
 pJ
 pJ
-pX
+on
 fN
 ad
 bj
@@ -73993,7 +73999,7 @@ ad
 fN
 gh
 gh
-nA
+lY
 pJ
 pL
 kx
@@ -74003,7 +74009,7 @@ kx
 kx
 pV
 pJ
-pX
+on
 gh
 fN
 ad
@@ -75022,7 +75028,7 @@ fN
 gh
 gh
 gh
-nA
+lY
 pJ
 mS
 kx
@@ -75030,7 +75036,7 @@ pO
 kx
 mS
 pJ
-pX
+on
 gh
 gh
 fN
@@ -75468,7 +75474,7 @@ bj
 bj
 wz
 bj
-yP
+lY
 jk
 jk
 jk
@@ -75486,7 +75492,7 @@ kx
 lm
 jk
 jk
-yU
+on
 bj
 bj
 bj
@@ -75537,13 +75543,13 @@ gh
 gh
 gh
 gh
-nA
+lY
 ae
 pQ
 pQ
 pS
 am
-pX
+on
 gh
 gh
 gh
@@ -75727,7 +75733,7 @@ bj
 bj
 bj
 bj
-yP
+lY
 jk
 jk
 jk
@@ -75742,7 +75748,7 @@ kx
 kx
 lm
 jk
-yU
+on
 bj
 bj
 bj
@@ -76255,7 +76261,7 @@ jk
 jk
 jk
 jk
-yU
+on
 bj
 bj
 bj
@@ -77267,7 +77273,7 @@ bj
 bj
 bj
 bj
-yP
+lY
 jk
 jk
 jk
@@ -77279,7 +77285,7 @@ kS
 kV
 jk
 jk
-yU
+on
 bj
 bj
 bj
@@ -77534,8 +77540,8 @@ bj
 bj
 bj
 bj
-yP
-yU
+lY
+on
 bj
 bj
 bj

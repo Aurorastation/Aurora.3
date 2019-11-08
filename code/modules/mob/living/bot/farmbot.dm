@@ -63,7 +63,7 @@
 		dat += "Refill watertank : <A href='?src=\ref[src];refill=1'>[refills_water ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Preventive measures:<br>"
 		dat += "Weed plants: <A href='?src=\ref[src];weed=1'>[uproots_weeds ? "Yes" : "No"]</A><BR>"
-		dat += "Eradicate pests: <A href='?src=\ref[src];eradicatespests=1'>[removes_dead ? "Yes" : "No"]</A><BR>"
+		dat += "Eradicate pests: <A href='?src=\ref[src];eradicatespests=1'>[eliminates_pests ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Nutriment controls:<br>"
 		dat += "Replace fertilizer: <A href='?src=\ref[src];replacenutri=1'>[replaces_nutriment ? "Yes" : "No"]</A><BR>"
 		dat += "<br>Plant controls:<br>"
@@ -380,7 +380,7 @@
 		qdel(src)
 		return 1
 
-	else if(istype(W, /obj/item/weapon/pen))
+	else if(W.ispen())
 		var/t = input(user, "Enter new robot name", name, created_name) as text
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)

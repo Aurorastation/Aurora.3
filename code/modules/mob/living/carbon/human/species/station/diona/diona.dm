@@ -7,6 +7,7 @@
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
+	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -69,15 +70,15 @@
 	cold_level_2 = 223
 	cold_level_3 = 173
 
-	heat_level_1 = 420 //Default 360 - Higher is better
-	heat_level_2 = 480 //Default 400
-	heat_level_3 = 1100 //Default 1000
+	heat_level_1 = 800 //Default 360 - Higher is better
+	heat_level_2 = 850 //Default 400
+	heat_level_3 = 1500 //Default 1000
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
+	appearance_flags = HAS_HAIR_COLOR
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
-	appearance_flags = 0
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
@@ -92,8 +93,8 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_NONE)
-	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER)
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()

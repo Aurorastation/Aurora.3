@@ -11,6 +11,8 @@
 	selection_color = "#FFD737"
 	economic_modifier = 10
 
+	minimum_character_age = 30
+
 	ideal_character_age = 50
 
 
@@ -62,6 +64,9 @@
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
 	economic_modifier = 5
+
+	minimum_character_age = 25
+
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
 	alt_titles = list("Maintenance Technician","Engine Technician","Electrician")
@@ -95,6 +100,9 @@
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
 	economic_modifier = 5
+
+	minimum_character_age = 25
+
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
 	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
@@ -131,7 +139,7 @@
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
 
-	uniform = /obj/item/clothing/under/rank/engineer
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	l_ear = /obj/item/device/radio/headset/headset_eng

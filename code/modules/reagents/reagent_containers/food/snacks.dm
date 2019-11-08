@@ -176,14 +176,14 @@
 
 		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
 		if(selection == "Name")
-			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null)
+			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
 				user.visible_message("<span class='notice'>\The [user] labels \the [name] as \"[input_clean_name]\".</span>")
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
-			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null)
+			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
 				user.visible_message("<span class='notice'>\The [user] adds a note to \the [name].</span>")
 				desc = input_clean_desc
@@ -271,7 +271,7 @@
 
 //Code for dipping food in batter
 /obj/item/weapon/reagent_containers/food/snacks/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)))
+	if(O.is_open_container() && O.reagents && !(istype(O, /obj/item/weapon/reagent_containers/food)) && proximity)
 		for (var/r in O.reagents.reagent_list)
 
 			var/datum/reagent/R = r
@@ -511,6 +511,22 @@
 	. = ..()
 	reagents.add_reagent("sugar", 3)
 
+
+/obj/item/weapon/reagent_containers/food/snacks/candy/koko
+	name = "\improper Koko bar"
+	desc = "A sweet, yet gritty candy bar cultivated exclusively on the Compact ruled world of Ha zana. It's a good pick-me-up for Unathi, but has no affect on other species."
+	icon_state = "kokobar"
+	trash = /obj/item/trash/kokobar
+	filling_color = "#7D5F46"
+	nutriment_amt = 4
+	nutriment_desc = list("Koko Reed" = 2, "fibers" = 1)
+	bitesize = 2
+
+/obj/item/weapon/reagent_containers/food/snacks/candy/koko/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 3)
+	reagents.add_reagent("kokoreed", 7)
+
 /obj/item/weapon/reagent_containers/food/snacks/candy/donor
 	name = "donor candy"
 	desc = "A little treat for blood donors. Made with real sugar!"
@@ -589,7 +605,7 @@
 	desc = "Goes great with Robust Coffee."
 	icon_state = "donut1"
 	filling_color = "#D9C386"
-	var/overlay_state = "box-donut1"
+	overlay_state = "box-donut1"
 	nutriment_desc = list("sweetness" = 1, "donut" = 2)
 
 /obj/item/weapon/reagent_containers/food/snacks/donut/normal
@@ -998,61 +1014,53 @@
 	reagents.add_reagent("batter", 2)
 	reagents.add_reagent("oil", 2)
 
-
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket
-	name = "\improper Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
-	filling_color = "#6D6D00"
-	heated_reagents = list("doctorsdelight" = 5, "hyperzine" = 0.75, "synaptizine" = 0.25)
-	var/has_been_heated = 0
-
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
-	if(has_been_heated)
-		to_chat(user, "<span class='notice'>The heating chemicals have already been spent.</span>")
-		return
-	has_been_heated = 1
-	user.visible_message("<span class='notice'>[user] crushes \the [src] package.</span>", "You crush \the [src] package and feel a comfortable heat build up.")
-	spawn(200)
-		to_chat(user, "You think \the [src] is ready to eat about now.")
-		heat()
-
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket
 	name = "Donk-pocket"
-	desc = "The food of choice for the seasoned traitor."
+	desc = "The cold, reheatable food of choice for the seasoned spaceman."
 	icon_state = "donkpocket"
 	filling_color = "#DEDEAB"
 	center_of_mass = list("x"=16, "y"=10)
 	nutriment_desc = list("heartiness" = 1, "dough" = 2)
 	nutriment_amt = 2
-	var/warm = 0
-	var/list/heated_reagents = list("tricordrazine" = 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/donkpocket/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 2)
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/heat()
-	warm = 1
-	for(var/reagent in heated_reagents)
-		reagents.add_reagent(reagent, heated_reagents[reagent])
-	bitesize = 6
-	name = "Warm " + name
-	cooltime()
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/warm
+	name = "cooked Donk-pocket"
+	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
+	nutriment_desc = list("warm heartiness" = 1, "dough" = 2)
+	nutriment_amt = 3
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cooltime()
-	if (src.warm)
-		addtimer(CALLBACK(src, .proc/cool_down))
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/warm/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 1)
+	reagents.add_reagent("tricordrazine", 5)
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/proc/cool_down()
-	warm = FALSE
-	for(var/reagent in heated_reagents)
-		reagents.del_reagent(reagent)
-	name = initial(name)
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket
+	name = "\improper Sin-pocket"
+	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume. Use it in hand to heat and release chemicals."
+	nutriment_desc = list("delicious cruelty" = 1, "dough" = 2)
+	filling_color = "#6D6D00"
+	nutriment_amt = 3
+	var/has_been_heated = FALSE
 
-/obj/item/weapon/reagent_containers/food/snacks/donkpocket/cook()
-	..()
-	if (!warm)
-		heat()
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
+	if(has_been_heated)
+		to_chat(user, "<span class='notice'>The heating chemicals have already been spent.</span>")
+		return
+	has_been_heated = TRUE
+	user.visible_message("<span class='notice'>[user] crushes \the [src] package.</span>", "You crush \the [src] package and feel it rapidly heat up.")
+	name = "cooked Sin-pocket"
+	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
+	reagents.add_reagent("doctorsdelight", 5)
+	reagents.add_reagent("hyperzine", 1.5)
+	reagents.add_reagent("synaptizine", 1.25)
 
 /obj/item/weapon/reagent_containers/food/snacks/burger/brain
 	name = "brainburger"
@@ -1965,6 +1973,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Expand()
 	src.visible_message("<span class='notice'>\The [src] expands!</span>")
+	if(istype(loc, /obj/item/weapon/gripper)) // fixes ghost cube when using syringe
+		var/obj/item/weapon/gripper/G = loc
+		G.drop_item()
 	var/mob/living/carbon/human/H = new(src.loc)
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()
@@ -3939,7 +3950,7 @@
 			to_chat(user, "<span class='warning'>You try to push \the [I] through the lid but it doesn't work!</span>")
 		return
 
-	if( istype(I, /obj/item/weapon/pen/) )
+	if( I.ispen() )
 
 		if( src.open )
 			return
@@ -4442,13 +4453,13 @@
 	icon_state = "lasagna"
 	trash = /obj/item/trash/grease
 	center_of_mass = list("x"=16, "y"=17)
-	nutriment_amt = 5
+	nutriment_amt = 12
 	nutriment_desc = list("pasta" = 4, "tomato" = 2)
 	bitesize = 6
 
-/obj/item/weapon/reagent_containers/food/snacks/classichotdog/Initialize()
+/obj/item/weapon/reagent_containers/food/snacks/lasagna/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 4)
+	reagents.add_reagent("protein", 12)
 
 /obj/item/weapon/reagent_containers/food/snacks/donerkebab
 	name = "doner kebab"
@@ -4460,7 +4471,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/donerkebab/Initialize()
 	. = ..()
-	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("protein", 4)
 
 /obj/item/weapon/reagent_containers/food/snacks/sashimi
 	name = "carp sashimi"

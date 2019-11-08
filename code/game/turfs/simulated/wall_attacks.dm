@@ -218,6 +218,10 @@
 			dismantle_verb = P.drill_verb
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
+		else if(istype(W,/obj/item/weapon/melee/arm_blade/))
+			dismantle_sound = "pickaxe"
+			dismantle_verb = "slicing and stabbing"
+			cut_delay *= 1.5
 
 		if(dismantle_verb)
 
@@ -248,7 +252,6 @@
 				if (W.iswirecutter())
 					playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 					construction_stage = 5
-					new /obj/item/stack/rods( src )
 					to_chat(user, "<span class='notice'>You cut the outer grille.</span>")
 					update_icon()
 					return

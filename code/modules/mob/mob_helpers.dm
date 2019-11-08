@@ -16,6 +16,9 @@
 			return 0
 	return 1
 
+/mob/living/bot/isSynthetic()
+	return 1
+
 /mob/living/silicon/isSynthetic()
 	return 1
 
@@ -731,24 +734,40 @@ proc/is_blind(A)
 	return 1
 
 /mob/living/carbon/proc/vomit()
-	var/canVomit = 0
+	var/canVomit = FALSE
+
 	var/mob/living/carbon/human/H
 	if (istype(src, /mob/living/carbon/human))
 		H = src
 		if (H.ingested.total_volume > 0)
-			canVomit = 1
+			canVomit = TRUE
 
 	if (nutrition > 0)
-		canVomit = 1
+		canVomit = TRUE
 
 	if(canVomit)
 		Stun(4)
-		src.visible_message("<span class='warning'>[src] vomits!</span>","<span class='warning'>You vomit!</span>")
-		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+		var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
+		var/obj/vomitReceptacle
+		for(var/obj/vessel in view(1, src))
+			if (!is_type_in_typecache(vessel, vomitCandidate))
+				continue
+			if(!vessel.Adjacent(src))
+				continue
+			vomitReceptacle = vessel
+			break
+
+		if(vomitReceptacle)
+			src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
+			playsound(vomitReceptacle, 'sound/effects/splat.ogg', 50, 1)
+		else
+			src.visible_message("<span class='warning'>[src] vomits!</span>","<span class='warning'>You vomit!</span>")
+			playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 
 		var/turf/location = loc
-		if (istype(location, /turf/simulated))
-			location.add_vomit_floor(src, 1)
+		if(!vomitReceptacle)
+			if (istype(location, /turf/simulated))
+				location.add_vomit_floor(src, 1)
 		adjustNutritionLoss(60)
 		adjustHydrationLoss(30)
 		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
@@ -1188,8 +1207,8 @@ proc/is_blind(A)
 
 #undef SAFE_PERP
 
-/mob/proc/get_multitool(var/obj/item/device/multitool/P)
-	if(istype(P))
+/mob/proc/get_multitool(var/obj/P)
+	if(P.ismultitool())
 		return P
 
 /mob/abstract/observer/get_multitool()

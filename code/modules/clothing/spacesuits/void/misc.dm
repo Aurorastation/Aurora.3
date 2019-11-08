@@ -4,7 +4,7 @@
 	icon_state = "sol_helmet"
 	item_state = "sol_helmet"
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 
 	brightness_on = 6
@@ -19,7 +19,7 @@
 	slowdown = 1
 	armor = list(melee = 70, bullet = 55, laser = 45, energy = 15, bomb = 40, bio = 100, rad = 60)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE
 
@@ -29,7 +29,7 @@
 	icon_state = "vulture"
 	item_state = "vulture"
 	armor = list(melee = 80, bullet = 70, laser = 20, energy = 5, bomb = 5, bio = 100, rad = 30)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 
 	brightness_on = 6
@@ -43,7 +43,7 @@
 	slowdown = 3
 	armor = list(melee = 80, bullet = 70, laser = 20, energy = 5, bomb = 5, bio = 100, rad = 30)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE
 
@@ -54,7 +54,7 @@
 	icon_state = "eridani_suit"
 	item_state = "eridani_suit"
 	armor = list(melee = 50, bullet = 50, laser = 40, energy = 50, bomb = 50, bio = 100, rad = 30)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	w_class = 3
 	brightness_on = 6
@@ -67,7 +67,7 @@
 	item_state = "eridani_suit"
 	armor = list(melee = 50, bullet = 50, laser = 40, energy = 40, bomb = 50, bio = 100, rad = 30)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE
 
@@ -77,7 +77,7 @@
 	icon_state = "valkyrie"
 	item_state = "valkyrie"
 	armor = list(melee = 60, bullet = 30, laser = 50, energy = 40, bomb = 60, bio = 100, rad = 100)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
 	brightness_on = 6
@@ -90,7 +90,7 @@
 	item_state = "valkyrie"
 	armor = list(melee = 60, bullet = 30, laser = 50, energy = 40, bomb = 60, bio = 100, rad = 100)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
@@ -100,8 +100,8 @@
 	desc = "A sleek helmet with a bright yellow visor, expertly made in and colored in the iconic branding of Ceres' Lance."
 	icon_state = "lancer_suit"
 	item_state = "lancer_suit"
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 35, bio = 100, rad = 60)
-	siemens_coefficient = 0.3
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 60)
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE
 
@@ -114,6 +114,6 @@
 	w_class = 3
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 60)
 	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
-	siemens_coefficient = 0.3
+	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE

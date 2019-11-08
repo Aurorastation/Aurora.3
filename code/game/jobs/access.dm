@@ -81,6 +81,9 @@
 	log_debug("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
+/proc/get_distress_access()
+	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)

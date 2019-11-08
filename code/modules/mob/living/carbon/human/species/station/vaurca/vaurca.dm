@@ -38,6 +38,8 @@
 	reagent_tag = IS_VAURCA
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
 	breath_type = "phoron"
+	breath_vol_mul = 1/6 // 0.5 liters * breath_vol_mul = breath volume
+	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
@@ -58,7 +60,7 @@
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
 	flags = NO_SLIP | NO_CHUBBY
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = "#E6E600" // dark yellow
 	flesh_color = "#E6E600"

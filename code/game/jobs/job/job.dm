@@ -19,6 +19,7 @@
 	var/department = null                 // Does this position have a department tag?
 	var/head_position = 0                 // Is this position Command?
 	var/minimum_character_age = 17
+	var/list/alt_ages = null // assoc list of alt titles to minimum character ages
 	var/ideal_character_age = 30
 
 	var/latejoin_at_spawnpoints = FALSE          //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
@@ -185,7 +186,7 @@
 	collect_not_del = FALSE
 
 	var/allow_loadout = TRUE
-	var/allow_backbag_choice = TRUE
+	allow_backbag_choice = TRUE
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey
@@ -195,32 +196,11 @@
 	shoes = /obj/item/clothing/shoes/black
 	pda = /obj/item/device/pda
 
-	var/backpack = /obj/item/weapon/storage/backpack
-	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm
-	var/satchel_alt = /obj/item/weapon/storage/backpack/satchel
-	var/dufflebag = /obj/item/weapon/storage/backpack/duffel
-	var/messengerbag = /obj/item/weapon/storage/backpack/messenger
 	var/box = /obj/item/weapon/storage/box/survival
 
 /datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == 1
-		switch(H.backbag)
-			if (1)
-				back = null
-			if (2)
-				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
-			if (3)
-				back = use_job_specific ? satchel : /obj/item/weapon/storage/backpack/satchel_norm
-			if (4)
-				back = use_job_specific ? satchel_alt : /obj/item/weapon/storage/backpack/satchel
-			if (5)
-				back = use_job_specific ? dufflebag : /obj/item/weapon/storage/backpack/duffel
-			if (6)
-				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
-			else
-				back = backpack //Department backpack
+
 	if(back)
 		equip_item(H, back, slot_back)
 

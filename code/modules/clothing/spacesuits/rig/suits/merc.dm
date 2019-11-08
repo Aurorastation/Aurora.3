@@ -9,6 +9,7 @@
 	icon_state = "merc_rig"
 	suit_type = "crimson hardsuit"
 	armor = list(melee = 80, bullet = 65, laser = 50, energy = 15, bomb = 80, bio = 100, rad = 60)
+	siemens_coefficient = 0.1
 	offline_slowdown = 3
 	offline_vision_restriction = TINT_HEAVY
 	emp_protection = 30
@@ -39,3 +40,6 @@
 		/obj/item/rig_module/electrowarfare_suite, //might as well
 		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
+
+/obj/item/weapon/rig/merc/distress
+	req_access = list(access_distress)

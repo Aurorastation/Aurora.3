@@ -6,7 +6,7 @@
 	//If a list of paths is supplied a random item from that list is selected
 	var/uniform = null
 	var/suit = null
-	var/back = null
+	var/back = null // Mutually exclusive with and will override backpack choices below. Use for RIGs, tanks, etc.
 	var/belt = null
 	var/gloves = null
 	var/shoes = null
@@ -26,6 +26,14 @@
 	var/id = null
 	var/pda = null
 
+	// Must be paths, used to allow player-pref backpack choice
+	var/allow_backbag_choice = FALSE
+	var/backpack = /obj/item/weapon/storage/backpack
+	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm
+	var/satchel_alt = /obj/item/weapon/storage/backpack/satchel
+	var/dufflebag = /obj/item/weapon/storage/backpack/duffel
+	var/messengerbag = /obj/item/weapon/storage/backpack/messenger
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
@@ -34,6 +42,23 @@
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
+	if(allow_backbag_choice)
+		var/use_job_specific = H.backbag_style == 1
+		switch(H.backbag)
+			if (1)
+				back = null
+			if (2)
+				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
+			if (3)
+				back = use_job_specific ? satchel : /obj/item/weapon/storage/backpack/satchel_norm
+			if (4)
+				back = use_job_specific ? satchel_alt : /obj/item/weapon/storage/backpack/satchel
+			if (5)
+				back = use_job_specific ? dufflebag : /obj/item/weapon/storage/backpack/duffel
+			if (6)
+				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
+			else
+				back = backpack //Department backpack
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
@@ -43,8 +68,15 @@
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
 		CRASH("Outfit [name] - Parameter path: [path] is numeric.")
 
-	if(islist(path))	//If its a list, select a random item
-		var/itempath = pick(path)
+	if(islist(path))	//If its a list, select a random item; if back, try to use preference
+		var/list/pathlist = path
+		var/itempath
+		if(is_type_in_list(/obj/item/weapon/storage/backpack, pathlist) && H.backbag && pathlist.len == 5)
+			if(H.backbag < 2)
+				return // They don't want a backpack
+			itempath = pathlist[H.backbag - 2]
+		else
+			itempath = pick(pathlist)
 		I = new itempath(H)
 	else if(gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
 		var/datum/gear/G = gear_datums[path]

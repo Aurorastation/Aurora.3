@@ -1,9 +1,10 @@
 /obj/item/weapon/rig/unathi
 	name = "NT breacher chassis control module"
-	desc = "A cheap NT knock-off of an Unathi battle-rig. Looks like a fish, moves like a fish, steers like a cow."
+	desc = "A cheap NT knock-off of an Unathi battle-hardsuit. Looks like a fish, moves like a fish, steers like a cow."
 	suit_type = "NT breacher"
 	icon_state = "breacher_rig_cheap"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 60, bomb = 70, bio = 100, rad = 50)
+	siemens_coefficient = 0.1
 	emp_protection = -20
 	slowdown = 6
 	offline_slowdown = 10
@@ -22,6 +23,7 @@
 	suit_type = "breacher chassis"
 	icon_state = "breacher_rig"
 	armor = list(melee = 90, bullet = 90, laser = 90, energy = 90, bomb = 90, bio = 100, rad = 80) //Takes TEN TIMES as much damage to stop someone in a breacher. In exchange, it's slow.
+	siemens_coefficient = 0.1
 	vision_restriction = 0
 	slowdown = 4
 	vision_restriction = TINT_NONE
@@ -35,6 +37,7 @@
 	suit_type = "combat exoskeleton"
 	icon_state = "vaurca_rig"
 	armor = list(melee = 65, bullet = 65, laser = 100, energy = 100, bomb = 90, bio = 100, rad = 80)
+	siemens_coefficient = 0.1
 	vision_restriction = 0
 	slowdown = 2
 	offline_slowdown = 3
@@ -73,6 +76,7 @@
 	suit_type = "tesla suit"
 	icon_state = "tesla_rig"
 	armor = list(melee = 70, bullet = 50, laser = 35, energy = 15, bomb = 55, bio = 100, rad = 60)
+	siemens_coefficient = 0.1
 	vision_restriction = 0
 	slowdown = 2
 	offline_slowdown = 3

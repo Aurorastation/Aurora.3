@@ -25,8 +25,7 @@
 	respawn_flag = null
 
 	mob_name = null
-	mob_name_prefix = "Cmdr. "
-	mob_name_pick_message = "Pick a callsign or last-name."
+	mob_name_pick_message = "Pick a name."
 
 /datum/ghostspawner/human/admin/legion_commander
 	short_name = "legioncommander"
@@ -69,8 +68,7 @@
 	respawn_flag = null
 
 	mob_name = null
-	mob_name_prefix = "CCIAA "
-	mob_name_pick_message = "Pick a last-name."
+	mob_name_pick_message = "Pick a name."
 
 
 /datum/ghostspawner/human/admin/cciaescort

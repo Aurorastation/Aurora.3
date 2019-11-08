@@ -29,7 +29,7 @@
 
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language")
+	secondary_langs = list("Encoded Audio Language", "Sol Common")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
@@ -67,7 +67,7 @@
 
 	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_color = "#1F181F"
 	flesh_color = "#575757"

@@ -33,9 +33,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	if(!ROUND_IS_STARTED)
 		if(ready)
-			output += "<p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
+			output += "<br><br><p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
 		else
-			output += "<p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
+			output += "<br><br><p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
 
 	else
 		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
@@ -283,6 +283,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
 
+	if(!(client.prefs.GetPlayerAltTitle(job) in client.prefs.GetValidTitles(job))) // does age/species check for us!
+		return FALSE
+
 	return TRUE
 
 
@@ -364,7 +367,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/proc/LateChoices()
 	var/name = client.prefs.real_name
 
-	var/dat = "<html><body><center>"
+	var/dat = "<center>"
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [get_round_duration_formatted()]<br>"
 
@@ -383,12 +386,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			var/active = 0
 			// Only players with the job assigned and AFK for less than 10 minutes count as active
 			for(var/mob/M in player_list) //Added isliving check here, so it won't check ghosts and qualify them as active
-				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 * 60 * 10)
+				if(isliving(M) && M.mind && M.client && M.mind.assigned_role == job.title && M.client.inactivity <= 10 MINUTES)
 					active++
-			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[job.title] ([job.current_positions]) (Active: [active])</a><br>"
+			dat += "<a href='byond://?src=\ref[src];SelectedJob=[job.title]'>[client.prefs.GetPlayerAltTitle(job)] ([job.current_positions]) (Active: [active])</a><br>"
 
 	dat += "</center>"
-	src << browse(dat, "window=latechoices;size=300x640;can_close=1")
+	send_theme_resources(src)
+	src << browse(enable_ui_theme(src, dat), "window=latechoices;size=300x640;can_close=1")
 
 
 /mob/abstract/new_player/proc/create_character()
@@ -461,7 +465,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	dat += "<h4>Show Crew Manifest</h4>"
 	dat += SSrecords.get_manifest(OOC = 1)
 
-	src << browse(dat, "window=manifest;size=370x420;can_close=1")
+	send_theme_resources(src)
+	src << browse(enable_ui_theme(src, dat), "window=manifest;size=370x420;can_close=1")
 
 /mob/abstract/new_player/Move()
 	return 0

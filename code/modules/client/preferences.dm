@@ -27,6 +27,7 @@ datum/preferences
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
+	var/skin_theme = "Light"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 
@@ -129,6 +130,7 @@ datum/preferences
 	// SPAAAACE
 	var/parallax_speed = 2
 	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.
 

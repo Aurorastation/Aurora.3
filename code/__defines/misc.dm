@@ -84,8 +84,9 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define ASFX_VOTE		4
 #define ASFX_VOX		8
 #define ASFX_DROPSOUND	16
+#define ASFX_ARCADE		32
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
@@ -365,6 +366,15 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
+
+#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
+
+#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isNotAdminLevel(Z) !isAdminLevel(Z)
+
+#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
 //If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
