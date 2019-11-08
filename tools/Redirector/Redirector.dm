@@ -58,7 +58,11 @@ mob/Login()
 		if(S.weight == lowest)
 			serverlink = S.link
 
+<<<<<<< HEAD
 	send_link(src, serverlink)
+=======
+	src << link(serverlink)
+>>>>>>> origin
 
 proc/extract(var/data, var/type = PLAYERS)
 

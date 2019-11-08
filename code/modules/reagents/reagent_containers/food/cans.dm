@@ -247,6 +247,7 @@
 /obj/item/weapon/reagent_containers/food/drinks/cans/zorajelly/Initialize()
 	. = ..()
 	reagents.add_reagent("zora_jelly", 30)
+<<<<<<< HEAD
 
 /obj/item/weapon/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"
@@ -279,3 +280,5 @@
 	. = ..()
 	reagents.add_reagent("dyncold", 30)
 
+=======
+>>>>>>> origin

@@ -55,16 +55,16 @@
 
 /obj/proc/user_buckle_mob(mob/living/M, mob/user)
 	if(!ROUND_IS_STARTED)
-		to_chat(user, "<span class='warning'>You can't buckle anyone in before the game starts.</span>")
+		user << "<span class='warning'>You can't buckle anyone in before the game starts.</span>"
 	if(!user.Adjacent(M) || user.restrained() || user.stat || istype(user, /mob/living/silicon/pai))
 		return
 	if(M == buckled_mob)
 		return
 	if(istype(M, /mob/living/carbon/slime))
-		to_chat(user, "<span class='warning'>The [M] is too squishy to buckle in.</span>")
+		user << "<span class='warning'>The [M] is too squishy to buckle in.</span>"
 		return
 	if (buckled_mob)
-		to_chat(user, "<span class='warning'>[buckled_mob.name] is already there, unbuckle them first!.</span>")
+		user << "<span class='warning'>[buckled_mob.name] is already there, unbuckle them first!.</span>"
 		return
 
 	add_fingerprint(user)

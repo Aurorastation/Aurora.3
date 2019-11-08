@@ -183,11 +183,11 @@
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
+		user << "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>"
 		return 1
 
 	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
+		user << "<span class='notice'>Access denied.</span>"
 		return 1
 
 	return 0
@@ -237,14 +237,14 @@
 
 /obj/machinery/porta_turret/CanUseTopic(var/mob/user)
 	if(HasController())
-		to_chat(user, "<span class='notice'>Turrets can only be controlled using the assigned turret controller.</span>")
+		user << "<span class='notice'>Turrets can only be controlled using the assigned turret controller.</span>"
 		return STATUS_CLOSE
 
 	if(isLocked(user))
 		return STATUS_CLOSE
 
 	if(!anchored)
-		to_chat(usr, "<span class='notice'>\The [src] has to be secured first!</span>")
+		usr << "<span class='notice'>\The [src] has to be secured first!</span>"
 		return STATUS_CLOSE
 
 	return ..()
@@ -295,13 +295,18 @@
 
 /obj/machinery/porta_turret/attackby(obj/item/I, mob/user)
 	if(stat & BROKEN)
-		if(I.iscrowbar())
+		if(iscrowbar(I))
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
+<<<<<<< HEAD
 			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
 			if(do_after(user, 20/I.toolspeed))
+=======
+			user << "<span class='notice'>You begin prying the metal coverings off.</span>"
+			if(do_after(user, 20))
+>>>>>>> origin
 				if(prob(70) && !no_salvage)
-					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
+					user << "<span class='notice'>You remove the turret and salvage some components.</span>"
 					if(installation)
 						installation.forceMove(loc)
 						installation = null
@@ -310,22 +315,22 @@
 					if(prob(50))
 						new /obj/item/device/assembly/prox_sensor(loc)
 				else
-					to_chat(user, "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>")
+					user << "<span class='notice'>You remove the turret but did not manage to salvage anything.</span>"
 				qdel(src) // qdel
 
-	else if((I.iswrench()))
+	else if((iswrench(I)))
 		if (immobile)
-			to_chat(user, "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>")
+			user << "<span class='notice'>[src] is firmly attached to the ground with some form of epoxy.</span>"
 			return
 
 		if(enabled || raised)
-			to_chat(user, "<span class='warning'>You cannot unsecure an active turret!</span>")
+			user << "<span class='warning'>You cannot unsecure an active turret!</span>"
 			return
 		if(wrenching)
-			to_chat(user, "<span class='warning'>Someone is already [anchored ? "un" : ""]securing the turret!</span>")
+			user << "<span class='warning'>Someone is already [anchored ? "un" : ""]securing the turret!</span>"
 			return
 		if(!anchored && isinspace())
-			to_chat(user, "<span class='warning'>Cannot secure turrets in space!</span>")
+			user << "<span class='warning'>Cannot secure turrets in space!</span>"
 			return
 
 		user.visible_message( \
@@ -340,11 +345,11 @@
 				playsound(loc, I.usesound, 100, 1)
 				anchored = 1
 				update_icon()
-				to_chat(user, "<span class='notice'>You secure the exterior bolts on the turret.</span>")
+				user << "<span class='notice'>You secure the exterior bolts on the turret.</span>"
 			else if(anchored)
 				playsound(loc, I.usesound, 100, 1)
 				anchored = 0
-				to_chat(user, "<span class='notice'>You unsecure the exterior bolts on the turret.</span>")
+				user << "<span class='notice'>You unsecure the exterior bolts on the turret.</span>"
 				update_icon()
 		wrenching = 0
 
@@ -352,10 +357,10 @@
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked
-			to_chat(user, "<span class='notice'>Controls are now [locked ? "locked" : "unlocked"].</span>")
+			user << "<span class='notice'>Controls are now [locked ? "locked" : "unlocked"].</span>"
 			updateUsrDialog()
 		else
-			to_chat(user, "<span class='notice'>Access denied.</span>")
+			user << "<span class='notice'>Access denied.</span>"
 
 	else if(I.iswelder())
 		var/obj/item/weapon/weldingtool/WT = I
@@ -396,7 +401,7 @@
 	if(!emagged)
 		//Emagging the turret makes it go bonkers and stun everyone. It also makes
 		//the turret shoot much, much faster.
-		to_chat(user, "<span class='warning'>You short out [src]'s threat assessment circuits.</span>")
+		user << "<span class='warning'>You short out [src]'s threat assessment circuits.</span>"
 		visible_message("[src] hums oddly...")
 		emagged = 1
 		lethal_icon = 1
@@ -767,17 +772,23 @@
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
+<<<<<<< HEAD
 			if(I.iswrench() && !anchored)
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You secure the external bolts.</span>")
+=======
+			if(iswrench(I) && !anchored)
+				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				user << "<span class='notice'>You secure the external bolts.</span>"
+>>>>>>> origin
 				anchored = 1
 				build_step = 1
 				icon_state = "turret_frame_1_[case_sprite_set]"
 				return
 
-			else if(I.iscrowbar() && !anchored)
+			else if(iscrowbar(I) && !anchored)
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
-				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
+				user << "<span class='notice'>You dismantle the turret construction.</span>"
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
 				return
@@ -786,16 +797,22 @@
 			if(istype(I, /obj/item/stack/material) && I.get_material_name() == DEFAULT_WALL_MATERIAL)
 				var/obj/item/stack/M = I
 				if(M.use(2))
-					to_chat(user, "<span class='notice'>You add some metal armor to the interior frame.</span>")
+					user << "<span class='notice'>You add some metal armor to the interior frame.</span>"
 					build_step = 2
 					icon_state = "turret_frame_2_[case_sprite_set]"
 				else
-					to_chat(user, "<span class='warning'>You need two sheets of metal to continue construction.</span>")
+					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
 
+<<<<<<< HEAD
 			else if(I.iswrench())
 				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You unfasten the external bolts.</span>")
+=======
+			else if(iswrench(I))
+				playsound(loc, 'sound/items/Ratchet.ogg', 75, 1)
+				user << "<span class='notice'>You unfasten the external bolts.</span>"
+>>>>>>> origin
 				anchored = 0
 				build_step = 0
 				icon_state = "turret_frame_0_[case_sprite_set]"
@@ -803,26 +820,32 @@
 
 
 		if(2)
+<<<<<<< HEAD
 			if(I.iswrench())
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You bolt the metal armor into place.</span>")
+=======
+			if(iswrench(I))
+				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				user << "<span class='notice'>You bolt the metal armor into place.</span>"
+>>>>>>> origin
 				build_step = 3
 				icon_state = "turret_frame_3_[case_sprite_set]"
 				return
 
-			else if(I.iswelder())
+			else if(iswelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn())
 					return
 				if(WT.get_fuel() < 5) //uses up 5 fuel.
-					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
+					user << "<span class='notice'>You need more fuel to complete this task.</span>"
 					return
 
 				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
 				if(do_after(user, 20/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user)) return
 					build_step = 1
-					to_chat(user, "You remove the turret's interior metal armor.")
+					user << "You remove the turret's interior metal armor."
 					new /obj/item/stack/material/steel( loc, 2)
 					icon_state = "turret_frame_1_[case_sprite_set]"
 					return
@@ -835,9 +858,9 @@
 					if(isrobot(user))
 						return
 					if(!user.unEquip(I))
-						to_chat(user, "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>")
+						user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
 						return
-					to_chat(user, "<span class='notice'>You install [I] into the turret.</span>")
+					user << "<span class='notice'>You install [I] into the turret.</span>"
 					user.drop_from_inventory(E,src)
 					target_type = /obj/machinery/porta_turret
 					installation = I //installation becomes I.type
@@ -846,9 +869,15 @@
 					add_overlay("turret_[E.turret_sprite_set]_off")
 					return
 
+<<<<<<< HEAD
 			else if(I.iswrench())
 				playsound(loc, I.usesound, 100, 1)
 				to_chat(user, "<span class='notice'>You remove the turret's metal armor bolts.</span>")
+=======
+			else if(iswrench(I))
+				playsound(loc, 'sound/items/Ratchet.ogg', 100, 1)
+				user << "<span class='notice'>You remove the turret's metal armor bolts.</span>"
+>>>>>>> origin
 				build_step = 2
 				icon_state = "turret_frame_2_[case_sprite_set]"
 				return
@@ -857,19 +886,24 @@
 			if(isprox(I))
 				build_step = 5
 				if(!user.unEquip(I))
-					to_chat(user, "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>")
+					user << "<span class='notice'>\the [I] is stuck to your hand, you cannot put it in \the [src]</span>"
 					return
-				to_chat(user, "<span class='notice'>You add the prox sensor to the turret.</span>")
+				user << "<span class='notice'>You add the prox sensor to the turret.</span>"
 				qdel(I)
 				return
 
 			//attack_hand() removes the gun
 
 		if(5)
+<<<<<<< HEAD
 			if(I.isscrewdriver())
 				playsound(loc, I.usesound, 100, 1)
+=======
+			if(isscrewdriver(I))
+				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+>>>>>>> origin
 				build_step = 6
-				to_chat(user, "<span class='notice'>You close the access hatch.</span>")
+				user << "<span class='notice'>You close the access hatch.</span>"
 				icon_state = "turret_frame_5a_[case_sprite_set]"
 				add_overlay("turret_[E.turret_sprite_set]_off")
 				add_overlay("turret_frame_5b_[case_sprite_set]")
@@ -881,38 +915,43 @@
 			if(istype(I, /obj/item/stack/material) && I.get_material_name() == DEFAULT_WALL_MATERIAL)
 				var/obj/item/stack/M = I
 				if(M.use(2))
-					to_chat(user, "<span class='notice'>You add some metal armor to the exterior frame.</span>")
+					user << "<span class='notice'>You add some metal armor to the exterior frame.</span>"
 					cut_overlays()
 					icon_state = "turret_frame_5a_[case_sprite_set]"
 					add_overlay("turret_[E.turret_sprite_set]_off")
 					add_overlay("turret_frame_5c_[case_sprite_set]")
 					build_step = 7
 				else
-					to_chat(user, "<span class='warning'>You need two sheets of metal to continue construction.</span>")
+					user << "<span class='warning'>You need two sheets of metal to continue construction.</span>"
 				return
 
+<<<<<<< HEAD
 			else if(I.isscrewdriver())
 				playsound(loc, I.usesound, 100, 1)
+=======
+			else if(isscrewdriver(I))
+				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
+>>>>>>> origin
 				build_step = 5
-				to_chat(user, "<span class='notice'>You open the access hatch.</span>")
+				user << "<span class='notice'>You open the access hatch.</span>"
 				cut_overlays()
 				icon_state = "turret_frame_4_[case_sprite_set]"
 				add_overlay("turret_[E.turret_sprite_set]_off")
 				return
 
 		if(7)
-			if(I.iswelder())
+			if(iswelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
-					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
+					user << "<span class='notice'>You need more fuel to complete this task.</span>"
 
 				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
 				if(do_after(user, 30/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user))
 						return
 					build_step = 8
-					to_chat(user, "<span class='notice'>You weld the turret's armor down.</span>")
+					user << "<span class='notice'>You weld the turret's armor down.</span>"
 
 					//The final step: create a full turret
 					var/obj/machinery/porta_turret/Turret = new target_type(loc)
@@ -946,9 +985,9 @@
 					START_PROCESSING(SSprocessing, Turret)
 					qdel(src) // qdel
 
-			else if(I.iscrowbar())
+			else if(iscrowbar(I))
 				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
-				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
+				user << "<span class='notice'>You pry off the turret's exterior armor.</span>"
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
 				cut_overlays()
@@ -980,10 +1019,10 @@
 			installation = null
 			cut_overlays()
 			icon_state = "turret_frame_3_[case_sprite_set]"
-			to_chat(user, "<span class='notice'>You remove [E.name] from the turret frame.</span>")
+			user << "<span class='notice'>You remove [E.name] from the turret frame.</span>"
 
 		if(5)
-			to_chat(user, "<span class='notice'>You remove the prox sensor from the turret frame.</span>")
+			user << "<span class='notice'>You remove the prox sensor from the turret frame.</span>"
 			new /obj/item/device/assembly/prox_sensor(loc)
 			build_step = 4
 

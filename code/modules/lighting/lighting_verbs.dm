@@ -14,7 +14,7 @@ var/list/admin_verbs_lighting = list(
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
-	to_chat(src, span("notice", "Lighting debug verbs have been shown."))
+	src << span("notice", "Lighting debug verbs have been shown.")
 	verbs += admin_verbs_lighting
 
 /client/proc/lighting_hide_verbs()
@@ -24,7 +24,7 @@ var/list/admin_verbs_lighting = list(
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
-	to_chat(src, span("notice", "Lighting debug verbs have been hidden."))
+	src << span("notice", "Lighting debug verbs have been hidden.")
 	verbs -= admin_verbs_lighting
 
 /client/proc/lighting_flush()
@@ -50,7 +50,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	if (TURF_IS_DYNAMICALLY_LIT(T))
-		to_chat(src, "That turf is not dynamically lit.")
+		src << "That turf is not dynamically lit."
 		return
 
 	log_and_message_admins("has triggered a lighting update for turf \ref[T] - [T] at ([T.x],[T.y],[T.z]) in area [T.loc].")
@@ -65,7 +65,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
 	if (T.lighting_overlay)
-		to_chat(src, "That turf already has a lighting overlay.")
+		src << "That turf already has a lighting overlay."
 		return
 
 	log_and_message_admins("has generated a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
@@ -78,9 +78,9 @@ var/list/admin_verbs_lighting = list(
 	set desc = "Clears a lighting overlay for a turf if it has one."
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
-
+		
 	if (!T.lighting_overlay)
-		to_chat(src, "That turf doesn't have a lighting overlay.")
+		src << "That turf doesn't have a lighting overlay."
 		return
 
 	log_and_message_admins("has cleared a lighting overlay for turf \ref[T] - [T] ([T.x],[T.y],[T.z]) in area [T.loc].")
@@ -95,7 +95,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_SERVER)) return
 
 	if (!establish_db_connection(dbcon))
-		to_chat(usr, span("alert", "Unable to start profiling: No active database connection."))
+		usr << span("alert", "Unable to start profiling: No active database connection.")
 		return
 
 	lighting_profiling = !lighting_profiling

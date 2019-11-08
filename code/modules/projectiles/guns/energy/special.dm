@@ -81,8 +81,6 @@
 		list(mode_name="increase yield", projectile_type=/obj/item/projectile/energy/florayield, modifystate="florayield")
 		)
 
-	needspin = FALSE
-
 /obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
 	if(adjacent_flag && istype(target,/obj/machinery/portable_atmospherics/hydroponics))
@@ -176,8 +174,6 @@
 	fire_delay = 3
 	dispersion = list(0, 15, 15)
 
-	needspin = FALSE
-
 	var/lightfail = 0
 
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
@@ -263,10 +259,10 @@
 
 /obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already spinning!</span>")
+		user << "<span class='danger'>\The [src] is already spinning!</span>"
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
+		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
 	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 90, 1)
 	user.visible_message(
@@ -357,10 +353,10 @@
 
 /obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
+		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You could never fire this weapon with merely one hand!</span>")
+		user << "<span class='danger'>You could never fire this weapon with merely one hand!</span>"
 		return 0
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
@@ -384,11 +380,11 @@
 		if(H.mob_size >= 30)
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			anchored = 1
-			to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+			user << "<span class='notice'>\The [src] is now energised.</span>"
 			icon_state = "megaglaive1"
 			..()
 			return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		user << "<span class='warning'>\The [src] is far too large for you to pick up.</span>"
 		return
 
 /obj/item/weapon/gun/energy/vaurca/typec/dropped(var/mob/user)
@@ -437,14 +433,30 @@
 
 	action_button_name = "Wield thermal drill"
 
+<<<<<<< HEAD
 	needspin = FALSE
+=======
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/can_wield()
+	return 1
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/ui_action_click()
+	if(src in usr)
+		toggle_wield(usr)
+
+/obj/item/weapon/gun/energy/vaurca/thermaldrill/verb/wield_rifle()
+	set name = "Wield thermal drill"
+	set category = "Object"
+	set src in usr
+
+	toggle_wield(usr)
+>>>>>>> origin
 
 /obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
+		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
+		user << "<span class='danger'>You cannot fire this weapon with just one hand!</span>"
 		return 0
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",
@@ -488,7 +500,7 @@
 
 /obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
+		user << "<span class='danger'>\The [src] is already charging!</span>"
 		return 0
 	user.visible_message(
 					"<span class='danger'>\The [user] begins charging the [src]!</span>",

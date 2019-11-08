@@ -29,8 +29,8 @@
 	hack_state = null
 	return ..()
 
-/obj/item/device/multitool/hacktool/attackby(var/obj/item/W, var/mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/multitool/hacktool/attackby(var/obj/W, var/mob/user)
+	if(isscrewdriver(W))
 		in_hack_mode = !in_hack_mode
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 	else
@@ -50,21 +50,26 @@
 	return 1
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
+<<<<<<< HEAD
 	if(is_hacking && !multihack)
 		to_chat(user, "<span class='warning'>You are already hacking!</span>")
+=======
+	if(is_hacking)
+		user << "<span class='warning'>You are already hacking!</span>"
+>>>>>>> origin
 		return 0
 	if(target in current_hacks)
 		to_chat(user, span("warning", "You are already hacking this door!"))
 		return 0
 	if(!is_type_in_list(target, supported_types))
-		to_chat(user, "\icon[src] <span class='warning'>Unable to hack this target!</span>")
+		user << "\icon[src] <span class='warning'>Unable to hack this target!</span>"
 		return 0
 	var/found = known_targets.Find(target)
 	if(found)
 		known_targets.Swap(1, found)	// Move the last hacked item first
 		return 1
 
-	to_chat(user, "<span class='notice'>You begin hacking \the [target]...</span>")
+	user << "<span class='notice'>You begin hacking \the [target]...</span>"
 	is_hacking = 1
 	current_hacks += target
 
@@ -74,11 +79,16 @@
 	current_hacks -= target
 
 	if(hack_result && in_hack_mode)
+<<<<<<< HEAD
 		to_chat(user, "<span class='notice'>Your hacking attempt was succesful!</span>")
 		if(!silent)
 			playsound(src.loc, 'sound/piano/A#6.ogg', 75)
+=======
+		user << "<span class='notice'>Your hacking attempt was succesful!</span>"
+		playsound(src.loc, 'sound/piano/A#6.ogg', 75)
+>>>>>>> origin
 	else
-		to_chat(user, "<span class='warning'>Your hacking attempt failed!</span>")
+		user << "<span class='warning'>Your hacking attempt failed!</span>"
 		return 0
 
 	known_targets.Insert(1, target)	// Insert the newly hacked target first,

@@ -62,11 +62,11 @@
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "You lack the dexterity to do that.")
+		usr << "You lack the dexterity to do that."
 		return
 
 	if (!Adjacent(usr))
-		to_chat(usr, "You can't reach the [src] from there, get closer!")
+		usr << "You can't reach the [src] from there, get closer!"
 		return
 
 	if (open)
@@ -82,7 +82,7 @@
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open)
-		to_chat(user, "<span class='warning'>You can't put anything in while the door is closed!</span>")
+		user << "<span class='warning'>You can't put anything in while the door is closed!</span>"
 		return 0
 
 	else
@@ -100,7 +100,7 @@
 
 /obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
 	if (!open)
-		to_chat(user, "<span class='warning'>You can't take anything out while the door is closed!</span>")
+		user << "<span class='warning'>You can't take anything out while the door is closed!</span>"
 		return 0
 
 	else

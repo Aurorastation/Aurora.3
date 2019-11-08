@@ -5,6 +5,7 @@
 		return null
 	return ..()
 
+<<<<<<< HEAD
 /mob/living/carbon/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
 	..(AM, speed)
 	var/t_him = "it"
@@ -90,6 +91,9 @@
 		willfully_sleeping = 0
 
 
+=======
+/mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
+>>>>>>> origin
 	if(!effective_force || blocked >= 100)
 		return 0
 

@@ -16,7 +16,7 @@
 				return
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+					src << "<span class='warning'>You cannot send IC messages (muted).</span>"
 					return
 				if (stat)
 					return
@@ -83,10 +83,10 @@
 			updateicon = 1
 
 		if ("help") //This is an exception
-			to_chat(src, "Help for slime emotes. You can use these emotes with say \"*emote\":\n\nbounce, custom, jiggle, light, moan, shiver, sway, twitch, vibrate. You can also set your face with: \n\nnomood, pout, sad, angry, frown, smile")
+			src << "Help for slime emotes. You can use these emotes with say \"*emote\":\n\nbounce, custom, jiggle, light, moan, shiver, sway, twitch, vibrate. You can also set your face with: \n\nnomood, pout, sad, angry, frown, smile"
 
 		else
-			to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
+			src << "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>"
 	if ((message && src.stat == 0))
 		send_emote(message, m_type)
 	if(updateicon)

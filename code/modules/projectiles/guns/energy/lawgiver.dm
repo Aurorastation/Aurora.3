@@ -118,7 +118,7 @@
 		usr.audible_message("<span class='warning'>[usr]'s [src.name] broadcasts: [message]</span>","")
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
 		sleep(message_delay)
-	to_chat(usr, "<span class='warning'>Broadcasting Message disabled</span>")
+	usr << "<span class='warning'>Broadcasting Message disabled</span>"
 	message_enabled = 0
 	message_disable = 0
 
@@ -128,7 +128,7 @@
 	else
 		src.dna = user.dna.unique_enzymes
 		src.owner_name = user.real_name
-		to_chat(user, "<span class='notice'>You feel your palm heat up as the gun reads your DNA profile.</span>")
+		user << "<span class='notice'>You feel your palm heat up as the gun reads your DNA profile.</span>"
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
@@ -141,8 +141,8 @@
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
 			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
-			to_chat(user, "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>")
-			to_chat(user, "<span class='danger'>You feel a tiny prick in your hand!</span>")
+			user << "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>"
+			user << "<span class='danger'>You feel a tiny prick in your hand!</span>"
 			user.drop_item()
 			//Blow up Unauthorized Users Hand//todo, delet this, as it's duplicate behaviour from Firing pins.
 			sleep(60)
@@ -154,7 +154,7 @@
 	..()
 
 /obj/item/weapon/gun/energy/lawgiver/proc/Emag(mob/user as mob)
-	to_chat(usr, "<span class='warning'>You short out [src]'s id check</span>")
+	usr << "<span class='warning'>You short out [src]'s id check</span>"
 	emagged = 1
 	return 1
 
@@ -178,38 +178,38 @@
 	/* Firing Modes*/
 	if(findtext(msg,"single"))
 		sel_mode = 1
-		to_chat(usr, "<span class='warning'>[src.name] is now set to single shot mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to single shot mode.</span>"
 	else if(findtext(msg,"rapidfire"))
 		sel_mode = 2
-		to_chat(usr, "<span class='warning'>[src.name] is now set to rapid fire mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to rapid fire mode.</span>"
 	else if(findtext(msg,"highex") || findtext(msg,"grenade"))
 		sel_mode = 3
-		to_chat(usr, "<span class='warning'>[src.name] is now set to high explosive mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to high explosive mode.</span>"
 	else if(findtext(msg,"stun"))
 		sel_mode = 4
-		to_chat(usr, "<span class='warning'>[src.name] is now set to stun mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to stun mode.</span>"
 	else if(findtext(msg,"hotshot") || findtext(msg,"incendiary"))
 		sel_mode = 5
-		to_chat(usr, "<span class='warning'>[src.name] is now set to incendiary mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to incendiary mode.</span>"
 	else if(findtext(msg,"armorpiercing") || findtext(msg,"execution"))
 		sel_mode = 6
-		to_chat(usr, "<span class='warning'>[src.name] is now set to armorpiercing mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to armorpiercing mode.</span>"
 	else if(findtext(msg,"pellets"))
 		sel_mode = 7
-		to_chat(usr, "<span class='warning'>[src.name] is now set to pellet mode.</span>")
+		usr << "<span class='warning'>[src.name] is now set to pellet mode.</span>"
 	/* Other Stuff */
 	else if(findtext(msg,"reset") && (findtext(msg,"user") || findtext(msg,"dna")))
 		dna = null
 		desc = default_desc
-		to_chat(usr, "<span class='warning'>[src.name]´s owner has been reset. Do not attempt to fire [src.name] without rebinding a new owner.</span>")
+		usr << "<span class='warning'>[src.name]´s owner has been reset. Do not attempt to fire [src.name] without rebinding a new owner.</span>"
 	else if((findtext(msg,"disable") || findtext(msg,"deactivate")) && findtext(msg,"crowdcontrol"))
 		message_disable = 1
-		to_chat(usr, "<span class='warning'>[src.name]´s crowdcontrol deactivation sequence started.</span>")
+		usr << "<span class='warning'>[src.name]´s crowdcontrol deactivation sequence started.</span>"
 	else if((findtext(msg,"enable") || findtext(msg,"activate")) && findtext(msg,"crowdcontrol"))
 		if(message_enabled) //Check if a message is already broadcasting -> abort
-			to_chat(usr, "<span class='warning'>[src.name] is already broadcasting a message.</span>")
+			usr << "<span class='warning'>[src.name] is already broadcasting a message.</span>"
 			return
-		to_chat(usr, "<span class='warning'>[src.name]´s crowdcontrol activation sequence started.</span>")
+		usr << "<span class='warning'>[src.name]´s crowdcontrol activation sequence started.</span>"
 		message = "Citizens stay calm. Stand back from the crime scene. Interference with the crime scene carries an automatic brig sentence."
 		message_enabled = 1
 		message_disable = 0

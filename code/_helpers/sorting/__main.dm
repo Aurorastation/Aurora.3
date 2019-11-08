@@ -576,7 +576,7 @@ var/datum/sortInstance/sortInstance = new()
 		//If array is small, do an insertion sort
 		if(remaining < MIN_MERGE)
 			//var/initRunLen = countRunAndMakeAscending(start, end)
-			binarySort(start, end, start)/*+initRunLen*/
+			binarySort(start, end, start/*+initRunLen*/)
 			return
 
 		var/minRun = minRunLength(remaining)

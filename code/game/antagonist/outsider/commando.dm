@@ -64,7 +64,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 		if(player.internal)
 			player.internals.icon_state = "internal1"
 		else
-			to_chat(player, "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>")
+			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
 
 	var/obj/item/weapon/card/id/id = create_id("Commando", player)
 	id.access |= get_all_accesses()

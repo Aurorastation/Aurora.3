@@ -207,10 +207,10 @@
 	desc = "Construction Areas"
 	region = ACCESS_REGION_ENGINEERING
 
-/var/const/access_pharmacy = 33
-/datum/access/pharmacy
-	id = access_pharmacy
-	desc = "Pharmacy Lab"
+/var/const/access_chemistry = 33
+/datum/access/chemistry
+	id = access_chemistry
+	desc = "Chemistry Lab"
 	region = ACCESS_REGION_MEDBAY
 
 /var/const/access_cargo_bot = 34
@@ -488,11 +488,6 @@ var/const/access_journalist = 70//journalist's office access
 /var/const/access_syndicate = 150//General Syndicate Access
 /datum/access/syndicate
 	id = access_syndicate
-	access_type = ACCESS_TYPE_SYNDICATE
-
-/var/const/access_syndicate_leader = 151 //Syndie Commander Access
-/datum/access/syndicate_leader
-	id = access_syndicate_leader
 	access_type = ACCESS_TYPE_SYNDICATE
 
 /*******

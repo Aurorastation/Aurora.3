@@ -237,8 +237,13 @@
 	if(concealed_blade)
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
+<<<<<<< HEAD
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
+=======
+		playsound(user.loc, 'sound/weapons/blade_unsheath.ogg', 50, 1)
+		user.drop_from_inventory(src,enable_animations = FALSE)
+>>>>>>> origin
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
 		user.update_inv_l_hand(0)
@@ -334,19 +339,19 @@
 /obj/item/weapon/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
-        to_chat(user, "You turn the sign on.")
+        user << "You turn the sign on."
     else
         src.icon_state = "caution"
-        to_chat(user, "You turn the sign off.")
+        user << "You turn the sign off."
 
 /obj/item/weapon/caution/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	if(src.icon_state == "caution")
 		src.icon_state = "caution_blinking"
-		to_chat(usr, "You turn the sign on.")
+		usr << "You turn the sign on."
 	else
 		src.icon_state = "caution"
-		to_chat(usr, "You turn the sign off.")
+		usr << "You turn the sign off."
 
 /obj/item/weapon/caution/cone
 	desc = "This cone is trying to warn you of something!"
@@ -469,7 +474,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
 /obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (W.ismultitool())
+	if (ismultitool(W))
 		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
@@ -505,7 +510,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
+		usr << "<span class='warning'>No bugged functioning cameras found.</span>"
 		return
 
 	var/list/friendly_cameras = new/list()
@@ -552,11 +557,17 @@
 	icon_state = "neuralbroke"
 
 /obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+	if(isscrewdriver(W))
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
+<<<<<<< HEAD
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
+=======
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		user << "You bypass the fried security chip and extract the encryption key."
+		user << "The fried neural socket crumbles away like dust."
+>>>>>>> origin
 		qdel(src)
 
 /obj/item/weapon/storage/part_replacer

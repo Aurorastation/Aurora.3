@@ -86,7 +86,7 @@ var/datum/antagonist/ninja/ninjas
 		return 0
 	var/directive = generate_ninja_directive("heel")
 	player.store_memory("<B>Directive:</B> <span class='danger'>[directive]</span><br>")
-	to_chat(player, "<b>Remember your directive:</b> [directive].")
+	player << "<b>Remember your directive:</b> [directive]."
 
 /datum/antagonist/ninja/update_antag_mob(var/datum/mind/player)
 	..()
@@ -102,6 +102,7 @@ var/datum/antagonist/ninja/ninjas
 	if(!..())
 		return 0
 
+<<<<<<< HEAD
 	for (var/obj/item/I in player)
 		if (istype(I, /obj/item/weapon/implant))
 			continue
@@ -113,6 +114,33 @@ var/datum/antagonist/ninja/ninjas
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
+=======
+	var/obj/item/device/radio/R = new /obj/item/device/radio/headset(player)
+	player.equip_to_slot_or_del(R, slot_l_ear)
+	player.equip_to_slot_or_del(new /obj/item/clothing/under/color/black(player), slot_w_uniform)
+	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_belt)
+	player.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(player, player.mind), slot_l_store)
+	create_id("Infiltrator", player)
+
+	var/obj/item/weapon/rig/light/ninja/ninjasuit = new(get_turf(player))
+	ninjasuit.seal_delay = 0
+	player.put_in_hands(ninjasuit)
+	player.equip_to_slot_or_del(ninjasuit,slot_back)
+	if(ninjasuit)
+		ninjasuit.toggle_seals(src,1)
+		ninjasuit.seal_delay = initial(ninjasuit.seal_delay)
+
+	if(istype(player.back,/obj/item/weapon/rig))
+		var/obj/item/weapon/rig/rig = player.back
+		if(rig.air_supply)
+			player.internal = rig.air_supply
+
+	spawn(10)
+		if(player.internal)
+			player.internals.icon_state = "internal1"
+		else
+			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
+>>>>>>> origin
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)
 	var/directive = "[side=="face"?"[current_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.

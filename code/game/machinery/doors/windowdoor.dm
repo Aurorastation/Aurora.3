@@ -180,11 +180,16 @@
 		return 1
 
 	//If it's emagged, crowbar can pry electronics out.
-	if (src.operating == -1 && I.iscrowbar())
+	if (src.operating == -1 && iscrowbar(I))
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
+<<<<<<< HEAD
 		if (do_after(user,60/I.toolspeed))
 			to_chat(user, "<span class='notice'>You removed the windoor electronics!</span>")
+=======
+		if (do_after(user,40))
+			user << "<span class='notice'>You removed the windoor electronics!</span>"
+>>>>>>> origin
 
 			var/obj/structure/windoor_assembly/wa = new/obj/structure/windoor_assembly(src.loc)
 			if (istype(src, /obj/machinery/door/window/brigdoor))

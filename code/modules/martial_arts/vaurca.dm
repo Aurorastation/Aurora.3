@@ -56,29 +56,44 @@
 
 /datum/martial_art/vkutet/proc/swift_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.grabbedby(A,1)
-	if(istype(A.get_active_hand(),/obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = A.get_active_hand()
-		if(G && G.affecting == D)
-			G.state = GRAB_AGGRESSIVE
-			D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
-			if(isvaurca(A))
-				A.bugbite()
-				qdel(G)
+	var/obj/item/weapon/grab/G = A.get_active_hand()
+	if(G && prob(50))
+		G.state = GRAB_AGGRESSIVE
+		D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
+		if(isvaurca(A))
+			A.bugbite()
+			qdel(G)
 	return 1
 
 /datum/martial_art/vkutet/proc/crushing_jaws(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!isvaurca(A))
 		return 0
-	D.grabbedby(A,1)
-	if(istype(A.get_active_hand(),/obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = A.get_active_hand()
-		if(G && G.affecting == D)
-			var/armor_block = D.run_armor_check(null, "melee")
-			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
-			D.apply_damage(30, BRUTE, null, armor_block)
-			D.apply_effect(6, WEAKEN, armor_block)
-			qdel(G)
+	if(istype(A.get_inactive_hand(),/obj/item/weapon/grab))
+		D.grabbedby(A,1)
+		var/obj/item/weapon/grab/G = A.get_inactive_hand()
+		if(G.affecting == D)
+			if(G.affecting == D)
+				var/armor_block = D.run_armor_check(null, "melee")
+				A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
+				D.apply_damage(30, BRUTE, null, armor_block)
+				D.apply_effect(6, WEAKEN, armor_block)
+				qdel(G)
 	return 1
+
+/obj/item/vkutet_manual
+	name = "vk'utet data disk"
+	desc = "A data disk containing information about the vaurca fighting technice know as Vk'utet."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "harddisk"
+
+/obj/item/vkutet_manual/attack_self(mob/user as mob)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	var/datum/martial_art/vkutet/F = new/datum/martial_art/vkutet(null)
+	F.teach(H)
+	to_chat(H, "<span class='notice'>You have learned the martial art of Vk'utet.</span>")
+	qdel(src)
 
 /datum/martial_art/vkutet/proc/vkutet_help()
 	set name = "Recall Teachings"
@@ -90,9 +105,3 @@
 	to_chat(usr, "<span class='notice'>Swift Bite</span>: Disarm Disarm Grab. Quickly grabs your victim and bites them with your mandibles.")
 	to_chat(usr, "<span class='notice'>Crushing Jaws</span>: Harm Harm Disarm Grab. Grabs your victim and violently crushes them with your mandibles, inflicting heavy damage.")
 
-/obj/item/martial_manual/vaurca
-	name = "vk'utet data disk"
-	desc = "A data disk containing information about the vaurca fighting technice know as Vk'utet."
-	icon = 'icons/obj/vaurca_items.dmi'
-	icon_state = "harddisk"
-	martial_art = /datum/martial_art/vkutet

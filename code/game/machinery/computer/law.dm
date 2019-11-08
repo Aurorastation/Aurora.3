@@ -20,15 +20,15 @@
 
 	opened = !opened
 	if(opened)
-		to_chat(usr, "<span class='notice'>The access panel is now open.</span>")
+		usr << "<span class='notice'>The access panel is now open.</span>"
 	else
-		to_chat(usr, "<span class='notice'>The access panel is now closed.</span>")
+		usr << "<span class='notice'>The access panel is now closed.</span>"
 	return
 
 
 /obj/machinery/computer/aiupload/attackby(obj/item/weapon/O as obj, mob/user as mob)
 	if (!src.z in current_map.station_levels)
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
+		user << "<span class='danger'>Unable to establish a connection:</span>"
 		return
 	if(istype(O, /obj/item/weapon/aiModule))
 		var/obj/item/weapon/aiModule/M = O
@@ -39,18 +39,18 @@
 
 /obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
-		to_chat(user, "The upload computer has no power!")
+		user << "The upload computer has no power!"
 		return
 	if(src.stat & BROKEN)
-		to_chat(user, "The upload computer is broken!")
+		user << "The upload computer is broken!"
 		return
 
 	src.current = select_active_ai(user)
 
 	if (!src.current)
-		to_chat(user, "No active AIs detected.")
+		user << "No active AIs detected."
 	else
-		to_chat(user, "[src.current.name] selected for law changes.")
+		user << "[src.current.name] selected for law changes."
 	return
 
 /obj/machinery/computer/aiupload/attack_ghost(user as mob)
@@ -69,7 +69,7 @@
 
 /obj/machinery/computer/borgupload/attackby(obj/item/weapon/aiModule/module as obj, mob/user as mob)
 	if (!src.z in current_map.station_levels)
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
+		user << "<span class='danger'>Unable to establish a connection:</span>"
 		return
 	if(istype(module, /obj/item/weapon/aiModule))
 		module.install(src)
@@ -79,18 +79,18 @@
 
 /obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
 	if(src.stat & NOPOWER)
-		to_chat(user, "The upload computer has no power!")
+		user << "The upload computer has no power!"
 		return
 	if(src.stat & BROKEN)
-		to_chat(user, "The upload computer is broken!")
+		user << "The upload computer is broken!"
 		return
 
 	src.current = freeborg()
 
 	if (!src.current)
-		to_chat(user, "No free cyborgs detected.")
+		user << "No free cyborgs detected."
 	else
-		to_chat(user, "[src.current.name] selected for law changes.")
+		user << "[src.current.name] selected for law changes."
 	return
 
 /obj/machinery/computer/borgupload/attack_ghost(user as mob)

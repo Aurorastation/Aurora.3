@@ -24,15 +24,15 @@
 	autohiss_mode = (autohiss_mode + 1) % AUTOHISS_NUM
 	switch(autohiss_mode)
 		if(AUTOHISS_OFF)
-			to_chat(src, "Auto-hiss is now OFF.")
+			src << "Auto-hiss is now OFF."
 		if(AUTOHISS_BASIC)
-			to_chat(src, "Auto-hiss is now BASIC.")
+			src << "Auto-hiss is now BASIC."
 		if(AUTOHISS_FULL)
-			to_chat(src, "Auto-hiss is now FULL.")
+			src << "Auto-hiss is now FULL."
 		else
 			soft_assert(0, "invalid autohiss value [autohiss_mode]")
 			autohiss_mode = AUTOHISS_OFF
-			to_chat(src, "Auto-hiss is now OFF.")
+			src << "Auto-hiss is now OFF."
 
 /datum/species
 	var/list/autohiss_basic_map = null

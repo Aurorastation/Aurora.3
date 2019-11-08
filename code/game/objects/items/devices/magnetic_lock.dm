@@ -72,14 +72,14 @@
 	..(user)
 
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>It looks broken!</span>")
+		user << "<span class='danger'>It looks broken!</span>"
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			to_chat(user, "<span class='notice'>The powercell is at [power]% charge.</span>")
+			user << "<span class='notice'>The powercell is at [power]% charge.</span>"
 		else
 			var/int_power = round(internal_cell.charge / internal_cell.maxcharge * 100)
-			to_chat(user, "<span class='warning'>It has no powercell to power it! Internal cell is at [int_power]% charge.</span>")
+			user << "<span class='warning'>It has no powercell to power it! Internal cell is at [int_power]% charge.</span>"
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -87,7 +87,7 @@
 		powercell.update_icon()
 		powercell.add_fingerprint(user)
 		user.put_in_active_hand(powercell)
-		to_chat(user, "You remove \the [powercell].")
+		user << "You remove \the [powercell]."
 		powercell = null
 		setconstructionstate(2)
 		return TRUE
@@ -96,7 +96,7 @@
 			detach()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>\The [src] is locked in place!</span>")
+			user << "<span class='warning'>\The [src] is locked in place!</span>"
 	else
 		..()
 
@@ -106,7 +106,7 @@
 
 /obj/item/device/magnetic_lock/attackby(var/obj/item/I, var/mob/user)
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
+		user << "<span class='danger'>[src] is broken beyond repair!</span>"
 		return
 
 	if (istype(I, /obj/item/weapon/card/id))
@@ -121,10 +121,10 @@
 				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-				to_chat(user, span("warning", "\The [src] buzzes as you swipe your [I]."))
+				user << span("warning", "\The [src] buzzes as you swipe your [I].")
 				return
 		else
-			to_chat(user, "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>")
+			user << "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>"
 		return
 
 	if (istype(I, /obj/item/weapon) && user.a_intent == "harm")
@@ -154,14 +154,19 @@
 					update_icon()
 				return
 
-			if (I.iswelder())
+			if (iswelder(I))
 				var/obj/item/weapon/weldingtool/WT = I
 				if (WT.remove_fuel(2, user))
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
+<<<<<<< HEAD
 					if (do_after(user, 25/I.toolspeed))
 						to_chat(user, span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
+=======
+					if (do_after(user, 25))
+						user << span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src].")
+>>>>>>> origin
 						if (hacked) locked = 1
 						else locked = 0
 						hacked = !hacked
@@ -171,61 +176,73 @@
 					update_icon()
 					return
 
-			if (I.iscrowbar())
+			if (iscrowbar(I))
 				if (!locked)
-					to_chat(user, span("notice", "You pry the cover off [src]."))
+					user << span("notice", "You pry the cover off [src].")
 					setconstructionstate(1)
 				else
-					to_chat(user, span("notice", "You try to pry the cover off [src] but it doesn't budge."))
+					user << span("notice", "You try to pry the cover off [src] but it doesn't budge.")
 				return
 
 		if (1)
 			if (istype(I, /obj/item/weapon/cell))
 				if (powercell)
-					to_chat(user, span("notice","There's already a powercell in \the [src]."))
+					user << span("notice","There's already a powercell in \the [src].")
 				return
 
-			if (I.iscrowbar())
-				to_chat(user, span("notice", "You wedge the cover back in place."))
+			if (iscrowbar(I))
+				user << span("notice", "You wedge the cover back in place.")
 				setconstructionstate(0)
 				return
 
 		if (2)
+<<<<<<< HEAD
 			if (I.isscrewdriver())
 				to_chat(user, span("notice", "You unscrew and remove the wiring cover from \the [src]."))
 				playsound(loc, I.usesound, 50, 1)
+=======
+			if (isscrewdriver(I))
+				user << span("notice", "You unscrew and remove the wiring cover from \the [src].")
+				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+>>>>>>> origin
 				setconstructionstate(3)
 				return
 
-			if (I.iscrowbar())
-				to_chat(user, span("notice", "You wedge the cover back in place."))
+			if (iscrowbar(I))
+				user << span("notice", "You wedge the cover back in place.")
 				setconstructionstate(0)
 				return
 
 			if (istype(I, /obj/item/weapon/cell))
 				if (!powercell)
-					to_chat(user, span("notice","You place the [I] inside \the [src]."))
+					user << span("notice","You place the [I] inside \the [src].")
 					user.drop_from_inventory(I,src)
 					powercell = I
 					setconstructionstate(1)
 				return
 
 		if (3)
-			if (I.iswirecutter())
-				to_chat(user, span("notice", "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
+			if (iswirecutter(I))
+				user << span("notice", "You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]")
 				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return
 
+<<<<<<< HEAD
 			if (I.isscrewdriver())
 				to_chat(user, span("notice", "You replace and screw tight the wiring cover from \the [src]."))
 				playsound(loc, I.usesound, 50, 1)
+=======
+			if (isscrewdriver(I))
+				user << span("notice", "You replace and screw tight the wiring cover from \the [src].")
+				playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
+>>>>>>> origin
 				setconstructionstate(2)
 				return
 
 		if (4)
-			if (I.iswirecutter())
-				to_chat(user, span("notice", "You repair the wires connecting the [src]'s magnets to their internal powersupply"))
+			if (iswirecutter(I))
+				user << span("notice", "You repair the wires connecting the [src]'s magnets to their internal powersupply")
 				setconstructionstate(3)
 				return
 
@@ -265,23 +282,23 @@
 
 /obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (status == STATUS_BROKEN)
-		to_chat(user, span("danger", "[src] is damaged beyond repair! It cannot be used!"))
+		user << span("danger", "[src] is damaged beyond repair! It cannot be used!")
 		return 0
 
 	if (hacked)
-		to_chat(user, span("danger", "[src] buzzes; it can't be used until you repair it!"))
+		user << span("danger", "[src] buzzes; it can't be used until you repair it!")
 		return 0
 
 	if (!newtarget.density || newtarget.operating)
-		to_chat(user, span("danger", "[newtarget] must be closed before you can attach [src] to it!"))
+		user << span("danger", "[newtarget] must be closed before you can attach [src] to it!")
 		return 0
 
 	if (newtarget.p_open)
-		to_chat(user, span("danger", "You must close [newtarget]'s maintenance panel before attaching [src] to it!"))
+		user << span("danger", "You must close [newtarget]'s maintenance panel before attaching [src] to it!")
 		return 0
 
 	if (!user.Adjacent(newtarget))
-		to_chat(user, span("danger", "You must stand next to [newtarget] while attaching it!"))
+		user << span("danger", "You must stand next to [newtarget] while attaching it!")
 		return 0
 
 	return 1
@@ -296,7 +313,7 @@
 		if (!check_target(newtarget, user)) return
 
 		if(!internal_cell.charge)
-			to_chat(user, "<span class='warning'>\The [src] looks dead and out of power.</span>")
+			user << "<span class='warning'>\The [src] looks dead and out of power.</span>"
 			return
 
 		var/direction = get_dir(user, newtarget)
@@ -305,7 +322,7 @@
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
 				if (check_neighbor_density(get_turf(newtarget.loc), direction))
-					to_chat(user, "<span class='warning'>There is something in the way of \the [newtarget]!</span>")
+					user << "<span class='warning'>There is something in the way of \the [newtarget]!</span>"
 					return
 
 		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
