@@ -1089,11 +1089,12 @@ About the new airlock wires panel:
 			else
 				close(1)
 	else if(istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
-		if(locked)
+		if(locked && user.a_intent != I_HURT)
 			to_chat(user, "<span class='notice'>The airlock's bolts prevent it from being forced.</span>")
-		else if( !welded && !operating )
+		else if(locked && user.a_intent == I_HURT)
+			..()
+		else if(!welded && !operating)
 			if(density)
-
 				var/obj/item/weapon/material/twohanded/fireaxe/F = C
 				if(F.wielded)
 					open(1)
@@ -1105,12 +1106,12 @@ About the new airlock wires panel:
 					close(1)
 				else
 					to_chat(user, "<span class='warning'>You need to be wielding \the [C] to do that.</span>")
-
 	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
-		if(locked)
+		if(locked && user.a_intent != I_HURT)
 			to_chat(user, "<span class='notice'>The airlock's bolts prevent it from being forced.</span>")
-		else if( !welded && !operating )
-
+		else if(locked && user.a_intent == I_HURT)
+			..()
+		else if(!welded && !operating)
 			if(density)
 				open(1)
 			else
