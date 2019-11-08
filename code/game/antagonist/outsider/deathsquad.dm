@@ -20,6 +20,9 @@ var/datum/antagonist/deathsquad/deathsquad
 
 /datum/antagonist/deathsquad/New(var/no_reference)
 	..()
-	deployed = TRUE
 	if(!no_reference)
 		deathsquad = src
+
+/datum/antagonist/deathsquad/attempt_spawn()
+	if(..())
+		deployed = TRUE
