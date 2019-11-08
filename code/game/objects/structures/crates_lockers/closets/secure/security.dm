@@ -262,7 +262,7 @@
 		else
 			new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/head/beret/sec/cadet(src)
-		new /obj/item/clothing/suit/storage/vest/cadet(src)
+		new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
 		new /obj/item/clothing/under/rank/cadet(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)

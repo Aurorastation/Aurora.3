@@ -2891,10 +2891,10 @@
 /obj/structure/shuttle/engine/propulsion/burst{
 	dir = 8
 	},
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod3/station)
 "afs" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod3/station)
 "aft" = (
 /obj/item/weapon/stool{
@@ -3155,7 +3155,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "afQ" = (
 /obj/structure/bed/chair{
@@ -3170,7 +3170,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "afR" = (
 /obj/structure/bed/chair{
@@ -3189,12 +3189,12 @@
 	pixel_y = -25;
 	tag_door = "escape_pod_3_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "afS" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod3/station)
 "afT" = (
 /obj/structure/grille,
@@ -10818,12 +10818,12 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness)
 "atu" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod1/station)
 "atv" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod1/station)
 "atw" = (
 /obj/structure/grille,
@@ -10859,12 +10859,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_two)
 "atx" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod2/station)
 "aty" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod2/station)
 "atz" = (
 /obj/machinery/chemical_dispenser/full,
@@ -11096,7 +11096,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_1_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "aud" = (
 /obj/structure/grille,
@@ -11145,7 +11145,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_2_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "auh" = (
 /turf/simulated/floor/plating,
@@ -11468,7 +11468,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "auY" = (
 /obj/structure/bed/chair{
@@ -11482,7 +11482,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "auZ" = (
 /turf/simulated/wall,
@@ -11746,7 +11746,7 @@
 /area/crew_quarters/fitness)
 "avI" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod1/station)
 "avJ" = (
 /obj/machinery/door/airlock/external{
@@ -11757,7 +11757,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "avK" = (
 /obj/machinery/door/firedoor{
@@ -11789,7 +11789,7 @@
 /area/medical/pharmacy)
 "avL" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod2/station)
 "avM" = (
 /obj/machinery/door/airlock/external{
@@ -11800,7 +11800,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "avN" = (
 /obj/item/device/mass_spectrometer/adv,
@@ -15771,7 +15771,7 @@
 /turf/template_noop,
 /area/syndicate_station/arrivals_dock)
 "aDq" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/arrival/station)
 "aDr" = (
 /obj/machinery/door/firedoor{
@@ -15786,11 +15786,12 @@
 /area/medical/exam_room)
 "aDs" = (
 /obj/machinery/door/unpowered/shuttle,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aDt" = (
 /obj/structure/window/shuttle,
-/turf/simulated/shuttle/plating,
+/obj/structure/grille,
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/station)
 "aDu" = (
 /obj/structure/grille,
@@ -16622,42 +16623,42 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aEP" = (
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aEQ" = (
 /obj/machinery/computer/arcade,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aER" = (
 /obj/structure/closet/wardrobe/black,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aES" = (
 /obj/structure/closet/wardrobe/xenos,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aET" = (
 /obj/structure/closet/wardrobe/mixed,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aEU" = (
 /obj/structure/closet/wardrobe/grey,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aEV" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aEW" = (
 /obj/machinery/button/remote/blast_door{
@@ -16683,7 +16684,7 @@
 	icon_state = "burst_r";
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/station)
 "aEY" = (
 /obj/structure/grille,
@@ -17374,7 +17375,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aGl" = (
 /obj/structure/window/reinforced{
@@ -17393,7 +17394,7 @@
 /obj/effect/landmark{
 	name = "JoinLate"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aGn" = (
 /obj/structure/shuttle/engine/heater{
@@ -17410,7 +17411,7 @@
 	icon_state = "propulsion";
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/station)
 "aGp" = (
 /obj/structure/grille,
@@ -18364,20 +18365,15 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"aHV" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/shuttle/plating,
-/area/shuttle/arrival/station)
 "aHW" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aHX" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aHY" = (
 /obj/machinery/alarm{
@@ -19923,7 +19919,7 @@
 	pixel_y = -29
 	},
 /obj/machinery/light,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aLd" = (
 /obj/machinery/requests_console{
@@ -19931,14 +19927,14 @@
 	pixel_y = -30
 	},
 /obj/machinery/light,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/arrival/station)
 "aLe" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_l";
 	dir = 4
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/arrival/station)
 "aLf" = (
 /obj/structure/grille,
@@ -40597,7 +40593,7 @@
 /turf/simulated/floor/plating,
 /area/storage/emergency)
 "bwJ" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/research/station)
 "bwK" = (
 /obj/structure/grille,
@@ -40613,7 +40609,7 @@
 "bwL" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "bwM" = (
 /obj/machinery/chakraconsole{
@@ -41537,26 +41533,26 @@
 /area/medical/genetics_cloning)
 "byp" = (
 /obj/structure/closet/crate,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "byq" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "byr" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "bys" = (
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "byt" = (
 /obj/structure/table/reinforced,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "byu" = (
 /obj/machinery/conveyor{
@@ -42456,7 +42452,7 @@
 /obj/structure/shuttle/engine/propulsion/burst{
 	dir = 8
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "bzS" = (
 /obj/structure/window/reinforced{
@@ -42473,7 +42469,7 @@
 /area/shuttle/research/station)
 "bzT" = (
 /obj/machinery/computer/shuttle_control/research,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "bzU" = (
 /obj/machinery/door/firedoor{
@@ -43588,7 +43584,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/rnd/docking)
 "bBJ" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -43600,7 +43596,7 @@
 	tag_door = "research_shuttle_hatch"
 	},
 /obj/structure/table/reinforced,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "bBK" = (
 /obj/structure/window/reinforced{
@@ -44321,7 +44317,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/rnd/docking)
 "bCW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -44338,7 +44334,7 @@
 	name = "Shuttle Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/research/station)
 "bCY" = (
 /obj/machinery/alarm{
@@ -46952,7 +46948,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/rnd/docking)
 "bHD" = (
 /obj/machinery/airlock_sensor{
@@ -47897,21 +47893,7 @@
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
-/turf/simulated/shuttle/plating,
-/area/rnd/docking)
-"bJj" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor{
-	dir = 2
-	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/rnd/docking)
 "bJk" = (
 /obj/structure/lattice,
@@ -48990,7 +48972,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/test_area)
 "bKQ" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/mining/station)
 "bKR" = (
 /obj/machinery/vending/medical{
@@ -49002,7 +48984,7 @@
 "bKS" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/mining/station)
 "bKT" = (
 /obj/item/device/radio/intercom{
@@ -49803,11 +49785,11 @@
 	pixel_y = 0
 	},
 /obj/structure/table/reinforced,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bMs" = (
 /obj/machinery/computer/shuttle_control/mining,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bMt" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -49822,7 +49804,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bMu" = (
 /obj/structure/grille,
@@ -50448,13 +50430,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
 "bNy" = (
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bNz" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bNA" = (
 /obj/structure/grille,
@@ -51213,7 +51195,7 @@
 	name = "Shuttle Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bPg" = (
 /obj/machinery/door/airlock/external{
@@ -52883,7 +52865,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bSe" = (
 /obj/structure/window/reinforced{
@@ -52903,7 +52885,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/mining/station)
 "bSg" = (
 /obj/structure/grille,
@@ -53574,7 +53556,7 @@
 /area/medical/psych)
 "bTw" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/shuttle/mining/station)
 "bTx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -55268,13 +55250,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
 "bWm" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod5/station)
 "bWo" = (
 /obj/structure/shuttle/engine/propulsion/burst{
 	dir = 4
 	},
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod5/station)
 "bWp" = (
 /obj/structure/closet/emcloset,
@@ -55905,7 +55887,7 @@
 "bXG" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod5/station)
 "bXH" = (
 /obj/structure/bed/chair{
@@ -55924,7 +55906,7 @@
 	pixel_y = -25;
 	tag_door = "escape_pod_5_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod5/station)
 "bXI" = (
 /obj/structure/bed/chair{
@@ -55937,7 +55919,7 @@
 	pixel_y = 20
 	},
 /obj/machinery/light/small/emergency,
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod5/station)
 "bXJ" = (
 /obj/machinery/door/airlock/external{
@@ -55948,7 +55930,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod5/station)
 "bXK" = (
 /obj/machinery/door/airlock/external{
@@ -75600,10 +75582,10 @@
 /obj/structure/shuttle/engine/propulsion/burst{
 	dir = 8
 	},
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/constructionsite/station)
 "cHp" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/constructionsite/station)
 "cHq" = (
 /obj/structure/cable{
@@ -75631,15 +75613,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shuttle/constructionsite/station)
 "cHt" = (
 /obj/machinery/computer/station_alert,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shuttle/constructionsite/station)
 "cHv" = (
 /obj/structure/sign/securearea{
@@ -75816,15 +75794,11 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shuttle/constructionsite/station)
 "cHL" = (
 /obj/machinery/computer/shuttle_control/engineering,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shuttle/constructionsite/station)
 "cHM" = (
 /obj/structure/grille,
@@ -76113,15 +76087,11 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shuttle/constructionsite/station)
 "cIn" = (
 /obj/machinery/computer/atmos_alert,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor2"
-	},
+/turf/simulated/floor/shuttle/yellow,
 /area/shuttle/constructionsite/station)
 "cIo" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -88783,7 +88753,7 @@ aaa
 aaa
 aDq
 aDq
-aHV
+aDt
 aDq
 aDq
 aaa
@@ -131477,7 +131447,7 @@ bwJ
 bzN
 bGm
 bBG
-bJj
+bzP
 aaf
 aaa
 bMm

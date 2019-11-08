@@ -282,6 +282,7 @@
 					continue
 				NG.attackby(G, user)
 			to_chat(user, "You add the newly-formed grass to the stack. It now contains [G.amount] tiles.")
+		user.drop_from_inventory(src)
 		qdel(src)
 		return
 

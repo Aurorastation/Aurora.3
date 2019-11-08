@@ -21,6 +21,20 @@
 /obj/structure/sign/electricshock,
 /turf/simulated/wall,
 /area/solar/port)
+"af" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/storage/shields)
 "ag" = (
 /turf/simulated/mineral/surface,
 /area/mine/unexplored)
@@ -28,6 +42,19 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
 /area/solar/fore)
+"ai" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/sign/securearea,
+/turf/simulated/floor/plating,
+/area/storage/shields)
 "aj" = (
 /obj/machinery/power/solar{
 	id = "auxsolarnorth";
@@ -807,6 +834,40 @@
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/tcomsat)
+"bz" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass_command{
+	name = "Station Shield Control";
+	req_one_access = list(11,19,24)
+	},
+/turf/simulated/floor/tiled,
+/area/storage/shields)
+"bA" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/securearea,
+/turf/simulated/floor/plating,
+/area/storage/shields)
 "bB" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -900,6 +961,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"bM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/storage/shields)
 "bN" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -9509,28 +9582,28 @@
 /turf/simulated/open,
 /area/turbolift/main_arrivals_aux)
 "rx" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod1/station)
 "ry" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod1/station)
 "rz" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod2/station)
 "rA" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod2/station)
 "rB" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod3/station)
 "rC" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod3/station)
 "rD" = (
 /turf/unsimulated/floor/asteroid/ash,
@@ -9602,7 +9675,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_1_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "rL" = (
 /obj/structure/bed/chair{
@@ -9621,7 +9694,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_2_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "rM" = (
 /obj/structure/bed/chair{
@@ -9640,7 +9713,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_3_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "rN" = (
 /obj/structure/table/standard,
@@ -9713,7 +9786,7 @@
 	c_tag = "Bridge - Pod 1";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "rX" = (
 /obj/structure/bed/chair{
@@ -9731,7 +9804,7 @@
 	c_tag = "Bridge - Pod 2";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "rY" = (
 /obj/structure/bed/chair{
@@ -9749,7 +9822,7 @@
 	c_tag = "Bridge - Pod 3";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "rZ" = (
 /obj/structure/grille,
@@ -9878,10 +9951,7 @@
 /area/crew_quarters/sleep/cryo)
 "so" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod1/station)
 "sp" = (
 /obj/machinery/door/airlock/external{
@@ -9892,14 +9962,11 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "sq" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod2/station)
 "sr" = (
 /obj/machinery/door/airlock/external{
@@ -9910,14 +9977,11 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "ss" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod3/station)
 "st" = (
 /obj/machinery/door/airlock/external{
@@ -9928,7 +9992,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "su" = (
 /obj/structure/grille,
@@ -20376,7 +20440,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "Qd" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/research/station)
 "Qf" = (
 /obj/structure/table/standard,
@@ -22305,25 +22369,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"Wm" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/storage/shields)
 "Wo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -22334,29 +22379,6 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/storage/shields)
-"Wp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/sign/securearea,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
 /area/storage/shields)
 "Wq" = (
 /obj/structure/cable/green{
@@ -22421,35 +22443,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
-"Wu" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/door/airlock/glass_command{
-	name = "Station Shield Control";
-	req_one_access = list(11,19,24)
-	},
-/turf/simulated/floor/tiled,
-/area/storage/shields)
 "Wv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
@@ -22479,27 +22472,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/storage/shields)
-"Wz" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/sign/securearea,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable,
-/turf/simulated/floor/plating,
 /area/storage/shields)
 "WA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -22541,19 +22513,6 @@
 	pixel_y = -26
 	},
 /turf/simulated/floor/tiled,
-/area/storage/shields)
-"WE" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/cable,
-/turf/simulated/floor/plating,
 /area/storage/shields)
 "WF" = (
 /obj/machinery/door/firedoor{
@@ -52160,11 +52119,11 @@ yq
 MN
 Ay
 Wi
-Wm
-Wp
-Wu
-Wz
-WE
+af
+ai
+bz
+bA
+bM
 Wi
 QU
 WO

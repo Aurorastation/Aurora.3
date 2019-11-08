@@ -1,5 +1,5 @@
 /datum/ghostspawner/human/ert
-	tags = list("External")
+	tags = list("Response Teams")
 
 	enabled = FALSE
 	req_perms = null
@@ -19,6 +19,11 @@
 	mob_name_pick_message = "Pick a callsign or last-name."
 
 	mob_name = null
+
+/datum/ghostspawner/human/ert/post_spawn(mob/user)
+	if(name)
+		to_chat(user, "<span class='danger'><font size=3>You are [max_count > 1 ? "a" : "the"] [name]!</font></span>")
+	return ..()
 
 //Nanotrasen ERT
 /datum/ghostspawner/human/ert/nanotrasen
@@ -100,3 +105,53 @@
 	max_count = 1
 	desc = "The leader of the freelancer mercenary team."
 	outfit = /datum/outfit/admin/ert/mercenary/leader
+
+// Deathsquads, spawn via admin intervention only.
+
+/datum/ghostspawner/human/ert/deathsquad
+	name = "NT Asset Protection Specialist"
+	short_name = "ntaps"
+	max_count = 3
+	desc = "Protectors of NanoTrasen's bottom line. The last thing you never see."
+	welcome_message = "The NSS Aurora has been compromised. Recover NanoTrasen assets by any means necessary. Crew expendable."
+	outfit = /datum/outfit/admin/deathsquad
+	spawnpoints = list("DeathERTSpawn")
+	mob_name_prefix = "Spec. "
+
+	var/deployed = TRUE
+
+/datum/ghostspawner/human/ert/deathsquad/leader
+	name = "NT Asset Protection Leader"
+	short_name = "ntapl"
+	max_count = 1
+	desc = "Leader of NT's Asset Protection team."
+	outfit = /datum/outfit/admin/deathsquad/leader
+	mob_name_prefix = "Ldr. "
+
+/datum/ghostspawner/human/ert/deathsquad/post_spawn(mob/user)
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
+	F.teach(user)
+
+	return ..()
+
+/datum/ghostspawner/human/ert/commando
+	name = "Syndicate Commando"
+	short_name = "syndc"
+	max_count = 3
+	desc = "Well-equipped commandos of the criminal Syndicate."
+	welcome_message = "The order has been given - the Aurora and its crew are to be wiped off the star-charts, by any means necessary."
+	outfit = /datum/outfit/admin/deathsquad/syndicate
+	spawnpoints = list("SyndERTSpawn")
+
+/datum/ghostspawner/human/ert/commando/leader
+	name = "Syndicate Commando Leader"
+	short_name = "syndl"
+	max_count = 1
+	desc = "The leader of the Syndicate's elite commandos."
+	outfit = /datum/outfit/admin/deathsquad/syndicate/leader
+
+/datum/ghostspawner/human/ert/commando/post_spawn(mob/user)
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
+	F.teach(user)
+
+	return ..()

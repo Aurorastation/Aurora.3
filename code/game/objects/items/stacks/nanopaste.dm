@@ -21,6 +21,8 @@
 /obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
+	if (!can_use(1, user))
+		return 0
 	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )

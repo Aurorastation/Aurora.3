@@ -48,6 +48,8 @@
 	new /obj/item/clothing/under/sundress(src)
 	new /obj/item/clothing/under/waiter(src)
 	new /obj/item/clothing/under/waiter(src)
+	if(prob(1))
+		new /obj/item/weapon/gun/energy/mousegun(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/weapon/storage/box/gloves(src)
@@ -61,8 +63,9 @@
 /obj/structure/closet/jcloset
 	name = "custodial closet"
 	desc = "It's a storage unit for janitorial clothes and gear."
-	icon_state = "mixed"
-	icon_closed = "mixed"
+	icon_state = "janitorial"
+	icon_closed = "janitorial"
+	icon_opened = "janitorialopen"
 
 /obj/structure/closet/jcloset/fill()
 	new /obj/item/clothing/under/rank/janitor(src)
@@ -70,6 +73,8 @@
 	new /obj/item/weapon/cartridge/janitor(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/soft/purple(src)
+	new /obj/item/weapon/gun/energy/mousegun(src)
+	new /obj/item/clothing/accessory/holster/armpit(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/weapon/caution(src)
 	new /obj/item/weapon/caution(src)

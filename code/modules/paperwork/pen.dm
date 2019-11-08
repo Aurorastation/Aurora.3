@@ -189,10 +189,16 @@
 	attack_verb = list("attacked", "coloured")
 	colour = "#FF0000" //RGB
 	var/shadeColour = "#220000" //RGB
-	var/uses = 30 //0 for unlimited uses
 	var/instant = 0
 	var/colourName = "red" //for updateIcon purposes
+	var/chem_volume = 10 //crayon dust
+	var/dust = "crayon_dust"
 
 	New()
 		name = "[colourName] crayon"
 		..()
+
+/obj/item/weapon/pen/crayon/Initialize()
+	. = ..()
+	create_reagents(chem_volume)
+	reagents.add_reagent(dust,chem_volume)
