@@ -273,7 +273,7 @@
 /obj/machinery/access_button/attack_hand(mob/user)
 	add_fingerprint(usr)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied</span>")
+		user << "<span class='warning'>Access Denied</span>"
 
 	else if(radio_connection)
 		var/datum/signal/signal = new

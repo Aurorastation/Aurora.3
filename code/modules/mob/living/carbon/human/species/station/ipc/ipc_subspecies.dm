@@ -72,6 +72,7 @@
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
 
+<<<<<<< HEAD:code/modules/mob/living/carbon/human/species/station/ipc/ipc_subspecies.dm
 
 /datum/species/machine/shell/rogue
 	name = "Rogue Shell"
@@ -98,6 +99,10 @@
 
 /datum/species/machine/shell/rogue/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
 	return
+=======
+/datum/species/machine/shell/equip_survival_gear(var/mob/living/carbon/human/H)
+	check_tag(H, H.client)
+>>>>>>> origin:code/modules/mob/living/carbon/human/species/station/machine_subspecies.dm
 
 /datum/species/machine/industrial
 	name = "Hephaestus G1 Industrial Frame"
@@ -216,8 +221,7 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_destruct,
 		/mob/living/carbon/human/proc/detonate_flechettes,
-		/mob/living/carbon/human/proc/state_laws,
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/state_laws
 	)
 
 	has_organ = list(

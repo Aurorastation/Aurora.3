@@ -141,6 +141,7 @@ They sell generic supplies and ask for generic supplies.
 	origin = "Manufacturing Beacon"
 
 	possible_trading_items = list(
+<<<<<<< HEAD
 		/obj/structure/AIcore                           = TRADER_THIS_TYPE,
 		/obj/structure/ore_box                          = TRADER_THIS_TYPE,
 		/obj/structure/dispenser                        = TRADER_THIS_TYPE,
@@ -153,6 +154,23 @@ They sell generic supplies and ask for generic supplies.
 		/obj/machinery/media/jukebox                    = TRADER_THIS_TYPE,
 		/obj/machinery/reagentgrinder                   = TRADER_THIS_TYPE,
 		/obj/vehicle/bike                               = TRADER_THIS_TYPE
+=======
+		/obj/structure/AIcore               = TRADER_THIS_TYPE,
+		/obj/structure/mopbucket            = TRADER_THIS_TYPE,
+		/obj/structure/ore_box              = TRADER_THIS_TYPE,
+		/obj/structure/coatrack             = TRADER_THIS_TYPE,
+		/obj/item/bee_pack                  = TRADER_THIS_TYPE,
+		/obj/item/weapon/bee_smoker         = TRADER_THIS_TYPE,
+		/obj/item/beehive_assembly          = TRADER_THIS_TYPE,
+		/obj/item/glass_jar                 = TRADER_THIS_TYPE,
+		/obj/item/honey_frame               = TRADER_THIS_TYPE,
+		/obj/item/target                    = TRADER_ALL,
+		/obj/structure/dispenser            = TRADER_SUBTYPES_ONLY,
+		/obj/structure/filingcabinet        = TRADER_THIS_TYPE,
+		/obj/structure/plushie              = TRADER_SUBTYPES_ONLY,
+		/obj/mecha/working/hoverpod         = TRADER_THIS_TYPE,
+		/obj/vehicle/bike                   = TRADER_THIS_TYPE
+>>>>>>> origin
 	)
 
 /datum/trader/trading_beacon/medical

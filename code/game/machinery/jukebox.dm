@@ -30,7 +30,6 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("D`Fort", 'sound/ambience/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
 		new/datum/track("Endless Space", 'sound/music/space.ogg'),
-		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
 		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
@@ -73,11 +72,11 @@ datum/track/New(var/title_name, var/audio)
 		return
 
 	if(!anchored)
-		to_chat(usr, "<span class='warning'>You must secure \the [src] first.</span>")
+		usr << "<span class='warning'>You must secure \the [src] first.</span>"
 		return
 
 	if(stat & (NOPOWER|BROKEN))
-		to_chat(usr, "\The [src] doesn't appear to function.")
+		usr << "\The [src] doesn't appear to function."
 		return
 
 	if(href_list["change_track"])
@@ -108,7 +107,7 @@ datum/track/New(var/title_name, var/audio)
 			spawn(15)
 				explode()
 		else if(current_track == null)
-			to_chat(usr, "No track selected.")
+			usr << "No track selected."
 		else
 			StartPlaying()
 
@@ -116,7 +115,7 @@ datum/track/New(var/title_name, var/audio)
 
 /obj/machinery/media/jukebox/interact(mob/user)
 	if(stat & (NOPOWER|BROKEN))
-		to_chat(usr, "\The [src] doesn't appear to function.")
+		usr << "\The [src] doesn't appear to function."
 		return
 
 	ui_interact(user)
@@ -166,7 +165,7 @@ datum/track/New(var/title_name, var/audio)
 /obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
-	if(W.iswrench())
+	if(iswrench(W))
 		if(playing)
 			StopPlaying()
 		user.visible_message("<span class='warning'>[user] has [anchored ? "un" : ""]secured \the [src].</span>", "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")

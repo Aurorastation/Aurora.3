@@ -12,7 +12,7 @@
 			var/mob/living/silicon/robot/R = user
 			for (var/obj/item/weapon/cell/D in R.contents)
 				D.charge += rand() * 100 + 50
-				to_chat(R, "<span class='notice'>SYSTEM ALERT: Large energy boost detected!</span>")
+				R << "<span class='notice'>SYSTEM ALERT: Large energy boost detected!</span>"
 			return 1
 
 #define SLEEP_AND_STOP \
@@ -34,6 +34,7 @@ if (TICK_CHECK) { \
 		is_looping = TRUE
 
 		var/turf/T = get_turf(holder)
+<<<<<<< HEAD
 
 		for (var/P in range(src.effectrange, T))
 			SLEEP_AND_STOP
@@ -55,6 +56,19 @@ if (TICK_CHECK) { \
 							last_message = world.time
 
 		is_looping = FALSE
+=======
+		for (var/obj/machinery/power/apc/C in range(200, T))
+			for (var/obj/item/weapon/cell/B in C.contents)
+				B.charge += 25
+		for (var/obj/machinery/power/smes/S in range (src.effectrange,src))
+			S.charge += 25
+		for (var/mob/living/silicon/robot/M in range(50, T))
+			for (var/obj/item/weapon/cell/D in M.contents)
+				D.charge += 25
+				if(world.time - last_message > 200)
+					M << "<span class='notice'>SYSTEM ALERT: Energy boost detected!</span>"
+					last_message = world.time
+>>>>>>> origin
 		return 1
 
 #undef SLEEP_AND_STOP
@@ -71,6 +85,6 @@ if (TICK_CHECK) { \
 			for (var/obj/item/weapon/cell/D in M.contents)
 				D.charge += rand() * 100
 				if(world.time - last_message > 200)
-					to_chat(M, "<span class='notice'>SYSTEM ALERT: Energy boost detected!</span>")
+					M << "<span class='notice'>SYSTEM ALERT: Energy boost detected!</span>"
 					last_message = world.time
 		return 1

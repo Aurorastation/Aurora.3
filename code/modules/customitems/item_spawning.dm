@@ -206,9 +206,9 @@
 			continue
 
 		// Check for required access.
-		var/obj/item/I = M.wear_id
+		var/obj/item/weapon/card/id/current_id = M.wear_id
 		if(citem.req_access && citem.req_access > 0)
-			if(!(istype(I) && (citem.req_access in I.GetAccess())))
+			if(!(istype(current_id) && (citem.req_access in current_id.access)))
 				continue
 
 		// Check for required job title.
@@ -224,8 +224,8 @@
 
 		// ID cards and PDAs are applied directly to the existing object rather than spawned fresh.
 		var/obj/item/existing_item
-		if(citem.item_path == /obj/item/weapon/card/id)
-			existing_item = locate(/obj/item/weapon/card/id) in M.get_contents() //TODO: Improve this ?
+		if(citem.item_path == /obj/item/weapon/card/id && istype(current_id)) //Set earlier.
+			existing_item = M.wear_id
 		else if(citem.item_path == /obj/item/device/pda)
 			existing_item = locate(/obj/item/device/pda) in M.contents
 

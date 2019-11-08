@@ -25,7 +25,7 @@
 	A.do_attack_animation(D)
 	if(D.stat || D.weakened)
 		return 0
-	A.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
+	D.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
 	playsound(get_turf(A), "swing_hit", 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.Weaken(2)
@@ -33,7 +33,7 @@
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
-	A.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
+	D.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
 	playsound(get_turf(A), 'sound/weapons/punch1.ogg', 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
 		D.losebreath += 5
@@ -42,7 +42,7 @@
 
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
+	D.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.silent += 10
@@ -70,7 +70,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	else
 		playsound(get_turf(D), "punch", 50, 1, -1)
 
-	A.visible_message("<span class='danger'>[A] [picked_hit_type] [D]!</span>")
+	D.visible_message("<span class='danger'>[A] [picked_hit_type] [D]!</span>")
 	A.attack_log += text("\[[time_stamp()]\] <font color='red'>["[picked_hit_type]"] [D.name] ([D.ckey])</font>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
@@ -88,16 +88,38 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
 	if(prob(60))
-		var/obj/item/I = D.get_active_hand()
-		if(I)
-			A.visible_message("<span class='danger'>[A] has disarmed [D]!</span>")
-			playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			D.drop_from_inventory(I)
-			A.put_in_hands(I)
+		if(D.hand)
+			if(istype(D.l_hand, /obj/item))
+				var/obj/item/I = D.l_hand
+				D.drop_item()
+				A.put_in_hands(I)
+		else
+			if(istype(D.r_hand, /obj/item))
+				var/obj/item/I = D.r_hand
+				D.drop_item()
+				A.put_in_hands(I)
+		D.visible_message("<span class='danger'>[A] has disarmed [D]!</span>")
+		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
-		A.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
+		D.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
 		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 	return 1
+
+/obj/item/sol_combat_manual
+	name = "SolCom manual"
+	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
+	icon = 'icons/obj/library.dmi'
+	icon_state ="cqcmanual"
+
+/obj/item/sol_combat_manual/attack_self(mob/user as mob)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	var/datum/martial_art/sol_combat/F = new/datum/martial_art/sol_combat(null)
+	F.teach(H)
+	to_chat(H, "<span class='notice'>You have learned the martial art of Solarian Combat.</span>")
+	qdel(src)
+
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()
 	set name = "Recall Teachings"

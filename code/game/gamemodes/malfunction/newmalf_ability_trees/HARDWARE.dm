@@ -19,7 +19,7 @@
 		return
 
 	if(user.bombing_core)
-		to_chat(user, "***** CORE SELF-DESTRUCT SEQUENCE ABORTED *****")
+		user << "***** CORE SELF-DESTRUCT SEQUENCE ABORTED *****"
 		user.bombing_core = 0
 		return
 
@@ -32,15 +32,15 @@
 
 	user.bombing_core = 1
 
-	to_chat(user, "***** CORE SELF-DESTRUCT SEQUENCE ACTIVATED *****")
-	to_chat(user, "Use command again to cancel self-destruct. Destroying in 15 seconds.")
+	user << "***** CORE SELF-DESTRUCT SEQUENCE ACTIVATED *****"
+	user << "Use command again to cancel self-destruct. Destroying in 15 seconds."
 	var/timer = 15
 	while(timer)
 		sleep(10)
 		timer--
 		if(!user || !user.bombing_core)
 			return
-		to_chat(user, "** [timer] **")
+		user << "** [timer] **"
 	explosion(user.loc, 3,6,12,24)
 	qdel(user)
 
@@ -72,10 +72,10 @@
 	var/datum/weakref/nuke
 	//Time control for the self destruct
 	//It works in 3 stages:
-	// - First the primary firewall is breached.
-	//		If the crew does not manage to prevent the self destruct before that,
+	// - First the primary firewall is breached. 
+	//		If the crew does not manage to prevent the self destruct before that, 
 	//		but after the timer fell below nuke_time_stage1, then the next self-destruct attempt will only take nuke_time_stage1
-	// - Simmilar for the backup firewall.
+	// - Simmilar for the backup firewall. 
 	//		If they only manage to stop it after the backup firewall went down further attempts will take only nuke_time_stage2
 	var/timer = user.bombing_time
 	var/stage1 = 900
@@ -86,7 +86,7 @@
 		return
 
 	if(user.system_override != 2)
-		to_chat(user, "You do not have access to self-destruct system.")
+		user << "You do not have access to self-destruct system."
 		return
 
 	if(user.bombing_station)
@@ -103,13 +103,13 @@
 	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
 		nuke = WEAKREF(N)
 		continue
-
+	
 	if(!nuke.resolve())
-		to_chat(user, "Self-destruct could not be initiated - No Self-Destruct Terminal available.")
+		user << "Self-destruct could not be initiated - No Self-Destruct Terminal available."
 		return
 
-	to_chat(user, "***** STATION SELF-DESTRUCT SEQUENCE INITIATED *****")
-	to_chat(user, "Self-destructing in [timer] seconds. Use this command again to abort.")
+	user << "***** STATION SELF-DESTRUCT SEQUENCE INITIATED *****"
+	user << "Self-destructing in [timer] seconds. Use this command again to abort."
 	user.bombing_station = 1
 	set_security_level("delta")
 
@@ -123,7 +123,7 @@
 		radio.autosay("Emergency: Self-destruct sequence has been activated. Self-destructing in [timer] seconds.", "Station Authentication Control")
 		radio.autosay("Notice: Deactivate using authentication disk in SAT-Chamber", "Station Authentication Control")
 
-
+	
 	while(timer)
 		sleep(10)
 		var/obj/machinery/nuclearbomb/station/N = nuke.resolve()

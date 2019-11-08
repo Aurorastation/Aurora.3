@@ -76,7 +76,7 @@ var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Medical Doctor",
 	"Psychiatrist",
-	"Pharmacist",
+	"Chemist",
 	"Paramedic",
 	"Medical Resident"
 )

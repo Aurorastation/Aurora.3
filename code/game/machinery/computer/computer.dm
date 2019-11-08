@@ -96,9 +96,15 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
+<<<<<<< HEAD
 /obj/machinery/computer/attackby(var/obj/W, user as mob)
 	if(W.isscrewdriver() && circuit)
 		playsound(src.loc,  W.usesound, 50, 1)
+=======
+/obj/machinery/computer/attackby(I as obj, user as mob)
+	if(isscrewdriver(I) && circuit)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+>>>>>>> origin
 		if(do_after(user, 20))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 			var/obj/item/weapon/circuitboard/M = new circuit( A )
@@ -107,12 +113,12 @@
 			for (var/obj/C in src)
 				C.forceMove(src.loc)
 			if (src.stat & BROKEN)
-				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
+				user << "<span class='notice'>The broken glass falls out.</span>"
 				new /obj/item/weapon/material/shard( src.loc )
 				A.state = 3
 				A.icon_state = "3"
 			else
-				to_chat(user, "<span class='notice'>You disconnect the glass keyboard panel.</span>")
+				user << "<span class='notice'>You disconnect the glass keyboard panel.</span>"
 				A.state = 4
 				A.icon_state = "4"
 			M.deconstruct(src)

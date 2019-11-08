@@ -240,16 +240,6 @@
 	result = /obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-/datum/recipe/hardbread
-	appliance = OVEN
-	reagents = list("spacespice" = 1)
-	items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-		/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread
-	)
-	result = /obj/item/weapon/reagent_containers/food/snacks/hardbread
-
 //Baked sweets:
 //---------------
 

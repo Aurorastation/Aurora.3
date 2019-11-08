@@ -227,9 +227,9 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 		if(law == zeroth_law_borg)
 			continue
 		if(law == zeroth_law)
-			to_chat(who, "<span class='danger'>[law.get_index()]. [law.law]</span>")
+			who << "<span class='danger'>[law.get_index()]. [law.law]</span>"
 		else
-			to_chat(who, "[law.get_index()]. [law.law]")
+			who << "[law.get_index()]. [law.law]"
 
 /********************
 *	Stating Laws	*

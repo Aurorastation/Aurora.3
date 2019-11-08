@@ -16,7 +16,6 @@
 	can_embed = 0
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	var/mob/living/creator
-	canremove = 0
 
 /obj/item/weapon/melee/arm_blade/New()
 	..()

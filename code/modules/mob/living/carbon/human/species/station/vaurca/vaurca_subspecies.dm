@@ -11,7 +11,6 @@
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
-	grab_mod = 1.25
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
@@ -50,7 +49,12 @@
 	slowdown = 2
 	eyes = "breeder_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
+<<<<<<< HEAD:code/modules/mob/living/carbon/human/species/station/vaurca/vaurca_subspecies.dm
 	grab_mod = 4
+=======
+	brute_mod = 0.1 //note to self: remove is_synthetic checks for brmod and burnmod
+	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
+>>>>>>> origin:code/modules/mob/living/carbon/human/species/station/vaurca_subspecies.dm
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 	mob_size = 30
@@ -76,7 +80,12 @@
 		/mob/living/carbon/human/proc/bugbite
 		)
 
+<<<<<<< HEAD:code/modules/mob/living/carbon/human/species/station/vaurca/vaurca_subspecies.dm
 	default_h_style = "Bald"
+=======
+/datum/species/bug/type_c/equip_survival_gear(var/mob/living/carbon/human/H)
+	return
+>>>>>>> origin:code/modules/mob/living/carbon/human/species/station/vaurca_subspecies.dm
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
@@ -104,7 +113,6 @@
 	burn_mod = 0.1
 	fall_mod = 0
 	toxins_mod = 1
-	grab_mod = 10
 	total_health = 200
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 	mob_size = 30
@@ -153,7 +161,12 @@
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
 
+<<<<<<< HEAD:code/modules/mob/living/carbon/human/species/station/vaurca/vaurca_subspecies.dm
 	default_h_style = "Bald"
+=======
+/datum/species/bug/type_big/equip_survival_gear(var/mob/living/carbon/human/H)
+	return
+>>>>>>> origin:code/modules/mob/living/carbon/human/species/station/vaurca_subspecies.dm
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(HULK)

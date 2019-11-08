@@ -95,12 +95,13 @@
 			data["transactions"] = trx
 
 	var/list/accounts[0]
-	for(var/M in SSeconomy.all_money_accounts)
-		var/datum/money_account/D = SSeconomy.get_account(M)
+	for(var/i=1, i<=SSeconomy.all_money_accounts.len, i++)
+		var/datum/money_account/D = SSeconomy.all_money_accounts[i]
 		accounts.Add(list(list(\
 			"account_number"=D.account_number,\
 			"owner_name"=D.owner_name,\
-			"suspended"=D.suspended ? "SUSPENDED" : "")))
+			"suspended"=D.suspended ? "SUSPENDED" : "",\
+			"account_index"=i)))
 
 	if (accounts.len > 0)
 		data["accounts"] = accounts
@@ -173,7 +174,9 @@
 						held_card = C
 
 			if("view_account_detail")
-				detailed_account_view = SSeconomy.get_account(href_list["account_number"])
+				var/index = text2num(href_list["account_index"])
+				if(index && index <= SSeconomy.all_money_accounts.len)
+					detailed_account_view = SSeconomy.all_money_accounts[index]
 
 			if("view_accounts_list")
 				detailed_account_view = null
@@ -251,8 +254,8 @@
 							<tbody>
 					"}
 
-					for(var/M in SSeconomy.all_money_accounts)
-						var/datum/money_account/D = SSeconomy.get_account(M)
+					for(var/i=1, i<=SSeconomy.all_money_accounts.len, i++)
+						var/datum/money_account/D = SSeconomy.all_money_accounts[i]
 						text += {"
 								<tr>
 									<td>#[D.account_number]</td>

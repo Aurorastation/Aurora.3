@@ -93,7 +93,7 @@
 		if (!src.diskette)
 			user.drop_from_inventory(W,src)
 			src.diskette = W
-			to_chat(user, "You insert [W].")
+			user << "You insert [W]."
 			src.updateUsrDialog()
 			return
 	else

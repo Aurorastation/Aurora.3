@@ -147,7 +147,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
-			else to_chat(usr, "<span class='danger'>No valid ID.</span>")
+			else usr << "<span class='danger'>No valid ID.</span>"
 	if(href_list["purchase"])
 		if(istype(inserted_id))
 			var/datum/data/mining_equipment/prize = locate(href_list["purchase"])
@@ -162,7 +162,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 					if(shuttle)
 						var/area/area_shuttle = shuttle.get_location_area()
 						if(!area_shuttle)
-							to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE} Order failed! Please try again.</span>")
+							usr << "<span class='danger'>{ERR Code: NO_SHUTTLE} Order failed! Please try again.</span>"
 							return
 
 
@@ -180,7 +180,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 							clear_turfs += T
 
 						if(!clear_turfs.len)
-							to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>")
+							usr << "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>"
 							return
 
 						var/i = rand(1,clear_turfs.len)
@@ -189,12 +189,12 @@ var/global/list/minevendor_list = list( //keep in order of price
 						if(pickedloc)
 							inserted_id.mining_points -= prize.cost
 							new prize.equipment_path(pickedloc)
-							to_chat(usr, "<span class='danger'>Order passed. Your order has been placed on the next available supply shuttle.</span>")
+							usr << "<span class='danger'>Order passed. Your order has been placed on the next available supply shuttle.</span>"
 						else
-							to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>")
+							usr << "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>"
 							return
 					else
-						to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE} Order failed! Please try again.</span>")
+						usr << "<span class='danger'>{ERR Code: NO_SHUTTLE} Order failed! Please try again.</span>"
 						return
 				else
 					inserted_id.mining_points -= prize.cost

@@ -35,16 +35,18 @@
 
 	player.current.client.verbs += /client/proc/aooc
 
-	to_chat(player.current, "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round.</span>")
+	player.current << "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to \
+	everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, \
+	and it otherwise has no bearing on your round.</span>"
 	player.current.verbs += /mob/living/proc/write_ambition
 
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
 		faction_members |= player
-		to_chat(player.current, "<span class='danger'><font size=3>You are \a [nonstandard_role_type]!</font></span>")
+		player.current << "<span class='danger'><font size=3>You are \a [nonstandard_role_type]!</font></span>"
 		player.special_role = nonstandard_role_type
 		if(nonstandard_role_msg)
-			to_chat(player.current, "<span class='notice'>[nonstandard_role_msg]</span>")
+			player.current << "<span class='notice'>[nonstandard_role_msg]</span>"
 		update_icons_added(player)
 
 	// Log it
@@ -61,7 +63,7 @@
 	if(player in current_antagonists)
 		log_antagonist_remove()
 		if (show_message)
-			to_chat(player.current, "<span class='danger'><font size = 3>You are no longer a [role_text]!</font></span>")
+			player.current << "<span class='danger'><font size = 3>You are no longer a [role_text]!</font></span>"
 		current_antagonists -= player
 		faction_members -= player
 		player.special_role = null
@@ -86,7 +88,7 @@
 	if(!establish_db_connection(dbcon))
 		log_debug("AntagLog: SQL ERROR - Failed to connect.")
 		return
-
+	
 	//Try to get the char id
 	var/char_id = null
 	if(player.current.character_id) //To make sure char_id is null and not 0
@@ -103,7 +105,7 @@
 	//Save the inserted it to the antagonist datum
 	if (log_id.NextRow())
 		db_log_id = text2num(log_id.item[1])
-
+	
 	return
 
 /datum/antagonist/proc/log_antagonist_remove(var/datum/mind/player)
@@ -113,10 +115,10 @@
 	if(!establish_db_connection(dbcon))
 		log_debug("AntagLog: SQL ERROR - Failed to connect.")
 		return
-
+	
 	if(!db_log_id)
 		return
-
+	
 	//Run the query to update the db entry with the removal time
 	var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_antag_log SET special_role_removed = :special_role_removed: WHERE id = :id:")
 	update_query.Execute(list("id"=db_log_id,"special_role_removed"="[get_round_duration_formatted()]:00"))

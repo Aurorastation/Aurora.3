@@ -93,7 +93,7 @@ var/datum/controller/subsystem/events/SSevents
 
 /datum/controller/subsystem/events/proc/Interact(mob/living/user)
 	if (!initialized)
-		to_chat(user, "<span class='alert'>The [src] subsystem has not initialized yet. Please wait until server init completes before trying to use the Event Manager panel.</span>")
+		user << "<span class='alert'>The [src] subsystem has not initialized yet. Please wait until server init completes before trying to use the Event Manager panel.</span>"
 		return
 
 	var/html = GetInteractWindow()

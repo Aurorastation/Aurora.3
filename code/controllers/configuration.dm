@@ -18,7 +18,7 @@ var/list/gamemode_cache = list()
 	var/log_pda = 0						// log pda messages
 	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
 	var/log_runtime = 0					// logs world.log to a file
-	var/log_world_output = 0			// log world.log <<  messages
+	var/log_world_output = 0			// log world.log << messages
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
@@ -285,6 +285,7 @@ var/list/gamemode_cache = list()
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
+<<<<<<< HEAD
 	var/docs_load_docs_from
 	var/load_customsynths_from
 	var/docs_image_host
@@ -306,6 +307,8 @@ var/list/gamemode_cache = list()
 	// Is external Auth enabled
 	var/external_auth = FALSE
 
+=======
+>>>>>>> origin
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -872,7 +875,7 @@ var/list/gamemode_cache = list()
 
 				if("fastboot")
 					fastboot = TRUE
-					world.log <<  "Fastboot is ENABLED."
+					world.log << "Fastboot is ENABLED."
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
@@ -897,6 +900,7 @@ var/list/gamemode_cache = list()
 				if ("rounds_until_hard_restart")
 					rounds_until_hard_restart = text2num(value)
 
+<<<<<<< HEAD
 				if ("docs_load_docs_from")
 					docs_load_docs_from = value
 				if ("load_customsynths_from")
@@ -931,6 +935,8 @@ var/list/gamemode_cache = list()
 				if ("external_auth")
 					external_auth = TRUE
 
+=======
+>>>>>>> origin
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -1083,3 +1089,5 @@ var/list/gamemode_cache = list()
 			config.python_path = "/usr/bin/env python2"
 		else //probably windows, if not this should work anyway
 			config.python_path = "python"
+
+	revdata.generate_greeting_info()
