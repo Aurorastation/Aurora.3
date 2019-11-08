@@ -23480,8 +23480,10 @@
 /obj/item/weapon/storage/backpack/legion,
 /obj/item/weapon/storage/backpack/legion,
 /obj/structure/sign/poster{
-	pixel_x = 0;
-	pixel_y = 32
+	icon_state = "tcflposter";
+	pixel_x = 16;
+	pixel_y = 32;
+	poster_type = "/datum/poster/bay_67"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -24161,10 +24163,6 @@
 /obj/item/clothing/shoes/jackboots/unathi,
 /obj/item/clothing/shoes/jackboots/unathi,
 /obj/item/clothing/shoes/jackboots/unathi,
-/obj/structure/sign/poster{
-	pixel_x = 0;
-	pixel_y = 32
-	},
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
@@ -25077,9 +25075,9 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/microwave{
 	broken = 2;
-	desc = "The microwave's door has a fist-sized hole in it.";
+	desc = "This microwave has been through a lot of abuse.";
 	icon_state = "mwb";
-	name = "Broken Microwave";
+	name = "Trashed microwave";
 	pixel_y = 3
 	},
 /turf/unsimulated/floor{
@@ -28722,10 +28720,13 @@
 	},
 /area/centcom/living)
 "qMN" = (
-/obj/structure/sign/poster{
-	pixel_x = 32
-	},
 /obj/structure/weightlifter,
+/obj/structure/sign/poster{
+	icon_state = "tcflposter2";
+	pixel_x = 29;
+	pixel_y = 0;
+	poster_type = "/datum/poster/bay_68"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -29070,9 +29071,6 @@
 	},
 /area/centcom/living)
 "rzY" = (
-/obj/structure/sign/poster{
-	pixel_x = 32
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pizzabox{
 	icon_state = "pizzabox_messy";
@@ -29781,9 +29779,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/cigbutt,
 /obj/item/weapon/cigbutt,
-/obj/structure/sign/poster{
-	pixel_x = 32
-	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -30115,10 +30110,12 @@
 	icon_state = "plant-dead";
 	name = "dead plant"
 	},
-/obj/structure/sign/poster{
-	pixel_x = -32
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster{
+	icon_state = "grillposter";
+	pixel_x = -32;
+	poster_type = "/datum/poster/bay_69"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
