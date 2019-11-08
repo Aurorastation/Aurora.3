@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Allows more suits to wear the fireaxe in the suit slot."
+  - rscadd: "Raised the temperature resistance of the CE hardsuit."
