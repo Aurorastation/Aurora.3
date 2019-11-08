@@ -453,6 +453,11 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
 	..()
 
+/obj/item/weapon/card/id/distress/kataphract
+	name = "\improper Kataphract ID"
+	icon_state = "centcom"
+	assignment = "Kataphract"
+
 /obj/item/weapon/card/id/distress/legion
 	name = "\improper Tau Ceti Foreign Legion ID"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
