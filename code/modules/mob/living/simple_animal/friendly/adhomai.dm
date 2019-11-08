@@ -10,6 +10,7 @@
 	emote_see = list("whistles")
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 2
+	hunger_enabled = FALSE
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -52,7 +53,6 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 30
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"

@@ -205,6 +205,11 @@
 				to_chat(user, "<span class='warning'>\The [blocked] is in the way!</span>")
 				return
 
+		if(isanimal(target))
+			var/mob/living/simple_animal/C = target
+			if(C.has_udder)
+				return
+
 		other_feed_message_start(user, target)
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
