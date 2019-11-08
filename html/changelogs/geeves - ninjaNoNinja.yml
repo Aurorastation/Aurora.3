@@ -1,0 +1,7 @@
+
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Ninja now needs 15 players playing before it gets chosen as a gamemode."
