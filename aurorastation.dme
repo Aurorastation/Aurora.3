@@ -779,6 +779,7 @@
 #include "code\game\objects\items\devices\chameleonproj.dm"
 #include "code\game\objects\items\devices\debugger.dm"
 #include "code\game\objects\items\devices\dociler.dm"
+#include "code\game\objects\items\devices\drilldroptargetter.dm"
 #include "code\game\objects\items\devices\flash.dm"
 #include "code\game\objects\items\devices\floor_painter.dm"
 #include "code\game\objects\items\devices\hacktool.dm"

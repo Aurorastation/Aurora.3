@@ -204,7 +204,6 @@
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
 
-
 //Not engineers, just the mop boys
 /datum/job/janitor
 	title = "Janitor"
