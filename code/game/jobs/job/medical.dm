@@ -75,7 +75,7 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
@@ -99,7 +99,8 @@
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical/blue
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/surgeon
+	shoes = /obj/item/clothing/shoes/surgeon
 	head = /obj/item/clothing/head/surgery/blue
 
 /datum/outfit/job/doctor/nurse
@@ -154,6 +155,7 @@
 
 	uniform = /obj/item/clothing/under/rank/biochemist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
+	shoes = /obj/item/clothing/shoes/biochem
 
 	backpack = /obj/item/weapon/storage/backpack/virology
 	satchel = /obj/item/weapon/storage/backpack/satchel_vir
@@ -186,8 +188,8 @@
 	jobtype = /datum/job/psychiatrist
 
 	uniform = /obj/item/clothing/under/rank/psych
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/laceup
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
+	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 
@@ -212,7 +214,7 @@
 
 	minimum_character_age = 24
 	alt_ages = list("Emergency Medical Technician" = 20)
-	
+
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
 	alt_titles = list("Emergency Medical Technician")
@@ -232,6 +234,7 @@
 	r_hand = /obj/item/weapon/reagent_containers/hypospray
 	belt = /obj/item/weapon/storage/belt/medical/emt
 	pda =  /obj/item/device/pda/medical
+	head = /obj/item/clothing/head/hardhat/emt
 
 	backpack = /obj/item/weapon/storage/backpack/medic
 	satchel = /obj/item/weapon/storage/backpack/satchel_med

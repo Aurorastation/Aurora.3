@@ -59,7 +59,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/clothing/head/soft/sec, /obj/item/clothing/suit/armor/vest/security, /obj/item/clothing/suit/bio_suit/security,
 												 /obj/item/clothing/suit/bomb_suit/security, /obj/item/clothing/suit/security/navyofficer, /obj/item/clothing/suit/space/void/security,
 												 /obj/item/clothing/suit/storage/hooded/wintercoat/security, /obj/item/device/magnetic_lock/security,/obj/item/toy/figure/secofficer,
-												 /obj/item/weapon/gun/bang/sec, /obj/item/weapon/gun/projectile/sec, /obj/item/weapon/book/manual/security_space_law)),
+												 /obj/item/weapon/gun/bang/sec, /obj/item/weapon/gun/projectile/sec, /obj/item/weapon/book/manual/wiki/security_space_law)),
 
 					   "clowns"    = typecacheof(list(/obj/item/clothing/under/rank/clown, /obj/item/clothing/shoes/clown_shoes,
 												 /obj/item/clothing/mask/gas/clown_hat, /obj/item/weapon/bananapeel,
@@ -102,7 +102,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/toy/figure/md, /obj/item/weapon/bedsheet/medical, /obj/item/weapon/rig/medical, /obj/item/weapon/storage/backpack/duffel/med,
 												 /obj/item/weapon/storage/backpack/medic, /obj/item/weapon/storage/backpack/messenger/med, /obj/item/weapon/storage/belt/medical,
 												 /obj/machinery/vending/medical, /obj/mecha/medical/odysseus, /obj/structure/closet/crate/medical, /obj/structure/closet/medical_wall,
-												 /obj/structure/sign/bluecross, /obj/item/clothing/accessory/armband/med, /obj/item/clothing/head/helmet/space/void/medical, /obj/item/clothing/mask/breath/medical,
+												 /obj/structure/sign/greencross, /obj/item/clothing/accessory/armband/med, /obj/item/clothing/head/helmet/space/void/medical, /obj/item/clothing/mask/breath/medical,
 												 /obj/item/clothing/under/rank/medical, /obj/item/weapon/scalpel, /obj/machinery/clonepod, /obj/item/weapon/storage/firstaid, /obj/machinery/optable,
 												 /obj/item/clothing/accessory/armband/science, /obj/item/clothing/under/rank/scientist, /obj/machinery/door/airlock/science, /obj/machinery/door/airlock/medical))
 

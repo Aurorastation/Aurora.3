@@ -12,7 +12,7 @@ fundamental differences
 /obj/machinery/appliance/mixer
 	max_contents = 1
 	stat = POWEROFF
-	cooking_power = 0.4
+	cooking_coeff = 0.75
 	active_power_usage = 3000
 	idle_power_usage = 50
 

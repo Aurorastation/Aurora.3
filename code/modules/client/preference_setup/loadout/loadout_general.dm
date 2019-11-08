@@ -20,7 +20,7 @@
 
 /datum/gear/holder
 	display_name = "card holder"
-	path = /obj/item/weapon/deck/holder
+	path = /obj/item/weapon/storage/card
 
 /datum/gear/cardemon_pack
 	display_name = "cardemon booster pack"
@@ -130,7 +130,7 @@
 
 /datum/gear/towel/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/checkers
 	display_name = "checkers game kit"

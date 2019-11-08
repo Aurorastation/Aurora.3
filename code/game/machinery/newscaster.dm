@@ -916,7 +916,7 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 
 
 obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/pen))
+	if(W.ispen())
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
 		else
@@ -948,6 +948,12 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			else if(istype(human_user.wear_id, /obj/item/weapon/card/id) )
 				var/obj/item/weapon/card/id/ID = human_user.wear_id
 				src.scanned_user = GetNameAndAssignmentFromId(ID)
+			else if(istype(human_user.wear_id, /obj/item/weapon/storage/wallet))
+				var/obj/item/weapon/storage/wallet/W = human_user.wear_id
+				if(W.GetID())
+					src.scanned_user = GetNameAndAssignmentFromId(W.GetID())
+				else
+					src.scanned_user = "Unknown"
 			else
 				src.scanned_user ="Unknown"
 		else

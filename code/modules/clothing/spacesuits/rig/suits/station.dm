@@ -25,7 +25,7 @@
 	desc = "Prepare for paperwork."
 	icon_state = "internalaffairs_rig"
 	armor = null
-	siemens_coefficient = 0.9 
+	siemens_coefficient = 0.9
 	slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = TINT_HEAVY
@@ -60,7 +60,7 @@
 /obj/item/weapon/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
-	desc = "A heavy, powerful rig used by construction crews and mining corporations."
+	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
 	icon_state = "industrial_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
 	siemens_coefficient = 0.35
@@ -96,7 +96,7 @@
 /obj/item/weapon/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
-	desc = "A light rig for repairs and maintenance to the outside of habitats and vessels."
+	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
 	icon_state = "eva_rig"
 	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 0
@@ -266,7 +266,7 @@
 /obj/item/weapon/rig/diving
 	name = "diving suit control module"
 	suit_type = "diving suit"
-	desc = "A heavy rig designated for operations under the water, you are not sure what it is doing here however."
+	desc = "A heavy hardsuit designated for operations under the water, you are not sure what it is doing here however."
 	icon_state = "diving_rig"
 	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 3

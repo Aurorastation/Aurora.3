@@ -388,7 +388,7 @@
 				"phoron" = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
-	mutants = list("blackkois")
+	mutants = null
 
 /datum/seed/koisspore/setup_traits()
 	..()

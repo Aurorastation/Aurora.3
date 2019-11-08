@@ -190,8 +190,10 @@
 
 //Return 1 if an immediate subsequent call to use() would succeed.
 //Ensures that code dealing with stacks uses the same logic
-/obj/item/stack/proc/can_use(var/used)
+/obj/item/stack/proc/can_use(var/used, var/mob/user=null)
 	if (get_amount() < used)
+		if(user && isrobot(user))
+			to_chat(user, span("warning", "You don't have enough charge left in your synthesizer!"))
 		return 0
 	return 1
 
@@ -211,7 +213,8 @@
 			return 0
 		for(var/i = 1 to charge_costs.len)
 			var/datum/matter_synth/S = synths[i]
-			S.use_charge(charge_costs[i] * used) // Doesn't need to be deleted
+			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted
+				return 0
 		return 1
 	return 0
 

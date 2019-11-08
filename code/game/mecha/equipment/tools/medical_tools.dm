@@ -180,7 +180,8 @@
 	if(to_inject && occupant.reagents.get_reagent_amount(R.id) + to_inject <= inject_amount*2)
 		occupant_message("Injecting [occupant] with [to_inject] units of [R.name].")
 		log_message("Injecting [occupant] with [to_inject] units of [R.name].")
-		SG.reagents.trans_id_to(occupant,R.id,to_inject)
+		SG.reagents.remove_reagent(R.id, to_inject)
+		occupant.reagents.add_reagent(R.id, to_inject)
 		update_equip_info()
 	return
 
