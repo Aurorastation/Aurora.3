@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Tweaked golden and silver slimes reactions to be more sane and exclude undesirable results."
