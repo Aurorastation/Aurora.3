@@ -1,6 +1,6 @@
 /obj/machinery/mineral/rigpress
-	name = "RIG module press"
-	desc = "This machine converts certain items permanently into RIG modules."
+	name = "hardsuit module press"
+	desc = "This machine converts certain items permanently into hardsuit modules."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
 	density = 1
