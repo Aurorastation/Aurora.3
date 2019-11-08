@@ -339,7 +339,7 @@
 		return
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
-	if (!T || (T.z in current_map.player_levels))
+	if (!T || isStationLevel(T.z))
 		return
 	//If they are on centcom -> abort
 	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))

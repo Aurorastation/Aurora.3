@@ -450,7 +450,7 @@
 	playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 
 	if(!holder.cell)
-		to_chat(H, "<span class = 'danger'>Your power sink flashes an error; there is no cell in your rig.</span>")
+		to_chat(H, "<span class = 'danger'>Your power sink flashes an error; there is no cell in your hardsuit.</span>")
 		drain_complete(H)
 		return
 
@@ -460,7 +460,7 @@
 		return
 
 	if(holder.cell.fully_charged())
-		to_chat(H, "<span class = 'warning'>Your power sink flashes an amber light; your rig cell is full.</span>")
+		to_chat(H, "<span class = 'warning'>Your power sink flashes an amber light; your hardsuit cell is full.</span>")
 		drain_complete(H)
 		return
 
