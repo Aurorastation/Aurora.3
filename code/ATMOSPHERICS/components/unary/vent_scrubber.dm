@@ -111,6 +111,7 @@
 		"filter_co2" = ("carbon_dioxide" in scrubbing_gas),
 		"filter_phoron" = ("phoron" in scrubbing_gas),
 		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
+		"filter_h2" = ("hydrogen" in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -230,6 +231,11 @@
 		toggle += "sleeping_agent"
 	else if(signal.data["toggle_n2o_scrub"])
 		toggle += "sleeping_agent"
+
+	if(!isnull(signal.data["h2_scrub"]) && text2num(signal.data["h2_scrub"]) != ("hydrogen" in scrubbing_gas))
+		toggle += "hydrogen"
+	else if(signal.data["toggle_h2_scrub"])
+		toggle += "hydrogen"
 
 	scrubbing_gas ^= toggle
 

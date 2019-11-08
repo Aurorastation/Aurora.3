@@ -2156,7 +2156,8 @@
 	name = "N2O Filter";
 	tag_east = 7;
 	tag_north = 1;
-	tag_west = 2
+	tag_south = 2;
+	tag_west = 0
 	},
 /obj/effect/floor_decal/corner/white,
 /obj/effect/floor_decal/corner/red{
@@ -2735,17 +2736,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"agk" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "agl" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/valve/digital{
+	dir = 4;
+	icon_state = "map_valve0";
+	name = "H2 to Mix valve"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "agm" = (
@@ -2903,10 +2899,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "agD" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "agE" = (
@@ -3703,14 +3697,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"aih" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -25130,19 +25116,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"bcl" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Atmospherics East 2";
-	dir = 8;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "bcm" = (
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Atmospherics South";
@@ -28103,6 +28076,13 @@
 	dir = 8
 	},
 /area/outpost/research/hallway)
+"dhf" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "H2 to Connector"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "div" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/lime{
@@ -28110,6 +28090,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
+"djn" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "dmE" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28398,6 +28386,9 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"dSU" = (
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmos)
 "dSV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29059,6 +29050,28 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"fQP" = (
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Atmospherics East 2";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/ringer{
+	department = "Engineering";
+	id = "engie_ringer";
+	pixel_x = 30;
+	pixel_y = 0;
+	req_access = list(10)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "fSE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/closet/secure_closet/medical3,
@@ -29630,6 +29643,13 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"hyO" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "hyS" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -29681,6 +29701,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"hHq" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "hHy" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/beach/sand,
@@ -29906,6 +29931,19 @@
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
+"ilK" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/omni/filter{
+	name = "H2 Filter";
+	tag_east = 8;
+	tag_north = 1;
+	tag_west = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "ipg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
@@ -30537,16 +30575,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
-"kaD" = (
-/obj/machinery/ringer{
-	department = "Engineering";
-	id = "engie_ringer";
-	pixel_x = 30;
-	pixel_y = 0;
-	req_access = list(10)
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "kbk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -30779,6 +30807,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
+"kUW" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "h2_out";
+	initialize_directions = 8;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmos)
 "kVF" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -32007,6 +32053,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
+"ojU" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "h2_in";
+	initialize_directions = 8;
+	pixel_y = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmos)
 "olc" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -32354,6 +32412,20 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"pFj" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
+"pHf" = (
+/obj/structure/grille,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmos)
 "pHE" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -32518,6 +32590,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"pWx" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/engineering/atmos)
 "qax" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -33041,6 +33121,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
+"rwL" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "ryu" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -33528,6 +33628,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"sUk" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "sUD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
@@ -33541,6 +33658,13 @@
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
+"sWG" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "sXz" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/medsublevel)
@@ -33628,6 +33752,15 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"tby" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "h2_sensor"
+	},
+/turf/simulated/floor/reinforced/hydrogen,
+/area/engineering/atmos)
 "tcJ" = (
 /obj/machinery/optable{
 	name = "Autopsy Table"
@@ -34107,6 +34240,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing)
+"uke" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "ukB" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -34676,6 +34816,18 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
+"vDQ" = (
+/obj/effect/floor_decal/corner/purple/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "H2 to Mix"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "vEg" = (
 /obj/structure/cable{
 	icon_state = "0-4";
@@ -35172,6 +35324,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"wIc" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/computer/general_air_control/large_tank_control{
+	frequency = 1441;
+	input_tag = "h2_in";
+	name = "Hydrogen Supply Control";
+	output_tag = "h2_out";
+	sensors = list("h2_sensor" = "Tank")
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "wIA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -60938,11 +61101,11 @@ abo
 adD
 abo
 abo
-agj
+sWG
 agD
-agi
+pFj
 abo
-baN
+baO
 aiI
 ajk
 ajk
@@ -61193,13 +61356,13 @@ acx
 acT
 adB
 aeq
+acT
+acT
+acT
+acT
+adB
+acT
 aeY
-abo
-agk
-agk
-agk
-abo
-baO
 aiI
 ajl
 ajl
@@ -61450,13 +61613,13 @@ abo
 abo
 adC
 abo
+abo
+abo
+abo
+abo
+agl
+abo
 adD
-abo
-agl
-agl
-agl
-abo
-abo
 aiI
 ajm
 aaO
@@ -61707,13 +61870,13 @@ abo
 abo
 adD
 abo
+abo
+abo
+abo
+abo
 adD
 abo
-abo
-abo
-bcl
-kaD
-aih
+adD
 aiI
 ajn
 aaO
@@ -61965,13 +62128,13 @@ acX
 adE
 aer
 aeZ
+acy
+acy
+acy
+vDQ
+uke
+ilK
 abo
-abo
-abo
-aaO
-aaO
-aaO
-aaO
 aaO
 aaO
 aaa
@@ -62225,11 +62388,11 @@ adF
 abo
 abo
 abo
+hyO
+abo
+hyO
+djn
 aaO
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -62480,13 +62643,13 @@ adu
 aes
 adF
 abo
+fQP
+dhf
+hHq
+wIc
+hyO
 abo
 aaO
-aaO
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -62739,11 +62902,11 @@ aeQ
 aaO
 aaO
 aaO
-aaa
-aaa
-aaa
-aaa
-aaa
+rwL
+aei
+sUk
+aaO
+aaO
 aaa
 aaa
 aaa
@@ -62995,12 +63158,12 @@ aet
 ads
 aae
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aae
+pWx
+aet
+pWx
+aae
+aac
 aaa
 aaa
 aaa
@@ -63252,12 +63415,12 @@ aeg
 adr
 aad
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aad
+pHf
+aeg
+pHf
+aad
+aac
 aaa
 aaa
 aaa
@@ -63509,12 +63672,12 @@ adH
 afa
 aad
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aad
+kUW
+dSU
+ojU
+aad
+aac
 aaa
 aaa
 aaa
@@ -63766,12 +63929,12 @@ aeu
 adH
 aad
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aad
+dSU
+tby
+dSU
+aad
+aac
 aaa
 aaa
 aaa
@@ -64023,12 +64186,12 @@ adH
 adH
 aad
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aad
+dSU
+dSU
+dSU
+aad
+aac
 aaa
 aaa
 aaa
@@ -64280,12 +64443,12 @@ aad
 aad
 aad
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aad
+aad
+aad
+aad
+aad
+aac
 aaa
 aaa
 aaa
@@ -64537,12 +64700,12 @@ aac
 aac
 aac
 aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aac
+aac
+aac
+aac
+aac
+aac
 aaa
 aaa
 aaa

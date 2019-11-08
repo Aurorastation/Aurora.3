@@ -55,6 +55,12 @@
 	canister_color = "orange"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/hydrogen
+	name = "\improper Canister: \[Hydrogen\]"
+	icon_state = "purple"
+	canister_color = "purple"
+	can_label = 0	
+
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	name = "Canister \[CO2\]"
 	icon_state = "black"
@@ -82,6 +88,10 @@
 	name = "Canister \[Phoron\]"
 	icon_state = "orange"
 	canister_color = "orange"
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen
+	name = "Canister \[Hydrogen\]"
+	icon_state = "purple"
+	canister_color = "purple"
 /obj/machinery/portable_atmospherics/canister/empty/nitrogen
 	name = "Canister \[N2\]"
 	icon_state = "red"
@@ -373,7 +383,8 @@ update_flag
 				"\[Phoron\]" = "orange",
 				"\[CO2\]" = "black",
 				"\[Air\]" = "grey",
-				"\[CAUTION\]" = "yellow"
+				"\[CAUTION\]" = "yellow",
+				"\[Hydrogen\]" = "purple"
 			)
 			var/label = input("Choose canister label", "Gas canister") as null|anything in colors
 			if (label)
@@ -391,6 +402,12 @@ update_flag
 
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
+	src.update_icon()	
 
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
@@ -458,6 +475,11 @@ update_flag
 	. = ..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
 	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/Initialize()
+	. = ..()
+	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
+	src.update_icon()	
 
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()

@@ -3219,13 +3219,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"aga" = (
-/obj/structure/table/wood,
-/obj/item/weapon/deck/cards,
-/obj/item/weapon/deck/tarot,
-/obj/item/weapon/storage/card,
-/turf/simulated/floor/carpet,
-/area/library)
 "agb" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -6858,6 +6851,7 @@
 	pixel_x = 0;
 	pixel_y = 30
 	},
+/obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "anw" = (
@@ -53735,6 +53729,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/library)
+"bPU" = (
+/obj/structure/table/wood,
+/obj/item/weapon/deck/cards,
+/obj/item/weapon/deck/tarot,
+/obj/item/weapon/storage/card,
+/turf/simulated/floor/carpet,
+/area/library)
 "bPX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -66615,6 +66616,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"noB" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/engineering/engine_room)
 "noF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -81808,8 +81813,8 @@ aaa
 aaa
 alk
 amm
-anu
-anu
+noB
+noB
 anu
 anu
 asr
@@ -82066,7 +82071,7 @@ ahi
 ahi
 ahi
 anv
-anu
+noB
 anu
 anu
 asr
@@ -97550,7 +97555,7 @@ bNt
 bOn
 bON
 bPx
-aga
+bPU
 bPT
 abX
 bIT
