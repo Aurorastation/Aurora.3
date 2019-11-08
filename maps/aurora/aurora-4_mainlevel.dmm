@@ -3230,6 +3230,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"aga" = (
+/obj/structure/table/wood,
+/obj/item/weapon/deck/cards,
+/obj/item/weapon/deck/tarot,
+/obj/item/weapon/storage/card,
+/turf/simulated/floor/carpet,
+/area/library)
 "agb" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -53837,13 +53844,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/library)
-"bPU" = (
-/obj/structure/table/wood,
-/obj/item/weapon/deck/cards,
-/obj/item/weapon/deck/holder,
-/obj/item/weapon/deck/tarot,
-/turf/simulated/floor/carpet,
-/area/library)
 "bPX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -97744,7 +97744,7 @@ bNt
 bOn
 bON
 bPx
-bPU
+aga
 bPT
 abX
 bIT
