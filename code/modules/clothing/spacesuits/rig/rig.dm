@@ -377,7 +377,7 @@
 		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
 		if(wearer.stat == DEAD)
 			crushing = FALSE
-			visible_message(span("danger", "A squelching sound comes from within the sealed hardsuit..") // It'll explode at this stage, deleting the suit and the person and the immediate surroundings
+			visible_message(span("danger", "A squelching sound comes from within the sealed hardsuit..")) // It'll explode at this stage, deleting the suit and the person and the immediate surroundings
 
 	if(cell && cell.charge > 0 && electrified > 0)
 		electrified--
