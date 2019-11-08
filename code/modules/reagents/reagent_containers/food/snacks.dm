@@ -514,7 +514,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/candy/koko
 	name = "\improper Koko bar"
-	desc = "A sweet, yet gritty candy bar cultivated exclusively on the Compact ruled world of Ha zana. It's a good pick-me-up for Unathi, but has no affect on other species."
+	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha’zana. A good pick-me-up for Unathi, but has no effect on other species."
 	icon_state = "kokobar"
 	trash = /obj/item/trash/kokobar
 	filling_color = "#7D5F46"
