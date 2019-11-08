@@ -228,10 +228,12 @@
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
 
-/area/maintenance/substation/engineering // Probably will be connected to engineering SMES room, as wires cannot be crossed properly without them sharing powernets.
+/area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"
 
-// No longer used:
+/area/maintenance/substation/engineering_sublevel // Engineering
+	name = "Engineering Sublevel Substation"
+
 /area/maintenance/substation/medical_science // Medbay and Science. Each has it's own separated machinery, but it originates from the same room.
 	name = "Medical Research Substation"
 
