@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Adds the Kataphracts as an ERT team. A five-man squad of honourbound unathi intent on protecting and assisting the innocent."
-  - tweak: "Energy blades no longer get anchored when activated. You can now pick them up whenever."
-  - tweak: "The energy cutlass can now be stowed in a belt."
