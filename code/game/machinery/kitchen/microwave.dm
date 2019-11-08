@@ -19,6 +19,13 @@
 	var/appliancetype = MICROWAVE
 	var/datum/looping_sound/microwave/soundloop
 
+	component_types = list(
+			/obj/item/weapon/circuitboard/microwave,
+			/obj/item/weapon/stock_parts/capacitor = 3,
+			/obj/item/weapon/stock_parts/scanning_module,
+			/obj/item/weapon/stock_parts/matter_bin = 2
+		)
+
 // see code/modules/food/recipes_microwave.dm for recipes
 
 /*******************
@@ -26,7 +33,7 @@
 ********************/
 
 /obj/machinery/microwave/Initialize(mapload)
-	. = ..()
+	. = ..(mapload, 0, FALSE) // shadow-realm the parts for now, jimbo
 	reagents = new/datum/reagents(100)
 	reagents.my_atom = src
 	soundloop = new(list(src), FALSE)
@@ -138,19 +145,27 @@
 		var/obj/item/weapon/grab/G = O
 		to_chat(user, "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>")
 		return 1
+	else if(O.isscrewdriver())
+		default_deconstruction_screwdriver(user, O)
+		return
 	else if(O.iscrowbar())
-		user.visible_message( \
-			"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave.</span>", \
-			"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
-			)
-		if (do_after(user,20/O.toolspeed))
-			user.visible_message( \
-			"<span class='notice'>\The [user] [src.anchored ? "unsecures" : "secures"] the microwave.</span>", \
-			"<span class='notice'>You [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
-			)
-			src.anchored = !src.anchored
+		if(default_deconstruction_crowbar(user, O))
+			return
 		else
-			to_chat(user, "<span class='notice'>You decide not to do that.</span>")
+			user.visible_message( \
+				"<span class='notice'>\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave.</span>", \
+				"<span class='notice'>You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
+				)
+			if (do_after(user,20/O.toolspeed))
+				user.visible_message( \
+				"<span class='notice'>\The [user] [src.anchored ? "unsecures" : "secures"] the microwave.</span>", \
+				"<span class='notice'>You [src.anchored ? "unsecure" : "secure"] the microwave.</span>"
+				)
+				src.anchored = !src.anchored
+			else
+				to_chat(user, "<span class='notice'>You decide not to do that.</span>")
+	else if(default_part_replacement(user, O))
+		return
 	else
 
 		to_chat(user, "<span class='warning'>You have no idea what you can cook with this [O].</span>")

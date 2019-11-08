@@ -22,6 +22,22 @@
 		/obj/item/weapon/dice/d100 = 1
 	)
 
+/obj/item/weapon/storage/card
+	name = "card box"
+	desc = "A small leather case to show how classy you are compared to everyone else."
+	icon_state = "card_holder_empty"
+	can_hold = list(/obj/item/weapon/deck, /obj/item/battle_monsters/deck, /obj/item/weapon/hand, /obj/item/weapon/pack/, /obj/item/weapon/card) //sneaky folks can hide ID and other cards
+	storage_slots = 1 //can hold one deck
+	use_sound = "sound/items/drop/shoes.ogg"
+	drop_sound = "sound/items/drop/hat.ogg"
+
+/obj/item/weapon/storage/card/update_icon()
+	if(contents.len)
+		icon_state = "card_holder_items"
+	else
+		icon_state = "card_holder_empty"
+	return
+
 /*
  * Donut Box
  */

@@ -85,6 +85,9 @@ Contains:
 	if(..())
 		return 1
 
+	if (!can_use(1, user))
+		return 0
+
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
@@ -152,6 +155,9 @@ Contains:
 	if(..())
 		return 1
 
+	if (!can_use(1, user))
+		return 0
+
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
@@ -192,6 +198,9 @@ Contains:
 /obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
+
+	if (!can_use(1, user))
+		return 0
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -351,6 +360,9 @@ Contains:
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
+
+	if (!can_use(1, user))
+		return 0
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M

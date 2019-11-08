@@ -38,3 +38,9 @@
 	name = "Mounted Laser Cannon"
 	item_cost = 16
 	path = /obj/item/rig_module/mounted
+
+/datum/uplink_item/item/tools/rig_cooling_unit
+	name = "mounted suit cooling unit"
+	item_cost = 8
+	path = /obj/item/rig_module/cooling_unit
+	desc = "A mounted suit cooling unit for use with hardsuits."

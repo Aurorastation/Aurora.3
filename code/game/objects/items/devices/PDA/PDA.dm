@@ -68,6 +68,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/obj/item/weapon/pen/pen
 	var/list/obj/machinery/requests_console/linked_consoles
 
+	var/flippable = 1
+	var/flipped = 0
+	var/wear_over_suit = 0
+
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
 		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
@@ -1062,16 +1066,16 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 
 		if (prob(15)) //Give the AI a chance of intercepting the message
-			var/who = src.owner
+			var/who = src.owner // revealing sender
 			if(prob(50))
-				who = P.owner
+				who = P.owner // revealing recipient
 
 			for(var/mob/living/silicon/ai/ai in mob_list)
 				if(ai.aiPDA != P && ai.aiPDA != src)
-					if(who != P.owner)
-						ai.show_message("<i>Intercepted message to <b>[who]</b>: [t]</i>")
-					else
+					if(who != P.owner) // if not revealing the recipient
 						ai.show_message("<i>Intercepted message from <b>[who]</b>: [t]</i>")
+					else // if not revealing the sender
+						ai.show_message("<i>Intercepted message to <b>[who]</b>: [t]</i>")
 
 		P.new_message_from_pda(src, t)
 		SSnanoui.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
@@ -1127,6 +1131,43 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
+
+/obj/item/device/pda/proc/mob_icon_update()
+	if (ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wear_id()
+
+/obj/item/device/pda/verb/verb_flip_id_icon()
+	set category = "Object"
+	set name = "Flip PDA side"
+	set src in usr
+
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+	if (!flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.overlay_state = "[overlay_state]_flip"
+	else
+		src.overlay_state = initial(overlay_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
+	mob_icon_update()
+
+/obj/item/device/pda/verb/toggle_icon_layer()
+	set name = "Switch PDA Layer"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+	if(wear_over_suit == -1)
+		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		return
+	wear_over_suit = !wear_over_suit
+	mob_icon_update()
 
 /obj/item/device/pda/verb/verb_reset_pda()
 	set category = "Object"
@@ -1253,7 +1294,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
 		SSnanoui.update_uis(src) // update all UIs attached to src
-	else if(istype(C, /obj/item/weapon/pen))
+	else if(C.ispen())
 		if(pen)
 			to_chat(user, "<span class='notice'>There is already a pen in \the [src].</span>")
 		else

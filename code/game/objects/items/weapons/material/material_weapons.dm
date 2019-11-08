@@ -11,6 +11,7 @@
 	sharp = 0
 	edge = 0
 
+	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
 	var/applies_material_colour = 1
 	var/unbreakable
 	var/force_divisor = 0.5
@@ -50,7 +51,8 @@
 	if(!material)
 		qdel(src)
 	else
-		name = "[material.display_name] [initial(name)]"
+		if(use_material_name)
+			name = "[material.display_name] [initial(name)]"
 		health = round(material.integrity/10)
 		if(applies_material_colour)
 			color = material.icon_colour

@@ -47,7 +47,8 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug
+		/datum/species/bug,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
@@ -64,8 +65,8 @@
 		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
-		"Xenobiologist" = /datum/outfit/job/xenobiologist/zeng_hu,
-		"Xenobotanist" = /datum/outfit/job/xenobiologist/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
@@ -99,7 +100,7 @@
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/weapon/card/id/zeng_hu
 
-/datum/outfit/job/xenobiologist/zeng_hu
+/datum/outfit/job/scientist/xenobiologist/zeng_hu
 	name = "Xenobiologist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/weapon/card/id/zeng_hu

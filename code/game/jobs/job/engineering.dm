@@ -141,7 +141,7 @@
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
 
-	uniform = /obj/item/clothing/under/rank/engineer
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	l_ear = /obj/item/device/radio/headset/headset_eng

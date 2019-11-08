@@ -86,3 +86,18 @@
 	path = /obj/item/skrell_projector
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
+
+/datum/gear/ears/skrell/goop
+	display_name = "glowing algae"
+	path = /obj/item/clothing/ears/skrell/goop
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
+
+/datum/gear/ears/skrell/goop/New()
+	..()
+	var/algae = list()
+	algae["glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop
+	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
+	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
+	gear_tweaks += new/datum/gear_tweak/path(algae)
+	gear_tweaks += list(gear_tweak_free_color_choice)

@@ -14,41 +14,49 @@
 	name = "Red crayon dust"
 	id = "crayon_dust_red"
 	color = "#FE191A"
+	taste_description = "chalky strawberry wax"
 
 /datum/reagent/crayon_dust/orange
 	name = "Orange crayon dust"
 	id = "crayon_dust_orange"
 	color = "#FFBE4F"
+	taste_description = "chalky orange peels"
 
 /datum/reagent/crayon_dust/yellow
 	name = "Yellow crayon dust"
 	id = "crayon_dust_yellow"
 	color = "#FDFE7D"
+	taste_description = "chalky lemon rinds"
 
 /datum/reagent/crayon_dust/green
 	name = "Green crayon dust"
 	id = "crayon_dust_green"
 	color = "#18A31A"
+	taste_description = "chalky lime rinds"
 
 /datum/reagent/crayon_dust/blue
 	name = "Blue crayon dust"
 	id = "crayon_dust_blue"
 	color = "#247CFF"
+	taste_description = "chalky blueberry skins"
 
 /datum/reagent/crayon_dust/purple
 	name = "Purple crayon dust"
 	id = "crayon_dust_purple"
 	color = "#CC0099"
+	taste_description = "chalky grape skins"
 
 /datum/reagent/crayon_dust/grey //Mime
 	name = "Grey crayon dust"
 	id = "crayon_dust_grey"
 	color = "#808080"
+	taste_description = "chalky crushed dreams"
 
 /datum/reagent/crayon_dust/brown //Rainbow
 	name = "Brown crayon dust"
 	id = "crayon_dust_brown"
 	color = "#846F35"
+	taste_description = "raw, powerful creativity"
 
 /datum/reagent/paint
 	name = "Paint"
@@ -688,7 +696,7 @@
 	P.name = "wormhole"
 	var/list/pick_turfs = list()
 	for(var/turf/simulated/floor/exit in turfs)
-		if(exit.z in current_map.station_levels)
+		if(isStationLevel(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
@@ -826,7 +834,3 @@
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
-
-/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
-	if(volume >= 5)
-		tesla_zap(T, 6, 1500)

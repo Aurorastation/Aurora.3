@@ -305,8 +305,6 @@
 	update_use_power(2)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
-	for(var/obj/O in src)
-		O.forceMove(get_turf(src))
 	src.add_fingerprint(usr)
 	return
 
@@ -322,8 +320,6 @@
 		if(!do_after(H, 1200))
 			return
 
-	for(var/obj/O in src)
-		O.forceMove(get_turf(src))
 	if (H.client)
 		H.client.eye = H.client.mob
 		H.client.perspective = MOB_PERSPECTIVE
@@ -368,8 +364,6 @@
 		update_use_power(2)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
-		for(var/obj/O in src)
-			O.forceMove(get_turf(src))
 
 	src.add_fingerprint(user)
 	qdel(G)

@@ -132,7 +132,7 @@ other types of metals and chemistry for reagents).
 	id = "powerdrill"
 	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 60, "glass" = 50)
-	build_path = /obj/item/powerdrill
+	build_path = /obj/item/weapon/powerdrill
 	sort_string = "GAAAD"
 
 ///////////////////////////////////

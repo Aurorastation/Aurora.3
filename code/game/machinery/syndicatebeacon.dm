@@ -80,7 +80,7 @@
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
 	icon = 'icons/obj/singularity.dmi'
-	icon_state = "beacon"
+	icon_state = "beacon0"
 
 	anchored = 0
 	density = 1
@@ -168,3 +168,7 @@
 /obj/machinery/power/singularity_beacon/syndicate
 	icontype = "beaconsynd"
 	icon_state = "beaconsynd0"
+
+/obj/machinery/power/singularity_beacon/emergency
+	name = "emergency singularity beacon"
+	desc = "A beacon that is designed to be used as last resort to contain Singularity or Tesla Engine. A one time use device."

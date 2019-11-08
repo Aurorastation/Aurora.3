@@ -158,8 +158,8 @@
 	dispersion = list(0, 8)
 
 /obj/item/weapon/gun/energy/mousegun
-	name = "\improper NT \"Arodentia\" Exterminator ray"
-	desc = "A highly sophisticated and certainly experimental raygun designed for rapid pest-control."
+	name = "\improper NT \"Arodentia\" Pesti-Shock"
+	desc = "A highly sophisticated and probably safe beamgun designed for rapid pest-control."
 	icon_state = "floramut100"
 	item_state = "floramut"
 	charge_meter = 0
@@ -170,20 +170,20 @@
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
 	max_shots = 6
 	sel_mode = 1
-	burst = 3
-	burst_delay = 1
-	move_delay = 0
-	fire_delay = 3
-	dispersion = list(0, 15, 15)
-
+	var/emagged = FALSE
 	needspin = FALSE
-
-	var/lightfail = 0
 
 /obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
 	spark(T, 3, alldirs)
 	..()
+
+/obj/item/weapon/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
+	if(!emagged)
+		to_chat(user, "<span class='warning'>You overload \the [src]'s shock modulator.</span>")
+		projectile_type = /obj/item/projectile/beam/mousegun/emag
+		emagged = TRUE
+		return TRUE
 
 /obj/item/weapon/gun/energy/net
 	name = "net gun"

@@ -1039,7 +1039,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/research/kitchen)
 "cp" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/alien/mine)
 "cq" = (
 /obj/item/stack/rods,
@@ -1295,16 +1295,16 @@
 	icon_state = "propulsion";
 	dir = 8
 	},
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/alien/mine)
 "cN" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor2"
 	},
 /area/shuttle/alien/mine)
 "cO" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor2"
 	},
 /area/shuttle/alien/mine)
@@ -3809,7 +3809,7 @@
 	dir = 5;
 	health = 1e+007
 	},
-/obj/structure/sign/bluecross,
+/obj/structure/sign/greencross,
 /obj/machinery/door/firedoor{
 	dir = 4;
 	name = "Firelock"
