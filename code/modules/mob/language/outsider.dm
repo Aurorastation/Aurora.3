@@ -1,37 +1,3 @@
-<<<<<<< HEAD
-=======
-/datum/language/xenocommon
-	name = LANGUAGE_XENOMORPH
-	colour = "alien"
-	desc = "The common tongue of the xenomorphs."
-	speech_verb = "hisses"
-	ask_verb = "hisses"
-	exclaim_verb = "hisses"
-	key = "z"
-	flags = RESTRICTED
-	syllables = list("sss","sSs","SSS")
-
-/datum/language/xenos
-	name = LANGUAGE_HIVEMIND
-	desc = "Xenomorphs have the strange ability to commune over a psychic hivemind."
-	speech_verb = "hisses"
-	ask_verb = "hisses"
-	exclaim_verb = "hisses"
-	colour = "alien"
-	key = "a"
-	flags = RESTRICTED | HIVEMIND
-
-/datum/language/xenos/check_special_condition(var/mob/other)
-
-	var/mob/living/carbon/M = other
-	if(!istype(M))
-		return 1
-	if(locate(/obj/item/organ/xenos/hivenode) in M.internal_organs)
-		return 1
-
-	return 0
-
->>>>>>> origin
 /datum/language/ling
 	name = LANGUAGE_CHANGELING
 	desc = "Although they are normally wary and suspicious of each other, changelings can commune over a distance."
@@ -82,6 +48,7 @@
 	flags = WHITELISTED
 	syllables = list("ti","ti","ti","hi","hi","ki","ki","ki","ki","ya","ta","ha","ka","ya","chi","cha","kah", \
 	"SKRE","AHK","EHK","RAWK","KRA","AAA","EEE","KI","II","KRI","KA")
+	machine_understands = FALSE
 
 /datum/language/vox/get_random_name()
 	return ..(FEMALE,1,6)
@@ -103,6 +70,7 @@
 		"sektath", "mal'zua", "zasan", "therium", "viortia", "kla'atu", "barada", "nikt'o", "fwe'sh", "mah", "erl", "nyag", "r'ya", \
 		"gal'h'rfikk", "harfrandid", "mud'gib", "fuu", "ma'jin", "dedo", "ol'btoh", "n'ath", "reth", "sh'yro", "eth", \
 		"d'rekkathnor", "khari'd", "gual'te", "nikka", "nikt'o", "barada", "kla'atu", "barhah", "hra" ,"zar'garis")
+	machine_understands = FALSE
 
 /datum/language/cultcommon/get_random_name()
 	var/new_name = "[pick(list("Anguished", "Blasphemous", "Corrupt", "Cruel", "Depraved", "Despicable", "Disturbed", "Exacerbated", "Foul", "Hateful", "Inexorable", "Implacable", "Impure", "Malevolent", "Malignant", "Malicious", "Pained", "Profane", "Profligate", "Relentless", "Resentful", "Restless", "Spiteful", "Tormented", "Unclean", "Unforgiving", "Vengeful", "Vindictive", "Wicked", "Wronged"))]"

@@ -116,7 +116,7 @@ steam.start() -- spawns the effect
 /obj/effect/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
-	
+
 	QDEL_IN(src, 2.5 SECONDS)
 
 /obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
@@ -354,10 +354,10 @@ steam.start() -- spawns the effect
 			spark(location, 2)
 
 			for(var/mob/M in viewers(5, location))
-				M << "<span class='warning'>The solution violently explodes.</span>"
+				to_chat(M, "<span class='warning'>The solution violently explodes.</span>")
 			for(var/mob/M in viewers(1, location))
 				if (prob (50 * amount))
-					M << "<span class='warning'>The explosion knocks you down.</span>"
+					to_chat(M, "<span class='warning'>The explosion knocks you down.</span>")
 					M.Weaken(rand(1,5))
 			return
 		else
@@ -380,7 +380,7 @@ steam.start() -- spawns the effect
 				flash = (amount/4) * flashing_factor
 
 			for(var/mob/M in viewers(8, location))
-				M << "<span class='warning'>The solution violently explodes.</span>"
+				to_chat(M, "<span class='warning'>The solution violently explodes.</span>")
 
 			explosion(
 				location,

@@ -15,10 +15,11 @@ emp_act
 	if(species_check)
 		return species_check
 
-	if(martial_art && martial_art.deflection_chance)
-		if(prob(martial_art.deflection_chance))
-			src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
-			return 0
+	if(!is_physically_disabled())
+		if(martial_art && martial_art.deflection_chance)
+			if(prob(martial_art.deflection_chance))
+				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				return 0
 
 	def_zone = check_zone(def_zone)
 	if(!has_organ(def_zone))
@@ -77,7 +78,7 @@ emp_act
 					emote("me", 1, "drops what they were holding, their [affected.name] malfunctioning!")
 				else
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-					emote("me", 1, "[(species && species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
+					emote("me", 1, "[(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
 
 	..(stun_amount, agony_amount, def_zone)
 
@@ -223,7 +224,7 @@ emp_act
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
-		user << "<span class='danger'>They are missing that limb!</span>"
+		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
 		return null
 
 	return hit_zone
@@ -326,12 +327,12 @@ emp_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
-		user << "<span class='warning'>That limb isn't robotic.</span>"
+		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
 		return -1
 	if(affecting.sabotaged)
-		user << "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>"
+		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
 		return -1
-	user << "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>"
+	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
 	affecting.sabotaged = 1
 	return 1
 
@@ -527,7 +528,7 @@ emp_act
 
 	for(var/obj/item/weapon/grab/G in user.grabbed_by)
 		if(G.assailant == user)
-			user << "<span class='notice'>You already grabbed [src].</span>"
+			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
 			return
 
 	if (!attempt_grab(user))
@@ -538,7 +539,7 @@ emp_act
 
 	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
 	if(buckled)
-		user << "<span class='notice'>You cannot grab [src], \he is buckled in!</span>"
+		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

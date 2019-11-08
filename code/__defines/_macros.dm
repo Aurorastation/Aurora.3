@@ -42,20 +42,6 @@
 
 #define isslime(A) istype(A, /mob/living/carbon/slime)
 
-#define isscrewdriver(A) istype(A, /obj/item/weapon/screwdriver)
-
-#define iswrench(A) istype(A, /obj/item/weapon/wrench)
-
-#define iswelder(A) istype(A, /obj/item/weapon/weldingtool)
-
-#define iscoil(A) istype(A, /obj/item/stack/cable_coil)
-
-#define iswirecutter(A) istype(A, /obj/item/weapon/wirecutters)
-
-#define ismultitool(A) istype(A, /obj/item/device/multitool)
-
-#define iscrowbar(A) istype(A, /obj/item/weapon/crowbar)
-
 #define iscapacitor(A) istype(A, /obj/item/weapon/stock_parts/capacitor)
 
 #define ismicrolaser(A) istype(A, /obj/item/weapon/stock_parts/micro_laser)

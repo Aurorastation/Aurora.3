@@ -9,7 +9,7 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/weapon/reagent_containers/food/self_feed_message(var/mob/user)
-	user << "<span class='notice'>You eat \the [src].</span>"
-	
+	to_chat(user, "<span class='notice'>You eat \the [src].</span>")
+
 /obj/item/weapon/reagent_containers/food/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)

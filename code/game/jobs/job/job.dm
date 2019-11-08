@@ -12,12 +12,7 @@
 	var/spawn_positions = 0               // How many players can spawn in as this job
 	var/current_positions = 0             // How many players have this job
 	var/supervisors = null                // Supervisors, who this person answers to directly
-<<<<<<< HEAD
 	var/selection_color = "#888888"       // Selection screen color
-=======
-	var/selection_color = "#ffffff"       // Selection screen color
-	var/idtype = /obj/item/weapon/card/id // The type of the ID the player will have
->>>>>>> origin
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
@@ -33,7 +28,6 @@
 	var/economic_modifier = 2			  // With how much does this job modify the initial account amount?
 	var/create_record = 1                 // Do we announce/make records for people who spawn on this job?
 
-<<<<<<< HEAD
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
 
@@ -76,43 +70,6 @@
 
 	if(!visualsOnly && announce)
 		announce(H)
-=======
-	var/bag_type = /obj/item/weapon/storage/backpack
-	var/satchel_type = /obj/item/weapon/storage/backpack/satchel_norm
-	var/alt_satchel_type = /obj/item/weapon/storage/backpack/satchel
-	var/duffel_type = /obj/item/weapon/storage/backpack/duffel
-	var/messenger_bag_type = /obj/item/weapon/storage/backpack/messenger
-
-/datum/job/proc/equip(var/mob/living/carbon/human/H)
-	return 1
-
-/datum/job/proc/equip_backpack(var/mob/living/carbon/human/H)
-	var/type_to_spawn
-	var/use_job_specific = H.backbag_style == 1
-	switch (H.backbag)
-		//if (1)	// No bag selected.
-		// Hard-coding bagtype for now since there's only two options.
-		if (2)
-			type_to_spawn = use_job_specific ? bag_type : /obj/item/weapon/storage/backpack
-		if (3)
-			type_to_spawn = use_job_specific ? satchel_type : /obj/item/weapon/storage/backpack/satchel_norm
-		if (4)
-			type_to_spawn = use_job_specific ? alt_satchel_type : /obj/item/weapon/storage/backpack/satchel
-		if (5)
-			type_to_spawn = use_job_specific ? duffel_type : /obj/item/weapon/storage/backpack/duffel
-		if (6)
-			type_to_spawn = use_job_specific ? messenger_bag_type : /obj/item/weapon/storage/backpack/messenger
-
-	if (type_to_spawn)
-		var/obj/item/bag = new type_to_spawn
-		if (H.equip_to_slot_or_del(bag, slot_back))
-			bag.autodrobe_no_remove = TRUE
-
-/datum/job/proc/equip_survival(var/mob/living/carbon/human/H)
-	if(!H)	return 0
-	H.species.equip_survival_gear(H,0)
-	return 1
->>>>>>> origin
 
 /datum/job/proc/setup_account(var/mob/living/carbon/human/H)
 	if(!account_allowed || (H.mind && H.mind.initial_account))
@@ -149,11 +106,12 @@
 
 		H.mind.initial_account = M
 
-	H << "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>"
+	to_chat(H, "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>")
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title)
-	. = equip(H, alt_title)
+	pre_equip(H, TRUE)
+	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
 	if(!config || config.jobs_have_minimal_access)
@@ -163,19 +121,6 @@
 
 	if (LAZYLEN(title_accesses) && title_accesses[selected_title])
 		. += title_accesses[selected_title]
-
-/datum/job/proc/apply_fingerprints(var/mob/living/carbon/human/target)
-	if(!istype(target))
-		return 0
-	for(var/obj/item/item in target.contents)
-		apply_fingerprints_to_item(target, item)
-	return 1
-
-/datum/job/proc/apply_fingerprints_to_item(var/mob/living/carbon/human/holder, var/obj/item/item)
-	item.add_fingerprint(holder,1)
-	if(item.contents.len)
-		for(var/obj/item/sub_item in item.contents)
-			apply_fingerprints_to_item(holder, sub_item)
 
 /datum/job/proc/is_position_available()
 	return (current_positions < total_positions) || (total_positions == -1)
@@ -192,6 +137,8 @@
 /datum/job/proc/late_equip(var/mob/living/carbon/human/H)
 	if(!H)
 		return 0
+
+	H.species.before_equip(H, FALSE, src)
 
 	var/loyalty = 1
 	if(H.client)
@@ -213,8 +160,8 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
 		if(3 to 6)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/color/grey(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/black(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/hoodie(H), slot_wear_suit)
 		if(7 to 9)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/brown(H), slot_shoes)
@@ -232,7 +179,6 @@
 
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
-<<<<<<< HEAD
 
 /datum/outfit/job
 	name = "Standard Gear"
@@ -305,5 +251,3 @@
 	if(!J)
 		J = SSjobs.GetJob(H.job)
 	return J.title
-=======
->>>>>>> origin

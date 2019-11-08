@@ -52,7 +52,6 @@
 	attackby(obj/item/P as obj, mob/user as mob)
 		switch(state)
 			if(1)
-<<<<<<< HEAD
 				if(P.ismultitool())
 					to_chat(user, span("notice", "You begin to finalize the blueprint."))
 					if(do_after(user, 20) && state == 1)
@@ -83,36 +82,13 @@
 						playsound(src.loc, P.usesound, 75, 1)
 						to_chat(user, "<span class='notice'>You dismantle the blueprint</span>")
 						new /obj/item/stack/material/steel(src.loc, 2)
-=======
-				if(iscoil(P))
-					var/obj/item/stack/cable_coil/C = P
-					if (C.get_amount() < 5)
-						user << "<span class='warning'>You need five lengths of cable to add them to the frame.</span>"
-						return
-					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-					user << "<span class='notice'>You start to add cables to the frame.</span>"
-					if(do_after(user, 20) && state == 1)
-						if(C.use(5))
-							user << "<span class='notice'>You add cables to the frame.</span>"
-							state = 2
-							icon_state = "box_1"
-				else
-					if(iswrench(P))
-						playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-						user << "<span class='notice'>You dismantle the frame</span>"
-						new /obj/item/stack/material/steel(src.loc, 5)
->>>>>>> origin
 						qdel(src)
 			if(3)
 				if(istype(P, /obj/item/weapon/circuitboard))
 					var/obj/item/weapon/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-<<<<<<< HEAD
 						to_chat(user, span("notice", "You add the circuit board to the blueprint."))
-=======
-						user << "<span class='notice'>You add the circuit board to the frame.</span>"
->>>>>>> origin
 						circuit = P
 						user.drop_from_inventory(P,src)
 						icon_state = "blueprint_2"
@@ -127,47 +103,28 @@
 							var/obj/ct = new cp() // have to quickly instantiate it get name
 							req_component_names[A] = ct.name
 						update_desc()
-						user << desc
+						to_chat(user, desc)
 					else
-<<<<<<< HEAD
 						to_chat(user, span("warning", "This blueprint does not accept circuit boards of this type!"))
 				else
 					if(P.iswirecutter())
 						playsound(src.loc, P.usesound, 50, 1, pitch_toggle)
 						to_chat(user, span("notice", "You remove the cables."))
-=======
-						user << "<span class='warning'>This frame does not accept circuit boards of this type!</span>"
-				else
-					if(iswirecutter(P))
-						playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-						user << "<span class='notice'>You remove the cables.</span>"
->>>>>>> origin
 						state = 1
 						icon_state = "blueprint_0"
 						var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( src.loc )
 						A.amount = 5
 
-<<<<<<< HEAD
 			if(4)
 				if(P.iscrowbar())
-=======
-			if(3)
-				if(iscrowbar(P))
->>>>>>> origin
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					state = 3
 					circuit.forceMove(src.loc)
 					circuit = null
 					if(components.len == 0)
-<<<<<<< HEAD
 						to_chat(user, span("notice", "You remove the circuit board."))
 					else
 						to_chat(user, span("notice", "You remove the circuit board and other components."))
-=======
-						user << "<span class='notice'>You remove the circuit board.</span>"
-					else
-						user << "<span class='notice'>You remove the circuit board and other components.</span>"
->>>>>>> origin
 						for(var/obj/item/weapon/W in components)
 							W.forceMove(src.loc)
 					desc = initial(desc)
@@ -175,7 +132,7 @@
 					components = null
 					icon_state = "blueprint_2"
 				else
-					if(isscrewdriver(P))
+					if(P.isscrewdriver())
 						var/component_check = 1
 						for(var/R in req_components)
 							if(req_components[R] > 0)
@@ -229,13 +186,9 @@
 									req_components[I]--
 									update_desc()
 									break
-							user << desc
+							to_chat(user, desc)
 							if(P && P.loc != src && !istype(P, /obj/item/stack))
-<<<<<<< HEAD
 								to_chat(user, span("notice", "You cannot add that component to the machine!."))
-=======
-								user << "<span class='warning'>You cannot add that component to the machine!</span>"
->>>>>>> origin
 
 
 /obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -250,7 +203,6 @@
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()
-<<<<<<< HEAD
 
 /obj/machinery/constructable_frame/temp_deco
 	name = "machine frame"
@@ -265,5 +217,3 @@
 		to_chat(user, "<span class='notice'>You dismantle [src]</span>")
 		new /obj/item/stack/material/steel(src.loc, 5)
 		qdel(src)
-=======
->>>>>>> origin

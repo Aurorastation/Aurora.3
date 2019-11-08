@@ -17,6 +17,8 @@
 
 	cell_type = /obj/item/weapon/cell/crap //WAS High, but brought down to match energy use
 
+	needspin = FALSE
+
 /*
 /obj/item/weapon/gun/energy/temperature/New()
 	..()

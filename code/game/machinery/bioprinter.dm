@@ -55,7 +55,7 @@
 		visible_message("<span class='info'>The bioprinter spits out a new organ.</span>")
 
 	else
-		user << "<span class='warning'>There is not enough matter in the printer.</span>"
+		to_chat(user, "<span class='warning'>There is not enough matter in the printer.</span>")
 
 /obj/machinery/bioprinter/attackby(obj/item/weapon/W, mob/user)
 
@@ -65,13 +65,13 @@
 		var/datum/reagent/blood/injected = locate() in S.reagents.reagent_list //Grab some blood
 		if(injected && injected.data)
 			loaded_dna = injected.data
-			user << "<span class='info'>You inject the blood sample into the bioprinter.</span>"
+			to_chat(user, "<span class='info'>You inject the blood sample into the bioprinter.</span>")
 		return
 	// Meat for biomass.
 	if(!prints_prosthetics && istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
 		stored_matter += 50
 		user.drop_from_inventory(W,src)
-		user << "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>"
+		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>")
 		qdel(W)
 		return
 	// Steel for matter.
@@ -79,7 +79,7 @@
 		var/obj/item/stack/S = W
 		stored_matter += S.amount * 10
 		user.drop_from_inventory(W,src)
-		user << "<span class='info'>\The [src] processes \the [W]. Levels of stored matter now: [stored_matter]</span>"
+		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored matter now: [stored_matter]</span>")
 		qdel(W)
 		return
 

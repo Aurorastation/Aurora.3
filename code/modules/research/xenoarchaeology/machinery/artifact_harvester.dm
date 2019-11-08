@@ -24,12 +24,12 @@
 /obj/machinery/artifact_harvester/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I,/obj/item/weapon/anobattery))
 		if(!inserted_battery)
-			user << "<span class='notice'>You insert [I] into [src].</span>"
+			to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
 			user.drop_from_inventory(I,src)
 			src.inserted_battery = I
 			updateDialog()
 		else
-			user << "<span class='warning'>There is already a battery in [src].</span>"
+			to_chat(user, "<span class='warning'>There is already a battery in [src].</span>")
 	else
 		return..()
 
@@ -155,7 +155,7 @@
 						//see if we can clear out an old effect
 						//delete it when the ids match to account for duplicate ids having different effects
 						if(inserted_battery.battery_effect && inserted_battery.stored_charge <= 0)
-							qdel(inserted_battery.battery_effect)
+							QDEL_NULL(inserted_battery.battery_effect)
 
 						//
 						var/datum/artifact_effect/source_effect

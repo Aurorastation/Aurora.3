@@ -32,7 +32,7 @@
 	var/obj/item/weapon/reagent_containers/syringe/S = O
 
 	if(sample)
-		user << "\The [src] is already loaded."
+		to_chat(user, "\The [src] is already loaded.")
 		return
 
 	sample = S
@@ -67,13 +67,7 @@
 					var/list/virus = B.data["virus2"]
 					for (var/ID in virus)
 						var/datum/disease2/disease/V = virus[ID]
-<<<<<<< HEAD
 						var/datum/record/virus/R = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
-=======
-						var/datum/data/record/R = null
-						if (ID in virusDB)
-							R = virusDB[ID]
->>>>>>> origin
 		
 						var/datum/weakref/A = B.data["donor"]
 						var/mob/living/carbon/human/D = A.resolve()
