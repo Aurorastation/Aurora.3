@@ -62,17 +62,7 @@
 	to_chat(usr, "<span class='notice'>Suplex</span>: Disarm someone you are grabbing. Suplexes your target to the floor. Greatly injures them and leaves both you and your target on the floor.")
 	to_chat(usr, "<span class='notice'>Advanced grab</span>: Grab. Passively causes pain when grabbing someone.")
 
-/obj/item/wrestling_manual
+/obj/item/martial_manual/wrestling
 	name = "wrestling manual"
 	desc = "A manual designated to teach the user about the art of wrestling."
-	icon = 'icons/obj/library.dmi'
-	icon_state ="cqcmanual"
-
-/obj/item/wrestling_manual/attack_self(mob/user as mob)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	var/datum/martial_art/wrestling/F = new/datum/martial_art/wrestling(null)
-	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of wrestling.</span>")
-	qdel(src)
+	martial_art = /datum/martial_art/wrestling

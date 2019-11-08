@@ -4,13 +4,9 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/weapon/holder
 	name = "holder"
 	desc = "You shouldn't ever see this."
-<<<<<<< HEAD
 	icon = 'icons/mob/npc/held_mobs.dmi'
 	randpixel = 0
 	center_of_mass = null
-=======
-	icon = 'icons/mob/held_mobs.dmi'
->>>>>>> origin
 	slot_flags = 0
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
 	origin_tech = null
@@ -172,7 +168,7 @@ var/list/holder_mob_icon_cache = list()
 					contained.adjustBruteLoss(3)
 					H.visible_message("<span class='alert'>[H] crushes [contained].</span>")
 	else
-		M << "[contained] is dead."
+		to_chat(M, "[contained] is dead.")
 
 
 /obj/item/weapon/holder/show_message(var/message, var/m_type)
@@ -211,10 +207,10 @@ var/list/holder_mob_icon_cache = list()
 
 	if (user == src)
 		if (grabber.r_hand && grabber.l_hand)
-			user << "<span class='warning'>They have no free hands!</span>"
+			to_chat(user, "<span class='warning'>They have no free hands!</span>")
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		grabber << "<span class='warning'>Your hand is full!</span>"
+		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
 		return
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
@@ -248,16 +244,16 @@ var/list/holder_mob_icon_cache = list()
 
 		if (success)
 			if (user == src)
-				grabber << "<span class='notice'>[src.name] climbs up onto you.</span>"
-				src << "<span class='notice'>You climb up onto [grabber].</span>"
+				to_chat(grabber, "<span class='notice'>[src.name] climbs up onto you.</span>")
+				to_chat(src, "<span class='notice'>You climb up onto [grabber].</span>")
 			else
-				grabber << "<span class='notice'>You scoop up [src].</span>"
-				src << "<span class='notice'>[grabber] scoops you up.</span>"
+				to_chat(grabber, "<span class='notice'>You scoop up [src].</span>")
+				to_chat(src, "<span class='notice'>[grabber] scoops you up.</span>")
 
 			H.sync(src)
 
 		else
-			user << "Failed, try again!"
+			to_chat(user, "Failed, try again!")
 			//If the scooping up failed something must have gone wrong
 			H.release_mob()
 
@@ -270,7 +266,7 @@ var/list/holder_mob_icon_cache = list()
 	set desc = "Find out where on their person, someone is holding you."
 
 	if (!usr.get_holding_mob())
-		src << "Nobody is holding you!"
+		to_chat(src, "Nobody is holding you!")
 		return
 
 	if (istype(usr.loc, /obj/item/weapon/holder))
@@ -480,17 +476,10 @@ var/list/holder_mob_icon_cache = list()
 	name = "rat"
 	desc = "It's a fuzzy little critter."
 	desc_dead = "It's filthy vermin, throw it in the trash."
-<<<<<<< HEAD
 	icon = 'icons/mob/npc/rat.dmi'
 	icon_state = "rat_brown_sleep"
 	item_state = "rat_brown"
 	icon_state_dead = "rat_brown_dead"
-=======
-	icon = 'icons/mob/mouse.dmi'
-	icon_state = "mouse_brown_sleep"
-	item_state = "mouse_brown"
-	icon_state_dead = "mouse_brown_dead"
->>>>>>> origin
 	slot_flags = SLOT_EARS
 	contained_sprite = 1
 	origin_tech = list(TECH_BIO = 2)
@@ -582,7 +571,7 @@ var/list/holder_mob_icon_cache = list()
 
 //pAI
 /obj/item/weapon/holder/pai
-	icon = 'icons/mob/pai.dmi'
+	icon = 'icons/mob/npc/pai.dmi'
 	dir = EAST
 	contained_sprite = 1
 	slot_flags = SLOT_HEAD

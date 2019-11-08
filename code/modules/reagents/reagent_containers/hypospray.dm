@@ -114,17 +114,10 @@
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
-<<<<<<< HEAD
 	if(reagents && reagents.reagent_list.len)
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
-=======
-	if(reagents && reagents.reagent_list.len && !used)
-		user << "<span class='notice'>It is currently loaded.</span>"
-	else if(used)
-		user << "<span class='notice'>It is spent.</span>"
->>>>>>> origin
 	else
-		user << "<span class='notice'>It is empty.</span>"
+		to_chat(user, "<span class='notice'>It is empty.</span>")
 
 
 /obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline

@@ -1187,7 +1187,7 @@ I said no!
 		/obj/item/weapon/reagent_containers/food/snacks/dough
 	)
 	fruit = list("berries" = 1)
-	result = /obj/item/weapon/reagent_containers/food/snacks/muffin
+	result = /obj/item/weapon/reagent_containers/food/snacks/berrymuffin
 
 /datum/recipe/onionsoup
 	fruit = list("onion" = 1)

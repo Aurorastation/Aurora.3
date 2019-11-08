@@ -9,16 +9,16 @@
 
 /obj/item/weapon/contract/attack_self(mob/user as mob)
 	if(contract_master == null)
-		user << "<span class='notice'>You bind the contract to your soul, making you the recipient of whatever poor fool's soul that decides to contract with you.</span>"
+		to_chat(user, "<span class='notice'>You bind the contract to your soul, making you the recipient of whatever poor fool's soul that decides to contract with you.</span>")
 		contract_master = user
 		return
 
 	if(contract_master == user)
-		user << "You can't contract with yourself!"
+		to_chat(user, "You can't contract with yourself!")
 		return
 
 	if(iscultist(user))
-		user << "Your soul already belongs to other powers!"
+		to_chat(user, "Your soul already belongs to other powers!")
 		return
 
 	var/ans = alert(user,"The contract clearly states that signing this contract will bind your soul to \the [contract_master]. Are you sure you want to continue?","[src]","Yes","No")
@@ -37,7 +37,7 @@
 		qdel(src)
 
 /obj/item/weapon/contract/proc/contract_effect(mob/user as mob)
-	user << "<span class='warning'>You've signed your soul over to \the [contract_master] and with that your unbreakable vow of servitude begins.</span>"
+	to_chat(user, "<span class='warning'>You've signed your soul over to \the [contract_master] and with that your unbreakable vow of servitude begins.</span>")
 	return 1
 
 /obj/item/weapon/contract/apprentice
@@ -47,11 +47,11 @@
 
 /obj/item/weapon/contract/apprentice/contract_effect(mob/user as mob)
 	if(user.mind.assigned_role == "Apprentice")
-		user << "<span class='warning'>You are already a wizarding apprentice!</span>"
+		to_chat(user, "<span class='warning'>You are already a wizarding apprentice!</span>")
 		return 0
 	if(wizards.add_antagonist_mind(user.mind,1,"Apprentice","<b>You are an apprentice! Your job is to learn the wizarding arts!</b>"))
 		user.mind.assigned_role = "Apprentice"
-		user << "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>"
+		to_chat(user, "<span class='notice'>With the signing of this paper you agree to become \the [contract_master]'s apprentice in the art of wizardry.</span>")
 		user.faction = "Space Wizard"
 		wizards.add_antagonist_mind(user.mind,1)
 		var/obj/item/I = new /obj/item/weapon/spellbook/student(get_turf(user))
@@ -77,7 +77,7 @@
 		user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 		user.see_in_dark = 8
 		user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-		user << "<span class='notice'>The walls suddenly disappear.</span>"
+		to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
 		return 1
 	return 0
 
@@ -90,7 +90,7 @@
 	..()
 	if(!(TK in user.mutations))
 		user.mutations.Add(TK)
-		user << "<span class='notice'>You feel your mind expanding!</span>"
+		to_chat(user, "<span class='notice'>You feel your mind expanding!</span>")
 		return 1
 	return 0
 

@@ -78,22 +78,6 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	basic_hit(A,D)
 	return 1
 
-
-/obj/item/karak_virul_manual
-	name = "karak virul manual"
-	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul."
-	icon = 'icons/obj/library.dmi'
-	icon_state ="cqcmanual"
-
-/obj/item/karak_virul_manual/attack_self(mob/user as mob)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	var/datum/martial_art/karak_virul/F = new/datum/martial_art/karak_virul(null)
-	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of Karak Virul.</span>")
-	qdel(src)
-
 /datum/martial_art/karak_virul/proc/karak_virul_help()
 	set name = "Recall Teachings"
 	set desc = "Remember the martial techniques of the Karak Virul."
@@ -104,3 +88,7 @@ datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/li
 	to_chat(usr, "<span class='notice'>Leg Sweep</span>: Disarm Harm Disarm.. Trips the victim, rendering them prone and unable to move for a short time.")
 	to_chat(usr, "<span class='notice'>Dislocating Strike</span>: Harm Disarm Disarm Disarm. Delivers a strong punch that can dislocate your target's limb.")
 
+/obj/item/martial_manual/skrell
+	name = "karak virul manual"
+	desc = "A manual designated to teach the user about the skrellian martial art of Karak Virul."
+	martial_art = /datum/martial_art/karak_virul

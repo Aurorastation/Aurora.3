@@ -79,7 +79,7 @@ var/datum/antagonist/deathsquad/deathsquad
 		if(player.internal)
 			player.internals.icon_state = "internal1"
 		else
-			player << "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>"
+			to_chat(player, "<span class='danger'>You forgot to turn on your internals! Quickly, toggle the valve!</span>")
 
 	var/obj/item/weapon/card/id/id = create_id("Asset Protection", player)
 	if(id)

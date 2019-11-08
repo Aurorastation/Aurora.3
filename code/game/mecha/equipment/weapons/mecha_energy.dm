@@ -104,7 +104,6 @@
 	fire_cooldown = 3
 	fire_time = 15
 	projectile = /obj/item/projectile/energy/tesla
-<<<<<<< HEAD
 	fire_sound = 'sound/magic/LightningShock.ogg'
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/kin_accelerator
@@ -132,6 +131,3 @@
 	fire_cooldown = 3
 	equip_cooldown = 30
 	projectile = /obj/item/projectile/kinetic/mech/burst
-=======
-	fire_sound = 'sound/magic/LightningShock.ogg'
->>>>>>> origin

@@ -50,12 +50,12 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/obj/item/organ/external/LA = H.get_organ("l_arm")
 			var/obj/item/organ/external/RA = H.get_organ("r_arm")
 			var/active_hand = H.hand
-			user <<"<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>"
+			to_chat(user, "<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>")
 			user.show_message("<b>[user]</b> screams in horror!",2)
-			H.adjust_fire_stacks(2)
-			H.IgniteMob()
-			H.updatehealth()
 			H.ChangeToHusk()
+			H.adjust_fire_stacks(0, H.fire_stacks)
+			H.IgniteMob(2)
+			H.updatehealth()
 			user.drop_item()
 			playsound(user, 'sound/hallucinations/i_see_you2.ogg', 100, 1)
 			if(active_hand)
@@ -112,7 +112,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
 	user << browse(dat,"window=spellbook")
-	
+
 /obj/item/weapon/spellbook/Topic(href,href_list)
 	..()
 
@@ -143,7 +143,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	if(href_list["path"])
 		var/path = text2path(href_list["path"])
 		if(uses < spellbook.spells[path])
-			usr << "<span class='notice'>You do not have enough spell slots to purchase this.</span>"
+			to_chat(usr, "<span class='notice'>You do not have enough spell slots to purchase this.</span>")
 			return
 		uses -= spellbook.spells[path]
 		send_feedback(path) //feedback stuff
@@ -174,7 +174,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			temp = "All spells have been removed. You may now memorize a new set of spells."
 			feedback_add_details("wizard_spell_learned","UM") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
 		else
-			usr << "<span class='warning'>You must be in the wizard academy to re-memorize your spells.</span>"
+			to_chat(usr, "<span class='warning'>You must be in the wizard academy to re-memorize your spells.</span>")
 
 	src.interact(usr)
 

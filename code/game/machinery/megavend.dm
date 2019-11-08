@@ -32,24 +32,32 @@
 			megavend(H)
 
 /obj/machinery/megavendor/proc/megavend(var/mob/living/carbon/human/H)
-
 	if(H.megavend)
 		return
 
 	var/obj/item/weapon/storage/box/gearbox = new(null, TRUE)
 	gearbox.name = "personal possessions box"
 	gearbox.desc = "All of the personal effects of [H.real_name], packaged neatly by the AutoDrobe."
-	for(var/obj/item/W in H.contents)
+	for(var/obj/item/W in H.contents) //Strip 'em
 		if(istype(W,/obj/item/organ))
 			continue
 		if(W.autodrobe_no_remove)
 			continue
+		if(!W.canremove)
+			continue
 		H.drop_from_inventory(W,gearbox)
-	H.put_in_any_hand_if_possible(gearbox)
 
-	H << "<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>"
+	to_chat(H,"<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>")
 
-	SSjobs.EquipRank(H, H.job, 1, 1)
+	SSjobs.EquipRank(H, H.job, 1, 1) //Equip 'em
 	H.megavend = 1
+
+	//Give them the box
+	if(istype(H.back,/obj/item/weapon/storage/backpack))
+		var/obj/item/weapon/storage/backpack/B = H.back
+		if(!B.insert_into_storage(gearbox))
+			H.put_in_any_hand_if_possible(gearbox)
+	else		
+		H.put_in_any_hand_if_possible(gearbox)
 
 	return

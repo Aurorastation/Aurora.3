@@ -11,9 +11,9 @@
 /obj/item/weapon/bee_net/examine(var/mob/user)
 	..()
 	if (caught_bees)
-		user << span("notice", "It contains [caught_bees] bees")
+		to_chat(user, span("notice", "It contains [caught_bees] bees"))
 	else
-		user << span("notice", "It is empty")
+		to_chat(user, span("notice", "It is empty"))
 
 /obj/item/weapon/bee_net/attack_self(mob/user as mob)
 	var/turf/T = get_step(get_turf(user), user.dir)
@@ -107,7 +107,7 @@
 
 		newhome.update_icon()
 	else
-		user << span("warning", "You'll have to open the lid before you can place bees inside")
+		to_chat(user, span("warning", "You'll have to open the lid before you can place bees inside"))
 
 /obj/item/weapon/bee_net/verb/empty_bees()
 	set src in usr

@@ -85,7 +85,6 @@
  * Parameters: var/obj/structure/closet/crate/sold, var/area/shuttle
  */
 /hook/sell_crate
-<<<<<<< HEAD
 
 /**
  * Captain spawned.
@@ -100,5 +99,3 @@
  * Parameters: var/area/departing, var/area/destination
  */
 /hook/shuttle_moved
-=======
->>>>>>> origin

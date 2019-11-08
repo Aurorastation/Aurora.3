@@ -1054,13 +1054,8 @@ var/list/admin_verbs_cciaa = list(
 	set desc = "Tells everyone to man up and deal with it."
 
 	for (var/mob/T as mob in mob_list)
-<<<<<<< HEAD
-		T << "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>"
-		T << 'sound/admin/Serithi/ManUp1.ogg'
-=======
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
 		sound_to(T, 'sound/voice/ManUp1.ogg')
->>>>>>> upstream/master
 
 	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
 	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
