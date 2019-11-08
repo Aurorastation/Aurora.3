@@ -155,8 +155,6 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	else
 		icon_state = "1"
 		set_light(3, FIRE_LIGHT_1, no_update = TRUE)
-	
-	air_contents.adjust_gas("carbon_dioxide", firelevel * 0.07)
 
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!

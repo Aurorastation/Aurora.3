@@ -23,16 +23,17 @@
 
 /spell/contract/cast(mob/target,mob/user)
 	if(!subject)
-		to_chat(usr, "This spell was not properly given a target. Contact a coder.")
+		usr << "This spell was not properly given a target. Contact a coder."
 		return null
 
 	if(istype(target,/list))
 		target = target[1]
 	return target
 
+
 /spell/contract/reward
-	name = "Extinguish Contractee"
-	desc = "A spell that extinguishes your contractee from flames."
+	name = "Reward Contractee"
+	desc = "A spell that makes your contracted victim feel better."
 
 	charge_max = 300
 	cooldown_min = 100
@@ -44,9 +45,8 @@
 	if(!target)
 		return
 
-	if(target.on_fire && target.fire_stacks > 0)
-		to_chat(target, "<span class='notice'>Magical energies surround you, putting out all your flames.</span>")
-		target.ExtinguishMobCompletely()
+	target << "<span class='notice'>You feel great!</span>"
+	target.ExtinguishMob()
 
 /spell/contract/punish
 	name = "Punish Contractee"
@@ -62,5 +62,6 @@
 	if(!target)
 		return
 
-	to_chat(target, "<span class='danger'>Magical energies surround you, immolating you in a furious fashion!</span>")
-	target.IgniteMob(15)
+	target << "<span class='danger'>You feel punished!</span>"
+	target.fire_stacks += 15
+	target.IgniteMob()

@@ -28,9 +28,15 @@
 	if(default_part_replacement(user, W))
 		return
 
+<<<<<<< HEAD
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+=======
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
+>>>>>>> origin
 		anchored = !anchored
 		if(!anchored)
 			disconnect_from_network()
@@ -38,8 +44,8 @@
 			connect_to_network()
 		return
 
-/obj/machinery/power/tesla_coil/tesla_act(var/power, var/melt = FALSE)
-	if(anchored && !melt)
+/obj/machinery/power/tesla_coil/tesla_act(var/power)
+	if(anchored)
 		being_shocked = 1
 		//don't lose arc power when it's not connected to anything
 		//please place tesla coils all around the station to maximize effectiveness
@@ -74,14 +80,20 @@
 	if(default_part_replacement(user, W))
 		return
 
+<<<<<<< HEAD
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+=======
+	if(iswrench(W))
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		user << "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>"
+>>>>>>> origin
 		anchored = !anchored
 		return
 
 
-/obj/machinery/power/grounding_rod/tesla_act(var/power, var/melt = FALSE)
+/obj/machinery/power/grounding_rod/tesla_act(var/power)
 	flick("coil_shock_1", src)
 
 /obj/item/weapon/circuitboard/tesla_coil

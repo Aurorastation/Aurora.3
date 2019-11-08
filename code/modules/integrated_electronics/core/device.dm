@@ -12,7 +12,7 @@
 	. = ..()
 
 /obj/item/device/assembly/electronic_assembly/attackby(obj/item/I, mob/user)
-	if (I.iscrowbar())
+	if (iscrowbar(I))
 		toggle_open(user)
 	else if (opened)
 		EA.attackby(I, user)

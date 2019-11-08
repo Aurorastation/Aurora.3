@@ -11,7 +11,7 @@
 		return
 
 	if(user.hardware)
-		to_chat(user, "You have already selected your hardware.")
+		user << "You have already selected your hardware."
 		return
 
 	var/hardware_list = list()
@@ -39,7 +39,7 @@
 	if(C)
 		note = C.desc
 	else
-		to_chat(user, "This hardware does not exist! Probably a bug in game. Please report this.")
+		user << "This hardware does not exist! Probably a bug in game. Please report this."
 		return
 
 
@@ -49,7 +49,7 @@
 
 	var/confirmation = alert("[note] - Is this what you want?", "Hardware selection", "Yes", "No")
 	if(confirmation != "Yes")
-		to_chat(user, "Selection cancelled. Use command again to select")
+		user << "Selection cancelled. Use command again to select"
 		return
 
 	if(C)
@@ -90,7 +90,7 @@
 	if(!tar)
 		return
 	res.focus = tar
-	to_chat(user, "Research set: [tar.name]")
+	user << "Research set: [tar.name]"
 	log_ability_use(src, "Selected research: [tar.name]", null, 0)
 
 // HELPER PROCS
@@ -101,25 +101,25 @@
 	if(!user)
 		return 0
 	if(!istype(user))
-		to_chat(user, "GAME ERROR: You tried to use ability that is only available for malfunctioning AIs, but you are not AI! Please report this.")
+		user << "GAME ERROR: You tried to use ability that is only available for malfunctioning AIs, but you are not AI! Please report this."
 		return 0
 	if(!user.malfunctioning)
-		to_chat(user, "GAME ERROR: You tried to use ability that is only available for malfunctioning AIs, but you are not malfunctioning. Please report this.")
+		user << "GAME ERROR: You tried to use ability that is only available for malfunctioning AIs, but you are not malfunctioning. Please report this."
 		return 0
 	if(!user.research)
-		to_chat(user, "GAME ERROR: No research datum detected. Please report this.")
+		user << "GAME ERROR: No research datum detected. Please report this."
 		return 0
 	if(user.research.max_cpu < check_price)
-		to_chat(user, "Your CPU storage is not large enough to use this ability. Hack more APCs to continue.")
+		user << "Your CPU storage is not large enough to use this ability. Hack more APCs to continue."
 		return 0
 	if(user.research.stored_cpu < check_price)
-		to_chat(user, "You do not have enough CPU power stored. Please wait a moment.")
+		user << "You do not have enough CPU power stored. Please wait a moment."
 		return 0
 	if(user.hacking && !override)
-		to_chat(user, "Your system is busy processing another task. Please wait until completion.")
+		user << "Your system is busy processing another task. Please wait until completion."
 		return 0
 	if(user.APU_power && !override)
-		to_chat(user, "Low power. Unable to proceed.")
+		user << "Low power. Unable to proceed."
 		return 0
 	return 1
 
@@ -130,16 +130,16 @@
 	if(!user)
 		return 0
 	if(user.APU_power)
-		to_chat(user, "Low power. Unable to proceed.")
+		user << "Low power. Unable to proceed."
 		return 0
 	if(!user.research)
-		to_chat(user, "GAME ERROR: No research datum detected. Please report this.")
+		user << "GAME ERROR: No research datum detected. Please report this."
 		return 0
 	if(user.research.max_cpu < price)
-		to_chat(user, "Your CPU storage is not large enough to use this ability. Hack more APCs to continue.")
+		user << "Your CPU storage is not large enough to use this ability. Hack more APCs to continue."
 		return 0
 	if(user.research.stored_cpu < price)
-		to_chat(user, "You do not have enough CPU power stored. Please wait a moment.")
+		user << "You do not have enough CPU power stored. Please wait a moment."
 		return 0
 	user.research.stored_cpu -= price
 	return 1

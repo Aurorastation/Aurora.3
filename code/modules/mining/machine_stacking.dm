@@ -22,7 +22,7 @@
 		if (machine)
 			machine.console = src
 		else
-			to_chat(user, "<span class='warning'>ERROR: Linked machine not found!</span>")
+			user << "<span class='warning'>ERROR: Linked machine not found!</span>"
 
 	return machine
 

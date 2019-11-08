@@ -129,12 +129,17 @@
 /obj/item/projectile/bullet/pistol/medium
 	damage = 25
 
+<<<<<<< HEAD
 /obj/item/projectile/bullet/pistol/strong
 	damage = 60
 
 /obj/item/projectile/bullet/pistol/revolver
 	damage = 45
 	armor_penetration = 15
+=======
+/obj/item/projectile/bullet/pistol/strong //revolvers and matebas
+	damage = 60
+>>>>>>> origin
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -330,6 +335,7 @@
 	icon_state = "heavygauss"
 	damage = 30
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
+<<<<<<< HEAD
 	embed = 0
 
 /obj/item/projectile/bullet/cannonball
@@ -348,3 +354,6 @@
 /obj/item/projectile/bullet/cannonball/explosive/on_impact(var/atom/A)
 	explosion(A, -1, 1, 2)
 	..()
+=======
+	embed = 0
+>>>>>>> origin

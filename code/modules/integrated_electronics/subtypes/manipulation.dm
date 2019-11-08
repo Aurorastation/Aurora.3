@@ -32,12 +32,12 @@
 	if(istype(O, /obj/item/weapon/gun))
 		var/obj/item/weapon/gun/gun = O
 		if(installed_gun)
-			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
+			user << "<span class='warning'>There's already a weapon installed.</span>"
 			return
 		user.drop_from_inventory(gun,src)
 		installed_gun = gun
 		size += gun.w_class
-		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
+		user << "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>"
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 	else
 		..()
@@ -45,12 +45,12 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
 		installed_gun.forceMove(get_turf(src))
-		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
+		user << "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>"
 		size = initial(size)
 		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 		installed_gun = null
 	else
-		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
+		user << "<span class='notice'>There's no weapon to remove from the mechanism.</span>"
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/do_work()
 	if(!installed_gun)

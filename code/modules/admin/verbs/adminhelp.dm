@@ -122,8 +122,17 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 			admin_number_present++
 			if(C.is_afk())
 				admin_number_afk++
+<<<<<<< HEAD
 			if(C.prefs.toggles & SOUND_ADMINHELP)
 				sound_to(C, 'sound/effects/adminhelp.ogg')
+=======
+			if(X.prefs.toggles & SOUND_ADMINHELP)
+<<<<<<< HEAD
+				X << 'sound/admin/bwoink.ogg'
+=======
+				sound_to(X, 'sound/effects/adminhelp.ogg')
+>>>>>>> upstream/master
+>>>>>>> origin
 
 			to_chat(C, msg)
 

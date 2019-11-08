@@ -18,7 +18,7 @@
 	if(istype(O, /obj/item/weapon/reagent_containers/glass) || istype(O,/obj/item/weapon/reagent_containers/syringe))
 
 		if(beaker)
-			to_chat(user, "\The [src] is already loaded.")
+			user << "\The [src] is already loaded."
 			return
 
 		beaker = O
@@ -33,7 +33,7 @@
 	if(istype(O, /obj/item/weapon/virusdish))
 
 		if(dish)
-			to_chat(user, "The dish tray is aleady full!")
+			user << "The dish tray is aleady full!"
 			return
 
 		dish = O

@@ -7,23 +7,23 @@
 
 /obj/item/weapon/forensics/slide/attackby(var/obj/item/weapon/W, var/mob/user)
 	if(has_swab || has_sample)
-		to_chat(user, "<span class='warning'>There is already a sample in the slide.</span>")
+		user << "<span class='warning'>There is already a sample in the slide.</span>"
 		return
 	if(istype (W, /obj/item/weapon/forensics/swab))
 		has_swab = W
 	else if(istype(W, /obj/item/weapon/sample/fibers))
 		has_sample = W
 	else
-		to_chat(user, "<span class='warning'>You don't think this will fit.</span>")
+		user << "<span class='warning'>You don't think this will fit.</span>"
 		return
-	to_chat(user, "<span class='notice'>You insert the sample into the slide.</span>")
+	user << "<span class='notice'>You insert the sample into the slide.</span>"
 	user.unEquip(W)
 	W.forceMove(src)
 	update_icon()
 
 /obj/item/weapon/forensics/slide/attack_self(var/mob/user)
 	if(has_swab || has_sample)
-		to_chat(user, "<span class='notice'>You remove \the sample from \the [src].</span>")
+		user << "<span class='notice'>You remove \the sample from \the [src].</span>"
 		if(has_swab)
 			has_swab.forceMove(get_turf(src))
 			has_swab = null

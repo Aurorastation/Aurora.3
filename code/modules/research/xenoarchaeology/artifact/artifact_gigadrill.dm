@@ -14,11 +14,11 @@
 	if(active)
 		active = 0
 		icon_state = "gigadrill"
-		to_chat(user, "<span class='notice'>You press a button and [src] slowly spins down.</span>")
+		user << "<span class='notice'>You press a button and [src] slowly spins down.</span>"
 	else
 		active = 1
 		icon_state = "gigadrill_mov"
-		to_chat(user, "<span class='notice'>You press a button and [src] shudders to life.</span>")
+		user << "<span class='notice'>You press a button and [src] shudders to life.</span>"
 
 /obj/machinery/giga_drill/Collide(atom/A)
 	. = ..()

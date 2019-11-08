@@ -17,17 +17,29 @@
 	newscast = do_newscast
 	print = do_print
 
+<<<<<<< HEAD
 /datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
+=======
+/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/announcement.ogg', var/do_newscast = 0, var/do_print = 0)
+>>>>>>> origin
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
+<<<<<<< HEAD
 /datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
+=======
+/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/announcement.ogg', var/do_newscast = 0, var/do_print = 0)
+>>>>>>> origin
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "[current_map.boss_name] Update"
 	announcement_type = "[current_map.boss_name] Update"
 
+<<<<<<< HEAD
 /datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
+=======
+/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/announcement.ogg', var/do_newscast = 0, var/do_print = 0)
+>>>>>>> origin
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
@@ -52,6 +64,7 @@
 /datum/announcement/proc/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
+<<<<<<< HEAD
 			var/turf/T = get_turf(M)
 			if(T && isStationLevel(T.z))
 				to_chat(M, "<h2 class='alert'>[title]</h2>")
@@ -62,6 +75,14 @@
 					sound_to(M, message_sound)
 
 /datum/announcement/minor/MessageAndSound(var/message as text, var/message_title as text)
+=======
+			M << "<h2 class='alert'>[title]</h2>"
+			M << "<span class='alert'>[message]</span>"
+			if (announcer)
+				M << "<span class='alert'> -[html_encode(announcer)]</span>"
+
+datum/announcement/minor/Message(message as text, message_title as text)
+>>>>>>> origin
 	to_world("<b>[message]</b>")
 
 /datum/announcement/priority/command/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
@@ -70,10 +91,18 @@
 	if (message_title)
 		command_title += "<br><h2 class='alert'>[message_title]</h2>"
 
+<<<<<<< HEAD
 	var/command_body
 	command_body += "<br><span class='alert'>[message]</span><br>"
 	command_body += "<br>"
 	. = ..(command_body, command_title, message_sound)
+=======
+	command += "<br><span class='alert'>[message]</span><br>"
+	command += "<br>"
+	for(var/mob/M in player_list)
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
+			M << command
+>>>>>>> origin
 
 /datum/announcement/priority/security/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	to_world("<font size=4 color='red'>[message_title]</font>")
@@ -93,7 +122,28 @@
 	news.can_be_redacted = 0
 	announce_newscaster_news(news)
 
+<<<<<<< HEAD
 /datum/announcement/proc/Log(message as text, message_title as text)
+=======
+datum/announcement/proc/PlaySound(var/message_sound)
+	if(!message_sound)
+		return
+	for(var/mob/M in player_list)
+		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
+			M << message_sound
+
+datum/announcement/proc/Sound(var/message_sound)
+	PlaySound(message_sound)
+
+datum/announcement/priority/Sound(var/message_sound)
+	if(message_sound)
+		to_world(message_sound)
+
+datum/announcement/priority/command/Sound(var/message_sound)
+	PlaySound(message_sound)
+
+datum/announcement/proc/Log(message as text, message_title as text)
+>>>>>>> origin
 	if(log)
 		log_say("[key_name(usr)] has made \a [announcement_type]: [message_title] - [message] - [announcer]",ckey=key_name(usr))
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)

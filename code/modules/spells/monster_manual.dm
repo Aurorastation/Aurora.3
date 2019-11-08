@@ -27,7 +27,7 @@
 	if(!user)
 		return
 	if(!user.is_wizard())
-		to_chat(user, "<span class='warning'>When you try to open the book, horrors pours out from among the pages!</span>")
+		user <<"<span class='warning'>When you try to open the book, horrors pours out from among the pages!</span>"
 		new /mob/living/simple_animal/hostile/creature(user.loc)
 		playsound(user, 'sound/magic/Summon_Karp.ogg', 100, 1)
 		return
@@ -57,13 +57,13 @@
 		temp = null
 	if(href_list["path"])
 		if(uses == 0)
-			to_chat(usr, "This book is out of uses.")
+			usr << "This book is out of uses."
 			return
 
 		var/datum/ghosttrap/ghost = get_ghost_trap("wizard familiar")
 		var path = text2path(href_list["path"])
 		if(!ispath(path))
-			to_chat(usr, "Invalid mob path in [src]. Contact a coder.")
+			usr << "Invalid mob path in [src]. Contact a coder."
 			return
 
 		if(!(path in monster))
@@ -82,8 +82,8 @@
 				else
 					F.faction = usr.faction
 					F.add_spell(new /spell/contract/return_master(usr), "const_spell_ready")
-					to_chat(F, "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
-
+					F << "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>"
+					
 		if(Adjacent(usr))
 			src.interact(usr)
 

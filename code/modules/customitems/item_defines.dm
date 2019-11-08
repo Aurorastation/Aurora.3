@@ -1182,6 +1182,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	unique = 1
 
 
+/obj/item/clothing/shoes/fluff/hikmat_shoes //Native Tajaran Foot-wear - Hikmat Rrhazkal-Jawdat - prospekt1559
+	name = "native tajaran foot-wear"
+	desc = "Native foot and leg wear worn by Tajara, completely covering the legs in wraps and the feet in native Tajaran fabric."
+	icon = 'icons/obj/custom_items/hikmat_shoes.dmi'
+	icon_state = "hikmat_shoes"
+	item_state = "hikmat_shoes"
+	species_restricted = null
+	contained_sprite = TRUE
+
+
 /obj/item/clothing/suit/storage/fluff/vira_coat //Designer Military Coat - Vira Bolivar - scheveningen
 	name = "designer military coat"
 	desc = "A dark funnel neck designer military-style dress coat, specially fitted on commission, clearly designed for a woman's figure. \
@@ -1956,7 +1966,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(broken)
-		if(I.isscrewdriver())
+		if(isscrewdriver(I))
 			if(!open)
 				open = TRUE
 				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
@@ -1966,7 +1976,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
 			playsound(user.loc, I.usesound, 50, 1)
 
-		if(I.ismultitool() && open)
+		if(ismultitool(I) && open)
 			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
 			broken = FALSE
 			update_icon()
@@ -2273,7 +2283,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "The name 'Halstere, Kalren C.' is stamped on it. An expiration date is listed on it, '2465JAN01'. A pay grade is listed beside the name. 'MAJ/O4'. A number is listed under the expiration date: '14015236810'.")
 
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/balkerina_robes //Red Armada Robes - Zorrianna Balkerina - drwago
+/obj/item/clothing/suit/storage/hooded/wintercoat/fluff/balkerina_robes //Red Armada Robes - Zorrianna Balkerina - queenofyugoslavia
 	name = "red armada robes"
 	desc = "Deep red robes belonging to a Consortium Magister. A curious symbol is displayed on the black tabard down it's front."
 	icon = 'icons/obj/custom_items/balkerina_robes.dmi'
@@ -2396,9 +2406,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "stainless [material.display_name] [initial(name)]"
 
 
-/obj/item/sign/fluff/tokash_sign //Shark Jaw Trophy - Suvek Tokash - evandorf
-	name = "shark jaw trophy"
-	desc = "A pair of jaws from what must have been a large and impressive shark."
+/obj/item/sign/fluff/tokash_sign //Tokash Ancestral Spear - Suvek Tokash - evandorf
+	name = "ancestral spear"
+	desc = "This spear is clearly very old but well cared for."
 	icon_state = "tokash_sign"
 	sign_state = "tokash_sign"
 	w_class = 2
@@ -2493,7 +2503,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aavs_mask"
 	item_state = "aavs_mask"
 	contained_sprite = TRUE
-	flags_inv = HIDEEARS|HIDEFACE|BLOCKHAIR
+	flags_inv = HIDEEARS|HIDEFACE|BLOCKHEADHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
 
@@ -2531,7 +2541,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - drwago
+/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - queenofyugoslavia
 	name = "dark clothes"
 	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -2586,7 +2596,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 	update_clothing_icon()
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - drwago
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - queenofyugoslavia
 	name = "junior alchemist robes"
 	desc = "A  robe with a light silky gold colored belt around the waist. Placed upon the print is two red jewels pinned to it neatly."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -2596,7 +2606,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_closed = "mira_robes"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - drwago
+/obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - queenofyugoslavia
 	name = "dark boots"
 	desc = "A pair of black boots with tall laces."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -2604,7 +2614,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_boots"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - drwago
+/obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - queenofyugoslavia
 	name = "suspended skirt"
 	desc = "A plaid skirt with suspenders, sewed into the side is the initials \"M.A.\"."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -2612,19 +2622,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_skirt"
 	contained_sprite = TRUE
 
-/obj/item/weapon/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - drwago
+/obj/item/weapon/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - queenofyugoslavia
 	name = "alchemist flask"
 	desc = "A large bottle used to mix chemicals inside."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_beaker"
 
-/obj/item/weapon/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - drwago
+/obj/item/weapon/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - queenofyugoslavia
 	name = "burlap bag"
-	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"."
+	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"." //Alchemist Flask - Mira Akhandi - queenofyugoslavia
 	icon_state = "giftbag0"
 	item_state = "giftbag0"
 
-/obj/item/clothing/suit/fluff/mira_vest //Cut-off Vest - Mira Akhandi - drwago
+/obj/item/clothing/suit/fluff/mira_vest //Cut-off Vest - Mira Akhandi - queenofyugoslavia
 	name = "cut-off vest"
 	desc = "A short grey puffer vest."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -2639,7 +2649,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "qrqil_cane"
 	item_state = "qrqil_cane"
 	contained_sprite = TRUE
-	w_class = 2
 	var/active = FALSE
 
 /obj/item/weapon/cane/fluff/qrqil_cane/attack_self(mob/user)
@@ -2648,11 +2657,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 		item_state = icon_state
-		w_class = 4
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now de-energised..</span>")
-		w_class = initial(w_class)
 
 	update_icon()
 	user.update_inv_l_hand(FALSE)
@@ -2664,6 +2671,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = icon_state
 	else
 		icon_state = initial(icon_state)
+<<<<<<< HEAD
 		item_state = icon_state
 
 
@@ -3159,3 +3167,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
 		qdel(src)
 		return
+=======
+		item_state = icon_state
+>>>>>>> origin

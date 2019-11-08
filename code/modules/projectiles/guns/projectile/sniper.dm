@@ -41,24 +41,24 @@
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
-			to_chat(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
+			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
 			chambered.forceMove(get_turf(src))
 			loaded -= chambered
 			chambered = null
 		else
-			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
+			user << "<span class='notice'>You work the bolt open.</span>"
 	else
-		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
+		user << "<span class='notice'>You work the bolt closed.</span>"
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()
 
 /obj/item/weapon/gun/projectile/heavysniper/special_check(mob/user)
 	if(bolt_open)
-		to_chat(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
+		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing the rifle!</span>")
+		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
 		return 0
 	return ..()
 
@@ -80,7 +80,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
 /obj/item/weapon/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
@@ -94,7 +94,15 @@
 	caliber = "PPS"
 	recoil = 1
 	silenced = 1
+<<<<<<< HEAD
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+=======
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	handle_casings = HOLD_CASINGS
+	load_method = SINGLE_CASING
+	magazine_type = null
+	allowed_magazines = list(/obj/item/ammo_magazine/tranq)
+>>>>>>> origin
 	max_shells = 4
 	ammo_type = null
 	accuracy = -3
@@ -156,7 +164,7 @@
 
 /obj/item/weapon/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing the rifle!</span>")
+		user << "<span class='warning'>You can't fire without stabilizing the rifle!</span>"
 		return 0
 	return ..()
 
@@ -168,7 +176,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
 /obj/item/weapon/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
@@ -206,7 +214,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		usr << "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>"
 
 /obj/item/weapon/gun/projectile/automatic/rifle/w556/update_icon()
 	if(wielded)

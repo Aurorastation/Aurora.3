@@ -13,9 +13,9 @@
 		return 1
 	if(feedback)
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
-			to_chat(src, "Where do you intend to put \the [food]? You don't have a mouth!")
+			src << "Where do you intend to put \the [food]? You don't have a mouth!"
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(src, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			src << "<span class='warning'>\The [status[2]] is in the way!</span>"
 	return 0
 
 /mob/living/carbon/human/can_force_feed(var/feeder, var/food, var/feedback = 1)
@@ -24,9 +24,9 @@
 		return 1
 	if(feedback)
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
-			to_chat(feeder, "Where do you intend to put \the [food]? \The [src] doesn't have a mouth!")
+			feeder << "Where do you intend to put \the [food]? \The [src] doesn't have a mouth!"
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(feeder, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			feeder << "<span class='warning'>\The [status[2]] is in the way!</span>"
 	return 0
 
 /mob/living/carbon/human/proc/can_eat_status()

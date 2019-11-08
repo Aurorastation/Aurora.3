@@ -10,6 +10,7 @@
 	var/aoe_s = 1 // aoe scale
 	var/base_damage = 0
 
+<<<<<<< HEAD
 /obj/item/projectile/kinetic/mech
 	damage = 40
 	aoe = 5
@@ -18,6 +19,9 @@
 	damage = 25
 
 /obj/item/projectile/kinetic/Collide(var/atom/A)
+=======
+/obj/item/projectile/kinetic/on_impact(var/atom/A,var/aoe_scale = 1, var/damage_scale = 1)
+>>>>>>> origin
 	var/turf/target_turf = get_turf(A)
 	if(!target_turf)
 		target_turf = get_turf(src)

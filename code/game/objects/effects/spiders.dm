@@ -25,7 +25,7 @@
 
 	var/damage = W.force / 4.0
 
-	if(W.iswelder())
+	if(iswelder(W))
 		var/obj/item/weapon/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
@@ -64,7 +64,7 @@
 		return 1
 	else if(istype(mover, /mob/living))
 		if(prob(50))
-			to_chat(mover, "<span class='warning'>You get stuck in \the [src] for a moment.</span>")
+			mover << "<span class='warning'>You get stuck in \the [src] for a moment.</span>"
 			return 0
 	else if(istype(mover, /obj/item/projectile))
 		return prob(30)
