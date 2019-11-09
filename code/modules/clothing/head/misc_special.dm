@@ -137,20 +137,6 @@
 	update_clothing_icon()
 
 /*
- * Pumpkin head
- */
-/obj/item/clothing/head/pumpkinhead
-	name = "carved pumpkin"
-	desc = "A jack o' lantern! Believed to ward off evil spirits."
-	icon_state = "hardhat0_pumpkin"//Could stand to be renamed
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-	brightness_on = 2
-	light_overlay = "helmet_light"
-	w_class = 3
-	drop_sound = 'sound/items/drop/herb.ogg'
-
-/*
  * Kitty ears
  */
 /obj/item/clothing/head/kitty
