@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fix raiders/heisters not spawning with editable agent IDs."
+  - bugfix: "Fix the Einstein Engines ID not showing up, for real this time."

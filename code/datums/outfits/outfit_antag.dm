@@ -223,7 +223,7 @@
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/weapon/storage/wallet/W = H.wear_id
-	var/obj/item/weapon/card/id/raider/id = new(H)
+	var/obj/item/weapon/card/id/syndicate/raider/id = new(H)
 	id.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(id)
