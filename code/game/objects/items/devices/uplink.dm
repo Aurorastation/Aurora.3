@@ -51,6 +51,12 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	var/active = 0
 	var/datum/uplink_category/category 	= 0		// The current category we are in
 	var/exploit_id								// Id of the current exploit record we are viewing
+	// Messaging stuff.
+	var/list/messages = list()
+	var/list/conversations = list()
+	var/uplink_type
+	var/active_conversation = null
+	var/last_text
 
 
 // The hidden uplink MUST be inside an obj/item's contents.
@@ -61,6 +67,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	..()
 	nanoui_data = list()
 	update_nano_data()
+	if(uplink_owner.special_role == "Syndicate Commander")
+		uplink_type = "Commander"
+	else if(uplink_owner.faction == "syndicate")
+		uplink_type = "Operative"
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
@@ -91,6 +101,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	data["welcome"] = welcome
 	data["crystals"] = uses
 	data["menu"] = nanoui_menu
+	data["commanders"] = list()
+	for(var/datum/mind/cmdr in get_antags("commander"))
+		data["commanders"] += cmdr
+
 	data += nanoui_data
 
 	// update the ui if it exists, returns null if no ui is passed/found
@@ -142,6 +156,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		nanoui_data["contracts_view"] = text2num(href_list["contract_view"])
 		nanoui_data["contracts_current_page"] = 1
 		update_nano_data()
+
+	if(href_list["Message"])
+		var/obj/item/device/uplink/hidden/U = locate(href_list["target"])
+		src.create_message(usr, U)
 
 	update_nano_data()
 	return 1
@@ -256,7 +274,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 				nanoui_data["contracts_found"] = 1
 
-	if(nanoui_menu == 31)
+	else if(nanoui_menu == 31)
 		nanoui_data["contracts_found"] = 0
 
 		establish_db_connection(dbcon)
@@ -298,6 +316,97 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				contract["reward_other"] = select_query.item[6]
 
 				nanoui_data["contract"] = contract
+
+	else if(nanoui_menu == 4)
+		var/list/signals = list()
+		var/list/convos = list()
+		var/comm_type
+
+		for(var/obj/item/device/uplink/hidden/U in world_uplinks)
+			if(!istype(U) || U == src)
+				continue
+
+			if(istype(U.loc, /obj/item/device/pda))
+				comm_type = "PDA"
+			else if(istype(U.loc, /obj/item/device/radio/headset))
+				comm_type = "Headset"
+			else if (istype(U.loc, /obj/machinery/computer))
+				comm_type = "Terminal"
+			else
+				comm_type = ""
+
+			if(!U.uplink_type)
+				continue
+
+			if(conversations.Find("\ref[U]"))
+				convos[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Active" = "[U.active]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
+			else
+				signals[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Active" = "[U.active]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
+
+		nanoui_data["signals"] = signals
+		nanoui_data["convos"]= convos
+		nanoui_data["signals_count"] = signals.len
+		nanoui_data["convos_count"] = convos.len
+
+	if(nanoui_menu == 41)
+		nanoui_data["messagescount"] = messages.len
+		nanoui_data["messages"] = messages
+	else
+		nanoui_data["messagescount"] = null
+		nanoui_data["messages"] = null
+
+	if(active_conversation)
+		for(var/c in messages)
+			if(c["target"] == active_conversation)
+				nanoui_data["convo_name"] = sanitize(c["owner"])
+				nanoui_data["convo_job"] = sanitize(c["job"])
+				break
+
+/obj/item/device/uplink/hidden/proc/create_message(var/mob/user, var/obj/item/device/uplink/hidden/recipient)
+	var/t = input(recipient, "Please enter message", "Uplink Communications", null) as text|null
+	t = sanitize(t)
+	t = replace_characters(t, list("&#34;" = "\""))
+
+	if (!t || !istype(recipient) || loc != user || !recipient.active)
+		return
+
+	if (last_text && world.time < last_text + 5)
+		return
+
+	if(use_check_and_message(recipient))
+		return
+
+	last_text = world.time
+
+	messages.Add(list(list("sent" = 1, "owner" = "[recipient.uplink_owner.name]", "job" = "[recipient.uplink_type]", "message" = "[t]", "target" = "\ref[recipient]")))
+	recipient.messages.Add(list(list("sent" = 0, "owner" = "[recipient.uplink_owner.name]", "job" = "[uplink_type]", "message" = "[t]", "target" = "\ref[src]")))
+	for(var/mob/M in player_list)
+		if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS)) // src.client is so that ghosts don't have to listen to rats
+			if(istype(M, /mob/abstract/new_player))
+				continue
+			M.show_message("<span class='game say'>Syndicate Uplink - <span class='name'>[uplink_type] [uplink_owner.name]</span> -> <span class='name'>[uplink_type] [recipient.uplink_owner.name]</span>: <span class='message'>[t]</span></span>")
+
+	if(!conversations.Find("\ref[recipient]"))
+		conversations.Add("\ref[recipient]")
+	if(!recipient.conversations.Find("\ref[src]"))
+		recipient.conversations.Add("\ref[src]")
+
+	recipient.receive_message(src, t)
+	SSnanoui.update_user_uis(usr, src)
+
+/obj/item/device/uplink/hidden/proc/receive_message(var/obj/item/device/uplink/hidden/sender, message)
+	var/reception_message = "\icon[src] <b>Uplink Message from [sender.uplink_type] [sender.uplink_owner.name], </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sender]'>Reply</a>)"
+	var/mob/living/L = null
+	if(uplink_owner.find_syndicate_uplink() == src)
+		L = uplink_owner
+
+	if(L)
+		if(active)
+			playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
+			to_chat(L, reception_message)
+		else
+			to_chat(L, "Your uplink rattles almost imperceptibly for a moment.")
+		SSnanoui.update_user_uis(L, src)
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.

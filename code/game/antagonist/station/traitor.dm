@@ -13,6 +13,15 @@ var/datum/antagonist/traitor/traitors
 	..()
 	traitors = src
 
+/datum/antagonist/traitor/greet(var/datum/mind/player)
+	if(!get_antags("commander"))
+		..()
+	else
+		to_chat(player.current, "<span class='danger'><font size=3>You are a Syndicate Operative!</font></span>")
+		to_chat(player.current, "<span class='notice'>You are a recently activated sleeper agent for a criminal syndicate working against corporate interests. You answer to the Syndicate Commander, who can be reached via your uplink.</span>")
+
+		return 1
+
 /datum/antagonist/traitor/get_extra_panel_options(var/datum/mind/player)
 	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
 
@@ -88,7 +97,7 @@ var/datum/antagonist/traitor/traitors
 		if(isrobot(traitor_mob))
 			var/mob/living/silicon/robot/R = traitor_mob
 			R.overclockavailable = 1
-			R.emagged = 1		
+			R.emagged = 1
 			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
 			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
 		return 1
@@ -156,6 +165,8 @@ var/datum/antagonist/traitor/traitors
 				freq += 1
 		freq = freqlist[rand(1, freqlist.len)]
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		if(T && get_antags("commander"))
+			T.uses = 10 // Commander mode = reduced individual resources
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
@@ -165,6 +176,8 @@ var/datum/antagonist/traitor/traitors
 		// generate a passcode if the uplink is hidden in a PDA
 		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		if(T && get_antags("commander"))
+			T.uses = 10 // Commander mode = reduced individual resources
 		R.hidden_uplink = T
 		var/obj/item/device/pda/P = R
 		P.lock_code = pda_pass

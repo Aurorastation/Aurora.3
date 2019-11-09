@@ -95,7 +95,7 @@
 	name = "Syndicate Commander"
 
 	belt = /obj/item/weapon/storage/belt/military/syndicate
-	r_pocket = /obj/item/device/radio/uplink
+	r_pocket = /obj/item/device/pda/syndicate
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/a50 = 2
@@ -111,6 +111,13 @@
 
 	id_access = "Syndicate Commander"
 
+/datum/outfit/admin/syndicate/officer/commander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/device/pda/syndicate/U = H.r_store
+	U.owner = H.real_name
 /datum/outfit/admin/syndicate/spy
 	name = "Syndicate Spy"
 	uniform = /obj/item/clothing/under/suit_jacket/really_black

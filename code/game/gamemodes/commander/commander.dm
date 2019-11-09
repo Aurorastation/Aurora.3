@@ -14,5 +14,5 @@
 	required_players = 0 // 15?
 	required_enemies = 1 // should be 4
 	end_on_antag_death = 1
-	antag_tags = list(MODE_COMMANDER, MODE_OPERATIVE)
+	antag_tags = list(MODE_COMMANDER, MODE_TRAITOR)
 	antag_scaling_coeff = 8
