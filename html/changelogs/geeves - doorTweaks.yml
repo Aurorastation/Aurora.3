@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Harm intent clicking on a powered down and bolted airlock with a hammer or fireaxe will now attack it instead of giving the bolt message."
