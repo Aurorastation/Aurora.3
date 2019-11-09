@@ -44,6 +44,7 @@
 			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
 		update_icon()
+		update_clothing_icon()
 		START_PROCESSING(SSprocessing, src)
 
 /obj/item/weapon/flame/candle/process()
