@@ -1,0 +1,7 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed alternate utility belt not starting with tools when selected from loadout."
+  - tweak: "Alternate utility belt is now free to select."
