@@ -44,6 +44,9 @@
 		"picnicarea" = new /datum/holodeck_program(/area/holodeck/source_picnicarea,
 			list('sound/music/title2.ogg')
 		),
+		"dininghall" = new /datum/holodeck_program(/area/holodeck/source_dininghall,
+			list('sound/music/title2.ogg')
+		),
 		"theatre" = new /datum/holodeck_program(/area/holodeck/source_theatre),
 		"meetinghall" = new /datum/holodeck_program(/area/holodeck/source_meetinghall),
 		"courtroom" = new /datum/holodeck_program(/area/holodeck/source_courtroom, 
@@ -79,6 +82,7 @@
 		"Desert"            = "desert",
 		"Space"             = "space",
 		"Picnic Area"       = "picnicarea",
+		"Dining Hall"       = "dininghall",
 		"Snow Field"        = "snowfield",
 		"Theatre"           = "theatre",
 		"Meeting Hall"      = "meetinghall",
