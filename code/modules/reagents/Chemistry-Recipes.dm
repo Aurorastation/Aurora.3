@@ -1350,7 +1350,9 @@
 		/mob/living/simple_animal/hostile/greatwormking,
 		/mob/living/simple_animal/hostile/krampus,
 		/mob/living/simple_animal/hostile/gift,
-		/mob/living/simple_animal/hostile/hivebotbeacon
+		/mob/living/simple_animal/hostile/hivebotbeacon,
+		/mob/living/simple_animal/hostile/republicon,
+		/mob/living/simple_animal/hostile/republicon/ranged
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
@@ -1379,7 +1381,41 @@
 	required = /obj/item/slime_extract/silver
 
 /datum/chemical_reaction/slime/bork/on_reaction(var/datum/reagents/holder)
-	var/list/borks = typesof(/obj/item/weapon/reagent_containers/food/snacks) - /obj/item/weapon/reagent_containers/food/snacks
+	var/list/blocked = list(
+	/obj/item/weapon/reagent_containers/food/snacks,
+	/obj/item/weapon/reagent_containers/food/snacks/meat/undead,
+	/obj/item/weapon/reagent_containers/food/snacks/meatbreadslice,
+	/obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice,
+	/obj/item/weapon/reagent_containers/food/snacks/bananabreadslice,
+	/obj/item/weapon/reagent_containers/food/snacks/tofubreadslice,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/brain,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/cheese,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/plain,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lime,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lemon,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/chocolate,
+	/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday,
+	/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,
+	/obj/item/weapon/reagent_containers/food/snacks/breadslice,
+	/obj/item/weapon/reagent_containers/food/snacks/sliceable/creamcheesebread,
+	/obj/item/weapon/reagent_containers/food/snacks/creamcheesebreadslice,
+	/obj/item/weapon/reagent_containers/food/snacks/watermelonslice,
+	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/apple,
+	/obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice,
+	/obj/item/weapon/reagent_containers/food/snacks/keylimepieslice,
+	/obj/item/weapon/reagent_containers/food/snacks/quicheslice,
+	/obj/item/weapon/reagent_containers/food/snacks/browniesslice,
+	/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice,
+	/obj/item/weapon/reagent_containers/food/snacks/margheritaslice,
+	/obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice,
+	/obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice,
+	/obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice,
+	/obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	)
+	var/list/borks = typesof(/obj/item/weapon/reagent_containers/food/snacks) - blocked
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)

@@ -14,7 +14,6 @@
 	var/can_block_bullets = 0
 
 /obj/item/weapon/melee/energy/proc/activate(mob/living/user)
-	anchored = 1
 	if(active)
 		return
 	active = 1
@@ -26,7 +25,6 @@
 	playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 
 /obj/item/weapon/melee/energy/proc/deactivate(mob/living/user)
-	anchored = 0
 	if(!active)
 		return
 	playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
@@ -259,12 +257,18 @@
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
 
+	slot_flags = SLOT_BELT
+
 	base_reflectchance = 60
 	base_block_chance = 60
 
 /obj/item/weapon/melee/energy/sword/pirate/activate(mob/living/user)
 	..()
 	icon_state = "cutlass1"
+
+/obj/item/weapon/melee/energy/sword/pirate/generic
+	desc = "An energy with a curved output, useful for defense and intimidation."
+	active_force = 20 // 20 damage per hit, seems more balanced for what it can do
 
 /obj/item/weapon/melee/energy/sword/knife
 	name = "energy utility knife"

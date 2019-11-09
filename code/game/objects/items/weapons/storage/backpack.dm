@@ -112,6 +112,10 @@
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
 	icon_state = "cultpack"
 
+/obj/item/weapon/storage/backpack/cultpack/adorned
+	name = "adorned backpack"
+	desc = "A backpack adorned with various decorations."
+
 /obj/item/weapon/storage/backpack/clown
 	name = "Giggles von Honkerton"
 	desc = "It's a backpack made by Honk! Co."
