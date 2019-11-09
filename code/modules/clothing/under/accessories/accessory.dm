@@ -223,6 +223,7 @@
 /obj/item/clothing/accessory/rosary
 	name = "rosary"
 	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
+	icon = 'icons/obj/clothing/chaplain.dmi'
 	icon_state = "rosary"
 	overlay_state = "rosary"
 	flippable = 1
