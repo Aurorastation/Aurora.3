@@ -143,6 +143,7 @@
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
+		pref.update_preview_icon()
 		return TOPIC_REFRESH
 
 	else if(href_list["age"])
