@@ -443,7 +443,7 @@
 	deactivate_string = "Deactivate Thrusters"
 
 	interface_name = "maneuvering jets"
-	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
+	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
 
 	var/obj/item/weapon/tank/jetpack/rig/jets
 
@@ -776,7 +776,7 @@
 	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
 	var/turf/T = get_turf(holder.wearer)
 	if(istype(T, /turf/simulated))
-		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
+		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall))
 			T.ChangeTurf(T.baseturf)
 		else
 			T.ChangeTurf(/turf/space)

@@ -71,6 +71,9 @@
 	else
 		return ..()
 
+/mob/living/simple_animal/hostile/retaliate/malf_drone/isSynthetic()
+	return TRUE
+
 //self repair systems have a chance to bring the drone back to life
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Life()
 

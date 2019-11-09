@@ -9582,28 +9582,28 @@
 /turf/simulated/open,
 /area/turbolift/main_arrivals_aux)
 "rx" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod1/station)
 "ry" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod1/station)
 "rz" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod2/station)
 "rA" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod2/station)
 "rB" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod3/station)
 "rC" = (
 /obj/structure/window/shuttle,
 /obj/structure/grille,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/shuttle/escape_pod3/station)
 "rD" = (
 /turf/unsimulated/floor/asteroid/ash,
@@ -9675,7 +9675,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_1_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "rL" = (
 /obj/structure/bed/chair{
@@ -9694,7 +9694,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_2_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "rM" = (
 /obj/structure/bed/chair{
@@ -9713,7 +9713,7 @@
 	pixel_y = 0;
 	tag_door = "escape_pod_3_hatch"
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "rN" = (
 /obj/structure/table/standard,
@@ -9786,7 +9786,7 @@
 	c_tag = "Bridge - Pod 1";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "rX" = (
 /obj/structure/bed/chair{
@@ -9804,7 +9804,7 @@
 	c_tag = "Bridge - Pod 2";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "rY" = (
 /obj/structure/bed/chair{
@@ -9822,7 +9822,7 @@
 	c_tag = "Bridge - Pod 3";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "rZ" = (
 /obj/structure/grille,
@@ -9951,10 +9951,7 @@
 /area/crew_quarters/sleep/cryo)
 "so" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod1/station)
 "sp" = (
 /obj/machinery/door/airlock/external{
@@ -9965,14 +9962,11 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod1/station)
 "sq" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod2/station)
 "sr" = (
 /obj/machinery/door/airlock/external{
@@ -9983,14 +9977,11 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod2/station)
 "ss" = (
 /obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/shuttle/wall{
-	icon_state = "swall";
-	dir = 1
-	},
+/turf/simulated/wall/shuttle/cardinal,
 /area/shuttle/escape_pod3/station)
 "st" = (
 /obj/machinery/door/airlock/external{
@@ -10001,7 +9992,7 @@
 	name = "Escape Pod Hatch";
 	req_access = list(13)
 	},
-/turf/simulated/shuttle/floor,
+/turf/simulated/floor/shuttle,
 /area/shuttle/escape_pod3/station)
 "su" = (
 /obj/structure/grille,
@@ -20449,7 +20440,7 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "Qd" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/shuttle/research/station)
 "Qf" = (
 /obj/structure/table/standard,

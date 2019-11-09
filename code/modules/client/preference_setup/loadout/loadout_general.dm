@@ -20,7 +20,7 @@
 
 /datum/gear/holder
 	display_name = "card holder"
-	path = /obj/item/weapon/deck/holder
+	path = /obj/item/weapon/storage/card
 
 /datum/gear/cardemon_pack
 	display_name = "cardemon booster pack"

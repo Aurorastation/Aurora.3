@@ -27,7 +27,7 @@
 
 
 /obj/machinery/computer/aiupload/attackby(obj/item/weapon/O as obj, mob/user as mob)
-	if (!src.z in current_map.station_levels)
+	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
 		return
 	if(istype(O, /obj/item/weapon/aiModule))
@@ -68,7 +68,7 @@
 
 
 /obj/machinery/computer/borgupload/attackby(obj/item/weapon/aiModule/module as obj, mob/user as mob)
-	if (!src.z in current_map.station_levels)
+	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
 		return
 	if(istype(module, /obj/item/weapon/aiModule))
