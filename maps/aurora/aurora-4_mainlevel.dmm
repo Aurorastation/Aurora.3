@@ -66788,7 +66788,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "nvL" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/hologram/holopad/nopower,
 /turf/simulated/floor/holofloor/reinforced,
 /area/holodeck/alphadeck)
 "nzx" = (

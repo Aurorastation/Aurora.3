@@ -323,6 +323,47 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 				clear_holo(user)
 	return 1
 
+/obj/machinery/hologram/holopad/nopower
+	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a nuclear power source."
+
+	power_per_hologram = 0
+	idle_power_usage = 0
+
+/obj/machinery/hologram/holopad/nopower/activate_holo(mob/living/silicon/ai/user)
+	if(user.eyeobj.loc == src.loc)//If the projector has power and client eye is on it
+		if (user.holo)
+			to_chat(user, "<span class='danger'>ERROR:</span> Image feed in progress.")
+			return
+		create_holo(user)//Create one.
+		if(hacked == 0)
+			src.visible_message("A holographic image of [user] flicks to life right before your eyes!")
+	else
+		to_chat(user, "<span class='danger'>ERROR:</span> Unable to project hologram.")
+	return
+
+/obj/machinery/hologram/holopad/nopower/machinery_process()
+	for (var/mob/living/silicon/ai/master in masters)
+		var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)
+		if(!active_ai)
+			clear_holo(master)
+			continue
+
+		if(!(masters[master] in view(src)))
+			clear_holo(master)
+			continue
+	if(last_request + 200 < world.time && incoming_connection==1)
+		incoming_connection = 0
+		end_call()
+		if(sourcepad)
+			sourcepad.audible_message("<i><span class='game say'>The holopad connection timed out</span></i>")
+			sourcepad = 0
+	if (caller_id && sourcepad)
+		if(caller_id.loc != sourcepad.loc)
+			sourcepad.visible_message("Severing connection to distant holopad.")
+			visible_message("The connection has been terminated by [caller_id].")
+			end_call()
+	return 1
+
 /*
  * Hologram
  */
