@@ -85,17 +85,6 @@
 	icon_state = "utilitybelt_alt"
 	item_state = "utility_alt"
 
-/obj/item/weapon/storage/belt/utility/alt/full
-	starts_with = list(
-		/obj/item/weapon/screwdriver = 1,
-		/obj/item/weapon/wrench = 1,
-		/obj/item/weapon/weldingtool = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/weapon/powerdrill = 1
-	)
-
 /obj/item/weapon/storage/belt/medical
 	name = "medical belt"
 	desc = "Can hold various medical equipment."

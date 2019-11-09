@@ -94,5 +94,5 @@
 /datum/gear/utility/toolbelt_alt
 	display_name = "tool-belt, alt"
 	cost = 0
-	path = /obj/item/weapon/storage/belt/utility/alt/full
+	path = /obj/item/weapon/storage/belt/utility/alt
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
