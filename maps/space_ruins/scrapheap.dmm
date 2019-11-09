@@ -8939,7 +8939,6 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/weapon/gun/energy/blaster,
-/obj/item/weapon/card/id/legion,
 /obj/item/weapon/shield/energy/legion,
 /obj/item/weapon/melee/whip,
 /obj/item/weapon/melee/telebaton,
@@ -10060,7 +10059,6 @@
 	icon_state = "cabinet_closed"
 	},
 /obj/item/weapon/gun/energy/blaster,
-/obj/item/weapon/card/id/legion,
 /obj/item/weapon/shield/energy/legion,
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,

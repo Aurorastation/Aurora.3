@@ -7049,7 +7049,7 @@
 /turf/simulated/shuttle/wall/dark,
 /area/shuttle/administration/centcom)
 "aqH" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -7071,12 +7071,6 @@
 /area/shuttle/administration/centcom)
 "aqK" = (
 /obj/item/modular_computer/console/preset/command,
-/turf/simulated/shuttle/floor{
-	icon_state = "floor6"
-	},
-/area/shuttle/administration/centcom)
-"aqL" = (
-/obj/machinery/computer/records/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor6"
 	},
@@ -11540,7 +11534,7 @@
 	},
 /area/centcom/control)
 "aAd" = (
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11787,7 +11781,7 @@
 	},
 /area/centcom/control)
 "aAD" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12680,7 +12674,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aCn" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -13191,11 +13185,11 @@
 	},
 /area/centcom/holding)
 "aDz" = (
-/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13259,23 +13253,18 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop";
-	pixel_x = 3;
-	pixel_y = 4
-	},
 /obj/structure/window/reinforced,
+/obj/item/weapon/paper_bin{
+	pixel_x = 1;
+	pixel_y = 9
+	},
+/obj/item/weapon/pen,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/holding)
 "aDI" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
-	pixel_x = 1;
-	pixel_y = 9
-	},
-/obj/item/weapon/pen,
 /obj/machinery/door/window/southright{
 	name = "Arrivals Processing";
 	req_access = list(101)
@@ -13919,7 +13908,6 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "aFn" = (
-/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -13927,6 +13915,7 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -13982,7 +13971,6 @@
 	},
 /area/shuttle/escape/centcom)
 "aFt" = (
-/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -13990,6 +13978,7 @@
 	icon_state = "spline_plain";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -19355,7 +19344,7 @@
 	},
 /area/centcom/spawning)
 "aQT" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21624,7 +21613,7 @@
 	},
 /area/shuttle/escape/centcom)
 "aVZ" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21829,7 +21818,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "aWz" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -24488,6 +24477,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/centcom/ferry)
+"dUY" = (
+/obj/structure/table/wood,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "dYm" = (
 /turf/space/transit/east/shuttlespace_ew6,
 /area/shuttle/distress/transit)
@@ -24993,13 +24988,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
-"iIs" = (
-/obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/ferry)
 "iKp" = (
 /obj/machinery/light{
 	dir = 8;
@@ -54987,8 +54975,8 @@ aaM
 aaM
 aaM
 hHP
-iIs
 gXE
+dUY
 otY
 hHP
 aaM
@@ -58793,7 +58781,7 @@ apV
 aqd
 aqt
 aqC
-aqL
+aqH
 aqT
 aqU
 arp
