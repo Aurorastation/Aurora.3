@@ -100,7 +100,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/hop
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/weapon/card/id/navy
 	pda = /obj/item/device/pda/heads/hop
 	backpack_contents = list(
 		/obj/item/weapon/storage/box/ids = 1

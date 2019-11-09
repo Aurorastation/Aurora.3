@@ -117,3 +117,30 @@
 	siemens_coefficient = 0.35
 	species_restricted = list("Human")
 	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/void/kataphract
+	name = "kataphract voidsuit helmet"
+	desc = "A tough plated helmet with slits for the eyes, emblazoned paint on the sides indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
+	icon = 'icons/obj/clothing/species/unathi/hats.dmi'
+	icon_override = 'icons/mob/species/unathi/helmet.dmi'
+	icon_state = "rig0-kataphract"
+	item_state = "rig0-kataphract"
+	armor = list(melee = 75, bullet = 45, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 80)
+	siemens_coefficient = 0.35
+	species_restricted = list("Unathi")
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/kataphract
+	name = "kataphract voidsuit"
+	desc = "A large suit of spaceproof armour, segmented and worked together expertly. Runic tabbard on the front and back indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
+	icon = 'icons/obj/clothing/species/unathi/suits.dmi'
+	icon_override = 'icons/mob/species/unathi/suit.dmi'
+	icon_state = "rig-kataphract"
+	item_state = "rig-kataphract"
+	slowdown = 1
+	w_class = 3
+	armor = list(melee = 75, bullet = 45, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 80)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Unathi")
+	refittable = FALSE

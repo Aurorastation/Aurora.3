@@ -122,6 +122,8 @@
 
 /obj/item/organ/brain/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/weapon/surgicaldrill))
+		if(!can_lobotomize)
+			return
 		if(!lobotomized)
 			user.visible_message("<span class='danger'>[user] drills [src] deftly with [W] into the brain!</span>")
 			lobotomize(user)

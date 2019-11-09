@@ -230,7 +230,10 @@
 	return 0
 
 /obj/machinery/lapvend/attack_hand(var/mob/user)
-	ui_interact(user)
+	if(anchored)
+		ui_interact(user)
+	else
+		to_chat(user, span("notice","[src] needs to be anchored to the floor to function!"))
 
 /obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(stat & (BROKEN | NOPOWER | MAINT))
@@ -262,9 +265,9 @@
 
 
 obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	var/obj/item/weapon/card/id/I = W.GetID()
 	// Awaiting payment state
 	if(state == 2)
+		var/obj/item/weapon/card/id/I = W.GetID()
 		if(process_payment(I,W))
 			fabricate_and_recalc_price(1)
 			if((devtype == 1) && fabricated_laptop)
@@ -284,8 +287,20 @@ obj/machinery/lapvend/attackby(obj/item/weapon/W as obj, mob/user as mob)
 			state = 3
 			return 1
 		return 0
+	else if(W.iswrench())
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		playsound(src.loc, W.usesound, 100, 1)
+		if(anchored)
+			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
+		else
+			user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
+		if(do_after(user, 20/W.toolspeed))
+			if(!src)
+				return
+			to_chat(user, span("notice","You [anchored? "un" : ""]secured \the [src]!"))
+			anchored = !anchored
+		return
 	return ..()
-
 
 // Simplified payment processing, returns 1 on success.
 /obj/machinery/lapvend/proc/process_payment(var/obj/item/weapon/card/id/I, var/obj/item/ID_container)
