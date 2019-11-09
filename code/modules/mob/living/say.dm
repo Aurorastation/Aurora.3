@@ -67,7 +67,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 /mob/living/proc/binarycheck()
 
-	if (istype(src, /mob/living/silicon/pai))
+	if (ispAI(src))
 		return
 
 	if (!ishuman(src))

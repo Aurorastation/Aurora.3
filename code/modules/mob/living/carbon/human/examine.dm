@@ -383,7 +383,7 @@
 				return istype(H.glasses, /obj/item/clothing/glasses/hud/health)
 			else
 				return 0
-	else if(istype(M, /mob/living/silicon/robot))
+	else if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		switch(hudtype)
 			if("security")

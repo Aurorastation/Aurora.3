@@ -536,7 +536,7 @@
 								if(istype(usr,/mob/living/carbon/human))
 									var/mob/living/carbon/human/U = usr
 									U.handle_regular_hud_updates()
-								if(istype(usr,/mob/living/silicon/robot))
+								if(isrobot(usr))
 									var/mob/living/silicon/robot/U = usr
 									U.handle_regular_hud_updates()
 
@@ -614,7 +614,7 @@
 				if(istype(usr,/mob/living/carbon/human))
 					var/mob/living/carbon/human/U = usr
 					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
-				if(istype(usr,/mob/living/silicon/robot))
+				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
 					R.security.comments += text("Made by [U.name] ([U.modtype] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 
@@ -646,7 +646,7 @@
 							if(istype(usr,/mob/living/carbon/human))
 								var/mob/living/carbon/human/U = usr
 								U.handle_regular_hud_updates()
-							if(istype(usr,/mob/living/silicon/robot))
+							if(isrobot(usr))
 								var/mob/living/silicon/robot/U = usr
 								U.handle_regular_hud_updates()
 

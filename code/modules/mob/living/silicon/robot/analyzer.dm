@@ -28,7 +28,7 @@
 		return
 
 	var/scan_type
-	if(istype(M, /mob/living/silicon/robot))
+	if(isrobot(M))
 		scan_type = "robot"
 	else if(istype(M, /mob/living/carbon/human))
 		scan_type = "prosthetics"

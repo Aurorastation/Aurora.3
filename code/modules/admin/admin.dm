@@ -1126,7 +1126,7 @@ proc/admin_notice(var/message, var/rights)
 		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>disabled</a></b>.<br/>"
 
 	out += "<b>All antag ids:</b>"
-	if(LAZYLEN(SSticker.mode.antag_templates)).
+	if(LAZYLEN(SSticker.mode.antag_templates))
 		for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
 			antag.update_current_antag_max()
 			out += " <a href='?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"

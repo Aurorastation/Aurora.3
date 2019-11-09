@@ -24,7 +24,7 @@
 	mod_pos = 3
 
 /obj/screen/module/Click()
-	if (!istype(usr, /mob/living/silicon/robot))
+	if (!isrobot(usr))
 		return
 
 	ASSERT(mod_pos != null)

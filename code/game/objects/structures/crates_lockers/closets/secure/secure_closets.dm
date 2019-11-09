@@ -230,7 +230,7 @@
 	if(ishuman(usr))
 		add_fingerprint(usr)
 		togglelock(usr)
-	else if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr))
+	else if(isrobot(usr) && Adjacent(usr))
 		togglelock(usr)
 	else
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")

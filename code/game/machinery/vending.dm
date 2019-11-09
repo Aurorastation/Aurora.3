@@ -516,7 +516,7 @@
 	if(usr.stat || usr.restrained())
 		return
 
-	if(href_list["remove_coin"] && !istype(usr,/mob/living/silicon))
+	if(href_list["remove_coin"] && !issilicon(usr))
 		if(!coin)
 			to_chat(usr, "There is no coin in this machine.")
 			return
@@ -544,7 +544,7 @@
 
 			if(R.price <= 0)
 				src.vend(R, usr)
-			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
+			else if(issilicon(usr)) //If the item is not free, provide feedback if a synth is trying to buy something.
 				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
 				return
 			else

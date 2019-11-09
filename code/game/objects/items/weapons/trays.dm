@@ -115,7 +115,7 @@
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("<span class='danger'>[] slams [] with the tray!</span>", user, M), 1)
 		if(prob(10))
-			if(!istype(M,/mob/living/silicon))M.Stun(rand(1,3))
+			if(!issilicon(M))M.Stun(rand(1,3))
 			M.take_organ_damage(3)
 			return
 		else
@@ -152,7 +152,7 @@
 /obj/item/weapon/tray/var/cooldown = 0	//shield bash cooldown. based on world.time
 
 /obj/item/weapon/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(user,/mob/living/silicon/robot))//safety to stop robots losing their items
+	if (isrobot(user))//safety to stop robots losing their items
 		return
 
 	if (istype(W, /obj/item/weapon/tray))//safety to prevent tray stacking

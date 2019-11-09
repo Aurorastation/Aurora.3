@@ -520,7 +520,7 @@ datum/objective/steal
 
 				for(var/obj/item/weapon/aicard/C in all_items) //Check for ai card
 					for(var/mob/living/silicon/ai/M in C)
-						if(istype(M, /mob/living/silicon/ai) && M.stat != 2) //See if any AI's are alive inside that card.
+						if(isAI(M) && M.stat != 2) //See if any AI's are alive inside that card.
 							return 1
 
 				for(var/mob/living/silicon/ai/ai in silicon_mob_list)

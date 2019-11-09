@@ -390,7 +390,7 @@
 					log_admin("[key_name_admin(usr)] has unemag'ed [R].",admin_key=key_name(usr),ckey_target=key_name(R))
 
 			if("unemagcyborgs")
-				if (istype(current, /mob/living/silicon/ai))
+				if (isAI(current))
 					var/mob/living/silicon/ai/ai = current
 					for (var/mob/living/silicon/robot/R in ai.connected_robots)
 						R.emagged = 0

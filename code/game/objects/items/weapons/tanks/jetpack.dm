@@ -19,7 +19,7 @@
 			for (var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
 				return module.jets
 	// See if we have a robot instead, and look for their jetpack.
-	else if (istype(H, /mob/living/silicon/robot))
+	else if (isrobot(H))
 		var/mob/living/silicon/robot/R = H
 		if (R.module)
 			for (var/obj/item/weapon/tank/jetpack/J in R.module.modules)

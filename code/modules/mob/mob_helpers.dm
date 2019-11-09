@@ -726,7 +726,7 @@ proc/is_blind(A)
 
 /mob/living/proc/bucklecheck(var/mob/living/user)
 	if (buckled && istype(buckled, /obj/structure))
-		if (istype(user,/mob/living/silicon/robot))
+		if (isrobot(user))
 			return 2
 		else
 			to_chat(user, "You must unbuckle the subject first")

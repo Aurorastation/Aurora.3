@@ -104,7 +104,7 @@
 	if(..())
 		return 1
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (issilicon(usr)))
 
 		if(locked && !allowed(usr))
 			return

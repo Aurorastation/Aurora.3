@@ -259,7 +259,7 @@
 
 
 /obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
-	if (istype(C, /mob/living/silicon/robot))
+	if (isrobot(C))
 		var/mob/living/silicon/robot/R = C
 		if (!user.Adjacent(R) || !Adjacent(user))
 			to_chat(user, span("danger", "You need to get closer if you want to put [C] into that charger!"))

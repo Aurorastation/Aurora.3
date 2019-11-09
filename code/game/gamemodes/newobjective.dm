@@ -1068,7 +1068,7 @@ datum
 					if(steal_target)
 						for(var/obj/item/device/aicard/C in owner.current.get_contents())
 							for(var/mob/living/silicon/ai/M in C)
-								if(istype(M, /mob/living/silicon/ai) && M.stat != 2)
+								if(isAI(M) && M.stat != 2)
 									return 1
 						for(var/mob/living/silicon/ai/M in silicon_mob_list)
 							if(istype(M.loc, /turf))

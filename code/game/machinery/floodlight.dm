@@ -63,7 +63,7 @@
 		visible_message("\The [src] shuts down.")
 
 /obj/machinery/floodlight/attack_ai(mob/user as mob)
-	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
+	if(isrobot(user) && Adjacent(user))
 		return attack_hand(user)
 
 	if(on)

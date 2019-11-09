@@ -14,7 +14,7 @@ var/const/SMARTFRIDGE_WIRE_HEATING 		= 16
 
 /datum/wires/smartfridge/CanUse(var/mob/living/L)
 	var/obj/machinery/smartfridge/S = holder
-	if(!istype(L, /mob/living/silicon))
+	if(!issilicon(L))
 		if(S.seconds_electrified)
 			if(S.shock(L, 100))
 				return 0

@@ -137,7 +137,7 @@ var/list/event_last_fired = list()
 
 		active_with_role["Any"]++
 
-		if(istype(M, /mob/living/silicon/robot))
+		if(isrobot(M))
 			var/mob/living/silicon/robot/R = M
 			if(R.module)
 				if(istype(R.module, /obj/item/weapon/robot_module/engineering))

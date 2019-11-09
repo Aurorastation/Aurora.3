@@ -46,7 +46,7 @@
 	to_chat(user, desc)
 
 	// Borgs can now check contents too.
-	if((!istype(user, /mob/living/carbon/human)) && (!istype(user, /mob/living/silicon/robot)))
+	if((!istype(user, /mob/living/carbon/human)) && (!isrobot(user)))
 		return
 
 	if(!Adjacent(user)) //Can only check the contents of ore boxes if you can physically reach them.

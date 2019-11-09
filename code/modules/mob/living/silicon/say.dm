@@ -74,7 +74,7 @@
 	if (!speaking)
 		if (istype(other, /mob/living/carbon))
 			return 1
-		if (istype(other, /mob/living/silicon))
+		if (issilicon(other))
 			return 1
 		if (istype(other, /mob/living/carbon/brain))
 			return 1

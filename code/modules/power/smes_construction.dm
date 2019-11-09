@@ -101,7 +101,7 @@
 		to_chat(usr, "<span class='warning'>Connection error: Destination Unreachable.</span>")
 
 	// Cyborgs standing next to the SMES can play with the wiring.
-	if(istype(usr, /mob/living/silicon/robot) && Adjacent(usr) && open_hatch)
+	if(isrobot(usr) && Adjacent(usr) && open_hatch)
 		wires.Interact(usr)
 
 // Proc: Initialize()

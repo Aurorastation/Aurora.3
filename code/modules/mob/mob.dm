@@ -622,7 +622,7 @@
 	if(M != usr) return
 	if(usr == src) return
 	if(!Adjacent(usr)) return
-	if(istype(M,/mob/living/silicon/ai)) return
+	if(isAI(M)) return
 	show_inv(usr)
 
 

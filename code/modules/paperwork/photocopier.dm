@@ -24,8 +24,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 /obj/machinery/photocopier/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data
-	if(data && data["isAI"] != istype(user, /mob/living/silicon))
-		data["isAI"] = istype(user, /mob/living/silicon)
+	if(data && data["isAI"] != issilicon(user))
+		data["isAI"] = issilicon(user)
 		. = data
 	if(data && !isnum(data["copies"]))
 		data["copies"] = 1
@@ -69,7 +69,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
 	else if(href_list["aipic"])
-		if(!istype(usr,/mob/living/silicon)) return
+		if(!issilicon(usr)) return
 		if(stat & (BROKEN|NOPOWER)) return
 
 		if(toner >= 5)

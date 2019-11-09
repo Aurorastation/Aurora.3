@@ -262,7 +262,7 @@ RFD Service-Class
 	number_of_modes = 5
 
 /obj/item/weapon/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
-	if(istype(user,/mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 0)
 			return
@@ -323,7 +323,7 @@ RFD Mining-Class
 
 	if(!proximity) return
 
-	if(istype(user,/mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 0)
 			return
@@ -382,7 +382,7 @@ RFD Mining-Class
 
 	if(!proximity) return
 
-	if(istype(user,/mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 0)
 			return

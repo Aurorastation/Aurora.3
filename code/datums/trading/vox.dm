@@ -74,7 +74,7 @@
 				disposition = 1000
 				hailed_vox = 1
 			specific = H.species.name
-	else if(istype(user, /mob/living/silicon))
+	else if(issilicon(user))
 		specific = "silicon"
 	if(!speech["hail_[specific][hailed_vox]"])
 		specific = "generic"

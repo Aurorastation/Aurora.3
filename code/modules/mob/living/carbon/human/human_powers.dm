@@ -61,7 +61,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/list/choices = list()
 	for(var/mob/living/M in view(1,src))
-		if(!istype(M,/mob/living/silicon) && Adjacent(M))
+		if(!issilicon(M) && Adjacent(M))
 			choices += M
 	choices -= src
 
@@ -118,7 +118,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if (!T || issilicon(T)) // Silicon targets require us to rebuild the list.
 		var/list/choices = list()
 		for(var/mob/living/M in view(max_range, src))
-			if(!istype(M,/mob/living/silicon))
+			if(!issilicon(M))
 				choices += M
 		choices -= src
 

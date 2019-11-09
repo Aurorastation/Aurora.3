@@ -23,7 +23,7 @@
 		return 0
 	if (!can_use(1, user))
 		return 0
-	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
+	if (isrobot(M))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

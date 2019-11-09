@@ -156,7 +156,7 @@ var/list/mineral_can_smooth_with = list(
 			if(P.autodrill)
 				attackby(H.r_hand,H)
 
-	else if(istype(AM,/mob/living/silicon/robot))
+	else if(isrobot(AM))
 		var/mob/living/silicon/robot/R = AM
 		if(istype(R.module_active,/obj/item/weapon/pickaxe))
 			attackby(R.module_active,R)
@@ -858,7 +858,7 @@ var/list/asteroid_floor_smooth = list(
 
 /turf/unsimulated/floor/asteroid/Entered(atom/movable/M as mob|obj)
 	..()
-	if(istype(M,/mob/living/silicon/robot))
+	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.module)
 			if(istype(R.module_state_1,/obj/item/weapon/storage/bag/ore))

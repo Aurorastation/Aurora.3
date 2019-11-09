@@ -7,7 +7,7 @@
 
 /datum/artifact_effect/celldrain/DoEffectTouch(var/mob/user)
 	if(user)
-		if(istype(user, /mob/living/silicon/robot))
+		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			for (var/obj/item/weapon/cell/D in R.contents)
 				D.charge = max(D.charge - rand() * 100, 0)

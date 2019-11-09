@@ -41,7 +41,7 @@
 	listening -= src
 
 	for (var/mob/living/M in listening)
-		if(istype(M, /mob/living/silicon) || M.binarycheck())
+		if(issilicon(M) || M.binarycheck())
 			continue
 		M.show_message("<i><span class='game say'><span class='name'>synthesised voice</span> <span class='message'>beeps, \"beep beep beep\"</span></span></i>",2)
 

@@ -66,7 +66,7 @@
 		else
 			H.gib()
 		originator.sated += 200+H.mob_size //instantly sates the originator
-	else if(istype(L,/mob/living/silicon/robot))
+	else if(isrobot(L))
 		var/mob/living/silicon/robot/R = L
 		L.visible_message(
 			"<span class='danger'>\The [src] spits [R] out with a frustrated screech after failing to swallow.</span>",

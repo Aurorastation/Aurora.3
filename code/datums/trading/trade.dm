@@ -179,7 +179,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species)
 			specific = H.species.name
-	else if(istype(user, /mob/living/silicon))
+	else if(issilicon(user))
 		specific = "silicon"
 	if(!speech["hail_[specific]"])
 		specific = "generic"

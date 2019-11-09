@@ -109,7 +109,7 @@ var/datum/vueui_module/player_panel/global_player_panel
 		if(M.real_name)
 			return M.real_name
 		return "Unknown"
-	if(istype(M, /mob/living/silicon/pai))
+	if(ispAI(M))
 		return "pAI"
 	if(istype(M, /mob/abstract/new_player))
 		return "New Player"

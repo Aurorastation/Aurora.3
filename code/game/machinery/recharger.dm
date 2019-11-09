@@ -82,7 +82,7 @@
 		update_icon()
 
 /obj/machinery/recharger/attack_hand(mob/user as mob)
-	if(istype(user,/mob/living/silicon))
+	if(issilicon(user))
 		return
 
 	add_fingerprint(user)

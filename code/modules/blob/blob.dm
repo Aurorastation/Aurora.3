@@ -67,7 +67,7 @@
 							health += rand(10,30)
 							if(health > maxHealth)
 								health = maxHealth
-				else if(istype(L, /mob/living/silicon))
+				else if(issilicon(L))
 					continue
 				else
 					L.gib()

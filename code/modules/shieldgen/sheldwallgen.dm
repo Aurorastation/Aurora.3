@@ -30,7 +30,7 @@
 	if(state != 1)
 		to_chat(user, "<span class='warning'>The shield generator needs to be firmly secured to the floor first.</span>")
 		return 1
-	if(src.locked && !istype(user, /mob/living/silicon))
+	if(src.locked && !issilicon(user))
 		to_chat(user, "<span class='warning'>The controls are locked!</span>")
 		return 1
 	if(power != 1)

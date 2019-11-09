@@ -43,10 +43,10 @@
 /obj/machinery/computer/artillerycontrol/proc/announce_and_fire(var/turf/t, var/mob/user)
 	if(!istype(t))
 		return
-	if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
+	if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (issilicon(user)))
 		if (user.stat || user.restrained()) return
 		if (src.reload < 180) return
-		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
+		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (issilicon(user)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
 			to_world(sound('sound/effects/yamato_fire.ogg'))
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)

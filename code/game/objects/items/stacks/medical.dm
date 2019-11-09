@@ -22,12 +22,12 @@ Contains:
 	var/apply_sounds
 
 /obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
-	if (!istype(M) || istype(M, /mob/living/silicon) || istype(M, /mob/living/simple_animal/spiderbot))
+	if (!istype(M) || issilicon(M) || istype(M, /mob/living/simple_animal/spiderbot))
 		to_chat(user, "<span class='warning'>\The [src] cannot be applied to [M]!</span>")
 		return 1
 
 	if ( ! (istype(user, /mob/living/carbon/human) || \
-			istype(user, /mob/living/silicon)) )
+			issilicon(user)) )
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return 1
 

@@ -129,7 +129,7 @@
 			playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
 			for(var/mob/M in range(10, src))
-				if(!M.stat && !istype(M, /mob/living/silicon/ai))\
+				if(!M.stat && !isAI(M))\
 					shake_camera(M, 3, 1)
 			qdel(src)
 			return 1

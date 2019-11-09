@@ -20,7 +20,7 @@
 			visible_message("<span class='caution'>\The [src] doesn't seem to affect [M] in any way.</span>")
 			return
 
-		if(istype(M, /mob/living/silicon/robot))
+		if(isrobot(M))
 			var/mob/living/silicon/robot/Robot = M
 			if(Robot.mmi)
 				qdel(Robot.mmi)

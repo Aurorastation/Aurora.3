@@ -195,7 +195,7 @@
 		if(mover.checkpass(PASSGLASS))
 			return !opacity
 		if(density && hashatch && mover.checkpass(PASSDOORHATCH))
-			if (istype(mover, /mob/living/silicon/pai))
+			if (ispAI(mover))
 				var/mob/living/silicon/pai/P = mover
 				if (allowed(P))
 					open_hatch(mover)

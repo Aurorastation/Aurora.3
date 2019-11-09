@@ -9,8 +9,8 @@
 	votable = 0 // temporarily disable this mode for voting
 	end_on_antag_death = 1
 
-	var/var/list/datum/mind/first_hosts = list()
-	var/var/list/assigned_hosts = list()
+	var/list/datum/mind/first_hosts = list()
+	var/list/assigned_hosts = list()
 
 /datum/game_mode/meme/announce()
 	to_world("<B>The current game mode is - Meme!</B>")
