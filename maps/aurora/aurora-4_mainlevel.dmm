@@ -66787,6 +66787,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"nvL" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/holofloor/reinforced,
+/area/holodeck/alphadeck)
 "nzx" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/weapon/material/shard/shrapnel,
@@ -98750,7 +98754,7 @@ bve
 bve
 bve
 bve
-bve
+nvL
 bve
 bve
 bve
