@@ -1,0 +1,7 @@
+author: JohnWildkins, Wowzewow, AmoryBlaine
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed wallets and lanyards, mining carts, the Einstein Engines ID, pAI cards, and the improvised sword having missing sprites."
+  - tweak: "Darker outlines and color tweaks to engineering / cargo outfits, ore + sheet snatchers, the atmos fire helmet, hardhats, and safety goggles."
