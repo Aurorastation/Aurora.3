@@ -6,8 +6,7 @@ var/global/list/robot_modules = list(
 	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
 	"Combat" 		= /obj/item/weapon/robot_module/combat,
-	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
-	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
+	"Engineering"	= /obj/item/weapon/robot_module/engineering,
 	"Custodial" 	= /obj/item/weapon/robot_module/janitor
 	)
 
@@ -349,72 +348,12 @@ var/global/list/robot_modules = list(
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/weapon/robot_module/engineering/construction
-	name = "construction robot module"
-	no_slip = 1
-
-/obj/item/weapon/robot_module/engineering/construction/New()
+/obj/item/weapon/robot_module/engineering/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/weapon/powerdrill(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
-	src.modules += new /obj/item/weapon/rfd/construction/borg(src)
-	src.modules += new /obj/item/weapon/screwdriver/robotic(src)
-	src.modules += new /obj/item/weapon/wrench/robotic(src)
-	src.modules += new /obj/item/weapon/crowbar/robotic(src)
 	src.modules += new /obj/item/weapon/weldingtool/experimental(src)
-	src.modules += new /obj/item/device/pipe_painter(src)
-	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
-	src.modules += new /obj/item/weapon/gripper(src)
-	src.modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
-	src.modules += new /obj/item/device/analyzer(src) // to check air pressure in the area
-	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
-	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
-	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky humans being entering the zone
-	src.modules += new /obj/item/weapon/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
-	src.emag = new /obj/item/weapon/gun/energy/plasmacutter/mounted(src)
-	src.malfAImodule += new /obj/item/weapon/rfd/transformer(src)
-
-	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
-	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel(40000)
-	var/datum/matter_synth/glass = new /datum/matter_synth/glass(60000)
-	var/datum/matter_synth/wire = new /datum/matter_synth/wire(60)
-	synths += metal
-	synths += plasteel
-	synths += glass
-	synths += wire
-
-	var/obj/item/stack/material/cyborg/steel/M = new (src)
-	M.synths = list(metal)
-	src.modules += M
-
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	src.modules += R
-
-	var/obj/item/stack/material/cyborg/plasteel/S = new (src)
-	S.synths = list(plasteel)
-	src.modules += S
-
-	var/obj/item/stack/material/cyborg/glass/reinforced/RG = new (src)
-	RG.synths = list(metal, glass)
-	src.modules += RG
-
-	var/obj/item/stack/tile/floor/cyborg/FT = new /obj/item/stack/tile/floor/cyborg(src) // to add floor over the metal rods lattice
-	FT.synths = list(metal)
-	src.modules += FT
-
-	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src) // Let there be light electric said and after that did cut the wire
-	C.synths = list(wire)
-	src.modules += C
-
-/obj/item/weapon/robot_module/engineering/general/New()
-	..()
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/meson(src)
-	src.modules += new /obj/item/weapon/extinguisher(src)
-	src.modules += new /obj/item/weapon/weldingtool/largetank(src)
 	src.modules += new /obj/item/weapon/screwdriver/robotic(src)
 	src.modules += new /obj/item/weapon/wrench/robotic(src)
 	src.modules += new /obj/item/weapon/crowbar/robotic(src)
@@ -422,6 +361,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool/robotic(src)
 	src.modules += new /obj/item/device/t_scanner(src)
 	src.modules += new /obj/item/device/analyzer(src)
+	src.modules += new /obj/item/weapon/powerdrill(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/weapon/gripper(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
@@ -430,6 +370,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src)
 	src.emag = new /obj/item/weapon/melee/baton/robot/arm(src)
+	src.malfAImodule += new /obj/item/weapon/rfd/transformer(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
 	var/datum/matter_synth/glass = new /datum/matter_synth/glass(40000)
