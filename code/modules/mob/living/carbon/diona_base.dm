@@ -73,7 +73,7 @@ var/list/diona_banned_languages = list(
 		apply_radiation(-2)
 		DS.stored_energy += 2
 
-	
+
 	apply_radiation(-0.5) //Radiation is gradually wasted if its not used for something
 	if(total_radiation < 0)
 		total_radiation = null
@@ -90,7 +90,7 @@ var/list/diona_banned_languages = list(
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
 			return 0
-	
+
 	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
 		consume_nutrition_from_air = !consume_nutrition_from_air
@@ -324,13 +324,13 @@ var/list/diona_banned_languages = list(
 				return
 			DS.regen_limb_progress = 0
 			diona_regen_progress(DS)
-			
+
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process!</span>")
-			
+
 			var/list/special_case = list(
 										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
 										/obj/item/organ/external/arm/right/diona = /obj/item/organ/external/hand/right/diona,
@@ -660,9 +660,6 @@ var/list/diona_banned_languages = list(
 	nutrient_organ = null
 	return ..()
 
-#undef FLASHLIGHT_STRENGTH
-#undef PDALIGHT_STRENGTH
-#undef DIONA_MAX_LIGHT
 #undef TEMP_REGEN_STOP
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE

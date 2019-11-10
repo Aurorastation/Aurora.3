@@ -76,7 +76,6 @@
 		return
 
 	if (!loc)
-		PROCLOG_WEIRD("loc is null, breaking self.")
 		stat |= BROKEN
 		return
 

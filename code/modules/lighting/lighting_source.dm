@@ -459,7 +459,5 @@
 	UNSETEMPTY(effect_str)
 	UNSETEMPTY(affecting_turfs)
 
-#undef QUEUE_UPDATE
-#undef DO_UPDATE
 #undef INTELLIGENT_UPDATE
 #undef PSEUDO_WEDGE

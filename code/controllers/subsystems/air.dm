@@ -91,7 +91,7 @@ Class Procs:
 
 /datum/controller/subsystem/air/proc/reboot()
 	set waitfor = FALSE
-	
+
 	// Stop processing while we rebuild.
 	can_fire = FALSE
 
@@ -152,7 +152,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 </span>"}, R_DEBUG)
 
 	admin_notice(span("danger", "Geometry processing completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
-	
+
 	if (simulate)
 		admin_notice(span("danger", "Settling air..."), R_DEBUG)
 
@@ -168,7 +168,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		processing_edges = active_edges.Copy()
 		processing_fires = active_fire_zones.Copy()
 		processing_hotspots = active_hotspots.Copy()
-	
+
 	var/list/curr_tiles = tiles_to_update
 	var/list/curr_defer = deferred
 	var/list/curr_edges = processing_edges
@@ -189,7 +189,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			continue
 
 		//check if the turf is self-zone-blocked
-		var/c_airblock 
+		var/c_airblock
 		ATMOS_CANPASS_TURF(c_airblock, T, T)
 		if(c_airblock & ZONE_BLOCKED)
 			deferred += T
@@ -239,9 +239,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			else if (MC_TICK_CHECK)
 				return
 			continue
-		
+
 		edge.tick()
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -257,7 +257,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
 			return
-	
+
 	while (curr_hotspot.len)
 		var/obj/fire/F = curr_hotspot[curr_hotspot.len]
 		curr_hotspot.len--
@@ -299,7 +299,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#endif
 	var/ablock
 	ATMOS_CANPASS_TURF(ablock, A, B)
-	if(ablock == BLOCKED) 
+	if(ablock == BLOCKED)
 		return BLOCKED
 	ATMOS_CANPASS_TURF(., B, A)
 	return ablock | .
@@ -340,16 +340,15 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 			merge(A.zone,B.zone)
 			return
 
-	var
-		a_to_b = get_dir(A,B)
-		b_to_a = get_dir(B,A)
+	var/a_to_b = get_dir(A,B)
+	var/b_to_a = get_dir(B,A)
 
 	if(!A.connections) A.connections = new
 	if(!B.connections) B.connections = new
 
-	if(A.connections.get(a_to_b)) 
+	if(A.connections.get(a_to_b))
 		return
-	if(B.connections.get(b_to_a)) 
+	if(B.connections.get(b_to_a))
 		return
 	if(!space)
 		if(A.zone == B.zone) return
@@ -366,7 +365,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#ifdef ZASDBG
 	ASSERT(isturf(T))
 	#endif
-	if(T.needs_air_update) 
+	if(T.needs_air_update)
 		return
 	tiles_to_update += T
 	#ifdef ZASDBG
@@ -378,7 +377,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#ifdef ZASDBG
 	ASSERT(istype(Z))
 	#endif
-	if(Z.needs_update) 
+	if(Z.needs_update)
 		return
 	zones_to_update += Z
 	Z.needs_update = 1
@@ -387,7 +386,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#ifdef ZASDBG
 	ASSERT(istype(E))
 	#endif
-	if(E.sleeping) 
+	if(E.sleeping)
 		return
 	active_edges -= E
 	E.sleeping = 1
@@ -396,7 +395,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	#ifdef ZASDBG
 	ASSERT(istype(E))
 	#endif
-	if(!E.sleeping) 
+	if(!E.sleeping)
 		return
 	active_edges += E
 	E.sleeping = 0
@@ -407,7 +406,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 /datum/controller/subsystem/air/proc/get_edge(zone/A, zone/B)
 	if(istype(B))
 		for(var/connection_edge/zone/edge in A.edges)
-			if(edge.contains_zone(B)) 
+			if(edge.contains_zone(B))
 				return edge
 		var/connection_edge/edge = new/connection_edge/zone(A,B)
 		edges += edge
@@ -415,7 +414,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return edge
 	else
 		for(var/connection_edge/unsimulated/edge in A.edges)
-			if(has_same_air(edge.B,B)) 
+			if(has_same_air(edge.B,B))
 				return edge
 		var/connection_edge/edge = new/connection_edge/unsimulated(A,B)
 		edges += edge
@@ -423,11 +422,11 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return edge
 
 /datum/controller/subsystem/air/proc/has_same_air(turf/A, turf/B)
-	if(A.oxygen != B.oxygen) 
+	if(A.oxygen != B.oxygen)
 		return 0
-	if(A.nitrogen != B.nitrogen) 
+	if(A.nitrogen != B.nitrogen)
 		return 0
-	if(A.phoron != B.phoron) 
+	if(A.phoron != B.phoron)
 		return 0
 	if(A.carbon_dioxide != B.carbon_dioxide)
 		return 0

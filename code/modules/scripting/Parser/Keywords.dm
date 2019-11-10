@@ -134,7 +134,7 @@ var/const/Represents a special statement in the code triggered by a keyword.
 				parser.NextToken()
 				if(!parser.CheckToken("(", /token/symbol))
 					return KW_FAIL
-				for() //for now parameters can be separated by whitespace - they don't need a comma in between
+				while (1) //for now parameters can be separated by whitespace - they don't need a comma in between
 					if(istype(parser.curToken, /token/symbol))
 						switch(parser.curToken.value)
 							if(",")
