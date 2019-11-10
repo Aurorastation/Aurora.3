@@ -1069,10 +1069,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
-"cb" = (
-/obj/structure/filingcabinet,
-/turf/simulated/floor/tiled,
-/area/tcommsat/computer)
 "cc" = (
 /obj/structure/table/standard,
 /obj/item/weapon/folder/yellow,
@@ -1100,10 +1096,6 @@
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/tcommsat/computer)
-"ce" = (
-/obj/machinery/computer/telecomms/traffic,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cf" = (
@@ -1157,6 +1149,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"cl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "cm" = (
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
@@ -1351,6 +1357,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"cF" = (
+/obj/machinery/power/smes/buildable{
+	charge = 5e+006;
+	input_attempt = 1;
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "cG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -1763,30 +1786,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"ds" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
-"dt" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "du" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -2051,12 +2050,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"dP" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "dQ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -3030,20 +3023,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "fH" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/turretid/stun{
+	ailock = 1;
+	check_synth = 1;
+	control_area = "\improper Telecoms Foyer";
+	desc = "A firewall prevents AIs from interacting with this device.";
+	name = "Telecoms Foyer turret control";
+	pixel_y = 29;
+	req_access = list(61)
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "fI" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -6907,19 +6896,19 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "nh" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1700;
-	id_tag = "tcoms_airlock_pump"
+/obj/machinery/door/airlock/hatch{
+	name = "Telecoms Satellite";
+	req_access = list(61)
 	},
-/obj/machinery/light/small/emergency,
-/obj/machinery/airlock_sensor{
-	frequency = 1700;
-	id_tag = "tcoms_airlock_sensor";
-	pixel_x = 0;
-	pixel_y = -25
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "ni" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7584,6 +7573,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
 /area/hallway/secondary/entry/central)
+"oS" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 2;
+	name = "Distro to Canisters";
+	target_pressure = 150
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "oT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -9139,6 +9136,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"rP" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "rQ" = (
 /obj/machinery/light{
 	dir = 8;
@@ -9161,20 +9164,22 @@
 /turf/simulated/floor/airless,
 /area/solar/fore)
 "rS" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
 	},
-/obj/structure/cable/blue{
-	icon_state = "0-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
-/obj/structure/sign/drop{
-	pixel_x = -32
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "rT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
@@ -9360,6 +9365,43 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
+"sl" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1700;
+	master_tag = "tcoms_airlock";
+	name = "exterior access button";
+	pixel_x = -27;
+	pixel_y = -26;
+	req_one_access = list(13)
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
+"sm" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "sn" = (
 /obj/structure/cryofeed,
 /obj/structure/window/reinforced{
@@ -9551,24 +9593,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"sJ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1700;
-	id_tag = "c_maint_surface_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1700;
-	id_tag = "c_maint_surface";
-	pixel_x = 0;
-	pixel_y = 29;
-	tag_airpump = "c_maint_surface_pump";
-	tag_chamber_sensor = "c_maint_surface_sensor";
-	tag_exterior_door = "c_maint_surface_outer";
-	tag_interior_door = "c_maint_surface_inner"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "sK" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/tiled/white,
@@ -10234,18 +10258,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"uh" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "ui" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -10253,35 +10265,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/central)
-"uk" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1700;
-	master_tag = "c_maint_surface";
-	name = "exterior access button";
-	pixel_x = 26;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "ul" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -10423,17 +10406,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"uG" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1700;
-	id_tag = "tcoms_airlock_pump"
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "uH" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -10538,17 +10510,6 @@
 "uO" = (
 /turf/simulated/wall,
 /area/crew_quarters/locker)
-"uP" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "uQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10626,12 +10587,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"vd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "ve" = (
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
-	name = "LETHAL TURRETS";
-	pixel_x = -32;
-	pixel_y = 0
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -10962,12 +10929,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"vN" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "vO" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -10985,6 +10946,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/tcommsat/entrance)
+"vR" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "vS" = (
 /obj/structure/cable/yellow{
@@ -11414,16 +11383,6 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"wF" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "wG" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/red/full,
@@ -11998,6 +11957,26 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/solar/starboard)
+"xE" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "xG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12022,15 +12001,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"xJ" = (
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	icon_state = "warningcorner_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "xK" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -12383,33 +12353,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/grass,
 /area/hydroponics/garden)
-"yv" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1700;
-	master_tag = "tcoms_airlock";
-	name = "interior access button";
-	pixel_x = 26;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 6
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "yw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -12976,27 +12919,18 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "zw" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1700;
-	icon_state = "door_locked";
-	id_tag = "tcoms_airlock_outer";
-	locked = 1;
-	name = "Telecoms Surface Access";
-	req_access = list(13)
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
+/area/mine/explored)
 "zx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -13008,24 +12942,36 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"zy" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
-/obj/machinery/atmospherics/pipe/zpipe/down/supply,
-/obj/structure/cable{
-	d1 = 32;
-	d2 = 2;
-	icon_state = "11-2"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/open/airless,
-/area/tcommsat/entrance)
 "zz" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"zB" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
+"zE" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecoms East Wing";
+	req_access = list(61)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/tcommsat/entrance)
 "zF" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -13394,17 +13340,12 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"Ak" = (
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+"Aj" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
 	},
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "Al" = (
 /obj/machinery/power/apc{
@@ -13508,6 +13449,23 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
+"At" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Telecoms West Wing";
+	req_access = list(61)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/tcommsat/entrance)
 "Au" = (
 /obj/structure/sign/directions/evac{
 	dir = 1;
@@ -13556,28 +13514,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"Az" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "AA" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"AB" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1700;
-	id_tag = "tcoms_airlock_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1700;
-	id_tag = "tcoms_airlock";
-	pixel_x = 0;
-	pixel_y = 29;
-	tag_airpump = "tcoms_airlock_pump";
-	tag_chamber_sensor = "tcoms_airlock_sensor";
-	tag_exterior_door = "tcoms_airlock_outer";
-	tag_interior_door = "tcoms_airlock_inner"
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "AC" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
@@ -13587,6 +13539,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"AD" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/obj/structure/sign/drop{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "AE" = (
 /obj/machinery/light{
 	dir = 2;
@@ -13618,11 +13585,22 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "AH" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
 	dir = 4
 	},
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 1;
+	name = "Distro to Canisters";
+	target_pressure = 150
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
 /turf/simulated/floor/plating,
-/area/tcommsat/entrance)
+/area/maintenance/arrivals)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -13675,22 +13653,6 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"AL" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
-"AM" = (
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	icon_state = "warningcorner_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "AN" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light,
@@ -13778,6 +13740,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"AX" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "AZ" = (
 /turf/simulated/wall,
 /area/storage/tools)
@@ -13889,6 +13863,20 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Bo" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
+/obj/machinery/atmospherics/pipe/zpipe/down/supply,
+/obj/structure/cable{
+	d1 = 32;
+	d2 = 2;
+	icon_state = "11-2"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/open/airless,
+/area/tcommsat/entrance)
 "Bp" = (
 /obj/structure/toilet{
 	dir = 4;
@@ -14044,15 +14032,6 @@
 "BJ" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/distress/station)
-"BK" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "BL" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -14549,6 +14528,16 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"CO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/atmos{
+	name = "Telecommunications Air Bypass";
+	req_access = list(61);
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "CQ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -14622,6 +14611,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"CY" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1700;
+	id_tag = "tcoms_airlock_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1700;
+	id_tag = "tcoms_airlock";
+	pixel_x = 0;
+	pixel_y = 29;
+	tag_airpump = "tcoms_airlock_pump";
+	tag_chamber_sensor = "tcoms_airlock_sensor";
+	tag_exterior_door = "tcoms_airlock_outer";
+	tag_interior_door = "tcoms_airlock_inner"
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "CZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14695,13 +14702,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Dh" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "Di" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -14766,6 +14766,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Dn" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Do" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -14839,18 +14849,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Du" = (
-/obj/machinery/porta_turret{
-	dir = 6
-	},
-/obj/effect/decal/warning_stripes,
-/obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Dv" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/supply{
 	icon_state = "down-supply";
@@ -14930,6 +14928,21 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"DE" = (
+/obj/item/device/radio/intercom{
+	broadcasting = 0;
+	listening = 1;
+	name = "Station Intercom (General)";
+	pixel_y = 20
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "DF" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -14948,6 +14961,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"DH" = (
+/obj/machinery/porta_turret{
+	dir = 10
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "DI" = (
 /obj/structure/mopbucket,
 /obj/effect/decal/cleanable/cobweb,
@@ -15717,22 +15737,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Fg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "Fh" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
@@ -15819,6 +15823,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"Fq" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Fr" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -16901,28 +16922,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"Hi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1700;
-	icon_state = "door_locked";
-	id_tag = "c_maint_surface_outer";
-	locked = 1;
-	name = "External Airlock Exterior";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "Hj" = (
 /turf/simulated/floor/tiled/ramp{
 	icon_state = "ramptop";
@@ -17161,32 +17160,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_east)
-"HE" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1700;
-	master_tag = "c_maint_surface";
-	name = "interior access button";
-	pixel_x = -27;
-	pixel_y = -26;
-	req_one_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "HF" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -17377,23 +17350,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"HX" = (
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 1;
-	name = "Distro to Canisters";
-	target_pressure = 150
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "HZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -17449,6 +17405,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/levela)
+"If" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 9
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "Ig" = (
 /obj/machinery/light,
 /obj/machinery/alarm{
@@ -17506,23 +17471,15 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"Im" = (
-/obj/machinery/power/smes/buildable{
-	charge = 5e+006;
-	input_attempt = 1;
-	input_level = 200000;
-	output_attempt = 1;
-	output_level = 200000
+"In" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 1
 	},
-/obj/structure/cable/blue{
-	icon_state = "0-4"
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/structure/cable/blue{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
+/area/mine/explored)
 "Io" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -17544,27 +17501,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"It" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Iu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/power/terminal{
+	icon_state = "term";
+	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "0-4";
+	d2 = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "Iv" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/solar/port)
@@ -17580,14 +17527,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"Iy" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1700;
-	id_tag = "c_maint_surface_pump"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "Iz" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -17612,23 +17551,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"IC" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
+"ID" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/quartermaster/loading)
 "IE" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -17654,21 +17586,12 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/central)
 "IG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "IH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -18771,21 +18694,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
-"KZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1700;
-	id_tag = "c_maint_surface_pump"
-	},
-/obj/machinery/light/small/emergency,
-/obj/machinery/airlock_sensor{
-	frequency = 1700;
-	id_tag = "c_maint_surface_sensor";
-	pixel_x = 0;
-	pixel_y = -25
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "La" = (
 /obj/structure/bed/chair/comfy/black{
 	icon_state = "chair_padding_over";
@@ -18813,20 +18721,6 @@
 /obj/item/stack/cable_coil/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
-"Lc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Le" = (
 /obj/machinery/power/solar{
 	id = "aftsolar";
@@ -18886,6 +18780,66 @@
 	icon_state = "solarpanel"
 	},
 /area/solar/starboard)
+"Lj" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1700;
+	icon_state = "door_locked";
+	id_tag = "tcoms_airlock_inner";
+	locked = 1;
+	name = "Telecoms Surface Access";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
+"Lk" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/blue{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
+"Ll" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "Lm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -18894,21 +18848,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"Lo" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+"Ln" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
+"Lp" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "Lq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -18929,31 +18893,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
-"Ls" = (
-/obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+"Lt" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
 	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
-"Lv" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecoms East Wing";
-	req_access = list(61)
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/tcommsat/entrance)
+/area/mine/explored)
 "Lx" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
 /obj/machinery/meter,
@@ -18971,6 +18924,18 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/central)
+"Lz" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "LA" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -18995,6 +18960,24 @@
 "LB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
+"LC" = (
+/obj/machinery/computer/power_monitor{
+	name = "telecoms power monitoring"
+	},
+/obj/machinery/power/sensor{
+	long_range = 1;
+	name = "Powernet Sensor - Telecommunications Grid";
+	name_tag = "Telecommunications Grid"
+	},
+/obj/structure/cable/blue{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -19089,17 +19072,6 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
-"LO" = (
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "LP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -19127,6 +19099,10 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"LR" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "LS" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -19184,24 +19160,30 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"Mc" = (
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/high{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "Md" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Me" = (
-/obj/item/device/radio/intercom{
-	broadcasting = 0;
-	listening = 1;
-	name = "Station Intercom (General)";
-	pixel_y = 20
+"Mf" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
 	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "Mh" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -19327,35 +19309,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Mv" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1700;
-	master_tag = "tcoms_airlock";
-	name = "exterior access button";
-	pixel_x = -27;
-	pixel_y = -26;
-	req_one_access = list(13)
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "Mx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -19372,6 +19325,12 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"MA" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "MB" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -19424,22 +19383,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
-"MH" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
-"MJ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 9
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "MK" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -19523,8 +19466,22 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
-"MS" = (
-/obj/effect/floor_decal/industrial/warning/dust/corner,
+"MT" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -19547,29 +19504,38 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"MX" = (
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+"MW" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1700;
+	id_tag = "c_maint_surface_pump"
 	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
-"MY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+/obj/machinery/light/small/emergency,
+/obj/machinery/airlock_sensor{
+	frequency = 1700;
+	id_tag = "c_maint_surface_sensor";
+	pixel_x = 0;
+	pixel_y = -25
 	},
-/obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
+"Na" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Nb" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -19582,12 +19548,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
-"Nc" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Nd" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -19626,15 +19586,26 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "Ni" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	tag = "icon-warning_dust (SOUTHWEST)";
-	icon_state = "warning_dust";
-	dir = 10
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
 	},
-/area/mine/explored)
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
+"Nn" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "No" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -19643,21 +19614,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"Nr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Ns" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -19678,6 +19634,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Nw" = (
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
+"Nx" = (
+/obj/structure/sign/electricshock,
+/turf/simulated/wall/r_wall,
+/area/tcommsat/entrance)
 "Ny" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -19697,6 +19675,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"ND" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "NF" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -19868,15 +19850,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"NW" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "NY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -19887,29 +19860,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
-"Oa" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
-"Oc" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecoms Satellite";
-	req_access = list(61)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor,
+"NZ" = (
+/obj/structure/filingcabinet,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
+/area/tcommsat/computer)
+"Od" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1700;
+	id_tag = "tcoms_airlock_pump"
+	},
+/turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "Oe" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -19917,6 +19882,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
+"Of" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "Oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8;
@@ -19925,6 +19894,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Oj" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "Ok" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -19977,6 +19958,33 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"Ou" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1700;
+	master_tag = "tcoms_airlock";
+	name = "interior access button";
+	pixel_x = 26;
+	pixel_y = 26;
+	req_one_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "Ov" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -20072,6 +20080,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"OK" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "OL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380;
@@ -20181,6 +20204,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
+"Pc" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tcommsat/computer)
 "Pe" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -20233,6 +20264,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Pl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Pm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -20263,6 +20309,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
+"Pr" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "Pt" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -20281,18 +20336,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"Pv" = (
-/obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light_switch{
-	pixel_x = 0;
-	pixel_y = 26
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "Pw" = (
 /obj/machinery/door/airlock/glass_science,
 /turf/simulated/floor/tiled,
@@ -20342,12 +20385,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"PF" = (
-/obj/machinery/porta_turret{
-	dir = 10
+"PG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Foyer"
 	},
-/obj/effect/decal/warning_stripes,
-/turf/simulated/floor/plating,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/turretid/lethal{
+	ailock = 1;
+	check_synth = 1;
+	control_area = "\improper Telecoms Exterior";
+	desc = "A firewall prevents AIs from interacting with this device.";
+	name = "Telecoms lethal turret control";
+	pixel_y = 29;
+	req_access = list(61)
+	},
+/turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "PI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20406,14 +20468,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
-"PM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1700;
-	id_tag = "tcoms_airlock_pump"
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "PO" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
@@ -20456,6 +20510,22 @@
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
+"PY" = (
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -20517,19 +20587,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
-"Qi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "Qk" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -20576,32 +20633,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"Qp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Foyer"
-	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/blue{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/turretid/lethal{
-	ailock = 1;
-	check_synth = 1;
-	control_area = "\improper Telecoms Exterior";
-	desc = "A firewall prevents AIs from interacting with this device.";
-	name = "Telecoms lethal turret control";
-	pixel_y = 29;
-	req_access = list(61)
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "Qq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/blue{
@@ -20627,17 +20658,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Qs" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
+"Qt" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
+	name = "LETHAL TURRETS";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "Qu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
@@ -20672,19 +20720,6 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"Qy" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	tag = "icon-warning_dust (SOUTHWEST)";
-	icon_state = "warning_dust";
-	dir = 10
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "Qz" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/simulated/floor/plating,
@@ -20732,10 +20767,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"QG" = (
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "QH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -20779,20 +20810,24 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"QN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "QO" = (
 /obj/structure/table/rack,
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
+"QP" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "QQ" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -20801,23 +20836,6 @@
 /obj/item/weapon/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
-"QT" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecoms West Wing";
-	req_access = list(61)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
-/area/tcommsat/entrance)
 "QU" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -20891,13 +20909,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Rg" = (
+/obj/machinery/porta_turret{
+	dir = 6
+	},
+/obj/effect/decal/warning_stripes,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/sign/electricshock,
-/turf/simulated/wall/r_wall,
+/turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "Rh" = (
 /obj/effect/floor_decal/corner/red/full{
@@ -21010,14 +21031,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
-"Rx" = (
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
-	name = "LETHAL TURRETS";
-	pixel_x = 32;
-	pixel_y = 0
+"Rw" = (
+/obj/machinery/computer/telecomms/traffic,
+/obj/machinery/alarm{
+	pixel_y = 22
 	},
 /turf/simulated/floor/tiled,
+/area/tcommsat/computer)
+"Ry" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1700;
+	id_tag = "tcoms_airlock_pump"
+	},
+/obj/machinery/light/small/emergency,
+/obj/machinery/airlock_sensor{
+	frequency = 1700;
+	id_tag = "tcoms_airlock_sensor";
+	pixel_x = 0;
+	pixel_y = -25
+	},
+/turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "RA" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -21130,35 +21164,21 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "RK" = (
-/obj/machinery/computer/power_monitor{
-	name = "telecoms power monitoring"
-	},
-/obj/machinery/power/sensor{
-	long_range = 1;
-	name = "Powernet Sensor - Telecommunications Grid";
-	name_tag = "Telecommunications Grid"
-	},
-/obj/structure/cable/blue{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable/blue{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
-"RN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
-/area/shuttle/research/station)
-"RP" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
+"RL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -21169,6 +21189,31 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1700;
+	icon_state = "door_locked";
+	id_tag = "c_maint_surface_inner";
+	locked = 1;
+	name = "External Airlock Interior";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
+"RN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"RP" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 6
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -21190,19 +21235,19 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "RR" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Power Room Starboard"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
-/area/mine/explored)
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "RS" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -21279,23 +21324,29 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "Sb" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/cable/blue{
-	d2 = 8;
-	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
+"Sc" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1700;
+	id_tag = "c_maint_surface_pump"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1700;
+	id_tag = "c_maint_surface";
+	pixel_x = 0;
+	pixel_y = 29;
+	tag_airpump = "c_maint_surface_pump";
+	tag_chamber_sensor = "c_maint_surface_sensor";
+	tag_exterior_door = "c_maint_surface_outer";
+	tag_interior_door = "c_maint_surface_inner"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Se" = (
 /obj/item/weapon/stool/padded,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -21308,18 +21359,13 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"Sh" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
+"Sf" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 2;
+	frequency = 1700;
+	id_tag = "c_maint_surface_pump"
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
+/obj/machinery/light/small/emergency{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -21379,6 +21425,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"Sp" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "Sq" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
@@ -21417,6 +21471,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
+"Sv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1700;
+	icon_state = "door_locked";
+	id_tag = "c_maint_surface_outer";
+	locked = 1;
+	name = "External Airlock Exterior";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Sw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -21438,6 +21514,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
+"Sz" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "SA" = (
 /obj/machinery/cryopod,
 /obj/machinery/alarm{
@@ -21445,31 +21528,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"SB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Power Room Port"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
-"SC" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "SE" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair{
@@ -21501,19 +21559,21 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "SG" = (
-/obj/machinery/camera/network/telecom{
-	c_tag = "Telecomms - Power Room Starboard"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/structure/cable/blue{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "0-4"
 	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
+/obj/machinery/power/apc/super{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/turf/simulated/floor/bluegrid{
+	name = "Mainframe Base";
+	nitrogen = 100;
+	oxygen = 0;
+	temperature = 80
+	},
+/area/tcommsat/chamber)
 "SI" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white_full";
@@ -21591,6 +21651,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"SR" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1700;
+	icon_state = "door_locked";
+	id_tag = "tcoms_airlock_outer";
+	locked = 1;
+	name = "Telecoms Surface Access";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "SS" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -21649,24 +21731,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"Tf" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "Tg" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -21688,11 +21752,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"Tj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+"Tl" = (
+/obj/structure/cable/blue{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/structure/sign/electricshock,
+/turf/simulated/wall/r_wall,
 /area/tcommsat/entrance)
 "Tm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -21716,6 +21783,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
+"Tq" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Tr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -21724,28 +21804,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Ts" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1700;
-	icon_state = "door_locked";
-	id_tag = "tcoms_airlock_inner";
-	locked = 1;
-	name = "Telecoms Surface Access";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "Tt" = (
@@ -21758,22 +21818,31 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "Tu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /obj/structure/cable{
-	d1 = 1;
+	d1 = 4;
 	d2 = 8;
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1700;
+	master_tag = "c_maint_surface";
+	name = "interior access button";
+	pixel_x = -27;
+	pixel_y = -26;
+	req_one_access = list(13)
 	},
-/area/mine/explored)
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Tv" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -21782,6 +21851,20 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Tw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "Tx" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -21808,16 +21891,13 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "TA" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1700;
-	id_tag = "c_maint_surface_pump"
-	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/area/tcommsat/entrance)
 "TB" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 1;
@@ -21836,14 +21916,8 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"TD" = (
-/obj/effect/landmark{
-	name = "carpspawn"
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
+"TF" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -21857,23 +21931,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
-"TJ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "TK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -21969,14 +22026,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "TY" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "TZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -21995,18 +22054,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"Uc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+"Ud" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
 	},
-/obj/structure/cable/blue{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Ue" = (
 /obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/tiled,
@@ -22038,6 +22092,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"Uk" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1700;
+	id_tag = "c_maint_surface_pump"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Um" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
@@ -22060,7 +22122,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"Ut" = (
+"Uu" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/port)
+"Uy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -22072,25 +22140,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1700;
-	icon_state = "door_locked";
-	id_tag = "c_maint_surface_inner";
-	locked = 1;
-	name = "External Airlock Interior";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
-"Uu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/port)
+/area/mine/explored)
 "Uz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -22209,12 +22262,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
-"UR" = (
-/obj/structure/sign/drop{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "UT" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -22317,23 +22364,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/central)
-"Vf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Vg" = (
 /obj/machinery/sleeper{
 	icon_state = "sleeper_0";
@@ -22342,14 +22372,6 @@
 /obj/effect/floor_decal/corner/lime/full,
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
-"Vh" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "Vi" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/reinforced{
@@ -22520,15 +22542,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/levela)
-"VF" = (
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	icon_state = "warningcorner_dust";
-	dir = 4
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "VH" = (
 /obj/machinery/door/airlock/command{
 	name = "Command Study";
@@ -22637,6 +22650,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/levela)
+"VS" = (
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "VT" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -22772,18 +22793,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Wh" = (
-/obj/machinery/turretid/stun{
-	ailock = 1;
-	check_synth = 1;
-	control_area = "\improper Telecoms Foyer";
-	desc = "A firewall prevents AIs from interacting with this device.";
-	name = "Telecoms Foyer turret control";
-	pixel_y = 29;
-	req_access = list(61)
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/entrance)
 "Wi" = (
 /turf/simulated/wall/r_wall,
 /area/storage/shields)
@@ -22827,6 +22836,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
+"Wp" = (
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "Wq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -22920,12 +22933,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
-"Wz" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "WA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -22967,23 +22974,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
-"WE" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/cable/blue{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "WF" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -23335,38 +23325,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
-"Xy" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "Xz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"XA" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/plating,
+/area/tcommsat/entrance)
 "XB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "XC" = (
@@ -23377,6 +23348,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
+"XD" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "XE" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -23396,20 +23371,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"XH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/atmos{
-	name = "Telecommunications Air Bypass";
-	req_access = list(61);
-	req_one_access = null
-	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
 "XI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"XJ" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "XK" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -23430,19 +23404,21 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "XM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/turf/simulated/floor/plating,
-/area/tcommsat/entrance)
+/area/mine/explored)
 "XN" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -23485,12 +23461,30 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "XS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/blue{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "XT" = (
-/obj/structure/closet/emcloset,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1700;
+	id_tag = "tcoms_airlock_pump"
+	},
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Airlock";
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "XU" = (
@@ -23658,6 +23652,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Yp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "Yr" = (
 /obj/structure/cryofeed{
 	icon_state = "cryo_rear";
@@ -23689,13 +23696,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/starboard)
-"Yy" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
+"Yx" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/area/mine/explored)
 "Yz" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -23734,6 +23740,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
+"YC" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	tag = "icon-warning_dust (SOUTHWEST)";
+	icon_state = "warning_dust";
+	dir = 10
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "YD" = (
 /obj/machinery/atm{
 	pixel_y = -32
@@ -23961,29 +23977,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"Ze" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+"Zg" = (
+/obj/structure/sign/drop{
+	pixel_x = 32
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
-"Zf" = (
-/obj/structure/cable/blue{
-	icon_state = "0-4"
+"Zi" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
 	},
-/obj/machinery/power/apc/super{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/turf/simulated/floor/bluegrid{
-	name = "Mainframe Base";
-	nitrogen = 100;
-	oxygen = 0;
-	temperature = 80
+/area/mine/explored)
+"Zj" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
+	name = "LETHAL TURRETS";
+	pixel_x = -32;
+	pixel_y = 0
 	},
-/area/tcommsat/chamber)
+/turf/simulated/floor/tiled,
+/area/tcommsat/entrance)
 "Zk" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -24006,16 +24023,6 @@
 /obj/structure/bed/chair/comfy/black,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Zo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/quartermaster/loading)
 "Zr" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -24089,10 +24096,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"ZA" = (
-/obj/structure/sign/electricshock,
-/turf/simulated/wall/r_wall,
-/area/tcommsat/entrance)
 "ZB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -24110,13 +24113,41 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
-"ZE" = (
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 2;
-	name = "Distro to Canisters";
-	target_pressure = 150
+"ZD" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1700;
+	master_tag = "c_maint_surface";
+	name = "exterior access button";
+	pixel_x = 26;
+	pixel_y = 26;
+	req_one_access = list(13)
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
+"ZE" = (
+/obj/structure/ladder{
+	icon_state = "ladder01";
+	pixel_y = 16
+	},
+/turf/simulated/open/airless,
 /area/tcommsat/entrance)
 "ZF" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -24190,11 +24221,22 @@
 	},
 /area/crew_quarters/fitness/pool)
 "ZN" = (
-/obj/structure/ladder{
-	icon_state = "ladder01";
-	pixel_y = 16
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/open/airless,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/camera/network/telecom{
+	c_tag = "Telecomms - Power Room Port"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "ZP" = (
 /obj/machinery/door/firedoor,
@@ -24217,9 +24259,22 @@
 /turf/simulated/wall,
 /area/solar/starboard)
 "ZR" = (
-/obj/machinery/atmospherics/pipe/manifold4w/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/arrivals)
+/area/tcommsat/entrance)
 "ZT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -34217,7 +34272,7 @@ bv
 bv
 mK
 vQ
-NW
+Mf
 vQ
 mK
 aS
@@ -34727,7 +34782,7 @@ cM
 de
 dB
 mK
-WE
+Ll
 mK
 mK
 YL
@@ -34981,11 +35036,11 @@ jc
 eo
 dV
 mK
-QT
+At
 mK
 mK
-Im
-LO
+cF
+Iu
 mK
 LQ
 NU
@@ -35227,7 +35282,7 @@ cN
 dj
 bh
 dV
-Zf
+SG
 ew
 fp
 ew
@@ -35237,13 +35292,13 @@ ew
 jd
 jy
 dV
-rS
-QN
+AD
 ve
+Zj
 mK
-Pv
-uP
-XH
+Lz
+TY
+CO
 PD
 mK
 tN
@@ -35494,12 +35549,12 @@ eO
 je
 eo
 dV
-Du
-QN
-QG
-mK
 Rg
-SB
+ve
+Wp
+mK
+Tl
+ZN
 mK
 mK
 mK
@@ -35735,7 +35790,7 @@ aa
 bg
 bg
 bh
-cb
+NZ
 cw
 cP
 dl
@@ -35751,15 +35806,15 @@ ew
 ew
 eo
 dV
-Ls
-QN
+vR
+ve
 mL
 mK
-Me
+DE
 nY
 mE
 mL
-mL
+XD
 ni
 Su
 nY
@@ -36008,12 +36063,12 @@ iv
 eP
 jz
 jZ
-Qp
-uh
-Uc
-Oc
-MY
-Tf
+PG
+Oj
+Az
+nh
+XS
+Nw
 mF
 mM
 mM
@@ -36266,11 +36321,11 @@ ew
 eo
 dV
 mL
-QN
+ve
 LB
 mK
-Wh
-Ls
+fH
+vR
 mE
 mN
 mL
@@ -36506,7 +36561,7 @@ UA
 bg
 bg
 bh
-ce
+Rw
 cz
 cQ
 dn
@@ -36522,19 +36577,19 @@ eO
 jf
 eo
 dV
-PF
-QN
-QG
+DH
+ve
+Wp
 mK
-ZA
-SG
+Nx
+RR
 mK
 mK
 mK
-Ak
+Mc
 nB
 mL
-mL
+Ln
 ox
 mK
 aP
@@ -36779,12 +36834,12 @@ ew
 jg
 jA
 dV
-UR
-QN
-Rx
+Zg
+ve
+Qt
 mK
 mL
-Ls
+QP
 mK
 mK
 mK
@@ -37037,11 +37092,11 @@ jh
 eo
 dV
 mK
-Lv
+zE
 mK
 mK
-RK
-MX
+LC
+VS
 mK
 mK
 aa
@@ -37297,7 +37352,7 @@ cM
 de
 dB
 mK
-Sb
+Lk
 mK
 mK
 mK
@@ -37815,9 +37870,9 @@ bv
 bv
 bg
 bg
-XT
+Of
 NU
-Lc
+cl
 NU
 mK
 UA
@@ -38072,10 +38127,10 @@ bv
 bv
 bg
 bg
-Vh
-AH
-Qu
-NU
+Sp
+rP
+Tw
+sm
 mK
 mK
 mK
@@ -38329,13 +38384,13 @@ bv
 bv
 bg
 bg
-zy
-XM
-Lo
-It
-ZE
-vN
-Ze
+Bo
+Ni
+OK
+ND
+oS
+Qs
+Nn
 mK
 UA
 UA
@@ -38586,13 +38641,13 @@ bv
 bv
 bg
 bg
-ZN
-AL
-Qu
+ZE
+IG
+Tw
 NU
 NU
-Nc
-SC
+Sb
+TA
 mK
 UA
 UA
@@ -38822,7 +38877,7 @@ bH
 ci
 ci
 cW
-bH
+Pc
 bh
 bv
 bv
@@ -38843,13 +38898,13 @@ bv
 bv
 bg
 bg
-Tj
-MH
-yv
-ds
-ds
-Wz
-Ze
+vd
+Aj
+Ou
+XA
+Ts
+MA
+Nn
 mK
 UA
 UA
@@ -39101,9 +39156,9 @@ bv
 bg
 bg
 mK
-fH
-Ts
-fH
+Qu
+Lj
+Qu
 mK
 mK
 mK
@@ -39358,9 +39413,9 @@ bg
 bg
 bg
 mK
-AB
-Nr
-PM
+CY
+RK
+XT
 mK
 UA
 UA
@@ -39615,9 +39670,9 @@ bg
 bg
 UA
 mK
-uG
-Vf
-nh
+Od
+ZR
+Ry
 mK
 UA
 UA
@@ -39872,9 +39927,9 @@ bg
 UA
 UA
 mK
-fH
-zw
-fH
+Qu
+SR
+Qu
 mK
 UA
 UA
@@ -40129,9 +40184,9 @@ UA
 UA
 UA
 UA
-MJ
-Mv
-Qy
+If
+sl
+zw
 UA
 UA
 UA
@@ -40387,8 +40442,8 @@ UA
 UA
 UA
 Xp
+MT
 RP
-TY
 UA
 UA
 UA
@@ -40644,7 +40699,7 @@ UA
 UA
 aw
 aw
-IG
+Uy
 aw
 UA
 UA
@@ -40901,7 +40956,7 @@ UA
 UA
 aw
 aw
-IG
+Uy
 aw
 aw
 UA
@@ -41158,7 +41213,7 @@ UA
 UA
 aw
 aw
-IG
+Uy
 aw
 aw
 UA
@@ -41415,7 +41470,7 @@ UA
 aw
 aw
 aw
-IG
+Uy
 aw
 aw
 UA
@@ -41672,7 +41727,7 @@ UA
 aw
 aw
 aw
-IG
+Uy
 aw
 aw
 aw
@@ -41929,7 +41984,7 @@ aa
 aw
 aw
 aw
-IG
+Uy
 aw
 aw
 aw
@@ -42186,7 +42241,7 @@ aa
 aw
 aw
 aw
-IG
+Uy
 aw
 aw
 aw
@@ -42443,7 +42498,7 @@ aw
 aw
 aw
 aw
-IG
+Uy
 aw
 aw
 aw
@@ -42700,7 +42755,7 @@ aw
 aw
 aw
 aw
-IG
+Uy
 aw
 aw
 aw
@@ -42937,9 +42992,9 @@ aa
 aa
 aa
 aw
-MJ
-Oa
-Ni
+If
+Zi
+YC
 aw
 aw
 aw
@@ -42956,9 +43011,9 @@ aw
 aw
 aw
 aw
-MJ
-dt
-Ni
+If
+xE
+YC
 aw
 aw
 aa
@@ -43194,28 +43249,28 @@ aa
 aa
 aa
 aw
-BK
-Fg
-RR
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-Qi
-TJ
-Tu
-dP
+Pr
+XM
+Lt
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Yp
+Lp
+rS
+Yx
 aw
 aa
 aa
@@ -43452,8 +43507,8 @@ aa
 aa
 aw
 Xp
+MT
 RP
-TY
 aw
 aw
 aw
@@ -43472,7 +43527,7 @@ aw
 aw
 Xp
 ZZ
-TY
+RP
 aw
 aa
 aa
@@ -43709,7 +43764,7 @@ aa
 aa
 aw
 aw
-IG
+Uy
 aw
 aa
 aa
@@ -43966,7 +44021,7 @@ aa
 aa
 aa
 aw
-IG
+Uy
 aw
 aa
 aa
@@ -44223,7 +44278,7 @@ qI
 aa
 aa
 aw
-IG
+Uy
 aw
 aa
 aa
@@ -44480,11 +44535,11 @@ aa
 aa
 aa
 aw
-IG
+Uy
 aw
 aw
 aa
-MS
+TF
 ZZ
 ZZ
 ZZ
@@ -44496,7 +44551,7 @@ ZZ
 ZZ
 ZZ
 ZZ
-VF
+zB
 aa
 aa
 aa
@@ -44737,11 +44792,11 @@ aa
 aa
 aa
 aw
-IG
+Uy
 aw
 aw
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -44754,7 +44809,7 @@ Ea
 Ea
 Ea
 Xp
-VF
+zB
 aa
 aa
 aa
@@ -44994,11 +45049,11 @@ aa
 aa
 aw
 aw
-IG
+Uy
 aw
 aw
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -45011,7 +45066,7 @@ Ea
 Ea
 Ea
 Ea
-BK
+Pr
 aa
 qI
 aa
@@ -45251,11 +45306,11 @@ aa
 aa
 aw
 aw
-IG
+Uy
 aw
 aw
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -45268,7 +45323,7 @@ Ea
 Ea
 Ea
 Ea
-BK
+Pr
 aa
 aa
 aa
@@ -45508,11 +45563,11 @@ aa
 aa
 aw
 aw
-IG
+Uy
 aw
 aa
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -45525,7 +45580,7 @@ Ea
 Ea
 Ea
 Ea
-BK
+Pr
 aw
 aw
 aw
@@ -45765,11 +45820,11 @@ aa
 aa
 aw
 aw
-IG
+Uy
 aw
 aa
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -45782,7 +45837,7 @@ Ea
 Ea
 Ea
 Ea
-BK
+Pr
 aw
 aw
 aw
@@ -46022,11 +46077,11 @@ aa
 aa
 aa
 aw
-IG
+Uy
 aw
 aa
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -46039,7 +46094,7 @@ Ea
 Ea
 Ea
 Ea
-TD
+AX
 aw
 aw
 aw
@@ -46279,11 +46334,11 @@ aa
 aa
 aw
 aw
-IG
+Uy
 aw
 aa
 aa
-dP
+Yx
 Ea
 Ea
 Ea
@@ -46295,8 +46350,8 @@ Ea
 Ea
 Ea
 Ea
-MJ
-xJ
+If
+In
 aa
 aa
 aa
@@ -46535,14 +46590,14 @@ ag
 ag
 ag
 aa
-MJ
-dt
-Ni
+If
+xE
+YC
 aa
 aa
-AM
-Oa
-Oa
+XJ
+Zi
+Zi
 EN
 Fl
 FF
@@ -46550,9 +46605,9 @@ EN
 FF
 Gz
 EN
-Oa
-Oa
-xJ
+Zi
+Zi
+In
 aa
 aa
 ag
@@ -46793,8 +46848,8 @@ ag
 ag
 aa
 Xp
-uk
-TY
+ZD
+RP
 aa
 aa
 aa
@@ -47049,9 +47104,9 @@ ag
 ag
 ag
 sU
-Sh
-Hi
-Sh
+PY
+Sv
+PY
 sU
 aa
 DW
@@ -47306,9 +47361,9 @@ ag
 ag
 ag
 sU
-TA
-Iu
-KZ
+Sf
+Na
+MW
 sU
 aa
 DW
@@ -47563,9 +47618,9 @@ ag
 ag
 ag
 sU
-sJ
-XB
-Iy
+Sc
+Pl
+Uk
 sU
 ag
 DW
@@ -47820,9 +47875,9 @@ ag
 ag
 sU
 sU
-Sh
-Ut
-Sh
+PY
+RL
+PY
 sU
 sU
 DW
@@ -48078,13 +48133,13 @@ ag
 sU
 DB
 tu
-HE
-XS
-wF
-Xy
+Tu
+XB
+Dn
+Tq
 DX
 Ef
-Zo
+ID
 ET
 Fp
 FI
@@ -48335,7 +48390,7 @@ sU
 sU
 NJ
 XG
-IC
+Fq
 XG
 NR
 NQ
@@ -48592,10 +48647,10 @@ NP
 NM
 NK
 NL
-ZR
+LR
 NN
-HX
-Yy
+AH
+Ud
 DW
 Eh
 Ek
@@ -48848,9 +48903,9 @@ sU
 HW
 sU
 sU
-Dh
-Dh
-Dh
+Sz
+Sz
+Sz
 sU
 sU
 DW
