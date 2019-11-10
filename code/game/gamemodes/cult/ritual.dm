@@ -274,7 +274,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				<h3>Communicate</h3>
 				Invoking this rune allows you to relay a message to all cultists on the station and nearby space objects.
 				<h3>Stun</h3>
-				Unlike other runes, this one is supposed to be used in talisman form. When invoked directly, it simply releases some dark energy, briefly stunning everyone around. When imbued into a talisman, you can force all of its energy into one person, stunning him so hard he can't even speak. However, effect wears off rather fast.<br>
+				When invoked directly as a rune, it releases some dark energy, briefly stunning everyone around. When imbued into a talisman, you can force some dark energy into a person, causing their eyes to flash, and their words to falter, keeping them quiet. However, the effect wears off rather fast.<br>
 				<h3>Equip Armor</h3>
 				When this rune is invoked, either from a rune or a talisman, it will equip the user with the armor of the followers of Nar-Sie. To use this rune to its fullest extent, make sure you are not wearing any form of headgear, armor, gloves or shoes, and make sure you are not holding anything in your hands.<br>
 				<h3>See Invisible</h3>
