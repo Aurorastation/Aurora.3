@@ -388,7 +388,7 @@
 	if (speech_buffer.len > 0)
 		var/who = speech_buffer[1] // Who said it?
 		var/phrase = speech_buffer[2] // What did they say?
-		if ((findtext(phrase, num2text(number)) || findtext(phrase, "slimes"))) // Talking to us
+		if ((findtext(phrase, num2text(descriptor)) || findtext(phrase, "slimes"))) // Talking to us
 			if (findtext(phrase, "hello") || findtext(phrase, "hi"))
 				to_say = pick("Hello...", "Hi...")
 			else if (findtext(phrase, "follow"))

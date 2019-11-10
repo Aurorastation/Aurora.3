@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - tweak: "Generic mobs are no longer designated via numbers, and instead have randomized descriptors."
   - rscadd: "Players who spawn as mice or drones can add their own single word descriptors. Admins will see what you are doing, so don't abuse this."
+  - rscadd: "People who are unfortunate enough to be turned into slimes can also pick a name, with somewhat more freedom in choices."

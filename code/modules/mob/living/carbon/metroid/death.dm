@@ -11,8 +11,8 @@
 		maxHealth = 150
 		revive()
 		if (!client) rabid = 1
-		number = rand(1, 1000)
-		name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+		descriptor = pick(slime_descriptors)
+		name = "[descriptor] [colour] [is_adult ? "adult" : "baby"] slime"
 		return
 
 	. = ..(gibbed, "seizes up and falls limp...")

@@ -28,7 +28,7 @@
 	var/powerlevel = 0 // 0-10 controls how much electricity they are generating
 	var/amount_grown = 0 // controls how long the slime has been overfed, if 10, grows or reproduces
 
-	var/number = 0 // Used to understand when someone is talking to it
+	var/descriptor = 0 // Used to understand when someone is talking to it
 
 	var/mob/living/Victim = null // the person the slime is currently feeding on
 	var/mob/living/Target = null // AI variable - tells the slime to hunt this down
@@ -60,14 +60,16 @@
 
 	var/core_removal_stage = 0 //For removing cores.
 
+var/list/slime_descriptors = list("jiggling","wiggling","bobbing","slippery","moist","slick","translucent","transparent","opaque","sparking","buzzing","crackling","humming","dangerous","friendly","cuddly","malevolent","bouncing","harmless","rare","common","uncommon","ultra-rare","captivating","distrating","hypnotic")
+
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
 
 	src.colour = colour
-	number = rand(1, 1000)
-	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+	descriptor = pick(slime_descriptors)
+	name = "[descriptor] [colour] [is_adult ? "adult" : "baby"] slime"
 	if (is_adult)
 		mob_size = 6
 	real_name = name
@@ -76,6 +78,17 @@
 	var/sanitizedcolour = replacetext(colour, " ", "")
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
 	regenerate_icons()
+
+var/regex/slimegex = regex(@"^[A-z \-]+$")
+
+/mob/living/carbon/slime/verb/rename_slime()
+	set src = usr
+	set name = "Name Slime"
+	set category = "IC"
+	set desc = "Name your slime."
+
+	rename_self_helper(usr, slimegex, "What do you want to name your new slime self? No numbers or symbols other than -", "No numbers or symbols, please.")
+
 
 /mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
 	..()
