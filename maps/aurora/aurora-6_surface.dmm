@@ -16484,6 +16484,9 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/effect/landmark/start{
+	name = "Cargo Technician"
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "FR" = (
@@ -16494,6 +16497,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/structure/closet/secure_closet/cargotech,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "FS" = (

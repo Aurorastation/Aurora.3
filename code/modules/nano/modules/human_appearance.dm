@@ -52,6 +52,7 @@
 		if(can_change_skin_preset())
 			var/new_preset = input(usr, "Choose your character's body color preset:", "Character Preference", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as null|anything in owner.species.character_color_presets
 			if(new_preset && can_still_topic(state))
+				new_preset = owner.species.character_color_presets[new_preset]
 				var/r_skin = GetRedPart(new_preset)
 				var/g_skin = GetGreenPart(new_preset)
 				var/b_skin = GetBluePart(new_preset)
