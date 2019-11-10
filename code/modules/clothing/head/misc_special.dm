@@ -154,6 +154,7 @@
 /obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
 	if(istype(O, /obj/item/weapon/flame/candle)) // supposed to carry over the wax from placed candle, but I can't really figure that out.
 		to_chat(user, "You add [O] to [src].")
+		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
 		qdel(O)
 		user.put_in_hands(new /obj/item/clothing/head/pumpkin/lantern)
 		qdel(src)
