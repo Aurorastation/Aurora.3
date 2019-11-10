@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "Fixes Jack O' Lanterns. Carve a pumpkin, shove a candle in it and light it with a lighter."
   - imageadd: "New pumpkin, carved pumpkin and jack o' lantern sprites."
+  - tweak: "Fixes and tweaks various missing and existing sprites."
