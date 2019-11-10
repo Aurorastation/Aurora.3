@@ -32,7 +32,7 @@
 			if (L)
 				newname = L.get_random_name()
 			else
-				newname = "Diona Gestalt ([rand(100,999)])"
+				newname = "Unnamed Diona Gestalt"
 			real_name = newname
 			name = newname
 			to_chat(src, "<span class=notice>We are named [real_name] for now, but we can choose a new name for our gestalt. (Check the Abilities Tab)</span>")

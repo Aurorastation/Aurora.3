@@ -88,8 +88,10 @@
 	H.gender = NEUTER
 	..()
 
+var/list/golem_descriptors = list("lumbering","ponderous","slow","rumbling","sleek","solid","ephemeral","dense","shimmering","dull","glittering","shining","sluggish","quiet","ominious","lightweight","weighty","honest","watchful","short","tall","mysterious","curious","dimwitted")
+
 /datum/species/golem/get_random_name()
-	return "[golem_designation] golem ([rand(1, 1000)])"
+	return "[pick(golem_descriptors)] [golem_designation] golem"
 
 /datum/species/golem/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)

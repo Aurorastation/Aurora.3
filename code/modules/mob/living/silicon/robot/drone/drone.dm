@@ -146,9 +146,21 @@
 	real_name = pickedName
 	name = real_name
 
+var/regex/synthgex = regex(@"^[a-z]+(?:-[a-z]+?)? maintenance drone$") // making sure names fall within logical parameters
+
+var/list/synthetic_descriptors = list("shiny","drab","old","worn","glittering","flawed","mint-condition","generic","ordinary","unremarkable","standard","clicking","buzzing","whirring","beeping","quiet","silent","humming","small","tiny","booping")
+
 /mob/living/silicon/robot/drone/updatename()
-	real_name = "maintenance drone ([rand(100,999)])"
+	real_name = "[pick(synthetic_descriptors)] maintenance drone "
 	name = real_name
+
+/mob/living/silicon/robot/drone/verb/rename_drone()
+	set src = usr
+	set name = "Personalize Drone"
+	set category = "IC"
+	set desc = "Describe your drone."
+
+	rename_self_helper(usr, synthgex, "How do you want to describe your drone?\nYour descriptive name needs to be be one word (or hyphenated compound word), followed by 'maintenance drone'", "Your descriptive name needs to be be one word (or hyphenated compound word), followed by 'maintenance drone'")
 
 /mob/living/silicon/robot/drone/updateicon()
 
@@ -410,7 +422,7 @@
 	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
 
 /mob/living/silicon/robot/drone/construction/updatename()
-	real_name = "construction drone ([rand(100,999)])"
+	real_name = "[pick(synthetic_descriptors)] construction drone"
 	name = real_name
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()

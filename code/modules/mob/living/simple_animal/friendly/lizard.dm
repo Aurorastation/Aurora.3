@@ -1,5 +1,5 @@
 /mob/living/simple_animal/lizard
-	name = "Lizard"
+	name = "lizard"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
 	icon = 'icons/mob/npc/critter.dmi'
 	icon_state = "lizard"

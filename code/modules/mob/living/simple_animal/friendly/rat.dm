@@ -100,6 +100,32 @@
 			new_pixely = Clamp(new_pixely, -4, 14)
 			animate(src, pixel_y = new_pixely, time = 0.5)
 
+/mob/living/proc/rename_self_helper(mob/M, regex/name_pattern, name_message, bad_name_message)
+	var/input = input(M, name_message)
+	if (!input)
+		return
+	if (length(input) > MAX_NAME_LEN)
+		to_chat(M, "That name's too long, maximum is [MAX_NAME_LEN] characters.")
+
+	if (!name_pattern.Find(input))
+		to_chat(M, bad_name_message)
+		return
+	if (QDELETED(src) || stat)
+		to_chat(M, "Mob no longer exists or is dead.")
+		return
+
+	if (M == src)
+		log_and_message_admins(src, "changed their name to [input].")
+	else
+		log_and_message_admins(M, "changed [key_name(src)]'s name to [input].") //To track name changes and ooc shittery.
+	name = input
+	real_name = name
+	
+
+var/regex/ratgex = regex(@"^[a-z]+(?:-[a-z]+?)? (?:rat|rodent|vermin|mouse)$") // making sure names fall within logical parameters
+
+var/list/vermin_descriptors = list("majestic","stinky","mangy","diseased","sickly","short-tailed","long-toothed","pale-furred","long-furred","long-tailed","small","large","huge","tiny","filthy","noisy","quiet","fat","skinny","emaciated","rancid","dirty")
+
 /mob/living/simple_animal/rat/Initialize()
 	. = ..()
 
@@ -108,7 +134,8 @@
 	verbs += /mob/living/proc/hide
 
 	if(name == initial(name))
-		name = "[name] ([rand(1, 1000)])"
+		name = "[pick(vermin_descriptors)] [pick("rat", "rodent", "vermin", "mouse")]"
+
 	real_name = name
 
 	if(!body_color)
@@ -131,6 +158,14 @@
 
 
 	SSmob.all_rats += src
+
+/mob/living/simple_animal/rat/verb/rename_vermin()
+	set src = usr
+	set name = "Personalize Vermin"
+	set category = "IC"
+	set desc = "Describe your vermin."
+
+	rename_self_helper(usr, ratgex, "How do you want to describe your rodent?\nYour descriptive name needs to be be one word (or hyphenated compound word), followed by one of: rat, vermin, rodent, mouse.", "Your descriptive name needs to be be one word (or hyphenated compound word), then rat/vermin/rodent/mouse.")
 
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)

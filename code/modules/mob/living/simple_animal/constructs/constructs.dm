@@ -49,7 +49,7 @@
 
 /mob/living/simple_animal/construct/Initialize()
 	. = ..()
-	name = text("[initial(name)] ([rand(1, 1000)])")
+	name = text("[pick(golem_descriptors)] [initial(name)]")
 	real_name = name
 	add_language("Cult")
 	add_language("Occult")

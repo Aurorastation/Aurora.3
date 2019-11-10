@@ -55,8 +55,10 @@
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
 
+var/list/monkey_descriptors = list("clever","small","large","skinny","fat","tiny","noisy","playful","lazy","sleepy","energetic","listless","curious","watchful","oblivious","generic","ordinary","unremarkable","nervous","skittish","brainless",)
+
 /datum/species/monkey/get_random_name()
-	return "[lowertext(name)] ([rand(100,999)])"
+	return "[pick(monkey_descriptors)] monkey"
 
 /datum/species/monkey/tajaran
 	name = "Farwa"
@@ -77,7 +79,7 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
 /datum/species/monkey/tajaran/get_random_name()
-	return "farwa ([rand(100,999)])" // HACK HACK HACK, oh lords of coding please forgive me!
+	return "[pick(monkey_descriptors)] farwa" // HACK HACK HACK, oh lords of coding please forgive me!
 
 /datum/species/monkey/tajaran/m_sai
 	name = "M'sai Farwa"
