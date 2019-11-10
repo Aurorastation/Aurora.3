@@ -691,7 +691,7 @@
 		/obj/item/clothing/head/kitty = 0.2,
 		/obj/item/clothing/head/pirate = 0.2,
 		/obj/item/clothing/head/plaguedoctorhat = 0.3,
-		/obj/item/clothing/head/pumpkinhead = 0.4,
+		/obj/item/clothing/head/pumpkin/lantern = 0.4,
 		/obj/item/clothing/head/redcoat = 0.2,
 		/obj/item/clothing/head/richard = 0.3,
 		/obj/item/clothing/head/soft/rainbow = 0.7,

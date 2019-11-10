@@ -139,25 +139,18 @@
 /*
  * Pumpkin head
  */
-/obj/item/clothing/head/pumpkinhead
+/obj/item/clothing/head/pumpkin/lantern
 	name = "jack o' lantern"
 	desc = "Believed to ward off evil spirits."
-	icon_state = "pumpkin_carved"
-	throw_speed = 0.5
-	item_state = "pumpkin_carved"
-	w_class = 3
-	drop_sound = 'sound/items/drop/herb.ogg'
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
 	light_color = "#E09D37"
 	var/wax = 2000
 	var/lit = 0
 
-/obj/item/clothing/head/pumpkinhead/New()
+/obj/item/clothing/head/pumpkin/lantern/New()
 	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
 	..()
 
-/obj/item/clothing/head/pumpkinhead/update_icon()
+/obj/item/clothing/head/pumpkin/lantern/update_icon()
 	icon_state = "pumpkin_carved[lit ? "_lit" : ""]"
 	if(ismob(loc))
 		var/mob/living/M = loc
@@ -165,7 +158,7 @@
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/head/pumpkinhead/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
@@ -178,9 +171,10 @@
 		if(C.lit)
 			light()
 
-/obj/item/clothing/head/pumpkinhead/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
+/obj/item/clothing/head/pumpkin/lantern/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
 	if(!src.lit)
 		src.lit = 1
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
 		for(var/mob/O in viewers(usr, null))
 			O.show_message(flavor_text, 1)
@@ -189,7 +183,7 @@
 		update_clothing_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/head/pumpkinhead/process()
+/obj/item/clothing/head/pumpkin/lantern/process()
 	if(!lit)
 		return
 	wax--
@@ -205,7 +199,7 @@
 		var/turf/T = loc
 		T.hotspot_expose(700, 5)
 
-/obj/item/clothing/head/pumpkinhead/attack_self(mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
 	if(lit)
 		lit = 0
 		to_chat(user, span("notice", "You snuff out the flame."))
@@ -213,20 +207,22 @@
 		update_icon()
 		set_light(0)
 
-/obj/item/weapon/pumpkin_carved
+/obj/item/clothing/head/pumpkin
 	name = "carved pumpkin"
-	desc = "A pumpkin with a spooky face carved in it."
-	icon = 'icons/obj/clothing/hats.dmi'
+	desc = "A pumpkin with a spooky face carved in it. Looks like it needs a candle."
 	icon_state = "pumpkin_carved"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
 	drop_sound = 'sound/items/drop/herb.ogg'
 	w_class = 3
 	throwforce = 1
+	throw_speed = 0.5
 
 /obj/item/weapon/pumpkin_carved/attackby(var/obj/O, mob/user as mob)
 	if(istype(O, /obj/item/weapon/flame/candle)) // supposed to carry over the wax from placed candle, but I can't really figure that out.
 		to_chat(user, "You add [O] to [src].")
 		qdel(O)
-		user.put_in_hands(new /obj/item/clothing/head/pumpkinhead)
+		user.put_in_hands(new /obj/item/clothing/head/pumpkin/lantern)
 		qdel(src)
 		return
 
