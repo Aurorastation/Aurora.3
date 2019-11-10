@@ -55,9 +55,6 @@
 	if(length(A.name) + length(label) > 64)
 		to_chat(user, "<span class='notice'>Label too big.</span>")
 		return
-	if(ishuman(A))
-		to_chat(user, "<span class='notice'>The label refuses to stick to [A.name].</span>")
-		return
 	if(issilicon(A))
 		to_chat(user, "<span class='notice'>The label refuses to stick to [A.name].</span>")
 		return

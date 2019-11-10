@@ -4,7 +4,7 @@
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
-	desc = "The most basic form of dionea."
+	desc = "The most basic form of diona."
 	max_nutrition = 6000
 	language = null
 	mob_size = 4
