@@ -27,7 +27,7 @@
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 
-	name = "[initial(name)] ([rand(1, 1000)])"
+	name = " ([pick(diona_descriptors)] [initial(name)]"
 	real_name = name
 	regenerate_icons()
 

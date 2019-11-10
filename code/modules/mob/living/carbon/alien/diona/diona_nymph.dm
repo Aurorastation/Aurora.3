@@ -4,6 +4,7 @@
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
+	desc = "The most basic form of dionea."
 	max_nutrition = 6000
 	language = null
 	mob_size = 4
@@ -46,6 +47,8 @@
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
 	var/echo = 0 //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
+
+var/list/diona_descriptors = list("rustling","skittering","friendly","leafy","frisky","sluggish","energetic","ordinary","unremarkable","sleepy","curious","bouncy","moist","lonely","sociable","chittering","beady-eyed","silent","quiet","small","tiny","big","large","slender","thick","vibrating","naive","lost","newborn","chirping","eager","shy")
 
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
