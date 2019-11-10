@@ -19,7 +19,7 @@
 	var/meat_amount = 0
 	var/meat_type
 
-/mob/living/carbon/alien/proc/get_descriptor() // Just in case we want to add alien children who are NOT diona
+/mob/living/carbon/alien/proc/get_descriptor() // Just in case we want to add aliens who are NOT diona later
 	return ""
 
 /mob/living/carbon/alien/Initialize()
