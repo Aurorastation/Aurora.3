@@ -48,6 +48,9 @@
 	var/echo = 0 //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
 
+/mob/living/carbon/alien/diona/get_descriptor()
+	return pick(diona_descriptors)
+
 var/list/diona_descriptors = list("rustling","skittering","friendly","leafy","frisky","sluggish","energetic","ordinary","unremarkable","sleepy","curious","bouncy","moist","lonely","sociable","chittering","beady-eyed","silent","quiet","small","tiny","big","large","slender","thick","vibrating","naive","lost","newborn","chirping","eager","shy")
 
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()

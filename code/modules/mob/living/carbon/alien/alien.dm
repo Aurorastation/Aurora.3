@@ -19,6 +19,9 @@
 	var/meat_amount = 0
 	var/meat_type
 
+/mob/living/carbon/alien/proc/get_descriptor() // Just in case we want to add alien children who are NOT diona
+	return ""
+
 /mob/living/carbon/alien/Initialize()
 	. = ..()
 
@@ -27,7 +30,7 @@
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 
-	name = " ([pick(diona_descriptors)] [initial(name)]"
+	name = " ([get_descriptor()] [initial(name)]"
 	real_name = name
 	regenerate_icons()
 
