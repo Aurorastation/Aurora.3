@@ -1,7 +1,0 @@
-author: Alberyk, BRAINOS
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added new jackets and pants options to the loadout."
-  - tweak: "Changed the bomber jacket sprite."
