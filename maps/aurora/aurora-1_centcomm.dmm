@@ -23530,6 +23530,16 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"clr" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/weapon/legion_turret_kit,
+/obj/item/weapon/legion_turret_kit,
+/obj/item/weapon/legion_turret_kit,
+/obj/item/weapon/legion_turret_kit,
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/legion)
 "coC" = (
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
@@ -24510,11 +24520,7 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
-/obj/machinery/porta_turret{
-	eprojectile = /obj/item/projectile/energy/blaster;
-	name = "legion turret";
-	sprite_set = "captain"
-	},
+/obj/machinery/porta_turret/legion,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -26556,11 +26562,7 @@
 	icon_state = "tube1";
 	dir = 2
 	},
-/obj/machinery/porta_turret{
-	eprojectile = /obj/item/projectile/energy/blaster;
-	name = "legion turret";
-	sprite_set = "captain"
-	},
+/obj/machinery/porta_turret/legion,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -27857,11 +27859,7 @@
 /area/centcom/ferry)
 "ouj" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret{
-	eprojectile = /obj/item/projectile/energy/blaster;
-	name = "legion turret";
-	sprite_set = "captain"
-	},
+/obj/machinery/porta_turret/legion,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -28528,11 +28526,7 @@
 	pixel_y = 32;
 	tag_door = "legion_shuttle_hatch"
 	},
-/obj/machinery/porta_turret{
-	eprojectile = /obj/item/projectile/energy/blaster;
-	name = "legion turret";
-	sprite_set = "captain"
-	},
+/obj/machinery/porta_turret/legion,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
 "qsX" = (
@@ -90047,7 +90041,7 @@ gid
 gid
 bft
 hzB
-rpT
+clr
 gid
 gid
 jnf
