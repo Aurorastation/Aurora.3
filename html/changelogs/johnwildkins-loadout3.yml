@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fix certain antags not spawning with their chosen backpack preference."
