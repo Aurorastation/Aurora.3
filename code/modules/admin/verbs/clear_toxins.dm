@@ -12,6 +12,7 @@
 	environment.gas["carbon_dioxide"] = 0
 	environment.gas["sleeping_agent"] = 0
 	environment.gas["oxygen_agent_b"] = 0
+	environment.gas["hydrogen"] = 0
 	environment.temperature = 293.15
 	environment.update_values()
 	var/turf/simulated/location = get_turf(usr)

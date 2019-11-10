@@ -98,6 +98,30 @@
 		src.forceMove(F)
 	return
 
+/obj/item/weapon/tank/hydrogen
+	name = "hydrogen tank"
+	desc = "Contains hydrogen gas. Do not inhale. Warning: extremely flammable."
+	icon_state = "hydrogen"
+	gauge_icon = null
+	flags = CONDUCT
+	slot_flags = null	//they have no straps!
+
+/obj/item/weapon/tank/hydrogen/Initialize()
+	. = ..()
+	air_contents.adjust_gas("hydrogen", (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
+
+/obj/item/weapon/tank/hydrogen/attackby(obj/item/weapon/W as obj, mob/user as mob)
+	..()
+
+	if (istype(W, /obj/item/weapon/flamethrower))
+		var/obj/item/weapon/flamethrower/F = W
+		if ((!F.status)||(F.ptank))	return
+		src.master = F
+		F.ptank = src
+		user.remove_from_mob(src)
+		src.forceMove(F)
+	return	
+
 /*
  * Emergency Oxygen
  */

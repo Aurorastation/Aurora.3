@@ -102,11 +102,11 @@
 		if(ATM_CO2) 
 			return "carbon_dioxide"
 		if(ATM_P) 
-			return "phoron"
-		if(ATM_H2) 
-			return "hydrogen"			
+			return "phoron"		
 		if(ATM_N2O) 
 			return "sleeping_agent"
+		if(ATM_H2) 
+			return "hydrogen"			
 		else
 			return null
 	
