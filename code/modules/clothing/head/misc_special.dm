@@ -139,9 +139,29 @@
 /*
  * Pumpkin head
  */
+
+/obj/item/clothing/head/pumpkin
+	name = "carved pumpkin"
+	desc = "A pumpkin with a spooky face carved on it. Looks like it needs a candle."
+	icon_state = "pumpkin_carved"
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	drop_sound = 'sound/items/drop/herb.ogg'
+	w_class = 3
+	throwforce = 1
+	throw_speed = 0.5
+
+/obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
+	if(istype(O, /obj/item/weapon/flame/candle)) // supposed to carry over the wax from placed candle, but I can't really figure that out.
+		to_chat(user, "You add [O] to [src].")
+		qdel(O)
+		user.put_in_hands(new /obj/item/clothing/head/pumpkin/lantern)
+		qdel(src)
+		return
+
 /obj/item/clothing/head/pumpkin/lantern
 	name = "jack o' lantern"
-	desc = "Believed to ward off evil spirits."
+	desc = "A pumpkin with a spooky face carved on it, with a candle inside. Believed to ward off evil spirits."
 	light_color = "#E09D37"
 	var/wax = 2000
 	var/lit = 0
@@ -188,7 +208,7 @@
 		return
 	wax--
 	if(!wax)
-		new /obj/item/weapon/pumpkin_carved (src.loc)
+		new /obj/item/clothing/head/pumpkin (src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
 
@@ -206,25 +226,6 @@
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)
-
-/obj/item/clothing/head/pumpkin
-	name = "carved pumpkin"
-	desc = "A pumpkin with a spooky face carved in it. Looks like it needs a candle."
-	icon_state = "pumpkin_carved"
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-	drop_sound = 'sound/items/drop/herb.ogg'
-	w_class = 3
-	throwforce = 1
-	throw_speed = 0.5
-
-/obj/item/weapon/pumpkin_carved/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/weapon/flame/candle)) // supposed to carry over the wax from placed candle, but I can't really figure that out.
-		to_chat(user, "You add [O] to [src].")
-		qdel(O)
-		user.put_in_hands(new /obj/item/clothing/head/pumpkin/lantern)
-		qdel(src)
-		return
 
 /*
  * Kitty ears

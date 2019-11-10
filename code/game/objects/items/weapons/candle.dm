@@ -4,6 +4,7 @@
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
 	item_state = "candle1"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 	w_class = 1
 	light_color = "#E09D37"
 	var/wax = 2000
