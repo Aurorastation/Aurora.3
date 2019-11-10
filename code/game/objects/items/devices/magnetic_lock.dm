@@ -42,11 +42,13 @@
 	req_one_access = list(access_engine_equip, access_atmospherics)
 
 /obj/item/device/magnetic_lock/security/legion
-	department = null
 	name = "legion magnetic door lock"
 	req_access = (access_legion)
-	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
 	w_class = 2
+
+/obj/item/device/magnetic_lock/security/legion/Initialize()
+	..()
+	desc = "A large, ID locked device used for completely locking down airlocks. This one carries the insignia of the Tau Ceti Foreign Legion."
 
 /obj/item/device/magnetic_lock/Initialize()
 	. = ..()

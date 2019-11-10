@@ -24795,39 +24795,18 @@
 /area/centcom/legion)
 "fWe" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/weapon/tank/emergency_oxygen/double{
-	pixel_x = -1;
-	pixel_y = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd_ammo,
+/obj/item/weapon/rfd/construction{
+	layer = 3.01
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -25863,7 +25842,7 @@
 	icon_state = "spline_plain";
 	dir = 8
 	},
-/obj/vehicle/droppod,
+/obj/vehicle/droppod/legion,
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -27637,6 +27616,13 @@
 	pixel_x = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/weapon/plastique{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/weapon/plastique{
+	pixel_x = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -27990,12 +27976,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/living)
-"oJJ" = (
-/obj/structure/table/reinforced/steel,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion)
 "oMF" = (
 /obj/structure/table/standard,
 /obj/machinery/vending/wallmed1{
@@ -28317,29 +28297,29 @@
 /area/centcom/distress_prep)
 "pFe" = (
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/night{
-	pixel_x = 0;
-	pixel_y = -5
+/obj/item/weapon/tank/emergency_oxygen/double{
+	pixel_x = -1;
+	pixel_y = 4
 	},
-/obj/item/clothing/glasses/night{
-	pixel_x = 0;
-	pixel_y = -5
+/obj/item/weapon/tank/emergency_oxygen/double{
+	pixel_x = -1;
+	pixel_y = 4
 	},
-/obj/item/clothing/glasses/night{
-	pixel_x = 0;
-	pixel_y = -5
+/obj/item/weapon/tank/emergency_oxygen/double{
+	pixel_x = -1;
+	pixel_y = 4
 	},
-/obj/item/clothing/glasses/sunglasses/sechud/tactical{
-	pixel_x = 0;
-	pixel_y = 5
+/obj/item/weapon/tank/emergency_oxygen/double{
+	pixel_x = -1;
+	pixel_y = 4
 	},
-/obj/item/clothing/glasses/sunglasses/sechud/tactical{
-	pixel_x = 0;
-	pixel_y = 5
+/obj/item/weapon/tank/emergency_oxygen/double{
+	pixel_x = -1;
+	pixel_y = 4
 	},
-/obj/item/clothing/glasses/sunglasses/sechud/tactical{
-	pixel_x = 0;
-	pixel_y = 5
+/obj/item/weapon/tank/emergency_oxygen/double{
+	pixel_x = -1;
+	pixel_y = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -30571,7 +30551,7 @@
 	dir = 10;
 	icon_state = "spline_plain"
 	},
-/obj/vehicle/droppod,
+/obj/vehicle/droppod/legion,
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -91602,7 +91582,7 @@ lmb
 wyM
 hYP
 xQF
-xQF
+imQ
 xQF
 xQF
 xQF
@@ -91860,8 +91840,8 @@ wyM
 rbI
 xQF
 hsS
-imQ
-oJJ
+xQF
+xQF
 xQF
 xQF
 xPz

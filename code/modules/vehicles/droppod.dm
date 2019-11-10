@@ -4,6 +4,7 @@
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "droppod"
 	dir = SOUTH
+	layer = MOB_LAYER - 0.1
 
 	load_item_visible = 0
 	health = 500 // pretty strong because it can't move or be shot out of
@@ -20,6 +21,11 @@
 
 	var/static/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
 
+/obj/vehicle/droppod/legion
+	name = "legion drop pod"
+	desc = "A big metal pod painted in the colors of the Tau Ceti Foreign Legion."
+	icon_state = "legion_pod"
+
 /obj/vehicle/droppod/Initialize()
 	. = ..()
 
@@ -35,6 +41,15 @@
 	set name = "Open launch interface"
 
 	ui_interact(usr)
+
+/obj/vehicle/droppod/verb/eject()
+	set src in oview(1)
+	set category = "Vehicle"
+	set name = "Open Pod"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	unload(usr)
 
 /obj/vehicle/droppod/load(var/mob/C) // this won't call the parent proc due to the differences and the fact it doesn't use load. Also only mobs can be loaded.
 	if(!ismob(C))
@@ -53,6 +68,8 @@
 	C.set_dir(dir)
 	C.anchored = 1
 
+	user_buckle_mob(C, C)
+	icon_state = initial(icon_state)
 	return 1
 
 /obj/vehicle/droppod/unload(var/mob/user, var/direction) // this also won't call the parent proc because it relies on load and doesn't expect a 2nd person
@@ -64,7 +81,7 @@
 	if(direction)
 		dest = get_step(src, direction)
 	else if(user)
-		dest = get_turf(user)
+		dest = get_turf(src)
 	if(!dest)
 		dest = get_step_to(src, get_step(src, turn(dir, 90)))
 
@@ -82,22 +99,28 @@
 	if(!isturf(dest))
 		return 0
 
-	user.forceMove(dest)
-	user.set_dir(get_dir(loc, dest))
-	user.anchored = 0
-	user.pixel_x = initial(user.pixel_x)
-	user.pixel_y = initial(user.pixel_y)
-	user.layer = initial(user.layer)
+	for(var/a in contents)
+		if(isliving(a))
+			var/mob/living/L = a
+			L.forceMove(dest)
+			L.set_dir(get_dir(loc, dest))
+			L.anchored = 0
+			L.pixel_x = initial(user.pixel_x)
+			L.pixel_y = initial(user.pixel_y)
+			L.layer = initial(user.layer)
+			user_unbuckle_mob(L, L)
+		else if(istype(a, /obj))
+			var/obj/O = a
+			O.forceMove(src.loc)
 
-	if(user == humanload)
-		humanload = null
-	else
-		passenger = null
+	humanload = null
+	passenger = null
+	icon_state = "[initial(icon_state)]_open"
 	return 1
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
-	if(user == (humanload || passenger))
+	if(user == humanload || user == passenger)
 		unload(user)
 	else
 		load(user)
@@ -182,21 +205,21 @@
 			forceMove(aboveturf)
 		else
 			applyfalldamage(aboveturf)
-			aboveturf.ChangeTurf(/turf/space)
+			aboveturf.ChangeTurf(/turf/simulated/floor/foamedmetal)
+
+			for(var/turf/T in range(1, aboveturf))
+				if(turf_clear(T))
+					new /obj/structure/foamedmetal(T, src)
+
 			applyfalldamage(A)
-			A.visible_message("<span class='danger'>The [src] crashes through the roof!</span>")
 			forceMove(A)
+			explosion(A, 0, 0, 2, 2)
+			A.visible_message("<span class='danger'> \The [src] crashes through the roof!</span>")
 
 		var/turf/belowturf = GetBelow(A)
 		if(belowturf)
 			//sound here
 			belowturf.visible_message("<span class='danger'>You hear something crash into the ceiling above!</span>")
-
-		if(humanload)
-			humanload.forceMove(loc)
-
-		if(passenger)
-			passenger.forceMove(loc)
 
 		used = 1
 
