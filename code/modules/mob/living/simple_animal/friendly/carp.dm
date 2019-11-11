@@ -127,7 +127,7 @@
 	emote_see = list("floats steadily", "inflates her gills")
 
 	can_nap = TRUE
-	mob_size = 3
+	mob_size = 3.5
 
 	befriend_job = "Chief Engineer"
 	holder_type = /obj/item/weapon/holder/carp/baby
@@ -146,7 +146,7 @@
 	icon_gib = null
 	can_nap = TRUE
 	gender = NEUTER
-	mob_size = 3
+	mob_size = 3.5
 	holder_type = /obj/item/weapon/holder/carp/baby
 
 /mob/living/simple_animal/carp/baby/death()
