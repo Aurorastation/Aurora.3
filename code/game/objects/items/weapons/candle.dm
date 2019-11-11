@@ -39,7 +39,7 @@
 
 /obj/item/weapon/flame/candle/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
 	if(!src.lit)
-		src.lit = 1
+		src.lit = TRUE
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
 		for(var/mob/O in viewers(usr, null))
@@ -67,7 +67,7 @@
 
 /obj/item/weapon/flame/candle/attack_self(mob/user as mob)
 	if(lit)
-		lit = 0
+		lit = FALSE
 		to_chat(user, span("notice", "You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()

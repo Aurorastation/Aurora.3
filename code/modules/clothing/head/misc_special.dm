@@ -169,7 +169,7 @@
 	desc = "A pumpkin with a spooky face carved on it, with a candle inside. Believed to ward off evil spirits."
 	light_color = "#E09D37"
 	var/wax = 900
-	var/lit = 0
+	var/lit = FALSE
 
 /obj/item/clothing/head/pumpkin/lantern/update_icon()
 	icon_state = "pumpkin_carved[lit ? "_lit" : ""]"
@@ -194,7 +194,7 @@
 
 /obj/item/clothing/head/pumpkin/lantern/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
 	if(!src.lit)
-		src.lit = 1
+		src.lit = TRUE
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
 		for(var/mob/O in viewers(usr, null))
@@ -222,7 +222,7 @@
 
 /obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
 	if(lit)
-		lit = 0
+		lit = FALSE
 		to_chat(user, span("notice", "You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()

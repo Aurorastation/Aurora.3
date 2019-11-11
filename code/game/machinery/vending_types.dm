@@ -198,16 +198,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/weapon/reagent_containers/food/snacks/candy/koko = 5,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 6
+		/obj/item/weapon/storage/box/gum = 4,
+		/obj/item/clothing/mask/chewable/candy/lolli = 8
 	)
 	contraband = list(
 		/obj/item/weapon/reagent_containers/food/snacks/syndicake = 6,
@@ -231,16 +223,8 @@
 		/obj/item/weapon/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/weapon/reagent_containers/food/snacks/candy/koko = 40,
-		/obj/item/weapon/reagent_containers/food/snacks/cb01 = 15,
-		/obj/item/weapon/reagent_containers/food/snacks/cb02 = 14,
-		/obj/item/weapon/reagent_containers/food/snacks/cb03 = 15,
-		/obj/item/weapon/reagent_containers/food/snacks/cb04 = 16,
-		/obj/item/weapon/reagent_containers/food/snacks/cb05 = 18,
-		/obj/item/weapon/reagent_containers/food/snacks/cb06 = 10,
-		/obj/item/weapon/reagent_containers/food/snacks/cb07 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb08 = 13,
-		/obj/item/weapon/reagent_containers/food/snacks/cb09 = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cb10 = 15
+		/obj/item/weapon/storage/box/gum = 20,
+		/obj/item/clothing/mask/chewable/candy/lolli = 2
 	)
 
 /obj/machinery/vending/cola
