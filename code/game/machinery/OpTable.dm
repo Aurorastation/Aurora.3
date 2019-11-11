@@ -13,7 +13,7 @@
 			/obj/item/weapon/circuitboard/optable,
 			/obj/item/weapon/stock_parts/scanning_module = 1
 		)
-	
+
 	var/mob/living/carbon/human/victim = null
 	var/strapped = 0.0
 	var/suppressing = FALSE
@@ -64,7 +64,7 @@
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message("<span class='warning'>\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor.</span>")
 		if(!do_after(user, 30, src))
-			return 
+			return
 		if(!victim)
 			to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
 
@@ -201,3 +201,20 @@
 		to_chat(usr, "<span class='notice'>Unbuckle \the [patient] first!</span>")
 		return 0
 	return 1
+
+/obj/item/weapon/deployable_surgery_table
+	name = "surgery table assembly kit"
+	desc = "A quick assembly kit to deploy a surgery table intended for field surgery. Cannot be put together again after being unfolded, choose your chosen spot wisely."
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "table_deployable"
+	item_state = "table_parts"
+	w_class = 4
+
+/obj/item/weapon/deployable_surgery_table/attack_self(mob/user)
+	to_chat(user, span("notice","You start assembling \the [src]..."))
+	if(do_after(user, 200))
+		var/obj/machinery/optable/O = new /obj/machinery/optable(user.loc)
+		user.visible_message("<span class='notice'>[user] assembles \a [O].\
+			</span>", "<span class='notice'>You assemble \a [O].</span>")
+		O.add_fingerprint(user)
+		qdel(src)

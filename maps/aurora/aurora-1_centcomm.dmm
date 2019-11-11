@@ -24444,6 +24444,11 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion)
+"eWH" = (
+/turf/unsimulated/wall/darkshuttlewall{
+	opacity = 0
+	},
+/area/centcom/legion)
 "eXJ" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/unsimulated/floor{
@@ -24911,10 +24916,6 @@
 	},
 /obj/item/device/megaphone{
 	pixel_y = -4
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -27;
-	pixel_y = 0
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
@@ -25812,7 +25813,7 @@
 /area/centcom/checkpoint/fore)
 "iuk" = (
 /obj/machinery/door/airlock/glass_command{
-	name = "Prefect Preparation";
+	name = "Prefect Office";
 	req_access = list(103,111)
 	},
 /turf/unsimulated/floor{
@@ -27531,23 +27532,28 @@
 	},
 /area/centcom/legion)
 "nHX" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/structure/table/rack,
 /obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 6
+	pixel_x = -1;
+	pixel_y = 14
 	},
 /obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 6
+	pixel_x = -1;
+	pixel_y = 14
 	},
 /obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 6
+	pixel_x = -1;
+	pixel_y = 14
 	},
 /obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 6
+	pixel_x = -1;
+	pixel_y = 14
+	},
+/obj/item/weapon/deployable_surgery_table{
+	layer = 3.01;
+	pixel_x = -1;
+	pixel_y = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor3"
@@ -27595,14 +27601,10 @@
 	},
 /area/centcom/legion)
 "nON" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/airlock/external{
+/turf/unsimulated/wall/fakeairlock{
+	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	locked = 1;
-	name = "Port Maintenance Airlock"
-	},
-/turf/unsimulated/floor{
-	name = "plating"
+	name = "Service Airlock"
 	},
 /area/centcom/legion)
 "nPo" = (
@@ -28397,8 +28399,8 @@
 	pixel_y = 9
 	},
 /obj/item/weapon/storage/firstaid/surgery{
-	pixel_x = 6;
-	pixel_y = -8
+	pixel_x = 3;
+	pixel_y = -4
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor3"
@@ -30068,6 +30070,16 @@
 /turf/unsimulated/floor{
 	icon_state = "whitegreen";
 	dir = 1
+	},
+/area/centcom/legion)
+"uFy" = (
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -27;
+	pixel_y = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
 	},
 /area/centcom/legion)
 "uGK" = (
@@ -87288,9 +87300,9 @@ bWA
 bWA
 wyM
 wyM
-bWA
 wyM
-wyM
+eWH
+nON
 bWA
 bWA
 qvU
@@ -87546,7 +87558,7 @@ wFA
 grY
 kFd
 gkj
-gdM
+uFy
 sFL
 sFL
 nAv
@@ -94467,7 +94479,7 @@ vPK
 jEg
 cEj
 xQF
-bWA
+nON
 xQF
 rpT
 gid
