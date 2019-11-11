@@ -436,6 +436,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "babycarp"
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR // carp wings blocks stuff - geeves
 	w_class = 1
 	contained_sprite = TRUE
 
