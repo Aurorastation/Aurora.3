@@ -114,7 +114,7 @@
 // ENGINEERING HAS AN ACTUAL PET, WHAAAAAAAAAAAAAT? - geeves
 /mob/living/simple_animal/carp/fluff/ginny
 	name = "Ginny"
-	desc = "Rough scales adorn the body of this baby space carp. They look ready to shoot an explosive radioactive rock!"
+	desc = "Rough scales adorn the body of this baby space carp. She looks ready to fire up an emitter!"
 	icon_state = "babycarp"
 	item_state = "babycarp"
 	icon_living = "babycarp"
@@ -122,7 +122,9 @@
 	icon_rest = "babycarp_rest"
 	icon_gib = null
 
-	emote_see = list("floats steadily", "inflates their gills")
+	gender = FEMALE
+
+	emote_see = list("floats steadily", "inflates her gills")
 
 	can_nap = TRUE
 	mob_size = 3

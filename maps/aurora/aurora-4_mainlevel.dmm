@@ -3254,6 +3254,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"agd" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor/southright{
+	req_access = list(56)
+	},
+/obj/effect/decal/warning_stripes,
+/mob/living/simple_animal/carp/fluff/ginny,
+/turf/simulated/floor/reinforced,
+/area/crew_quarters/heads/chief)
 "agf" = (
 /obj/structure/grille,
 /turf/simulated/floor/plating,
@@ -22041,18 +22053,6 @@
 	req_access = list(56)
 	},
 /obj/item/weapon/rfd/construction,
-/turf/simulated/floor/tiled,
-/area/crew_quarters/heads/chief)
-"aMK" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/window/brigdoor/southright{
-	req_access = list(56)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/bot/floorbot/floorbob,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
 "aML" = (
@@ -87659,7 +87659,7 @@ aFC
 aHC
 aJd
 vHX
-aMK
+agd
 aOy
 aQg
 aRT
