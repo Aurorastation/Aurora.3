@@ -152,24 +152,24 @@
 	throw_speed = 0.5
 
 /obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/weapon/flame/candle)) // supposed to carry over the wax from placed candle, but I can't really figure that out.
-		to_chat(user, "You add [O] to [src].")
-		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
-		qdel(O)
-		user.put_in_hands(new /obj/item/clothing/head/pumpkin/lantern)
-		qdel(src)
-		return
+    if(istype(O, /obj/item/weapon/flame/candle))
+        var/obj/item/weapon/flame/candle/c = O
+        var/candle_wax = c.wax
+        to_chat(user, "You add [O] to [src].")
+        playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
+        qdel(O)
+        var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
+        L.wax = candle_wax
+        user.put_in_hands(L)
+        qdel(src)
+        return
 
 /obj/item/clothing/head/pumpkin/lantern
 	name = "jack o' lantern"
 	desc = "A pumpkin with a spooky face carved on it, with a candle inside. Believed to ward off evil spirits."
 	light_color = "#E09D37"
-	var/wax = 2000
+	var/wax = 900
 	var/lit = 0
-
-/obj/item/clothing/head/pumpkin/lantern/New()
-	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
-	..()
 
 /obj/item/clothing/head/pumpkin/lantern/update_icon()
 	icon_state = "pumpkin_carved[lit ? "_lit" : ""]"
