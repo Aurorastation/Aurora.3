@@ -255,11 +255,26 @@
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0
+
 /obj/machinery/door/blast/odin/shuttle/ert
 	_wifi_id = "ert_shuttle_lockdown"
 
 /obj/machinery/door/blast/odin/shuttle/tcfl
+	_wifi_id = "tcfl_shuttle_release"
+	icon_state = "pdoor1"
+	density = 1
+	opacity = 1
+
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter
 	_wifi_id = "tcfl_shuttle_lockdown"
+	density = 0
+	opacity = 0
+	icon_state_open = "shutter0"
+	icon_state_opening = "shutterc0"
+	icon_state_closed = "shutter1"
+	icon_state_closing = "shutterc1"
+	icon_state = "shutter0"
+	damage = SHUTTER_CRUSH_DAMAGE
 
 #undef BLAST_DOOR_CRUSH_DAMAGE
 #undef SHUTTER_CRUSH_DAMAGE

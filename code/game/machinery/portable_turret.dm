@@ -37,6 +37,7 @@
 	var/egun = 1			//holder to handle certain guns switching modes
 	var/sprite_set = "carbine"	//set of gun sprites the turret will use
 	var/cover_set = 0		//set of cover sprites the turret will use
+	var/name_override = FALSE
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
 	var/shot_delay = 15		//1.5 seconds between each shot
@@ -128,7 +129,8 @@
 			shot_delay = max(installation.fire_delay_wielded, 4)
 		else
 			shot_delay = max(installation.fire_delay, 4)
-		name = "[installation.name] [name]"
+		if(!name_override)
+			name = "[installation.name] [name]"
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -1116,33 +1118,20 @@
 /obj/machinery/porta_turret/legion
 	enabled = 0
 	use_power = 0
+	icon_state = "cover_1"
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
 	installation = /obj/item/weapon/gun/energy/blaster/carbine
 	sprite_set = "captain"
-	no_salvage = TRUE
-	eprojectile = /obj/item/projectile/energy/blaster
+	cover_set = 1
+	eprojectile = /obj/item/projectile/energy/blaster/heavy
 
 	check_arrest = 0
 	check_records = 0
 	check_access = 1
 	ailock = 1
 	req_one_access = list(access_legion)
-
-/obj/item/weapon/legion_turret_kit
-	name = "legion turret kit"
-	desc = "A quick assembly kit for defensive blast turrets in the field."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "barrier_kit"
-	item_state = "syringe_kit"
-	w_class = 4
-
-/obj/item/weapon/legion_turret_kit/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>You start assembling the turret kit...</span>")
-	if(do_after(user, 100))
-		var/obj/machinery/porta_turret/legion/T = new /obj/machinery/porta_turret/legion(user.loc)
-		user.visible_message("<span class='notice'>[user] assembles \a [T].\
-			</span>", "<span class='notice'>You assemble \a [T].</span>")
-		T.add_fingerprint(user)
-		qdel(src)
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

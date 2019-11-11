@@ -104,6 +104,9 @@
 	var/datum/wifi/sender/door/wifi_sender = new("tcfl_shuttle_lockdown", src)
 	wifi_sender.activate("close")
 
+	var/datum/wifi/sender/door/wifi_sender_blast = new("tcfl_shuttle_release", src)
+	wifi_sender_blast.activate("open")
+
 /client/proc/response_team()
 	set name = "Dispatch Emergency Response Team"
 	set category = "Special Verbs"
