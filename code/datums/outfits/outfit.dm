@@ -42,7 +42,7 @@
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
-	if(allow_backbag_choice)
+	if(allow_backbag_choice && !back)
 		var/use_job_specific = H.backbag_style == 1
 		switch(H.backbag)
 			if (1)

@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed a bug where certain antags would spawn with backpacks when they shouldn't, or fail to spawn with their correct back gear."

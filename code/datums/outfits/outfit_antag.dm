@@ -106,6 +106,7 @@
 
 /datum/outfit/admin/syndicate/ninja
 	name = "Infiltrator"
+	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	back = /obj/item/weapon/rig/light/ninja
@@ -161,6 +162,7 @@
 
 /datum/outfit/admin/syndicate/raider
 	name = "Raider"
+	allow_backbag_choice = FALSE
 
 	uniform = list(
 		/obj/item/clothing/under/soviet,
