@@ -69,8 +69,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	update_nano_data()
 	if(uplink_owner.special_role == "Syndicate Commander")
 		uplink_type = "Commander"
-	else if(uplink_owner.faction == "syndicate")
+	else if(uplink_owner.current.faction == "syndicate")
 		uplink_type = "Operative"
+	else
+		uplink_type = "Unknown"
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
@@ -158,8 +160,13 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		update_nano_data()
 
 	if(href_list["Message"])
+		to_world("message fired")
 		var/obj/item/device/uplink/hidden/U = locate(href_list["target"])
 		src.create_message(usr, U)
+		if(nanoui_menu == 2)
+			if(href_list["target"] in conversations)            // Need to make sure the message went through, if not welp.
+				active_conversation = href_list["target"]
+				nanoui_menu = 21
 
 	update_nano_data()
 	return 1
@@ -335,6 +342,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 			else
 				comm_type = ""
 
+			to_world("Uplink detected: [U.uplink_owner.name] -- [U.uplink_type] -- [U.active] -- [comm_type]")
+
 			if(!U.uplink_type)
 				continue
 
@@ -344,9 +353,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				signals[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Active" = "[U.active]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
 
 		nanoui_data["signals"] = signals
-		nanoui_data["convos"]= convos
-		nanoui_data["signals_count"] = signals.len
-		nanoui_data["convos_count"] = convos.len
+		nanoui_data["convos"] = convos
+		nanoui_data["cmdr_count"] = convos["Commander"].len + signals["Commander"].len
+		nanoui_data["op_count"] = convos["Operative"].len + signals["Operative"].len
+		to_world("[nanoui_data["cmdr_count"]], [nanoui_data["op_count"]]")
 
 	if(nanoui_menu == 41)
 		nanoui_data["messagescount"] = messages.len
@@ -363,17 +373,22 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				break
 
 /obj/item/device/uplink/hidden/proc/create_message(var/mob/user, var/obj/item/device/uplink/hidden/recipient)
-	var/t = input(recipient, "Please enter message", "Uplink Communications", null) as text|null
+	to_world("create_message fired")
+	var/t = input(user, "Please enter message", "Uplink Communications", null) as text|null
 	t = sanitize(t)
 	t = replace_characters(t, list("&#34;" = "\""))
+	to_world("[t]")
 
-	if (!t || !istype(recipient) || loc != user || !recipient.active)
+	if (!t || !istype(recipient) || loc.loc != user)
+		to_world("failed 1")
 		return
 
 	if (last_text && world.time < last_text + 5)
+		to_world("failed 2")
 		return
 
 	if(use_check_and_message(recipient))
+		to_world("failed 3")
 		return
 
 	last_text = world.time
@@ -405,7 +420,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 			playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
 			to_chat(L, reception_message)
 		else
-			to_chat(L, "Your uplink rattles almost imperceptibly for a moment.")
+			to_chat(L, "Your uplink vibrates for a moment.")
 		SSnanoui.update_user_uis(L, src)
 
 // I placed this here because of how relevant it is.
