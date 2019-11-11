@@ -40,4 +40,6 @@ delete-after: True
 changes: 
   - bugfix: "Fixes Jack O' Lanterns. Carve a pumpkin, shove a candle in it and light it with a lighter."
   - imageadd: "New pumpkin, carved pumpkin and jack o' lantern sprites."
+  - tweak: "PDA sprites are on lightmode again."
   - tweak: "Fixes and tweaks various missing and existing sprites."
+  - rscadd: "Lollipops and gum come in wrappers now, due to hygenie concerns."
