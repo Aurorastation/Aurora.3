@@ -25,8 +25,8 @@
 	if(wrapped)
 		add_overlay("[initial(icon_state)]_wrapper")
 
-obj/item/clothing/mask/chewable/New()
-	..()
+obj/item/clothing/mask/chewable/Initialize()
+	. = ..()
 	flags |= NOREACT // so it doesn't react until you light it
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 	for(var/R in filling)
@@ -114,8 +114,8 @@ obj/item/clothing/mask/chewable/Destroy()
 	type_butt = /obj/item/trash/spitgum
 	wrapped = TRUE
 
-/obj/item/clothing/mask/chewable/tobacco/nico/New()
-	..()
+/obj/item/clothing/mask/chewable/tobacco/nico/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 2)
 	color = reagents.get_color()
 
@@ -136,11 +136,6 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting chewed up wad of gum."
 	icon_state = "spit-gum"
 
-/obj/item/trash/lollibutt
-	name = "popsicle stick"
-	desc = "A popsicle stick devoid of pop."
-	icon_state = "pop-stick"
-
 /obj/item/clothing/mask/chewable/candy/gum
 	name = "chewing gum"
 	desc = "A chewy wad of fine synthetic rubber and artificial flavoring."
@@ -148,18 +143,19 @@ obj/item/clothing/mask/chewable/Destroy()
 	item_state = "gum"
 	wrapped = TRUE
 
-/obj/item/clothing/mask/chewable/candy/gum/New()
-	..()
+/obj/item/clothing/mask/chewable/candy/gum/Initialize()
+	. = ..()
 	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),10)
 	color = reagents.get_color()
 	update_icon()
 
 /obj/item/weapon/storage/box/gum
-	name = "chewy fruit flavored gum"
+	name = "Chewy Fruit flavored gum"
 	desc = "A small pack of chewing gum in various flavors."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "gum_pack"
 	item_state = "candy"
+	slot_flags = SLOT_EARS
 	w_class = 1
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
 	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum,
@@ -177,8 +173,13 @@ obj/item/clothing/mask/chewable/Destroy()
 	item_state = "lollipop"
 	wrapped = TRUE
 
-/obj/item/clothing/mask/chewable/candy/lolli/New()
-	..()
+/obj/item/trash/lollibutt
+	name = "popsicle stick"
+	desc = "A popsicle stick devoid of pop."
+	icon_state = "pop-stick"
+
+/obj/item/clothing/mask/chewable/candy/lolli/Initialize()
+	. = ..()
 	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),20)
 	color = reagents.get_color()
 	update_icon()
@@ -189,8 +190,8 @@ obj/item/clothing/mask/chewable/Destroy()
 	type_butt = /obj/item/trash/lollibutt
 	icon_state = "lollipop"
 
-/obj/item/clothing/mask/chewable/candy/lolli/meds/New()
-	..()
+/obj/item/clothing/mask/chewable/candy/lolli/meds/Initialize()
+	. = ..()
 	var/datum/reagent/payload = pick(list(
 				"paracetamol",
 				"tramadol",
@@ -204,8 +205,8 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A sucrose sphere on a small handle, it has been infused with medication."
 	filling = list("sugar" = 6)
 
-/obj/item/clothing/mask/chewable/candy/lolli/weak_meds/New()
-	..()
+/obj/item/clothing/mask/chewable/candy/lolli/weak_meds/Initialize()
+	. = ..()
 	var/datum/reagent/payload = pick(list(
 				"dylovene",
 				"inaprovaline"))

@@ -42,6 +42,7 @@ changes:
   - imageadd: "New pumpkin, carved pumpkin and jack o' lantern sprites."
   - tweak: "PDA sprites are on lightmode again."
   - tweak: "Fixes and tweaks various missing and existing sprites."
+  - tweak: "Clicking a poster on help intent will no longer make you rip it like a neanderthal, but instead examine it like a civilized man"
   - rscdel: "Expired Halloween candy has been removed from snack machines."
   - maptweak: "The archaic lollipop and gumball machines have been removed, and products have been moved to the vending machines."
   - rscadd: "Lollipops and gum come in wrappers now, due to hygenie concerns."

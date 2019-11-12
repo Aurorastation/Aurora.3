@@ -9,9 +9,9 @@
 	light_color = "#E09D37"
 	var/wax = 2000
 
-/obj/item/weapon/flame/candle/New()
+/obj/item/weapon/flame/candle/Initialize()
+	. = ..()
 	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
-	..()
 
 /obj/item/weapon/flame/candle/update_icon()
 	var/i
@@ -48,16 +48,17 @@
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/flame/candle/process()
+/obj/item/weapon/flame/candle/process(mob/user as mob)
 	if(!lit)
 		return
 	update_icon()
 	wax--
 	if(!wax)
-		new/obj/item/trash/candle(src.loc)
+		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
-
+		to_chat(user, span("notice", "The candle burns out."))
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	update_icon()

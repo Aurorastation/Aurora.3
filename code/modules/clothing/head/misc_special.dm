@@ -204,15 +204,17 @@
 		update_clothing_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/head/pumpkin/lantern/process()
+/obj/item/clothing/head/pumpkin/lantern/process(mob/user as mob)
 	if(!lit)
 		return
 	wax--
 	if(!wax)
-		new /obj/item/clothing/head/pumpkin (src.loc)
+		new /obj/item/clothing/head/pumpkin(src.loc)
+		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
-
+		to_chat(user, span("notice", "The candle burns out."))
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	update_icon()
