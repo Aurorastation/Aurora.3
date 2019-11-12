@@ -1,4 +1,3 @@
-//Cat
 /mob/living/simple_animal/carp
 	name = "space carp"
 	desc = "A domesticated, floating space carp. Careful around the teeth."
