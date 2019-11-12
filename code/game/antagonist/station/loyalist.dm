@@ -28,6 +28,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_indicator = "loyal"
 	faction_invisible = 1
 	restricted_jobs = list("AI", "Cyborg")
+	required_age = 7 // Head Loy important
 
 /datum/antagonist/loyalists/New()
 	..()
