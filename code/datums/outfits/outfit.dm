@@ -59,6 +59,13 @@
 				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
 			else
 				back = backpack //Department backpack
+	if(back)
+		equip_item(H, back, slot_back)
+
+	if(istype(H.back,/obj/item/weapon/storage/backpack))
+		var/obj/item/weapon/storage/backpack/B = H.back
+		B.autodrobe_no_remove = TRUE
+
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
@@ -68,15 +75,8 @@
 	if(isnum(path))	//Check if parameter is not numeric. Must be a path, list of paths or name of a gear datum
 		CRASH("Outfit [name] - Parameter path: [path] is numeric.")
 
-	if(islist(path))	//If its a list, select a random item; if back, try to use preference
-		var/list/pathlist = path
-		var/itempath
-		if(is_type_in_list(/obj/item/weapon/storage/backpack, pathlist) && H.backbag && pathlist.len == 5)
-			if(H.backbag < 2)
-				return // They don't want a backpack
-			itempath = pathlist[H.backbag - 2]
-		else
-			itempath = pick(pathlist)
+	if(islist(path))	//If its a list, select a random item
+		var/itempath = pick(path)
 		I = new itempath(H)
 	else if(gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
 		var/datum/gear/G = gear_datums[path]
