@@ -2498,7 +2498,7 @@
 	name = "Ad-mints"
 	desc = "A pack of air fresheners for your mouth."
 	icon = 'icons/obj/food.dmi'
-	icon_state = "mint_pack"
+	icon_state = "admint_pack"
 	item_state = "candy"
 	slot_flags = SLOT_EARS
 	w_class = 1
