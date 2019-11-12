@@ -20,7 +20,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Compressed matter cartridge",	/obj/item/weapon/rfd_ammo,									50,					100),
 	new /datum/data/mining_equipment("Class E Kinetic Accelerator",	/obj/item/weapon/gun/custom_ka/frame01/prebuilt,			12,					200),
 	new /datum/data/mining_equipment("Ore Box",						/obj/structure/ore_box,										-1,					150,	1),
-	new /datum/data/mining_equipment("Emergency Floodlight",		/obj/item/weapon/floodlight_diy, 							-1,					150,	1),
+	new /datum/data/mining_equipment("Emergency Floodlight",		/obj/item/weapon/deployable_kit, 							-1,					150,	1),
 	new /datum/data/mining_equipment("Premium Cigar",				/obj/item/clothing/mask/smokable/cigarette/cigar/havana, 	30,					150),
 	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/weapon/plastique/seismic,							25,					150),
 	new /datum/data/mining_equipment("Deployable Ladder",			/obj/item/weapon/ladder_mobile,								5,					200),

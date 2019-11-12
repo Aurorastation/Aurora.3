@@ -201,20 +201,3 @@
 		to_chat(usr, "<span class='notice'>Unbuckle \the [patient] first!</span>")
 		return 0
 	return 1
-
-/obj/item/weapon/deployable_surgery_table
-	name = "surgery table assembly kit"
-	desc = "A quick assembly kit to deploy a surgery table intended for field surgery. Cannot be put together again after being unfolded, choose your chosen spot wisely."
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "table_deployable"
-	item_state = "table_parts"
-	w_class = 4
-
-/obj/item/weapon/deployable_surgery_table/attack_self(mob/user)
-	to_chat(user, span("notice","You start assembling \the [src]..."))
-	if(do_after(user, 200))
-		var/obj/machinery/optable/O = new /obj/machinery/optable(user.loc)
-		user.visible_message("<span class='notice'>[user] assembles \a [O].\
-			</span>", "<span class='notice'>You assemble \a [O].</span>")
-		O.add_fingerprint(user)
-		qdel(src)
