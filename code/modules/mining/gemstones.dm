@@ -32,6 +32,7 @@ obj/item/precious/gemstone/Initialize(mapload, amount)
 obj/item/precious/gemstone/smallruby
 	name = small ruby 
 	desc = A single red gemstone of small size.
+	icon_state = "sruby_1"
 	gemtype = GEM_RUBY
 	gemsize = GEM_SMALL
 	maxstack = 30
@@ -40,6 +41,7 @@ obj/item/precious/gemstone/smallruby
 obj/item/precious/gemstone/smalltopaz
 	name = small topaz 
 	desc = A single yellow gemstone of small size.
+	icon_state = "stopaz_1"
 	gemtype = GEM_TOPAZ
 	gemsize = GEM_SMALL
 	maxstack = 30
@@ -48,6 +50,7 @@ obj/item/precious/gemstone/smalltopaz
 obj/item/precious/gemstone/smallsapphire
 	name = small sapphire 
 	desc = A single blue gemstone of small size.
+	icon_state = "ssapphire_1"
 	gemtype = GEM_SAPPHIRE
 	gemsize = GEM_SMALL
 	maxstack = 30
@@ -56,6 +59,7 @@ obj/item/precious/gemstone/smallsapphire
 obj/item/precious/gemstone/smallamethyst
 	name = small amethyst 
 	desc = A single purple gemstone of small size.
+	icon_state = "samethyst_1"
 	gemtype = GEM_AMETHYST
 	gemsize = GEM_SMALL
 	maxstack = 30
@@ -64,6 +68,7 @@ obj/item/precious/gemstone/smallamethyst
 obj/item/precious/gemstone/smallemerald
 	name = small emerald 
 	desc = A single green gemstone of small size.
+	icon_state = "semerald_1"
 	gemtype = GEM_EMERALD
 	gemsize = GEM_SMALL
 	maxstack = 30
@@ -72,6 +77,7 @@ obj/item/precious/gemstone/smallemerald
 obj/item/precious/gemstone/smalldiamond
 	name = small diamond 
 	desc = A single colorless gemstone of small size.
+	icon_state = "sdiamond_1"
 	gemtype = GEM_DIAMOND
 	gemsize = GEM_SMALL
 	maxstack = 30
@@ -226,3 +232,30 @@ obj/item/precious/gemstone/hugediamond
 	gemsize = GEM_ENORMOUS
 	maxstack = 5
 	stacksize = 1
+
+// Mixed Gem Piles
+
+obj/item/precious/gemstone/smallmixed
+	name = small gemstone pile 
+	desc = A pile of assorted small gemstones.
+	icon state - "smixed_5"
+	gemtype = GEM_MIXED
+	gemsize = GEM_SMALL
+	maxstack = 30
+	stacksize = 0
+
+obj/item/precious/gemstone/medmixed
+	name = medium gemstone pile 
+	desc = A pile of assorted medium gemstones.
+	gemtype = GEM_MIXED
+	gemsize = GEM_MEDIUM
+	maxstack = 15
+	stacksize = 0
+
+obj/item/precious/gemstone/largemixed
+	name = large gemstone pile 
+	desc = A pile of assorted large gemstones.
+	gemtype = GEM_MIXED
+	gemsize = GEM_LARGE
+	maxstack = 5
+	stacksize = 0
