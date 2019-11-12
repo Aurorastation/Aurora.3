@@ -129,7 +129,7 @@
 		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
 		return FALSE
 
-	if(T.z in current_map.admin_levels)
+	if(isAdminLevel(T.z))
 		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
 		return FALSE
 

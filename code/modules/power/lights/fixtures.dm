@@ -108,7 +108,7 @@
 	if (start_with_cell && !no_emergency)
 		cell = new /obj/item/weapon/cell/device/emergency_light(src)
 
-	if (mapload && loc && !(z in current_map.admin_levels))
+	if (mapload && loc && isNotAdminLevel(z))
 		switch(fitting)
 			if("tube")
 				if(prob(2))

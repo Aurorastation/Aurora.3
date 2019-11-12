@@ -354,8 +354,7 @@
 			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 		return 0
 
-	if(destination.z in current_map.admin_levels) //centcomm z-level
-
+	if(isAdminLevel(destination.z)) //centcomm z-level
 		if(!isemptylist(teleatom.search_contents_for(/obj/item/weapon/storage/backpack/holding)))
 			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 			return 0

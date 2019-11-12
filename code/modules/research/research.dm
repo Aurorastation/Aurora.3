@@ -63,6 +63,20 @@ research holder datum.
 		known_tech += new T(src)
 	RefreshResearch()
 
+/datum/research/hightech
+
+/datum/research/hightech/New()
+	for(var/T in typesof(/datum/tech) - /datum/tech)
+		known_tech += new T(src)
+	for(var/D in typesof(/datum/design) - /datum/design)
+		possible_designs += new D(src)
+	for(var/datum/tech/known in known_tech)
+		if(istype(known,/datum/tech/syndicate) || istype(known,/datum/tech/arcane)) //illegal or antag shit we don't want to start with
+			known.level = 0
+		else
+			known.level = 3
+	RefreshResearch()
+
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)

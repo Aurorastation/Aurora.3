@@ -6467,7 +6467,7 @@
 /area/derelict)
 "tt" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/deck/holder,
+/obj/item/weapon/storage/card,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -8005,7 +8005,7 @@
 	},
 /area/derelict)
 "xe" = (
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/floodlight
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
@@ -9473,7 +9473,7 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/obj/item/clothing/suit/storage/miljacket,
+/obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/device/camera,
 /obj/item/clothing/head/legion_beret,
@@ -12547,7 +12547,7 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/obj/item/weapon/deck/holder,
+/obj/item/weapon/storage/card,
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,

@@ -160,8 +160,8 @@
 /obj/item/weapon/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Pesti-Shock"
 	desc = "A highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	icon_state = "floramut100"
-	item_state = "floramut"
+	icon_state = "pestishock100"
+	item_state = "pestishock"
 	charge_meter = 0
 	w_class = 3
 	fire_sound = 'sound/weapons/taser2.ogg'

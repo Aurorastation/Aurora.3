@@ -150,6 +150,23 @@
 /obj/machinery/r_n_d/server/centcom/machinery_process()
 	return PROCESS_KILL //don't need process()
 
+/obj/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
+
+/obj/machinery/r_n_d/server/advanced/setup()
+	if(!files)
+		files = new /datum/research/hightech(src)
+	var/list/temp_list
+	if(!id_with_upload.len)
+		temp_list = list()
+		temp_list = text2list(id_with_upload_string, ";")
+		for(var/N in temp_list)
+			id_with_upload += text2num(N)
+	if(!id_with_download.len)
+		temp_list = list()
+		temp_list = text2list(id_with_download_string, ";")
+		for(var/N in temp_list)
+			id_with_download += text2num(N)
+
 /obj/machinery/computer/rdservercontrol
 	name = "R&D Server Controller"
 
@@ -301,13 +318,13 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/r_n_d/server/robotics
+/obj/machinery/r_n_d/server/advanced/robotics
 	name = "Robotics R&D Server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
-/obj/machinery/r_n_d/server/core
+/obj/machinery/r_n_d/server/advanced/core
 	name = "Core R&D Server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"
