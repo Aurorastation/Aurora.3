@@ -92,6 +92,10 @@
 	name = "box (C)"
 	starts_with = list(/obj/item/weapon/implanter/compressed = 1)
 
+/obj/item/weapon/storage/box/syndie_kit/imp_camera
+	name = "box (CAM)"
+	starts_with = list(/obj/item/weapon/implanter/camera = 1)
+
 /obj/item/weapon/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
 	starts_with = list(/obj/item/weapon/implanter/explosive = 1)

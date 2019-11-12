@@ -19,6 +19,11 @@
 	item_cost = 10
 	path = /obj/item/weapon/storage/box/syndie_kit/imp_explosive
 
+/datum/uplink_item/item/implants/imp_camera
+	name = "Optical Camera Implant"
+	item_cost = 4
+	path = /obj/item/weapon/storage/box/syndie_kit/imp_camera
+
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"
 	path = /obj/item/weapon/storage/box/syndie_kit/imp_uplink
