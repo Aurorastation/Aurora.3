@@ -1147,7 +1147,22 @@ mob/living/carbon/human/proc/change_monitor()
 	var/list/airInfo = list()
 	if(total_moles>0)
 		for(var/mix in mixture.gas)
-			airInfo += span("notice", "[gas_data.name[mix]]: [round((mixture.gas[mix] / total_moles) * 100)]%")
+			var/composition = "Non-existant"
+			switch(round((mixture.gas[mix] / total_moles) * 100))
+				if(0)
+					composition = "Non-existant"
+				if(0 to 5)
+					composition = "Trace-amounts"
+				if(5 to 15)
+					composition = "Low-scent"
+				if(15 to 60)
+					composition = "Present"
+				if(60 to 80) //nitrogen is usually at 78%
+					composition = "High-volume"
+				if(80 to INFINITY)
+					composition = "Overwhelming"
+
+			airInfo += span("notice", "[gas_data.name[mix]]: [composition]")
 		airInfo += span("notice", "Temperature: [round(mixture.temperature-T0C)]&deg;C")
 	else
 		airInfo += span("notice", "There is no air around to sample!")
