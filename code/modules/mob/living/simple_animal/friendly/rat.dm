@@ -105,13 +105,13 @@
 	if (!input)
 		return
 	if (length(input) > MAX_NAME_LEN)
-		to_chat(M, "That name's too long, maximum is [MAX_NAME_LEN] characters.")
+		to_chat(M, span("notice", "That name is too long, maximum is [MAX_NAME_LEN] characters."))
 
 	if (!name_pattern.Find(input))
 		to_chat(M, bad_name_message)
 		return
 	if (QDELETED(src) || stat)
-		to_chat(M, "Mob no longer exists or is dead.")
+		to_chat(M, span("notice", "The dead cannot choose names."))
 		return
 
 	if (M == src)
