@@ -42,6 +42,7 @@
 #define NETWORK_STATION "Station"
 #define NETWORK_MEDICAL "Medical"
 #define NETWORK_MERCENARY "MercurialNet"
+#define NETWORK_SYNDICATE "Syndicate"
 #define NETWORK_MINE "MINE"
 #define NETWORK_RESEARCH "Research"
 #define NETWORK_RESEARCH_OUTPOST "Research Outpost"
@@ -60,7 +61,7 @@
 #define NETWORK_POD "General Utility Pod"
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
-var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
+var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY, NETWORK_SYNDICATE, "Secret")
 
 
 //singularity defines

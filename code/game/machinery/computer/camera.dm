@@ -277,3 +277,14 @@
 /obj/machinery/computer/security/nuclear/Initialize()
 	. = ..()
 	req_access = list(150)
+
+/obj/machinery/computer/security/syndicate
+	name = "syndicate camera monitoring system"
+	desc = "Used to access head-mounted cameras and optical implants used by Syndicate agents."
+	icon_screen = "syndicam"
+	network = list(NETWORK_SYNDICATE, NETWORK_MERCENARY)
+	circuit = null
+
+/obj/machinery/computer/security/syndicate/Initialize()
+	. = ..()
+	req_access = list(151)

@@ -145,7 +145,7 @@
 
 /obj/machinery/camera/spy
 	// These cheap toys are accessible from the mercenary camera console as well
-	network = list(NETWORK_MERCENARY)
+	network = list(NETWORK_MERCENARY, NETWORK_SYNDICATE)
 
 /obj/machinery/camera/spy/Initialize()
 	. = ..()

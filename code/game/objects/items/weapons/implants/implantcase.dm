@@ -159,3 +159,13 @@
 	src.imp = new /obj/item/weapon/implant/health( src )
 	..()
 	return
+
+/obj/item/weapon/implantcase/camera
+	name = "glass case - 'optical camera'"
+	desc = "A case containing an optical camera implant."
+	icon_state = "implantcase-b"
+
+/obj/item/weapon/implantcase/camera/New()
+	src.imp = new /obj/item/weapon/implant/camera( src )
+	..()
+	return

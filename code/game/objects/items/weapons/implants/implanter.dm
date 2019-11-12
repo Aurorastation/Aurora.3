@@ -80,6 +80,15 @@
 	update()
 	return
 
+/obj/item/weapon/implanter/camera
+	name = "implanter-camera"
+
+/obj/item/weapon/implanter/camera/New()
+	src.imp = new /obj/item/weapon/implant/camera( src )
+	..()
+	update()
+	return
+
 /obj/item/weapon/implanter/adrenalin
 	name = "implanter-adrenalin"
 

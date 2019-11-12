@@ -569,3 +569,61 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 /obj/item/weapon/implant/compressed/islegal()
 	return 0
+
+/obj/item/weapon/implant/camera
+	name = "optical camera implant"
+	desc = "This implant turns your eyes into a mobile camera feed. Blink rapidly to activate."
+
+	var/activation_emote = "blink_r"
+	var/obj/machinery/camera/camera
+	var/list/camera_networks = list(NETWORK_SYNDICATE)
+
+/obj/item/weapon/implant/camera/get_data()
+	. = {"<b>Implant Specifications:</b><BR>
+<b>Name:</b> SC-33b Optical Camera Implant<BR>
+<b>Life:</b> 2 minutes after death of host<BR>
+<b>Important Notes:</b> None<BR>
+<HR>
+<b>Implant Details:</b> <BR>
+<b>Function:</b> Transmits optical nerve data as visual feed to pre-set camera network. Useful for surveillance and reconnaissance.<BR>
+<b>Special Features:</b><BR>
+<i>Neuro-Safe</i>- Specialized shell absorbs excess voltages self-destructing the chip if
+a malfunction occurs thereby securing safety of subject. The implant will melt and
+disintegrate into bio-safe elements.<BR>
+<b>Integrity:</b> Gradient creates slight risk of being overcharged and frying the
+circuitry. As a result neurotoxins can cause massive damage.<HR>
+Implant Specifics:<BR>"}
+
+/obj/item/weapon/implant/camera/emp_act(severity)
+	if (malfunction)	//no, dawg, you can't malfunction while you are malfunctioning
+		return
+	malfunction = MALFUNCTION_TEMPORARY
+
+	var/delay = 20
+	switch(severity)
+		if(1)
+			if(prob(60))
+				meltdown()
+		if(2)
+			delay = rand(5*60*10,15*60*10)	//from 5 to 15 minutes of free time
+
+	spawn(delay)
+		malfunction--
+
+/obj/item/weapon/implant/camera/trigger(emote, mob/source)
+	if (emote == src.activation_emote)
+		activate()
+
+/obj/item/weapon/implant/camera/activate()
+	if(!camera && camera_networks)
+		camera = new /obj/machinery/camera(src)
+		camera.replace_networks(camera_networks)
+		camera.set_status(0)
+
+	if(camera)
+		camera.set_status(!camera.status)
+		if(camera.status)
+			camera.c_tag = FindNameFromID(usr)
+			to_chat(usr, "<span class='notice'>You hear a click in your head as your optical camera activates.</span>")
+		else
+			to_chat(usr, "<span class='notice'>With a subtle click, the optical camera spools down.</span>")
