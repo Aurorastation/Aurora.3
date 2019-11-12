@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Allows more suits to wear the fireaxe in the suit slot."
-  - rscadd: "Raised the temperature resistance of the CE hardsuit."
+  - tweak: "Allows more suits to wear the fireaxe in the suit slot."
+  - tweak: "Raised the temperature resistance of the CE hardsuit."
