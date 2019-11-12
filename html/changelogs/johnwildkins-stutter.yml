@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - bugfix: "Stuttering no longer breaks markup tags (bold, italics, etc.)."
-  - backend: "Stutter procs merged and refactored; stuttering now properly draws off of the strength of the applied stuttering effect to the affected mob."
-  - rscadd: "Stuttering now takes the form of first-phoneme repetition, stammering, word repetition, and sound elongation, as opposed to simple letter duplication."

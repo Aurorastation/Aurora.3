@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Lowers fireaxe after-click cooldown to 1.2 seconds down from 2.0."
