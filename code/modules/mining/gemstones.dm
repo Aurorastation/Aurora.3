@@ -12,7 +12,7 @@
 #define GEM_LARGE "large"
 #define GEM_ENORMOUS "enormous"
 
-obj/item/precious/gemstone
+/obj/item/precious/gemstone
 	name = "gemstone"
 	desc = "An impossibly generic gemstone. How do you even have this?"
 	icon = 'icons/obj/gemstones.dmi'
@@ -22,14 +22,25 @@ obj/item/precious/gemstone
 	var/maxstack
 	var/stack_contents = list()
 
-obj/item/precious/gemstone/Initialize(mapload, amount)
+/obj/item/precious/gemstone/Initialize(mapload, amount)
 	. = ..()
 	if(amount)
 		stacksize = amount
 
+/obj/item/precious/gemstone/attackby(obj/item/precious/gemstone/G, mob/user)
+	. = ..()
+	if(G.(src.gemtype == G.gemtype))
+		gemstacker
+
+	if(G.(src.gemtype != G.gemtype))
+		gemmixer
+
+/obj/item/precious/gemstone/proc/gemstacker()
+
+
 // Small gemstones
 
-obj/item/precious/gemstone/smallruby
+/obj/item/precious/gemstone/smallruby
 	name = "small ruby"
 	desc = "A single red gemstone of small size."
 	icon_state = "sruby_1"
@@ -38,7 +49,7 @@ obj/item/precious/gemstone/smallruby
 	maxstack = 30
 	stacksize = 1
 
-obj/item/precious/gemstone/smalltopaz
+/obj/item/precious/gemstone/smalltopaz
 	name = "small topaz"
 	desc = "A single yellow gemstone of small size."
 	icon_state = "stopaz_1"
@@ -47,7 +58,7 @@ obj/item/precious/gemstone/smalltopaz
 	maxstack = 30
 	stacksize = 1
 
-obj/item/precious/gemstone/smallsapphire
+/obj/item/precious/gemstone/smallsapphire
 	name = "small sapphire"
 	desc = "A single blue gemstone of small size."
 	icon_state = "ssapphire_1"
@@ -56,7 +67,7 @@ obj/item/precious/gemstone/smallsapphire
 	maxstack = 30
 	stacksize = 1
 
-obj/item/precious/gemstone/smallamethyst
+/obj/item/precious/gemstone/smallamethyst
 	name = "small amethyst" 
 	desc = "A single purple gemstone of small size."
 	icon_state = "samethyst_1"
@@ -65,7 +76,7 @@ obj/item/precious/gemstone/smallamethyst
 	maxstack = 30
 	stacksize = 1
 
-obj/item/precious/gemstone/smallemerald
+/obj/item/precious/gemstone/smallemerald
 	name = "small emerald"
 	desc = "A single green gemstone of small size."
 	icon_state = "semerald_1"
@@ -74,7 +85,7 @@ obj/item/precious/gemstone/smallemerald
 	maxstack = 30
 	stacksize = 1
 
-obj/item/precious/gemstone/smalldiamond
+/obj/item/precious/gemstone/smalldiamond
 	name = "small diamond"
 	desc = "A single colorless gemstone of small size."
 	icon_state = "sdiamond_1"
@@ -85,7 +96,7 @@ obj/item/precious/gemstone/smalldiamond
 
 // Medium Gemstones
 
-obj/item/precious/gemstone/medruby
+/obj/item/precious/gemstone/medruby
 	name = "medium ruby"
 	desc = "A single red gemstone of medium size."
 	gemtype = GEM_RUBY
@@ -93,7 +104,7 @@ obj/item/precious/gemstone/medruby
 	maxstack = 15
 	stacksize = 1
 
-obj/item/precious/gemstone/medtopaz
+/obj/item/precious/gemstone/medtopaz
 	name = "medium topaz"
 	desc = "A single yellow gemstone of medium size."
 	gemtype = GEM_TOPAZ
@@ -101,7 +112,7 @@ obj/item/precious/gemstone/medtopaz
 	maxstack = 15
 	stacksize = 1
 
-obj/item/precious/gemstone/medsapphire
+/obj/item/precious/gemstone/medsapphire
 	name = "medium sapphire"
 	desc = "A single blue gemstone of medium size."
 	gemtype = GEM_SAPPHIRE
@@ -109,7 +120,7 @@ obj/item/precious/gemstone/medsapphire
 	maxstack = 15
 	stacksize = 1
 
-obj/item/precious/gemstone/medamethyst
+/obj/item/precious/gemstone/medamethyst
 	name = "medium amethyst"
 	desc = "A single purple gemstone of medium size."
 	gemtype = GEM_AMETHYST
@@ -117,15 +128,15 @@ obj/item/precious/gemstone/medamethyst
 	maxstack = 15
 	stacksize = 1
 
-obj/item/precious/gemstone/medemerald
+/obj/item/precious/gemstone/medemerald
 	name = "medium emerald"
-	desc = A single green gemstone of medium size.
+	desc = "A single green gemstone of medium size."
 	gemtype = GEM_EMERALD
 	gemsize = GEM_MEDIUM
 	maxstack = 15
 	stacksize = 1
 
-obj/item/precious/gemstone/meddiamond
+/obj/item/precious/gemstone/meddiamond
 	name = "medium diamond"
 	desc = "A single colorless gemstone of medium size."
 	gemtype = GEM_DIAMOND
@@ -135,7 +146,7 @@ obj/item/precious/gemstone/meddiamond
 
 // Large Gemstones
 
-obj/item/precious/gemstone/largeruby
+/obj/item/precious/gemstone/largeruby
 	name = "large ruby"
 	desc = "A single red gemstone of large size."
 	gemtype = GEM_RUBY
@@ -143,7 +154,7 @@ obj/item/precious/gemstone/largeruby
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/largetopaz
+/obj/item/precious/gemstone/largetopaz
 	name = "large topaz"
 	desc = "A single yellow gemstone of large size."
 	gemtype = GEM_TOPAZ
@@ -151,7 +162,7 @@ obj/item/precious/gemstone/largetopaz
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/largesapphire
+/obj/item/precious/gemstone/largesapphire
 	name = "large sapphire"
 	desc = "A single blue gemstone of large size."
 	gemtype = GEM_SAPPHIRE
@@ -159,7 +170,7 @@ obj/item/precious/gemstone/largesapphire
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/largeamethyst
+/obj/item/precious/gemstone/largeamethyst
 	name = "large amethyst"
 	desc = "A single purple gemstone of large size."
 	gemtype = GEM_AMETHYST
@@ -167,7 +178,7 @@ obj/item/precious/gemstone/largeamethyst
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/largeemerald
+/obj/item/precious/gemstone/largeemerald
 	name = "small emerald"
 	desc = "A single green gemstone of large size."
 	gemtype = GEM_EMERALD
@@ -175,7 +186,7 @@ obj/item/precious/gemstone/largeemerald
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/largediamond
+/obj/item/precious/gemstone/largediamond
 	name = "large diamond"
 	desc = "A single colorless gemstone of large size."
 	gemtype = GEM_DIAMOND
@@ -185,7 +196,7 @@ obj/item/precious/gemstone/largediamond
 
 // Enormous Gemstones
 
-obj/item/precious/gemstone/hugeruby
+/obj/item/precious/gemstone/hugeruby
 	name = "enormous ruby"
 	desc = "A single red gemstone of enormous size."
 	gemtype = GEM_RUBY
@@ -193,7 +204,7 @@ obj/item/precious/gemstone/hugeruby
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/hugetopaz
+/obj/item/precious/gemstone/hugetopaz
 	name = "enormous topaz"
 	desc = "A single yellow gemstone of enormous size."
 	gemtype = GEM_TOPAZ
@@ -201,7 +212,7 @@ obj/item/precious/gemstone/hugetopaz
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/hugesapphire
+/obj/item/precious/gemstone/hugesapphire
 	name = "enormous sapphire"
 	desc = "A single blue gemstone of enormous size."
 	gemtype = GEM_SAPPHIRE
@@ -209,7 +220,7 @@ obj/item/precious/gemstone/hugesapphire
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/hugeamethyst
+/obj/item/precious/gemstone/hugeamethyst
 	name = "enormous amethyst"
 	desc = "A single purple gemstone of enormous size."
 	gemtype = GEM_AMETHYST
@@ -217,7 +228,7 @@ obj/item/precious/gemstone/hugeamethyst
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/hugeemerald
+/obj/item/precious/gemstone/hugeemerald
 	name = "enormous emerald"
 	desc = "A single green gemstone of enormous size."
 	gemtype = GEM_EMERALD
@@ -225,7 +236,7 @@ obj/item/precious/gemstone/hugeemerald
 	maxstack = 5
 	stacksize = 1
 
-obj/item/precious/gemstone/hugediamond
+/obj/item/precious/gemstone/hugediamond
 	name = "enormous diamond"
 	desc = "A single colorless gemstone of enormous size."
 	gemtype = GEM_DIAMOND
@@ -235,16 +246,16 @@ obj/item/precious/gemstone/hugediamond
 
 // Mixed Gem Piles
 
-obj/item/precious/gemstone/smallmixed
+/obj/item/precious/gemstone/smallmixed
 	name = "small gemstone pile"
 	desc = "A pile of assorted small gemstones."
-	icon state - "smixed_5"
+	icon_state = "smixed_5"
 	gemtype = GEM_MIXED
 	gemsize = GEM_SMALL
 	maxstack = 30
 	stacksize = 0
 
-obj/item/precious/gemstone/medmixed
+/obj/item/precious/gemstone/medmixed
 	name = "medium gemstone pile"
 	desc = "A pile of assorted medium gemstones."
 	gemtype = GEM_MIXED
@@ -252,7 +263,7 @@ obj/item/precious/gemstone/medmixed
 	maxstack = 15
 	stacksize = 0
 
-obj/item/precious/gemstone/largemixed
+/obj/item/precious/gemstone/largemixed
 	name = "large gemstone pile"
 	desc = "A pile of assorted large gemstones."
 	gemtype = GEM_MIXED
