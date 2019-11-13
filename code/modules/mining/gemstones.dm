@@ -32,6 +32,9 @@
 /obj/item/precious/gemstone/attackby(obj/item/precious/gemstone/G, mob/user)
 	if (!istype(G))
 		return ..()
+	if(G.gemtype == GEM_MIXED)
+		to_chat(user, span("notice", "Try doing it the other way - put an unmixed gem into the pile, instead of the pile onto an organized gem stack."))
+		return
 	if(src.gemsize != G.gemsize)
 		to_chat(user, span("notice", "You can't mix gem sizes. It would be too disorganized!"))
 		return
@@ -57,8 +60,32 @@
 	if(src.stacksize == src.maxstack)
 		to_chat(user, span("notice", "You can't fit any more gems into that pile!"))
 		return
+	if(src.gemtype != GEM_MIXED)
+		to_chat(user, spawn("notice", "You mix the gemstones together into a pile."))
+		src.stacksize -= 1
+		G.stacksize -= 1
+		switch(gemsize)
+			if(GEM_SMALL)
+				var/obj/item/precious/gemstone/mixed/pile = new /obj/item/precious/gemstone/mixed(loc, src.gemtype)
+				pile.add_gem(G)
+			if(GEM_MEDIUM)
+				var/obj/item/precious/gemstone/mixed/pile = new /obj/item/precious/gemstone/mixed/med(loc, src.gemtype)
+				pile.add_gem(G)
+			if(GEM_LARGE)
+				var/obj/item/precious/gemstone/mixed/pile = new /obj/item/precious/gemstone/mixed/large(loc, src.gemtype)
+				pile.add_gem(G)
+	else 
+		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
+		stack_contents[G.gemtype] += 1
+	update_gem()
 
-/obj/item/precious/gemstone/proc/update_gem()
+
+/obj/item/precious/gemstone/add_gem(obj/item/precious/gemstone/G, var/obj/item/precious/gemstone/mixed/pile)
+	pile.stack_contents = stack_contents[src.gemtype] += 1
+	pile.stack_contents = stack_contents[G.gemtype] += 1
+
+
+/obj/item/precious/gemstone/mixed/proc/update_gem()
 	if(src.stacksize == 0)
 		qdel(src)
 		return
@@ -345,7 +372,7 @@
 
 // Mixed Gem Piles
 
-/obj/item/precious/gemstone/smallmixed
+/obj/item/precious/gemstone/mixed
 	name = "small gemstone pile"
 	desc = "A pile of assorted small gemstones."
 	icon_state = "smixed_5"
@@ -354,7 +381,7 @@
 	maxstack = 30
 	stacksize = 0
 
-/obj/item/precious/gemstone/medmixed
+/obj/item/precious/gemstone/mixed/med
 	name = "medium gemstone pile"
 	desc = "A pile of assorted medium gemstones."
 	gemtype = GEM_MIXED
@@ -362,10 +389,22 @@
 	maxstack = 15
 	stacksize = 0
 
-/obj/item/precious/gemstone/largemixed
+/obj/item/precious/gemstone/mixed/large
 	name = "large gemstone pile"
 	desc = "A pile of assorted large gemstones."
 	gemtype = GEM_MIXED
 	gemsize = GEM_LARGE
 	maxstack = 5
 	stacksize = 0
+
+/turf/simulated/mineral/proc/findgem()
+	if(prob(95))
+		spawnsmallgem()
+	else 
+		if(prob(99))
+			spawnmediumgem()
+		else 
+			if (prob (95))
+				spawnlargegem()
+			else 
+				spawnhugegem()
