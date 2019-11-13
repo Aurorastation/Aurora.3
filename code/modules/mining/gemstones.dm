@@ -27,11 +27,11 @@
 	. = ..()
 	if(amount)
 		stacksize = amount
-		updateicon()
+		update_gem()
 
 /obj/item/precious/gemstone/attackby(obj/item/precious/gemstone/G, mob/user)
 	if (!istype(G))
-        return ..()
+		return ..()
 	if(src.gemsize != G.gemsize)
 		to_chat(user, span("notice", "You can't mix gem sizes. It would be too disorganized!"))
 		return
@@ -39,9 +39,9 @@
 		to_chat(user, span("notice", "That gem is far too big to stack!"))
 		return
 	if(src.gemtype == G.gemtype)
-		gemstacker
+		gemstacker()
 	else
-		gemmixer
+		gemmixer()
 
 /obj/item/precious/gemstone/proc/gemstacker(obj/item/precious/gemstone/G, mob/user)
 	if(src.stacksize == src.maxstack)
@@ -50,9 +50,14 @@
 	else
 		src.stacksize += 1
 		G.stacksize -= 1 
-		update_icon(G)
+		update_gem(G)
 
-/obj/item/precious/gemstone/proc/update_icon()
+/obj/item/precious/gemstone/proc/gemmixer(obj/item/precious/gemstone/G, mob/user)
+	if(src.stacksize == src.maxstack)
+		to_chat(user, span("notice", "You can't fit any more gems into that pile!"))
+		return
+
+/obj/item/precious/gemstone/proc/update_gem()
 	if(src.stacksize == 0)
 		qdel(src)
 		return
