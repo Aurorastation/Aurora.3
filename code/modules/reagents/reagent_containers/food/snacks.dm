@@ -1701,7 +1701,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsteak
 	name = "meat steak"
 	desc = "A piece of hot spicy meat."
-	icon_state = "stake"
+	icon_state = "steak"
 	trash = /obj/item/trash/plate
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
@@ -1713,6 +1713,22 @@
 	reagents.add_reagent("triglyceride", 2)
 	reagents.add_reagent("sodiumchloride", 1)
 	reagents.add_reagent("blackpepper", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatsteak/update_icon()
+	var/percent = round((reagents.total_volume / volume) * 100)
+	switch(percent)
+		if(0 to 10)
+			icon_state = "steak_10"
+		if(11 to 25)
+			icon_state = "steak_25"
+		if(26 to 40)
+			icon_state = "steak_40"
+		if(41 to 60)
+			icon_state = "steak_60"
+		if(61 to 75)
+			icon_state = "steak_75"
+		if(76 to INFINITY)
+			icon_state = "steak"
 
 /obj/item/weapon/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
