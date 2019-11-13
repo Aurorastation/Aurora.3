@@ -143,7 +143,31 @@
 	else 
 		desc = "A colorful pile of assorted [gemsize] gleaming gemstones. There are [stacksize] gems in the pile."
 
-var/list/gemtype2type = list(GEM_RUBY = )
+var/list/gemtype2type = list(
+	GEM_RUBY = list(
+		GEM_SMALL = /obj/item/precious/gemstone/ruby, 
+		GEM_MEDIUM = /obj/item/precious/gemstone/ruby/med, 
+		GEM_LARGE = /obj/item/precious/gemstone/ruby/large), 
+	GEM_AMETHYST = list(
+		GEM_SMALL = /obj/item/precious/gemstone/amethyst, 
+		GEM_MEDIUM = /obj/item/precious/gemstone/amethyst/med, 
+		GEM_LARGE = /obj/item/precious/gemstone/amethyst/large), 
+	GEM_TOPAZ = list(
+		GEM_SMALL = /obj/item/precious/gemstone/topaz, 
+		GEM_MEDIUM = /obj/item/precious/gemstone/topaz/med, 
+		GEM_LARGE = /obj/item/precious/gemstone/topaz/large), 
+	GEM_DIAMOND = list(
+		GEM_SMALL = /obj/item/precious/gemstone/diamond, 
+		GEM_MEDIUM = /obj/item/precious/gemstone/diamond/med, 
+		GEM_LARGE = /obj/item/precious/gemstone/diamond/large), 
+	GEM_EMERALD = list (
+		GEM_SMALL = /obj/item/precious/gemstone/emerald, 
+		GEM_MEDIUM = /obj/item/precious/gemstone/emerald/med, 
+		GEM_LARGE = /obj/item/precious/gemstone/emerald/large), 
+	GEM_SAPPHIRE = list(
+		GEM_SMALL = /obj/item/precious/gemstone/sapphire, 
+		GEM_MEDIUM = /obj/item/precious/gemstone/sapphire/med, 
+		GEM_LARGE = /obj/item/precious/gemstone/sapphire/large))
 
 
 /obj/item/precious/gemstone/mixed/verb/separate_pile()
