@@ -55,6 +55,9 @@
 	name = "plate"
 	icon_state = "plate"
 
+/obj/item/trash/plate/steak
+	icon_state = "steak"
+
 /obj/item/trash/snack_bowl
 	name = "snack bowl"
 	icon_state	= "snack_bowl"
