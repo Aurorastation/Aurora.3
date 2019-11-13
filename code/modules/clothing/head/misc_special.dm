@@ -187,7 +187,7 @@
 	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
-			light(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
+			light(span("notice", "\The [user] casually lights \the [name] with [W].</span>"))
 	else if(isflamesource(W))
 		light()
 	else if(istype(W, /obj/item/weapon/flame/candle))
@@ -195,10 +195,9 @@
 		if(C.lit)
 			light()
 
-/obj/item/clothing/head/pumpkin/lantern/proc/light()
+/obj/item/clothing/head/pumpkin/lantern/proc/light(var/flavor_text = span("notice", "\The [usr] lights \the [name].</span>"))
 	if(!src.lit)
 		src.lit = 1
-		to_chat(user, span("\The [user] lights \the [name]."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
 		for(var/mob/O in viewers(usr, null))
