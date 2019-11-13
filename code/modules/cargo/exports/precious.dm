@@ -97,25 +97,25 @@
 
 /datum/export/precious/gemstone/largesapphire
 	cost = 1500
-	unit_name = "large sapphire"
-	export_types = list(/obj/item/precious/gemstone/sapphire/large)
+	unit_name = "enormous sapphire"
+	export_types = list(/obj/item/precious/gemstone/sapphire/huge)
 
 /datum/export/precious/gemstone/largeemerald
 	cost = 25000
-	unit_name = "large emerald"
-	export_types = list(/obj/item/precious/gemstone/emerald/large)
+	unit_name = "enormous emerald"
+	export_types = list(/obj/item/precious/gemstone/emerald/huge)
 
 /datum/export/precious/gemstone/largetopaz
 	cost = 25000
-	unit_name = "large topaz"
-	export_types = list(/obj/item/precious/gemstone/topaz/large)
+	unit_name = "enormous topaz"
+	export_types = list(/obj/item/precious/gemstone/topaz/huge)
 
 /datum/export/precious/gemstone/largeamethyst
 	cost = 25000
-	unit_name = "large amethyst"
-	export_types = list(/obj/item/precious/gemstone/amethyst/large)
+	unit_name = "enormous amethyst"
+	export_types = list(/obj/item/precious/gemstone/amethyst/huge)
 
 /datum/export/precious/gemstone/largediamond
 	cost = 37500
-	unit_name = "large diamond"
-	export_types = list(/obj/item/precious/gemstone/diamond/large)
+	unit_name = "enormous diamond"
+	export_types = list(/obj/item/precious/gemstone/diamond/huge)
