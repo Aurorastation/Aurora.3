@@ -2886,16 +2886,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
-"kG" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "lB" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3039,6 +3029,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"ua" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = 0
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "uI" = (
 /turf/simulated/wall,
 /area/crew_quarters/fitness/running)
@@ -3082,6 +3084,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"xr" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "xD" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -3152,18 +3164,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"zh" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA";
-	pixel_y = 0
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "zL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3207,17 +3207,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
-"BG" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA";
-	pixel_y = 0
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "BY" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3438,16 +3427,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
-"He" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/mine/explored)
 "Hs" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -3675,6 +3654,16 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"PH" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "PJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3873,6 +3862,17 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/running)
+"Xh" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA";
+	pixel_y = 0
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "XG" = (
 /obj/structure/closet/emcloset,
 /obj/structure/sign/nosmoking_1{
@@ -22110,11 +22110,11 @@ aa
 aa
 aa
 aa
-aa
+aZ
 dp
 dp
+aZ
 aa
-ab
 ab
 ab
 ab
@@ -22367,12 +22367,12 @@ aa
 aa
 aa
 aa
-aa
+aZ
 dp
 dp
+aZ
 aa
 aa
-ab
 ab
 ab
 ab
@@ -22624,10 +22624,10 @@ aa
 aa
 aa
 aa
-aa
+aZ
 dp
 dp
-aa
+aZ
 aa
 aa
 aa
@@ -22881,10 +22881,10 @@ aa
 aa
 aa
 aa
-aa
+aZ
 dp
 dp
-aa
+aZ
 aa
 aa
 aa
@@ -23127,7 +23127,7 @@ ad
 fH
 fH
 fH
-zh
+ua
 aa
 aa
 aa
@@ -23379,7 +23379,7 @@ aa
 PA
 aD
 aD
-He
+xr
 fe
 ah
 ah
@@ -23908,7 +23908,7 @@ aa
 aa
 aa
 aa
-BG
+Xh
 fH
 fH
 aw
@@ -24407,7 +24407,7 @@ aa
 PA
 aD
 aD
-kG
+PH
 ah
 ah
 ah
@@ -25435,7 +25435,7 @@ aa
 PA
 aD
 aD
-kG
+PH
 ah
 ah
 ah
@@ -26462,7 +26462,7 @@ aa
 aa
 PA
 aD
-He
+xr
 fe
 ah
 ah
