@@ -357,7 +357,7 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_accesses()
 	..()
 
-/obj/item/weapon/card/id/raider
+/obj/item/weapon/card/id/syndicate/raider
 	name = "passport"
 	assignment = "Visitor"
 

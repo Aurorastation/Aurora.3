@@ -158,7 +158,6 @@
 		/obj/item/clothing/suit/storage/toggle/labcoat/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/suit/varsity                          = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/track             = TRADER_ALL,
-		/obj/item/clothing/suit/storage/miljacket                = TRADER_ALL,
 		/obj/item/clothing/suit/jacket/puffer                    = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/flannel           = TRADER_ALL
 	)

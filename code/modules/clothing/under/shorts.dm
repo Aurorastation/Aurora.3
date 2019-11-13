@@ -200,3 +200,9 @@
 	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."
 	icon_state = "camopants"
 	item_state = "camopants"
+
+/obj/item/clothing/under/pants/designer
+	name = "designer jeans"
+	desc = "Dark denim jeans carefully distressed to perfection. They're not as rugged as they look."
+	icon_state = "designer_jeans"
+	item_state = "designer_jeans"
