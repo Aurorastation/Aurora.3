@@ -167,9 +167,9 @@
 
 /mob/living/silicon/robot/AltClickOn(var/atom/A)
 	var/doClickAction = 1
-	if (istype(module_active, /obj/item/weapon))
-		var/obj/item/weapon/W = module_active
-		doClickAction = W.alt_attack(A,src)
+	if (istype(module_active, /obj/item))
+		var/obj/item/I = module_active
+		doClickAction = I.alt_attack(A,src)
 
 	if (doClickAction)
 		A.BorgAltClick(src)
