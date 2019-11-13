@@ -143,6 +143,20 @@
 	else 
 		desc = "A colorful pile of assorted [gemsize] gleaming gemstones. There are [stacksize] gems in the pile."
 
+var/list/gemtype2type = list(GEM_RUBY = )
+
+
+/obj/item/precious/gemstone/mixed/verb/separate_pile()
+	set name = "Separate Pile"
+	set category = "Object"
+	set src in view(1)
+
+	for (var/gtype in stack_contents)
+		var/realtype = global.gemtype2type[gtype]
+		new realtype(loc, stack_contents[gtype])
+	to_chat(usr, span("notice", "You separate the gemstone pile into neat, organized stacks of similar gems."))
+	qdel(src)
+
 // Small gemstones
 
 /obj/item/precious/gemstone/ruby
