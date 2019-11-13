@@ -1,4 +1,4 @@
-// Circuit boards, spare parts, etc.
+// Precious objects and materials.
 
 /datum/export/precious/gemstone/smallruby
 	cost = 50
@@ -87,5 +87,35 @@
 
 /datum/export/precious/gemstone/largediamond
 	cost = 2250
+	unit_name = "large diamond"
+	export_types = list(/obj/item/precious/gemstone/diamond/large)
+
+/datum/export/precious/gemstone/hugeruby
+	cost = 25000
+	unit_name = "enormous ruby"
+	export_types = list(/obj/item/precious/gemstone/ruby/huge)
+
+/datum/export/precious/gemstone/largesapphire
+	cost = 1500
+	unit_name = "large sapphire"
+	export_types = list(/obj/item/precious/gemstone/sapphire/large)
+
+/datum/export/precious/gemstone/largeemerald
+	cost = 25000
+	unit_name = "large emerald"
+	export_types = list(/obj/item/precious/gemstone/emerald/large)
+
+/datum/export/precious/gemstone/largetopaz
+	cost = 25000
+	unit_name = "large topaz"
+	export_types = list(/obj/item/precious/gemstone/topaz/large)
+
+/datum/export/precious/gemstone/largeamethyst
+	cost = 25000
+	unit_name = "large amethyst"
+	export_types = list(/obj/item/precious/gemstone/amethyst/large)
+
+/datum/export/precious/gemstone/largediamond
+	cost = 37500
 	unit_name = "large diamond"
 	export_types = list(/obj/item/precious/gemstone/diamond/large)

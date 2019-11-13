@@ -396,6 +396,8 @@ var/list/mineral_can_smooth_with = list(
 
 	clear_ore_effects()
 	var/obj/item/weapon/ore/O = new mineral.ore (src)
+	if(src.mineral == "diamond")
+		spawndiamond()
 	if(istype(O))
 		geologic_data.UpdateNearbyArtifactInfo(src)
 		O.geologic_data = geologic_data
