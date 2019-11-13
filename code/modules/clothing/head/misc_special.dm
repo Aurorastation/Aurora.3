@@ -155,13 +155,14 @@
 	if(istype(O, /obj/item/weapon/flame/candle))
 		var/obj/item/weapon/flame/candle/c = O
 		var/candle_wax = c.wax
-		var/candle_lit = c.lit
-		to_chat(user, "You add [O] to [src].")
+		if(c.lit)
+			to_chat(user, span("notice", "You should extinguish \the [O] first!"))
+			return
+		to_chat(user, "You add \the [O] to \the [src].")
 		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
 		qdel(O)
 		var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
 		L.wax = candle_wax
-		L.lit = candle_lit
 		user.put_in_hands(L)
 		qdel(src)
 		return
@@ -172,13 +173,6 @@
 	light_color = "#E09D37"
 	var/wax = 900
 	var/lit = 0
-
-/obj/item/clothing/head/pumpkin/lantern/New()
-	..()
-	if(lit)
-		set_light(CANDLE_LUM)
-		update_icon()
-		START_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/head/pumpkin/lantern/update_icon()
 	icon_state = "pumpkin_carved[lit ? "_lit" : ""]"
