@@ -115,9 +115,9 @@
 	pda = /obj/item/device/pda/xenobio
 
 /datum/outfit/job/scientist/xenobotanist
-    name = "Xenobotanist"
+	name = "Xenobotanist"
 
-    uniform = /obj/item/clothing/under/rank/scientist/botany
+	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/roboticist
 	title = "Roboticist"
