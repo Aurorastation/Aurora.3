@@ -150,7 +150,7 @@
 			return "Carbon Dioxide"
 		if(ATM_P)
 			return "Phoron" //*cough* Plasma *cough*
-		if(ATM_P)
+		if(ATM_H2)
 			return "Hydrogen"
 		if(ATM_N2O)
 			return "Nitrous Oxide"
