@@ -83,7 +83,6 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-
     uniform = /obj/item/clothing/under/rank/xenoarcheologist
 
 /datum/job/xenobiologist
@@ -116,7 +115,6 @@
 
 /datum/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
-
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/roboticist
