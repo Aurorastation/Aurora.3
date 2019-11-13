@@ -169,7 +169,6 @@
 	mob_name_prefix = "Zosaa "
 	uses_species_whitelist = FALSE // Anyone should be able to play a Kataphract Unathi
 	possible_species = list("Unathi")
-	default_species = "Unathi"
 
 /datum/ghostspawner/human/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Specialist"
