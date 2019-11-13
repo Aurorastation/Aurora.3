@@ -228,8 +228,10 @@
 	var/add = welding ? "_on" : "_off"
 	icon_state = base_iconstate + add //These are given an _on/_off suffix before being used
 	item_state = base_itemstate + add
-	if(welding)
-		set_light(0.6, 0.5, 2.5, l_color = LIGHT_COLOR_CYAN)
+	if(welding == 2)
+		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
+	else if (welding == 1)
+		set_light(0.6, 1.5, l_color = LIGHT_COLOR_LAVA)
 	else
 		set_light(0)
 	var/mob/M = loc
@@ -401,8 +403,8 @@
 /obj/item/weapon/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	if(!welding)
 		return 0
-	else if(welding && colourChange)
-		set_light(0.7, 2, 5, l_color = LIGHT_COLOR_CYAN)
+	else if(welding > 0 && colourChange)
+		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
 		reagents.remove_reagent("fuel", amount)
