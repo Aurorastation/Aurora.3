@@ -84,7 +84,8 @@
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
 		stack_contents[G.gemtype] += 1
 		src.stacksize += 1
-	update_gem()
+		G.stacksize -= 1
+	update_gem(G)
 
 
 /obj/item/precious/gemstone/proc/add_gem(obj/item/precious/gemstone/G)
@@ -93,7 +94,7 @@
 
 
 /obj/item/precious/gemstone/proc/update_gem()
-	if(src.stacksize == 0)
+	if(src.stacksize <= 0)
 		qdel(src)
 		return
 	if(src.gemtype == GEM_MIXED)
@@ -342,9 +343,9 @@ var/list/gemtype2type = list(
 	stacksize = 1
 
 /obj/item/precious/gemstone/emerald/large
-	name = "small emerald"
+	name = "large emerald"
 	desc = "A single green gemstone of large size."
-	icon_state = "lamethyst_1"
+	icon_state = "lemerald_1"
 	gemtype = GEM_EMERALD
 	gemsize = GEM_LARGE
 	maxstack = 5
@@ -419,32 +420,32 @@ var/list/gemtype2type = list(
 
 /obj/item/precious/gemstone/ruby/huge/pickup(mob/living/user)
 	if(src.pickup == 0)
-		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		to_chat(world, "<span style='color: green;'><i>[usr.name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC for a surprise.</i></span>")
 		src.pickup = 1
 
 /obj/item/precious/gemstone/sapphire/huge/pickup(mob/living/user)
 	if(src.pickup == 0)
-		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge sapphire! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		to_chat(world, "<span style='color: green;'><i>[usr.name] has found the first ever enormous gemstone - a huge sapphire! You should inform Kaedwuff OOC for a surprise.</i></span>")
 		src.pickup = 1
 
 /obj/item/precious/gemstone/topaz/huge/pickup(mob/living/user)
 	if(src.pickup == 0)
-		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge topaz! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		to_chat(world, "<span style='color: green;'><i>[usr.name] has found the first ever enormous gemstone - a huge topaz! You should inform Kaedwuff OOC for a surprise.</i></span>")
 		src.pickup = 1
 
 /obj/item/precious/gemstone/diamond/huge/pickup(mob/living/user)
 	if(src.pickup == 0)
-		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge diamond! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		to_chat(world, "<span style='color: green;'><i>[usr.name] has found the first ever enormous gemstone - a huge diamond! You should inform Kaedwuff OOC for a surprise.</i></span>")
 		src.pickup = 1
 
 /obj/item/precious/gemstone/amethyst/huge/pickup(mob/living/user)
 	if(src.pickup == 0)
-		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge amethyst! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		to_chat(world, "<span style='color: green;'><i>[usr.name] has found the first ever enormous gemstone - a huge amethyst! You should inform Kaedwuff OOC for a surprise.</i></span>")
 		src.pickup = 1
 
 /obj/item/precious/gemstone/emerald/huge/pickup(mob/living/user)
 	if(src.pickup == 0)
-		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge emerald! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		to_chat(world, "<span style='color: green;'><i>[usr.name] has found the first ever enormous gemstone - a huge emerald! You should inform Kaedwuff OOC for a surprise.</i></span>")
 		src.pickup = 1
 
 // Mixed Gem Piles
@@ -515,4 +516,4 @@ var/list/gemtype2type = list(
 	else 
 		var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
 		new picked(loc, rand(2,5))
-		visible_message("<span style='color: green;'><b><em>An enormous gemstone tumbles out of the rubble, somehow managing to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!</em></b></span>")
+		visible_message("<span style='color: green;'><i><em>An enormous gemstone tumbles out of the rubble, somehow managing to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!</em></i></span>")
