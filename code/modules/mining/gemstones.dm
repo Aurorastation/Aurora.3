@@ -29,6 +29,11 @@
 		stacksize = amount
 		update_gem()
 
+/obj/item/precious/gemstone/mixed/Initialize(mapload, amount, kind)
+	ASSERT(kind)
+	stack_contents[kind] = amount
+	. = ..(mapload, amount)
+
 /obj/item/precious/gemstone/attackby(obj/item/precious/gemstone/G, mob/user)
 	if (!istype(G))
 		return ..()
@@ -65,17 +70,14 @@
 		src.stacksize -= 1
 		switch(gemsize)
 			if(GEM_SMALL)
-				var/obj/item/precious/gemstone_pile/pile = new /obj/item/precious/gemstone/mixed(loc, src.gemtype)
+				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
-				pile.add_gem(src)
 			if(GEM_MEDIUM)
-				var/obj/item/precious/gemstone_pile/pile = new /obj/item/precious/gemstone/mixed/med(loc, src.gemtype)
+				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
-				pile.add_gem(src)
 			if(GEM_LARGE)
-				var/obj/item/precious/gemstone_pile/pile = new /obj/item/precious/gemstone/mixed/large(loc, src.gemtype)
+				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
-				pile.add_gem(src)
 	else 
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
 		stack_contents[G.gemtype] += 1
