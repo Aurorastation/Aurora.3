@@ -370,6 +370,11 @@
 	maxstack = 5
 	stacksize = 1
 
+// Temporary treasure hunt space - to be deleted after someone finds the first enormous gemstone
+
+/obj/item/precious/gemstone/ruby/huge/pickup(mob/living/user)
+	to_chat(world, "<span style='color: green;'><em></em>[name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC so he for a surprise.</span>")
+
 // Mixed Gem Piles
 
 /obj/item/precious/gemstone/mixed
@@ -413,3 +418,29 @@
 	if(prob(75))
 		var/picked = pick(/obj/item/precious/gemstone/ruby, /obj/item/precious/gemstone/topaz, /obj/item/precious/gemstone/sapphire, /obj/item/precious/gemstone/amethyst, /obj/item/precious/gemstone/diamond, /obj/item/precious/gemstone/emerald)
 		new picked(loc)
+		visible_message(span("notice", "A tiny, glittering gemstone was in the rubble!"))
+	else
+		var/picked = pick(/obj/item/precious/gemstone/ruby, /obj/item/precious/gemstone/topaz, /obj/item/precious/gemstone/sapphire, /obj/item/precious/gemstone/amethyst, /obj/item/precious/gemstone/diamond, /obj/item/precious/gemstone/emerald)
+		new picked(loc, 2)
+		visible_message(span("notice", "A couple tiny, glittering gemstones were in the rubble! Lucky!"))
+
+/turf/simulated/mineral/proc/spawnmediumgem(loc)
+	var/picked = pick(/obj/item/precious/gemstone/ruby/med, /obj/item/precious/gemstone/topaz/med, /obj/item/precious/gemstone/sapphire/med, /obj/item/precious/gemstone/amethyst/med, /obj/item/precious/gemstone/diamond/med, /obj/item/precious/gemstone/emerald/med)
+	new picked(loc)
+	visible_message(span("notice", "You found a small gemstone in the rubble! Nice!"))
+
+/turf/simulated/mineral/proc/spawnlargegem(loc)
+	var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
+	new picked(loc)
+	visible_message(span("notice", "There was sizable gemstone in the rubble! Wow!"))
+
+/turf/simulated/mineral/proc/spawnhugegem(loc)
+	if(prob(80))
+		var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
+		new picked(loc, rand(2,5))
+		visible_message(span("danger", "There is a loud crunching sound and you watch in horror as a enormous gemstone that had been embedded in the rock fractures into pieces."))
+		visible_message(span("notice", "Well, that was unlucky... at least the fragments are worth something, though..."))
+	else 
+		var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
+		new picked(loc, rand(2,5))
+		visible_message("<span style='color: green;'><b><em>An enormous gemstone tumbles out of the rubble, somehow managing to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!"</em></b></span>"
