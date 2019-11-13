@@ -96,7 +96,7 @@
 	export_types = list(/obj/item/precious/gemstone/ruby/huge)
 
 /datum/export/precious/gemstone/largesapphire
-	cost = 1500
+	cost = 25000
 	unit_name = "enormous sapphire"
 	export_types = list(/obj/item/precious/gemstone/sapphire/huge)
 
@@ -119,3 +119,6 @@
 	cost = 37500
 	unit_name = "enormous diamond"
 	export_types = list(/obj/item/precious/gemstone/diamond/huge)
+
+/obj/item/precious/gemstone/Value(var/base)
+    return base * stacksize

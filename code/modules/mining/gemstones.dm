@@ -12,17 +12,21 @@
 #define GEM_LARGE "large"
 #define GEM_ENORMOUS "enormous"
 
+/obj/item/precious
+	name = "valuable object"
+	desc = "An object of value, made of crystallized coder tears."
+	var/maxstack
+	var/stack_contents = list()
+	var/pickup = 0
+	var/stacksize = 1
+
 /obj/item/precious/gemstone
 	name = "gemstone"
 	desc = "An impossibly generic gemstone. How do you even have this?"
 	icon = 'icons/obj/gemstones.dmi'
+	var/gemcolor
 	var/gemtype
 	var/gemsize
-	var/stacksize = 1
-	var/gemcolor
-	var/maxstack
-	var/stack_contents = list()
-	var/pickup = 0
 
 /obj/item/precious/gemstone/Initialize(mapload, amount)
 	. = ..()
