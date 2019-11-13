@@ -165,32 +165,32 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 	<H2><span class="white">Intra-Syndicate Communications</span></H2>
 	<hr>
 	<H3><span class="white">Commander Uplinks</span></H3>
-	{{if data.cmdr_count == 0}}
+	{{if !data.convos.Commander && !data.signals.Commander}}
 			<b>No Command Uplinks Available</b>
 	{{else}}
 		{{for data.convos.Commander}}
-			<div class="item {{if value.Active == 0 }}disabled {{else}} selected {{/if}}">
+			<div class="item">
 				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-e', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 		{{for data.signals.Commander}}
-			<div class="item {{if value.Active == 0 }}disabled{{/if}}">
+			<div class="item">
 				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-s', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 	{{/if}}
 	<br>
 	<H3><span class="white">Operative Uplinks</span></H3>
-	{{if data.op_count == 0}}
+	{{if !data.convos.Operative && !data.signals.Operative}}
 			<b>No Operative Uplinks Available</b>
 	{{else}}
 		{{for data.convos.Operative}}
-			<div class="item {{if value.Active == 0 }}disabled {{else}} selected {{/if}}">
+			<div class="item">
 				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-e', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 		{{for data.signals.Operative}}
-			<div class="item {{if value.Active == 0 }}disabled{{/if}}">
+			<div class="item">
 				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-s', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}

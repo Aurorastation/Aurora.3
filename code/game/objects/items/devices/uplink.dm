@@ -163,10 +163,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		to_world("message fired")
 		var/obj/item/device/uplink/hidden/U = locate(href_list["target"])
 		src.create_message(usr, U)
-		if(nanoui_menu == 2)
+		if(nanoui_menu == 4)
 			if(href_list["target"] in conversations)            // Need to make sure the message went through, if not welp.
 				active_conversation = href_list["target"]
-				nanoui_menu = 21
+				nanoui_menu = 41
 
 	update_nano_data()
 	return 1
@@ -348,15 +348,14 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				continue
 
 			if(conversations.Find("\ref[U]"))
-				convos[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Active" = "[U.active]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
+				convos[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
 			else
-				signals[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Active" = "[U.active]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
+				signals[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
 
 		nanoui_data["signals"] = signals
 		nanoui_data["convos"] = convos
 		nanoui_data["cmdr_count"] = convos["Commander"].len + signals["Commander"].len
 		nanoui_data["op_count"] = convos["Operative"].len + signals["Operative"].len
-		to_world("[nanoui_data["cmdr_count"]], [nanoui_data["op_count"]]")
 
 	if(nanoui_menu == 41)
 		nanoui_data["messagescount"] = messages.len
@@ -387,7 +386,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		to_world("failed 2")
 		return
 
-	if(use_check_and_message(recipient))
+	if(use_check_and_message(user))
 		to_world("failed 3")
 		return
 
