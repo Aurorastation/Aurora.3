@@ -85,7 +85,8 @@
 		stack_contents[G.gemtype] += 1
 		src.stacksize += 1
 		G.stacksize -= 1
-	update_gem(G)
+	update_gem()
+	G.update_gem()
 
 
 /obj/item/precious/gemstone/proc/add_gem(obj/item/precious/gemstone/G)
