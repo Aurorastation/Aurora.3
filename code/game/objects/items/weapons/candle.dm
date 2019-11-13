@@ -28,7 +28,7 @@
 	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
-			light("<span class='notice'>\The [user] casually lights the [name] with [W].</span>")
+			light("<span class='notice'>\The [user] casually lights \the [name] with [W].</span>")
 	else if(isflamesource(W))
 		light()
 	else if(istype(W, /obj/item/weapon/flame/candle))
@@ -37,9 +37,9 @@
 			light()
 
 
-/obj/item/weapon/flame/candle/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
+/obj/item/weapon/flame/candle/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights \the [name].</span>")
 	if(!src.lit)
-		src.lit = TRUE
+		src.lit = 1
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
 		for(var/mob/O in viewers(usr, null))
@@ -48,7 +48,7 @@
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/flame/candle/process(mob/user as mob)
+/obj/item/weapon/flame/candle/process(mob/user)
 	if(!lit)
 		return
 	update_icon()
@@ -68,7 +68,7 @@
 
 /obj/item/weapon/flame/candle/attack_self(mob/user as mob)
 	if(lit)
-		lit = FALSE
+		lit = 0
 		to_chat(user, span("notice", "You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()

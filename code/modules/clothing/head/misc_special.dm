@@ -152,24 +152,33 @@
 	throw_speed = 0.5
 
 /obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
-    if(istype(O, /obj/item/weapon/flame/candle))
-        var/obj/item/weapon/flame/candle/c = O
-        var/candle_wax = c.wax
-        to_chat(user, "You add [O] to [src].")
-        playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
-        qdel(O)
-        var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
-        L.wax = candle_wax
-        user.put_in_hands(L)
-        qdel(src)
-        return
+	if(istype(O, /obj/item/weapon/flame/candle))
+		var/obj/item/weapon/flame/candle/c = O
+		var/candle_wax = c.wax
+		var/candle_lit = c.lit
+		to_chat(user, "You add [O] to [src].")
+		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
+		qdel(O)
+		var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
+		L.wax = candle_wax
+		L.lit = candle_lit
+		user.put_in_hands(L)
+		qdel(src)
+		return
 
 /obj/item/clothing/head/pumpkin/lantern
 	name = "jack o' lantern"
 	desc = "A pumpkin with a spooky face carved on it, with a candle inside. Believed to ward off evil spirits."
 	light_color = "#E09D37"
 	var/wax = 900
-	var/lit = FALSE
+	var/lit = 0
+
+/obj/item/clothing/head/pumpkin/lantern/New()
+	..()
+	if(lit)
+		set_light(CANDLE_LUM)
+		update_icon()
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/head/pumpkin/lantern/update_icon()
 	icon_state = "pumpkin_carved[lit ? "_lit" : ""]"
@@ -184,7 +193,7 @@
 	if(W.iswelder())
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
-			light("<span class='notice'>\The [user] casually lights the [name] with [W].</span>")
+			light("<span class='notice'>\The [user] casually lights \the [name] with [W].</span>")
 	else if(isflamesource(W))
 		light()
 	else if(istype(W, /obj/item/weapon/flame/candle))
@@ -192,19 +201,18 @@
 		if(C.lit)
 			light()
 
-/obj/item/clothing/head/pumpkin/lantern/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
+/obj/item/clothing/head/pumpkin/lantern/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights \the [name].</span>")
 	if(!src.lit)
-		src.lit = TRUE
+		src.lit = 1
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
 		for(var/mob/O in viewers(usr, null))
 			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
 		update_icon()
-		update_clothing_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/head/pumpkin/lantern/process(mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/process(mob/user)
 	if(!lit)
 		return
 	wax--
@@ -224,7 +232,7 @@
 
 /obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
 	if(lit)
-		lit = FALSE
+		lit = 0
 		to_chat(user, span("notice", "You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()

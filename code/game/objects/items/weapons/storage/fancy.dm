@@ -129,7 +129,7 @@
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/gloves.ogg'
-	use_sound = 'sound/items/storage/paper.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -212,7 +212,7 @@
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigs_lighters.dmi'
 	drop_sound = 'sound/items/drop/gloves.ogg'
-	use_sound = 'sound/items/storage/paper.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
