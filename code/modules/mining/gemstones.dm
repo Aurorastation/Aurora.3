@@ -22,6 +22,7 @@
 	var/gemcolor
 	var/maxstack
 	var/stack_contents = list()
+	var/pickup = 0
 
 /obj/item/precious/gemstone/Initialize(mapload, amount)
 	. = ..()
@@ -68,6 +69,7 @@
 	if(src.gemtype != GEM_MIXED)
 		to_chat(user, span("notice", "You mix the gemstones together into a pile."))
 		src.stacksize -= 1
+		G.stacksize -= 1
 		switch(gemsize)
 			if(GEM_SMALL)
 				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
@@ -81,11 +83,13 @@
 	else 
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
 		stack_contents[G.gemtype] += 1
+		src.stacksize += 1
 	update_gem()
 
 
 /obj/item/precious/gemstone/proc/add_gem(obj/item/precious/gemstone/G)
 	stack_contents[G.gemtype] += 1
+	stacksize += 1
 
 
 /obj/item/precious/gemstone/proc/update_gem()
@@ -414,7 +418,34 @@ var/list/gemtype2type = list(
 // Temporary treasure hunt space - to be deleted after someone finds the first enormous gemstone
 
 /obj/item/precious/gemstone/ruby/huge/pickup(mob/living/user)
-	to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC for a surprise.</em></span>")
+	if(src.pickup == 0)
+		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		src.pickup = 1
+
+/obj/item/precious/gemstone/sapphire/huge/pickup(mob/living/user)
+	if(src.pickup == 0)
+		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge sapphire! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		src.pickup = 1
+
+/obj/item/precious/gemstone/topaz/huge/pickup(mob/living/user)
+	if(src.pickup == 0)
+		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge topaz! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		src.pickup = 1
+
+/obj/item/precious/gemstone/diamond/huge/pickup(mob/living/user)
+	if(src.pickup == 0)
+		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge diamond! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		src.pickup = 1
+
+/obj/item/precious/gemstone/amethyst/huge/pickup(mob/living/user)
+	if(src.pickup == 0)
+		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge amethyst! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		src.pickup = 1
+
+/obj/item/precious/gemstone/emerald/huge/pickup(mob/living/user)
+	if(src.pickup == 0)
+		to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge emerald! You should inform Kaedwuff OOC for a surprise.</em></span>")
+		src.pickup = 1
 
 // Mixed Gem Piles
 
