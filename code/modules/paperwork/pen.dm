@@ -1,8 +1,11 @@
 /* Pens!
  * Contains:
  *		Pens
+ *		PDA Pens
  *		Sleepy Pens
+ *		Coloured Pens
  *		Parapens
+ *		Fountain Pens
  */
 
 
@@ -10,7 +13,7 @@
  * Pens
  */
 /obj/item/weapon/pen
-	desc = "An instrument for writing or drawing with ink. This one is in black. Stylish, classic and professional."
+	desc = "An instrument for writing or drawing with ink. This one is in black, in a classic, grey casing. Stylish, classic and professional."
 	name = "pen"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "pen"
@@ -26,7 +29,23 @@
 
 /obj/item/weapon/pen/ispen()
 	return TRUE
+/*
+ * PDA Pens
+ */
+/obj/item/weapon/pen/dark
+	desc = "An instrument for writing or drawing with ink. This one is in black, in a sleek, dark grey casing. Stylish, classic and professional."
+	icon_state = "pen"
 
+/obj/item/weapon/pen/silver
+	desc = "An instrument for writing or drawing with ink. This one is in black, in a shiny, silver casing. Stylish, classic and professional."
+	icon_state = "pen"
+
+/obj/item/weapon/pen/white
+	desc = "An instrument for writing or drawing with ink. This one is in black, in a sterile, white casing. Stylish, classic and professional."
+	icon_state = "pen"
+/*
+ * Coloured Pens
+ */
 /obj/item/weapon/pen/blue
 	desc = "An instrument for writing or drawing with ink. This one is in blue. Ironically used mostly by white-collar workers."
 	icon_state = "pen_blue"
@@ -36,6 +55,11 @@
 	desc = "An instrument for writing or drawing with ink. This one is in red. Favored by teachers and creeps who like to pretend to write in blood."
 	icon_state = "pen_red"
 	colour = "red"
+
+/obj/item/weapon/pen/invisible
+	desc = "An instrument for writing or drawing with ink. This one has invisible ink."
+	icon_state = "pen"
+	colour = "white"
 
 /obj/item/weapon/pen/multi
 	desc = "An instrument for writing or drawing with ink. This one comes with with multiple colors! Push down all three simultaneously to rule the universe."
@@ -56,12 +80,6 @@
 
 	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
 
-/obj/item/weapon/pen/invisible
-	desc = "An instrument for writing or drawing with ink. This one has invisible ink."
-	icon_state = "pen"
-	colour = "white"
-
-
 /obj/item/weapon/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(!ismob(M))
 		return
@@ -74,6 +92,44 @@
 
 /obj/item/weapon/pen/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+
+/*
+ * Fountain Pens
+ */
+
+/obj/item/weapon/pen/fountain
+	name = "fountain pen"
+	desc = "A high quality traditional fountain pen with an internal reservoir and an extra fine gold-platinum nib. Guaranteed never to leak."
+	icon_state = "pen_fountain"
+	throwforce = 1 //pointy
+	colour = "#1c1713" //dark ashy brownish
+
+/obj/item/weapon/pen/fountain/attack_self(var/mob/user)
+	return
+/*
+ * PDA Fountain Pens
+ */
+/obj/item/weapon/pen/fountain/dark
+	desc = "It's an expensive Sleek Dark Grey fountain pen. Guaranteed never to leak."
+	icon_state = "pen_fountain-d"
+
+/obj/item/weapon/pen/fountain/silver
+	desc = "It's an expensive Shiny Silver fountain pen. Guaranteed never to leak."
+	icon_state = "pen_fountain-s"
+
+/obj/item/weapon/pen/fountain/white
+	desc = "It's an expensive Sterile White fountain pen. Guaranteed never to leak."
+	icon_state = "pen_fountain-w"
+
+/obj/item/weapon/pen/fountain/head
+	name = "command fountain pen"
+	desc = "It's an expensive Command Navy Blue fountain pen, embellished with silver."
+	icon_state = "pen_fountain-nb"
+
+/obj/item/weapon/pen/fountain/head/captain
+	name = "captain's fountain pen"
+	desc = "It's an expensive Command Navy Blue fountain pen, embellished with ornate gold detailing."
+	icon_state = "pen_fountain-nbc"
 
 /*
  * Reagent pens
@@ -185,6 +241,7 @@
 	desc = "A colourful crayon. Please refrain from eating it or putting it in your nose."
 	icon = 'icons/obj/crayons.dmi'
 	icon_state = "crayonred"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 	w_class = 1.0
 	attack_verb = list("attacked", "coloured")
 	colour = "#FF0000" //RGB

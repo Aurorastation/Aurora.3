@@ -43,7 +43,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/cart = "" //A place to stick cartridge menu information
 	var/detonate = 1 // Can the PDA be blown up?
 	var/hidden = 0 // Is the PDA hidden from the PDA list?
-	var/has_pen = 1 // Does the PDA have a pen + penslot?
+	var/has_inserted_item = 1 // Does the PDA have a pen + penslot?
 	var/active_conversation = null // New variable that allows us to only view a single conversation.
 	var/list/conversations = list()    // For keeping up with who we have PDA messsages from.
 	var/new_message = 0			//To remove hackish overlay check
@@ -65,7 +65,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	var/obj/item/device/paicard/pai = null	// A slot for a personal AI device
 
-	var/obj/item/weapon/pen/pen
+	var/list/contained_item = list(/obj/item/weapon/pen,
+								   /obj/item/weapon/lipstick,
+								   /obj/item/device/flashlight/pen,
+								   /obj/item/clothing/mask/smokable/cigarette
+								   )
+	var/obj/item/weapon/inserted_item //Used for pen, crayon, and lipstick insertion/removal
+
 	var/list/obj/machinery/requests_console/linked_consoles
 
 	var/flippable = 1
@@ -75,165 +81,217 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/examine(mob/user)
 	if(..(user, 1))
 		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
-		if (pen)
-			to_chat(user, "There is \a [pen] in the pen slot.")
+		if(id)
+			to_chat(user, "There is \a [id] in the ID slot.")
+		if(inserted_item)
+			to_chat(user, "There is \a [inserted_item] in the pen slot.")
 
-/obj/item/device/pda/medical
-	default_cartridge = /obj/item/weapon/cartridge/medical
-	icon_state = "pda-m"
+/*
+ * Civillian
+ */
 
-/obj/item/device/pda/viro
-	default_cartridge = /obj/item/weapon/cartridge/medical
-	icon_state = "pda-v"
+/obj/item/device/pda/bar
+	icon_state = "pda-bar"
+	inserted_item = /obj/item/weapon/pen/fountain
 
-/obj/item/device/pda/engineering
-	default_cartridge = /obj/item/weapon/cartridge/engineering
-	icon_state = "pda-e"
-
-/obj/item/device/pda/security
-	default_cartridge = /obj/item/weapon/cartridge/security
-	icon_state = "pda-s"
-
-/obj/item/device/pda/detective
-	default_cartridge = /obj/item/weapon/cartridge/detective
-	icon_state = "pda-det"
-
-/obj/item/device/pda/warden
-	default_cartridge = /obj/item/weapon/cartridge/security
-	icon_state = "pda-warden"
-
-/obj/item/device/pda/janitor
-	default_cartridge = /obj/item/weapon/cartridge/janitor
-	icon_state = "pda-j"
-	ttone = "slip"
-
-/obj/item/device/pda/science
-	default_cartridge = /obj/item/weapon/cartridge/signal/science
-	icon_state = "pda-tox"
-	ttone = "boom"
-
-/obj/item/device/pda/xenobio
-	default_cartridge = /obj/item/weapon/cartridge/signal/science
-	icon_state = "pda-xenobio"
-
-/obj/item/device/pda/clown
-	default_cartridge = /obj/item/weapon/cartridge/clown
-	icon_state = "pda-clown"
-	desc = "A portable microcomputer by Thinktronic Systems, LTD. The surface is coated with polytetrafluoroethylene and banana drippings."
-	ttone = "honk"
-
-/obj/item/device/pda/mime
-	default_cartridge = /obj/item/weapon/cartridge/mime
-	icon_state = "pda-mime"
-	message_silent = 1
-	news_silent = 1
-	ttone = "silence"
-	newstone = "silence"
-
-/obj/item/device/pda/heads
-	default_cartridge = /obj/item/weapon/cartridge/head
-	icon_state = "pda-h"
-	news_silent = 1
-
-/obj/item/device/pda/heads/hop
-	default_cartridge = /obj/item/weapon/cartridge/hop
-	icon_state = "pda-hop"
-
-/obj/item/device/pda/heads/hos
-	default_cartridge = /obj/item/weapon/cartridge/hos
-	icon_state = "pda-hos"
-
-/obj/item/device/pda/heads/ce
-	default_cartridge = /obj/item/weapon/cartridge/ce
-	icon_state = "pda-ce"
-
-/obj/item/device/pda/heads/cmo
-	default_cartridge = /obj/item/weapon/cartridge/cmo
-	icon_state = "pda-cmo"
-
-/obj/item/device/pda/heads/rd
-	default_cartridge = /obj/item/weapon/cartridge/rd
-	icon_state = "pda-rd"
-
-/obj/item/device/pda/captain
-	default_cartridge = /obj/item/weapon/cartridge/captain
-	icon_state = "pda-c"
-	detonate = 0
-	//toff = 1
-
-/obj/item/device/pda/ert
-	default_cartridge = /obj/item/weapon/cartridge/captain
-	icon_state = "pda-h"
-	detonate = 0
-	hidden = 1
-
-/obj/item/device/pda/cargo
-	default_cartridge = /obj/item/weapon/cartridge/quartermaster
-	icon_state = "pda-cargo"
-
-/obj/item/device/pda/quartermaster
-	default_cartridge = /obj/item/weapon/cartridge/quartermaster
-	icon_state = "pda-q"
-
-/obj/item/device/pda/shaftminer
-	icon_state = "pda-miner"
-
-/obj/item/device/pda/syndicate
-	default_cartridge = /obj/item/weapon/cartridge/syndicate
-	icon_state = "pda-syn"
-	name = "Military PDA"
-	owner = "John Doe"
-	hidden = 1
-
-/obj/item/device/pda/chaplain
-	icon_state = "pda-holy"
-	ttone = "holy"
-
-/obj/item/device/pda/lawyer
-	default_cartridge = /obj/item/weapon/cartridge/lawyer
-	icon_state = "pda-lawyer"
-	ttone = "..."
-
-/obj/item/device/pda/botanist
-	//default_cartridge = /obj/item/weapon/cartridge/botanist
-	icon_state = "pda-hydro"
-
-/obj/item/device/pda/roboticist
-	icon_state = "pda-robot"
+/obj/item/device/pda/chef
+	icon_state = "pda-chef"
 
 /obj/item/device/pda/librarian
+	name = "librarian PDA"
 	icon_state = "pda-libb"
+	inserted_item = /obj/item/weapon/pen/fountain
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. This is model is a WGW-11 series e-reader."
 	note = "Congratulations, your station has chosen the Thinktronic 5290 WGW-11 Series E-reader and Personal Data Assistant!"
 	message_silent = 1 //Quiet in the library!
 	news_silent = 0		// Librarian is above the law!  (That and alt job title is reporter)
 
+/obj/item/device/pda/botanist
+	//default_cartridge = /obj/item/weapon/cartridge/botanist
+	icon_state = "pda-hydro"
+
+/obj/item/device/pda/janitor
+	icon_state = "pda-j"
+	default_cartridge = /obj/item/weapon/cartridge/janitor
+	ttone = "slip"
+
+/obj/item/device/pda/chaplain
+	icon_state = "pda-holy"
+	inserted_item = /obj/item/weapon/pen/fountain
+	ttone = "holy"
+
+/obj/item/device/pda/heads/hop
+	icon_state = "pda-hop"
+	default_cartridge = /obj/item/weapon/cartridge/hop
+
+/*
+ * Engineering
+ */
+
+/obj/item/device/pda/atmos
+	icon_state = "pda-atmo"
+	default_cartridge = /obj/item/weapon/cartridge/atmos
+	inserted_item = /obj/item/weapon/pen/silver
+
+/obj/item/device/pda/engineering
+	icon_state = "pda-e"
+	default_cartridge = /obj/item/weapon/cartridge/engineering
+	inserted_item = /obj/item/weapon/pen/silver
+
+/obj/item/device/pda/heads/ce
+	icon_state = "pda-ce"
+	default_cartridge = /obj/item/weapon/cartridge/ce
+
+/*
+ * Cargo
+ */
+
+/obj/item/device/pda/cargo
+	icon_state = "pda-cargo"
+	default_cartridge = /obj/item/weapon/cartridge/quartermaster
+	inserted_item = /obj/item/weapon/pen/silver
+
+/obj/item/device/pda/shaftminer
+	icon_state = "pda-miner"
+	inserted_item = /obj/item/weapon/pen/silver
+
+/obj/item/device/pda/quartermaster
+	icon_state = "pda-q"
+	default_cartridge = /obj/item/weapon/cartridge/quartermaster
+	inserted_item = /obj/item/weapon/pen/fountain/silver
+
+/obj/item/device/pda/medical
+	icon_state = "pda-m"
+	default_cartridge = /obj/item/weapon/cartridge/medical
+	inserted_item = /obj/item/weapon/pen/white
+
+/obj/item/device/pda/viro
+	icon_state = "pda-v"
+	default_cartridge = /obj/item/weapon/cartridge/medical
+	inserted_item = /obj/item/weapon/pen/white
+
+/obj/item/device/pda/chemist
+	icon_state = "pda-chem"
+	default_cartridge = /obj/item/weapon/cartridge/chemistry
+	inserted_item = /obj/item/weapon/pen/white
+
+/obj/item/device/pda/psych
+	default_cartridge = /obj/item/weapon/cartridge/medical
+	inserted_item = /obj/item/weapon/pen/fountain/white
+	icon_state = "pda-psych"
+
+/obj/item/device/pda/paramedic
+	icon_state = "pda-paramedic"
+	default_cartridge = /obj/item/weapon/cartridge/medical
+	inserted_item = /obj/item/weapon/pen/white
+
+/obj/item/device/pda/heads/cmo
+	icon_state = "pda-cmo"
+	default_cartridge = /obj/item/weapon/cartridge/cmo
+
+/*
+ * Science
+ */
+
+/obj/item/device/pda/science
+	icon_state = "pda-tox"
+	default_cartridge = /obj/item/weapon/cartridge/signal/science
+	inserted_item = /obj/item/weapon/pen/white
+	ttone = "boom"
+
+/obj/item/device/pda/roboticist
+	icon_state = "pda-robot"
+	inserted_item = /obj/item/weapon/pen/white
+
+/obj/item/device/pda/xenobio
+	icon_state = "pda-xenobio"
+	default_cartridge = /obj/item/weapon/cartridge/signal/science
+	inserted_item = /obj/item/weapon/pen/white
+
+/obj/item/device/pda/heads/rd
+	icon_state = "pda-rd"
+	default_cartridge = /obj/item/weapon/cartridge/rd
+
+/*
+ * Security
+ */
+
+/obj/item/device/pda/security
+	icon_state = "pda-s"
+	default_cartridge = /obj/item/weapon/cartridge/security
+
+/obj/item/device/pda/detective
+	icon_state = "pda-det"
+	default_cartridge = /obj/item/weapon/cartridge/detective
+
+/obj/item/device/pda/warden
+	icon_state = "pda-warden"
+	default_cartridge = /obj/item/weapon/cartridge/security
+
+/obj/item/device/pda/heads/hos
+	icon_state = "pda-hos"
+	default_cartridge = /obj/item/weapon/cartridge/hos
+
+/*
+ * Captain
+ */
+
+/obj/item/device/pda/heads
+	icon_state = "pda-h"
+	default_cartridge = /obj/item/weapon/cartridge/head
+	inserted_item = /obj/item/weapon/pen/fountain/head
+	news_silent = 1
+
+/obj/item/device/pda/captain
+	icon_state = "pda-c"
+	default_cartridge = /obj/item/weapon/cartridge/captain
+	inserted_item = /obj/item/weapon/pen/fountain/head/captain
+	detonate = 0
+	//toff = 1
+
+/*
+ * Misc
+ */
+
+/obj/item/device/pda/ert
+	icon_state = "pda-h"
+	default_cartridge = /obj/item/weapon/cartridge/captain
+	inserted_item = /obj/item/weapon/pen/fountain/head
+	detonate = 0
+	hidden = 1
+
+/obj/item/device/pda/lawyer
+	icon_state = "pda-lawyer"
+	default_cartridge = /obj/item/weapon/cartridge/lawyer
+	inserted_item = /obj/item/weapon/pen/fountain
+	ttone = "..."
+
+/obj/item/device/pda/syndicate
+	name = "Military PDA"
+	icon_state = "pda-syn"
+	default_cartridge = /obj/item/weapon/cartridge/syndicate
+	owner = "John Doe"
+	hidden = 1
+
+/obj/item/device/pda/clown
+	icon_state = "pda-clown"
+	desc = "A portable microcomputer by Thinktronic Systems, LTD. The surface is coated with polytetrafluoroethylene and banana drippings."
+	default_cartridge = /obj/item/weapon/cartridge/clown
+	inserted_item = /obj/item/weapon/pen/crayon
+	ttone = "honk"
+
+/obj/item/device/pda/mime
+	icon_state = "pda-mime"
+	default_cartridge = /obj/item/weapon/cartridge/mime
+	message_silent = 1
+	news_silent = 1
+	ttone = "silence"
+	newstone = "silence"
+
 /obj/item/device/pda/clear
 	icon_state = "pda-transp"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. This is model is a special edition with a transparent case."
 	note = "Congratulations, you have chosen the Thinktronic 5230 Personal Data Assistant Deluxe Special Max Turbo Limited Edition!"
-
-/obj/item/device/pda/chef
-	icon_state = "pda-chef"
-
-/obj/item/device/pda/bar
-	icon_state = "pda-bar"
-
-/obj/item/device/pda/atmos
-	default_cartridge = /obj/item/weapon/cartridge/atmos
-	icon_state = "pda-atmo"
-
-/obj/item/device/pda/chemist
-	default_cartridge = /obj/item/weapon/cartridge/chemistry
-	icon_state = "pda-chem"
-
-/obj/item/device/pda/psych
-	default_cartridge = /obj/item/weapon/cartridge/medical
-	icon_state = "pda-psych"
-
-/obj/item/device/pda/paramedic
-	default_cartridge = /obj/item/weapon/cartridge/medical
-	icon_state = "pda-paramedic"
 
 /obj/item/device/pda/merchant
 	icon_state = "pda-chef"
@@ -245,7 +303,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ttone = "data"
 	newstone = "news"
 	detonate = 0
-	has_pen = 0
+	has_inserted_item = 0
 
 
 /obj/item/device/pda/ai/proc/set_name_and_job(newname as text, newjob as text, newrank as null|text)
@@ -336,9 +394,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		try_sort_pda_list()
 	if(default_cartridge)
 		cartridge = new default_cartridge(src)
-
-	if (has_pen)
-		pen = new /obj/item/weapon/pen(src)
+	if(inserted_item)
+		inserted_item = new inserted_item(src)
+	else
+		inserted_item =	new /obj/item/weapon/pen(src)
 
 /obj/item/device/pda/proc/try_sort_pda_list()
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/sortTim, PDAs, /proc/cmp_pda), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -980,7 +1039,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (!istype(user))
 		PROCLOG_WEIRD("user variable was insane, aborting!")
 		return
-	if (!has_pen)
+
+	if (!has_inserted_item)
 		to_chat(user, "<span class='notice'>[src] does not have a pen slot.</span>")
 		return
 
@@ -989,14 +1049,14 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			to_chat(user, "<span class='notice'>You are too far away from [src].</span>")
 
 		if (USE_FAIL_NON_ADV_TOOL_USR)
-			if (!pen)
+			if (!inserted_item)
 				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
 			else
-				to_chat(user, "<span class='notice'>You are unable to figure out the mechanism holding [pen] in-place.</span>")
+				to_chat(user, "<span class='notice'>You are unable to figure out the mechanism holding \the [inserted_item] in-place.</span>")
 
 		if (USE_FAIL_IS_SILICON)
-			if (pen)
-				to_chat(user, "<span class='notice'>You do not have hands, how do you propose to remove [pen]?</span>")
+			if (inserted_item)
+				to_chat(user, "<span class='notice'>You do not have hands, how do you propose to remove \the [inserted_item]?</span>")
 			else
 				to_chat(user, "<span class='notice'>You do not have hands.</span>")
 
@@ -1004,18 +1064,20 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			to_chat(user, "<span class='notice'>You cannot do this in your current state.</span>")
 
 		if (USE_SUCCESS)
-			if (!pen)
-				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
+			if (!inserted_item)
+				to_chat(user, "<span class='notice'>[src] does not have pen in it.</span>")
 				return
 
 			if (loc == user && !user.get_active_hand())
-				to_chat(user, "<span class='notice'>You remove [pen] from [src].</span>")
-				user.put_in_hands(pen)
-				pen = null
+				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src].</span>")
+				playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+				user.put_in_hands(inserted_item)
+				inserted_item = null
 			else
-				to_chat(user, "<span class='notice'>You remove [pen] from [src], dropping it on the ground. Whoops.</span>")
-				pen.forceMove(get_turf(src))
-				pen = null
+				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src], dropping it on the ground. Whoops.</span>")
+				playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+				inserted_item.forceMove(get_turf(src))
+				inserted_item = null
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
@@ -1294,13 +1356,14 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
 		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
 		SSnanoui.update_uis(src) // update all UIs attached to src
-	else if(C.ispen())
-		if(pen)
-			to_chat(user, "<span class='notice'>There is already a pen in \the [src].</span>")
+	else if(is_type_in_list(C, contained_item)) //Checks if there is a pen
+		if(inserted_item)
+			to_chat(user, "<span class='notice'>There is already \a [inserted_item] in \the [src].</span>")
 		else
 			user.drop_from_inventory(C,src)
-			pen = C
+			inserted_item = C
 			to_chat(user, "<span class='notice'>You slide \the [C] into \the [src].</span>")
+			playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 	return
 
 /obj/item/device/pda/proc/update_userinfo(var/obj/item/weapon/card/id/idcard, var/mob/living/user)
@@ -1455,7 +1518,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/Destroy()
 	PDAs -= src
 	QDEL_NULL(id)
-	QDEL_NULL(pen)
+	QDEL_NULL(inserted_item)
 	if (LAZYLEN(linked_consoles))
 		for(var/A in linked_consoles)
 			var/obj/machinery/requests_console/B = A
