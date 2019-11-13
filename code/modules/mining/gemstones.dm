@@ -397,7 +397,7 @@
 	maxstack = 5
 	stacksize = 0
 
-/turf/simulated/mineral/proc/findgem()
+/turf/simulated/mineral/proc/findgem(loc)
 	if(prob(95))
 		spawnsmallgem()
 	else 
@@ -408,3 +408,8 @@
 				spawnlargegem()
 			else 
 				spawnhugegem()
+
+/turf/simulated/mineral/proc/spawnsmallgem(loc)
+	if(prob(75))
+		var/picked = pick(/obj/item/precious/gemstone/ruby, /obj/item/precious/gemstone/topaz, /obj/item/precious/gemstone/sapphire, /obj/item/precious/gemstone/amethyst, /obj/item/precious/gemstone/diamond, /obj/item/precious/gemstone/emerald)
+		new picked(loc)
