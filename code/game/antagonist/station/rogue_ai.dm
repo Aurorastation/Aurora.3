@@ -15,7 +15,7 @@ var/datum/antagonist/rogue_ai/malf
 	initial_spawn_req = 1
 	initial_spawn_target = 1
 	antaghud_indicator = "hudmalai"
-	required_age = 14 // arguably most important antag, needs a looong playtime
+	required_age = 31
 
 /datum/antagonist/rogue_ai/New()
 	..()
