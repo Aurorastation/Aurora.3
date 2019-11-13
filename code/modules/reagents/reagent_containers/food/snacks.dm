@@ -513,8 +513,8 @@
 
 
 /obj/item/weapon/reagent_containers/food/snacks/candy/koko
-	name = "\improper Koko bar"
-	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
+	name = "\improper koko bar"
+	desc = "A sweet, yet gritty candy bar cultivated exclusively on the Compact ruled world of Ha zana. It's a good pick-me-up for Unathi, but has no affect on other species."
 	icon_state = "kokobar"
 	trash = /obj/item/trash/kokobar
 	filling_color = "#7D5F46"
@@ -570,6 +570,17 @@
 	filling_color = "#DBC94F"
 	nutriment_amt = 5
 	nutriment_desc = list("sweetness" = 3, "cookie" = 2)
+	bitesize = 1
+
+/obj/item/weapon/reagent_containers/food/snacks/cookiesnack
+	name = "Carps Ahoy!"
+	desc = "Capt'n Carpie's minature cookies! Now 100% carpotoxin free!"
+	icon_state = "cookiesnack"
+	trash = /obj/item/trash/cookiesnack
+	filling_color = "#DBC94F"
+	nutriment_amt = 3
+	nutriment_type = NUTRIMENT_BAD
+	nutriment_desc = list("sweetness" = 1, "stale cookie" = 2)
 	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/chocolatebar
@@ -2489,6 +2500,25 @@
 /obj/item/weapon/reagent_containers/food/snacks/mint/Initialize()
 	. = ..()
 	reagents.add_reagent("mint", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/mint/admints
+	desc = "Spearmint, peppermint's non-festive cousin."
+	icon_state = "ad-mint"
+
+/obj/item/weapon/storage/box/admints
+	name = "Ad-mints"
+	desc = "A pack of air fresheners for your mouth."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "admint_pack"
+	item_state = "candy"
+	slot_flags = SLOT_EARS
+	w_class = 1
+	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/mint/admints = 6)
+	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/mint/admints)
+	use_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	max_storage_space = 6
+	foldable = null
 
 /obj/item/weapon/reagent_containers/food/snacks/soup/mushroom
 	name = "chantrelle soup"
