@@ -73,10 +73,10 @@
 				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
 			if(GEM_MEDIUM)
-				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
+				var/obj/item/precious/gemstone/mixed/med/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
 			if(GEM_LARGE)
-				var/obj/item/precious/gemstone/mixed/pile = new(loc, stacksize, gemtype)
+				var/obj/item/precious/gemstone/mixed/large/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
 	else 
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
@@ -152,7 +152,7 @@ var/list/gemtype2type = list(GEM_RUBY = )
 	set src in view(1)
 
 	for (var/gtype in stack_contents)
-		var/realtype = global.gemtype2type[gtype]
+		var/realtype = global.gemtype2type[gtype][gemsize]
 		new realtype(loc, stack_contents[gtype])
 	to_chat(usr, span("notice", "You separate the gemstone pile into neat, organized stacks of similar gems."))
 	qdel(src)
@@ -390,7 +390,7 @@ var/list/gemtype2type = list(GEM_RUBY = )
 // Temporary treasure hunt space - to be deleted after someone finds the first enormous gemstone
 
 /obj/item/precious/gemstone/ruby/huge/pickup(mob/living/user)
-	to_chat(world, "<span style='color: green;'><em></em>[name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC so he for a surprise.</span>")
+	to_chat(world, "<span style='color: green;'><em>[name] has found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC for a surprise.</em></span>")
 
 // Mixed Gem Piles
 
