@@ -39,9 +39,9 @@
 		to_chat(user, span("notice", "That gem is far too big to stack!"))
 		return
 	if(src.gemtype == G.gemtype)
-		gemstacker()
+		gemstacker(G, user)
 	else
-		gemmixer()
+		gemmixer(G, user)
 
 /obj/item/precious/gemstone/proc/gemstacker(obj/item/precious/gemstone/G, mob/user)
 	if(src.stacksize == src.maxstack)
@@ -51,6 +51,7 @@
 		src.stacksize += 1
 		G.stacksize -= 1 
 		update_gem(G)
+		G.update_gem(src)
 
 /obj/item/precious/gemstone/proc/gemmixer(obj/item/precious/gemstone/G, mob/user)
 	if(src.stacksize == src.maxstack)
@@ -62,24 +63,25 @@
 		qdel(src)
 		return
 	if(src.gemtype == GEM_MIXED)
-		if(GEM_SMALL)
-			switch(stacksize)
-				if(30)
-					icon_state = "smixed_30"
-				if(10 to 29)
-					icon_state = "smixed_10"
-				else
-					icon_state = "smixed_5"
-		if(GEM_MEDIUM)
-			switch(stacksize)
-				if(15)
-					icon_state = "mmixed_10"
-				else
-					icon_state = "mmixed_5"
-		if(GEM_LARGE)
-			icon_state = "lmixed"				
+		switch (gemsize)
+			if(GEM_SMALL)
+				switch(stacksize)
+					if(30)
+						icon_state = "smixed_30"
+					if(10 to 29)
+						icon_state = "smixed_10"
+					else
+						icon_state = "smixed_5"
+			if(GEM_MEDIUM)
+				switch(stacksize)
+					if(15)
+						icon_state = "mmixed_10"
+					else
+						icon_state = "mmixed_5"
+			if(GEM_LARGE)
+				icon_state = "lmixed"
 	else
-		switch (gemtype)
+		switch (gemsize)
 			if(GEM_SMALL)
 				switch (stacksize)
 					if(30)
