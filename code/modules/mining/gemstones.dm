@@ -61,31 +61,32 @@
 		to_chat(user, span("notice", "You can't fit any more gems into that pile!"))
 		return
 	if(src.gemtype != GEM_MIXED)
-		to_chat(user, spawn("notice", "You mix the gemstones together into a pile."))
+		to_chat(user, span("notice", "You mix the gemstones together into a pile."))
 		src.stacksize -= 1
-		G.stacksize -= 1
 		switch(gemsize)
 			if(GEM_SMALL)
-				var/obj/item/precious/gemstone/mixed/pile = new /obj/item/precious/gemstone/mixed(loc, src.gemtype)
+				var/obj/item/precious/gemstone_pile/pile = new /obj/item/precious/gemstone/mixed(loc, src.gemtype)
 				pile.add_gem(G)
+				pile.add_gem(src)
 			if(GEM_MEDIUM)
-				var/obj/item/precious/gemstone/mixed/pile = new /obj/item/precious/gemstone/mixed/med(loc, src.gemtype)
+				var/obj/item/precious/gemstone_pile/pile = new /obj/item/precious/gemstone/mixed/med(loc, src.gemtype)
 				pile.add_gem(G)
+				pile.add_gem(src)
 			if(GEM_LARGE)
-				var/obj/item/precious/gemstone/mixed/pile = new /obj/item/precious/gemstone/mixed/large(loc, src.gemtype)
+				var/obj/item/precious/gemstone_pile/pile = new /obj/item/precious/gemstone/mixed/large(loc, src.gemtype)
 				pile.add_gem(G)
+				pile.add_gem(src)
 	else 
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
 		stack_contents[G.gemtype] += 1
 	update_gem()
 
 
-/obj/item/precious/gemstone/add_gem(obj/item/precious/gemstone/G, var/obj/item/precious/gemstone/mixed/pile)
-	pile.stack_contents = stack_contents[src.gemtype] += 1
-	pile.stack_contents = stack_contents[G.gemtype] += 1
+/obj/item/precious/gemstone/proc/add_gem(obj/item/precious/gemstone/G)
+	stack_contents[G.gemtype] += 1
 
 
-/obj/item/precious/gemstone/mixed/proc/update_gem()
+/obj/item/precious/gemstone/proc/update_gem()
 	if(src.stacksize == 0)
 		qdel(src)
 		return
@@ -443,4 +444,4 @@
 	else 
 		var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
 		new picked(loc, rand(2,5))
-		visible_message("<span style='color: green;'><b><em>An enormous gemstone tumbles out of the rubble, somehow managing to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!"</em></b></span>"
+		visible_message("<span style='color: green;'><b><em>An enormous gemstone tumbles out of the rubble, somehow managing to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!</em></b></span>")
