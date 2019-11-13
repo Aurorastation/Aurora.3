@@ -6,6 +6,7 @@
 
 #define ENERGY_NITROGEN 115			// Roughly 8 emitter shots.
 #define ENERGY_CARBONDIOXIDE 150	// Roughly 10 emitter shots.
+#define ENERGY_HYDROGEN 250         // Roughly 18 emitter shots.
 #define ENERGY_PHORON 300			// Roughly 20 emitter shots. Phoron can take more but this is enough to max out both SMESs anyway.
 
 
@@ -40,6 +41,9 @@
 			if("CO2")
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/
 				continue
+			if("H2")
+				C.canister_type = /obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/
+				continue
 			if("PH")
 				C.canister_type = /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/
 				continue
@@ -51,6 +55,9 @@
 				continue
 			if("CO2")
 				C.energy_setting = ENERGY_CARBONDIOXIDE
+				continue
+			if("H2")
+				C.energy_setting = ENERGY_HYDROGEN
 				continue
 			if("PH")
 				C.energy_setting = ENERGY_PHORON
@@ -232,6 +239,9 @@
 			else if(coolant == "CO2")
 				P.mode = ATM_CO2
 				break
+			else if(coolant == "H2")
+				P.mode = ATM_H2
+				break
 			else
 				log_and_message_admins("## WARNING: Inappropriate filter coolant type set at [x] [y] [z]!")
 				return SETUP_WARNING
@@ -248,4 +258,5 @@
 #undef SETUP_DELAYED
 #undef ENERGY_NITROGEN
 #undef ENERGY_CARBONDIOXIDE
+#undef ENERGY_HYDROGEN
 #undef ENERGY_PHORON
