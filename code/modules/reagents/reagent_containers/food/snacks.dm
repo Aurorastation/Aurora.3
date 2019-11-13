@@ -1706,7 +1706,7 @@
 	name = "meat steak"
 	desc = "A piece of hot spicy meat."
 	icon_state = "steak"
-	trash = /obj/item/trash/plate
+	trash = /obj/item/trash/plate/steak
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
 	bitesize = 2
