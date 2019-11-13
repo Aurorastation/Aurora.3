@@ -12,7 +12,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	mob_size = 4.5//weight based on Chanthangi goats
 	response_help  = "pets"
@@ -86,7 +86,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 40 //Cows are huge, should be worth a lot of meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -129,7 +129,7 @@
 	emote_see = list("pecks at the ground","flaps its tiny wings")
 	speak_chance = 2
 	turns_per_move = 2
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 1
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -138,7 +138,7 @@
 	maxHealth = 1
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
-	holder_type = /obj/item/weapon/holder/chick
+	holder_type = /obj/item/holder/chick
 	autoseek_food = 0
 	beg_for_food = 0
 	density = 0
@@ -177,7 +177,7 @@
 	emote_see = list("pecks at the ground","flaps its wings viciously")
 	speak_chance = 2
 	turns_per_move = 3
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/chicken
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 4
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -187,7 +187,7 @@
 	var/eggsleft = 0
 	var/body_color
 	pass_flags = PASSTABLE
-	holder_type = /obj/item/weapon/holder/chicken
+	holder_type = /obj/item/holder/chicken
 	density = 0
 	mob_size = 2
 	hunger_enabled = FALSE
@@ -207,11 +207,11 @@
 	chicken_count += 1
 	switch (body_color)
 		if ("brown")
-			holder_type = /obj/item/weapon/holder/chicken/brown
+			holder_type = /obj/item/holder/chicken/brown
 		if ("black")
-			holder_type = /obj/item/weapon/holder/chicken/black
+			holder_type = /obj/item/holder/chicken/black
 		if ("white")
-			holder_type = /obj/item/weapon/holder/chicken/white
+			holder_type = /obj/item/holder/chicken/white
 
 /mob/living/simple_animal/chicken/death()
 	..()
@@ -219,8 +219,8 @@
 	desc = "Now it's ready for plucking and cooking!"
 
 /mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown)) //feedin' dem chickens
-		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
+	if(istype(O, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
@@ -244,16 +244,16 @@
 	if(!stat && prob(3) && eggsleft > 0)
 		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
 		eggsleft--
-		var/obj/item/weapon/reagent_containers/food/snacks/egg/E = new(get_turf(src))
+		var/obj/item/reagent_containers/food/snacks/egg/E = new(get_turf(src))
 		E.pixel_x = rand(-6,6)
 		E.pixel_y = rand(-6,6)
 		if(chicken_count < MAX_CHICKENS && prob(10))
 			START_PROCESSING(SSprocessing, E)
 
-/obj/item/weapon/reagent_containers/food/snacks/egg
+/obj/item/reagent_containers/food/snacks/egg
 	var/amount_grown = 0
 
-/obj/item/weapon/reagent_containers/food/snacks/egg/process()
+/obj/item/reagent_containers/food/snacks/egg/process()
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)

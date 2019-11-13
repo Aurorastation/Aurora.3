@@ -24,7 +24,7 @@
 	icon_screen = "medcomp"
 	light_color = "#315ab4"
 	req_one_access = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
-	circuit = /obj/item/weapon/circuitboard/med_data
+	circuit = /obj/item/circuitboard/med_data
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
@@ -45,7 +45,7 @@
 	icon_screen = "security"
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
-	circuit = /obj/item/weapon/circuitboard/secure_data
+	circuit = /obj/item/circuitboard/secure_data
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
 	default_screen = "security"
@@ -64,7 +64,7 @@
 	icon_screen = "medlaptop"
 	light_color = "#00b000"
 	req_one_access = list(access_heads)
-	circuit = /obj/item/weapon/circuitboard/skills
+	circuit = /obj/item/circuitboard/skills
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
 
@@ -179,7 +179,7 @@
 	if(!istype(ui))
 		return
 	if(href_list["login"])
-		var/obj/item/weapon/card/id/id = usr.GetIdCard()
+		var/obj/item/card/id/id = usr.GetIdCard()
 		if(id && check_access(id))
 			authenticated = id.registered_name
 		else

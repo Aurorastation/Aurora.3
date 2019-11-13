@@ -56,7 +56,7 @@
 	if(!target_ladder)
 		return
 
-	var/obj/item/weapon/grab/G = M.l_hand
+	var/obj/item/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
 
@@ -147,7 +147,7 @@
 			return FALSE
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
-	var/obj/item/weapon/grab/G = M.l_hand
+	var/obj/item/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
 	if (istype(G))

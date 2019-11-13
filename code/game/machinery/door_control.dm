@@ -23,7 +23,7 @@
 	else
 		to_chat(user, "Error, no route to host.")
 
-/obj/machinery/button/remote/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/machinery/button/remote/attackby(obj/item/W, mob/user as mob)
 	return src.attack_hand(user)
 
 /obj/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)

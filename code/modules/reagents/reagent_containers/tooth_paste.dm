@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/toothpaste
+/obj/item/reagent_containers/toothpaste
 	name = "tube of toothpaste"
 	desc = "A simple tube full of toothpaste."
 	icon = 'icons/obj/chemical.dmi'
@@ -8,24 +8,24 @@
 	amount_per_transfer_from_this = 5
 	volume = 20
 
-/obj/item/weapon/reagent_containers/toothpaste/Initialize()
+/obj/item/reagent_containers/toothpaste/Initialize()
 	. = ..()
 	reagents.add_reagent("toothpaste", 20)
 
-/obj/item/weapon/reagent_containers/toothpaste/on_reagent_change()
+/obj/item/reagent_containers/toothpaste/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/toothpaste/update_icon()
+/obj/item/reagent_containers/toothpaste/update_icon()
 	var/percent = round((reagents.total_volume / volume) * 100)
 	switch(percent)
 		if(0 to 9)			icon_state = "toothpaste_empty"
 		if(10 to 50) 		icon_state = "toothpaste_half"
 		if(51 to INFINITY)	icon_state = "toothpaste"
 
-/obj/item/weapon/reagent_containers/toothpaste/attack_self(mob/user as mob)
+/obj/item/reagent_containers/toothpaste/attack_self(mob/user as mob)
 	return
 
-/obj/item/weapon/reagent_containers/toothbrush
+/obj/item/reagent_containers/toothbrush
 	name = "toothbrush"
 	desc = "An essential tool in dental hygiene."
 	icon = 'icons/obj/chemical.dmi'
@@ -35,16 +35,16 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 
-/obj/item/weapon/reagent_containers/toothbrush/on_reagent_change()
+/obj/item/reagent_containers/toothbrush/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/toothbrush/update_icon()
+/obj/item/reagent_containers/toothbrush/update_icon()
 	cut_overlays()
 
 	if(reagents.has_reagent("toothpaste"))
 		add_overlay("toothpaste_overlay")
 
-/obj/item/weapon/reagent_containers/toothbrush/attack_self(mob/user as mob)
+/obj/item/reagent_containers/toothbrush/attack_self(mob/user as mob)
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
@@ -57,14 +57,14 @@
 			update_icon()
 	return
 
-/obj/item/weapon/reagent_containers/toothbrush/feed_sound(var/mob/user)
+/obj/item/reagent_containers/toothbrush/feed_sound(var/mob/user)
 	return
 
-/obj/item/weapon/reagent_containers/toothbrush/proc/remove_contents(mob/user, atom/trans_dest = null)
+/obj/item/reagent_containers/toothbrush/proc/remove_contents(mob/user, atom/trans_dest = null)
 	if(!trans_dest && !user.loc)
 		return
 
-/obj/item/weapon/reagent_containers/toothbrush/attack(atom/target as obj|turf|area, mob/user as mob , flag)
+/obj/item/reagent_containers/toothbrush/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
 		var/mob/living/M = target
 		if(ishuman(M))
@@ -86,11 +86,11 @@
 
 	return ..()
 
-/obj/item/weapon/reagent_containers/toothbrush/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
+/obj/item/reagent_containers/toothbrush/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/weapon/reagent_containers/glass))
+	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
 		if(!reagents.get_free_space())
 			return
 
@@ -107,7 +107,7 @@
 			wipe_down(A, user)
 		return
 
-/obj/item/weapon/reagent_containers/toothbrush/proc/wipe_down(atom/A, mob/user)
+/obj/item/reagent_containers/toothbrush/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
@@ -119,8 +119,8 @@
 			reagents.splash(A, 5)
 			A.clean_blood()
 
-/obj/item/weapon/reagent_containers/toothbrush/green
+/obj/item/reagent_containers/toothbrush/green
 	icon_state = "toothbrush_g"
 
-/obj/item/weapon/reagent_containers/toothbrush/red
+/obj/item/reagent_containers/toothbrush/red
 	icon_state = "toothbrush_r"

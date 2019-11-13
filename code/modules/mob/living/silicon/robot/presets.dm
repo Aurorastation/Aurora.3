@@ -2,20 +2,20 @@
 
 /mob/living/silicon/robot/combat
 	modtype = "Combat"
-	spawn_module = /obj/item/weapon/robot_module/combat
-	cell_type = /obj/item/weapon/cell/super
+	spawn_module = /obj/item/robot_module/combat
+	cell_type = /obj/item/cell/super
 
 /mob/living/silicon/robot/combat/ert
 	scrambledcodes = 1
 	lawupdate = 0
 	lawpreset = /datum/ai_laws/nanotrasen_aggressive
-	idcard_type = /obj/item/weapon/card/id/ert
+	idcard_type = /obj/item/card/id/ert
 	key_type = /obj/item/device/encryptionkey/ert
 
 /mob/living/silicon/robot/combat/ert/init()
 	..()
 	if(!jetpack)
-		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
+		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
 /mob/living/silicon/robot/scrambled //should not stand linked to the station or the ai
 	scrambledcodes = 1
@@ -23,8 +23,8 @@
 
 /mob/living/silicon/robot/bluespace
 	modtype = "Bluespace"
-	spawn_module = /obj/item/weapon/robot_module/bluespace
-	cell_type = /obj/item/weapon/cell/infinite
+	spawn_module = /obj/item/robot_module/bluespace
+	cell_type = /obj/item/cell/infinite
 	overclocked = 1
 	lawupdate = 0
 	scrambledcodes = 1

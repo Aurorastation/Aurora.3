@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// (Mixing)Glass.
 ////////////////////////////////////////////////////////////////////////////////
-/obj/item/weapon/reagent_containers/glass
+/obj/item/reagent_containers/glass
 	name = " "
 	var/base_name = " "
 	desc = " "
@@ -19,11 +19,11 @@
 
 	var/label_text = ""
 
-/obj/item/weapon/reagent_containers/glass/Initialize()
+/obj/item/reagent_containers/glass/Initialize()
 	. = ..()
 	base_name = name
 
-/obj/item/weapon/reagent_containers/glass/examine(var/mob/user)
+/obj/item/reagent_containers/glass/examine(var/mob/user)
 	if(!..(user, 2))
 		return
 	if(reagents && reagents.reagent_list.len)
@@ -37,7 +37,7 @@
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
 
-/obj/item/weapon/reagent_containers/glass/attack_self()
+/obj/item/reagent_containers/glass/attack_self()
 	..()
 	if(is_open_container())
 		to_chat(usr, "<span class = 'notice'>You put the lid on \the [src].</span>")
@@ -47,11 +47,11 @@
 		flags |= OPENCONTAINER
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/AltClick(var/mob/user)
+/obj/item/reagent_containers/glass/AltClick(var/mob/user)
 	set_APTFT()
 
-/obj/item/weapon/reagent_containers/glass/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/storage/part_replacer))
+/obj/item/reagent_containers/glass/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
 	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
@@ -63,13 +63,13 @@
 			label_text = tmp_label
 			update_name_label()
 
-/obj/item/weapon/reagent_containers/glass/proc/update_name_label()
+/obj/item/reagent_containers/glass/proc/update_name_label()
 	if(label_text == "")
 		name = base_name
 	else
 		name = "[base_name] ([label_text])"
 
-/obj/item/weapon/reagent_containers/glass/beaker
+/obj/item/reagent_containers/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
@@ -79,29 +79,29 @@
 	matter = list("glass" = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
 
-/obj/item/weapon/reagent_containers/glass/beaker/Initialize()
+/obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
 	desc += " Can hold up to [volume] units."
 
-/obj/item/weapon/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
+/obj/item/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
 
-/obj/item/weapon/reagent_containers/glass/beaker/on_reagent_change()
+/obj/item/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/pickup(mob/user)
+/obj/item/reagent_containers/glass/beaker/pickup(mob/user)
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/dropped(mob/user)
+/obj/item/reagent_containers/glass/beaker/dropped(mob/user)
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/attack_hand()
+/obj/item/reagent_containers/glass/beaker/attack_hand()
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/update_icon()
+/obj/item/reagent_containers/glass/beaker/update_icon()
 	cut_overlays()
 
 	if(reagents.total_volume)
@@ -123,7 +123,7 @@
 	if (!is_open_container())
 		add_overlay("lid_[initial(icon_state)]")
 
-/obj/item/weapon/reagent_containers/glass/beaker/large
+/obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"
 	desc = "A large beaker."
 	icon_state = "beakerlarge"
@@ -134,7 +134,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
 
-/obj/item/weapon/reagent_containers/glass/beaker/bowl
+/obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
 	desc = "A large mixing bowl."
 	icon = 'icons/obj/kitchen.dmi'
@@ -147,7 +147,7 @@
 	flags = OPENCONTAINER
 	unacidable = 0
 
-/obj/item/weapon/reagent_containers/glass/beaker/noreact
+/obj/item/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"
 	desc = "A cryostasis beaker that allows for chemical storage without reactions."
 	icon_state = "beakernoreact"
@@ -157,7 +157,7 @@
 	amount_per_transfer_from_this = 10
 	flags = OPENCONTAINER | NOREACT
 
-/obj/item/weapon/reagent_containers/glass/beaker/bluespace
+/obj/item/reagent_containers/glass/beaker/bluespace
 	name = "bluespace beaker"
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
@@ -168,7 +168,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
 	flags = OPENCONTAINER
 
-/obj/item/weapon/reagent_containers/glass/beaker/vial
+/obj/item/reagent_containers/glass/beaker/vial
 	name = "vial"
 	desc = "A small glass vial."
 	icon_state = "vial"
@@ -179,19 +179,19 @@
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
 
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone
-/obj/item/weapon/reagent_containers/glass/beaker/cryoxadone/Initialize()
+/obj/item/reagent_containers/glass/beaker/cryoxadone
+/obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
 	. = ..()
 	reagents.add_reagent("cryoxadone", 30)
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/beaker/sulphuric
-/obj/item/weapon/reagent_containers/glass/beaker/sulphuric/Initialize()
+/obj/item/reagent_containers/glass/beaker/sulphuric
+/obj/item/reagent_containers/glass/beaker/sulphuric/Initialize()
 	. = ..()
 	reagents.add_reagent("sacid", 60)
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bucket
+/obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
@@ -207,14 +207,14 @@
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
-	var/carving_weapon = /obj/item/weapon/wirecutters
+	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 
-/obj/item/weapon/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
+/obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
 		to_chat(user, "You add [D] to [src].")
 		qdel(D)
-		user.put_in_hands(new /obj/item/weapon/bucket_sensor)
+		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
 	else if(istype(D, carving_weapon))
@@ -222,7 +222,7 @@
 		user.put_in_hands(new helmet_type)
 		qdel(src)
 		return
-	else if(istype(D, /obj/item/weapon/mop))
+	else if(istype(D, /obj/item/mop))
 		if(reagents.total_volume < 1)
 			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
 		else
@@ -233,21 +233,21 @@
 	else
 		return ..()
 
-/obj/item/weapon/reagent_containers/glass/bucket/update_icon()
+/obj/item/reagent_containers/glass/bucket/update_icon()
 	cut_overlays()
 	if(reagents.total_volume > 0)
 		add_overlay("water_[initial(icon_state)]")
 	if(!is_open_container())
 		add_overlay("lid_[initial(icon_state)]")
 
-/obj/item/weapon/reagent_containers/glass/bucket/on_reagent_change()
+/obj/item/reagent_containers/glass/bucket/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
+/obj/item/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
 
 
-obj/item/weapon/reagent_containers/glass/bucket/wood
+obj/item/reagent_containers/glass/bucket/wood
 	desc = "An old wooden bucket."
 	name = "wooden bucket"
 	icon = 'icons/obj/janitor.dmi'
@@ -256,10 +256,10 @@ obj/item/weapon/reagent_containers/glass/bucket/wood
 	center_of_mass = list("x" = 16,"y" = 8)
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
-	carving_weapon = /obj/item/weapon/material/hatchet
+	carving_weapon = /obj/item/material/hatchet
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
-/obj/item/weapon/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
+/obj/item/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return

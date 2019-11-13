@@ -213,7 +213,7 @@ var/global/list/breach_burn_descriptors = list(
 			to_chat(user, "There is no structural damage on \the [src] to repair.")
 			return
 
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(5))
 			to_chat(user, "<span class='warning'>You need more welding fuel to repair this suit.</span>")
 			return

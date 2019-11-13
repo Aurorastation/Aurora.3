@@ -1,5 +1,5 @@
 //Contains the rapid construction device.
-/obj/item/weapon/rfd
+/obj/item/rfd
 	name = "\improper Rapid-Fabrication-Device"
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
 	icon = 'icons/obj/tools.dmi'
@@ -24,37 +24,37 @@
 	var/modes = null
 	var/crafting = FALSE
 
-/obj/item/weapon/rfd/Initialize()
+/obj/item/rfd/Initialize()
 	. = ..()
 	src.spark_system = bind_spark(src, 5)
 	update_icon()
 
-/obj/item/weapon/rfd/Destroy()
+/obj/item/rfd/Destroy()
 	qdel(spark_system)
 	spark_system = null
 	return ..()
 
-/obj/item/weapon/rfd/attack()
+/obj/item/rfd/attack()
 	return 0
 
-/obj/item/weapon/rfd/proc/can_use(var/mob/user,var/turf/T)
+/obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
-/obj/item/weapon/rfd/examine(var/mob/user)
+/obj/item/rfd/examine(var/mob/user)
 	..()
 	if(loc == user)
 		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
 
-/obj/item/weapon/rfd/attack_self(mob/user)
+/obj/item/rfd/attack_self(mob/user)
 	//Change the mode
 	if(++mode > number_of_modes) mode = 1
 	to_chat(user, "<span class='notice'>Changed mode to '[modes[mode]]'</span>")
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20)) src.spark_system.queue()
 
-/obj/item/weapon/rfd/attackby(obj/item/weapon/W, mob/user)
+/obj/item/rfd/attackby(obj/item/W, mob/user)
 
-	if(istype(W, /obj/item/weapon/rfd_ammo))
+	if(istype(W, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
 			to_chat(user, "<span class='notice'>The RFD can't hold any more matter-units.</span>")
 			return
@@ -76,13 +76,13 @@
 		src.add_fingerprint(user)
 		return
 
-	if((crafting) && (istype(W,/obj/item/weapon/crossbowframe)))
-		var/obj/item/weapon/crossbowframe/F = W
+	if((crafting) && (istype(W,/obj/item/crossbowframe)))
+		var/obj/item/crossbowframe/F = W
 		if(F.buildstate == 5)
 			if(!user.unEquip(src))
 				return
 			qdel(F)
-			var/obj/item/weapon/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
+			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
 			add_fingerprint(user)
@@ -93,14 +93,14 @@
 	..()
 
 
-/obj/item/weapon/rfd/proc/useResource(var/amount, var/mob/user)
+/obj/item/rfd/proc/useResource(var/amount, var/mob/user)
 	if(stored_matter < amount)
 		return 0
 	stored_matter -= amount
 	update_icon()
 	return 1
 
-/obj/item/weapon/rfd/update_icon()	//For the fancy "ammo" counter
+/obj/item/rfd/update_icon()	//For the fancy "ammo" counter
 	overlays.Cut()
 
 	var/ratio = 0
@@ -109,7 +109,7 @@
 
 	overlays += "[icon_state]-[ratio]"
 
-/obj/item/weapon/rfd_ammo
+/obj/item/rfd_ammo
 	name = "compressed matter cartridge"
 	desc = "Highly compressed matter for the RFD."
 	icon = 'icons/obj/ammo.dmi'
@@ -123,7 +123,7 @@
 RFD Construction-Class
 */
 
-/obj/item/weapon/rfd/construction
+/obj/item/rfd/construction
 	name = "\improper Rapid-Fabrication-Device C-Class"
 	desc = "A RFD, modified to construct walls and floors."
 	modes = list("Floor & Walls","Airlock","Deconstruct")
@@ -131,7 +131,7 @@ RFD Construction-Class
 	var/canRwall = 0
 	var/disabled = 0
 
-/obj/item/weapon/rfd/construction/afterattack(atom/A, mob/user, proximity)
+/obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	if(disabled && !isrobot(user))
 		return 0
@@ -142,7 +142,7 @@ RFD Construction-Class
 		return 0
 	return alter_turf(A,user,(mode == 3))
 
-/obj/item/weapon/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
+/obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
 
 	var/build_cost = 0
 	var/build_type
@@ -212,10 +212,10 @@ RFD Construction-Class
 	playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 	return 1
 
-/obj/item/weapon/rfd/construction/borg
+/obj/item/rfd/construction/borg
 	canRwall = 1
 
-/obj/item/weapon/rfd/construction/borg/useResource(var/amount, var/mob/user)
+/obj/item/rfd/construction/borg/useResource(var/amount, var/mob/user)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
@@ -225,17 +225,17 @@ RFD Construction-Class
 				return 1
 	return 0
 
-/obj/item/weapon/rfd/construction/borg/infinite/useResource()
+/obj/item/rfd/construction/borg/infinite/useResource()
 	return 1
 
-/obj/item/weapon/rfd/construction/borg/attackby()
+/obj/item/rfd/construction/borg/attackby()
 	return
 
-/obj/item/weapon/rfd/construction/borg/can_use(var/mob/user,var/turf/T)
+/obj/item/rfd/construction/borg/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat)
 
 
-/obj/item/weapon/rfd/construction/mounted/useResource(var/amount, var/mob/user)
+/obj/item/rfd/construction/mounted/useResource(var/amount, var/mob/user)
 	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
 	if(istype(loc,/obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
@@ -245,23 +245,23 @@ RFD Construction-Class
 				return 1
 	return 0
 
-/obj/item/weapon/rfd/construction/mounted/attackby()
+/obj/item/rfd/construction/mounted/attackby()
 	return
 
-/obj/item/weapon/rfd/construction/mounted/can_use(var/mob/user,var/turf/T)
+/obj/item/rfd/construction/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat && !user.restrained())
 
 /*
 RFD Service-Class
 */
 
-/obj/item/weapon/rfd/service
+/obj/item/rfd/service
 	name = "\improper Rapid-Fabrication-Device S-Class"
 	desc = "A RFD, modified to deploy service items."
 	modes = list("Cigarette", "Drinking Glass","Paper","Pen","Dice Pack")
 	number_of_modes = 5
 
-/obj/item/weapon/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
+/obj/item/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
 	if(istype(user,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 0)
@@ -284,16 +284,16 @@ RFD Service-Class
 			product = new /obj/item/clothing/mask/smokable/cigarette()
 			used_energy = 10
 		if(2)
-			product = new /obj/item/weapon/reagent_containers/food/drinks/drinkingglass()
+			product = new /obj/item/reagent_containers/food/drinks/drinkingglass()
 			used_energy = 50
 		if(3)
-			product = new /obj/item/weapon/paper()
+			product = new /obj/item/paper()
 			used_energy = 10
 		if(4)
-			product = new /obj/item/weapon/pen()
+			product = new /obj/item/pen()
 			used_energy = 50
 		if(5)
-			product = new /obj/item/weapon/storage/pill_bottle/dice()
+			product = new /obj/item/storage/pill_bottle/dice()
 			used_energy = 200
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")
@@ -315,11 +315,11 @@ RFD Service-Class
 RFD Mining-Class
 */
 
-/obj/item/weapon/rfd/mining
+/obj/item/rfd/mining
 	name = "\improper Rapid-Fabrication-Device M-Class"
 	desc = "A RFD, modified to deploy mine tracks."
 
-/obj/item/weapon/rfd/mining/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rfd/mining/afterattack(atom/A, mob/user as mob, proximity)
 
 	if(!proximity) return
 
@@ -361,16 +361,16 @@ RFD Mining-Class
 
 // Malf AI RFD Transformer.
 
-/obj/item/weapon/rfd/transformer
+/obj/item/rfd/transformer
 	name = "\improper Rapid-Fabrication-Device T-Class"
 	desc = "A device used for rapid fabrication, modified to deploy a transformer. It can only be used once and there can not be more than one made."
 	stored_matter = 30
 	var/malftransformermade = 0
 
-/obj/item/weapon/rfd/transformer/attack_self(mob/user)
+/obj/item/rfd/transformer/attack_self(mob/user)
 	return
 
-/obj/item/weapon/rfd/transformer/examine(var/mob/user)
+/obj/item/rfd/transformer/examine(var/mob/user)
 	..()
 	if(loc == user)
 		if(malftransformermade)
@@ -378,7 +378,7 @@ RFD Mining-Class
 		else
 			to_chat(user, "It is ready to deploy a transformer machine.")
 
-/obj/item/weapon/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
 	if(!proximity) return
 

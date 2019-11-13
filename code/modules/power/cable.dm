@@ -648,7 +648,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 14)
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
-		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
+		var/obj/item/handcuffs/cable/B = new /obj/item/handcuffs/cable(usr.loc)
 		B.color = color
 		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
@@ -960,7 +960,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
-		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+		if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 			to_chat(usr, "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>")
 			return 0
 		if(src.amount <= 24)

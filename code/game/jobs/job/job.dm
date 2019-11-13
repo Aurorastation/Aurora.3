@@ -169,7 +169,7 @@
 		if(10 to 14)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+			H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), slot_l_hand)
 		if(15 to INFINITY)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
@@ -190,13 +190,13 @@
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey
-	id = /obj/item/weapon/card/id
+	id = /obj/item/card/id
 	l_ear = /obj/item/device/radio/headset
-	back = /obj/item/weapon/storage/backpack
+	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
 	pda = /obj/item/device/pda
 
-	var/box = /obj/item/weapon/storage/box/survival
+	var/box = /obj/item/storage/box/survival
 
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip

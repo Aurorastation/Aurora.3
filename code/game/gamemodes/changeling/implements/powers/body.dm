@@ -108,7 +108,7 @@
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
-	for (var/obj/item/weapon/implant/I in C) //Still preserving implants
+	for (var/obj/item/implant/I in C) //Still preserving implants
 		implants += I
 
 	C.transforming = TRUE
@@ -148,7 +148,7 @@
 	O.setOxyLoss(C.getOxyLoss())
 	O.adjustFireLoss(C.getFireLoss())
 	O.stat = C.stat
-	for (var/obj/item/weapon/implant/I in implants)
+	for (var/obj/item/implant/I in implants)
 		I.forceMove(O)
 		I.implanted = O
 
@@ -353,7 +353,7 @@
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
-	var/obj/item/weapon/melee/arm_blade/blade = new(M)
+	var/obj/item/melee/arm_blade/blade = new(M)
 	blade.creator = M
 	M.put_in_hands(blade)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
@@ -391,7 +391,7 @@
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
-	var/obj/item/weapon/shield/riot/changeling/shield = new(M)
+	var/obj/item/shield/riot/changeling/shield = new(M)
 	shield.creator = M
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)

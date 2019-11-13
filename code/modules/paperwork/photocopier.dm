@@ -78,11 +78,11 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 
 			if(!camera)
 				return
-			var/obj/item/weapon/photo/selection = camera.selectpicture()
+			var/obj/item/photo/selection = camera.selectpicture()
 			if (!selection)
 				return
 
-			var/obj/item/weapon/photo/p = photocopy(selection)
+			var/obj/item/photo/p = photocopy(selection)
 			if (p.desc == "")
 				p.desc += "Copied by [tempAI.name]"
 			else
@@ -92,7 +92,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		SSvueui.check_uis_for_change(src)
 
 /obj/machinery/photocopier/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo) || istype(O, /obj/item/weapon/paper_bundle))
+	if(istype(O, /obj/item/paper) || istype(O, /obj/item/photo) || istype(O, /obj/item/paper_bundle))
 		if(!copyitem)
 			user.drop_from_inventory(O,src)
 			copyitem = O
@@ -123,16 +123,16 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	return
 
 /obj/machinery/photocopier/proc/copy_type(var/c_item = copyitem) // helper proc to reduce ctrl+c ctrl+v
-	if (istype(c_item, /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/C = copy(c_item)
+	if (istype(c_item, /obj/item/paper))
+		var/obj/item/paper/C = copy(c_item)
 		sleep(20)
 		return C
-	else if (istype(c_item, /obj/item/weapon/photo))
-		var/obj/item/weapon/photo/P = photocopy(c_item)
+	else if (istype(c_item, /obj/item/photo))
+		var/obj/item/photo/P = photocopy(c_item)
 		sleep(20)
 		return P
-	else if (istype(c_item, /obj/item/weapon/paper_bundle))
-		var/obj/item/weapon/paper_bundle/B = bundlecopy(c_item)
+	else if (istype(c_item, /obj/item/paper_bundle))
+		var/obj/item/paper_bundle/B = bundlecopy(c_item)
 		sleep(15*B.pages.len)
 		return B
 	else
@@ -157,8 +157,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 					toner = 0
 	return
 
-/obj/machinery/photocopier/proc/copy(var/obj/item/weapon/paper/copy, var/print = 1, var/use_sound = 1, var/delay = 10) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
-	var/obj/item/weapon/paper/c = new /obj/item/weapon/paper()
+/obj/machinery/photocopier/proc/copy(var/obj/item/paper/copy, var/print = 1, var/use_sound = 1, var/delay = 10) // note: var/delay is the delay from copy to print, it should be less than the sleep in copy_type()
+	var/obj/item/paper/c = new /obj/item/paper()
 	var/info
 	var/pname
 	if (toner > 10)	//lots of toner, make it dark
@@ -204,8 +204,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		src.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay)
 	return c
 
-/obj/machinery/photocopier/proc/photocopy(var/obj/item/weapon/photo/photocopy)
-	var/obj/item/weapon/photo/p = photocopy.copy()
+/obj/machinery/photocopier/proc/photocopy(var/obj/item/photo/photocopy)
+	var/obj/item/photo/p = photocopy.copy()
 	p.forceMove(src.loc)
 
 	var/icon/I = icon(photocopy.icon, photocopy.icon_state)
@@ -227,9 +227,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	return p
 
 //If need_toner is 0, the copies will still be lightened when low on toner, however it will not be prevented from printing. TODO: Implement print queues for fax machines and get rid of need_toner
-/obj/machinery/photocopier/proc/bundlecopy(var/obj/item/weapon/paper_bundle/bundle, var/need_toner=1)
-	var/obj/item/weapon/paper_bundle/p = new /obj/item/weapon/paper_bundle (src)
-	for(var/obj/item/weapon/W in bundle.pages)
+/obj/machinery/photocopier/proc/bundlecopy(var/obj/item/paper_bundle/bundle, var/need_toner=1)
+	var/obj/item/paper_bundle/p = new /obj/item/paper_bundle (src)
+	for(var/obj/item/W in bundle.pages)
 		if(toner <= 0 && need_toner)
 			toner = 0
 			visible_message("<span class='notice'>A red light on \the [src] flashes, indicating that it is out of toner.</span>")

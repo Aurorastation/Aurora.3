@@ -1,4 +1,4 @@
-/obj/item/weapon/spirit_board
+/obj/item/spirit_board
 	name = "spirit board"
 	desc = "A wooden board with letters etched into it, used in seances."
 	icon = 'icons/obj/toy.dmi'
@@ -7,27 +7,27 @@
 	var/planchette = "A"
 	var/lastuser = null
 
-/obj/item/weapon/spirit_board/examine(mob/user)
+/obj/item/spirit_board/examine(mob/user)
 	..(user)
 	to_chat(user, "The planchette is sitting at \"[planchette]\".")
 
-/obj/item/weapon/spirit_board/attack_hand(mob/user)
+/obj/item/spirit_board/attack_hand(mob/user)
 	if(!isturf(loc)) //so if you want to play the use the board, you need to put it down somewhere
 		..()
 	else
 		spirit_board_pick_letter(user)
 
-/obj/item/weapon/spirit_board/MouseDrop(mob/user as mob)
+/obj/item/spirit_board/MouseDrop(mob/user as mob)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(usr))
 			forceMove(get_turf(usr))
 			usr.put_in_hands(src)
 
-/obj/item/weapon/spirit_board/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/spirit_board/attack_ghost(var/mob/abstract/observer/user)
 	spirit_board_pick_letter(user)
 	return ..()
 
-/obj/item/weapon/spirit_board/proc/spirit_board_pick_letter(mob/M)
+/obj/item/spirit_board/proc/spirit_board_pick_letter(mob/M)
 	if(!spirit_board_checks(M))
 		return 0
 	planchette = input("Choose the letter.", "Seance!") as null|anything in list(
@@ -41,7 +41,7 @@
 
 	visible_message("<span class='notice'>The planchette slowly moves... and stops at the letter \"[planchette]\".</span>")
 
-/obj/item/weapon/spirit_board/proc/spirit_board_checks(mob/M)
+/obj/item/spirit_board/proc/spirit_board_checks(mob/M)
 	//cooldown
 	var/bonus = 0
 	if(M.ckey == lastuser)

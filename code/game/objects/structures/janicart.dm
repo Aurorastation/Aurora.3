@@ -13,9 +13,9 @@
 	flags = OPENCONTAINER
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
-	var/obj/item/weapon/storage/bag/trash/mybag	= null
-	var/obj/item/weapon/mop/mymop = null
-	var/obj/item/weapon/reagent_containers/spray/myspray = null
+	var/obj/item/storage/bag/trash/mybag	= null
+	var/obj/item/mop/mymop = null
+	var/obj/item/reagent_containers/spray/myspray = null
 	var/obj/item/device/lightreplacer/myreplacer = null
 	var/obj/structure/mopbucket/mybucket = null
 	var/signs = 0	//maximum capacity hardcoded below
@@ -65,7 +65,7 @@
 /obj/structure/janitorialcart/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	var/obj/I = usr.get_active_hand()
-	if(istype(I, /obj/item/weapon/mop))
+	if(istype(I, /obj/item/mop))
 		if(!mymop)
 			usr.drop_from_inventory(I,src)
 			mymop = I
@@ -75,8 +75,8 @@
 		else
 			to_chat(usr, "<span class='notice'>The cart already has a mop attached</span>")
 		return
-	else if(istype(I, /obj/item/weapon/reagent_containers) && mybucket)
-		var/obj/item/weapon/reagent_containers/C = I
+	else if(istype(I, /obj/item/reagent_containers) && mybucket)
+		var/obj/item/reagent_containers/C = I
 		C.afterattack(mybucket, usr, 1)
 	else if(istype (I, /obj/item/device/lightreplacer))
 		var/obj/item/device/lightreplacer/LR = I
@@ -85,7 +85,7 @@
 
 
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/reagent_containers/glass/rag) || istype(I, /obj/item/weapon/soap))
+	if(istype(I, /obj/item/mop) || istype(I, /obj/item/reagent_containers/glass/rag) || istype(I, /obj/item/soap))
 		if (mybucket)
 			if(I.reagents.total_volume < I.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
@@ -102,7 +102,7 @@
 			to_chat(user, "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>")
 		return 1
 
-	else if(istype(I, /obj/item/weapon/reagent_containers/spray) && !myspray)
+	else if(istype(I, /obj/item/reagent_containers/spray) && !myspray)
 		user.drop_from_inventory(I,src)
 		myspray = I
 		update_icon()
@@ -118,7 +118,7 @@
 		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		return 1
 
-	else if(istype(I, /obj/item/weapon/storage/bag/trash) && !mybag)
+	else if(istype(I, /obj/item/storage/bag/trash) && !mybag)
 		user.drop_from_inventory(I,src)
 		mybag = I
 		I.forceMove(src)
@@ -127,7 +127,7 @@
 		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 		return 1
 
-	else if(istype(I, /obj/item/weapon/caution))
+	else if(istype(I, /obj/item/caution))
 		if(signs < 4)
 			user.drop_from_inventory(I,src)
 			signs++
@@ -143,7 +143,7 @@
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/weapon/gun/energy/plasmacutter)))
+	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/gun/energy/plasmacutter)))
 		dismantle(user)
 		return
 	..()
@@ -191,7 +191,7 @@
 		mybucket = null
 
 	if (signs)
-		for (var/obj/item/weapon/caution/Sign in src)
+		for (var/obj/item/caution/Sign in src)
 			if (prob(min((chance*2),100)))
 				signs--
 				Sign.forceMove(dropspot)
@@ -261,7 +261,7 @@
 					myreplacer = null
 			if("sign")
 				if(signs)
-					var/obj/item/weapon/caution/Sign = locate() in src
+					var/obj/item/caution/Sign = locate() in src
 					if(Sign)
 						user.put_in_hands(Sign)
 						to_chat(user, "<span class='notice'>You take \a [Sign] from [src].</span>")

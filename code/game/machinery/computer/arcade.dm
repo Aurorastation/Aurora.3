@@ -10,8 +10,8 @@
 	// If it's a generic arcade machine, pick a random arcade
 	// circuit board for it and make the new machine
 	if(!circuit)
-		var/choice = pick(typesof(/obj/item/weapon/circuitboard/arcade) - /obj/item/weapon/circuitboard/arcade)
-		var/obj/item/weapon/circuitboard/CB = new choice()
+		var/choice = pick(typesof(/obj/item/circuitboard/arcade) - /obj/item/circuitboard/arcade)
+		var/obj/item/circuitboard/CB = new choice()
 		new CB.build_path(loc, CB)
 
 		return INITIALIZE_HINT_QDEL
@@ -49,7 +49,7 @@
 	name = "arcade machine"
 	desc = "Does not support Pinball."
 	icon_state = "arcade"
-	circuit = /obj/item/weapon/circuitboard/arcade/battle
+	circuit = /obj/item/circuitboard/arcade/battle
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners don't use space drugs" //Temporary message, for attack messages, etc
 	var/player_hp = 30 //Player health/attack points

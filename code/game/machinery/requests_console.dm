@@ -30,9 +30,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
 	component_types = list(
-			/obj/item/weapon/circuitboard/requestconsole,
-			/obj/item/weapon/stock_parts/capacitor,
-			/obj/item/weapon/stock_parts/console_screen,
+			/obj/item/circuitboard/requestconsole,
+			/obj/item/stock_parts/capacitor,
+			/obj/item/stock_parts/console_screen,
 		)
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
@@ -302,7 +302,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			var/id = query.item[1]
 			var/name = query.item[2]
 			var/data = query.item[3]
-			var/obj/item/weapon/paper/C = new()
+			var/obj/item/paper/C = new()
 			C.color = "#fff9e8"
 
 			//Let's start the BB >> HTML conversion!
@@ -346,15 +346,15 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return
 
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
-/obj/machinery/requests_console/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
-	if (istype(O, /obj/item/weapon/card/id))
+/obj/machinery/requests_console/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if (istype(O, /obj/item/card/id))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/weapon/card/id/T = O
+			var/obj/item/card/id/T = O
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
-			var/obj/item/weapon/card/id/ID = O
+			var/obj/item/card/id/ID = O
 			if (access_RC_announce in ID.GetAccess())
 				announceAuth = 1
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
@@ -362,15 +362,15 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				reset_message()
 				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
-	else if (istype(O, /obj/item/weapon/stamp))
+	else if (istype(O, /obj/item/stamp))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/weapon/stamp/T = O
+			var/obj/item/stamp/T = O
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
-	else if (istype(O, /obj/item/weapon/paper_bundle))
+	else if (istype(O, /obj/item/paper_bundle))
 		if(lid)	//More of that restocking business
-			var/obj/item/weapon/paper_bundle/C = O
+			var/obj/item/paper_bundle/C = O
 			paperstock += C.amount
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
@@ -378,9 +378,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
 			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
-	else if (istype(O, /obj/item/weapon/paper))
+	else if (istype(O, /obj/item/paper))
 		if(lid)					//Stocking them papers
-			var/obj/item/weapon/paper/C = O
+			var/obj/item/paper/C = O
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			paperstock++
@@ -402,8 +402,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 							return
 						if(!sent)
 							sent = 1
-						var/obj/item/weapon/paper/C = O
-						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+						var/obj/item/paper/C = O
+						var/obj/item/paper/P = new /obj/item/paper()
 						var/info = "<font color = #101010>"
 						var/copied = html_decode(C.info)
 						copied = replacetext(copied, "<font face=\"[P.deffont]\" color=", "<font face=\"[P.deffont]\" nocolor=")	//state of the art techniques in action

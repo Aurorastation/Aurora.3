@@ -1,6 +1,6 @@
 //CCIAA's PDA.
 /obj/item/device/pda/central
-	default_cartridge = /obj/item/weapon/cartridge/captain
+	default_cartridge = /obj/item/cartridge/captain
 	icon_state = "pda-h"
 	detonate = 0
 
@@ -136,7 +136,7 @@
 	sLogFile << "Recorder stopped: [get_time()]"
 	sLogFile << "--------------------------------"
 
-	var/obj/item/weapon/paper/P = get_last_transcript()
+	var/obj/item/paper/P = get_last_transcript()
 	P.forceMove(get_turf(src.loc))
 
 	//If we have sql ccia logs enabled, then persist it here
@@ -168,7 +168,7 @@
 
 		dat += "[line]<br>\n"
 
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
+	var/obj/item/paper/P = new /obj/item/paper(src)
 	var/pname = "[firstLine]"
 	var/info = "[dat]"
 	P.set_content_unsafe(pname, info)
@@ -188,7 +188,7 @@
 		return
 
 	message_admins("[key_name_admin(usr)] accessed file: [last_file_loc]")
-	var/obj/item/weapon/paper/P = get_last_transcript()
+	var/obj/item/paper/P = get_last_transcript()
 	P.forceMove(get_turf(src.loc))
 	return
 
@@ -270,7 +270,7 @@
 /obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
 	name = "central command internal affairs jacket"
 
-/obj/item/weapon/storage/lockbox/cciaa
+/obj/item/storage/lockbox/cciaa
 	req_access = list(access_cent_captain)
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with a NT logo on the side"

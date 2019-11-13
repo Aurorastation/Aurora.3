@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/taser
+/obj/item/gun/energy/taser
 	name = "taser gun"
 	desc = "The NT Mk30 NL is a small, low capacity gun used for non-lethal takedowns."
 	icon_state = "taser"
@@ -11,13 +11,13 @@
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
 
-/obj/item/weapon/gun/energy/taser/mounted
+/obj/item/gun/energy/taser/mounted
 	name = "mounted taser gun"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/stunrevolver
+/obj/item/gun/energy/stunrevolver
 	name = "stun revolver"
 	desc = "A high-tech revolver that fires rechargeable stun bolts."
 	icon_state = "stunrevolver"
@@ -28,7 +28,7 @@
 	max_shots = 8
 
 
-/obj/item/weapon/gun/energy/crossbow
+/obj/item/gun/energy/crossbow
 	name = "mini energy-crossbow"
 	desc = "A weapon favored by many mercenary stealth specialists."
 	icon_state = "crossbow"
@@ -47,14 +47,14 @@
 	turret_sprite_set = "crossbow"
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 
-/obj/item/weapon/gun/energy/crossbow/get_cell()
+/obj/item/gun/energy/crossbow/get_cell()
 	return DEVICE_NO_CELL
 
-/obj/item/weapon/gun/energy/crossbow/ninja
+/obj/item/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
 	projectile_type = /obj/item/projectile/energy/dart
 
-/obj/item/weapon/gun/energy/crossbow/largecrossbow
+/obj/item/gun/energy/crossbow/largecrossbow
 	name = "energy crossbow"
 	desc = "A weapon favored by mercenary infiltration teams."
 	w_class = 4

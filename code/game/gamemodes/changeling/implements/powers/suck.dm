@@ -84,7 +84,7 @@
 	if(!changeling)
 		return
 
-	var/obj/item/weapon/grab/G = src.get_active_hand()
+	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
 		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
 		return

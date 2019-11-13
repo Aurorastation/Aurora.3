@@ -6,7 +6,7 @@
 /turf/simulated/floor/holofloor
 	thermal_conductivity = 0
 
-/turf/simulated/floor/holofloor/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/turf/simulated/floor/holofloor/attackby(obj/item/W as obj, mob/user as mob)
 	return
 	// HOLOFLOOR DOES NOT GIVE A FUCK
 
@@ -156,8 +156,8 @@
 
 /obj/structure/window/reinforced/holowindow/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
+	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, HALLOSS)
 			return
@@ -195,12 +195,12 @@
 /obj/machinery/door/window/holowindoor/Destroy()
 	return ..()
 
-/obj/machinery/door/window/holowindoor/attackby(obj/item/weapon/I as obj, mob/user as mob)
+/obj/machinery/door/window/holowindoor/attackby(obj/item/I as obj, mob/user as mob)
 
 	if (src.operating == 1)
 		return
 
-	if(src.density && istype(I, /obj/item/weapon) && !istype(I, /obj/item/weapon/card))
+	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
@@ -233,16 +233,16 @@
 /obj/structure/bed/chair/holochair/Destroy()
 	return ..()
 
-/obj/structure/bed/chair/holochair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/holochair/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
 	return
 
-/obj/item/weapon/holo
+/obj/item/holo
 	damtype = HALLOSS
 	no_attack_log = 1
 
-/obj/item/weapon/holo/esword
+/obj/item/holo/esword
 	desc = "May the force be within you. Sorta."
 	icon_state = "sword0"
 	force = 3.0
@@ -254,15 +254,15 @@
 	var/active = 0
 	var/item_color
 
-/obj/item/weapon/holo/esword/green
+/obj/item/holo/esword/green
 	New()
 		item_color = "green"
 
-/obj/item/weapon/holo/esword/red
+/obj/item/holo/esword/red
 	New()
 		item_color = "red"
 
-/obj/item/weapon/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
@@ -271,10 +271,10 @@
 		return 1
 	return 0
 
-/obj/item/weapon/holo/esword/New()
+/obj/item/holo/esword/New()
 	item_color = pick("red","blue","green","purple")
 
-/obj/item/weapon/holo/esword/attack_self(mob/living/user as mob)
+/obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
 	if (active)
 		force = 30
@@ -299,7 +299,7 @@
 
 //BASKETBALL OBJECTS
 
-/obj/item/weapon/beach_ball/holoball
+/obj/item/beach_ball/holoball
 	icon = 'icons/obj/basketball.dmi'
 	icon_state = "basketball"
 	name = "basketball"
@@ -317,9 +317,9 @@
 	density = 1
 	throwpass = 1
 
-/obj/structure/holohoop/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
+/obj/structure/holohoop/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = W
 		if(G.state<2)
 			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 			return
@@ -364,7 +364,7 @@
 	to_chat(user, "The station AI is not to interact with these devices!")
 	return
 
-/obj/machinery/readybutton/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/readybutton/attackby(obj/item/W as obj, mob/user as mob)
 	to_chat(user, "The device is a solid button, there's nothing you can do with it!")
 
 /obj/machinery/readybutton/attack_hand(mob/user as mob)

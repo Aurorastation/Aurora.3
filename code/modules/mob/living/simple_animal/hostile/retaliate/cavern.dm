@@ -14,7 +14,7 @@
 	response_harm = "hits"
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/dwellermeat
+	meat_type = /obj/item/reagent_containers/food/snacks/dwellermeat
 	mob_size = 12
 
 	health = 60
@@ -113,7 +113,7 @@
 	. = ..()
 	var/i = rand(1,6)
 	while(i)
-		loot += pick(/obj/item/weapon/ore/silver, /obj/item/weapon/ore/gold, /obj/item/weapon/ore/uranium, /obj/item/weapon/ore/diamond)
+		loot += pick(/obj/item/ore/silver, /obj/item/ore/gold, /obj/item/ore/uranium, /obj/item/ore/diamond)
 		i--
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/death()
@@ -121,7 +121,7 @@
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
-	for(var/obj/item/weapon/ore/O in loot)
+	for(var/obj/item/ore/O in loot)
 		O.forceMove(src.loc)
 	qdel(src)
 
@@ -135,7 +135,7 @@
 		setClickCooldown(attack_delay)
 		if(!target_ore in ListTargets(10))
 			target_ore = null
-		for(var/obj/item/weapon/ore/O in oview(1,src))
+		for(var/obj/item/ore/O in oview(1,src))
 			O.forceMove(src)
 			loot += O
 			ore_count ++
@@ -146,7 +146,7 @@
 		if(ore_message)
 			visible_message("<span class='notice'>\The [src] collects the ore into a metallic hopper.</span>")
 			ore_message = 0
-		for(var/obj/item/weapon/ore/O in oview(7,src))
+		for(var/obj/item/ore/O in oview(7,src))
 			target_ore = O
 			break
 		if(target_ore)

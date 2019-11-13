@@ -4,7 +4,7 @@
 	anchored = 1
 	density = 1
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		return attack_hand(user)
 
 	attack_hand(mob/user as mob)
@@ -76,7 +76,7 @@
 
 /obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
-/obj/item/weapon/beach_ball
+/obj/item/beach_ball
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "ball"
 	name = "beach ball"

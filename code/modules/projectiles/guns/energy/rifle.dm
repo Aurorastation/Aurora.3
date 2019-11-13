@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/rifle
+/obj/item/gun/energy/rifle
 	name = "energy rifle"
 	desc = "An energy-based rifle with two settings: stun and kill."
 	icon_state = "eriflestun100"
@@ -34,7 +34,7 @@
 		)
 
 
-/obj/item/weapon/gun/energy/rifle/laser
+/obj/item/gun/energy/rifle/laser
 	name = "laser rifle"
 	desc = "A common laser weapon, designed to kill with concentrated energy blasts."
 	icon_state = "laserrifle"
@@ -52,7 +52,7 @@
 	firemodes = list()
 	modifystate = null
 
-/obj/item/weapon/gun/energy/rifle/laser/update_icon()
+/obj/item/gun/energy/rifle/laser/update_icon()
 	..()
 	if(wielded)
 		item_state = "[initial(icon_state)]-wielded"
@@ -60,7 +60,7 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/weapon/gun/energy/rifle/laser/heavy
+/obj/item/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
 	desc = "With the laser cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
 	icon_state = "lasercannon"
@@ -82,7 +82,7 @@
 	accuracy_wielded = 2
 	fire_delay_wielded = 20
 
-/obj/item/weapon/gun/energy/rifle/laser/xray
+/obj/item/gun/energy/rifle/laser/xray
 	name = "xray laser rifle"
 	desc = "A high-power laser rifle capable of expelling concentrated xray blasts."
 	icon_state = "xrifle"
@@ -97,7 +97,7 @@
 	turret_sprite_set = "xray"
 	turret_is_lethal = 1
 
-/obj/item/weapon/gun/energy/rifle/pulse
+/obj/item/gun/energy/rifle/pulse
 	name = "pulse rifle"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. Because of its complexity and cost, it is rarely seen in use except by specialists."
 	icon_state = "pulse"
@@ -120,7 +120,7 @@
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg')
 		)
 
-/obj/item/weapon/gun/energy/rifle/pulse/destroyer
+/obj/item/gun/energy/rifle/pulse/destroyer
 	name = "pulse destroyer"
 	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
 	fire_sound='sound/weapons/pulse.ogg'
@@ -131,10 +131,10 @@
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 
-/obj/item/weapon/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
+/obj/item/gun/energy/rifle/pulse/destroyer/attack_self(mob/living/user as mob)
 	to_chat(user, "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>")
 
-/obj/item/weapon/gun/energy/rifle/laser/tachyon
+/obj/item/gun/energy/rifle/laser/tachyon
 	name = "tachyon rifle"
 	desc = "A Vaurcan rifle that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
 	contained_sprite = 1
@@ -151,7 +151,7 @@
 	zoomdevicename = "rifle scope"
 	var/obj/screen/overlay = null
 
-/obj/item/weapon/gun/energy/rifle/laser/tachyon/verb/scope()
+/obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
 	set category = "Object"
 	set name = "Use Rifle Scope"
 	set popup_menu = 1

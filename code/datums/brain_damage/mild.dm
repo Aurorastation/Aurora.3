@@ -197,7 +197,7 @@
 
 				var/list/mob/living/targets = list()
 				var/range = 1
-				if(istype(owner.get_active_hand(), /obj/item/weapon/gun)) //get targets to shoot at
+				if(istype(owner.get_active_hand(), /obj/item/gun)) //get targets to shoot at
 					range = 7
 					for(var/turf/T in oview(owner, range))
 						targets += T

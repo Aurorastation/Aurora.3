@@ -5,7 +5,7 @@
 	layer = MOB_LAYER
 	light_range = 3
 	use_power = 0
-	var/obj/item/weapon/card/id/botcard			// the ID card that the bot "holds"
+	var/obj/item/card/id/botcard			// the ID card that the bot "holds"
 	var/on = 1
 	var/health = 0 //do not forget to set health for your bot!
 	var/maxhealth = 0
@@ -54,7 +54,7 @@
 			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
 	return
 
-/obj/machinery/bot/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/bot/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		if(!locked)
 			open = !open
@@ -151,7 +151,7 @@
 
 // Returns the surrounding cardinal turfs with open links
 // Including through doors openable with the ID
-/turf/proc/CardinalTurfsWithAccess(var/obj/item/weapon/card/id/ID)
+/turf/proc/CardinalTurfsWithAccess(var/obj/item/card/id/ID)
 	var/L[] = new()
 
 	//	for(var/turf/simulated/t in oview(src,1))
@@ -166,7 +166,7 @@
 
 // Returns true if a link between A and B is blocked
 // Movement through doors allowed if ID has access
-/proc/LinkBlockedWithAccess(turf/A, turf/B, obj/item/weapon/card/id/ID)
+/proc/LinkBlockedWithAccess(turf/A, turf/B, obj/item/card/id/ID)
 
 	if(A == null || B == null) return 1
 	var/adir = get_dir(A,B)
@@ -195,7 +195,7 @@
 
 // Returns true if direction is blocked from loc
 // Checks doors against access with given ID
-/proc/DirBlockedWithAccess(turf/loc,var/dir,var/obj/item/weapon/card/id/ID)
+/proc/DirBlockedWithAccess(turf/loc,var/dir,var/obj/item/card/id/ID)
 	for(var/obj/structure/window/D in loc)
 		if(!D.density)			continue
 		if(D.dir == SOUTHWEST)	return 1

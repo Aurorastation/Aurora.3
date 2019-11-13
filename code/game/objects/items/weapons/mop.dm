@@ -1,4 +1,4 @@
-/obj/item/weapon/mop
+/obj/item/mop
 	desc = "The world of janitalia wouldn't be complete without a mop."
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
@@ -14,16 +14,16 @@
 	var/mopcount = 0
 	var/cleantime = 25
 
-/obj/item/weapon/mop/Initialize()
+/obj/item/mop/Initialize()
 	. = ..()
 	create_reagents(30)
 	janitorial_supplies |= src
 
-/obj/item/weapon/mop/Destroy()
+/obj/item/mop/Destroy()
 	janitorial_supplies -= src
 	return ..()
 
-/obj/item/weapon/mop/afterattack(atom/A, mob/user, proximity)
+/obj/item/mop/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
 	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
@@ -42,11 +42,11 @@
 
 
 /obj/effect/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/mop) || istype(I, /obj/item/weapon/soap))
+	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
 		return
 	..()
 
-/obj/item/weapon/mop/update_icon()
+/obj/item/mop/update_icon()
 	if(reagents.total_volume < 1)
 		icon_state = "[initial(icon_state)]"
 		item_state = icon_state
@@ -54,10 +54,10 @@
 		icon_state = "[initial(icon_state)]_wet"
 		item_state = icon_state
 
-/obj/item/weapon/mop/on_reagent_change()
+/obj/item/mop/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/mop/advanced
+/obj/item/mop/advanced
 	name = "advanced mop"
 	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
 	icon = 'icons/obj/janitor.dmi'
@@ -71,11 +71,11 @@
 	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
 	var/refill_reagent = "water" //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
-/obj/item/weapon/mop/advanced/New()
+/obj/item/mop/advanced/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/mop/advanced/attack_self(mob/user)
+/obj/item/mop/advanced/attack_self(mob/user)
 	refill_enabled = !refill_enabled
 	if(refill_enabled)
 		START_PROCESSING(SSprocessing, src)
@@ -84,15 +84,15 @@
 	to_chat(user, "<span class='notice'>You set the condenser switch to the '[refill_enabled ? "ON" : "OFF"]' position.</span>")
 	playsound(user, 'sound/machines/click.ogg', 25, 1)
 
-/obj/item/weapon/mop/advanced/process()
+/obj/item/mop/advanced/process()
 	if(reagents.total_volume < 30)
 		reagents.add_reagent(refill_reagent, refill_rate)
 
-/obj/item/weapon/mop/advanced/examine(mob/user)
+/obj/item/mop/advanced/examine(mob/user)
 	..()
 	to_chat(user, "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>")
 
-/obj/item/weapon/mop/advanced/Destroy()
+/obj/item/mop/advanced/Destroy()
 	if(refill_enabled)
 		STOP_PROCESSING(SSprocessing, src)
 	return ..()

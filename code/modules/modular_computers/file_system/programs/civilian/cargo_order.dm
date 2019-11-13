@@ -28,7 +28,7 @@
 	var/list/data = host.initial_data()
 
 	//Pass the ID Data
-	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
+	var/obj/item/card/id/user_id_card = user.GetIdCard()
 	if(!user_id_card)
 		last_user_name = "Unknown"
 	else

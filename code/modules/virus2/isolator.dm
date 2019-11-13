@@ -13,7 +13,7 @@
 	var/state = HOME
 	var/datum/disease2/disease/virus2 = null
 	var/datum/record/virus/entry = null
-	var/obj/item/weapon/reagent_containers/syringe/sample = null
+	var/obj/item/reagent_containers/syringe/sample = null
 
 /obj/machinery/disease2/isolator/update_icon()
 	if (stat & (BROKEN|NOPOWER))
@@ -28,8 +28,8 @@
 		icon_state = "isolator"
 
 /obj/machinery/disease2/isolator/attackby(var/obj/O as obj, var/mob/user)
-	if(!istype(O,/obj/item/weapon/reagent_containers/syringe)) return
-	var/obj/item/weapon/reagent_containers/syringe/S = O
+	if(!istype(O,/obj/item/reagent_containers/syringe)) return
+	var/obj/item/reagent_containers/syringe/S = O
 
 	if(sample)
 		to_chat(user, "\The [src] is already loaded.")
@@ -108,7 +108,7 @@
 		isolating -= 1
 		if (isolating == 0)
 			if (virus2)
-				var/obj/item/weapon/virusdish/d = new /obj/item/weapon/virusdish(src.loc)
+				var/obj/item/virusdish/d = new /obj/item/virusdish(src.loc)
 				d.virus2 = virus2.getcopy()
 				virus2 = null
 				ping("\The [src] pings, \"Viral strain isolated.\"")
@@ -165,7 +165,7 @@
 		return 1
 
 /obj/machinery/disease2/isolator/proc/do_print(var/mob/user)
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(loc)
+	var/obj/item/paper/P = new /obj/item/paper(loc)
 	var/pname
 	var/info = ""
 

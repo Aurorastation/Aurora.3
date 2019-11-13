@@ -1,5 +1,5 @@
 /*
- *	Absorbs /obj/item/weapon/secstorage.
+ *	Absorbs /obj/item/secstorage.
  *	Reimplements it only slightly to use existing storage functionality.
  *
  *	Contains:
@@ -10,7 +10,7 @@
 // -----------------------------
 //         Generic Item
 // -----------------------------
-/obj/item/weapon/storage/secure
+/obj/item/storage/secure
 	name = "secstorage"
 	var/icon_locking = "secureb"
 	var/icon_sparking = "securespark"
@@ -32,9 +32,9 @@
 		if(..(user, 1))
 			to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		if(locked)
-			if (istype(W, /obj/item/weapon/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
+			if (istype(W, /obj/item/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
 				W:spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
@@ -126,7 +126,7 @@
 				return
 		return
 
-/obj/item/weapon/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
+/obj/item/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(!emagged)
 		emagged = 1
 		add_overlay(icon_sparking)
@@ -140,7 +140,7 @@
 // -----------------------------
 //        Secure Briefcase
 // -----------------------------
-/obj/item/weapon/storage/secure/briefcase
+/obj/item/storage/secure/briefcase
 	name = "secure briefcase"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "secure"
@@ -168,7 +168,7 @@
 //        Secure Safe
 // -----------------------------
 
-/obj/item/weapon/storage/secure/safe
+/obj/item/storage/secure/safe
 	name = "secure safe"
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "safe"
@@ -180,13 +180,13 @@
 	max_w_class = 8
 	anchored = 1.0
 	density = 0
-	cant_hold = list(/obj/item/weapon/storage/secure/briefcase)
-	starts_with = list(/obj/item/weapon/paper = 1, /obj/item/weapon/pen = 1)
+	cant_hold = list(/obj/item/storage/secure/briefcase)
+	starts_with = list(/obj/item/paper = 1, /obj/item/pen = 1)
 
 	attack_hand(mob/user as mob)
 		return attack_self(user)
 
-/*obj/item/weapon/storage/secure/safe/HoS/New()
+/*obj/item/storage/secure/safe/HoS/New()
 	..()
-	//new /obj/item/weapon/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
+	//new /obj/item/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
 */

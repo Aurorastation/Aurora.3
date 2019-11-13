@@ -42,7 +42,7 @@
 			to_chat(user, "<span class='warning'>\The [H] is brainless!</span>")
 			return FALSE
 
-		for (var/obj/item/weapon/implant/loyalty/I in H)
+		for (var/obj/item/implant/loyalty/I in H)
 			if (I.implanted)
 				to_chat(src, "<span class='warning'>[H]'s mind is shielded against your powers!</span>")
 				return FALSE

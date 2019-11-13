@@ -9,7 +9,7 @@
  * Classic Baton
  */
 
-/obj/item/weapon/melee/classic_baton
+/obj/item/melee/classic_baton
 	name = "police baton"
 	desc = "A wooden truncheon for beating criminal scum."
 	icon = 'icons/obj/weapons.dmi'
@@ -18,7 +18,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 
-/obj/item/weapon/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob, var/target_zone)
+/obj/item/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
 		user.Weaken(3 * force)
@@ -31,7 +31,7 @@
 	return ..()
 
 //Telescopic baton
-/obj/item/weapon/melee/telebaton
+/obj/item/melee/telebaton
 	name = "telescopic baton"
 	desc = "A compact yet rebalanced personal defense weapon. Can be concealed when folded."
 	icon = 'icons/obj/weapons.dmi'
@@ -43,7 +43,7 @@
 	var/on = 0
 
 
-/obj/item/weapon/melee/telebaton/attack_self(mob/user as mob)
+/obj/item/melee/telebaton/attack_self(mob/user as mob)
 	on = !on
 	if(on)
 		user.visible_message("<span class='warning'>With a flick of their wrist, [user] extends their telescopic baton.</span>",\
@@ -84,7 +84,7 @@
 
 	return
 
-/obj/item/weapon/melee/telebaton/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+/obj/item/melee/telebaton/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
 	if(on)
 		if ((user.is_clumsy()) && prob(50))
 			to_chat(user, "<span class='warning'>You club yourself over the head.</span>")

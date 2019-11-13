@@ -1,6 +1,6 @@
 ///jar
 
-/obj/item/weapon/reagent_containers/glass/beaker/jar
+/obj/item/reagent_containers/glass/beaker/jar
 	name = "glass jar"
 	desc = "A glass jar. You can put the lid back on and use it for other things."
 	icon = 'icons/obj/drinks.dmi'
@@ -13,7 +13,7 @@
 	volume = 120
 	unacidable = 1
 
-/obj/item/weapon/reagent_containers/glass/beaker/jar/attack_self(var/mob/user)
+/obj/item/reagent_containers/glass/beaker/jar/attack_self(var/mob/user)
 	if(reagents.total_volume > 0)
 		to_chat(user, "<span class='warning'>You need to empty \the [src] first!</span>")
 		return

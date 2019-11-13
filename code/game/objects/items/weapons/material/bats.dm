@@ -1,4 +1,4 @@
-/obj/item/weapon/material/twohanded/baseballbat
+/obj/item/material/twohanded/baseballbat
 	name = "bat"
 	desc = "HOME RUN!"
 	icon_state = "metalbat0"
@@ -13,17 +13,17 @@
 	slot_flags = SLOT_BACK
 
 //Predefined materials go here.
-/obj/item/weapon/material/twohanded/baseballbat/metal/New(var/newloc)
+/obj/item/material/twohanded/baseballbat/metal/New(var/newloc)
 	..(newloc,"steel")
 
-/obj/item/weapon/material/twohanded/baseballbat/uranium/New(var/newloc)
+/obj/item/material/twohanded/baseballbat/uranium/New(var/newloc)
 	..(newloc,"uranium")
 
-/obj/item/weapon/material/twohanded/baseballbat/gold/New(var/newloc)
+/obj/item/material/twohanded/baseballbat/gold/New(var/newloc)
 	..(newloc,"gold")
 
-/obj/item/weapon/material/twohanded/baseballbat/platinum/New(var/newloc)
+/obj/item/material/twohanded/baseballbat/platinum/New(var/newloc)
 	..(newloc,"platinum")
 
-/obj/item/weapon/material/twohanded/baseballbat/diamond/New(var/newloc)
+/obj/item/material/twohanded/baseballbat/diamond/New(var/newloc)
 	..(newloc,"diamond")

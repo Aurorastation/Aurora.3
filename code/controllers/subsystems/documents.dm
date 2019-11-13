@@ -194,9 +194,9 @@ var/datum/controller/subsystem/docs/SSdocs
 	var/tags = list() // for use by mappers, typically
 
 /obj/random/document/item_to_spawn()
-	return /obj/item/weapon/paper
+	return /obj/item/paper
 
-/obj/random/document/post_spawn(var/obj/item/weapon/paper/spawned)
+/obj/random/document/post_spawn(var/obj/item/paper/spawned)
 	if(!istype(spawned))
 		return
 	var/list/total_tags = tags | list(SSDOCS_MEDIUM_PAPER)
@@ -211,13 +211,13 @@ var/datum/controller/subsystem/docs/SSdocs
 		return null
 
 	log_ss("docs","Document [doc.name] successfully spawned!")
-	var/obj/item/weapon/paper/P = spawned
+	var/obj/item/paper/P = spawned
 	P.set_content(doc.title, doc.content)
 
 /obj/random/document/junk/post_spawn(var/obj/item/spawned)
 	..()
-	if(istype(spawned, /obj/item/weapon/paper) && prob(80)) // 1 in 5 junk-spawned documents will be perfectly readable
-		var/obj/item/weapon/paper/P = spawned
+	if(istype(spawned, /obj/item/paper) && prob(80)) // 1 in 5 junk-spawned documents will be perfectly readable
+		var/obj/item/paper/P = spawned
 		P.info = stars(P.info, 85) // 85% readable, preserves tags
 		P.icon_state = "scrap"
 

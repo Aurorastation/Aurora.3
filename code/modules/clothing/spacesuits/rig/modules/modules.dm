@@ -19,7 +19,7 @@
 	var/construction_time = 100
 
 	var/damage = 0
-	var/obj/item/weapon/rig/holder
+	var/obj/item/rig/holder
 
 	var/module_cooldown = 10
 	var/next_use = 0
@@ -141,7 +141,7 @@
 	stat_modules +=	new/stat_rig_module/charge(src)
 
 // Called when the module is installed into a suit.
-/obj/item/rig_module/proc/installed(var/obj/item/weapon/rig/new_holder)
+/obj/item/rig_module/proc/installed(var/obj/item/rig/new_holder)
 	holder = new_holder
 	return
 
@@ -239,11 +239,11 @@
 /mob/living/carbon/human/Stat()
 	. = ..()
 
-	if(. && istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if(. && istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
 		SetupStat(R)
 
-/mob/proc/SetupStat(var/obj/item/weapon/rig/R)
+/mob/proc/SetupStat(var/obj/item/rig/R)
 	if(R && !R.canremove && R.installed_modules.len && statpanel("Hardsuit Modules"))
 		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
 		stat("Suit charge", cell_status)
@@ -351,17 +351,17 @@
 
 /mob/living/carbon/human/ClickOn(atom/A, params)
 	. = ..()
-	if (ismob(A) && istype(back, /obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if (ismob(A) && istype(back, /obj/item/rig))
+		var/obj/item/rig/R = back
 		R.attack_disrupt_check(src)
 
 /mob/living/carbon/human/throw_item(atom/target)
 	. = ..()
-	if (ismob(src) && istype(back, /obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if (ismob(src) && istype(back, /obj/item/rig))
+		var/obj/item/rig/R = back
 		R.attack_disrupt_check(src)
 
-/obj/item/weapon/rig/proc/attack_disrupt_check()
+/obj/item/rig/proc/attack_disrupt_check()
 	for (var/obj/item/rig_module/module in installed_modules)
 		if (module.active && module.attackdisrupts)
 			module.deactivate()

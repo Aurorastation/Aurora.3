@@ -179,7 +179,7 @@
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
-			var/obj/item/weapon/material/shard/S = material.place_shard(T)
+			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
 	playsound(src.loc, "shatter", 70, 1)
@@ -316,7 +316,7 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	siemens_coefficient = 0.75
 	var/wired = 0
-	var/obj/item/weapon/cell/cell = 0
+	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
@@ -351,9 +351,9 @@
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
-/obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
+/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
 		if (clipped)
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()
@@ -650,7 +650,7 @@
 
 
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
-	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/knife)))
+	if(can_hold_knife && is_type_in_list(I, list(/obj/item/material/shard, /obj/item/material/kitchen/utensil, /obj/item/material/knife)))
 		if(holding)
 			to_chat(user, "<span class='warning'>\The [src] is already holding \a [holding].</span>")
 			return
@@ -703,7 +703,7 @@
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
+	allowed = list(/obj/item/tank/emergency_oxygen)
 	armor = null
 	slot_flags = SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"

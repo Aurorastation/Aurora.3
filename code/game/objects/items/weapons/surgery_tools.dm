@@ -12,7 +12,7 @@
 /*
  * Retractor
  */
-/obj/item/weapon/retractor
+/obj/item/retractor
 	name = "retractor"
 	desc = "Retracts stuff."
 	icon = 'icons/obj/surgery.dmi'
@@ -26,7 +26,7 @@
 /*
  * Hemostat
  */
-/obj/item/weapon/hemostat
+/obj/item/hemostat
 	name = "hemostat"
 	desc = "You think you have seen this before."
 	icon = 'icons/obj/surgery.dmi'
@@ -41,7 +41,7 @@
 /*
  * Cautery
  */
-/obj/item/weapon/cautery
+/obj/item/cautery
 	name = "cautery"
 	desc = "This stops bleeding."
 	icon = 'icons/obj/surgery.dmi'
@@ -56,7 +56,7 @@
 /*
  * Surgical Drill
  */
-/obj/item/weapon/surgicaldrill
+/obj/item/surgicaldrill
 	name = "surgical drill"
 	desc = "You can drill using this item. You dig?"
 	icon = 'icons/obj/surgery.dmi'
@@ -73,7 +73,7 @@
 /*
  * Scalpel
  */
-/obj/item/weapon/scalpel
+/obj/item/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
 	icon = 'icons/obj/surgery.dmi'
@@ -95,27 +95,27 @@
 /*
  * Researchable Scalpels
  */
-/obj/item/weapon/scalpel/laser1
+/obj/item/scalpel/laser1
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks basic and could be improved."
 	icon_state = "scalpel_laser1_on"
 	damtype = "fire"
 
-/obj/item/weapon/scalpel/laser2
+/obj/item/scalpel/laser2
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks somewhat advanced."
 	icon_state = "scalpel_laser2_on"
 	damtype = "fire"
 	force = 12.0
 
-/obj/item/weapon/scalpel/laser3
+/obj/item/scalpel/laser3
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks to be the pinnacle of precision energy cutlery!"
 	icon_state = "scalpel_laser3_on"
 	damtype = "fire"
 	force = 15.0
 
-/obj/item/weapon/scalpel/manager
+/obj/item/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager_on"
@@ -124,7 +124,7 @@
 /*
  * Circular Saw
  */
-/obj/item/weapon/circular_saw
+/obj/item/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
 	icon = 'icons/obj/surgery.dmi'
@@ -144,7 +144,7 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 //misc, formerly from code/defines/weapons.dm
-/obj/item/weapon/bonegel
+/obj/item/bonegel
 	name = "bone gel"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
@@ -153,7 +153,7 @@
 	throwforce = 1.0
 	drop_sound = 'sound/items/drop/bottle.ogg'
 
-/obj/item/weapon/FixOVein
+/obj/item/FixOVein
 	name = "FixOVein"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "fixovein"
@@ -164,7 +164,7 @@
 	var/usage_amount = 10
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
-/obj/item/weapon/bonesetter
+/obj/item/bonesetter
 	name = "bone setter"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bonesetter"
@@ -176,7 +176,7 @@
 	attack_verb = list("attacked", "hit", "bludgeoned")
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
-/obj/item/weapon/storage/fancy/tray
+/obj/item/storage/fancy/tray
 	name = "surgery tray"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgerytray"
@@ -189,45 +189,45 @@
 	icon_type = "surgery tool"
 	storage_type = "tray"
 	can_hold = list(
-		/obj/item/weapon/bonesetter,
-		/obj/item/weapon/cautery,
-		/obj/item/weapon/circular_saw,
-		/obj/item/weapon/hemostat,
-		/obj/item/weapon/retractor,
-		/obj/item/weapon/scalpel,
-		/obj/item/weapon/surgicaldrill,
-		/obj/item/weapon/bonegel,
-		/obj/item/weapon/FixOVein,
+		/obj/item/bonesetter,
+		/obj/item/cautery,
+		/obj/item/circular_saw,
+		/obj/item/hemostat,
+		/obj/item/retractor,
+		/obj/item/scalpel,
+		/obj/item/surgicaldrill,
+		/obj/item/bonegel,
+		/obj/item/FixOVein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/nanopaste
 		)
 
 	starts_with = list(
-		/obj/item/weapon/bonesetter = 1,
-		/obj/item/weapon/cautery = 1,
-		/obj/item/weapon/circular_saw = 1,
-		/obj/item/weapon/hemostat = 1,
-		/obj/item/weapon/retractor = 1,
-		/obj/item/weapon/scalpel = 1,
-		/obj/item/weapon/surgicaldrill = 1,
-		/obj/item/weapon/bonegel = 1,
-		/obj/item/weapon/FixOVein = 1,
+		/obj/item/bonesetter = 1,
+		/obj/item/cautery = 1,
+		/obj/item/circular_saw = 1,
+		/obj/item/hemostat = 1,
+		/obj/item/retractor = 1,
+		/obj/item/scalpel = 1,
+		/obj/item/surgicaldrill = 1,
+		/obj/item/bonegel = 1,
+		/obj/item/FixOVein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
 
-/obj/item/weapon/storage/fancy/tray/update_icon()
+/obj/item/storage/fancy/tray/update_icon()
 	cut_overlays()
 
 	var/list/types_and_overlays = list(
-		/obj/item/weapon/bonesetter = "tray_bonesetter",
-		/obj/item/weapon/cautery = "tray_cautery",
-		/obj/item/weapon/circular_saw = "tray_saw",
-		/obj/item/weapon/hemostat = "tray_hemostat",
-		/obj/item/weapon/retractor = "tray_retractor",
-		/obj/item/weapon/scalpel = "tray_scalpel",
-		/obj/item/weapon/surgicaldrill = "tray_drill",
-		/obj/item/weapon/bonegel = "tray_bone-gel",
-		/obj/item/weapon/FixOVein = "tray_fixovein",
+		/obj/item/bonesetter = "tray_bonesetter",
+		/obj/item/cautery = "tray_cautery",
+		/obj/item/circular_saw = "tray_saw",
+		/obj/item/hemostat = "tray_hemostat",
+		/obj/item/retractor = "tray_retractor",
+		/obj/item/scalpel = "tray_scalpel",
+		/obj/item/surgicaldrill = "tray_drill",
+		/obj/item/bonegel = "tray_bone-gel",
+		/obj/item/FixOVein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
 	)
 	for (var/obj/item/W in contents)
@@ -235,19 +235,19 @@
 			add_overlay(types_and_overlays[W.type])
 			types_and_overlays -= W.type
 
-/obj/item/weapon/storage/fancy/tray/fill()
+/obj/item/storage/fancy/tray/fill()
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/storage/fancy/tray/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/storage/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	update_icon()
 
-/obj/item/weapon/storage/fancy/tray/attack_hand(mob/user as mob)
+/obj/item/storage/fancy/tray/attack_hand(mob/user as mob)
 	if(ishuman(user))
 		src.open(user)
 
-/obj/item/weapon/storage/fancy/tray/MouseDrop(mob/user as mob)
+/obj/item/storage/fancy/tray/MouseDrop(mob/user as mob)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
@@ -267,12 +267,12 @@
 
 	return
 
-/obj/item/weapon/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
 		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
 		user.visible_message(span("danger", "[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
-/obj/item/weapon/storage/fancy/tray/throw_impact(atom/hit_atom)
+/obj/item/storage/fancy/tray/throw_impact(atom/hit_atom)
 	..()
 	spill(3, src.loc)

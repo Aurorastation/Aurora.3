@@ -28,11 +28,11 @@
 
 	// Must be paths, used to allow player-pref backpack choice
 	var/allow_backbag_choice = FALSE
-	var/backpack = /obj/item/weapon/storage/backpack
-	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm
-	var/satchel_alt = /obj/item/weapon/storage/backpack/satchel
-	var/dufflebag = /obj/item/weapon/storage/backpack/duffel
-	var/messengerbag = /obj/item/weapon/storage/backpack/messenger
+	var/backpack = /obj/item/storage/backpack
+	var/satchel = /obj/item/storage/backpack/satchel_norm
+	var/satchel_alt = /obj/item/storage/backpack/satchel
+	var/dufflebag = /obj/item/storage/backpack/duffel
+	var/messengerbag = /obj/item/storage/backpack/messenger
 
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
@@ -48,22 +48,22 @@
 			if (1)
 				back = null
 			if (2)
-				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
+				back = use_job_specific ? backpack : /obj/item/storage/backpack
 			if (3)
-				back = use_job_specific ? satchel : /obj/item/weapon/storage/backpack/satchel_norm
+				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
 			if (4)
-				back = use_job_specific ? satchel_alt : /obj/item/weapon/storage/backpack/satchel
+				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel
 			if (5)
-				back = use_job_specific ? dufflebag : /obj/item/weapon/storage/backpack/duffel
+				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
 			if (6)
-				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
+				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
 			else
 				back = backpack //Department backpack
 	if(back)
 		equip_item(H, back, slot_back)
 
-	if(istype(H.back,/obj/item/weapon/storage/backpack))
-		var/obj/item/weapon/storage/backpack/B = H.back
+	if(istype(H.back,/obj/item/storage/backpack))
+		var/obj/item/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
 
 	return
@@ -110,7 +110,7 @@
 		else if(istype(A, /obj/item/clothing/accessory/holster))
 			var/obj/item/clothing/accessory/holster/holster = A
 			var/w_type = accessory_contents[1]
-			var/obj/item/weapon/W = new w_type(H.loc)
+			var/obj/item/W = new w_type(H.loc)
 			if(W)
 				holster.holster(W, H)
 
@@ -190,7 +190,7 @@
 
 		if(implants)
 			for(var/implant_type in implants)
-				var/obj/item/weapon/implant/I = new implant_type(H)
+				var/obj/item/implant/I = new implant_type(H)
 				if(I.implanted(H))
 					I.forceMove(H)
 					I.imp_in = H
@@ -241,7 +241,7 @@
 		H.r_store.add_fingerprint(H, 1)
 	return 1
 
-/datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/weapon/card/id/C)
+/datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/card/id/C)
 	if(istype(C))
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
@@ -252,7 +252,7 @@
 			C.associated_account_number = H.mind.initial_account.account_number
 
 /datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/device/pda/PDA)
-	var/obj/item/weapon/card/id/C = PDA.id
+	var/obj/item/card/id/C = PDA.id
 	PDA.owner = H.real_name
 	if(istype(PDA) && istype(C))
 		PDA.ownjob = C.assignment

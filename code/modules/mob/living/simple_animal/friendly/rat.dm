@@ -29,7 +29,7 @@
 	see_in_dark = 6
 	maxHealth = 5
 	health = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/rat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/rat
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "stomps on"
@@ -43,7 +43,7 @@
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	universal_speak = 0
 	universal_understand = 1
-	holder_type = /obj/item/weapon/holder/rat
+	holder_type = /obj/item/holder/rat
 	digest_factor = 0.05
 	min_scan_interval = 2
 	max_scan_interval = 20
@@ -119,15 +119,15 @@
 	icon_rest = "rat_[body_color]_sleep"
 	icon_dead = "rat_[body_color]_dead"
 	if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/rat/brown
+		holder_type = /obj/item/holder/rat/brown
 	if (body_color == "gray")
-		holder_type = /obj/item/weapon/holder/rat/gray
+		holder_type = /obj/item/holder/rat/gray
 	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/rat/white
+		holder_type = /obj/item/holder/rat/white
 	if (body_color == "hooded")
-		holder_type = /obj/item/weapon/holder/rat/hooded
+		holder_type = /obj/item/holder/rat/hooded
 	if (body_color == "irish")
-		holder_type = /obj/item/weapon/holder/rat/irish
+		holder_type = /obj/item/holder/rat/irish
 
 
 	SSmob.all_rats += src
@@ -287,31 +287,31 @@
 	body_color = "white"
 	icon_state = "rat_white"
 	icon_rest = "rat_white_sleep"
-	holder_type = /obj/item/weapon/holder/rat/white
+	holder_type = /obj/item/holder/rat/white
 
 /mob/living/simple_animal/rat/gray
 	body_color = "gray"
 	icon_state = "rat_gray"
 	icon_rest = "rat_gray_sleep"
-	holder_type = /obj/item/weapon/holder/rat/gray
+	holder_type = /obj/item/holder/rat/gray
 
 /mob/living/simple_animal/rat/brown
 	body_color = "brown"
 	icon_state = "rat_brown"
 	icon_rest = "rat_brown_sleep"
-	holder_type = /obj/item/weapon/holder/rat/brown
+	holder_type = /obj/item/holder/rat/brown
 
 /mob/living/simple_animal/rat/hooded
 	body_color = "hooded"
 	icon_state = "rat_hooded"
 	icon_rest = "rat_brown_sleep"
-	holder_type = /obj/item/weapon/holder/rat/hooded
+	holder_type = /obj/item/holder/rat/hooded
 
 /mob/living/simple_animal/rat/irish
 	body_color = "irish"
 	icon_state = "rat_irish"
 	icon_rest = "rat_irish_sleep"
-	holder_type = /obj/item/weapon/holder/rat/irish
+	holder_type = /obj/item/holder/rat/irish
 
 /mob/living/simple_animal/rat/brown/Tom
 	name = "Tom"

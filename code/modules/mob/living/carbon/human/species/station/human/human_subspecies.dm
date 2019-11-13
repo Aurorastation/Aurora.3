@@ -21,15 +21,15 @@
 	examine_color = "#C2AE95"
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/pill_bottle/rmt(H.back), slot_in_backpack)
+	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
+		H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H.back), slot_in_backpack)
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/pill_bottle/rmt(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/rmt(H), slot_r_hand)
 
 /datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
 
-	if(istype(H.back, /obj/item/weapon/rig/light/offworlder))
-		var/obj/item/weapon/rig/light/offworlder/rig = H.back
+	if(istype(H.back, /obj/item/rig/light/offworlder))
+		var/obj/item/rig/light/offworlder/rig = H.back
 		if(!rig.offline)
 			return 0
 		else
@@ -67,8 +67,8 @@
 		if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 			return
 
-		if(istype(H.back, /obj/item/weapon/rig/light/offworlder))
-			var/obj/item/weapon/rig/light/offworlder/rig = H.back
+		if(istype(H.back, /obj/item/rig/light/offworlder))
+			var/obj/item/rig/light/offworlder/rig = H.back
 			if(!rig.offline)
 				return
 

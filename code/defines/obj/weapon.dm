@@ -1,4 +1,4 @@
-/obj/item/weapon/phone
+/obj/item/phone
 	name = "red phone"
 	desc = "Should anything ever go wrong..."
 	icon = 'icons/obj/radio.dmi'
@@ -12,7 +12,7 @@
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
-/obj/item/weapon/rsp
+/obj/item/rsp
 	name = "\improper Rapid-Seed-Producer (RSP)"
 	desc = "A device used to rapidly deploy seeds."
 	icon = 'icons/obj/tools.dmi'
@@ -24,7 +24,7 @@
 	var/mode = 1
 	w_class = 3.0
 
-/obj/item/weapon/bikehorn
+/obj/item/bikehorn
 	name = "bike horn"
 	desc = "A horn off of a bicycle."
 	icon = 'icons/obj/items.dmi'
@@ -37,7 +37,7 @@
 	attack_verb = list("HONKED")
 	var/spam_flag = 0
 
-/obj/item/weapon/bikehorn/attack_self(mob/user as mob)
+/obj/item/bikehorn/attack_self(mob/user as mob)
 	if (spam_flag == 0)
 		spam_flag = 1
 		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
@@ -46,7 +46,7 @@
 			spam_flag = 0
 	return
 
-/obj/item/weapon/cane
+/obj/item/cane
 	name = "cane"
 	desc = "A cane used by a true gentlemen. Or a clown."
 	icon = 'icons/obj/weapons.dmi'
@@ -59,7 +59,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
-/obj/item/weapon/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = "chest")
+/obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = "chest")
 
 	if(!(istype(target) && istype(user)))
 		return ..()
@@ -224,16 +224,16 @@
 
 	return washit
 
-/obj/item/weapon/cane/concealed
+/obj/item/cane/concealed
 	var/concealed_blade
 
-/obj/item/weapon/cane/concealed/New()
+/obj/item/cane/concealed/New()
 	..()
-	var/obj/item/weapon/canesword/temp_blade = new(src)
+	var/obj/item/canesword/temp_blade = new(src)
 	concealed_blade = temp_blade
 	temp_blade.attack_self()
 
-/obj/item/weapon/cane/concealed/attack_self(var/mob/user)
+/obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
 		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
@@ -248,7 +248,7 @@
 	else
 		..()
 
-/obj/item/weapon/cane/concealed/attackby(var/obj/item/weapon/canesword/W, var/mob/user)
+/obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
 		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
@@ -259,7 +259,7 @@
 	else
 		..()
 
-/obj/item/weapon/cane/concealed/update_icon()
+/obj/item/cane/concealed/update_icon()
 	if(concealed_blade)
 		name = initial(name)
 		icon_state = initial(icon_state)
@@ -269,18 +269,18 @@
 		icon_state = "nullrod"
 		item_state = "foldcane"
 
-/obj/item/weapon/cane/crutch
+/obj/item/cane/crutch
 	name ="crutch"
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
 	icon_state = "crutch"
 	item_state = "crutch"
 
-/obj/item/weapon/disk
+/obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
 
 /*
-/obj/item/weapon/game_kit
+/obj/item/game_kit
 	name = "Gaming Kit"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "game_kit"
@@ -292,7 +292,7 @@
 	w_class = 5.0
 */
 
-/obj/item/weapon/gift
+/obj/item/gift
 	name = "gift"
 	desc = "A wrapped item."
 	icon = 'icons/obj/items.dmi'
@@ -302,11 +302,11 @@
 	item_state = "gift"
 	w_class = 4.0
 
-/obj/item/weapon/gift/random_pixel/Initialize()
+/obj/item/gift/random_pixel/Initialize()
 	pixel_x = rand(-16,16)
 	pixel_y = rand(-16,16)
 
-/obj/item/weapon/legcuffs
+/obj/item/legcuffs
 	name = "legcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
@@ -318,7 +318,7 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
 
-/obj/item/weapon/caution
+/obj/item/caution
 	desc = "Caution! Wet Floor!"
 	name = "wet floor sign"
 	icon = 'icons/obj/janitor.dmi'
@@ -331,7 +331,7 @@
 	attack_verb = list("warned", "cautioned", "smashed")
 	drop_sound = 'sound/items/drop/shoes.ogg'
 
-/obj/item/weapon/caution/attack_self(mob/user as mob)
+/obj/item/caution/attack_self(mob/user as mob)
     if(src.icon_state == "caution")
         src.icon_state = "caution_blinking"
         to_chat(user, "You turn the sign on.")
@@ -339,7 +339,7 @@
         src.icon_state = "caution"
         to_chat(user, "You turn the sign off.")
 
-/obj/item/weapon/caution/AltClick()
+/obj/item/caution/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	if(src.icon_state == "caution")
 		src.icon_state = "caution_blinking"
@@ -348,7 +348,7 @@
 		src.icon_state = "caution"
 		to_chat(usr, "You turn the sign off.")
 
-/obj/item/weapon/caution/cone
+/obj/item/caution/cone
 	desc = "This cone is trying to warn you of something!"
 	name = "warning cone"
 	icon_state = "cone"
@@ -356,13 +356,13 @@
 	contained_sprite = 1
 	slot_flags = SLOT_HEAD
 
-/obj/item/weapon/caution/cone/attack_self(mob/user as mob)
+/obj/item/caution/cone/attack_self(mob/user as mob)
 	return
 
-/obj/item/weapon/caution/cone/AltClick()
+/obj/item/caution/cone/AltClick()
 	return
 
-/*/obj/item/weapon/syndicate_uplink
+/*/obj/item/syndicate_uplink
 	name = "station bounced radio"
 	desc = "Remain silent about this..."
 	icon = 'icons/obj/radio.dmi'
@@ -381,7 +381,7 @@
 	matter = list("metal" = 100
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 3)*/
 
-/obj/item/weapon/SWF_uplink
+/obj/item/SWF_uplink
 	name = "station-bounced radio"
 	desc = "used to comunicate it appears."
 	icon = 'icons/obj/radio.dmi'
@@ -401,7 +401,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	origin_tech = list(TECH_MAGNET = 1)
 
-/obj/item/weapon/staff
+/obj/item/staff
 	name = "wizards staff"
 	desc = "Apparently a staff used by the wizard."
 	icon = 'icons/obj/wizard.dmi'
@@ -413,20 +413,20 @@
 	w_class = 2.0
 	attack_verb = list("bludgeoned", "whacked", "disciplined")
 
-/obj/item/weapon/staff/broom
+/obj/item/staff/broom
 	name = "broom"
 	desc = "Used for sweeping, and flying into the night while cackling. Black cat not included."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "broom"
 
-/obj/item/weapon/staff/gentcane
+/obj/item/staff/gentcane
 	name = "Gentlemans Cane"
 	desc = "An ebony can with an ivory tip."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
 
-/obj/item/weapon/staff/stick
+/obj/item/staff/stick
 	name = "stick"
 	desc = "A great tool to drag someone else's drinks across the bar."
 	icon = 'icons/obj/weapons.dmi'
@@ -438,7 +438,7 @@
 	throw_range = 5
 	w_class = 2.0
 
-/obj/item/weapon/wire
+/obj/item/wire
 	desc = "This is just a simple piece of regular insulated wire."
 	name = "wire"
 	icon = 'icons/obj/power.dmi'
@@ -449,7 +449,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 40)
 	attack_verb = list("whipped", "lashed", "disciplined", "tickled")
 
-/obj/item/weapon/module
+/obj/item/module
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_module"
 	w_class = 2.0
@@ -457,34 +457,34 @@
 	flags = CONDUCT
 	var/mtype = 1						// 1=electronic 2=hardware
 
-/obj/item/weapon/module/card_reader
+/obj/item/module/card_reader
 	name = "card reader module"
 	icon_state = "card_mod"
 	desc = "An electronic module for reading data and ID cards."
 
-/obj/item/weapon/module/power_control
+/obj/item/module/power_control
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
 
-/obj/item/weapon/module/power_control/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/item/module/power_control/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (W.ismultitool())
-		var/obj/item/weapon/circuitboard/ghettosmes/newcircuit = new/obj/item/weapon/circuitboard/ghettosmes(user.loc)
+		var/obj/item/circuitboard/ghettosmes/newcircuit = new/obj/item/circuitboard/ghettosmes(user.loc)
 		qdel(src)
 		user.put_in_hands(newcircuit)
 
-/obj/item/weapon/module/id_auth
+/obj/item/module/id_auth
 	name = "\improper ID authentication module"
 	icon_state = "id_mod"
 	desc = "A module allowing secure authorization of ID cards."
 
-/obj/item/weapon/module/cell_power
+/obj/item/module/cell_power
 	name = "power cell regulator module"
 	icon_state = "power_mod"
 	desc = "A converter and regulator allowing the use of power cells."
 
-/obj/item/weapon/module/cell_power
+/obj/item/module/cell_power
 	name = "power cell charger module"
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
@@ -499,7 +499,7 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/weapon/camera_bug/attack_self(mob/usr as mob)
+/obj/item/camera_bug/attack_self(mob/usr as mob)
 	var/list/cameras = new/list()
 	for (var/obj/machinery/camera/C in cameranet.cameras)
 		if (C.bugged && C.status)
@@ -525,7 +525,7 @@
 	usr.client.eye = target
 
 /*
-/obj/item/weapon/cigarpacket
+/obj/item/cigarpacket
 	name = "Pete's Cuban Cigars"
 	desc = "The most robust cigars on the planet."
 	icon = 'icons/obj/cigarettes.dmi'
@@ -537,7 +537,7 @@
 	flags = ONBELT
 	*/
 
-/obj/item/weapon/pai_cable
+/obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."
 	name = "data cable"
 	icon = 'icons/obj/power.dmi'
@@ -545,13 +545,13 @@
 
 	var/obj/machinery/machine
 
-/obj/item/weapon/neuralbroke
+/obj/item/neuralbroke
 	name = "fried neural socket"
 	desc = "A Vaurca neural socket subjected to extreme heat. It's security chip appears to be fried."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
-/obj/item/weapon/neuralbroke/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/neuralbroke/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, W.usesound, 50, 1)
@@ -559,13 +559,13 @@
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
 
-/obj/item/weapon/storage/part_replacer
+/obj/item/storage/part_replacer
 	name = "rapid part exchange device"
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
 	w_class = 5
-	can_hold = list(/obj/item/weapon/stock_parts,/obj/item/weapon/reagent_containers/glass/beaker)
+	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
 	use_to_pickup = 1
 	allow_quick_gather = 1
@@ -575,21 +575,21 @@
 	max_w_class = 3
 	max_storage_space = 100
 
-/obj/item/weapon/ectoplasm
+/obj/item/ectoplasm
 	name = "ectoplasm"
 	desc = "spooky"
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
 
-/obj/item/weapon/anomaly_core
+/obj/item/anomaly_core
 	name = "anomaly core"
 	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
 	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
 
-/obj/item/weapon/research
+/obj/item/research
 	name = "research debugging device"
 	desc = "Instant research tool. For testing purposes only."
 	icon = 'icons/obj/stock_parts.dmi'

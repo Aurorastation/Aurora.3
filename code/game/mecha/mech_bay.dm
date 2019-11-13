@@ -12,10 +12,10 @@
 	var/repair = 0
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/mech_recharger,
-		/obj/item/weapon/stock_parts/capacitor = 2,
-		/obj/item/weapon/stock_parts/scanning_module,
-		/obj/item/weapon/stock_parts/manipulator = 2
+		/obj/item/circuitboard/mech_recharger,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator = 2
 	)
 
 /obj/machinery/mech_recharger/Crossed(var/obj/mecha/M)
@@ -33,7 +33,7 @@
 	charge = 0
 	repair = -5
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(iscapacitor(P))
 			charge += P.rating * 20
 		else if(isscanner(P))

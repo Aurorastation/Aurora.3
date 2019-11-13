@@ -71,7 +71,7 @@ other types of metals and chemistry for reagents).
 	id = "design_disk"
 	req_tech = list(TECH_DATA = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
-	build_path = /obj/item/weapon/disk/design_disk
+	build_path = /obj/item/disk/design_disk
 	sort_string = "GAAAA"
 
 /datum/design/item/tech_disk
@@ -80,7 +80,7 @@ other types of metals and chemistry for reagents).
 	id = "tech_disk"
 	req_tech = list(TECH_DATA = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
-	build_path = /obj/item/weapon/disk/tech_disk
+	build_path = /obj/item/disk/tech_disk
 	sort_string = "GAAAB"
 
 /datum/design/item/flora_disk
@@ -89,7 +89,7 @@ other types of metals and chemistry for reagents).
 	id = "flora_disk"
 	req_tech = list(TECH_DATA = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
-	build_path = /obj/item/weapon/disk/botany
+	build_path = /obj/item/disk/botany
 	sort_string = "GAAAC"
 
 /datum/design/item/hud
@@ -132,7 +132,7 @@ other types of metals and chemistry for reagents).
 	id = "powerdrill"
 	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 60, "glass" = 50)
-	build_path = /obj/item/weapon/powerdrill
+	build_path = /obj/item/powerdrill
 	sort_string = "GAAAD"
 
 ///////////////////////////////////
@@ -153,14 +153,14 @@ other types of metals and chemistry for reagents).
 	name = "chemical"
 	id = "implant_chem"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
-	build_path = /obj/item/weapon/implantcase/chem
+	build_path = /obj/item/implantcase/chem
 	sort_string = "MFAAA"
 
 /datum/design/item/implant/freedom
 	name = "freedom"
 	id = "implant_free"
 	req_tech = list(TECH_ILLEGAL = 2, TECH_BIO = 3)
-	build_path = /obj/item/weapon/implantcase/freedom
+	build_path = /obj/item/implantcase/freedom
 	sort_string = "MFAAB"
 
 /datum/design/item/implant/loyalty
@@ -168,7 +168,7 @@ other types of metals and chemistry for reagents).
 	id = "implant_loyal"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
-	build_path = /obj/item/weapon/implantcase/loyalty
+	build_path = /obj/item/implantcase/loyalty
 	sort_string = "MFAAC"
 
 /datum/design/item/advanced_light_replacer
@@ -186,7 +186,7 @@ other types of metals and chemistry for reagents).
 	id = "advmop"
 	build_type = PROTOLATHE
 	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 200)
-	build_path = /obj/item/weapon/mop/advanced
+	build_path = /obj/item/mop/advanced
 	sort_string = "VAAAI"
 
 /datum/design/blutrash
@@ -195,7 +195,7 @@ other types of metals and chemistry for reagents).
 	id = "blutrash"
 	build_type = PROTOLATHE
 	materials = list("gold" = 1500, "uranium" = 250, "phoron" = 1500)
-	build_path = /obj/item/weapon/storage/bag/trash/bluespace
+	build_path = /obj/item/storage/bag/trash/bluespace
 	sort_string = "VAAAJ"
 
 /datum/design/item/experimental_welder
@@ -204,7 +204,7 @@ other types of metals and chemistry for reagents).
 	id = "experimental_welder"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path =/obj/item/weapon/weldingtool/experimental
+	build_path =/obj/item/weldingtool/experimental
 	sort_string = "VABAJ"
 
 /datum/design/item/mmi
@@ -241,7 +241,7 @@ other types of metals and chemistry for reagents).
 	id = "bag_holding"
 	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
 	materials = list("gold" = 3000, "diamond" = 1500, "uranium" = 250)
-	build_path = /obj/item/weapon/storage/backpack/holding
+	build_path = /obj/item/storage/backpack/holding
 	sort_string = "VAEAA"
 
 /datum/design/item/bluespace_crystal
@@ -282,77 +282,77 @@ other types of metals and chemistry for reagents).
 
 /datum/design/item/pda_cartridge/cart_basic
 	id = "cart_basic"
-	build_path = /obj/item/weapon/cartridge
+	build_path = /obj/item/cartridge
 	sort_string = "VBAAA"
 
 /datum/design/item/pda_cartridge/engineering
 	id = "cart_engineering"
-	build_path = /obj/item/weapon/cartridge/engineering
+	build_path = /obj/item/cartridge/engineering
 	sort_string = "VBAAB"
 
 /datum/design/item/pda_cartridge/atmos
 	id = "cart_atmos"
-	build_path = /obj/item/weapon/cartridge/atmos
+	build_path = /obj/item/cartridge/atmos
 	sort_string = "VBAAC"
 
 /datum/design/item/pda_cartridge/medical
 	id = "cart_medical"
-	build_path = /obj/item/weapon/cartridge/medical
+	build_path = /obj/item/cartridge/medical
 	sort_string = "VBAAD"
 
 /datum/design/item/pda_cartridge/chemistry
 	id = "cart_chemistry"
-	build_path = /obj/item/weapon/cartridge/chemistry
+	build_path = /obj/item/cartridge/chemistry
 	sort_string = "VBAAE"
 
 /datum/design/item/pda_cartridge/security
 	id = "cart_security"
-	build_path = /obj/item/weapon/cartridge/security
+	build_path = /obj/item/cartridge/security
 	sort_string = "VBAAF"
 
 /datum/design/item/pda_cartridge/janitor
 	id = "cart_janitor"
-	build_path = /obj/item/weapon/cartridge/janitor
+	build_path = /obj/item/cartridge/janitor
 	sort_string = "VBAAG"
 
 /datum/design/item/pda_cartridge/science
 	id = "cart_science"
-	build_path = /obj/item/weapon/cartridge/signal/science
+	build_path = /obj/item/cartridge/signal/science
 	sort_string = "VBAAH"
 
 /datum/design/item/pda_cartridge/quartermaster
 	id = "cart_quartermaster"
-	build_path = /obj/item/weapon/cartridge/quartermaster
+	build_path = /obj/item/cartridge/quartermaster
 	sort_string = "VBAAI"
 
 /datum/design/item/pda_cartridge/hop
 	id = "cart_hop"
-	build_path = /obj/item/weapon/cartridge/hop
+	build_path = /obj/item/cartridge/hop
 	sort_string = "VBAAJ"
 
 /datum/design/item/pda_cartridge/hos
 	id = "cart_hos"
-	build_path = /obj/item/weapon/cartridge/hos
+	build_path = /obj/item/cartridge/hos
 	sort_string = "VBAAK"
 
 /datum/design/item/pda_cartridge/ce
 	id = "cart_ce"
-	build_path = /obj/item/weapon/cartridge/ce
+	build_path = /obj/item/cartridge/ce
 	sort_string = "VBAAL"
 
 /datum/design/item/pda_cartridge/cmo
 	id = "cart_cmo"
-	build_path = /obj/item/weapon/cartridge/cmo
+	build_path = /obj/item/cartridge/cmo
 	sort_string = "VBAAM"
 
 /datum/design/item/pda_cartridge/rd
 	id = "cart_rd"
-	build_path = /obj/item/weapon/cartridge/rd
+	build_path = /obj/item/cartridge/rd
 	sort_string = "VBAAN"
 
 /datum/design/item/pda_cartridge/captain
 	id = "cart_captain"
-	build_path = /obj/item/weapon/cartridge/captain
+	build_path = /obj/item/cartridge/captain
 	sort_string = "VBAAO"
 
 // Integrated Electronics stuff.
@@ -414,7 +414,7 @@ other types of metals and chemistry for reagents).
 	id = "assembly-implant"
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_POWER = 3, TECH_BIO = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/weapon/implant/integrated_circuit
+	build_path = /obj/item/implant/integrated_circuit
 	sort_string = "VCAAE"
 
 /datum/design/item/custom_circuit_assembly/device
@@ -441,7 +441,7 @@ other types of metals and chemistry for reagents).
 	id = "ic_printer_upgrade_adv"
 	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
-	build_path = /obj/item/weapon/disk/integrated_circuit/upgrade/advanced
+	build_path = /obj/item/disk/integrated_circuit/upgrade/advanced
 	sort_string = "VCAAH"
 
 /datum/design/item/pin_extractor
@@ -466,5 +466,5 @@ other types of metals and chemistry for reagents).
 	desc = "A specialized syringe for inserting implants to subjects."
 	req_tech = list(TECH_ILLEGAL = 2, TECH_BIO = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
-	build_path = /obj/item/weapon/implanter
+	build_path = /obj/item/implanter
 	sort_string = "VCBAC"

@@ -1,13 +1,13 @@
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
 	law_type = /datum/ai_laws/mining_drone
-	module_type = /obj/item/weapon/robot_module/mining_drone/basic
-	holder_type = /obj/item/weapon/holder/drone/mining
+	module_type = /obj/item/robot_module/mining_drone/basic
+	holder_type = /obj/item/holder/drone/mining
 	maxHealth = 45
 	health = 45
 	pass_flags = PASSTABLE
 	req_access = list(access_mining, access_robotics)
-	idcard_type = /obj/item/weapon/card/id/minedrone
+	idcard_type = /obj/item/card/id/minedrone
 	speed = -1
 	var/health_upgrade
 	var/ranged_upgrade
@@ -48,7 +48,7 @@
 	if(!laws) laws = new law_type
 	if(!module) module = new module_type(src)
 	if(!jetpack)
-		jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
+		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
@@ -65,13 +65,13 @@
 	to_chat(src, "Remember, <b>you DO NOT take orders from the AI.</b>")
 	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
 
-/mob/living/silicon/robot/drone/mining/attackby(var/obj/item/weapon/W, var/mob/user)
+/mob/living/silicon/robot/drone/mining/attackby(var/obj/item/W, var/mob/user)
 
 	if(istype(W, /obj/item/borg/upgrade/))
 		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
 		return
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 
 		var/choice = input("Select your choice.") in list("Reboot","Recycle")
 		if(choice=="Reboot")
@@ -89,7 +89,7 @@
 			return
 
 		else
-			var/obj/item/weapon/card/id/ID = W
+			var/obj/item/card/id/ID = W
 			if(!allowed(usr))
 				to_chat(user, "<span class='danger'>Access denied.</span>")
 				return
@@ -141,7 +141,7 @@
 	// Create the reply message
 	to_chat(usr, "<span class='warning'>You begin printing the message.</span>")
 	if(do_after(src,20))
-		var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src.loc)
+		var/obj/item/paper/P = new /obj/item/paper(src.loc)
 		P.name = "mining report - [customname]"
 		P.info = {"<center><img src = ntlogo.png></center>
 	<center><b><i>NanoTrasen Mining Drone Report</b></i><br>
@@ -186,13 +186,13 @@
 	qdel(M.module)
 	M.module = null
 	if(M.ranged_upgrade)
-		new /obj/item/weapon/robot_module/mining_drone/drillandka(M)
+		new /obj/item/robot_module/mining_drone/drillandka(M)
 	else
-		new /obj/item/weapon/robot_module/mining_drone/drill(M)
+		new /obj/item/robot_module/mining_drone/drill(M)
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
 	if(!M.jetpack)
-		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
+		M.jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)
 
 /obj/item/device/mine_bot_ugprade/health
@@ -222,12 +222,12 @@
 	qdel(M.module)
 	M.module = null
 	if(M.melee_upgrade)
-		new /obj/item/weapon/robot_module/mining_drone/drillandka(M)
+		new /obj/item/robot_module/mining_drone/drillandka(M)
 	else
-		new /obj/item/weapon/robot_module/mining_drone/ka(M)
+		new /obj/item/robot_module/mining_drone/ka(M)
 	M.ranged_upgrade = 1
 	M.module.rebuild()
 	M.recalculate_synth_capacities()
 	if(!M.jetpack)
-		M.jetpack = new /obj/item/weapon/tank/jetpack/carbondioxide/synthetic(src)
+		M.jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	qdel(src)

@@ -73,7 +73,7 @@
 	icon_state = "vacshroudbrown"
 	item_state = "vacshroudbrown"
 
-/obj/item/weapon/melee/energy/vaurca
+/obj/item/melee/energy/vaurca
 	name = "thermal knife"
 	desc = "A Vaurcae-designed combat knife with a thermal energy blade designed for close-quarter encounters."
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -94,7 +94,7 @@
 	contained_sprite = 1
 
 
-/obj/item/weapon/melee/energy/vaurca/activate(mob/living/user)
+/obj/item/melee/energy/vaurca/activate(mob/living/user)
 	..()
 	icon_state = "eknife1"
 	item_state = icon_state
@@ -105,7 +105,7 @@
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
-/obj/item/weapon/melee/energy/vaurca/deactivate(mob/living/user)
+/obj/item/melee/energy/vaurca/deactivate(mob/living/user)
 	..()
 	icon_state = "eknife0"
 	item_state = icon_state
@@ -127,7 +127,7 @@
 
 	if(isvaurca(user))
 		to_chat(user, "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>")
-		var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
+		var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 		user.remove_from_mob(src)
 		user.put_in_hands(X)
 		qdel(src)
@@ -138,7 +138,7 @@
 			to_chat(user, "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>")
 			if(do_after(user, 600))
 				to_chat(user, "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>")
-				var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
+				var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 				user.remove_from_mob(src)
 				user.put_in_hands(X)
 				qdel(src)
@@ -147,7 +147,7 @@
 		to_chat(user, "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 100))
 			to_chat(user, "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>")
-			var/obj/item/weapon/archaeological_find/X = new /obj/item/weapon/archaeological_find
+			var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 			user.remove_from_mob(src)
 			user.put_in_hands(X)
 			qdel(src)
@@ -167,7 +167,7 @@
 							if(do_after(user,600))
 								to_chat(user, "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>")
 
-/obj/item/weapon/melee/vaurca/navcomp
+/obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
 	desc = "A rather heavy data disk for a Vaurcae Arkship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -177,7 +177,7 @@
 	w_class = 3
 	contained_sprite = 1
 
-/obj/item/weapon/melee/vaurca/rock
+/obj/item/melee/vaurca/rock
 	name = "Sedantis rock"
 	desc = "A large chunk of alien earth from the distant Vaurcae world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
@@ -187,7 +187,7 @@
 	w_class = 4
 	contained_sprite = 1
 
-/obj/item/weapon/grenade/spawnergrenade/vaurca
+/obj/item/grenade/spawnergrenade/vaurca
 	name = "K'ois delivery pod"
 	desc = "A sophisticated K'ois delivery pod, for seeding a planet from the comfort of space."
 	spawner_type = /obj/machinery/portable_atmospherics/hydroponics/soil/invisible
@@ -199,7 +199,7 @@
 	throwforce = 30
 	w_class = 4
 
-/obj/item/weapon/grenade/spawnergrenade/vaurca/prime()
+/obj/item/grenade/spawnergrenade/vaurca/prime()
 
 	if(spawner_type && deliveryamt)
 		var/turf/T = get_turf(src)
@@ -323,7 +323,7 @@
 	item_state = "m_metalg"
 	contained_sprite = 1
 
-/obj/item/weapon/melee/energy/vaurca_zweihander
+/obj/item/melee/energy/vaurca_zweihander
 	name = "thermal greatblade"
 	desc = "An infamous execution blade of the Zo'ra, due to its size, only the largest Za were able to carry it in active combat."
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -347,16 +347,16 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/weapon/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
 	..()
 
-/obj/item/weapon/melee/energy/vaurca_zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
+/obj/item/melee/energy/vaurca_zweihander/pre_attack(var/mob/living/target, var/mob/living/user)
 	if(istype(target))
 		cleave(user, target)
 	..()
 
-/obj/item/weapon/melee/energy/vaurca_zweihander/activate(mob/living/user)
+/obj/item/melee/energy/vaurca_zweihander/activate(mob/living/user)
 	..()
 	icon_state = "greatblade1"
 	item_state = icon_state
@@ -367,7 +367,7 @@
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 
-/obj/item/weapon/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
+/obj/item/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
 	..()
 	icon_state = "greatblade0"
 	item_state = icon_state
@@ -378,7 +378,7 @@
 		H.update_inv_r_hand()
 	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca
+/obj/item/gun/launcher/crossbow/vaurca
 	name = "gauss rifle"
 	desc = "An unwieldy, heavy weapon that propels metal projectiles with magnetic coils that run its length."
 	contained_sprite = 1
@@ -401,25 +401,25 @@
 	accuracy_wielded = -1
 	fire_delay_wielded = 1
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
+/obj/item/gun/launcher/crossbow/vaurca/update_icon()
 	if(wielded)
 		item_state = "gaussrifle-wielded"
 	else
 		item_state = "gaussrifle"
 	update_held_icon()
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
+/obj/item/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
 	return bolt
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/launcher/crossbow/vaurca/handle_post_fire(mob/user, atom/target)
 	bolt = null
 	tension = 1
 	..()
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
 	pump(user)
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
+/obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	if(bolt)
@@ -441,7 +441,7 @@
 		else
 			to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
+/obj/item/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
 	if(belt.len >= belt_size)
 		to_chat(user, "<span class='warning'>[src] is full.</span>")
 		return
@@ -450,39 +450,39 @@
 	belt.Insert(1, W) //add to the head of the list, so that it is loaded on the next pump
 	user.visible_message("[user] inserts \a [W] into [src].", "<span class='notice'>You insert \a [W] into [src].</span>")
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/proc/unload(mob/user)
+/obj/item/gun/launcher/crossbow/vaurca/proc/unload(mob/user)
 	if(belt.len)
-		var/obj/item/weapon/arrow/rod/R = belt[belt.len]
+		var/obj/item/arrow/rod/R = belt[belt.len]
 		belt.len--
 		user.put_in_hands(R)
 		user.visible_message("[user] removes \a [R] from [src].", "<span class='notice'>You remove \a [R] from [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/weapon/arrow))
+/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/arrow))
 		load(I, user)
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
 		if (R.use(1))
-			var/obj/item/weapon/arrow/rod/ROD = new /obj/item/weapon/arrow/rod(src)
+			var/obj/item/arrow/rod/ROD = new /obj/item/arrow/rod(src)
 			load(ROD, user)
 	else
 		..()
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/attack_hand(mob/user)
+/obj/item/gun/launcher/crossbow/vaurca/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		unload(user)
 	else
 		..()
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/superheat_rod(mob/user)
+/obj/item/gun/launcher/crossbow/vaurca/superheat_rod(mob/user)
 	if(!user || !bolt) return
 	if(bolt.throwforce >= 25) return
-	if(!istype(bolt,/obj/item/weapon/arrow/rod)) return
+	if(!istype(bolt,/obj/item/arrow/rod)) return
 
 	bolt.throwforce = 25
 	bolt.icon_state = "metal-rod-superheated"
 
-/obj/item/weapon/gun/launcher/crossbow/vaurca/update_icon()
+/obj/item/gun/launcher/crossbow/vaurca/update_icon()
 	return

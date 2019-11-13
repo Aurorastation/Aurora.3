@@ -90,7 +90,7 @@
 
 	return ..()
 
-/obj/machinery/meter/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (!W.iswrench())
 		return ..()
 	playsound(src.loc, W.usesound, 50, 1)
@@ -111,5 +111,5 @@
 	if (!target)
 		src.target = loc
 
-/obj/machinery/meter/turf/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/meter/turf/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	return

@@ -7,7 +7,7 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "0"
 	var/state = 0
-	var/obj/item/weapon/circuitboard/circuit = null
+	var/obj/item/circuitboard/circuit = null
 //	weight = 1.0E8
 
 /obj/structure/computerframe/attackby(obj/item/P as obj, mob/user as mob)
@@ -20,7 +20,7 @@
 					src.anchored = 1
 					src.state = 1
 			if(P.iswelder())
-				var/obj/item/weapon/weldingtool/WT = P
+				var/obj/item/weldingtool/WT = P
 				if(!WT.remove_fuel(0, user))
 					to_chat(user, "The welding tool must be on to complete this task.")
 					return
@@ -37,8 +37,8 @@
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
 					src.anchored = 0
 					src.state = 0
-			if(istype(P, /obj/item/weapon/circuitboard) && !circuit)
-				var/obj/item/weapon/circuitboard/B = P
+			if(istype(P, /obj/item/circuitboard) && !circuit)
+				var/obj/item/circuitboard/B = P
 				if(B.board_type == "computer")
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 					to_chat(user, "<span class='notice'>You place the circuit board inside the frame.</span>")

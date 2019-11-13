@@ -2,7 +2,7 @@
 	name = "Bag of Holding"
 	description = "%COMPNAME would make good use of high-capacity backpacks. If you have any, please ship them."
 	reward = 10000
-	wanted_types = list(/obj/item/weapon/storage/backpack/holding)
+	wanted_types = list(/obj/item/storage/backpack/holding)
 /*
 /datum/bounty/item/science/tboh
 	name = "Trash Bag of Holding"
@@ -33,13 +33,13 @@
 	description = "A recent accident has left most of %BOSSSHORT's welding tools exploded. Ship replacements to be rewarded."
 	reward = 10000
 	required_count = 3
-	wanted_types = list(/obj/item/weapon/weldingtool/experimental)
+	wanted_types = list(/obj/item/weldingtool/experimental)
 
 /datum/bounty/item/science/cryostasis_beaker
 	name = "Cryostasis Beaker"
 	description = "Chemists at %BOSSNAME have discovered a new chemical that can only be held in cryostasis beakers. The only problem is they don't have any! Rectify this to receive payment."
 	reward = 10000
-	wanted_types = list(/obj/item/weapon/reagent_containers/glass/beaker/noreact)
+	wanted_types = list(/obj/item/reagent_containers/glass/beaker/noreact)
 
 /datum/bounty/item/science/mech_diamond_drill
 	name = "Mech Diamond Mining Drill"
@@ -51,7 +51,7 @@
 	name = "Advanced Energy Gun"
 	description = "With the price of rechargers on the rise, upper management is interested in purchasing guns that are self-powered. If you ship one, they'll pay."
 	reward = 10000
-	wanted_types = list(/obj/item/weapon/gun/energy/gun/nuclear)
+	wanted_types = list(/obj/item/gun/energy/gun/nuclear)
 
 /datum/bounty/item/science/posibrain
 	name = "Posibrain"

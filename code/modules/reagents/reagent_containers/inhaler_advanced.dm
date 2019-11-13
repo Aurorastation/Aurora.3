@@ -1,7 +1,7 @@
 //Advanced Inhalers
 //Just like hypopsray code
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge
+/obj/item/reagent_containers/personal_inhaler_cartridge
 	name = "small inhaler cartridge"
 	desc = "Fill this when chemicals and attach this to personal inhalers. Contains enough aerosol for 15u of reagents. The container must be activated for aerosol reagents to mix for the use in inhalers."
 	icon = 'icons/obj/syringe.dmi'
@@ -18,7 +18,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	center_of_mass = null
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
+/obj/item/reagent_containers/personal_inhaler_cartridge/examine(var/mob/user)
 	if(!..(user, 2))
 		return
 
@@ -33,7 +33,7 @@
 		else
 			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
+/obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
@@ -44,14 +44,14 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/weapon/W, mob/user)
+/obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
 		return
 	. = ..()
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
+/obj/item/reagent_containers/personal_inhaler_cartridge/large
 	name = "large inhaler cartridge"
 	desc = "A large inhaler cartridge. It contains enough aerosol for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
 	icon_state = "pi_cart_medium"
@@ -61,7 +61,7 @@
 	possible_transfer_amounts = list(5,10,15,30)
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
+/obj/item/reagent_containers/personal_inhaler_cartridge/bluespace
 	name = "bluespace inhaler cartridge"
 	desc = "An experimental bluespace inhaler cartridge. It has enough aerosol for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
 	icon_state = "pi_cart_large"
@@ -71,7 +71,7 @@
 	possible_transfer_amounts = list(5,10,15,30,60)
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_BIO = 6, TECH_MATERIAL = 6)
 
-/obj/item/weapon/personal_inhaler
+/obj/item/personal_inhaler
 	name = "inhaler"
 	desc = "A safe way to administer small amounts of drugs into the lungs by trained personnel."
 	icon = 'icons/obj/syringe.dmi'
@@ -79,23 +79,23 @@
 	icon_state = "pi"
 	w_class = 2
 	slot_flags = SLOT_BELT
-	var/obj/item/weapon/reagent_containers/stored_cartridge
+	var/obj/item/reagent_containers/stored_cartridge
 	var/transfer_amount = 5
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/weapon/personal_inhaler/examine(var/mob/user)
+/obj/item/personal_inhaler/examine(var/mob/user)
 	if(!..(user, 2))
 		return
 	if(stored_cartridge)
 		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
 
-/obj/item/weapon/personal_inhaler/update_icon()
+/obj/item/personal_inhaler/update_icon()
 	cut_overlays()
 	if(stored_cartridge)
 		add_overlay(stored_cartridge.icon_state)
 
-/obj/item/weapon/personal_inhaler/attack_self(mob/user as mob)
+/obj/item/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
 		to_chat(user,"<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
@@ -103,7 +103,7 @@
 		stored_cartridge = null
 	update_icon()
 
-/obj/item/weapon/personal_inhaler/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/personal_inhaler/attack(mob/living/M as mob, mob/user as mob)
 
 	var/mob/living/carbon/human/H = M
 
@@ -163,7 +163,7 @@
 
 	return
 
-/obj/item/weapon/personal_inhaler/attackby(var/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
+/obj/item/personal_inhaler/attackby(var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
 	if(istype(cartridge))
 		if(src.stored_cartridge)
 			to_chat(user,"<span class='notice'>\The [src] already has a cartridge.</span>")
@@ -178,7 +178,7 @@
 		return
 	. = ..()
 
-/obj/item/weapon/personal_inhaler/combat
+/obj/item/personal_inhaler/combat
 	name = "combat inhaler"
 	desc = "A large, bulky inhaler design that injects the entire contents of the loaded cartridge via an aerosol system in a single button press."
 	icon_state = "pi_combat"
@@ -187,7 +187,7 @@
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4)
 	eject_when_empty = TRUE
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine
 	name = "large inhaler cartridge (hyperzine)"
 	Initialize()
 		. =..()
@@ -196,7 +196,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
 	name = "large inhaler cartridge (inaprovaline)"
 	Initialize()
 		. =..()

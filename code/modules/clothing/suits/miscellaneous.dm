@@ -15,7 +15,7 @@
 	item_state = "bluetag"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/weapon/gun/energy/lasertag/blue)
+	allowed = list (/obj/item/gun/energy/lasertag/blue)
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/redtag
@@ -25,7 +25,7 @@
 	item_state = "redtag"
 	blood_overlay_type = "armor"
 	body_parts_covered = UPPER_TORSO
-	allowed = list (/obj/item/weapon/gun/energy/lasertag/red)
+	allowed = list (/obj/item/gun/energy/lasertag/red)
 	siemens_coefficient = 1.0
 
 /*
@@ -86,7 +86,7 @@
 	icon_state = "judge"
 	item_state = "judge"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/spacecash)
+	allowed = list(/obj/item/storage/fancy/cigarettes,/obj/item/spacecash)
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/wcoat
@@ -103,7 +103,7 @@
 	item_state = "space_suit_syndicate"
 	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
 	w_class = 3
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/toy)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
@@ -313,7 +313,7 @@
 	item_state = "mgreen"
 	icon_open = "mgreen_open"
 	icon_closed = "mgreen"
-	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	icon_state = "mtan"
@@ -473,7 +473,7 @@
 	item_state = "trackjacket"
 	icon_open = "trackjacket_open"
 	icon_closed = "trackjacket"
-	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
 	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/blue
@@ -517,7 +517,7 @@
 	desc = "A favorite of jocks everywhere from Sol to the Frontier."
 	icon_state = "varsity"
 	item_state = "varsity"
-	allowed = list (/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/varsity/red
 	name = "red varsity jacket"

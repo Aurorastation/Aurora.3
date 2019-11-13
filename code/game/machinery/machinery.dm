@@ -340,22 +340,22 @@ Class Procs:
 	update_icon()
 	return 1
 
-/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
+/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!istype(R))
 		return 0
 	if(!LAZYLEN(component_parts))
 		return 0
 
 	if(panel_open)
-		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
+		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 		var/P
-		for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+		for(var/obj/item/reagent_containers/glass/G in component_parts)
 			for(var/D in CB.req_components)
 				var/T = text2path(D)
 				if(ispath(G.type, T))
 					P = T
 					break
-			for(var/obj/item/weapon/reagent_containers/glass/B in R.contents)
+			for(var/obj/item/reagent_containers/glass/B in R.contents)
 				if(B.reagents && B.reagents.total_volume > 0) continue
 				if(istype(B, P) && istype(G, P))
 					if(B.volume > G.volume)
@@ -366,13 +366,13 @@ Class Procs:
 						B.forceMove(src)
 						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
 						break
-		for(var/obj/item/weapon/stock_parts/A in component_parts)
+		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
 				var/T = text2path(D)
 				if(ispath(A.type, T))
 					P = T
 					break
-			for(var/obj/item/weapon/stock_parts/B in R.contents)
+			for(var/obj/item/stock_parts/B in R.contents)
 				if(istype(B, P) && istype(A, P))
 					if(B.rating > A.rating)
 						R.remove_from_storage(B, src)

@@ -1,4 +1,4 @@
-/obj/item/weapon/book/manual/ntsl2
+/obj/item/book/manual/ntsl2
 	name = "NTSL2+ For Dummies"
 	icon_state ="bookNTSL"
 	author = "Brogrammer George"

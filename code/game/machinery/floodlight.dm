@@ -5,7 +5,7 @@
 	icon_state = "flood00"
 	density = 1
 	var/on = 0
-	var/obj/item/weapon/cell/high/cell = null
+	var/obj/item/cell/high/cell = null
 	var/use = 200 // 200W light
 	var/unlocked = 0
 	var/open = 0
@@ -101,7 +101,7 @@
 	update_icon()
 
 
-/obj/machinery/floodlight/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/floodlight/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
 		if (!open)
 			if(unlocked)
@@ -122,7 +122,7 @@
 					open = 1
 					to_chat(user, "You remove the battery panel.")
 
-	if (istype(W, /obj/item/weapon/cell))
+	if (istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
 				to_chat(user, "There is a power cell already installed.")
@@ -132,14 +132,14 @@
 				to_chat(user, "You insert the power cell.")
 	update_icon()
 
-/obj/item/weapon/floodlight_diy
+/obj/item/floodlight_diy
 	name = "Emergency Floodlight Kit"
 	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
 	item_state = "syringe_kit"
 
-/obj/item/weapon/floodlight_diy/attack_self(mob/user)
+/obj/item/floodlight_diy/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
 	if(do_after(user, 80))
 		var/obj/machinery/floodlight/R = new /obj/machinery/floodlight(user.loc)

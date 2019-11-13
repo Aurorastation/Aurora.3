@@ -5,58 +5,58 @@
 //Think up of lots of items. Not everything needs to be unique or even mining-special, but it should be neat. Convert most of /tg/'s items. 25% of this at least
 //	should be bling. Things that shorten the distance between base and mining. Instant-teleporters should be one use.
 var/global/list/minevendor_list = list( //keep in order of price
-	new /datum/data/mining_equipment("Food Ration",					/obj/item/weapon/reagent_containers/food/snacks/liquidfood,	10,					5),
-	new /datum/data/mining_equipment("Poster",						/obj/item/weapon/contraband/poster,							10,					20),
-	new /datum/data/mining_equipment("Ore Scanner Pad",				/obj/item/weapon/ore_radar,									10,					50),
+	new /datum/data/mining_equipment("Food Ration",					/obj/item/reagent_containers/food/snacks/liquidfood,	10,					5),
+	new /datum/data/mining_equipment("Poster",						/obj/item/contraband/poster,							10,					20),
+	new /datum/data/mining_equipment("Ore Scanner Pad",				/obj/item/ore_radar,									10,					50),
 	new /datum/data/mining_equipment("5 Red Flags",					/obj/item/stack/flag/red,									10,					50),
 	new /datum/data/mining_equipment("5 Green Flags",				/obj/item/stack/flag/green,									10,					50),
 	new /datum/data/mining_equipment("5 Yellow Flags",				/obj/item/stack/flag/yellow,								10,					50),
 	new /datum/data/mining_equipment("5 Purple Flags",				/obj/item/stack/flag/purple,								10,					50),
-	new /datum/data/mining_equipment("Ore-bag",						/obj/item/weapon/storage/bag/ore,							25,					50),
+	new /datum/data/mining_equipment("Ore-bag",						/obj/item/storage/bag/ore,							25,					50),
 	new /datum/data/mining_equipment("Meat Pizza",					/obj/item/pizzabox/meat,									25,					50),
 	new /datum/data/mining_equipment("Lantern",						/obj/item/device/flashlight/lantern,						10,					75),
-	new /datum/data/mining_equipment("Shovel",						/obj/item/weapon/shovel,									15,					100),
-	new /datum/data/mining_equipment("Pickaxe",						/obj/item/weapon/pickaxe,									10,					100),
-	new /datum/data/mining_equipment("Compressed matter cartridge",	/obj/item/weapon/rfd_ammo,									50,					100),
-	new /datum/data/mining_equipment("Class E Kinetic Accelerator",	/obj/item/weapon/gun/custom_ka/frame01/prebuilt,			12,					200),
+	new /datum/data/mining_equipment("Shovel",						/obj/item/shovel,									15,					100),
+	new /datum/data/mining_equipment("Pickaxe",						/obj/item/pickaxe,									10,					100),
+	new /datum/data/mining_equipment("Compressed matter cartridge",	/obj/item/rfd_ammo,									50,					100),
+	new /datum/data/mining_equipment("Class E Kinetic Accelerator",	/obj/item/gun/custom_ka/frame01/prebuilt,			12,					200),
 	new /datum/data/mining_equipment("Ore Box",						/obj/structure/ore_box,										-1,					150,	1),
-	new /datum/data/mining_equipment("Emergency Floodlight",		/obj/item/weapon/floodlight_diy, 							-1,					150,	1),
+	new /datum/data/mining_equipment("Emergency Floodlight",		/obj/item/floodlight_diy, 							-1,					150,	1),
 	new /datum/data/mining_equipment("Premium Cigar",				/obj/item/clothing/mask/smokable/cigarette/cigar/havana, 	30,					150),
-	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/weapon/plastique/seismic,							25,					150),
-	new /datum/data/mining_equipment("Deployable Ladder",			/obj/item/weapon/ladder_mobile,								5,					200),
+	new /datum/data/mining_equipment("Seismic Charge",				/obj/item/plastique/seismic,							25,					150),
+	new /datum/data/mining_equipment("Deployable Ladder",			/obj/item/ladder_mobile,								5,					200),
 	new /datum/data/mining_equipment("Deployable Hoist Kit",		/obj/item/hoist_kit,										5,					200),
 	new /datum/data/mining_equipment("Ripley Paint Kit",			/obj/item/device/kit/paint/ripley/random,					15,					200),
 	new /datum/data/mining_equipment("Material Scanners",			/obj/item/clothing/glasses/material,						15,					200),
-	new /datum/data/mining_equipment("Mining Drill",				/obj/item/weapon/pickaxe/drill,								10,					200),
-	new /datum/data/mining_equipment("Deep Ore Scanner",			/obj/item/weapon/mining_scanner,							10,					250),
+	new /datum/data/mining_equipment("Mining Drill",				/obj/item/pickaxe/drill,								10,					200),
+	new /datum/data/mining_equipment("Deep Ore Scanner",			/obj/item/mining_scanner,							10,					250),
 	new /datum/data/mining_equipment("Magboots",					/obj/item/clothing/shoes/magboots,							10,					300),
-	new /datum/data/mining_equipment("Class D Kinetic Accelerator", /obj/item/weapon/gun/custom_ka/frame02/prebuilt,			12,					400),
-	new /datum/data/mining_equipment("Autochisel",					/obj/item/weapon/autochisel,								10,					400),
-	new /datum/data/mining_equipment("Jetpack",						/obj/item/weapon/tank/jetpack,								10,					400),
+	new /datum/data/mining_equipment("Class D Kinetic Accelerator", /obj/item/gun/custom_ka/frame02/prebuilt,			12,					400),
+	new /datum/data/mining_equipment("Autochisel",					/obj/item/autochisel,								10,					400),
+	new /datum/data/mining_equipment("Jetpack",						/obj/item/tank/jetpack,								10,					400),
 	new /datum/data/mining_equipment("Drone Drill Upgrade",			/obj/item/device/mine_bot_ugprade,							10,					400),
 	new /datum/data/mining_equipment("Industrial Drill Brace",		/obj/machinery/mining/brace,								-1,					500,	1),
-	new /datum/data/mining_equipment("Point Transfer Card",			/obj/item/weapon/card/mining_point_card,					-1,					500),
-	new /datum/data/mining_equipment("Explorer's Belt",				/obj/item/weapon/storage/belt/mining,						10,					500),
+	new /datum/data/mining_equipment("Point Transfer Card",			/obj/item/card/mining_point_card,					-1,					500),
+	new /datum/data/mining_equipment("Explorer's Belt",				/obj/item/storage/belt/mining,						10,					500),
 	new /datum/data/mining_equipment("Item-Warp Beacon",			/obj/item/warp_core,										25,					500),
-	new /datum/data/mining_equipment("Item-Warp Pack",				/obj/item/weapon/extraction_pack,							25,					600),
+	new /datum/data/mining_equipment("Item-Warp Pack",				/obj/item/extraction_pack,							25,					600),
 	new /datum/data/mining_equipment("Drone Health Upgrade", 		/obj/item/device/mine_bot_ugprade/health,					20,					600),
-	new /datum/data/mining_equipment("RFD M-Class",             	/obj/item/weapon/rfd/mining,								10,					600),
-	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/weapon/storage/firstaid/brute,					30,					600),
-	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/weapon/oremagnet,									10,					600),
+	new /datum/data/mining_equipment("RFD M-Class",             	/obj/item/rfd/mining,								10,					600),
+	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/storage/firstaid/brute,					30,					600),
+	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/oremagnet,									10,					600),
 	new /datum/data/mining_equipment("Minecart",					/obj/vehicle/train/cargo/trolley/mining,					-1,					600,	1),
-	new /datum/data/mining_equipment("Resonator",					/obj/item/weapon/resonator,									10,					700),
+	new /datum/data/mining_equipment("Resonator",					/obj/item/resonator,									10,					700),
 	new /datum/data/mining_equipment("Jaunter",						/obj/item/device/wormhole_jaunter,							20,					750),
-	new /datum/data/mining_equipment("Mining RIG",					/obj/item/weapon/rig/industrial,							5,					1000),
-	new /datum/data/mining_equipment("Mass Driver",					/obj/item/weapon/mass_driver_diy,							5,					800),
+	new /datum/data/mining_equipment("Mining RIG",					/obj/item/rig/industrial,							5,					1000),
+	new /datum/data/mining_equipment("Mass Driver",					/obj/item/mass_driver_diy,							5,					800),
 	new /datum/data/mining_equipment("Mining Drone",				/mob/living/silicon/robot/drone/mining,						15,					800),
 	new /datum/data/mining_equipment("Minecart Engine",				/obj/vehicle/train/cargo/engine/mining,						-1,					800,	1),
 	new /datum/data/mining_equipment("Drone KA Upgrade",			/obj/item/device/mine_bot_ugprade/ka,						10,					800),
-	new /datum/data/mining_equipment("Ore Summoner",				/obj/item/weapon/oreportal,									35,					800),
-	new /datum/data/mining_equipment("Lazarus Injector",			/obj/item/weapon/lazarus_injector,							25,					1000),
+	new /datum/data/mining_equipment("Ore Summoner",				/obj/item/oreportal,									35,					800),
+	new /datum/data/mining_equipment("Lazarus Injector",			/obj/item/lazarus_injector,							25,					1000),
 	new /datum/data/mining_equipment("Industrial Drill Head",		/obj/machinery/mining/drill,								-1,					1000,	1),
-	new /datum/data/mining_equipment("Super Resonator",				/obj/item/weapon/resonator/upgraded,						10,					1250),
-	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/weapon/pickaxe/diamond,							10,					1500),
-	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/weapon/gun/energy/vaurca/thermaldrill,			5,					3750)
+	new /datum/data/mining_equipment("Super Resonator",				/obj/item/resonator/upgraded,						10,					1250),
+	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,							10,					1500),
+	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/gun/energy/vaurca/thermaldrill,			5,					3750)
 	)
 
 /obj/machinery/mineral/equipment_vendor
@@ -66,7 +66,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	icon_state = "mining"
 	density = 1
 	anchored = 1
-	var/obj/item/weapon/card/id/inserted_id
+	var/obj/item/card/id/inserted_id
 
 /datum/data/mining_equipment
 	var/equipment_name = "generic"
@@ -82,13 +82,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 	src.cost = cost
 	src.shuttle = shuttle
 
-/obj/item/weapon/circuitboard/machine/mining_equipment_vendor
+/obj/item/circuitboard/machine/mining_equipment_vendor
 	name = "circuit board (Mining Equipment Vendor)"
 	build_path = /obj/machinery/mineral/equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(
-							/obj/item/weapon/stock_parts/console_screen = 1,
-							/obj/item/weapon/stock_parts/matter_bin = 3)
+							/obj/item/stock_parts/console_screen = 1,
+							/obj/item/stock_parts/matter_bin = 3)
 
 /obj/machinery/mineral/equipment_vendor/power_change()
 	..()
@@ -143,7 +143,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 					inserted_id.forceMove(get_turf(src))
 				inserted_id = null
 		else if(href_list["choice"] == "insert")
-			var/obj/item/weapon/card/id/I = usr.get_active_hand()
+			var/obj/item/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
@@ -206,8 +206,8 @@ var/global/list/minevendor_list = list( //keep in order of price
 	return
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
-	if(istype(I,/obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/C = usr.get_active_hand()
+	if(istype(I,/obj/item/card/id))
+		var/obj/item/card/id/C = usr.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
 			usr.drop_from_inventory(C,src)
 			inserted_id = C

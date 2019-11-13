@@ -26,11 +26,11 @@
 	var/sync_message = ""
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/mechfab,
-		/obj/item/weapon/stock_parts/matter_bin = 2,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/micro_laser,
-		/obj/item/weapon/stock_parts/console_screen
+		/obj/item/circuitboard/mechfab,
+		/obj/item/stock_parts/matter_bin = 2,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/micro_laser,
+		/obj/item/stock_parts/console_screen
 	)
 
 /obj/machinery/mecha_part_fabricator/Initialize()
@@ -69,15 +69,15 @@
 /obj/machinery/mecha_part_fabricator/RefreshParts()
 	res_max_amount = 0
 
-	for(var/obj/item/weapon/stock_parts/matter_bin/M in component_parts)
+	for(var/obj/item/stock_parts/matter_bin/M in component_parts)
 		res_max_amount += M.rating * 100000 // 200k -> 600k
 	var/T = 0
 
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		T += M.rating
 	mat_efficiency = 1 - (T - 1) / 4 // 1 -> 0.5
 
-	for(var/obj/item/weapon/stock_parts/micro_laser/M in component_parts) // Not resetting T is intended; speed is affected by both
+	for(var/obj/item/stock_parts/micro_laser/M in component_parts) // Not resetting T is intended; speed is affected by both
 		T += M.rating
 	speed = T / 2 // 1 -> 3
 

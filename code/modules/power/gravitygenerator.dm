@@ -206,7 +206,7 @@
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
-				var/obj/item/weapon/weldingtool/WT = I
+				var/obj/item/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)

@@ -12,17 +12,17 @@
 /datum/uplink_item/item/stealth_items/spy
 	name = "Bug Kit"
 	item_cost = 2
-	path = /obj/item/weapon/storage/box/syndie_kit/spy
+	path = /obj/item/storage/box/syndie_kit/spy
 
 /datum/uplink_item/item/stealth_items/id
 	name = "Agent ID card"
 	item_cost = 3
-	path = /obj/item/weapon/card/id/syndicate
+	path = /obj/item/card/id/syndicate
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
 	item_cost = 5
-	path = /obj/item/weapon/storage/box/syndie_kit/chameleon
+	path = /obj/item/storage/box/syndie_kit/chameleon
 
 /datum/uplink_item/item/stealth_items/voice
 	name = "Voice Changer"
@@ -38,7 +38,7 @@
 	name = "Vial of Venenum"
 	desc = "A vial that contains 30u of venemum. Changes DNA structure randomly, effectively masking your appearance until it wears off. Good for 15 minutes of appearance changes."
 	item_cost = 4
-	path = /obj/item/weapon/reagent_containers/glass/beaker/vial/venenum
+	path = /obj/item/reagent_containers/glass/beaker/vial/venenum
 
 /datum/uplink_item/item/stealth_items/balaclava
 	name = "Balaclava"

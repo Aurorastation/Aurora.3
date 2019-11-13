@@ -1,8 +1,8 @@
-/obj/item/weapon/computer_hardware/hard_drive/portable/super/preset/all/Initialize()
+/obj/item/computer_hardware/hard_drive/portable/super/preset/all/Initialize()
     . = ..()
     add_programs()
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
+/obj/item/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
     for(var/F in typesof(/datum/computer_file/program))
         var/datum/computer_file/program/prog = new F
         // Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
@@ -14,16 +14,16 @@
 
 
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/backup
+/obj/item/computer_hardware/hard_drive/portable/backup
     var/_program = null //Change that far to the file name of the backup program you would like to spawn
     origin_tech = list() //Nope, no research levels from backup disks
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/backup/New(loc, var/prog_name)
+/obj/item/computer_hardware/hard_drive/portable/backup/New(loc, var/prog_name)
     . = ..()
     _program = prog_name
     add_program()
 
-/obj/item/weapon/computer_hardware/hard_drive/portable/backup/proc/add_program()
+/obj/item/computer_hardware/hard_drive/portable/backup/proc/add_program()
     if(_program == null)
         qdel(src) //Delete itself if no program is set
         return
@@ -51,4 +51,4 @@
             continue
         // Check whether the program should be available for station/antag download, if yes, add it to lists.
         if(prog.available_on_ntnet)
-            new /obj/item/weapon/computer_hardware/hard_drive/portable/backup(src, prog.filename)
+            new /obj/item/computer_hardware/hard_drive/portable/backup(src, prog.filename)

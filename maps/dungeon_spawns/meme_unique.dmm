@@ -19,7 +19,7 @@
 /obj/item/stack/material/gold{
 	amount = 50
 	},
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /mob/living/simple_animal/hostile/mimic/crate,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)

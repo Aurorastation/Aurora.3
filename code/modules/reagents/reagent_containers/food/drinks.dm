@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks.
 ////////////////////////////////////////////////////////////////////////////////
-/obj/item/weapon/reagent_containers/food/drinks
+/obj/item/reagent_containers/food/drinks
 	name = "drink"
 	desc = "yummy"
 	icon = 'icons/obj/drinks.dmi'
@@ -12,16 +12,16 @@
 	volume = 50
 	var/shaken = 0
 
-/obj/item/weapon/reagent_containers/food/drinks/on_reagent_change()
+/obj/item/reagent_containers/food/drinks/on_reagent_change()
 	return
 
-/obj/item/weapon/reagent_containers/food/drinks/feed_sound(var/mob/user)
+/obj/item/reagent_containers/food/drinks/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
-/obj/item/weapon/reagent_containers/food/drinks/self_feed_message(var/mob/user)
+/obj/item/reagent_containers/food/drinks/self_feed_message(var/mob/user)
 	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
 
-/obj/item/weapon/reagent_containers/food/drinks/attack_self(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/attack_self(mob/user as mob)
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
@@ -35,42 +35,42 @@
 					return
 		open(user)
 
-/obj/item/weapon/reagent_containers/food/drinks/proc/open(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
 	user.visible_message("[user] opens the [src].", "You open \the [src] with an audible pop!", "You can hear a pop,")
 	flags |= OPENCONTAINER
 
-/obj/item/weapon/reagent_containers/food/drinks/proc/boom(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	flags |= OPENCONTAINER
 	shaken = 0
 
-/obj/item/weapon/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return 0
 
-/obj/item/weapon/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
+/obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
+/obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
+/obj/item/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/food/drinks/examine(mob/user)
+/obj/item/reagent_containers/food/drinks/examine(mob/user)
 	if(!..(user, 1))
 		return
 	if(!reagents || reagents.total_volume == 0)
@@ -89,7 +89,7 @@
 /// Drinks. END
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/reagent_containers/food/drinks/golden_cup
+/obj/item/reagent_containers/food/drinks/golden_cup
 	desc = "A golden cup"
 	name = "golden cup"
 	icon_state = "golden_cup"
@@ -107,7 +107,7 @@
 //	rather then having to add it to something else first. They should only contain liquids. They have a default container size of 50.
 //	Formatting is the same as food.
 
-/obj/item/weapon/reagent_containers/food/drinks/milk
+/obj/item/reagent_containers/food/drinks/milk
 	name = "space milk"
 	desc = "It's milk. White and nutritious goodness!"
 	icon_state = "milk"
@@ -118,7 +118,7 @@
 		. = ..()
 		reagents.add_reagent("milk", 50)
 
-/obj/item/weapon/reagent_containers/food/drinks/soymilk
+/obj/item/reagent_containers/food/drinks/soymilk
 	name = "soymilk"
 	desc = "It's soy milk. White and nutritious goodness!"
 	icon_state = "soymilk"
@@ -129,7 +129,7 @@
 		. = ..()
 		reagents.add_reagent("soymilk", 50)
 
-/obj/item/weapon/reagent_containers/food/drinks/coffee
+/obj/item/reagent_containers/food/drinks/coffee
 	name = "Robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee"
@@ -140,7 +140,7 @@
 		. = ..()
 		reagents.add_reagent("coffee", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/pslatte
+/obj/item/reagent_containers/food/drinks/pslatte
 	name = "Seasonal Pumpkin Spice Latte"
 	desc = "A limited edition pumpkin spice coffee drink!"
 	icon_state = "psl_vended"
@@ -150,7 +150,7 @@
 		. = ..()
 		reagents.add_reagent("sadpslatte", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/tea
+/obj/item/reagent_containers/food/drinks/tea
 	name = "Duke purple tea"
 	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
 	icon_state = "coffee"
@@ -160,7 +160,7 @@
 		. = ..()
 		reagents.add_reagent("tea", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/greentea
+/obj/item/reagent_containers/food/drinks/greentea
 	name = "Green Tea"
 	desc = "Tasty green tea. It's good for you!"
 	icon_state = "greentea_vended"
@@ -170,7 +170,7 @@
 		. = ..()
 		reagents.add_reagent("greentea", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/hotcider
+/obj/item/reagent_containers/food/drinks/hotcider
 	name = "Hot Cider"
 	desc = "A hearty apple drink, spiced just right."
 	icon_state = "soy_latte"
@@ -180,7 +180,7 @@
 		. = ..()
 		reagents.add_reagent("ciderhot", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/chaitea
+/obj/item/reagent_containers/food/drinks/chaitea
 	name = "Chai Tea"
 	desc = "The name is redundant but the flavor is delicious!"
 	icon_state = "chai_vended"
@@ -190,7 +190,7 @@
 		. = ..()
 		reagents.add_reagent("chaitea", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/ice
+/obj/item/reagent_containers/food/drinks/ice
 	name = "ice cup"
 	desc = "Careful, cold ice, do not chew."
 	icon_state = "coffee"
@@ -199,7 +199,7 @@
 		. = ..()
 		reagents.add_reagent("ice", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/h_chocolate
+/obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "dutch hot coco"
 	desc = "Made in Space South America."
 	icon_state = "hot_coco"
@@ -209,7 +209,7 @@
 		. = ..()
 		reagents.add_reagent("hot_coco", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/dry_ramen
+/obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
@@ -219,7 +219,7 @@
 		reagents.add_reagent("dry_ramen", 30)
 
 
-/obj/item/weapon/reagent_containers/food/drinks/sillycup
+/obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
 	desc = "A paper water cup."
 	icon_state = "water_cup_e"
@@ -235,7 +235,7 @@
 		else
 			icon_state = "water_cup_e"
 
-/obj/item/weapon/reagent_containers/food/drinks/medcup
+/obj/item/reagent_containers/food/drinks/medcup
 	name = "medicine cup"
 	desc = "A plastic medicine cup. Like a shot glass for medicine."
 	icon = 'icons/obj/chemical.dmi'
@@ -244,18 +244,18 @@
 	possible_transfer_amounts = null
 	volume = 15
 
-/obj/item/weapon/reagent_containers/food/drinks/medcup/on_reagent_change()
+/obj/item/reagent_containers/food/drinks/medcup/on_reagent_change()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/food/drinks/medcup/pickup(mob/user)
+/obj/item/reagent_containers/food/drinks/medcup/pickup(mob/user)
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/food/drinks/medcup/dropped(mob/user)
+/obj/item/reagent_containers/food/drinks/medcup/dropped(mob/user)
 	..()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/food/drinks/medcup/update_icon()
+/obj/item/reagent_containers/food/drinks/medcup/update_icon()
 	cut_overlays()
 
 	if(reagents.total_volume)
@@ -280,7 +280,7 @@
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
 //	icon states.
 
-/obj/item/weapon/reagent_containers/food/drinks/shaker
+/obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
 	icon_state = "shaker"
@@ -288,7 +288,7 @@
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/weapon/reagent_containers/food/drinks/teapot
+/obj/item/reagent_containers/food/drinks/teapot
 	name = "teapot"
 	desc = "An elegant teapot. It simply oozes class."
 	icon_state = "teapot"
@@ -297,45 +297,45 @@
 	volume = 120
 	center_of_mass = list("x"=17, "y"=7)
 
-/obj/item/weapon/reagent_containers/food/drinks/flask
+/obj/item/reagent_containers/food/drinks/flask
 	name = "captain's flask"
 	desc = "A metal flask belonging to the captain"
 	icon_state = "flask"
 	volume = 60
 	center_of_mass = list("x"=17, "y"=7)
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/shiny
+/obj/item/reagent_containers/food/drinks/flask/shiny
 	name = "shiny flask"
 	desc = "A shiny metal flask. It appears to have a Greek symbol inscribed on it."
 	icon_state = "shinyflask"
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/lithium
+/obj/item/reagent_containers/food/drinks/flask/lithium
 	name = "lithium flask"
 	desc = "A flask with a Lithium Atom symbol on it."
 	icon_state = "lithiumflask"
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/detflask
+/obj/item/reagent_containers/food/drinks/flask/detflask
 	name = "detective's flask"
 	desc = "A metal flask with a leather band and golden badge belonging to the detective."
 	icon_state = "detflask"
 	volume = 60
 	center_of_mass = list("x"=17, "y"=8)
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/barflask
+/obj/item/reagent_containers/food/drinks/flask/barflask
 	name = "flask"
 	desc = "For those who can't be bothered to hang out at the bar to drink."
 	icon_state = "barflask"
 	volume = 60
 	center_of_mass = list("x"=17, "y"=7)
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask
 	name = "vacuum flask"
 	desc = "Keeping your drinks at the perfect temperature since 1892."
 	icon_state = "vacuumflask"
 	volume = 60
 	center_of_mass = list("x"=15, "y"=4)
 
-/obj/item/weapon/reagent_containers/food/drinks/britcup
+/obj/item/reagent_containers/food/drinks/britcup
 	name = "cup"
 	desc = "A cup with the British flag emblazoned on it."
 	icon_state = "britcup"

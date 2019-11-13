@@ -95,7 +95,7 @@
 	if(restrained())	return 0
 
 	//Do we have a working jetpack?
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if(thrust)
 		if(((!check_drift) || (check_drift && thrust.stabilization_on)) && (!lying) && (thrust.allow_thrust(0.01, src)))

@@ -39,7 +39,7 @@
 		interact(user)
 		return TRUE
 
-	if(istype(O,/obj/item/weapon/disk/integrated_circuit/upgrade/advanced))
+	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
 			return TRUE
@@ -48,7 +48,7 @@
 		interact(user)
 		return TRUE
 
-	if(istype(O,/obj/item/weapon/disk/integrated_circuit/upgrade/clone))
+	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
 			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
 			return TRUE
@@ -151,7 +151,7 @@
 	return FALSE
 
 // FUKKEN UPGRADE DISKS
-/obj/item/weapon/disk/integrated_circuit/upgrade
+/obj/item/disk/integrated_circuit/upgrade
 	name = "integrated circuit printer upgrade disk"
 	desc = "Install this into your integrated circuit printer to enhance it."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
@@ -160,12 +160,12 @@
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
 
-/obj/item/weapon/disk/integrated_circuit/upgrade/advanced
+/obj/item/disk/integrated_circuit/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one adds new, advanced designs to the printer."
 
 // To be implemented later.
-/obj/item/weapon/disk/integrated_circuit/upgrade/clone
+/obj/item/disk/integrated_circuit/upgrade/clone
 	name = "integrated circuit printer upgrade disk - circuit cloner"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one allows the printer to duplicate assemblies."
 	icon_state = "upgrade_disk_clone"

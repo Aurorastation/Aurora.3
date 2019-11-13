@@ -83,7 +83,7 @@
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 
 /obj/item/clothing/suit/storage/tajaran/matake
 	name = "Mata'ke priest mantle"
@@ -96,7 +96,7 @@
 	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
 	weapons, usually daggers for ease of transport and to simulate Mata'ke's sword. There is a remarkably low amount of Njarir'Akhran in the Mata'ke priesthood."
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 
 /obj/item/clothing/suit/storage/hooded/tajaran
 	name = "gruff cloak"
@@ -121,7 +121,7 @@
 	item_state = "priestrobe"
 	contained_sprite = TRUE
 	flags_inv = 0
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	description_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \

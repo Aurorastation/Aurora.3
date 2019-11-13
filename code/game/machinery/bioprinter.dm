@@ -57,18 +57,18 @@
 	else
 		to_chat(user, "<span class='warning'>There is not enough matter in the printer.</span>")
 
-/obj/machinery/bioprinter/attackby(obj/item/weapon/W, mob/user)
+/obj/machinery/bioprinter/attackby(obj/item/W, mob/user)
 
 	// DNA sample from syringe.
-	if(!prints_prosthetics && istype(W,/obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = W
+	if(!prints_prosthetics && istype(W,/obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = W
 		var/datum/reagent/blood/injected = locate() in S.reagents.reagent_list //Grab some blood
 		if(injected && injected.data)
 			loaded_dna = injected.data
 			to_chat(user, "<span class='info'>You inject the blood sample into the bioprinter.</span>")
 		return
 	// Meat for biomass.
-	if(!prints_prosthetics && istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
+	if(!prints_prosthetics && istype(W, /obj/item/reagent_containers/food/snacks/meat))
 		stored_matter += 50
 		user.drop_from_inventory(W,src)
 		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>")

@@ -2,7 +2,7 @@
 //Supply packs are in /code/defines/obj/supplypacks.dm
 //Computers are in /code/game/machinery/computer/supply.dm
 
-/obj/item/weapon/paper/manifest
+/obj/item/paper/manifest
 	name = "supply manifest"
 	var/is_copy = 1
 

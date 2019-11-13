@@ -1,7 +1,7 @@
 /*
  * Knives. They stab your eyes out, and fit into boots. Copypasted the screwdriver code
  */
-/obj/item/weapon/material/knife
+/obj/item/material/knife
 	name = "kitchen knife"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "knife"
@@ -17,7 +17,7 @@
 	unbreakable = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
 
-/obj/item/weapon/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
 		if(target_zone != "eyes" && target_zone != "head")
 			return ..()
@@ -25,7 +25,7 @@
 			M = user
 		return eyestab(M,user)
 
-/obj/item/weapon/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H as mob in view(1))
+/obj/item/material/knife/verb/extract_shrapnel(var/mob/living/carbon/human/H as mob in view(1))
 	set name = "Extract Shrapnel"
 	set category = "Object"
 	set src in usr
@@ -36,7 +36,7 @@
 	if(!istype(H))
 		return
 
-	for(var/obj/item/weapon/material/shard/shrapnel/S in H.contents)
+	for(var/obj/item/material/shard/shrapnel/S in H.contents)
 		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
 		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
 		if(do_mob(usr, H, 100))
@@ -54,7 +54,7 @@
 		if(H.can_feel_pain())
 			H.emote("scream")
 
-/obj/item/weapon/material/knife/ritual
+/obj/item/material/knife/ritual
 	name = "ritual knife"
 	desc = "The unearthly energies that once powered this blade are now dormant."
 	icon = 'icons/obj/wizard.dmi'
@@ -62,7 +62,7 @@
 	item_state = "knife"
 	applies_material_colour = 0
 
-/obj/item/weapon/material/knife/bayonet
+/obj/item/material/knife/bayonet
 	name = "bayonet"
 	desc = "A sharp military knife, can be attached to a rifle."
 	icon = 'icons/obj/weapons.dmi'
@@ -73,7 +73,7 @@
 	can_embed = 0
 	w_class = 3
 
-/obj/item/weapon/material/knife/tacknife
+/obj/item/material/knife/tacknife
 	name = "tactical knife"
 	desc = "You'd be killing loads of people if this was Medal of Valor: Heroes of Tau Ceti."
 	icon = 'icons/obj/weapons.dmi'
@@ -83,7 +83,7 @@
 	applies_material_colour = 1
 	force_divisor = 0.3 // 18 with hardness 60 (steel)
 
-/obj/item/weapon/material/knife/trench
+/obj/item/material/knife/trench
 	name = "trench knife"
 	desc = "A military knife used to slash and stab enemies in close quarters."
 	force_divisor = 0.4
@@ -96,7 +96,7 @@
 
 //Butterfly knives stab your eyes out too!
 
-/obj/item/weapon/material/knife/butterfly
+/obj/item/material/knife/butterfly
 	name = "butterfly knife"
 	desc = "A basic metal blade concealed in a lightweight plasteel grip. Small enough when folded to fit in a pocket."
 	icon = 'icons/obj/weapons.dmi'
@@ -109,7 +109,7 @@
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 
-/obj/item/weapon/material/knife/butterfly/update_force()
+/obj/item/material/knife/butterfly/update_force()
 	if(active)
 		edge = 1
 		sharp = 1
@@ -130,14 +130,14 @@
 		w_class = initial(w_class)
 		attack_verb = initial(attack_verb)
 
-/obj/item/weapon/material/knife/butterfly/switchblade
+/obj/item/material/knife/butterfly/switchblade
 	name = "switchblade"
 	desc = "A classic switchblade with gold engraving. Just holding it makes you feel like a gangster."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "switchblade"
 	unbreakable = 1
 
-/obj/item/weapon/material/knife/butterfly/attack_self(mob/user)
+/obj/item/material/knife/butterfly/attack_self(mob/user)
 	active = !active
 	if(active)
 		to_chat(user, "<span class='notice'>You flip out \the [src].</span>")

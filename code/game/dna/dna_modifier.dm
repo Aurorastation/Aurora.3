@@ -50,15 +50,15 @@
 	interact_offline = 1
 	var/locked = 0
 	var/mob/living/carbon/occupant = null
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/opened = 0
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/clonescanner,
-		/obj/item/weapon/stock_parts/scanning_module,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/micro_laser,
-		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/circuitboard/clonescanner,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/micro_laser,
+		/obj/item/stock_parts/console_screen,
 		/obj/item/stack/cable_coil = 2
 	)
 
@@ -84,7 +84,7 @@
 /obj/machinery/dna_scannernew/proc/eject_occupant()
 	src.go_out()
 	for(var/obj/O in src)
-		if((!istype(O,/obj/item/weapon/reagent_containers)) && (!istype(O,/obj/item/weapon/circuitboard/clonescanner)) && (!istype(O,/obj/item/weapon/stock_parts)) && (!O.iscoil()))
+		if((!istype(O,/obj/item/reagent_containers)) && (!istype(O,/obj/item/circuitboard/clonescanner)) && (!istype(O,/obj/item/stock_parts)) && (!O.iscoil()))
 			O.forceMove(get_turf(src))//Ejects items that manage to get in there (exluding the components)
 	if(!occupant)
 		for(var/mob/M in src)//Failsafe so you can get mobs out
@@ -115,8 +115,8 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item as obj, var/mob/user as mob)
-	if(istype(item, /obj/item/weapon/reagent_containers/glass))
+/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
+	if(istype(item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
@@ -125,9 +125,9 @@
 		user.drop_from_inventory(item,src)
 		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
 		return
-	else if (!istype(item, /obj/item/weapon/grab))
+	else if (!istype(item, /obj/item/grab))
 		return
-	var/obj/item/weapon/grab/G = item
+	var/obj/item/grab/G = item
 	if (!ismob(G.affecting))
 		return
 	if (src.occupant)
@@ -209,7 +209,7 @@
 	desc = "Scand DNA."
 	icon_screen = "dna"
 	density = 1
-	circuit = /obj/item/weapon/circuitboard/scan_consolenew
+	circuit = /obj/item/circuitboard/scan_consolenew
 	var/selected_ui_block = 1.0
 	var/selected_ui_subblock = 1.0
 	var/selected_se_block = 1.0
@@ -222,7 +222,7 @@
 	var/irradiating = 0
 	var/injector_ready = 0	//Quick fix for issue 286 (screwdriver the screen twice to restore injector)	-Pete
 	var/obj/machinery/dna_scannernew/connected = null
-	var/obj/item/weapon/disk/data/disk = null
+	var/obj/item/disk/data/disk = null
 	var/selected_menu_key = null
 	anchored = 1
 	use_power = 1
@@ -231,7 +231,7 @@
 	var/waiting_for_user_input=0 // Fix for #274 (Mash create block injector without answering dialog to make unlimited injectors) - N3X
 
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
-	if (istype(I, /obj/item/weapon/disk/data)) //INSERT SOME diskS
+	if (istype(I, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
 			user.drop_from_inventory(I,src)
 			src.disk = I
@@ -277,7 +277,7 @@
 		arr += "[i]:[EncodeDNABlock(buffer[i])]"
 	return arr
 
-/obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/weapon/dnainjector/I, var/blk, var/datum/dna2/record/buffer)
+/obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/dnainjector/I, var/blk, var/datum/dna2/record/buffer)
 	var/pos = findtext(blk,":")
 	if(!pos) return 0
 	var/id = text2num(copytext(blk,1,pos))
@@ -629,7 +629,7 @@
 
 	if(href_list["ejectBeaker"])
 		if(connected.beaker)
-			var/obj/item/weapon/reagent_containers/glass/B = connected.beaker
+			var/obj/item/reagent_containers/glass/B = connected.beaker
 			B.forceMove(connected.loc)
 			connected.beaker = null
 		return 1
@@ -744,7 +744,7 @@
 			if (src.injector_ready || waiting_for_user_input)
 
 				var/success = 1
-				var/obj/item/weapon/dnainjector/I = new /obj/item/weapon/dnainjector
+				var/obj/item/dnainjector/I = new /obj/item/dnainjector
 				var/datum/dna2/record/buf = src.buffers[bufferId]
 				if(href_list["createBlockInjector"])
 					waiting_for_user_input=1

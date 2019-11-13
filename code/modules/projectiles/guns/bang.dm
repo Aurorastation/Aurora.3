@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/bang
+/obj/item/gun/bang
 	name = "some shitty-ass gun"
 	desc = "This is a gun. Neat!"
 	icon_state = "revolver"
@@ -11,17 +11,17 @@
 	var/pixel_offset_y = 13
 
 
-/obj/item/weapon/gun/bang/Initialize()
+/obj/item/gun/bang/Initialize()
 	. = ..()
 	bang_flag = image('icons/obj/bang_flag.dmi', "bang_flag")
 	bang_flag.pixel_x = pixel_offset_x
 	bang_flag.pixel_y = pixel_offset_y
 
-/obj/item/weapon/gun/bang/handle_click_empty(mob/user)
+/obj/item/gun/bang/handle_click_empty(mob/user)
 	if (user)
 		to_chat(user, "<span class='danger'>The flag is already out!</span>")
 
-/obj/item/weapon/gun/bang/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/bang/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return
 
 	if(fired_gun)
@@ -38,7 +38,7 @@
 	src.add_overlay(bang_flag)
 	fired_gun = 1
 
-/obj/item/weapon/gun/bang/attack_hand(mob/user as mob)
+/obj/item/gun/bang/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src && fired_gun)
 		src.cut_overlay(bang_flag)
 		user.visible_message("<span class='notice'>\The [user] pushes the flag back into the barrel of \the [src.name].</span>", "<span class='notice'>You push the flag back into the barrel of \the [src.name].</span>")

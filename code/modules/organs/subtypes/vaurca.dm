@@ -161,7 +161,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "cold"
 		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
-/obj/item/organ/vaurca/preserve/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/organ/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	var/obj/icon = src
 
@@ -218,7 +218,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		else if(src in location)		// or if tank is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
-		else if(istype(src.loc, /obj/item/weapon/rig) && src.loc in location)	// or the rig is in the mobs possession
+		else if(istype(src.loc, /obj/item/rig) && src.loc in location)	// or the rig is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
 

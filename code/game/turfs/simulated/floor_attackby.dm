@@ -30,7 +30,7 @@
 			make_plating(1)
 			playsound(src, C.usesound, 80, 1)
 			return
-		else if(istype(C, /obj/item/weapon/shovel) && (flooring.flags & TURF_REMOVE_SHOVEL))
+		else if(istype(C, /obj/item/shovel) && (flooring.flags & TURF_REMOVE_SHOVEL))
 			to_chat(user, "<span class='notice'>You shovel off the [flooring.descriptor].</span>")
 			make_plating(1)
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
@@ -77,7 +77,7 @@
 				return
 		// Repairs.
 		else if(C.iswelder())
-			var/obj/item/weapon/weldingtool/welder = C
+			var/obj/item/weldingtool/welder = C
 			if(welder.isOn() && (is_plating()))
 				if(broken || burnt)
 					if(welder.remove_fuel(0,user))

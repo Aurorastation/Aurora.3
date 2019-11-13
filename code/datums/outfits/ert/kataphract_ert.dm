@@ -4,14 +4,14 @@
 	uniform = /obj/item/clothing/under/unathi
 	head = /obj/item/clothing/head/helmet/space/void/kataphract
 	suit = /obj/item/clothing/suit/space/void/kataphract
-	suit_store = /obj/item/weapon/tank/oxygen/yellow
-	belt = /obj/item/weapon/melee/energy/sword/pirate/generic
+	suit_store = /obj/item/tank/oxygen/yellow
+	belt = /obj/item/melee/energy/sword/pirate/generic
 	shoes = /obj/item/clothing/shoes/caligae/grey
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/weapon/gun/energy/pistol = 1)
+	accessory_contents = list(/obj/item/gun/energy/pistol = 1)
 	gloves = /obj/item/clothing/gloves/black/unathi
-	id = /obj/item/weapon/card/id/distress/kataphract
-	back = /obj/item/weapon/storage/backpack/cultpack/adorned
+	id = /obj/item/card/id/distress/kataphract
+	back = /obj/item/storage/backpack/cultpack/adorned
 
 	l_ear = /obj/item/device/radio/headset/distress
 
@@ -20,10 +20,10 @@
 	belt_contents = null
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs/ziptie = 2,
-		/obj/item/weapon/shield/riot/tact = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/storage/box/donkpockets = 1
+		/obj/item/handcuffs/ziptie = 2,
+		/obj/item/shield/riot/tact = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/storage/box/donkpockets = 1
 	)
 
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -41,22 +41,22 @@
 /datum/outfit/admin/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Spec."
 
-	belt = /obj/item/weapon/storage/belt/medical
-	l_hand = /obj/item/weapon/melee/hammer/powered
+	belt = /obj/item/storage/belt/medical
+	l_hand = /obj/item/melee/hammer/powered
 
 	belt_contents = list(
-		/obj/item/weapon/reagent_containers/hypospray = 1,
+		/obj/item/reagent_containers/hypospray = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/weapon/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
 	)
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs/ziptie = 2,
-		/obj/item/weapon/shield/riot/tact = 1,
-		/obj/item/weapon/storage/box/donkpockets = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/storage/firstaid/adv = 1
+		/obj/item/handcuffs/ziptie = 2,
+		/obj/item/shield/riot/tact = 1,
+		/obj/item/storage/box/donkpockets = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/storage/firstaid/adv = 1
 	)
 
 /datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

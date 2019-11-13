@@ -34,7 +34,7 @@ var/global/list/random_junk
 		return /obj/effect/decal/cleanable/generic
 	if(!random_junk)
 		random_junk = subtypesof(/obj/item/trash)
-		random_junk += typesof(/obj/item/weapon/cigbutt)
+		random_junk += typesof(/obj/item/cigbutt)
 		random_junk += /obj/effect/decal/cleanable/spiderling_remains
 		random_junk += /obj/effect/decal/remains/rat
 		random_junk += /obj/effect/decal/remains/robot

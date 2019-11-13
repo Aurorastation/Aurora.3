@@ -65,7 +65,7 @@
 
 /obj/item/modular_computer/Destroy()
 	kill_program(1)
-	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
+	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)

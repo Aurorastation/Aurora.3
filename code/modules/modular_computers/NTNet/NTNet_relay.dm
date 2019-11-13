@@ -21,7 +21,7 @@
 
 	component_types = list(
 		/obj/item/stack/cable_coil{amount = 15},
-		/obj/item/weapon/circuitboard/ntnet_relay
+		/obj/item/circuitboard/ntnet_relay
 	)
 
 // TODO: Implement more logic here. For now it's only a placeholder.
@@ -127,7 +127,7 @@
 		D.error = "Connection to quantum relay severed"
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/ntnet_relay/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(W.isscrewdriver())
 		playsound(src.loc, W.usesound, 50, 1)
 		panel_open = !panel_open

@@ -8,7 +8,7 @@
 	w_class = 3
 	slot_flags = SLOT_BACK
 
-	var/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/noz
+	var/obj/item/reagent_containers/spray/chemsprayer/mister/noz
 	var/on = FALSE
 	var/volume = 500
 
@@ -58,7 +58,7 @@
 	return
 
 /obj/item/watertank/proc/make_noz()
-	return new /obj/item/weapon/reagent_containers/spray/chemsprayer/mister()
+	return new /obj/item/reagent_containers/spray/chemsprayer/mister()
 
 /obj/item/watertank/equipped(mob/user, slot)
 	..()
@@ -88,7 +88,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister
+/obj/item/reagent_containers/spray/chemsprayer/mister
 	name = "water mister"
 	desc = "A mister nozzle attached to a water tank."
 	icon = 'icons/obj/hydro_equipment.dmi'
@@ -102,21 +102,21 @@
 
 	var/obj/item/watertank/tank
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/dropped(mob/user)
+/obj/item/reagent_containers/spray/chemsprayer/mister/dropped(mob/user)
 	..()
 	to_chat(user, "<span class='notice'>The mister snaps back onto the watertank.</span>")
 	tank.on = 0
 	forceMove(tank)
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/attack_self()
+/obj/item/reagent_containers/spray/chemsprayer/mister/attack_self()
 	return
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/Move()
+/obj/item/reagent_containers/spray/chemsprayer/mister/Move()
 	..()
 	if(loc != tank.loc)
 		forceMove(tank.loc)
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/afterattack(obj/target, mob/user, proximity)
+/obj/item/reagent_containers/spray/chemsprayer/mister/afterattack(obj/target, mob/user, proximity)
 	if(target.loc == loc) //Safety check so you don't fill your mister with mutagen or something and then blast yourself in the face with it
 		return
 	..()
@@ -132,7 +132,7 @@
 	. = ..()
 	reagents.add_reagent("cleaner", 500)
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor
+/obj/item/reagent_containers/spray/chemsprayer/mister/janitor
 	name = "janitor spray nozzle"
 	desc = "A janitorial spray nozzle attached to a watertank, designed to clean up large messes."
 	icon_state = "misterjani"
@@ -141,8 +141,8 @@
 	possible_transfer_amounts = list()
 
 /obj/item/watertank/janitor/make_noz()
-	return new /obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor(src)
+	return new /obj/item/reagent_containers/spray/chemsprayer/mister/janitor(src)
 
-/obj/item/weapon/reagent_containers/spray/chemsprayer/mister/janitor/attack_self(var/mob/user)
+/obj/item/reagent_containers/spray/chemsprayer/mister/janitor/attack_self(var/mob/user)
 	amount_per_transfer_from_this = (amount_per_transfer_from_this == 10 ? 5 : 10)
 	to_chat(user, "<span class='notice'>You [amount_per_transfer_from_this == 10 ? "remove" : "fix"] the nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>")

@@ -2,20 +2,20 @@
 #define CAN_MAKE_CONTRACTS	4
 
 var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
-								/obj/item/weapon/gun/energy/staff/focus = 	"MF",
-								/obj/item/weapon/monster_manual = 			"MA",
-								/obj/item/weapon/contract/apprentice = 		"CP",
+								/obj/item/gun/energy/staff/focus = 	"MF",
+								/obj/item/monster_manual = 			"MA",
+								/obj/item/contract/apprentice = 		"CP",
 								/obj/structure/closet/wizard/souls = 		"SS",
-								/obj/item/weapon/contract/wizard/tk = 		"TK",
+								/obj/item/contract/wizard/tk = 		"TK",
 								/obj/structure/closet/wizard/scrying = 		"SO",
-								/obj/item/weapon/teleportation_scroll = 	"TS",
-								/obj/item/weapon/gun/energy/staff = 		"ST",
-								/obj/item/weapon/gun/energy/staff/animate =	"SA",
-								/obj/item/weapon/melee/energy/wizard =		"WS",
-								/obj/item/weapon/gun/energy/staff/chaos =	"SC",
-								/obj/item/weapon/storage/belt/wands/full =	"WB")
+								/obj/item/teleportation_scroll = 	"TS",
+								/obj/item/gun/energy/staff = 		"ST",
+								/obj/item/gun/energy/staff/animate =	"SA",
+								/obj/item/melee/energy/wizard =		"WS",
+								/obj/item/gun/energy/staff/chaos =	"SC",
+								/obj/item/storage/belt/wands/full =	"WB")
 
-/obj/item/weapon/spellbook
+/obj/item/spellbook
 	name = "master spell book"
 	desc = "The legendary book of spells of the wizard."
 	icon = 'icons/obj/wizard.dmi'
@@ -28,11 +28,11 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	var/datum/spellbook/spellbook
 	var/spellbook_type = /datum/spellbook/ //for spawning specific spellbooks.
 
-/obj/item/weapon/spellbook/New()
+/obj/item/spellbook/New()
 	..()
 	set_spellbook(spellbook_type)
 
-/obj/item/weapon/spellbook/proc/set_spellbook(var/type)
+/obj/item/spellbook/proc/set_spellbook(var/type)
 	if(spellbook)
 		qdel(spellbook)
 	spellbook = new type()
@@ -40,7 +40,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	name = spellbook.name
 	desc = spellbook.desc
 
-/obj/item/weapon/spellbook/attack_self(mob/user as mob)
+/obj/item/spellbook/attack_self(mob/user as mob)
 	if(!user)
 		return
 	if(!(user.faction == "Space Wizard"))
@@ -66,7 +66,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	else
 		interact(user)
 
-/obj/item/weapon/spellbook/interact(mob/user as mob)
+/obj/item/spellbook/interact(mob/user as mob)
 	var/dat = null
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"
@@ -113,7 +113,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
 	user << browse(dat,"window=spellbook")
 
-/obj/item/weapon/spellbook/Topic(href,href_list)
+/obj/item/spellbook/Topic(href,href_list)
 	..()
 
 	var/mob/living/carbon/human/H = usr
@@ -155,7 +155,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 				if(!(spellbook.book_flags & CAN_MAKE_CONTRACTS))
 					return //no
 				spellbook.max_uses -= spellbook.spells[path] //no basksies
-				var/obj/O = new /obj/item/weapon/contract/boon(get_turf(usr),path)
+				var/obj/O = new /obj/item/contract/boon(get_turf(usr),path)
 				temp = "You have purchased \the [O]."
 			else
 				if(ispath(path,/spell))
@@ -179,7 +179,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	src.interact(usr)
 
 
-/obj/item/weapon/spellbook/proc/send_feedback(var/path)
+/obj/item/spellbook/proc/send_feedback(var/path)
 	if(ispath(path,/datum/spellbook))
 		var/datum/spellbook/S = path
 		feedback_add_details("wizard_spell_learned","[initial(S.feedback)]")
@@ -190,7 +190,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 		feedback_add_details("wizard_spell_learned","[artefact_feedback[path]]")
 
 
-/obj/item/weapon/spellbook/proc/add_spell(var/mob/user, var/spell_path)
+/obj/item/spellbook/proc/add_spell(var/mob/user, var/spell_path)
 	for(var/spell/S in user.spell_list)
 		if(istype(S,spell_path))
 			if(!S.can_improve())

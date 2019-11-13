@@ -8,7 +8,7 @@
 	use_power = 1
 	idle_power_usage = 40
 	var/processing = 0
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/points = 0
 	var/menustat = "menu"
 	var/build_eff = 1
@@ -16,16 +16,16 @@
 	var/capacity = 50
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/biogenerator,
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/manipulator
+		/obj/item/circuitboard/biogenerator,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/manipulator
 	)
 
 	var/list/biorecipies = list(
 		"biogenerated" = list(
 			name = "Bio Meat",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/food/snacks/meat/biogenerated,
+			object = /obj/item/reagent_containers/food/snacks/meat/biogenerated,
 			cost = 50,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -33,7 +33,7 @@
 		"soylenviridians" = list(
 			name = "Soylent Viridians",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/food/snacks/soylenviridians,
+			object = /obj/item/reagent_containers/food/snacks/soylenviridians,
 			cost = 150,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -41,7 +41,7 @@
 		"bio_vitamin" = list(
 			name = "Flavored Vitamin",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/pill/bio_vitamin,
+			object = /obj/item/reagent_containers/pill/bio_vitamin,
 			cost = 50,
 			amount = list(1,5,10,25,50),
 			emag = 0
@@ -49,7 +49,7 @@
 		"liquidfood" = list(
 			name = "Food Ration",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/food/snacks/liquidfood,
+			object = /obj/item/reagent_containers/food/snacks/liquidfood,
 			cost = 30,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -57,7 +57,7 @@
 		"milk" = list(
 			name = "Space Milk (50u)",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/food/drinks/milk,
+			object = /obj/item/reagent_containers/food/drinks/milk,
 			cost = 100,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -65,7 +65,7 @@
 		"nutri-spread" = list(
 			name = "Nutri-spread",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/food/snacks/spreads,
+			object = /obj/item/reagent_containers/food/snacks/spreads,
 			cost = 80,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -73,7 +73,7 @@
 		"enzyme" = list(
 			name = "Universal Enzyme (50u)",
 			class = "Food",
-			object = /obj/item/weapon/reagent_containers/food/condiment/enzyme,
+			object = /obj/item/reagent_containers/food/condiment/enzyme,
 			cost = 200,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -81,7 +81,7 @@
 		"ez" = list(
 			name = "E-Z-Nutrient (60u)",
 			class = "Fertilizer",
-			object = /obj/item/weapon/reagent_containers/glass/fertilizer/ez,
+			object = /obj/item/reagent_containers/glass/fertilizer/ez,
 			cost = 60,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -89,7 +89,7 @@
 		"l4z" = list(
 			name = "Left 4 Zed (60u)",
 			class = "Fertilizer",
-			object = /obj/item/weapon/reagent_containers/glass/fertilizer/l4z,
+			object = /obj/item/reagent_containers/glass/fertilizer/l4z,
 			cost = 120,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -97,7 +97,7 @@
 		"rh" = list(
 			name = "Robust Harvest (60u)",
 			class = "Fertilizer",
-			object = /obj/item/weapon/reagent_containers/glass/fertilizer/rh,
+			object = /obj/item/reagent_containers/glass/fertilizer/rh,
 			cost = 180,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -105,7 +105,7 @@
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
-			object = /obj/item/weapon/storage/fancy/cigarettes/blank,
+			object = /obj/item/storage/fancy/cigarettes/blank,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -113,7 +113,7 @@
 		"tape_roll" = list(
 			name = "Tape Roll",
 			class = "Items",
-			object = /obj/item/weapon/tape_roll,
+			object = /obj/item/tape_roll,
 			cost = 250,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -129,7 +129,7 @@
 		"utility" = list(
 			name = "Utility Belt",
 			class = "Items",
-			object = /obj/item/weapon/storage/belt/utility,
+			object = /obj/item/storage/belt/utility,
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -137,7 +137,7 @@
 		"hydrobelt" = list(
 			name = "Hydroponic Belt",
 			class = "Items",
-			object = /obj/item/weapon/storage/belt/hydro,
+			object = /obj/item/storage/belt/hydro,
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -145,7 +145,7 @@
 		"wallet" = list(
 			name = "Leather Wallet",
 			class = "Items",
-			object = /obj/item/weapon/storage/wallet,
+			object = /obj/item/storage/wallet,
 			cost = 100,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -153,7 +153,7 @@
 		"satchel" = list(
 			name = "Leather Satchel",
 			class = "Items",
-			object = /obj/item/weapon/storage/backpack/satchel,
+			object = /obj/item/storage/backpack/satchel,
 			cost = 400,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -161,7 +161,7 @@
 		"cash" = list(
 			name = "Cash Bag",
 			class = "Items",
-			object = /obj/item/weapon/storage/bag/cash,
+			object = /obj/item/storage/bag/cash,
 			cost = 400,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -169,7 +169,7 @@
 		"soap" = list(
 			name = "Soap",
 			class = "Items",
-			object = /obj/item/weapon/soap/plant,
+			object = /obj/item/soap/plant,
 			cost = 200,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -177,7 +177,7 @@
 		"towel" = list(
 			name = "Towel",
 			class = "Items",
-			object = /obj/item/weapon/towel/random,
+			object = /obj/item/towel/random,
 			cost = 300,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -185,7 +185,7 @@
 		"crayon_box" = list(
 			name = "Crayon Box",
 			class = "Items",
-			object = /obj/item/weapon/storage/fancy/crayons,
+			object = /obj/item/storage/fancy/crayons,
 			cost = 600,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -241,7 +241,7 @@
 		"monkey" = list(
 			name = "Monkey Cube",
 			class = "Special",
-			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped,
+			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -249,7 +249,7 @@
 		"stok" = list(
 			name = "Stok Cube",
 			class = "Special",
-			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/stokcube,
+			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -257,7 +257,7 @@
 		"farwa" = list(
 			name = "Farwa Cube",
 			class = "Special",
-			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
+			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -265,7 +265,7 @@
 		"neaera" = list(
 			name = "Neaera Cube",
 			class = "Special",
-			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
+			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -273,7 +273,7 @@
 		"cazador" = list(
 			name = "V'krexi Cube",
 			class = "Special",
-			object = /obj/item/weapon/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube,
+			object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -306,7 +306,7 @@
 		"soylentgreen" = list(
 			name = "Soylent Green",
 			class = "!@#$%^&*()",
-			object = /obj/item/weapon/reagent_containers/food/snacks/soylentgreen,
+			object = /obj/item/reagent_containers/food/snacks/soylentgreen,
 			cost = 150,
 			amount = list(1,2,3,4,5),
 			emag = 1
@@ -314,7 +314,7 @@
 		"syndie" = list(
 			name = "Red Soap",
 			class = "!@#$%^&*()",
-			object = /obj/item/weapon/soap/syndie,
+			object = /obj/item/soap/syndie,
 			cost = 200,
 			amount = list(1,2,3,4,5),
 			emag = 1
@@ -322,7 +322,7 @@
 		"buckler" = list(
 			name = "Buckler",
 			class = "!@#$%^&*()",
-			object = /obj/item/weapon/shield/buckler,
+			object = /obj/item/shield/buckler,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 1
@@ -349,7 +349,7 @@
 	var/datum/reagents/R = new/datum/reagents(1000)
 	reagents = R
 	R.my_atom = src
-	beaker = new /obj/item/weapon/reagent_containers/glass/bottle(src)
+	beaker = new /obj/item/reagent_containers/glass/bottle(src)
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -370,7 +370,7 @@
 		return
 	if(default_part_replacement(user, O))
 		return
-	if(istype(O, /obj/item/weapon/reagent_containers/glass))
+	if(istype(O, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='notice'>]The [src] is already loaded.</span>")
 		else
@@ -380,15 +380,15 @@
 			updateUsrDialog()
 	else if(processing)
 		to_chat(user, "<span class='notice'>\The [src] is currently processing.</span>")
-	else if(istype(O, /obj/item/weapon/storage/bag/plants))
+	else if(istype(O, /obj/item/storage/bag/plants))
 		var/i = 0
-		var/obj/item/weapon/storage/bag/P = O
-		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
+		var/obj/item/storage/bag/P = O
+		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, "<span class='notice'>\The [src] is already full! Activate it.</span>")
 		else
-			for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in P.contents)
+			for(var/obj/item/reagent_containers/food/snacks/grown/G in P.contents)
 				P.remove_from_storage(G,src)
 				i++
 				if(i >= capacity)
@@ -401,11 +401,11 @@
 				to_chat(user, "<span class='notice'>You empty \the [O] into \the [src].</span>")
 
 
-	else if(!istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown))
+	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
 		to_chat(user, "<span class='notice'>You cannot put this in \the [src].</span>")
 	else
 		var/i = 0
-		for(var/obj/item/weapon/reagent_containers/food/snacks/grown/G in contents)
+		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, "<span class='notice'>\The [src] is full! Activate it.</span>")
@@ -493,7 +493,7 @@
 		to_chat(usr, "<span class='notice'>The biogenerator is in the process of working.</span>")
 		return
 	var/S = 0
-	for(var/obj/item/weapon/reagent_containers/food/snacks/grown/I in contents)
+	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
 		S += 5
 		if(I.reagents.get_reagent_amount("nutriment") < 0.1)
 			points += 1
@@ -577,7 +577,7 @@
 	var/man_rating = 1
 	var/bin_rating = 1
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismatterbin(P))
 			bin_rating += P.rating
 		else if(ismanipulator(P))

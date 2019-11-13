@@ -74,7 +74,7 @@
 		new /obj/item/device/electronic_assembly/wallmount/light,
 		new /obj/item/device/electronic_assembly/wallmount,
 		new /obj/item/device/electronic_assembly/wallmount/heavy,
-		new /obj/item/weapon/implant/integrated_circuit,
+		new /obj/item/implant/integrated_circuit,
 		new /obj/item/clothing/under/circuitry,
 		new /obj/item/clothing/gloves/circuitry,
 		new /obj/item/clothing/glasses/circuitry,

@@ -49,7 +49,7 @@
 		VUEUI_SET_CHECK(data["battery"]["percent"], round(computer.battery_module.battery.percent()), ., data)
 
 	LAZYINITLIST(data["hardware"])
-	for(var/obj/item/weapon/computer_hardware/H in hardware)
+	for(var/obj/item/computer_hardware/H in hardware)
 		LAZYINITLIST(data["hardware"][H.name])
 		for(var/v in list("name", "desc", "enabled", "critical", "power_usage"))
 			VUEUI_SET_CHECK(data["hardware"][H.name][v], H.vars[v], ., data)

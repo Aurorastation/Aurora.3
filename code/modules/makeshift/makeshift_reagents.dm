@@ -12,7 +12,7 @@
 	var/transfer_out = 0
 	var/phase_filter
 
-	var/list/forbidden = list(/obj/item/weapon/reagent_containers/inhaler, /obj/item/weapon/reagent_containers/hypospray, /obj/item/weapon/reagent_containers/glass, /obj/item/weapon/extinguisher)
+	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
 		/obj/item/stack/material/iron = list("iron"),
@@ -61,9 +61,9 @@
 	transfer_out = !transfer_out
 	to_chat(user, span("notice", "You are now [transfer_out ? "removing from" : "adding to"] \the [src]."))
 
-/obj/structure/chemkit/proc/heat_item(obj/item/weapon/W, mob/user)
+/obj/structure/chemkit/proc/heat_item(obj/item/W, mob/user)
 	var/joules = 0
-	if(istype(W, /obj/item/weapon/flame))
+	if(istype(W, /obj/item/flame))
 		joules = 1000 // 1 kJ per match, and we're assuming lighters give as much per use
 	else if(W.iswelder())
 		joules = 10000 // we'll just have it be ten times stronger
@@ -125,17 +125,17 @@
 
 /obj/structure/chemkit/proc/dismantle()
 	new /obj/structure/table(loc)
-	new /obj/item/weapon/reagent_containers/glass/beaker/bowl(loc)
+	new /obj/item/reagent_containers/glass/beaker/bowl(loc)
 	if(analyzer)
 		analyzer.forceMove(loc)
 		analyzer = null
 	qdel(src)
 
-/obj/structure/chemkit/attackby(obj/item/weapon/W, mob/user)
+/obj/structure/chemkit/attackby(obj/item/W, mob/user)
 	if(W.iscrowbar())
 		dismantle()
 		return
-	if(!istype(W, /obj/item/weapon/reagent_containers/food/snacks) && W.is_open_container())
+	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
 		trans_item(W, user)
 		return
 	if(isflamesource(W))
@@ -182,7 +182,7 @@
 	// we don't have it as an opencontainer because it's handled directly
 
 	var/transfer_out = FALSE
-	var/obj/item/weapon/weldingtool/welder
+	var/obj/item/weldingtool/welder
 
 /obj/structure/distillery/proc/dismantle()
 	var/obj/structure/reagent_dispensers/keg/keg = new (loc)
@@ -194,7 +194,7 @@
 		welder = null
 	qdel(src)
 
-/obj/structure/distillery/proc/trans_item(obj/item/weapon/W, mob/user)
+/obj/structure/distillery/proc/trans_item(obj/item/W, mob/user)
 	if(transfer_out)
 		if(!reagents.total_volume)
 			to_chat(user, span("notice", "\The [src] is empty."))
@@ -226,17 +226,17 @@
 		reagents.remove_reagent(AR.id, AR.volume)
 	src.icon_state = "distillery-off"
 
-/obj/structure/distillery/attackby(obj/item/weapon/W, mob/user)
+/obj/structure/distillery/attackby(obj/item/W, mob/user)
 	if(W.iscrowbar())
 		dismantle()
 		return
-	if(!welder && istype(W, /obj/item/weapon/weldingtool))
+	if(!welder && istype(W, /obj/item/weldingtool))
 		user.drop_from_inventory(W)
 		src.welder = W
 		W.forceMove(src)
 		icon_state = "distillery-off"
 		return
-	if(!istype(W, /obj/item/weapon/reagent_containers/food/snacks) && W.is_open_container())
+	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
 		trans_item(W, user)
 		return
 	if(W.isscrewdriver())

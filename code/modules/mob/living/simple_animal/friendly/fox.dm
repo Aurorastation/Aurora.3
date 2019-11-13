@@ -13,14 +13,14 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 3
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
 	mob_size = 4
 	max_nutrition = 90
-	holder_type = /obj/item/weapon/holder/fox
+	holder_type = /obj/item/holder/fox
 	emote_sounds = list()
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 

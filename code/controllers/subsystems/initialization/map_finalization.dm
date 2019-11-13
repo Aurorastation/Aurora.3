@@ -154,7 +154,7 @@
 	var/report_text = selected_ruin.get_contact_report()
 	for(var/obj/effect/landmark/C in landmarks_list)
 		if(C.name == "Space Ruin Paper")
-			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(C))
+			var/obj/item/paper/P = new /obj/item/paper(get_turf(C))
 			P.name = "Icarus reading report"
 			P.info = report_text
 			P.update_icon()

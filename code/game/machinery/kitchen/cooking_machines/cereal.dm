@@ -9,22 +9,22 @@
 	appliancetype = CEREALMAKER
 
 	output_options = list(
-		"Cereal" = /obj/item/weapon/reagent_containers/food/snacks/variable/cereal
+		"Cereal" = /obj/item/reagent_containers/food/snacks/variable/cereal
 	)
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/cerealmaker,
-			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/matter_bin = 2
+			/obj/item/circuitboard/cerealmaker,
+			/obj/item/stock_parts/capacitor = 3,
+			/obj/item/stock_parts/scanning_module,
+			/obj/item/stock_parts/matter_bin = 2
 		)
 
 /*
-/obj/machinery/appliance/cereal/change_product_strings(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
+/obj/machinery/appliance/cereal/change_product_strings(var/obj/item/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	. = ..()
 	product.name = "box of [CI.object.name] cereal"
 
-/obj/machinery/appliance/cereal/change_product_appearance(var/obj/item/weapon/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
+/obj/machinery/appliance/cereal/change_product_appearance(var/obj/item/reagent_containers/food/snacks/product, var/datum/cooking_item/CI)
 	product.icon = 'icons/obj/food.dmi'
 	product.icon_state = "cereal_box"
 	product.filling_color = CI.object.color
@@ -42,7 +42,7 @@
 	var/list/images = list()
 	var/num = 0
 	for (var/obj/item/I in CI.container).
-		if (istype(I, /obj/item/weapon/reagent_containers/food/snacks/variable/cereal))
+		if (istype(I, /obj/item/reagent_containers/food/snacks/variable/cereal))
 			//Images of cereal boxes on cereal boxes is dumb
 			continue
 
@@ -62,7 +62,7 @@
 			continue
 
 
-	var/obj/item/weapon/reagent_containers/food/snacks/result = ..()
+	var/obj/item/reagent_containers/food/snacks/result = ..()
 
 	result.color = result.filling_color
 	for (var/i in images)

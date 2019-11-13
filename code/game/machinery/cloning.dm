@@ -44,10 +44,10 @@
 	var/biomass = CLONE_BIOMASS * 3
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/clonepod,
-		/obj/item/weapon/stock_parts/manipulator = 2,
-		/obj/item/weapon/stock_parts/scanning_module = 2,
-		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/circuitboard/clonepod,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/console_screen,
 		/obj/item/stack/cable_coil{amount = 2}
 	)
 
@@ -212,7 +212,7 @@
 	return
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
 	if(isnull(occupant))
 		if(default_deconstruction_screwdriver(user, W))
 			return
@@ -220,7 +220,7 @@
 			return
 		if(default_part_replacement(user, W))
 			return
-	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 		if(!check_access(W))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
@@ -232,7 +232,7 @@
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
-	else if(istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
+	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
 		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
 		biomass += 50
 		user.drop_from_inventory(W,src)
@@ -279,7 +279,7 @@
 	..()
 	var/rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P) || ismanipulator(P))
 			rating += P.rating
 
@@ -378,11 +378,11 @@
 
 //Health Tracker Implant
 
-/obj/item/weapon/implant/health
+/obj/item/implant/health
 	name = "health implant"
 	var/healthstring = ""
 
-/obj/item/weapon/implant/health/proc/sensehealth()
+/obj/item/implant/health/proc/sensehealth()
 	if(!implanted)
 		return "ERROR"
 	else
@@ -396,7 +396,7 @@
 //Disk stuff.
 //The return of data disks?? Just for transferring between genetics machine/cloning machine.
 //TO-DO: Make the genetics machine accept them.
-/obj/item/weapon/disk/data
+/obj/item/disk/data
 	name = "Cloning Data Disk"
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
@@ -405,15 +405,15 @@
 	var/datum/dna2/record/buf = null
 	var/read_only = 0 //Well,it's still a floppy disk
 
-/obj/item/weapon/disk/data/proc/initializeDisk()
+/obj/item/disk/data/proc/initializeDisk()
 	buf = new
 	buf.dna=new
 
-/obj/item/weapon/disk/data/demo
+/obj/item/disk/data/demo
 	name = "data disk - 'God Emperor of Mankind'"
 	read_only = 1
 
-/obj/item/weapon/disk/data/demo/New()
+/obj/item/disk/data/demo/New()
 	..()
 	initializeDisk()
 	buf.types=DNA2_BUF_UE|DNA2_BUF_UI
@@ -425,11 +425,11 @@
 	//buf.dna.UI=list(0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x0C8,0x000,0x000,0x000,0x000,0x161,0xFBD,0xDEF) // Farmer Jeff
 	buf.dna.UpdateUI()
 
-/obj/item/weapon/disk/data/monkey
+/obj/item/disk/data/monkey
 	name = "data disk - 'Mr. Muggles'"
 	read_only = 1
 
-/obj/item/weapon/disk/data/monkey/New()
+/obj/item/disk/data/monkey/New()
 	..()
 	initializeDisk()
 	buf.types=DNA2_BUF_SE
@@ -439,16 +439,16 @@
 	buf.dna.SE=new_SE
 	buf.dna.SetSEValueRange(MONKEYBLOCK,0xDAC, 0xFFF)
 
-/obj/item/weapon/disk/data/New()
+/obj/item/disk/data/New()
 	..()
 	var/diskcolor = pick(0,1,2)
 	icon_state = "datadisk[diskcolor]"
 
-/obj/item/weapon/disk/data/attack_self(mob/user as mob)
+/obj/item/disk/data/attack_self(mob/user as mob)
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
-/obj/item/weapon/disk/data/examine(mob/user)
+/obj/item/disk/data/examine(mob/user)
 	..(user)
 	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
 	return
@@ -457,24 +457,24 @@
  *	Diskette Box
  */
 
-/obj/item/weapon/storage/box/disks
+/obj/item/storage/box/disks
 	name = "Diskette Box"
 	icon_state = "disk_kit"
 
-/obj/item/weapon/storage/box/disks/fill()
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
-	new /obj/item/weapon/disk/data(src)
+/obj/item/storage/box/disks/fill()
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
+	new /obj/item/disk/data(src)
 
 /*
  *	Manual -- A big ol' manual.
  */
 
-/obj/item/weapon/paper/Cloning
+/obj/item/paper/Cloning
 	name = "H-87 Cloning Apparatus Manual"
 	info = {"<h4>Getting Started</h4>
 	Congratulations, your station has purchased the H-87 industrial cloning device!<br>

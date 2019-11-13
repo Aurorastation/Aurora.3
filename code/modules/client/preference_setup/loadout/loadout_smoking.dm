@@ -8,24 +8,24 @@
 
 /datum/gear/matchbook
 	display_name = "matchbook"
-	path = /obj/item/weapon/storage/box/matches
+	path = /obj/item/storage/box/matches
 
 /datum/gear/zippo
 	display_name = "zippo"
-	path = /obj/item/weapon/flame/lighter/zippo
+	path = /obj/item/flame/lighter/zippo
 
 /datum/gear/lighter
 	display_name = "cheap lighter"
-	path = /obj/item/weapon/flame/lighter
+	path = /obj/item/flame/lighter
 
 /datum/gear/cigarcase
 	display_name = "cigar case"
-	path = /obj/item/weapon/storage/fancy/cigar
+	path = /obj/item/storage/fancy/cigar
 
 /datum/gear/cigarette
 	display_name = "cigarette packet"
-	path = /obj/item/weapon/storage/fancy/cigarettes
+	path = /obj/item/storage/fancy/cigarettes
 
 /datum/gear/dromedaryco
 	display_name = "dromedaryco cigarette packet"
-	path = /obj/item/weapon/storage/fancy/cigarettes/dromedaryco
+	path = /obj/item/storage/fancy/cigarettes/dromedaryco

@@ -234,7 +234,7 @@
 // they can have them. So we override and check.
 /mob/living/carbon/human/CanAvoidGravity()
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
@@ -242,7 +242,7 @@
 	return ..()
 
 /mob/living/silicon/robot/CanAvoidGravity()
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.allow_thrust(0.02, src))
 		return TRUE
@@ -327,7 +327,7 @@
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
@@ -342,7 +342,7 @@
 	return FALSE
 
 /mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
 		return FALSE
@@ -434,7 +434,7 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
-	var/obj/item/weapon/rig/rig = get_rig()
+	var/obj/item/rig/rig = get_rig()
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))

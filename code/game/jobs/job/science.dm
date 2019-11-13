@@ -34,13 +34,13 @@
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/rd
 	pda = /obj/item/device/pda/heads/rd
-	id = /obj/item/weapon/card/id/navy
-	l_hand = /obj/item/weapon/clipboard
+	id = /obj/item/card/id/navy
+	l_hand = /obj/item/clipboard
 
-	backpack = /obj/item/weapon/storage/backpack/toxins
-	satchel = /obj/item/weapon/storage/backpack/satchel_tox
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+	backpack = /obj/item/storage/backpack/toxins
+	satchel = /obj/item/storage/backpack/satchel_tox
+	dufflebag = /obj/item/storage/backpack/duffel/tox
+	messengerbag = /obj/item/storage/backpack/messenger/tox
 
 
 /datum/job/scientist
@@ -74,12 +74,12 @@
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/science
-	id = /obj/item/weapon/card/id/white
+	id = /obj/item/card/id/white
 
-	backpack = /obj/item/weapon/storage/backpack/toxins
-	satchel = /obj/item/weapon/storage/backpack/satchel_tox
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+	backpack = /obj/item/storage/backpack/toxins
+	satchel = /obj/item/storage/backpack/satchel_tox
+	dufflebag = /obj/item/storage/backpack/duffel/tox
+	messengerbag = /obj/item/storage/backpack/messenger/tox
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
@@ -148,13 +148,13 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/roboticist
-	id = /obj/item/weapon/card/id/white
-	belt = /obj/item/weapon/storage/belt/utility/full
+	id = /obj/item/card/id/white
+	belt = /obj/item/storage/belt/utility/full
 
-	backpack = /obj/item/weapon/storage/backpack/toxins
-	satchel = /obj/item/weapon/storage/backpack/satchel_tox
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+	backpack = /obj/item/storage/backpack/toxins
+	satchel = /obj/item/storage/backpack/satchel_tox
+	dufflebag = /obj/item/storage/backpack/duffel/tox
+	messengerbag = /obj/item/storage/backpack/messenger/tox
 
 /datum/job/intern_sci
 	title = "Lab Assistant"
@@ -177,7 +177,7 @@
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
-	backpack = /obj/item/weapon/storage/backpack/toxins
-	satchel = /obj/item/weapon/storage/backpack/satchel_tox
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+	backpack = /obj/item/storage/backpack/toxins
+	satchel = /obj/item/storage/backpack/satchel_tox
+	dufflebag = /obj/item/storage/backpack/duffel/tox
+	messengerbag = /obj/item/storage/backpack/messenger/tox

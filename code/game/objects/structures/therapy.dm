@@ -27,7 +27,7 @@
 
 	. = ..()
 
-/obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
 		playsound(loc, W.usesound, 50, 1)
@@ -72,7 +72,7 @@
 
 	return
 
-/obj/item/weapon/mesmetron
+/obj/item/mesmetron
 	name = "mesmetron pocketwatch"
 	desc = "An elaborate pocketwatch, with captivating gold etching and an enchanting face. . ."
 	icon = 'icons/obj/items.dmi'
@@ -82,12 +82,12 @@
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 
-/obj/item/weapon/mesmetron/Destroy()
+/obj/item/mesmetron/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	thrall = null
 	. = ..()
 
-/obj/item/weapon/mesmetron/process()
+/obj/item/mesmetron/process()
 	if (!thrall)
 		STOP_PROCESSING(SSfast_process, src)
 		return
@@ -112,7 +112,7 @@
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/weapon/mesmetron/attack_self(mob/user as mob)
+/obj/item/mesmetron/attack_self(mob/user as mob)
 	if(!thrall || !thrall.resolve())
 		thrall = null
 		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
@@ -142,7 +142,7 @@
 		else
 			thrall = null
 
-/obj/item/weapon/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
+/obj/item/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -185,7 +185,7 @@
 	. = ..()
 	START_PROCESSING(SSfast_process, src)
 
-/obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/metronome/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
@@ -240,9 +240,9 @@
 	var/obj/machinery/chakraconsole/connected
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/crystelpod,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module = 2
+			/obj/item/circuitboard/crystelpod,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2
 		)
 
 /obj/machinery/chakrapod/Destroy()
@@ -330,7 +330,7 @@
 	update_icon()
 	return
 
-/obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G, mob/user)
+/obj/machinery/chakrapod/attackby(obj/item/grab/G, mob/user)
 	if (!istype(G) || !ishuman(G.affecting))
 		return
 	if (occupant)
@@ -418,9 +418,9 @@
 	var/crystal = 0
 	var/working = 0
 	component_types = list(
-			/obj/item/weapon/circuitboard/crystelpodconsole,
-			/obj/item/weapon/stock_parts/capacitor = 1,
-			/obj/item/weapon/stock_parts/scanning_module = 2
+			/obj/item/circuitboard/crystelpodconsole,
+			/obj/item/stock_parts/capacitor = 1,
+			/obj/item/stock_parts/scanning_module = 2
 		)
 
 /obj/machinery/chakraconsole/ex_act(severity)

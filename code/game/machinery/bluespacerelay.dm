@@ -13,10 +13,10 @@
 	active_power_usage = 15000
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/bluespacerelay,
-		/obj/item/weapon/stock_parts/manipulator = 2,
-		/obj/item/weapon/stock_parts/subspace/filter,
-		/obj/item/weapon/stock_parts/subspace/crystal,
+		/obj/item/circuitboard/bluespacerelay,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/crystal,
 		/obj/item/stack/cable_coil
 	)
 

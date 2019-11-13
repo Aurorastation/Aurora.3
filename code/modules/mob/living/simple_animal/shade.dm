@@ -29,7 +29,7 @@
 	status_flags = CANPUSH
 	hunger_enabled = 0
 	appearance_flags = NO_CLIENT_COLOR
-	var/obj/item/residue = /obj/item/weapon/ectoplasm
+	var/obj/item/residue = /obj/item/ectoplasm
 
 /mob/living/simple_animal/shade/cultify()
 	return
@@ -83,7 +83,7 @@
 	mob_size = 0
 	density = 0
 	speed = 1
-	residue = /obj/item/weapon/ectoplasm/bs
+	residue = /obj/item/ectoplasm/bs
 	var/last_message_heard
 	var/message_countdown = 300
 	var/heard_dying_message = 0
@@ -371,14 +371,14 @@
 
 	message_countdown = min(message_countdown, 100)
 
-/obj/item/weapon/ectoplasm/bs
+/obj/item/ectoplasm/bs
 	name = "bluespace residue"
 	desc = "spoopy"
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "blectoplasm"
 
-/obj/item/weapon/ectoplasm/bs/Initialize()
+/obj/item/ectoplasm/bs/Initialize()
 	. = ..()
 	create_reagents(8)
 	reagents.add_reagent("bluespace_dust", 8)

@@ -1,6 +1,6 @@
 /*******************PLASMA CUTTER*******************/
 
-/obj/item/weapon/gun/energy/plasmacutter
+/obj/item/gun/energy/plasmacutter
 	name = "plasma cutter"
 	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
 	contained_sprite = 1
@@ -21,7 +21,7 @@
 	max_shots = 15
 	needspin = FALSE
 
-/obj/item/weapon/gun/energy/plasmacutter/mounted
+/obj/item/gun/energy/plasmacutter/mounted
 	name = "mounted plasma cutter"
 	self_recharge = 1
 	use_external_power = 1

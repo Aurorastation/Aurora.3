@@ -15,7 +15,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -23,7 +23,7 @@
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
-	holder_type = /obj/item/weapon/holder/cat
+	holder_type = /obj/item/holder/cat
 	mob_size = 2.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
@@ -247,7 +247,7 @@
 	icon_rest = "cat_rest"
 	can_nap = 1
 	befriend_job = "Chief Medical Officer"
-	holder_type = /obj/item/weapon/holder/cat/black
+	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
@@ -262,7 +262,7 @@
 	icon_dead = "kitten_dead"
 	can_nap = 0 //No resting sprite
 	gender = NEUTER
-	holder_type = /obj/item/weapon/holder/cat/kitten
+	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/death()
 	.=..()
@@ -279,7 +279,7 @@
 	icon_rest = "cat3_rest"
 	can_nap = 1
 	var/friend_name = "Erstatz Vryroxes"
-	holder_type = /obj/item/weapon/holder/cat/black
+	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/bones/death()
 	.=..()
@@ -297,4 +297,4 @@
 	icon_living = "penny"
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
-	holder_type = /obj/item/weapon/holder/cat/penny
+	holder_type = /obj/item/holder/cat/penny

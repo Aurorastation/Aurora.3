@@ -5,23 +5,23 @@
 	icon_state = "wrap_paper"
 	amount = 20.0
 
-/obj/item/stack/wrapping_paper/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/stack/wrapping_paper/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if (!( locate(/obj/structure/table, src.loc) ))
 		to_chat(user, "<span class='warning'>You MUST put the paper on a table!</span>")
 	if (W.w_class < 4)
-		if ((istype(user.l_hand, /obj/item/weapon/wirecutters) || istype(user.r_hand, /obj/item/weapon/wirecutters)))
+		if ((istype(user.l_hand, /obj/item/wirecutters) || istype(user.r_hand, /obj/item/wirecutters)))
 			var/a_used = 2 ** (src.w_class - 1)
 			if (src.amount < a_used)
 				to_chat(user, "<span class='warning'>You need more paper!</span>")
 				return
 			else
-				if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/weapon/gift)) //No gift wrapping gifts!
+				if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/gift)) //No gift wrapping gifts!
 					return
 
 				src.amount -= a_used
 				user.drop_item()
-				var/obj/item/weapon/gift/G = new /obj/item/weapon/gift( src.loc )
+				var/obj/item/gift/G = new /obj/item/gift( src.loc )
 				G.size = W.w_class
 				G.w_class = G.size + 1
 				G.icon_state = text("gift[]", G.size)
@@ -84,7 +84,7 @@
 	if(!istype(target))	//this really shouldn't be necessary (but it is).	-Pete
 		return
 	if(istype(target, /obj/item/smallDelivery) || istype(target,/obj/structure/bigDelivery) \
-	|| istype(target, /obj/item/weapon/gift) || istype(target, /obj/item/weapon/evidencebag))
+	|| istype(target, /obj/item/gift) || istype(target, /obj/item/evidencebag))
 		return
 	if(target.anchored)
 		return
@@ -96,7 +96,7 @@
 	user.attack_log += text("\[[time_stamp()]\] <font color='blue'>Has used [src.name] on \ref[target]</font>")
 
 
-	if (istype(target, /obj/item) && !(istype(target, /obj/item/weapon/storage) && !istype(target,/obj/item/weapon/storage/box)))
+	if (istype(target, /obj/item) && !(istype(target, /obj/item/storage) && !istype(target,/obj/item/storage/box)))
 		var/obj/item/O = target
 		if (src.amount > 1)
 			var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(get_turf(O.loc))	//Aaannd wrap it up!

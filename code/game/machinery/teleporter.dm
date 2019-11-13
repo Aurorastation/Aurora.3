@@ -2,7 +2,7 @@
 	name = "Teleporter Control Console"
 	desc = "Used to control a linked teleportation Hub and Station."
 	icon_screen = "teleport"
-	circuit = /obj/item/weapon/circuitboard/teleporter
+	circuit = /obj/item/circuitboard/teleporter
 	dir = 4
 	var/obj/item/locked = null
 	var/id = null
@@ -32,8 +32,8 @@
 		hub.set_dir(dir)
 
 /obj/machinery/computer/teleporter/attackby(I as obj, mob/living/user as mob)
-	if(istype(I, /obj/item/weapon/card/data/))
-		var/obj/item/weapon/card/data/C = I
+	if(istype(I, /obj/item/card/data/))
+		var/obj/item/card/data/C = I
 		if(stat & (NOPOWER|BROKEN) & (C.function != "teleporter"))
 			src.attack_hand()
 
@@ -102,7 +102,7 @@
 			areaindex[tmpname] = 1
 		L[tmpname] = R
 
-	for (var/obj/item/weapon/implant/tracking/I in implants)
+	for (var/obj/item/implant/tracking/I in implants)
 		if (!I.implanted || !ismob(I.loc))
 			continue
 		else
@@ -232,7 +232,7 @@
 	..()
 	set_overlays("controller-wires")
 
-/obj/machinery/teleport/station/attackby(var/obj/item/weapon/W)
+/obj/machinery/teleport/station/attackby(var/obj/item/W)
 	src.attack_hand()
 
 /obj/machinery/teleport/station/attack_ai()

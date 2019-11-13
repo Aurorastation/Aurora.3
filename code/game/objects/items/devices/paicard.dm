@@ -13,7 +13,7 @@
 /obj/item/device/paicard/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
 		return
-	var/obj/item/weapon/rig/rig = src.get_rig()
+	var/obj/item/rig/rig = src.get_rig()
 	if(istype(rig))
 		rig.forced_move(direction, user)
 
@@ -30,7 +30,7 @@
 	return ..()
 
 /obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
-	if(istype(C, /obj/item/weapon/card/id))
+	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
 
 
@@ -39,7 +39,7 @@
 //Scanning an ID replaces any previously stored access with the new set.
 //Only cards that match the imprinted DNA can be used, it's not a free Agent ID card.
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
-/obj/item/device/paicard/proc/scan_ID(var/obj/item/weapon/card/id/card, var/mob/user)
+/obj/item/device/paicard/proc/scan_ID(var/obj/item/card/id/card, var/mob/user)
 	if (!pai)
 		to_chat(user, "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
@@ -381,7 +381,7 @@
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
 	//We only care about the second one
-	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
+	if (istype(loc, /obj/item/storage))	//The second drop reads the container its placed into as the location
 		update_location()
 
 

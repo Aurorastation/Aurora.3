@@ -50,11 +50,11 @@
 			H.unEquip(H.back)
 			H.unEquip(H.shoes)
 
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/typec(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
 			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder(H), slot_head)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder(H), slot_shoes)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder(H), slot_wear_suit)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/tcfl_pamphlet(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/storage/box/tcfl_pamphlet(H), slot_in_backpack)
 
 			H.change_skin_color(r, g, b)
 			H.update_dna()

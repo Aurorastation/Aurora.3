@@ -89,7 +89,7 @@
 
 	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 4,TECH_MAGNET = 3,TECH_POWER = 5)
 
-/obj/item/custom_ka_upgrade/cells/cell04/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
+/obj/item/custom_ka_upgrade/cells/cell04/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + 3,cell_increase)
 
 /obj/item/custom_ka_upgrade/cells/cell05
@@ -112,7 +112,7 @@
 
 	disallow_chip = TRUE
 
-/obj/item/custom_ka_upgrade/cells/cell05/on_fire(var/obj/item/weapon/gun/custom_ka/the_gun)
+/obj/item/custom_ka_upgrade/cells/cell05/on_fire(var/obj/item/gun/custom_ka/the_gun)
 	if(the_gun.recoil_increase > 0)
 		stored_charge = min(stored_charge + min(the_gun.recoil_increase*2,the_gun.cost_increase*0.5),cell_increase)
 
@@ -134,12 +134,12 @@
 
 	origin_tech = list()
 
-/obj/item/custom_ka_upgrade/cells/cyborg/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
+/obj/item/custom_ka_upgrade/cells/cyborg/on_update(var/obj/item/gun/custom_ka/the_gun)
 	var/mob/living/silicon/robot/owner_robot = the_gun.loc
 	if(!istype(owner_robot))
 		return
 
-	var/obj/item/weapon/cell/external = owner_robot.cell
+	var/obj/item/cell/external = owner_robot.cell
 	var/charge_to_give = cell_increase - stored_charge
 	if(istype(external) && external.use(charge_to_give*5))
 		stored_charge += charge_to_give
@@ -181,7 +181,7 @@
 
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 6)
 
-/obj/item/custom_ka_upgrade/cells/kinetic_charging/on_update(var/obj/item/weapon/gun/custom_ka/the_gun)
+/obj/item/custom_ka_upgrade/cells/kinetic_charging/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + round(stored_charge*0.2),cell_increase)
 
 

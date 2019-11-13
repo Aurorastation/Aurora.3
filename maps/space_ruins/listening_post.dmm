@@ -44,7 +44,7 @@
 /area/template_noop)
 "aj" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/excavation,
+/obj/item/storage/box/excavation,
 /obj/item/hoist_kit,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
@@ -107,7 +107,7 @@
 /turf/simulated/wall/r_wall,
 /area/derelict/ship)
 "az" = (
-/obj/item/weapon/spike,
+/obj/item/spike,
 /turf/template_noop,
 /area/template_noop)
 "aA" = (
@@ -161,13 +161,13 @@
 	},
 /area/derelict/ship)
 "aJ" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
 /area/derelict/ship)
 "aK" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -186,7 +186,7 @@
 	},
 /area/derelict/ship)
 "aO" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/shuttle{
@@ -215,7 +215,7 @@
 	},
 /area/derelict/ship)
 "aW" = (
-/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -228,7 +228,7 @@
 	},
 /area/derelict/ship)
 "aZ" = (
-/obj/item/weapon/rig/eva/equipped,
+/obj/item/rig/eva/equipped,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ba" = (
@@ -278,15 +278,15 @@
 	},
 /area/derelict/ship)
 "bq" = (
-/obj/item/weapon/ore/coal,
+/obj/item/ore/coal,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "br" = (
-/obj/item/weapon/pickaxe/diamond,
+/obj/item/pickaxe/diamond,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bs" = (
-/obj/item/weapon/ore/diamond,
+/obj/item/ore/diamond,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -362,7 +362,7 @@
 /area/derelict/ship)
 "bJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "bK" = (
@@ -468,28 +468,28 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "ch" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "ck" = (
 /obj/structure/table/standard,
-/obj/item/weapon/rfd/mining,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd/mining,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper,
-/obj/item/weapon/paper_bin,
+/obj/item/paper,
+/obj/item/paper_bin,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cm" = (
 /obj/structure/table/standard,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cn" = (
@@ -508,7 +508,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/weapon/oremagnet,
+/obj/item/oremagnet,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cq" = (
@@ -540,17 +540,17 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/weapon/oreportal,
+/obj/item/oreportal,
 /obj/item/rig_module/device/anomaly_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cu" = (
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "cv" = (
 /obj/structure/table/standard,
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cw" = (
@@ -572,11 +572,11 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/weapon/ore_radar,
-/obj/item/weapon/plastique/seismic,
-/obj/item/weapon/plastique/seismic,
-/obj/item/weapon/plastique/seismic,
-/obj/item/weapon/plastique/seismic,
+/obj/item/ore_radar,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cA" = (
@@ -618,7 +618,7 @@
 "cJ" = (
 /obj/structure/curtain/open/bed,
 /obj/structure/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /turf/simulated/floor/carpet,
 /area/derelict/ship)
 "cK" = (
@@ -627,7 +627,7 @@
 	status = 2
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/toothbrush/green,
+/obj/item/reagent_containers/toothbrush/green,
 /turf/simulated/floor/carpet,
 /area/derelict/ship)
 "cL" = (
@@ -653,7 +653,7 @@
 	status = 2
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/razor,
+/obj/item/razor,
 /turf/simulated/floor/carpet,
 /area/derelict/ship)
 "cP" = (
@@ -668,7 +668,7 @@
 "cR" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "cS" = (

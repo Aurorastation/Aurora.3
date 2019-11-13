@@ -1,4 +1,4 @@
-/obj/item/weapon/material/harpoon
+/obj/item/material/harpoon
 	name = "harpoon"
 	sharp = 1
 	edge = 1
@@ -8,7 +8,7 @@
 	force_divisor = 0.3 // 18 with hardness 60 (steel)
 	attack_verb = list("jabbed","stabbed","ripped")
 
-/obj/item/weapon/material/hatchet
+/obj/item/material/hatchet
 	name = "hatchet"
 	desc = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood."
 	icon = 'icons/obj/weapons.dmi'
@@ -23,7 +23,7 @@
 	applies_material_colour = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
 
-/obj/item/weapon/material/hatchet/butch
+/obj/item/material/hatchet/butch
 	name = "butcher's cleaver"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "butch"
@@ -32,14 +32,14 @@
 	slot_flags = SLOT_BELT
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
-/obj/item/weapon/material/hatchet/unathiknife
+/obj/item/material/hatchet/unathiknife
 	name = "duelling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
 
-/obj/item/weapon/material/hook
+/obj/item/material/hook
 	name = "meat hook"
 	sharp = 1
 	edge = 1
@@ -48,7 +48,7 @@
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 
-/obj/item/weapon/material/minihoe // -- Numbers
+/obj/item/material/minihoe // -- Numbers
 	name = "mini hoe"
 	desc = "It's used for removing weeds or scratching your back."
 	icon = 'icons/obj/weapons.dmi'
@@ -59,7 +59,7 @@
 	w_class = 2
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 
-/obj/item/weapon/material/scythe
+/obj/item/material/scythe
 	icon_state = "scythe"
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
@@ -74,7 +74,7 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
 
-/obj/item/weapon/material/scythe/sickle
+/obj/item/material/scythe/sickle
 	icon_state = "sickle0"
 	name = "sickle"
 	desc = "A short sharp and curved blade on a wood handle, this tool makes it easy to cut grass."

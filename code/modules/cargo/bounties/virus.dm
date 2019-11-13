@@ -22,7 +22,7 @@
 /datum/bounty/virus/applies_to(obj/O)
 	if(shipped)
 		return FALSE
-	if(!istype(O, /obj/item/weapon/reagent_containers || !O.reagents || !O.reagents.reagent_list))
+	if(!istype(O, /obj/item/reagent_containers || !O.reagents || !O.reagents.reagent_list))
 		return FALSE
 	var/datum/reagent/blood/B = locate() in O.reagents.reagent_list
 	if(!B)

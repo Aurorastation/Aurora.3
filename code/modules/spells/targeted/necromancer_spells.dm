@@ -121,7 +121,7 @@
 		//equips the skeleton war gear
 		F.equip_to_slot_or_del(new /obj/item/clothing/under/gladiator(F), slot_w_uniform)
 		F.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(F), slot_shoes)
-		F.equip_to_slot_or_del(new /obj/item/weapon/material/twohanded/spear/bone(F), slot_back)
+		F.equip_to_slot_or_del(new /obj/item/material/twohanded/spear/bone(F), slot_back)
 		F.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/bone(F), slot_head)
 		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
 

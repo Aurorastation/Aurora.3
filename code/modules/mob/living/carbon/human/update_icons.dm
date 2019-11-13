@@ -571,12 +571,12 @@ There are several things that need to be remembered:
 
 		//Layering under/over suit
 		var/id_layer = ID_LAYER
-		if(istype(wear_id, /obj/item/weapon/storage/wallet))
-			var/obj/item/weapon/storage/wallet/wallet = wear_id
+		if(istype(wear_id, /obj/item/storage/wallet))
+			var/obj/item/storage/wallet/wallet = wear_id
 			if(wallet.wear_over_suit == 1)
 				id_layer = ID_LAYER_ALT
-		else if(istype(wear_id, /obj/item/weapon/card/id))
-			var/obj/item/weapon/card/id/id_card = wear_id
+		else if(istype(wear_id, /obj/item/card/id))
+			var/obj/item/card/id/id_card = wear_id
 			if(id_card.wear_over_suit == 1)
 				id_layer = ID_LAYER_ALT
 		else if(istype(wear_id, /obj/item/device/pda))
@@ -587,8 +587,8 @@ There are several things that need to be remembered:
 		if (wear_id.color)
 			result_layer.color = wear_id.color
 
-		if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
-			var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
+		if(istype(wear_id, /obj/item/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
+			var/obj/item/storage/wallet/lanyard/lanyard = wear_id
 			var/image/plastic_film = image("icon" = 'icons/mob/lanyard_overlays.dmi', "icon_state" = "plasticfilm")
 			var/image/lanyard_card
 			if(lanyard.front_id)
@@ -870,7 +870,7 @@ There are several things that need to be remembered:
 		standing = image(t_icon, t_state)
 		var/list/ovr
 
-		if(belt.contents.len && istype(belt, /obj/item/weapon/storage/belt))
+		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
 			ovr = list(standing)
 			for(var/obj/item/i in belt.contents)
 				var/c_state
@@ -884,8 +884,8 @@ There are several things that need to be remembered:
 				ovr += image(c_icon, c_state)
 
 		var/beltlayer = BELT_LAYER
-		if(istype(belt, /obj/item/weapon/storage/belt))
-			var/obj/item/weapon/storage/belt/ubelt = belt
+		if(istype(belt, /obj/item/storage/belt))
+			var/obj/item/storage/belt/ubelt = belt
 			if(ubelt.show_above_suit)
 				beltlayer = BELT_LAYER_ALT
 
@@ -1023,9 +1023,9 @@ There are several things that need to be remembered:
 			overlay_icon = back.icon_override || back.icon
 		else if(back.icon_override)
 			overlay_icon = back.icon_override
-		else if(istype(back, /obj/item/weapon/rig))
+		else if(istype(back, /obj/item/rig))
 			//If this is a rig and a mob_icon is set, it will take species into account in the rig update_icon() proc.
-			var/obj/item/weapon/rig/rig = back
+			var/obj/item/rig/rig = back
 			overlay_icon = rig.mob_icon
 		else if(back.sprite_sheets && back.sprite_sheets[GET_BODY_TYPE])
 			overlay_icon = back.sprite_sheets[GET_BODY_TYPE]

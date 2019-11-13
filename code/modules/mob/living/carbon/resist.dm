@@ -73,9 +73,9 @@
 		break_handcuffs()
 		return
 
-	var/obj/item/weapon/handcuffs/HC = handcuffed
+	var/obj/item/handcuffs/HC = handcuffed
 
-	//A default in case you are somehow handcuffed with something that isn't an obj/item/weapon/handcuffs type
+	//A default in case you are somehow handcuffed with something that isn't an obj/item/handcuffs type
 	var/breakouttime = 1200
 	var/displaytime = 2 //Minutes to display in the "this will take X minutes."
 	//If you are handcuffed with actual handcuffs... Well what do I know, maybe someone will want to handcuff you with toilet paper in the future...
@@ -146,9 +146,9 @@
 		break_legcuffs()
 		return
 
-	var/obj/item/weapon/legcuffs/HC = legcuffed
+	var/obj/item/legcuffs/HC = legcuffed
 
-	//A default in case you are somehow legcuffed with something that isn't an obj/item/weapon/legcuffs type
+	//A default in case you are somehow legcuffed with something that isn't an obj/item/legcuffs type
 	var/breakouttime = 1200
 	var/displaytime = 2 //Minutes to display in the "this will take X minutes."
 	//If you are legcuffed with actual legcuffs... Well what do I know, maybe someone will want to legcuff you with toilet paper in the future...

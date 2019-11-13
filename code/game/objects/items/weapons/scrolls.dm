@@ -1,4 +1,4 @@
-/obj/item/weapon/teleportation_scroll
+/obj/item/teleportation_scroll
 	name = "scroll of teleportation"
 	desc = "A scroll for moving around."
 	icon = 'icons/obj/wizard.dmi'
@@ -10,7 +10,7 @@
 	throw_range = 20
 	origin_tech = list(TECH_BLUESPACE = 4)
 
-/obj/item/weapon/teleportation_scroll/attack_self(mob/living/user as mob)
+/obj/item/teleportation_scroll/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
@@ -42,7 +42,7 @@
 		onclose(user, "scroll")
 		return
 
-/obj/item/weapon/teleportation_scroll/Topic(href, href_list)
+/obj/item/teleportation_scroll/Topic(href, href_list)
 	..()
 	if (usr.stat || usr.restrained() || src.loc != usr)
 		return
@@ -57,7 +57,7 @@
 	attack_self(H)
 	return
 
-/obj/item/weapon/teleportation_scroll/proc/teleportscroll(var/mob/user)
+/obj/item/teleportation_scroll/proc/teleportscroll(var/mob/user)
 
 	var/A
 

@@ -134,7 +134,7 @@
 	var/auth_name
 	var/dna_hash
 
-	var/obj/item/weapon/card/id/ID = ident.GetID()
+	var/obj/item/card/id/ID = ident.GetID()
 
 	if(!ID)
 		return
@@ -171,7 +171,7 @@
 		emagged = 1
 		return 1
 
-/obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/computer/shuttle_control/emergency/attackby(obj/item/W as obj, mob/user as mob)
 	read_authorization(W)
 	..()
 

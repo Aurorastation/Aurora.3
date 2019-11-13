@@ -5,7 +5,7 @@
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
 	req_one_access = list( access_brig, access_heads )
-	circuit = "/obj/item/weapon/circuitboard/sentencing"
+	circuit = "/obj/item/circuitboard/sentencing"
 	density = 0
 
 	var/datum/crime_incident/incident
@@ -28,7 +28,7 @@
 	ui_interact(user)
 
 /obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/weapon/paper/incident ) && menu_screen == "import_incident" )
+	if( istype( O, /obj/item/paper/incident ) && menu_screen == "import_incident" )
 		usr.drop_from_inventory(O,src)
 
 		if( import( O ))
@@ -38,12 +38,12 @@
 			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
 
 		qdel( O )
-	else if( istype( O, /obj/item/weapon/paper ) && menu_screen == "import_incident" )
+	else if( istype( O, /obj/item/paper ) && menu_screen == "import_incident" )
 		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
 
 	..()
 
-/obj/machinery/computer/sentencing/proc/import( var/obj/item/weapon/paper/incident/I )
+/obj/machinery/computer/sentencing/proc/import( var/obj/item/paper/incident/I )
 	incident = null
 
 	if( istype( I ) && I.incident )
@@ -105,7 +105,7 @@
 	. += "<th>Convict:</th>"
 	. += "<td><a href='?src=\ref[src];button=change_criminal;'>"
 	if( istype(incident.card) )
-		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		var/obj/item/card/id/card = incident.card.resolve()
 		. += "[card]"
 	else
 		. += "None"
@@ -191,7 +191,7 @@
 	. += "<tr><th colspan='2'>Convict</th></tr>"
 	. += "<tr><td colspan='2'><center>"
 	if( istype(incident.card) )
-		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		var/obj/item/card/id/card = incident.card.resolve()
 		. += "[card]"
 	else
 		. += "None"
@@ -435,7 +435,7 @@
 	return .
 
 /obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
-	var/obj/item/weapon/card/id/card = incident.card.resolve()
+	var/obj/item/card/id/card = incident.card.resolve()
 	ping( "\The [src] pings, \"[card] has been found innocent of the accused crimes!\"" )
 
 	qdel( incident )
@@ -457,7 +457,7 @@
 		return
 
 	print_incident_overview(incident.renderGuilty(user, 0))
-	var/obj/item/weapon/card/id/card = incident.card.resolve()
+	var/obj/item/card/id/card = incident.card.resolve()
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
 		ping( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes!\"" )
 	else
@@ -492,7 +492,7 @@
 		buzz("\The [src] buzzes, \"Could not get security account!\"")
 		return
 
-	var/obj/item/weapon/card/id/card = incident.card.resolve()
+	var/obj/item/card/id/card = incident.card.resolve()
 	//Let´s get the account of the suspect and verify they have enough money
 	var/datum/money_account/suspect_account = SSeconomy.get_account(card.associated_account_number)
 	if(!suspect_account)
@@ -513,7 +513,7 @@
 	menu_screen = "main_menu"
 
 /obj/machinery/computer/sentencing/proc/print_incident_overview(var/text)
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper
+	var/obj/item/paper/P = new /obj/item/paper
 	P.set_content_unsafe("Incident Summary",text)
 	print(P)
 
@@ -526,7 +526,7 @@
 	if( printing )
 		return "The machine is already printing something!"
 
-	var/obj/item/weapon/paper/incident/I = new /obj/item/weapon/paper/incident
+	var/obj/item/paper/incident/I = new /obj/item/paper/incident
 	I.incident = incident
 	I.sentence = sentence
 	I.name = "Encoded Incident Report"
@@ -553,7 +553,7 @@
 		if( "change_menu" )
 			menu_screen = href_list["choice"]
 		if( "change_criminal" )
-			var/obj/item/weapon/card/id/C = usr.get_active_hand()
+			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
 				if( incident && C.mob )
 					incident.criminal = C.mob
@@ -596,7 +596,7 @@
 
 		if( "add_arbiter" )
 			var/title = href_list["title"]
-			var/obj/item/weapon/card/id/C = usr.get_active_hand()
+			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
 				if( incident && C.mob )
 					var/error = incident.addArbiter( C, title )

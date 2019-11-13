@@ -11,10 +11,10 @@
 
 /obj/item/modular_computer/console/preset/install_default_hardware()
 	..()
-	processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(src)
-	tesla_link = new/obj/item/weapon/computer_hardware/tesla_link(src)
-	hard_drive = new/obj/item/weapon/computer_hardware/hard_drive/super(src)
-	network_card = new/obj/item/weapon/computer_hardware/network_card/wired(src)
+	processor_unit = new/obj/item/computer_hardware/processor_unit(src)
+	tesla_link = new/obj/item/computer_hardware/tesla_link(src)
+	hard_drive = new/obj/item/computer_hardware/hard_drive/super(src)
+	network_card = new/obj/item/computer_hardware/network_card/wired(src)
 
 /obj/item/modular_computer/console/preset/install_default_programs()
 	..()
@@ -37,7 +37,7 @@
 
 /obj/item/modular_computer/console/preset/research/install_default_hardware()
 	..()
-	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
+	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
 
 // Command
 /obj/item/modular_computer/console/preset/command/
@@ -46,10 +46,10 @@
 
 /obj/item/modular_computer/console/preset/command/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/captain/
 	_app_preset_name = "captain"
@@ -57,10 +57,10 @@
 
 /obj/item/modular_computer/console/preset/captain/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 // Security
 /obj/item/modular_computer/console/preset/security/
@@ -79,19 +79,19 @@
 
 /obj/item/modular_computer/console/preset/supply/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 // ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()
-	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/ert/
 	_app_preset_name = "ert"
@@ -106,9 +106,9 @@
 
 /obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
 	..()
-	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 
 // Merchant
@@ -118,9 +118,9 @@
 
 /obj/item/modular_computer/console/preset/merchant/install_default_hardware()
 	..()
-	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
-	card_slot = new/obj/item/weapon/computer_hardware/card_slot(src)
+	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
+	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 
 // AI

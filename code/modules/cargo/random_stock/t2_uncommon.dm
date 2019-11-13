@@ -30,33 +30,33 @@ STOCK_ITEM_UNCOMMON(flare, 2)
 		new /obj/random/glowstick(L)
 
 STOCK_ITEM_UNCOMMON(deathalarm, 2)
-	new /obj/item/weapon/storage/box/cdeathalarm_kit(L)
+	new /obj/item/storage/box/cdeathalarm_kit(L)
 
 STOCK_ITEM_UNCOMMON(trackimp, 1)
-	new /obj/item/weapon/storage/box/trackimp(L)
+	new /obj/item/storage/box/trackimp(L)
 
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
-	new /obj/item/weapon/storage/box/flashbangs(L)
+	new /obj/item/storage/box/flashbangs(L)
 
 STOCK_ITEM_UNCOMMON(cuffs, 1)
-	new /obj/item/weapon/storage/box/handcuffs(L)
+	new /obj/item/storage/box/handcuffs(L)
 
 STOCK_ITEM_UNCOMMON(monkey, 2)
 	if (prob(40))
 		var/type = pick( \
-			/obj/item/weapon/storage/box/monkeycubes/farwacubes, \
-			/obj/item/weapon/storage/box/monkeycubes/stokcubes, \
-			/obj/item/weapon/storage/box/monkeycubes/neaeracubes \
+			/obj/item/storage/box/monkeycubes/farwacubes, \
+			/obj/item/storage/box/monkeycubes/stokcubes, \
+			/obj/item/storage/box/monkeycubes/neaeracubes \
 		)
 		new type(L)
 	else
-		new /obj/item/weapon/storage/box/monkeycubes(L)
+		new /obj/item/storage/box/monkeycubes(L)
 
 STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
 	if (prob(50))
-		new /obj/item/weapon/pen/crayon/mime(L)
+		new /obj/item/pen/crayon/mime(L)
 	else
-		new /obj/item/weapon/pen/crayon/rainbow(L)
+		new /obj/item/pen/crayon/rainbow(L)
 
 STOCK_ITEM_UNCOMMON(contraband, 2)
 	for (var/i in 1 to rand(1,8))
@@ -65,9 +65,9 @@ STOCK_ITEM_UNCOMMON(contraband, 2)
 STOCK_ITEM_UNCOMMON(mediumcell, 3)
 	for (var/i in 1 to rand(1,2))
 		var/type = pick( \
-			/obj/item/weapon/cell/super, \
-			/obj/item/weapon/cell/potato, \
-			/obj/item/weapon/cell/high \
+			/obj/item/cell/super, \
+			/obj/item/cell/potato, \
+			/obj/item/cell/high \
 		)
 		new type(L)
 
@@ -77,7 +77,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 							 "sglue", "black_matter", "lightning", "trioxin", "phoron_salt", "nanites")
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 6))
-		var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = new /obj/item/weapon/reagent_containers/chem_disp_cartridge(L)
+		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
 		var/datum/reagent/R = SSchemistry.chemical_reagents[rname]
 
@@ -101,12 +101,12 @@ STOCK_ITEM_UNCOMMON(robolimbs, 3)
 		new type(L, manuf)
 
 STOCK_ITEM_UNCOMMON(circuitboards, 3)
-	var/list/allboards = subtypesof(/obj/item/weapon/circuitboard)
+	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
-		/obj/item/weapon/circuitboard/unary_atmos,
-		/obj/item/weapon/circuitboard/telecomms
+		/obj/item/circuitboard/unary_atmos,
+		/obj/item/circuitboard/telecomms
 	)
-	exclusion += typesof(/obj/item/weapon/circuitboard/mecha)
+	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
 	for (var/i in 1 to rand(2, 5))
@@ -114,8 +114,8 @@ STOCK_ITEM_UNCOMMON(circuitboards, 3)
 		new type(L)
 
 STOCK_ITEM_UNCOMMON(jetpack, 3)
-	new /obj/item/weapon/tank/jetpack/void(L)
-	new /obj/item/weapon/tank/emergency_oxygen/double(L)
+	new /obj/item/tank/jetpack/void(L)
+	new /obj/item/tank/emergency_oxygen/double(L)
 
 STOCK_ITEM_UNCOMMON(xenocostume, 1)
 	new /obj/item/clothing/suit/xenos(L)
@@ -125,23 +125,23 @@ STOCK_ITEM_UNCOMMON(inhaler, 1)
 	log_debug("Unimplemented item inhaler.")
 
 STOCK_ITEM_UNCOMMON(advwelder, 2)
-	new /obj/item/weapon/weldingtool/hugetank(L)
+	new /obj/item/weldingtool/hugetank(L)
 
 STOCK_ITEM_UNCOMMON(sord, 1)
-	new /obj/item/weapon/sord(L)
+	new /obj/item/sord(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
-	new /obj/item/weapon/melee/classic_baton(L)
+	new /obj/item/melee/classic_baton(L)
 
 STOCK_ITEM_UNCOMMON(stunbaton, 0.75) //batons spawn with no powercell
-	var/obj/item/weapon/melee/baton/B = new /obj/item/weapon/melee/baton(L)
+	var/obj/item/melee/baton/B = new /obj/item/melee/baton(L)
 	if (B.bcell)
 		QDEL_NULL(B.bcell)
 
 	B.queue_icon_update()
 
 STOCK_ITEM_UNCOMMON(firingpin, 3)
-	new /obj/item/weapon/storage/box/firingpins(L)
+	new /obj/item/storage/box/firingpins(L)
 
 STOCK_ITEM_UNCOMMON(watches, 3)
 	new /obj/item/clothing/gloves/watch(L)
@@ -172,16 +172,16 @@ STOCK_ITEM_UNCOMMON(debugger, 2)
 	new /obj/item/device/debugger(L)//No idea what this thing does, or if it works at all
 
 STOCK_ITEM_UNCOMMON(surgerykit, 2.5)
-	new /obj/item/weapon/storage/firstaid/surgery(L)
+	new /obj/item/storage/firstaid/surgery(L)
 
 STOCK_ITEM_UNCOMMON(crimekit, 1)
-	new /obj/item/weapon/storage/briefcase/crimekit(L)
+	new /obj/item/storage/briefcase/crimekit(L)
 
 STOCK_ITEM_UNCOMMON(carpet, 2)
 	new /obj/item/stack/tile/carpet(L, 50)
 
 STOCK_ITEM_UNCOMMON(gift, 4)
-	new /obj/item/weapon/a_gift(L)
+	new /obj/item/a_gift(L)
 
 STOCK_ITEM_UNCOMMON(coatrack, 1)
 	var/turf/T = get_turf(L)
@@ -193,15 +193,15 @@ STOCK_ITEM_UNCOMMON(coatrack, 1)
 	new /obj/structure/coatrack(T)
 
 STOCK_ITEM_UNCOMMON(riotshield, 2)
-	new /obj/item/weapon/shield/riot(L)
+	new /obj/item/shield/riot(L)
 	if (prob(60))
-		new /obj/item/weapon/shield/riot(L)
+		new /obj/item/shield/riot(L)
 
 STOCK_ITEM_UNCOMMON(fireaxe, 1)
-	new /obj/item/weapon/material/twohanded/fireaxe(L)
+	new /obj/item/material/twohanded/fireaxe(L)
 
 STOCK_ITEM_UNCOMMON(service, 2)
-	new /obj/item/weapon/rfd/service(L)
+	new /obj/item/rfd/service(L)
 
 STOCK_ITEM_UNCOMMON(robot, 2)
 	var/list/bots = list(
@@ -245,32 +245,32 @@ STOCK_ITEM_UNCOMMON(headset, 2)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(bat, 1.2)
-	new /obj/item/weapon/material/twohanded/baseballbat(L)
+	new /obj/item/material/twohanded/baseballbat(L)
 
 STOCK_ITEM_UNCOMMON(scythe, 0.75)
-	new /obj/item/weapon/material/scythe(L)
+	new /obj/item/material/scythe(L)
 
 STOCK_ITEM_UNCOMMON(manual, 2)
 	var/type = pick( \
-		/obj/item/weapon/book/manual/excavation, \
-		/obj/item/weapon/book/manual/mass_spectrometry, \
-		/obj/item/weapon/book/manual/anomaly_spectroscopy, \
-		/obj/item/weapon/book/manual/materials_chemistry_analysis, \
-		/obj/item/weapon/book/manual/anomaly_testing, \
-		/obj/item/weapon/book/manual/stasis, \
-		/obj/item/weapon/book/manual/engineering_particle_accelerator, \
-		/obj/item/weapon/book/manual/supermatter_engine, \
-		/obj/item/weapon/book/manual/engineering_singularity_safety, \
-		/obj/item/weapon/book/manual/medical_cloning, \
-		/obj/item/weapon/book/manual/ripley_build_and_repair, \
-		/obj/item/weapon/book/manual/research_and_development, \
-		/obj/item/weapon/book/manual/robotics_cyborgs, \
-		/obj/item/weapon/book/manual/medical_diagnostics_manual, \
-		/obj/item/weapon/book/manual/chef_recipes, \
-		/obj/item/weapon/book/manual/barman_recipes, \
-		/obj/item/weapon/book/manual/detective, \
-		/obj/item/weapon/book/manual/atmospipes, \
-		/obj/item/weapon/book/manual/evaguide \
+		/obj/item/book/manual/excavation, \
+		/obj/item/book/manual/mass_spectrometry, \
+		/obj/item/book/manual/anomaly_spectroscopy, \
+		/obj/item/book/manual/materials_chemistry_analysis, \
+		/obj/item/book/manual/anomaly_testing, \
+		/obj/item/book/manual/stasis, \
+		/obj/item/book/manual/engineering_particle_accelerator, \
+		/obj/item/book/manual/supermatter_engine, \
+		/obj/item/book/manual/engineering_singularity_safety, \
+		/obj/item/book/manual/medical_cloning, \
+		/obj/item/book/manual/ripley_build_and_repair, \
+		/obj/item/book/manual/research_and_development, \
+		/obj/item/book/manual/robotics_cyborgs, \
+		/obj/item/book/manual/medical_diagnostics_manual, \
+		/obj/item/book/manual/chef_recipes, \
+		/obj/item/book/manual/barman_recipes, \
+		/obj/item/book/manual/detective, \
+		/obj/item/book/manual/atmospipes, \
+		/obj/item/book/manual/evaguide \
 	)
 
 	new type(L)
@@ -279,24 +279,24 @@ STOCK_ITEM_UNCOMMON(jammer, 2)
 	new /obj/item/device/radiojammer(L)
 
 STOCK_ITEM_UNCOMMON(rped, 2)
-	new /obj/item/weapon/storage/part_replacer(L)
+	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
 	if (prob(20))
-		new /obj/item/weapon/storage/secure/briefcase(L)
+		new /obj/item/storage/secure/briefcase(L)
 	else
-		new /obj/item/weapon/storage/briefcase(L)
+		new /obj/item/storage/briefcase(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
-		/obj/item/weapon/material/knife/butterfly = 1,
-		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
-		/obj/item/weapon/material/hook = 1.5,
-		/obj/item/weapon/material/knife/ritual = 1.5,
-		/obj/item/weapon/material/hatchet/butch = 1,
-		/obj/item/weapon/material/hatchet = 1.5,
-		/obj/item/weapon/material/hatchet/unathiknife = 0.75,
-		/obj/item/weapon/material/knife/tacknife = 1
+		/obj/item/material/knife/butterfly = 1,
+		/obj/item/material/knife/butterfly/switchblade = 1,
+		/obj/item/material/hook = 1.5,
+		/obj/item/material/knife/ritual = 1.5,
+		/obj/item/material/hatchet/butch = 1,
+		/obj/item/material/hatchet = 1.5,
+		/obj/item/material/hatchet/unathiknife = 0.75,
+		/obj/item/material/knife/tacknife = 1
 	)
 
 	var/type = pickweight(blades)
@@ -332,9 +332,9 @@ STOCK_ITEM_UNCOMMON(exoquip, 2)
 
 STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 	var/list/lasers = list(
-		/obj/item/weapon/scalpel/laser1 = 3,
-		/obj/item/weapon/scalpel/laser2 = 2,
-		/obj/item/weapon/scalpel/laser3 = 1
+		/obj/item/scalpel/laser1 = 3,
+		/obj/item/scalpel/laser2 = 2,
+		/obj/item/scalpel/laser3 = 1
 	)
 	var/type = pickweight(lasers)
 	new type(L)

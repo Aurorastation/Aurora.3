@@ -10,7 +10,7 @@ var/global/list/rad_collectors = list()
 	density = 1
 	req_access = list(access_engine_equip)
 //	use_power = 0
-	var/obj/item/weapon/tank/phoron/P = null
+	var/obj/item/tank/phoron/P = null
 	var/last_power = 0
 	var/last_power_new = 0
 	var/active = 0
@@ -55,7 +55,7 @@ var/global/list/rad_collectors = list()
 
 
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/tank/phoron))
+	if(istype(W, /obj/item/tank/phoron))
 		if(!src.anchored)
 			to_chat(user, "<span class='warning'>The [src] needs to be secured to the floor first.</span>")
 			return 1
@@ -84,7 +84,7 @@ var/global/list/rad_collectors = list()
 		else
 			disconnect_from_network()
 		return 1
-	else if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 		if (src.allowed(user))
 			if(active)
 				src.locked = !src.locked
@@ -111,7 +111,7 @@ var/global/list/rad_collectors = list()
 
 /obj/machinery/power/rad_collector/proc/eject()
 	locked = 0
-	var/obj/item/weapon/tank/phoron/Z = src.P
+	var/obj/item/tank/phoron/Z = src.P
 	if (!Z)
 		return
 	Z.forceMove(get_turf(src))

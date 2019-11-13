@@ -42,15 +42,15 @@
 
 #define isslime(A) istype(A, /mob/living/carbon/slime)
 
-#define iscapacitor(A) istype(A, /obj/item/weapon/stock_parts/capacitor)
+#define iscapacitor(A) istype(A, /obj/item/stock_parts/capacitor)
 
-#define ismicrolaser(A) istype(A, /obj/item/weapon/stock_parts/micro_laser)
+#define ismicrolaser(A) istype(A, /obj/item/stock_parts/micro_laser)
 
-#define ismatterbin(A) istype(A, /obj/item/weapon/stock_parts/matter_bin)
+#define ismatterbin(A) istype(A, /obj/item/stock_parts/matter_bin)
 
-#define isscanner(A) istype(A, /obj/item/weapon/stock_parts/scanning_module)
+#define isscanner(A) istype(A, /obj/item/stock_parts/scanning_module)
 
-#define ismanipulator(A) istype(A, /obj/item/weapon/stock_parts/manipulator)
+#define ismanipulator(A) istype(A, /obj/item/stock_parts/manipulator)
 
 #define isclient(A) istype(A, /client)
 

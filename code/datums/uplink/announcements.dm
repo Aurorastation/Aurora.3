@@ -41,7 +41,7 @@
 	if(!user)
 		return 0
 
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	var/datum/record/general/random_record
 	if(SSrecords.records.len)
 		random_record = pick(SSrecords.records)

@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/extinguisher_refill
+/obj/item/reagent_containers/extinguisher_refill
 	name = "extinguisher refiller"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. Just pour in the reagents and twist."
 	icon = 'icons/obj/chemical.dmi'
@@ -18,10 +18,10 @@
 	volume = 300
 	drop_sound = 'sound/items/drop/gascan.ogg'
 
-/obj/item/weapon/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
 
-	if(istype(O,/obj/item/weapon/extinguisher))
-		var/obj/item/weapon/extinguisher/E = O
+	if(istype(O,/obj/item/extinguisher))
+		var/obj/item/extinguisher/E = O
 		if(src.is_open_container())
 			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
 		else if(src.reagents.total_volume <= 0)
@@ -36,7 +36,7 @@
 
 	. = ..()
 
-/obj/item/weapon/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
+/obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
@@ -47,14 +47,14 @@
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
 
-/obj/item/weapon/reagent_containers/extinguisher_refill/attackby(obj/item/weapon/W, mob/user)
+/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the extinguisher refill cartridge's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
 		return
 	. = ..()
 
-/obj/item/weapon/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
+/obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
 	if(!..(user, 2))
 		return
 
@@ -69,17 +69,17 @@
 		else
 			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
 
-/obj/item/weapon/reagent_containers/extinguisher_refill/filled
+/obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one contains monoammonium phosphate."
 
-/obj/item/weapon/reagent_containers/extinguisher_refill/filled/Initialize()
+/obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
 		. =..()
 		reagents.add_reagent("monoammoniumphosphate", volume)
 		flags &= ~OPENCONTAINER
 		return
 
-/obj/item/weapon/extinguisher
+/obj/item/extinguisher
 	name = "fire extinguisher"
 	desc = "A traditional red fire extinguisher."
 	icon = 'icons/obj/chemical.dmi'
@@ -104,7 +104,7 @@
 	var/safety = 1
 	var/sprite_name = "fire_extinguisher"
 
-/obj/item/weapon/extinguisher/mini
+/obj/item/extinguisher/mini
 	name = "fire extinguisher"
 	desc = "A light and compact fibreglass-framed model fire extinguisher."
 	icon_state = "miniFE0"
@@ -120,28 +120,28 @@
 	spray_distance = 1
 	sprite_name = "miniFE"
 
-/obj/item/weapon/extinguisher/New()
+/obj/item/extinguisher/New()
 	create_reagents(max_water)
 	reagents.add_reagent("monoammoniumphosphate", max_water)
 	..()
 
-/obj/item/weapon/extinguisher/examine(mob/user)
+/obj/item/extinguisher/examine(mob/user)
 	if(..(user, 0))
 		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
 		to_chat(user,"The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/weapon/extinguisher/attack_self(mob/user as mob)
+/obj/item/extinguisher/attack_self(mob/user as mob)
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
 	src.desc = "The safety is [safety ? "on" : "off"]."
 	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/weapon/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
 
-	if(istype(O,/obj/item/weapon/reagent_containers/extinguisher_refill))
-		var/obj/item/weapon/reagent_containers/extinguisher_refill/ER = O
+	if(istype(O,/obj/item/reagent_containers/extinguisher_refill))
+		var/obj/item/reagent_containers/extinguisher_refill/ER = O
 		if(ER.is_open_container())
 			to_chat(user,"<span class='notice'>\The [ER] needs to be secured first!</span>")
 		else if(ER.reagents.total_volume <= 0)
@@ -156,7 +156,7 @@
 
 	. = ..()
 
-/obj/item/weapon/extinguisher/proc/propel_object(var/obj/O, mob/user, movementdirection)
+/obj/item/extinguisher/proc/propel_object(var/obj/O, mob/user, movementdirection)
 	if(O.anchored) return
 
 	var/obj/structure/bed/chair/C
@@ -174,7 +174,7 @@
 		O.Move(get_step(user,movementdirection), movementdirection)
 		sleep(3)
 
-/obj/item/weapon/extinguisher/afterattack(var/atom/target, var/mob/user, var/flag)
+/obj/item/extinguisher/afterattack(var/atom/target, var/mob/user, var/flag)
 
 	if (!safety)
 		if (src.reagents.total_volume < 1)

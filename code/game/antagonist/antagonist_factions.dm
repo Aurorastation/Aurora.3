@@ -3,7 +3,7 @@
 	set category = "Abilities"
 	if(!M.mind)
 		return
-	for (var/obj/item/weapon/implant/loyalty/I in M)
+	for (var/obj/item/implant/loyalty/I in M)
 		if (I.implanted)
 			to_chat(src, "<span class='warning'>[M] is too loyal to the company!</span>")
 			return

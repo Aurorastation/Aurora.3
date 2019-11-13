@@ -2,17 +2,17 @@
 // charge from 0 to 100%
 // fits in APC to provide backup power
 
-/obj/item/weapon/cell/Initialize()
+/obj/item/cell/Initialize()
 	. = ..()
 	charge = maxcharge
 	update_icon()
 
-/obj/item/weapon/cell/Created()
+/obj/item/cell/Created()
 	//Newly built cells spawn with no charge to prevent power exploits
 	charge = 0
 	update_icon()
 
-/obj/item/weapon/cell/drain_power(var/drain_check, var/surge, var/power = 0)
+/obj/item/cell/drain_power(var/drain_check, var/surge, var/power = 0)
 
 	if(drain_check)
 		return 1
@@ -24,7 +24,7 @@
 
 	return use(cell_amt) / CELLRATE
 
-/obj/item/weapon/cell/update_icon()
+/obj/item/cell/update_icon()
 	cut_overlays()
 
 	if(charge < 0.01)
@@ -34,18 +34,18 @@
 	else
 		add_overlay("cell-o1")
 
-/obj/item/weapon/cell/proc/percent()		// return % charge of cell
+/obj/item/cell/proc/percent()		// return % charge of cell
 	return 100.0*charge/maxcharge
 
-/obj/item/weapon/cell/proc/fully_charged()
+/obj/item/cell/proc/fully_charged()
 	return (charge == maxcharge)
 
 // checks if the power cell is able to provide the specified amount of charge
-/obj/item/weapon/cell/proc/check_charge(var/amount)
+/obj/item/cell/proc/check_charge(var/amount)
 	return (charge >= amount)
 
 // use power from a cell, returns the amount actually used
-/obj/item/weapon/cell/proc/use(var/amount)
+/obj/item/cell/proc/use(var/amount)
 	if (QDELING(src))
 		return 0
 
@@ -58,14 +58,14 @@
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
 // from the cell and returns 1. Otherwise does nothing and returns 0.
-/obj/item/weapon/cell/proc/checked_use(var/amount)
+/obj/item/cell/proc/checked_use(var/amount)
 	if(!check_charge(amount))
 		return 0
 	use(amount)
 	return 1
 
 // recharge the cell
-/obj/item/weapon/cell/proc/give(var/amount)
+/obj/item/cell/proc/give(var/amount)
 	if (QDELING(src))
 		return 0
 
@@ -79,7 +79,7 @@
 	return amount_used
 
 
-/obj/item/weapon/cell/examine(mob/user)
+/obj/item/cell/examine(mob/user)
 	if(get_dist(src, user) > 1)
 		return
 
@@ -88,10 +88,10 @@
 	else
 		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]!\nThe charge meter reads [round(src.percent() )]%.")
 
-/obj/item/weapon/cell/attackby(obj/item/W, mob/user)
+/obj/item/cell/attackby(obj/item/W, mob/user)
 	..()
-	if(istype(W, /obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = W
+	if(istype(W, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = W
 
 		to_chat(user, "You inject the solution into the power cell.")
 
@@ -114,7 +114,7 @@
 		else
 			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
 
-/obj/item/weapon/cell/proc/explode()
+/obj/item/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)
 /*
  * 1000-cell	explosion(T, -1, 0, 1, 1)
@@ -141,13 +141,13 @@
 
 	qdel(src)
 
-/obj/item/weapon/cell/proc/corrupt()
+/obj/item/cell/proc/corrupt()
 	charge /= 2
 	maxcharge /= 2
 	if (prob(10))
 		rigged = 1 //broken batterys are dangerous
 
-/obj/item/weapon/cell/emp_act(severity)
+/obj/item/cell/emp_act(severity)
 	//remove this once emp changes on dev are merged in
 	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
@@ -158,7 +158,7 @@
 		charge = 0
 	..()
 
-/obj/item/weapon/cell/ex_act(severity)
+/obj/item/cell/ex_act(severity)
 
 	switch(severity)
 		if(1.0)
@@ -178,7 +178,7 @@
 				corrupt()
 	return
 
-/obj/item/weapon/cell/proc/get_electrocute_damage()
+/obj/item/cell/proc/get_electrocute_damage()
 	switch (charge)
 /*		if (9000 to INFINITY)
 			return min(rand(90,150),rand(90,150))

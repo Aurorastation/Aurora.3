@@ -62,7 +62,7 @@
 		else
 			to_chat(user, "<span class='notice'>You insert [O] into [src]. Now it just needs some bees.</span>")
 		qdel(O)
-	else if(istype(O, /obj/item/weapon/material/minihoe))
+	else if(istype(O, /obj/item/material/minihoe))
 		if(health > 0)
 			to_chat(user, "<span class='danger'>You begin to dislodge the apiary from the tray, the bees don't like that.</span>")
 			angry_swarm(user)
@@ -73,16 +73,16 @@
 			new /obj/item/apiary(src.loc)
 			to_chat(user, "<span class='warning'>You dislodge the apiary from the tray.</span>")
 			qdel(src)
-	else if(istype(O, /obj/item/weapon/bee_net))
-		var/obj/item/weapon/bee_net/N = O
+	else if(istype(O, /obj/item/bee_net))
+		var/obj/item/bee_net/N = O
 		if(N.caught_bees > 0)
 			to_chat(user, "<span class='notice'>You empty the bees into the apiary.</span>")
 			bees_in_hive += N.caught_bees
 			N.caught_bees = 0
 		else
 			to_chat(user, "<span class='notice'>There are no more bees in the net.</span>")
-	else if(istype(O, /obj/item/weapon/reagent_containers/glass))
-		var/obj/item/weapon/reagent_containers/glass/G = O
+	else if(istype(O, /obj/item/reagent_containers/glass))
+		var/obj/item/reagent_containers/glass/G = O
 		if(harvestable_honey > 0)
 			if(health > 0)
 				to_chat(user, "<span class='warning'>You begin to harvest the honey. The bees don't seem to like it.</span>")
@@ -231,7 +231,7 @@
 
 	while(health > 15)
 		health -= 15
-		var/obj/item/weapon/reagent_containers/food/snacks/honeycomb/H = new(src.loc)
+		var/obj/item/reagent_containers/food/snacks/honeycomb/H = new(src.loc)
 		if(toxic > 0)
 			H.reagents.add_reagent("toxin", toxic)
 

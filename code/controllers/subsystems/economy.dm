@@ -124,7 +124,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 		//create a sealed package containing the account details
 		var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(source_db.loc)
 
-		var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
+		var/obj/item/paper/R = new /obj/item/paper(P)
 		P.wrapped = R
 		var/pname = "Account information: [M.owner_name]"
 		var/info = "<b>Account details (confidential)</b><br><hr><br>"
@@ -143,7 +143,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 		stampoverlay.icon_state = "paper_stamp-cent"
 		if(!R.stamped)
 			R.stamped = new
-		R.stamped += /obj/item/weapon/stamp
+		R.stamped += /obj/item/stamp
 		R.add_overlay(stampoverlay)
 		R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
 

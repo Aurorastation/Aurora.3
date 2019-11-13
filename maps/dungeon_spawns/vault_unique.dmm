@@ -64,7 +64,7 @@
 /area/turret_protected/corp_vault)
 "i" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "j" = (
@@ -84,9 +84,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/weapon/gun/energy/toxgun,
+/obj/item/gun/energy/toxgun,
 /obj/item/frame/apc,
-/obj/item/weapon/circuitboard/broken,
+/obj/item/circuitboard/broken,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "m" = (
@@ -105,7 +105,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "o" = (
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/turret_protected/corp_vault)
 "p" = (

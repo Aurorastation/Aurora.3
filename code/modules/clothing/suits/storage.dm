@@ -1,9 +1,9 @@
 /obj/item/clothing/suit/storage
-	var/obj/item/weapon/storage/internal/pockets
+	var/obj/item/storage/internal/pockets
 
 /obj/item/clothing/suit/storage/Initialize()
 	. = ..()
-	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 2	//two slots
 	pockets.max_w_class = 2		//fit only pocket sized items
 	pockets.max_storage_space = 4
@@ -62,14 +62,14 @@
 
 /obj/item/clothing/suit/storage/vest/merc/Initialize()
 	. = ..()
-	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
 	pockets.max_w_class = 2
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest/hos/Initialize()
 	. = ..()
-	pockets = new/obj/item/weapon/storage/internal(src)
+	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
 	pockets.max_w_class = 2
 	pockets.max_storage_space = 8

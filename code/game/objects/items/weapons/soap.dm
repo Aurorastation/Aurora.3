@@ -1,6 +1,6 @@
 //Various Soaps
 
-/obj/item/weapon/soap
+/obj/item/soap
 	name = "soap"
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
@@ -15,36 +15,36 @@
 	var/key_data
 	drop_sound = 'sound/misc/slip.ogg'
 
-/obj/item/weapon/soap/New()
+/obj/item/soap/New()
 	..()
 	create_reagents(10)
 	wet()
 
-/obj/item/weapon/soap/proc/wet()
+/obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 	reagents.add_reagent("cleaner", 10)
 
-/obj/item/weapon/soap/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/key))
+/obj/item/soap/attackby(var/obj/item/I, var/mob/user)
+	if(istype(I, /obj/item/key))
 		if(!key_data)
 			to_chat(user, "<span class='notice'>You imprint \the [I] into \the [src].</span>")
-			var/obj/item/weapon/key/K = I
+			var/obj/item/key/K = I
 			key_data = K.key_data
 			update_icon()
 		return
 	..()
 
-/obj/item/weapon/soap/update_icon()
+/obj/item/soap/update_icon()
 	overlays.Cut()
 	if(key_data)
 		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
 
-/obj/item/weapon/soap/Crossed(AM as mob|obj)
+/obj/item/soap/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))
 		var/mob/living/M =	AM
 		M.slip("the [src.name]",3)
 
-/obj/item/weapon/soap/afterattack(atom/target, mob/user as mob, proximity)
+/obj/item/soap/afterattack(atom/target, mob/user as mob, proximity)
 	if(!proximity) return
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
@@ -53,7 +53,7 @@
 	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
 		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
 		wet()
-	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/weapon/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
+	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
 		if (target.reagents && target.reagents.total_volume)
 			to_chat(user, "<span class='notice'>You wet \the [src] in the [target].</span>")
 			wet()
@@ -72,126 +72,126 @@
 	return
 
 //attack_as_weapon
-/obj/item/weapon/soap/attack(mob/living/target, mob/living/user, var/target_zone)
+/obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
 	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == "mouth" )
 		user.visible_message("<span class='danger'>\The [user] washes \the [target]'s mouth out with soap!</span>")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return
 	..()
 
-/obj/item/weapon/soap/nanotrasen
+/obj/item/soap/nanotrasen
 	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
 	icon_state = "soapnt"
 	item_state = "soapnt"
 
-/obj/item/weapon/soap/plant
+/obj/item/soap/plant
 	desc = "A green bar of soap. Smells like dirt and plants."
 
-/obj/item/weapon/soap/deluxe
+/obj/item/soap/deluxe
 	icon_state = "soapdeluxe"
 	item_state = "soapdeluxe"
 
-/obj/item/weapon/soap/deluxe/Initialize()
+/obj/item/soap/deluxe/Initialize()
 
 	. = ..()
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
 
-/obj/item/weapon/soap/syndie
+/obj/item/soap/syndie
 	desc = "An untrustworthy bar of soap. Smells of fear."
 	icon_state = "soapsyndie"
 	item_state = "soapsyndie"
 
-/obj/item/weapon/soap/space_soap
+/obj/item/soap/space_soap
 	name = "Soap"
 	desc = "Smells like burnt meat."
 	icon_state = "space_soap"
 
-/obj/item/weapon/soap/water_soap
+/obj/item/soap/water_soap
 	name = "Soap"
 	desc = "Smells like chlorine."
 	icon_state = "water_soap"
 
-/obj/item/weapon/soap/fire_soap
+/obj/item/soap/fire_soap
 	name = "Soap"
 	desc = "Smells like burnt charcoal."
 	icon_state = "fire_soap"
 
-/obj/item/weapon/soap/rainbow_soap
+/obj/item/soap/rainbow_soap
 	name = "Soap"
 	desc = "Smells sweet."
 	icon_state = "rainbow_soap"
 
-/obj/item/weapon/soap/diamond_soap
+/obj/item/soap/diamond_soap
 	name = "Soap"
 	desc = "Smells like saffron."
 	icon_state = "diamond_soap"
 
-/obj/item/weapon/soap/uranium_soap
+/obj/item/soap/uranium_soap
 	name = "Soap"
 	desc = "Doesn't smell... it's glowing though."
 	icon_state = "uranium_soap"
 
-/obj/item/weapon/soap/silver_soap
+/obj/item/soap/silver_soap
 	name = "Soap"
 	desc = "Smells bitter."
 	icon_state = "silver_soap"
 
-/obj/item/weapon/soap/brown_soap
+/obj/item/soap/brown_soap
 	name = "Soap"
 	desc = "Smells like chocolate."
 	icon_state = "brown_soap"
 
-/obj/item/weapon/soap/white_soap
+/obj/item/soap/white_soap
 	name = "Soap"
 	desc = "Smells like vanilla."
 	icon_state = "white_soap"
 
-/obj/item/weapon/soap/grey_soap
+/obj/item/soap/grey_soap
 	name = "Soap"
 	desc = "Smells acidic."
 	icon_state = "grey_soap"
 
-/obj/item/weapon/soap/pink_soap
+/obj/item/soap/pink_soap
 	name = "Soap"
 	desc = "Smells like bubble gum"
 	icon_state = "pink_soap"
 
-/obj/item/weapon/soap/purple_soap
+/obj/item/soap/purple_soap
 	name = "Soap"
 	desc = "Smells like wisteria."
 	icon_state = "purple_soap"
 
-/obj/item/weapon/soap/blue_soap
+/obj/item/soap/blue_soap
 	name = "Soap"
 	desc = "Smells like lilies."
 	icon_state = "blue_soap"
 
-/obj/item/weapon/soap/cyan_soap
+/obj/item/soap/cyan_soap
 	name = "Soap"
 	desc = "Smells like bluebells."
 	icon_state = "cyan_soap"
 
-/obj/item/weapon/soap/green_soap
+/obj/item/soap/green_soap
 	name = "Soap"
 	desc = "Smells like a freshly mowed lawn."
 	icon_state = "green_soap"
 
-/obj/item/weapon/soap/yellow_soap
+/obj/item/soap/yellow_soap
 	name = "Soap"
 	desc = "Smells like sunflowers."
 	icon_state = "yellow_soap"
 
-/obj/item/weapon/soap/orange_soap
+/obj/item/soap/orange_soap
 	name = "Soap"
 	desc = "Smells like oranges."
 	icon_state = "orange_soap"
 
-/obj/item/weapon/soap/red_soap
+/obj/item/soap/red_soap
 	name = "Soap"
 	desc = "Smells like cherries."
 	icon_state = "red_soap"
 
-/obj/item/weapon/soap/golden_soap
+/obj/item/soap/golden_soap
 	name = "Soap"
 	desc = "Smells like honey."
 	icon_state = "golden_soap"
@@ -203,27 +203,27 @@
 	icon_state = "soap"
 
 /obj/random/soap/item_to_spawn()
-		return pick(/obj/item/weapon/soap, \
-					/obj/item/weapon/soap/nanotrasen, \
-					/obj/item/weapon/soap/deluxe,\
-					/obj/item/weapon/soap/space_soap,\
-					/obj/item/weapon/soap/space_soap,\
-					/obj/item/weapon/soap/water_soap,\
-					/obj/item/weapon/soap/fire_soap,\
-					/obj/item/weapon/soap/rainbow_soap,\
-					/obj/item/weapon/soap/diamond_soap,\
-					/obj/item/weapon/soap/uranium_soap,\
-					/obj/item/weapon/soap/silver_soap,\
-					/obj/item/weapon/soap/brown_soap,\
-					/obj/item/weapon/soap/white_soap,\
-					/obj/item/weapon/soap/grey_soap,\
-					/obj/item/weapon/soap/pink_soap,\
-					/obj/item/weapon/soap/purple_soap,\
-					/obj/item/weapon/soap/blue_soap,\
-					/obj/item/weapon/soap/cyan_soap,\
-					/obj/item/weapon/soap/green_soap,\
-					/obj/item/weapon/soap/yellow_soap,\
-					/obj/item/weapon/soap/orange_soap,\
-					/obj/item/weapon/soap/red_soap,\
-					/obj/item/weapon/soap/golden_soap,\
+		return pick(/obj/item/soap, \
+					/obj/item/soap/nanotrasen, \
+					/obj/item/soap/deluxe,\
+					/obj/item/soap/space_soap,\
+					/obj/item/soap/space_soap,\
+					/obj/item/soap/water_soap,\
+					/obj/item/soap/fire_soap,\
+					/obj/item/soap/rainbow_soap,\
+					/obj/item/soap/diamond_soap,\
+					/obj/item/soap/uranium_soap,\
+					/obj/item/soap/silver_soap,\
+					/obj/item/soap/brown_soap,\
+					/obj/item/soap/white_soap,\
+					/obj/item/soap/grey_soap,\
+					/obj/item/soap/pink_soap,\
+					/obj/item/soap/purple_soap,\
+					/obj/item/soap/blue_soap,\
+					/obj/item/soap/cyan_soap,\
+					/obj/item/soap/green_soap,\
+					/obj/item/soap/yellow_soap,\
+					/obj/item/soap/orange_soap,\
+					/obj/item/soap/red_soap,\
+					/obj/item/soap/golden_soap,\
 )

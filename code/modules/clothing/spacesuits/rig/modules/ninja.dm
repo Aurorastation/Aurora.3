@@ -148,7 +148,7 @@
 	if(T != get_turf(H))
 		to_chat(H,span("warning","Something interferes with your [src]!"))
 
-	for(var/obj/item/weapon/grab/G in H.contents)
+	for(var/obj/item/grab/G in H.contents)
 		if(G.affecting)
 			phase_out(G.affecting,get_turf(G.affecting))
 			do_teleport(G.affecting,locate(T.x+rand(-1,1),T.y+rand(-1,1),T.z))
@@ -168,7 +168,7 @@
 
 	engage_string = "Fabricate Net"
 
-	fabrication_type = /obj/item/weapon/energy_net
+	fabrication_type = /obj/item/energy_net
 	use_power_cost = 60
 
 	category = MODULE_SPECIAL
@@ -300,7 +300,7 @@
 	interface_name = "integrated cryptographic sequencer"
 	interface_desc = "A complex uprade that allows the user to apply an EMAG effect to certain objects. High power cost."
 
-	device_type = /obj/item/weapon/robot_emag
+	device_type = /obj/item/robot_emag
 
 	category = MODULE_SPECIAL
 

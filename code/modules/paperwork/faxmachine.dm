@@ -20,7 +20,7 @@ var/list/admin_departments
 	var/static/const/broadcastfax_cooldown = 3000
 
 	var/static/const/broadcast_departments = "Stationwide broadcast (WARNING)"
-	var/obj/item/weapon/card/id/scan = null // identification
+	var/obj/item/card/id/scan = null // identification
 	var/sendtime = 0		// Time when fax was sent
 	var/sendcooldown = 0	// Delay, before another fax can be sent (in 1/10 second). Used by set_cooldown() and get_remaining_cooldown()
 
@@ -115,7 +115,7 @@ var/list/admin_departments
 				scan = null
 		else
 			var/obj/item/I = usr.get_active_hand()
-			if (istype(I, /obj/item/weapon/card/id) && usr.unEquip(I))
+			if (istype(I, /obj/item/card/id) && usr.unEquip(I))
 				I.forceMove(src)
 				scan = I
 		SSvueui.check_uis_for_change(src)
@@ -212,7 +212,7 @@ var/list/admin_departments
 	if(department == "Unknown")
 		return 0	//You can't send faxes to "Unknown"
 
-	if (!istype(incoming, /obj/item/weapon/paper) && !istype(incoming, /obj/item/weapon/photo) && !istype(incoming, /obj/item/weapon/paper_bundle))
+	if (!istype(incoming, /obj/item/paper) && !istype(incoming, /obj/item/photo) && !istype(incoming, /obj/item/paper_bundle))
 		return 0
 
 	flick("faxreceive", src)
@@ -220,11 +220,11 @@ var/list/admin_departments
 
 	// give the sprite some time to flick
 	spawn(20)
-		if (istype(incoming, /obj/item/weapon/paper))
+		if (istype(incoming, /obj/item/paper))
 			copy(incoming, 1, 0, 0)
-		else if (istype(incoming, /obj/item/weapon/photo))
+		else if (istype(incoming, /obj/item/photo))
 			photocopy(incoming)
-		else if (istype(incoming, /obj/item/weapon/paper_bundle))
+		else if (istype(incoming, /obj/item/paper_bundle))
 			bundlecopy(incoming)
 		do_pda_alerts()
 		use_power(active_power_usage)
@@ -254,11 +254,11 @@ var/list/admin_departments
 	use_power(200)
 
 	var/obj/item/rcvdcopy
-	if (istype(copyitem, /obj/item/weapon/paper))
+	if (istype(copyitem, /obj/item/paper))
 		rcvdcopy = copy(copyitem, 0)
-	else if (istype(copyitem, /obj/item/weapon/photo))
+	else if (istype(copyitem, /obj/item/photo))
 		rcvdcopy = photocopy(copyitem)
-	else if (istype(copyitem, /obj/item/weapon/paper_bundle))
+	else if (istype(copyitem, /obj/item/paper_bundle))
 		rcvdcopy = bundlecopy(copyitem, 0)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")

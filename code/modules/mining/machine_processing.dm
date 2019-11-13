@@ -13,7 +13,7 @@
 	var/obj/machinery/mineral/processing_unit/machine = null
 	var/show_all_ores = 0
 	var/points = 0
-	var/obj/item/weapon/card/id/inserted_id
+	var/obj/item/card/id/inserted_id
 
 	var/ore/list/input_mats = list()
 	var/material/list/output_mats = list()
@@ -41,8 +41,8 @@
 	interact(user)
 
 /obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/C = user.get_active_hand()
+	if(istype(I,/obj/item/card/id))
+		var/obj/item/card/id/C = user.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
 			user.drop_from_inventory(C,src)
 			inserted_id = C
@@ -135,7 +135,7 @@
 					to_chat(usr, "<span class='warning'>Required access not found.</span>")
 
 		else if(href_list["choice"] == "insert")
-			var/obj/item/weapon/card/id/I = usr.get_active_hand()
+			var/obj/item/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
@@ -181,7 +181,7 @@
 
 	printing = TRUE
 
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(user.loc)
+	var/obj/item/paper/P = new /obj/item/paper(user.loc)
 	var/date_string = worlddate2text()
 	idx++
 
@@ -245,7 +245,7 @@
 	P.offset_x += 0
 	P.offset_y += 0
 	P.ico += "paper_stamp-cent"
-	P.stamped += /obj/item/weapon/stamp
+	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
 
@@ -286,11 +286,11 @@
 	active_power_usage = 150
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/refiner,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/micro_laser = 2,
-			/obj/item/weapon/stock_parts/matter_bin
+			/obj/item/circuitboard/refiner,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module,
+			/obj/item/stock_parts/micro_laser = 2,
+			/obj/item/stock_parts/matter_bin
 		)
 
 /obj/machinery/mineral/processing_unit/Initialize()
@@ -323,7 +323,7 @@
 
 	//Grab some more ore to process this tick.
 	for(var/i = 0,i<sheets_per_tick,i++)
-		var/obj/item/weapon/ore/O = locate() in input.loc
+		var/obj/item/ore/O = locate() in input.loc
 		if(!O) break
 		if(!isnull(ores_stored[O.material]))
 			ores_stored[O.material]++
@@ -428,13 +428,13 @@
 				sheets++
 				console.input_mats[O]++
 				console.waste++
-				new /obj/item/weapon/ore/slag(output.loc)
+				new /obj/item/ore/slag(output.loc)
 		else
 			continue
 
 	console.updateUsrDialog()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/mineral/processing_unit/attackby(obj/item/W as obj, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, W))
 		return
 	else if(default_part_replacement(user, W))
@@ -446,7 +446,7 @@
 	var/cap_rating = 0
 	var/laser_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
 		else if(iscapacitor(P))

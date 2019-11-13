@@ -73,12 +73,12 @@
 /datum/species/vox/before_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
 	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/tank/nitrogen(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H), slot_r_hand)
 		H.internal = H.back
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_r_hand)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
+		H.equip_to_slot_or_del(new /obj/item/tank/nitrogen(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
 	H.gender = NEUTER

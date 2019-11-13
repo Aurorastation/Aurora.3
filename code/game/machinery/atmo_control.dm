@@ -85,7 +85,7 @@ obj/machinery/air_sensor/Destroy()
 
 	var/list/sensor_information = list()
 	var/datum/radio_frequency/radio_connection
-	circuit = /obj/item/weapon/circuitboard/air_management
+	circuit = /obj/item/circuitboard/air_management
 
 obj/machinery/computer/general_air_control/Destroy()
 	if(SSradio)
@@ -145,7 +145,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/default_pressure_setting = ONE_ATMOSPHERE * 45
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
 	var/max_pressure_setting = 50 * ONE_ATMOSPHERE
-	circuit = /obj/item/weapon/circuitboard/air_management/tank_control
+	circuit = /obj/item/circuitboard/air_management/tank_control
 
 /obj/machinery/computer/general_air_control/large_tank_control/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -232,7 +232,7 @@ obj/machinery/computer/general_air_control/Destroy()
 	var/default_pressure_setting = 100
 	var/max_input_flow_setting = ATMOS_DEFAULT_VOLUME_PUMP + 500
 	var/max_pressure_setting = 10 * ONE_ATMOSPHERE
-	circuit = /obj/item/weapon/circuitboard/air_management/supermatter_core
+	circuit = /obj/item/circuitboard/air_management/supermatter_core
 
 /obj/machinery/computer/general_air_control/supermatter_core/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -314,7 +314,7 @@ obj/machinery/computer/general_air_control/Destroy()
 
 	var/cutoff_temperature = 2000
 	var/on_temperature = 1200
-	circuit = /obj/item/weapon/circuitboard/air_management/injector_control
+	circuit = /obj/item/circuitboard/air_management/injector_control
 
 /obj/machinery/computer/general_air_control/fuel_injection/machinery_process()
 	if(automation)

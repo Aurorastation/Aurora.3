@@ -8,14 +8,14 @@
 	speak_emote = list("whistles")
 	emote_hear = list("whistles loudly")
 	emote_see = list("whistles")
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 2
 	hunger_enabled = FALSE
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/grown)) //feedin' dem chickens
-		var/obj/item/weapon/reagent_containers/food/snacks/grown/G = O
+	if(istype(O, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
@@ -39,7 +39,7 @@
 	if(!stat && prob(3) && eggsleft > 0)
 		visible_message("[src] lays an egg.")
 		eggsleft--
-		new /obj/item/weapon/reagent_containers/food/snacks/egg(get_turf(src))
+		new /obj/item/reagent_containers/food/snacks/egg(get_turf(src))
 
 /mob/living/simple_animal/fatshouter
 	name = "fatshouter"
@@ -68,7 +68,7 @@
 	has_udder = TRUE
 	milk_type = "fatshouter_milk"
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
 
 
@@ -85,7 +85,7 @@
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
 	mob_size = 12
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/adhomai
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 
 	maxHealth = 150
 	health = 150

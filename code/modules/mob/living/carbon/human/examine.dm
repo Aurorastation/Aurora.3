@@ -135,7 +135,7 @@
 
 	//handcuffed?
 	if(handcuffed)
-		if(istype(handcuffed, /obj/item/weapon/handcuffs/cable))
+		if(istype(handcuffed, /obj/item/handcuffs/cable))
 			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] restrained with cable!</span>\n"
 		else
 			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] handcuffed!</span>\n"
@@ -188,8 +188,8 @@
 		if(istype(wear_id, /obj/item/device/pda))
 			var/obj/item/device/pda/pda = wear_id
 			id = pda.owner
-		else if(istype(wear_id, /obj/item/weapon/card/id)) //just in case something other than a PDA/ID card somehow gets in the ID slot :[
-			var/obj/item/weapon/card/id/idcard = wear_id
+		else if(istype(wear_id, /obj/item/card/id)) //just in case something other than a PDA/ID card somehow gets in the ID slot :[
+			var/obj/item/card/id/idcard = wear_id
 			id = idcard.registered_name
 		if(id && (id != real_name) && (get_dist(src, usr) <= 1) && prob(10))
 			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_id] \a [wear_id] yet something doesn't seem right...</span>\n"
@@ -314,8 +314,8 @@
 	for(var/limb in is_bleeding)
 		msg += is_bleeding[limb]
 	for(var/obj/item/organ/external/organ in src.organs)
-		for(var/obj/item/weapon/O in organ.implants)
-			if(!istype(O,/obj/item/weapon/implant) && !istype(O,/obj/item/weapon/material/shard/shrapnel))
+		for(var/obj/item/O in organ.implants)
+			if(!istype(O,/obj/item/implant) && !istype(O,/obj/item/material/shard/shrapnel))
 				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!</span>\n"
 	if(digitalcamo)
 		msg += "[T.He] [T.is] a little difficult to identify.\n"
@@ -325,7 +325,7 @@
 		var/criminal = "None"
 
 		if(wear_id)
-			var/obj/item/weapon/card/id/I = wear_id.GetID()
+			var/obj/item/card/id/I = wear_id.GetID()
 			if(I)
 				perpname = I.registered_name
 			else
@@ -346,7 +346,7 @@
 		var/medical = "None"
 
 		if(wear_id)
-			if(istype(wear_id,/obj/item/weapon/card/id))
+			if(istype(wear_id,/obj/item/card/id))
 				perpname = wear_id:registered_name
 			else if(istype(wear_id,/obj/item/device/pda))
 				var/obj/item/device/pda/tempPda = wear_id

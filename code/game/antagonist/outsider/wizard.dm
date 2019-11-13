@@ -76,7 +76,7 @@ var/datum/antagonist/wizard/wizards
 		return FALSE
 
 	for (var/obj/item/I in player)
-		if (istype(I, /obj/item/weapon/implant))
+		if (istype(I, /obj/item/implant))
 			continue
 		player.drop_from_inventory(I)
 		if(I.loc != player)
