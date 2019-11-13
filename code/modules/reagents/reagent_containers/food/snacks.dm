@@ -1719,7 +1719,7 @@
 	reagents.add_reagent("blackpepper", 1)
 
 /obj/item/weapon/reagent_containers/food/snacks/meatsteak/update_icon()
-	var/percent = round((reagents.total_volume / volume) * 100)
+	var/percent = round((reagents.total_volume / volume) * 10)
 	switch(percent)
 		if(0 to 10)
 			icon_state = "steak_10"
