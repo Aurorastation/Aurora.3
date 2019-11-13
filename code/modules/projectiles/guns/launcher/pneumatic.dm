@@ -144,6 +144,8 @@
 	desc = "A half-finished pneumatic cannon."
 	icon_state = "pneumatic0"
 	item_state = "pneumatic"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 
 	var/buildstate = 0
 

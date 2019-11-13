@@ -148,6 +148,7 @@
 	possible_transfer_amounts = null
 	volume = 40
 	safety = 1
+	hitsound = "swing_hit"
 
 
 /obj/item/weapon/reagent_containers/spray/pepper/Initialize()

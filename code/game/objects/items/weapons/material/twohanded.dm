@@ -28,6 +28,8 @@
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 
 /obj/item/weapon/material/twohanded/proc/unwield()
 	wielded = 0

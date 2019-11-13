@@ -4,6 +4,8 @@
 	desc = "A rod of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullrod"
 	item_state = "nullrod"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 	slot_flags = SLOT_BELT
 	force = 15
 	throw_speed = 1
@@ -317,6 +319,7 @@
 /obj/item/weapon/sord
 	name = "\improper SORD"
 	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sord"
 	item_state = "sord"
 	slot_flags = SLOT_BELT

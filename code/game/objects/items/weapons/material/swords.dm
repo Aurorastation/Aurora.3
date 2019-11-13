@@ -1,6 +1,7 @@
 /obj/item/weapon/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT|SLOT_BACK

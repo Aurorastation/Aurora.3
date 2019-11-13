@@ -10,6 +10,7 @@
 	w_class = 3.0
 	sharp = 1
 	edge = 0
+	hitsound = "swing_hit"
 
 /obj/item/weapon/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -201,6 +202,8 @@
 	desc = "A half-finished crossbow."
 	icon_state = "crossbowframe0"
 	item_state = "crossbow-solid"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 
 	var/buildstate = 0
 

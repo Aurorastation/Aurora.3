@@ -208,8 +208,10 @@
 
 /obj/item/weapon/pickaxe/hammer
 	name = "sledgehammer"
-	//icon_state = "sledgehammer" Waiting on sprite
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
+	icon_state = "sledgehammer"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 
 /obj/item/weapon/pickaxe/silver
 	name = "silver pickaxe"
