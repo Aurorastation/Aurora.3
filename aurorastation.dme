@@ -15,7 +15,6 @@
 #include "code\names.dm"
 #include "code\stylesheet.dm"
 #include "code\world.dm"
-#include "code\__defines\_compile_options - Copia.dm"
 #include "code\__defines\_compile_options.dm"
 #include "code\__defines\_layers.dm"
 #include "code\__defines\_macros.dm"
