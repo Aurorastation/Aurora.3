@@ -68,6 +68,7 @@
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
 	possible_species = list("Human", "Tajara", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
+	mob_name_prefix = "Vol. "
 
 /datum/ghostspawner/human/ert/tcfl/specialist
 	name = "TCFL Medical Specialist"
