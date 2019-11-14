@@ -150,4 +150,4 @@
 
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy!"
-	icon_state = "cookiebox"
+	icon_state = "cookiesnack"
