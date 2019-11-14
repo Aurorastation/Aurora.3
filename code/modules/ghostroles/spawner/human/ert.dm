@@ -60,7 +60,7 @@
 
 //TCFL ERT
 /datum/ghostspawner/human/ert/tcfl
-	name = "TCFL Responder"
+	name = "TCFL Volunteer"
 	short_name = "tcflr"
 	desc = "The Tau Ceti Foreign Legion's rank and file."
 	welcome_message = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to and fix the problem. You can be a volounteer (Vol.) or a legionnaire (Lgn.). The former is recommended for new players."
@@ -70,7 +70,7 @@
 	possible_species = list("Human", "Tajara", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
 
 /datum/ghostspawner/human/ert/tcfl/specialist
-	name = "TCFL Medical Specialist"
+	name = "TCFL Legionnaire"
 	short_name = "tcfls"
 	max_count = 2
 	desc = "A medic of the Tau Ceti Foreign Legion."
@@ -78,10 +78,18 @@
 	mob_name_prefix = "Lgn. "
 
 /datum/ghostspawner/human/ert/tcfl/leader
-	name = "TCFL Leader"
+	name = "TCFL Prefect"
 	short_name = "tcfll"
 	max_count = 1
 	mob_name_prefix = "Pfct. "
+	spawnpoints = list("TCFLERTSpawn - Prefect")
+
+/datum/ghostspawner/human/ert/tcfl/pilot
+	name = "TCFL Dropship Pilot"
+	short_name = "tcflpl"
+	max_count = 1
+	mob_name_prefix = "Vol. "
+	spawnpoints = list("TCFLERTSpawn - Pilot")
 
 //Mercenary ERT
 /datum/ghostspawner/human/ert/mercenary

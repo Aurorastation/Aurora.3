@@ -24000,6 +24000,22 @@
 	icon_state = "floor3"
 	},
 /area/centcom/legion)
+"gtx" = (
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
+	name = "Prefect Office"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion)
 "gvy" = (
 /obj/machinery/chem_master{
 	icon_state = "mixer0";
@@ -24719,7 +24735,7 @@
 	req_access = list(103,111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_light"
+	icon_state = "dark"
 	},
 /area/centcom/legion)
 "izN" = (
@@ -28992,6 +29008,15 @@
 	name = "plating"
 	},
 /area/centcom/legion)
+"utl" = (
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn - Pilot";
+	name = "igs - TCFLERT - Pilot"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/legion)
 "utC" = (
 /obj/structure/table/standard,
 /obj/item/weapon/storage/box/gloves{
@@ -29851,9 +29876,17 @@
 	},
 /area/centcom/checkpoint/fore)
 "wFA" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	name = "Prefect Office"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	name = "plating"
@@ -30374,6 +30407,10 @@
 /obj/structure/bed/chair/office/light{
 	icon_state = "officechair_white";
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn - Prefect";
+	name = "igs - TCFLERT - Prefect"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -86766,7 +86803,7 @@ gid
 gid
 hzB
 xQF
-wFA
+gtx
 dNm
 xZo
 sFL
@@ -93452,7 +93489,7 @@ bWA
 yjn
 khS
 xvs
-khS
+utl
 wyM
 aaM
 aaM
