@@ -126,7 +126,7 @@
 
 	for(var/datum/responseteam/ert in available_teams) //We need a loop to keep going through each candidate to be sure we find a good result.
 		if(ert && (ert.ert_type & chosen_type))
-			if((ert.chance + tally) <= probability)) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
+			if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
 				tally += ert.chance
 				continue
 			result = ert
