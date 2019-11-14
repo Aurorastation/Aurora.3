@@ -140,7 +140,7 @@
 		. = ..()
 		reagents.add_reagent("coffee", 30)
 
-/obj/item/weapon/reagent_containers/food/drinks/coffee/pslatte
+/obj/item/weapon/reagent_containers/food/drinks/pslatte
 	name = "Seasonal Pumpkin Spice Latte"
 	desc = "A limited edition pumpkin spice coffee drink!"
 	icon_state = "psl_vended"
@@ -153,12 +153,42 @@
 /obj/item/weapon/reagent_containers/food/drinks/tea
 	name = "Duke purple tea"
 	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
-	icon_state = "teacup"
+	icon_state = "coffee"
 	item_state = "coffee"
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("tea", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/greentea
+	name = "Green Tea"
+	desc = "Tasty green tea. It's good for you!"
+	icon_state = "greentea_vended"
+	item_state = "coffee"
+	center_of_mass = list("x"=16, "y"=14)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("greentea", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/hotcider
+	name = "Hot Cider"
+	desc = "A hearty apple drink, spiced just right."
+	icon_state = "soy_latte"
+	item_state = "coffee"
+	center_of_mass = list("x"=16, "y"=14)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("ciderhot", 30)
+
+/obj/item/weapon/reagent_containers/food/drinks/chaitea
+	name = "Chai Tea"
+	desc = "The name is redundant but the flavor is delicious!"
+	icon_state = "chai_vended"
+	item_state = "coffee"
+	center_of_mass = list("x"=16, "y"=14)
+	Initialize()
+		. = ..()
+		reagents.add_reagent("chaitea", 30)
 
 /obj/item/weapon/reagent_containers/food/drinks/ice
 	name = "ice cup"

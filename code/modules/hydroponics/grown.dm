@@ -189,7 +189,7 @@
 		else if(W.sharp && !W.noslice)
 			if(seed.kitchen_tag == "pumpkin") // Ugggh these checks are awful.
 				user.show_message("<span class='notice'>You carve a face into [src]!</span>", 1)
-				new /obj/item/clothing/head/pumpkinhead (user.loc)
+				user.put_in_hands(new /obj/item/clothing/head/pumpkin)
 				qdel(src)
 				return
 			else if(seed.chems)
@@ -282,6 +282,7 @@
 					continue
 				NG.attackby(G, user)
 			to_chat(user, "You add the newly-formed grass to the stack. It now contains [G.amount] tiles.")
+		user.drop_from_inventory(src)
 		qdel(src)
 		return
 

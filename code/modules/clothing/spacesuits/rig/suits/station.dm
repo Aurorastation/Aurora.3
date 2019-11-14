@@ -25,7 +25,7 @@
 	desc = "Prepare for paperwork."
 	icon_state = "internalaffairs_rig"
 	armor = null
-	siemens_coefficient = 0.9 
+	siemens_coefficient = 0.9
 	slowdown = 0
 	offline_slowdown = 0
 	offline_vision_restriction = TINT_HEAVY
@@ -60,7 +60,7 @@
 /obj/item/weapon/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
-	desc = "A heavy, powerful rig used by construction crews and mining corporations."
+	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
 	icon_state = "industrial_rig"
 	armor = list(melee = 60, bullet = 40, laser = 30, energy = 15, bomb = 30, bio = 100, rad = 50)
 	siemens_coefficient = 0.35
@@ -71,7 +71,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe, /obj/item/weapon/gun/custom_ka, /obj/item/weapon/gun/energy/vaurca/thermaldrill)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe, /obj/item/weapon/gun/custom_ka,/obj/item/weapon/material/twohanded/fireaxe,/obj/item/weapon/gun/energy/vaurca/thermaldrill)
 
 	req_access = list()
 	req_one_access = list()
@@ -96,7 +96,7 @@
 /obj/item/weapon/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
-	desc = "A light rig for repairs and maintenance to the outside of habitats and vessels."
+	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
 	icon_state = "eva_rig"
 	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 0
@@ -106,7 +106,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction,/obj/item/weapon/material/twohanded/fireaxe)
 
 	req_access = list()
 	req_one_access = list()
@@ -137,12 +137,12 @@
 	slowdown = 0
 	offline_slowdown = 3
 	offline_vision_restriction = 0
-	max_heat_protection_temperature = 7500
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE / 1.5 // Good against fires, but not as good as a proper firesuit / atmos voidsuit
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe,/obj/item/weapon/material/twohanded/fireaxe,/obj/item/weapon/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
@@ -178,7 +178,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/box/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/hand,/obj/item/weapon/storage/bag/fossils, /obj/item/device/breath_analyzer)
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/box/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/hand,/obj/item/weapon/storage/bag/fossils,/obj/item/weapon/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
 
 	req_access = list()
 	req_one_access = list()
@@ -208,7 +208,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller, /obj/item/device/breath_analyzer )
+	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller,/obj/item/weapon/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
 
 	req_access = list()
 	req_one_access = list()
@@ -266,7 +266,7 @@
 /obj/item/weapon/rig/diving
 	name = "diving suit control module"
 	suit_type = "diving suit"
-	desc = "A heavy rig designated for operations under the water, you are not sure what it is doing here however."
+	desc = "A heavy hardsuit designated for operations under the water, you are not sure what it is doing here however."
 	icon_state = "diving_rig"
 	armor = list(melee = 30, bullet = 10, laser = 20, energy = 25, bomb = 20, bio = 100, rad = 100)
 	slowdown = 3

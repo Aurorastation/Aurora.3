@@ -334,7 +334,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			covering = src.wear_suit
 		if(slot_l_ear, slot_r_ear)
 			covering = src.head
-			check_flags = HEAD
+			check_flags = FACE //this is to stop regular hats from stopping you from changing your ears stuff, but this should work for closed ones, like space helmets
 
 	if(covering && (covering.body_parts_covered & (I.body_parts_covered|check_flags)))
 		to_chat(user, "<span class='warning'>\The [covering] is in the way.</span>")

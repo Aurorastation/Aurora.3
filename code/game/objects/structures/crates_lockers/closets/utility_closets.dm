@@ -124,6 +124,8 @@
 		new /obj/item/device/t_scanner(src)
 	if(prob(20))
 		new /obj/item/weapon/storage/belt/utility(src)
+	if(prob(20))
+		new /obj/item/weapon/storage/belt/utility/alt(src)
 	if(prob(30))
 		new /obj/item/stack/cable_coil/random(src)
 	if(prob(30))

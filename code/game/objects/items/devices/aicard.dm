@@ -1,6 +1,6 @@
 /obj/item/weapon/aicard
 	name = "inteliCard"
-	icon = 'icons/obj/pda.dmi'
+	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
 	w_class = 2.0

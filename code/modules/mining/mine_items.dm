@@ -29,6 +29,7 @@
 	new /obj/item/weapon/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/weapon/book/manual/ka_custom(src)
+	new /obj/item/clothing/accessory/storage/overalls/mining(src)
 
 /******************************Lantern*******************************/
 
@@ -670,7 +671,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(T.z in current_map.station_levels)
+		if(isStationLevel(T.z))
 			destinations += B
 
 	return destinations

@@ -34,7 +34,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	pda = /obj/item/device/pda/heads/hos
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/weapon/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
 	backpack_contents = list(
@@ -265,7 +265,7 @@
 	jobtype = /datum/job/intern_sec
 
 	uniform = /obj/item/clothing/under/rank/cadet
-	suit = /obj/item/clothing/suit/storage/vest/cadet
+	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
 	head = /obj/item/clothing/head/beret/sec/cadet
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec

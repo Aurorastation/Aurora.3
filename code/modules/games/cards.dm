@@ -11,11 +11,6 @@
 /obj/item/weapon/deck/proc/generate_deck() //the procs that creates the cards
 	return
 
-/obj/item/weapon/deck/holder
-	name = "card box"
-	desc = "A small leather case to show how classy you are compared to everyone else."
-	icon_state = "card_holder"
-
 /obj/item/weapon/deck/cards
 	name = "deck of cards"
 	desc = "A simple deck of playing cards."

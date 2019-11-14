@@ -20,51 +20,6 @@ var/datum/antagonist/raider/raiders
 
 	id_type = /obj/item/weapon/card/id/syndicate
 
-	// Heist overrides check_victory() and doesn't need victory or loss strings/tags.
-	var/list/raider_uniforms = list(
-		/obj/item/clothing/under/soviet,
-		/obj/item/clothing/under/pirate,
-		/obj/item/clothing/under/redcoat,
-		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/captain_fly,
-		/obj/item/clothing/under/det,
-		/obj/item/clothing/under/brown,
-		/obj/item/clothing/under/syndicate/tracksuit
-		)
-
-	var/list/raider_shoes = list(
-		/obj/item/clothing/shoes/jackboots,
-		/obj/item/clothing/shoes/workboots,
-		/obj/item/clothing/shoes/brown,
-		/obj/item/clothing/shoes/laceup
-		)
-
-	var/list/raider_glasses = list(
-		/obj/item/clothing/glasses/thermal,
-		/obj/item/clothing/glasses/eyepatch/hud/thermal,
-		/obj/item/clothing/glasses/thermal/plain/monocle,
-		/obj/item/clothing/glasses/thermal/aviator
-		)
-
-	var/list/raider_helmets = list(
-		/obj/item/clothing/head/bearpelt,
-		/obj/item/clothing/head/ushanka,
-		/obj/item/clothing/head/pirate,
-		/obj/item/clothing/head/bandana,
-		/obj/item/clothing/head/hgpiratecap
-		)
-
-	var/list/raider_suits = list(
-		/obj/item/clothing/suit/pirate,
-		/obj/item/clothing/suit/hgpirate,
-		/obj/item/clothing/suit/storage/toggle/bomber,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket,
-		/obj/item/clothing/suit/storage/toggle/brown_jacket,
-		/obj/item/clothing/suit/unathi/mantle,
-		/obj/item/clothing/accessory/poncho,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey
-		)
-
 	var/list/raider_guns = list(
 		/obj/item/weapon/gun/energy/rifle/laser,
 		/obj/item/weapon/gun/energy/rifle/laser/xray,
@@ -214,40 +169,27 @@ var/datum/antagonist/raider/raiders
 	if(!..())
 		return 0
 
+	for (var/obj/item/I in player)
+		if (istype(I, /obj/item/weapon/implant))
+			continue
+		player.drop_from_inventory(I)
+		if(I.loc != player)
+			qdel(I)
+
 	if(player.species && player.species.get_bodytype() == "Vox")
 		equip_vox(player)
 	else
-		var/new_shoes =   pick(raider_shoes)
-		var/new_uniform = pick(raider_uniforms)
-		var/new_glasses = pick(raider_glasses)
-		var/new_helmet =  pick(raider_helmets)
-		var/new_suit =    pick(raider_suits)
-
-		player.equip_to_slot_or_del(new new_shoes(player),slot_shoes)
-		if(!player.shoes)
-			//If equipping shoes failed, fall back to equipping sandals
-			var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/unathi)
-			player.equip_to_slot_or_del(new fallback_type(player), slot_shoes)
-
-		player.equip_to_slot_or_del(new new_uniform(player),slot_w_uniform)
-		player.equip_to_slot_or_del(new new_glasses(player),slot_glasses)
-		player.equip_to_slot_or_del(new new_helmet(player),slot_head)
-		player.equip_to_slot_or_del(new new_suit(player),slot_wear_suit)
+		player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+		player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+		player.force_update_limbs()
+		player.update_eyes()
+		player.regenerate_icons()
 		equip_weapons(player)
 
 	//Try to equip it, del if we fail.
 	var/obj/item/device/contract_uplink/new_uplink = new()
 	if (!player.equip_to_appropriate_slot(new_uplink))
 		qdel(new_uplink)
-
-	var/obj/item/weapon/card/id/id = create_id("Visitor", player, equip = 0)
-	id.name = "[player.real_name]'s Passport"
-	id.assignment = "Visitor"
-	var/obj/item/weapon/storage/wallet/W = new(player)
-	W.handle_item_insertion(id)
-	player.equip_to_slot_or_del(W, slot_wear_id)
-	spawn_money(rand(50,150)*10,W)
-	create_radio(RAID_FREQ, player)
 
 	give_codewords(player)
 

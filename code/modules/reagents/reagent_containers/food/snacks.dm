@@ -176,14 +176,14 @@
 
 		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
 		if(selection == "Name")
-			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null)
+			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
 				user.visible_message("<span class='notice'>\The [user] labels \the [name] as \"[input_clean_name]\".</span>")
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
-			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null)
+			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
 				user.visible_message("<span class='notice'>\The [user] adds a note to \the [name].</span>")
 				desc = input_clean_desc
@@ -428,6 +428,10 @@
 	if (reagents)
 		on_consume(user)
 
+/obj/item/weapon/reagent_containers/food/snacks/on_reagent_change()
+	update_icon()
+	return
+
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks
 //////////////////////////////////////////////////
@@ -514,7 +518,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/candy/koko
 	name = "\improper Koko bar"
-	desc = "A sweet, yet gritty candy bar cultivated exclusively on the Compact ruled world of Ha zana. It's a good pick-me-up for Unathi, but has no affect on other species."
+	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
 	icon_state = "kokobar"
 	trash = /obj/item/trash/kokobar
 	filling_color = "#7D5F46"
@@ -1701,8 +1705,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsteak
 	name = "meat steak"
 	desc = "A piece of hot spicy meat."
-	icon_state = "meatstake"
-	trash = /obj/item/trash/plate
+	icon_state = "steak"
+	trash = /obj/item/trash/plate/steak
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
 	bitesize = 2
@@ -1713,6 +1717,22 @@
 	reagents.add_reagent("triglyceride", 2)
 	reagents.add_reagent("sodiumchloride", 1)
 	reagents.add_reagent("blackpepper", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatsteak/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 10)
+			icon_state = "steak_10"
+		if(11 to 25)
+			icon_state = "steak_25"
+		if(26 to 40)
+			icon_state = "steak_40"
+		if(41 to 60)
+			icon_state = "steak_60"
+		if(61 to 75)
+			icon_state = "steak_75"
+		if(76 to INFINITY)
+			icon_state = "steak"
 
 /obj/item/weapon/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
@@ -1973,6 +1993,9 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/monkeycube/proc/Expand()
 	src.visible_message("<span class='notice'>\The [src] expands!</span>")
+	if(istype(loc, /obj/item/weapon/gripper)) // fixes ghost cube when using syringe
+		var/obj/item/weapon/gripper/G = loc
+		G.drop_item()
 	var/mob/living/carbon/human/H = new(src.loc)
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()

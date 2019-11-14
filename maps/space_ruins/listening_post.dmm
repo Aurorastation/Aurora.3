@@ -111,7 +111,7 @@
 /turf/template_noop,
 /area/template_noop)
 "aA" = (
-/turf/simulated/wall/voxshuttle,
+/turf/simulated/wall/shuttle/raider,
 /area/derelict/ship)
 "aB" = (
 /obj/structure/boulder,
@@ -150,15 +150,21 @@
 	},
 /area/derelict/ship)
 "aH" = (
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aI" = (
 /obj/item/clothing/shoes/magboots/vox,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aJ" = (
 /obj/item/weapon/material/shard,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aK" = (
 /obj/item/weapon/material/shard{
@@ -175,13 +181,17 @@
 /area/derelict/ship)
 "aN" = (
 /obj/item/organ/stack/vox,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aO" = (
 /obj/item/weapon/material/shard{
 	icon_state = "medium"
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aP" = (
 /obj/structure/alien/weeds,
@@ -200,11 +210,15 @@
 /area/derelict/ship)
 "aV" = (
 /obj/item/clothing/mask/gas/swat/vox,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aW" = (
 /obj/item/weapon/gun/launcher/spikethrower,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
 /area/derelict/ship)
 "aX" = (
 /obj/structure/alien/weeds,

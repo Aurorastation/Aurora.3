@@ -177,6 +177,7 @@
 	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
 	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
+	pants["designer jeans"] = /obj/item/clothing/under/pants/designer
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
 	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
@@ -270,3 +271,9 @@
 	display_name = "scientist, alt"
 	path = /obj/item/clothing/under/rank/scientist/science_alt
 	allowed_roles = list("Scientist", "Xenobiologist")
+
+/datum/gear/uniform/cargo_alt
+	display_name = "cargo technician, shorts"
+	description = "For those that value leg-room."
+	path = /obj/item/clothing/under/rank/cargotech/alt
+	allowed_roles = list("Cargo Technician")

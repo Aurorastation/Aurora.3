@@ -56,6 +56,8 @@
 
 		var/obj/item/clothing/C = src
 
+		usr.unEquip(C)
+
 		switch(over_object.name)
 			if("r_hand")
 				if(istype(src, /obj/item/clothing/ears))

@@ -21,7 +21,7 @@ var/list/sacrificed = list()
 	for(var/obj/effect/rune/R in rune_list)
 		if(R == src)
 			continue
-		if(R.word1 == cultwords["travel"] && R.word2 == cultwords["self"] && R.word3 == key && isPlayerLevel(R.z))
+		if(R.word1 == cultwords["travel"] && R.word2 == cultwords["self"] && R.word3 == key && isStationLevel(R.z))
 			index++
 			allrunesloc.len = index
 			allrunesloc[index] = R.loc
@@ -32,7 +32,7 @@ var/list/sacrificed = list()
 		qdel(src)
 
 	var/turf/T = get_turf(user)
-	if(!(T.z in current_map.station_levels))
+	if(isNotStationLevel(T.z))
 		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie is unable to reach you here.</span>")
 		return fizzle(user)
 
@@ -195,7 +195,7 @@ var/list/sacrificed = list()
 		return fizzle(user)
 
 	var/turf/T = get_turf(src)
-	if(!(T.z in current_map.station_levels))
+	if(isNotStationLevel(T.z))
 		to_chat(user, "<span class='warning'>You are too far from the station, Nar'sie can not be summoned here.</span>")
 		return fizzle(user)
 
@@ -1058,16 +1058,15 @@ var/list/sacrificed = list()
 				O.show_message(text("<span class='warning'><B>[] invokes a talisman at []</B></span>", user, T), 1)
 
 			if(issilicon(T))
-				T.Weaken(15)
-				admin_attack_log(user, T, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+				flick("e_flash", T.flash)
+				T.silent += 15
+				admin_attack_log(user, T, "Used a stun talisman.", "Was victim of a stun talisman.", "used a stun talisman on")
 			else if(iscarbon(T))
 				var/mob/living/carbon/C = T
 				flick("e_flash", C.flash)
-				if (!(HULK in C.mutations))
+				if(!(HULK in C.mutations))
 					C.silent += 15
-				C.Weaken(25)
-				C.Stun(25)
-				admin_attack_log(user, C, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
+				admin_attack_log(user, C, "Used a stun talisman.", "Was victim of a stun talisman.", "used a stun talisman on")
 		return
 
 /////////////////////////////////////////TWENTY-FIFTH RUNE

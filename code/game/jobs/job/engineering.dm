@@ -35,7 +35,7 @@
 	head = /obj/item/clothing/head/hardhat/white
 	belt = /obj/item/weapon/storage/belt/utility/full
 	pda = /obj/item/device/pda/heads/ce
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/weapon/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/heads/ce
 
@@ -80,6 +80,7 @@
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/weapon/storage/belt/utility/full
 	pda = /obj/item/device/pda/engineering
+	id = /obj/item/weapon/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/headset_eng
 	r_pocket = /obj/item/device/t_scanner
@@ -114,6 +115,7 @@
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	belt = /obj/item/weapon/storage/belt/utility/atmostech
 	pda = /obj/item/device/pda/atmos
+	id = /obj/item/weapon/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/headset_eng
 
@@ -139,7 +141,7 @@
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
 
-	uniform = /obj/item/clothing/under/rank/engineer
+	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	l_ear = /obj/item/device/radio/headset/headset_eng
