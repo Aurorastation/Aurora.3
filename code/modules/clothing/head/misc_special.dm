@@ -188,15 +188,15 @@
 		var/obj/item/weapon/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
-			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W].</span>"))
+			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
 	else if(isflamesource(W))
 		light()
-		to_chat(user, span("notice", "\The [user] lights \the [name].</span>"))
+		to_chat(user, span("notice", "\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/weapon/flame/candle))
 		var/obj/item/weapon/flame/candle/C = W
 		if(C.lit)
 			light()
-			to_chat(user, span("notice", "\The [user] lights \the [name].</span>"))
+			to_chat(user, span("notice", "\The [user] lights \the [name]."))
 
 /obj/item/clothing/head/pumpkin/lantern/proc/light()
 	if(!src.lit)
