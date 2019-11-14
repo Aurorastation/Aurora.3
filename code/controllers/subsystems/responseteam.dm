@@ -2,11 +2,17 @@
 
 /datum/controller/subsystem/responseteam
 	name = "Response Team"
-	flags = SS_NO_FIRE
+	wait = 3 MINUTES
 
 	var/ert_count = 0
 	var/send_emergency_team = FALSE
 	var/can_call_ert = TRUE
+
+	var/list/chances = list(
+		"security" = 0,
+		"medical" = 0,
+		"engineering" = 0
+	)
 
 	var/list/datum/responseteam/all_ert_teams = list()
 	var/list/datum/responseteam/available_teams = list()
@@ -26,9 +32,12 @@
 	for(var/team in all_teams)
 		CHECK_TICK
 		var/datum/responseteam/ert = new team
-		if(!ert.admin)
+		if(ert.chance > 0)
 			available_teams += ert
 		all_ert_teams += ert
+
+/datum/controller/subsystem/responseteam/fire()
+
 
 /datum/controller/subsystem/responseteam/stat_entry()
 	var/out = "CC:[can_call_ert]"
