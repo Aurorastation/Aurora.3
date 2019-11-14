@@ -19,6 +19,7 @@
 	var/stack_contents = list()
 	var/pickup = 0
 	var/stacksize = 1
+	var/plural
 
 /obj/item/precious/gemstone
 	name = "gemstone"
@@ -55,6 +56,54 @@
 		gemstacker(G, user)
 	else
 		gemmixer(G, user)
+
+/obj/item/precious/gemstone/AltClick(mob/user)
+	if(src.gemsize == GEM_ENORMOUS)
+		user.put_in_hands(src)
+		return
+	if(src.stacksize == 1) // just pick it up...
+		user.put_in_hands(src)
+		return
+	if(src.gemtype == GEM.MIXED)
+		to_chat(user, span("notice", "Try disassembling the whole stack instead, if you want to separate it."))
+		return
+	else 
+		to_chat(user, span("notice", "You take a [src.gemsize] [src.gemtype] from the pile."))
+		src.stacksize -= 1
+		src.update_gem()
+		var/obj/O = new type(loc, 1)
+		user.put_in_hands(O)
+		src.update_gem()
+
+/obj/item/precious/gemstone/attack_self(mob/user)
+	. = ..()
+	if(src.gemsize == GEM_ENORMOUS)
+		user.visible_message(span("notice", "[user] admires the sparkling facets of [src]."),
+		span("notice", "You gaze into the sparkling facets of [src.name]. Hypnotically beautiful..."))
+		return 
+	switch (stacksize)
+		if(1)
+			user.visible_message(span("notice", "[user] flips [src] in one hand."),
+			span("notice", "You give [src] a little flip. Shiny!"))
+			return 
+		if(1 to 5)
+			user.visible_message(span("notice", "[user] sifts [src] through their fingers, admiring the gleaming gemstones."),
+			span("notice", "You sift [src] through your fingers. Glittery..."),
+			span("notice", "You hear a soft clinking."))
+			return 
+		if(6 to 10)
+			user.visible_message(span("notice", "[user] counts [src], looking pleased with their bounty."),
+			span("notice", "You count [src]. Yep, still [stacksize] gems in the pile!"),
+			span("notice", "You hear a soft clinking."))
+			return 
+		if(11 to 30)		
+			user.visible_message(span("notice", "[user] begins counting [src], looking extremely pleased."),
+			span("notice", "You start counting the [src]. 1.. 2.. 3.."),
+			span("notice", "You hear a soft clinking."))
+			if(do_after(5))
+				to_chat(user, span("notice", "You finish counting. There's still [stacksize] gems in the pile. Hurray!")
+			else
+				to_chat(user, span("notice", "You lost your count of [src]!"))
 
 /obj/item/precious/gemstone/proc/gemstacker(obj/item/precious/gemstone/G, mob/user)
 	if(src.stacksize == src.maxstack)
@@ -146,10 +195,20 @@
 
 /obj/item/precious/gemstone/proc/updatedesc()
 	if(src.stacksize == 1)
+		name = "[gemsize] [gemtype]"
 		desc = "A single [gemcolor] gemstone of [gemsize] size"
 		return 
 	if(src.gemtype != GEM_MIXED)
-		desc = "A pile of [gemsize] [gemcolor] gemstones. There are [stacksize] gems in the pile."
+		switch(stacksize)
+			if(2 to 5)
+				name = "[gemsize] [plural]"
+				desc = "Several [gemsize] [gemcolor] gemstones. There are [stacksize] gems."
+			if(5 to 14)
+				name = "pile of [gemsize] [plural]"
+				desc = "A pile of [gemsize] [gemcolor] gemstones, stacked into a pile. There are [stacksize] gems in the pile."
+			if(15 to 30)
+				name = "heap of [gemsize] [plural]"
+				desc = "A hefty stack of [gemsize] [gemcolor] gemstones, heaped into a mass of glittering wealth. There are [stacksize] gems in the pile."
 	else 
 		desc = "A colorful pile of assorted [gemsize] gleaming gemstones. There are [stacksize] gems in the pile."
 
@@ -199,6 +258,7 @@ var/list/gemtype2type = list(
 	icon_state = "sruby_1"
 	gemtype = GEM_RUBY
 	gemsize = GEM_SMALL
+	plural = "rubies"
 	gemcolor = "red"
 	maxstack = 30
 	stacksize = 1
@@ -209,6 +269,7 @@ var/list/gemtype2type = list(
 	icon_state = "stopaz_1"
 	gemtype = GEM_TOPAZ
 	gemsize = GEM_SMALL
+	plural = "topazes"
 	gemcolor = "yellow"
 	maxstack = 30
 	stacksize = 1
@@ -218,7 +279,8 @@ var/list/gemtype2type = list(
 	desc = "A single blue gemstone of small size."
 	icon_state = "ssapphire_1"
 	gemtype = GEM_SAPPHIRE
-	gemsize = GEM_SMALL
+	gemsize = GEM_SMALL		
+	plural = "sapphires"
 	gemcolor = "blue"
 	maxstack = 30
 	stacksize = 1
@@ -228,7 +290,8 @@ var/list/gemtype2type = list(
 	desc = "A single purple gemstone of small size."
 	icon_state = "samethyst_1"
 	gemtype = GEM_AMETHYST
-	gemsize = GEM_SMALL
+	gemsize = GEM_SMALL	
+	plural = "amethysts"
 	gemcolor = "purple"
 	maxstack = 30
 	stacksize = 1
@@ -239,6 +302,7 @@ var/list/gemtype2type = list(
 	icon_state = "semerald_1"
 	gemtype = GEM_EMERALD
 	gemsize = GEM_SMALL
+	plural = "emeralds"
 	gemcolor = "green"
 	maxstack = 30
 	stacksize = 1
@@ -249,6 +313,7 @@ var/list/gemtype2type = list(
 	icon_state = "sdiamond_1"
 	gemtype = GEM_DIAMOND
 	gemsize = GEM_SMALL
+	plural = "diamonds"
 	gemcolor = "colorless"
 	maxstack = 30
 	stacksize = 1
