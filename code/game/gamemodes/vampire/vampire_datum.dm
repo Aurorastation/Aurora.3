@@ -8,6 +8,7 @@
 	var/frenzy = 0								// A vampire's frenzy meter.
 	var/last_frenzy_message = 0					// Keeps track of when the last frenzy alert was sent.
 	var/status = 0								// Bitfield including different statuses.
+	var/stealth = TRUE							// Do you want your victims to know of your sucking?
 	var/list/datum/power/vampire/purchased_powers = list()			// List of power datums available for use.
 	var/obj/effect/dummy/veil_walk/holder = null					// The veil_walk dummy.
 	var/mob/living/carbon/human/master = null	// The vampire/thrall's master.
@@ -18,7 +19,6 @@
 /datum/vampire/proc/add_power(var/datum/mind/vampire, var/datum/power/vampire/power, var/announce = 0)
 	if (!vampire || !power)
 		return
-
 	if (power in purchased_powers)
 		return
 
@@ -26,11 +26,9 @@
 
 	if (power.isVerb && power.verbpath)
 		vampire.current.verbs += power.verbpath
-
 	if (announce)
 		to_chat(vampire.current, "<span class='notice'><b>You have unlocked a new power:</b> [power.name].</span>")
 		to_chat(vampire.current, "<span class='notice'>[power.desc]</span>")
-
 		if (power.helptext)
 			to_chat(vampire.current, "<font color='green'>[power.helptext]</font>")
 
