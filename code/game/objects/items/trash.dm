@@ -79,6 +79,7 @@
 	name = "candle"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle4"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/trash/liquidfood
 	name = "\improper \"LiquidFood\" ration"
