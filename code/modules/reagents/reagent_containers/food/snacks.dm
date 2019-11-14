@@ -578,7 +578,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/cookiesnack
 	name = "Carps Ahoy!"
-	desc = "Capt'n Carpie's minature cookies! Now 100% carpotoxin free!"
+	desc = "Cap'n Carpie's minature cookies! Now 100% carpotoxin free!"
 	icon_state = "cookiesnack"
 	trash = /obj/item/trash/cookiesnack
 	filling_color = "#DBC94F"
@@ -2523,7 +2523,7 @@
 
 /obj/item/weapon/reagent_containers/food/snacks/mint/admints
 	desc = "Spearmint, peppermint's non-festive cousin."
-	icon_state = "ad-mint"
+	icon_state = "admint"
 
 /obj/item/weapon/storage/box/admints
 	name = "Ad-mints"
