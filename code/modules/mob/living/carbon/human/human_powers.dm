@@ -1150,11 +1150,11 @@ mob/living/carbon/human/proc/change_monitor()
 			var/composition = "Non-existant"
 			switch(round((mixture.gas[mix] / total_moles) * 100))
 				if(0)
-					composition = "Non-existant"
+					composition = "Non-existent"
 				if(0 to 5)
 					composition = "Trace-amounts"
 				if(5 to 15)
-					composition = "Low-scent"
+					composition = "Low-volume"
 				if(15 to 60)
 					composition = "Present"
 				if(60 to 80) //nitrogen is usually at 78%
