@@ -335,7 +335,7 @@
 			if(silenced)
 				playsound(src, fire_sound, 10, 1)
 			else
-				playsound(src, fire_sound, 75, 1, 5, 0.9, 1)
+				playsound(src, fire_sound, 75, 1, 3, 0.5, 1)
 
 			if (muzzle_flash)
 				set_light(muzzle_flash)
@@ -378,7 +378,7 @@
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
-		playsound(user, fire_sound, 75, 1, 5, 0.9, 1)
+		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
 
 		if (playemote)
 			if(reflex)
@@ -490,7 +490,7 @@
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
-			playsound(user, fire_sound, 75, 1, 5, 0.9, 1)
+			playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
 
 		in_chamber.on_hit(M)
 

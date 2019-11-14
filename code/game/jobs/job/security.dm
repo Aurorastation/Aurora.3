@@ -34,7 +34,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	pda = /obj/item/device/pda/heads/hos
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/weapon/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
 	backpack_contents = list(

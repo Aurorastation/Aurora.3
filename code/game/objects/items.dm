@@ -159,7 +159,7 @@
 	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user as mob)
-	if (!user || anchored) return
+	if (!user) return
 	if (hasorgans(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]

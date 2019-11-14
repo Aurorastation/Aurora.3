@@ -34,7 +34,7 @@
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/rd
 	pda = /obj/item/device/pda/heads/rd
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/weapon/card/id/navy
 	l_hand = /obj/item/weapon/clipboard
 
 	backpack = /obj/item/weapon/storage/backpack/toxins
@@ -74,6 +74,7 @@
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/science
+	id = /obj/item/weapon/card/id/white
 
 	backpack = /obj/item/weapon/storage/backpack/toxins
 	satchel = /obj/item/weapon/storage/backpack/satchel_tox
@@ -82,7 +83,6 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-
     uniform = /obj/item/clothing/under/rank/xenoarcheologist
 
 /datum/job/xenobiologist
@@ -106,10 +106,16 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
+	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
+	pda = /obj/item/device/pda/xenobio
+
+/datum/outfit/job/scientist/xenobotanist
+	name = "Xenobotanist"
+	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/roboticist
 	title = "Roboticist"
@@ -142,6 +148,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/roboticist
+	id = /obj/item/weapon/card/id/white
 	belt = /obj/item/weapon/storage/belt/utility/full
 
 	backpack = /obj/item/weapon/storage/backpack/toxins

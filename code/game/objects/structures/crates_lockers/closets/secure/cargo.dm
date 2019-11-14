@@ -42,6 +42,7 @@
 		new /obj/item/clothing/head/soft(src)
 		new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
 		new /obj/item/export_scanner(src)
+		new /obj/item/device/drill_dropper(src)
 
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"
