@@ -98,7 +98,7 @@
 			return 
 		if(11 to 30)
 			user.visible_message(span("notice", "[user] begins counting [src], looking extremely pleased."),
-			span("notice", "You start counting [src]. 1.. 2.. 3.."),
+			span("notice", "You start counting [src]. 1... 2... 3..."),
 			span("notice", "You hear soft clinking."))
 			if(do_after(5))
 				to_chat(user, span("notice", "You finish counting. There's still [stacksize] gems in the pile. Hurray!"))
