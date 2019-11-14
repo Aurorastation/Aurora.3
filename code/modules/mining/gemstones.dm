@@ -64,7 +64,7 @@
 	if(src.stacksize == 1) // just pick it up...
 		user.put_in_hands(src)
 		return
-	if(src.gemtype == GEM.MIXED)
+	if(src.gemtype == GEM_MIXED)
 		to_chat(user, span("notice", "Try disassembling the whole stack instead, if you want to separate it."))
 		return
 	else 
@@ -89,19 +89,19 @@
 		if(1 to 5)
 			user.visible_message(span("notice", "[user] sifts [src] through their fingers, admiring the gleaming gemstones."),
 			span("notice", "You sift [src] through your fingers. Glittery..."),
-			span("notice", "You hear a soft clinking."))
+			span("notice", "You hear soft clinking."))
 			return 
 		if(6 to 10)
 			user.visible_message(span("notice", "[user] counts [src], looking pleased with their bounty."),
 			span("notice", "You count [src]. Yep, still [stacksize] gems in the pile!"),
-			span("notice", "You hear a soft clinking."))
+			span("notice", "You hear soft clinking."))
 			return 
-		if(11 to 30)		
+		if(11 to 30)
 			user.visible_message(span("notice", "[user] begins counting [src], looking extremely pleased."),
-			span("notice", "You start counting the [src]. 1.. 2.. 3.."),
-			span("notice", "You hear a soft clinking."))
+			span("notice", "You start counting [src]. 1.. 2.. 3.."),
+			span("notice", "You hear soft clinking."))
 			if(do_after(5))
-				to_chat(user, span("notice", "You finish counting. There's still [stacksize] gems in the pile. Hurray!")
+				to_chat(user, span("notice", "You finish counting. There's still [stacksize] gems in the pile. Hurray!"))
 			else
 				to_chat(user, span("notice", "You lost your count of [src]!"))
 
