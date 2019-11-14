@@ -137,19 +137,14 @@
 
 
 /obj/structure/sign/poster/attack_hand(mob/user as mob)
-
 	if(ruined)
 		return
-
+	if(user.a_intent == I_HELP)
+		user.examinate(src)
+		return
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
-
 		if(ruined || !user.Adjacent(src))
 			return
-
-		if(user.a_intent == I_HELP)
-			user.examinate(src)
-			return
-
 		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		ruined = TRUE
