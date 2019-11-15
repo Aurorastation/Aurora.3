@@ -17,9 +17,9 @@
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
 	var/list/acceptable_containers = list(
-		/obj/item/weapon/reagent_containers/glass,
-		/obj/item/weapon/reagent_containers/food/drinks,
-		/obj/item/weapon/reagent_containers/food/condiment
+		/obj/item/reagent_containers/glass,
+		/obj/item/reagent_containers/food/drinks,
+		/obj/item/reagent_containers/food/condiment
 	)
 	var/appliancetype = MICROWAVE
 	var/datum/looping_sound/microwave/soundloop
@@ -340,10 +340,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	//Any leftover reagents are divided amongst the foods
 	var/total = reagents.total_volume
-	for (var/obj/item/weapon/reagent_containers/food/snacks/S in cooked_items)
+	for (var/obj/item/reagent_containers/food/snacks/S in cooked_items)
 		reagents.trans_to_holder(S.reagents, total/cooked_items.len)
 
-	for (var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
+	for (var/obj/item/reagent_containers/food/snacks/S in contents)
 		S.cook()
 
 	eject(0) //clear out anything left
@@ -490,8 +490,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	return
 
 /obj/machinery/microwave/proc/eject_reagent(datum/reagent/R, mob/user)
-	if(istype(user.l_hand, /obj/item/weapon/reagent_containers) || istype(user.r_hand, /obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = user.l_hand || user.r_hand
+	if(istype(user.l_hand, /obj/item/reagent_containers) || istype(user.r_hand, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/RC = user.l_hand || user.r_hand
 		var/free_space = RC.reagents.get_free_space()
 		if(free_space > R.volume)
 			to_chat(user, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
@@ -539,7 +539,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	var/cap_rating = 0 // 3
 	var/las_rating = 0 // 1
 
-	for (var/obj/item/weapon/stock_parts/P in component_parts)
+	for (var/obj/item/stock_parts/P in component_parts)
 		if(ismatterbin(P))
 			bin_rating += (P.rating - 1)
 		else if(iscapacitor(P))

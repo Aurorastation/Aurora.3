@@ -430,7 +430,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "penny"
 	contained_sprite = 1
 
-/obj/item/weapon/holder/carp/baby
+/obj/item/holder/carp/baby
 	name = "baby space carp"
 	desc = "Awfully cute! Looks friendly!"
 	icon_state = "babycarp"
