@@ -34,15 +34,15 @@
  */
 /obj/item/weapon/pen/dark
 	desc = "An instrument for writing or drawing with ink. This one is in black, in a sleek, dark grey casing. Stylish, classic and professional."
-	icon_state = "pen"
+	icon_state = "pen_dark"
 
 /obj/item/weapon/pen/silver
 	desc = "An instrument for writing or drawing with ink. This one is in black, in a shiny, silver casing. Stylish, classic and professional."
-	icon_state = "pen"
+	icon_state = "pen_silver"
 
 /obj/item/weapon/pen/white
 	desc = "An instrument for writing or drawing with ink. This one is in black, in a sterile, white casing. Stylish, classic and professional."
-	icon_state = "pen"
+	icon_state = "pen_white"
 /*
  * Coloured Pens
  */
@@ -99,7 +99,7 @@
 
 /obj/item/weapon/pen/fountain
 	name = "fountain pen"
-	desc = "A high quality traditional fountain pen with an internal reservoir and an extra fine gold-platinum nib. Guaranteed never to leak."
+	desc = "A traditional fountain pen. Guaranteed never to leak."
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
@@ -126,7 +126,7 @@
 	desc = "It's an expensive Command Navy Blue fountain pen, embellished with silver."
 	icon_state = "pen_fountain-nb"
 
-/obj/item/weapon/pen/fountain/head/captain
+/obj/item/weapon/pen/fountain/captain
 	name = "captain's fountain pen"
 	desc = "It's an expensive Command Navy Blue fountain pen, embellished with ornate gold detailing."
 	icon_state = "pen_fountain-nbc"

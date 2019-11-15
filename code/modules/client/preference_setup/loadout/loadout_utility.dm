@@ -96,3 +96,7 @@
 	cost = 2
 	path = /obj/item/weapon/storage/belt/utility/alt
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/utility/fountainpen
+	display_name = "fountain pen"
+	path = 	/obj/item/weapon/pen/fountain
