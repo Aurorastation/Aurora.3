@@ -299,7 +299,7 @@
 			"<span class='notice'>You begin attaching \the [F] to \the [src].</span>"
 		)
 		if(!do_after(user, 3 SECONDS, act_target = src))
-			to_chat(user, "<span class='notice'>You decide not to attach the [F].")
+			to_chat(user, "<span class='notice'>You decide not to attach the [F].</span>")
 			return
 
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
@@ -365,7 +365,7 @@
 			"<span class='notice'>You begin removing \the [F] to \the [src].</span>"
 		)
 		if(!do_after(user, 3 SECONDS, act_target = src))
-			to_chat(user, "<span class='notice'>You decide not to remove \the [F].")
+			to_chat(user, "<span class='notice'>You decide not to remove \the [F].</span>")
 			return
 
 		user.visible_message(
