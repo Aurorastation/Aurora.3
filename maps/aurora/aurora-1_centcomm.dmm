@@ -23007,7 +23007,7 @@
 "dKC" = (
 /obj/structure/bed/chair/comfy/brown,
 /obj/effect/landmark{
-	name = "TCFLCommander"
+	name = "TCFLLegate"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -28798,7 +28798,7 @@
 	icon_state = "door_closed";
 	id_tag = "tcfllegate";
 	locked = 0;
-	name = "Commander's Office";
+	name = "Legate Chamber";
 	opacity = 1;
 	req_access = list(108,111)
 	},
@@ -29030,10 +29030,12 @@
 	},
 /area/centcom/legion)
 "uFy" = (
-/obj/structure/flora/pottedplant/random,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -27;
 	pixel_y = 0
+	},
+/obj/structure/flora/pottedplant{
+	icon_state = "plant-04"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -30002,6 +30004,10 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
+/obj/item/clothing/head/helmet/tank/legion{
+	pixel_y = 8
+	},
+/obj/item/clothing/head/helmet/tank/legion,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},

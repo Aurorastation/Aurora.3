@@ -59,6 +59,7 @@
 	possible_species = list("Human", "Skrell")
 
 //TCFL ERT
+
 /datum/ghostspawner/human/ert/tcfl
 	name = "TCFL Volunteer"
 	short_name = "tcflr"
@@ -73,7 +74,7 @@
 	name = "TCFL Legionnaire"
 	short_name = "tcfls"
 	max_count = 2
-	desc = "A medic of the Tau Ceti Foreign Legion."
+	desc = "An experienced Legionnaire of the TCFL."
 	outfit = /datum/outfit/admin/ert/legion/specialist
 	mob_name_prefix = "Lgn. "
 
@@ -81,6 +82,8 @@
 	name = "TCFL Prefect"
 	short_name = "tcfll"
 	max_count = 1
+	desc = "A leader of Task Force XIII - Fortune."
+	outfit = /datum/outfit/admin/ert/legion/leader
 	mob_name_prefix = "Pfct. "
 	spawnpoints = list("TCFLERTSpawn - Prefect")
 
@@ -88,7 +91,9 @@
 	name = "TCFL Dropship Pilot"
 	short_name = "tcflpl"
 	max_count = 1
-	mob_name_prefix = "Vol. "
+	desc = "A dropship pilot of the TCFL."
+	outfit = /datum/outfit/admin/ert/legion/pilot
+	mob_name_prefix = "Pl. "
 	spawnpoints = list("TCFLERTSpawn - Pilot")
 
 //Mercenary ERT
