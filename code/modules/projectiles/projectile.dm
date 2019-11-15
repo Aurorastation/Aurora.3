@@ -459,7 +459,8 @@
 
 /obj/item/projectile/proc/process_hitscan()
 	var/safety = range * 3
-	record_hitscan_start(RETURN_POINT_VECTOR_INCREMENT(src, Angle, MUZZLE_EFFECT_PIXEL_INCREMENT, 1))
+	var/return_vector = RETURN_POINT_VECTOR_INCREMENT(src, Angle, MUZZLE_EFFECT_PIXEL_INCREMENT, 1)
+	record_hitscan_start(return_vector)
 	while(loc && !QDELETED(src))
 		if(paused)
 			stoplag(1)

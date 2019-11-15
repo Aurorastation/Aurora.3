@@ -403,7 +403,7 @@
 		if (!check_rights(R_MOD|R_ADMIN))
 			return
 
-		var/ckey = ckey(input("Please specify the ckey you want to search for:", "ckey")) as text
+		var/ckey = ckey(input("Please specify the ckey you want to search for:", "ckey") as text)
 		if (!ckey)
 			to_chat(usr, "<span class='notice'>Cancelled.</span>")
 			return

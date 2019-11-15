@@ -407,7 +407,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			var/obj/item/paper/PR = new/obj/item/paper
 			var/pname = "list of researched technologies"
 			var/info = "<center><b>[station_name()] Science Laboratories</b>"
-			info += "<h2>[ (text2num(href_list["print"]) == 2) ? "Detailed" : ] Research Progress Report</h2>"
+			info += "<h2>[ (text2num(href_list["print"]) == 2) ? "Detailed" : null] Research Progress Report</h2>"
 			info += "<i>report prepared at [worldtime2text()] station time</i></center><br>"
 			if(text2num(href_list["print"]) == 2)
 				info += GetResearchListInfo()

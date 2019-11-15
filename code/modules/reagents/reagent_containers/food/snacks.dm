@@ -2254,7 +2254,7 @@
 /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry/Initialize()
-	. ..()
+	. = ..()
 	reagents.add_reagent("cherryjelly", 5)
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime

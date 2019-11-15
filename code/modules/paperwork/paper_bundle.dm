@@ -12,7 +12,7 @@
 	attack_verb = list("bapped")
 	var/page = 1    // current page
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
-	var amount = 0 // How many sheet
+	var/amount = 0 // How many sheet
 	drop_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/paper_bundle/attackby(obj/item/W as obj, mob/user as mob)
@@ -126,7 +126,7 @@
 	else if(istype(pages[page], /obj/item/photo))
 		var/obj/item/photo/P = W
 		to_chat(user, browse_rsc(P.img, "tmp_photo.png"))
-		user << browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : ]" + "</body></html>", "window=[name]")
+		user << browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" + "</body></html>", "window=[name]")
 
 /obj/item/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
