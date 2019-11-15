@@ -12,7 +12,7 @@
 
 /obj/item/weapon/storage/bible/booze
 	name = "bible"
-	desc = "Praise the mighty keg!"
+	desc = "A holy item, containing the written words of a religion."
 	icon_state = "bible"
 	starts_with = list(
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer = 2,

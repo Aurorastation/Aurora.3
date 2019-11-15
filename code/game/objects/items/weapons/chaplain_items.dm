@@ -55,6 +55,10 @@
 	if(!ispath(nullchoices[picked]))
 		return
 
+	to_chat(user, span("notice", "You start reassembling your obsidian relic."))
+	if(!do_after(user, 2 SECONDS))
+		return
+
 	var/obj/item/weapon/nullrod/chosenitem = nullchoices[picked]
 	new chosenitem(get_turf(user))
 	qdel(src)
@@ -81,7 +85,7 @@
 		user.Paralyse(20)
 		return
 
-	if(M.stat !=2 && ishuman(M) && user.a_intent != I_HURT)
+	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(75))
 			if(do_after(user, 15))
@@ -92,10 +96,12 @@
 						K.visible_message(span("warning", "The gaze in [K]'s eyes remains determined."), span("notice", "You turn away from the light, remaining true to the Geometer!"))
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
+						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
 						K.visible_message(span("notice", "[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
 						cult.remove_antagonist(K.mind)
+						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
 				user.visible_message(span("warning", "[user]'s concentration is broken!"), span("warning", "Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
 				return
