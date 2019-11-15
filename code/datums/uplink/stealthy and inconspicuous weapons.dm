@@ -25,9 +25,9 @@
 	path = /obj/item/weapon/cartridge/syndicate
 
 /datum/uplink_item/item/stealthy_weapons/parapen
-	name = "Paralysis Pen"
+	name = "Sleep Toxins Pen"
 	item_cost = 6
-	path = /obj/item/weapon/pen/reagent/paralysis
+	path = /obj/item/weapon/pen/reagent/sleepy
 
 /datum/uplink_item/item/stealthy_weapons/concealed_cane
 	name = "Concealed Cane Sword"
