@@ -23,6 +23,9 @@
 	var/store_items = 1
 	var/store_mobs = 1
 
+	var/attached_beacon
+	var/beacon_state = image('icons/obj/radio.dmi', "beacon")
+
 	var/const/default_mob_size = 15
 
 /obj/structure/closet/LateInitialize()
@@ -218,7 +221,7 @@
 	..()
 	damage(proj_damage)
 
-/obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/attackby(obj/item/W, mob/user as mob)
 	if(opened)
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/G = W
@@ -289,6 +292,27 @@
 			)
 		else
 			attack_hand(user)
+	else if(istype(W, /obj/item/device/radio/beacon/fulton))
+		var/obj/item/device/radio/beacon/fulton/F = W
+		user.visible_message(
+			"<span class='notice'>[user] begins attaching \the [F] to \the [src].</span>",
+			"<span class='notice'>You begin attaching \the [F] to \the [src].</span>"
+		)
+		if(!do_after(user, 3 SECONDS, act_target = src))
+			to_chat(user, "<span class='notice'>You decide not to attach the [F].")
+			return
+
+		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
+		user.visible_message(
+			"<span class='notice'>[user] attaches \the [F] to \the [src].</span>",
+			"<span class='notice'>You attach \the [F] to \the [src].</span>"
+		)
+		user.drop_from_inventory(F)
+		F.loc = null
+		F.attached = src
+		attached_beacon = F
+		update_icon()
+
 	else
 		attack_hand(user)
 	return
@@ -335,7 +359,26 @@
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
-	return toggle(user)
+	if(attached_beacon && !opened)
+		user.visible_message(
+			"<span class='notice'>[user] begins removing \the [F] to \the [src].</span>",
+			"<span class='notice'>You begin removing \the [F] to \the [src].</span>"
+		)
+		if(!do_after(user, 3 SECONDS, act_target = src))
+			to_chat(user, "<span class='notice'>You decide not to remove \the [F].")
+			return
+
+		user.visible_message(
+			"<span class='notice'>[user] removes \the [F] from \the [src].</span>",
+			"<span class='notice'>You remove \the [F] from \the [src].</span>"
+		)
+
+		F.attached = null
+		attached_beacon = null
+		update_icon()
+
+	else
+		return toggle(user)
 
 // tk grab then use on self
 /obj/structure/closet/attack_self_tk(mob/user as mob)
@@ -363,6 +406,8 @@
 		icon_state = icon_closed
 		if(welded)
 			add_overlay(welded_overlay_state)
+		if(attached_beacon)
+			add_overlay(beacon_state, TRUE)
 	else
 		icon_state = icon_opened
 

@@ -654,6 +654,8 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
+	var/freq = 1451
+
 /obj/item/device/wormhole_jaunter/attack_self(mob/user)
 	user.visible_message("<span class='notice'>[user.name] activates the [src.name]!</span>")
 	feedback_add_details("jaunter", "U") // user activated
@@ -671,7 +673,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(T.z in current_map.station_levels)
+		if(T.z in current_map.station_levels && freq == B.frequency)
 			destinations += B
 
 	return destinations

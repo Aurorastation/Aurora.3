@@ -114,13 +114,14 @@ var/datum/antagonist/traitor/traitors
 		traitor_mob.mind.store_memory("<b>Potential Collaborator</b>: [M.real_name]")
 
 	if(get_antags("commander"))
-		var/obj/item/weapon/implant/camera/C = new(traitor_mob)
-		C.imp_in = traitor_mob
-		C.implanted = 1
-		var/obj/item/organ/external/affected = traitor_mob.organs_by_name["eyes"]
-		affected.implants += C
-		C.part = affected
-		C.implanted(traitor_mob)
+		var/obj/item/organ/external/affected = traitor_mob.organs_by_name["head"]
+		if(affected)
+			var/obj/item/weapon/implant/camera/C = new(traitor_mob)
+			C.imp_in = traitor_mob
+			C.implanted = 1
+			affected.implants += C
+			C.part = affected
+			C.implanted(traitor_mob)
 
 	//Begin code phrase.
 	give_codewords(traitor_mob)

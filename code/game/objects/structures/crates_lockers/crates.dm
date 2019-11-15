@@ -113,6 +113,8 @@
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
+	else if(istype(W, /obj/item/device/radio/beacon/fulton))
+		return ..()
 	else return attack_hand(user)
 
 /obj/structure/closet/crate/ex_act(severity)
@@ -328,13 +330,15 @@
 
 /obj/structure/closet/crate/secure/attack_hand(mob/user as mob)
 	add_fingerprint(user)
-	if(locked)
+	if(attached_beacon && !opened)
+		return ..()
+	else if(locked)
 		return togglelock(user)
 	else
 		return toggle(user)
 
 /obj/structure/closet/crate/secure/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(is_type_in_list(W, list(/obj/item/stack/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters)))
+	if(is_type_in_list(W, list(/obj/item/stack/packageWrap, /obj/item/stack/cable_coil, /obj/item/device/radio/electropack, /obj/item/weapon/wirecutters, /obj/item/device/radio/beacon/fulton)))
 		return ..()
 	if(istype(W, /obj/item/weapon/melee/energy/blade))
 		emag_act(INFINITY, user)

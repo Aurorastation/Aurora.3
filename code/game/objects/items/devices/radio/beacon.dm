@@ -8,6 +8,27 @@ var/global/list/teleportbeacons = list()
 	var/code = "electronic"
 	origin_tech = list(TECH_BLUESPACE = 1)
 
+/obj/item/device/radio/beacon/fulton
+	name = "two-way bluespace beacon"
+	desc = "A single-use, disposable tracking beacon capable of accurately translocating cargo containers when used alongside a bluespace teleporter. Not for use with sentient life."
+	origin_tech = list(TECH_BLUESPACE = 4)
+
+	var/attached
+
+/obj/item/device/radio/beacon/fulton/proc/remove()
+	var/obj/O = attached
+	if(istype(O))
+		O.overlays.Cut()
+	for(var/mob/M in hearers(src, null))
+		M.show_message("<span class='warning'>\The [src] shorts out and breaks!</span>")
+	qdel(src)
+
+/obj/item/device/radio/beacon/fulton/syndicate
+	name = "illicit two-way beacon"
+	desc = "A single-use, disposable tracking beacon capable of accurately translocating cargo containers when used alongside a bluespace teleporter. This one looks purposefully tampered with."
+	freq = SYND_FREQ
+
+
 /obj/item/device/radio/beacon/New()
 	..()
 	teleportbeacons += src

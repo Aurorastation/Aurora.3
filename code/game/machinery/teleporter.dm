@@ -6,8 +6,13 @@
 	dir = 4
 	var/obj/item/locked = null
 	var/id = null
+	var/freq = 1451
 	var/one_time_use = 0 //Used for one-time-use teleport cards (such as clown planet coordinates.)
 						 //Setting this to 1 will set src.locked to null after a player enters the portal and will not allow hand-teles to open portals to that location.
+
+/obj/machinery/computer/teleporter/syndicate
+	name = "Syndicate Teleporter Control Console"
+	freq = SYND_FREQ
 
 /obj/machinery/computer/teleporter/New()
 	src.id = "[rand(1000, 9999)]"
@@ -93,7 +98,7 @@
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue
-		if(!(T.z in current_map.player_levels))
+		if(!(T.z in current_map.player_levels) || freq != R.frequency)
 			continue
 		var/tmpname = T.loc.name
 		if(areaindex[tmpname])
@@ -197,6 +202,12 @@
 			O.show_message("<span class='warning'>Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix.</span>")
 		return
 	if (istype(M, /atom/movable))
+		if(istype(com.locked, /obj/item/device/radio/beacon/fulton))
+			var/obj/item/device/radio/beacon/fulton/F = com.locked
+			if(F.attached)
+				do_teleport(com.locked, locate(loc.x, loc.y - 1))
+				F.remove()
+				return
 		if(prob(5) && !accurate) //oh dear a problem, put em in deep space
 			do_teleport(M, locate(rand((2*TRANSITIONEDGE), world.maxx - (2*TRANSITIONEDGE)), rand((2*TRANSITIONEDGE), world.maxy - (2*TRANSITIONEDGE)), 3), 2)
 		else
