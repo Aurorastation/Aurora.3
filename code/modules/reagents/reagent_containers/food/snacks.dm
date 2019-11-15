@@ -577,8 +577,8 @@
 	bitesize = 1
 
 /obj/item/weapon/reagent_containers/food/snacks/cookiesnack
-	name = "Carps Ahoy!"
-	desc = "Cap'n Carpie's minature cookies! Now 100% carpotoxin free!"
+	name = "Carps Ahoy! miniature cookies"
+	desc = "Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
 	icon_state = "cookiesnack"
 	trash = /obj/item/trash/cookiesnack
 	filling_color = "#DBC94F"

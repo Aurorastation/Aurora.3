@@ -12,10 +12,10 @@
 	var/list/filling = list()
 	var/wrapped = FALSE
 
-/obj/item/clothing/mask/chewable/attack_self(mob/user as mob)
+/obj/item/clothing/mask/chewable/attack_self(mob/user)
 	if(wrapped)
 		wrapped = FALSE
-		to_chat(user, span("notice", "You unwrap the [name]."))
+		to_chat(user, span("notice", "You unwrap \the [name]."))
 		playsound(src.loc, 'sound/items/drop/wrapper.ogg', 50, 1)
 		slot_flags = SLOT_EARS | SLOT_MASK
 		update_icon()
@@ -150,7 +150,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	update_icon()
 
 /obj/item/weapon/storage/box/gum
-	name = "Chewy Fruit flavored gum"
+	name = "\improper Chewy Fruit flavored gum"
 	desc = "A small pack of chewing gum in various flavors."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "gum_pack"

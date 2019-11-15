@@ -12,7 +12,7 @@
 	return
 
 /obj/item/trash/koisbar
-	name = "\improper k'ois Bar wrapper"
+	name = "\improper k'ois bar wrapper"
 	icon_state = "koisbar"
 
 /obj/item/trash/kokobar
@@ -150,5 +150,5 @@
 	drop_sound = 'sound/items/trayhit1.ogg'
 
 /obj/item/trash/cookiesnack
-	name = "\improper Carps Ahoy!"
+	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
