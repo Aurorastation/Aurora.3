@@ -26,7 +26,7 @@ var/global/list/teleportbeacons = list()
 /obj/item/device/radio/beacon/fulton/syndicate
 	name = "illicit two-way beacon"
 	desc = "A single-use, disposable tracking beacon capable of accurately translocating cargo containers when used alongside a bluespace teleporter. This one looks purposefully tampered with."
-	freq = SYND_FREQ
+	frequency = SYND_FREQ
 
 
 /obj/item/device/radio/beacon/New()

@@ -24,7 +24,7 @@
 	var/store_mobs = 1
 
 	var/attached_beacon
-	var/beacon_state = image('icons/obj/radio.dmi', "beacon")
+	var/beacon_state
 
 	var/const/default_mob_size = 15
 
@@ -48,6 +48,7 @@
 /obj/structure/closet/Initialize(mapload)
 	..()
 	fill()
+	beacon_state = image('icons/obj/radio.dmi', "beacon")
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 // Fill lockers with this.
@@ -360,6 +361,7 @@
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	if(attached_beacon && !opened)
+		var/obj/item/device/radio/beacon/fulton/F = attached_beacon
 		user.visible_message(
 			"<span class='notice'>[user] begins removing \the [F] to \the [src].</span>",
 			"<span class='notice'>You begin removing \the [F] to \the [src].</span>"
