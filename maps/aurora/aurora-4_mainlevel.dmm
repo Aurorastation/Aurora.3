@@ -41338,7 +41338,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bsu" = (
-/obj/machinery/r_n_d/server/robotics,
+/obj/machinery/r_n_d/server/advanced/robotics,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -42881,7 +42881,7 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "buJ" = (
-/obj/machinery/r_n_d/server/core,
+/obj/machinery/r_n_d/server/advanced/core,
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -43165,9 +43165,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/structure/bed/chair{
-	dir = 1
-	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -43197,9 +43195,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvm" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
+/obj/machinery/gumballmachine/sucker,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -56175,6 +56171,7 @@
 	dir = 4;
 	network = list("Service")
 	},
+/obj/machinery/gumballmachine,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVz" = (
@@ -64007,6 +64004,14 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
+"eNx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/machinery/gumballmachine/sucker,
+/turf/simulated/floor/wood,
+/area/crew_quarters/bar)
 "eNR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -66787,6 +66792,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"niw" = (
+/obj/machinery/gumballmachine/sucker,
+/turf/simulated/floor/carpet,
+/area/library)
 "njF" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -68385,6 +68394,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"rZl" = (
+/obj/machinery/gumballmachine,
+/turf/simulated/floor/carpet,
+/area/library)
 "saL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -96689,7 +96702,7 @@ bMF
 bJN
 bOl
 bOK
-bJL
+niw
 bPR
 bJL
 bQO
@@ -96946,7 +96959,7 @@ bMF
 bJN
 bOm
 bOK
-bJL
+rZl
 bPS
 bJL
 bQP
@@ -100047,7 +100060,7 @@ bVX
 bWl
 bVx
 bVX
-bVX
+eNx
 bVX
 bVX
 bWL
