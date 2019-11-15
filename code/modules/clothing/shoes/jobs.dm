@@ -1,5 +1,5 @@
 /obj/item/clothing/shoes/galoshes
-	desc = "Rubber boots"
+	desc = "A waterproof overshoe, made of rubber."
 	name = "galoshes"
 	icon_state = "galoshes"
 	permeability_coefficient = 0.05
