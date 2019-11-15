@@ -70,7 +70,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 								   /obj/item/device/flashlight/pen,
 								   /obj/item/clothing/mask/smokable/cigarette
 								   )
-	var/obj/item/weapon/inserted_item //Used for pen, crayon, and lipstick insertion/removal
+	var/obj/item/inserted_item //Used for pen, crayon, and lipstick insertion/removal
 
 	var/list/obj/machinery/requests_console/linked_consoles
 
