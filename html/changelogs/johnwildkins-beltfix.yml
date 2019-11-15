@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed alternate utility belt not starting with tools when selected from loadout."
-  - tweak: "Alternate utility belt is now free to select. Engineering Apprentices can elect to spawn with one, but it will be empty."
-  - backend: "Job outfits now fill utility belts using belt_contents rather than simply spawning sub-types of utility belt."
