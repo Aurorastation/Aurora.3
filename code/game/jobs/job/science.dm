@@ -149,12 +149,22 @@
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/roboticist
 	id = /obj/item/card/id/white
-	belt = /obj/item/storage/belt/utility/full
+	belt = /obj/item/storage/belt/utility
 
 	backpack = /obj/item/storage/backpack/toxins
 	satchel = /obj/item/storage/backpack/satchel_tox
 	dufflebag = /obj/item/storage/backpack/duffel/tox
 	messengerbag = /obj/item/storage/backpack/messenger/tox
+
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/weapon/powerdrill = 1
+	)
 
 /datum/job/intern_sci
 	title = "Lab Assistant"

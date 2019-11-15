@@ -4,13 +4,14 @@
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
 	item_state = "candle1"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 	w_class = 1
 	light_color = "#E09D37"
 	var/wax = 2000
 
-/obj/item/flame/candle/New()
+/obj/item/flame/candle/Initialize()
+	. = ..()
 	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
-	..()
 
 /obj/item/flame/candle/update_icon()
 	var/i
@@ -27,33 +28,37 @@
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
-			light("<span class='notice'>\The [user] casually lights the [name] with [W].</span>")
+			light()
+			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
 	else if(isflamesource(W))
 		light()
+		to_chat(user, span("notice", "\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/flame/candle))
 		var/obj/item/flame/candle/C = W
 		if(C.lit)
 			light()
+			to_chat(user, span("notice", "\The [user] lights \the [name]."))
 
-
-/obj/item/flame/candle/proc/light(var/flavor_text = "<span class='notice'>\The [usr] lights the [name].</span>")
+/obj/item/flame/candle/proc/light()
 	if(!src.lit)
 		src.lit = 1
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
 		//src.damtype = "fire"
-		for(var/mob/O in viewers(usr, null))
-			O.show_message(flavor_text, 1)
 		set_light(CANDLE_LUM)
+		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/flame/candle/process()
+/obj/item/flame/candle/process(mob/user)
 	if(!lit)
 		return
+	update_icon()
 	wax--
 	if(!wax)
-		new/obj/item/trash/candle(src.loc)
+		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
-
+		to_chat(user, span("notice", "The candle burns out."))
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	update_icon()
@@ -64,5 +69,7 @@
 /obj/item/flame/candle/attack_self(mob/user as mob)
 	if(lit)
 		lit = 0
+		to_chat(user, span("notice", "You snuff out the flame."))
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)

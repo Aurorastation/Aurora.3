@@ -13,12 +13,16 @@
  *		Cigarette Box
  */
 
-/obj/item/storage/fancy/
+
+/obj/item/storage/fancy
+	name = "donut box"
+	desc = "A box of half-a-dozen donuts."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "donutbox6"
-	name = "donut box"
 	var/icon_type = "donut"
 	var/storage_type = "box"
+	drop_sound = 'sound/items/drop/box.ogg'
+	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/fancy/update_icon(var/itemremoved = 0)
 	var/total_contents = src.contents.len - itemremoved
@@ -41,13 +45,13 @@
 /*
  * Egg Box
  */
-
 /obj/item/storage/fancy/egg_box
+	name = "egg box"
+	desc = "A carton of eggs."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "eggbox"
-	center_of_mass = list("x" = 16,"y" = 7)
 	icon_type = "egg"
-	name = "egg box"
+	center_of_mass = list("x" = 16,"y" = 7)
 	storage_slots = 12
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/egg,
@@ -79,8 +83,9 @@
 	desc = "A box of crayons for all your rune drawing needs."
 	icon = 'icons/obj/crayons.dmi'
 	icon_state = "crayonbox"
-	w_class = 2.0
 	icon_type = "crayon"
+	drop_sound = 'sound/items/drop/box.ogg'
+	w_class = 2.0
 	can_hold = list(
 		/obj/item/pen/crayon
 	)
@@ -123,6 +128,8 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -204,6 +211,8 @@
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigs_lighters.dmi'
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -249,12 +258,12 @@
 /*
  * Vial Box
  */
-
 /obj/item/storage/fancy/vials
+	name = "vial storage box"
 	icon = 'icons/obj/vialbox.dmi'
 	icon_state = "vialbox6"
 	icon_type = "vial"
-	name = "vial storage box"
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 	storage_slots = 6
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
@@ -265,6 +274,7 @@
 	icon = 'icons/obj/vialbox.dmi'
 	icon_state = "vialbox0"
 	item_state = "syringe_kit"
+	drop_sound = 'sound/items/drop/metalboots.ogg'
 	max_w_class = 2
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.

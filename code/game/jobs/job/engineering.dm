@@ -44,6 +44,16 @@
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/weapon/powerdrill = 1
+	)
+
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
@@ -90,6 +100,16 @@
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/weapon/powerdrill = 1
+	)
+
 /datum/job/atmos
 	title = "Atmospheric Technician"
 	flag = ATMOSTECH
@@ -123,6 +143,15 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/device/t_scanner = 1
+	)
 
 /datum/job/intern_eng
 	title = "Engineering Apprentice"

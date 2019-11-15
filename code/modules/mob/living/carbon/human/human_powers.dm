@@ -1122,3 +1122,55 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
 	if(!length(dirs))
 		to_chat(src, span("notice", "You detect no psionic signatures but your own."))
+
+// flick tongue out to read gasses
+/mob/living/carbon/human/proc/tongue_flick()
+	set name = "Tongue-flick"
+	set desc = "Flick out your tongue to sense the gas in the room."
+	set category = "IC"
+
+	if(stat == DEAD)
+		return
+
+	if(last_special > world.time)
+		return
+
+	if(head && (head.body_parts_covered & FACE))
+		to_chat(src, span("notice", "You can't flick your tongue out with something covering your face."))
+		return
+	else
+		custom_emote(1, "flicks their tongue out.")
+
+	var/datum/gas_mixture/mixture = src.loc.return_air()
+	var/total_moles = mixture.total_moles
+
+	var/list/airInfo = list()
+	if(total_moles>0)
+		for(var/mix in mixture.gas)
+			var/composition = "Non-existant"
+			switch(round((mixture.gas[mix] / total_moles) * 100))
+				if(0)
+					composition = "Non-existent"
+				if(0 to 5)
+					composition = "Trace-amounts"
+				if(5 to 15)
+					composition = "Low-volume"
+				if(15 to 60)
+					composition = "Present"
+				if(60 to 80) //nitrogen is usually at 78%
+					composition = "High-volume"
+				if(80 to INFINITY)
+					composition = "Overwhelming"
+
+			airInfo += span("notice", "[gas_data.name[mix]]: [composition]")
+		airInfo += span("notice", "Temperature: [round(mixture.temperature-T0C)]&deg;C")
+	else
+		airInfo += span("notice", "There is no air around to sample!")
+
+	last_special = world.time + 20
+
+	if(airInfo?.len)
+		to_chat(src, span("notice", "You sense the following in the air:"))
+		for(var/line in airInfo)
+			to_chat(src, span("notice", "[line]"))
+		return
