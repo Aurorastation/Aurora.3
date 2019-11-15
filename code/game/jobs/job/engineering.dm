@@ -45,13 +45,13 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/weapon/screwdriver = 1,
-		/obj/item/weapon/wrench = 1,
-		/obj/item/weapon/weldingtool = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/wirecutters = 1,
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/weapon/powerdrill = 1
+		/obj/item/powerdrill = 1
 	)
 
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -101,13 +101,13 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/weapon/screwdriver = 1,
-		/obj/item/weapon/wrench = 1,
-		/obj/item/weapon/weldingtool = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/wirecutters = 1,
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/weapon/powerdrill = 1
+		/obj/item/powerdrill = 1
 	)
 
 /datum/job/atmos
@@ -145,11 +145,11 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/weapon/screwdriver = 1,
-		/obj/item/weapon/wrench = 1,
-		/obj/item/weapon/weldingtool = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/wirecutters = 1,
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1
 	)
 

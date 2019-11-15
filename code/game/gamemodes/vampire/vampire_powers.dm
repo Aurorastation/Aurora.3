@@ -846,7 +846,7 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to touch them.</span>")
 		return
