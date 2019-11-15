@@ -52,12 +52,12 @@
 
 /mob/living/simple_animal/carp/fluff/think()
 	..()
-	if(!stat)
-		if(!buckled)
-			if (turns_since_move > 5)
-				walk_to(src,0)
-				turns_since_move = 0
-				handle_movement_target()
+	if(!stat && !buckled && (turns_since_move > 5))
+		walk_to(src,0)
+		turns_since_move = 0
+		handle_movement_target()
+	if(!movement_target && (turns_since_move > 5))
+		walk_to(src,0)
 
 /mob/living/simple_animal/carp/fluff/proc/handle_movement_target()
 	if(!QDELETED(friend))
@@ -91,7 +91,7 @@
 	if(!friend || movement_target != friend)
 		..()
 
-/mob/living/simple_animal/carp/fluff/verb/friend()
+/mob/living/simple_animal/carp/fluff/verb/friend(var/mob/user)
 	set name = "Become Friends"
 	set category = "IC"
 	set src in view(1)
@@ -101,11 +101,11 @@
 		say("Glubglub!")
 		return
 
-	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
-		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
+	if(!(ishuman(usr) && befriend_job && usr.job == befriend_job))
+		to_chat(user, "<span class='notice'>[src] ignores you.</span>")
 		return
 
-	friend = usr
+	friend = user
 
 	set_dir(get_dir(src, friend))
 	say("Glubglub!")
