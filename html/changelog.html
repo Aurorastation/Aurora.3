@@ -36,11 +36,24 @@
 		<div class="commit sansserif">
 
 			<h2 class="date">15 November 2019</h2>
+			<h3 class="author">Geeves, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">A new mascot has been introduced to Engineering, Ginny, the baby space carp.</li>
+			</ul>
 			<h3 class="author">JohnWildkins updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="bugfix">Fixed alternate utility belt not starting with tools when selected from loadout.</li>
 				<li class="tweak">Alternate utility belt is now free to select. Engineering Apprentices can elect to spawn with one, but it will be empty.</li>
 				<li class="backend">Job outfits now fill utility belts using belt_contents rather than simply spawning sub-types of utility belt.</li>
+				<li class="refactor">Microwaves have been reworked from the ground up on the back-end. Microwaves have been moved to a process-based system for cooking, and behave more similarly to other cooking devices.</li>
+				<li class="rscadd">Microwaves have had their UI rebuilt from scratch in Vue.</li>
+				<li class="rscadd">You can now eject individual ingredients and reagents from a microwave. To perform the latter, you must be holding a reagent container with enough space in your hands.</li>
+				<li class="rscadd">You can now start microwaves by alt-clicking on them.</li>
+				<li class="rscadd">Microwaves can now be upgraded, with matter bins, capacitors, and the micro laser affecting maximum cookable items, power usage, and cook time respectively.</li>
+				<li class="tweak">Microwaves now display their cook time as a progress bar in the UI. Cook time has been reduced across the board.</li>
+				<li class="tweak">Eject verb for microwaves removed. All interfacing should now be done via the UI.</li>
+				<li class="bugfix">Bugs both known and unknown relating to the old UI and general instability of the microwave have been solved, including food duplication.</li>
+				<li class="backend">Vue UI progress bar element now caps width at 100%.</li>
 			</ul>
 
 			<h2 class="date">14 November 2019</h2>
