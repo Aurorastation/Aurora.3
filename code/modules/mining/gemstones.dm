@@ -488,35 +488,14 @@ var/list/gemtype2type = list(
 
 // Temporary treasure hunt space - to be deleted after someone finds the first enormous gemstone
 
-/obj/item/precious/gemstone/ruby/huge/pickup(mob/living/user)
+/obj/item/precious/gemstone/pickup(mob/living/user)
+	if(src.gemsize != GEM_ENORMOUS)
+		return
 	if(src.pickup == 0)
-		to_chat(user, "<span style='color: green;'><i>You have found the first ever enormous gemstone - a huge ruby! You should inform Kaedwuff OOC for a surprise.</i></span>")
+		to_chat(user, "<span style='color: green;'><i>As you struggle to pick up [src.name], you realize this might possibly be the most valuable object you will ever hold in your life. Can you even put a value on a gemstone this large?</i></span>")
+		log_and_message_admins ("has found the first enormous gemstone, \a [src.gemtype]. Please inform Kaedwuff about this, he has plans to give them a surprise.")
 		src.pickup = 1
 
-/obj/item/precious/gemstone/sapphire/huge/pickup(mob/living/user)
-	if(src.pickup == 0)
-		to_chat(user, "<span style='color: green;'><i>You have found the first ever enormous gemstone - a huge sapphire! You should inform Kaedwuff OOC for a surprise.</i></span>")
-		src.pickup = 1
-
-/obj/item/precious/gemstone/topaz/huge/pickup(mob/living/user)
-	if(src.pickup == 0)
-		to_chat(user, "<span style='color: green;'><i>You have found the first ever enormous gemstone - a huge topaz! You should inform Kaedwuff OOC for a surprise.</i></span>")
-		src.pickup = 1
-
-/obj/item/precious/gemstone/diamond/huge/pickup(mob/living/user)
-	if(src.pickup == 0)
-		to_chat(user, "<span style='color: green;'><i>You have found the first ever enormous gemstone - a huge diamond! You should inform Kaedwuff OOC for a surprise.</i></span>")
-		src.pickup = 1
-
-/obj/item/precious/gemstone/amethyst/huge/pickup(mob/living/user)
-	if(src.pickup == 0)
-		to_chat(user, "<span style='color: green;'><i>You have found the first ever enormous gemstone - a huge amethyst! You should inform Kaedwuff OOC for a surprise.</i></span>")
-		src.pickup = 1
-
-/obj/item/precious/gemstone/emerald/huge/pickup(mob/living/user)
-	if(src.pickup == 0)
-		to_chat(user, "<span style='color: green;'><i>You have found the first ever enormous gemstone - a huge emerald! You should inform Kaedwuff OOC for a surprise.</i></span>")
-		src.pickup = 1
 
 // Mixed Gem Piles
 
