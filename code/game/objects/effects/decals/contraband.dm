@@ -12,6 +12,7 @@
 	name = "rolled-up poster"
 	desc = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	icon_state = "rolled_poster"
+	drop_sound = 'sound/items/drop/wrapper.ogg'
 	var/serial_number = 0
 
 
@@ -60,7 +61,7 @@
 	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), serial_number)
 
 	flick("poster_being_set", P)
-	//playsound(W, 'sound/items/poster_being_created.ogg', 100, 1) //why the hell does placing a poster make printer sounds?
+	playsound(W, 'sound/items/package_wrap.ogg', 100, 1)
 
 	addtimer(CALLBACK(src, .proc/place_on_wall, P, user, W), 28, TIMER_CLIENT_TIME)
 
@@ -84,7 +85,7 @@
 	anchored = 1
 	var/serial_number	//Will hold the value of src.loc if nobody initialises it
 	var/poster_type		//So mappers can specify a desired poster
-	var/ruined = 0
+	var/ruined = FALSE
 
 /obj/structure/sign/poster/Initialize(mapload, placement_dir = null, serial = null)
 	. = ..()
@@ -136,18 +137,17 @@
 
 
 /obj/structure/sign/poster/attack_hand(mob/user as mob)
-
 	if(ruined)
 		return
-
+	if(user.a_intent == I_HELP)
+		user.examinate(src)
+		return
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
-
 		if(ruined || !user.Adjacent(src))
 			return
-
 		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
-		ruined = 1
+		ruined = TRUE
 		icon_state = "poster_ripped"
 		name = "ripped poster"
 		desc = "You can't make out anything from the poster's original print. It's ruined."

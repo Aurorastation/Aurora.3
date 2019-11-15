@@ -144,8 +144,8 @@
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#C0C0C0"
 
@@ -161,6 +161,7 @@
 
 	uniform = /obj/item/clothing/under/rank/cargotech
 	pda = /obj/item/device/pda/cargo
+	id = /obj/item/weapon/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 
@@ -189,6 +190,7 @@
 
 	uniform = /obj/item/clothing/under/rank/miner
 	pda = /obj/item/device/pda/shaftminer
+	id = /obj/item/weapon/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 
@@ -201,7 +203,6 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
-
 
 //Not engineers, just the mop boys
 /datum/job/janitor

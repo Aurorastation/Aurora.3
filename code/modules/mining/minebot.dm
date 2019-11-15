@@ -9,7 +9,6 @@
 	req_access = list(access_mining, access_robotics)
 	idcard_type = /obj/item/weapon/card/id/minedrone
 	speed = -1
-	range_limit = 0
 	var/health_upgrade
 	var/ranged_upgrade
 	var/melee_upgrade
@@ -153,6 +152,17 @@
 		P.update_icon()
 		visible_message("\icon[src] <span class = 'notice'>The [usr] pings, \"[P.name] ready for review\", and happily disgorges a small printout.</span>", range = 2)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+
+/mob/living/silicon/robot/drone/mining/process_level_restrictions()
+	//Abort if they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	//Check if they are not on a station level -> abort
+	var/turf/T = get_turf(src)
+	if (!T || isStationLevel(T.z))
+		return
+	to_chat(src,"WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated.")
+	gib()
 
 /**********************Minebot Upgrades**********************/
 

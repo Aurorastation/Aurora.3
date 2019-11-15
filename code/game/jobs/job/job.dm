@@ -198,16 +198,6 @@
 
 	var/box = /obj/item/weapon/storage/box/survival
 
-/datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	if(back)
-		equip_item(H, back, slot_back)
-
-	if(istype(H.back,/obj/item/weapon/storage/backpack))
-		var/obj/item/weapon/storage/backpack/B = H.back
-		B.autodrobe_no_remove = TRUE
-
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)

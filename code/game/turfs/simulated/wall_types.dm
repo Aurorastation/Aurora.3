@@ -70,13 +70,6 @@
 /turf/simulated/wall/sandstonediamond/Initialize(mapload)
 	. = ..(mapload,"sandstone","diamond")
 
-// Kind of wondering if this is going to bite me in the butt.
-/turf/simulated/wall/voxshuttle/Initialize(mapload)
-	. = ..(mapload,"voxalloy")
-
-/turf/simulated/wall/voxshuttle/attackby()
-	return
-
 /turf/simulated/wall/titanium/Initialize(mapload)
 	. = ..(mapload,"titanium")
 

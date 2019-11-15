@@ -3,36 +3,42 @@
 	colour = "#DA0000"
 	shadeColour = "#810C0C"
 	colourName = "red"
+	dust = "crayon_dust_red"
 
 /obj/item/weapon/pen/crayon/orange
 	icon_state = "crayonorange"
 	colour = "#FF9300"
 	shadeColour = "#A55403"
 	colourName = "orange"
+	dust = "crayon_dust_orange"
 
 /obj/item/weapon/pen/crayon/yellow
 	icon_state = "crayonyellow"
 	colour = "#FFF200"
 	shadeColour = "#886422"
 	colourName = "yellow"
+	dust = "crayon_dust_yellow"
 
 /obj/item/weapon/pen/crayon/green
 	icon_state = "crayongreen"
 	colour = "#A8E61D"
 	shadeColour = "#61840F"
 	colourName = "green"
+	dust = "crayon_dust_green"
 
 /obj/item/weapon/pen/crayon/blue
 	icon_state = "crayonblue"
 	colour = "#00B7EF"
 	shadeColour = "#0082A8"
 	colourName = "blue"
+	dust = "crayon_dust_blue"
 
 /obj/item/weapon/pen/crayon/purple
 	icon_state = "crayonpurple"
 	colour = "#DA00FF"
 	shadeColour = "#810CFF"
 	colourName = "purple"
+	dust = "crayon_dust_purple"
 
 /obj/item/weapon/pen/crayon/mime
 	icon_state = "crayonmime"
@@ -40,7 +46,8 @@
 	colour = "#FFFFFF"
 	shadeColour = "#000000"
 	colourName = "mime"
-	uses = 0
+	dust = "crayon_dust_grey"
+	chem_volume = 15
 
 /obj/item/weapon/pen/crayon/mime/attack_self(mob/living/user as mob) //inversion
 	if(colour != "#FFFFFF" && shadeColour != "#000000")
@@ -58,7 +65,8 @@
 	colour = "#FFF000"
 	shadeColour = "#000FFF"
 	colourName = "rainbow"
-	uses = 0
+	dust = "crayon_dust_brown"
+	chem_volume = 20
 
 /obj/item/weapon/pen/crayon/rainbow/attack_self(mob/living/user as mob)
 	colour = input(user, "Please select the main colour.", "Crayon colour") as color
@@ -89,9 +97,9 @@
 			new /obj/effect/decal/cleanable/crayon(target,colour,shadeColour,drawtype)
 			to_chat(user, "You finish drawing.")
 			target.add_fingerprint(user)		// Adds their fingerprints to the floor the crayon is drawn on.
-			if(uses)
-				uses--
-				if(!uses)
+			if(reagents)
+				reagents.remove_reagent(dust,0.5) //using crayons reduces crayon dust in it.
+				if(reagents.total_volume <= 0)
 					to_chat(user, "<span class='warning'>You used up your crayon!</span>")
 					qdel(src)
 	return
@@ -100,12 +108,10 @@
 	if(M == user)
 		to_chat(user, "You take a bite of the crayon and swallow it.")
 		user.adjustNutritionLoss(-1)
-		user.reagents.add_reagent("crayon_dust",min(5,uses)/3)
-		if(uses)
-			uses -= 5
-			if(uses <= 0)
-				to_chat(user, "<span class='warning'>You ate your crayon!</span>")
-				qdel(src)
+		reagents.trans_to_mob(user, 2, CHEM_INGEST)
+		if(reagents.total_volume <= 0)
+			to_chat(user, "<span class='warning'>You ate your crayon!</span>")
+			qdel(src)
 	else
 		..(M, user, target_zone)
 

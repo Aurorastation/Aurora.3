@@ -327,5 +327,5 @@
 	fallback_specific_heat = 1
 
 /datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.druggy = max(M.druggy, 50)
-	M.silent += 15
+	M.druggy = max(M.druggy, 100)
+	M.silent = max(M.silent, 5)

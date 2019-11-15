@@ -673,7 +673,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(T.z in current_map.station_levels && freq == B.frequency)
+		if(isStationLevel(T.z) && freq == B.frequency)
 			destinations += B
 
 	return destinations

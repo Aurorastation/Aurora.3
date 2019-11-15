@@ -98,7 +98,7 @@
 		var/turf/T = get_turf(R)
 		if (!T)
 			continue
-		if(!(T.z in current_map.player_levels) || freq != R.frequency)
+		if(isNotStationLevel(T.z) || R.frequency != freq)
 			continue
 		var/tmpname = T.loc.name
 		if(areaindex[tmpname])

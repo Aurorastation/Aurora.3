@@ -133,6 +133,7 @@
 
 /datum/outfit/admin/syndicate/ninja
 	name = "Infiltrator"
+	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	back = /obj/item/weapon/rig/light/ninja
@@ -188,6 +189,7 @@
 
 /datum/outfit/admin/syndicate/raider
 	name = "Raider"
+	allow_backbag_choice = FALSE
 
 	uniform = list(
 		/obj/item/clothing/under/soviet,
@@ -250,7 +252,7 @@
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/weapon/storage/wallet/W = H.wear_id
-	var/obj/item/weapon/card/id/raider/id = new(H)
+	var/obj/item/weapon/card/id/syndicate/raider/id = new(H)
 	id.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(id)
@@ -281,7 +283,7 @@
 		W.registered_name = H.real_name
 
 /datum/outfit/admin/wizard
-	name = "Wizard"
+	name = "Space Wizard"
 	allow_backbag_choice = TRUE
 
 	uniform = /obj/item/clothing/under/lightpurple

@@ -138,8 +138,3 @@
 	path = /obj/item/device/suit_cooling_unit/improved
 	desc = "A suit cooling unit with a high capacity power cell."
 
-/datum/uplink_item/item/tools/rig_cooling_unit
-	name = "mounted suit cooling unit"
-	item_cost = 8
-	path = /obj/item/rig_module/cooling_unit
-	desc = "A mounted suit cooling unit for use with rigs."

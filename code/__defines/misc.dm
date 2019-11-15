@@ -367,6 +367,15 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
+#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
+
+#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isNotAdminLevel(Z) !isAdminLevel(Z)
+
+#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isNotContactLevel(Z) !isContactLevel(Z)
+
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
 //If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
 //Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.

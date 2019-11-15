@@ -276,7 +276,7 @@ emp_act
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
-				if(prob(effective_force))
+				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
 					apply_effect(20, PARALYZE, blocked)
 			else

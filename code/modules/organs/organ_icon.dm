@@ -21,7 +21,7 @@
 		return
 	if(!isnull(human.s_tone) && (human.species.appearance_flags & HAS_SKIN_TONE))
 		s_tone = human.s_tone
-	if(human.species.appearance_flags & HAS_SKIN_COLOR)
+	if((human.species.appearance_flags & HAS_SKIN_COLOR) || (human.species.appearance_flags & HAS_SKIN_PRESET))
 		skin_color = rgb(human.r_skin, human.g_skin, human.b_skin)
 	hair_color = rgb(human.r_hair, human.g_hair, human.b_hair)
 
@@ -33,7 +33,7 @@
 		return
 	if(!isnull(dna.GetUIValue(DNA_UI_SKIN_TONE)) && (species.appearance_flags & HAS_SKIN_TONE))
 		s_tone = dna.GetUIValue(DNA_UI_SKIN_TONE)
-	if(species.appearance_flags & HAS_SKIN_COLOR)
+	if((species.appearance_flags & HAS_SKIN_COLOR) || (species.appearance_flags & HAS_SKIN_PRESET))
 		skin_color = rgb(dna.GetUIValue(DNA_UI_SKIN_R), dna.GetUIValue(DNA_UI_SKIN_G), dna.GetUIValue(DNA_UI_SKIN_B))
 	hair_color = rgb(dna.GetUIValue(DNA_UI_HAIR_R),dna.GetUIValue(DNA_UI_HAIR_G),dna.GetUIValue(DNA_UI_HAIR_B))
 
@@ -150,13 +150,15 @@
 					mob_icon.ColorTone(rgb(10,50,0))
 					mob_icon.SetIntensity(0.7)
 
+				if(skin_color)
+					mob_icon.Blend(skin_color, ICON_ADD)
+
 				if(!isnull(s_tone))
 					if(s_tone >= 0)
 						mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
 					else
 						mob_icon.Blend(rgb(-s_tone,  -s_tone,  -s_tone), ICON_SUBTRACT)
-				else if(skin_color)
-					mob_icon.Blend(skin_color, ICON_ADD)
+				
 
 			apply_markings()
 

@@ -160,7 +160,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	pref.r_facial = sanitize_integer(pref.r_facial, 0, 255, initial(pref.r_facial))
 	pref.g_facial = sanitize_integer(pref.g_facial, 0, 255, initial(pref.g_facial))
 	pref.b_facial = sanitize_integer(pref.b_facial, 0, 255, initial(pref.b_facial))
-	pref.s_tone   = sanitize_integer(pref.s_tone, -185, 34, initial(pref.s_tone))
+	pref.s_tone   = sanitize_integer(pref.s_tone, -185, 5, initial(pref.s_tone))
 	pref.r_skin   = sanitize_integer(pref.r_skin, 0, 255, initial(pref.r_skin))
 	pref.g_skin   = sanitize_integer(pref.g_skin, 0, 255, initial(pref.g_skin))
 	pref.b_skin   = sanitize_integer(pref.b_skin, 0, 255, initial(pref.b_skin))
@@ -294,9 +294,15 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<br><b>Eyes</b><br>"
 		out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
 
-	if(has_flag(mob_species, HAS_SKIN_COLOR))
-		out += "<br><b>Body Color</b><br>"
-		out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
+	if(has_flag(mob_species, HAS_SKIN_COLOR) || has_flag(mob_species, HAS_SKIN_PRESET))
+		if(has_flag(mob_species, HAS_SKIN_PRESET))
+			out += "<br><b>Body Color Presets</b><br>"
+			out += "<a href='?src=\ref[src];skin_color=1'>Choose Preset</a><br>"
+		else
+			out += "<br><b>Body Color</b><br>"
+			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
+
+	
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -444,19 +450,28 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["skin_tone"])
 		if(!has_flag(mob_species, HAS_SKIN_TONE))
 			return TOPIC_NOACTION
-		var/new_s_tone = input(user, "Choose your character's skin-tone:\n(Light 1 - 220 Dark)", "Character Preference", (-pref.s_tone) + 35)  as num|null
+		var/new_s_tone = input(user, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Character Preference", (-pref.s_tone) + 35)  as num|null
 		if(new_s_tone && has_flag(mob_species, HAS_SKIN_TONE) && CanUseTopic(user))
-			pref.s_tone = 35 - max(min( round(new_s_tone), 220),1)
+			pref.s_tone = 35 - max(min( round(new_s_tone), 220),30)
 			return TOPIC_REFRESH
 
 	else if(href_list["skin_color"])
-		if(!has_flag(mob_species, HAS_SKIN_COLOR))
+		if(!has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
 			return TOPIC_NOACTION
-		var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
-		if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
-			pref.r_skin = GetRedPart(new_skin)
-			pref.g_skin = GetGreenPart(new_skin)
-			pref.b_skin = GetBluePart(new_skin)
+		if(has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
+			var/new_skin = input(user, "Choose your character's skin colour: ", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
+			if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
+				pref.r_skin = GetRedPart(new_skin)
+				pref.g_skin = GetGreenPart(new_skin)
+				pref.b_skin = GetBluePart(new_skin)
+			return TOPIC_REFRESH
+
+		else if(has_flag(mob_species, HAS_SKIN_PRESET))
+			var/new_preset = input(user, "Choose your character's body color preset:", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as null|anything in mob_species.character_color_presets
+			new_preset = mob_species.character_color_presets[new_preset]
+			pref.r_skin = GetRedPart(new_preset)
+			pref.g_skin = GetGreenPart(new_preset)
+			pref.b_skin = GetBluePart(new_preset)
 			return TOPIC_REFRESH
 
 	else if(href_list["facial_style"])
