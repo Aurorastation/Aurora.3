@@ -25,9 +25,9 @@
 	path = /obj/item/cartridge/syndicate
 
 /datum/uplink_item/item/stealthy_weapons/parapen
-	name = "Paralysis Pen"
+	name = "Special Pens Kit"
 	item_cost = 6
-	path = /obj/item/pen/reagent/paralysis
+	path = /obj/item/storage/box/syndie_kit/specal_pens
 
 /datum/uplink_item/item/stealthy_weapons/concealed_cane
 	name = "Concealed Cane Sword"
