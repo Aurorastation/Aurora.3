@@ -711,9 +711,9 @@
 
 
 			
-/datum/reagent/toxin/abductazine
-	name = "Abductazine"
-	id = "abductazine"
+/datum/reagent/toxin/dextrotoxin
+	name = "Dextrotoxin"
+	id = "dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
 	color = "#002067"
@@ -721,7 +721,7 @@
 	strength = 0
 	taste_description = "danger"
 
-/datum/reagent/toxin/abductazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
@@ -733,7 +733,7 @@
 	if(dose > 0.5)	
 		M.Weaken(10)
 
-/datum/reagent/toxin/abductazine/Destroy()
+/datum/reagent/toxin/dextrtoxin/Destroy()
 	if(holder && holder.my_atom && ismob(holder.my_atom))
 		var/mob/M = holder.my_atom
 		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))

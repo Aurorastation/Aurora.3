@@ -447,10 +447,10 @@
 	required_reagents = list("carpotoxin" = 5, "stoxin" = 5, "copper" = 5)
 	result_amount = 2
 
-/datum/chemical_reaction/abductazine
-	name = "Abductazine"
-	id = "abductazine"
-	result = "abductazine"
+/datum/chemical_reaction/dextrotoxin
+	name = "Dextrotoxin"
+	id = "dextrotoxin"
+	result = "dextrotoxin"
 	required_reagents = list("carpotoxin" = 3, "stoxin" = 10, "phoron" = 5)
 	result_amount = 5
 

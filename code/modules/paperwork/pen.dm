@@ -122,7 +122,7 @@
 
 /obj/item/weapon/pen/reagent/paralysis/New()
 	..()
-	reagents.add_reagent("abductazine", 10)
+	reagents.add_reagent("dextrotoxin", 10)
 /*
  * Chameleon pen
  */
