@@ -510,8 +510,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				for(var/datum/wound/W in affecting.wounds)
-					if(W.internal)
-						continue
+
 					if(W.bandaged)
 						continue
 					if(W.current_stage <= W.max_bleeding_stage)

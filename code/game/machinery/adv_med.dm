@@ -439,23 +439,19 @@
 		data["name"] = O.name
 
 		var/list/wounds = list()
-		var/num_IB = 0
-		for (var/datum/wound/W in O.wounds)
-			if (W.internal)
-				num_IB++
-
-		if (num_IB)
-			if (num_IB > 1)
-				wounds += "Shows signs of severe internal bleeding."
-			else
-				wounds += "Shows signs of internal bleeding."
 
 		if (O.status & ORGAN_ROBOT)
 			wounds += "Appears to be composed of inorganic material."
+		if (O.status & ORGAN_ARTERY_CUT)
+			wounds += "Severed [O.artery_name]."
+		if (O.status & ORGAN_TENDON_CUT)
+			wounds += "Severed [O.tendon_name]."
 		if (O.status & ORGAN_SPLINTED)
 			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
 			wounds += "Bleeding."
+		if(O.is_dislocated())
+			wounds += "Dislocated."
 		if (O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]."
 		if (O.open)
@@ -604,25 +600,30 @@
 		var/robot = ""
 		var/splint = ""
 		var/internal_bleeding = ""
+		var/severed_tendon = ""
 		var/lung_ruptured = ""
+		var/dislocated = ""
 
 		dat += "<tr>"
 
-		for(var/datum/wound/W in e.wounds) if(W.internal)
-			internal_bleeding = "<br>Internal bleeding"
-			break
+		if(e.status & ORGAN_ARTERY_CUT)
+			internal_bleeding = "Arterial bleeding."
+		if(e.status & ORGAN_TENDON_CUT)
+			severed_tendon = "Severed tendon."
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
-			lung_ruptured = "Lung ruptured:"
+			lung_ruptured = "Lung ruptured."
 		if(e.status & ORGAN_SPLINTED)
-			splint = "Splinted:"
+			splint = "Splinted."
+		if(e.is_dislocated())
+			dislocated = "Dislocated."
 		if(e.status & ORGAN_BLEEDING)
-			bled = "Bleeding:"
+			bled = "Bleeding."
 		if(e.status & ORGAN_BROKEN)
-			AN = "[e.broken_description]:"
+			AN = "[e.broken_description]."
 		if(e.status & ORGAN_ROBOT)
-			robot = "Prosthetic:"
+			robot = "Prosthetic."
 		if(e.open)
-			open = "Open:"
+			open = "Open."
 
 		var/infection = "[get_infection_level(e.germ_level)] infection"
 		if (infection == "")
@@ -643,7 +644,7 @@
 		if(!AN && !open && !infected & !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[e.brute_dam]</td><td>[robot][bled][AN][splint][open][infected][imp][internal_bleeding][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[e.brute_dam]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"

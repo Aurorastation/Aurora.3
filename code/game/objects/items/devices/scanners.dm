@@ -202,15 +202,18 @@ BREATH ANALYZER
 			if(e && e.status & ORGAN_BROKEN)
 				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
 				break
-		var/IB = FALSE
+		var/found_arterial = FALSE
+		var/found_tendon = FALSE
 		for(var/obj/item/organ/external/e in H.organs)
-			if(!e)
-				continue
-			for(var/datum/wound/W in e.wounds) if(W.internal)
-				IB = TRUE
+			if(e)
+				if(!found_arterial && (e.status & ORGAN_ARTERY_CUT))
+					user.show_message(text("<span class='warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"))
+					found_arterial = TRUE
+				if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+					user.show_message(text("<span class='warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"))
+					found_tendon = TRUE
+			if(found_arterial && found_tendon)
 				break
-		if (IB == TRUE)
-			user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
 		if(M:vessel)
 			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
 			var/blood_percent = blood_volume / 560
