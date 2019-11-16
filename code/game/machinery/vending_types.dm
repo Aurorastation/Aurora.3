@@ -223,7 +223,7 @@
 		/obj/item/weapon/storage/box/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
 		/obj/item/weapon/storage/box/admints = 12,
-		/obj/item/weapon/reagent_containers/food/snacks/cookiesnack = 20
+		/obj/item/weapon/reagent_containers/food/snacks/cookiesnack = 20,
 		/obj/item/weapon/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/weapon/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/weapon/reagent_containers/food/snacks/maps = 23,
