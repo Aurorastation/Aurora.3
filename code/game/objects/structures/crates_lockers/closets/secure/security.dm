@@ -356,10 +356,7 @@
 	new /obj/item/gun/projectile/revolver/detective(src)
 	new /obj/item/taperoll/police(src)
 	//Belts
-	new /obj/item/clothing/accessory/holster/armpit(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
-	new /obj/item/clothing/accessory/holster/hip(src)
-	new /obj/item/clothing/accessory/holster/thigh(src)
 
 /obj/structure/closet/secure_closet/csi
 	name = "forensic technician's locker"
