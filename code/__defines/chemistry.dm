@@ -54,6 +54,7 @@
 #define CE_SPEEDBOOST "gofast" // Hyperzine
 #define CE_BERSERK "berserk"
 #define CE_PACIFIED "pacified"
+#define CE_UNDEXTROUS "undextrous" // arms no work right
 
 // Chemistry lists.
 var/list/tachycardics  = list("coffee", "inaprovaline", "hyperzine", "nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.

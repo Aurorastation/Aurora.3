@@ -726,10 +726,10 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
-	if(!M.noradio)
+	if (!(CE_UNDEXTROUS in M.chem_effects))
 		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
-	M.noradio = max(M.noradio, 10)
+	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(dose > 0.2)	
 		M.Weaken(10)
 

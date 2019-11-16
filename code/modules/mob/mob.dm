@@ -1092,7 +1092,6 @@ mob/proc/yank_out_object()
 	handle_weakened()
 	handle_stuttering()
 	handle_silent()
-	handle_noradio()
 	handle_drugged()
 	handle_slurring()
 	handle_tarded()
@@ -1116,11 +1115,6 @@ mob/proc/yank_out_object()
 	if(silent)
 		silent = max(silent-1, 0)
 	return silent
-
-/mob/living/proc/handle_noradio()
-	if(noradio)
-		noradio = max(noradio-1, 0)
-	return noradio
 
 /mob/living/proc/handle_drugged()
 	if(druggy)
