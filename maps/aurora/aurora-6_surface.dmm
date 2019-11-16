@@ -8982,6 +8982,11 @@
 "rv" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals_aux)
+"rw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/shieldwallgen,
+/turf/simulated/floor/plating,
+/area/storage/tools)
 "rx" = (
 /turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod1/station)
@@ -15100,7 +15105,7 @@
 "DY" = (
 /obj/machinery/door/airlock{
 	name = "Custodial Closet";
-	req_access = null
+	req_access = list(26)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -23141,11 +23146,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/storage/tools)
-"WY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/shieldwallgen,
-/turf/simulated/floor/plating,
 /area/storage/tools)
 "WZ" = (
 /obj/machinery/door/firedoor,
@@ -52505,8 +52505,8 @@ Wi
 WK
 WN
 ZV
-WY
-WY
+rw
+rw
 AZ
 OG
 sU
