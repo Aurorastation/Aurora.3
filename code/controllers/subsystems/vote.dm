@@ -391,7 +391,8 @@ var/datum/controller/subsystem/vote/SSvote
 	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
 	var/slevel = get_security_level()
 	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)
-	
+	var/roundTime = get_round_duration() / 10 //round time in seconds | 2,5 hours is equal to 9000 seconds
+	VUEUI_SET_CHECK(data["round_time"], roundTime, ., data)
 
 
 /datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)
