@@ -65,7 +65,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -134,7 +134,7 @@
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
@@ -165,7 +165,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
-	holder_type = /obj/item/weapon/holder/cat
+	holder_type = /obj/item/holder/cat
 	mob_size = MOB_SMALL
 
 	health = 45
@@ -177,7 +177,7 @@
 
 	wizardy_spells = list(/spell/targeted/subjugation)
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 

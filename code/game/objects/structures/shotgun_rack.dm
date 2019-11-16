@@ -6,12 +6,12 @@
 	anchored = 1
 	density = 0
 
-	var/obj/item/weapon/gun/projectile/shotgun/rack_shotgun
+	var/obj/item/gun/projectile/shotgun/rack_shotgun
 
 /obj/structure/shotgun_rack/attackby(obj/item/O, mob/user)
 	if(isrobot(user))
 		return
-	if(istype(O, /obj/item/weapon/gun/projectile/shotgun) && O.w_class != 3) //w_class check is to stop people from placing a sawn off shotgun here
+	if(istype(O, /obj/item/gun/projectile/shotgun) && O.w_class != 3) //w_class check is to stop people from placing a sawn off shotgun here
 		if(!rack_shotgun)
 			user.unEquip(O)
 			O.forceMove(src)
@@ -44,14 +44,14 @@
 
 /obj/structure/shotgun_rack/double/Initialize()
 	. = ..()
-	rack_shotgun = new/obj/item/weapon/gun/projectile/shotgun/doublebarrel(src)
+	rack_shotgun = new/obj/item/gun/projectile/shotgun/doublebarrel(src)
 
 /obj/structure/shotgun_rack/double_pellet
 	icon_state = "shotgun_rack_dshotgun"
 
 /obj/structure/shotgun_rack/double_pellet/Initialize()
 	. = ..()
-	rack_shotgun = new/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet(src)
+	rack_shotgun = new/obj/item/gun/projectile/shotgun/doublebarrel/pellet(src)
 
 
 /obj/structure/shotgun_rack/pump
@@ -59,18 +59,18 @@
 
 /obj/structure/shotgun_rack/pump/Initialize()
 	. = ..()
-	rack_shotgun = new/obj/item/weapon/gun/projectile/shotgun/pump(src)
+	rack_shotgun = new/obj/item/gun/projectile/shotgun/pump(src)
 
 /obj/structure/shotgun_rack/combat
 	icon_state = "shotgun_rack_cshotgun"
 
 /obj/structure/shotgun_rack/combat/Initialize()
 	. = ..()
-	rack_shotgun = new/obj/item/weapon/gun/projectile/shotgun/pump/combat(src)
+	rack_shotgun = new/obj/item/gun/projectile/shotgun/pump/combat(src)
 
 /obj/structure/shotgun_rack/improvised
 	icon_state = "shotgun_rack_ishotgun"
 
 /obj/structure/shotgun_rack/improvised/Initialize()
 	. = ..()
-	rack_shotgun = new/obj/item/weapon/gun/projectile/shotgun/improvised(src)
+	rack_shotgun = new/obj/item/gun/projectile/shotgun/improvised(src)

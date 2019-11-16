@@ -56,13 +56,13 @@
 	var/mail_destination = ""
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
-	var/module_type = /obj/item/weapon/robot_module/drone
+	var/module_type = /obj/item/robot_module/drone
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
 	var/hacked = FALSE
 
-	holder_type = /obj/item/weapon/holder/drone
+	holder_type = /obj/item/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -100,12 +100,12 @@
 /mob/living/silicon/robot/drone/construction
 	icon_state = "constructiondrone"
 	law_type = /datum/ai_laws/construction_drone
-	module_type = /obj/item/weapon/robot_module/drone/construction
+	module_type = /obj/item/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
-	holder_type = /obj/item/weapon/holder/drone/heavy
+	holder_type = /obj/item/holder/drone/heavy
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
@@ -172,7 +172,7 @@
 	updateicon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
-/mob/living/silicon/robot/drone/attackby(var/obj/item/weapon/W, var/mob/user)
+/mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
 
 	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
 		if(hat)
@@ -190,7 +190,7 @@
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
 		return
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 
 		if(stat == 2)
 

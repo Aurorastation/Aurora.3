@@ -62,7 +62,7 @@
 		choice = alert("Do you wish to add any non-weapon items?",,"No","Yes")
 		if(choice == "Yes")
 			while(1)
-				var/adding_loot_type = input("Select a new loot path. Cancel to finish.", "Loot Selection", null) as null|anything in typesof(/obj/item) - typesof(/obj/item/weapon)
+				var/adding_loot_type = input("Select a new loot path. Cancel to finish.", "Loot Selection", null) as null|anything in typesof(/obj/item) - typesof(/obj/item)
 				if(!adding_loot_type)
 					break
 				chosen_loot_types |= adding_loot_type
@@ -70,7 +70,7 @@
 		choice = alert("Do you wish to add weapons?",,"No","Yes")
 		if(choice == "Yes")
 			while(1)
-				var/adding_loot_type = input("Select a new loot path. Cancel to finish.", "Loot Selection", null) as null|anything in typesof(/obj/item/weapon)
+				var/adding_loot_type = input("Select a new loot path. Cancel to finish.", "Loot Selection", null) as null|anything in typesof(/obj/item)
 				if(!adding_loot_type)
 					break
 				chosen_loot_types |= adding_loot_type
