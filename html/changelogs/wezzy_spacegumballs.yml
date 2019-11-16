@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - rscdel: "Expired Halloween candy has been removed from snack machines."
   - maptweak: "The archaic lollipop and gumball machines have been removed."
-  - rscadd: "Courtesy of Getmore Corporation, enjoy Carps Ahoy, Ad-mints, Chewy Fruit gum, and lollipops in your nearest vending machine instead!"
+  - rscadd: "Courtesy of Getmore Corporation, enjoy Carps Ahoy, Tuna snax, Ad-mints, Chewy Fruit gum, and lollipops in your nearest vending machine instead!"
   - rscadd: "Lollipops and gum come in wrappers now, due to hygenie concerns."

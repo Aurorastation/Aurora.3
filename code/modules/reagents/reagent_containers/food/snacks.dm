@@ -5387,6 +5387,7 @@
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
 	bitesize = 2
+	nutriment_type = NUTRIMENT_BAD
 	trash = /obj/item/trash/tuna
 
 /obj/item/weapon/reagent_containers/food/snacks/tuna/Initialize()
