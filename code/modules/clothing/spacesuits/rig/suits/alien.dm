@@ -1,4 +1,4 @@
-/obj/item/weapon/rig/unathi
+/obj/item/rig/unathi
 	name = "NT breacher chassis control module"
 	desc = "A cheap NT knock-off of an Unathi battle-hardsuit. Looks like a fish, moves like a fish, steers like a cow."
 	suit_type = "NT breacher"
@@ -13,11 +13,11 @@
 
 	species_restricted = list("Unathi")
 
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT
 
-/obj/item/weapon/rig/unathi/fancy
+/obj/item/rig/unathi/fancy
 	name = "breacher chassis control module"
 	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank."
 	suit_type = "breacher chassis"
@@ -31,7 +31,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 
-/obj/item/weapon/rig/vaurca
+/obj/item/rig/vaurca
 	name = "combat exoskeleton control module"
 	desc = "An ancient piece of equipment from a bygone age, This highly advanced Vaurcan technology rarely sees use outside of a battlefield."
 	suit_type = "combat exoskeleton"
@@ -45,9 +45,9 @@
 	species_restricted = list("Vaurca")
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
-	air_type =   /obj/item/weapon/tank/phoron
+	air_type =   /obj/item/tank/phoron
 
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
@@ -62,7 +62,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_VAURCA
 
-/obj/item/weapon/rig/vaurca/minimal
+/obj/item/rig/vaurca/minimal
 	initial_modules = list(/obj/item/rig_module/chem_dispenser/vaurca)
 
 /obj/item/clothing/head/helmet/space/rig/vaurca
@@ -70,7 +70,7 @@
 	light_color = "#3e7c3e"
 
 
-/obj/item/weapon/rig/tesla
+/obj/item/rig/tesla
 	name = "tesla suit control module"
 	desc = "A tajaran hardsuit designated to be used by the special forces of the Tesla Brigade."
 	suit_type = "tesla suit"
@@ -84,7 +84,7 @@
 
 	species_restricted = list("Tajara")
 
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,

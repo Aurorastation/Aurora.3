@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/plasma
+/obj/item/gun/projectile/plasma
 	name = "plasma shotgun"
 	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results."
 	icon_state = "slammer"
@@ -14,7 +14,7 @@
 	handle_casings = DELETE_CASINGS
 	fire_delay = 8
 
-/obj/item/weapon/gun/projectile/plasma/update_icon()
+/obj/item/gun/projectile/plasma/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "[initial(icon_state)]"
@@ -22,7 +22,7 @@
 		icon_state = "[initial(icon_state)]-empty"
 
 
-/obj/item/weapon/gun/projectile/plasma/bolter
+/obj/item/gun/projectile/plasma/bolter
 	name = "plasma bolter"
 	desc = "A miniaturized, less efficient version of the infamous plasma slammer. Sacrifices much of its power for a more compact frame."
 	icon_state = "bolter"
