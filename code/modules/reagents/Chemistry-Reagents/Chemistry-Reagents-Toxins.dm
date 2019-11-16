@@ -708,3 +708,33 @@
 			H.change_skin_color(r, g, b)
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+
+
+			
+/datum/reagent/toxin/abductazine
+	name = "Abductazine"
+	id = "abductazine"
+	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
+	reagent_state = LIQUID
+	color = "#002067"
+	metabolism = REM * 0.2
+	strength = 0
+	taste_description = "danger"
+
+/datum/reagent/toxin/abductazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
+		return
+	if(!M.noradio)
+		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		M.confused = max(M.confused, 10)
+	M.noradio = max(M.noradio, 10)
+	if(dose > 0.5)	
+		M.Weaken(10)
+
+/datum/reagent/toxin/abductazine/Destroy()
+	if(holder && holder.my_atom && ismob(holder.my_atom))
+		var/mob/M = holder.my_atom
+		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))
+	return ..()

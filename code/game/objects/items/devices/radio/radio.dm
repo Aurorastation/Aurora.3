@@ -271,6 +271,10 @@ var/global/list/default_medbay_channels = list(
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
 	if(!M || !message) return 0
 
+	if(M.noradio >= 1)
+		to_chat(M, span("warning", "Your can't move your arms enough to activate your radio..."))
+		return
+
 	if(istype(M)) M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:

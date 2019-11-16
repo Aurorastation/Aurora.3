@@ -40,6 +40,7 @@
 	var/tod = null // Time of death
 	var/update_slimes = 1
 	var/silent = null 		// Can't talk. Value goes down every life proc.
+	var/noradio = null // Softer form of silence - can't use radios, but can talk.
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks = 0
 	var/footstep = 0
