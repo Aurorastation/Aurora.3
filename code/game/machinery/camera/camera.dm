@@ -192,16 +192,40 @@
 					to_chat(O, "[U] holds \a [itemname] up to one of the cameras ...")
 					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
 
-	else if (istype(W, /obj/item/weapon/camera_bug))
+	else if (istype(W, /obj/item/device/camera_bug))
+		var/obj/item/device/camera_bug/CB = W
 		if (!src.can_use())
 			to_chat(user, "<span class='warning'>Camera non-functional.</span>")
 			return
-		if (src.bugged)
-			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
-			src.bugged = 0
+
+		user.visible_message(
+			span("notice", "[user] begins to hold up a small gadget to \the [src]."),
+			span("notice", "You begin to [bugged ? "clear" : "reprogram"] \the [src]."),
+			range = 3
+			)
+
+		if(!do_after(user, 2 SECONDS, act_target = src))
+			user.visible_message(
+			span("notice", "[user] stops holding up the gadget to \the [src]."),
+			span("notice", "You decide not to [bugged ? "clear" : "reprogram"] \the [src]."),
+			range = 3
+			)
+			return
+
+		user.visible_message(
+			span("notice", "[user] stops holding up the gadget to \the [src]."),
+			span("notice", "You successfully [bugged ? "clear" : "reprogram"] \the [src]."),
+			range = 3
+			)
+
+		bugged = !bugged
+
+		if(bugged)
+			add_network(CB.network)
 		else
-			to_chat(user, "<span class='notice'>Camera bugged.</span>")
-			src.bugged = 1
+			remove_network(CB.network)
+
+		kick_viewers() // adds a sanity check for people watching a camera when it's removed, and works as a subtle alarm that something's wrong!
 
 	else if(W.damtype == BRUTE || W.damtype == BURN) //bashing cameras
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

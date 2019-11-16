@@ -162,3 +162,16 @@
 	canhear_range = 1
 	name = "spy device"
 	icon_state = "syn_cypherkey"
+
+
+// Camera bug: unlike the spy bug, reusable tool that hacks cameras to add a new network
+
+/obj/item/device/camera_bug
+	name = "camera bugger"
+	desc = "A simple-to-use electronic camera reprogramming device. Forces cameras to broadcast on a pre-set camera network. Monitor sold separately."
+	icon_state = "motion1"
+	item_state = "signaler"
+
+	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
+
+	var/network = NETWORK_SYNDICATE
