@@ -1,9 +1,11 @@
 
-/obj/item/weapon/nullrod
+/obj/item/nullrod
 	name = "null rod"
 	desc = "A rod of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullrod"
 	item_state = "nullrod"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 	slot_flags = SLOT_BELT
 	force = 15
 	throw_speed = 1
@@ -12,7 +14,7 @@
 	w_class = 2
 	var/static/list/nullchoices
 
-/obj/item/weapon/nullrod/nullstaff
+/obj/item/nullrod/nullstaff
 	name = "null staff"
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullstaff"
@@ -20,31 +22,31 @@
 	slot_flags = SLOT_BACK
 	w_class = 4
 
-/obj/item/weapon/nullrod/nullorb
+/obj/item/nullrod/nullorb
 	name = "null sphere"
 	desc = "An orb of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullorb"
 	item_state = "nullorb"
 
-/obj/item/weapon/nullrod/nullathame
+/obj/item/nullrod/nullathame
 	name = "null athame"
 	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullathame"
 	item_state = "nullathame"
 
-/obj/item/weapon/nullrod/obsidianshards
+/obj/item/nullrod/obsidianshards
 	name = "Obsidian Shards"
 	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
 	icon_state = "nullshards"
 	item_state = "nullshards"
 
-/obj/item/weapon/nullrod/Initialize()
+/obj/item/nullrod/Initialize()
 	. = ..()
 	if(!nullchoices)
-		var/blocked = list(src.type, /obj/item/weapon/nullrod/nullorb) + typesof(/obj/item/weapon/nullrod/fluff)
-		nullchoices = generate_chameleon_choices(/obj/item/weapon/nullrod, blocked)
+		var/blocked = list(src.type, /obj/item/nullrod/nullorb) + typesof(/obj/item/nullrod/fluff)
+		nullchoices = generate_chameleon_choices(/obj/item/nullrod, blocked)
 
-/obj/item/weapon/nullrod/verb/change()
+/obj/item/nullrod/verb/change()
 	set name = "Reassemble"
 	set category = "Obsidian Relics"
 	set src in usr
@@ -67,7 +69,7 @@
 		M.update_inv_r_hand(FALSE)
 		M.update_inv_l_hand()
 
-/obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
+/obj/item/nullrod/attack(mob/M as mob, mob/living/user as mob) //Paste from old-code to decult with a null rod.
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -126,17 +128,17 @@
 	else
 		return ..()
 
-/obj/item/weapon/nullrod/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/nullrod/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
 		to_chat(user, "<span class='notice'>You hit the floor with the [src].</span>")
 		call(/obj/effect/rune/proc/revealrunes)(src)
 
-/obj/item/weapon/reagent_containers/spray/aspergillum/AltClick()
+/obj/item/reagent_containers/spray/aspergillum/AltClick()
 	return
 
-/obj/item/weapon/reagent_containers/spray/aspergillum
+/obj/item/reagent_containers/spray/aspergillum
 	name = "aspergillum"
 	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject."
 	icon = 'icons/obj/weapons.dmi'
@@ -148,7 +150,7 @@
 	volume = 10
 	spray_sound = 'sound/effects/jingle.ogg'
 
-/obj/item/weapon/energy_net
+/obj/item/energy_net
 	name = "energy net"
 	desc = "It's a net made of green energy."
 	icon = 'icons/effects/effects.dmi'
@@ -157,11 +159,11 @@
 	force = 0
 	var/net_type = /obj/effect/energy_net
 
-/obj/item/weapon/energy_net/dropped()
+/obj/item/energy_net/dropped()
 	spawn(10)
 		if(src) qdel(src)
 
-/obj/item/weapon/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_net/throw_impact(atom/hit_atom)
 	..()
 
 	var/mob/living/M = hit_atom
@@ -293,12 +295,12 @@
 	healthcheck()
 	return
 
-/obj/effect/energy_net/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/effect/energy_net/attackby(obj/item/W as obj, mob/user as mob)
 	health -= W.force
 	healthcheck()
 	..()
 
-/obj/item/weapon/canesword
+/obj/item/canesword
 	name = "thin sword"
 	desc = "A thin, sharp blade with an elegant handle."
 	icon = 'icons/obj/sword.dmi'
@@ -314,9 +316,10 @@
 	contained_sprite = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
 
-/obj/item/weapon/sord
+/obj/item/sord
 	name = "\improper SORD"
 	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sord"
 	item_state = "sord"
 	slot_flags = SLOT_BELT
@@ -328,7 +331,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/banhammer
+/obj/item/banhammer
 	desc = "banhammer"
 	name = "banhammer"
 	icon = 'icons/obj/items.dmi'
@@ -340,7 +343,7 @@
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
+/obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
 	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
 	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

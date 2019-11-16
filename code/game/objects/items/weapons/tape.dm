@@ -1,4 +1,4 @@
-/obj/item/weapon/tape_roll
+/obj/item/tape_roll
 	name = "tape roll"
 	desc = "A roll of sticky tape. Possibly for taping ducks... or was that ducts?"
 	icon = 'icons/obj/bureaucracy.dmi'
@@ -6,7 +6,7 @@
 	w_class = 1
 	drop_sound = 'sound/items/drop/box.ogg'
 
-/obj/item/weapon/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
+/obj/item/tape_roll/attack(var/mob/living/carbon/human/H, var/mob/user, var/target_zone)
 	if(istype(H))
 		if(target_zone == "eyes")
 
@@ -67,7 +67,7 @@
 
 		else if(target_zone == "r_hand" || target_zone == "l_hand")
 			playsound(src, 'sound/items/tape.ogg',25)
-			var/obj/item/weapon/handcuffs/cable/tape/T = new(user)
+			var/obj/item/handcuffs/cable/tape/T = new(user)
 			if(!T.place_handcuffs(H, user))
 				user.unEquip(T)
 				qdel(T)
@@ -76,16 +76,16 @@
 			return ..()
 		return 1
 
-/obj/item/weapon/tape_roll/proc/stick(var/obj/item/weapon/W, mob/user)
-	if(!istype(W, /obj/item/weapon/paper))
+/obj/item/tape_roll/proc/stick(var/obj/item/W, mob/user)
+	if(!istype(W, /obj/item/paper))
 		return
 	user.drop_from_inventory(W)
 	//TODO: Possible animation? No clue
-	var/obj/item/weapon/ducttape/tape = new(get_turf(src))
+	var/obj/item/ducttape/tape = new(get_turf(src))
 	tape.attach(W)
 	user.put_in_hands(tape)
 
-/obj/item/weapon/ducttape
+/obj/item/ducttape
 	name = "tape"
 	desc = "A piece of sticky tape."
 	icon = 'icons/obj/bureaucracy.dmi'
@@ -94,23 +94,23 @@
 	layer = 4
 	anchored = 1 //it's sticky, no you cant move it
 	drop_sound = null
-	var/obj/item/weapon/stuck = null
+	var/obj/item/stuck = null
 
-/obj/item/weapon/ducttape/New()
+/obj/item/ducttape/New()
 	..()
 	flags |= NOBLUDGEON
 
-/obj/item/weapon/ducttape/examine(mob/user)
+/obj/item/ducttape/examine(mob/user)
 	return stuck.examine(user)
 
-/obj/item/weapon/ducttape/proc/attach(var/obj/item/weapon/W)
+/obj/item/ducttape/proc/attach(var/obj/item/W)
 	stuck = W
 	W.forceMove(src)
 	icon_state = W.icon_state + "_taped"
 	name = W.name + " (taped)"
 	overlays = W.overlays
 
-/obj/item/weapon/ducttape/attack_self(mob/user)
+/obj/item/ducttape/attack_self(mob/user)
 	if(!stuck)
 		return
 
@@ -123,7 +123,7 @@
 	overlays = null
 	qdel(src)
 
-/obj/item/weapon/ducttape/afterattack(var/A, mob/user, flag, params)
+/obj/item/ducttape/afterattack(var/A, mob/user, flag, params)
 
 	if(!in_range(user, A) || istype(A, /obj/machinery/door) || !stuck)
 		return

@@ -148,9 +148,9 @@
 	else
 		icon_state = material.door_icon_base
 
-/obj/structure/simple_door/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/key) && lock)
-		var/obj/item/weapon/key/K = W
+/obj/structure/simple_door/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/key) && lock)
+		var/obj/item/key/K = W
 		if(!lock.toggle(W))
 			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
 		return
@@ -158,16 +158,16 @@
 	if(lock && lock.pick_lock(W,user))
 		return
 
-	if(istype(W,/obj/item/weapon/material/lock_construct))
+	if(istype(W,/obj/item/material/lock_construct))
 		if(lock)
 			to_chat(user, "<span class='warning'>\The [src] already has a lock.</span>")
 		else
-			var/obj/item/weapon/material/lock_construct/L = W
+			var/obj/item/material/lock_construct/L = W
 			lock = L.create_lock(src,user)
 		return
 
-	else if(istype(W,/obj/item/weapon))
-		var/obj/item/weapon/I = W
+	else if(istype(W,/obj/item))
+		var/obj/item/I = W
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			if(I.force < 10)

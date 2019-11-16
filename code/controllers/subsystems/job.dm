@@ -808,7 +808,7 @@
 	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
 		Debug("EIS/([H]): [items.len] items.")
-		var/obj/item/weapon/storage/B = locate() in H
+		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
 				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")

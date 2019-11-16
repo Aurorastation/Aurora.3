@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/custom_ka
+/obj/item/gun/custom_ka
 	name = null // Abstract
 	var/official_name
 	var/custom_name
@@ -70,10 +70,10 @@
 	var/can_disassemble_cell = TRUE
 	var/can_disassemble_barrel = TRUE
 
-/obj/item/weapon/gun/custom_ka/can_wield()
+/obj/item/gun/custom_ka/can_wield()
 	return 1
 
-/obj/item/weapon/gun/custom_ka/toggle_wield()
+/obj/item/gun/custom_ka/toggle_wield()
 	..()
 	if(wielded)
 		item_state = "[initial(item_state)]_w"
@@ -81,13 +81,13 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/weapon/gun/custom_ka/pickup(mob/user)
+/obj/item/gun/custom_ka/pickup(mob/user)
 	..()
 	if(can_wield())
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/weapon/gun/custom_ka/examine(var/mob/user)
+/obj/item/gun/custom_ka/examine(var/mob/user)
 	. = ..()
 	if(installed_upgrade_chip)
 		to_chat(user,"It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip].")
@@ -105,16 +105,16 @@
 	if(installed_cell)
 		to_chat(user,"It has [round(installed_cell.stored_charge / cost_increase)] shots remaining.")
 
-/obj/item/weapon/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+/obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
 	is_emagged = 1
 	return 1
 
-/obj/item/weapon/gun/custom_ka/emp_act(severity)
+/obj/item/gun/custom_ka/emp_act(severity)
 	is_emped = 1
 	return 1
 
-/obj/item/weapon/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
 	if(require_wield && !wielded)
 		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!</span>")
@@ -224,7 +224,7 @@
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
 
-/obj/item/weapon/gun/custom_ka/consume_next_projectile()
+/obj/item/gun/custom_ka/consume_next_projectile()
 	if(!installed_cell || installed_cell.stored_charge < cost_increase)
 		return null
 
@@ -246,7 +246,7 @@
 	shot_projectile.base_damage = damage_increase
 	return shot_projectile
 
-/obj/item/weapon/gun/custom_ka/Initialize()
+/obj/item/gun/custom_ka/Initialize()
 	. = ..()
 
 	START_PROCESSING(SSprocessing, src)
@@ -261,11 +261,11 @@
 	update_stats()
 	queue_icon_update()
 
-/obj/item/weapon/gun/custom_ka/Destroy()
+/obj/item/gun/custom_ka/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/gun/custom_ka/process()
+/obj/item/gun/custom_ka/process()
 	if(installed_cell)
 		installed_cell.on_update(src)
 	if(installed_barrel)
@@ -273,7 +273,7 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_update(src)
 
-/obj/item/weapon/gun/custom_ka/update_icon()
+/obj/item/gun/custom_ka/update_icon()
 	. = ..()
 	cut_overlays()
 	var/name_list = list("","","","")
@@ -308,7 +308,7 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/weapon/gun/custom_ka/proc/update_stats()
+/obj/item/gun/custom_ka/proc/update_stats()
 	//pls don't bully me for this code
 	damage_increase = initial(damage_increase)
 	firedelay_increase = initial(firedelay_increase)
@@ -376,7 +376,7 @@
 	accuracy = round(recoil_increase*0.25)
 	accuracy_wielded = accuracy * 0.5
 
-/obj/item/weapon/gun/custom_ka/attack_self(mob/user as mob)
+/obj/item/gun/custom_ka/attack_self(mob/user as mob)
 	. = ..()
 
 	if(!wielded)
@@ -390,11 +390,11 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.attack_self(user)
 
-/obj/item/weapon/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
 
 	. = ..()
 
-	if(istype(I,/obj/item/weapon/pen))
+	if(istype(I,/obj/item/pen))
 		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
@@ -494,10 +494,10 @@
 
 	var/disallow_chip = FALSE //Prevent installation of an upgrade chip.
 
-/obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/weapon/gun/custom_ka)
+/obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/gun/custom_ka)
 	//Do update related things here
 
-/obj/item/custom_ka_upgrade/proc/on_fire(var/obj/item/weapon/gun/custom_ka)
+/obj/item/custom_ka_upgrade/proc/on_fire(var/obj/item/gun/custom_ka)
 	//Do fire related things here
 
 /obj/item/custom_ka_upgrade/cells
@@ -562,10 +562,10 @@
 		"<span class='warning'>\The [user] scans \the [target] with \the [src].</span>",
 		"<span class='alert'>You scan \the [target] with \the [src].</span>")
 
-	if(istype(target,/obj/item/weapon/gun/custom_ka))
+	if(istype(target,/obj/item/gun/custom_ka))
 		playsound(src, 'sound/machines/ping.ogg', 10, 1)
 
-		var/obj/item/weapon/gun/custom_ka/ka = target
+		var/obj/item/gun/custom_ka/ka = target
 
 		var/total_message = "<b>Kinetic Accelerator Stats:</b><br>\
 		Damage Rating: [ka.damage_increase*0.1]MJ<br>\

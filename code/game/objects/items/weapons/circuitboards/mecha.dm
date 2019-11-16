@@ -3,7 +3,7 @@
 #endif
 #define T_BOARD_MECHA(name)	"exosuit module circuit board (" + (name) + ")"
 
-/obj/item/weapon/circuitboard/mecha
+/obj/item/circuitboard/mecha
 	name = "exosuit circuit board"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
@@ -11,103 +11,103 @@
 	board_type = "other"
 
 
-/obj/item/weapon/circuitboard/mecha/ripley
+/obj/item/circuitboard/mecha/ripley
 	origin_tech = list(TECH_DATA = 3)
 
-/obj/item/weapon/circuitboard/mecha/ripley/peripherals
+/obj/item/circuitboard/mecha/ripley/peripherals
 	name = T_BOARD_MECHA("Ripley peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/ripley/main
+/obj/item/circuitboard/mecha/ripley/main
 	name = T_BOARD_MECHA("Ripley central control")
 	icon_state = "mainboard"
 
 
-/obj/item/weapon/circuitboard/mecha/gygax
+/obj/item/circuitboard/mecha/gygax
 	origin_tech = list(TECH_DATA = 4)
 
-/obj/item/weapon/circuitboard/mecha/gygax/peripherals
+/obj/item/circuitboard/mecha/gygax/peripherals
 	name = T_BOARD_MECHA("Gygax peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/gygax/targeting
+/obj/item/circuitboard/mecha/gygax/targeting
 	name = T_BOARD_MECHA("Gygax weapon control and targeting")
 	icon_state = "mcontroller"
 	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
 
-/obj/item/weapon/circuitboard/mecha/gygax/main
+/obj/item/circuitboard/mecha/gygax/main
 	name = T_BOARD_MECHA("Gygax central control")
 	icon_state = "mainboard"
 
 
-/obj/item/weapon/circuitboard/mecha/durand
+/obj/item/circuitboard/mecha/durand
 	origin_tech = list(TECH_DATA = 4)
 
-/obj/item/weapon/circuitboard/mecha/durand/peripherals
+/obj/item/circuitboard/mecha/durand/peripherals
 	name = T_BOARD_MECHA("Durand peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/durand/targeting
+/obj/item/circuitboard/mecha/durand/targeting
 	name = T_BOARD_MECHA("Durand weapon control and targeting")
 	icon_state = "mcontroller"
 	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
 
-/obj/item/weapon/circuitboard/mecha/durand/main
+/obj/item/circuitboard/mecha/durand/main
 	name = T_BOARD_MECHA("Durand central control")
 	icon_state = "mainboard"
 
 
-/obj/item/weapon/circuitboard/mecha/honker
+/obj/item/circuitboard/mecha/honker
 		origin_tech = list(TECH_DATA = 4)
 
-/obj/item/weapon/circuitboard/mecha/honker/peripherals
+/obj/item/circuitboard/mecha/honker/peripherals
 	name = T_BOARD_MECHA("H.O.N.K peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/honker/targeting
+/obj/item/circuitboard/mecha/honker/targeting
 	name = T_BOARD_MECHA("H.O.N.K weapon control and targeting")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/honker/main
+/obj/item/circuitboard/mecha/honker/main
 	name = T_BOARD_MECHA("H.O.N.K central control")
 	icon_state = "mainboard"
 
 
-/obj/item/weapon/circuitboard/mecha/odysseus
+/obj/item/circuitboard/mecha/odysseus
 	origin_tech = list(TECH_DATA = 3)
 
-/obj/item/weapon/circuitboard/mecha/odysseus/peripherals
+/obj/item/circuitboard/mecha/odysseus/peripherals
 	name = T_BOARD_MECHA("Odysseus peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/odysseus/main
+/obj/item/circuitboard/mecha/odysseus/main
 	name = T_BOARD_MECHA("Odysseus central control")
 	icon_state = "mainboard"
 
-/obj/item/weapon/circuitboard/mecha/hermes
+/obj/item/circuitboard/mecha/hermes
 	origin_tech = list(TECH_DATA = 2)
 
-/obj/item/weapon/circuitboard/mecha/hermes/peripherals
+/obj/item/circuitboard/mecha/hermes/peripherals
 	name = T_BOARD_MECHA("Hermes peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/hermes/main
+/obj/item/circuitboard/mecha/hermes/main
 	name = T_BOARD_MECHA("Hermes central control")
 	icon_state = "mainboard"
 
-/obj/item/weapon/circuitboard/mecha/phazon
+/obj/item/circuitboard/mecha/phazon
 	origin_tech = list(TECH_DATA = 5, TECH_BLUESPACE = 5)
 
-/obj/item/weapon/circuitboard/mecha/phazon/peripherals
+/obj/item/circuitboard/mecha/phazon/peripherals
 	name = T_BOARD_MECHA("Phazon peripherals control")
 	icon_state = "mcontroller"
 
-/obj/item/weapon/circuitboard/mecha/phazon/targeting
+/obj/item/circuitboard/mecha/phazon/targeting
 	name = T_BOARD_MECHA("Phazon weapon control and targeting")
 	icon_state = "mcontroller"
 	origin_tech = list(TECH_DATA = 5, TECH_COMBAT = 6, TECH_BLUESPACE = 5)
 
-/obj/item/weapon/circuitboard/mecha/phazon/main
+/obj/item/circuitboard/mecha/phazon/main
 	name = T_BOARD_MECHA("Phazon central control")
 	icon_state = "mainboard"
 

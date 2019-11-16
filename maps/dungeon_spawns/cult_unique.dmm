@@ -20,11 +20,11 @@
 /obj/structure/cult/talisman,
 /obj/item/clothing/suit/space/cult,
 /obj/item/clothing/head/helmet/space/cult,
-/obj/item/weapon/melee/cultblade,
+/obj/item/melee/cultblade,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "g" = (
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "h" = (

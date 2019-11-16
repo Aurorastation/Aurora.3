@@ -126,14 +126,14 @@
 // Attacking someone with a weapon while they are neck-grabbed
 /mob/living/carbon/proc/check_attack_throat(obj/item/W, mob/user)
 	if(user.a_intent == I_HURT)
-		for(var/obj/item/weapon/grab/G in src.grabbed_by)
+		for(var/obj/item/grab/G in src.grabbed_by)
 			if(G.assailant == user && G.state >= GRAB_NECK)
 				if(attack_throat(W, G, user))
 					return 1
 	return 0
 
 // Knifing
-/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/weapon/grab/G, mob/user)
+/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/grab/G, mob/user)
 
 	if(!W.edge || !W.force || W.damtype != BRUTE)
 		return 0 //unsuitable weapon

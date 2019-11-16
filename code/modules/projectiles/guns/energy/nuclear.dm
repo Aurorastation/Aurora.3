@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/gun
+/obj/item/gun/energy/gun
 	name = "energy carbine"
 	desc = "An energy-based carbine with two settings: Stun and kill."
 	icon_state = "energystun100"
@@ -24,13 +24,13 @@
 
 	var/crit_fail = 0 //Added crit_fail as a local variable
 
-/obj/item/weapon/gun/energy/gun/mounted
+/obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/gun/nuclear
+/obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
 	icon_state = "nucgun"
@@ -50,10 +50,10 @@
 
 	var/lightfail = 0
 
-/obj/item/weapon/gun/energy/gun/nuclear/get_cell()
+/obj/item/gun/energy/gun/nuclear/get_cell()
 	return DEVICE_NO_CELL
 
-/obj/item/weapon/gun/energy/gun/nuclear/small_fail(var/mob/user)
+/obj/item/gun/energy/gun/nuclear/small_fail(var/mob/user)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M == user)
 			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
@@ -62,14 +62,14 @@
 		M.apply_effect(rand(3,120), IRRADIATE)
 	return
 
-/obj/item/weapon/gun/energy/gun/nuclear/medium_fail(var/mob/user)
+/obj/item/gun/energy/gun/nuclear/medium_fail(var/mob/user)
 	if(prob(50))
 		critical_fail(user)
 	else
 		small_fail(user)
 	return
 
-/obj/item/weapon/gun/energy/gun/nuclear/critical_fail(var/mob/user)
+/obj/item/gun/energy/gun/nuclear/critical_fail(var/mob/user)
 	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
 	for (var/mob/living/M in range(rand(1,4),src))
 		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
@@ -79,7 +79,7 @@
 	update_icon()
 	return
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/update_charge()
+/obj/item/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
 		add_overlay("nucgun-whee")
 		return
@@ -87,7 +87,7 @@
 	ratio = round(ratio, 0.25) * 100
 	add_overlay("nucgun-[ratio]")
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/update_reactor()
+/obj/item/gun/energy/gun/nuclear/proc/update_reactor()
 	if(crit_fail)
 		add_overlay("nucgun-crit")
 		return
@@ -98,7 +98,7 @@
 	else
 		add_overlay("nucgun-clean")
 
-/obj/item/weapon/gun/energy/gun/nuclear/proc/update_mode()
+/obj/item/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
 		if("stun")
@@ -106,17 +106,17 @@
 		if("lethal")
 			add_overlay("nucgun-kill")
 /*
-/obj/item/weapon/gun/energy/gun/nuclear/emp_act(severity)
+/obj/item/gun/energy/gun/nuclear/emp_act(severity)
 	..()
 	reliability -= round(15/severity)
 */
-/obj/item/weapon/gun/energy/gun/nuclear/update_icon()
+/obj/item/gun/energy/gun/nuclear/update_icon()
 	cut_overlays()
 	update_charge()
 	update_reactor()
 	update_mode()
 
-/obj/item/weapon/gun/energy/pistol
+/obj/item/gun/energy/pistol
 	name = "energy pistol"
 	desc = "A basic energy-based pistol gun with two settings: Stun and kill."
 	icon_state = "epistolstun100"
