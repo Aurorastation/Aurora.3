@@ -1,7 +1,7 @@
-/obj/item/weapon/spellbook/student
+/obj/item/spellbook/student
 	spellbook_type = /datum/spellbook/student
 
-/obj/item/weapon/spellbook/student/attack_self(mob/living/user as mob)
+/obj/item/spellbook/student/attack_self(mob/living/user as mob)
 	if(user.is_wizard(TRUE))
 		to_chat(user, "<span class='warning'>This books is written for students, not for a true wizard like yourself!</span>")
 		return
@@ -21,7 +21,7 @@
 	spells = list(/spell/aoe_turf/knock = 						1,
 				/spell/targeted/ethereal_jaunt = 			1,
 				/spell/targeted/projectile/magic_missile = 		1,
-				/obj/item/weapon/gun/energy/staff/focus = 		1,
-				/obj/item/weapon/storage/belt/wands/full = 		2,
-				/obj/item/weapon/contract/wizard/xray = 		1
+				/obj/item/gun/energy/staff/focus = 		1,
+				/obj/item/storage/belt/wands/full = 		2,
+				/obj/item/contract/wizard/xray = 		1
 					)

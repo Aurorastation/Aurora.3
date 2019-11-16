@@ -1,4 +1,4 @@
-/obj/item/weapon/spellbook/druid
+/obj/item/spellbook/druid
 	spellbook_type = /datum/spellbook/druid
 
 /datum/spellbook/druid
@@ -28,7 +28,7 @@
 				/spell/targeted/flesh_to_stone =                        1,
 				/spell/aoe_turf/conjure/golem =						1,
 				/obj/structure/closet/wizard/souls = 				1,
-				/obj/item/weapon/monster_manual = 				1,
-				/obj/item/weapon/contract/apprentice = 				1,
+				/obj/item/monster_manual = 				1,
+				/obj/item/contract/apprentice = 				1,
 				/obj/item/poppet =								1
 				)

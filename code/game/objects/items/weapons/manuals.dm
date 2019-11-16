@@ -1,14 +1,14 @@
 /*********************MANUALS (BOOKS)***********************/
 
-/obj/item/weapon/book/manual
+/obj/item/book/manual
 	icon = 'icons/obj/library.dmi'
 	due_date = 0 // Game time in 1/10th seconds
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
 
-/obj/item/weapon/book/manual/wiki
+/obj/item/book/manual/wiki
 	var/sub_page = ""
 
-/obj/item/weapon/book/manual/wiki/Initialize()
+/obj/item/book/manual/wiki/Initialize()
 	. = ..()
 
 	dat = {"
@@ -22,20 +22,20 @@
 		</html>
 	"}
 
-/obj/item/weapon/book/manual/wiki/engineering_construction
+/obj/item/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
 	icon_state ="bookEngineering"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Station Repairs and Construction"
 	sub_page = "Guide_to_construction"
 
-/obj/item/weapon/book/manual/engineering_particle_accelerator
+/obj/item/book/manual/engineering_particle_accelerator
 	name = "Particle Accelerator User's Guide"
 	icon_state ="bookParticleAccelerator"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
-/obj/item/weapon/book/manual/engineering_particle_accelerator/Initialize()
+/obj/item/book/manual/engineering_particle_accelerator/Initialize()
 	. = ..()
 	dat = {"<html>
 				<head>
@@ -76,13 +76,13 @@
 			"}
 
 
-/obj/item/weapon/book/manual/supermatter_engine
+/obj/item/book/manual/supermatter_engine
 	name = "Supermatter Engine Operating Manual"
 	icon_state = "bookSupermatter"
 	author = "Engineering Encyclopedia"
 	title = "Supermatter Engine Operating Manual"
 
-/obj/item/weapon/book/manual/supermatter_engine/Initialize()
+/obj/item/book/manual/supermatter_engine/Initialize()
 	. = ..()
 	dat = {"<html>
 				<head>
@@ -194,14 +194,14 @@
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/wiki/engineering_hacking
+/obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Hacking"
 	sub_page = "Hacking"
 
-/obj/item/weapon/book/manual/engineering_singularity_safety
+/obj/item/book/manual/engineering_singularity_safety
 	name = "Singularity Safety in Special Circumstances"
 	icon_state ="bookEngineeringSingularitySafety"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
@@ -252,7 +252,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/medical_cloning
+/obj/item/book/manual/medical_cloning
 	name = "Cloning Techniques of the 26th Century"
 	icon_state ="bookCloning"
 	author = "Medical Journal, volume 3"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
@@ -345,7 +345,7 @@
 				"}
 
 
-/obj/item/weapon/book/manual/ripley_build_and_repair
+/obj/item/book/manual/ripley_build_and_repair
 	name = "APLU \"Ripley\" Construction and Operation Manual"
 	icon_state ="book"
 	author = "Randall Varn, Einstein Engines Senior Mechanic"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
@@ -422,7 +422,7 @@
 			"}
 
 
-/obj/item/weapon/book/manual/research_and_development
+/obj/item/book/manual/research_and_development
 	name = "Research and Development 101"
 	icon_state = "rdbook"
 	author = "Dr. L. Ight"
@@ -491,7 +491,7 @@
 			"}
 
 
-/obj/item/weapon/book/manual/robotics_cyborgs
+/obj/item/book/manual/robotics_cyborgs
 	name = "Cyborgs for Dummies"
 	icon_state = "borgbook"
 	author = "XISC"
@@ -695,7 +695,7 @@
 			</html>
 		"}
 
-/obj/item/weapon/book/manual/wiki/security_space_law
+/obj/item/book/manual/wiki/security_space_law
 	name = "Corporate Regulations"
 	desc = "A set of corporate guidelines for keeping law and order on privately-owned space stations."
 	icon_state = "bookSpaceLaw"
@@ -703,7 +703,7 @@
 	title = "Corporate Regulations"
 	sub_page = "Corporate_Regulations"
 
-/obj/item/weapon/book/manual/wiki/station_procedure
+/obj/item/book/manual/wiki/station_procedure
 	name = "Station Procedure"
 	desc = "A set of uniform procedures followed on all NanoTrasen installations."
 	icon_state = "corporate-procedure"
@@ -711,14 +711,14 @@
 	title = "Station Procedure"
 	sub_page = "Guide_to_Station_Procedure"
 
-/obj/item/weapon/book/manual/medical_diagnostics_manual
+/obj/item/book/manual/medical_diagnostics_manual
 	name = "Medical Diagnostics Manual"
 	desc = "First, do no harm. A detailed medical practitioner's guide."
 	icon_state = "bookMedical"
 	author = "Medical Department"
 	title = "Medical Diagnostics Manual"
 
-/obj/item/weapon/book/manual/medical_diagnostics_manual/Initialize()
+/obj/item/book/manual/medical_diagnostics_manual/Initialize()
 	. = ..()
 	dat = {"<html>
 				<head>
@@ -759,14 +759,14 @@
 		"}
 
 
-/obj/item/weapon/book/manual/wiki/engineering_guide
+/obj/item/book/manual/wiki/engineering_guide
 	name = "Engineering Textbook"
 	icon_state ="bookEngineering2"
 	author = "Engineering Encyclopedia"
 	title = "Engineering Textbook"
 	sub_page = "Guide_to_Engineering"
 
-/obj/item/weapon/book/manual/chef_recipes
+/obj/item/book/manual/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "cooked_book"
 	author = "Victoria Ponsonby"
@@ -825,7 +825,7 @@
 			"}
 
 
-/obj/item/weapon/book/manual/barman_recipes
+/obj/item/book/manual/barman_recipes
 	name = "Barman Recipes"
 	icon_state = "barbook"
 	author = "Sir John Rose"
@@ -880,7 +880,7 @@
 			"}
 
 
-/obj/item/weapon/book/manual/detective
+/obj/item/book/manual/detective
 	name = "The Film Noir: Proper Procedures for Investigations"
 	icon_state ="bookDetective"
 	author = "The Company"
@@ -923,7 +923,7 @@
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/nuclear
+/obj/item/book/manual/nuclear
 	name = "Fission Mailed: Nuclear Sabotage 101"
 	icon_state ="bookNuclear"
 	author = "Syndicate"
@@ -974,7 +974,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/atmospipes
+/obj/item/book/manual/atmospipes
 	name = "Pipes and You: Getting To Know Your Scary Tools"
 	icon_state = "pipingbook"
 	author = "Maria Crash, Senior Atmospherics Technician"
@@ -1082,7 +1082,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/evaguide
+/obj/item/book/manual/evaguide
 	name = "EVA Gear and You: Not Spending All Day Inside"
 	icon_state = "evabook"
 	author = "Maria Crash, Senior Atmospherics Technician"
@@ -1169,7 +1169,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/gravitygenerator
+/obj/item/book/manual/gravitygenerator
 	name = "Gravity Generator Operation Manual"
 	icon_state ="bookEngineering2"
 	author = "Gravity Generator CO."
@@ -1284,14 +1284,14 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/psych
+/obj/item/book/manual/psych
 	name = "Sigmund Freud for Dummies"
 	desc = "The number one must-have manual for teaching you how to love your mother!"
 	icon_state = "bookMedical"
 	author = "NTCC Odin Psychiatry Wing"
 	title = "Sigmund Freud for Dummies"
 
-/obj/item/weapon/book/manual/psych/Initialize()
+/obj/item/book/manual/psych/Initialize()
 	. = ..()
 	dat = {"<html>
 				<head>
@@ -1375,7 +1375,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/ka_custom
+/obj/item/book/manual/ka_custom
 	name = "Guide to Custom Kinetic Accelerators"
 	icon_state ="rulebook"
 	author = "Quartermaster Burgs"
@@ -1424,14 +1424,14 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/wiki/battlemonsters
+/obj/item/book/manual/wiki/battlemonsters
 	name = "\improper Guide to Battlemonsters"
 	icon_state ="battlemonsters"
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"
 	sub_page = "Guide_to_Battlemonsters"
 
-/obj/item/weapon/book/manual/pra_manifesto
+/obj/item/book/manual/pra_manifesto
 	name = "hadiist manifesto"
 	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
 	icon_state ="hadii-manifesto"
@@ -1470,7 +1470,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/dominia_honor
+/obj/item/book/manual/dominia_honor
 	name = "dominian honor codex"
 	desc = "A codex describing the main tenets of dominian honor."
 	icon_state ="rulebook"
@@ -1570,7 +1570,7 @@
 			</html>
 			"}
 
-/obj/item/weapon/book/manual/tcfl_pamphlet
+/obj/item/book/manual/tcfl_pamphlet
 	name = "tau ceti foreign legion pamphlet"
 	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
 	icon_state ="tcfl_book"

@@ -248,3 +248,14 @@
 	icon_state = "eelcaligae"
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0.75
+
+/obj/item/clothing/shoes/carp
+	name = "carp slippers"
+	desc = "Slippers made to look like baby carp, but on your feet! Squeeeeeee!!"
+	item_state = "carpslippers"
+	icon_state = "carpslippers"
+	species_restricted = null
+	silent = TRUE
+
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE

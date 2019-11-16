@@ -2,7 +2,7 @@
 /// HYPOSPRAY
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/reagent_containers/hypospray
+/obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
 	icon = 'icons/obj/syringe.dmi'
@@ -19,13 +19,13 @@
 	var/time = 3 SECONDS
 	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
 
-/obj/item/weapon/reagent_containers/hypospray/cmo
+/obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "The DeForest Medical Corporation premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
 	volume = 30
 	time = 0
 
-/obj/item/weapon/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
+/obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
 	. = ..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
@@ -36,7 +36,7 @@
 		if(!do_mob(user, M, inj_time))
 			return 1
 
-/obj/item/weapon/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
+/obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
 		return ..()
@@ -64,7 +64,7 @@
 	update_icon()
 	return TRUE
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector
+/obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	icon_state = "autoinjector1"
@@ -75,18 +75,18 @@
 	volume = 5
 	time = 0
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
 	icon_state = empty_state
 	update_icon()
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
+/obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
 	. = ..()
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
+/obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
@@ -98,7 +98,7 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/attackby(obj/item/weapon/W, mob/user)
+/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
 		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the autoinjector's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
@@ -106,13 +106,13 @@
 		return
 	. = ..()
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/update_icon()
+/obj/item/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)
 	else
 		icon_state = empty_state
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/examine(mob/user)
+/obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
@@ -120,38 +120,38 @@
 		to_chat(user, "<span class='notice'>It is empty.</span>")
 
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
 	name = "autoinjector (inaprovaline)"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
 	. =..()
 	reagents.add_reagent("inaprovaline", 5)
 	update_icon()
 	return
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack
+/obj/item/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
 	desc = "A simple chemical cocktail of hyperzine and tramadol designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
 	. = ..()
 	reagents.add_reagent("hyperzine", 12)
 	reagents.add_reagent("tramadol", 8)
 	update_icon()
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival
+/obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
 	desc = "A special cocktail designed to keep you alive in the field should disaster seek to prevail."
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-/obj/item/weapon/reagent_containers/hypospray/autoinjector/survival/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/survival/Initialize()
 	. = ..()
 	reagents.add_reagent("tricordrazine", 15)
 	reagents.add_reagent("inaprovaline", 5)
@@ -160,7 +160,7 @@
 	reagents.add_reagent("methylphenidate", 5)
 	update_icon()
 
-/obj/item/weapon/reagent_containers/hypospray/combat
+/obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
 	desc = "A hypospray loaded with combat stimulants. Its needle has the ability to bypass armor."
 	item_state = "combat_hypo"
@@ -169,7 +169,7 @@
 	armorcheck = 0
 	time = 0
 
-/obj/item/weapon/reagent_containers/hypospray/combat/Initialize()
+/obj/item/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
 	reagents.add_reagent("oxycodone", 5)
 	reagents.add_reagent("synaptizine", 5)
