@@ -32,7 +32,7 @@
 				rig.malfunction_delay = 0
 			else
 				rig.malfunctioning += 10
-				rig.malfunction_delay = 99999999999999999999
+				rig.malfunction_delay = 10000000000
 
 /datum/wires/rig/UpdatePulsed(var/index)
 
