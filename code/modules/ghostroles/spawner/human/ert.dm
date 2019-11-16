@@ -93,7 +93,7 @@
 	max_count = 1
 	desc = "A dropship pilot of the TCFL."
 	outfit = /datum/outfit/admin/ert/legion/pilot
-	mob_name_prefix = "Pl. "
+	mob_name_prefix = "PL. "
 	spawnpoints = list("TCFLERTSpawn - Pilot")
 
 //Mercenary ERT

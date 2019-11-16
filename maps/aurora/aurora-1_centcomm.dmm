@@ -22230,7 +22230,7 @@
 /area/shuttle/legion/centcom)
 "bbL" = (
 /obj/machinery/computer/shuttle_control/legion,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/shuttle/red,
 /area/shuttle/legion/centcom)
 "bcv" = (
 /obj/machinery/light/small{
@@ -24307,7 +24307,7 @@
 	pixel_y = -28;
 	spawnitems = list(/obj/item/weapon/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/shuttle/red,
 /area/shuttle/legion/centcom)
 "hkI" = (
 /obj/effect/decal/cleanable/dirt,
@@ -27494,18 +27494,18 @@
 	tag_door = "legion_shuttle_hatch"
 	},
 /obj/machinery/porta_turret/legion{
-	cover_set = "legion";
+	cover_set = 0;
 	desc = "A battle-worn blaster turret, modified to have a stun mode. The name <i>Cerberus</i> is inscribed on the cover.";
 	egun = 1;
 	health = 160;
-	icon_state = "cover_legion";
+	icon_state = "cover_0";
 	lethal = 0;
 	lethal_icon = 0;
 	maxhealth = 160;
 	name = "Cerberus";
 	name_override = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/shuttle/red,
 /area/shuttle/legion/centcom)
 "qsX" = (
 /turf/space/transit/east/shuttlespace_ew2,
@@ -28650,7 +28650,8 @@
 	pixel_y = 27;
 	req_access = list(111)
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/structure/bed/chair/office/bridge/legion,
+/turf/simulated/floor/shuttle/red,
 /area/shuttle/legion/centcom)
 "teZ" = (
 /turf/space/transit/east/shuttlespace_ew4,
@@ -28987,6 +28988,9 @@
 	dir = 6
 	},
 /area/centcom/legion)
+"ulj" = (
+/turf/simulated/floor/shuttle/red,
+/area/shuttle/legion/centcom)
 "upd" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -90657,7 +90661,7 @@ gid
 jnf
 jnf
 qrC
-aZA
+ulj
 hiX
 jnf
 jnf

@@ -277,13 +277,36 @@
 	light_wedge = LIGHT_WIDE
 	on = 0
 
-/obj/item/clothing/head/helmet/legion/pilot
+/obj/item/clothing/head/helmet/legion_pilot
 	name = "foreign legion flight helmet"
 	desc = "A helmet with an aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
-	icon_state = "legion_pilot"
+	icon_state = "legion_pilot_up"
 	body_parts_covered = null
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 40, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+	action_button_name = "Flip Pilot Visor"
+
+/obj/item/clothing/head/helmet/legion_pilot/attack_self()
+	flip_visor()
+
+/obj/item/clothing/head/helmet/legion_pilot/verb/flip_visor()
+	set category = "Object"
+	set name = "Flip pilot visor"
+	var/mob/living/carbon/human/user
+	if(istype(usr,/mob/living/carbon/human))
+		user = usr
+	else
+		return
+	if(icon_state == initial(icon_state))
+		icon_state = "legion_pilot"
+		to_chat(user, "You flip down the pilot visor.")
+		sound_to(user, 'sound/items/goggles_charge.ogg')
+	else
+		icon_state = initial(icon_state)
+		to_chat(user, "You flip up the pilot visor.")
+	update_clothing_icon()
+	user.update_action_buttons()
 
 /obj/item/clothing/head/helmet/tajara
 	name = "amohdan swordsmen helmet"

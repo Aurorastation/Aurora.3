@@ -84,7 +84,13 @@
 /datum/outfit/admin/ert/legion/pilot
 	name = "TCFL Dropship Pilot"
 	uniform = /obj/item/clothing/under/legion/pilot
-	head = /obj/item/clothing/head/helmet/legion/pilot
+	head = /obj/item/clothing/head/helmet/legion_pilot
+	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	gloves = null
+	back = null
+	belt = /obj/item/weapon/storage/belt/security/tactical
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/weapon/gun/energy/blaster  = 1)
 
 //Mercenary
 /datum/outfit/admin/ert/mercenary

@@ -306,6 +306,12 @@
 	icon_open = "wflight_open"
 	icon_closed = "wflight"
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	icon_state = "lflight"
+	item_state = "lflight"
+	icon_open = "lflight_open"
+	icon_closed = "lflight"
+
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
 	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
