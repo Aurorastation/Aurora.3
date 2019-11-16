@@ -430,6 +430,15 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "penny"
 	contained_sprite = 1
 
+/obj/item/weapon/holder/carp/baby
+	name = "baby space carp"
+	desc = "Awfully cute! Looks friendly!"
+	icon_state = "babycarp"
+	item_state = "babycarp"
+	slot_flags = SLOT_HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR // carp wings blocks stuff - geeves
+	w_class = 1
+	contained_sprite = TRUE
 
 /obj/item/weapon/holder/borer
 	name = "cortical borer"
