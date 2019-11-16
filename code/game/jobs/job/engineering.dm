@@ -33,7 +33,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/weapon/storage/belt/utility
 	pda = /obj/item/device/pda/heads/ce
 	id = /obj/item/weapon/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
@@ -43,6 +43,16 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/weapon/powerdrill = 1
+	)
 
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -78,7 +88,7 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/weapon/storage/belt/utility
 	pda = /obj/item/device/pda/engineering
 	id = /obj/item/weapon/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
@@ -89,6 +99,16 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/weapon/powerdrill = 1
+	)
 
 /datum/job/atmos
 	title = "Atmospheric Technician"
@@ -123,6 +143,15 @@
 	satchel = /obj/item/weapon/storage/backpack/satchel_eng
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/device/t_scanner = 1
+	)
 
 /datum/job/intern_eng
 	title = "Engineering Apprentice"

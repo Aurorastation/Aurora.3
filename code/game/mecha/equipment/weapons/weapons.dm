@@ -64,7 +64,7 @@
 		def_zone = H.zone_sel.selecting
 		H.setMoveCooldown(fire_time)
 	P.launch_projectile(target, def_zone, user, params)
-	playsound(chassis, fire_sound, fire_volume, 1, 5, 0.9, 1)
+	playsound(chassis, fire_sound, fire_volume, 1, 3, 0.5, 1)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/reset_fire()
 	set_ready_state(1)

@@ -141,7 +141,7 @@
 		var/burst_time = (min_burst_delay + max_burst_delay)/2 + 2*(burst_shots-1)
 		var/power_per_shot = active_power_usage * (burst_time/10) / burst_shots
 
-		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
+		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1, 3, 0.5, 1)
 		if(prob(35))
 			spark_system.queue()
 

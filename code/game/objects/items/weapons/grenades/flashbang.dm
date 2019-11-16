@@ -32,7 +32,7 @@
 			S.icon_state = "shield0"
 
 	to_chat(M, "<span class='danger'>BANG</span>")
-	playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 5, 0.9, 1)
+	playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
 
 //Checking for protections
 	var/eye_safety = 0

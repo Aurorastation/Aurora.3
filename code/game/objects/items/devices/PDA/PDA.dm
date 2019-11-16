@@ -978,7 +978,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/remove_pen(mob/user)
 	if (!istype(user))
-		PROCLOG_WEIRD("user variable was insane, aborting!")
 		return
 	if (!has_pen)
 		to_chat(user, "<span class='notice'>[src] does not have a pen slot.</span>")

@@ -428,6 +428,10 @@
 	if (reagents)
 		on_consume(user)
 
+/obj/item/weapon/reagent_containers/food/snacks/on_reagent_change()
+	update_icon()
+	return
+
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks
 //////////////////////////////////////////////////
@@ -1701,8 +1705,8 @@
 /obj/item/weapon/reagent_containers/food/snacks/meatsteak
 	name = "meat steak"
 	desc = "A piece of hot spicy meat."
-	icon_state = "meatstake"
-	trash = /obj/item/trash/plate
+	icon_state = "steak"
+	trash = /obj/item/trash/plate/steak
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
 	bitesize = 2
@@ -1713,6 +1717,22 @@
 	reagents.add_reagent("triglyceride", 2)
 	reagents.add_reagent("sodiumchloride", 1)
 	reagents.add_reagent("blackpepper", 1)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatsteak/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 10)
+			icon_state = "steak_10"
+		if(11 to 25)
+			icon_state = "steak_25"
+		if(26 to 40)
+			icon_state = "steak_40"
+		if(41 to 60)
+			icon_state = "steak_60"
+		if(61 to 75)
+			icon_state = "steak_75"
+		if(76 to INFINITY)
+			icon_state = "steak"
 
 /obj/item/weapon/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"
@@ -2234,7 +2254,7 @@
 /obj/item/weapon/reagent_containers/food/snacks/jelliedtoast/cherry
 
 /obj/item/weapon/reagent_containers/food/snacks/jelliedtoast/cherry/Initialize()
-	. ..()
+	. = ..()
 	reagents.add_reagent("cherryjelly", 5)
 
 /obj/item/weapon/reagent_containers/food/snacks/jelliedtoast/slime

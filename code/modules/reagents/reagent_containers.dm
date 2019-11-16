@@ -70,6 +70,7 @@
 	if(standard_splash_mob(user, target))
 		return
 	if(standard_pour_into(user, target))
+		SSvueui.check_uis_for_change(target)
 		return
 	if(standard_splash_obj(user, target))
 		return

@@ -83,7 +83,6 @@
 
 /datum/outfit/job/scientist/xenoarcheologist
     name = "Xenoarcheologist"
-
     uniform = /obj/item/clothing/under/rank/xenoarcheologist
 
 /datum/job/xenobiologist
@@ -107,11 +106,16 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
+	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
 	pda = /obj/item/device/pda/xenobio
+
+/datum/outfit/job/scientist/xenobiologist/xenobotanist
+	name = "Xenobotanist"
+	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/roboticist
 	title = "Roboticist"
@@ -145,12 +149,22 @@
 	l_ear = /obj/item/device/radio/headset/headset_sci
 	pda = /obj/item/device/pda/roboticist
 	id = /obj/item/weapon/card/id/white
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/weapon/storage/belt/utility
 
 	backpack = /obj/item/weapon/storage/backpack/toxins
 	satchel = /obj/item/weapon/storage/backpack/satchel_tox
 	dufflebag = /obj/item/weapon/storage/backpack/duffel/tox
 	messengerbag = /obj/item/weapon/storage/backpack/messenger/tox
+
+	belt_contents = list(
+		/obj/item/weapon/screwdriver = 1,
+		/obj/item/weapon/wrench = 1,
+		/obj/item/weapon/weldingtool = 1,
+		/obj/item/weapon/crowbar = 1,
+		/obj/item/weapon/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/weapon/powerdrill = 1
+	)
 
 /datum/job/intern_sci
 	title = "Lab Assistant"

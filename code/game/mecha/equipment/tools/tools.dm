@@ -815,7 +815,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/generator
 	name = "phoron generator"
-	desc = "Generates power using solid phoron as fuel. Pollutes the environment."
+	desc = "Generates power using solid phoron as fuel."
 	icon_state = "tesla"
 	origin_tech = list(TECH_PHORON = 2, TECH_POWER = 2, TECH_ENGINEERING = 1)
 	equip_cooldown = 10
@@ -892,27 +892,11 @@
 /obj/item/mecha_parts/mecha_equipment/generator/attackby(weapon,mob/user)
 	var/result = load_fuel(weapon)
 	if(isnull(result))
-		user.visible_message("[user] tries to shove [weapon] into [src]. What a dumb-ass.","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
+		user.visible_message("[user] tries to shove [weapon] into [src].","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
 	else if(!result)
 		to_chat(user, "Unit is full.")
 	else
 		user.visible_message("[user] loads [src] with [fuel].","[result] unit\s of [fuel] successfully loaded.")
-	return
-
-/obj/item/mecha_parts/mecha_equipment/generator/critfail()
-	..()
-	var/turf/simulated/T = get_turf(src)
-	if(!T)
-		return
-	var/datum/gas_mixture/GM = new
-	if(prob(10))
-		T.assume_gas("phoron", 100, 1500+T0C)
-		T.visible_message("The [src] suddenly disgorges a cloud of heated phoron.")
-		destroy()
-	else
-		T.assume_gas("phoron", 5, istype(T) ? T.air.temperature : T20C)
-		T.visible_message("The [src] suddenly disgorges a cloud of phoron.")
-	T.assume_air(GM)
 	return
 
 /obj/item/mecha_parts/mecha_equipment/generator/process()
@@ -956,9 +940,6 @@
 	power_per_cycle = 50
 	fuel_type = /obj/item/stack/material/uranium
 	var/rad_per_cycle = 0.3
-
-/obj/item/mecha_parts/mecha_equipment/generator/nuclear/critfail()
-	return
 
 /obj/item/mecha_parts/mecha_equipment/generator/nuclear/process()
 	. = ..()

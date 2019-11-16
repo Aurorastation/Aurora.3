@@ -1,8 +1,8 @@
 /obj/machinery/mecha_part_fabricator
 	icon = 'icons/obj/robotics.dmi'
 	icon_state = "fab-idle"
-	name = "Exosuit Fabricator"
-	desc = "A machine used for construction of robotcs and mechas."
+	name = "Mechatronic Fabricator"
+	desc = "A general purpose fabricator that can be used to fabricate robotic equipment."
 	density = 1
 	anchored = 1
 	use_power = 1
