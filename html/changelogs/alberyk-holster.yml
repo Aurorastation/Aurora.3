@@ -3,5 +3,5 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - tweak: Reduced the amount of holsters that spawns in the head of security's closet"
+  - tweak: Reduced the amount of holsters that spawns in the head of security and detective's closet"
   - tweak: "The Pesti-Shock gun now fits inside the janibelt."
