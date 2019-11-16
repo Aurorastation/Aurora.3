@@ -728,12 +728,12 @@
 		return
 	if(!M.noradio)
 		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
-		M.confused = max(M.confused, 10)
+		M.confused = max(M.confused, 250)
 	M.noradio = max(M.noradio, 10)
-	if(dose > 0.5)	
+	if(dose > 0.2)	
 		M.Weaken(10)
 
-/datum/reagent/toxin/dextrtoxin/Destroy()
+/datum/reagent/toxin/dextrotoxin/Destroy()
 	if(holder && holder.my_atom && ismob(holder.my_atom))
 		var/mob/M = holder.my_atom
 		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))

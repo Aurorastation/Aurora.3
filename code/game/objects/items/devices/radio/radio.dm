@@ -272,7 +272,7 @@ var/global/list/default_medbay_channels = list(
 	if(!M || !message) return 0
 
 	if(M.noradio >= 1)
-		to_chat(M, span("warning", "Your can't move your arms enough to activate your radio..."))
+		to_chat(M, span("warning", "Your can't move your arms enough to activate the radio..."))
 		return
 
 	if(istype(M)) M.trigger_aiming(TARGET_CAN_RADIO)
