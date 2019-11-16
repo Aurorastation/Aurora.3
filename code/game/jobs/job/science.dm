@@ -106,14 +106,14 @@
 	minimal_player_age = 14
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
-	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobotanist)
+	alt_outfits = list("Xenobotanist"=/datum/outfit/job/scientist/xenobiologist/xenobotanist)
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
 	pda = /obj/item/device/pda/xenobio
 
-/datum/outfit/job/scientist/xenobotanist
+/datum/outfit/job/scientist/xenobiologist/xenobotanist
 	name = "Xenobotanist"
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
