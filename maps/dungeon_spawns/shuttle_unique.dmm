@@ -70,7 +70,7 @@
 /area/crashed_ship)
 "ak" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/gun/energy/retro,
+/obj/item/gun/energy/retro,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -353,13 +353,13 @@
 /area/crashed_ship)
 "aX" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "aY" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "aZ" = (
@@ -419,7 +419,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/weapon/reagent_containers/blood/ripped,
+/obj/item/reagent_containers/blood/ripped,
 /turf/simulated/floor/tiled/white,
 /area/crashed_ship)
 "bi" = (
@@ -446,7 +446,7 @@
 /area/crashed_ship)
 "bm" = (
 /obj/structure/closet/crate/secure/gear,
-/obj/item/weapon/anomaly_core,
+/obj/item/anomaly_core,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "bn" = (
@@ -462,7 +462,7 @@
 /area/crashed_ship)
 "bp" = (
 /obj/structure/closet/crate/large,
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "bq" = (
@@ -516,7 +516,7 @@
 /area/crashed_ship)
 "by" = (
 /obj/structure/table/rack,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "bz" = (

@@ -213,15 +213,15 @@ Thus, the two variables affect pump operation are set in New():
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if (!W.iswrench() && !istype(W, /obj/item/weapon/pipewrench))
+/obj/machinery/atmospherics/binary/pump/attackby(var/obj/item/W as obj, var/mob/user as mob)
+	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, "<span class='warning'>You cannot unwrench this [src], turn it off first.</span>")
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE && !istype(W, /obj/item/weapon/pipewrench))
+	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE && !istype(W, /obj/item/pipewrench))
 		to_chat(user, "<span class='warning'>You cannot unwrench this [src], it's too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return 1
@@ -229,7 +229,7 @@ Thus, the two variables affect pump operation are set in New():
 		to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
 	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if (do_after(user, istype(W, /obj/item/weapon/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
+	if (do_after(user, istype(W, /obj/item/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

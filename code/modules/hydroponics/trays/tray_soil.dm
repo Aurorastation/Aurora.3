@@ -10,8 +10,8 @@
 	maxWeedLevel = 10 // Retains the ability for soil to grow weeds, as it should.
 /obj/machinery/portable_atmospherics/hydroponics/soil/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	//A special case for if the container has only water, for manual watering with buckets
-	if (istype(O,/obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = O
+	if (istype(O,/obj/item/reagent_containers))
+		var/obj/item/reagent_containers/RC = O
 		if (RC.reagents.reagent_list.len == 1)
 			if (RC.reagents.has_reagent("water", 1))
 				if (waterlevel < maxWaterLevel)
@@ -23,9 +23,9 @@
 					to_chat(user, "The soil is saturated with water already.")
 				return 1
 
-	if(istype(O,/obj/item/weapon/tank))
+	if(istype(O,/obj/item/tank))
 		return
-	if(istype(O,/obj/item/weapon/shovel))
+	if(istype(O,/obj/item/shovel))
 		if(do_after(user, 50/O.toolspeed))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
 			to_chat(user, "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>")

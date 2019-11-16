@@ -16,23 +16,23 @@
 	var/list/resource_field = list()
 
 	var/ore_types = list(
-		"iron" = /obj/item/weapon/ore/iron,
-		"uranium" = /obj/item/weapon/ore/uranium,
-		"gold" = /obj/item/weapon/ore/gold,
-		"silver" = /obj/item/weapon/ore/silver,
-		"diamond" = /obj/item/weapon/ore/diamond,
-		"phoron" = /obj/item/weapon/ore/phoron,
-		"osmium" = /obj/item/weapon/ore/osmium,
-		"hydrogen" = /obj/item/weapon/ore/hydrogen,
-		"silicates" = /obj/item/weapon/ore/glass,
-		"carbonaceous rock" = /obj/item/weapon/ore/coal
+		"iron" = /obj/item/ore/iron,
+		"uranium" = /obj/item/ore/uranium,
+		"gold" = /obj/item/ore/gold,
+		"silver" = /obj/item/ore/silver,
+		"diamond" = /obj/item/ore/diamond,
+		"phoron" = /obj/item/ore/phoron,
+		"osmium" = /obj/item/ore/osmium,
+		"hydrogen" = /obj/item/ore/hydrogen,
+		"silicates" = /obj/item/ore/glass,
+		"carbonaceous rock" = /obj/item/ore/coal
 		)
 
 	//Upgrades
 	var/harvest_speed
 	var/capacity
 	var/charge_use
-	var/obj/item/weapon/cell/cell = null
+	var/obj/item/cell/cell = null
 
 	//Flags
 	var/need_update_field = 0
@@ -41,11 +41,11 @@
 	var/datum/effect_system/sparks/spark_system
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/miningdrill,
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/capacitor,
-		/obj/item/weapon/stock_parts/micro_laser,
-		/obj/item/weapon/cell/high
+		/obj/item/circuitboard/miningdrill,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/capacitor,
+		/obj/item/stock_parts/micro_laser,
+		/obj/item/cell/high
 	)
 
 /obj/machinery/mining/drill/Initialize()
@@ -164,7 +164,7 @@
 			cell = null
 			return
 
-	if(istype(O, /obj/item/weapon/cell))
+	if(istype(O, /obj/item/cell))
 		if(cell)
 			to_chat(user, "The drill already has a cell installed.")
 		else
@@ -246,14 +246,14 @@
 	capacity = 0
 	charge_use = 50
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismicrolaser(P))
 			harvest_speed = P.rating
 		else if(ismatterbin(P))
 			capacity = 200 * P.rating
 		else if(iscapacitor(P))
 			charge_use -= 10 * P.rating
-	cell = locate(/obj/item/weapon/cell) in component_parts
+	cell = locate(/obj/item/cell) in component_parts
 
 /obj/machinery/mining/drill/proc/check_supports()
 
@@ -316,11 +316,11 @@
 
 	var/obj/structure/ore_box/B = locate() in orange(1)
 	if(B)
-		for(var/obj/item/weapon/ore/O in contents)
+		for(var/obj/item/ore/O in contents)
 			O.forceMove(B)
 		to_chat(usr, "<span class='notice'>You unload the drill's storage cache into the ore box.</span>")
 	else
-		for(var/obj/item/weapon/ore/O in contents)
+		for(var/obj/item/ore/O in contents)
 			O.forceMove(src.loc)
 		to_chat(usr, "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>")
 
@@ -332,10 +332,10 @@
 	var/obj/machinery/mining/drill/connected
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/miningdrillbrace
+		/obj/item/circuitboard/miningdrillbrace
 	)
 
-/obj/machinery/mining/brace/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/mining/brace/attackby(obj/item/W as obj, mob/user as mob)
 	if(connected && connected.active)
 		to_chat(user, "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>")
 		sleep(5)

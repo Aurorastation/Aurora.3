@@ -26,7 +26,7 @@
 
 	..()
 
-/datum/crime_incident/proc/addArbiter( var/obj/item/weapon/card/id/C, var/title )
+/datum/crime_incident/proc/addArbiter( var/obj/item/card/id/C, var/title )
 	if( !istype( C ))
 		return "Invalid ID card!"
 

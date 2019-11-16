@@ -602,8 +602,8 @@
 					update_icon()
 					continue
 
-				if(istype(O, /obj/item/weapon/storage))
-					var/obj/item/weapon/storage/S = O
+				if(istype(O, /obj/item/storage))
+					var/obj/item/storage/S = O
 					src.visible_message(span("notice","[src] begins to rip apart \the [S]."))
 					busy = 2
 					update_icon()
@@ -641,8 +641,8 @@
 				update_icon()
 				return
 
-		if(istype(O, /obj/item/weapon/stool))
-			var/obj/item/weapon/stool/S = O
+		if(istype(O, /obj/item/stool))
+			var/obj/item/stool/S = O
 			src.visible_message(span("notice","[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()
