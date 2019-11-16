@@ -1,7 +1,7 @@
 /obj/item/clothing/head/hardhat
 	name = "hard hat"
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
-	icon_state = "hardhat0_yellow"
+	icon_state = "hardhat_yellow"
 	action_button_name = "Toggle Headlamp"
 	brightness_on = 4 //luminosity when on
 	light_overlay = "hardhat_light"
@@ -12,23 +12,23 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/hardhat/orange
-	icon_state = "hardhat0_orange"
+	icon_state = "hardhat_orange"
 
 /obj/item/clothing/head/hardhat/red
-	icon_state = "hardhat0_red"
 	name = "firefighter helmet"
+	icon_state = "hardhat_red"
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/white
-	icon_state = "hardhat0_white"
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight. This one looks heat-resistant."
+	icon_state = "hardhat_white"
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/hardhat/dblue
-	icon_state = "hardhat0_dblue"
-	item_state = "hardhat0_dblue"
+	icon_state = "hardhat_dblue"
+	item_state = "hardhat_dblue"
 
 /obj/item/clothing/head/hardhat/red/atmos
 	name = "atmospheric firefighter helmet"

@@ -4,7 +4,7 @@ BEDSHEETS
 LINEN BINS
 */
 
-/obj/item/weapon/bedsheet
+/obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
 	icon = 'icons/obj/bedsheets.dmi'
@@ -17,7 +17,7 @@ LINEN BINS
 	w_class = 2.0
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
-/obj/item/weapon/bedsheet/attack_self(mob/user as mob)
+/obj/item/bedsheet/attack_self(mob/user as mob)
 	user.drop_item()
 	if(layer == initial(layer))
 		layer = 5
@@ -26,63 +26,63 @@ LINEN BINS
 	add_fingerprint(user)
 	return
 
-/obj/item/weapon/bedsheet/attackby(obj/item/I, mob/user)
+/obj/item/bedsheet/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
 		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
 			for(var/i in 1 to rand(2,5))
-				new /obj/item/weapon/reagent_containers/glass/rag(get_turf(src))
+				new /obj/item/reagent_containers/glass/rag(get_turf(src))
 			qdel(src)
 		return
 	..()
 
-/obj/item/weapon/bedsheet/blue
+/obj/item/bedsheet/blue
 	icon_state = "sheetblue"
 
-/obj/item/weapon/bedsheet/green
+/obj/item/bedsheet/green
 	icon_state = "sheetgreen"
 
-/obj/item/weapon/bedsheet/orange
+/obj/item/bedsheet/orange
 	icon_state = "sheetorange"
 
-/obj/item/weapon/bedsheet/purple
+/obj/item/bedsheet/purple
 	icon_state = "sheetpurple"
 
-/obj/item/weapon/bedsheet/rainbow
+/obj/item/bedsheet/rainbow
 	icon_state = "sheetrainbow"
 
-/obj/item/weapon/bedsheet/red
+/obj/item/bedsheet/red
 	icon_state = "sheetred"
 
-/obj/item/weapon/bedsheet/yellow
+/obj/item/bedsheet/yellow
 	icon_state = "sheetyellow"
 
-/obj/item/weapon/bedsheet/mime
+/obj/item/bedsheet/mime
 	icon_state = "sheetmime"
 
-/obj/item/weapon/bedsheet/clown
+/obj/item/bedsheet/clown
 	icon_state = "sheetclown"
 
-/obj/item/weapon/bedsheet/captain
+/obj/item/bedsheet/captain
 	icon_state = "sheetcaptain"
 
-/obj/item/weapon/bedsheet/rd
+/obj/item/bedsheet/rd
 	icon_state = "sheetrd"
 
-/obj/item/weapon/bedsheet/medical
+/obj/item/bedsheet/medical
 	icon_state = "sheetmedical"
 
-/obj/item/weapon/bedsheet/hos
+/obj/item/bedsheet/hos
 	icon_state = "sheethos"
 
-/obj/item/weapon/bedsheet/hop
+/obj/item/bedsheet/hop
 	icon_state = "sheethop"
 
-/obj/item/weapon/bedsheet/ce
+/obj/item/bedsheet/ce
 	icon_state = "sheetce"
 
-/obj/item/weapon/bedsheet/brown
+/obj/item/bedsheet/brown
 	icon_state = "sheetbrown"
 
 
@@ -117,7 +117,7 @@ LINEN BINS
 
 
 /obj/structure/bedsheetbin/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/bedsheet))
+	if(istype(I, /obj/item/bedsheet))
 		user.drop_from_inventory(I,src)
 		sheets.Add(I)
 		amount++
@@ -131,13 +131,13 @@ LINEN BINS
 	if(amount >= 1)
 		amount--
 
-		var/obj/item/weapon/bedsheet/B
+		var/obj/item/bedsheet/B
 		if(sheets.len > 0)
 			B = sheets[sheets.len]
 			sheets.Remove(B)
 
 		else
-			B = new /obj/item/weapon/bedsheet(loc)
+			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(user.loc)
 		user.put_in_hands(B)
@@ -155,13 +155,13 @@ LINEN BINS
 	if(amount >= 1)
 		amount--
 
-		var/obj/item/weapon/bedsheet/B
+		var/obj/item/bedsheet/B
 		if(sheets.len > 0)
 			B = sheets[sheets.len]
 			sheets.Remove(B)
 
 		else
-			B = new /obj/item/weapon/bedsheet(loc)
+			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(loc)
 		to_chat(user, "<span class='notice'>You telekinetically remove [B] from [src].</span>")

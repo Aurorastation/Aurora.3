@@ -69,37 +69,37 @@
 /datum/outfit/job/engineer/hephaestus
 	name = "Station Engineer - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/atmos/hephaestus
 	name = "Atmospherics Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/scientist/hephaestus
 	name = "Scientist - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/research
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/roboticist/hephaestus
 	name = "Roboticist - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/research
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/mining/hephaestus
 	name = "Miner - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/qm/hephaestus
 	name = "Quartermaster - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/cargo_tech/hephaestus
 	name = "Cargo Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/representative/hephaestus
 	name = "Hephaestus Corporate Liaison"
@@ -107,4 +107,4 @@
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/hephaestus
+	id = /obj/item/card/id/hephaestus

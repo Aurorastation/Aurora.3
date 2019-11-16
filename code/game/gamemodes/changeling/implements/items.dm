@@ -1,4 +1,4 @@
-/obj/item/weapon/melee/arm_blade
+/obj/item/melee/arm_blade
 	name = "arm blade"
 	desc = "A grotesque blade made out of bone and flesh that cleaves through people like a hot knife through butter."
 	icon = 'icons/obj/changeling.dmi'
@@ -18,21 +18,21 @@
 	var/mob/living/creator
 	canremove = FALSE
 
-/obj/item/weapon/melee/arm_blade/New()
+/obj/item/melee/arm_blade/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/melee/arm_blade/Destroy()
+/obj/item/melee/arm_blade/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/melee/arm_blade/dropped(var/mob/living/user)
+/obj/item/melee/arm_blade/dropped(var/mob/living/user)
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
-/obj/item/weapon/melee/arm_blade/process()
+/obj/item/melee/arm_blade/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
@@ -47,16 +47,16 @@
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 
-/obj/item/weapon/melee/arm_blade/iscrowbar()
+/obj/item/melee/arm_blade/iscrowbar()
 	return TRUE
 
-/obj/item/weapon/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
+/obj/item/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
 	if(istype(A,/turf/simulated/floor) && user.a_intent != I_HELP)
 		return
 	else
 		..()
 
-/obj/item/weapon/shield/riot/changeling
+/obj/item/shield/riot/changeling
 	name = "shield-like mass"
 	desc = "A mass of tough, boney tissue. You can still see the fingers as a twisted pattern in the shield."
 	icon = 'icons/obj/changeling.dmi'
@@ -73,21 +73,21 @@
 	base_block_chance = 70
 	var/mob/living/creator
 
-/obj/item/weapon/shield/riot/changeling/New()
+/obj/item/shield/riot/changeling/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/shield/riot/changeling/Destroy()
+/obj/item/shield/riot/changeling/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/shield/riot/changeling/dropped(var/mob/living/user)
+/obj/item/shield/riot/changeling/dropped(var/mob/living/user)
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
 	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
-/obj/item/weapon/shield/riot/changeling/process()
+/obj/item/shield/riot/changeling/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
 		if(istype(loc,/mob/living))
@@ -102,14 +102,14 @@
 			host.drop_from_inventory(src)
 		QDEL_IN(src, 1)
 		
-/obj/item/weapon/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
 		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
 			return base_block_chance / 2 //lings still have a 35% chance of blocking these kinds of attacks
 	return base_block_chance
 
-/obj/item/weapon/bone_dart
+/obj/item/bone_dart
 	name = "bone dart"
 	desc = "A sharp piece of bone shapped as small dart."
 	icon = 'icons/obj/changeling.dmi'

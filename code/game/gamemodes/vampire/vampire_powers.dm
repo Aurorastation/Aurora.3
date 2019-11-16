@@ -1,5 +1,18 @@
 // Contains all /mob/procs that relate to vampire.
 
+// Makes vampire's victim not get paralyzed, and remember the suckings
+/mob/living/carbon/human/proc/vampire_alertness()
+	set category = "Vampire"
+	set name = "Victim Alertness"
+	set desc = "Toggle whether you wish for your victims to get paralyzed and forget your deeds."
+
+	var/datum/vampire/vampire = vampire_power(0, 0)
+	vampire.stealth = !vampire.stealth
+	if(vampire.stealth)
+		to_chat(src, span("notice", "Your victims will now forget your interactions, and get paralyzed when you do them."))
+	else
+		to_chat(src, span("notice", "Your victims will now remember your interactions, and stay completely mobile during them."))
+
 // Drains the target's blood.
 /mob/living/carbon/human/proc/vampire_drain_blood()
 	set category = "Vampire"
@@ -10,13 +23,12 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
-		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
+		to_chat(src, span("warning", "You must be grabbing a victim in your active hand to drain their blood."))
 		return
-
 	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-		to_chat(src, "<span class='warning'>You must have the victim pinned to the ground to drain their blood.</span>")
+		to_chat(src, span("warning", "You must have the victim pinned to the ground to drain their blood."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
@@ -24,15 +36,13 @@
 		//Added this to prevent vampires draining diona and IPCs
 		//Diona have 'blood' but its really green sap and shouldn't help vampires
 		//IPCs leak oil
-		to_chat(src, "<span class='warning'>[T] is not a creature you can drain useful blood from.</span>")
+		to_chat(src, span("warning", "[T] is not a creature you can drain useful blood from."))
 		return
-
 	if(T.head && (T.head.item_flags & AIRTIGHT))
-		to_chat(src, "<span class='warning'>[T]'s headgear is blocking the way to the neck.</span>")
+		to_chat(src, span("warning", "[T]'s headgear is blocking the way to the neck."))
 		return
-
 	if (vampire.status & VAMP_DRAINING)
-		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
+		to_chat(src, span("warning", "Your fangs are already sunk into a victim's neck!"))
 		return
 
 	var/datum/vampire/draining_vamp = null
@@ -46,24 +56,33 @@
 	vampire.status |= VAMP_DRAINING
 
 	visible_message("<span class='danger'>[src.name] bites [T.name]'s neck!</span>", "<span class='danger'>You bite [T.name]'s neck and begin to drain their blood.</span>", "<span class='notice'>You hear a soft puncture and a wet sucking noise</span>")
-	admin_attack_log(src, T, "drained blood from [key_name(T)]", "was drained blood from by [key_name(src)]", "is draining blood from")
+	var/remembrance
+	if(vampire.stealth)
+		remembrance = "forgot"
+	else
+		remembrance = "remembered"
+	admin_attack_log(src, T, "drained blood from [key_name(T)], who [remembrance] the encounter.", "had their blood drained by [key_name(src)] and [remembrance] the encounter.", "is draining blood from")
 
-	to_chat(T, "<span class='warning'>You are unable to resist or even move. Your mind blanks as you're being fed upon.</span>")
+	if(vampire.stealth)
+		to_chat(T, span("warning", "You are unable to resist or even move. Your mind blanks as you're being fed upon."))
+		T.paralysis = 3400
+	else
+		to_chat(T, span("warning", "You are unable to resist or even move. Your mind is acutely aware of what's occuring."))
+		T.paralysis = 3400
 
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
 
-	T.paralysis = 3400
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
-			to_chat(src, "<span class='danger'>Your fangs have disappeared!</span>")
+			to_chat(src, span("danger", "Your fangs have disappeared!"))
 			return
 
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
 		if (!T.vessel.get_reagent_amount("blood"))
-			to_chat(src, "<span class='danger'>[T] has no more blood left to give.</span>")
+			to_chat(src, span("danger", "[T] has no more blood left to give."))
 			break
 
 		if (!T.stunned)
@@ -100,18 +119,27 @@
 			vampire.frenzy--
 
 		if (blood_total != vampire.blood_total)
-			var/update_msg = "<span class='notice'>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood.</span>"
+			var/update_msg = "<span class='notice'>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood</span>"
 			if (blood_usable != vampire.blood_usable)
-				update_msg += "<span class='notice'> And have [vampire.blood_usable] left to use.</span>"
+				update_msg += "<span class='notice'> and have [vampire.blood_usable] left to use.</span>"
+			else
+				update_msg += "<span class='notice'>.</span>"
 
 			to_chat(src, update_msg)
 		check_vampire_upgrade()
 		T.vessel.remove_reagent("blood", 25)
 
 	vampire.status &= ~VAMP_DRAINING
-	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>You extract your fangs from [T.name]'s neck and stop draining them of blood. They will remember nothing of this occurance. Provided they survived.</span>")
-	if (T.stat != 2)
-		to_chat(T, "<span class='warning'>You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name].</span>")
+
+	var/endsuckmsg = "You extract your fangs from [T.name]'s neck and stop draining them of blood."
+	if(vampire.stealth)
+		endsuckmsg += "They will remember nothing of this occurance, provided they survived."
+	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>[endsuckmsg]</span>")
+	if(T.stat != 2 && vampire.stealth)
+		to_chat(T, span("warning", "You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name]."))
+		T.paralysis = 0
+	else if(T.stat != 2)
+		to_chat(T, span("warning", "You remember everything about being fed upon. How you react to [src.name]'s actions is up to you."))
 		T.paralysis = 0
 
 // Small area of effect stun.
@@ -122,11 +150,9 @@
 
 	if (!vampire_power(0, 1))
 		return
-
 	if (!has_eyes())
 		to_chat(src, "<span class='warning'>You don't have eyes!</span>")
 		return
-
 	if (istype(glasses, /obj/item/clothing/glasses/sunglasses/blindfold))
 		to_chat(src, "<span class='warning'>You're blindfolded!</span>")
 		return
@@ -136,7 +162,6 @@
 	for (var/mob/living/carbon/human/H in view(2))
 		if (H == src)
 			continue
-
 		if (!vampire_can_affect_target(H, 0))
 			continue
 
@@ -160,7 +185,6 @@
 	var/datum/vampire/vampire = vampire_power(10, 1)
 	if (!vampire)
 		return
-
 	if (!has_eyes())
 		to_chat(src, "<span class='warning'>You don't have eyes!</span>")
 		return
@@ -170,7 +194,6 @@
 		if (H == src)
 			continue
 		victims += H
-
 	if (!victims.len)
 		to_chat(src, "<span class='warning'>No suitable targets.</span>")
 		return
@@ -210,15 +233,12 @@
 	var/datum/vampire/vampire = vampire_power(20, 1)
 	if (!vampire)
 		return
-
 	if (!istype(loc, /turf))
 		to_chat(src, "<span class='warning'>You cannot teleport out of your current location.</span>")
 		return
-
 	if (T.z != src.z || get_dist(T, get_turf(src)) > world.view)
 		to_chat(src, "<span class='warning'>Your powers are not capable of taking you that far.</span>")
 		return
-
 	if (T.get_lumcount() > 0.1)
 		// Too bright, cannot jump into.
 		to_chat(src, "<span class='warning'>The destination is too bright.</span>")
@@ -230,7 +250,7 @@
 
 	vampire_phase_in(T)
 
-	for (var/obj/item/weapon/grab/G in contents)
+	for (var/obj/item/grab/G in contents)
 		if (G.affecting && (vampire.status & VAMP_FULLPOWER))
 			G.affecting.vampire_phase_out(get_turf(G.affecting.loc))
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
@@ -307,10 +327,8 @@
 	for (var/mob/living/carbon/human/T in hearers(4, src))
 		if (T == src)
 			continue
-
-		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
+		if (istype(T) && (T.l_ear || T.r_ear) && istype((T.l_ear || T.r_ear), /obj/item/clothing/ears/earmuffs))
 			continue
-
 		if (!vampire_can_affect_target(T, 0))
 			continue
 
@@ -369,10 +387,10 @@
 	desc = "A red, shimmering presence."
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "blank"
-	density = 0
+	density = FALSE
 
 	var/last_valid_turf = null
-	var/can_move = 1
+	var/can_move = TRUE
 	var/mob/owner_mob = null
 	var/datum/vampire/owner_vampire = null
 	var/warning_level = 0
@@ -669,11 +687,10 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to enthrall them.</span>")
 		return
-
 	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
 		to_chat(src, "<span class='warning'>You must have the victim pinned to the ground to enthrall them.</span>")
 		return
@@ -682,18 +699,14 @@
 	if(isipc(T))
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return
-
 	if (!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not a creature you can enthrall.</span>")
 		return
-
 	if (!vampire_can_affect_target(T, 1, 1))
 		return
-
 	if (!T.client || !T.mind)
 		to_chat(src, "<span class='warning'>[T]'s mind is empty and useless. They cannot be forced into a blood bond.</span>")
 		return
-
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
@@ -733,7 +746,6 @@
 		if (H == src)
 			continue
 		victims += H
-
 	if (!victims.len)
 		to_chat(src, "<span class='warning'>No suitable targets.</span>")
 		return
@@ -805,10 +817,8 @@
 		for (var/mob/living/carbon/human/T in view(5))
 			if (T == src)
 				continue
-
 			if (!vampire_can_affect_target(T, 0, 1))
 				continue
-
 			if (!T.client)
 				continue
 
@@ -827,6 +837,32 @@
 			to_chat(src, "<span class='warning'>You are no longer influencing those weak of mind.</span>")
 			break
 
+/mob/living/carbon/human/proc/vampire_touch_of_life()
+	set category = "Vampire"
+	set name = "Touch of Life (50)"
+	set desc = "You lay your hands on the target, transferring healing chemicals to them."
+
+	var/datum/vampire/vampire = vampire_power(50, 0)
+	if (!vampire)
+		return
+
+	var/obj/item/grab/G = get_active_hand()
+	if (!istype(G))
+		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to touch them.</span>")
+		return
+
+	var/mob/living/carbon/human/T = G.affecting
+	if (T.species.flags & NO_BLOOD)
+		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
+		return
+
+	visible_message("<b>[src]</b> gently touches [T].")
+	to_chat(T, span("notice", "You feel pure bliss as [src] touches you."))
+	vampire.use_blood(50)
+
+	T.reagents.add_reagent("rezadone", 3)
+	T.reagents.add_reagent("oxycodone", 0.15) //enough to get back onto their feet
+
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
 	set category = "Vampire"
@@ -838,11 +874,10 @@
 		return
 
 	// Re-using blood drain code.
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
 		return
-
 	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
 		to_chat(src, "<span class='warning'>You must have the victim pinned to the ground to drain their blood.</span>")
 		return
@@ -850,19 +885,15 @@
 	var/mob/living/carbon/human/T = G.affecting
 	if (!vampire_can_affect_target(T, ignore_thrall = TRUE))
 		return
-
 	if (!T.client)
 		to_chat(src, "<span class='warning'>[T] is a mindless husk. The Veil has no purpose for them.</span>")
 		return
-
 	if (T.stat == 2)
 		to_chat(src, "<span class='warning'>[T]'s body is broken and damaged beyond salvation. You have no use for them.</span>")
 		return
-
 	if (T.species.flags & NO_BLOOD)
 		to_chat(src, "<span class='warning'>[T] has no blood and can not be affected by your powers!</span>")
 		return
-
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, "<span class='warning'>Your fangs are already sunk into a victim's neck!</span>")
 		return
@@ -901,7 +932,6 @@
 		if (!mind.vampire)
 			to_chat(src, "<span class='alert'>Your fangs have disappeared!</span>")
 			return
-
 		if (!T.vessel.get_reagent_amount("blood"))
 			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body.</span>")
 			break
@@ -941,7 +971,6 @@
 
 	if (status_flags & LEAPING)
 		return
-
 	if (stat || paralysis || stunned || weakened || lying || restrained() || buckled)
 		to_chat(src, "<span class='warning'>You cannot lean in your current state.</span>")
 		return
@@ -967,7 +996,6 @@
 
 	if (status_flags & LEAPING)
 		status_flags &= ~LEAPING
-
 	if (!src.Adjacent(T))
 		to_chat(src, "<span class='warning'>You miss!</span>")
 		return
@@ -986,7 +1014,7 @@
 
 	src.visible_message("<span class='warning'><b>\The [src]</b> seizes [T] aggressively!</span>")
 
-	var/obj/item/weapon/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, T)
 	if (use_hand == "left")
 		l_hand = G
 	else

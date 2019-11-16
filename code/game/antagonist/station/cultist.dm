@@ -66,7 +66,7 @@ var/datum/antagonist/cultist/cult
 	if(!..())
 		return 0
 
-	var/obj/item/weapon/paper/talisman/supply/T = new(get_turf(player))
+	var/obj/item/paper/talisman/supply/T = new(get_turf(player))
 	var/list/slots = list (
 		"backpack" = slot_in_backpack,
 		"left pocket" = slot_l_store,
@@ -78,7 +78,7 @@ var/datum/antagonist/cultist/cult
 		player.equip_to_slot(T, slot)
 		if(T.loc == player)
 			break
-	var/obj/item/weapon/storage/S = locate() in player.contents
+	var/obj/item/storage/S = locate() in player.contents
 	if(S && istype(S))
 		T.forceMove(S)
 
@@ -102,7 +102,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
 		return 0
-	for(var/obj/item/weapon/implant/loyalty/L in player.current)
+	for(var/obj/item/implant/loyalty/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
 	return 1

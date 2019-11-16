@@ -69,8 +69,8 @@
 /mob/living/carbon/human/GetVoice()
 
 	var/voice_sub
-	if(istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = back
+	if(istype(back,/obj/item/rig))
+		var/obj/item/rig/rig = back
 		// todo: fix this shit
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.voice)
 			voice_sub = rig.speech.voice_holder.voice
@@ -151,7 +151,7 @@
 		if(braindam >= 60)
 			speech_problem_flag = 1
 			if(prob(braindam/4))
-				message = stutter(message)
+				message = get_stuttered_message(message)
 				verb = pick("stammers", "stutters")
 			if(prob(braindam))
 				message = uppertext(message)

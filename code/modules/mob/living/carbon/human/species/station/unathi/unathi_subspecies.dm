@@ -56,7 +56,8 @@
 		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/detach_limb,
 		/mob/living/carbon/human/proc/attach_limb,
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/tongue_flick
 	)
 
 	has_organ = list(

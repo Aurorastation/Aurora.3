@@ -7,7 +7,7 @@
 /datum/surgery_step/fix_vein
 	priority = 2
 	allowed_tools = list(
-	/obj/item/weapon/FixOVein = 100, \
+	/obj/item/FixOVein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 	can_infect = 1
@@ -55,9 +55,9 @@
 /datum/surgery_step/fix_dead_tissue		//Debridement
 	priority = 2
 	allowed_tools = list(
-		/obj/item/weapon/scalpel = 100,
-		/obj/item/weapon/material/knife = 75,
-		/obj/item/weapon/material/shard = 50
+		/obj/item/scalpel = 100,
+		/obj/item/material/knife = 75,
+		/obj/item/material/shard = 50
 	)
 
 	can_infect = 1
@@ -99,11 +99,11 @@
 /datum/surgery_step/treat_necrosis
 	priority = 2
 	allowed_tools = list(
-		/obj/item/weapon/reagent_containers/dropper = 100,
-		/obj/item/weapon/reagent_containers/glass/bottle = 75,
-		/obj/item/weapon/reagent_containers/glass/beaker = 75,
-		/obj/item/weapon/reagent_containers/spray = 50,
-		/obj/item/weapon/reagent_containers/glass/bucket = 50
+		/obj/item/reagent_containers/dropper = 100,
+		/obj/item/reagent_containers/glass/bottle = 75,
+		/obj/item/reagent_containers/glass/beaker = 75,
+		/obj/item/reagent_containers/spray = 50,
+		/obj/item/reagent_containers/glass/bucket = 50
 	)
 
 	can_infect = 0
@@ -113,10 +113,10 @@
 	max_duration = 60
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if (!istype(tool, /obj/item/weapon/reagent_containers))
+		if (!istype(tool, /obj/item/reagent_containers))
 			return 0
 
-		var/obj/item/weapon/reagent_containers/container = tool
+		var/obj/item/reagent_containers/container = tool
 		if(!container.reagents.has_reagent("peridaxon"))
 			return 0
 
@@ -139,10 +139,10 @@
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-		if (!istype(tool, /obj/item/weapon/reagent_containers))
+		if (!istype(tool, /obj/item/reagent_containers))
 			return
 
-		var/obj/item/weapon/reagent_containers/container = tool
+		var/obj/item/reagent_containers/container = tool
 
 		var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 		if (trans > 0)
@@ -157,10 +157,10 @@
 	fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-		if (!istype(tool, /obj/item/weapon/reagent_containers))
+		if (!istype(tool, /obj/item/reagent_containers))
 			return
 
-		var/obj/item/weapon/reagent_containers/container = tool
+		var/obj/item/reagent_containers/container = tool
 
 		var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD)
 
@@ -171,9 +171,9 @@
 
 /datum/surgery_step/hardsuit
 	allowed_tools = list(
-		/obj/item/weapon/weldingtool = 80,
-		/obj/item/weapon/circular_saw = 60,
-		/obj/item/weapon/gun/energy/plasmacutter = 100
+		/obj/item/weldingtool = 80,
+		/obj/item/circular_saw = 60,
+		/obj/item/gun/energy/plasmacutter = 100
 		)
 
 	can_infect = 0
@@ -186,10 +186,10 @@
 		if(!istype(target))
 			return 0
 		if(tool.iswelder())
-			var/obj/item/weapon/weldingtool/welder = tool
+			var/obj/item/weldingtool/welder = tool
 			if(!welder.isOn() || !welder.remove_fuel(1,user))
 				return 0
-		return (target_zone == "chest") && istype(target.back, /obj/item/weapon/rig) && !(target.back.canremove)
+		return (target_zone == "chest") && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
@@ -198,7 +198,7 @@
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 
-		var/obj/item/weapon/rig/rig = target.back
+		var/obj/item/rig/rig = target.back
 		if(!istype(rig))
 			return
 		rig.reset()

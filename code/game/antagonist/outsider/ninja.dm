@@ -16,7 +16,7 @@ var/datum/antagonist/ninja/ninjas
 	hard_cap = 2
 	hard_cap_round = 3
 
-	id_type = /obj/item/weapon/card/id/syndicate
+	id_type = /obj/item/card/id/syndicate
 
 /datum/antagonist/ninja/New()
 	..()
@@ -103,7 +103,7 @@ var/datum/antagonist/ninja/ninjas
 		return FALSE
 
 	for (var/obj/item/I in player)
-		if (istype(I, /obj/item/weapon/implant))
+		if (istype(I, /obj/item/implant))
 			continue
 		player.drop_from_inventory(I)
 		if(I.loc != player)

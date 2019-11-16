@@ -7,7 +7,7 @@
 
 	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "crew"
-	circuit = /obj/item/weapon/circuitboard/operating
+	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
 
@@ -92,7 +92,7 @@
 	anchored = 1.0
 	icon_state = "crew"
 	icon_state = "computer"
-	circuit = /obj/item/weapon/circuitboard/advoperating
+	circuit = /obj/item/circuitboard/advoperating
 	interact_offline = 0
 	var/screen = 1
 
