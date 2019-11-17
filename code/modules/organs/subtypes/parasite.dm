@@ -1,4 +1,4 @@
-/obj/item/organ/parasite
+/obj/item/organ/internal/parasite
 	name = "parasite"
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "burst_lie"
@@ -11,7 +11,7 @@
 	var/stage_interval = 600 //time between stages, in seconds
 	var/subtle = 0 //will the body reject the parasite naturally?
 
-/obj/item/organ/parasite/process()
+/obj/item/organ/internal/parasite/process()
 	..()
 
 	if(!owner)
@@ -24,7 +24,7 @@
 		stage = min(stage+1,max_stage)
 		stage_effect()
 
-/obj/item/organ/parasite/handle_rejection()
+/obj/item/organ/internal/parasite/handle_rejection()
 	if(subtle)
 		return ..()
 	else
@@ -32,14 +32,14 @@
 			rejecting = 0
 		return
 
-/obj/item/organ/parasite/proc/stage_effect()
+/obj/item/organ/internal/parasite/proc/stage_effect()
 	return
 
 ///////////////////
 ///K'ois Mycosis///
 ///////////////////
 
-/obj/item/organ/parasite/kois
+/obj/item/organ/internal/parasite/kois
 	name = "k'ois mycosis"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "kois-on"
@@ -52,7 +52,7 @@
 
 	origin_tech = list(TECH_BIO = 3)
 
-/obj/item/organ/parasite/kois/process()
+/obj/item/organ/internal/parasite/kois/process()
 	..()
 
 	if (!owner)
@@ -108,7 +108,7 @@
 ///Black Mycosis///
 ///////////////////
 
-/obj/item/organ/parasite/blackkois
+/obj/item/organ/internal/parasite/blackkois
 	name = "k'ois mycosis"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "black-on"
@@ -122,7 +122,7 @@
 	stage_interval = 150
 	origin_tech = list(TECH_BIO = 7)
 
-/obj/item/organ/parasite/blackkois/process()
+/obj/item/organ/internal/parasite/blackkois/process()
 	..()
 
 	if(prob(10) && (owner.can_feel_pain()))
@@ -202,14 +202,14 @@
 				owner.drip(15)
 				owner.delayed_vomit()
 
-/obj/item/organ/parasite/blackkois/removed(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/parasite/blackkois/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages && stage >= 3 && !isvaurca(target))
 		target.remove_language(LANGUAGE_VAURCA)
 		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
 	removed_langs = 0
 	..()
 
-/obj/item/organ/parasite/zombie
+/obj/item/organ/internal/parasite/zombie
 	name = "black tumor"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "blacktumor"
@@ -220,7 +220,7 @@
 	parent_organ = BP_CHEST
 	stage_interval = 150
 
-/obj/item/organ/parasite/zombie/process()
+/obj/item/organ/internal/parasite/zombie/process()
 	..()
 
 	if (!owner)

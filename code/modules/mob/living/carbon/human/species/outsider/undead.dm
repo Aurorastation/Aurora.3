@@ -160,7 +160,7 @@
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 
 	has_organ = list(
-		"zombie" =    /obj/item/organ/parasite/zombie,
+		"zombie" =    /obj/item/organ/internal/parasite/zombie,
 		BP_BRAIN =    /obj/item/organ/internal/brain
 		)
 
@@ -272,7 +272,7 @@
 	remains_type = /obj/effect/decal/remains/xeno
 
 	has_organ = list(
-		"zombie" =    /obj/item/organ/parasite/zombie,
+		"zombie" =    /obj/item/organ/internal/parasite/zombie,
 		/obj/item/organ/internal/brain/skrell
 		)
 

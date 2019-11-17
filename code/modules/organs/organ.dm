@@ -15,6 +15,7 @@
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
 	var/min_broken_damage = 30
+	var/min_bruised_damage = 10 // Damage before considered bruised
 	var/max_damage
 
 	//Strings.
@@ -117,8 +118,6 @@
 	damage = max_damage
 	status |= ORGAN_DEAD
 	STOP_PROCESSING(SSprocessing, src)
-	if(dead_icon && !robotic)
-		icon_state = dead_icon
 	if(owner && vital)
 		owner.death()
 
@@ -127,6 +126,9 @@
 
 /obj/item/organ/proc/is_bruised()
 	return damage >= min_bruised_damage
+
+/obj/item/organ/proc/bruise()
+	damage = max(damage, min_bruised_damage)
 
 /obj/item/organ/process()
 

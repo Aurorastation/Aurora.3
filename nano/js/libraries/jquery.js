@@ -8200,7 +8200,7 @@ jQuery.extend({
 				}
 
 				// if no content
-				if ( status === 204 || s.type === BP_HEAD ) {
+				if ( status === 204 || s.type === "HEAD" ) {
 					statusText = "nocontent";
 
 				// if not modified
@@ -8472,7 +8472,7 @@ jQuery.ajaxTransport( "script", function(s) {
 	if ( s.crossDomain ) {
 
 		var script,
-			head = document.head || jQuery(BP_HEAD)[0] || document.documentElement;
+			head = document.head || jQuery("head")[0] || document.documentElement;
 
 		return {
 

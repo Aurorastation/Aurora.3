@@ -3,7 +3,6 @@
 ****************************************************/
 /obj/item/organ/internal
 	var/dead_icon // Icon to use when the organ has died.
-	var/min_bruised_damage = 10       // Damage before considered bruised
 	var/damage_reduction = 0.5     //modifier for internal organ injury
 
 /obj/item/organ/internal/Destroy()
@@ -41,7 +40,7 @@
 	if((status & ORGAN_DEAD) && dead_icon)
 		icon_state = dead_icon
 
-/obj/item/organ/internal/is_usable()
+/obj/item/organ/internal/proc/is_usable()
 	return ..() && !is_broken()
 
 /obj/item/organ/internal/robotize()
@@ -54,8 +53,11 @@
 		return damage * 0.5
 	return damage
 
-/obj/item/organ/internal/proc/bruise()
-	damage = max(damage, min_bruised_damage)
+/obj/item/organ/proc/can_feel_pain()
+	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
+
+/obj/item/organ/proc/can_recover()
+	return (max_damage > 0) && !(status & ORGAN_DEAD)
 
 /obj/item/organ/internal/proc/set_max_damage(var/ndamage)
 	max_damage = Floor(ndamage)
@@ -98,6 +100,10 @@
 /obj/item/organ/internal/process()
 	..()
 	handle_regeneration()
+
+/obj/item/organ/proc/heal_damage(amount)
+	if (can_recover())
+		damage = between(0, damage - round(amount, 0.1), max_damage)
 
 /obj/item/organ/internal/proc/handle_regeneration()
 	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN])

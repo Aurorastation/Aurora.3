@@ -76,7 +76,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
-		var/obj/item/organ/parasite/PA = H.internal_organs_by_name["blackkois"]
+		var/obj/item/organ/internal/parasite/PA = H.internal_organs_by_name["blackkois"]
 		if((istype(PA) && PA.stage >= 3))
 			H.heal_organ_damage(2 * removed, 2 * removed)
 			H.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
@@ -112,7 +112,7 @@
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
@@ -150,7 +150,7 @@
 	if(!istype(M))
 		return
 
-	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(removed * strength*2)
 	else
@@ -686,7 +686,7 @@
 
 		if(!H.internal_organs_by_name["zombie"] && prob(15))
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
-			var/obj/item/organ/parasite/zombie/infest = new()
+			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
 
 		if(H.species.zombie_type)

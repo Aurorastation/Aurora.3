@@ -15,7 +15,7 @@
 /datum/reagent/kois/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!ishuman(M))
 		return
-	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
 		M.adjustToxLoss(-1.2 * removed)
@@ -30,19 +30,19 @@
 		infect(M, alien, removed)
 
 /datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 	if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
 		switch(kois_type)
 			if(1) //Normal
 				if(!H.internal_organs_by_name["kois"] && prob(5*removed))
 					var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
-					var/obj/item/organ/parasite/kois/infest = new()
+					var/obj/item/organ/internal/parasite/kois/infest = new()
 					infest.replaced(H, affected)
 			if(2) //Modified
 				if(!H.internal_organs_by_name["blackkois"] && prob(10*removed))
 					var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
-					var/obj/item/organ/parasite/blackkois/infest = new()
+					var/obj/item/organ/internal/parasite/blackkois/infest = new()
 					infest.replaced(H, affected)
 
 /datum/reagent/kois/clean
@@ -119,7 +119,7 @@
 /datum/reagent/nutriment/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
-	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.adjustToxLoss(1.5 * removed)
 	else if(alien != IS_UNATHI)
@@ -4584,7 +4584,7 @@
 	if(!istype(M))
 		return
 
-	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.add_chemical_effect(CE_SPEEDBOOST, 1)
 		M.add_chemical_effect(CE_BLOODRESTORE, 2 * removed)
