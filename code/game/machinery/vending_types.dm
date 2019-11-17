@@ -192,7 +192,7 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
-		/obj/item/weapon/reagent_containers/food/snacks/cookiesnack = 6,
+		/obj/item/reagent_containers/food/snacks/cookiesnack = 6,
 		/obj/item/storage/box/gum = 4,
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
 		/obj/item/storage/box/admints = 4,
@@ -202,7 +202,7 @@
 		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
-		/obj/item/weapon/reagent_containers/food/snacks/tuna = 2
+		/obj/item/reagent_containers/food/snacks/tuna = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -230,7 +230,7 @@
 		/obj/item/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
-		/obj/item/weapon/reagent_containers/food/snacks/tuna = 23
+		/obj/item/reagent_containers/food/snacks/tuna = 23
 	)
 
 /obj/machinery/vending/cola

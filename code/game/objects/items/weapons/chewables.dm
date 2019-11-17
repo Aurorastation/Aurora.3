@@ -149,7 +149,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	color = reagents.get_color()
 	update_icon()
 
-/obj/item/weapon/storage/box/gum
+/obj/item/storage/box/gum
 	name = "\improper Chewy Fruit flavored gum"
 	desc = "A small pack of chewing gum in various flavors."
 	icon = 'icons/obj/food.dmi'
