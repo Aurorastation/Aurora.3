@@ -5,6 +5,8 @@
 	var/dead_icon // Icon to use when the organ has died.
 	var/damage_reduction = 0.5     //modifier for internal organ injury
 
+	min_broken_damage = 10 //Internal organs are frail, man.
+
 /obj/item/organ/internal/Destroy()
 	if(owner)
 		owner.internal_organs.Remove(src)
