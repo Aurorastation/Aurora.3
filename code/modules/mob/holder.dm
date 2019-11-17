@@ -446,7 +446,6 @@ var/list/holder_mob_icon_cache = list()
 
 	flags_inv ^= BLOCKHEADHAIR
 	to_chat(user, span("notice", "[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
-	..()
 
 /obj/item/holder/borer
 	name = "cortical borer"
