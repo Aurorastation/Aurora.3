@@ -105,7 +105,7 @@
 	return
 
 /obj/item/pen/crayon/attack(mob/M as mob, mob/user as mob, var/target_zone)
-	if(M == user)
+	if(M == user && !isipc(user))
 		to_chat(user, "You take a bite of the crayon and swallow it.")
 		user.adjustNutritionLoss(-1)
 		reagents.trans_to_mob(user, 2, CHEM_INGEST)
