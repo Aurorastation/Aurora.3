@@ -797,7 +797,7 @@
 			if(gear_test.len)
 				metadata = gear_test
 			else
-				metadata = G.display_name
+				metadata = list()
 			var/obj/item/CI = G.spawn_item(H, metadata)
 			if (H.equip_to_slot_or_del(CI, G.slot))
 				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
