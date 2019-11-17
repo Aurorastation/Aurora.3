@@ -8,7 +8,7 @@ var/datum/antagonist/ert/ert
 	welcome_text = "As a member of your Emergency Response Team, you answer to your leader."
 	landmark_id = "Response Team"
 
-	id_type = /obj/item/weapon/card/id/ert
+	id_type = /obj/item/card/id/ert
 
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_RANDOM_EXCEPTED
 	antaghud_indicator = "hudloyalist"

@@ -62,7 +62,7 @@ default behaviour is:
 			var/mob/living/tmob = AM
 
 			for(var/mob/living/M in range(tmob, 1))
-				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/weapon/grab, tmob.grabbed_by.len)) )
+				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
 						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
 						last_push_notif = world.time
@@ -108,12 +108,12 @@ default behaviour is:
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.r_hand, /obj/item/weapon/shield/riot))
+			if(istype(tmob.r_hand, /obj/item/shield/riot))
 				if(prob(99))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.l_hand, /obj/item/weapon/shield/riot))
+			if(istype(tmob.l_hand, /obj/item/shield/riot))
 				if(prob(99))
 					now_pushing = FALSE
 					return
@@ -147,7 +147,7 @@ default behaviour is:
 
 					step(AM, t)
 					if(ishuman(AM) && AM:grabbed_by)
-						for(var/obj/item/weapon/grab/G in AM:grabbed_by)
+						for(var/obj/item/grab/G in AM:grabbed_by)
 							step(G:assailant, get_dir(G:assailant, AM))
 							G.adjust_position()
 
@@ -345,41 +345,41 @@ default behaviour is:
 
 
 //Recursive function to find everything a mob is holding.
-/mob/living/get_contents(var/obj/item/weapon/storage/Storage = null)
+/mob/living/get_contents(var/obj/item/storage/Storage = null)
 	var/list/L = list()
 
 	if(Storage) //If it called itself
 		L += Storage.return_inv()
 
 		//Leave this commented out, it will cause storage items to exponentially add duplicate to the list
-		//for(var/obj/item/weapon/storage/S in Storage.return_inv()) //Check for storage items
+		//for(var/obj/item/storage/S in Storage.return_inv()) //Check for storage items
 		//	L += get_contents(S)
 
-		for(var/obj/item/weapon/gift/G in Storage.return_inv()) //Check for gift-wrapped items
+		for(var/obj/item/gift/G in Storage.return_inv()) //Check for gift-wrapped items
 			L += G.gift
-			if(istype(G.gift, /obj/item/weapon/storage))
+			if(istype(G.gift, /obj/item/storage))
 				L += get_contents(G.gift)
 
 		for(var/obj/item/smallDelivery/D in Storage.return_inv()) //Check for package wrapped items
 			L += D.wrapped
-			if(istype(D.wrapped, /obj/item/weapon/storage)) //this should never happen
+			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
 				L += get_contents(D.wrapped)
 		return L
 
 	else
 
 		L += src.contents
-		for(var/obj/item/weapon/storage/S in src.contents)	//Check for storage items
+		for(var/obj/item/storage/S in src.contents)	//Check for storage items
 			L += get_contents(S)
 
-		for(var/obj/item/weapon/gift/G in src.contents) //Check for gift-wrapped items
+		for(var/obj/item/gift/G in src.contents) //Check for gift-wrapped items
 			L += G.gift
-			if(istype(G.gift, /obj/item/weapon/storage))
+			if(istype(G.gift, /obj/item/storage))
 				L += get_contents(G.gift)
 
 		for(var/obj/item/smallDelivery/D in src.contents) //Check for package wrapped items
 			L += D.wrapped
-			if(istype(D.wrapped, /obj/item/weapon/storage)) //this should never happen
+			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
 				L += get_contents(D.wrapped)
 		return L
 
@@ -572,17 +572,17 @@ default behaviour is:
 				if (isliving(pulling))
 					var/mob/living/M = pulling
 					var/ok = 1
-					if (locate(/obj/item/weapon/grab, M.grabbed_by))
+					if (locate(/obj/item/grab, M.grabbed_by))
 						if (prob(75))
-							var/obj/item/weapon/grab/G = pick(M.grabbed_by)
-							if (istype(G, /obj/item/weapon/grab))
+							var/obj/item/grab/G = pick(M.grabbed_by)
+							if (istype(G, /obj/item/grab))
 								for(var/mob/O in viewers(M, null))
 									O.show_message(text("<span class='warning'>[] has been pulled from []'s grip by []</span>", G.affecting, G.assailant, src), 1)
 								//G = null
 								qdel(G)
 						else
 							ok = 0
-						if (locate(/obj/item/weapon/grab, M.grabbed_by.len))
+						if (locate(/obj/item/grab, M.grabbed_by.len))
 							ok = 0
 					if (ok)
 						var/atom/movable/t = M.pulling
@@ -648,7 +648,7 @@ default behaviour is:
 
 /mob/living/proc/process_resist()
 	//Getting out of someone's inventory.
-	if(istype(src.loc, /obj/item/weapon/holder))
+	if(istype(src.loc, /obj/item/holder))
 		escape_inventory(src.loc)
 		return
 
@@ -661,7 +661,7 @@ default behaviour is:
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
 
-/mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
+/mob/living/proc/escape_inventory(obj/item/holder/H)
 	if(H != src.loc) return
 
 	var/mob/M = H.loc //Get our mob holder (if any).
@@ -673,7 +673,7 @@ default behaviour is:
 
 		// Update whether or not this mob needs to pass emotes to contents.
 		for(var/atom/A in M.contents)
-			if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/weapon/holder))
+			if(istype(A,/mob/living/simple_animal/borer) || istype(A,/obj/item/holder))
 				return
 		M.status_flags &= ~PASSEMOTES
 
@@ -705,7 +705,7 @@ default behaviour is:
 		requests.Remove(O)
 		qdel(O)
 		resisting++
-	for(var/obj/item/weapon/grab/G in grabbed_by)
+	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
 		switch(G.state)
 			if(GRAB_PASSIVE)

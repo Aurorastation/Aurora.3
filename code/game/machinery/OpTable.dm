@@ -10,8 +10,8 @@
 	idle_power_usage = 1
 	active_power_usage = 5
 	component_types = list(
-			/obj/item/weapon/circuitboard/optable,
-			/obj/item/weapon/stock_parts/scanning_module = 1
+			/obj/item/circuitboard/optable,
+			/obj/item/stock_parts/scanning_module = 1
 		)
 	
 	var/mob/living/carbon/human/victim = null
@@ -82,7 +82,7 @@
 
 /obj/machinery/optable/MouseDrop_T(obj/O as obj, mob/user as mob)
 
-	if (!istype(O, /obj/item/weapon))
+	if (!istype(O, /obj/item))
 		return
 	user.drop_from_inventory(O,get_turf(src))
 	return
@@ -161,8 +161,8 @@
 	take_victim(usr,usr)
 
 /obj/machinery/optable/attackby(obj/item/W as obj, mob/living/carbon/user as mob)
-	if (istype(W, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = W
+	if (istype(W, /obj/item/grab))
+		var/obj/item/grab/G = W
 		if (src.victim)
 			to_chat(usr, "<span class='notice'><B>The table is already occupied!</B></span>")
 			return 0

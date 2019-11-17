@@ -152,8 +152,8 @@
 	throw_speed = 0.5
 
 /obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/weapon/flame/candle))
-		var/obj/item/weapon/flame/candle/c = O
+	if(istype(O, /obj/item/flame/candle))
+		var/obj/item/flame/candle/c = O
 		var/candle_wax = c.wax
 		if(c.lit)
 			to_chat(user, span("notice", "You should extinguish \the [O] first!"))
@@ -182,18 +182,18 @@
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
 			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
 	else if(isflamesource(W))
 		light()
 		to_chat(user, span("notice", "\The [user] lights \the [name]."))
-	else if(istype(W, /obj/item/weapon/flame/candle))
-		var/obj/item/weapon/flame/candle/C = W
+	else if(istype(W, /obj/item/flame/candle))
+		var/obj/item/flame/candle/C = W
 		if(C.lit)
 			light()
 			to_chat(user, span("notice", "\The [user] lights \the [name]."))

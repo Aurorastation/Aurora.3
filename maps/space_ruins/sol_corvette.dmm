@@ -573,7 +573,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bY" = (
-/obj/item/weapon/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
 /obj/structure/table/reinforced/steel,
 /obj/random/firstaid,
 /turf/simulated/floor/tiled/white,
@@ -643,7 +643,7 @@
 /area/derelict/ship)
 "ck" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/weapon/storage/backpack/satchel_med,
+/obj/item/storage/backpack/satchel_med,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -739,7 +739,7 @@
 	name = "Dilapitated medical closet";
 	pixel_y = -32
 	},
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -813,7 +813,7 @@
 /area/derelict/ship)
 "cO" = (
 /obj/structure/table/rack,
-/obj/item/weapon/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/space_drugs,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cP" = (
@@ -831,20 +831,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cR" = (
-/obj/item/weapon/am_containment,
+/obj/item/am_containment,
 /obj/structure/table/rack,
-/obj/item/weapon/am_containment,
-/obj/item/weapon/am_containment,
+/obj/item/am_containment,
+/obj/item/am_containment,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cS" = (
-/obj/item/weapon/am_containment,
+/obj/item/am_containment,
 /obj/structure/table/rack,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/weapon/am_containment,
-/obj/item/weapon/am_containment,
+/obj/item/am_containment,
+/obj/item/am_containment,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cT" = (

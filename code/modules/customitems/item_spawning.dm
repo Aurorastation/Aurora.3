@@ -84,8 +84,8 @@
 			kit.new_mob_icon_file = CUSTOM_ITEM_MOB
 
 	// for snowflake implants
-	else if(istype(item, /obj/item/weapon/implanter/fluff))
-		var/obj/item/weapon/implanter/fluff/L = item
+	else if(istype(item, /obj/item/implanter/fluff))
+		var/obj/item/implanter/fluff/L = item
 		L.allowed_ckey = assoc_key
 		L.implant_type = text2path(additional_data)
 		L.create_implant()
@@ -224,8 +224,8 @@
 
 		// ID cards and PDAs are applied directly to the existing object rather than spawned fresh.
 		var/obj/item/existing_item
-		if(citem.item_path == /obj/item/weapon/card/id)
-			existing_item = locate(/obj/item/weapon/card/id) in M.get_contents() //TODO: Improve this ?
+		if(citem.item_path == /obj/item/card/id)
+			existing_item = locate(/obj/item/card/id) in M.get_contents() //TODO: Improve this ?
 		else if(citem.item_path == /obj/item/device/pda)
 			existing_item = locate(/obj/item/device/pda) in M.contents
 

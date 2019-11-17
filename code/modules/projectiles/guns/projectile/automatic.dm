@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/automatic
+/obj/item/gun/projectile/automatic
 	name = "prototype SMG"
 	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
 	icon_state = "saber"	//ugly
@@ -22,7 +22,7 @@
 
 //Submachine guns and personal defence weapons, go.
 
-/obj/item/weapon/gun/projectile/automatic/mini_uzi
+/obj/item/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
 	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
 	icon_state = "mini-uzi"
@@ -36,11 +36,11 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
 
-/obj/item/weapon/gun/projectile/automatic/mini_uzi/update_icon()
+/obj/item/gun/projectile/automatic/mini_uzi/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "mini-uzi" : "mini-uzi-e"
 
-/obj/item/weapon/gun/projectile/automatic/c20r
+/obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
 	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses 10mm rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon_state = "c20r"
@@ -57,7 +57,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-/obj/item/weapon/gun/projectile/automatic/c20r/update_icon()
+/obj/item/gun/projectile/automatic/c20r/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "c20r-[round(ammo_magazine.stored_ammo.len,4)]"
@@ -65,7 +65,7 @@
 		icon_state = "c20r"
 	return
 
-/obj/item/weapon/gun/projectile/automatic/wt550
+/obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
 	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Necropolis Industries for paramilitary and private use. Uses 9mm rounds."
 	icon_state = "wt550"
@@ -80,7 +80,7 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
 
-/obj/item/weapon/gun/projectile/automatic/wt550/update_icon()
+/obj/item/gun/projectile/automatic/wt550/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "wt550-[round(ammo_magazine.stored_ammo.len,4)]"
@@ -90,7 +90,7 @@
 
 //Ballistic rifles, go.
 
-/obj/item/weapon/gun/projectile/automatic/rifle
+/obj/item/gun/projectile/automatic/rifle
 	name = "automatic rifle"
 	desc = "A weapon firing an intermediate caliber round, or larger."
 	icon_state = "arifle"
@@ -122,14 +122,14 @@
 	accuracy_wielded = 2
 
 
-/obj/item/weapon/gun/projectile/automatic/rifle/sts35
+/obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
 
-/obj/item/weapon/gun/projectile/automatic/rifle/sts35/update_icon()
+/obj/item/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	if(wielded)
@@ -138,7 +138,7 @@
 		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
 	update_held_icon()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/sol
+/obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
 	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Necropolis make which is chambered in 7.62."
 	icon_state = "battlerifle"
@@ -149,7 +149,7 @@
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
-/obj/item/weapon/gun/projectile/automatic/rifle/sol/update_icon()
+/obj/item/gun/projectile/automatic/rifle/sol/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "battlerifle"
@@ -165,7 +165,7 @@
 /datum/firemode/z8
 	var/use_launcher = 0
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8
+/obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
 	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
 	icon_state = "carbine"
@@ -195,25 +195,25 @@
 		)
 
 	var/use_launcher = 0
-	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
+	var/obj/item/gun/launcher/grenade/underslung/launcher
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/Initialize()
+/obj/item/gun/projectile/automatic/rifle/z8/Initialize()
 	. = ..()
 	launcher = new(src)
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/weapon/grenade)))
+/obj/item/gun/projectile/automatic/rifle/z8/attackby(obj/item/I, mob/user)
+	if((istype(I, /obj/item/grenade)))
 		launcher.load(I, user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/attack_hand(mob/user)
+/obj/item/gun/projectile/automatic/rifle/z8/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src && use_launcher)
 		launcher.unload(user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
+/obj/item/gun/projectile/automatic/rifle/z8/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
 	if(use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
@@ -221,7 +221,7 @@
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/update_icon()
+/obj/item/gun/projectile/automatic/rifle/z8/update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
@@ -234,14 +234,14 @@
 	update_held_icon()
 	return
 
-/obj/item/weapon/gun/projectile/automatic/rifle/z8/examine(mob/user)
+/obj/item/gun/projectile/automatic/rifle/z8/examine(mob/user)
 	..()
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
 		to_chat(user, "\The [launcher] is empty.")
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw
+/obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the receiver"
 	icon_state = "l6closed100"
@@ -266,13 +266,13 @@
 
 	var/cover_open = 0
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/special_check(mob/user)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/special_check(mob/user)
 	if(cover_open)
 		to_chat(user, "<span class='warning'>[src]'s cover is open! Close it before firing!</span>")
 		return 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
 	to_chat(user, "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>")
 	if(cover_open)
@@ -281,38 +281,38 @@
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	update_icon()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)
 	if(cover_open)
 		toggle_cover(user) //close the cover
 	else
 		return ..() //once closed, behave like normal
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/attack_hand(mob/user as mob)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_hand(mob/user as mob)
 	if(!cover_open && user.get_inactive_hand() == src)
 		toggle_cover(user) //open the cover
 	else
 		return ..() //once open, behave like normal
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/update_icon()
+/obj/item/gun/projectile/automatic/rifle/l6_saw/update_icon()
 	icon_state = "l6[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len*2, 25) : "-empty"]"
 	if(wielded)
 		item_state = "l6closedmag-wielded"
 	else
 		item_state = initial(item_state)
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
 		to_chat(user, "<span class='warning'>You need to open the cover to load [src].</span>")
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
 	if(!cover_open)
 		to_chat(user, "<span class='warning'>You need to open the cover to unload [src].</span>")
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/automatic/tommygun
+/obj/item/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
 	desc = "A classic submachine gun. Uses .45 rounds."
 	icon_state = "tommygun"
@@ -328,11 +328,11 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
 	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
 
-/obj/item/weapon/gun/projectile/automatic/tommygun/update_icon()
+/obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "tommygun" : "tommygun-empty"
 
-/obj/item/weapon/gun/projectile/automatic/railgun
+/obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
 	icon_state = "railgun"
@@ -355,7 +355,7 @@
 		)
 
 
-/obj/item/weapon/gun/projectile/automatic/terminator
+/obj/item/gun/projectile/automatic/terminator
 	name = "flechette rifle"
 	desc = "A fearsome Necropolis Industries designed rifle with unattached bayonet that fires lethal flechette rounds."
 	icon = 'icons/obj/terminator.dmi'
@@ -390,7 +390,7 @@
 	accuracy_wielded = 2
 	scoped_accuracy = 2
 
-/obj/item/weapon/gun/projectile/automatic/terminator/verb/scope()
+/obj/item/gun/projectile/automatic/terminator/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
@@ -400,7 +400,7 @@
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
-/obj/item/weapon/gun/projectile/automatic/rifle/shotgun
+/obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
 	icon_state = "assaultshotgun"
@@ -430,6 +430,6 @@
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=3,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15))
 		)
 
-/obj/item/weapon/gun/projectile/automatic/rifle/shotgun/update_icon()
+/obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "assaultshotgun" : "assaultshotgun-empty"

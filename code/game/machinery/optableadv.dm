@@ -21,8 +21,8 @@
 	var/active = 0											//Is the machine active, and providing lifesupport?
 	var/expired = 0											//Have we alerted the folks about a dead patient yet?
 	var/program = 0											//Bitfield for containing the programmable settings.
-	var/obj/item/weapon/reagent_containers/blood/bloodbag	//Stores the bloodbag that you can add to the machine, for IV dripping shenanigans.
-	var/obj/item/weapon/tank/airsupply						//Stores the airtank used for anesthesia.
+	var/obj/item/reagent_containers/blood/bloodbag	//Stores the bloodbag that you can add to the machine, for IV dripping shenanigans.
+	var/obj/item/tank/airsupply						//Stores the airtank used for anesthesia.
 	var/obj/item/clothing/mask/breath/medical/airmask		//Stores the medical mask used for anesthesia.
 	var/requiredchems = list(
 							"peridaxon" = 0.06,
@@ -31,9 +31,9 @@
 	var/list/internallog = list()								//A log of everything that has happened on the table. Has two keys per entry: "time" and "message".
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/optableadv,
+			/obj/item/circuitboard/optableadv,
 			/obj/item/clothing/mask/breath/medical,
-			/obj/item/weapon/reagent_containers/glass/beaker/large = 2
+			/obj/item/reagent_containers/glass/beaker/large = 2
 
 		)
 
@@ -45,12 +45,12 @@
 /obj/machinery/optable/lifesupport/Initialize()
 	..()
 
-/obj/machinery/optable/lifesupport/attackby(obj/item/weapon/W as obj, mob/living/carbon/user as mob)
+/obj/machinery/optable/lifesupport/attackby(obj/item/W as obj, mob/living/carbon/user as mob)
 	. = ..()
 	if (.)
 		return
 
-	if (istype(W, /obj/item/weapon/reagent_containers/blood))
+	if (istype(W, /obj/item/reagent_containers/blood))
 		if (!bloodbag)
 			user.drop_item()
 			bloodbag = W
@@ -64,7 +64,7 @@
 	if (W.is_open_container())
 		return 0
 
-	if (istype(W, /obj/item/weapon/tank))
+	if (istype(W, /obj/item/tank))
 		if (!airsupply)
 			user.drop_item()
 			airsupply = W
@@ -75,7 +75,7 @@
 			to_chat(user, "<span class='notice'>There is already [airsupply] in [src]!</span>")
 			return
 
-	if (istype(W, /obj/item/weapon/card/emag))
+	if (istype(W, /obj/item/card/emag))
 		if (!emagged)
 			emagged = 1
 			to_chat(user, "<span class='notice'>You run [W] through [src], hear the machine quietly whirr. A new option has been unlocked.</span>")
@@ -166,11 +166,11 @@
 /obj/machinery/optable/lifesupport/RefreshParts()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
-	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+	for(var/obj/item/reagent_containers/glass/G in component_parts)
 		T += G.reagents.maximum_volume
 	create_reagents(T)
 	// Transfer all reagents from the beakers to internal reagent container
-	for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+	for(var/obj/item/reagent_containers/glass/G in component_parts)
 		G.reagents.trans_to_obj(src, G.reagents.total_volume)
 
 /obj/machinery/optable/lifesupport/proc/broadcastalert(var/message as text)
