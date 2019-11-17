@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Antagonist roles are now restricted by player account (on Aurora) age."
