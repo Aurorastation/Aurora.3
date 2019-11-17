@@ -212,7 +212,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 						H.bloody_body(src)
 						H.bloody_hands(src)
 						var/blinding = FALSE
-						if(ran_zone() == "head")
+						if(ran_zone("head", 75))
 							blinding = TRUE
 							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
 								if(I && (I.body_parts_covered & EYES))
