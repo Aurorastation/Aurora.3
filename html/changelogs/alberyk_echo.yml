@@ -1,5 +1,0 @@
-author: Alberyk
-
-delete-after: True
-changes: 
-  - rscdel: "Telescience accidents can not create bluespace echos anymore."
