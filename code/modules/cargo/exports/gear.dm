@@ -13,7 +13,7 @@
 /datum/export/gear/riot_shield
 	cost = 100
 	unit_name = "riot shield"
-	export_types = list(/obj/item/weapon/shield/riot)
+	export_types = list(/obj/item/shield/riot)
 
 
 /datum/export/gear/mask/breath

@@ -30,7 +30,7 @@
 	data["status_message"] = status_message
 
 	//Pass the ID Data
-	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
+	var/obj/item/card/id/user_id_card = user.GetIdCard()
 	last_user_name = GetNameAndAssignmentFromId(user_id_card)
 	data["username"] = last_user_name
 

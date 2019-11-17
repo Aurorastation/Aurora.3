@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/blaster
+/obj/item/gun/energy/blaster
 	name = "blaster pistol"
 	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
 	icon_state = "blaster_pistol"
@@ -20,7 +20,7 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
-/obj/item/weapon/gun/energy/blaster/carbine
+/obj/item/gun/energy/blaster/carbine
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
 	icon_state = "blaster_carbine"
@@ -30,7 +30,7 @@
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
 
-/obj/item/weapon/gun/energy/blaster/rifle
+/obj/item/gun/energy/blaster/rifle
 	name = "bolt slinger"
 	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts."
 	icon_state = "blaster_rifle"
@@ -52,7 +52,7 @@
 
 	is_wieldable = TRUE
 
-/obj/item/weapon/gun/energy/blaster/rifle/update_icon()
+/obj/item/gun/energy/blaster/rifle/update_icon()
 	..()
 	if(wielded)
 		item_state = "blaster_rifle-wielded"
@@ -60,7 +60,7 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/weapon/gun/energy/blaster/rifle/verb/scope()
+/obj/item/gun/energy/blaster/rifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
