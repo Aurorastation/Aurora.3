@@ -101,7 +101,7 @@
 	..()
 	handle_regeneration()
 
-/obj/item/organ/proc/heal_damage(amount)
+/obj/item/organ/internal/proc/heal_damage(amount)
 	if (can_recover())
 		damage = between(0, damage - round(amount, 0.1), max_damage)
 

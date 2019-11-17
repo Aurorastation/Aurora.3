@@ -81,6 +81,14 @@
 #define BP_HAEMO    "haemodynamic"
 #define BP_ADRENAL  "adrenal"
 
+//IPC organs
+#define BP_CELL     "cell"
+#define BP_OPTICS   "optics"
+#define BP_IPCTAG   "ipc tag"
+
+//Organ defines
+#define PROCESS_ACCURACY 10
+
 //These are used Bump() code for living mobs, in the mob_bump_flag, mob_swap_flags, and mob_push_flags vars to determine whom can bump/swap with whom.
 #define HUMAN 1
 #define MONKEY 2

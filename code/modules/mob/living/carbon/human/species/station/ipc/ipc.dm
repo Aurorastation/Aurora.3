@@ -76,12 +76,12 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/mmi_holder/posibrain,
-		"cell"    = /obj/item/organ/cell,
-		"optics"  = /obj/item/organ/internal/eyes/optical_sensor,
-		"ipc tag" = /obj/item/organ/ipc_tag
+		BP_CELL    = /obj/item/organ/cell,
+		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
-	vision_organ = "optics"
+	vision_organ = BP_OPTICS
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
@@ -148,7 +148,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	if (establish_db_connection(dbcon))
 
-		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
+		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 
 		var/status = TRUE
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
@@ -162,7 +162,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			log_query.Execute(query_details)
 
 		if (!status)
-			new_machine.internal_organs_by_name -= "ipc tag"
+			new_machine.internal_organs_by_name -= BP_IPCTAG
 			new_machine.internal_organs -= tag
 			qdel(tag)
 
@@ -173,7 +173,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (establish_db_connection(dbcon))
 		var/status = FALSE
 		var/sql_status = FALSE
-		if (target.internal_organs_by_name["ipc tag"])
+		if (target.internal_organs_by_name[BP_IPCTAG])
 			status = TRUE
 
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)

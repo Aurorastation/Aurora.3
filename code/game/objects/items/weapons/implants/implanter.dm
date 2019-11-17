@@ -152,7 +152,7 @@
 /obj/item/implanter/ipc_tag
 	name = "IPC/Shell tag implanter"
 	desc = "A special implanter used for implanting synthetics with a special tag."
-	var/obj/item/organ/ipc_tag/ipc_tag = null
+	var/obj/item/organ/internal/ipc_tag/ipc_tag = null
 
 /obj/item/implanter/ipc_tag/New()
 	ipc_tag = new(src)
@@ -179,7 +179,7 @@
 		to_chat(user, "<span class = 'warning'>You cannot use this on a non-synthetic organism!</span>")
 		return
 
-	if (H.internal_organs_by_name["ipc tag"])
+	if (H.internal_organs_by_name[BP_IPCTAG])
 		to_chat(user, "<span class = 'warning'>[H] is already tagged!</span>")
 		return
 
@@ -201,7 +201,7 @@
 	var/datum/species/machine/machine = H.species
 	machine.update_tag(H, H.client)
 
-/obj/item/implanter/ipc_tag/attackby(var/obj/item/organ/ipc_tag/new_tag, mob/user as mob)
+/obj/item/implanter/ipc_tag/attackby(var/obj/item/organ/internal/ipc_tag/new_tag, mob/user as mob)
 	..()
 
 	if (!istype(new_tag))

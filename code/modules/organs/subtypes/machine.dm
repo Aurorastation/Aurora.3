@@ -134,7 +134,7 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/ipc_tag
+/obj/item/organ/internal/ipc_tag
 	name = "identification tag"
 	organ_tag = "ipc tag"
 	parent_organ = BP_HEAD
@@ -142,7 +142,7 @@
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
 
-/obj/item/organ/ipc_tag/Initialize()
+/obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
 	. = ..()
 
