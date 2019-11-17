@@ -11,16 +11,16 @@
 	var/efficiency
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/telesci_pad,
+		/obj/item/circuitboard/telesci_pad,
 		/obj/item/bluespace_crystal/artificial = 2,
-		/obj/item/weapon/stock_parts/capacitor,
-		/obj/item/weapon/stock_parts/console_screen,
+		/obj/item/stock_parts/capacitor,
+		/obj/item/stock_parts/console_screen,
 		/obj/item/stack/cable_coil{amount = 1}
 	)
 
 /obj/machinery/telepad/RefreshParts()
 	var/E
-	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
+	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		E += C.rating
 	efficiency = E
 
@@ -58,7 +58,7 @@
 	active_power_usage = 500
 	var/stage = 0
 
-/obj/machinery/telepad_cargo/attackby(obj/item/weapon/W, mob/user, params)
+/obj/machinery/telepad_cargo/attackby(obj/item/W, mob/user, params)
 	if(W.iswrench())
 		anchored = 0
 		playsound(src, W.usesound, 50, 1)
@@ -102,7 +102,7 @@
 	return
 
 ///HANDHELD TELEPAD USER///
-/obj/item/weapon/rcs
+/obj/item/rcs
 	name = "rapid-crate-sender (RCS)"
 	desc = "Use this to send crates and closets to cargo telepads."
 	icon = 'icons/obj/telescience.dmi'
@@ -121,11 +121,11 @@
 	var/emagged = 0
 	var/teleporting = 0
 
-/obj/item/weapon/rcs/examine(mob/user)
+/obj/item/rcs/examine(mob/user)
 	..()
 	to_chat(user, "There are [rcharges] charge\s left.")
 
-/obj/item/weapon/rcs/process()
+/obj/item/rcs/process()
 	if(rcharges > 10)
 		rcharges = 10
 	if(last_charge == 0)
@@ -134,7 +134,7 @@
 	else
 		last_charge--
 
-/obj/item/weapon/rcs/attack_self(mob/user)
+/obj/item/rcs/attack_self(mob/user)
 	if(emagged)
 		if(mode == 0)
 			mode = 1
@@ -145,8 +145,8 @@
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 			to_chat(user, "<span class='caution'>You calibrate the telepad locator.</span>")
 
-/obj/item/weapon/rcs/attackby(var/obj/item/O, var/mob/user)
-	if (istype(O, /obj/item/weapon/card/emag) && !emagged)
+/obj/item/rcs/attackby(var/obj/item/O, var/mob/user)
+	if (istype(O, /obj/item/card/emag) && !emagged)
 		emagged = 1
 		spark(src, 5, alldirs)
 		to_chat(user, "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>")

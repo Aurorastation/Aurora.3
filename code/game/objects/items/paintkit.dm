@@ -80,7 +80,7 @@
 	for(var/exotype in allowed_types)
 		to_chat(usr, "- [capitalize(exotype)]")
 
-/obj/mecha/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/mecha/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/device/kit/paint))
 		if(occupant)
 			to_chat(user, "You can't customize an exosuit while someone is piloting it - that would be unsafe!")
@@ -160,7 +160,7 @@
 
 /obj/item/device/kit/paint/ripley/random/New()
 	..()
-	var/list/ripleys = (typesof(/obj/item/device/kit/paint/ripley) - typesof(/obj/item/device/kit/paint/ripley/fluff))
+	var/list/ripleys = (typesof(/obj/item/device/kit/paint/ripley) - typesof(/obj/item/device/kit/paint/ripley/fluff) - /obj/item/device/kit/paint/ripley/shire)
 	var/build_path = pick(ripleys)
 	new build_path(src.loc)
 	qdel(src)

@@ -45,7 +45,7 @@ emp_act
 	if(!(species.flags & NO_EMBED) && P.can_embed())
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
-			var/obj/item/weapon/SP = new P.shrapnel_type()
+			var/obj/item/SP = new P.shrapnel_type()
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
 			SP.forceMove(organ)
@@ -276,7 +276,7 @@ emp_act
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
-				if(prob(effective_force))
+				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
 					apply_effect(20, PARALYZE, blocked)
 			else
@@ -472,8 +472,8 @@ emp_act
 	if(damtype != BURN && damtype != BRUTE) return
 
 	// The rig might soak this hit, if we're wearing one.
-	if(back && istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = back
+	if(back && istype(back,/obj/item/rig))
+		var/obj/item/rig/rig = back
 		rig.take_hit(damage)
 
 	// We may also be taking a suit breach.
@@ -526,7 +526,7 @@ emp_act
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 		return 0
 
-	for(var/obj/item/weapon/grab/G in user.grabbed_by)
+	for(var/obj/item/grab/G in user.grabbed_by)
 		if(G.assailant == user)
 			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
 			return
@@ -537,7 +537,7 @@ emp_act
 	if(src.w_uniform)
 		src.w_uniform.add_fingerprint(src)
 
-	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
 		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored

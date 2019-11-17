@@ -11,21 +11,21 @@
 
 
 	fill()
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
-		new /obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
+		new /obj/item/reagent_containers/food/drinks/bottle/small/beer( src )
 
-/obj/structure/closet/secure_closet/bar/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/secure_closet/bar/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			if(large)
 				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
 			else
@@ -39,7 +39,7 @@
 		else
 			user.drop_item()
 	else if(!opened)
-		if(istype(W, /obj/item/weapon/melee/energy/blade))//Attempt to cut open locker if locked
+		if(istype(W, /obj/item/melee/energy/blade))//Attempt to cut open locker if locked
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)

@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/rifle/ionrifle
+/obj/item/gun/energy/rifle/ionrifle
 	name = "ion rifle"
 	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: stun and kill"
 	icon_state = "ionriflestun100"
@@ -25,10 +25,10 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
 		)
 
-/obj/item/weapon/gun/energy/rifle/ionrifle/emp_act(severity)
+/obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
 	..(max(severity, 2)) //so it doesn't EMP itself, I guess
 
-/obj/item/weapon/gun/energy/rifle/ionrifle/update_icon()
+/obj/item/gun/energy/rifle/ionrifle/update_icon()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
 
@@ -46,14 +46,14 @@
 			item_state = "[initial(icon_state)][ratio]"
 	update_held_icon()
 
-/obj/item/weapon/gun/energy/rifle/ionrifle/mounted
+/obj/item/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/decloner
+/obj/item/gun/energy/decloner
 	name = "biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
 	icon_state = "decloner"
@@ -63,7 +63,7 @@
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
 
-/obj/item/weapon/gun/energy/floragun
+/obj/item/gun/energy/floragun
 	name = "floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
 	icon_state = "floramut100"
@@ -83,7 +83,7 @@
 
 	needspin = FALSE
 
-/obj/item/weapon/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
+/obj/item/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
 	if(adjacent_flag && istype(target,/obj/machinery/portable_atmospherics/hydroponics))
 		user.visible_message("<span class='danger'>\The [user] fires \the [src] into \the [target]!</span>")
@@ -91,7 +91,7 @@
 		return
 	..()
 
-/obj/item/weapon/gun/energy/meteorgun
+/obj/item/gun/energy/meteorgun
 	name = "meteor gun"
 	desc = "For the love of god, make sure you're aiming this the right way!"
 	icon_state = "meteor_gun"
@@ -106,7 +106,7 @@
 	can_turret = 1
 	turret_sprite_set = "meteor"
 
-/obj/item/weapon/gun/energy/meteorgun/pen
+/obj/item/gun/energy/meteorgun/pen
 	name = "meteor pen"
 	desc = "The pen is mightier than the sword."
 	icon = 'icons/obj/bureaucracy.dmi'
@@ -117,7 +117,7 @@
 	can_turret = 0
 
 
-/obj/item/weapon/gun/energy/mindflayer
+/obj/item/gun/energy/mindflayer
 	name = "mind flayer"
 	desc = "A custom-built weapon of some kind."
 	icon_state = "xray"
@@ -126,7 +126,7 @@
 	can_turret = 1
 	turret_sprite_set = "xray"
 
-/obj/item/weapon/gun/energy/toxgun
+/obj/item/gun/energy/toxgun
 	name = "phoron pistol"
 	desc = "A specialized firearm designed to fire lethal bolts of phoron."
 	icon_state = "toxgun"
@@ -138,7 +138,7 @@
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
-/obj/item/weapon/gun/energy/beegun
+/obj/item/gun/energy/beegun
 	name = "\improper NanoTrasen Portable Apiary"
 	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
 	icon_state = "gyrorifle"
@@ -157,11 +157,11 @@
 	fire_delay = 0
 	dispersion = list(0, 8)
 
-/obj/item/weapon/gun/energy/mousegun
+/obj/item/gun/energy/mousegun
 	name = "\improper NT \"Arodentia\" Pesti-Shock"
 	desc = "A highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	icon_state = "floramut100"
-	item_state = "floramut"
+	icon_state = "pestishock100"
+	item_state = "pestishock"
 	charge_meter = 0
 	w_class = 3
 	fire_sound = 'sound/weapons/taser2.ogg'
@@ -173,19 +173,19 @@
 	var/emagged = FALSE
 	needspin = FALSE
 
-/obj/item/weapon/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
 	spark(T, 3, alldirs)
 	..()
 
-/obj/item/weapon/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
+/obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		to_chat(user, "<span class='warning'>You overload \the [src]'s shock modulator.</span>")
 		projectile_type = /obj/item/projectile/beam/mousegun/emag
 		emagged = TRUE
 		return TRUE
 
-/obj/item/weapon/gun/energy/net
+/obj/item/gun/energy/net
 	name = "net gun"
 	desc = "A gun designed to deploy energy nets to capture animals or unruly crew members."
 	icon_state = "netgun"
@@ -199,7 +199,7 @@
 	turret_is_lethal = 0
 	turret_sprite_set = "net"
 
-/obj/item/weapon/gun/energy/net/mounted
+/obj/item/gun/energy/net/mounted
 	max_shots = 1
 	self_recharge = 1
 	use_external_power = 1
@@ -208,12 +208,12 @@
 
 /* Vaurca Weapons */
 
-/obj/item/weapon/gun/energy/vaurca
+/obj/item/gun/energy/vaurca
 	name = "Alien Firearm"
 	desc = "Vaurcae weapons tend to be specialized and highly lethal. This one doesn't do much"
 	var/is_charging = 0 //special var for sanity checks in the three guns that currently use charging as a special_check
 
-/obj/item/weapon/gun/energy/vaurca/bfg
+/obj/item/gun/energy/vaurca/bfg
 	name = "BFG 9000"
 	desc = "'Bio-Force Gun'. Yeah, right."
 	icon_state = "bfg"
@@ -233,7 +233,7 @@
 #define GATLINGLASER_DISPERSION_CONCENTRATED list(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 #define GATLINGLASER_DISPERSION_SPRAY list(0, 5, 5, 10, 10, 15, 15, 20, 20, 25, 25, 30, 30, 35, 40, 45)
 
-/obj/item/weapon/gun/energy/vaurca/gatlinglaser
+/obj/item/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
 	icon_state = "gatling"
@@ -261,7 +261,7 @@
 
 	charge_cost = 50
 
-/obj/item/weapon/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
+/obj/item/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
 		to_chat(user, "<span class='danger'>\The [src] is already spinning!</span>")
 		return 0
@@ -285,7 +285,7 @@
 
 	return ..()
 
-/obj/item/weapon/gun/energy/vaurca/blaster
+/obj/item/gun/energy/vaurca/blaster
 	name = "\improper Zo'ra Blaster"
 	desc = "An elegant weapon for a more civilized time."
 	icon_state = "blaster"
@@ -309,7 +309,7 @@
 		list(mode_name="concentrated burst", burst=3, burst_delay = 1, fire_delay = 5)
 		)
 
-/obj/item/weapon/gun/energy/vaurca/typec
+/obj/item/gun/energy/vaurca/typec
 	name = "thermal lance"
 	desc = "A powerful piece of Zo'rane energy artillery, converted to be portable...if you weigh a metric tonne, that is."
 	icon = 'icons/mob/species/breeder/inventory.dmi'
@@ -346,16 +346,16 @@
 
 	action_button_name = "Wield thermal lance"
 
-/obj/item/weapon/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
 	..()
 
-/obj/item/weapon/gun/energy/vaurca/typec/pre_attack(var/mob/living/target, var/mob/living/user)
+/obj/item/gun/energy/vaurca/typec/pre_attack(var/mob/living/target, var/mob/living/user)
 	if(istype(target))
 		cleave(user, target)
 	..()
 
-/obj/item/weapon/gun/energy/vaurca/typec/special_check(var/mob/user)
+/obj/item/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
 		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
@@ -378,7 +378,7 @@
 
 	return ..()
 
-/obj/item/weapon/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
+/obj/item/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(H.mob_size >= 30)
@@ -391,17 +391,17 @@
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
 		return
 
-/obj/item/weapon/gun/energy/vaurca/typec/dropped(var/mob/user)
+/obj/item/gun/energy/vaurca/typec/dropped(var/mob/user)
 	..()
 	if(!istype(loc,/mob))
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		icon_state = "megaglaive0"
 		anchored = 0
 
-/obj/item/weapon/gun/energy/vaurca/typec/update_icon()
+/obj/item/gun/energy/vaurca/typec/update_icon()
 	return
 
-/obj/item/weapon/gun/energy/vaurca/thermaldrill
+/obj/item/gun/energy/vaurca/thermaldrill
 	name = "thermal drill"
 	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
 	contained_sprite = 1
@@ -439,7 +439,7 @@
 
 	needspin = FALSE
 
-/obj/item/weapon/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
+/obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	if(is_charging)
 		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
@@ -462,7 +462,7 @@
 
 	return ..()
 
-/obj/item/weapon/gun/energy/vaurca/mountedthermaldrill
+/obj/item/gun/energy/vaurca/mountedthermaldrill
 	name = "mounted thermal drill"
 	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
 	contained_sprite = 1
@@ -486,7 +486,7 @@
 	use_external_power = 1
 	charge_cost = 25
 
-/obj/item/weapon/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
+/obj/item/gun/energy/vaurca/mountedthermaldrill/special_check(var/mob/user)
 	if(is_charging)
 		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
@@ -504,7 +504,7 @@
 
 	return ..()
 
-/obj/item/weapon/gun/energy/vaurca/tachyon
+/obj/item/gun/energy/vaurca/tachyon
 	name = "tachyon carbine"
 	desc = "A Vaurcan carbine that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
 	contained_sprite = 1
@@ -519,7 +519,7 @@
 	fire_delay = 1
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/tesla
+/obj/item/gun/energy/tesla
 	name = "tesla gun"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
 	icon_state = "tesla"
@@ -537,14 +537,14 @@
 	accuracy = 80
 	muzzle_flash = 15
 
-/obj/item/weapon/gun/energy/tesla/mounted
+/obj/item/gun/energy/tesla/mounted
 	name = "mounted tesla carbine"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/gravity_gun
+/obj/item/gun/energy/gravity_gun
 	name = "gravity gun"
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
 	icon_state = "gravity_gun"

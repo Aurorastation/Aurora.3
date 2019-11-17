@@ -225,7 +225,7 @@
 			to_chat(user, "This spell can't affect non-organics.")
 			return 0
 
-		if((world.time - target.timeofdeath) > 3000)
+		if((world.time - target.timeofdeath) > 30 MINUTES)
 			to_chat(user, "<span class='warning'>\The [target]'s soul is too far away from your grasp.</span>")
 			return 0
 

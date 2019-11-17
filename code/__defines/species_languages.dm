@@ -30,6 +30,7 @@
 #define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
 #define HAS_SOCKS         0x40   // If this species can wear socks
 #define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
+#define HAS_SKIN_PRESET   0x100  // Skin color presets selectable in character generation.
 
 // Tau-Ceti basic, language common to all crew.
 #define LANGUAGE_TCB "Ceti Basic"

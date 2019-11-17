@@ -29,11 +29,13 @@
 
 	return 1
 
-/obj/item/weapon/shield
+/obj/item/shield
 	name = "shield"
+	hitsound = "swing_hit"
+	icon = 'icons/obj/weapons.dmi'
 	var/base_block_chance = 50
 
-/obj/item/weapon/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
 		return 0
 
@@ -45,13 +47,12 @@
 			return 1
 	return 0
 
-/obj/item/weapon/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	return base_block_chance
 
-/obj/item/weapon/shield/riot
+/obj/item/shield/riot
 	name = "riot shield"
 	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "riot"
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
@@ -65,11 +66,11 @@
 	attack_verb = list("shoved", "bashed")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 
-/obj/item/weapon/shield/riot/handle_shield(mob/user)
+/obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
 	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
-/obj/item/weapon/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
 		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
@@ -77,8 +78,8 @@
 			return 0
 	return base_block_chance
 
-/obj/item/weapon/shield/riot/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/melee/baton))
+/obj/item/shield/riot/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
 			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
@@ -86,10 +87,9 @@
 	else
 		..()
 
-/obj/item/weapon/shield/buckler
+/obj/item/shield/buckler
 	name = "buckler"
 	desc = "A wooden buckler used to block sharp things from entering your body back in the day."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "buckler"
 	slot_flags = SLOT_BACK
 	force = 8
@@ -102,11 +102,11 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, "Wood" = 1000)
 	attack_verb = list("shoved", "bashed")
 
-/obj/item/weapon/shield/buckler/handle_shield(mob/user)
+/obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
 	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
-/obj/item/weapon/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
 		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
@@ -117,10 +117,9 @@
  * Energy Shield
  */
 
-/obj/item/weapon/shield/energy
+/obj/item/shield/energy
 	name = "energy combat shield"
 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "eshield0" // eshield1 for expanded
 	flags = CONDUCT
 	force = 3.0
@@ -133,7 +132,7 @@
 	var/shield_power = 150
 	var/active = 0
 
-/obj/item/weapon/shield/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/shield/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!active)
 		return 0 //turn it on first!
 
@@ -186,14 +185,14 @@
 				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
 				return 1
 
-/obj/item/weapon/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
+/obj/item/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
 		var/obj/item/projectile/P = damage_source
 		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
 			return (base_block_chance - round(damage / 3)) //block bullets and beams using the old block chance
 	return base_block_chance
 
-/obj/item/weapon/shield/energy/attack_self(mob/living/user as mob)
+/obj/item/shield/energy/attack_self(mob/living/user as mob)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
 		user.take_organ_damage(5)
@@ -220,19 +219,19 @@
 	add_fingerprint(user)
 	return
 
-/obj/item/weapon/shield/energy/update_icon()
+/obj/item/shield/energy/update_icon()
 	icon_state = "eshield[active]"
 	if(active)
 		set_light(1.5, 1.5, "#006AFF")
 	else
 		set_light(0)
 
-/obj/item/weapon/shield/energy/legion
+/obj/item/shield/energy/legion
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
 
-/obj/item/weapon/shield/energy/legion/update_icon()
+/obj/item/shield/energy/legion/update_icon()
 	icon_state = "ebarrier[active]"
 	if(active)
 		set_light(1.5, 1.5, "#33FFFF")
@@ -240,7 +239,7 @@
 		set_light(0)
 
 // tact
-/obj/item/weapon/shield/riot/tact
+/obj/item/shield/riot/tact
 	name = "tactical shield"
 	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility."
 	icon = 'icons/obj/tactshield.dmi'
@@ -255,7 +254,7 @@
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
-/obj/item/weapon/shield/riot/tact/handle_shield(mob/user)
+/obj/item/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
 		return 0 //turn it on first!
 	. = ..()
@@ -263,7 +262,7 @@
 	if(.)
 		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
-/obj/item/weapon/shield/riot/tact/attack_self(mob/living/user)
+/obj/item/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
 	icon_state = "tactshield[active]"
 	item_state = "tactshield[active]"

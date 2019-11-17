@@ -21,9 +21,9 @@
 
 	component_types = list(
 		/obj/item/stack/cable_coil{amount = 5},
-		/obj/item/weapon/stock_parts/capacitor,
+		/obj/item/stock_parts/capacitor,
 		/obj/item/stack/material/uranium{amount = 10},
-		/obj/item/weapon/circuitboard/rtg
+		/obj/item/circuitboard/rtg
 	)
 
 /obj/machinery/power/rtg/Initialize()
@@ -42,7 +42,7 @@
 
 /obj/machinery/power/rtg/RefreshParts()
 	var/part_level = 0
-	for(var/obj/item/weapon/stock_parts/SP in component_parts)
+	for(var/obj/item/stock_parts/SP in component_parts)
 		part_level += SP.rating
 
 	power_gen = initial(power_gen) * part_level
@@ -68,15 +68,15 @@
 
 	component_types = list(
 		/obj/item/stack/cable_coil{amount = 5},
-		/obj/item/weapon/stock_parts/capacitor,
-		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/stock_parts/capacitor,
+		/obj/item/stock_parts/micro_laser,
 		/obj/item/stack/material/uranium{amount = 10},
 		/obj/item/stack/material/phoron{amount = 5},
-		/obj/item/weapon/circuitboard/rtg/advanced
+		/obj/item/circuitboard/rtg/advanced
 	)
 
 
-/obj/item/weapon/circuitboard/rtg
+/obj/item/circuitboard/rtg
 	name = T_BOARD("radioisotope thermoelectric generator")
 	build_path = /obj/machinery/power/rtg
 	board_type = "machine"
@@ -88,11 +88,11 @@
 	)
 	req_components = list(
 		"/obj/item/stack/cable_coil" = 5,
-		"/obj/item/weapon/stock_parts/capacitor" = 1,
+		"/obj/item/stock_parts/capacitor" = 1,
 		"/obj/item/stack/material/uranium" = 10
 	)
 
-/obj/item/weapon/circuitboard/rtg/advanced
+/obj/item/circuitboard/rtg/advanced
 	name = T_BOARD("advanced radioisotope thermoelectric generator")
 	build_path = /obj/machinery/power/rtg/advanced
 	origin_tech = list(
@@ -104,8 +104,8 @@
 	)
 	req_components = list(
 		"/obj/item/stack/cable_coil" = 5,
-		"/obj/item/weapon/stock_parts/capacitor" = 1,
-		"/obj/item/weapon/stock_parts/micro_laser" = 1,
+		"/obj/item/stock_parts/capacitor" = 1,
+		"/obj/item/stock_parts/micro_laser" = 1,
 		"/obj/item/stack/material/uranium" = 10,
 		"/obj/item/stack/material/phoron" = 5
 	)

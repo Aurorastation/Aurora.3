@@ -35,14 +35,15 @@
 	attackby(var/obj/item/O as obj, var/mob/user as mob)
 		if(istype(O,/obj/item/organ/brain) && !brainmob) //Time to stick a brain in it --NEO
 			var/obj/item/organ/brain/B = O
+			if(!B.can_lobotomize)
+				to_chat(user, "<span class='warning'>\The [B] is incompatible with [src]!</span>")
+				return
 			if(B.health <= 0)
 				to_chat(user, "<span class='warning'>That brain is well and truly dead.</span>")
 				return
 			else if(!B.lobotomized && B.can_lobotomize)
 				to_chat(user, "<span class='warning'>The brain won't fit until you perform a lobotomy!</span>")
 				return
-			else if(!B.can_lobotomize)
-				to_chat(user, "<span class='warning'>The [B] is incompatible with [src]!</span>")
 			else if(!B.brainmob)
 				to_chat(user, "<span class='warning'>You aren't sure where this brain came from, but you're pretty sure it's a useless brain.</span>")
 				return
@@ -70,7 +71,7 @@
 
 			return
 
-		if((istype(O,/obj/item/weapon/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
+		if((istype(O,/obj/item/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
 			if(allowed(user))
 				locked = !locked
 				to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] the brain holder.</span>")
@@ -125,7 +126,7 @@
 /obj/item/device/mmi/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
 		return
-	var/obj/item/weapon/rig/rig = src.get_rig()
+	var/obj/item/rig/rig = src.get_rig()
 	if(istype(rig))
 		rig.forced_move(direction, user)
 

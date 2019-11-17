@@ -246,8 +246,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	else
 		Shoot(target, src.loc, src)
+
 		if(casingtype)
-			new casingtype(loc)
+			new casingtype(get_turf(src))
+			playsound(src, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
 
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null

@@ -1211,7 +1211,7 @@
 /datum/reagent/mental/kokoreed
 	name = "Koko Reed Juice"
 	id = "kokoreed"
-	description = "Juice from the Koko reed plant. Caused unique mental effects in unathi"
+	description = "Juice from the Koko reed plant. Causes unique mental effects in Unathi."
 	reagent_state = LIQUID
 	color = "#008000"
 	metabolism = 0.0016 * REM

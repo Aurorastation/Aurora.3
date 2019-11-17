@@ -9,26 +9,26 @@
 /turf/simulated/mineral/random,
 /area/mine/unexplored)
 "d" = (
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark,
 /area/mine/unexplored)
 "e" = (
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor,
 /area/mine/unexplored)
 "f" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "g" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "h" = (
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "i" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "j" = (
 /obj/effect/decal/cleanable/generic,
@@ -39,18 +39,18 @@
 	icon_state = "warning";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "l" = (
 /obj/random/energy_antag,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "p" = (
 /turf/simulated/wall/r_wall,
 /area/mine/unexplored)
 "r" = (
 /obj/machinery/door/airlock/vault/bolted,
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "s" = (
 /obj/effect/decal/cleanable/generic,
@@ -58,7 +58,7 @@
 	icon_state = "warning";
 	dir = 4
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "t" = (
 /obj/structure/sign/securearea,
@@ -68,20 +68,20 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "v" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "w" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "x" = (
 /obj/effect/decal/cleanable/dirt,
@@ -89,14 +89,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "y" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/turf/simulated/shuttle/floor4/vox,
+/turf/simulated/floor/shuttle/dark_red,
 /area/mine/unexplored)
 "z" = (
 /turf/simulated/open/airless,

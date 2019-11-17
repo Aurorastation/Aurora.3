@@ -1,4 +1,4 @@
-/obj/item/weapon/energy_net
+/obj/item/energy_net
 	name = "energy net"
 	desc = "It's a net made of green energy."
 	icon = 'icons/effects/effects.dmi'
@@ -7,11 +7,11 @@
 	force = 0
 	var/net_type = /obj/effect/energy_net
 
-/obj/item/weapon/energy_net/dropped()
+/obj/item/energy_net/dropped()
 	spawn(10)
 		if(src) qdel(src)
 
-/obj/item/weapon/energy_net/throw_impact(atom/hit_atom)
+/obj/item/energy_net/throw_impact(atom/hit_atom)
 	..()
 
 	var/mob/living/M = hit_atom
@@ -143,12 +143,12 @@
 	healthcheck()
 	return
 
-/obj/effect/energy_net/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/effect/energy_net/attackby(obj/item/W as obj, mob/user as mob)
 	health -= W.force
 	healthcheck()
 	..()
 
-/obj/item/weapon/canesword
+/obj/item/canesword
 	name = "thin sword"
 	desc = "A thin, sharp blade with an elegant handle."
 	icon = 'icons/obj/sword.dmi'
@@ -164,9 +164,10 @@
 	contained_sprite = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
 
-/obj/item/weapon/sord
+/obj/item/sord
 	name = "\improper SORD"
 	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sord"
 	item_state = "sord"
 	slot_flags = SLOT_BELT
@@ -178,7 +179,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
-/obj/item/weapon/banhammer
+/obj/item/banhammer
 	desc = "banhammer"
 	name = "banhammer"
 	icon = 'icons/obj/items.dmi'
@@ -190,7 +191,7 @@
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/weapon/banhammer/attack(mob/M as mob, mob/user as mob)
+/obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
 	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
 	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
