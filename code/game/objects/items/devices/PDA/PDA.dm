@@ -25,7 +25,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	//Secondary variables
 	var/scanmode = 0 //1 is medical scanner, 2 is forensics, 3 is reagent scanner.
-	var/fon = 0 //Is the flashlight function on?
+	var/fon = FALSE //Is the flashlight function on?
 	var/f_lum = 2 //Luminosity for the flashlight function
 	var/message_silent = 0 //To beep or not to beep, that is the question
 	var/news_silent = 1 //To beep or not to beep, that is the question.  The answer is No.
@@ -43,7 +43,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/cart = "" //A place to stick cartridge menu information
 	var/detonate = 1 // Can the PDA be blown up?
 	var/hidden = 0 // Is the PDA hidden from the PDA list?
-	var/has_inserted_item = 1 // Does the PDA have a pen + penslot?
+	var/has_inserted_item = TRUE // Does the PDA have a pen + penslot?
 	var/active_conversation = null // New variable that allows us to only view a single conversation.
 	var/list/conversations = list()    // For keeping up with who we have PDA messsages from.
 	var/new_message = 0			//To remove hackish overlay check
@@ -256,7 +256,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Misc
  */
 
- /obj/item/device/pda/lawyer
+/obj/item/device/pda/lawyer
 	icon_state = "pda-lawyer"
 	default_cartridge = /obj/item/cartridge/lawyer
 	inserted_item = /obj/item/pen/fountain
@@ -306,7 +306,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ttone = "data"
 	newstone = "news"
 	detonate = 0
-	has_inserted_item = 0
+	has_inserted_item = FALSE
 
 
 /obj/item/device/pda/ai/proc/set_name_and_job(newname as text, newjob as text, newrank as null|text)
@@ -729,10 +729,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if("Light")
 			if(fon)
-				fon = 0
+				fon = FALSE
 				set_light(0)
 			else
-				fon = 1
+				fon = TRUE
 				set_light(f_lum)
 		if("Medical Scan")
 			if(scanmode == 1)
@@ -1027,6 +1027,40 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	qdel(P)
 
+/obj/item/device/pda/AltClick()
+	..()
+
+	if(id)
+		remove_id()
+	else
+		remove_pen()
+
+/obj/item/device/pda/CtrlClick()
+	..()
+
+	if(isturf(loc)) //stops the user from dragging the PDA by ctrl-clicking it.
+		return
+
+	remove_pen()
+
+/obj/item/device/pda/verb/verb_toggle_light()
+	set category = "Object"
+	set name = "Toggle Flashlight"
+
+	toggle_light()
+
+/obj/item/device/pda/proc/toggle_light()
+	if(issilicon(usr))
+		return
+	if(ismob(loc))
+		if(fon)
+			fon = FALSE
+			set_light(0)
+		else if(f_lum)
+			fon = TRUE
+			set_light(f_lum)
+		update_icon()
+
 /obj/item/device/pda/proc/remove_id()
 	if (id)
 		if (ismob(loc))
@@ -1071,12 +1105,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 			if (loc == user && !user.get_active_hand())
 				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src].</span>")
-				playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 				user.put_in_hands(inserted_item)
 				inserted_item = null
 			else
 				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src], dropping it on the ground. Whoops.</span>")
-				playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 				inserted_item.forceMove(get_turf(src))
 				inserted_item = null
 
