@@ -32,7 +32,7 @@
 	fill()
 		new /obj/item/clothing/under/rank/cargo(src)
 		new /obj/item/clothing/shoes/brown(src)
-		new /obj/item/device/radio/headset/headset_cargo(src)
+		new /obj/item/device/radio/headset/qm(src)
 		new /obj/item/clothing/gloves/black(src)
 		new /obj/item/cartridge/quartermaster(src)
 		new /obj/item/clothing/suit/fire/firefighter(src)

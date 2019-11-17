@@ -133,7 +133,7 @@
 	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	l_ear = /obj/item/device/radio/headset/qm
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 

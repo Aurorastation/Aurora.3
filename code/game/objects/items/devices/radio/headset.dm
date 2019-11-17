@@ -1,6 +1,6 @@
 /obj/item/device/radio/headset
 	name = "radio headset"
-	desc = "An updated, modular intercom that fits over the head. Takes encryption keys"
+	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	var/radio_desc = ""
 	icon_state = "headset"
 	item_state = "headset"
@@ -123,14 +123,14 @@
 /obj/item/device/radio/headset/headset_sci
 	name = "science radio headset"
 	desc = "A sciency headset. Like usual."
-	icon_state = "com_headset"
+	icon_state = "sci_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
 /obj/item/device/radio/headset/headset_medsci
 	name = "medical research radio headset"
 	desc = "A headset that is a result of the mating between medical and science."
-	icon_state = "med_headset"
+	icon_state = "medsci_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_medsci
 
@@ -144,7 +144,7 @@
 /obj/item/device/radio/headset/heads/captain
 	name = "captain's headset"
 	desc = "The headset of the boss."
-	icon_state = "com_headset"
+	icon_state = "cap_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/captain
 
@@ -204,8 +204,15 @@
 
 /obj/item/device/radio/headset/headset_cargo
 	name = "supply radio headset"
-	desc = "A headset used by the QM and their slaves."
+	desc = "A headset used by the quartermaster's slaves."
 	icon_state = "cargo_headset"
+	item_state = "headset"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
+
+/obj/item/device/radio/headset/qm
+	name = "quartermaster's headset"
+	desc = "A headset used by the head honcho of paper pushing."
+	icon_state = "qm_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
