@@ -146,7 +146,7 @@
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
 
-	else if(!istype(W, /obj/item/weapon/bedsheet))
+	else if(!istype(W, /obj/item/bedsheet))
 		..()
 
 /obj/structure/bed/proc/remove_padding()
