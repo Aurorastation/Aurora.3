@@ -756,7 +756,7 @@
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
 				var/metadata
 				var/list/gear_test = prefs.gear[G.display_name]
-				if(gear_test.len)
+				if(gear_test?.len)
 					metadata = gear_test
 				else
 					metadata = list()
