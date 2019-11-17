@@ -89,8 +89,8 @@
 		else
 			to_chat(user, "<span class='warning'>You need 5 sheets of glass to replace lights.</span>")
 
-	if(istype(W, /obj/item/weapon/light))
-		var/obj/item/weapon/light/L = W
+	if(istype(W, /obj/item/light))
+		var/obj/item/light/L = W
 		if(L.status == 0) // LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
@@ -104,27 +104,27 @@
 
 
 /obj/item/device/lightreplacer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
-	if (istype(target, /obj/item/weapon/storage/box))
+	if (istype(target, /obj/item/storage/box))
 		if (box_contains_lights(target))
 			load_lights_from_box(target, user)
 		else
 			to_chat(user, "This box has no bulbs in it!")
 
 
-/obj/item/device/lightreplacer/proc/box_contains_lights(var/obj/item/weapon/storage/box/box)
-	for (var/obj/item/weapon/light/L in box.contents)
+/obj/item/device/lightreplacer/proc/box_contains_lights(var/obj/item/storage/box/box)
+	for (var/obj/item/light/L in box.contents)
 		if (L.status == 0)
 			return 1
 	return 0
 
 
-/obj/item/device/lightreplacer/proc/load_lights_from_box(var/obj/item/weapon/storage/box/box, var/mob/user)
+/obj/item/device/lightreplacer/proc/load_lights_from_box(var/obj/item/storage/box/box, var/mob/user)
 	var/boxstartloc = box.loc
 	var/ourstartloc = src.loc
 	user.visible_message("<span class='notice'>[user] starts loading lights from the [box] into their [src]</span>", "<span class='notice'>You start loading lights from the [box] into the [src]</span>")
 	while (uses < max_uses)
 		var/bulb = null
-		for (var/obj/item/weapon/light/L in box.contents)
+		for (var/obj/item/light/L in box.contents)
 			if (L.status == 0)
 				bulb = L
 				break
@@ -147,7 +147,7 @@
 
 /obj/item/device/lightreplacer/proc/stored()
 	var/count = 0
-	for (var/obj/item/weapon/light/L in src)
+	for (var/obj/item/light/L in src)
 		count++
 
 	return count
@@ -185,7 +185,7 @@
 
 			if(target.status != LIGHT_EMPTY)
 
-				var/obj/item/weapon/light/L1 = new target.light_type(target.loc)
+				var/obj/item/light/L1 = new target.light_type(target.loc)
 				L1.status = target.status
 				L1.rigged = target.rigged
 				L1.brightness_range = target.brightness_range
@@ -206,7 +206,7 @@
 					else
 						to_chat(U, "<span class='danger'>\The [src] tries to suck up the broken [target.fitting] but it has no more space. Empty it into the trash!</span>")
 
-			var/obj/item/weapon/light/L2 = new target.light_type()
+			var/obj/item/light/L2 = new target.light_type()
 
 			target.status = L2.status
 			target.switchcount = L2.switchcount

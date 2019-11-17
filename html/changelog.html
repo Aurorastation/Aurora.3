@@ -35,6 +35,84 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">17 November 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Telescience accidents can not create bluespace echos anymore.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Added the rest of the hivebot beacon types to the gold slime extract blacklist.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">You can now choose whether baby carp hide your hair when they're on your head.</li>
+				<li class="rscadd">Antagonist roles are now restricted by player account (on Aurora) age.</li>
+				<li class="tweak">Reassembling a null item now correctly assigns new values to it.</li>
+				<li class="rscdel">You can no longer bonk yourself in the head when blessing people, if you're perfectly sane.</li>
+				<li class="tweak">Chance to prompt the convert path raised to 75% up from 33%. (Cultists should not mess around with chaplains.)</li>
+				<li class="tweak">Damage done by conversions reduced a tad.</li>
+				<li class="tweak">Chance of null rod waving curing some mental traumas raised by 10%.</li>
+				<li class="tweak">You can no longer accidentally bash the shit out of people with the null rod.</li>
+				<li class="tweak">Tapping your rod against the floor now makes a visible message, and reveals runes in a wider radius.</li>
+				<li class="tweak">Bibles now have better descriptors, meme sprites removed.</li>
+				<li class="rscadd">Added new bible types, as well as a generic variant with no face.</li>
+				<li class="rscadd">You can now only bless up to 60u of water, the amount that's in a flask. No more blessing water tanks.</li>
+				<li class="rscadd">Adds craftable burial urns.</li>
+				<li class="rscadd">Added null orb sprite.</li>
+				<li class="rscadd">Added the Catholic Rosary to the Bible and White Bible spawns.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You should no longer randomly spawn without one of your loadout items.</li>
+				<li class="bugfix">You can now actually delete warrants.</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds the Scarab religion to chargen. Humans only right now.</li>
+			</ul>
+
+			<h2 class="date">16 November 2019</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Service grippers can now pick up cutlery.</li>
+				<li class="bugfix">Xenobotanists now spawn with the right access again.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Lighters now have a different colour when on. Welders now produce light.</li>
+			</ul>
+			<h3 class="author">Wowzewow(Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes hardhat light helmet alignment.</li>
+			</ul>
+
+			<h2 class="date">15 November 2019</h2>
+			<h3 class="author">BRAINOS updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Slightly updated the military jackets.</li>
+			</ul>
+			<h3 class="author">Geeves, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">A new mascot has been introduced to Engineering, Ginny, the baby space carp.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed alternate utility belt not starting with tools when selected from loadout.</li>
+				<li class="tweak">Alternate utility belt is now free to select. Engineering Apprentices can elect to spawn with one, but it will be empty.</li>
+				<li class="backend">Job outfits now fill utility belts using belt_contents rather than simply spawning sub-types of utility belt.</li>
+				<li class="refactor">Microwaves have been reworked from the ground up on the back-end. Microwaves have been moved to a process-based system for cooking, and behave more similarly to other cooking devices.</li>
+				<li class="rscadd">Microwaves have had their UI rebuilt from scratch in Vue.</li>
+				<li class="rscadd">You can now eject individual ingredients and reagents from a microwave. To perform the latter, you must be holding a reagent container with enough space in your hands.</li>
+				<li class="rscadd">You can now start microwaves by alt-clicking on them.</li>
+				<li class="rscadd">Microwaves can now be upgraded, with matter bins, capacitors, and the micro laser affecting maximum cookable items, power usage, and cook time respectively.</li>
+				<li class="tweak">Microwaves now display their cook time as a progress bar in the UI. Cook time has been reduced across the board.</li>
+				<li class="tweak">Eject verb for microwaves removed. All interfacing should now be done via the UI.</li>
+				<li class="bugfix">Bugs both known and unknown relating to the old UI and general instability of the microwave have been solved, including food duplication.</li>
+				<li class="backend">Vue UI progress bar element now caps width at 100%.</li>
+				<li class="bugfix">Fixed the loadout fixes spewing tools into engineers' backpacks.</li>
+			</ul>
+
 			<h2 class="date">14 November 2019</h2>
 			<h3 class="author">Geeves updated:</h3>
 			<ul class="changes bgimages16">
@@ -9650,7 +9728,7 @@
 			<h2 class="date">22 November 2014</h2>
 			<h3 class="author">Zuhayr updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="rscadd">Added the /obj/item/weapon/rig class - back-mounted deployable hardsuits.</li>
+				<li class="rscadd">Added the /obj/item/rig class - back-mounted deployable hardsuits.</li>
 				<li class="rscadd">Replaced existing hardsuits with 'voidsuits', functionally identical.</li>
 				<li class="rscdel">Removed the mounted device and helmet/boot procs from voidsuits.</li>
 				<li class="tweak">Refactored a shit-ton of ninja code into the new rig class.</li>

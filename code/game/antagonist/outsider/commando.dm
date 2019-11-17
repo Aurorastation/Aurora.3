@@ -6,7 +6,7 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 	role_text = "Syndicate Commando"
 	role_text_plural = "Commandos"
 	welcome_text = "You are in the employ of a criminal syndicate hostile to corporate interests."
-	id_type = /obj/item/weapon/card/id/syndicate_ert
+	id_type = /obj/item/card/id/syndicate_ert
 
 	faction = "syndicate"
 

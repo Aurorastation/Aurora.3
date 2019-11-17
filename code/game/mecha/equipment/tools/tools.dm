@@ -23,17 +23,17 @@
 	if(istype(target,/obj))
 		var/obj/O = target
 		var/T = chassis.loc
-		if(istype(target, /obj/item/weapon/ore))
+		if(istype(target, /obj/item/ore))
 			var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
 			var/obj/structure/ore_box/ore_box
 			if(chass)
 				ore_box = locate(/obj/structure/ore_box) in chass.cargo
 			if(ore_box)
 				var/list/stuff = range(chassis,1)
-				var/obj/item/weapon/ore/t = (locate(/obj/item/weapon/ore) in stuff)
+				var/obj/item/ore/t = (locate(/obj/item/ore) in stuff)
 				if(t && do_after_cooldown())
 					if(T == chassis.loc && src == chassis.selected)
-						for(var/obj/item/weapon/ore/ore in stuff)
+						for(var/obj/item/ore/ore in stuff)
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 						chassis.visible_message("<span class='notice'>\The [chassis] picks up ore from the ground all around.</span>")
@@ -156,7 +156,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
+						for(var/obj/item/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(istype(target, /turf/unsimulated/floor/asteroid))
@@ -170,7 +170,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
+						for(var/obj/item/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(target.loc == C)
@@ -215,7 +215,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
+						for(var/obj/item/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(istype(target,/turf/unsimulated/floor/asteroid))
@@ -228,7 +228,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(target,1))
+						for(var/obj/item/ore/ore in range(target,1))
 							ore.Move(ore_box)
 			else if(target.loc == C)
 				log_message("Drilled through \the [target]")
