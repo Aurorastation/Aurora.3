@@ -2537,8 +2537,8 @@
 	item_state = "candy"
 	slot_flags = SLOT_EARS
 	w_class = 1
-	starts_with = list(/obj/item/weapon/reagent_containers/food/snacks/mint/admints = 6)
-	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/mint/admints)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
 	use_sound = 'sound/items/drop/paper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	max_storage_space = 6
