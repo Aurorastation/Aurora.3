@@ -215,7 +215,7 @@
 	min_duration = 120
 	max_duration = 180
 
-/datum/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!istype(target))
 		return 0
 	if(tool.iswelder())
@@ -228,12 +228,12 @@
 				return 0
 		return (target_zone == "chest") && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
-/datum/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
 	"You start cutting through the support systems of [target]'s [target.back] with \the [tool].")
 	..()
 
-/datum/surgery_step/fix_vein/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/hardsuit/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/weapon/rig/rig = target.back
 	if(!istype(rig))
 		return
@@ -241,9 +241,9 @@
 	user.visible_message("<span class='notice'>[user] has cut through the support systems of [target]'s [rig] with \the [tool].</span>", \
 		"<span class='notice'>You have cut through the support systems of [target]'s [rig] with \the [tool].</span>")
 
-		var/obj/item/rig/rig = target.back
-		if(!istype(rig))
-			return
-		rig.reset()
-		user.visible_message("<span class='notice'>[user] has cut through the support systems of [target]'s [rig] with \the [tool].</span>", \
-			"<span class='notice'>You have cut through the support systems of [target]'s [rig] with \the [tool].</span>")
+	var/obj/item/rig/rig = target.back
+	if(!istype(rig))
+		return
+	rig.reset()
+	user.visible_message("<span class='notice'>[user] has cut through the support systems of [target]'s [rig] with \the [tool].</span>", \
+		"<span class='notice'>You have cut through the support systems of [target]'s [rig] with \the [tool].</span>")
