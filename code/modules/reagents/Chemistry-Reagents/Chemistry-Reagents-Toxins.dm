@@ -14,6 +14,7 @@
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
+		M.add_chemical_effect(CE_TOXIN, 1)
 		M.adjustToxLoss(strength * removed)
 
 /datum/reagent/toxin/plasticide
@@ -58,6 +59,7 @@
 	taste_description = "stinging needles"
 
 /datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustHalLoss(removed*15)
 
 /datum/reagent/toxin/phoron
@@ -152,6 +154,7 @@
 
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
+		M.add_chemical_effect(CE_TOXIN, 1)
 		M.adjustToxLoss(removed * strength*2)
 	else
 		M.adjustToxLoss(removed * strength)
@@ -433,6 +436,7 @@
 		return
 	if(prob(10))
 		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
+		M.add_chemical_effect(CE_TOXIN, 10)
 		M.adjustToxLoss(rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
@@ -491,6 +495,7 @@
 		M.sleeping = max(M.sleeping, 30)
 
 	if(dose > 1)
+		M.add_chemical_effect(CE_TOXIN, 2)
 		M.adjustToxLoss(removed)
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
