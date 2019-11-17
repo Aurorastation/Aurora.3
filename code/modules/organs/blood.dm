@@ -200,6 +200,34 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 			sprayloc = get_step(sprayloc, spraydir)
 			if(!istype(sprayloc) || sprayloc.density)
 				break
+			var/hit_mob
+			for(var/thing in sprayloc)
+				var/atom/A = thing
+				if(!A.simulated)
+					continue
+
+				if(ishuman(A))
+					var/mob/living/carbon/human/H = A
+					if(!H.lying)
+						H.bloody_body(src)
+						H.bloody_hands(src)
+						var/blinding = FALSE
+						if(ran_zone() == "head")
+							blinding = TRUE
+							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
+								if(I && (I.body_parts_covered & EYES))
+									blinding = FALSE
+									break
+						if(blinding)
+							H.eye_blurry = max(H.eye_blurry, 10)
+							H.eye_blind = max(H.eye_blind, 5)
+							to_chat(H, "<span class='danger'>You are blinded by a spray of blood!</span>")
+						else
+							to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
+						hit_mob = TRUE
+
+				if(hit_mob || !A.CanPass(src, sprayloc))
+					break
 			drip(amt, sprayloc, spraydir)
 			bled += amt
 	return bled
