@@ -759,7 +759,7 @@
 				if(gear_test.len)
 					metadata = gear_test
 				else
-					metadata = G.display_name
+					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata)
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
