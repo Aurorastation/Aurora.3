@@ -264,7 +264,7 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/weapon/pen/P, mob/user, iscrayon, isfountain)
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain)
 
 	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
