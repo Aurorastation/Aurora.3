@@ -1,6 +1,6 @@
 // Nullrod, Aspergillum, Burial Urn
 
-/obj/item/weapon/nullrod
+/obj/item/nullrod
 	name = "null rod"
 	desc = "A rod of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullrod"
@@ -12,9 +12,9 @@
 	throwforce = 10
 	w_class = 2
 	var/cooldown = 0 // floor tap cooldown
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/weapon/nullrod/, "Null Staff" = /obj/item/weapon/nullrod/staff, "Null Orb" = /obj/item/weapon/nullrod/orb, "Null Athame" = /obj/item/weapon/nullrod/athame)
+	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame)
 
-/obj/item/weapon/nullrod/staff
+/obj/item/nullrod/staff
 	name = "null staff"
 	desc = "A staff of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullstaff"
@@ -22,25 +22,25 @@
 	slot_flags = SLOT_BELT | SLOT_BACK
 	w_class = 4
 
-/obj/item/weapon/nullrod/orb
+/obj/item/nullrod/orb
 	name = "null sphere"
 	desc = "An orb of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullorb"
 	item_state = "nullorb"
 
-/obj/item/weapon/nullrod/athame
+/obj/item/nullrod/athame
 	name = "null athame"
 	desc = "An athame of pure obsidian, its very presence disrupts and dampens the powers of paranormal phenomenae."
 	icon_state = "nullathame"
 	item_state = "nullathame"
 
-/obj/item/weapon/nullrod/obsidianshards
+/obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
 	desc = "A loose pile of obsidian shards, waiting to be assembled into a religious focus."
 	icon_state = "nullshards"
 	item_state = "nullshards"
 
-/obj/item/weapon/nullrod/verb/change(mob/user)
+/obj/item/nullrod/verb/change(mob/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
 	set src in usr
@@ -59,12 +59,12 @@
 	if(!do_after(user, 2 SECONDS))
 		return
 
-	var/obj/item/weapon/nullrod/chosenitem = nullchoices[picked]
+	var/obj/item/nullrod/chosenitem = nullchoices[picked]
 	new chosenitem(get_turf(user))
 	qdel(src)
 	user.put_in_hands(chosenitem)
 
-/obj/item/weapon/nullrod/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/nullrod/attack(mob/M as mob, mob/living/user as mob)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -121,7 +121,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/nullrod/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/nullrod/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))
@@ -131,7 +131,7 @@
 		call(/obj/effect/rune/proc/revealrunes)(src)
 		return
 
-/obj/item/weapon/reagent_containers/spray/aspergillum
+/obj/item/reagent_containers/spray/aspergillum
 	name = "aspergillum"
 	desc = "A ceremonial item for sprinkling holy water, or other liquids, on a subject."
 	icon = 'icons/obj/weapons.dmi'
@@ -143,7 +143,7 @@
 	volume = 10
 	spray_sound = 'sound/effects/jingle.ogg'
 
-/obj/item/weapon/material/urn
+/obj/item/material/urn
 	name = "urn"
 	desc = "A vase used to store the ashes of the deceased."
 	icon = 'icons/obj/urn.dmi'
@@ -151,7 +151,7 @@
 	applies_material_colour = TRUE
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/weapon/material/urn/attack(var/obj/A, var/mob/user, var/proximity)
+/obj/item/material/urn/attack(var/obj/A, var/mob/user, var/proximity)
 	if(!istype(A, /obj/effect/decal/cleanable/ash))
 		return ..()
 	else if(proximity)
@@ -162,7 +162,7 @@
 		desc = "A vase used to store the ashes of the deceased. It contains some ashes."
 		A.forceMove(src)
 
-/obj/item/weapon/material/urn/attack_self(mob/user)
+/obj/item/material/urn/attack_self(mob/user)
 	if(!contents.len)
 		to_chat(user, span("warning", "\The [src] is empty!"))
 		return
