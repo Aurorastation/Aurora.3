@@ -7,7 +7,7 @@
 	if(!changeling)
 		return
 
-	if(ishuman(src))
+	if(!ishuman(src))
 		to_chat(src, "<span class='warning'>We cannot perform this ability as this form!</span>")
 		return
 

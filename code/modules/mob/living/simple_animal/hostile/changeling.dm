@@ -142,7 +142,7 @@
 
 /mob/living/simple_animal/hostile/lesser_changeling
 	name = "crawling horror"
-	desc = "An agile monster made of twisted flesh and bone.."
+	desc = "An agile monster made of twisted flesh and bone."
 	speak_emote = list("gibbers")
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "lesser_ling"
@@ -186,7 +186,6 @@
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
 	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
 
 /mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
 	..()
