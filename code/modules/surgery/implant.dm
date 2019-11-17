@@ -14,7 +14,7 @@
 
 	proc/get_max_wclass(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return 1
 			if ("upper body")
 				return 3
@@ -24,7 +24,7 @@
 
 	proc/get_cavity(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return "cranial"
 			if ("upper body")
 				return "thoracic"
@@ -154,7 +154,7 @@
 	max_duration = 100
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 		return ..() && (!sponge || !sponge.damage)
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

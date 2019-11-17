@@ -50,7 +50,7 @@
 
 /obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
 	add_fingerprint(user)
-	if(on && user.zone_sel.selecting == "eyes")
+	if(on && user.zone_sel.selecting == BP_EYES)
 
 		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
@@ -65,7 +65,7 @@
 			if(H.species.vision_organ)
 				vision = H.internal_organs_by_name[H.species.vision_organ]
 			if(!vision)
-				to_chat(user, span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!"))
+				to_chat(user, span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : BP_EYES] on [H]!"))
 
 			user.visible_message(span("notice", "\The [user] directs [src] to [M]'s eyes."), span("notice", "You direct [src] to [M]'s eyes."))
 

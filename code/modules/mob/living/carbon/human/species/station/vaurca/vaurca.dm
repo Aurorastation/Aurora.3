@@ -87,29 +87,29 @@
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs/vaurca,
+		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
-		"right heart"         = /obj/item/organ/heart/right,
-		"left heart"          = /obj/item/organ/heart/left,
+		"right heart"         = /obj/item/organ/internal/heart/right,
+		"left heart"          = /obj/item/organ/internal/heart/left,
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
-		"liver"               = /obj/item/organ/liver/vaurca,
-		"kidneys"             = /obj/item/organ/kidneys/vaurca,
-		"brain"               = /obj/item/organ/brain/vaurca,
-		"eyes"                = /obj/item/organ/eyes/vaurca
+		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
+		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/vaurca),
-		"groin" =  list("path" = /obj/item/organ/external/groin/vaurca),
-		"head" =   list("path" = /obj/item/organ/external/head/vaurca),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/vaurca),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/vaurca),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/vaurca),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/vaurca),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/vaurca),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/vaurca),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/vaurca),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/vaurca)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/vaurca),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/vaurca),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/vaurca),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/vaurca),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/vaurca),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/vaurca),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/vaurca),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/vaurca),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/vaurca),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/vaurca),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
 
 	default_h_style = "Classic Antennae"

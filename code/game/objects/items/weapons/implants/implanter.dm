@@ -175,7 +175,7 @@
 		return
 
 	var/mob/living/carbon/human/H = M
-	if (!H.species || !isipc(H) || !H.organs_by_name["head"])
+	if (!H.species || !isipc(H) || !H.organs_by_name[BP_HEAD])
 		to_chat(user, "<span class = 'warning'>You cannot use this on a non-synthetic organism!</span>")
 		return
 
@@ -192,7 +192,7 @@
 
 	user.show_message("<span class = 'warning'>You implanted the implant into [M].</span>")
 
-	ipc_tag.replaced(H, H.organs_by_name["head"])
+	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])
 
 	ipc_tag = null
 

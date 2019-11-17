@@ -94,7 +94,7 @@
 			outmsg = "<span class='notice'>You fail to hit the lens of [C] with [src].</span>"
 
 	if(iscarbon(target))
-		if(user.zone_sel.selecting == "eyes")
+		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
 			if(C.eyecheck() <= 0 && prob(30))
 				outmsg = "<span class='notice'>You blind [C] with [src]</span>"

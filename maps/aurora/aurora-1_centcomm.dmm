@@ -19731,7 +19731,7 @@
 /area/wizard_station)
 "aSO" = (
 /obj/structure/table/wood,
-/obj/item/organ/heart,
+/obj/item/organ/internal/heart,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "carpetside"

@@ -533,8 +533,8 @@
 	stored_value = metabolism
 
 /datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
+	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
 		stored_value += removed
 		if(stored_value >= 5)
 			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -817,7 +817,7 @@
 	if(!istype(H))
 		return
 
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
 

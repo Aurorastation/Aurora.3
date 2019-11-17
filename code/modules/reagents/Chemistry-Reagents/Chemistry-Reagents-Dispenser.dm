@@ -280,7 +280,7 @@
 /datum/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	. = ..()
 	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 		if(istype(L))
 			L.take_damage(removed * 0.5)
 
@@ -417,7 +417,7 @@
 /datum/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	. = ..()
 	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 		if(istype(L))
 			L.take_damage(removed * power * 0.5)
 
@@ -470,7 +470,7 @@
 	if(!M.unacidable && removed > 0)
 		if(istype(M, /mob/living/carbon/human) && volume >= meltdose)
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/external/affecting = H.get_organ("head")
+			var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 			if(affecting)
 				if(affecting.take_damage(0, removed * power * 0.1))
 					H.UpdateDamageIcon()

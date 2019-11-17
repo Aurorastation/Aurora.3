@@ -3,38 +3,42 @@
 	icon = 'icons/obj/surgery.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
-	var/dead_icon
+	germ_level = 0
+
 	var/mob/living/carbon/human/owner = null
+
+	//Organ stats.
 	var/status = 0
 	var/vital //Lose a vital limb, die immediately.
-	var/damage = 0 // amount of damage to the organ
-
-	var/min_bruised_damage = 10
-	var/min_broken_damage = 30
-	var/max_damage
-	var/organ_tag = "organ"
-
-	var/parent_organ = "chest"
-	var/robotic = 0 //For being a robot
 	var/rejecting   // Is this organ already being rejected?
 
-	var/list/transplant_data
-	var/list/datum/autopsy_data/autopsy_data = list()
-	var/list/trace_chemicals = list() // traces of chemicals in the organ,
-									  // links chemical IDs to number of ticks for which they'll stay in the blood
-	germ_level = 0
-	var/datum/dna/dna
-	var/datum/species/species
-	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
+	//Organ damage stats.
+	var/damage = 0 // amount of damage to the organ
+	var/min_broken_damage = 30
+	var/max_damage
 
-	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
+	//Strings.
+	var/organ_tag = "organ"
+	var/parent_organ = BP_CHEST
 
-	var/list/organ_verbs	//verb that are added when you gain the organ
-
+	//Robot organ stuff.
+	var/robotic = 0 //For being a robot
+	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
 	var/robotic_name
 	var/robotic_sprite
-
-	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
+	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
+	
+	//Lists.
+	var/list/transplant_data
+	var/list/datum/autopsy_data/autopsy_data = list()
+	var/list/organ_verbs	//verb that are added when you gain the organ
+	var/list/trace_chemicals = list() // traces of chemicals in the organ,
+									  // links chemical IDs to number of ticks for which they'll stay in the blood
+	
+	//DNA stuff.
+	var/datum/dna/dna
+	var/datum/species/species
+	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 
 /obj/item/organ/New(loc, ...)
 	..()
@@ -117,6 +121,12 @@
 		icon_state = dead_icon
 	if(owner && vital)
 		owner.death()
+
+/obj/item/organ/proc/is_damaged()
+	return damage > 1
+
+/obj/item/organ/proc/is_bruised()
+	return damage >= min_bruised_damage
 
 /obj/item/organ/process()
 
@@ -228,12 +238,6 @@
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
 
-/obj/item/organ/proc/is_damaged()
-	return damage >= 1 // Not zero because honestly who gives a shit about 0.01 organ damage
-
-/obj/item/organ/proc/is_bruised()
-	return damage >= min_bruised_damage
-
 /obj/item/organ/proc/is_broken()
 	return (damage >= min_broken_damage || (status & ORGAN_CUT_AWAY) || (status & ORGAN_BROKEN))
 
@@ -275,9 +279,6 @@
 			var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 			if(parent && !silent)
 				owner.custom_pain("Something inside your [parent.name] hurts a lot.", 1)
-
-/obj/item/organ/proc/bruise()
-	damage = max(damage, min_bruised_damage)
 
 /obj/item/organ/proc/robotize() //Being used to make robutt hearts, etc
 	robotic = 2
@@ -383,7 +384,7 @@
 		robotize()
 	owner.update_action_buttons()
 
-/obj/item/organ/eyes/replaced(var/mob/living/carbon/human/target)
+/obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
 
 	// Apply our eye colour to the target.
 	if(istype(target) && eye_colour)

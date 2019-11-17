@@ -6,16 +6,16 @@
 
 
 // Brain is defined in brain_item.dm.
-/obj/item/organ/heart
+/obj/item/organ/internal/heart
 	name = "heart"
 	icon_state = "heart-on"
-	organ_tag = "heart"
-	parent_organ = "chest"
+	organ_tag = BP_HEART
+	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 
-/obj/item/organ/heart/process()
+/obj/item/organ/internal/heart/process()
 	//Check if we're on lifesupport, and whether or not organs should be processing.
 	if(owner && owner.isonlifesupport())
 		return 1
@@ -23,17 +23,17 @@
 		return 0
 
 
-/obj/item/organ/lungs
+/obj/item/organ/internal/lungs
 	name = "lungs"
 	icon_state = "lungs"
 	gender = PLURAL
-	organ_tag = "lungs"
-	parent_organ = "chest"
+	organ_tag = BP_LUNGS
+	parent_organ = BP_CHEST
 	robotic_name = "gas exchange system"
 	robotic_sprite = "lungs-prosthetic"
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
-/obj/item/organ/lungs/process()
+/obj/item/organ/internal/lungs/process()
 	..()
 
 	if(!owner)
@@ -57,16 +57,16 @@
 			if (owner.losebreath < 5)
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
-/obj/item/organ/kidneys
+/obj/item/organ/internal/kidneys
 	name = "kidneys"
 	icon_state = "kidneys"
 	gender = PLURAL
-	organ_tag = "kidneys"
-	parent_organ = "groin"
+	organ_tag = BP_KIDNEYS
+	parent_organ = BP_GROIN
 	robotic_name = "prosthetic kidneys"
 	robotic_sprite = "kidneys-prosthetic"
 
-/obj/item/organ/kidneys/process()
+/obj/item/organ/internal/kidneys/process()
 
 	..()
 
@@ -83,18 +83,18 @@
 		else if(is_broken())
 			owner.adjustToxLoss(0.3 * PROCESS_ACCURACY)
 
-/obj/item/organ/eyes
+/obj/item/organ/internal/eyes
 	name = "eyeballs"
 	icon_state = "eyes"
 	gender = PLURAL
-	organ_tag = "eyes"
-	parent_organ = "head"
+	organ_tag = BP_EYES
+	parent_organ = BP_HEAD
 	robotic_name = "visual prosthesis"
 	robotic_sprite = "eyes-prosthetic"
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 
-/obj/item/organ/eyes/proc/update_colour()
+/obj/item/organ/internal/eyes/proc/update_colour()
 	if(!owner)
 		return
 	eye_colour = list(
@@ -103,16 +103,16 @@
 		owner.b_eyes ? owner.b_eyes : 0
 		)
 
-/obj/item/organ/eyes/take_damage(amount, var/silent=0)
+/obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()
 	..()
 	if(is_broken() && !oldbroken && owner && !owner.stat)
 		to_chat(owner, "<span class='danger'>You go blind!</span>")
 
-/obj/item/organ/eyes/proc/flash_act()
+/obj/item/organ/internal/eyes/proc/flash_act()
 	return
 
-/obj/item/organ/eyes/process() //Eye damage replaces the old eye_stat var.
+/obj/item/organ/internal/eyes/process() //Eye damage replaces the old eye_stat var.
 	..()
 	if(!owner)
 		return
@@ -121,16 +121,16 @@
 	if(is_broken())
 		owner.eye_blind = 20
 
-/obj/item/organ/liver
+/obj/item/organ/internal/liver
 	name = "liver"
 	icon_state = "liver"
-	organ_tag = "liver"
-	parent_organ = "groin"
+	organ_tag = BP_LIVER
+	parent_organ = BP_GROIN
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
 	var/tolerance = 5
 
-/obj/item/organ/liver/process()
+/obj/item/organ/internal/liver/process()
 
 	..()
 
@@ -203,7 +203,7 @@
 /obj/item/organ/appendix
 	name = "appendix"
 	icon_state = "appendix"
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	organ_tag = "appendix"
 
 /obj/item/organ/appendix/removed()

@@ -74,8 +74,8 @@ var/datum/controller/subsystem/traumas/SStraumas
 												/obj/item/toy/plushie/lizard)),
 
 					   "skrell" = typecacheof(list(/obj/structure/sign/flag/jargon, /obj/item/clothing/ears/skrell, /obj/item/clothing/suit/space/void/skrell,
-												 /obj/item/clothing/head/helmet/space/void/skrell, /obj/item/organ/brain/skrell, /obj/item/organ/eyes/skrell,
-												 /obj/item/organ/heart/skrell, /obj/item/organ/kidneys/skrell, /obj/item/organ/liver/skrell, /obj/item/organ/lungs/skrell,
+												 /obj/item/clothing/head/helmet/space/void/skrell, /obj/item/organ/internal/brain/skrell, /obj/item/organ/internal/eyes/skrell,
+												 /obj/item/organ/internal/heart/skrell, /obj/item/organ/internal/kidneys/skrell, /obj/item/organ/internal/liver/skrell, /obj/item/organ/internal/lungs/skrell,
 												 /obj/item/reagent_containers/food/snacks/skrellsnacks)),
 
 					   "robots" = typecacheof(list(/obj/item/device/electronic_assembly/drone, /obj/item/holder/drone, /obj/item/device/mmi/digital,

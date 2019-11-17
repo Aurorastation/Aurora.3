@@ -47,7 +47,7 @@
 
 	organ_tag = "kois"
 
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	stage_interval = 150
 
 	origin_tech = list(TECH_BIO = 3)
@@ -117,7 +117,7 @@
 
 	organ_tag = "blackkois"
 
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	var/removed_langs = 0
 	stage_interval = 150
 	origin_tech = list(TECH_BIO = 7)
@@ -161,7 +161,7 @@
 
 	if(stage >= 4)
 
-		var/obj/item/organ/brain/B = owner.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/B = owner.internal_organs_by_name[BP_BRAIN]
 
 		if(B && !B.lobotomized)
 			to_chat(owner, "<span class='danger'>As the K'ois consumes your mind, you feel your past self, your memories, your very being slip away... only slavery to the swarm remains...</span>")
@@ -217,7 +217,7 @@
 
 	organ_tag = "zombie"
 
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	stage_interval = 150
 
 /obj/item/organ/parasite/zombie/process()

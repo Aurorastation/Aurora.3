@@ -92,7 +92,7 @@
 					var/obj/item/projectile/P = damage_source
 
 					var/reflectchance = base_reflectchance - round(damage/3)
-					if(!(def_zone in list("chest", "groin","head")))
+					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(P.starting && prob(reflectchance))
 						visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
@@ -112,7 +112,7 @@
 
 				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
-					if(!(def_zone in list("chest", "groin","head")))
+					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(prob(reflectchance))
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
