@@ -74,16 +74,19 @@
 	ks1type = /obj/item/device/encryptionkey/hivenet
 
 /obj/item/device/radio/headset/syndicate
+	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/syndicate
 
 /obj/item/device/radio/headset/raider
+	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/raider
 
 /obj/item/device/radio/headset/ninja
+	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/ninja
