@@ -103,7 +103,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/librarian
 	icon_state = "pda-libb"
-	inserted_item = /obj/item/weapon/pen/fountain
+	inserted_item = /obj/item/pen/fountain
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. This is model is a WGW-11 series e-reader."
 	note = "Congratulations, your station has chosen the Thinktronic 5290 WGW-11 Series E-reader and Personal Data Assistant!"
 	message_silent = 1 //Quiet in the library!
@@ -116,7 +116,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/chaplain
 	icon_state = "pda-holy"
-	inserted_item = /obj/item/weapon/pen/fountain
+	inserted_item = /obj/item/pen/fountain
 	ttone = "holy"
 
 /obj/item/device/pda/heads/hop
@@ -248,7 +248,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/captain
 	icon_state = "pda-c"
 	default_cartridge = /obj/item/cartridge/captain
-	inserted_item = /obj/item/pen/fountain/head/captain
+	inserted_item = /obj/item/pen/fountain/captain
 	detonate = 0
 	//toff = 1
 
@@ -265,7 +265,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/syndicate
 	icon_state = "pda-syn"
 	default_cartridge = /obj/item/cartridge/syndicate
-	inserted_item = /obj/item/pen/dark
+	inserted_item = /obj/item/pen/black
 	name = "Military PDA"
 	owner = "John Doe"
 	hidden = 1
@@ -400,7 +400,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(inserted_item)
 		inserted_item = new inserted_item(src)
 	else
-		inserted_item =	new /obj/item/weapon/pen(src)
+		inserted_item =	new /obj/item/pen(src)
+
 /obj/item/device/pda/proc/try_sort_pda_list()
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/sortTim, PDAs, /proc/cmp_pda), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 

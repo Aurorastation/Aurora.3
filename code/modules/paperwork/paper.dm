@@ -264,7 +264,7 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/weapon/pen/P, mob/user, iscrayon, isfountain)
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain)
 
 	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
@@ -387,7 +387,7 @@
 		if(istype(i, /obj/item/pen/crayon))
 			iscrayon = TRUE
 
-		if(istype(i, /obj/item/weapon/pen/fountain))
+		if(istype(i, /obj/item/pen/fountain))
 			isfountain = TRUE
 
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr

@@ -769,6 +769,6 @@
 	chewable = FALSE
 	foldable = null
 
-/obj/item/weapon/storage/box/fountainpens
+/obj/item/storage/box/fountainpens
 	name = "box of fountain pens"
-	starts_with = list(/obj/item/weapon/pen/fountain = 7)
+	starts_with = list(/obj/item/pen/fountain = 7)
