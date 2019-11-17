@@ -53,12 +53,6 @@
 		return damage * 0.5
 	return damage
 
-/obj/item/organ/proc/can_feel_pain()
-	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
-
-/obj/item/organ/proc/can_recover()
-	return (max_damage > 0) && !(status & ORGAN_DEAD)
-
 /obj/item/organ/internal/proc/set_max_damage(var/ndamage)
 	max_damage = Floor(ndamage)
 	min_broken_damage = Floor(0.75 * max_damage)
