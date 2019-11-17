@@ -1,17 +1,17 @@
-/obj/item/weapon/forensics/slide
+/obj/item/forensics/slide
 	name = "microscope slide"
 	desc = "A pair of thin glass panes used in the examination of samples beneath a microscope."
 	icon_state = "slide"
-	var/obj/item/weapon/forensics/swab/has_swab
-	var/obj/item/weapon/sample/fibers/has_sample
+	var/obj/item/forensics/swab/has_swab
+	var/obj/item/sample/fibers/has_sample
 
-/obj/item/weapon/forensics/slide/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/item/forensics/slide/attackby(var/obj/item/W, var/mob/user)
 	if(has_swab || has_sample)
 		to_chat(user, "<span class='warning'>There is already a sample in the slide.</span>")
 		return
-	if(istype (W, /obj/item/weapon/forensics/swab))
+	if(istype (W, /obj/item/forensics/swab))
 		has_swab = W
-	else if(istype(W, /obj/item/weapon/sample/fibers))
+	else if(istype(W, /obj/item/sample/fibers))
 		has_sample = W
 	else
 		to_chat(user, "<span class='warning'>You don't think this will fit.</span>")
@@ -21,7 +21,7 @@
 	W.forceMove(src)
 	update_icon()
 
-/obj/item/weapon/forensics/slide/attack_self(var/mob/user)
+/obj/item/forensics/slide/attack_self(var/mob/user)
 	if(has_swab || has_sample)
 		to_chat(user, "<span class='notice'>You remove \the sample from \the [src].</span>")
 		if(has_swab)
@@ -33,7 +33,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/forensics/slide/update_icon()
+/obj/item/forensics/slide/update_icon()
 	if(!has_swab && !has_sample)
 		icon_state = "slide"
 	else if(has_swab)

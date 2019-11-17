@@ -54,9 +54,9 @@
 			update_icon()
 			return
 
-	if(istype(I, /obj/item/weapon/grab))
+	if(istype(I, /obj/item/grab))
 		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		var/obj/item/weapon/grab/G = I
+		var/obj/item/grab/G = I
 
 		if(isliving(G.affecting))
 			var/mob/living/GM = G.affecting
@@ -110,8 +110,8 @@
 	anchored = 1
 
 /obj/structure/urinal/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = I
+	if(istype(I, /obj/item/grab))
+		var/obj/item/grab/G = I
 		if(isliving(G.affecting))
 			var/mob/living/GM = G.affecting
 			if(G.state>1)
@@ -311,8 +311,8 @@
 	else
 		O.clean_blood()
 
-	if(istype(O, /obj/item/weapon/light))
-		var/obj/item/weapon/light/L = O
+	if(istype(O, /obj/item/light))
+		var/obj/item/light/L = O
 		L.brightness_color = initial(L.brightness_color)
 		L.update()
 	else if(istype(O, /obj/machinery/light))
@@ -361,7 +361,7 @@
 		else if(temperature <= H.species.cold_level_1)
 			to_chat(H, "<span class='warning'>The water is freezing cold!</span>")
 
-/obj/item/weapon/bikehorn/rubberducky
+/obj/item/bikehorn/rubberducky
 	name = "rubber ducky"
 	desc = "Rubber ducky you're so fine, you make bathtime lots of fuuun. Rubber ducky I'm awfully fooooond of yooooouuuu~"	//thanks doohl
 	icon = 'icons/obj/watercloset.dmi'
@@ -428,7 +428,7 @@
 		return
 
 	// Filling/emptying open reagent containers
-	var/obj/item/weapon/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
 		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
 
@@ -460,8 +460,8 @@
 		return
 
 	// Filling/empying Syringes
-	else if (istype(O, /obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = O
+	else if (istype(O, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = O
 		switch(S.mode)
 			if(0) // draw
 				if(S.reagents.total_volume >= S.volume)
@@ -484,8 +484,8 @@
 
 		return
 
-	else if (istype(O, /obj/item/weapon/melee/baton))
-		var/obj/item/weapon/melee/baton/B = O
+	else if (istype(O, /obj/item/melee/baton))
+		var/obj/item/melee/baton/B = O
 		if(B.bcell)
 			if(B.bcell.charge > 0 && B.status == 1)
 				flick("baton_active", src)
@@ -500,9 +500,9 @@
 				user.visible_message("<span class='danger'>[user] was stunned by \the [O]!</span>")
 				return 1
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
-	else if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/monkeycube))
+	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
-	else if(istype(O, /obj/item/weapon/mop))
+	else if(istype(O, /obj/item/mop))
 		O.reagents.add_reagent("water", 5)
 		to_chat(user, "<span class='notice'>You wet \the [O] in \the [src].</span>")
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)

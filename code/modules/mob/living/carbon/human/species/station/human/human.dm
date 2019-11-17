@@ -25,7 +25,7 @@
 	name_language = null // Use the first-name last-name generator rather than a language scrambler
 	mob_size = 9
 	spawn_flags = CAN_JOIN
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS | HAS_SKIN_PRESET
 	remains_type = /obj/effect/decal/remains/human
 
 	stamina = 130	// Humans can sprint for longer than any other species
@@ -39,3 +39,5 @@
 		/mob/living/carbon/human/proc/tie_hair)
 
 	zombie_type = "Zombie"
+	base_color = "#25032"
+	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")

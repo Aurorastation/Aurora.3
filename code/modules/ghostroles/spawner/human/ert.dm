@@ -8,7 +8,7 @@
 	spawnpoints = list("ERTSpawn")
 
 	//Vars related to human mobs
-	possible_species = list("Human","Skrell","Tajara","Unathi")
+	possible_species = list("Human", "Skrell", "Tajara", "M'sai Tajara", "Unathi", "Baseline Frame")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -56,6 +56,7 @@
 	desc = "The leader of the Nanotrasen Phoenix ERT."
 	max_count = 1
 	mob_name_prefix = "L/Tpr. "
+	possible_species = list("Human", "Skrell")
 
 //TCFL ERT
 /datum/ghostspawner/human/ert/tcfl
@@ -66,7 +67,7 @@
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
-	possible_species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
+	possible_species = list("Human", "Tajara", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
 
 /datum/ghostspawner/human/ert/tcfl/specialist
 	name = "TCFL Medical Specialist"
@@ -90,7 +91,7 @@
 	desc = "Rank and file of a freelancer mercenary team."
 	welcome_message = "You're part of a freelancing mercenary team who just picked up a distress beacon coming from the Aurora. You have no affiliation to anyone, but you sure do want a quick buck."
 	outfit = /datum/outfit/admin/ert/mercenary
-	possible_species = list("Human", "Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
+	possible_species = list("Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Diona", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Machine")
 
 /datum/ghostspawner/human/ert/mercenary/specialist
 	name = "Mercenary Medical Specialist"
@@ -116,6 +117,7 @@
 	welcome_message = "The NSS Aurora has been compromised. Recover NanoTrasen assets by any means necessary. Crew expendable."
 	outfit = /datum/outfit/admin/deathsquad
 	spawnpoints = list("DeathERTSpawn")
+	possible_species = list("Human")
 	mob_name_prefix = "Spec. "
 
 	var/deployed = TRUE

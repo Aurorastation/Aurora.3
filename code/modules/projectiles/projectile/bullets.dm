@@ -7,7 +7,7 @@
 	check_armour = "bullet"
 	embed = 1
 	sharp = 1
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
+	shrapnel_type = /obj/item/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
@@ -321,7 +321,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 
 /obj/item/projectile/bullet/flechette/explosive
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
+	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
 

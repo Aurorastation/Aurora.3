@@ -1,4 +1,4 @@
-/obj/item/weapon/grenade
+/obj/item/grenade
 	name = "grenade"
 	desc = "A hand held grenade, with an adjustable timer."
 	w_class = 2.0
@@ -14,7 +14,7 @@
 	var/det_time = 30
 	var/fake = FALSE
 
-/obj/item/weapon/grenade/proc/clown_check(var/mob/living/user)
+/obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
 
@@ -25,7 +25,7 @@
 		return 0
 	return 1
 
-/obj/item/weapon/grenade/examine(mob/user)
+/obj/item/grenade/examine(mob/user)
 	if(..(user, 0))
 		if(det_time > 1)
 			to_chat(user, "The timer is set to [det_time/10] seconds.")
@@ -35,7 +35,7 @@
 		to_chat(user, "\The [src] is set for instant detonation.")
 
 
-/obj/item/weapon/grenade/attack_self(mob/user as mob)
+/obj/item/grenade/attack_self(mob/user as mob)
 	if(!active)
 		if(clown_check(user))
 			to_chat(user, "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>")
@@ -48,7 +48,7 @@
 	return
 
 
-/obj/item/weapon/grenade/proc/activate(mob/user as mob)
+/obj/item/grenade/proc/activate(mob/user as mob)
 	if(active)
 		return
 
@@ -64,12 +64,12 @@
 		return
 
 
-/obj/item/weapon/grenade/proc/prime()
+/obj/item/grenade/proc/prime()
 	var/turf/T = get_turf(src)
 	if(T)
 		T.hotspot_expose(700,125)
 
-/obj/item/weapon/grenade/attack_hand()
+/obj/item/grenade/attack_hand()
 	walk(src, null, null)
 	..()
 	return

@@ -15,7 +15,7 @@
 	use_power = 1
 	idle_power_usage = 250
 	active_power_usage = 500
-	circuit = /obj/item/weapon/circuitboard/slot_machine
+	circuit = /obj/item/circuitboard/slot_machine
 	var/emmaged = FALSE
 	var/money = 3000 //How much money it has CONSUMED
 	var/plays = 0
@@ -41,8 +41,8 @@
 
 	toggle_reel_spin(0)
 
-	for(var/cointype in typesof(/obj/item/weapon/coin))
-		var/obj/item/weapon/coin/C = cointype
+	for(var/cointype in typesof(/obj/item/coin))
+		var/obj/item/coin/C = cointype
 		var/value = get_value(C)
 		coinvalues["[cointype]"] = value
 
@@ -82,8 +82,8 @@
 	update_icon()
 
 /obj/machinery/computer/slot_machine/attackby(obj/item/I, mob/living/user, params)
-	if(istype(I, /obj/item/weapon/coin))
-		var/obj/item/weapon/coin/C = I
+	if(istype(I, /obj/item/coin))
+		var/obj/item/coin/C = I
 		to_chat(user, "<span class='notice'>You insert a \the [C] into \the [src]'s slot!</span>")
 		var/value = get_value(C)
 		balance += value
@@ -224,8 +224,8 @@
 		money = 0
 
 		for(var/i = 0, i < 5, i++)
-			var/cointype = pick(subtypesof(/obj/item/weapon/coin))
-			var/obj/item/weapon/coin/C = new cointype(loc)
+			var/cointype = pick(subtypesof(/obj/item/coin))
+			var/obj/item/coin/C = new cointype(loc)
 			C.forceMove(get_turf(src))
 
 	else if(linelength == 5)
@@ -270,7 +270,7 @@
 	balance += surplus
 
 /obj/machinery/computer/slot_machine/proc/give_coins(amount)
-	var/cointype = emagged ? /obj/item/weapon/coin/iron : /obj/item/weapon/coin/silver
+	var/cointype = emagged ? /obj/item/coin/iron : /obj/item/coin/silver
 
 	if(!(emagged))
 		amount = dispense(amount, cointype, null, 0)
@@ -282,10 +282,10 @@
 
 	return amount
 
-/obj/machinery/computer/slot_machine/proc/dispense(amount = 0, cointype = /obj/item/weapon/coin/silver, mob/living/target, throwit = 0)
+/obj/machinery/computer/slot_machine/proc/dispense(amount = 0, cointype = /obj/item/coin/silver, mob/living/target, throwit = 0)
 	var/value = coinvalues["[cointype]"]
 	while(amount >= value)
-		var/obj/item/weapon/coin/C = new cointype(loc)
+		var/obj/item/coin/C = new cointype(loc)
 		amount -= value
 		if(throwit && target)
 			C.throw_at(target, 3, 10)
