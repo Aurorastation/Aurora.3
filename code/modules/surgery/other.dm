@@ -109,13 +109,13 @@
 	min_duration = 50
 	max_duration = 60
 
-	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		if (!istype(tool, /obj/item/reagent_containers))
-			return 0
+/datum/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if (!istype(tool, /obj/item/reagent_containers))
+		return 0
 
-		var/obj/item/reagent_containers/container = tool
-		if(!container.reagents.has_reagent("peridaxon"))
-			return 0
+	var/obj/item/reagent_containers/container = tool
+	if(!container.reagents.has_reagent("peridaxon"))
+		return 0
 
 	if(!hasorgans(target))
 		return 0
@@ -135,15 +135,13 @@
 
 /datum/surgery_step/treat_necrosis/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!istype(tool, /obj/item/reagent_containers))
+		return
 
-		if (!istype(tool, /obj/item/reagent_containers))
-			return
-
-		var/obj/item/reagent_containers/container = tool
+	var/obj/item/reagent_containers/container = tool
 
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 	if (trans > 0)
-
 		if(container.reagents.has_reagent("peridaxon"))
 			affected.status &= ~ORGAN_DEAD
 			affected.owner.update_body(1)
@@ -153,12 +151,10 @@
 
 /datum/surgery_step/treat_necrosis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if (!istype(tool, /obj/item/reagent_containers))
+		return
 
-		if (!istype(tool, /obj/item/reagent_containers))
-			return
-
-		var/obj/item/reagent_containers/container = tool
-
+	var/obj/item/reagent_containers/container = tool
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD)
 
 	user.visible_message("<span class='warning'>[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!</span>" , \
@@ -169,8 +165,8 @@
 /datum/surgery_step/fix_tendon
 	priority = 2
 	allowed_tools = list(
-	/obj/item/weapon/FixOVein = 100, \
-	/obj/item/stack/cable_coil = 75
+		/obj/item/FixOVein = 100, \
+		/obj/item/stack/cable_coil = 75
 	)
 	can_infect = 1
 	blood_level = 1
@@ -207,7 +203,7 @@
 		/obj/item/weldingtool = 80,
 		/obj/item/circular_saw = 60,
 		/obj/item/gun/energy/plasmacutter = 100
-		)
+	)
 
 	can_infect = 0
 	blood_level = 0
@@ -219,14 +215,10 @@
 	if(!istype(target))
 		return 0
 	if(tool.iswelder())
-		var/obj/item/weapon/weldingtool/welder = tool
+		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || !welder.remove_fuel(1,user))
 			return 0
-		if(tool.iswelder())
-			var/obj/item/weldingtool/welder = tool
-			if(!welder.isOn() || !welder.remove_fuel(1,user))
-				return 0
-		return (target_zone == "chest") && istype(target.back, /obj/item/rig) && !(target.back.canremove)
+	return (target_zone == "chest") && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
 /datum/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
@@ -234,13 +226,6 @@
 	..()
 
 /datum/surgery_step/hardsuit/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/weapon/rig/rig = target.back
-	if(!istype(rig))
-		return
-	rig.reset()
-	user.visible_message("<span class='notice'>[user] has cut through the support systems of [target]'s [rig] with \the [tool].</span>", \
-		"<span class='notice'>You have cut through the support systems of [target]'s [rig] with \the [tool].</span>")
-
 	var/obj/item/rig/rig = target.back
 	if(!istype(rig))
 		return
