@@ -91,8 +91,8 @@
 
 	if(href_list["deletewarrant"])
 		. = 1
-		activewarrant = null
 		SSrecords.remove_record(activewarrant)
+		activewarrant = null
 
 	if(href_list["editwarrantname"])
 		. = 1
