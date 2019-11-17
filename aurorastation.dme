@@ -1508,6 +1508,7 @@
 #include "code\modules\ghostroles\spawner\human\ert.dm"
 #include "code\modules\ghostroles\spawner\human\human.dm"
 #include "code\modules\ghostroles\spawner\human\merchant.dm"
+#include "code\modules\ghostroles\spawner\human\pra.dm"
 #include "code\modules\ghostroles\spawner\human\visitor.dm"
 #include "code\modules\ghostroles\spawner\simplemob\maintdrone.dm"
 #include "code\modules\ghostroles\spawner\simplemob\rat.dm"

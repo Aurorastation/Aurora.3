@@ -36,6 +36,18 @@
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
 	weapons, usually daggers for ease of transport and to simulate Mata'ke's sword. There is a remarkably low amount of Njarir'Akhran in the Mata'ke priesthood."
 
+/obj/item/clothing/under/tajaran/cosmonaut
+	name = "kosmostrelki uniform"
+	desc = "A military uniform used by the forces of the People's Republic of Adhomai orbital fleet."
+	icon_state = "cosmonaut"
+	item_state = "cosmonaut"
+
+/obj/item/clothing/under/tajaran/cosmonaut/commissar
+	name = "kosmostrelki commissar uniform"
+	desc = "A military uniform used by Party Commissars attached to kosmostrelki units."
+	icon_state = "space_commissar"
+	item_state = "space_commissar"
+
 /obj/item/clothing/under/dress/tajaran
 	name = "fancy adhomian dress"
 	desc = "Created for the rich and party-loving circles of Adhomai, this dress is fashioned from smooth silk and is see through at parts. This one is white."

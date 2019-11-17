@@ -118,7 +118,7 @@
 
 /obj/item/gun/projectile/dragunov
 	name = "antique sniper rifle"
-	desc = "An old Dragunov semi-automatic marksman rifle. Smells of vodka and Communism. Uses 7.62mm rounds."
+	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
 	icon_state = "dragunov"
 	item_state = "dragunov"
 	w_class = 4
