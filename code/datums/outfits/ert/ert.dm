@@ -90,7 +90,7 @@
 	back = null
 	belt = /obj/item/weapon/storage/belt/security/tactical
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/weapon/gun/energy/blaster  = 1)
+	accessory_contents = list(/obj/item/weapon/gun/energy/blaster/revolver/pilot  = 1)
 
 //Mercenary
 /datum/outfit/admin/ert/mercenary

@@ -20,6 +20,31 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
+/obj/item/weapon/gun/energy/blaster/revolver
+	name = "blaster revolver"
+	desc = "A robust eight-shot blaster.."
+	icon_state = "blaster_revolver"
+	fire_sound = 'sound/weapons/laserstrong.ogg'
+	projectile_type = /obj/item/projectile/energy/blaster
+	max_shots = 8
+
+/obj/item/weapon/gun/energy/blaster/revolver/verb/spin_cylinder()
+	set name = "Spin cylinder"
+	set desc = "Fun when you're bored out of your skull."
+	set category = "Object"
+	var/mob/living/carbon/human/user
+	if(istype(usr,/mob/living/carbon/human))
+		user = usr
+	else
+		return
+
+	user.visible_message(span("warning","\The [user] spins the cylinder of \the [src]!"),span("warning","You spin the cylinder of \the [src]!"),span("notice","You hear something metallic spin and click."))
+	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
+
+/obj/item/weapon/gun/energy/blaster/revolver/pilot
+	name = "pilot's sidearm"
+	desc = "A robust, low in maintenance, eight-shot blaster. Intended for self-defense purposes."
+
 /obj/item/weapon/gun/energy/blaster/carbine
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
