@@ -196,6 +196,7 @@
 	if(!gibbed)
 		if(occupant)
 			occupant.forceMove(get_turf(src))
+			occupant.status_flags &= ~GODMODE
 			if(mind)
 				mind.transfer_to(occupant)
 
@@ -223,9 +224,9 @@
 
 	if(occupant)
 		occupant.forceMove(get_turf(src))
+		occupant.status_flags &= ~GODMODE
 		if(mind)
 			mind.transfer_to(occupant)
-		occupant.status_flags &= ~GODMODE
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)
