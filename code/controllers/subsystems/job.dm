@@ -828,7 +828,7 @@
 				if(gear_test.len)
 					metadata = gear_test
 				else
-					metadata = G.display_name
+					metadata = list()
 				G.spawn_item(B, metadata)
 				Debug("EIS/([H]): placed [thing] in [B].")
 
