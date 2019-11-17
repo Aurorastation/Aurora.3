@@ -33,7 +33,7 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/weapon/storage/belt/utility
 	pda = /obj/item/device/pda/heads/ce
 	id = /obj/item/weapon/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
@@ -88,7 +88,7 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/weapon/storage/belt/utility
 	pda = /obj/item/device/pda/engineering
 	id = /obj/item/weapon/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots

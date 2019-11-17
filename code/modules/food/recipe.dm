@@ -182,7 +182,7 @@
 //We will not touch things which are not required for this recipe. They will be left behind for the caller
 //to decide what to do. They may be used again to make another recipe or discarded, or merged into the results,
 //thats no longer the concern of this proc
-	var/datum/reagents/buffer = new /datum/reagents(999999999999, null)//
+	var/datum/reagents/buffer = new /datum/reagents(1000000000000, null)//
 
 
 	//Find items we need
@@ -228,7 +228,7 @@
 	If, as in the most common case, there is only a single result, then it will just be a reference to
 	the single-result's reagents
 	*/
-	var/datum/reagents/holder = new/datum/reagents(9999999999)
+	var/datum/reagents/holder = new/datum/reagents(10000000000)
 	var/list/results = list()
 	while (tally < result_quantity)
 		var/obj/result_obj = new result(container)

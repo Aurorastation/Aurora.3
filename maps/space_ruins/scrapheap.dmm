@@ -8005,7 +8005,7 @@
 	},
 /area/derelict)
 "xe" = (
-/obj/machinery/floodlight
+/obj/machinery/floodlight,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
