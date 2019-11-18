@@ -41,4 +41,4 @@ changes:
   - rscadd: "Added yellow and green pens"
   - tweak: "Multi-color pens now also have yellow and green."
   - rscadd: "Added 4 special pens. Red pen - poison pen, blue pen - pacifier pen, green pen - healing pen, yellow pen - hyperzine pen."
-  - tweak: "Removed paralysis pen from traitor uplink, random kit and special ops cargo and added Kit of special 4 pens in place of it."
+  - tweak: "Added 4 special pens kit to traitor uplink, random kit and special ops cargo."
