@@ -170,12 +170,12 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 	{{else}}
 		{{for data.convos.Commander}}
 			<div class="item">
-				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-e', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
+				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-e', {'Messenger' : "View", 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 		{{for data.signals.Commander}}
 			<div class="item">
-				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-s', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
+				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-s', {'Messenger' : "Message", 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 	{{/if}}
@@ -186,12 +186,12 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 	{{else}}
 		{{for data.convos.Operative}}
 			<div class="item">
-				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-e', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
+				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-e', {'Messenger' : "View", 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 		{{for data.signals.Operative}}
 			<div class="item">
-				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-s', {'Message' : 1, 'target' : value.Reference}, null, value.fixedLeftWider)}}
+				{{:helper.link(value.Name + ' (' + value.Type + ')', 'circle-arrow-s', {'Messenger' : "Message", 'target' : value.Reference}, null, value.fixedLeftWider)}}
 			</div>
 		{{/for}}
 	{{/if}}
@@ -224,5 +224,5 @@ Used In File(s): \code\game\objects\items\devices\uplinks.dm
 			</div>
 		</div>
 	</div>
-	{{:helper.link('Reply', 'comment', {'choice' : "Message", 'target': data.active_conversation}, null, 'fixedLeft')}}
+	{{:helper.link('Reply', 'comment', {'Messenger' : "Message", 'target': data.active_conversation}, null, 'fixedLeft')}}
 {{/if}}

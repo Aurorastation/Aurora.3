@@ -159,12 +159,19 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		nanoui_data["contracts_current_page"] = 1
 		update_nano_data()
 
-	if(href_list["Message"])
-		to_world("message fired")
-		var/obj/item/device/uplink/hidden/U = locate(href_list["target"])
-		src.create_message(usr, U)
-		if(nanoui_menu == 4)
-			if(href_list["target"] in conversations)            // Need to make sure the message went through, if not welp.
+	if(href_list["Messenger"])
+		if(href_list["Messenger"] == "Message")
+			to_world("message fired")
+			var/obj/item/device/uplink/hidden/U = locate(href_list["target"])
+			src.create_message(usr, U)
+			if(nanoui_menu == 4)
+				if(href_list["target"] in conversations)
+					active_conversation = href_list["target"]
+					nanoui_menu = 41
+
+		if(href_list["Messenger"] == "View")
+			to_world("View fired")
+			if(href_list["target"] in conversations)
 				active_conversation = href_list["target"]
 				nanoui_menu = 41
 
@@ -348,9 +355,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				continue
 
 			if(conversations.Find("\ref[U]"))
-				convos[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
+				convos[U.uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
 			else
-				signals[uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
+				signals[U.uplink_type] += list(list("Name" = "[U.uplink_owner.name]", "Reference" = "\ref[U]", "Type" = "[comm_type ? comm_type : "Unknown Uplink"]"))
 
 		nanoui_data["signals"] = signals
 		nanoui_data["convos"] = convos
@@ -365,11 +372,14 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		nanoui_data["messages"] = null
 
 	if(active_conversation)
+		nanoui_data["active_conversation"] = active_conversation
 		for(var/c in messages)
 			if(c["target"] == active_conversation)
 				nanoui_data["convo_name"] = sanitize(c["owner"])
 				nanoui_data["convo_job"] = sanitize(c["job"])
 				break
+	else
+		nanoui_data["active_conversation"] = null
 
 /obj/item/device/uplink/hidden/proc/create_message(var/mob/user, var/obj/item/device/uplink/hidden/recipient)
 	to_world("create_message fired")
@@ -406,21 +416,21 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		recipient.conversations.Add("\ref[src]")
 
 	recipient.receive_message(src, t)
-	SSnanoui.update_user_uis(usr, src)
+	SSnanoui.update_user_uis(user, src)
 
 /obj/item/device/uplink/hidden/proc/receive_message(var/obj/item/device/uplink/hidden/sender, message)
+	to_world("Receive message fired")
 	var/reception_message = "\icon[src] <b>Uplink Message from [sender.uplink_type] [sender.uplink_owner.name], </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sender]'>Reply</a>)"
-	var/mob/living/L = null
-	if(uplink_owner.find_syndicate_uplink() == src)
-		L = uplink_owner
+	var/mob/living/L = get_atom_on_turf(src)
+	if(!istype(L))
+		return
 
-	if(L)
-		if(active)
-			playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
-			to_chat(L, reception_message)
-		else
-			to_chat(L, "Your uplink vibrates for a moment.")
-		SSnanoui.update_user_uis(L, src)
+	if(active)
+		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
+		to_chat(L, reception_message)
+	else
+		to_chat(L, span("notice", "Your uplink vibrates for a moment."))
+	SSnanoui.update_user_uis(L, src)
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
