@@ -440,6 +440,13 @@ var/list/holder_mob_icon_cache = list()
 	w_class = 1
 	contained_sprite = TRUE
 
+/obj/item/holder/carp/baby/verb/toggle_block_hair(mob/user)
+	set name = "Toggle Hair Coverage"
+	set category = "Object"
+
+	flags_inv ^= BLOCKHEADHAIR
+	to_chat(user, span("notice", "[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+
 /obj/item/holder/borer
 	name = "cortical borer"
 	desc = "It's a slimy brain slug. Gross."
