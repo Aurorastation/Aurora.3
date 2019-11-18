@@ -17,6 +17,7 @@
 	assigned_role = "Kosmostrelki"
 	special_role = "Kosmostrelki"
 	respawn_flag = null
+	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar

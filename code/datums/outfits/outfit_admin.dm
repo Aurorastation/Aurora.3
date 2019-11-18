@@ -519,19 +519,20 @@
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/gun/projectile/shotgun/pump/rifle
 	id = /obj/item/card/id/syndicate
-
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	belt_contents = list(
 						/obj/item/ammo_magazine/boltaction = 3,
-						/obj/item/clothing/accessory/storage/bayonet = 1,
-						/obj/item/grenade/smokebomb = 2,
-						/obj/item/storage/field_ration = 1
+						/obj/item/grenade/smokebomb = 2
+
 						)
+	l_hand = /obj/item/clothing/accessory/storage/bayonet
+	r_hand = /obj/item/storage/field_ration
 
 /datum/outfit/admin/pra_cosmonaut/commissar
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
+	head = /obj/item/clothing/head/tajaran/cosmonaut_commissar
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null
@@ -542,3 +543,5 @@
 						/obj/item/material/knife/trench = 1,
 						/obj/item/storage/box/hadii_manifesto = 1
 						)
+	l_hand = /obj/item/device/megaphone
+	r_hand = null
