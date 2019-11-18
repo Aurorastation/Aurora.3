@@ -10,7 +10,7 @@
 	max_count = 3
 
 	outfit = /datum/outfit/admin/pra_cosmonaut
-	possible_species = list("Tajara","M'sai Tajara", "Zhan-Khazan Tajara")
+	possible_species = list("Tajara", "M'sai Tajara", "Zhan-Khazan Tajara")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
