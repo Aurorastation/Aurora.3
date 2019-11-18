@@ -209,7 +209,7 @@
 				department = 1
 				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
 					manifest[positionType].Swap(1, manifest[positionType].len)
-				if(positionType == BP_HEAD)
+				if(positionType == "head")
 					depthead = 1
 
 		if(!department && !(name in manifest["heads"]))
