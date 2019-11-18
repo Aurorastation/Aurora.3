@@ -155,7 +155,7 @@
 
 /obj/item/gun/projectile/deagle/adhomai
 	name = "adhomian heavy pistol"
-	desc = "A bulk handgun used by republican commissars and high ranking members of the Hadiist Party."
+	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
 	icon_state = "adhomian_heavy_pistol"
 
 /obj/item/gun/projectile/gyropistol
@@ -321,7 +321,7 @@
 
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
-	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and political commissars."
+	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon_state = "adhomian_pistol"
 	item_state = "pistol"
 	can_silence = FALSE

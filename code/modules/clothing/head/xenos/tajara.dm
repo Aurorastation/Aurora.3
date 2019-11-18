@@ -40,3 +40,6 @@
 	desc = "A peaked cap used by Party Commissars attached to kosmostrelki units."
 	icon_state = "space_commissar_hat"
 	item_state = "space_commissar_hat"
+	description_fluff = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
+	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
+	they are expected to display bravery in combat and lead by example."
