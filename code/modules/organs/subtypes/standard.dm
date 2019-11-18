@@ -13,7 +13,7 @@
 	vital = 1
 	amputation_point = "spine"
 	joint = "neck"
-	artery_name = "aorta"
+	artery_name = "internal thoracic artery"
 	dislocated = -1
 	gendered_icon = 1
 	cannot_amputate = 1
@@ -77,7 +77,7 @@
 	parent_organ = "groin"
 	joint = "left knee"
 	has_tendon = TRUE
-	tendon_name = "Achilles ligament"
+	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
 	amputation_point = "left hip"
 	can_stand = 1
