@@ -145,7 +145,8 @@
 						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
-	else
+
+	else if(!istype(W, /obj/item/bedsheet))
 		..()
 
 /obj/structure/bed/proc/remove_padding()
@@ -174,13 +175,6 @@
 
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc,"plastic","cotton")
-
-/obj/structure/bed/alien
-	name = "resting contraption"
-	desc = "This looks similar to contraptions from earth. Could aliens be stealing our technology?"
-
-/obj/structure/bed/alien/New(var/newloc)
-	..(newloc,"resin")
 
 /*
  * Roller beds
