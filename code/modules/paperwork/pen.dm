@@ -134,13 +134,13 @@
 
 /obj/item/pen/reagent/healing
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	pen_reagents = list("tricordrazine" = 20)
+	pen_reagents = list("tricordrazine" = 10, "dermaline" = 5, "bicaridine" = 5)
 	icon_state = "pen_green"
 	colour = "green"
 
 /obj/item/pen/reagent/pacifier
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	pen_reagents = list("zombiepowder" = 2, "cryptobiolin" = 10)
+	pen_reagents = list("paxazide" = 15, "cryptobiolin" = 10)
 	icon_state = "pen_blue"
 	colour = "blue"
 
@@ -152,7 +152,7 @@
 
 /obj/item/pen/reagent/poison
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	pen_reagents = list("slimejelly" = 10)
+	pen_reagents = list("cyanide" = 5, "lexorin" = 20)
 	icon_state = "pen_red"
 	colour = "red"
 
