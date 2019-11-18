@@ -112,6 +112,7 @@
 		/obj/item/gun/energy/rifle/icelance                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/storage/bayonet          = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/cannon                       = TRADER_THIS_TYPE,
+		/obj/item/ammo_casing/cannon                          = TRADER_ALL,
 		/obj/item/gun/projectile/nuke                         = TRADER_THIS_TYPE,
 		/obj/item/ammo_magazine/nuke                          = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/pistol/adhomai               = TRADER_THIS_TYPE,
