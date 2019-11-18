@@ -5,7 +5,7 @@
  *		Wired glass sheets
  *		Phoron Glass Sheets
  *		Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
- *		Glass shards - TODO: Move this into code/game/object/item/weapons
+ *		Glass shards - TODO: Move this into code/game/object/items
  */
 
 /*

@@ -1,7 +1,7 @@
 ////////////////////////////////////////
 //////////////////Mining/////////////////
 ////////////////////////////////////////
-/datum/design/item/weapon/mining/AssembleDesignName()
+/datum/design/item/mining/AssembleDesignName()
 	..()
 	name = "Mining equipment design ([item_name])"
 
@@ -13,28 +13,28 @@
 	build_path = /obj/item/device/analyzer
 	sort_string = "KCAAC"
 
-/datum/design/item/weapon/mining/jackhammer
+/datum/design/item/mining/jackhammer
 	id = "jackhammer"
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 500, "silver" = 500)
 	build_path = /obj/item/pickaxe/jackhammer
 	sort_string = "KAAAA"
 
-/datum/design/item/weapon/mining/drill
+/datum/design/item/mining/drill
 	id = "drill"
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000) //expensive, but no need for miners.
 	build_path = /obj/item/pickaxe/drill
 	sort_string = "KAAAB"
 
-/datum/design/item/weapon/mining/plasmacutter
+/datum/design/item/mining/plasmacutter
 	id = "plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 1500, "glass" = 500, "gold" = 500, "phoron" = 500)
 	build_path = /obj/item/gun/energy/plasmacutter
 	sort_string = "KAAAC"
 
-/datum/design/item/weapon/mining/pick_diamond
+/datum/design/item/mining/pick_diamond
 	id = "pick_diamond"
 	req_tech = list(TECH_MATERIAL = 6)
 	materials = list("diamond" = 3000)
@@ -53,7 +53,7 @@ datum/design/circuit/telepad
 	req_tech = list("programming" = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/telesci_pad
 
-/datum/design/item/weapon/mining/drill_diamond
+/datum/design/item/mining/drill_diamond
 	id = "drill_diamond"
 	req_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000, "diamond" = 2000)
