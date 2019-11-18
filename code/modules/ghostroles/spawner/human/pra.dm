@@ -32,7 +32,7 @@
 	req_species_whitelist = "Tajara"
 
 	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
-	possible_species = list("Tajara","M'sai Tajara")
+	possible_species = list("Tajara", "M'sai Tajara")
 
 /datum/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"
