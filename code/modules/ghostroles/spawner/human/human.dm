@@ -12,6 +12,7 @@
 	//Vars related to human mobs
 	var/datum/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
+	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
 	var/possible_species = list("Human")
 	var/possible_genders = list(MALE,FEMALE)
 	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -56,12 +57,14 @@
 	//Pick a species
 	var/list/species_selection = list()
 	for (var/S in possible_species)
-		if(is_alien_whitelisted(user, S))
+		if(!uses_species_whitelist)
+			species_selection += S
+		else if(is_alien_whitelisted(user, S))
 			species_selection += S
 
 	var/picked_species = input(user,"Select your species") as null|anything in species_selection
 	if(!picked_species)
-		picked_species = "Human"
+		picked_species = possible_species[1]
 
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species)

@@ -23,17 +23,17 @@
 	if(istype(target,/obj))
 		var/obj/O = target
 		var/T = chassis.loc
-		if(istype(target, /obj/item/weapon/ore))
+		if(istype(target, /obj/item/ore))
 			var/obj/mecha/working/chass = chassis // Since hydraulic clamp can only be installed on working mechs, no need to check for type.
 			var/obj/structure/ore_box/ore_box
 			if(chass)
 				ore_box = locate(/obj/structure/ore_box) in chass.cargo
 			if(ore_box)
 				var/list/stuff = range(chassis,1)
-				var/obj/item/weapon/ore/t = (locate(/obj/item/weapon/ore) in stuff)
+				var/obj/item/ore/t = (locate(/obj/item/ore) in stuff)
 				if(t && do_after_cooldown())
 					if(T == chassis.loc && src == chassis.selected)
-						for(var/obj/item/weapon/ore/ore in stuff)
+						for(var/obj/item/ore/ore in stuff)
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 						chassis.visible_message("<span class='notice'>\The [chassis] picks up ore from the ground all around.</span>")
@@ -156,7 +156,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
+						for(var/obj/item/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(istype(target, /turf/unsimulated/floor/asteroid))
@@ -170,7 +170,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
+						for(var/obj/item/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(target.loc == C)
@@ -215,7 +215,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(chassis,1))
+						for(var/obj/item/ore/ore in range(chassis,1))
 							if(get_dir(chassis,ore)&chassis.dir)
 								ore.Move(ore_box)
 			else if(istype(target,/turf/unsimulated/floor/asteroid))
@@ -228,7 +228,7 @@
 					if(chass)
 						ore_box = locate(/obj/structure/ore_box) in chass.cargo
 					if(ore_box)
-						for(var/obj/item/weapon/ore/ore in range(target,1))
+						for(var/obj/item/ore/ore in range(target,1))
 							ore.Move(ore_box)
 			else if(target.loc == C)
 				log_message("Drilled through \the [target]")
@@ -815,7 +815,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/generator
 	name = "phoron generator"
-	desc = "Generates power using solid phoron as fuel. Pollutes the environment."
+	desc = "Generates power using solid phoron as fuel."
 	icon_state = "tesla"
 	origin_tech = list(TECH_PHORON = 2, TECH_POWER = 2, TECH_ENGINEERING = 1)
 	equip_cooldown = 10
@@ -892,27 +892,11 @@
 /obj/item/mecha_parts/mecha_equipment/generator/attackby(weapon,mob/user)
 	var/result = load_fuel(weapon)
 	if(isnull(result))
-		user.visible_message("[user] tries to shove [weapon] into [src]. What a dumb-ass.","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
+		user.visible_message("[user] tries to shove [weapon] into [src].","<span class='warning'>[fuel] traces minimal. [weapon] cannot be used as fuel.</span>")
 	else if(!result)
 		to_chat(user, "Unit is full.")
 	else
 		user.visible_message("[user] loads [src] with [fuel].","[result] unit\s of [fuel] successfully loaded.")
-	return
-
-/obj/item/mecha_parts/mecha_equipment/generator/critfail()
-	..()
-	var/turf/simulated/T = get_turf(src)
-	if(!T)
-		return
-	var/datum/gas_mixture/GM = new
-	if(prob(10))
-		T.assume_gas("phoron", 100, 1500+T0C)
-		T.visible_message("The [src] suddenly disgorges a cloud of heated phoron.")
-		destroy()
-	else
-		T.assume_gas("phoron", 5, istype(T) ? T.air.temperature : T20C)
-		T.visible_message("The [src] suddenly disgorges a cloud of phoron.")
-	T.assume_air(GM)
 	return
 
 /obj/item/mecha_parts/mecha_equipment/generator/process()
@@ -956,9 +940,6 @@
 	power_per_cycle = 50
 	fuel_type = /obj/item/stack/material/uranium
 	var/rad_per_cycle = 0.3
-
-/obj/item/mecha_parts/mecha_equipment/generator/nuclear/critfail()
-	return
 
 /obj/item/mecha_parts/mecha_equipment/generator/nuclear/process()
 	. = ..()

@@ -27,8 +27,8 @@
 	var/obj/machinery/door/airlock/target_node1 = null
 	var/obj/machinery/door/airlock/target_node2 = null
 	var/obj/machinery/door/airlock/target = null
-	var/obj/item/weapon/cell/powercell
-	var/obj/item/weapon/cell/internal_cell
+	var/obj/item/cell/powercell
+	var/obj/item/cell/internal_cell
 
 /obj/item/device/magnetic_lock/security
 	department = "Security"
@@ -44,8 +44,8 @@
 /obj/item/device/magnetic_lock/Initialize()
 	. = ..()
 
-	powercell = new /obj/item/weapon/cell/high()
-	internal_cell = new /obj/item/weapon/cell/device()
+	powercell = new /obj/item/cell/high()
+	internal_cell = new /obj/item/cell/device()
 
 	if (istext(department))
 		desc += " It is painted with [department] colors."
@@ -109,7 +109,7 @@
 		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
 		return
 
-	if (istype(I, /obj/item/weapon/card/id))
+	if (istype(I, /obj/item/card/id))
 		if (!constructionstate && !hacked)
 			if (check_access(I))
 				locked = !locked
@@ -127,7 +127,7 @@
 			to_chat(user, "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>")
 		return
 
-	if (istype(I, /obj/item/weapon) && user.a_intent == "harm")
+	if (istype(I, /obj/item) && user.a_intent == "harm")
 		if (I.force >= 18)
 			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
 			takedamage(I.force)
@@ -143,8 +143,8 @@
 		return
 	switch (constructionstate)
 		if (0)
-			if (istype(I, /obj/item/weapon/card/emag))
-				var/obj/item/weapon/card/emag/emagcard = I
+			if (istype(I, /obj/item/card/emag))
+				var/obj/item/card/emag/emagcard = I
 				emagcard.uses--
 				visible_message("<span class='danger'>[src] sparks and falls off the door!</span>", "<span class='danger'>You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!</span>")
 
@@ -155,7 +155,7 @@
 				return
 
 			if (I.iswelder())
-				var/obj/item/weapon/weldingtool/WT = I
+				var/obj/item/weldingtool/WT = I
 				if (WT.remove_fuel(2, user))
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
@@ -180,7 +180,7 @@
 				return
 
 		if (1)
-			if (istype(I, /obj/item/weapon/cell))
+			if (istype(I, /obj/item/cell))
 				if (powercell)
 					to_chat(user, span("notice","There's already a powercell in \the [src]."))
 				return
@@ -202,7 +202,7 @@
 				setconstructionstate(0)
 				return
 
-			if (istype(I, /obj/item/weapon/cell))
+			if (istype(I, /obj/item/cell))
 				if (!powercell)
 					to_chat(user, span("notice","You place the [I] inside \the [src]."))
 					user.drop_from_inventory(I,src)
@@ -232,8 +232,8 @@
 /obj/item/device/magnetic_lock/process()
 	if(!processpower)
 		return
-	var/obj/item/weapon/cell/C = powercell // both of these are for viewing ease
-	var/obj/item/weapon/cell/BU = internal_cell
+	var/obj/item/cell/C = powercell // both of these are for viewing ease
+	var/obj/item/cell/BU = internal_cell
 	var/delta_sec = (world.time - last_process_time) / 10
 	var/drainamount = drain_per_second * delta_sec
 	if (C)

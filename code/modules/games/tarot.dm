@@ -1,12 +1,12 @@
 /* this is a playing card deck based off of the Rider-Waite Tarot Deck.
 */
 
-/obj/item/weapon/deck/tarot
+/obj/item/deck/tarot
 	name = "deck of tarot cards"
 	desc = "For all your occult needs!"
 	icon_state = "deck_tarot"
 
-/obj/item/weapon/deck/tarot/generate_deck()
+/obj/item/deck/tarot/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("Fool","Magician","High Priestess","Empress","Emperor","Hierophant","Lovers","Chariot","Strength","Hermit","Wheel of Fortune","Justice","Hanged Man","Death","Temperance","Devil","Tower","Star","Moon","Sun","Judgement","World"))
 		P = new()
@@ -24,7 +24,7 @@
 			P.back_icon = "card_back_tarot"
 			cards += P
 
-/obj/item/weapon/deck/tarot/attack_self(var/mob/user as mob)
+/obj/item/deck/tarot/attack_self(var/mob/user as mob)
 	var/list/newcards = list()
 	while(cards.len)
 		var/datum/playingcard/P = pick(cards)

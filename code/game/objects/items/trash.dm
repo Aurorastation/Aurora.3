@@ -55,6 +55,9 @@
 	name = "plate"
 	icon_state = "plate"
 
+/obj/item/trash/plate/steak
+	icon_state = "steak"
+
 /obj/item/trash/snack_bowl
 	name = "snack bowl"
 	icon_state	= "snack_bowl"
@@ -76,6 +79,7 @@
 	name = "candle"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle4"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/trash/liquidfood
 	name = "\improper \"LiquidFood\" ration"
