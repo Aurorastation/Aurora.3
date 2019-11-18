@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a new ghost role for one of the away sites."
+  - rscadd: "Species related ert and ghost roles should now get their relevant languages."
