@@ -8,26 +8,179 @@ LINEN BINS
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
 	icon = 'icons/obj/bedsheets.dmi'
-	icon_state = "sheet"
+	icon_state = "bedsheet"
 	item_state = "bedsheet"
+	slot_flags = SLOT_BACK
 	layer = 4.0
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
-	w_class = 2.0
+	w_class = 4.0
 	drop_sound = 'sound/items/drop/clothing.ogg'
+	randpixel = 0
+	center_of_mass = null
+	var/roll = FALSE
+	var/fold = FALSE
+	var/inuse = FALSE
+	var/inside_storage_item = FALSE
 
-/obj/item/bedsheet/attack_self(mob/user as mob)
-	user.drop_item()
-	if(layer == initial(layer))
-		layer = 5
+/obj/item/bedsheet/afterattack(atom/A, mob/user)
+	if(istype(A, /obj/structure/bed))
+		user.drop_item()
+		forceMove(get_turf(A))
+		add_fingerprint(user)
+		return
+
+/obj/item/bedsheet/attack_hand(mob/user as mob)
+	if(fold || inside_storage_item)
+		if(inside_storage_item)
+			inside_storage_item = FALSE
+		if(!istype(loc,/mob))
+			user.put_in_hands(src)
+	if(!istype(loc,/mob))
+		toggle_roll(user)
 	else
-		layer = initial(layer)
+		..()
 	add_fingerprint(user)
+
+/obj/item/bedsheet/on_enter_storage(obj/item/storage/S as obj)
+	inside_storage_item = TRUE
 	return
 
+/obj/item/bedsheet/on_exit_storage(obj/item/storage/S as obj)
+	inside_storage_item = FALSE
+	return
+
+/obj/item/bedsheet/AltClick(mob/user as mob)
+	if(!istype(loc,/mob))
+		toggle_fold(user)
+	else
+		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
+		..()
+	add_fingerprint(user)
+
+/obj/item/bedsheet/MouseDrop(mob/user as mob)
+	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
+			if( !user.get_active_hand() )		//if active hand is empty
+				var/mob/living/carbon/human/H = user
+				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+				if (H.hand)
+					temp = H.organs_by_name["l_hand"]
+				if(temp && !temp.is_usable())
+					to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+					return
+
+				to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+				user.put_in_hands(src)
+	return
+
+/obj/item/bedsheet/update_icon()
+	if(fold)
+		icon_state = "sheet-fold"
+	else if(roll)
+		icon_state = "sheet-roll"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/bedsheet/Crossed(H as mob) //Basically, stepping on it resets it to below people.
+	if(isliving(H))
+		var/mob/living/M = H
+		if(M.loc == src.loc)
+			return
+	else
+		layer = initial(layer)
+
+/obj/item/bedsheet/verb/fold_verb(var/mob/living/user)
+	set name = "Fold Bedsheet"
+	set category = "Object"
+	set src in view(1)
+
+	if(ishuman(user))
+		toggle_fold(user)
+
+/obj/item/bedsheet/proc/toggle_fold(var/mob/living/user) // Fold sheets to make them more portable through secret janitor-fu.
+	if(!user)
+		return FALSE
+	if(inuse)
+		return FALSE
+	if(roll)
+		user.show_message("<span class='warning'>Unroll \the [src] first.</span>")
+		return FALSE
+	inuse = TRUE
+	if (do_after(user, 25, src))
+		if(user.loc != loc)
+			user.do_attack_animation(src)
+		playsound(get_turf(loc), "rustle", 15, 1, -5)
+		var/folds = fold
+		user.visible_message("<span class='notice'>\The [user] [folds ? "unfolds" : "folds"] \the [src].", "You [fold ? "unfold" : "fold"] \the [src].</span>")
+		if(!fold)
+			fold = TRUE
+			slot_flags = null
+			w_class = 2.0
+			layer = initial(layer)
+		else
+			fold = FALSE
+			slot_flags = SLOT_BACK
+			w_class = 4.0
+		update_icon()
+		inuse = FALSE
+		return TRUE
+	inuse = FALSE
+	return FALSE
+
+/obj/item/bedsheet/verb/roll_verb(var/mob/living/user)
+	set name = "Roll Bedsheet"
+	set category = "Object"
+	set src in view(1)
+
+	if(ishuman(user))
+		toggle_roll(user)
+
+/obj/item/bedsheet/proc/toggle_roll(var/mob/living/user) // Tuck yourself in just by clicking. Also automatically rests you (if you're under it)
+	if(!user)
+		return FALSE
+	if(inuse)
+		return FALSE
+	if(fold)
+		return FALSE
+	inuse = TRUE
+	if (do_after(user, 6, src))
+		if(user.loc != loc)
+			user.do_attack_animation(src)
+		playsound(get_turf(loc), "rustle", 15, 1, -5)
+		var/rolls = roll
+		user.visible_message("<span class='notice'>\The [user] [rolls ? "unrolls" : "rolls"] \the [src].", "You [roll ? "unroll" : "roll"] \the [src].</span>")
+		if(!roll)
+			roll = TRUE
+			slot_flags = null
+			w_class = 3.0
+			layer = initial(layer)
+			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
+				user.lay_down()
+		else
+			roll = FALSE
+			slot_flags = SLOT_BACK
+			w_class = 4.0
+			if(layer == initial(layer))
+				layer = ABOVE_MOB_LAYER
+			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
+				user.lay_down()
+		update_icon()
+		inuse = FALSE
+		return TRUE
+	inuse = FALSE
+	return FALSE
+
 /obj/item/bedsheet/attackby(obj/item/I, mob/user)
-	if(is_sharp(I))
+	if(I.isscrewdriver())
+		user.visible_message("<span class='notice'>\The [user] begins poking eyeholes in \the [src] with \the [I].</span>", "<span class='notice'>You begin poking eyeholes in \the [src] with \the [I].</span>")
+		if(do_after(user, 50/I.toolspeed))
+			to_chat(user, "<span class='notice'>You poke eyeholes in \the [src]!</span>")
+			new /obj/item/bedsheet/costume(get_turf(src))
+			qdel(src)
+		return
+	else if(is_sharp(I))
 		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
@@ -36,55 +189,132 @@ LINEN BINS
 			qdel(src)
 		return
 	..()
-
-/obj/item/bedsheet/blue
-	icon_state = "sheetblue"
-
-/obj/item/bedsheet/green
-	icon_state = "sheetgreen"
+/obj/item/bedsheet/red
+	icon_state = "sheetred"
+	item_state = "sheetred"
 
 /obj/item/bedsheet/orange
 	icon_state = "sheetorange"
-
-/obj/item/bedsheet/purple
-	icon_state = "sheetpurple"
-
-/obj/item/bedsheet/rainbow
-	icon_state = "sheetrainbow"
-
-/obj/item/bedsheet/red
-	icon_state = "sheetred"
+	item_state = "sheetorange"
 
 /obj/item/bedsheet/yellow
 	icon_state = "sheetyellow"
+	item_state = "sheetyellow"
 
-/obj/item/bedsheet/mime
-	icon_state = "sheetmime"
+/obj/item/bedsheet/green
+	icon_state = "sheetgreen"
+	item_state = "sheetgreen"
 
-/obj/item/bedsheet/clown
-	icon_state = "sheetclown"
+/obj/item/bedsheet/blue
+	icon_state = "sheetblue"
+	item_state = "sheetblue"
 
-/obj/item/bedsheet/captain
-	icon_state = "sheetcaptain"
+/obj/item/bedsheet/purple
+	icon_state = "sheetpurple"
+	item_state = "sheetpurple"
 
-/obj/item/bedsheet/rd
-	icon_state = "sheetrd"
-
-/obj/item/bedsheet/medical
-	icon_state = "sheetmedical"
-
-/obj/item/bedsheet/hos
-	icon_state = "sheethos"
-
-/obj/item/bedsheet/hop
-	icon_state = "sheethop"
-
-/obj/item/bedsheet/ce
-	icon_state = "sheetce"
+/obj/item/bedsheet/rainbow
+	name = "rainbow bedsheet"
+	desc = "A multicolored blanket. It's actually several different sheets cut up and sewn together."
+	icon_state = "sheetrainbow"
+	item_state = "sheetrainbow"
 
 /obj/item/bedsheet/brown
 	icon_state = "sheetbrown"
+	item_state = "sheetbrown"
 
+/obj/item/bedsheet/black
+	icon_state = "sheetblack"
+	item_state = "sheetblack"
+
+/obj/item/bedsheet/mime
+	name = "mime's blanket"
+	desc = "A very soothing striped blanket.  All the noise just seems to fade out when you're under the covers in this."
+	icon_state = "sheetmime"
+	item_state = "sheetmime"
+
+/obj/item/bedsheet/clown
+	name = "clown's blanket"
+	desc = "A rainbow blanket with a clown mask woven in. It smells faintly of bananas."
+	icon_state = "sheetclown"
+	item_state = "sheetclown"
+
+/obj/item/bedsheet/captain
+	name = "captain's bedsheet"
+	desc = "It has a Nanotrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
+	icon_state = "sheetcaptain"
+	item_state = "sheetcaptain"
+
+/obj/item/bedsheet/ian
+	icon_state = "sheetian"
+	item_state = "sheetian"
+
+/obj/item/bedsheet/medical
+	name = "medical blanket"
+	desc = "It's a sterilized blanket commonly used in the Medbay. Well, as sterilized as space cleaner allows."
+	icon_state = "sheetmedical"
+	item_state = "sheetmedical"
+
+/obj/item/bedsheet/cmo
+	name = "chief medical officer's bedsheet"
+	desc = "It's a sterilized blanket that has a cross emblem. There's some cat fur on it."
+	icon_state = "sheetcmo"
+	item_state = "sheetcmo"
+
+/obj/item/bedsheet/qm
+	name = "quartermaster's bedsheet"
+	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
+	icon_state = "sheetqm"
+	item_state = "sheetqm"
+
+/obj/item/bedsheet/hop
+	name = "head of personnel's bedsheet"
+	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
+	icon_state = "sheethop"
+	item_state = "sheethop"
+
+/obj/item/bedsheet/ce
+	name = "chief engineer's bedsheet"
+	desc = "It is decorated with a wrench emblem. It's highly reflective and stain resistant, so you don't need to worry about ruining it with oil."
+	icon_state = "sheetce"
+	item_state = "sheetce"
+
+/obj/item/bedsheet/hos
+	name = "head of security's bedsheet"
+	desc = "It is decorated with a shield emblem. While crime doesn't sleep, you do, but you are still THE LAW!"
+	icon_state = "sheethos"
+	item_state = "sheethos"
+
+/obj/item/bedsheet/rd
+	name = "research director's bedsheet"
+	desc = "It appears to have a beaker emblem, and is made out of fire-resistant material, although it probably won't protect you in the event of fires you're familiar with every day."
+	icon_state = "sheetrd"
+	item_state = "sheetrd"
+
+/obj/item/bedsheet/centcom
+	name = "\improper CentCom bedsheet"
+	desc = "Woven with advanced nanothread for warmth as well as being very decorated, essential for all officials."
+	icon_state = "sheetcentcom"
+	item_state = "sheetcentcom"
+
+/obj/item/bedsheet/nanotrasen
+	name = "nanotrasen bedsheet"
+	desc = "It has the Nanotrasen logo on it and has an aura of duty."
+	icon_state = "sheetNT"
+	item_state = "sheetNT"
+
+/obj/item/bedsheet/syndie
+	name = "syndicate bedsheet"
+	desc = "It has a syndicate emblem and it has an aura of evil."
+	icon_state = "sheetsyndie"
+	item_state = "sheetsyndie"
+
+/obj/item/bedsheet/costume
+	name = "ghost bedsheet"
+	desc = "It seems to be flipped inside out with eyeholes poked out. "
+	icon_state = "sheetcostume"
+	item_state = "sheetcostume"
+	slot_flags = SLOT_OCLOTHING
 
 /obj/structure/bedsheetbin
 	name = "linen bin"
