@@ -10,7 +10,7 @@
 	var/authenticated = 0
 	var/default_screen = "general"
 	var/typechoices = list(
-		"phisical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
 			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
