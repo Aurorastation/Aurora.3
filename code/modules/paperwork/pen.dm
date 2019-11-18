@@ -52,7 +52,7 @@
 	desc = "An instrument for writing or drawing with ink. This one comes with with multiple colors! Push down all three simultaneously to rule the universe."
 	icon_state = "pen_multi"
 	var/selectedColor = 1
-	var/colors = list("black","blue","red", "green", "yellow")
+	var/colors = list("black", "blue", "red", "green", "yellow")
 
 /obj/item/pen/multi/attack_self(mob/user)
 	if(++selectedColor > 3)
@@ -140,7 +140,7 @@
 
 /obj/item/pen/reagent/pacifier
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	pen_reagents = list("paxazide" = 15, "cryptobiolin" = 10)
+	pen_reagents = list("wulumunusha" = 2, "paxazide" = 15, "cryptobiolin" = 10)
 	icon_state = "pen_blue"
 	colour = "blue"
 
@@ -152,7 +152,7 @@
 
 /obj/item/pen/reagent/poison
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	pen_reagents = list("cyanide" = 5, "lexorin" = 20)
+	pen_reagents = list("cyanide" = 1, "lexorin" = 20)
 	icon_state = "pen_red"
 	colour = "red"
 
