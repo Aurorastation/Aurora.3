@@ -175,6 +175,18 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 				active_conversation = href_list["target"]
 				nanoui_menu = 41
 
+		if(href_list["Messenger"] == "Clear")
+			var/new_messages[0]
+			for(var/i in messages)
+				if(i["target"] != active_conversation)
+					new_messages[++new_messages.len] = i
+			messages = new_messages
+			conversations.Remove(active_conversation)
+			active_conversation = null
+
+			if(nanoui_menu == 41)
+				nanoui_menu = 4
+
 	update_nano_data()
 	return 1
 
