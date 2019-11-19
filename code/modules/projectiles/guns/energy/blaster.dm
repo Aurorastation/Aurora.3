@@ -5,7 +5,7 @@
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 3
+	w_class = 2
 	force = 5
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -27,6 +27,7 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 8
+	w_class = 3
 
 /obj/item/weapon/gun/energy/blaster/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
@@ -54,6 +55,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
+	w_class = 3
 
 /obj/item/weapon/gun/energy/blaster/rifle
 	name = "bolt slinger"
@@ -73,7 +75,7 @@
 	scoped_accuracy = 4
 
 	fire_delay_wielded = 10
-	accuracy_wielded = 0
+	accuracy_wielded = 1
 
 	is_wieldable = TRUE
 

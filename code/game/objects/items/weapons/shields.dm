@@ -244,8 +244,8 @@
 	name = "tactical shield"
 	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility."
 	icon = 'icons/obj/tactshield.dmi'
-	icon_state = "tactshield0"
-	item_state = "tactshield0"
+	icon_state = "tactshield"
+	item_state = "tactshield"
 	contained_sprite = 1
 	force = 3.0
 	throwforce = 3.0
@@ -254,6 +254,12 @@
 	w_class = 3
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
+
+/obj/item/weapon/shield/riot/tact/legion
+	name = "legion ballistic shield"
+	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Foreign Legion."
+	icon_state = "legion_tactshield"
+	item_state = "legion_tactshield"
 
 /obj/item/weapon/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
@@ -265,24 +271,26 @@
 
 /obj/item/weapon/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
-	icon_state = "tactshield[active]"
-	item_state = "tactshield[active]"
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
 	if(active)
+		icon_state = "[initial(icon_state)]_[active]"
+		item_state = "[initial(item_state)]_[active]"
 		force = 5
 		throwforce = 5
 		throw_speed = 2
 		w_class = 4
 		slot_flags = SLOT_BACK
-		to_chat(user, "<span class='notice'>You extend \the [src] downward with a sharp snap of your wrist.</span>")
+		to_chat(user, span("notice","You extend \the [src] downward with a sharp snap of your wrist."))
 	else
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(item_state)]"
 		force = 3
 		throwforce = 3
 		throw_speed = 3
 		w_class = 3
 		slot_flags = 0
-		to_chat(user, "<span class='notice'>\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame.</span>")
+		to_chat(user, span("notice","\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
@@ -291,4 +299,3 @@
 
 	add_fingerprint(user)
 	return
-

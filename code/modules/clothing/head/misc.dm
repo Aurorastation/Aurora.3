@@ -493,6 +493,12 @@
 	icon_state = "legion_field_beret"
 	item_state = "legion_field_beret"
 
+/obj/item/clothing/head/legion/sentinel
+	name = "TCFL sentinel beret"
+	desc = "A stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
+	icon_state = "legion_sentinel_beret"
+	item_state = "legion_sentinel_beret"
+
 /obj/item/clothing/head/legion/legate
 	name = "TCFL peaked cap"
 	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."

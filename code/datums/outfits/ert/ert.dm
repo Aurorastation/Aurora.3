@@ -77,9 +77,16 @@
 
 /datum/outfit/admin/ert/legion/specialist
 	name = "TCFL Legionnaire"
+	accessory = /obj/item/clothing/accessory/legion/specialist
 
 /datum/outfit/admin/ert/legion/leader
 	name = "TCFL Prefect"
+	accessory = /obj/item/clothing/accessory/legion
+
+/datum/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	.=..()
+	var/obj/item/weapon/card/id/distress/legion/I = H.wear_id
+	I.access += (access_cent_specops)
 
 /datum/outfit/admin/ert/legion/pilot
 	name = "TCFL Dropship Pilot"
@@ -91,6 +98,38 @@
 	belt = /obj/item/weapon/storage/belt/security/tactical
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/weapon/gun/energy/blaster/revolver/pilot  = 1)
+
+/datum/outfit/admin/ert/legion/sentinel
+	name = "TCFL Sentinel"
+	head = /obj/item/clothing/head/legion/sentinel
+	uniform = /obj/item/clothing/under/legion/sentinel
+	suit = /obj/item/clothing/suit/storage/vest/legion
+	gloves = null
+	belt = /obj/item/weapon/storage/belt/security/tactical
+	suit_store = /obj/item/weapon/gun/energy/blaster/rifle
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/weapon/gun/energy/blaster/revolver = 1)
+
+	backpack_contents = list(
+		/obj/item/weapon/gun/energy/blaster/carbine = 1,
+		/obj/item/weapon/handcuffs/ziptie = 3,
+		/obj/item/clothing/mask/gas/tactical = 1,
+		/obj/item/weapon/storage/firstaid/regular = 1,
+		/obj/item/clothing/gloves/swat = 1
+	)
+
+	belt_contents = list(
+		/obj/item/weapon/melee/energy/sword/knife = 1,
+		/obj/item/weapon/shield/energy/legion = 1,
+		/obj/item/weapon/reagent_containers/spray/pepper = 1,
+		/obj/item/weapon/grenade/flashbang = 2,
+		/obj/item/weapon/melee/telebaton = 1
+	)
+
+/datum/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	.=..()
+	var/obj/item/weapon/card/id/distress/legion/I = H.wear_id
+	I.access += (access_cent_specops)
 
 //Mercenary
 /datum/outfit/admin/ert/mercenary
