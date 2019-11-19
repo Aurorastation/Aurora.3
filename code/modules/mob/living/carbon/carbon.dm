@@ -279,15 +279,28 @@
 
 			var/show_ssd
 			var/mob/living/carbon/human/H
+			var/target_organ_exists = FALSE
 			if(ishuman(src))
 				H = src
 				show_ssd = H.species.show_ssd
+				var/obj/item/organ/external/O = H.get_organ(M.targeted_organ)
+				target_organ_exists = (O && O.is_usable())
 			if(H && show_ssd && !client && !teleop)
 				if(H.bg)
 					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
 				else
-					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
+					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
+									  span("notice", "You shake [src] trying to wake [t_him] up!"))
+				else if((M.targeted_organ == BP_HEAD) && target_organ_exists)
+					M.visible_message(span("notice", "[M] pats [src]'s head."), \
+									  span("notice", "You pat [src]'s head."))
+				else if(M.targeted_organ == BP_R_ARM || M.targeted_organ == BP_L_ARM)
+					if(target_organ_exists)
+						M.visible_message(span("notice", "[M] shakes hands with [src]."), \
+										  span("notice", "You shake hands with [src]."))
+					else
+						M.visible_message(span("notice", "[M] holds out \his hand to [src]."), \
+										  span("notice", "You hold out your hand to [src]."))
 			else if(lying || src.sleeping)
 				src.sleeping = max(0,src.sleeping-5)
 				if(src.sleeping == 0)

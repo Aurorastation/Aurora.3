@@ -173,35 +173,35 @@
 /obj/item/device/radio/headset/heads/rd
 	name = "research director's headset"
 	desc = "Headset of the researching God."
-	icon_state = "com_headset"
+	icon_state = "rd_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/rd
 
 /obj/item/device/radio/headset/heads/hos
 	name = "head of security's headset"
 	desc = "The headset of the man who protects your worthless lifes."
-	icon_state = "com_headset"
+	icon_state = "hos_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/hos
 
 /obj/item/device/radio/headset/heads/ce
 	name = "chief engineer's headset"
 	desc = "The headset of the guy who is in charge of morons."
-	icon_state = "com_headset"
+	icon_state = "ce_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/ce
 
 /obj/item/device/radio/headset/heads/cmo
 	name = "chief medical officer's headset"
 	desc = "The headset of the highly trained medical chief."
-	icon_state = "com_headset"
+	icon_state = "cmo_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/cmo
 
 /obj/item/device/radio/headset/heads/hop
 	name = "head of personnel's headset"
 	desc = "The headset of the guy who will one day be captain."
-	icon_state = "com_headset"
+	icon_state = "hop_headset"
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/heads/hop
 
