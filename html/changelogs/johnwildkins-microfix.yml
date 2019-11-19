@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed an issue where dirtied or broken microwaves would fail to start again, even when cleaned or fixed."
