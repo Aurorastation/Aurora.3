@@ -65,7 +65,7 @@
 			if(H.species.vision_organ)
 				vision = H.internal_organs_by_name[H.species.vision_organ]
 			if(!vision)
-				to_chat(user, span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : BP_EYES] on [H]!"))
+				to_chat(user, span("warning", "You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!"))
 
 			user.visible_message(span("notice", "\The [user] directs [src] to [M]'s eyes."), span("notice", "You direct [src] to [M]'s eyes."))
 
