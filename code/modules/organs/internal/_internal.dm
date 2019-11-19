@@ -105,4 +105,4 @@
 	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN])
 		return
 	if(damage < 0.1*max_damage)
-		heal_damage(0.1)
+		heal_damage(0.02)
