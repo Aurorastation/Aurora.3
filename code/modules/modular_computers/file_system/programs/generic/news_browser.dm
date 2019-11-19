@@ -72,7 +72,7 @@
 		var/savename = sanitize(input(usr, "Enter file name or leave blank to cancel:", "Save article", loaded_article.filename))
 		if(!savename)
 			return 1
-		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
 			return 1
 		var/datum/computer_file/data/news_article/N = loaded_article.clone()

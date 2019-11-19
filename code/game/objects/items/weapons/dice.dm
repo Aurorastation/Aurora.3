@@ -1,4 +1,4 @@
-/obj/item/weapon/dice
+/obj/item/dice
 	name = "d6"
 	desc = "A dice with six sides."
 	icon = 'icons/obj/dice.dmi'
@@ -11,10 +11,10 @@
 	var/weighted_value = 70 //what is the chance of falling on the favored number
 	attack_verb = list("diced")
 
-/obj/item/weapon/dice/New()
+/obj/item/dice/New()
 	icon_state = "[name][rand(1,sides)]"
 
-/obj/item/weapon/dice/throw_impact(atom/hit_atom)
+/obj/item/dice/throw_impact(atom/hit_atom)
 	..()
 	var/result
 	if((weighted) && (prob(weighted_value)))
@@ -30,37 +30,37 @@
 	icon_state = "[name][result]"
 	src.visible_message("<span class='notice'>\The [name] lands on [result * side_mult]. [comment]</span>")
 
-/obj/item/weapon/dice/d4
+/obj/item/dice/d4
 	name = "d4"
 	desc = "A dice with four sides."
 	icon_state = "d44"
 	sides = 4
 
-/obj/item/weapon/dice/d8
+/obj/item/dice/d8
 	name = "d8"
 	desc = "A dice with eight sides."
 	icon_state = "d88"
 	sides = 8
 
-/obj/item/weapon/dice/d10
+/obj/item/dice/d10
 	name = "d10"
 	desc = "A dice with ten sides."
 	icon_state = "d1010"
 	sides = 10
 
-/obj/item/weapon/dice/d12
+/obj/item/dice/d12
 	name = "d12"
 	desc = "A dice with twelve sides."
 	icon_state = "d1212"
 	sides = 12
 
-/obj/item/weapon/dice/d20
+/obj/item/dice/d20
 	name = "d20"
 	desc = "A dice with twenty sides."
 	icon_state = "d2020"
 	sides = 20
 
-/obj/item/weapon/dice/d100
+/obj/item/dice/d100
 	name = "d100"
 	desc = "A dice with ten sides. This one is for the tens digit."
 	icon_state = "d10010"

@@ -72,7 +72,7 @@ obj/machinery/scanner/attack_hand(mob/living/carbon/human/user)
 		text += "<span class='danger'>[A]</span><br>"
 	to_chat(user, "<span class='notice'>You feel a sting as the scanner extracts some of your blood.</span>")
 	var/turf/T = get_step(src,outputdir)
-	var/obj/item/weapon/paper/print = new(T)
+	var/obj/item/paper/print = new(T)
 	print.set_content_unsafe("[mname] Report", text)
 	print.stamped = 1
 

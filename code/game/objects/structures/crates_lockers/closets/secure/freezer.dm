@@ -18,9 +18,9 @@
 
 	fill()
 		for(var/i = 0, i < 2, i++)
-			new /obj/item/weapon/reagent_containers/food/condiment/flour(src)
-		new /obj/item/weapon/reagent_containers/food/condiment/sugar(src)
-		new /obj/item/weapon/reagent_containers/food/condiment/spacespice(src)
+			new /obj/item/reagent_containers/food/condiment/flour(src)
+		new /obj/item/reagent_containers/food/condiment/sugar(src)
+		new /obj/item/reagent_containers/food/condiment/spacespice(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()
@@ -38,7 +38,7 @@
 	fill()
 		..()
 		for(var/i = 0, i < 8, i++)
-			new /obj/item/weapon/reagent_containers/food/snacks/meat/monkey(src)
+			new /obj/item/reagent_containers/food/snacks/meat/monkey(src)
 
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
@@ -53,11 +53,11 @@
 	fill()
 		..()
 		for(var/i = 0, i < 5, i++)
-			new /obj/item/weapon/reagent_containers/food/drinks/milk(src)
+			new /obj/item/reagent_containers/food/drinks/milk(src)
 		for(var/i = 0, i < 2, i++)
-			new /obj/item/weapon/reagent_containers/food/drinks/soymilk(src)
+			new /obj/item/reagent_containers/food/drinks/soymilk(src)
 		for(var/i = 0, i < 2, i++)
-			new /obj/item/weapon/storage/fancy/egg_box(src)
+			new /obj/item/storage/fancy/egg_box(src)
 
 
 /obj/structure/closet/secure_closet/freezer/money

@@ -1,4 +1,4 @@
-/obj/item/weapon/handcuffs
+/obj/item/handcuffs
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
@@ -19,7 +19,7 @@
 	var/cuff_type = "handcuffs"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
-/obj/item/weapon/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
+/obj/item/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
 
 	if(!user.IsAdvancedToolUser())
 		return
@@ -37,7 +37,7 @@
 		//Or just. You know. Don't check for it and place the handcuffs anyways!
 		place_handcuffs(C, user)
 
-/obj/item/weapon/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
+/obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
 
 	var/mob/living/carbon/human/H = target
@@ -69,7 +69,7 @@
 	target.drop_r_hand()
 	target.drop_l_hand()
 	// Apply cuffs.
-	var/obj/item/weapon/handcuffs/cuffs = src
+	var/obj/item/handcuffs/cuffs = src
 	if(dispenser)
 		cuffs = new(target)
 	else
@@ -105,7 +105,7 @@
 
 	last_chew = world.time
 
-/obj/item/weapon/handcuffs/cable
+/obj/item/handcuffs/cable
 	name = "cable restraints"
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cuff_white"
@@ -114,45 +114,45 @@
 	cuff_type = "cable restraints"
 	elastic = 1
 
-/obj/item/weapon/handcuffs/cable/red
+/obj/item/handcuffs/cable/red
 	color = "#DD0000"
 
-/obj/item/weapon/handcuffs/cable/yellow
+/obj/item/handcuffs/cable/yellow
 	color = "#DDDD00"
 
-/obj/item/weapon/handcuffs/cable/blue
+/obj/item/handcuffs/cable/blue
 	color = "#0000DD"
 
-/obj/item/weapon/handcuffs/cable/green
+/obj/item/handcuffs/cable/green
 	color = "#00DD00"
 
-/obj/item/weapon/handcuffs/cable/pink
+/obj/item/handcuffs/cable/pink
 	color = "#DD00DD"
 
-/obj/item/weapon/handcuffs/cable/orange
+/obj/item/handcuffs/cable/orange
 	color = "#DD8800"
 
-/obj/item/weapon/handcuffs/cable/cyan
+/obj/item/handcuffs/cable/cyan
 	color = "#00DDDD"
 
-/obj/item/weapon/handcuffs/cable/white
+/obj/item/handcuffs/cable/white
 	color = "#FFFFFF"
 
-/obj/item/weapon/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
 		if (R.use(1))
-			var/obj/item/weapon/material/wirerod/W = new(get_turf(user))
+			var/obj/item/material/wirerod/W = new(get_turf(user))
 			user.put_in_hands(W)
 			to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
 			qdel(src)
 			update_icon(user)
 
-/obj/item/weapon/handcuffs/cyborg
+/obj/item/handcuffs/cyborg
 	dispenser = 1
 
-/obj/item/weapon/handcuffs/cable/tape
+/obj/item/handcuffs/cable/tape
 	name = "tape restraints"
 	desc = "DIY!"
 	icon_state = "tape_cross"
@@ -161,7 +161,7 @@
 	breakouttime = 200
 	cuff_type = "duct tape"
 
-/obj/item/weapon/handcuffs/ziptie
+/obj/item/handcuffs/ziptie
 	name = "ziptie"
 	desc = " A sturdy and reliable plastic ziptie for binding the wrists."
 	icon = 'icons/obj/items.dmi'

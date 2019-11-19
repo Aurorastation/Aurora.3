@@ -13,7 +13,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "af" = (
-/obj/item/weapon/gun/energy/mindflayer,
+/obj/item/gun/energy/mindflayer,
 /turf/simulated/floor/diona,
 /area/derelict)
 "ag" = (
@@ -41,7 +41,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "am" = (
-/obj/item/weapon/storage/toolbox/lunchbox/nymph,
+/obj/item/storage/toolbox/lunchbox/nymph,
 /turf/simulated/floor/diona,
 /area/derelict)
 "an" = (
@@ -95,7 +95,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "az" = (
-/obj/item/weapon/trap/animal/large,
+/obj/item/trap/animal/large,
 /turf/simulated/floor/diona,
 /area/derelict)
 "aA" = (
@@ -119,7 +119,7 @@
 	},
 /area/derelict)
 "aE" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/structure/noose,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
@@ -146,13 +146,13 @@
 /area/derelict)
 "aI" = (
 /obj/structure/table/steel,
-/obj/item/weapon/gun/energy/retro,
+/obj/item/gun/energy/retro,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aJ" = (
-/obj/item/weapon/storage/box/flashshells,
+/obj/item/storage/box/flashshells,
 /turf/simulated/floor/diona,
 /area/derelict)
 "aK" = (
@@ -333,7 +333,7 @@
 	},
 /area/derelict)
 "bh" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
@@ -354,7 +354,7 @@
 	},
 /area/derelict)
 "bl" = (
-/obj/item/weapon/vampiric,
+/obj/item/vampiric,
 /turf/simulated/floor/diona,
 /area/derelict)
 "bm" = (

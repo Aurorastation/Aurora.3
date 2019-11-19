@@ -905,7 +905,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -1094,20 +1094,20 @@
 /area/maintenance/store)
 "cc" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecomms - Computer Room"
 	},
-/obj/item/weapon/pen/blue{
+/obj/item/pen/blue{
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/book/manual/ntsl2,
+/obj/item/paper_bin,
+/obj/item/book/manual/ntsl2,
 /obj/machinery/light_switch{
 	pixel_x = 0;
 	pixel_y = 26
@@ -1134,7 +1134,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cg" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
 /turf/simulated/floor/plating,
@@ -1491,10 +1491,10 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cS" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
-/obj/item/weapon/spacecash/c1,
+/obj/item/spacecash/c1,
 /turf/simulated/floor/plating,
 /area/tcommsat/computer)
 "cT" = (
@@ -2946,16 +2946,16 @@
 /area/turret_protected/tcomsat)
 "fw" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fx" = (
@@ -2967,14 +2967,14 @@
 /area/turret_protected/tcomsat)
 "fy" = (
 /obj/structure/table/rack,
-/obj/item/weapon/circuitboard/telecomms/processor,
-/obj/item/weapon/circuitboard/telecomms/processor,
-/obj/item/weapon/circuitboard/telecomms/receiver,
-/obj/item/weapon/circuitboard/telecomms/server,
-/obj/item/weapon/circuitboard/telecomms/server,
-/obj/item/weapon/circuitboard/telecomms/bus,
-/obj/item/weapon/circuitboard/telecomms/bus,
-/obj/item/weapon/circuitboard/telecomms/broadcaster,
+/obj/item/circuitboard/telecomms/processor,
+/obj/item/circuitboard/telecomms/processor,
+/obj/item/circuitboard/telecomms/receiver,
+/obj/item/circuitboard/telecomms/server,
+/obj/item/circuitboard/telecomms/server,
+/obj/item/circuitboard/telecomms/bus,
+/obj/item/circuitboard/telecomms/bus,
+/obj/item/circuitboard/telecomms/broadcaster,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fz" = (
@@ -3373,9 +3373,9 @@
 /area/turret_protected/tcomsat)
 "gl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "gm" = (
@@ -3384,9 +3384,9 @@
 /area/turret_protected/tcomsat)
 "gn" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "go" = (
@@ -4009,9 +4009,9 @@
 /area/turret_protected/tcomsat)
 "hl" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_x = 29;
@@ -4417,15 +4417,15 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "hY" = (
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "hZ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "ia" = (
@@ -4646,17 +4646,17 @@
 /area/turret_protected/tcomsat)
 "iy" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/transmitter,
-/obj/item/weapon/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "iz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -4664,9 +4664,9 @@
 /area/turret_protected/tcomsat)
 "iA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "iB" = (
@@ -5744,11 +5744,11 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
@@ -6497,7 +6497,7 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/door/window/brigdoor/eastleft{
 	dir = 8;
 	icon_state = "leftsecure";
@@ -6549,7 +6549,7 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/machinery/door/window/brigdoor/eastleft{
 	name = "Arrivals Processing Desk";
 	req_access = list(1)
@@ -6616,7 +6616,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/item/device/flash,
 /obj/structure/cable/green{
 	d2 = 4;
@@ -6667,7 +6667,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/item/device/flash,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -6715,12 +6715,12 @@
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/booze,
-/obj/item/weapon/reagent_containers/food/drinks/bottle{
+/obj/item/reagent_containers/food/drinks/bottle{
 	icon_state = "beer";
 	pixel_x = 0;
 	pixel_y = 0
 	},
-/obj/item/weapon/reagent_containers/food/drinks/bottle{
+/obj/item/reagent_containers/food/drinks/bottle{
 	icon_state = "beer";
 	pixel_x = 0;
 	pixel_y = 0
@@ -7371,7 +7371,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/syndicate_elite/station)
 "ny" = (
-/obj/item/weapon/cell,
+/obj/item/cell,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "nz" = (
@@ -7837,7 +7837,7 @@
 /area/security/vacantoffice)
 "ou" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/aicard,
+/obj/item/aicard,
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -8034,7 +8034,7 @@
 /obj/structure/window/basic{
 	dir = 4
 	},
-/obj/item/weapon/folder/blue{
+/obj/item/folder/blue{
 	pixel_x = 5
 	},
 /obj/structure/table/standard{
@@ -8052,12 +8052,12 @@
 	pixel_x = 24
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
 /obj/item/toy/figure/assistant,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
 "pc" = (
@@ -8423,7 +8423,7 @@
 	icon_state = "lighter-g";
 	name = "randomly spawned lighter";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/flame/lighter
+	spawn_object = /obj/item/flame/lighter
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/central)
@@ -8438,19 +8438,19 @@
 	icon_state = "deck";
 	name = "randomly spawned deck of cards";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/deck
+	spawn_object = /obj/item/deck
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/central)
 "pK" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/chips,
+/obj/item/reagent_containers/food/snacks/chips,
 /obj/random/single{
 	icon = 'icons/obj/drinks.dmi';
 	icon_state = "cola";
 	name = "randomly spawned cola";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/reagent_containers/food/drinks/cans/cola
+	spawn_object = /obj/item/reagent_containers/food/drinks/cans/cola
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/central)
@@ -8490,7 +8490,7 @@
 /turf/simulated/floor/plating,
 /area/security/vacantoffice)
 "pN" = (
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -8559,7 +8559,7 @@
 /area/maintenance/starboardsolar)
 "pV" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/chips,
+/obj/item/reagent_containers/food/snacks/chips,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/central)
 "pW" = (
@@ -8568,7 +8568,7 @@
 /area/hallway/secondary/entry/central)
 "pX" = (
 /obj/structure/table/wood,
-/obj/item/weapon/storage/fancy/cigarettes{
+/obj/item/storage/fancy/cigarettes{
 	pixel_y = 2
 	},
 /obj/random/single{
@@ -8576,7 +8576,7 @@
 	icon_state = "lighter-g";
 	name = "randomly spawned lighter";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/flame/lighter
+	spawn_object = /obj/item/flame/lighter
 	},
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/central)
@@ -10154,7 +10154,7 @@
 /area/storage/primary)
 "sX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/light,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Primary Tool Storage Aft";
@@ -10164,9 +10164,9 @@
 /area/storage/primary)
 "sY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/crayons,
-/obj/item/weapon/storage/fancy/crayons,
-/obj/item/weapon/storage/fancy/crayons/chalkbox,
+/obj/item/storage/fancy/crayons,
+/obj/item/storage/fancy/crayons,
+/obj/item/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "sZ" = (
@@ -10728,11 +10728,11 @@
 "uj" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/reagent_containers/food/snacks/chips{
+/obj/item/reagent_containers/food/snacks/chips{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/weapon/reagent_containers/food/snacks/chips,
+/obj/item/reagent_containers/food/snacks/chips,
 /obj/machinery/light_construct{
 	icon_state = "tube-construct-stage1";
 	dir = 8
@@ -11072,7 +11072,7 @@
 /area/store)
 "va" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/tape_roll,
+/obj/item/tape_roll,
 /obj/structure/table/standard,
 /obj/machinery/light_construct{
 	icon_state = "tube-construct-stage1";
@@ -11147,7 +11147,7 @@
 	},
 /area/crew_quarters/fitness/pool)
 "vh" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark{
 	name = "heated dark floor";
 	temperature = 303.15
@@ -11551,7 +11551,7 @@
 	},
 /area/crew_quarters/fitness/pool)
 "vY" = (
-/obj/item/weapon/inflatable_duck,
+/obj/item/inflatable_duck,
 /turf/simulated/floor/tiled/dark{
 	name = "heated dark floor";
 	temperature = 303.15
@@ -12352,14 +12352,14 @@
 /turf/simulated/floor/plating,
 /area/store)
 "xr" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "xs" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "xu" = (
@@ -12581,7 +12581,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/entrance)
 "xN" = (
-/obj/item/weapon/beach_ball,
+/obj/item/beach_ball,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -13141,8 +13141,8 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/pen,
+/obj/item/folder/blue,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "yL" = (
@@ -13241,7 +13241,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/tape_roll,
+/obj/item/tape_roll,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "yV" = (
@@ -13418,7 +13418,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "zm" = (
@@ -13657,8 +13657,8 @@
 /turf/simulated/open,
 /area/turbolift/command_station)
 "zL" = (
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -13692,8 +13692,8 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/pen,
+/obj/item/folder/blue,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "zQ" = (
@@ -14258,7 +14258,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark{
 	name = "heated dark floor";
 	temperature = 303.15
@@ -14601,7 +14601,7 @@
 /area/maintenance/arrivals)
 "By" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/item/device/radio/intercom{
 	dir = 8;
 	name = "Station Intercom (General)";
@@ -14611,7 +14611,7 @@
 /area/crew_quarters/sleep/bedrooms)
 "Bz" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -14755,7 +14755,7 @@
 /area/store)
 "BO" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -14777,7 +14777,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/sleep/bedrooms)
 "BQ" = (
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
@@ -14952,7 +14952,7 @@
 /area/store)
 "Ci" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -14964,7 +14964,7 @@
 	pixel_y = 10
 	},
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "Cl" = (
@@ -15219,21 +15219,21 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "CN" = (
-/obj/item/weapon/reagent_containers/toothpaste,
-/obj/item/weapon/reagent_containers/toothpaste,
-/obj/item/weapon/reagent_containers/toothbrush/red{
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothbrush/red{
 	name = "disposable toothbrush";
 	pixel_y = 8
 	},
-/obj/item/weapon/reagent_containers/toothbrush/red{
+/obj/item/reagent_containers/toothbrush/red{
 	name = "disposable toothbrush";
 	pixel_y = 8
 	},
-/obj/item/weapon/reagent_containers/toothbrush{
+/obj/item/reagent_containers/toothbrush{
 	name = "disposable toothbrush";
 	pixel_y = 8
 	},
-/obj/item/weapon/reagent_containers/toothbrush{
+/obj/item/reagent_containers/toothbrush{
 	name = "disposable toothbrush";
 	pixel_y = 8
 	},
@@ -15280,13 +15280,13 @@
 	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/flag/nanotrasen,
-/obj/item/weapon/flag/nanotrasen/l,
+/obj/item/flag/nanotrasen,
+/obj/item/flag/nanotrasen/l,
 /turf/simulated/floor/wood,
 /area/store)
 "CS" = (
 /obj/structure/table/steel,
-/obj/item/weapon/storage/fancy/crayons/chalkbox,
+/obj/item/storage/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "CT" = (
@@ -15374,8 +15374,8 @@
 /area/crew_quarters/toilet)
 "Db" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/mop,
-/obj/item/weapon/reagent_containers/glass/bucket{
+/obj/item/mop,
+/obj/item/reagent_containers/glass/bucket{
 	pixel_x = 8;
 	pixel_y = -4
 	},
@@ -15785,10 +15785,10 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/jcloset,
-/obj/item/weapon/grenade/chem_grenade/cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner,
-/obj/item/weapon/grenade/chem_grenade/cleaner,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -15865,16 +15865,16 @@
 "DS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/lights/mixed{
+/obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/box/lights/mixed{
+/obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = 6
 	},
-/obj/item/weapon/storage/box/mousetraps,
-/obj/item/weapon/storage/box/mousetraps,
+/obj/item/storage/box/mousetraps,
+/obj/item/storage/box/mousetraps,
 /turf/simulated/floor/plating,
 /area/janitor/surface)
 "DT" = (
@@ -16085,7 +16085,7 @@
 "En" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/soft,
-/obj/item/weapon/stamp{
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -16102,18 +16102,18 @@
 /area/quartermaster/loading)
 "Eo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
 	pixel_x = 0;
 	pixel_y = 30
 	},
-/obj/item/weapon/stamp{
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 5
@@ -17634,7 +17634,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "GW" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -17646,12 +17646,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "GX" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen{
+/obj/item/folder/yellow,
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/weapon/pen/red{
+/obj/item/pen/red{
 	pixel_x = 2;
 	pixel_y = 6
 	},
@@ -17661,8 +17661,8 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/qm)
 "GY" = (
-/obj/item/weapon/clipboard,
-/obj/item/weapon/stamp{
+/obj/item/clipboard,
+/obj/item/stamp{
 	name = "Quartermaster's stamp";
 	pixel_x = 0;
 	pixel_y = 0
@@ -18066,11 +18066,11 @@
 /area/quartermaster/qm)
 "HK" = (
 /obj/structure/table/standard,
-/obj/item/weapon/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/coin/silver,
+/obj/item/coin/silver,
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
@@ -18079,12 +18079,12 @@
 /area/quartermaster/qm)
 "HL" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cartridge/quartermaster{
+/obj/item/cartridge/quartermaster{
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/weapon/cartridge/quartermaster,
-/obj/item/weapon/cartridge/quartermaster{
+/obj/item/cartridge/quartermaster,
+/obj/item/cartridge/quartermaster{
 	pixel_x = -4;
 	pixel_y = 7
 	},
@@ -18107,15 +18107,15 @@
 /area/maintenance/cargo/surface)
 "HN" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/minihoe,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/material/hatchet,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/grass,
 /area/hydroponics/garden)
 "HO" = (
@@ -18388,11 +18388,11 @@
 	id = "commissary_counter";
 	name = "Shutter"
 	},
-/obj/item/weapon/towel/random{
+/obj/item/towel/random{
 	pixel_x = -4;
 	pixel_y = -4
 	},
-/obj/item/weapon/towel/random{
+/obj/item/towel/random{
 	pixel_x = 4;
 	pixel_y = -4
 	},
@@ -18567,7 +18567,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/drinkingglasses,
+/obj/item/storage/box/drinkingglasses,
 /obj/machinery/light_switch{
 	pixel_x = -26
 	},
@@ -19153,15 +19153,15 @@
 /area/sconference_room)
 "JV" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/folder/red,
-/obj/item/weapon/folder/blue,
+/obj/item/folder/yellow,
+/obj/item/folder/red,
+/obj/item/folder/blue,
 /obj/machinery/firealarm/north,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "JW" = (
-/obj/item/weapon/pen{
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -19169,7 +19169,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -19185,8 +19185,8 @@
 /area/sconference_room)
 "JY" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen{
+/obj/item/folder/yellow,
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -19394,7 +19394,7 @@
 /area/sconference_room)
 "Kw" = (
 /obj/structure/table/wood,
-/obj/item/weapon/pen{
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -19402,7 +19402,7 @@
 /area/sconference_room)
 "Kx" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 15;
 	pixel_y = -11
 	},
@@ -19410,9 +19410,9 @@
 /area/sconference_room)
 "Ky" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/red,
-/obj/item/weapon/folder/red,
-/obj/item/weapon/pen{
+/obj/item/folder/red,
+/obj/item/folder/red,
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -19472,8 +19472,8 @@
 /area/sconference_room)
 "KF" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "KG" = (
@@ -19482,9 +19482,9 @@
 /area/sconference_room)
 "KI" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/pen{
+/obj/item/folder/blue,
+/obj/item/folder/blue,
+/obj/item/pen{
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -19504,7 +19504,7 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "KK" = (
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /obj/structure/table/standard,
 /turf/simulated/floor/wood,
 /area/sconference_room)
@@ -19521,7 +19521,7 @@
 /area/sconference_room)
 "KN" = (
 /obj/structure/table/wood,
-/obj/item/weapon/storage/box/drinkingglasses,
+/obj/item/storage/box/drinkingglasses,
 /obj/machinery/light_switch{
 	pixel_x = -26
 	},
@@ -19550,7 +19550,7 @@
 "KQ" = (
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	spawn_cartridges = list(/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar)
+	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
 /obj/machinery/light,
 /turf/simulated/floor/wood,
@@ -20197,7 +20197,7 @@
 /area/hallway/secondary/entry/central)
 "LZ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/reagent_containers/glass/bucket{
+/obj/item/reagent_containers/glass/bucket{
 	pixel_x = 10;
 	pixel_y = 8
 	},
@@ -20256,11 +20256,11 @@
 "Me" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/reagent_containers/toothpaste{
+/obj/item/reagent_containers/toothpaste{
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/weapon/reagent_containers/toothpaste{
+/obj/item/reagent_containers/toothpaste{
 	pixel_x = 2;
 	pixel_y = -4
 	},
@@ -20331,10 +20331,10 @@
 /obj/structure/closet/medical_wall{
 	pixel_x = -32
 	},
-/obj/item/weapon/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
-/obj/item/weapon/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 9
@@ -21168,7 +21168,7 @@
 /obj/structure/janitorialcart{
 	dir = 8
 	},
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/janitor/surface)
@@ -21394,9 +21394,9 @@
 /area/hallway/secondary/entry/aft)
 "OB" = (
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /obj/structure/table/rack{
@@ -21701,7 +21701,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/obj/item/weapon/razor,
+/obj/item/razor,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
@@ -22014,7 +22014,7 @@
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "Qb" = (
@@ -22040,8 +22040,8 @@
 /area/shuttle/research/station)
 "Qf" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 9
@@ -22223,7 +22223,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "poolcafe";
@@ -22363,14 +22363,14 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/item/weapon/towel,
+/obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "QL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen,
+/obj/item/clipboard,
+/obj/item/pen,
 /turf/simulated/floor/carpet,
 /area/store)
 "QM" = (
@@ -22407,7 +22407,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/towel,
+/obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "QR" = (
@@ -22581,11 +22581,11 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/weapon/pen{
+/obj/item/pen{
 	pixel_x = 3;
 	pixel_y = 5
 	},
@@ -22887,7 +22887,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/item/weapon/storage/toolbox/emergency,
+/obj/item/storage/toolbox/emergency,
 /obj/structure/closet/emcloset,
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -23001,7 +23001,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "Se" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/floor_decal/corner/white/diagonal{
 	icon_state = "corner_white_diagonal";
 	dir = 4
@@ -23962,11 +23962,11 @@
 /obj/structure/closet,
 /obj/random/junk,
 /obj/effect/spider/stickyweb,
-/obj/item/weapon/reagent_containers/food/snacks/cb01,
-/obj/item/weapon/reagent_containers/food/snacks/cb02,
-/obj/item/weapon/reagent_containers/food/snacks/cb07,
-/obj/item/weapon/reagent_containers/food/snacks/cb04,
-/obj/item/weapon/reagent_containers/food/snacks/candy,
+/obj/item/reagent_containers/food/snacks/cb01,
+/obj/item/reagent_containers/food/snacks/cb02,
+/obj/item/reagent_containers/food/snacks/cb07,
+/obj/item/reagent_containers/food/snacks/cb04,
+/obj/item/reagent_containers/food/snacks/candy,
 /obj/item/trash/candy,
 /obj/item/trash/candy,
 /turf/simulated/floor/plating,
@@ -24418,8 +24418,8 @@
 /area/bridge/levela)
 "Vq" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "Vs" = (
@@ -24455,7 +24455,7 @@
 /area/hallway/secondary/entry/aft)
 "Vw" = (
 /obj/structure/table/wood,
-/obj/item/weapon/clipboard,
+/obj/item/clipboard,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "Vy" = (
@@ -24555,7 +24555,7 @@
 /area/bridge/levela)
 "VJ" = (
 /obj/structure/table/wood,
-/obj/item/weapon/folder/blue,
+/obj/item/folder/blue,
 /turf/simulated/floor/wood,
 /area/bridge/levela)
 "VK" = (
@@ -24772,13 +24772,13 @@
 /area/storage/shields)
 "Wj" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "Wk" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -24973,7 +24973,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/towel,
+/obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "WD" = (
@@ -25019,13 +25019,13 @@
 	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
+/obj/item/stool/padded,
+/obj/item/stool/padded,
+/obj/item/stool/padded,
+/obj/item/stool/padded,
+/obj/item/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/wood,
 /area/store)
 "WI" = (
@@ -25175,7 +25175,7 @@
 "WW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/carpet,
 /area/store)
 "WX" = (
@@ -25358,11 +25358,11 @@
 /area/bridge/levela)
 "Xs" = (
 /obj/structure/table/rack,
-/obj/item/weapon/beach_ball/holoball,
-/obj/item/weapon/beach_ball{
+/obj/item/beach_ball/holoball,
+/obj/item/beach_ball{
 	pixel_y = 12
 	},
-/obj/item/weapon/bikehorn/rubberducky,
+/obj/item/bikehorn/rubberducky,
 /obj/item/clothing/gloves/boxing/green,
 /obj/item/clothing/gloves/boxing,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -25388,8 +25388,8 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
-/obj/item/weapon/gun/energy/lasertag/red,
-/obj/item/weapon/gun/energy/lasertag/red,
+/obj/item/gun/energy/lasertag/red,
+/obj/item/gun/energy/lasertag/red,
 /obj/item/clothing/suit/redtag,
 /obj/item/clothing/suit/redtag,
 /turf/simulated/floor/tiled/dark,
@@ -25722,8 +25722,8 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/obj/item/weapon/gun/energy/lasertag/blue,
-/obj/item/weapon/gun/energy/lasertag/blue,
+/obj/item/gun/energy/lasertag/blue,
+/obj/item/gun/energy/lasertag/blue,
 /obj/item/clothing/suit/bluetag,
 /obj/item/clothing/suit/bluetag,
 /turf/simulated/floor/tiled/dark,
@@ -26145,7 +26145,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "YY" = (
-/obj/item/weapon/storage/secure/safe{
+/obj/item/storage/secure/safe{
 	pixel_x = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -26483,7 +26483,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/obj/item/weapon/storage/toolbox/emergency,
+/obj/item/storage/toolbox/emergency,
 /obj/structure/closet/emcloset,
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
@@ -26579,10 +26579,10 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/item/weapon/haircomb{
+/obj/item/haircomb{
 	pixel_y = 8
 	},
-/obj/item/weapon/haircomb,
+/obj/item/haircomb,
 /turf/simulated/floor/plating,
 /area/store)
 "ZT" = (

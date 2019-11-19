@@ -7,7 +7,7 @@ var/datum/antagonist/deathsquad/deathsquad
 	welcome_text = "You work in the service of corporate Asset Protection, answering directly to the Board of Directors."
 	landmark_id = "Commando"
 
-	id_type = /obj/item/weapon/card/id/asset_protection
+	id_type = /obj/item/card/id/asset_protection
 
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_OVERRIDE_MOB | ANTAG_HAS_NUKE | ANTAG_HAS_LEADER | ANTAG_RANDOM_EXCEPTED | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "huddeathsquad"

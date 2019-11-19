@@ -21,20 +21,20 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/force_replace = 0 // Can forcefully replace other pins.
 	var/pin_replaceable = 0 // Can be replaced by any pin.
 	var/durable = FALSE //is destroyed when it's pried out with a screwdriver, see gun.dm
-	var/obj/item/weapon/gun/gun
+	var/obj/item/gun/gun
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
 
 
 /obj/item/device/firing_pin/Initialize(mapload)
 	.=..()
-	if(istype(loc, /obj/item/weapon/gun))
+	if(istype(loc, /obj/item/gun))
 		gun = loc
 
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
-		if(istype(target, /obj/item/weapon/gun))
-			var/obj/item/weapon/gun/G = target
+		if(istype(target, /obj/item/gun))
+			var/obj/item/gun/G = target
 			if(G.pin && (force_replace || G.pin.pin_replaceable))
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun_remove(user)
@@ -51,7 +51,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 		emagged = TRUE
 		to_chat(user, "<span class='notice'>You override the authentication mechanism.</span>")
 
-/obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/weapon/gun/G)
+/obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
 	user.drop_from_inventory(src,gun)
 	gun.pin = src
@@ -121,7 +121,7 @@ Pins Below.
 	name = "loyalty firing pin"
 	desc = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
 	icon_state = "firing_pin_loyalty"
-	req_implant = /obj/item/weapon/implant/loyalty
+	req_implant = /obj/item/implant/loyalty
 
 // Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.

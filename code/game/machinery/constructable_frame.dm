@@ -10,7 +10,7 @@
 	density = 0
 	anchored = 0
 	use_power = 0
-	var/obj/item/weapon/circuitboard/circuit = null
+	var/obj/item/circuitboard/circuit = null
 	var/list/components = null
 	var/list/req_components = null
 	var/list/req_component_names = null
@@ -84,8 +84,8 @@
 						new /obj/item/stack/material/steel(src.loc, 2)
 						qdel(src)
 			if(3)
-				if(istype(P, /obj/item/weapon/circuitboard))
-					var/obj/item/weapon/circuitboard/B = P
+				if(istype(P, /obj/item/circuitboard))
+					var/obj/item/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 						to_chat(user, span("notice", "You add the circuit board to the blueprint."))
@@ -125,7 +125,7 @@
 						to_chat(user, span("notice", "You remove the circuit board."))
 					else
 						to_chat(user, span("notice", "You remove the circuit board and other components."))
-						for(var/obj/item/weapon/W in components)
+						for(var/obj/item/W in components)
 							W.forceMove(src.loc)
 					desc = initial(desc)
 					req_components = null

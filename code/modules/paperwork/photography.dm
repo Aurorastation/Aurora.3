@@ -23,7 +23,7 @@
 ********/
 var/global/photo_count = 0
 
-/obj/item/weapon/photo
+/obj/item/photo
 	name = "photo"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
@@ -35,33 +35,33 @@ var/global/photo_count = 0
 	var/icon/tiny
 	var/photo_size = 3
 
-/obj/item/weapon/photo/New()
+/obj/item/photo/New()
 	id = photo_count++
 
-/obj/item/weapon/photo/attack_self(mob/user as mob)
+/obj/item/photo/attack_self(mob/user as mob)
 	user.examinate(src)
 
-/obj/item/weapon/photo/attackby(obj/item/weapon/P as obj, mob/user as mob)
+/obj/item/photo/attackby(obj/item/P as obj, mob/user as mob)
 	if(P.ispen())
 		var/txt = sanitize(input(user, "What would you like to write on the back?", "Photo Writing", null)  as text, 128)
 		if(loc == user && user.stat == 0)
 			scribble = txt
 	..()
 
-/obj/item/weapon/photo/examine(mob/user)
+/obj/item/photo/examine(mob/user)
 	if(in_range(user, src))
 		show(user)
 		to_chat(user, desc)
 	else
 		to_chat(user, "<span class='notice'>It is too far away.</span>")
 
-/obj/item/weapon/photo/proc/show(mob/user as mob)
+/obj/item/photo/proc/show(mob/user as mob)
 	to_chat(user, browse_rsc(img, "tmp_photo_[id].png"))
 	user << browse("<html><head><title>[name]</title></head>" + "<body style='overflow:hidden;margin:0;text-align:center'>" + "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" + "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" + "</body></html>", "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
 	onclose(user, "[name]")
 	return
 
-/obj/item/weapon/photo/verb/rename()
+/obj/item/photo/verb/rename()
 	set name = "Rename photo"
 	set category = "Object"
 	set src in usr
@@ -77,14 +77,14 @@ var/global/photo_count = 0
 /**************
 * photo album *
 **************/
-/obj/item/weapon/storage/photo_album
+/obj/item/storage/photo_album
 	name = "Photo album"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "album"
 	item_state = "briefcase"
-	can_hold = list(/obj/item/weapon/photo)
+	can_hold = list(/obj/item/photo)
 
-/obj/item/weapon/storage/photo_album/MouseDrop(obj/over_object as obj)
+/obj/item/storage/photo_album/MouseDrop(obj/over_object as obj)
 
 	if((istype(usr, /mob/living/carbon/human)))
 		var/mob/M = usr
@@ -200,7 +200,7 @@ var/global/photo_count = 0
 	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
 
 /obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
-	var/obj/item/weapon/photo/p = createpicture(get_turf(target), user, flag)
+	var/obj/item/photo/p = createpicture(get_turf(target), user, flag)
 	printpicture(user, p)
 
 /obj/item/device/camera/proc/createpicture(atom/target, mob/living/user, flag)
@@ -233,7 +233,7 @@ var/global/photo_count = 0
 	ic.Blend(small_img,ICON_OVERLAY, 10, 13)
 	pc.Blend(tiny_img,ICON_OVERLAY, 12, 19)
 
-	var/obj/item/weapon/photo/p = new()
+	var/obj/item/photo/p = new()
 	p.name = "photo"
 	p.icon = ic
 	p.tiny = pc
@@ -245,13 +245,13 @@ var/global/photo_count = 0
 
 	return p
 
-/obj/item/device/camera/proc/printpicture(mob/user, obj/item/weapon/photo/p)
+/obj/item/device/camera/proc/printpicture(mob/user, obj/item/photo/p)
 	p.forceMove(user.loc)
 	if(!user.get_inactive_hand())
 		user.put_in_inactive_hand(p)
 
-/obj/item/weapon/photo/proc/copy(var/copy_id = 0)
-	var/obj/item/weapon/photo/p = new/obj/item/weapon/photo()
+/obj/item/photo/proc/copy(var/copy_id = 0)
+	var/obj/item/photo/p = new/obj/item/photo()
 
 	p.name = name
 	p.icon = icon(icon, icon_state)
