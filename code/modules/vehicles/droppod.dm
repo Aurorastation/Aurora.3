@@ -19,8 +19,6 @@
 	var/mob/humanload
 	var/mob/passenger
 
-	var/static/list/protrectedareas = list(/area/hallway/secondary/entry/dock, /area/crew_quarters/sleep/cryo, /area/crew_quarters/sleep/bedrooms)
-
 /obj/vehicle/droppod/legion
 	name = "legion drop pod"
 	desc = "A big metal pod painted in the colors of the Tau Ceti Foreign Legion."
@@ -141,45 +139,21 @@
 		return 1
 
 	if(href_list["fire"])
+		var/area/A = null
 		var/target = href_list["fire"]
-		if(target == "arrivals")
-			if(prob(20))
-				firefromarea(/area/hallway/secondary/entry/fore)
-			else if(prob(20))
-				firefromarea(/area/hallway/secondary/entry/port)
-			else if(prob(20))
-				firefromarea(/area/hallway/secondary/entry/starboard)
-			else if(prob(20))
-				firefromarea(/area/hallway/secondary/entry/aft)
-			else
-				firefromarea(/area/maintenance/arrivals)
-		else if(target == "cargo")
-			if(prob(65))
-				firefromarea(/area/quartermaster/loading)
-			else
-				firefromarea(/area/quartermaster/qm)
-		else if(target == "tcoms")
-			if(prob(20))
-				firefromarea(/area/tcommsat/entrance)
-			else if(prob(5)) // could drop them on an openturf
-				firefromarea(/area/turret_protected/tcomsat)
-			else if(prob(20))
-				firefromarea(/area/turret_protected/tcomfoyer)
-			else if(prob(20))
-				firefromarea(/area/turret_protected/tcomwest)
-			else if(prob(20))
-				firefromarea(/area/turret_protected/tcomeast)
-			else if(prob(20))
-				firefromarea(/area/tcommsat/computer)
-			else
-				firefromarea(/area/tcommsat/powercontrol)
-		else if(target == "commandescape")
-			firefromarea(/area/bridge/levela)
+		switch(target)
+			if("arrivals")
+				A = pick(/area/hallway/secondary/entry/fore, /area/hallway/secondary/entry/port, /area/hallway/secondary/entry/starboard, /area/hallway/secondary/entry/aft, /area/maintenance/arrivals)
+			if("cargo")
+				A = pick(/area/quartermaster/loading, /area/quartermaster/qm)
+			if("tcoms")
+				A = pick(/area/tcommsat/entrance, /area/turret_protected/tcomfoyer, /area/turret_protected/tcomwest, /area/turret_protected/tcomeast, /area/tcommsat/computer, /area/tcommsat/powercontrol)
+			if("commandescape")
+				A = /area/bridge/levela
+		if(A)
+			firefromarea(A)
 
 /obj/vehicle/droppod/proc/firefromarea(var/area/A)
-	if(A in protrectedareas)
-		ermessage()
-		return
 
 	var/turf/targetturf = pick_area_turf(A)
 	if(iswall(targetturf))
