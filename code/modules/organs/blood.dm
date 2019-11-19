@@ -148,7 +148,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					else
 						blood_max += ((W.damage / 40) * species.bleed_mod)
 				if(temp.status & ORGAN_ARTERY_CUT)
-					var/bleed_amount = Floor(vessel.total_volume / (temp.applied_pressure || !open_wound ? 400 : 250))
+					var/bleed_amount = Floor(vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 300))
 					if(bleed_amount)
 						if(open_wound)
 							blood_max += bleed_amount
