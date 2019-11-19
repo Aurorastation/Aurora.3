@@ -24948,7 +24948,7 @@
 /area/centcom/distress_prep)
 "nZg" = (
 /obj/structure/table/wood,
-/obj/item/weapon/flame/candle{
+/obj/item/flame/candle{
 	pixel_x = 10
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
@@ -25949,7 +25949,7 @@
 /area/centcom/distress_prep)
 "wEa" = (
 /obj/structure/table/wood,
-/obj/item/weapon/flame/candle{
+/obj/item/flame/candle{
 	pixel_x = -10
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
