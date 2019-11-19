@@ -22477,17 +22477,23 @@
 /area/centcom/legion)
 "bUI" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/backpack/legion,
-/obj/item/weapon/storage/backpack/legion,
-/obj/item/weapon/storage/backpack/legion,
-/obj/item/weapon/storage/backpack/legion,
-/obj/item/weapon/storage/backpack/legion,
-/obj/item/weapon/storage/backpack/legion,
 /obj/structure/sign/poster{
 	icon_state = "tcflposter";
 	pixel_x = 16;
 	pixel_y = 32;
 	poster_type = "/datum/poster/bay_67"
+	},
+/obj/item/weapon/storage/backpack/legion{
+	pixel_x = -1
+	},
+/obj/item/weapon/storage/backpack/legion{
+	pixel_x = -1
+	},
+/obj/item/weapon/storage/backpack/legion{
+	pixel_x = -1
+	},
+/obj/item/weapon/storage/backpack/legion{
+	pixel_x = -1
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -23187,15 +23193,12 @@
 /obj/item/clothing/shoes/swat,
 /obj/item/clothing/shoes/jackboots/unathi,
 /obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/shoes/jackboots/unathi,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
-/obj/item/clothing/gloves/swat/tactical,
-/obj/item/clothing/gloves/swat/tactical,
-/obj/item/clothing/gloves/swat/tactical,
+/obj/item/weapon/towel,
+/obj/item/weapon/towel,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -24581,6 +24584,10 @@
 /area/centcom/ferry)
 "hJC" = (
 /obj/structure/bed/chair/comfy/brown,
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn";
+	name = "igs - TCFLERT"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -27723,6 +27730,10 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn";
+	name = "igs - TCFLERT"
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -28125,6 +28136,10 @@
 "rcz" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "TCFLERTSpawn";
+	name = "igs - TCFLERT"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -92097,8 +92112,8 @@ hzB
 chO
 iol
 tJm
-nek
-nek
+ygK
+ygK
 ygK
 rcz
 rcz
@@ -92354,8 +92369,8 @@ hzB
 chO
 iol
 ygK
-nek
-nek
+ygK
+ygK
 hJC
 sDs
 cEO
@@ -92611,12 +92626,12 @@ hzB
 chO
 ldQ
 cqS
-nek
-nek
+ygK
+ygK
 ygK
 eVj
 cel
-ygK
+nek
 lBN
 aaM
 aaM
