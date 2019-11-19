@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - imageadd: "Adds new radio headset sprites, to match the PDAs."
+  - rscadd: "New Bowman headsets! Functionally identical, looks swankier. Can be found in any department locker."
