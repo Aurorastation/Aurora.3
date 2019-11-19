@@ -100,7 +100,7 @@
 	name = "Canister \[N2O\]"
 	icon_state = "redws"
 	canister_color = "redws"
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen
 	name = "Canister \[H2\]"
 	icon_state = "purple"
 	canister_color = "purple"
