@@ -83,6 +83,7 @@
 		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 		new /obj/item/clothing/shoes/medical(src)
 		new /obj/item/device/radio/headset/headset_med(src)
+		new /obj/item/device/radio/headset/headset_med/alt(src)
 		new /obj/item/clothing/glasses/hud/health/aviator(src)
 		new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 		new /obj/item/clothing/suit/storage/medical_chest_rig(src)
@@ -110,6 +111,7 @@
 		new /obj/item/cartridge/cmo(src)
 		new /obj/item/clothing/gloves/latex(src)
 		new /obj/item/device/radio/headset/heads/cmo(src)
+		new /obj/item/device/radio/headset/heads/cmo/alt(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/reagent_containers/hypospray/cmo(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
@@ -141,6 +143,7 @@
 		new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 		new /obj/item/clothing/shoes/brown	(src)
 		new /obj/item/device/radio/headset/heads/cmo(src)
+		new /obj/item/device/radio/headset/heads/cmo/alt(src)
 
 
 /obj/structure/closet/secure_closet/animal

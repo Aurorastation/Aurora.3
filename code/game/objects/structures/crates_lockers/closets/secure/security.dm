@@ -27,6 +27,7 @@
 		new /obj/item/clothing/under/captainformal(src)
 		//Tools
 		new /obj/item/device/radio/headset/heads/captain(src)
+		new /obj/item/device/radio/headset/heads/captain/alt(src)
 		new /obj/item/cartridge/captain(src)
 		new /obj/item/gun/energy/pistol(src)
 		new /obj/item/device/flash(src)
@@ -80,6 +81,7 @@
 		//Tools
 		new /obj/item/cartridge/hop(src)
 		new /obj/item/device/radio/headset/heads/hop(src)
+		new /obj/item/device/radio/headset/heads/hop/alt(src)
 		new /obj/item/gun/energy/pistol(src)
 		new /obj/item/gun/projectile/sec/flash(src)
 		new /obj/item/device/flash(src)
@@ -141,6 +143,7 @@
 		//Tools
 		new /obj/item/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
+		new /obj/item/device/radio/headset/heads/hos/alt(src)
 		new /obj/item/storage/box/tranquilizer(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
@@ -184,6 +187,7 @@
 		//Tools
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
+		new /obj/item/device/radio/headset/heads/hos/alt(src)
 		//Belts
 		new /obj/item/storage/belt/security(src)
 
@@ -231,6 +235,7 @@
 		//Tools
 		new /obj/item/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/device/radio/headset/headset_sec/alt(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
@@ -266,6 +271,7 @@
 		new /obj/item/clothing/under/rank/cadet(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/device/radio/headset/headset_sec/alt(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/reagent_containers/spray/pepper(src)
 		new /obj/item/taperoll/police(src)
@@ -301,6 +307,7 @@
 		new /obj/item/clothing/head/helmet(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/device/radio/headset/headset_sec/alt(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/ammo_magazine/c45m/rubber(src)
@@ -371,6 +378,7 @@
 		new /obj/item/clothing/shoes/brown(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/device/radio/headset/headset_sec/alt(src)
 		new /obj/item/clothing/suit/storage/vest/detective(src)
 		new /obj/item/ammo_magazine/c38(src)
 		new /obj/item/ammo_magazine/c38(src)
@@ -427,6 +435,7 @@
 		new /obj/item/clothing/shoes/laceup(src)
 		//Tools
 		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/device/radio/headset/headset_sec/alt(src)
 		new /obj/item/storage/box/evidence(src)
 		new /obj/item/device/flash(src)
 		new /obj/item/taperoll/police(src)

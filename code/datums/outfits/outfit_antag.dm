@@ -14,7 +14,7 @@
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/combat
-	l_ear = /obj/item/device/radio/headset/syndicate
+	l_ear = /obj/item/device/radio/headset/syndicate/alt
 	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
 	backpack_contents = list(

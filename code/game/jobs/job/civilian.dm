@@ -192,7 +192,7 @@
 	pda = /obj/item/device/pda/shaftminer
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	l_ear = /obj/item/device/radio/headset/headset_mining
 
 	backpack_contents = list(
 		/obj/item/crowbar = 1,
