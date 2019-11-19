@@ -24534,7 +24534,19 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/structure/closet/emcloset,
+/obj/structure/closet/crate{
+	name = "Hydrogen Tanks"
+	},
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bdl" = (
@@ -24865,6 +24877,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bfs" = (
@@ -24873,9 +24886,9 @@
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bft" = (
-/obj/machinery/portable_atmospherics/canister/empty,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bfv" = (
@@ -36207,6 +36220,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"wJm" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/rnd/storage)
 "wKw" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/monkeycubes{
@@ -57293,7 +57311,7 @@ aQr
 bcQ
 bdo
 aVp
-bfs
+wJm
 bft
 aQr
 aJW
@@ -57550,8 +57568,8 @@ aQr
 bdo
 bdo
 aVp
-bfv
-bfv
+wJm
+wJm
 aQr
 aJW
 aFW
