@@ -432,6 +432,12 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                     </div>
                     <div class = "itemContent">
                         {{:helper.string('<span class="{0}">{1}%</span>', data.aircontents.phoron  > 0 ? 'bad' : 'good' , data.aircontents.phoron)}}
+                    </div>
+                    <div class="itemLabel">
+                        Hydrogen:
+                    </div>
+                    <div class = "itemContent">
+                        {{:helper.string('<span class="{0}">{1}%</span>', data.aircontents.hydrogen  > 0 ? 'bad' : 'good' , data.aircontents.hydrogen)}}
 
                     </div>
                     {{if data.aircontents.other > 0}}

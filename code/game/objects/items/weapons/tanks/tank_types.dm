@@ -4,6 +4,7 @@
  *		Anesthetic
  *		Air
  *		Phoron
+ *		Hydrogen
  *		Emergency Oxygen
  */
 
@@ -97,6 +98,21 @@
 		user.remove_from_mob(src)
 		src.forceMove(F)
 	return
+
+/*
+ * Hydrogen
+ */
+/obj/item/tank/hydrogen
+	name = "hydrogen tank"
+	desc = "Contains gaseous hydrogen. Do not inhale. Warning: extremely flammable."
+	icon_state = "hydrogen"
+	gauge_icon = null
+	flags = CONDUCT
+	slot_flags = null	//they have no straps!
+
+/obj/item/tank/hydrogen/Initialize()
+	. = ..()
+	air_contents.adjust_gas("hydrogen", (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
 /*
  * Emergency Oxygen

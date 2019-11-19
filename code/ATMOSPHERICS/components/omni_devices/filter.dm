@@ -152,6 +152,8 @@
 			return "Phoron" //*cough* Plasma *cough*
 		if(ATM_N2O)
 			return "Nitrous Oxide"
+		if(ATM_H2)
+			return "Hydrogen"
 		else
 			return null
 
@@ -177,7 +179,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide")
+				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen")
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 
 	update_icon()
@@ -196,6 +198,8 @@
 			return ATM_P
 		if("Nitrous Oxide")
 			return ATM_N2O
+		if("Hydrogen")
+			return ATM_H2
 		if("in")
 			return ATM_INPUT
 		if("out")

@@ -55,6 +55,10 @@
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess
 #define PHORON_FLASHPOINT                  (T0C +  246) //519 K - autoignite temperature in air if that ever gets implemented.
 
+// Hydrogen fire properties.
+#define HYDROGEN_MINIMUM_BURN_TEMPERATURE    (T0C +  268) //541 K - autoignite temperature in tanks and canisters - enclosed environments I guess
+#define HYDROGEN_FLASHPOINT                  (T0C +  536) //809 K - autoignite temperature in air if that ever gets implemented.
+
 //These control the mole ratio of oxidizer and fuel used in the combustion reaction
 #define FIRE_REACTION_OXIDIZER_AMOUNT	3 //should be greater than the fuel amount if fires are going to spread much
 #define FIRE_REACTION_FUEL_AMOUNT		2
@@ -95,5 +99,6 @@
 #define ATMOSTANK_CO2           25000 // CO2 and PH are not critically important for station, only for toxins and alternative coolants, no need to store a lot of those.
 #define ATMOSTANK_PHORON        25000
 #define ATMOSTANK_NITROUSOXIDE  10000 // N2O doesn't have a real useful use, i guess it's on station just to allow refilling of sec's riot control canisters?
+#define ATMOSTANK_HYDROGEN      25000
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.

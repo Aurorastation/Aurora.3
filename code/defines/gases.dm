@@ -43,3 +43,10 @@
 	tile_overlay = "sleeping_agent"
 	overlay_limit = 1
 	flags = XGM_GAS_OXIDIZER
+
+/decl/xgm_gas/hydrogen
+	id = "hydrogen"
+	name = "Hydrogen"
+	specific_heat = 100	// J/(mol*K)
+	molar_mass = 0.002	// kg/mol
+	flags = XGM_GAS_FUEL

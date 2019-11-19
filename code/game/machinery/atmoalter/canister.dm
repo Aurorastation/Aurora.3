@@ -67,6 +67,12 @@
 	canister_color = "grey"
 	can_label = 0
 
+/obj/machinery/portable_atmospherics/canister/hydrogen
+	name = "Canister \[H2\]"
+	icon_state = "purple"
+	canister_color = "purple"
+	can_label = 0	
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 3 * ONE_ATMOSPHERE
 
@@ -94,6 +100,10 @@
 	name = "Canister \[N2O\]"
 	icon_state = "redws"
 	canister_color = "redws"
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide
+	name = "Canister \[H2\]"
+	icon_state = "purple"
+	canister_color = "purple"
 
 
 
@@ -373,6 +383,7 @@ update_flag
 				"\[Phoron\]" = "orange",
 				"\[CO2\]" = "black",
 				"\[Air\]" = "grey",
+				"\[Hydrogen\]" = "purple",
 				"\[CAUTION\]" = "yellow"
 			)
 			var/label = input("Choose canister label", "Gas canister") as null|anything in colors
@@ -443,6 +454,12 @@ update_flag
 
 	src.update_icon()
 
+/obj/machinery/portable_atmospherics/canister/hydrogen/Initialize()
+	. = ..()
+
+	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
+	src.update_icon()	
+
 // Special types used for engine setup admin verb, they contain double amount of that of normal canister.
 /obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/Initialize()
 	. = ..()
@@ -457,6 +474,11 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.update_icon()
+
+/obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup/Initialize()
+	. = ..()
+	src.air_contents.adjust_gas("hydrogen", MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()

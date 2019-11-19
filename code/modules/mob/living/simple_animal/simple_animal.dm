@@ -52,6 +52,8 @@
 	var/max_tox = 1
 	var/min_co2 = 0
 	var/max_co2 = 5
+	var/min_h2 = 0
+	var/max_h2 = 5
 	var/min_n2 = 0
 	var/max_n2 = 0
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
@@ -237,6 +239,10 @@
 			else if(min_co2 && Environment.gas["carbon_dioxide"] < min_co2)
 				atmos_suitable = 0
 			else if(max_co2 && Environment.gas["carbon_dioxide"] > max_co2)
+				atmos_suitable = 0
+			else if(min_h2 && Environment.gas["hydrogen"] < min_h2)
+				atmos_suitable = 0
+			else if(max_h2 && Environment.gas["hydrogen"] > max_h2)
 				atmos_suitable = 0
 
 	//Atmos effect

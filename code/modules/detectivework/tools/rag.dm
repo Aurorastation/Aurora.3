@@ -223,6 +223,14 @@
 		qdel(src)
 		return
 
+	if(reagents.get_reagent_amount("hydrogen")) // the hydrogen explodes when exposed to fire
+		visible_message("<span class='danger'>\The [src] conflagrates violently!</span>")
+		var/datum/effect/effect/system/reagents_explosion/e = new()
+		e.set_up(round(reagents.get_reagent_amount("hydrogen") / 2.5, 1), get_turf(src), 0, 0)
+		e.start()
+		qdel(src)
+		return
+
 	START_PROCESSING(SSprocessing, src)
 	set_light(2, null, "#E38F46")
 	on_fire = 1
