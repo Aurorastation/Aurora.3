@@ -93,6 +93,7 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
 var/datum/visualnet/cult/cultnet = new()
+var/datum/visualnet/camera/syndicate/syndnet = new()
 
 // Runes
 var/global/list/rune_list = new()

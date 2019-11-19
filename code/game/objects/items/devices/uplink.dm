@@ -161,7 +161,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 	if(href_list["Messenger"])
 		if(href_list["Messenger"] == "Message")
-			to_world("message fired")
 			var/obj/item/device/uplink/hidden/U = locate(href_list["target"])
 			src.create_message(usr, U)
 			if(nanoui_menu == 4)
@@ -170,7 +169,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 					nanoui_menu = 41
 
 		if(href_list["Messenger"] == "View")
-			to_world("View fired")
 			if(href_list["target"] in conversations)
 				active_conversation = href_list["target"]
 				nanoui_menu = 41
@@ -361,8 +359,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 			else
 				comm_type = ""
 
-			to_world("Uplink detected: [U.uplink_owner.name] -- [U.uplink_type] -- [U.active] -- [comm_type]")
-
 			if(!U.uplink_type)
 				continue
 
@@ -393,23 +389,18 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	else
 		nanoui_data["active_conversation"] = null
 
-/obj/item/device/uplink/hidden/proc/create_message(var/mob/user, var/obj/item/device/uplink/hidden/recipient)
-	to_world("create_message fired")
+/obj/item/device/uplink/hidden/proc/create_message(mob/user, obj/item/device/uplink/hidden/recipient)
 	var/t = input(user, "Please enter message", "Uplink Communications", null) as text|null
 	t = sanitize(t)
 	t = replace_characters(t, list("&#34;" = "\""))
-	to_world("[t]")
 
 	if (!t || !istype(recipient) || loc.loc != user)
-		to_world("failed 1")
 		return
 
 	if (last_text && world.time < last_text + 5)
-		to_world("failed 2")
 		return
 
 	if(use_check_and_message(user))
-		to_world("failed 3")
 		return
 
 	last_text = world.time
@@ -431,9 +422,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	SSnanoui.update_user_uis(user, src)
 
 /obj/item/device/uplink/hidden/proc/receive_message(var/obj/item/device/uplink/hidden/sender, message)
-	to_world("Receive message fired")
 	var/reception_message = "\icon[src] <b>Uplink Message from [sender.uplink_type] [sender.uplink_owner.name], </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sender]'>Reply</a>)"
-	var/mob/living/L = get_atom_on_turf(src)
+	var/mob/living/L = loc.loc
 	if(!istype(L))
 		return
 

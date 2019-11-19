@@ -132,7 +132,7 @@
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
-	var/mob/abstract/eye/aiEye/eye
+	var/mob/abstract/eye/syndicate/eye
 
 /obj/item/clothing/mask/ai/Initialize()
 	. = ..()
@@ -147,6 +147,8 @@
 		for(var/datum/chunk/c in eye.visibleChunks)
 			c.remove(eye)
 		eye.setLoc(user)
+	else
+		dropped(user)
 
 /obj/item/clothing/mask/ai/dropped(var/mob/user)
 	..()
