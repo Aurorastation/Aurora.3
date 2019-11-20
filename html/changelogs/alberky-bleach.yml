@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Space cleaner should no longer deal toxin damage when sprayed on people."
