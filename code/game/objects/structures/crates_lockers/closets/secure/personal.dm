@@ -6,9 +6,9 @@
 
 /obj/structure/closet/secure_closet/personal/fill()
 	if(prob(50))
-		new /obj/item/weapon/storage/backpack(src)
+		new /obj/item/storage/backpack(src)
 	else
-		new /obj/item/weapon/storage/backpack/satchel_norm(src)
+		new /obj/item/storage/backpack/satchel_norm(src)
 	new /obj/item/device/radio/headset( src )
 
 /obj/structure/closet/secure_closet/personal/patient
@@ -43,13 +43,13 @@
 			icon_state = icon_opened
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
-	new /obj/item/weapon/storage/backpack/satchel/withwallet( src )
+	new /obj/item/storage/backpack/satchel/withwallet( src )
 	new /obj/item/device/radio/headset( src )
 
 
-/obj/structure/closet/secure_closet/personal/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/secure_closet/personal/attackby(obj/item/W as obj, mob/user as mob)
 	if (opened)
-		if (istype(W, /obj/item/weapon/grab))
+		if (istype(W, /obj/item/grab))
 			MouseDrop_T(W:affecting, user)      //act like they were dragged onto the closet
 		if(W)
 			user.drop_from_inventory(W,loc)
@@ -59,7 +59,7 @@
 		if(user.loc == src)
 			to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
 			return
-		var/obj/item/weapon/card/id/I = W.GetID()
+		var/obj/item/card/id/I = W.GetID()
 
 		if(broken)
 			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
@@ -76,7 +76,7 @@
 				desc = "Owned by [I.registered_name]."
 		else
 			to_chat(user, "<span class='warning'>Access Denied</span>")
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/melee/energy/blade))
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [W]!", "You hear metal being sliced and sparks flying."))
 			W:spark_system.queue()
 			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)

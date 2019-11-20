@@ -71,7 +71,7 @@
 
 	return ..()
 
-/obj/machinery/atmospherics/pipe/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (istype(src, /obj/machinery/atmospherics/pipe/tank))
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/pipe/vent))
@@ -80,7 +80,7 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
-	if (!W.iswrench() && !istype(W, /obj/item/weapon/pipewrench))
+	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -89,7 +89,7 @@
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		if(!istype(W, /obj/item/weapon/pipewrench))
+		if(!istype(W, /obj/item/pipewrench))
 			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
 			add_fingerprint(user)
 			return 1
@@ -97,7 +97,7 @@
 			to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
 	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if (do_after(user, istype(W, /obj/item/weapon/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
+	if (do_after(user, istype(W, /obj/item/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

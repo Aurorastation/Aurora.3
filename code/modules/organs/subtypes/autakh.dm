@@ -291,7 +291,7 @@
 /obj/item/organ/external/hand/right/autakh/tool
 	name = "engineering grasper"
 	action_button_name = "Deploy Mechanical Combitool"
-	var/augment_type = /obj/item/weapon/combitool/robotic
+	var/augment_type = /obj/item/combitool/robotic
 
 /obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
 	. = ..()
@@ -329,22 +329,22 @@
 		owner.put_in_active_hand(M)
 		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
 
-/obj/item/weapon/combitool/robotic
+/obj/item/combitool/robotic
 	name = "robotic combitool"
 	desc = "An integrated combitool module."
 	icon_state = "digitool"
 
-/obj/item/weapon/combitool/robotic/throw_at()
+/obj/item/combitool/robotic/throw_at()
 	usr.drop_from_inventory(src)
 
-/obj/item/weapon/combitool/robotic/dropped()
+/obj/item/combitool/robotic/dropped()
 	loc = null
 	qdel(src)
 
 /obj/item/organ/external/hand/right/autakh/tool/mining
 	name = "mining grasper"
 	action_button_name = "Deploy Mounted Drill"
-	augment_type = /obj/item/weapon/pickaxe/drill/integrated
+	augment_type = /obj/item/pickaxe/drill/integrated
 
 /obj/item/organ/external/hand/right/autakh/mining/refresh_action_button()
 	. = ..()
@@ -353,15 +353,15 @@
 		if(action.button)
 			action.button.UpdateIcon()
 
-/obj/item/weapon/pickaxe/drill/integrated
+/obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
 	icon_state = "integrateddrill"
 	item_state = "integrateddrill"
 
-/obj/item/weapon/pickaxe/drill/integrated/throw_at()
+/obj/item/pickaxe/drill/integrated/throw_at()
 	usr.drop_from_inventory(src)
 
-/obj/item/weapon/pickaxe/drill/integrated/dropped()
+/obj/item/pickaxe/drill/integrated/dropped()
 	loc = null
 	qdel(src)
 
@@ -396,7 +396,7 @@
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
-		var/obj/item/weapon/grab/G = owner.get_active_hand()
+		var/obj/item/grab/G = owner.get_active_hand()
 		if(!istype(G))
 			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
 			return
@@ -437,7 +437,7 @@
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
-		var/obj/item/weapon/grab/G = owner.get_active_hand()
+		var/obj/item/grab/G = owner.get_active_hand()
 		if(!istype(G))
 			to_chat(owner, "<span class='danger'>You must grab someone before trying to use your [src]!</span>")
 			return

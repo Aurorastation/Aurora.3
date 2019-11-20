@@ -1,5 +1,5 @@
 
-/obj/item/weapon/grab/proc/inspect_organ(mob/living/carbon/human/H, mob/user, var/target_zone)
+/obj/item/grab/proc/inspect_organ(mob/living/carbon/human/H, mob/user, var/target_zone)
 
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
@@ -41,7 +41,7 @@
 		if(!bad)
 			to_chat(user, "<span class='notice'>[H]'s skin is normal.</span>")
 
-/obj/item/weapon/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+/obj/item/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -56,7 +56,7 @@
 		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
 		affecting.adjustHalLoss(Clamp(0, 60-affecting.halloss, 30)) //up to 60 halloss
 
-/obj/item/weapon/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
 		return
 
@@ -82,7 +82,7 @@
 
 	attack.handle_eye_attack(attacker, target)
 
-/obj/item/weapon/grab/proc/headbut(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/headbut(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
 		return
 	if(target.lying)
@@ -116,7 +116,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
+/obj/item/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
 	if(state < GRAB_NECK)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -124,7 +124,7 @@
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		return
 
-/obj/item/weapon/grab/proc/pin_down(mob/target, mob/attacker)
+/obj/item/grab/proc/pin_down(mob/target, mob/attacker)
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -137,7 +137,7 @@
 		attacker.visible_message("<span class='danger'>[attacker] forces [target] to the ground!</span>")
 		apply_pinning(target, attacker)
 
-/obj/item/weapon/grab/proc/apply_pinning(mob/target, mob/attacker)
+/obj/item/grab/proc/apply_pinning(mob/target, mob/attacker)
 	force_down = 1
 	target.Weaken(3)
 	target.lying = 1
@@ -145,7 +145,7 @@
 	attacker.set_dir(EAST) //face the victim
 	target.set_dir(SOUTH) //face up
 
-/obj/item/weapon/grab/proc/devour(mob/target, mob/user)
+/obj/item/grab/proc/devour(mob/target, mob/user)
 	var/mob/living/carbon/human/H = user
 	var/can_eat
 	if(istype(H) && H.species.gluttonous)
@@ -155,7 +155,7 @@
 		H.attempt_devour(target, H.eat_types, H.mouth_size)
 
 
-/obj/item/weapon/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+/obj/item/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 
 
 	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[target.h_style]

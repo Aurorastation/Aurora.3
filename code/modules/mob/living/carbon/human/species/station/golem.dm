@@ -22,7 +22,7 @@
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
 
-	meat_type = /obj/item/weapon/ore/coal
+	meat_type = /obj/item/ore/coal
 
 	brute_mod = 2
 	burn_mod = 4
@@ -342,7 +342,7 @@
 	brute_mod = 3
 	burn_mod = 0.3
 
-	meat_type = /obj/item/weapon/material/shard
+	meat_type = /obj/item/material/shard
 
 	blood_color = "#00E1FF"
 	flesh_color = "#00E1FF"
@@ -380,7 +380,7 @@
 	set waitfor = 0
 	sleep(1)
 	for(var/i in 1 to 5)
-		var/obj/item/weapon/material/shard/T = new meat_type(H.loc)
+		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
 		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
 	qdel(H)
@@ -527,7 +527,7 @@
 	brute_mod = 0.8
 	burn_mod = 2
 
-	meat_type = /obj/item/weapon/material/shard/wood
+	meat_type = /obj/item/material/shard/wood
 
 	blood_color = "#824B28"
 	flesh_color = "#824B28"
@@ -628,7 +628,7 @@
 	burn_mod = 1
 	slowdown = -2
 
-	meat_type = /obj/item/weapon/ore/glass
+	meat_type = /obj/item/ore/glass
 
 	blood_color = "#D9C179"
 	flesh_color = "#D9C179"
@@ -772,7 +772,7 @@
 	warning_low_pressure = WARNING_LOW_PRESSURE
 	hazard_low_pressure = HAZARD_LOW_PRESSURE
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 
 	blood_color = "#5C4831"
 	flesh_color = "#FFC896"

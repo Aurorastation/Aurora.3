@@ -251,17 +251,17 @@
 		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
-	var/obj/item/weapon/gripper/G = null
-	if (istype(module_state_1, /obj/item/weapon/gripper))
+	var/obj/item/gripper/G = null
+	if (istype(module_state_1, /obj/item/gripper))
 
 		G = module_state_1
 		if (!G.wrapped && G.grip_item(W, src, 1))
 			return 1
-	else if (istype(module_state_2, /obj/item/weapon/gripper))
+	else if (istype(module_state_2, /obj/item/gripper))
 		G = module_state_2
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
-	else if (istype(module_state_3, /obj/item/weapon/gripper))
+	else if (istype(module_state_3, /obj/item/gripper))
 		G = module_state_3
 		if (!G.wrapped && G.grip_item(W, src, 0))
 			return 1
@@ -272,8 +272,8 @@
 
 
 /mob/living/silicon/robot/drop_item()
-	if (istype(module_active, /obj/item/weapon/gripper))
-		var/obj/item/weapon/gripper/G = module_active
+	if (istype(module_active, /obj/item/gripper))
+		var/obj/item/gripper/G = module_active
 		if (G.wrapped)
 			G.drop_item()
 			return
@@ -286,8 +286,8 @@
 	if(W)
 		if(!target)
 			target = loc
-		if (istype(W.loc, /obj/item/weapon/gripper))
-			var/obj/item/weapon/gripper/G = W.loc
+		if (istype(W.loc, /obj/item/gripper))
+			var/obj/item/gripper/G = W.loc
 			G.drop(target)
 			return 1
 	return 0

@@ -75,7 +75,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /obj/machinery/light/small/built,
-/obj/item/weapon/gun/projectile/pistol/adhomai,
+/obj/item/gun/projectile/pistol/adhomai,
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
 "ao" = (
@@ -116,7 +116,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/glass_command,
-/obj/item/weapon/landmine{
+/obj/item/landmine{
 	anchored = 1;
 	deployed = 1
 	},
@@ -218,7 +218,7 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/melee/whip,
+/obj/item/melee/whip,
 /obj/random/spacecash,
 /obj/random/spacecash,
 /turf/simulated/floor/wood,
@@ -270,7 +270,7 @@
 	dir = 1
 	},
 /obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -376,13 +376,13 @@
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/sunglasses/big,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/gun/projectile/contender,
+/obj/item/gun/projectile/contender,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "bc" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -404,7 +404,7 @@
 	},
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet/rd,
+/obj/item/bedsheet/rd,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -430,7 +430,7 @@
 /area/derelict/ship)
 "bn" = (
 /obj/machinery/door/airlock/vault/bolted,
-/obj/item/weapon/landmine{
+/obj/item/landmine{
 	anchored = 1;
 	deployed = 1
 	},
@@ -493,25 +493,25 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_stew,
+/obj/item/reagent_containers/food/snacks/tajaran_stew,
+/obj/item/reagent_containers/food/snacks/tajaran_stew,
+/obj/item/reagent_containers/food/snacks/tajaran_stew,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
-/obj/item/weapon/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
+/obj/item/reagent_containers/food/snacks/lasagna,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "by" = (
@@ -544,7 +544,7 @@
 /area/derelict/ship)
 "bE" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -553,9 +553,9 @@
 /obj/machinery/firealarm/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate/freezer,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
-/obj/item/weapon/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
+/obj/item/storage/field_ration,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bG" = (
@@ -626,7 +626,7 @@
 "bS" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bT" = (
@@ -708,7 +708,7 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_stew,
+/obj/item/reagent_containers/food/snacks/tajaran_stew,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cg" = (
@@ -725,7 +725,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
-/obj/item/weapon/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cj" = (
@@ -733,7 +733,7 @@
 	icon_state = "spline_fancy";
 	dir = 9
 	},
-/obj/item/weapon/bedsheet/rd,
+/obj/item/bedsheet/rd,
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -742,7 +742,7 @@
 /area/derelict/ship)
 "cl" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/item/weapon/gun/energy/rifle/icelance,
+/obj/item/gun/energy/rifle/icelance,
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -814,7 +814,7 @@
 "cv" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
-/obj/item/weapon/landmine{
+/obj/item/landmine{
 	anchored = 1;
 	deployed = 1
 	},
@@ -921,7 +921,7 @@
 	icon_state = "spline_fancy";
 	dir = 9
 	},
-/obj/item/weapon/bedsheet/rd,
+/obj/item/bedsheet/rd,
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -995,7 +995,7 @@
 "cZ" = (
 /obj/structure/janitorialcart,
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor,
 /area/derelict/ship)
 "da" = (
@@ -1047,12 +1047,12 @@
 /area/derelict/ship)
 "dh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard/shrapnel,
+/obj/item/material/shard/shrapnel,
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
 "dl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard/wood,
+/obj/item/material/shard/wood,
 /obj/machinery/light/small/built{
 	dir = 4
 	},
@@ -1212,7 +1212,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
-/obj/item/weapon/material/shard/wood,
+/obj/item/material/shard/wood,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dQ" = (
@@ -1366,7 +1366,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "eA" = (
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -1409,7 +1409,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "eH" = (
-/obj/item/weapon/gun/energy/rifle/icelance,
+/obj/item/gun/energy/rifle/icelance,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
@@ -1482,8 +1482,8 @@
 /obj/structure/table/steel,
 /obj/machinery/door/window/westright,
 /obj/machinery/door/blast/shutters/open,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eV" = (
@@ -1500,7 +1500,7 @@
 "eX" = (
 /obj/item/clothing/head/surgery,
 /obj/item/clothing/suit/apron/surgery,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
@@ -1635,7 +1635,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
 "oH" = (
-/obj/item/weapon/landmine{
+/obj/item/landmine{
 	anchored = 1;
 	deployed = 1
 	},
@@ -1663,7 +1663,7 @@
 /area/derelict/ship)
 "wE" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/landmine{
+/obj/item/landmine{
 	anchored = 1;
 	deployed = 1
 	},
@@ -1725,7 +1725,7 @@
 "Ee" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/weapon/storage/field_ration,
+/obj/item/storage/field_ration,
 /obj/machinery/light/small/built,
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
@@ -1811,7 +1811,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/rig/tesla,
+/obj/item/rig/tesla,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
@@ -1821,7 +1821,7 @@
 "Qe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/weapon/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
 "Qk" = (
@@ -1833,7 +1833,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/hatch,
-/obj/item/weapon/landmine{
+/obj/item/landmine{
 	anchored = 1;
 	deployed = 1
 	},
