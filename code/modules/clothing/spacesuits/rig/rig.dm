@@ -306,7 +306,7 @@
 
 	if(dnaLock && !offline)
 		if(dnaLock != wearer.dna)
-			visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch detected. Intruder in suit. Initiating crush procedures.\"</span>")
+			visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
 			crushing = TRUE
 
 	if(wearer != initiator)
@@ -377,7 +377,7 @@
 		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
 		if(wearer.stat == DEAD)
 			crushing = FALSE
-			visible_message(span("danger", "A squelching sound comes from within the sealed hardsuit..")) // It'll explode at this stage, deleting the suit and the person and the immediate surroundings
+			visible_message(span("danger", "A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
 
 	if(cell && cell.charge > 0 && electrified > 0)
 		electrified--
