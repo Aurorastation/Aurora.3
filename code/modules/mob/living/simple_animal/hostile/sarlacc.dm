@@ -8,7 +8,7 @@
 ///////////////Great Worm///////////////
 ////////////////////////////////////////
 
-/obj/item/weapon/trap/sarlacc
+/obj/item/trap/sarlacc
 	name = "great worm maw"
 	desc = "Hop in, the gastrointestinal juices are just fine."
 	icon = 'icons/mob/npc/cavern.dmi'
@@ -21,12 +21,12 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
-/obj/item/weapon/trap/sarlacc/Destroy()
+/obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
 	return ..()
 
-/obj/item/weapon/trap/sarlacc/Crossed(AM as mob|obj)
+/obj/item/trap/sarlacc/Crossed(AM as mob|obj)
 	if(originator)
 		if(deployed && isliving(AM) && !originator.eating)
 			var/mob/living/L = AM
@@ -41,7 +41,7 @@
 			addtimer(CALLBACK(src, .proc/devour, L), 50 SECONDS)
 	..()
 
-/obj/item/weapon/trap/sarlacc/proc/devour(var/mob/living/C)
+/obj/item/trap/sarlacc/proc/devour(var/mob/living/C)
 	if(!C)
 		if(!deployed)
 			deployed = 1
@@ -117,7 +117,7 @@
 	var/asleep = 0
 	var/tentacles = 6
 	var/list/active_tentacles = list()
-	var/obj/item/weapon/trap/sarlacc/sarlacc
+	var/obj/item/trap/sarlacc/sarlacc
 	var/loot_count
 	var/spawn_delay = 0
 	var/spawn_time = 5
@@ -128,7 +128,7 @@
 	. = ..()
 	SSmob.greatworms += src
 	loot_count = 4+(rand(0,4))
-	var/obj/item/weapon/trap/sarlacc/L = new /obj/item/weapon/trap/sarlacc(src.loc)
+	var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
 	L.originator = src
 	sarlacc = L
 
@@ -142,7 +142,7 @@
 /mob/living/simple_animal/hostile/greatworm/Life()
 	..()
 	if(!sarlacc)
-		var/obj/item/weapon/trap/sarlacc/L = new /obj/item/weapon/trap/sarlacc(src.loc)
+		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
 		L.originator = src
 		sarlacc = L
 	if(sarlacc && sarlacc.loc != src.loc) //if the sarlacc is not located on us, move it back onto us.

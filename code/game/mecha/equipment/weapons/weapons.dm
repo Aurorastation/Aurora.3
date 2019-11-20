@@ -64,7 +64,7 @@
 		def_zone = H.zone_sel.selecting
 		H.setMoveCooldown(fire_time)
 	P.launch_projectile(target, def_zone, user, params)
-	playsound(chassis, fire_sound, fire_volume, 1, 5, 0.9, 1)
+	playsound(chassis, fire_sound, fire_volume, 1, 3, 0.5, 1)
 
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/reset_fire()
 	set_ready_state(1)
@@ -83,7 +83,7 @@
 	fire_volume = 100
 	required_type = list(/obj/mecha/working/ripley, /obj/mecha/combat)
 	var/turf/previousturf = null
-	var/obj/item/weapon/tank/phoron/ptank = null
+	var/obj/item/tank/phoron/ptank = null
 
 /obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/examine(mob/user)
 	..()
@@ -94,7 +94,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/flamethrower/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.stat || user.restrained() || user.lying)	return
-	if(istype(W, /obj/item/weapon/tank/phoron))
+	if(istype(W, /obj/item/tank/phoron))
 		if(ptank)
 			to_chat(user, "<span class='notice'>There appears to already be a phoron tank loaded in [src]!</span>")
 			return

@@ -67,7 +67,7 @@
 	network_channels[channel_name] = newChannel
 	return newChannel
 
-/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/datum/feed_channel/channel, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
+/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/datum/feed_channel/channel, var/obj/item/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
 	if(!channel)
 		log_debug("SSnews: Attempted to submit a article from [author] without a proper channel",SEVERITY_ERROR)
 		return

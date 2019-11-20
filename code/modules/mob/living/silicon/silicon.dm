@@ -26,8 +26,8 @@
 
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	var/list/access_rights
-	var/obj/item/weapon/card/id/idcard
-	var/idcard_type = /obj/item/weapon/card/id/synthetic
+	var/obj/item/card/id/idcard
+	var/idcard_type = /obj/item/card/id/synthetic
 
 	mob_thinks = FALSE
 

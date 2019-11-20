@@ -77,7 +77,7 @@
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(light_toggled)
 		if(assembly)
-			assembly.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb, uv_power = 0)
+			assembly.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb)
 	else
 		if(assembly)
 			assembly.set_light(0)
@@ -372,7 +372,7 @@
 
 /obj/item/integrated_circuit/output/printer/do_work()
 	var/obj/item/integrated_circuit/insert_slot/paper_tray/paper_source = get_pin_data_as_type(IC_INPUT, 2, /obj/item/)
-	var/obj/item/weapon/paper/paper_sheet = null
+	var/obj/item/paper/paper_sheet = null
 	var/eject = get_pin_data(IC_INPUT, 3)
 	var/datum/integrated_io/info = inputs[1]
 	var/using_tray = istype(paper_source)
@@ -382,7 +382,7 @@
 		stuff_to_print = info.data
 	if(using_tray)
 		paper_sheet = paper_source.get_item(FALSE)
-	if(istype(paper_source, /obj/item/weapon/paper))
+	if(istype(paper_source, /obj/item/paper))
 		paper_sheet = paper_source
 	if(paper_sheet)
 		stuff_to_print = paper_sheet.info + stuff_to_print

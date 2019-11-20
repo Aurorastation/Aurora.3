@@ -219,6 +219,19 @@
 				return
 	return ..(M,user)
 
+//Religious items
+/obj/item/clothing/accessory/rosary
+	name = "rosary"
+	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
+	icon = 'icons/obj/clothing/chaplain.dmi'
+	icon_state = "rosary"
+	overlay_state = "rosary"
+	flippable = 1
+
+	slot_flags = SLOT_BELT | SLOT_TIE
+
+	drop_sound = 'sound/items/drop/scrap.ogg'
+
 //Medals
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
@@ -418,7 +431,7 @@
 	icon_state = "classicponcho"
 	item_state = "classicponcho"
 	icon_override = 'icons/mob/ties.dmi'
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/weapon/storage/bible,/obj/item/weapon/nullrod,/obj/item/weapon/reagent_containers/food/drinks/bottle/holywater)
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -436,17 +449,35 @@
 		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
 	..()
 
+/obj/item/clothing/accessory/poncho/big
+	name = "large poncho"
+	desc = "A simple, comfortable poncho. Noticibly larger around the shoulders."
+	item_state = "classicponcho-big"
+	icon_state = "classicponcho-big"
+
 /obj/item/clothing/accessory/poncho/green
 	name = "green poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is green."
 	icon_state = "greenponcho"
 	item_state = "greenponcho"
 
+/obj/item/clothing/accessory/poncho/green/big
+	name = "large green poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is green. Noticibly larger around the shoulders."
+	icon_state = "greenponcho-big"
+	item_state = "greenponcho-big"
+
 /obj/item/clothing/accessory/poncho/red
 	name = "red poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is red."
 	icon_state = "redponcho"
 	item_state = "redponcho"
+
+/obj/item/clothing/accessory/poncho/red/big
+	name = "large red poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is red. Noticibly larger around the shoulders."
+	icon_state = "redponcho-big"
+	item_state = "redponcho-big"
 
 /obj/item/clothing/accessory/poncho/purple
 	name = "purple poncho"

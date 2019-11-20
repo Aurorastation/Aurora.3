@@ -6,22 +6,22 @@
 
 	uniform = /obj/item/clothing/under/syndicate
 	back = null
-	backpack = /obj/item/weapon/storage/backpack/syndie
-	satchel = /obj/item/weapon/storage/backpack/satchel_syndie
-	satchel_alt = /obj/item/weapon/storage/backpack/satchel
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/syndie
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/syndie
-	belt = /obj/item/weapon/storage/belt/utility/full
+	backpack = /obj/item/storage/backpack/syndie
+	satchel = /obj/item/storage/backpack/satchel_syndie
+	satchel_alt = /obj/item/storage/backpack/satchel
+	dufflebag = /obj/item/storage/backpack/duffel/syndie
+	messengerbag = /obj/item/storage/backpack/messenger/syndie
+	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/combat
 	l_ear = /obj/item/device/radio/headset/syndicate
-	id = /obj/item/weapon/card/id/syndicate
+	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/storage/box/engineer = 1,
 		/obj/item/device/flashlight = 1,
-		/obj/item/weapon/card/emag = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
+		/obj/item/card/emag = 1,
+		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/device/multitool = 1
 	)
 
@@ -46,23 +46,23 @@
 	name = "Syndicate Operative"
 
 	suit = /obj/item/clothing/suit/space/void/merc
-	belt = /obj/item/weapon/storage/belt/military/syndicate
+	belt = /obj/item/storage/belt/military/syndicate
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	mask = /obj/item/clothing/mask/gas/syndicate
 	l_ear = /obj/item/device/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/night
 	shoes = /obj/item/clothing/shoes/magboots
-	l_pocket = /obj/item/weapon/pinpointer/nukeop
-	l_hand = /obj/item/weapon/tank/jetpack/void
+	l_pocket = /obj/item/pinpointer/nukeop
+	l_hand = /obj/item/tank/jetpack/void
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
-		/obj/item/weapon/reagent_containers/pill/cyanide = 1,
-		/obj/item/weapon/gun/projectile/automatic/x9 = 1,
+		/obj/item/storage/box/engineer = 1,
+		/obj/item/reagent_containers/pill/cyanide = 1,
+		/obj/item/gun/projectile/automatic/x9 = 1,
 		/obj/item/ammo_magazine/c45x = 1,
-		/obj/item/weapon/crowbar/red = 1,
-		/obj/item/weapon/plastique = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
+		/obj/item/crowbar/red = 1,
+		/obj/item/plastique = 1,
+		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/device/flashlight = 1,
 		/obj/item/clothing/shoes/combat = 1
 )
@@ -72,22 +72,22 @@
 
 	head = /obj/item/clothing/head/beret
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/havana
-	belt = /obj/item/weapon/gun/projectile/deagle
+	belt = /obj/item/gun/projectile/deagle
 	l_ear = /obj/item/device/radio/headset/syndicate
-	l_pocket = /obj/item/weapon/pinpointer/advpinpointer
+	l_pocket = /obj/item/pinpointer/advpinpointer
 	r_pocket = null // stop them getting a radio uplink, they get an implant instead
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
+		/obj/item/storage/box/engineer = 1,
 		/obj/item/device/flashlight = 1,
-		/obj/item/weapon/reagent_containers/pill/cyanide = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
+		/obj/item/reagent_containers/pill/cyanide = 1,
+		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/ammo_magazine/a50 = 2,
 		/obj/item/clothing/shoes/magboots = 1,
-		/obj/item/weapon/flame/lighter/zippo = 1
+		/obj/item/flame/lighter/zippo = 1
 	)
 	implants = list(
-		/obj/item/weapon/implant/explosive
+		/obj/item/implant/explosive
 	)
 	id_access = "Syndicate Operative Leader"
 
@@ -99,23 +99,24 @@
 	id_access = "Syndicate Agent"
 
 	implants = list(
-		/obj/item/weapon/implant/explosive
+		/obj/item/implant/explosive
 	)
 
 // Syndicate Auxiliary Outfits (ninja, merc, etc.)
 
 /datum/outfit/admin/syndicate/ninja
 	name = "Infiltrator"
+	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	back = null
-	belt = /obj/item/weapon/storage/belt/ninja
+	belt = /obj/item/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/ring/ninja
 	mask = /obj/item/clothing/mask/balaclava
 	l_ear = /obj/item/device/radio/headset/ninja
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
-	id = /obj/item/weapon/card/id/syndicate
+	id = /obj/item/card/id/syndicate
 	l_pocket = null
 	r_pocket = null
 	accessory = /obj/item/clothing/accessory/storage/pouches/black
@@ -124,8 +125,8 @@
 
 	belt_contents = list(
 		/obj/item/device/flashlight/maglight = 1,
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/screwdriver = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/screwdriver = 1,
 		/obj/item/device/paicard = 1
 	)
 
@@ -146,13 +147,13 @@
 	name = "Mercenary"
 
 	uniform = /obj/item/clothing/under/syndicate
-	belt = /obj/item/weapon/storage/belt/military
+	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat
 	shoes = /obj/item/clothing/shoes/jackboots
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/engineer = 1,
-		/obj/item/weapon/reagent_containers/pill/cyanide = 1
+		/obj/item/storage/box/engineer = 1,
+		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
 /datum/outfit/admin/syndicate/mercenary/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -165,6 +166,7 @@
 
 /datum/outfit/admin/syndicate/raider
 	name = "Raider"
+	allow_backbag_choice = FALSE
 
 	uniform = list(
 		/obj/item/clothing/under/soviet,
@@ -213,7 +215,7 @@
 	gloves = null
 	l_ear = /obj/item/device/radio/headset/raider
 	r_pocket = null
-	id = /obj/item/weapon/storage/wallet
+	id = /obj/item/storage/wallet
 
 	backpack_contents = list()
 
@@ -226,8 +228,8 @@
 		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/unathi)
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
-	var/obj/item/weapon/storage/wallet/W = H.wear_id
-	var/obj/item/weapon/card/id/raider/id = new(H)
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/syndicate/raider/id = new(H)
 	id.name = "[H.real_name]'s Passport"
 	if(W)
 		W.handle_item_insertion(id)
@@ -242,17 +244,17 @@
 	head = /obj/item/clothing/head/beret
 	shoes = /obj/item/clothing/shoes/combat
 	l_ear = /obj/item/device/radio/headset/heads/captain
-	l_hand = /obj/item/weapon/material/sword
-	l_pocket = /obj/item/weapon/pinpointer
+	l_hand = /obj/item/material/sword
+	l_pocket = /obj/item/pinpointer
 
-	id = /obj/item/weapon/card/id/highlander
+	id = /obj/item/card/id/highlander
 
 /datum/outfit/admin/highlander/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
 
-	var/obj/item/weapon/card/id/W = H.wear_id
+	var/obj/item/card/id/W = H.wear_id
 	if(W)
 		W.name = "[H.real_name]'s ID"
 		W.registered_name = H.real_name
@@ -263,18 +265,18 @@
 
 	uniform = /obj/item/clothing/under/lightpurple
 	back = null
-	backpack = /obj/item/weapon/storage/backpack/wizard
-	satchel = /obj/item/weapon/storage/backpack/satchel_wizard
-	satchel_alt = /obj/item/weapon/storage/backpack/satchel
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/wizard
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/wizard
+	backpack = /obj/item/storage/backpack/wizard
+	satchel = /obj/item/storage/backpack/satchel_wizard
+	satchel_alt = /obj/item/storage/backpack/satchel
+	dufflebag = /obj/item/storage/backpack/duffel/wizard
+	messengerbag = /obj/item/storage/backpack/messenger/wizard
 	suit = /obj/item/clothing/suit/wizrobe
 	head = /obj/item/clothing/head/wizard
 	shoes = /obj/item/clothing/shoes/sandal
 	l_ear = /obj/item/device/radio/headset
-	r_pocket = /obj/item/weapon/teleportation_scroll
-	l_hand = /obj/item/weapon/spellbook
+	r_pocket = /obj/item/teleportation_scroll
+	l_hand = /obj/item/spellbook
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box = 1
+		/obj/item/storage/box = 1
 	)
