@@ -95,7 +95,7 @@
 	w_class = 2
 
 /obj/item/razor/proc/shave(mob/living/carbon/human/H, location)
-	if(location == "head")
+	if(location == BP_HEAD)
 		H.h_style = H.species.default_h_style
 	else
 		H.f_style = H.species.default_f_style
@@ -119,7 +119,7 @@
 		return FALSE
 
 
-	if(target_zone == "head")
+	if(target_zone == BP_HEAD)
 		if(H.head && (H.head.body_parts_covered & HEAD))
 			to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")
 			return FALSE

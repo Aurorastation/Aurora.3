@@ -28,7 +28,7 @@
 		return ..()
 
 	if(user.a_intent != I_HELP)
-		if(target_zone == "head" || target_zone == "eyes")
+		if(target_zone == BP_HEAD || target_zone == BP_EYES)
 			if((user.is_clumsy()) && prob(50))
 				M = user
 			return eyestab(M,user)
