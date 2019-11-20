@@ -41,6 +41,10 @@
 	desc = "A military uniform used by the forces of the People's Republic of Adhomai orbital fleet."
 	icon_state = "cosmonaut"
 	item_state = "cosmonaut"
+	description_fluff = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
+	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
+	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
+	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
 
 /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	name = "kosmostrelki commissar uniform"
