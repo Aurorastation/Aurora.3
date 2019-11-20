@@ -1127,7 +1127,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/tongue_flick()
 	set name = "Tongue-flick"
 	set desc = "Flick out your tongue to sense the gas in the room."
-	set category = "IC"
+	set category = "Abilities"
 
 	if(stat == DEAD)
 		return
