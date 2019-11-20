@@ -279,10 +279,16 @@
 		hud.name = "kill"
 		affecting.Stun(10) //10 ticks of ensured grab
 	else if(state < GRAB_UPGRADING)
+		if(ishuman(affecting))
+			var/mob/living/carbon/human/H = affecting
+			if(H.head && (H.head.item_flags & AIRTIGHT))
+				to_chat(assailant, span("warning", "[H]'s headgear prevents you from choking them out!"))
+				return
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
 		assailant.visible_message(span("danger", "[assailant] starts strangling [affecting]!"))
+
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>is strangling [affecting.name] ([affecting.ckey])</font>"
 		msg_admin_attack("[key_name_admin(assailant)] is strangling [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
