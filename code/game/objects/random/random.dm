@@ -928,13 +928,13 @@
 	)
 
 /obj/random/highvalue
-	name = "random high valuable item"
-	desc = "This is a random high valuable item."
+	name = "random high value item"
+	desc = "This is a random high value item."
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin_diamond_heads"
 	problist = list(
 		/obj/item/bluespace_crystal = 5,
-		/obj/item/stack/telecrystal{amount = 10} = 5,
+		/obj/item/stack/telecrystal{amount = 15} = 0.5,
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
 		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
@@ -946,6 +946,86 @@
 		/obj/item/rig/unathi/fancy = 0.5,
 		/obj/item/rig/vaurca/minimal = 0.5,
 		/obj/item/anomaly_core = 0.5
+	)
+
+/obj/random/highvalue/research
+	name = "random high value research item"
+	desc = "This is a random high value research item."
+	problist = list(
+		/obj/item/anomaly_core = 0.3,
+		/obj/item/bluespace_crystal = 0.3,
+		/obj/item/phylactery = 0.3,
+		/obj/item/device/soulstone = 0.3
+	)
+
+/obj/random/highvalue/rig
+	name = "random high value rig"
+	desc = "This is a random high value rig."
+	problist = list(
+		/obj/item/rig/industrial/equipped = 0.3,
+		/obj/item/rig/eva/equipped = 0.3,
+		/obj/item/rig/hazard/equipped = 0.3,
+		/obj/item/rig/ert/janitor = 0.3
+	)
+
+/obj/random/highvalue/rig/human
+	name = "random high value human rig"
+	desc = "This is a random high value human rig."
+	problist = list(
+		/obj/item/rig/combat/equipped = 0.3,
+		/obj/item/rig/military/equipped = 0.3,
+		/obj/item/rig/bunker/equipped = 0.3,
+		/obj/item/rig/light/offworlder/techno/equipped = 0.3
+	)
+
+/obj/random/highvalue/rig/alien
+	name = "random high value alien rig"
+	desc = "This is a random high value alien rig."
+	problist = list(
+		/obj/item/rig/unathi/fancy = 0.3,
+		/obj/item/rig/vaurca/minimal = 0.3,
+		/obj/item/rig/tesla = 0.3
+	)
+
+/obj/random/highvalue/weapon
+	name = "random high value weapon"
+	desc = "This is a random high value weapon."
+	var/list/ammomap = list(
+		/obj/item/gun/projectile/automatic/rifle/shotgun = /obj/item/ammo_magazine/assault_shotgun,
+		/obj/item/gun/projectile/automatic/terminator = /obj/item/ammo_magazine/flechette,
+		/obj/item/gun/projectile/plasma = /obj/item/ammo_magazine/plasma,
+		/obj/item/gun/projectile/dragunov = /obj/item/ammo_magazine/d762
+	)
+	problist = list(
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.3,
+		/obj/item/gun/projectile/automatic/terminator = 0.3,
+		/obj/item/gun/energy/laser/shotgun = 0.3,
+		/obj/item/gun/projectile/plasma = 0.3,
+		/obj/item/gun/projectile/dragunov = 0.3,
+		/obj/item/gun/energy/gun/nuclear = 0.3
+	)
+	has_postspawn = TRUE
+
+/obj/random/highvalue/weapon/post_spawn(obj/item/gun/firearm)
+	if(istype(firearm, /obj/item/gun/projectile))
+		var/ammo = ammomap[firearm.type]
+		if(ammo)
+			new ammo(loc)
+			new ammo(loc)
+		else
+			log_debug("random_obj (voidsuit): Type [firearm.type] was unable to spawn a matching ammunition!")
+
+/obj/random/highvalue/utility
+	name = "random high value utility"
+	desc = "This is a random high value utility."
+	problist = list(
+		/obj/item/hand_tele = 0.3,
+		/obj/item/shield/energy = 0.3,
+		/obj/item/storage/backpack/holding = 0.3,
+		/obj/item/card/id/captains_spare = 0.3,
+		/obj/item/reagent_containers/hypospray/combat = 0.3,
+		/obj/item/device/encryptionkey/binary = 0.3,
+		/obj/item/pinpointer/advpinpointer = 0.3
 	)
 
 /obj/random/junk
@@ -1214,9 +1294,8 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "telecrystal"
 	spawnlist = list(
-		/obj/item/stack/telecrystal{amount = 5} = 0.7,
-		/obj/item/stack/telecrystal{amount = 10} = 0.1,
-		/obj/item/stack/telecrystal{amount = 15} = 0.2,
+		/obj/item/stack/telecrystal{amount = 10} = 0.6,
+		/obj/item/stack/telecrystal{amount = 15} = 0.4,
 	)
 
 /obj/random/bad_ai

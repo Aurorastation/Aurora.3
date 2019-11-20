@@ -19,7 +19,7 @@ FLOOR SAFES
 	var/tumbler_2_open
 	var/dial = 0		//where is the dial pointing?
 	var/space = 0		//the combined w_class of everything in the safe
-	var/maxspace = 24	//the maximum combined w_class of stuff in the safe
+	var/maxspace = 48	//the maximum combined w_class of stuff in the safe
 
 
 /obj/structure/safe/New()
@@ -192,5 +192,14 @@ obj/structure/safe/ex_act(severity)
 	. = ..()
 	new /obj/random/highvalue(src)
 	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
-	new /obj/random/highvalue(src)
+	new /obj/random/highvalue/research(src)
+	new /obj/random/highvalue/research(src)
+	new /obj/random/highvalue/rig(src)
+	new /obj/random/highvalue/rig/human(src)
+	new /obj/random/highvalue/rig/alien(src)
+	new /obj/random/highvalue/weapon(src)
+	new /obj/random/highvalue/weapon(src)
+	new /obj/random/highvalue/utility(src)
+	new /obj/random/highvalue/utility(src)
+	new /obj/random/telecrystals(src)
+	new /obj/random/telecrystals(src)

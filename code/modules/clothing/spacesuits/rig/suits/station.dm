@@ -114,9 +114,6 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
 /obj/item/rig/eva/equipped
-
-	req_access = list(access_engine_equip)
-
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
