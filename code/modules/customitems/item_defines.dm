@@ -538,7 +538,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	last_special = world.time + 500
 
-	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
+	var/obj/item/organ/F = src.internal_organs_by_name[BP_HEART]
 
 	if(isnull(F))
 		return
@@ -2439,7 +2439,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user,span("notice","It looks strangely familiar..."))
 		return
 
-	var/obj/item/organ/external/OL = H.get_organ("l_arm")
+	var/obj/item/organ/external/OL = H.get_organ(BP_L_ARM)
 	var/obj/item/organ/external/arm/industrial/fluff/dionaea_l_arm/NA = new(get_turf(src))
 	var/obj/item/organ/external/hand/industrial/fluff/dionaea_l_hand/NH = new(get_turf(src))
 
