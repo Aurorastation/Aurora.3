@@ -116,7 +116,7 @@ Name: [R.name] ID: [R.id]<BR>
 Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
-Physical Status: [R.phisical_status]<BR>
+Physical Status: [R.physical_status]<BR>
 Mental Status: [R.mental_status]<BR>
 <BR>
 <CENTER><B>Security Data</B></CENTER><BR>
@@ -159,7 +159,7 @@ Name: [R.name] ID: [R.id]<BR>
 Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
-Physical Status: [R.phisical_status]<BR>
+Physical Status: [R.physical_status]<BR>
 Mental Status: [R.mental_status]<BR>
 <BR>
 <CENTER><B>Medical Data</B></CENTER><BR>

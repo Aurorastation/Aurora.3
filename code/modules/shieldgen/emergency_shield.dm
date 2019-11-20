@@ -10,8 +10,8 @@
 	atmos_canpass = CANPASS_NEVER
 	var/const/max_health = 200
 	var/health = max_health //The shield can only take so much beating (prevents perma-prisons)
-	var/shield_generate_power = 7500	//how much power we use when regenerating
-	var/shield_idle_power = 1500		//how much power we use when just being sustained.
+	var/shield_generate_power = 2500	//how much power we use when regenerating
+	var/shield_idle_power = 500		//how much power we use when just being sustained.
 
 /obj/machinery/shield/malfai
 	name = "emergency forcefield"

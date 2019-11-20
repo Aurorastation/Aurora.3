@@ -23679,6 +23679,14 @@
 "drL" = (
 /turf/space/transit/east/shuttlespace_ew10,
 /area/shuttle/distress/transit)
+"dtU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "duC" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Cmdt Office";
@@ -23758,6 +23766,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/centcom/ferry)
+"dXM" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "dYm" = (
 /turf/space/transit/east/shuttlespace_ew6,
 /area/shuttle/distress/transit)
@@ -24217,6 +24229,9 @@
 	dir = 8
 	},
 /area/centcom/living)
+"hSw" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "hXg" = (
 /obj/machinery/button/remote/airlock{
 	desiredstate = 1;
@@ -24931,6 +24946,13 @@
 	name = "plating"
 	},
 /area/centcom/distress_prep)
+"nZg" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_x = 10
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "obp" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -25168,6 +25190,14 @@
 	dir = 4
 	},
 /area/centcom/distress_prep)
+"pCk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "pDD" = (
 /obj/structure/shuttle/engine/heater,
 /obj/structure/window/phoronreinforced{
@@ -25282,6 +25312,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
+"qYc" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "raM" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -25468,6 +25506,22 @@
 "sBS" = (
 /turf/space/transit/east/shuttlespace_ew2,
 /area/shuttle/distress/transit)
+"sGH" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
+"sIY" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "sQk" = (
 /obj/structure/bed/chair/office/dark,
 /obj/effect/ghostspawpoint{
@@ -25547,6 +25601,10 @@
 	dir = 4
 	},
 /area/centcom/living)
+"tfU" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "tou" = (
 /obj/effect/landmark{
 	name = "CCIAEscort"
@@ -25889,6 +25947,13 @@
 	dir = 2
 	},
 /area/centcom/distress_prep)
+"wEa" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_x = -10
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "wEJ" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -25918,6 +25983,11 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
+"wMQ" = (
+/obj/structure/table/wood,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "wNS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/external{
@@ -26052,6 +26122,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
+"yds" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "yhL" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Representative Office";
@@ -72852,16 +72930,16 @@ acN
 acN
 aed
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+sGH
+dtU
+dtU
+sGH
+dtU
+dtU
+pCk
+pCk
+dtU
+dtU
 aeO
 aaM
 aaM
@@ -73109,16 +73187,16 @@ acN
 aed
 aez
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+hSw
+dXM
+dXM
+dXM
+dXM
+dXM
+dXM
+dXM
+dXM
+hSw
 aeO
 aaM
 aaM
@@ -73366,16 +73444,16 @@ adI
 aee
 aee
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+hSw
+tfU
+nZg
+tfU
+nZg
+tfU
+nZg
+tfU
+tfU
+hSw
 aeO
 aaM
 aaM
@@ -73623,16 +73701,16 @@ adJ
 aee
 aee
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+hSw
+tfU
+wMQ
+tfU
+wMQ
+tfU
+wMQ
+tfU
+tfU
+hSw
 aeO
 aaM
 aaM
@@ -73880,16 +73958,16 @@ adK
 aee
 aee
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+hSw
+tfU
+tfU
+wEa
+tfU
+wEa
+tfU
+wEa
+tfU
+hSw
 aeO
 aaM
 aaM
@@ -74137,16 +74215,16 @@ acO
 aef
 aez
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+hSw
+dXM
+dXM
+dXM
+dXM
+dXM
+dXM
+dXM
+dXM
+hSw
 aeO
 aaM
 aaM
@@ -74394,16 +74472,16 @@ acO
 acO
 aef
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+qYc
+qYc
+yds
+yds
+qYc
+qYc
+sIY
+qYc
+qYc
+sIY
 aeO
 aaM
 aaM

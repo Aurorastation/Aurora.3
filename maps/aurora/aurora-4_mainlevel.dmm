@@ -6926,6 +6926,7 @@
 /area/engineering/storage_hard)
 "anG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anH" = (
@@ -8248,17 +8249,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "apZ" = (
-/obj/machinery/shieldgen,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aqa" = (
-/obj/machinery/shieldwallgen,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aqb" = (
@@ -8969,15 +8970,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "arm" = (
-/obj/machinery/shieldgen,
 /obj/machinery/light_switch{
 	pixel_x = 6;
 	pixel_y = -28
 	},
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "arn" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aro" = (
@@ -30697,11 +30698,11 @@
 "bbp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Custodial Closet";
 	req_access = list(26)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bbq" = (
@@ -66445,6 +66446,12 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"mpm" = (
+/obj/machinery/power/singularity_beacon/emergency{
+	name = "emergency tesla beacon"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "mqp" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -68063,13 +68070,6 @@
 "ral" = (
 /turf/simulated/wall,
 /area/assembly/chargebay)
-"rbC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
 "rcu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -87387,7 +87387,7 @@ faJ
 faJ
 amv
 anE
-anE
+mpm
 apZ
 arm
 ajL
@@ -87644,7 +87644,7 @@ akz
 akz
 amw
 anG
-rbC
+anG
 aqa
 arn
 ajL
