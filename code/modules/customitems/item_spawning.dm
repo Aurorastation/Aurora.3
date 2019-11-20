@@ -75,10 +75,7 @@
 		K.new_desc = kit_desc
 		K.new_icon = kit_icon
 		K.new_icon_file = CUSTOM_ITEM_OBJ
-		if(istype(item, /obj/item/device/kit/paint))
-			var/obj/item/device/kit/paint/kit = item
-			kit.allowed_types = text2list(additional_data, ", ")
-		else if(istype(item, /obj/item/device/kit/suit))
+		if(istype(item, /obj/item/device/kit/suit))
 			var/obj/item/device/kit/suit/kit = item
 			kit.new_light_overlay = additional_data
 			kit.new_mob_icon_file = CUSTOM_ITEM_MOB

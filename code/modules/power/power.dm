@@ -320,8 +320,6 @@
 
 	if (!M)
 		return 0
-	if(istype(M.loc,/obj/mecha))
-		return 0	//feckin mechs are dumb
 	var/area/source_area
 	if(istype(power_source,/area))
 		source_area = power_source
@@ -387,9 +385,9 @@
 	var/touchy_hand
 	if(contact_zone == "hand")
 		if(M.hand)
-			touchy_hand = BP_R_HAND
+			touchy_hand = "r_hand"
 		else
-			touchy_hand = BP_L_HAND
+			touchy_hand = "l_hand"
 	if(!touchy_hand)
 		drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = contact_zone) //zzzzzzap!
 	else

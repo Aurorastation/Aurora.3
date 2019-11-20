@@ -754,7 +754,6 @@
 		/obj/item/device/floor_painter = 0.6,
 		/obj/item/device/gps/engineering = 0.6,
 		/obj/item/device/kinetic_analyzer = 0.1,
-		/obj/item/device/kit/paint/ripley/random = 0.1,
 		/obj/item/device/laser_pointer/purple = 0.1,
 		/obj/item/device/light_meter = 0.1,
 		/obj/item/device/magnetic_lock/engineering = 0.3,

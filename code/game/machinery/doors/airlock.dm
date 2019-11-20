@@ -788,7 +788,7 @@ About the new airlock wires panel:
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 				if(!istype(H.head, /obj/item/clothing/head/helmet))
 					user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
-					var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
+					var/obj/item/organ/external/affecting = H.get_organ("head")
 					H.Stun(8)
 					H.Weaken(5)
 					if(affecting.take_damage(10, 0))

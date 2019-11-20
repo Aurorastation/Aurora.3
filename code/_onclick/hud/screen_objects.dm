@@ -90,8 +90,6 @@
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return 1
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
 		if(I)
@@ -102,7 +100,7 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/selecting = BP_CHEST
+	var/selecting = "chest"
 
 /obj/screen/zone_sel/Click(location, control,params)
 	var/list/PL = params2list(params)
@@ -114,52 +112,52 @@
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					selecting = BP_R_FOOT
+					selecting = "r_foot"
 				if(17 to 22)
-					selecting = BP_L_FOOT
+					selecting = "l_foot"
 				else
 					return 1
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					selecting = BP_R_LEG
+					selecting = "r_leg"
 				if(17 to 22)
-					selecting = BP_L_LEG
+					selecting = "l_leg"
 				else
 					return 1
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_HAND
+					selecting = "r_hand"
 				if(12 to 20)
-					selecting = BP_GROIN
+					selecting = "groin"
 				if(21 to 24)
-					selecting = BP_L_HAND
+					selecting = "l_hand"
 				else
 					return 1
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_ARM
+					selecting = "r_arm"
 				if(12 to 20)
-					selecting = BP_CHEST
+					selecting = "chest"
 				if(21 to 24)
-					selecting = BP_L_ARM
+					selecting = "l_arm"
 				else
 					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = BP_HEAD
+				selecting = "head"
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
 							selecting = "mouth"
 					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = BP_EYES
+							selecting = "eyes"
 					if(25 to 27)
 						if(icon_x in 15 to 17)
-							selecting = BP_EYES
+							selecting = "eyes"
 
 	if(old_selecting != selecting)
 		update_icon()
@@ -189,8 +187,6 @@
 			usr.hud_used.hidden_inventory_update()
 
 		if("equip")
-			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-				return 1
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
@@ -276,14 +272,12 @@
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return 1
 	switch(name)
-		if(BP_R_HAND)
+		if("r_hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if(BP_L_HAND)
+		if("l_hand")
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")

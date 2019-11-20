@@ -127,13 +127,6 @@
 	build_path = /obj/item/circuitboard/robotics
 	sort_string = "HAAAB"
 
-/datum/design/circuit/mechacontrol
-	name = "exosuit control console"
-	id = "mechacontrol"
-	req_tech = list(TECH_DATA = 3)
-	build_path = /obj/item/circuitboard/mecha_control
-	sort_string = "HAAAC"
-
 /datum/design/circuit/rdconsole
 	name = "R&D control console"
 	id = "rdconsole"

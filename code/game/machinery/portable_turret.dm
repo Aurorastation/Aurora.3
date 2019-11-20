@@ -490,10 +490,6 @@
 		if(isliving(v))
 			var/mob/living/L = v
 			assess_and_assign(L, targets, secondarytargets)
-		else if(istype(v, /obj/mecha))
-			var/obj/mecha/M = v
-			if(M.occupant)
-				secondarytargets += M
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
@@ -682,14 +678,14 @@
 
 	update_icon()
 	var/obj/item/projectile/A
-	
+
 	if(emagged || lethal)
 		A = new eprojectile(loc)
 		playsound(loc, eshot_sound, 75, 1)
 	else
 		A = new projectile(loc)
 		playsound(loc, shot_sound, 75, 1)
-	
+
 	A.accuracy = max(installation.accuracy * 0.25 , installation.accuracy_wielded * 0.25, A.accuracy * 0.25)  // Because turrets should be better at shooting.
 
 	// Lethal/emagged turrets use twice the power due to higher energy beams

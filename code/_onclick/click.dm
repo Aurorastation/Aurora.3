@@ -44,6 +44,10 @@
 
 	next_click = world.time + 1
 
+	if(istype(loc, /mob/living/heavy_vehicle) && !(A in src.contents))
+		var/mob/living/heavy_vehicle/M = loc
+		return M.ClickOn(A, params, src)
+
 	if(client && client.buildmode)
 		build_click(src, client.buildmode, params, A)
 		return
@@ -72,12 +76,6 @@
 
 	if(!canClick()) // in the year 2000...
 		return
-
-	if(istype(loc, /obj/mecha))
-		if(!locate(/turf) in list(A, A.loc)) // Prevents inventory from being drilled
-			return
-		var/obj/mecha/M = loc
-		return M.click_action(A, src, params)
 
 	if(restrained())
 		setClickCooldown(10)

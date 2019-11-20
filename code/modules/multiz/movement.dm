@@ -35,7 +35,7 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
-	if(istype(src.loc,/obj/mecha)||istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
+	if(istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
 		return FALSE
 
 	// Check if we can actually travel a Z-level.
@@ -308,21 +308,6 @@
 
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
-/obj/mecha/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	// The var/climbers API is implemented here.
-	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
-		return FALSE
-
-	if (!dest.is_hole)
-		return FALSE
-
-	// See if something prevents us from falling.
-	for(var/atom/A in below)
-		if(!A.CanPass(src, dest))
-			return FALSE
-
-	// True otherwise.
-	return TRUE
 
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
@@ -361,18 +346,6 @@
 /mob/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
 		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
-
-/obj/mecha/fall_through()
-	var/obj/structure/lattice/L = locate() in loc
-	if (L)
-		visible_message("<span class='danger'>\The [src] crushes \the [L] with its weight!</span>")
-		qdel(L)
-
-	var/obj/structure/stairs/S = locate() in loc
-	if (S)
-		visible_message("<span class='danger'>\The [src] crushes \the [S] with its weight!</span>")
-		qdel(S)
-
 /**
  * Invoked when an atom has landed on a tile through which they can no longer fall.
  *
@@ -463,15 +436,15 @@
 		var/groin_damage = rand(0,damage/4)
 
 
-		apply_damage(left_damage, BRUTE, BP_L_LEG)
-		apply_damage(right_damage, BRUTE, BP_R_LEG)
+		apply_damage(left_damage, BRUTE, "l_leg")
+		apply_damage(right_damage, BRUTE, "r_leg")
 
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, BP_R_FOOT)
+			apply_damage(leftf_damage, BRUTE, "r_foot")
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, BP_L_FOOT)
+			apply_damage(leftf_damage, BRUTE, "l_foot")
 		if(prob(50))
-			apply_damage(groin_damage, BRUTE, BP_GROIN)
+			apply_damage(groin_damage, BRUTE, "groin")
 
 		visible_message("<span class='warning'>\The [src] falls and lands directly on their legs!</span>",
 			"<span class='danger'>You land on your feet, and the impact brings you to your knees.</span>")
@@ -484,13 +457,13 @@
 		var/lefth_damage = rand(0,damage/4)
 		var/righth_damage = rand(0,damage/4)
 
-		apply_damage(left_damage, BRUTE, BP_L_ARM)
-		apply_damage(right_damage, BRUTE, BP_R_ARM)
+		apply_damage(left_damage, BRUTE, "l_arm")
+		apply_damage(right_damage, BRUTE, "r_arm")
 
 		if(prob(50))
-			apply_damage(lefth_damage, BRUTE, BP_R_HAND)
+			apply_damage(lefth_damage, BRUTE, "r_hand")
 		if(prob(50))
-			apply_damage(righth_damage, BRUTE, BP_L_HAND)
+			apply_damage(righth_damage, BRUTE, "l_hand")
 
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
@@ -498,7 +471,7 @@
 			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
-		apply_damage(limb_damage, BRUTE, BP_HEAD)
+		apply_damage(limb_damage, BRUTE, "head")
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
@@ -509,7 +482,7 @@
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	if(!limb_damage)
-		apply_damage(damage, BRUTE, BP_CHEST)
+		apply_damage(damage, BRUTE, "chest")
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -541,19 +514,6 @@
 
 /mob/living/carbon/human/bst/fall_impact()
 	return FALSE
-
-/obj/mecha/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	. = ..()
-	if (!.)
-		return
-
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-
-	take_damage(damage)
-
-	playsound(loc, "sound/effects/bang.ogg", 100, 1)
-	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
@@ -626,8 +586,8 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, BP_HEAD)
-		H.apply_damage((damage - cranial_damage), BRUTE, BP_CHEST)
+		H.apply_damage(cranial_damage, BRUTE, "head")
+		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))
