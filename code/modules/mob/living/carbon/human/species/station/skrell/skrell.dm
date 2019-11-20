@@ -24,7 +24,7 @@
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
-	grab_mod = 1.25
+	grab_mod = 1.5
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS

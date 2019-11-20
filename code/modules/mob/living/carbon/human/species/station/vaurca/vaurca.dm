@@ -31,6 +31,7 @@
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
+	grab_mod = 1.1
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2

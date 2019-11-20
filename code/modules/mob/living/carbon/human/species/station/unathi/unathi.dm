@@ -19,7 +19,6 @@
 	gluttonous = 1
 	slowdown = 0.5
 	brute_mod = 0.8
-	grab_mod = 0.75
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE

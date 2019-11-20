@@ -666,11 +666,11 @@ default behaviour is:
 /mob/living/var/last_resist
 
 /mob/living/proc/resist_grab()
-	if (last_resist + 4 > world.time)
+	if(last_resist + 8 > world.time)
 		return
 	last_resist = world.time
 	if(stunned > 10)
-		to_chat(src, "<span class='notice'>You can't move...</span>")
+		to_chat(src, "<span class='notice'>You can't move..</span>")
 		return
 	var/resisting = 0
 	for(var/obj/O in requests)
@@ -681,19 +681,21 @@ default behaviour is:
 		resisting++
 		switch(G.state)
 			if(GRAB_PASSIVE)
-				qdel(G)
+				if((incapacitated(INCAPACITATION_DISABLED) || src.lying)? prob(30) : prob(70)) //only a bit difficult to break out of a passive grab
+					visible_message(span("warning", "[src] pulls away from [G.assailant]'s grip!"))
+					qdel(G)
 			if(GRAB_AGGRESSIVE)
-				if(incapacitated(INCAPACITATION_KNOCKDOWN)? prob(15) : prob(60))
-					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s grip!</span>")
+				if((incapacitated(INCAPACITATION_DISABLED) || (src.lying))? prob(15) : prob(50))
+					visible_message(span("warning", "[src] has broken free of [G.assailant]'s grip!"))
 					qdel(G)
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
-				if (((world.time - G.assailant.l_move_time < 30 || !stunned) && prob(15)) || prob(3))
-					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s headlock!</span>")
+				if((world.time - G.assailant.l_move_time < 30 || !stunned || !(src.lying) || (incapacitated(INCAPACITATION_DISABLED)))? prob(15) : prob(3))
+					visible_message(span("danger", "[src] has broken free of [G.assailant]'s headlock!"))
 					qdel(G)
 	if(resisting)
-		visible_message("<span class='danger'>[src] resists!</span>")
-		setClickCooldown(20)
+		visible_message(span("warning", "[src] resists!"))
+		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"

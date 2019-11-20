@@ -38,7 +38,7 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 1.1
+	grab_mod = 1.5
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
