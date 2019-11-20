@@ -1067,7 +1067,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/mob/M = loc
 			M.put_in_hands(id)
 			to_chat(usr, "<span class='notice'>You remove the ID from the [name].</span>")
-			playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+			playsound(loc, 'sound/machines/id_swipe.ogg', 50, 1)
 		else
 			id.forceMove(get_turf(src))
 		id = null
@@ -1105,10 +1105,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 			if (loc == user && !user.get_active_hand())
 				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src].</span>")
+				playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 				user.put_in_hands(inserted_item)
 				inserted_item = null
 			else
 				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src], dropping it on the ground. Whoops.</span>")
+				playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 				inserted_item.forceMove(get_turf(src))
 				inserted_item = null
 
@@ -1331,7 +1333,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
 				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
-				playsound(loc, 'sound/machines/click.ogg', 100, 1)
+				playsound(loc, 'sound/machines/click.ogg', 50, 1)
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
@@ -1362,7 +1364,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		cartridge = C
 		user.drop_from_inventory(cartridge,src)
 		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
-		playsound(loc, 'sound/machines/click.ogg', 100, 1)
+		playsound(loc, 'sound/machines/click.ogg', 50, 1)
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
@@ -1379,7 +1381,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
 				if(id_check(user, 2))
 					to_chat(user, "<span class='notice'>You put the ID into \the [src]'s slot.</span>")
-					playsound(loc, 'sound/machines/id_swipe.ogg', 100, 1)
+					playsound(loc, 'sound/machines/id_swipe.ogg', 50, 1)
 					updateSelfDialog()//Update self dialog on success.
 			return	//Return in case of failed check or when successful.
 		updateSelfDialog()//For the non-input related code.
@@ -1396,7 +1398,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			user.drop_from_inventory(C,src)
 			inserted_item = C
 			to_chat(user, "<span class='notice'>You slide \the [C] into \the [src].</span>")
-			playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+			playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	return
 
 /obj/item/device/pda/proc/update_userinfo(var/obj/item/card/id/idcard, var/mob/living/user)
