@@ -137,7 +137,7 @@
 	if(visualsOnly)
 		return
 
-	var/obj/item/weapon/rig/light/ninja/rig = new /obj/item/weapon/rig/light/ninja(src)
+	var/obj/item/rig/light/ninja/rig = new /obj/item/rig/light/ninja(src)
 	rig.dnaLock = H.dna
 	H.equip_to_slot_or_del(rig, slot_l_hand)
 
