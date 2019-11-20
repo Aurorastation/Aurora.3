@@ -5511,6 +5511,11 @@
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
+/obj/item/storage/briefcase/inflatable{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/briefcase/inflatable,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "akE" = (
@@ -5519,14 +5524,12 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/storage/briefcase/inflatable{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/briefcase/inflatable,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
+/obj/machinery/cell_charger,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "akF" = (
@@ -6471,12 +6474,22 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "amy" = (
-/obj/structure/table/standard,
-/obj/machinery/cell_charger,
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
-/obj/item/device/multitool,
+/obj/structure/closet/crate{
+	name = "Hydrogen Tanks"
+	},
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
+/obj/item/tank/hydrogen,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "amz" = (
@@ -7578,6 +7591,14 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
 /obj/item/stack/material/glass{
 	amount = 50
 	},
@@ -7600,9 +7621,10 @@
 /area/engineering/atmos/storage)
 "aoQ" = (
 /obj/structure/table/standard,
+/obj/item/pipewrench,
+/obj/item/pipewrench,
 /obj/item/device/pipe_painter,
-/obj/item/pipewrench,
-/obj/item/pipewrench,
+/obj/item/device/pipe_painter,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
 "aoR" = (
@@ -63465,6 +63487,11 @@
 /mob/living/simple_animal/rat/hooded,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"doz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "dpr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /mob/living/simple_animal/rat/brown,
@@ -64083,11 +64110,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"faJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
 "fbL" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Maintenance Access";
@@ -66446,12 +66468,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"mpm" = (
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
 "mqp" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -66611,6 +66627,12 @@
 	roof_type = null
 	},
 /area/maintenance/maintcentral)
+"mHZ" = (
+/obj/machinery/power/singularity_beacon/emergency{
+	name = "emergency tesla beacon"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "mIZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -69201,6 +69223,9 @@
 /obj/random/junk,
 /turf/simulated/floor/carpet,
 /area/maintenance/bar)
+"uay" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/space)
 "ubk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/reagent_containers/glass/bucket,
@@ -87126,8 +87151,8 @@ tCT
 aid
 kRK
 ajL
-faJ
-faJ
+doz
+doz
 amu
 anF
 anF
@@ -87383,11 +87408,11 @@ hkL
 cmp
 tLI
 ajL
-faJ
-faJ
+doz
+doz
 amv
 anE
-mpm
+mHZ
 apZ
 arm
 ajL
@@ -92508,7 +92533,7 @@ aab
 aab
 aab
 aab
-aab
+uay
 aab
 aab
 aab

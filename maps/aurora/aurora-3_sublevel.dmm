@@ -6,19 +6,9 @@
 /obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
-"aac" = (
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/mine/unexplored)
 "aad" = (
 /obj/structure/grille,
 /turf/simulated/wall/r_wall,
-/area/engineering/atmos)
-"aae" = (
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
 /area/engineering/atmos)
 "aaf" = (
 /turf/simulated/floor/reinforced/phoron,
@@ -232,39 +222,27 @@
 /area/engineering/atmos)
 "aaI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaJ" = (
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaL" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaN" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aaO" = (
 /turf/simulated/wall/r_wall,
@@ -1330,15 +1308,6 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/engineering/atmos)
-"ads" = (
-/obj/machinery/atmospherics/pipe/simple/visible/green{
-	icon_state = "intact";
-	dir = 4
-	},
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
-/area/engineering/atmos)
 "adt" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -1672,9 +1641,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor{
-	icon_state = "plating"
-	},
+/turf/simulated/floor/airless,
 /area/engineering/atmos)
 "aeu" = (
 /obj/machinery/air_sensor{
@@ -1933,7 +1900,8 @@
 	name = "N2O Filter";
 	tag_east = 7;
 	tag_north = 1;
-	tag_west = 2
+	tag_south = 2;
+	tag_west = 0
 	},
 /obj/effect/floor_decal/corner/white,
 /obj/effect/floor_decal/corner/red{
@@ -2385,17 +2353,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"agk" = (
-/obj/machinery/atmospherics/valve{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "agl" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/valve/digital{
+	dir = 4;
+	icon_state = "map_valve0";
+	name = "H2 to Mix valve"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "agp" = (
@@ -2486,10 +2449,8 @@
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "agD" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 8
-	},
 /obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "agH" = (
@@ -3144,14 +3105,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
-"aih" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "aii" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/particle_accelerator/fuel_chamber{
@@ -3419,14 +3372,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/rnd/test_area)
-"aiH" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "aiI" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -24169,6 +24114,10 @@
 	dir = 2;
 	icon_state = "camera"
 	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "bcf" = (
@@ -24262,19 +24211,6 @@
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Atmospherics West 2";
 	dir = 4;
-	icon_state = "camera"
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
-"bcl" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/machinery/camera/network/engineering_outpost{
-	c_tag = "Engineering Sublevel - Atmospherics East 2";
-	dir = 8;
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled,
@@ -26796,6 +26732,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"bQB" = (
+/obj/effect/floor_decal/corner/purple/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "H2 to Mix"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "bTg" = (
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
@@ -27050,6 +26998,13 @@
 	},
 /turf/simulated/floor/grass,
 /area/medical/patient_wing_picnic)
+"cBA" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "cFw" = (
 /turf/simulated/wall,
 /area/medical/patient_wing_post2)
@@ -27075,6 +27030,18 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"cLJ" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	frequency = 1441;
+	icon_state = "map_injector";
+	id = "h2_in";
+	initialize_directions = 8;
+	pixel_y = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/h2,
+/area/engineering/atmos)
 "cOj" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -27625,6 +27592,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"dFg" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8;
+	external_pressure_bound = 0;
+	external_pressure_bound_default = 0;
+	frequency = 1441;
+	icon_state = "map_vent_in";
+	id_tag = "h2_out";
+	initialize_directions = 8;
+	internal_pressure_bound = 4000;
+	internal_pressure_bound_default = 4000;
+	pressure_checks = 2;
+	pressure_checks_default = 2;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/simulated/floor/reinforced/h2,
+/area/engineering/atmos)
 "dFG" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -28048,6 +28033,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"eel" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "ehn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/emitter,
@@ -28104,6 +28096,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
+"ekt" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1;
+	name = "H2 to Connector"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "emk" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -28262,6 +28261,19 @@
 	icon_state = "plating"
 	},
 /area/rnd/mixing)
+"eDW" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "eEq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -28341,6 +28353,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
+"eKX" = (
+/obj/structure/grille,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/engineering/atmos)
 "eNg" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -28681,18 +28700,13 @@
 /obj/structure/cable/cyan,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"fKe" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
+"fMb" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/engineering/atmos)
 "fOV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -28941,6 +28955,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"ghu" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/engineering/atmos)
 "ghY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -29106,6 +29126,15 @@
 	icon_state = "plating"
 	},
 /area/engineering/gravity_gen)
+"gqr" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "grD" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
@@ -29183,6 +29212,22 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"gAE" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "gBM" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/vending/cola,
@@ -29577,6 +29622,25 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
+"hCU" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "hDn" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -29622,6 +29686,15 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/beach/sand,
 /area/medical/patient_wing_picnic)
+"hHC" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/air_sensor{
+	frequency = 1441;
+	id_tag = "h2_sensor"
+	},
+/turf/simulated/floor/reinforced/h2,
+/area/engineering/atmos)
 "hHI" = (
 /obj/machinery/button/crematorium{
 	req_access = list(66)
@@ -29652,6 +29725,18 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
+"hJs" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "hJK" = (
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
@@ -29755,6 +29840,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/patient_a)
+"hYg" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "ibB" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -30655,16 +30748,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"kaD" = (
-/obj/machinery/ringer{
-	department = "Engineering";
-	id = "engie_ringer";
-	pixel_x = 30;
-	pixel_y = 0;
-	req_access = list(10)
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/atmos)
 "kbk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -30681,6 +30764,19 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"kla" = (
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/omni/filter{
+	name = "H2 Filter";
+	tag_east = 8;
+	tag_north = 1;
+	tag_west = 2
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "klI" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -30911,6 +31007,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
+"kTO" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/machinery/camera/network/engineering_outpost{
+	c_tag = "Engineering Sublevel - Atmospherics East 2";
+	dir = 8;
+	icon_state = "camera"
+	},
+/obj/machinery/ringer{
+	department = "Engineering";
+	id = "engie_ringer";
+	pixel_x = 30;
+	pixel_y = 0;
+	req_access = list(10)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "kVF" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -31006,6 +31124,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
+"liH" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/rnd/storage)
 "lje" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -31826,6 +31949,11 @@
 /obj/structure/closet/secure_closet/xenobotany,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
+"nnr" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "noC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -32373,6 +32501,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"osk" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "oub" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_tesla)
@@ -32909,6 +33054,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
+"pRB" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/computer/general_air_control/large_tank_control{
+	frequency = 1441;
+	input_tag = "h2_in";
+	name = "Hydrogen Supply Control";
+	output_tag = "h2_out";
+	sensors = list("h2_sensor" = "Tank")
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "pUs" = (
 /obj/item/frame/fire_alarm,
 /obj/effect/decal/cleanable/dirt,
@@ -33223,6 +33379,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"qDh" = (
+/obj/machinery/door/firedoor{
+	dir = 2
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "qDr" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -33241,6 +33414,11 @@
 /obj/machinery/botany/extractor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"qEm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/shieldgen,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "qEK" = (
 /obj/structure/grille,
 /obj/structure/barricade,
@@ -33318,19 +33496,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
-"qMB" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "qMQ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -34129,11 +34294,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"svn" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/shieldgen,
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
 "swb" = (
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/dark,
@@ -35380,22 +35540,6 @@
 	},
 /turf/simulated/open,
 /area/maintenance/engsublevel)
-"veq" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/mine/unexplored)
 "vgD" = (
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -35536,6 +35680,11 @@
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenoarch_atrium)
+"vtq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "vxa" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/reinforced,
@@ -36079,6 +36228,9 @@
 /obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
+"wwh" = (
+/turf/simulated/floor/reinforced/h2,
+/area/engineering/atmos)
 "wwk" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -36237,11 +36389,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"wJm" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/storage)
 "wKw" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/monkeycubes{
@@ -36826,6 +36973,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"xPm" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	icon_state = "intact";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/atmos)
 "xPQ" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -57234,9 +57388,9 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
+hzE
+hzE
+hzE
 hzE
 hzE
 hzE
@@ -57255,9 +57409,9 @@ aaO
 aaO
 akG
 akG
-veq
-fKe
-qMB
+gAE
+hJs
+eDW
 aaO
 aaO
 aaO
@@ -57328,7 +57482,7 @@ aQr
 bcQ
 bdo
 aVp
-wJm
+liH
 bft
 aQr
 aJW
@@ -57491,13 +57645,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 aaO
 aaO
@@ -57511,10 +57665,10 @@ afv
 aeY
 abo
 aaO
-svn
-svn
-svn
-svn
+qEm
+qEm
+qEm
+qEm
 aaO
 aaO
 vqy
@@ -57585,8 +57739,8 @@ aQr
 bdo
 bdo
 aVp
-wJm
-wJm
+liH
+liH
 aQr
 aJW
 aFW
@@ -57748,7 +57902,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaf
 aaf
@@ -58005,7 +58159,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaf
 aak
@@ -58262,7 +58416,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaf
 aaf
@@ -58519,13 +58673,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abe
 abz
@@ -58776,13 +58930,13 @@ aaa
 aaa
 aaa
 aaa
-aac
-aae
-aae
-aae
-aae
-aae
-aae
+hzE
+hGw
+hGw
+hGw
+hGw
+hGw
+hGw
 aaO
 abf
 abA
@@ -59033,13 +59187,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abg
 abo
@@ -59290,7 +59444,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aag
 aag
@@ -59547,7 +59701,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aag
 aal
@@ -59804,7 +59958,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aag
 aag
@@ -60061,13 +60215,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abk
 abo
@@ -60318,7 +60472,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aah
 aah
@@ -60575,7 +60729,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aah
 aam
@@ -60597,7 +60751,7 @@ agC
 acy
 ahB
 baM
-aiH
+alz
 aaO
 aaO
 aaO
@@ -60832,7 +60986,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aah
 aah
@@ -61089,13 +61243,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abo
 abo
@@ -61112,8 +61266,8 @@ agj
 ahC
 baN
 aiI
-ajg
-ajg
+vtq
+vtq
 aaO
 aaa
 aaa
@@ -61346,7 +61500,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aai
 aai
@@ -61369,8 +61523,8 @@ agj
 ahC
 baN
 aiI
-ajh
-ajh
+ajg
+ajg
 aaO
 aaa
 aaa
@@ -61603,7 +61757,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aai
 aan
@@ -61626,8 +61780,8 @@ agj
 ahC
 baN
 aiI
-aji
-aji
+ajh
+ajh
 aaO
 aaa
 aaa
@@ -61860,7 +62014,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aai
 aai
@@ -61883,8 +62037,8 @@ agj
 ahC
 baN
 aiI
-ajj
-ajj
+aji
+gqr
 aaO
 aaa
 aaa
@@ -62117,13 +62271,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abo
 abo
@@ -62134,14 +62288,14 @@ abo
 adD
 abo
 abo
-agj
+xPm
 agD
-agi
+eel
 abo
-baN
+baO
 aiI
-ajk
-ajk
+ajj
+ajj
 aaO
 aaa
 aaa
@@ -62374,13 +62528,13 @@ aaa
 aaa
 aaa
 aaa
-aac
-aae
-aae
-aae
-aae
-aae
-aae
+hzE
+hGw
+hGw
+hGw
+hGw
+hGw
+hGw
 aaO
 abs
 abG
@@ -62389,16 +62543,16 @@ acx
 acT
 adB
 aeq
+acT
+acT
+acT
+acT
+adB
+acT
 aeY
-abo
-agk
-agk
-agk
-abo
-baO
 aiI
-ajl
-ajl
+ajk
+ajk
 aaO
 aaa
 aaa
@@ -62631,13 +62785,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 abt
 abH
@@ -62646,16 +62800,16 @@ abo
 abo
 adC
 abo
+abo
+abo
+abo
+abo
+agl
+abo
 adD
-abo
-agl
-agl
-agl
-abo
-abo
 aiI
-ajm
-aaO
+ajl
+ajl
 aaO
 aaa
 aaa
@@ -62888,7 +63042,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaj
 aaj
@@ -62903,17 +63057,17 @@ abo
 abo
 adD
 abo
+abo
+abo
+abo
+abo
 adD
 abo
-abo
-abo
-bcl
-kaD
-aih
+adD
 aiI
-ajn
+ajm
 aaO
-aaa
+akG
 aaa
 aaa
 aaa
@@ -63145,7 +63299,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaj
 aap
@@ -63161,14 +63315,14 @@ acX
 adE
 aer
 aeZ
-abo
-abo
-abo
-aaO
-aaO
-aaO
-aaO
-aaO
+acy
+acy
+acy
+bQB
+cBA
+kla
+aiI
+ajn
 aaO
 aaa
 aaa
@@ -63402,7 +63556,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aaj
 aaj
@@ -63421,12 +63575,12 @@ adF
 abo
 abo
 abo
+fMb
+abo
+fMb
+hYg
 aaO
-aaa
-aaa
-aaa
-aaa
-aaa
+aaO
 aaa
 aaa
 aaa
@@ -63659,13 +63813,13 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aae
+hGw
 aaO
 aaO
 aaO
@@ -63676,13 +63830,13 @@ adu
 aes
 adF
 abo
-abo
+kTO
+ekt
+nnr
+pRB
+fMb
 abo
 aaO
-aaa
-aaa
-aaa
-aaa
 aaa
 aaa
 aaa
@@ -63916,16 +64070,16 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aac
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
 aaO
 aaO
 aaO
@@ -63935,11 +64089,11 @@ aeQ
 aaO
 aaO
 aaO
-akG
-aaa
-aaa
-aaa
-aaa
+hCU
+aei
+osk
+aaO
+aaO
 aaa
 aaa
 aaa
@@ -64182,21 +64336,21 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
-aae
-ads
+hzE
+hzE
+hzE
+hGw
+rRi
 aet
-ads
-aae
-aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+rRi
+hGw
+hzE
+hGw
+ghu
+aet
+ghu
+hGw
+hzE
 aaa
 aaa
 aaa
@@ -64441,19 +64595,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adr
 aeg
 adr
 aad
-aac
-aba
-aaa
-aaa
-aaa
-aaa
-aaa
+hzE
+aad
+eKX
+qDh
+eKX
+aad
+hzE
 aaa
 aaa
 aaa
@@ -64698,19 +64852,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adG
 adH
 afa
 aad
-aac
-aba
-aba
-aba
-aaa
-aaa
-aaa
+hzE
+aad
+dFg
+wwh
+cLJ
+aad
+hzE
 aaa
 aaa
 aaa
@@ -64955,19 +65109,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adH
 aeu
 adH
 aad
-aac
-aba
-aba
-aba
-aba
-aba
-aba
+hzE
+aad
+wwh
+hHC
+wwh
+aad
+hzE
 aba
 aba
 aaa
@@ -65212,19 +65366,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 adH
 adH
 adH
 aad
-aac
-aba
-aba
-aba
-aba
-aba
-aba
+hzE
+aad
+wwh
+wwh
+wwh
+aad
+hzE
 aba
 aba
 aba
@@ -65469,19 +65623,19 @@ aaa
 aaa
 aaa
 aaa
-aac
+hzE
 aad
 aad
 aad
 aad
 aad
-aac
-aba
-aaa
-aaa
-aba
-aba
-aba
+hzE
+aad
+aad
+aad
+aad
+aad
+hzE
 aba
 aba
 aba
@@ -65726,19 +65880,19 @@ aaa
 aaa
 aaa
 aaa
-aac
-aac
-aac
-aac
-aac
-aac
-aac
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
+hzE
 aba
 aba
 aba
