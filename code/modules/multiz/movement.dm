@@ -489,6 +489,32 @@
 		visible_message("<span class='warning'>\The [src] falls and lands directly on their legs!</span>",
 			"<span class='danger'>You land on your feet, and the impact brings you to your knees.</span>")
 
+		if(prob(20))
+			var/obj/item/organ/external/l_foot = get_organ("l_foot")
+			var/obj/item/organ/external/r_foot = get_organ("r_foot")
+
+			if(prob(50) && l_foot)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s left ankle bends unnaturally!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your left ankle dislocates under the fall!</span>")
+				l_foot.dislocate(TRUE)
+			else if(r_foot)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s right ankle bends unnaturally!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your right ankle dislocates under the fall!</span>")
+				r_foot.dislocate(TRUE)
+		else if(prob(15))
+			var/obj/item/organ/external/l_leg = get_organ("l_leg")
+			var/obj/item/organ/external/r_leg = get_organ("r_leg")
+
+			if(prob(50) && l_leg)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s left knee caves in!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your left knee dislocates under the fall!</span>")
+				l_leg.dislocate(TRUE)
+			else if(r_leg)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s right knee caves in!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your right knee dislocates under the fall!</span>")
+				l_leg.dislocate(TRUE)
+
+
 		limb_damage = left_damage + right_damage + leftf_damage + rightf_damage + groin_damage
 
 	else if(prob(30) && combat_roll >= 1) //landed on their arms
@@ -509,11 +535,42 @@
 
 		visible_message("<span class='warning'>\The [src] falls and lands arms first!</span>",
 			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
+		
+		if(prob(20))
+			var/obj/item/organ/external/l_hand = get_organ("l_hand")
+			var/obj/item/organ/external/r_hand = get_organ("r_hand")
+
+			if(prob(50) && l_hand)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s left wrist bends unnaturally!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your left wrist dislocates under the fall!</span>")
+				l_hand.dislocate(TRUE)
+			else if(r_hand)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s right wrist bends unnaturally!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your right wrist dislocates under the fall!</span>")
+				r_hand.dislocate(TRUE)
+		else if(prob(15))
+			var/obj/item/organ/external/l_arm = get_organ("l_arm")
+			var/obj/item/organ/external/r_arm = get_organ("r_arm")
+
+			if(prob(50) && l_arm)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s left elbow caves in!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your left elbow dislocates under the fall!</span>")
+				l_arm.dislocate(TRUE)
+			else if(r_arm)
+				visible_message("<span class='warning'>There's a sickening popping noise as [src]'s right elbow caves in!</span>",
+				"<span class='danger'>Grueling pain shoots through your mind as your right elbow dislocates under the fall!</span>")
+				r_arm.dislocate(TRUE)
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
 		apply_damage(limb_damage, BRUTE, BP_HEAD)
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
+
+		var/obj/item/organ/external/head = get_organ("head")
+		if(prob(20) && head)
+			visible_message("<span class='warning'>There's a sickening popping noise as [src]'s jaw cracks loose!</span>",
+			"<span class='danger'>Grueling pain shoots through your mind as your jaw dislocates under the fall!</span>")
+			head.dislocate(TRUE)
 
 	else
 		limb_damage = 0
