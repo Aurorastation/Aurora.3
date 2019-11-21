@@ -12,8 +12,6 @@
 
 /obj/item/organ/internal/heart/process()
 	if(owner)
-		if(owner.isonlifesupport())
-			return 1
 		handle_pulse()
 		if(pulse)
 			handle_heartbeat()
@@ -98,19 +96,6 @@
 					owner.adjustHydrationLoss(1)
 				if(CE_BLOODRESTORE in owner.chem_effects)
 					B.volume += owner.chem_effects[CE_BLOODRESTORE]
-
-
-		var/onlifesupport = 0
-		if (owner.buckled && istype(owner.buckled, /obj/machinery/optable/lifesupport))
-			var/obj/machinery/optable/lifesupport/A = owner.buckled
-			onlifesupport = A.onlifesupport()
-
-		if (!onlifesupport)
-			if(!src)
-				blood_volume = 0
-			else if (is_damaged())
-				blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
-				blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - damage/min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
 
 		//Effects of bloodloss
 		if(blood_volume < BLOOD_VOLUME_SAFE && owner.oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))

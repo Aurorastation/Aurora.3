@@ -1587,14 +1587,6 @@
 /mob/living/carbon/human/get_metabolism(metabolism)
 	return ..() * (species ? species.metabolism_mod : 1)
 
-
-/mob/living/carbon/human/proc/isonlifesupport()
-	if (buckled && istype(buckled, /obj/machinery/optable/lifesupport))
-		var/obj/machinery/optable/lifesupport/A = buckled
-		return A.onlifesupport()
-	else
-		return 0
-
 /mob/living/carbon/human/is_clumsy()
 	if(CLUMSY in mutations)
 		return TRUE

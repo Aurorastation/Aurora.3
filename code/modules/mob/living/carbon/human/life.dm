@@ -746,7 +746,7 @@
 	else				//ALIVE. LIGHTS ARE ON
 		updatehealth()	//TODO
 
-		if(health <= config.health_threshold_dead || (species.has_organ[BP_BRAIN] && !has_brain() && !isonlifesupport()))
+		if(health <= config.health_threshold_dead || (species.has_organ[BP_BRAIN] && !has_brain()))
 			death()
 			blinded = 1
 			silent = 0
