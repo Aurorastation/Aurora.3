@@ -72,8 +72,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 					B.volume += chem_effects[CE_BLOODRESTORE]
 
 		//The heartfix to end all heartfixes
-		if(species && species.has_organ["heart"])
-			var/obj/item/organ/heart/heart = internal_organs_by_name["heart"]
+		if(species && species.has_organ[BP_HEART])
+			var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 			// Before we do that, we check for lifesupport.
 			var/onlifesupport = 0
 			if (buckled && istype(buckled, /obj/machinery/optable/lifesupport))
@@ -158,7 +158,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 ****************************************************/
 
 //Gets blood from mob to the container, preserving all data in it.
-/mob/living/carbon/proc/take_blood(obj/item/weapon/reagent_containers/container, var/amount)
+/mob/living/carbon/proc/take_blood(obj/item/reagent_containers/container, var/amount)
 
 	var/datum/reagent/B = get_blood(container.reagents)
 	if(!B) B = new /datum/reagent/blood
@@ -194,7 +194,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	return B
 
 //For humans, blood does not appear from blue, it comes from vessels.
-/mob/living/carbon/human/take_blood(obj/item/weapon/reagent_containers/container, var/amount)
+/mob/living/carbon/human/take_blood(obj/item/reagent_containers/container, var/amount)
 
 	if(species && species.flags & NO_BLOOD)
 		return null

@@ -1,24 +1,24 @@
-/obj/item/weapon/implant/integrated_circuit
+/obj/item/implant/integrated_circuit
 	name = "electronic implant"
 	desc = "It's a case, for building very tiny electronics with."
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_implant"
 	var/obj/item/device/electronic_assembly/implant/IC = null
 
-/obj/item/weapon/implant/integrated_circuit/islegal()
+/obj/item/implant/integrated_circuit/islegal()
 	return TRUE
 
-/obj/item/weapon/implant/integrated_circuit/Initialize()
+/obj/item/implant/integrated_circuit/Initialize()
 	..()
 	IC = new(src)
 	IC.implant = src
 
-/obj/item/weapon/implant/integrated_circuit/Destroy()
+/obj/item/implant/integrated_circuit/Destroy()
 	IC.implant = null
 	qdel(IC)
 	return ..()
 
-/obj/item/weapon/implant/integrated_circuit/get_data()
+/obj/item/implant/integrated_circuit/get_data()
 	var/dat = {"
 	<b>Implant Specifications:</b><BR>
 	<b>Name:</b> Modular Implant<BR>
@@ -32,17 +32,17 @@
 	<b>Integrity:</b> Implant is not shielded from electromagnetic interference, otherwise it is independant of subject's status."}
 	return dat
 
-/obj/item/weapon/implant/integrated_circuit/emp_act(severity)
+/obj/item/implant/integrated_circuit/emp_act(severity)
 	IC.emp_act(severity)
 
-/obj/item/weapon/implant/integrated_circuit/examine(mob/user)
+/obj/item/implant/integrated_circuit/examine(mob/user)
 	IC.examine(user)
 
-/obj/item/weapon/implant/integrated_circuit/attackby(var/obj/item/O, var/mob/user)
-	if(O.iscrowbar() || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || O.isscrewdriver() || istype(O, /obj/item/weapon/cell/device) )
+/obj/item/implant/integrated_circuit/attackby(var/obj/item/O, var/mob/user)
+	if(O.iscrowbar() || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || O.isscrewdriver() || istype(O, /obj/item/cell/device) )
 		IC.attackby(O, user)
 	else
 		..()
 
-/obj/item/weapon/implant/integrated_circuit/attack_self(mob/user)
+/obj/item/implant/integrated_circuit/attack_self(mob/user)
 	IC.attack_self(user)

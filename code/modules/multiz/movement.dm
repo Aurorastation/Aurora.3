@@ -234,7 +234,7 @@
 // they can have them. So we override and check.
 /mob/living/carbon/human/CanAvoidGravity()
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
@@ -242,7 +242,7 @@
 	return ..()
 
 /mob/living/silicon/robot/CanAvoidGravity()
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.allow_thrust(0.02, src))
 		return TRUE
@@ -303,7 +303,7 @@
 /obj/item/pipe/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	. = ..()
 
-	if((locate(/obj/structure/disposalpipe/up) in below) || locate(/obj/machinery/atmospherics/pipe/zpipe/up in below))
+	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
 // Only things that stop mechas are atoms that, well, stop them.
@@ -327,7 +327,7 @@
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
 	if (!restrained())
-		var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
@@ -342,7 +342,7 @@
 	return FALSE
 
 /mob/living/silicon/robot/can_fall(turf/below, turf/simulated/open/dest = src.loc)
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if (thrust && thrust.stabilization_on && thrust.allow_thrust(0.02, src))
 		return FALSE
@@ -434,7 +434,7 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
-	var/obj/item/weapon/rig/rig = get_rig()
+	var/obj/item/rig/rig = get_rig()
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
@@ -463,15 +463,15 @@
 		var/groin_damage = rand(0,damage/4)
 
 
-		apply_damage(left_damage, BRUTE, "l_leg")
-		apply_damage(right_damage, BRUTE, "r_leg")
+		apply_damage(left_damage, BRUTE, BP_L_LEG)
+		apply_damage(right_damage, BRUTE, BP_R_LEG)
 
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, "r_foot")
+			apply_damage(leftf_damage, BRUTE, BP_R_FOOT)
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, "l_foot")
+			apply_damage(leftf_damage, BRUTE, BP_L_FOOT)
 		if(prob(50))
-			apply_damage(groin_damage, BRUTE, "groin")
+			apply_damage(groin_damage, BRUTE, BP_GROIN)
 
 		visible_message("<span class='warning'>\The [src] falls and lands directly on their legs!</span>",
 			"<span class='danger'>You land on your feet, and the impact brings you to your knees.</span>")
@@ -484,13 +484,13 @@
 		var/lefth_damage = rand(0,damage/4)
 		var/righth_damage = rand(0,damage/4)
 
-		apply_damage(left_damage, BRUTE, "l_arm")
-		apply_damage(right_damage, BRUTE, "r_arm")
+		apply_damage(left_damage, BRUTE, BP_L_ARM)
+		apply_damage(right_damage, BRUTE, BP_R_ARM)
 
 		if(prob(50))
-			apply_damage(lefth_damage, BRUTE, "r_hand")
+			apply_damage(lefth_damage, BRUTE, BP_R_HAND)
 		if(prob(50))
-			apply_damage(righth_damage, BRUTE, "l_hand")
+			apply_damage(righth_damage, BRUTE, BP_L_HAND)
 
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
@@ -498,7 +498,7 @@
 			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
-		apply_damage(limb_damage, BRUTE, "head")
+		apply_damage(limb_damage, BRUTE, BP_HEAD)
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
@@ -509,7 +509,7 @@
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	if(!limb_damage)
-		apply_damage(damage, BRUTE, "chest")
+		apply_damage(damage, BRUTE, BP_CHEST)
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -626,8 +626,8 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, "head")
-		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
+		H.apply_damage(cranial_damage, BRUTE, BP_HEAD)
+		H.apply_damage((damage - cranial_damage), BRUTE, BP_CHEST)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))

@@ -30,6 +30,7 @@ var/datum/antagonist/revolutionary/revs
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
+	required_age = 31
 
 /datum/antagonist/revolutionary/New()
 	..()
@@ -50,7 +51,7 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary/can_become_antag(var/datum/mind/player)
 	if(!..())
 		return 0
-	for(var/obj/item/weapon/implant/loyalty/L in player.current)
+	for(var/obj/item/implant/loyalty/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
 	return 1

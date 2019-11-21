@@ -299,12 +299,12 @@
 /obj/structure/sign/flag/sol/right
 	icon_state = "solgov_r"
 
-/obj/item/weapon/flag/sol
+/obj/item/flag/sol
 	name = "Sol Alliance flag"
 	desc = "The bright blue flag of the Alliance of Sovereign Solarian Nations."
 	flag_path = "solgov"
 
-/obj/item/weapon/flag/sol/l
+/obj/item/flag/sol/l
 	flag_size = 1
 
 /obj/structure/sign/flag/dominia
@@ -318,12 +318,12 @@
 /obj/structure/sign/flag/dominia/right
 	icon_state = "dominia_r"
 
-/obj/item/weapon/flag/dominia
+/obj/item/flag/dominia
 	name = "Dominian Empire flag"
 	desc = "The Imperial Standard of Emperor Boleslaw Keeser of Dominia."
 	flag_path = "dominia"
 
-/obj/item/weapon/flag/dominia/l
+/obj/item/flag/dominia/l
 	flag_size = 1
 
 /obj/structure/sign/flag/elyra
@@ -337,12 +337,12 @@
 /obj/structure/sign/flag/elyra/right
 	icon_state = "elyra_r"
 
-/obj/item/weapon/flag/elyra
+/obj/item/flag/elyra
 	name = "Elyran flag"
 	desc = "The hopeful colors of the Serene Republic of Elyra."
 	flag_path = "elyra"
 
-/obj/item/weapon/flag/elyra/l
+/obj/item/flag/elyra/l
 	flag_size = 1
 
 /obj/structure/sign/flag/hegemony
@@ -356,12 +356,12 @@
 /obj/structure/sign/flag/hegemony/right
 	icon_state = "izweski_r"
 
-/obj/item/weapon/flag/hegemony
+/obj/item/flag/hegemony
 	name = "Hegemony flag"
 	desc = "The feudal standard of the Izweski Hegemony."
 	flag_path = "izweski"
 
-/obj/item/weapon/flag/hegemony/l
+/obj/item/flag/hegemony/l
 	flag_size = 1
 
 /obj/structure/sign/flag/jargon
@@ -375,12 +375,12 @@
 /obj/structure/sign/flag/jargon/right
 	icon_state = "jargon_r"
 
-/obj/item/weapon/flag/jargon
+/obj/item/flag/jargon
 	name = "Jargon Federation flag"
 	desc = "The insignia of the Jargon Federation"
 	flag_path = "jargon"
 
-/obj/item/weapon/flag/jargon/l
+/obj/item/flag/jargon/l
 	flag_size = 1
 
 /obj/structure/sign/flag/nanotrasen
@@ -394,12 +394,12 @@
 /obj/structure/sign/flag/nanotrasen/right
 	icon_state = "nanotrasen_r"
 
-/obj/item/weapon/flag/nanotrasen
+/obj/item/flag/nanotrasen
 	name = "NanoTrasen Corporation flag"
 	desc = "The logo of NanoTrasen on a flag."
 	flag_path = "nanotrasen"
 
-/obj/item/weapon/flag/nanotrasen/l
+/obj/item/flag/nanotrasen/l
 	flag_size = 1
 
 /obj/structure/sign/flag/eridani
@@ -413,12 +413,12 @@
 /obj/structure/sign/flag/eridani/right
 	icon_state = "eridani_r"
 
-/obj/item/weapon/flag/eridani
+/obj/item/flag/eridani
 	name = "Eridani Corporate Federation flag"
 	desc = "The logo of the Eridani Corporate Federation on a flag."
 	flag_path = "eridani"
 
-/obj/item/weapon/flag/eridani/l
+/obj/item/flag/eridani/l
 	flag_size = 1
 
 /obj/structure/sign/flag/vaurca
@@ -432,12 +432,12 @@
 /obj/structure/sign/flag/vaurca/right
 	icon_state = "sedantis_r"
 
-/obj/item/weapon/flag/vaurca
+/obj/item/flag/vaurca
 	name = "Sedantis flag"
 	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
 	flag_path = "sedantis"
 
-/obj/item/weapon/flag/vaurca/l
+/obj/item/flag/vaurca/l
 	flag_size = 1
 
 /obj/structure/sign/flag/america
@@ -451,15 +451,15 @@
 /obj/structure/sign/flag/america/right
 	icon_state = "oldglory_r"
 
-/obj/item/weapon/flag/america
+/obj/item/flag/america
 	name = "Old World flag"
 	desc = "The banner of an ancient nation, its glory old."
 	flag_path = "oldglory"
 
-/obj/item/weapon/flag/america/l
+/obj/item/flag/america/l
 	flag_size = 1
 
-/obj/item/weapon/flag/dpra
+/obj/item/flag/dpra
 	name = "Democratic People's Republic of Adhomai flag"
 	desc = "The black flag of the Democratic People's Republic of Adhomai."
 	flag_path = "dpra"
@@ -468,7 +468,7 @@
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
 	nation they were fighting for the Democratic People's Republic of Adhomai."
 
-/obj/item/weapon/flag/dpra/l
+/obj/item/flag/dpra/l
 	flag_size = 1
 
 /obj/structure/sign/flag/dpra
@@ -486,7 +486,7 @@
 /obj/structure/sign/flag/dpra/right
 	icon_state = "dpra_r"
 
-/obj/item/weapon/flag/pra
+/obj/item/flag/pra
 	name = "People's Republic of Adhomai flag"
 	desc = "The tajaran flag of the People's Republic of Adhomai."
 	flag_path = "pra"
@@ -496,7 +496,7 @@
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 
-/obj/item/weapon/flag/pra/l
+/obj/item/flag/pra/l
 	flag_size = 1
 
 /obj/structure/sign/flag/pra
@@ -515,7 +515,7 @@
 /obj/structure/sign/flag/pra/right
 	icon_state = "pra_r"
 
-/obj/item/weapon/flag/nka
+/obj/item/flag/nka
 	name = "New Kingdom of Adhomai flag"
 	desc = "The blue flag of the New Kingdom of Adhomai."
 	flag_path = "nka"
@@ -525,7 +525,7 @@
 	slaughters. The New Kingdom puts forth the ideology that Republicanism is bloodshed. The only way to return Adhomai to peace and prosperity is to learn from the mistakes of the \
 	ancient nobles and Republicans, and create a new noble dynasty."
 
-/obj/item/weapon/flag/nka/l
+/obj/item/flag/nka/l
 	flag_size = 1
 
 /obj/structure/sign/flag/nka
@@ -544,12 +544,12 @@
 /obj/structure/sign/flag/nka/right
 	icon_state = "nka_r"
 
-/obj/item/weapon/flag/heph
+/obj/item/flag/heph
 	name = "Hephaestus Industries flag"
 	desc = "The logo of Hephaestus Industries on a flag."
 	flag_path = "heph"
 
-/obj/item/weapon/flag/heph/l
+/obj/item/flag/heph/l
 	flag_size = 1
 
 /obj/structure/sign/flag/heph
@@ -563,12 +563,12 @@
 /obj/structure/sign/flag/heph/right
 	icon_state = "heph_r"
 
-/obj/item/weapon/flag/zenghu
+/obj/item/flag/zenghu
 	name = "Zeng-Hu Pharmaceuticals flag"
 	desc = "The logo of Zeng-Hu Pharmaceuticals on a flag."
 	flag_path = "zenghu"
 
-/obj/item/weapon/flag/zenghu/l
+/obj/item/flag/zenghu/l
 	flag_size = 1
 
 /obj/structure/sign/flag/zenghu
@@ -582,7 +582,7 @@
 /obj/structure/sign/flag/zenghu/right
 	icon_state = "zenghu_r"
 
-/obj/item/weapon/flag
+/obj/item/flag
 	name = "boxed flag"
 	desc = "A flag neatly folded into a wooden container."
 	icon = 'icons/obj/decals.dmi'
@@ -590,7 +590,7 @@
 	var/flag_path
 	var/flag_size = 0
 
-/obj/item/weapon/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
+/obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
 
@@ -660,10 +660,10 @@
 		desc = "You can't make out anything from the flag's original print. It's ruined."
 		add_fingerprint(user)
 
-/obj/structure/sign/flag/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/sign/flag/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
-	if(istype(W, /obj/item/weapon/flame/lighter))
+	if(istype(W, /obj/item/flame/lighter))
 
 		visible_message("<span class='warning'>\The [user] starts to burn \the [src] down!</span>")
 

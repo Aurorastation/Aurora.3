@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/cannon
+/obj/item/gun/projectile/cannon
 	name = "hand cannon"
 	desc = "An amalgamation of ancient and modern tajaran technology. This old naval cannon was turned into a portable firearm."
 	icon_state = "cannon"
@@ -20,7 +20,7 @@
 	found in museums and forgotten warehouses were adapted into portable weapons, combining modern and ancient tajaran technology. This weapon is usually found in the hands of the \
 	sailors and marines of the Royal Navy."
 
-/obj/item/weapon/gun/projectile/cannon/update_icon()
+/obj/item/gun/projectile/cannon/update_icon()
 	if(wielded)
 		item_state = "cannon-wielded"
 	else
@@ -28,7 +28,7 @@
 	update_held_icon()
 
 
-/obj/item/weapon/gun/projectile/cannon/special_check(mob/user)
+/obj/item/gun/projectile/cannon/special_check(mob/user)
 	if(!wielded)
 		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
 		return 0

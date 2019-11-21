@@ -27,9 +27,9 @@
 	density = 1
 	anchored = 1
 	component_types = list(
-			/obj/item/weapon/circuitboard/bodyscanner,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module = 2,
+			/obj/item/circuitboard/bodyscanner,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/device/healthanalyzer
 		)
 
@@ -109,8 +109,8 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
+/obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
+	if ((!( istype(G, /obj/item/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
 		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
@@ -239,7 +239,7 @@
 
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
+	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/loyalty, /obj/item/implant/tracking)
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	name = "Body Scanner Console"
@@ -249,9 +249,9 @@
 	density = 0
 	anchored = 1
 	component_types = list(
-			/obj/item/weapon/circuitboard/bodyscannerconsole,
-			/obj/item/weapon/stock_parts/scanning_module = 2,
-			/obj/item/weapon/stock_parts/console_screen
+			/obj/item/circuitboard/bodyscannerconsole,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/stock_parts/console_screen
 		)
 
 
@@ -315,7 +315,7 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if (href_list["print"])
-		var/obj/item/weapon/paper/R = new(src.loc)
+		var/obj/item/paper/R = new(src.loc)
 		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([src.connected.occupant])", format_occupant_data(src.connected.get_occupant_data()))
 
@@ -404,13 +404,13 @@
 				data["burnDmg"] = O.damage
 				data["bruteDmg"] = 0
 
-		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
+		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
 			if (O.is_broken())
 				wounds += get_broken_lung_desc()
 			else
 				wounds += get_collapsed_lung_desc()
 
-		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
+		if (istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."
 
 		if (istype(O, H.species.vision_organ))

@@ -111,20 +111,20 @@
 			to_chat(usr, "<span class='danger'>There is \a [I] sticking out of it.</span>")
 	return
 
-/obj/item/organ/external/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/organ/external/attackby(obj/item/W as obj, mob/user as mob)
 	switch(stage)
 		if(0)
-			if(istype(W,/obj/item/weapon/scalpel))
+			if(istype(W,/obj/item/scalpel))
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				stage++
 				return
 		if(1)
-			if(istype(W,/obj/item/weapon/retractor))
+			if(istype(W,/obj/item/retractor))
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				stage++
 				return
 		if(2)
-			if(istype(W,/obj/item/weapon/hemostat))
+			if(istype(W,/obj/item/hemostat))
 				if(contents.len)
 					var/obj/item/removing = pick(contents)
 					removing.forceMove(get_turf(user.loc))
@@ -388,7 +388,7 @@ This function completely restores a damaged organ to perfect condition.
 
 	// remove embedded objects and drop them on the floor
 	for(var/obj/implanted_object in implants)
-		if(!istype(implanted_object,/obj/item/weapon/implant))	// We don't want to remove REAL implants. Just shrapnel etc.
+		if(!istype(implanted_object,/obj/item/implant))	// We don't want to remove REAL implants. Just shrapnel etc.
 			implanted_object.forceMove(owner.loc)
 			implants -= implanted_object
 
@@ -506,8 +506,8 @@ This function completely restores a damaged organ to perfect condition.
 	if((status & ORGAN_BROKEN) && !(status & ORGAN_SPLINTED))
 		if(istype(owner,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = owner
-			if(H.back && istype(H.back, /obj/item/weapon/rig))
-				var/obj/item/weapon/rig/R = H.back
+			if(H.back && istype(H.back, /obj/item/rig))
+				var/obj/item/rig/R = H.back
 				if(R.offline)
 					return
 			if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
@@ -1025,7 +1025,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/is_malfunctioning()
 	return ((status & ORGAN_ROBOT) && (brute_dam + burn_dam) >= 10 && prob(brute_dam + burn_dam))
 
-/obj/item/organ/external/proc/embed(var/obj/item/weapon/W, var/silent = 0, var/supplied_message)
+/obj/item/organ/external/proc/embed(var/obj/item/W, var/silent = 0, var/supplied_message)
 	if(!owner || loc != owner)
 		return
 	if(species.flags & NO_EMBED)
@@ -1153,6 +1153,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 			wound_descriptors[this_wound_desc] += W.amount
 		else
 			wound_descriptors[this_wound_desc] = W.amount
+	
+	if(open > 1)
+		var/bone = encased ? encased : "bone"
+		if(status & ORGAN_BROKEN)
+			bone = "broken [bone]"
+		wound_descriptors["[bone] exposed"] = 1
+
+		if(!encased || open > 1)
+			var/list/bits = list()
+			for(var/obj/item/organ/internal/organ in internal_organs)
+				bits += organ.get_visible_state()
+			if(bits.len)
+				wound_descriptors["[english_list(bits)] visible in the wounds"] = 1
 
 	if(wound_descriptors.len)
 		var/list/flavor_text = list()

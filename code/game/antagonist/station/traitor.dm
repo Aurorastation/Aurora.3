@@ -6,6 +6,7 @@ var/datum/antagonist/traitor/traitors
 	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	required_age = 10
 
 	faction = "syndicate"
 
@@ -116,7 +117,7 @@ var/datum/antagonist/traitor/traitors
 	if(get_antags("commander"))
 		var/obj/item/organ/external/affected = traitor_mob.organs_by_name["head"]
 		if(affected)
-			var/obj/item/weapon/implant/camera/C = new(traitor_mob)
+			var/obj/item/implant/camera/C = new(traitor_mob)
 			C.imp_in = traitor_mob
 			C.implanted = 1
 			affected.implants += C

@@ -213,42 +213,42 @@ proc/getsensorlevel(A)
 
 //The base miss chance for the different defence zones
 var/list/global/base_miss_chance = list(
-	"head" = 40,
-	"chest" = 10,
-	"groin" = 20,
-	"l_leg" = 20,
-	"r_leg" = 20,
-	"l_arm" = 20,
-	"r_arm" = 20,
-	"l_hand" = 50,
-	"r_hand" = 50,
-	"l_foot" = 50,
-	"r_foot" = 50
+	BP_HEAD = 40,
+	BP_CHEST = 10,
+	BP_GROIN = 20,
+	BP_L_LEG = 20,
+	BP_R_LEG = 20,
+	BP_L_ARM = 20,
+	BP_R_ARM = 20,
+	BP_L_HAND = 50,
+	BP_R_HAND = 50,
+	BP_L_FOOT = 50,
+	BP_R_FOOT = 50
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
 //Also used to weight the protection value that armour provides for covering that body part when calculating protection from full-body effects.
 var/list/global/organ_rel_size = list(
-	"head" = 25,
-	"chest" = 70,
-	"groin" = 30,
-	"l_leg" = 25,
-	"r_leg" = 25,
-	"l_arm" = 25,
-	"r_arm" = 25,
-	"l_hand" = 10,
-	"r_hand" = 10,
-	"l_foot" = 10,
-	"r_foot" = 10
+	BP_HEAD = 25,
+	BP_CHEST = 70,
+	BP_GROIN = 30,
+	BP_L_LEG = 25,
+	BP_R_LEG = 25,
+	BP_L_ARM = 25,
+	BP_R_ARM = 25,
+	BP_L_HAND = 10,
+	BP_R_HAND = 10,
+	BP_L_FOOT = 10,
+	BP_R_FOOT = 10
 )
 
 /proc/check_zone(zone)
-	if(!zone)	return "chest"
+	if(!zone)	return BP_CHEST
 	switch(zone)
-		if("eyes")
-			zone = "head"
+		if(BP_EYES)
+			zone = BP_HEAD
 		if("mouth")
-			zone = "head"
+			zone = BP_HEAD
 	return zone
 
 // Returns zone with a certain probability. If the probability fails, or no zone is specified, then a random body part is chosen.
@@ -263,17 +263,17 @@ var/list/global/organ_rel_size = list(
 	var/ran_zone = zone
 	while (ran_zone == zone)
 		ran_zone = pick (
-			organ_rel_size["head"]; "head",
-			organ_rel_size["chest"]; "chest",
-			organ_rel_size["groin"]; "groin",
-			organ_rel_size["l_arm"]; "l_arm",
-			organ_rel_size["r_arm"]; "r_arm",
-			organ_rel_size["l_leg"]; "l_leg",
-			organ_rel_size["r_leg"]; "r_leg",
-			organ_rel_size["l_hand"]; "l_hand",
-			organ_rel_size["r_hand"]; "r_hand",
-			organ_rel_size["l_foot"]; "l_foot",
-			organ_rel_size["r_foot"]; "r_foot"
+			organ_rel_size[BP_HEAD]; BP_HEAD,
+			organ_rel_size[BP_CHEST]; BP_CHEST,
+			organ_rel_size[BP_GROIN]; BP_GROIN,
+			organ_rel_size[BP_L_ARM]; BP_L_ARM,
+			organ_rel_size[BP_R_ARM]; BP_R_ARM,
+			organ_rel_size[BP_L_LEG]; BP_L_LEG,
+			organ_rel_size[BP_R_LEG]; BP_R_LEG,
+			organ_rel_size[BP_L_HAND]; BP_L_HAND,
+			organ_rel_size[BP_R_HAND]; BP_R_HAND,
+			organ_rel_size[BP_L_FOOT]; BP_L_FOOT,
+			organ_rel_size[BP_R_FOOT]; BP_R_FOOT
 		)
 
 	return ran_zone
@@ -289,7 +289,7 @@ var/list/global/organ_rel_size = list(
 		if(target.buckled || target.lying)
 			return zone
 		// if your target is being grabbed aggressively by someone you cannot miss either
-		for(var/obj/item/weapon/grab/G in target.grabbed_by)
+		for(var/obj/item/grab/G in target.grabbed_by)
 			if(G.state >= GRAB_AGGRESSIVE)
 				return zone
 
@@ -652,24 +652,24 @@ proc/is_blind(A)
 		return SAFE_PERP
 
 	//Agent cards lower threatlevel.
-	var/obj/item/weapon/card/id/id = GetIdCard()
-	if(id && istype(id, /obj/item/weapon/card/id/syndicate))
+	var/obj/item/card/id/id = GetIdCard()
+	if(id && istype(id, /obj/item/card/id/syndicate))
 		threatcount -= 2
 	// A proper	CentCom id is hard currency.
-	else if(id && istype(id, /obj/item/weapon/card/id/centcom))
+	else if(id && istype(id, /obj/item/card/id/centcom))
 		return SAFE_PERP
 
 	if(check_access && !access_obj.allowed(src))
 		threatcount += 4
 
 	if(auth_weapons && !access_obj.allowed(src))
-		if(istype(l_hand, /obj/item/weapon/gun) || istype(l_hand, /obj/item/weapon/melee))
+		if(istype(l_hand, /obj/item/gun) || istype(l_hand, /obj/item/melee))
 			threatcount += 4
 
-		if(istype(r_hand, /obj/item/weapon/gun) || istype(r_hand, /obj/item/weapon/melee))
+		if(istype(r_hand, /obj/item/gun) || istype(r_hand, /obj/item/melee))
 			threatcount += 4
 
-		if(istype(belt, /obj/item/weapon/gun) || istype(belt, /obj/item/weapon/melee))
+		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/melee))
 			threatcount += 2
 
 		if(species.name != "Human")
@@ -954,8 +954,8 @@ proc/is_blind(A)
 		else
 			action = "installed"
 			preposition = "in"
-	else if (istype(loc,/obj/item/weapon/storage))
-		var/obj/item/weapon/storage/S = loc
+	else if (istype(loc,/obj/item/storage))
+		var/obj/item/storage/S = loc
 		newlocation = S.name
 		if (justmoved)
 			preposition = "into"

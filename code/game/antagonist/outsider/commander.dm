@@ -5,7 +5,7 @@ var/datum/antagonist/commander/commander
 	role_text = "Syndicate Commander"
 	role_text_plural = "Syndicate Commanders"
 	welcome_text = "You are in charge of the syndicate sleeper agents aboard the NSS Aurora. You report directly to the upper echelons of the Syndicate, and their benefactors."
-	id_type = /obj/item/weapon/card/id/syndicate
+	id_type = /obj/item/card/id/syndicate
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_SET_APPEARANCE
 	landmark_id = "SyndiCommander"
 
@@ -25,7 +25,7 @@ var/datum/antagonist/commander/commander
 		return FALSE
 
 	for (var/obj/item/I in player)
-		if (istype(I, /obj/item/weapon/implant))
+		if (istype(I, /obj/item/implant))
 			continue
 		player.drop_from_inventory(I)
 		if(I.loc != player)

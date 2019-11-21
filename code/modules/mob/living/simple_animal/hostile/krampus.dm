@@ -189,12 +189,12 @@
 	switch(size)
 
 		if("medium")
-			new /obj/item/weapon/xmasgift/medium(get_turf(src))
+			new /obj/item/xmasgift/medium(get_turf(src))
 
 		if("big")
-			new /obj/item/weapon/xmasgift/large(get_turf(src))
+			new /obj/item/xmasgift/large(get_turf(src))
 
 		else
-			new /obj/item/weapon/xmasgift/small(get_turf(src))
+			new /obj/item/xmasgift/small(get_turf(src))
 
 	qdel(src)

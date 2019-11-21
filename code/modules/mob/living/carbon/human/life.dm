@@ -361,9 +361,9 @@
 /mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
 	if(internal)
 
-		var/obj/item/weapon/tank/rig_supply
-		if(istype(back,/obj/item/weapon/rig))
-			var/obj/item/weapon/rig/rig = back
+		var/obj/item/tank/rig_supply
+		if(istype(back,/obj/item/rig))
+			var/obj/item/rig/rig = back
 			if(!rig.offline && (rig.air_supply && internal == rig.air_supply))
 				rig_supply = rig.air_supply
 
@@ -574,24 +574,24 @@
 
 		if(breath.temperature >= species.heat_level_1)
 			if(breath.temperature < species.heat_level_2)
-				apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, "head", used_weapon = "Excessive Heat")
+				apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				fire_alert = max(fire_alert, 2)
 			else if(breath.temperature < species.heat_level_3)
-				apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, "head", used_weapon = "Excessive Heat")
+				apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				fire_alert = max(fire_alert, 2)
 			else
-				apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Heat")
+				apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				fire_alert = max(fire_alert, 2)
 
 		else if(breath.temperature <= species.cold_level_1)
 			if(breath.temperature > species.cold_level_2)
-				apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, "head", used_weapon = "Excessive Cold")
+				apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				fire_alert = max(fire_alert, 1)
 			else if(breath.temperature > species.cold_level_3)
-				apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, "head", used_weapon = "Excessive Cold")
+				apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				fire_alert = max(fire_alert, 1)
 			else
-				apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, "head", used_weapon = "Excessive Cold")
+				apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				fire_alert = max(fire_alert, 1)
 
 		//breathing in hot/cold air also heats/cools you a bit
@@ -983,7 +983,7 @@
 	else				//ALIVE. LIGHTS ARE ON
 		updatehealth()	//TODO
 
-		if(health <= config.health_threshold_dead || (species.has_organ["brain"] && !has_brain() && !isonlifesupport()))
+		if(health <= config.health_threshold_dead || (species.has_organ[BP_BRAIN] && !has_brain() && !isonlifesupport()))
 			death()
 			blinded = 1
 			silent = 0
@@ -1410,22 +1410,22 @@
 			if(temp <= PULSE_FAST && temp >= PULSE_NONE)
 				temp++
 		if(R.id in heartstopper) //To avoid using fakedeath
-			var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+			var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 			if(rand(0,6) == 3)
 				H.take_damage(5)
 		if(R.id in cheartstopper) //Conditional heart-stoppage
 			if(R.volume >= R.overdose)
-				var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+				var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 				if(rand(0,6) == 3)
 					H.take_damage(5)
 
 	return temp
 
 /mob/living/carbon/human/proc/handle_heartbeat()
-	if(pulse == PULSE_NONE || !species.has_organ["heart"])
+	if(pulse == PULSE_NONE || !species.has_organ[BP_HEART])
 		return
 
-	var/obj/item/organ/heart/H = internal_organs_by_name["heart"]
+	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 
 	if(!H || H.robotic >=2 )
 		return
@@ -1528,7 +1528,7 @@
 		holder.icon_state = "hudblank"
 		var/perpname = name
 		if(wear_id)
-			var/obj/item/weapon/card/id/I = wear_id.GetID()
+			var/obj/item/card/id/I = wear_id.GetID()
 			if(I)
 				perpname = I.registered_name
 
@@ -1557,13 +1557,13 @@
 		holder1.icon_state = "hudblank"
 		holder2.icon_state = "hudblank"
 		holder3.icon_state = "hudblank"
-		for(var/obj/item/weapon/implant/I in src)
+		for(var/obj/item/implant/I in src)
 			if(I.implanted)
-				if(istype(I,/obj/item/weapon/implant/tracking))
+				if(istype(I,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/weapon/implant/loyalty))
+				if(istype(I,/obj/item/implant/loyalty))
 					holder2.icon_state = "hud_imp_loyal"
-				if(istype(I,/obj/item/weapon/implant/chem))
+				if(istype(I,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"
 
 		hud_list[IMPTRACK_HUD] = holder1

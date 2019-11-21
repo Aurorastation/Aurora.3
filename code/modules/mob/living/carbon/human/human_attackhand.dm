@@ -23,7 +23,7 @@
 		return
 
 	..()
-	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/weapon/rig)))
+	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
 		to_chat(H, "<span class='danger'>You are now visible.</span>")
 		H.invisibility = 0
 
@@ -153,7 +153,7 @@
 			if(attacker_style && attacker_style.grab_act(H, src))
 				return 1
 
-			for(var/obj/item/weapon/grab/G in src.grabbed_by)
+			for(var/obj/item/grab/G in src.grabbed_by)
 				if(G.assailant == M)
 					to_chat(M, "<span class='notice'>You already grabbed [src].</span>")
 					return
@@ -164,7 +164,7 @@
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 			if(buckled)
 				to_chat(M, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
@@ -255,7 +255,7 @@
 				*/
 				if(prob(80))
 					hit_zone = ran_zone(hit_zone)
-				if(prob(15) && hit_zone != "chest") // Missed!
+				if(prob(15) && hit_zone != BP_CHEST) // Missed!
 					if(!src.lying)
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
@@ -380,11 +380,11 @@
 
 			//See if they have any weapons to retaliate with
 			if(src.a_intent != I_HELP)
-				for(var/obj/item/weapon/W in holding)
+				for(var/obj/item/W in holding)
 					if(W && prob(holding[W]))
-						if(istype(W, /obj/item/weapon/grab))
+						if(istype(W, /obj/item/grab))
 							continue
-						if(istype(W,/obj/item/weapon/gun))
+						if(istype(W,/obj/item/gun))
 							var/list/turfs = list()
 							for(var/turf/T in view())
 								turfs += T
@@ -475,7 +475,7 @@
 
 	if(user.limb_breaking)
 		return 0
-	for(var/obj/item/weapon/grab/G in list(user.l_hand, user.r_hand))
+	for(var/obj/item/grab/G in list(user.l_hand, user.r_hand))
 		if(G.affecting == src && G.state == GRAB_NECK)
 			has_grab = 1
 			break
@@ -511,15 +511,15 @@
 		success = 1
 		stop_pulling()
 
-	if(istype(l_hand, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/lgrab = l_hand
+	if(istype(l_hand, /obj/item/grab))
+		var/obj/item/grab/lgrab = l_hand
 		if(lgrab.affecting)
 			visible_message("<span class='danger'>[user] has broken [src]'s grip on [lgrab.affecting]!</span>")
 			success = 1
 		spawn(1)
 			qdel(lgrab)
-	if(istype(r_hand, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/rgrab = r_hand
+	if(istype(r_hand, /obj/item/grab))
+		var/obj/item/grab/rgrab = r_hand
 		if(rgrab.affecting)
 			visible_message("<span class='danger'>[user] has broken [src]'s grip on [rgrab.affecting]!</span>")
 			success = 1

@@ -192,7 +192,7 @@ BREATH ANALYZER
 				continue
 			var/limb = e.name
 			if(e.status & ORGAN_BROKEN)
-				if(((e.name == "l_arm") || (e.name == "r_arm") || (e.name == "l_leg") || (e.name == "r_leg")) && (!(e.status & ORGAN_SPLINTED)))
+				if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && (!(e.status & ORGAN_SPLINTED)))
 					to_chat(user, "<span class='warning'>Unsecured fracture in subject [limb]. Splinting recommended for transport.</span>")
 			if(e.has_infected_wound())
 				to_chat(user, "<span class='warning'>Infected wound detected in subject [limb]. Disinfection recommended.</span>")
@@ -524,7 +524,7 @@ BREATH ANALYZER
 		if(50 to INFINITY)
 			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
 
-	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+	var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
 			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
