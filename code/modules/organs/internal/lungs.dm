@@ -35,22 +35,14 @@
 			if (owner.losebreath < 5)
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
-/obj/item/organ/internal/lungs/proc/is_lung_ruptured()
-	return src && src.is_bruised()
-
-/obj/item/organ/internal/lungs/proc/rupture_lung()
-	if(src && !is_bruised())
-		owner.custom_pain("You feel a stabbing pain in your chest!", 1)
-		bruise()
-
 /obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
 	if(owner.status_flags & GODMODE)
 		return
 
 	//exposure to extreme pressures can rupture lungs
 	if(breath && (breath.total_moles/(owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
-		if(!is_lung_ruptured() && prob(5))
-			rupture_lung()
+		if(!is_bruised() && prob(5))
+			bruise()
 
 	//check if we actually need to process breath
 	if(!breath || (breath.total_moles == 0))
@@ -60,7 +52,7 @@
 		else
 			owner.adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
 
-		owner.oxygen_alert = max(oxygen_alert, 1)
+		owner.oxygen_alert = max(owner.oxygen_alert, 1)
 		return 0
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
@@ -115,15 +107,15 @@
 	// Not enough to breathe
 	if(inhale_pp < safe_pressure_min)
 		if(prob(20))
-			spawn(0) 
-				emote("gasp")
+			spawn(0)
+				owner.emote("gasp")
 
 		var/ratio = inhale_pp/safe_pressure_min
 		// Don't fuck them up too fast (space only does HUMAN_MAX_OXYLOSS after all!)
 		owner.adjustOxyLoss(max(HUMAN_MAX_OXYLOSS*(1-ratio), 0))
 		failed_inhale = 1
 
-		owner.oxygen_alert = max(oxygen_alert, 1)
+		owner.oxygen_alert = max(owner.oxygen_alert, 1)
 	else
 		// We're in safe limits
 		owner.oxygen_alert = 0
@@ -133,20 +125,20 @@
 	breath.adjust_gas(breath_type, -inhaled_gas_used, update = 0) //update afterwards
 
 	if(exhale_type)
-		breath.adjust_gas_temp(exhale_type, inhaled_gas_used, bodytemperature, update = 0) //update afterwards
+		breath.adjust_gas_temp(exhale_type, inhaled_gas_used, owner.bodytemperature, update = 0) //update afterwards
 
 		// Too much exhaled gas in the air
 		if(exhaled_pp > safe_exhaled_max)
-			if (!co2_alert|| prob(15))
+			if (!owner.co2_alert|| prob(15))
 				var/word = pick("extremely dizzy","short of breath","faint","confused")
 				to_chat(owner, "<span class='danger'>You feel [word].</span>")
 
-			adjustOxyLoss(HUMAN_MAX_OXYLOSS)
-			co2_alert = 1
+			owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
+			owner.co2_alert = 1
 			failed_exhale = 1
 
 		else if(exhaled_pp > safe_exhaled_max * 0.7)
-			if (!co2_alert || prob(1))
+			if (!owner.co2_alert || prob(1))
 				var/word = pick("dizzy","short of breath","faint","momentarily confused")
 				to_chat(owner, "<span class='warning'>You feel [word].</span>")
 
@@ -154,7 +146,7 @@
 			var/ratio = 1.0 - (safe_exhaled_max - exhaled_pp)/(safe_exhaled_max*0.3)
 
 			//give them some oxyloss, up to the limit - we don't want people falling unconcious due to CO2 alone until they're pretty close to safe_exhaled_max.
-			if (getOxyLoss() < 50*ratio)
+			if (owner.getOxyLoss() < 50*ratio)
 				owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
@@ -165,7 +157,7 @@
 				to_chat(owner, "<span class='warning'>You feel [word].</span>")
 
 		else
-			co2_alert = 0
+			owner.co2_alert = 0
 
 	// Too much poison in the air.
 	if(toxins_pp > safe_toxins_max)
@@ -173,9 +165,9 @@
 		if(reagents)
 			reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
-		phoron_alert = max(phoron_alert, 1)
+		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else
-		phoron_alert = 0
+		owner.phoron_alert = 0
 
 	// If there's some other shit in the air lets deal with it here.
 	if(breath.gas["sleeping_agent"])
@@ -194,15 +186,16 @@
 		// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 		else if(SA_pp > 0.15)
 			if(prob(20))
-				spawn(0) emote(pick("giggle", "laugh"))
+				spawn(0)
+					owner.emote(pick("giggle", "laugh"))
 		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
 
 	// Were we able to breathe?
 	if (failed_inhale || failed_exhale)
-		failed_last_breath = 1
+		owner.failed_last_breath = 1
 	else
-		failed_last_breath = 0
-		if(disabilities & ASTHMA)
+		owner.failed_last_breath = 0
+		if(owner.disabilities & ASTHMA)
 			owner.adjustOxyLoss(rand(-5,0))
 		else
 			owner.adjustOxyLoss(-5)
@@ -221,24 +214,24 @@
 		if(breath.temperature >= owner.species.heat_level_1)
 			if(breath.temperature < owner.species.heat_level_2)
 				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Heat")
-				owner.fire_alert = max(fire_alert, 2)
+				owner.fire_alert = max(owner.fire_alert, 2)
 			else if(breath.temperature < species.heat_level_3)
 				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Heat")
-				owner.fire_alert = max(fire_alert, 2)
+				owner.fire_alert = max(owner.fire_alert, 2)
 			else
 				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Heat")
-				owner.fire_alert = max(fire_alert, 2)
+				owner.fire_alert = max(owner.fire_alert, 2)
 
 		else if(breath.temperature <= owner.species.cold_level_1)
 			if(breath.temperature > species.cold_level_2)
 				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_1, BURN, BP_HEAD, used_weapon = "Excessive Cold")
-				owner.fire_alert = max(fire_alert, 1)
+				owner.fire_alert = max(owner.fire_alert, 1)
 			else if(breath.temperature > species.cold_level_3)
 				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_2, BURN, BP_HEAD, used_weapon = "Excessive Cold")
-				owner.fire_alert = max(fire_alert, 1)
+				owner.fire_alert = max(owner.fire_alert, 1)
 			else
 				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_3, BURN, BP_HEAD, used_weapon = "Excessive Cold")
-				owner.fire_alert = max(fire_alert, 1)
+				owner.fire_alert = max(owner.fire_alert, 1)
 
 		//breathing in hot/cold air also heats/cools you a bit
 		var/temp_adj = breath.temperature - owner.bodytemperature
