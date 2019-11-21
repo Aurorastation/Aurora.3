@@ -768,3 +768,7 @@
 	max_storage_space = 20
 	chewable = FALSE
 	foldable = null
+
+/obj/item/storage/box/fountainpens
+	name = "box of fountain pens"
+	starts_with = list(/obj/item/pen/fountain = 7)
