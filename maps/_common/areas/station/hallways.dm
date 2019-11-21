@@ -74,3 +74,7 @@
 /area/hallway/secondary/entry/emergency
 	name = "\improper Emergency Services Dock"
 	icon_state = "escape"
+
+/area/hallway/secondary/entry/departure_lounge
+	name = "\improper Surface - Departures Lounge"
+	icon_state = "dep_lounge"

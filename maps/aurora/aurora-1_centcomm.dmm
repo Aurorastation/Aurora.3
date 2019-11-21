@@ -24821,6 +24821,14 @@
 	dir = 5
 	},
 /area/centcom/distress_prep)
+"ijL" = (
+/obj/vehicle/droppod/legion{
+	connected_blastdoor = "tcfl_droppod_2"
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
+	},
+/area/centcom/legion/hangar5)
 "ikA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
@@ -24936,20 +24944,9 @@
 	},
 /area/centcom/legion)
 "iHR" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 1
+/obj/vehicle/droppod/legion{
+	connected_blastdoor = "tcfl_droppod_1"
 	},
-/obj/effect/floor_decal/spline/plain,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 8
-	},
-/obj/vehicle/droppod/legion,
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -25000,11 +24997,10 @@
 /area/centcom/distress_prep)
 "iNb" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "tcfldroppods";
-	name = "Droppod 3";
-	open_layer = 2.8
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "tcfl_droppod_3";
+	layer = 2.8;
+	name = "Droppod C"
 	},
 /turf/unsimulated/floor{
 	icon_state = "engine"
@@ -25390,11 +25386,10 @@
 /area/centcom/checkpoint/fore)
 "jEg" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "tcfldroppods";
-	name = "Droppod 4";
-	open_layer = 2.8
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "tcfl_droppod_4";
+	layer = 2.8;
+	name = "Droppod D"
 	},
 /turf/unsimulated/floor{
 	icon_state = "engine"
@@ -26947,11 +26942,10 @@
 /area/centcom/legion)
 "ogE" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "tcfldroppods";
-	name = "Droppod 1";
-	open_layer = 2.8
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "tcfl_droppod_1";
+	layer = 2.8;
+	name = "Droppod A"
 	},
 /turf/unsimulated/floor{
 	icon_state = "engine"
@@ -26979,6 +26973,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/unsimulated/floor{
 	icon_state = "floor3"
+	},
+/area/centcom/legion/hangar5)
+"omT" = (
+/obj/vehicle/droppod/legion{
+	connected_blastdoor = "tcfl_droppod_3"
+	},
+/turf/unsimulated/floor{
+	icon_state = "panelscorched"
 	},
 /area/centcom/legion/hangar5)
 "opd" = (
@@ -27419,22 +27421,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
-"pnI" = (
-/obj/machinery/button/remote/blast_door{
-	id = "tcfldroppods";
-	name = "Drop Pod Shutters";
-	pixel_x = -22;
-	pixel_y = -2;
-	req_access = list(111)
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/legion/hangar5)
 "poi" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -29181,11 +29167,10 @@
 /area/centcom/legion)
 "tIa" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/blast/regular{
-	dir = 2;
-	id = "tcfldroppods";
-	name = "Droppod 2";
-	open_layer = 2.8
+/obj/machinery/door/blast/odin/open{
+	_wifi_id = "tcfl_droppod_2";
+	layer = 2.8;
+	name = "Droppod B"
 	},
 /turf/unsimulated/floor{
 	icon_state = "engine"
@@ -29939,15 +29924,9 @@
 	},
 /area/centcom/legion/hangar5)
 "vPK" = (
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 5
+/obj/vehicle/droppod/legion{
+	connected_blastdoor = "tcfl_droppod_4"
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 10;
-	icon_state = "spline_plain"
-	},
-/obj/vehicle/droppod/legion,
 /turf/unsimulated/floor{
 	icon_state = "panelscorched"
 	},
@@ -92351,7 +92330,7 @@ mzf
 ldQ
 iHR
 ogE
-pnI
+fDY
 chO
 oAn
 fgn
@@ -92863,7 +92842,7 @@ lBN
 lHl
 iVa
 ldQ
-iHR
+ijL
 tIa
 fDY
 chO
@@ -93377,7 +93356,7 @@ gEL
 ozg
 kBT
 ldQ
-iHR
+omT
 iNb
 fDY
 rfG

@@ -544,6 +544,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "bm" = (
@@ -581,11 +582,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/tcommsat/lounge)
 "bt" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecoms Lounge";
-	req_access = list(61)
-	},
 /obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/silver{
+	name = "Bathroom"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/tcommsat/lounge)
 "bu" = (
@@ -650,6 +650,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "bA" = (
@@ -804,6 +805,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "bS" = (
@@ -845,10 +847,10 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "bW" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecoms Lounge";
-	req_access = list(61)
+/obj/machinery/door/airlock/glass{
+	name = "Kitchen"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/lino,
 /area/tcommsat/lounge)
 "bX" = (
@@ -880,6 +882,7 @@
 /area/tcommsat/lounge)
 "cc" = (
 /obj/structure/table/reinforced,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/lino,
 /area/tcommsat/lounge)
 "cd" = (
@@ -904,6 +907,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "cg" = (
@@ -922,6 +926,7 @@
 "ci" = (
 /obj/structure/table/reinforced,
 /obj/item/trash/tastybread,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/lino,
 /area/tcommsat/lounge)
 "cj" = (
@@ -946,6 +951,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "cl" = (
@@ -986,10 +992,6 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
 "cn" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecoms Lounge";
-	req_access = list(61)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1001,6 +1003,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock{
+	name = "Dorm"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -1072,6 +1077,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "ct" = (
@@ -1226,6 +1232,7 @@
 	dir = 1
 	},
 /obj/structure/cable/blue,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "cH" = (
@@ -1236,6 +1243,7 @@
 	dir = 1
 	},
 /obj/structure/cable/blue,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "cI" = (
@@ -1250,6 +1258,7 @@
 	},
 /obj/structure/cable/blue,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/tcommsat/lounge)
 "cJ" = (
@@ -3072,6 +3081,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"wf" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/lino,
+/area/tcommsat/lounge)
 "ww" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3492,6 +3506,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"JU" = (
+/turf/simulated/wall,
+/area/tcommsat/lounge)
 "Kb" = (
 /obj/random/loot,
 /turf/unsimulated/floor/asteroid/ash,
@@ -3834,6 +3851,22 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"Wp" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/tcommsat/lounge)
 "Wx" = (
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
@@ -14403,7 +14436,7 @@ am
 aa
 aJ
 aa
-ap
+Wp
 bd
 bp
 bB
@@ -14918,15 +14951,15 @@ ap
 aL
 ap
 ap
-ap
-ap
-ap
-ap
-ap
-ap
-ap
+JU
+JU
+JU
+JU
+JU
+JU
+JU
 cn
-ap
+JU
 ap
 cP
 ah
@@ -15177,7 +15210,7 @@ aR
 ap
 bf
 br
-ap
+JU
 bL
 as
 as
@@ -15434,7 +15467,7 @@ aS
 ap
 bg
 bs
-ap
+JU
 bM
 as
 ca
@@ -15689,9 +15722,9 @@ az
 az
 aT
 ap
-ap
+JU
 bt
-ap
+JU
 bN
 as
 cb
@@ -16464,11 +16497,11 @@ as
 aU
 as
 as
-ap
+JU
 cc
 ci
 cc
-ap
+wf
 ap
 ah
 ah
@@ -16721,7 +16754,7 @@ bi
 aU
 as
 bP
-ap
+JU
 cd
 cd
 cd
@@ -17235,7 +17268,7 @@ bk
 by
 bF
 bQ
-ap
+JU
 ce
 cj
 cr

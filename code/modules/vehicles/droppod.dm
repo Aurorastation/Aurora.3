@@ -1,3 +1,7 @@
+#define READY 0
+#define USED 1
+#define LAUNCHING 2
+
 /obj/vehicle/droppod
 	name = "drop pod"
 	desc = "A big metal pod, what could be inside?"
@@ -12,12 +16,14 @@
 
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
-	var/list/validfirelocations = list(1, 7) // above the station and at the centcomm z-level.
+	var/list/validfirelocations = list(1, 7, 9) // above the station, at the centcomm z-level and at derelicts.
 
-	var/used = 0
+	var/status = READY
 
 	var/mob/humanload
 	var/mob/passenger
+
+	var/connected_blastdoor //Connect a blast door's _wifi_id here to have it close when the droppod is launched.
 
 /obj/vehicle/droppod/legion
 	name = "legion drop pod"
@@ -33,17 +39,34 @@
 /obj/vehicle/droppod/Move()
 	return
 
+/obj/vehicle/droppod/attackby(obj/item/I as obj, mob/user as mob)
+	if(I.iswelder() && status == USED && !humanload && !passenger)
+		var/obj/item/weldingtool/W = I
+		if(W.welding)
+			src.visible_message(span("notice","[user] starts cutting \the [src] apart."))
+			if(do_after(user, 200))
+				src.visible_message(span("danger","\The [src] is cut apart by [user]!"))
+				playsound(src, 'sound/items/Welder.ogg', 100, 1)
+				new /obj/item/stack/material/titanium(src.loc, 10)
+				new /obj/item/stack/material/plasteel(src.loc, 10)
+				var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)
+				C.amount = rand(5,15)
+				qdel(src)
+	else
+		return ..()
+
 /obj/vehicle/droppod/verb/launchinterface()
 	set src in oview(1)
 	set category = "Vehicle"
 	set name = "Open launch interface"
 
-	ui_interact(usr)
+	if(status == READY)
+		ui_interact(usr)
 
 /obj/vehicle/droppod/verb/eject()
 	set src in oview(1)
 	set category = "Vehicle"
-	set name = "Open Pod"
+	set name = "Eject Pod"
 
 	if(!usr.canmove || usr.stat || usr.restrained())
 		return
@@ -119,13 +142,16 @@
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()
 	if(user == humanload || user == passenger)
-		unload(user)
-	else
+		if(status != USED)
+			launchinterface()
+		else
+			unload(user)
+	else if (!humanload || !passenger)
 		load(user)
 
 /obj/vehicle/droppod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/data[0]
-	data["used"] = used
+	data["status"] = status
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
@@ -143,83 +169,132 @@
 		var/target = href_list["fire"]
 		switch(target)
 			if("arrivals")
-				A = pick(/area/hallway/secondary/entry/fore, /area/hallway/secondary/entry/port, /area/hallway/secondary/entry/starboard, /area/hallway/secondary/entry/aft, /area/maintenance/arrivals)
+				var/arrivals_destination_list = list(
+					/area/hallway/secondary/entry/fore = 2,
+					/area/hallway/secondary/entry/port = 2,
+					/area/security/vacantoffice = 1,
+					/area/hallway/secondary/entry/departure_lounge = 1
+					)
+				A = pickweight(arrivals_destination_list)
 			if("cargo")
-				A = pick(/area/quartermaster/loading, /area/quartermaster/qm)
+				var/cargo_destination_list = list(
+					/area/quartermaster/loading = 4,
+					/area/quartermaster/qm = 1,
+					/area/janitor/surface = 1,
+					/area/storage/tools = 1,
+					/area/sconference_room = 1
+					)
+				A = pickweight(cargo_destination_list)
 			if("tcoms")
-				A = pick(/area/tcommsat/entrance, /area/turret_protected/tcomfoyer, /area/turret_protected/tcomwest, /area/turret_protected/tcomeast, /area/tcommsat/computer, /area/tcommsat/powercontrol)
+				var/tcoms_destination_list = list(
+					/area/tcommsat/lounge = 1
+					)
+				A = pickweight(tcoms_destination_list)
 			if("commandescape")
-				A = /area/bridge/levela
+				var/commandescape_destination_list = list(
+					/area/bridge/levela = 1
+					)
+				A = pickweight(commandescape_destination_list)
 		if(A)
-			firefromarea(A)
+			status = LAUNCHING
+			var/mob/user = usr
+			var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
+			if(ui)
+				ui.close()
+			if(connected_blastdoor)
+				blastdoor_interact()
+			fire_at_area(A)
 
-/obj/vehicle/droppod/proc/firefromarea(var/area/A)
+/obj/vehicle/droppod/proc/fire_at_area(var/area/A)
 
-	var/turf/targetturf = pick_area_turf(A)
-	if(iswall(targetturf))
-		ermessage(0,2)
-		firefromarea(A)
-	else
-		fire(targetturf)
+//Error no occupant detected! Return
+
+	var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
+	var/list/turf_selection = list()
+
+	for(var/turf/T in area_turfs)
+		var/grille_found = FALSE
+		if(!iswall(T))
+			for(var/obj/O in T)
+				if(istype(O, /obj/structure/grille)) //This is to help prevent the pod from landing right on an exterior window.
+					grille_found = TRUE
+					break
+			if(!grille_found)
+				turf_selection += T
+			else
+				grille_found = FALSE
+
+	var/target_turf = pick(turf_selection)
+	if(!target_turf)
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
+		visible_message(span("warning","\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		status = READY
+		if(connected_blastdoor)
+			blastdoor_interact(TRUE)
+		return
+	fire(target_turf)
 
 /obj/vehicle/droppod/proc/fire(var/turf/A)
 	if(!isturf(A))
-		ermessage()
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
+		visible_message(span("warning","\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		status = READY
+		if(connected_blastdoor)
+			blastdoor_interact(TRUE)
 		return
 
 	if(!(src.z in validfirelocations))
-		ermessage(1, 1)
+		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
+		visible_message(span("warning","\The [src]'s screen displays an error: Pod cannot be launched from this position."))
+		status = READY
+		if(connected_blastdoor)
+			blastdoor_interact(TRUE)
 		return
 
 	var/turf/aboveturf = GetAbove(A)
 	if(aboveturf)
-		if(aboveturf.is_hole)
-			A.visible_message("<span class='danger'>The [src] drops through the hole in the roof!</span>")
-			applyfalldamage(A)
-			forceMove(aboveturf)
-		else
-			applyfalldamage(aboveturf)
-			aboveturf.ChangeTurf(/turf/simulated/floor/foamedmetal)
+		applyfalldamage(aboveturf)
+		aboveturf.ChangeTurf(/turf/simulated/floor/foamedmetal)
+		for(var/turf/T in range(1, aboveturf))
+			if(turf_clear(T))
+				new /obj/structure/foamedmetal(T, src)
+	applyfalldamage(A)
+	explosion(A, 0, 0, 2, 2)
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, A)
+	S.start()
+	if(humanload)
+		var/mob/M = humanload
+		shake_camera(M, 5, 1)
+	forceMove(A)
+	A.visible_message(span("danger","\The [src] crashes through the roof!"))
 
-			for(var/turf/T in range(1, aboveturf))
-				if(turf_clear(T))
-					new /obj/structure/foamedmetal(T, src)
+	var/turf/belowturf = GetBelow(A)
+	if(belowturf)
+		belowturf.visible_message(span("danger","You hear something crash into the ceiling above!"))
 
-			applyfalldamage(A)
-			forceMove(A)
-			explosion(A, 0, 0, 2, 2)
-			A.visible_message("<span class='danger'> \The [src] crashes through the roof!</span>")
-
-		var/turf/belowturf = GetBelow(A)
-		if(belowturf)
-			//sound here
-			belowturf.visible_message("<span class='danger'>You hear something crash into the ceiling above!</span>")
-
-		used = 1
+	status = USED
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
 	for(var/mob/T in A)
 		if(T.simulated)
 			T.gib()
-			T.visible_message("<span class='danger'>[T] is squished by the drop pod!</span>")
+			T.visible_message(span("danger","[T] is squished by the drop pod!"))
 	for(var/obj/B in A)
-		if(B.simulated)
+		if(B.simulated && B.density)
 			qdel(B)
-			B.visible_message("<span class='danger'>[B] is destroyed by the drop pod!</span>")
+			B.visible_message(span("danger","[B] is destroyed by the drop pod!"))
 
-/obj/vehicle/droppod/proc/ermessage(var/type = 0, var/subtype = 0)
-	if(!type)
-		if(!subtype)
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-			visible_message("<span class='warning'>\The [src]'s screen flashes an error!</span>")
-		else if(subtype == 1)
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-			visible_message("<span class='warning'>\The [src]'s screen flashes an error reading 'Invalid location to launch from!'</span>")
-		else if(subtype == 2)
-			playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-			visible_message("<span class='warning'>Target location blocked... Rerouting...</span>")
+/obj/vehicle/droppod/proc/blastdoor_interact(var/open)
+	var/datum/wifi/sender/door/wifi_sender_blast = new(connected_blastdoor, src)
+	if(open)
+		wifi_sender_blast.activate("open")
 	else
-		if(subtype == 1)
-			visible_message("<span class='notice'>\The [src]'s screen flashes a message reading 'Launch coordinates verified.'</span>")
-		else if(subtype == 2)
-			visible_message("<span class='notice'>The [src]'s screen flashes a message reading 'Laucnhing.'</span>")
+		wifi_sender_blast.activate("close")
+		var/turf/T = src.loc
+		T.ChangeTurf(/turf/space)
+
+#undef READY
+#undef USED
+#undef LAUNCHING
+
