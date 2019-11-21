@@ -223,7 +223,7 @@
 		/obj/item/robot_parts,
 		/obj/item/borg/upgrade,
 		/obj/item/device/flash, //to build borgs,
-		/obj/item/organ/brain, //to insert into MMIs,
+		/obj/item/organ/internal/brain, //to insert into MMIs,
 		/obj/item/stack/cable_coil, //again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,

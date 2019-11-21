@@ -76,7 +76,7 @@
 
 /datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
 	if(istype(H))
-		var/obj/item/organ/F = H.internal_organs_by_name["heart"]
+		var/obj/item/organ/F = H.internal_organs_by_name[BP_HEART]
 		if(istype(F))
 			F.take_damage(-removed*0.1)
 			H.make_jittery(removed*10)
@@ -433,7 +433,7 @@
 	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/eyes/E = H.get_eyes(no_synthetic = TRUE)
+		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
@@ -789,7 +789,7 @@
 	//This also prevents the whole code from working if the dosage is very small.
 
 	var/hastrauma = 0 //whether or not the brain has trauma
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	var/bac = H.get_blood_alcohol()
 
 	if(alchohol_affected && bac > 0.01)
@@ -1327,7 +1327,7 @@
 
 /datum/reagent/pulmodeiectionem/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 		if(istype(L) && !L.robotic && !L.is_broken())
 			var/amount_to_purge = removed*5 //Every unit removes 5 units of other chemicals.
 			for(var/datum/reagent/selected in H.breathing.reagent_list)
@@ -1430,7 +1430,7 @@
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
-		var/obj/item/organ/F = M.internal_organs_by_name["heart"]
+		var/obj/item/organ/F = M.internal_organs_by_name[BP_HEART]
 		if(istype(F))
 			if(M.max_nutrition > 0)
 				var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".

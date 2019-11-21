@@ -50,17 +50,17 @@
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
-		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
-		"head" =   list("path" = /obj/item/organ/external/head/diona),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/diona),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/diona),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/diona),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/diona),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/diona),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/diona),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/diona),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/diona),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/diona),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/diona)
 		)
 
 	warning_low_pressure = 50
@@ -89,7 +89,7 @@
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
-	vision_organ = "head"
+	vision_organ = BP_HEAD
 
 	max_hydration_factor = -1
 
@@ -154,12 +154,12 @@
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.
-	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[4] = O.is_stump() ? 3 : world.view
 	return current_flags
 
 /datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	current_flags = ..()
-	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[3] = O.is_stump()
 	return current_flags

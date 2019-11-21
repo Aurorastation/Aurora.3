@@ -59,7 +59,7 @@
 		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
 
-	if (species && species.has_organ["ipc tag"] && internal_organs_by_name["ipc tag"])
+	if (species && species.has_organ[BP_IPCTAG] && internal_organs_by_name[BP_IPCTAG])
 		msg += "[T.He] [T.is] wearing a tag designating them as Integrated Positronic Chassis <b>[src.real_name]</b>.\n"
 
 	//uniform
@@ -206,7 +206,7 @@
 			msg += "<span class='warning'>[T.He] [T.is] twitching ever so slightly.</span>\n"
 
 	//splints
-	for(var/organ in list("l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","r_foot","l_foot"))
+	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if(o && o.status & ORGAN_SPLINTED)
 			msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"
@@ -253,7 +253,7 @@
 		inactivity =  have_client ? bg.client.inactivity : null
 
 
-	if(species.show_ssd && (!species.has_organ["brain"] || has_brain()) && stat != DEAD)
+	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
 		if(!key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
 		else if(!client && !bg)

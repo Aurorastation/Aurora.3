@@ -156,7 +156,7 @@
 		src.adding += using
 
 		inv_box = new /obj/screen/inventory()
-		inv_box.name = "r_hand"
+		inv_box.name = BP_R_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "r_hand_inactive"
 		if(mymob && !mymob.hand)	//This being 0 or null means the right hand is in use
@@ -171,7 +171,7 @@
 		src.adding += inv_box
 
 		inv_box = new /obj/screen/inventory()
-		inv_box.name = "l_hand"
+		inv_box.name = BP_L_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "l_hand_inactive"
 		if(mymob && mymob.hand)	//This being 1 means the left hand is in use

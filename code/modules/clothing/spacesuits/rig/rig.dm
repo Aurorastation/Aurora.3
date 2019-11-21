@@ -231,7 +231,7 @@
 		if(!wearer)
 			failed_to_seal = 1
 		else
-			for(var/list/piece_data in list(list(wearer.shoes,boots,"boots",boot_type),list(wearer.gloves,gloves,"gloves",glove_type),list(wearer.head,helmet,"helmet",helm_type),list(wearer.wear_suit,chest,"chest",chest_type)))
+			for(var/list/piece_data in list(list(wearer.shoes,boots,"boots",boot_type),list(wearer.gloves,gloves,"gloves",glove_type),list(wearer.head,helmet,"helmet",helm_type),list(wearer.wear_suit,chest,BP_CHEST,chest_type)))
 
 				var/obj/item/piece = piece_data[1]
 				var/obj/item/compare_piece = piece_data[2]
@@ -260,7 +260,7 @@
 						if("gloves")
 							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"].</font>")
 							wearer.update_inv_gloves()
-						if("chest")
+						if(BP_CHEST)
 							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "cinches tight again your chest" : "releases your chest"].</font>")
 							wearer.update_inv_wear_suit()
 						if("helmet")
@@ -428,7 +428,7 @@
 	data["helmet"] =    (helmet ? "[helmet.name]" : "None.")
 	data["gauntlets"] = (gloves ? "[gloves.name]" : "None.")
 	data["boots"] =     (boots ?  "[boots.name]" :  "None.")
-	data["chest"] =     (chest ?  "[chest.name]" :  "None.")
+	data[BP_CHEST] =     (chest ?  "[chest.name]" :  "None.")
 
 	data["charge"] =       cell ? round(cell.charge,1) : 0
 	data["maxcharge"] =    cell ? cell.maxcharge : 0
@@ -624,7 +624,7 @@
 			equip_to = slot_shoes
 			use_obj = boots
 			check_slot = wearer.shoes
-		if("chest")
+		if(BP_CHEST)
 			equip_to = slot_wear_suit
 			use_obj = chest
 			check_slot = wearer.wear_suit
@@ -690,11 +690,11 @@
 			H.wear_suit = null
 			qdel(garbage)
 
-	for(var/piece in list("helmet","gauntlets","chest","boots"))
+	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
 		toggle_piece(piece, H, ONLY_DEPLOY)
 
 /obj/item/rig/proc/null_wearer(var/mob/user)
-	for(var/piece in list("helmet","gauntlets","chest","boots"))
+	for(var/piece in list("helmet","gauntlets",BP_CHEST,"boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
 	if(wearer)
 		wearer.wearing_rig = null
@@ -727,7 +727,7 @@
 	take_hit((100/severity_class), "electrical pulse", 1)
 
 /obj/item/rig/proc/shock(mob/user)
-	var/touchy = pick("chest","head","groin")
+	var/touchy = pick(BP_CHEST,BP_HEAD,BP_GROIN)
 	if(!wearer)
 		touchy = "hand"
 
@@ -907,8 +907,8 @@
 			return wearer.pulledby.relaymove(wearer, direction)
 		else if(istype(wearer.buckled, /obj/structure/bed/chair/wheelchair))
 			if(ishuman(wearer.buckled))
-				var/obj/item/organ/external/l_hand = wearer.get_organ("l_hand")
-				var/obj/item/organ/external/r_hand = wearer.get_organ("r_hand")
+				var/obj/item/organ/external/l_hand = wearer.get_organ(BP_L_HAND)
+				var/obj/item/organ/external/r_hand = wearer.get_organ(BP_R_HAND)
 				if((!l_hand || (l_hand.status & ORGAN_DESTROYED)) && (!r_hand || (r_hand.status & ORGAN_DESTROYED)))
 					return // No hands to drive your chair? Tough luck!
 			wearer_move_delay += 2

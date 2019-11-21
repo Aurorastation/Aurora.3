@@ -57,7 +57,7 @@
 	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
 
 
-	if(!(target_zone == ("eyes" || "head"))) //////////////hitting anything else other than the eyes
+	if(!(target_zone == (BP_EYES || BP_HEAD))) //////////////hitting anything else other than the eyes
 		if(prob(33) && !issilicon(M))//robots dont bleed
 			src.add_blood(H)
 			var/turf/location = H.loc

@@ -33,9 +33,9 @@
 			var/mob/living/L = usr
 			var/touchy_hand
 			if(L.hand)
-				touchy_hand = "r_hand"
+				touchy_hand = BP_R_HAND
 			else
-				touchy_hand = "l_hand"
+				touchy_hand = BP_L_HAND
 			if(L.electrocute_act(17, src, ground_zero = touchy_hand))
 				spark(src, 5, alldirs)
 				if(L.stunned)

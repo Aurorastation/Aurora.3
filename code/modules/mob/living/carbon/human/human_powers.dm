@@ -233,8 +233,8 @@ mob/living/carbon/human/proc/change_monitor()
 	set name = "Commune with creature"
 	set desc = "Send a telepathic message to a recipient."
 
-	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
-	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
+	var/obj/item/organ/external/rhand = src.get_organ(BP_R_HAND)
+	var/obj/item/organ/external/lhand = src.get_organ(BP_L_HAND)
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
 		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
 		return
@@ -475,11 +475,11 @@ mob/living/carbon/human/proc/change_monitor()
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
 
-		if(!H.species.has_limbs["head"])
+		if(!H.species.has_limbs[BP_HEAD])
 			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
 			return
 
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!istype(affecting) || affecting.is_stump())
 			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
 			return
@@ -918,7 +918,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
 		return
 
-	var/obj/item/organ/brain/golem/O = src.get_active_hand()
+	var/obj/item/organ/internal/brain/golem/O = src.get_active_hand()
 
 	if(istype(O))
 
