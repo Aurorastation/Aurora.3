@@ -85,7 +85,7 @@
 	src.gestalt = adult
 
 	//What do you call a person with no arms or no legs?
-	var/list/organ_removal_priorities = list("l_arm","r_arm","l_leg","r_leg")
+	var/list/organ_removal_priorities = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG)
 	var/limbs_to_remove = (6 - limbs_can_grow)
 	for(var/organ_name in organ_removal_priorities)
 		if(limbs_to_remove <= 0)

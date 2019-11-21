@@ -85,7 +85,7 @@
 	if(user.is_wizard())
 		return ..()
 
-	var/zone = (user.hand ? "l_arm":"r_arm")
+	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
@@ -221,26 +221,26 @@
 			H.say(voice)
 			log_and_message_admins("forced [H] to say [voice] with a poppet", user)
 
-		if(target_zone == "eyes")
+		if(target_zone == BP_EYES)
 			to_chat(user, "<span class='notice'>You cover \the [src]'s eyes.</span>")
 			to_chat(H, "<span class='warning'>Your vision is covered by a shadow!</span>")
 			H.eye_blind = 3
 			H.eye_blurry = 5
 
-		if(target_zone == "r_leg" || target_zone == "l_leg")
+		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 			to_chat(user, "<span class='notice'>You move \the [src]'s legs around.</span>")
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
 				step(H, pick(cardinal))
 
-		if(target_zone == "l_hand" || target_zone == "l_arm")
+		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, "<span class='notice'>You twist \the [src]'s left arm.</span>")
 			H.drop_l_hand()
 
-		if(target_zone == "r_hand" || target_zone == "r_arm")
+		if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 			to_chat(user, "<span class='notice'>You twist \the [src]'s right arm..</span>")
 			H.drop_r_hand()
 
-		if(target_zone == "head")
+		if(target_zone == BP_HEAD)
 			to_chat(user, "<span class='notice'>You smack \the [src]'s head with your hand.</span>")
 			H.confused += 10
 			H.stuttering += 5

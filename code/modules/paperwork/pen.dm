@@ -255,9 +255,9 @@
 	var/chem_volume = 10 //crayon dust
 	var/dust = "crayon_dust"
 
-	New()
-		name = "[colourName] crayon"
-		..()
+/obj/item/pen/crayon/New()
+	name = "[colourName] crayon"
+	..()
 
 /obj/item/pen/crayon/Initialize()
 	. = ..()

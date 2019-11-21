@@ -137,8 +137,8 @@
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
+			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
 			var/active_hand = H.hand
 			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 			to_chat(user, "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>")

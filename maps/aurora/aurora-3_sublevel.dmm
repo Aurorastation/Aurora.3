@@ -23817,35 +23817,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
-"bbc" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
-"bbd" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/engineering/atmos)
 "bbe" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -28697,6 +28668,18 @@
 /obj/structure/cable/cyan,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"fKe" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "fOV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -33322,6 +33305,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_gym)
+"qMB" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "qMQ" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -34120,6 +34116,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"svn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/shieldgen,
+/turf/simulated/floor/plating,
+/area/engineering/atmos)
 "swb" = (
 /obj/structure/table/glass,
 /turf/simulated/floor/tiled/dark,
@@ -35366,6 +35367,22 @@
 	},
 /turf/simulated/open,
 /area/maintenance/engsublevel)
+"veq" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "vgD" = (
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -57218,11 +57235,11 @@ aeQ
 aaO
 aaO
 aaO
-aba
-aba
-aba
-aba
-aba
+akG
+akG
+veq
+fKe
+qMB
 aaO
 aaO
 aaO
@@ -57474,12 +57491,12 @@ aej
 aeR
 afv
 aeY
+abo
 aaO
-aaO
-aaO
-bbc
-aei
-bbd
+svn
+svn
+svn
+svn
 aaO
 aaO
 vqy
@@ -63642,7 +63659,7 @@ aes
 adF
 abo
 abo
-aaO
+abo
 aaO
 aaa
 aaa
@@ -63900,7 +63917,7 @@ aeQ
 aaO
 aaO
 aaO
-aaa
+akG
 aaa
 aaa
 aaa

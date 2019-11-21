@@ -398,8 +398,8 @@ default behaviour is:
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
 	var/t = shooter:zone_sel.selecting
-	if ((t in list( "eyes", "mouth" )))
-		t = "head"
+	if ((t in list( BP_EYES, "mouth" )))
+		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t)
 	return def_zone
 

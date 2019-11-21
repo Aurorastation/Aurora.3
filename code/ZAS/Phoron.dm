@@ -126,7 +126,7 @@ obj/var/contaminated = 0
 	if (!has_eyes() || species.eyes_are_impermeable)
 		return
 
-	var/obj/item/organ/eyes/E = get_eyes(no_synthetic = TRUE)
+	var/obj/item/organ/internal/eyes/E = get_eyes(no_synthetic = TRUE)
 	if(E)
 		if(prob(20)) to_chat(src, "<span class='danger'>Your eyes burn!</span>")
 		E.damage += 2.5

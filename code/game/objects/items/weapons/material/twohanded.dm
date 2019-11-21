@@ -465,7 +465,7 @@
 	if (!istype(H) || H.status_flags & GODMODE)
 		return
 
-	var/obj/item/organ/eyes/E = H.get_eyes()
+	var/obj/item/organ/internal/eyes/E = H.get_eyes()
 	if(!istype(E))
 		return
 
