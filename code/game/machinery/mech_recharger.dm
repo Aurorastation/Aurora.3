@@ -1,3 +1,4 @@
+
 /obj/machinery/mech_recharger
 	name = "exosuit dock"
 	desc = "A exosuit recharger, built into the floor."
@@ -6,12 +7,14 @@
 	density = 0
 	layer = TURF_LAYER + 0.1
 	anchored = 1
+	idle_power_usage = 200	// Some electronics, passive drain.
+	active_power_usage = 60 KILOWATTS // When charging
 
-	var/mob/living/exosuit/charging
+	var/mob/living/heavy_vehicle/charging
 	var/base_charge_rate = 60 KILOWATTS
 	var/repair_power_usage = 10 KILOWATTS		// Per 1 HP of health.
 	var/repair = 0
-	var/charge = 45
+	var/charge
 
 	component_types = list(
 		/obj/item/circuitboard/mech_recharger,
@@ -20,13 +23,12 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
-
-/obj/machinery/mech_recharger/Crossed(var/mob/living/exosuit/M)
+/obj/machinery/mech_recharger/Crossed(var/mob/living/heavy_vehicle/M)
 	. = ..()
 	if(istype(M) && charging != M)
 		start_charging(M)
 
-/obj/machinery/mech_recharger/Uncrossed(var/mob/living/exosuit/M)
+/obj/machinery/mech_recharger/Uncrossed(var/mob/living/heavy_vehicle/M)
 	. = ..()
 	if(M == charging)
 		stop_charging()
@@ -46,49 +48,59 @@
 			repair += P.rating * 2
 
 /obj/machinery/mech_recharger/machinery_process()
-	..()
 	if(!charging)
+		update_use_power(1)
 		return
-	if(charging.loc != loc) // Could be qdel or teleport or something
+	if(charging.loc != loc)
 		stop_charging()
 		return
-	var/done = 1
-	if(charging.cell)
-		var/t = min(charge, charging.cell.maxcharge - charging.cell.charge)
-		if(t > 0)
-			charging.give_power(t)
-			use_power(t * 150)
-			done = 0
-		else
-			charging.occupant_message("<span class='notice'>Fully charged.</span>")
-	if(repair && charging.health < initial(charging.health))
-		charging.health = min(charging.health + repair, initial(charging.health))
-		if(charging.health == initial(charging.health))
-			charging.occupant_message("<span class='notice'>Fully repaired.</span>")
 
-		else
-			done = 0
-	if(done)
+	if(stat & (BROKEN|NOPOWER))
 		stop_charging()
-	return
+		charging.show_message("<span class='warning'>Power port not responding. Terminating.</span>")
+		return
+
+	// Cell could have been removed.
+	if(!charging.get_cell())
+		stop_charging()
+		return
+
+	var/remaining_energy = active_power_usage
+
+	if(repair && !fully_repaired())
+		for(var/obj/item/mech_component/MC in charging)
+			if(MC)
+				MC.repair_brute_damage(repair)
+				MC.repair_burn_damage(repair)
+				remaining_energy -= repair * repair_power_usage
+			if(remaining_energy <= 0)
+				break
+		charging.updatehealth()
+		if(fully_repaired())
+			charging.show_message("<span class='notice'>Exosuit integrity has been fully restored.</span>")
+
+	var/obj/item/cell/cell = charging.get_cell()
+	if(cell && !cell.fully_charged() && remaining_energy > 0)
+		cell.give(remaining_energy * CELLRATE)
+		if(cell.fully_charged())
+			charging.show_message("<span class='notice'>Fully charged.</span>")
+
+	if((!repair || fully_repaired()) && cell.fully_charged())
+		stop_charging()
 
 // An ugly proc, but apparently mechs don't have maxhealth var of any kind.
 /obj/machinery/mech_recharger/proc/fully_repaired()
 	return charging && (charging.health == charging.maxHealth)
 
-/obj/machinery/mech_recharger/proc/start_charging(var/mob/living/exosuit/M)
+/obj/machinery/mech_recharger/proc/start_charging(var/mob/living/heavy_vehicle/M)
 	if(stat & (NOPOWER | BROKEN))
-		M.occupant_message("<span class='warning'>Power port not responding. Terminating.</span>")
-
+		M.show_message("<span class='warning'>Power port not responding. Terminating.</span>")
 		return
-	if(M.cell)
-		M.occupant_message("<span class='notice'>Now charging...</span>")
-		playsound(M, 'sound/mecha/powerup.ogg', 50, 1)
+	if(M.get_cell())
+		M.show_message("<span class='notice'>Now charging...</span>")
 		charging = M
-	return
+		update_use_power(2)
 
 /obj/machinery/mech_recharger/proc/stop_charging()
-	if(!charging)
-
-		return
+	update_use_power(1)
 	charging = null

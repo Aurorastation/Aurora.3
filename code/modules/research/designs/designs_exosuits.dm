@@ -37,3 +37,186 @@
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/exosystem/advweapons
 	sort_string = "NAACB"
+
+/datum/design/item/mechfab/exosuit
+	name = "exosuit frame"
+	id = "mech_frame"
+	build_path = /obj/structure/heavy_vehicle_frame
+	time = 70
+	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	category = "Exosuits"
+
+/datum/design/item/mechfab/exosuit/basic_armour
+	name = "basic exosuit armour"
+	id = "mech_armour_basic"
+	build_path = /obj/item/robot_parts/robot_component/armour
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 7500)
+
+/datum/design/item/mechfab/exosuit/radproof_armour
+	name = "radiation-proof exosuit armour"
+	id = "mech_armour_radproof"
+	build_path = /obj/item/robot_parts/robot_component/armour/radproof
+	time = 50
+	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 12500)
+
+/datum/design/item/mechfab/exosuit/em_armour
+	name = "EM-shielded exosuit armour"
+	id = "mech_armour_em"
+	build_path = /obj/item/robot_parts/robot_component/armour/em
+	time = 50
+	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_SILVER = 1000)
+
+/datum/design/item/mechfab/exosuit/combat_armour
+	name = "Combat exosuit armour"
+	id = "mech_armour_combat"
+	build_path = /obj/item/robot_parts/robot_component/armour/combat
+	time = 50
+	req_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_DIAMOND = 5000)
+
+/datum/design/item/mechfab/exosuit/control_module
+	name = "exosuit control module"
+	id = "mech_control_module"
+	build_path = /obj/item/mech_component/control_module
+	time = 15
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+
+/datum/design/item/mechfab/exosuit/combat_head
+	name = "combat exosuit sensors"
+	id = "combat_head"
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mech_component/sensors/combat
+	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
+
+/datum/design/item/mechfab/exosuit/combat_torso
+	name = "combat exosuit chassis"
+	id = "combat_body"
+	time = 60
+	materials = list(DEFAULT_WALL_MATERIAL = 45000)
+	build_path = /obj/item/mech_component/chassis/combat
+	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
+
+/datum/design/item/mechfab/exosuit/combat_arms
+	name = "combat exosuit manipulators"
+	id = "combat_arms"
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	build_path = /obj/item/mech_component/manipulators/combat
+	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
+
+/datum/design/item/mechfab/exosuit/combat_legs
+	name = "combat exosuit motivators"
+	id = "combat_legs"
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	build_path = /obj/item/mech_component/propulsion/combat
+	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
+
+/datum/design/item/mechfab/exosuit/ripley_head
+	name = "power loader sensors"
+	id = "ripley_head"
+	build_path = /obj/item/mech_component/sensors/ripley
+	time = 15
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+
+/datum/design/item/mechfab/exosuit/ripley_torso
+	name = "power loader chassis"
+	id = "ripley_body"
+	build_path = /obj/item/mech_component/chassis/ripley
+	time = 50
+	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+
+/datum/design/item/mechfab/exosuit/ripley_arms
+	name = "power loader manipulators"
+	id = "ripley_arms"
+	build_path = /obj/item/mech_component/manipulators/ripley
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 6000)
+
+/datum/design/item/mechfab/exosuit/ripley_legs
+	name = "power loader motivators"
+	id = "ripley_legs"
+	build_path = /obj/item/mech_component/propulsion/ripley
+	time = 30
+	materials = list(DEFAULT_WALL_MATERIAL = 6000)
+
+/datum/design/item/mechfab/exosuit/light_head
+	name = "light exosuit sensors"
+	id = "light_head"
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	build_path = /obj/item/mech_component/sensors/light
+	req_tech = list(TECH_MATERIAL = 1)
+
+/datum/design/item/mechfab/exosuit/light_torso
+	name = "light exosuit chassis"
+	id = "light_body"
+	time = 40
+	materials = list(DEFAULT_WALL_MATERIAL = 30000)
+	build_path = /obj/item/mech_component/chassis/light
+	req_tech = list(TECH_MATERIAL = 1)
+
+/datum/design/item/mechfab/exosuit/light_arms
+	name = "light exosuit manipulators"
+	id = "light_arms"
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mech_component/manipulators/light
+	req_tech = list(TECH_MATERIAL = 1)
+
+/datum/design/item/mechfab/exosuit/light_legs
+	name = "light exosuit motivators"
+	id = "light_legs"
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mech_component/propulsion/light
+	req_tech = list(TECH_MATERIAL = 1)
+
+/datum/design/item/mechfab/exosuit/heavy_head
+	name = "heavy exosuit sensors"
+	id = "heavy_head"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 16000)
+	build_path = /obj/item/mech_component/sensors/heavy
+	req_tech = list(TECH_COMBAT = 2)
+
+/datum/design/item/mechfab/exosuit/heavy_torso
+	name = "heavy exosuit chassis"
+	id = "heavy_body"
+	time = 75
+	materials = list(DEFAULT_WALL_MATERIAL = 70000, MATERIAL_URANIUM = 10000)
+	build_path = /obj/item/mech_component/chassis/heavy
+
+/datum/design/item/mechfab/exosuit/heavy_arms
+	name = "heavy exosuit manipulators"
+	id = "heavy_arms"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	build_path = /obj/item/mech_component/manipulators/heavy
+
+/datum/design/item/mechfab/exosuit/heavy_legs
+	name = "heavy exosuit motivators"
+	id = "heavy_legs"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	build_path = /obj/item/mech_component/propulsion/heavy
+
+/datum/design/item/mechfab/exosuit/spider
+	name = "quadruped motivators"
+	id = "quad_legs"
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 12000)
+	build_path = /obj/item/mech_component/propulsion/spider
+	req_tech = list(TECH_ENGINEERING = 2)
+
+/datum/design/item/mechfab/exosuit/track
+	name = "armored treads"
+	id = "treads"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 25000)
+	build_path = /obj/item/mech_component/propulsion/tracks
+	req_tech = list(TECH_MATERIAL = 4)

@@ -1,8 +1,8 @@
-/mob/living/exosuit/premade/heavy
+/mob/living/heavy_vehicle/premade/heavy
 	name = "Heavy exosuit"
 	desc = "A heavily armored combat exosuit."
 
-/mob/living/exosuit/premade/heavy/Initialize()
+/mob/living/heavy_vehicle/premade/heavy/Initialize()
 	if(!arms)
 		arms = new /obj/item/mech_component/manipulators/heavy(src)
 		arms.color = COLOR_TITANIUM
@@ -18,8 +18,8 @@
 
 	. = ..()
 
-	install_system(new /obj/item/mech_equipment/mounted_system/taser/laser(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mech_equipment/mounted_system/taser/ion(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/taser/laser(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/taser/ion(src), HARDPOINT_RIGHT_HAND)
 
 /obj/item/mech_component/manipulators/heavy
 	name = "combat arms"
@@ -63,4 +63,4 @@
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
-	armor = new /obj/item/mech_component/plating/combat(src)
+	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
