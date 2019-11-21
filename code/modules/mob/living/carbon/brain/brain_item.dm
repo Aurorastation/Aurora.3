@@ -140,6 +140,11 @@
 	if(lobotomized && (owner.getBrainLoss() < 40)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
 		owner.setBrainLoss(40)
 
+	for(var/T in owner.get_traumas())
+		var/datum/brain_trauma/BT = T
+		if(!BT.suppressed)
+			BT.on_life()
+
 /obj/item/organ/internal/brain/slime
 	name = "slime core"
 	desc = "A complex, organic knot of jelly and crystalline particles."

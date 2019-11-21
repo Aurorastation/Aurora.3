@@ -1064,16 +1064,21 @@
 
 	..()
 
-/mob/living/carbon/human/proc/is_lung_ruptured()
-	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[BP_LUNGS]
-	return L && L.is_bruised()
+/mob/living/carbon/human/handle_breath(datum/gas_mixture/breath)
+	if(status_flags & GODMODE)
+		return
 
-/mob/living/carbon/human/proc/rupture_lung()
-	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[BP_LUNGS]
-
-	if(L && !L.is_bruised())
-		src.custom_pain("You feel a stabbing pain in your chest!", 1)
-		L.bruise()
+	var/species_organ = species.breathing_organ
+	if(!species_organ)
+		return
+	
+	var/obj/item/internal/lungs/L = internal_organs_by_name[species_organ]
+	if(!L)
+		failed_last_breath = TRUE
+	else
+		failed_last_breath = L.handle_breath(breath)
+	
+	return !failed_last_breath
 
 //returns 1 if made bloody, returns 0 otherwise
 /mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)

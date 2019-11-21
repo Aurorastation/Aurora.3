@@ -11,15 +11,14 @@
 	var/next_blood_squirt = 0
 
 /obj/item/organ/internal/heart/process()
-	//Check if we're on lifesupport, and whether or not organs should be processing.
-	if(owner && owner.isonlifesupport())
-		return 1
-
 	if(owner)
+		if(owner.isonlifesupport())
+			return 1
 		handle_pulse()
 		if(pulse)
 			handle_heartbeat()
 		handle_blood()
+	..()
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
 	if((species && species.flags & NO_BLOOD)) //No heart, no pulse, buddy.
