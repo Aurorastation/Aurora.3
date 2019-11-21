@@ -431,16 +431,16 @@ var/const/enterloopsanity = 100
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 
-		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
+		var/obj/item/organ/external/rhand = H.organs_by_name[BP_R_HAND]
 		tally += limbCheck(rhand)
 
-		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
+		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
 		tally += limbCheck(lhand)
 	
-		var/obj/item/organ/external/rfoot = H.organs_by_name["r_foot"]
+		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
 		tally += limbCheck(rfoot)
 
-		var/obj/item/organ/external/lfoot = H.organs_by_name["l_foot"]
+		var/obj/item/organ/external/lfoot = H.organs_by_name[BP_L_FOOT]
 		tally += limbCheck(lfoot)
 
 	if(tally >= 120)

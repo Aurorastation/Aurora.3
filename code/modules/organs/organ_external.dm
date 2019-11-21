@@ -1144,6 +1144,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 			wound_descriptors[this_wound_desc] += W.amount
 		else
 			wound_descriptors[this_wound_desc] = W.amount
+	
+	if(open > 1)
+		var/bone = encased ? encased : "bone"
+		if(status & ORGAN_BROKEN)
+			bone = "broken [bone]"
+		wound_descriptors["[bone] exposed"] = 1
+
+		if(!encased || open > 1)
+			var/list/bits = list()
+			for(var/obj/item/organ/internal/organ in internal_organs)
+				bits += organ.get_visible_state()
+			if(bits.len)
+				wound_descriptors["[english_list(bits)] visible in the wounds"] = 1
 
 	if(wound_descriptors.len)
 		var/list/flavor_text = list()

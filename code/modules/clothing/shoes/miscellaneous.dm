@@ -182,7 +182,7 @@
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != "eyes" && target_zone != "head")
+	if(target_zone != BP_EYES && target_zone != BP_HEAD)
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user

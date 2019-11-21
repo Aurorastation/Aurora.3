@@ -119,7 +119,7 @@
 
 	if(can_reach_splints)
 		var/removed_splint
-		for(var/organ in list("l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","r_foot","l_foot"))
+		for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 			var/obj/item/organ/external/o = get_organ(organ)
 			if (o && o.status & ORGAN_SPLINTED)
 				var/obj/item/W = new /obj/item/stack/medical/splint(get_turf(src), 1)

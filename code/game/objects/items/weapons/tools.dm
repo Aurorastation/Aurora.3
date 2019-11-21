@@ -92,7 +92,7 @@
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != "eyes" && target_zone != "head")
+	if(target_zone != BP_EYES && target_zone != BP_HEAD)
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user
@@ -471,7 +471,7 @@
 	if(!iscarbon(user))	return 1
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/eyes/E = H.get_eyes()
+		var/obj/item/organ/internal/eyes/E = H.get_eyes()
 		if(!E)
 			return
 		var/safety = H.eyecheck()

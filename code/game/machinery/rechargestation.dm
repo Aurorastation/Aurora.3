@@ -102,7 +102,7 @@
 			R.adjustFireLoss(-wire_rate)
 	else if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
-		if(!isnull(H.internal_organs_by_name["cell"]) && H.nutrition < H.max_nutrition)
+		if(!isnull(H.internal_organs_by_name[BP_CELL]) && H.nutrition < H.max_nutrition)
 			H.adjustNutritionLoss(-10)
 			cell.use(7000/H.max_nutrition*10)
 
@@ -223,7 +223,7 @@
 			return 1
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(!isnull(H.internal_organs_by_name["cell"]))
+		if(!isnull(H.internal_organs_by_name[BP_CELL]))
 			return 1
 	return 0
 

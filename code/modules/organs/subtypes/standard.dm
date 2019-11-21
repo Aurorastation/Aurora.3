@@ -30,7 +30,7 @@
 	w_class = 4
 	body_part = LOWER_TORSO
 	vital = 1
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	amputation_point = "lumbar"
 	joint = "hip"
 	artery_name = "iliac artery"
@@ -46,7 +46,7 @@
 	min_broken_damage = 30
 	w_class = 3
 	body_part = ARM_LEFT
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	joint = "left elbow"
 	has_tendon = TRUE
 	tendon_name = "palmaris longus tendon"
@@ -74,7 +74,7 @@
 	w_class = 3
 	body_part = LEG_LEFT
 	icon_position = LEFT
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	joint = "left knee"
 	has_tendon = TRUE
 	tendon_name = "quadriceps tendon"
@@ -100,7 +100,7 @@
 	w_class = 2
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = "l_leg"
+	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
 	can_stand = 1
@@ -117,7 +117,7 @@
 	icon_name = "r_foot"
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = "r_leg"
+	parent_organ = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
 
@@ -129,7 +129,7 @@
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
-	parent_organ = "l_arm"
+	parent_organ = BP_L_ARM
 	joint = "left wrist"
 	has_tendon = TRUE
 	tendon_name = "carpal ligament"
@@ -150,20 +150,20 @@
 	name = "right hand"
 	icon_name = "r_hand"
 	body_part = HAND_RIGHT
-	parent_organ = "r_arm"
+	parent_organ = BP_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
 
 /obj/item/organ/external/head
 	limb_name = "head"
 	icon_name = "head"
-	name = "head"
+	name = BP_HEAD
 	max_damage = 75
 	min_broken_damage = 35
 	w_class = 3
 	body_part = HEAD | FACE
 	vital = 1
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	joint = "jaw"
 	artery_name = "cartoid artery"
 	amputation_point = "neck"

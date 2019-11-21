@@ -158,8 +158,8 @@
 	dispersion = list(0, 8)
 
 /obj/item/gun/energy/mousegun
-	name = "\improper NT \"Arodentia\" Pesti-Shock"
-	desc = "A highly sophisticated and probably safe beamgun designed for rapid pest-control."
+	name = "pest gun"
+	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
 	icon_state = "pestishock100"
 	item_state = "pestishock"
 	charge_meter = 0

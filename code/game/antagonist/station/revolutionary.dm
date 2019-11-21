@@ -30,6 +30,7 @@ var/datum/antagonist/revolutionary/revs
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
+	required_age = 31
 
 /datum/antagonist/revolutionary/New()
 	..()

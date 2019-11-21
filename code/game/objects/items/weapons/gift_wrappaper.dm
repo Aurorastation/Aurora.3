@@ -217,7 +217,7 @@
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
 		/obj/item/stamp/clown,
-		/obj/item/organ/heart/skrell,
+		/obj/item/organ/internal/heart/skrell,
 		/obj/item/latexballon)
 
 	var/atom/movable/I = new gift_type(get_turf(M))

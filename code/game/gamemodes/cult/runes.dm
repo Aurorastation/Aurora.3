@@ -623,8 +623,8 @@ var/list/sacrificed = list()
 			if(!(iscultist(V)))
 				victims += V//Checks for cult status and mob type
 	for(var/obj/item/I in src.loc)//Checks for MMIs/brains/Intellicards
-		if(istype(I,/obj/item/organ/brain))
-			var/obj/item/organ/brain/B = I
+		if(istype(I,/obj/item/organ/internal/brain))
+			var/obj/item/organ/internal/brain/B = I
 			victims += B.brainmob
 		else if(istype(I,/obj/item/device/mmi))
 			var/obj/item/device/mmi/B = I
@@ -741,7 +741,7 @@ var/list/sacrificed = list()
 		rad = 4
 		go = 1
 	if (istype(W,/obj/item/nullrod))
-		rad = 1
+		rad = 2
 		go = 1
 	if(go)
 		for(var/obj/effect/rune/R in orange(rad,src))
@@ -750,7 +750,7 @@ var/list/sacrificed = list()
 			S=1
 	if(S)
 		if(istype(W,/obj/item/nullrod))
-			to_chat(user, "<span class='warning'>Arcane markings suddenly glow from underneath a thin layer of dust!</span>")
+			visible_message(span("warning", "Arcane markings suddenly glow from underneath a thin layer of dust!"))
 			return
 		if(istype(W,/obj/effect/rune))
 			user.say("Nikt[pick("'","`")]o barada kla'atu!")

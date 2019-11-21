@@ -213,6 +213,7 @@
 	name = "cup ramen"
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
 		. = ..()

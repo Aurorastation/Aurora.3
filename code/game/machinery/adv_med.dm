@@ -404,13 +404,13 @@
 				data["burnDmg"] = O.damage
 				data["bruteDmg"] = 0
 
-		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
+		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
 			if (O.is_broken())
 				wounds += get_broken_lung_desc()
 			else
 				wounds += get_collapsed_lung_desc()
 
-		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
+		if (istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."
 
 		if (istype(O, H.species.vision_organ))

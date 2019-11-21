@@ -1063,7 +1063,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!affecting)
 			to_chat(user, "<span class='danger'>They don't have a head.</span>")
 			return
