@@ -670,7 +670,7 @@ default behaviour is:
 		return
 	last_resist = world.time
 	if(stunned > 10)
-		to_chat(src, "<span class='notice'>You can't move..</span>")
+		to_chat(src, "<span class='notice'>You can't move...</span>")
 		return
 	var/resisting = 0
 	for(var/obj/O in requests)
