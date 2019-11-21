@@ -1,6 +1,0 @@
-author: SynysterSparx
-delete-after: True
-changes: 
-  - bugfix: "Cultist stun runes no longer stun nearby cultists."
-  - tweak: "Mute victims of cultist stun rune."
-  - tweak: "Extend cultist stun rune stun time to 3."
