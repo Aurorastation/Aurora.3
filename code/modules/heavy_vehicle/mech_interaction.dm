@@ -28,7 +28,7 @@
 		return selected_system.MouseDragInteraction(src_object, over_object, src_location, over_location, src_control, over_control, params, user)
 
 
-/mob/living/heavy_vehicle/ClickOn(var/atom/A, var/params, var/mob/user)
+/mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
 	if(!user || incapacitated() || user.incapacitated())
 		return
@@ -40,6 +40,15 @@
 	if(modifiers["shift"])
 		A.examine(user)
 		return
+
+	if(modifiers["alt"])
+		if(selected_system)
+			if(selected_system == A)
+				selected_system.attack_self(user)
+				setClickCooldown(5)
+				return
+			else
+				return
 
 	if(!(user in pilots) && user != src)
 		return
@@ -117,7 +126,7 @@
 
 			var/resolved
 
-			if(adj) resolved = A.attackby(temp_system, src)
+			if(adj) resolved = temp_system.resolve_attackby(A, src, params)
 			if(!resolved && A && temp_system)
 				var/mob/ruser = src
 				if(!system_moved) //It's more useful to pass along clicker pilot when logic is fully mechside
@@ -195,12 +204,13 @@
 		return
 	user << "<span class='notice'>You climb into \the [src].</span>"
 	user.forceMove(src)
-	LAZYADD(pilots, user)
+	LAZYDISTINCTADD(pilots, user)
 	sync_access()
 	update_pilot_overlay()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	user << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
+	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
 	update_pilot_overlay()
 	return 1
@@ -230,6 +240,7 @@
 			user << "<span class='notice'>You climb out of \the [src].</span>"
 
 	user.forceMove(get_turf(src))
+	LAZYREMOVE(user.additional_vision_handlers, src)
 	if(user.client)
 		user.client.screen -= hud_elements
 		user.client.eye = user
@@ -237,7 +248,6 @@
 		a_intent = I_HURT
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
-		update_pilot_overlay()
 		update_pilot_overlay()
 	return
 
@@ -405,3 +415,9 @@
 			return ..()
 	else return STATUS_CLOSE
 	return ..()
+
+/mob/living/heavy_vehicle/get_inventory_slot(obj/item/I)
+	for(var/h in hardpoints)
+		if(hardpoints[h] == I)
+			return h
+	return 0

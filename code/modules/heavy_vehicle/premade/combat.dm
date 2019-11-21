@@ -43,6 +43,8 @@
 	exosuit_desc_string = "high-resolution sensors"
 	icon_state = "combat_head"
 	power_use = 200
+	vision_flags = SEE_MOBS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /obj/item/mech_component/sensors/combat/prebuild()
 	..()

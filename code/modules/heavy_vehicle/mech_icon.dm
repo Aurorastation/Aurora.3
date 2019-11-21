@@ -1,6 +1,6 @@
 var/global/list/mecha_image_cache = list()
 var/global/list/mecha_icon_cache = list()
-var/global/list/mech_weapon_overlays = list()
+var/global/list/mecha_weapon_overlays = list(icon_states('icons/mecha/mecha_weapon_overlays.dmi'))
 
 proc/get_mech_image(var/decal, var/cache_key, var/cache_icon, var/image_colour, var/overlay_layer = FLOAT_LAYER)
 	var/use_key = "[cache_key]-[cache_icon]-[decal ? decal : "none"]-[image_colour ? image_colour : "none"]"
@@ -30,7 +30,7 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 		all_images += get_mech_image(comp.decal, comp.icon_state, comp.on_mech_icon, comp.color, overlay_layer)
 	return all_images
 
-/mob/living/heavy_vehicle/update_icon(var/update_hardpoints = 1)
+/mob/living/heavy_vehicle/update_icon()
 	var/list/new_overlays = get_mech_icon(list(body, head), MECH_BASE_LAYER)
 	if(body && !hatch_closed)
 		new_overlays += get_mech_image(body.decal, "[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)
@@ -47,8 +47,8 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 		var/obj/item/mecha_equipment/hardpoint_object = hardpoints[hardpoint]
 		if(hardpoint_object)
 			var/use_icon_state = "[hardpoint_object.icon_state]_[hardpoint]"
-			if(use_icon_state in global.mech_weapon_overlays)
-				new_overlays += get_mech_image(null, use_icon_state, 'icons/mecha/mech_weapon_overlays.dmi', null, hardpoint_object.mech_layer)
+			if(use_icon_state in global.mecha_weapon_overlays)
+				new_overlays += get_mech_image(null, use_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, hardpoint_object.mech_layer)
 	overlays = new_overlays
 
 /mob/living/heavy_vehicle/proc/update_pilot_overlay(var/update_overlays = TRUE)

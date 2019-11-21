@@ -126,3 +126,16 @@
 		hallucination--
 	else if(hallucination < 0)
 		hallucination = 0
+
+/mob/living/heavy_vehicle/handle_vision()
+	if(head)
+		sight = head.get_sight()
+		see_invisible = head.get_invisible()
+	if(body && (body.pilot_coverage < 100))
+		sight &= ~BLIND
+
+/mob/living/heavy_vehicle/additional_sight_flags()
+	return sight
+
+/mob/living/heavy_vehicle/additional_see_invisible()
+	return see_invisible

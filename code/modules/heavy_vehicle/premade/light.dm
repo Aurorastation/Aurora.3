@@ -50,6 +50,8 @@
 	max_damage = 30
 	power_use = 50
 	desc = "A series of high resolution optical sensors."
+	vision_flags = SEE_TURFS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /obj/item/mech_component/sensors/light/prebuild()
 	..()

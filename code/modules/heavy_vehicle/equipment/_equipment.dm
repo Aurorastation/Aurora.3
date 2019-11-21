@@ -26,7 +26,12 @@
 	var/obj/item/holding
 
 /obj/item/mecha_equipment/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
-
+	if(require_adjacent)
+		if(!inrange)
+			return 0
+	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
+		if(target in owner.contents)
+			return 0
 	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
 		if(!(owner.get_cell() && owner.get_cell().check_charge(active_power_use * CELLRATE)))
 			user << "<span class='warning'>The power indicator flashes briefly as you attempt to use \the [src].</span>"

@@ -233,6 +233,9 @@
 	if(!owner.head)
 		usr << "<span class='warning'>I/O Error: Camera systems not found.</span>"
 		return
+	if(!owner.head.vision_flags)
+		to_chat(usr, "<span class='warning'>Alternative sensor configurations not found. Contact manufacturer for more details.</span>")
+		return
 	owner.head.active_sensors = ..()
 	usr << "<span class='notice'>[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active.</span>"
 
