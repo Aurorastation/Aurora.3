@@ -363,7 +363,7 @@
 	owner.update_action_buttons()
 	owner = null
 
-	if(owner && owner.isonlifesupport())
+	if(owner && !owner.isonlifesupport())
 		owner.death()
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
