@@ -65,7 +65,7 @@
 	if(!accurate)
 		if(prob(80))
 			hit_zone = ran_zone(hit_zone)
-		if(prob(15) && hit_zone != "chest") // Missed!
+		if(prob(15) && hit_zone != BP_CHEST) // Missed!
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else

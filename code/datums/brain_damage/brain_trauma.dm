@@ -6,7 +6,7 @@
 	var/desc = "A trauma caused by brain damage, which causes issues to the patient."
 	var/scan_desc = "a generic brain trauma" //description when detected by a health scanner
 	var/mob/living/carbon/owner //the poor bastard
-	var/obj/item/organ/brain/brain //the poor bastard's brain
+	var/obj/item/organ/internal/brain/brain //the poor bastard's brain
 	var/gain_text = "<span class='notice'>You feel traumatized.</span>"
 	var/lose_text = "<span class='notice'>You no longer feel traumatized.</span>"
 	var/can_gain = TRUE //can this be gained through random traumas?
@@ -19,7 +19,7 @@
 		//CURE_CRYSTAL - cures traumas that have physical effects
 		//CURE_SURGERY - cures traumas not covered above
 
-/datum/brain_trauma/New(obj/item/organ/brain/B, _permanent)
+/datum/brain_trauma/New(obj/item/organ/internal/brain/B, _permanent)
 	brain = B
 	owner = B.owner
 	permanent = _permanent

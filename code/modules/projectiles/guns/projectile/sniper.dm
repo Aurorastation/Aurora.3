@@ -37,9 +37,9 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
-	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
 	bolt_open = !bolt_open
 	if(bolt_open)
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		if(chambered)
 			to_chat(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
 			chambered.forceMove(get_turf(src))
@@ -49,6 +49,7 @@
 			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
 	else
 		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
+		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()

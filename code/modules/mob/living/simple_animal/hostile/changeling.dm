@@ -6,9 +6,9 @@
 	icon_state = "abomination"
 	icon_living = "abomination"
 	icon_dead = "abomination_dead"
-	stop_automated_movement = 1
-	universal_speak = 1
-	universal_understand = 1
+	stop_automated_movement = TRUE
+	universal_speak = TRUE
+	universal_understand = TRUE
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
@@ -139,3 +139,94 @@
 	var/obj/item/bone_dart/A = new /obj/item/bone_dart(usr.loc)
 	A.throw_at(target, 10, 20, usr)
 	add_logs(src, target, "launched a bone dart at")
+
+/mob/living/simple_animal/hostile/lesser_changeling
+	name = "crawling horror"
+	desc = "An agile monster made of twisted flesh and bone."
+	speak_emote = list("gibbers")
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "lesser_ling"
+	icon_living = "lesser_ling"
+
+	stop_automated_movement = TRUE
+	universal_speak = TRUE
+	universal_understand = TRUE
+
+	tameable = FALSE
+
+	response_help  = "pets"
+	response_disarm = "shoves"
+	response_harm   = "harmlessly punches"
+	maxHealth = 150
+	health = 150
+	harm_intent_damage = 5
+	melee_damage_lower = 5
+	melee_damage_upper = 10
+	mob_size = 15
+	attacktext = "mangled"
+	attack_sound = 'sound/weapons/bloodyslice.ogg'
+
+	see_in_dark = 8
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+	pass_flags = PASSTABLE
+
+	density = FALSE
+
+	minbodytemp = 0
+	maxbodytemp = 350
+	min_oxy = 0
+	max_co2 = 0
+	max_tox = 0
+
+	speed = -2
+
+	var/mob/living/carbon/human/occupant = null
+
+/mob/living/simple_animal/hostile/lesser_changeling/Initialize()
+	. = ..()
+	verbs += /mob/living/proc/ventcrawl
+
+/mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
+	..()
+	mind.assigned_role = "Changeling"
+
+/mob/living/simple_animal/hostile/lesser_changeling/death(gibbed)
+	..()
+	if(!gibbed)
+		if(occupant)
+			occupant.forceMove(get_turf(src))
+			occupant.status_flags &= ~GODMODE
+			if(mind)
+				mind.transfer_to(occupant)
+
+		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
+		gibs(src.loc)
+		qdel(src)
+		return
+
+/mob/living/simple_animal/hostile/lesser_changeling/verb/untransform()
+	set name = "Return to original form"
+	set desc = "Return to your original form."
+	set category = "Changeling"
+
+	if(!health)
+		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		return
+
+	if(last_special > world.time)
+		return
+
+	if(!isturf(loc))
+		return
+
+	last_special = world.time + 30
+
+	if(occupant)
+		occupant.forceMove(get_turf(src))
+		occupant.status_flags &= ~GODMODE
+		if(mind)
+			mind.transfer_to(occupant)
+		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
+		gibs(src.loc)
+		qdel(src)

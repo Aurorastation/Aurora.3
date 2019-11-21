@@ -216,7 +216,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
 
-	if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
 
 		if(!ishuman(M))
 			return ..()
@@ -240,11 +240,11 @@ var/const/NO_EMAG_ACT = -50
 					return 1
 
 				var/has_hand
-				var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
+				var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
 				if(istype(O) && !O.is_stump())
 					has_hand = 1
 				else
-					O = H.organs_by_name["l_hand"]
+					O = H.organs_by_name[BP_L_HAND]
 					if(istype(O) && !O.is_stump())
 						has_hand = 1
 				if(!has_hand)

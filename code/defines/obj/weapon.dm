@@ -59,7 +59,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
-/obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = "chest")
+/obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
 
 	if(!(istype(target) && istype(user)))
 		return ..()
@@ -96,7 +96,7 @@
 			class = "notice"
 			punct = "."
 			soundname = 0
-			if (target_zone == "head" || target_zone == "eyes" || target_zone == "mouth")
+			if (target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == "mouth")
 				verbtouse = pick("tapped")
 			else
 				verbtouse = pick("tapped","poked","prodded","touched")
@@ -109,10 +109,10 @@
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
-						if(target_zone == "l_hand" || target_zone == "l_arm")
+						if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 							if (prob(chancemod) && target.l_hand && target.l_hand != src)
 								shoulddisarm = 1
-						else if(target_zone == "r_hand" || target_zone == "r_arm")
+						else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 							if (prob(chancemod) && target.r_hand && target.r_hand != src)
 								shoulddisarm = 2
 						else
