@@ -208,10 +208,13 @@
 	name = "drill head"
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
+	material = DEFAULT_WALL_MATERIAL
 
-/obj/item/material/drill_head/Initialize()
-	. = ..()
-	durability = 2 * material.integrity
+/obj/item/material/drill_head/New(var/newloc, var/material_key)
+    ..(newloc)
+    if(!material_key)
+        material_key = default_material
+    durability = 2 * material.integrity
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -227,7 +230,7 @@
 
 /obj/item/mecha_equipment/drill/Initialize()
 	. = ..()
-	drill_head = new /obj/item/material/drill_head(src, "steel")//You start with a basic steel head
+	drill_head = new /obj/item/material/drill_head(src, DEFAULT_WALL_MATERIAL)//You start with a basic steel head
 
 /obj/item/mecha_equipment/drill/attack_self(var/mob/user)
 	. = ..()

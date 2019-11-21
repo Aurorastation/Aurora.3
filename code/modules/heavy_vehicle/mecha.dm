@@ -129,6 +129,7 @@
 		user << "Its [thing.name] [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
+	. = ..()
 
 	if(!access_card) access_card = new (src)
 
