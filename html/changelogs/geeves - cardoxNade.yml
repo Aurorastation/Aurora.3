@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Spawned in cardox grenades are now gas grenades instead of foam."
+  - rscadd: "Standard Cardox grenades now produce a gas explosion, instead of foaming like a cleaner grenade."
   - rscadd: "Cardox now properly gets rids of K'ois and K'ois plants."
