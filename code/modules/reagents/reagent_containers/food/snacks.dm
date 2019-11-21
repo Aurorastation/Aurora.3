@@ -517,13 +517,13 @@
 
 
 /obj/item/reagent_containers/food/snacks/candy/koko
-	name = "\improper Koko bar"
+	name = "\improper koko bar"
 	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
 	icon_state = "kokobar"
 	trash = /obj/item/trash/kokobar
 	filling_color = "#7D5F46"
 	nutriment_amt = 4
-	nutriment_desc = list("Koko Reed" = 2, "fibers" = 1)
+	nutriment_desc = list("koko reed" = 2, "fibers" = 1)
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/candy/koko/Initialize()
@@ -574,6 +574,17 @@
 	filling_color = "#DBC94F"
 	nutriment_amt = 5
 	nutriment_desc = list("sweetness" = 3, "cookie" = 2)
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/cookiesnack
+	name = "Carps Ahoy! miniature cookies"
+	desc = "Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
+	icon_state = "cookiesnack"
+	trash = /obj/item/trash/cookiesnack
+	filling_color = "#DBC94F"
+	nutriment_amt = 3
+	nutriment_type = NUTRIMENT_BAD
+	nutriment_desc = list("sweetness" = 1, "stale cookie" = 2)
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/chocolatebar
@@ -1293,6 +1304,7 @@
 	desc = "Mmm, waffles."
 	icon_state = "waffles"
 	trash = /obj/item/trash/waffles
+	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#E6DEB5"
 	center_of_mass = list("x"=15, "y"=11)
 	nutriment_desc = list("waffle" = 8)
@@ -1319,6 +1331,7 @@
 	desc = "Not made of people. Honest." //Totally people.
 	icon_state = "soylent_green"
 	trash = /obj/item/trash/waffles
+	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#B8E6B5"
 	center_of_mass = list("x"=15, "y"=11)
 	bitesize = 2
@@ -1332,6 +1345,7 @@
 	desc = "Not made of people. Honest." //Actually honest for once.
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
+	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
 	nutriment_desc = list("some sort of protein" = 5)
@@ -2213,6 +2227,7 @@
 	desc = "Waffles from Roffle. Co."
 	icon_state = "rofflewaffles"
 	trash = /obj/item/trash/waffles
+	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#FF00F7"
 	center_of_mass = list("x"=15, "y"=11)
 	nutriment_desc = list("waffle" = 7, "sweetness" = 1)
@@ -2509,6 +2524,25 @@
 /obj/item/reagent_containers/food/snacks/mint/Initialize()
 	. = ..()
 	reagents.add_reagent("mint", 1)
+
+/obj/item/reagent_containers/food/snacks/mint/admints
+	desc = "Spearmint, peppermint's non-festive cousin."
+	icon_state = "admint"
+
+/obj/item/storage/box/admints
+	name = "Ad-mints"
+	desc = "A pack of air fresheners for your mouth."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "admint_pack"
+	item_state = "candy"
+	slot_flags = SLOT_EARS
+	w_class = 1
+	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
+	use_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	max_storage_space = 6
+	foldable = null
 
 /obj/item/reagent_containers/food/snacks/soup/mushroom
 	name = "chantrelle soup"
@@ -4378,6 +4412,7 @@
 	desc = "Rock-hard 'waffles' composed entirely of microwaved K'ois goop."
 	icon_state = "koiswaffles"
 	trash = /obj/item/trash/waffles
+	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#E6E600"
 	bitesize = 5
 
@@ -4472,6 +4507,7 @@
 	desc = "Favorite of cats."
 	icon_state = "lasagna"
 	trash = /obj/item/trash/grease
+	drop_sound = 'sound/items/trayhit1.ogg'
 	center_of_mass = list("x"=16, "y"=17)
 	nutriment_amt = 12
 	nutriment_desc = list("pasta" = 4, "tomato" = 2)
@@ -4498,6 +4534,7 @@
 	desc = "A traditional human dish, recreated using space carp."
 	icon_state = "sashimi"
 	trash = /obj/item/trash/grease
+	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
 	bitesize = 4
@@ -5357,6 +5394,7 @@
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
 	bitesize = 2
+	nutriment_type = NUTRIMENT_BAD
 	trash = /obj/item/trash/tuna
 
 /obj/item/reagent_containers/food/snacks/tuna/Initialize()
@@ -5525,7 +5563,7 @@
 	w_class = 3
 	description_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
-	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or throw at besieging armies during sieges."
+	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
 
 
 #undef NUTRIMENT_GOOD
