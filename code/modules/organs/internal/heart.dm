@@ -150,31 +150,40 @@
 		var/open_wound
 		var/list/do_spray = list()
 		for(var/obj/item/organ/external/temp in owner.organs)
-			if(!(temp.status & ORGAN_BLEEDING) || temp.status & ORGAN_ROBOT)
-				continue
-			for(var/datum/wound/W in temp.wounds)
-				if(W.bleeding())
-					open_wound = TRUE
-					if(temp.applied_pressure)
-						if(ishuman(temp.applied_pressure))
-							var/mob/living/carbon/human/H = temp.applied_pressure
-							H.bloody_hands(src, 0)
-						var/min_eff_damage = max(0, W.damage - 10) / 6
-						blood_max += max(min_eff_damage, W.damage - 30) / 40
-					else
-						blood_max += ((W.damage / 40) * species.bleed_mod)
-				if(temp.status & ORGAN_ARTERY_CUT)
-					var/bleed_amount = Floor(owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 300))
-					if(bleed_amount)
-						if(open_wound)
-							blood_max += bleed_amount
-							do_spray += temp.name
+			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
+				for(var/datum/wound/W in temp.wounds)
+					if(W.bleeding())
+						open_wound = TRUE
+						if(temp.applied_pressure)
+							if(ishuman(temp.applied_pressure))
+								var/mob/living/carbon/human/H = temp.applied_pressure
+								H.bloody_hands(src, 0)
+							var/min_eff_damage = max(0, W.damage - 10) / 6
+							blood_max += max(min_eff_damage, W.damage - 30) / 40
 						else
-							blood_max += W.damage / 40
-			if(temp.open)
-				blood_max += 2 * owner.species.bleed_mod  //Yer stomach is cut open
+							blood_max += ((W.damage / 40) * species.bleed_mod)
 
-		if(world.time >= next_blood_squirt && istype(loc, /turf) && do_spray.len)
+			if(temp.status & ORGAN_ARTERY_CUT)
+				var/bleed_amount = Floor(owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 300))
+				if(bleed_amount)
+					if(open_wound)
+						blood_max += bleed_amount
+						do_spray += "[temp.name]"
+					else
+						owner.vessel.remove_reagent("blood", bleed_amount)
+
+		switch(pulse)
+			if(PULSE_SLOW)
+				blood_max *= 0.8
+			if(PULSE_FAST)
+				blood_max *= 1.25
+			if(PULSE_2FAST, PULSE_THREADY)
+				blood_max *= 1.5
+
+		if(CE_STABLE in owner.chem_effects)
+			blood_max *= 0.8
+
+		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
 			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", "<span class='danger'><font size='3'>Blood is squirting out of your [pick(do_spray)]!</font></span>")
 			owner.eye_blurry = 2
 			owner.Stun(1)
@@ -186,5 +195,4 @@
 				if(blood_max > 0)
 					owner.drip(blood_max, get_turf(src))
 		else
-			to_world("No arterial")
 			owner.drip(blood_max)
