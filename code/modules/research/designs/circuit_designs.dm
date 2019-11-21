@@ -73,12 +73,6 @@
 	build_path = /obj/item/circuitboard/operating
 	sort_string = "FACAA"
 
-/datum/design/circuit/operatingadv
-	name = "life support console"
-	id = "operatingadv"
-	build_path = /obj/item/circuitboard/advoperating
-	sort_string = "FACAB"
-
 /datum/design/circuit/pandemic
 	name = "PanD.E.M.I.C. 2200"
 	id = "pandemic"
@@ -280,15 +274,6 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/optable
 	sort_string = "HACAH"
-
-
-/datum/design/circuit/optable
-	name = "advanced operation table scanning board"
-	id = "advoptable_board"
-	req_tech = list(TECH_BIO = 4, TECH_ENGINEERING = 5)
-	build_path = /obj/item/circuitboard/optableadv
-	sort_string = "HACAI"
-
 
 /datum/design/circuit/smartfridge
 	name = "smart fridge board"

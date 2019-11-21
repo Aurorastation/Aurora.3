@@ -129,11 +129,6 @@
 	build_path = /obj/machinery/computer/operating
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
 
-/obj/item/circuitboard/advoperating
-	name = T_BOARD("life support table console")
-	build_path = /obj/machinery/computer/operating/advanced
-	origin_tech = list(TECH_DATA = 4, TECH_BIO = 4)
-
 /obj/item/circuitboard/curefab
 	name = T_BOARD("cure fabricator")
 	build_path = /obj/machinery/computer/curer
