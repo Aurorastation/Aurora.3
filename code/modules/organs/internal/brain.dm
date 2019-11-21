@@ -32,6 +32,34 @@
 		if(!BT.suppressed)
 			BT.on_life()
 
+	var/blood_volume = round(owner.vessel.get_reagent("blood"))
+	switch(blood_volume)
+		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+			var/word = pick("dizzy","woosey","faint")
+			to_chat(owner, "<span class='warning'>You feel [word]...</span>")
+			if(prob(1))
+				word = pick("dizzy","woosey","faint")
+				to_chat(owner, "<span class='warning'>You feel [word]...</span>")
+		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+			owner.eye_blurry = max(owner.eye_blurry,6)
+			owner.oxyloss += 1
+			if(prob(15))
+				owner.Paralyse(rand(1,3))
+				var/word = pick("dizzy","woosey","faint")
+				to_chat(owner, "<span class='warning'>You feel extremely [word]...</span>")
+		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+			owner.oxyloss += 3
+			owner.toxloss += 3
+			if(prob(15))
+				var/word = pick("dizzy","woosey","faint")
+				to_chat(owner, "<span class='warning'>You feel extremely [word]...</span>")
+		if(0 to BLOOD_VOLUME_SURVIVE)
+			// There currently is a strange bug here. If the mob is not below -100 health
+			// when death() is called, apparently they will be just fine, and this way it'll
+			// spam deathgasp. Adjusting toxloss ensures the mob will stay dead.
+			owner.toxloss += 300 // just to be safe!
+			owner.death()
+
 	if(owner.species.has_organ[BP_HEART]) //This is where the bad times start if you have no heart.
 		var/obj/item/organ/internal/heart/H = owner.internal_organs_by_name[BP_HEART]
 		if(!istype(H))
