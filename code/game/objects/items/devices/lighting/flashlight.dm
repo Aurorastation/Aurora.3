@@ -101,6 +101,7 @@
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
 	item_state = ""
+	drop_sound = 'sound/items/drop/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2
