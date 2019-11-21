@@ -5,7 +5,7 @@
 	var/move_delay = 5
 	var/turn_delay = 5
 	var/obj/item/robot_parts/robot_component/actuator/motivator
-	power_use = 50
+	power_use = 75
 
 /obj/item/mech_component/propulsion/Destroy()
 	QDEL_NULL(motivator)
@@ -13,7 +13,7 @@
 
 /obj/item/mech_component/propulsion/show_missing_parts(var/mob/user)
 	if(!motivator)
-		user << "<span class='warning'>It is missing a motivator.</span>"
+		to_chat(user, "<span class='warning'>It is missing a motivator.</span>")
 
 /obj/item/mech_component/propulsion/ready_to_install()
 	return motivator
@@ -24,7 +24,7 @@
 /obj/item/mech_component/propulsion/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing,/obj/item/robot_parts/robot_component/actuator))
 		if(motivator)
-			user << "<span class='warning'>\The [src] already has an actuator installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has an actuator installed.</span>")
 			return
 		motivator = thing
 		install_component(thing, user)

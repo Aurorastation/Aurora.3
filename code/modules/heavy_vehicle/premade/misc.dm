@@ -6,7 +6,7 @@
 	max_damage = 80
 	move_delay = 4
 	turn_delay = 1
-	power_use = 25
+	power_use = 75
 
 /obj/item/mech_component/propulsion/tracks
 	name = "tracks"

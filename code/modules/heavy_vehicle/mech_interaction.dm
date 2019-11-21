@@ -6,7 +6,7 @@
 				if(M.enter(src))
 					return
 			else
-				usr << "<span class='warning'>You cannot pilot a mech of this size.</span>"
+				to_chat(usr, "<span class='warning'>You cannot pilot a mech of this size.</span>")
 				return
 	return ..()
 
@@ -61,17 +61,17 @@
 		return
 
 	if(!arms)
-		user << "<span class='warning'>\The [src] has no manipulators!</span>"
+		to_chat(user, "<span class='warning'>\The [src] has no manipulators!</span>")
 		setClickCooldown(3)
 		return
 
 	if(!arms.motivator || !arms.motivator.is_functional())
-		user << "<span class='warning'>Your motivators are damaged! You can't use your manipulators!</span>"
+		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't use your manipulators!</span>")
 		setClickCooldown(15)
 		return
 
 	if(!get_cell().checked_use(arms.power_use * CELLRATE))
-		user << "<span class='warning'>Error: Power levels insufficient.</span>"
+		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
 
 	if(user != src)
 		a_intent = user.a_intent
@@ -83,7 +83,7 @@
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
 	if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
-		user << "<span class='warning'>The wiring sparks as you attempt to control the exosuit!</span>"
+		to_chat(user, "<span class='warning'>The wiring sparks as you attempt to control the exosuit!</span>")
 		failed = TRUE
 
 	if(!failed)
@@ -180,29 +180,29 @@
 	if(!user.Adjacent(src))
 		return
 	if(hatch_locked)
-		user << "<span class='warning'>The [body.hatch_descriptor] is locked.</span>"
+		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
 		return
 	if(hatch_closed)
-		user << "<span class='warning'>The [body.hatch_descriptor] is closed.</span>"
+		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is closed.</span>")
 		return
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
-		user << "<span class='warning'>\The [src] is occupied.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
 		return
-	user << "<span class='notice'>You start climbing into \the [src]...</span>"
+	to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
 	if(!do_after(user, 30))
 		return
 	if(!user || user.incapacitated())
 		return
 	if(hatch_locked)
-		user << "<span class='warning'>The [body.hatch_descriptor] is locked.</span>"
+		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
 		return
 	if(hatch_closed)
-		user << "<span class='warning'>The [body.hatch_descriptor] is closed.</span>"
+		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is closed.</span>")
 		return
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
-		user << "<span class='warning'>\The [src] is occupied.</span>"
+		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
 		return
-	user << "<span class='notice'>You climb into \the [src].</span>"
+	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
@@ -221,23 +221,23 @@
 		for(var/mob/pilot in pilots)
 			var/obj/item/card/id/pilot_id = pilot.GetIdCard()
 			if(pilot_id && pilot_id.access) access_card.access |= pilot_id.access
-			pilot << "<span class='notice'>Security access permissions synchronized.</span>"
+			to_chat(pilot, "<span class='notice'>Security access permissions synchronized.</span>")
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
 	if(!user || !(user in src.contents))
 		return
 	if(hatch_closed)
 		if(hatch_locked)
-			if(!silent) user << "<span class='warning'>The [body.hatch_descriptor] is locked.</span>"
+			if(!silent) to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
 			return
 		hatch_closed = 0
 		hud_open.update_icon()
 		update_icon()
 		if(!silent)
-			user << "<span class='notice'>You open the hatch and climb out of \the [src].</span>"
+			to_chat(user, "<span class='notice'>You open the hatch and climb out of \the [src].</span>")
 	else
 		if(!silent)
-			user << "<span class='notice'>You climb out of \the [src].</span>"
+			to_chat(user, "<span class='notice'>You climb out of \the [src].</span>")
 
 	user.forceMove(get_turf(src))
 	LAZYREMOVE(user.additional_vision_handlers, src)
@@ -260,24 +260,25 @@
 		return
 
 	if(!legs)
-		user << "<span class='warning'>\The [src] has no means of propulsion!</span>"
+		to_chat(user, "<span class='warning'>\The [src] has no means of propulsion!</span>")
 		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
 	if(!legs.motivator || legs.total_damage > 45)
-		user << "<span class='warning'>Your motivators are damaged! You can't move!</span>"
+		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't move!</span>")
 		next_move = world.time + 15
 		return
 
 	next_move = world.time + legs.move_delay
 
 	if(maintenance_protocols)
-		user << "<span class='warning'>Maintenance protocols are in effect.</span>"
+		to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
 		return
 
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
 
+	get_cell().use(legs.power_use * CELLRATE)
 	if(dir == direction)
 		var/turf/target_loc = get_step(src, direction)
 		if(!legs.can_move_on(loc, target_loc))
@@ -294,7 +295,7 @@
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
 	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))
 		if(hardpoints_locked)
-			user << "<span class='warning'>Hardpoint system access is disabled.</span>"
+			to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 			return
 
 		var/obj/item/mecha_equipment/realThing = thing
@@ -308,7 +309,7 @@
 		var/to_place = input("Where would you like to install it?") as null|anything in (realThing.restricted_hardpoints & free_hardpoints)
 		if(install_system(thing, to_place, user))
 			return
-		user << "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>"
+		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
 		return
 
 	else if(istype(thing, /obj/item/device/kit/paint))
@@ -325,9 +326,9 @@
 
 	else
 		if(user.a_intent != I_HURT)
-			if(istype(thing, /obj/item/device/multitool))
+			if(thing.ismultitool())
 				if(hardpoints_locked)
-					user << "<span class='warning'>Hardpoint system access is disabled.</span>"
+					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 					return
 
 				var/list/parts = list()
@@ -339,17 +340,17 @@
 
 				if(remove_system(to_remove, user))
 					return
-				user << "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>"
+				to_chat(user, "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>")
 				return
 
-			else if(istype(thing, /obj/item/wrench))
+			else if(thing.iswrench())
 				if(!maintenance_protocols)
-					user << "<span class='warning'>The securing bolts are not visible while maintenance protocols are disabled.</span>"
+					to_chat(user, "<span class='warning'>The securing bolts are not visible while maintenance protocols are disabled.</span>")
 					return
-				user << "<span class='notice'>You dismantle \the [src].</span>"
+				to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
 				dismantle()
 				return
-			else if(istype(thing, /obj/item/weldingtool))
+			else if(thing.iswelder())
 				if(!getBruteLoss())
 					return
 				var/list/damaged_parts = list()
@@ -360,7 +361,7 @@
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
 					to_fix.repair_brute_generic(thing, user)
 				return
-			else if(istype(thing, /obj/item/stack/cable_coil))
+			else if(thing.iscoil())
 				if(!getFireLoss())
 					return
 				var/list/damaged_parts = list()
@@ -378,7 +379,7 @@
 	// Drag the pilot out if possible.
 	if(user.a_intent == I_HURT || user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))
-			user << "<span class='warning'>There is nobody inside \the [src].</span>"
+			to_chat(user, "<span class='warning'>There is nobody inside \the [src].</span>")
 		else if(!hatch_closed)
 			var/mob/pilot = pick(pilots)
 			user.visible_message("<span class='danger'>\The [user] is trying to pull \the [pilot] out of \the [src]!</span>")
@@ -389,10 +390,10 @@
 
 	// Otherwise toggle the hatch.
 	if(hatch_locked)
-		user << "<span class='warning'>The [body.hatch_descriptor] is locked.</span>"
+		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
 		return
 	hatch_closed = !hatch_closed
-	user << "<span class='notice'>You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor].</span>"
+	to_chat(user, "<span class='notice'>You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor].</span>")
 	hud_open.update_icon()
 	update_icon()
 	return

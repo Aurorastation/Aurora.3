@@ -29,7 +29,7 @@
 	melee_damage = 5
 	action_delay = 15
 	max_damage = 40
-	power_use = 10
+	power_use = 40
 	desc = "As flexible as they are fragile, these Vey-Med manipulators can follow a pilot's movements in close to real time."
 
 /obj/item/mech_component/propulsion/light
@@ -39,7 +39,7 @@
 	move_delay = 2
 	turn_delay = 3
 	max_damage = 40
-	power_use = 5
+	power_use = 50
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
 
 /obj/item/mech_component/sensors/light
@@ -61,6 +61,7 @@
 /obj/item/mech_component/chassis/light
 	name = "light exosuit chassis"
 	pilot_coverage = 100
+	transparent_cabin =  TRUE
 	hatch_descriptor = "canopy"
 	hide_pilot = TRUE //Sprite too small, legs clip through, so for now hide pilot
 	exosuit_desc_string = "an open and light chassis"
@@ -69,6 +70,7 @@
 	power_use = 5
 	has_hardpoints = list(HARDPOINT_BACK)
 	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience."
+
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()

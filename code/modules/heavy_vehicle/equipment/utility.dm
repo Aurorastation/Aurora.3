@@ -66,7 +66,7 @@
 	. = ..()
 	if(.)
 		if(!carrying)
-			user << "<span class='warning'>You are not carrying anything in \the [src].</span>"
+			to_chat(user, "<span class='warning'>You are not carrying anything in \the [src].</span>")
 		else
 			owner.visible_message("<span class='notice'>\The [owner] unloads \the [carrying].</span>")
 			carrying.forceMove(get_turf(src))
@@ -155,7 +155,7 @@
 	. = ..()
 	if(.)
 		mode = mode == CATAPULT_SINGLE ? CATAPULT_AREA : CATAPULT_SINGLE
-		user << "<span class='notice'>You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode.</span>"
+		to_chat(user, "<span class='notice'>You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode.</span>")
 		update_icon()
 
 /obj/item/mecha_equipment/catapult/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
@@ -167,10 +167,10 @@
 				if(!locked)
 					var/atom/movable/AM = target
 					if(!istype(AM) || AM.anchored || !AM.simulated)
-						user << "<span class='notice'>Unable to lock on [target].</span>"
+						to_chat(user, "<span class='notice'>Unable to lock on [target].</span>")
 						return
 					locked = AM
-					user << "<span class='notice'>Locked on [AM].</span>"
+					to_chat(user, "<span class='notice'>Locked on [AM].</span>")
 					return
 				else if(target != locked)
 					if(locked in view(owner))
@@ -184,7 +184,7 @@
 
 					else
 						locked = null
-						user << "<span class='notice'>Lock on [locked] disengaged.</span>"
+						to_chat(user, "<span class='notice'>Lock on [locked] disengaged.</span>")
 			if(CATAPULT_AREA)
 
 				var/list/atoms = list()
@@ -257,7 +257,7 @@
 			return
 
 		if(drill_head == null)
-			user << "<span class='warning'>Your drill doesn't have a head!</span>"
+			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
 			return
 
 		var/obj/item/cell/C = owner.get_cell()

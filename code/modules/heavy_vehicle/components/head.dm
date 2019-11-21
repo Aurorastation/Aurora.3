@@ -21,11 +21,11 @@
 
 /obj/item/mech_component/sensors/show_missing_parts(var/mob/user)
 	if(!radio)
-		user << "<span class='warning'>It is missing a radio.</span>"
+		to_chat(user, "<span class='warning'>It is missing a radio.</span>")
 	if(!camera)
-		user << "<span class='warning'>It is missing a camera.</span>"
+		to_chat(user, "<span class='warning'>It is missing a camera.</span>")
 	if(!software)
-		user << "<span class='warning'>It is missing a software control module.</span>"
+		to_chat(user, "<span class='warning'>It is missing a software control module.</span>")
 
 /obj/item/mech_component/sensors/prebuild()
 	radio = new(src)
@@ -61,17 +61,17 @@
 /obj/item/mech_component/sensors/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing, /obj/item/mech_component/control_module))
 		if(software)
-			user << "<span class='warning'>\The [src] already has a control modules installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has a control modules installed.</span>")
 			return
 		if(install_component(thing, user)) software = thing
 	else if(istype(thing,/obj/item/robot_parts/robot_component/radio))
 		if(radio)
-			user << "<span class='warning'>\The [src] already has a radio installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has a radio installed.</span>")
 			return
 		if(install_component(thing, user)) radio = thing
 	else if(istype(thing,/obj/item/robot_parts/robot_component/camera))
 		if(camera)
-			user << "<span class='warning'>\The [src] already has a camera installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has a camera installed.</span>")
 			return
 		if(install_component(thing, user)) camera = thing
 	else
@@ -94,7 +94,7 @@
 	if(istype(thing, /obj/item/circuitboard/exosystem))
 		install_software(thing, user)
 		return
-	else if(istype(thing, /obj/item/screwdriver))
+	else if(thing.isscrewdriver())
 		var/result = ..()
 		update_software()
 		return result
@@ -104,10 +104,10 @@
 /obj/item/mech_component/control_module/proc/install_software(var/obj/item/circuitboard/exosystem/software, var/mob/user)
 	if(installed_software.len >= max_installed_software)
 		if(user)
-			user << "<span class='warning'>\The [src] can only hold [max_installed_software] software modules.</span>"
+			to_chat(user, "<span class='warning'>\The [src] can only hold [max_installed_software] software modules.</span>")
 		return
 	if(user)
-		user << "<span class='notice'>You load \the [software] into \the [src]'s memory.</span>"
+		to_chat(user, "<span class='notice'>You load \the [software] into \the [src]'s memory.</span>")
 		user.unEquip(software)
 	software.forceMove(src)
 	update_software()

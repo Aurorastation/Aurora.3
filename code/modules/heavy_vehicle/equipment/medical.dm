@@ -44,7 +44,7 @@
 			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
 			sleeper.go_in(target, user)
 		else
-			user << "<span class='warning'>You cannot load that in!</span>"
+			to_chat(user, "<span class='warning'>You cannot load that in!</span>")
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	if(sleeper && sleeper.occupant)

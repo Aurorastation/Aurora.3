@@ -101,17 +101,17 @@
 /mob/living/heavy_vehicle/examine(var/mob/user)
 	if(!user || !user.client)
 		return
-	user << "That's \a [src]."
+	to_chat(user, "That's \a [src].")
 	user << desc
-	if(LAZYLEN(pilots) && (!hatch_closed || body.open_cabin))
-		user << "It is being piloted by [english_list(pilots, nothing_text = "nobody")]."
+	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
+		to_chat(user, "It is being piloted by [english_list(pilots, nothing_text = "nobody")].")
 	if(hardpoints.len)
-		user << "It has the following hardpoints:"
+		to_chat(user, "It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			user << "- [hardpoint]: [istype(I) ? "\the [I]" : "nothing"]."
+			to_chat(user, "- [hardpoint]: [istype(I) ? "\the [I]" : "nothing"].")
 	else
-		user << "It no visible hardpoints:"
+		to_chat(user, "It no visible hardpoints:")
 
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
@@ -126,7 +126,7 @@
 				damage_string = "badly damaged"
 			if(4)
 				damage_string = "almost destroyed"
-		user << "Its [thing.name] [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
+		to_chat(user, "Its [thing.name] [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
 	. = ..()
@@ -200,7 +200,7 @@
 		user.set_machine(src)
 		interact(user)
 	else
-		user << "<span class='warning'>The radio is too damaged to function.</span>"
+		to_chat(user, "<span class='warning'>The radio is too damaged to function.</span>")
 
 /obj/item/device/radio/exosuit/CanUseTopic()
 	. = ..()

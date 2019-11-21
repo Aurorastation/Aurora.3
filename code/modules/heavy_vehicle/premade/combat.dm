@@ -27,7 +27,7 @@
 	icon_state = "combat_arms"
 	melee_damage = 5
 	action_delay = 10
-	power_use = 50
+	power_use = 60
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
@@ -35,7 +35,7 @@
 	icon_state = "combat_legs"
 	move_delay = 3
 	turn_delay = 3
-	power_use = 20
+	power_use = 100
 
 /obj/item/mech_component/sensors/combat
 	name = "combat sensors"
@@ -58,7 +58,8 @@
 	pilot_coverage = 100
 	exosuit_desc_string = "an armoured chassis"
 	icon_state = "combat_body"
-	power_use = 40
+	power_use = 20
+	transparent_cabin =  TRUE
 
 /obj/item/mech_component/chassis/combat/prebuild()
 	. = ..()

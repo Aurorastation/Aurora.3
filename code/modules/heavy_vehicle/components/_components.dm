@@ -13,7 +13,7 @@
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
-	matter = list("steel" = 15000, "plastic" = 1000, "osmium" = 500)
+	matter = list(DEFAULT_WALL_MATERIAL = 15000, "plastic" = 1000, "osmium" = 500)
 	dir = SOUTH
 
 /obj/item/mech_component/proc/set_colour(new_colour)
@@ -29,7 +29,7 @@
 /obj/item/mech_component/examine(mob/user)
 	. = ..()
 	if(ready_to_install())
-		user << "<span class='notice'>It is ready for installation.</span>"
+		to_chat(user, "<span class='notice'>It is ready for installation.</span>")
 	else
 		show_missing_parts(user)
 
@@ -86,7 +86,7 @@
 		update_components()
 
 /obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing, /obj/item/screwdriver))
+	if(thing.isscrewdriver())
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
 			user.visible_message("<span class='notice'>\The [user] removes \the [removed] from \the [src].</span>")
@@ -94,12 +94,12 @@
 			playsound(user.loc, 'sound/effects/pop.ogg', 50, 0)
 			update_components()
 		else
-			user << "<span class='warning'>There is nothing to remove.</span>"
+			to_chat(user, "<span class='warning'>There is nothing to remove.</span>")
 		return
-	if(istype(thing, /obj/item/weldingtool))
+	if(thing.iswelder())
 		repair_brute_generic(thing, user)
 		return
-	if(istype(thing, /obj/item/stack/cable_coil))
+	if(thing.iscoil())
 		repair_burn_generic(thing, user)
 		return
 	return ..()
@@ -111,28 +111,28 @@
 	if(!istype(WT))
 		return
 	if(!brute_damage)
-		user << "<span class='notice'>You inspect \the [src] but find nothing to weld.</span>"
+		to_chat(user, "<span class='notice'>You inspect \the [src] but find nothing to weld.</span>")
 		return
 	if(!WT.isOn())
-		user << "<span class='warning'>Turn \the [WT] on, first.</span>"
+		to_chat(user, "<span class='warning'>Turn \the [WT] on, first.</span>")
 		return
 	if(WT.remove_fuel(0, user))
 		var/repair_value = 15
 		if(brute_damage)
 			repair_brute_damage(repair_value)
-			user << "<span class='notice'>You mend the damage to \the [src].</span>"
+			to_chat(user, "<span class='notice'>You mend the damage to \the [src].</span>")
 			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
 
 /obj/item/mech_component/proc/repair_burn_generic(var/obj/item/stack/cable_coil/CC, var/mob/user)
 	if(!istype(CC))
 		return
 	if(!burn_damage)
-		user << "<span class='notice'>\The [src]'s wiring doesn't need replacing."
+		to_chat(user, "<span class='notice'>\The [src]'s wiring doesn't need replacing.</span>")
 		return
 
 	var/needed_amount = 3
 	if(CC.get_amount() < needed_amount)
-		user << "<span class='warning'>You need at least [needed_amount] unit\s of cable to repair this section.</span>"
+		to_chat(user, "<span class='warning'>You need at least [needed_amount] unit\s of cable to repair this section.</span>")
 		return
 
 	user.visible_message("\The [user] begins replacing the wiring of \the [src]...")
@@ -142,6 +142,6 @@
 			return
 
 		repair_burn_damage(25)
-		user << "<span class='notice'>You mend the damage to \the [src]'s wiring.</span>"
+		to_chat(user, "<span class='notice'>You mend the damage to \the [src]'s wiring.</span>")
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 25, 1)
 	return

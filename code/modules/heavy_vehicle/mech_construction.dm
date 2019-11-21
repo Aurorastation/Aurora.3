@@ -71,7 +71,7 @@
 				return FALSE
 
 			if(user.unEquip(system))
-				user << "<span class='notice'>You install \the [system] in \the [src]'s [system_hardpoint].</span>"
+				to_chat(user, "<span class='notice'>You install \the [system] in \the [src]'s [system_hardpoint].</span>")
 				playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			else return FALSE
 	var/obj/item/mecha_equipment/ME = system
@@ -150,7 +150,7 @@
 	if(user)
 		system.forceMove(get_turf(user))
 		user.put_in_hands(system)
-		user << "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>"
+		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
 		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	return 1

@@ -15,6 +15,7 @@
 	var/hatch_descriptor = "cockpit"
 	var/list/pilot_positions
 	var/pilot_coverage = 100
+	var/transparent_cabin = FALSE
 	var/hide_pilot = FALSE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
@@ -45,11 +46,11 @@
 
 /obj/item/mech_component/chassis/show_missing_parts(var/mob/user)
 	if(!cell)
-		user << "<span class='warning'>It is missing a power cell.</span>"
+		to_chat(user, "<span class='warning'>It is missing a power cell.</span>")
 	if(!diagnostics)
-		user << "<span class='warning'>It is missing a diagnostics unit.</span>"
+		to_chat(user, "<span class='warning'>It is missing a diagnostics unit.</span>")
 	if(!armour)
-		user << "<span class='warning'>It is missing armor pltating.</span>"
+		to_chat(user, "<span class='warning'>It is missing armor pltating.</span>")
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
@@ -89,17 +90,17 @@
 /obj/item/mech_component/chassis/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing,/obj/item/robot_parts/robot_component/diagnosis_unit))
 		if(diagnostics)
-			user << "<span class='warning'>\The [src] already has a diagnostic system installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has a diagnostic system installed.</span>")
 			return
 		if(install_component(thing, user)) diagnostics = thing
 	else if(istype(thing, /obj/item/cell))
 		if(cell)
-			user << "<span class='warning'>\The [src] already has a cell installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has a cell installed.</span>")
 			return
 		if(install_component(thing,user)) cell = thing
 	else if(istype(thing, /obj/item/robot_parts/robot_component/armour))
 		if(armour)
-			user << "<span class='warning'>\The [src] already has armour installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has armour installed.</span>")
 			return
 		if(install_component(thing, user))
 			armour = thing
@@ -109,7 +110,7 @@
 /obj/item/mech_component/chassis/MouseDrop_T(atom/dropping, mob/user)
 	var/obj/machinery/portable_atmospherics/canister/C = dropping
 	if(istype(C) && do_after(user, 5, src))
-		user << "<span class='notice'>You install the canister in the [src].</span>"
+		to_chat(user, "<span class='notice'>You install the canister in the [src].</span>")
 		if(air_supply)
 			air_supply.forceMove(get_turf(src))
 			air_supply = null

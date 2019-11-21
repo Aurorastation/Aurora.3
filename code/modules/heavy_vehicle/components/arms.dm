@@ -3,7 +3,7 @@
 	pixel_y = -12
 	icon_state = "loader_arms"
 	has_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
-	power_use = 10
+	power_use = 50
 
 	var/melee_damage = 15
 	var/action_delay = 15
@@ -14,7 +14,7 @@
 	. = ..()
 /obj/item/mech_component/manipulators/show_missing_parts(var/mob/user)
 	if(!motivator)
-		user << "<span class='warning'>It is missing an actuator.</span>"
+		to_chat(user, "<span class='warning'>It is missing an actuator.</span>")
 
 /obj/item/mech_component/manipulators/ready_to_install()
 	return motivator
@@ -25,7 +25,7 @@
 /obj/item/mech_component/manipulators/attackby(var/obj/item/thing, var/mob/user)
 	if(istype(thing,/obj/item/robot_parts/robot_component/actuator))
 		if(motivator)
-			user << "<span class='warning'>\The [src] already has an actuator installed.</span>"
+			to_chat(user, "<span class='warning'>\The [src] already has an actuator installed.</span>")
 			return
 		if(install_component(thing, user)) motivator = thing
 	else

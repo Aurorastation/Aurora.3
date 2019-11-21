@@ -44,25 +44,25 @@
 		if(WT.isOn())
 			cutting = TRUE
 		else
-			user << "<span class='warning'>Turn the torch on, first.</span>"
+			to_chat(user, "<span class='warning'>Turn the torch on, first.</span>")
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		cutting = TRUE
 
 	if(cutting)
 		if(!prepared)
 			prepared = 1
-			user << "<span class='notice'>You partially dismantle \the [src].</span>"
+			to_chat(user, "<span class='notice'>You partially dismantle \the [src].</span>")
 		else
-			user << "<span class='warning'>\The [src] has already been weakened.</span>"
+			to_chat(user, "<span class='warning'>\The [src] has already been weakened.</span>")
 		return 1
 
 	else if(iswrench(W))
 		if(prepared)
-			user << "<span class='notice'>You finish dismantling \the [src].</span>"
+			to_chat(user, "<span class='notice'>You finish dismantling \the [src].</span>")
 			new /obj/item/stack/material/steel(get_turf(src),rand(5,10))
 			qdel(src)
 		else
-			user << "<span class='warning'>It's too solid to dismantle. Try cutting through some of the bigger bits.</span>"
+			to_chat(user, "<span class='warning'>It's too solid to dismantle. Try cutting through some of the bigger bits.</span>")
 		return 1
 	else if(istype(W) && W.force > 20)
 		visible_message("<span class='danger'>\The [src] has been smashed with \the [W] by \the [user]!</span>")

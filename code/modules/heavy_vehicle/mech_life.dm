@@ -64,8 +64,8 @@
 	if(abs(environment.temperature - bodytemperature) > 10 )
 		bodytemperature += ((environment.temperature - bodytemperature) / 3)
 
-	if(environment.temperature > material.melting_point * 1.25 ) //A bit higher because I like to assume there's a difference between a mech and a wall
-		apply_damage(damage = (environment.temperature - (material.melting_point))/5 , damagetype = BURN)
+	if(environment.temperature >= T0C+1400) //A bit higher because I like to assume there's a difference between a mech and a wall
+		apply_damage(damage = environment.temperature /5 , damagetype = BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
 			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")
@@ -131,7 +131,7 @@
 	if(head)
 		sight = head.get_sight()
 		see_invisible = head.get_invisible()
-	if(body && (body.pilot_coverage < 100))
+	if(body && (body.pilot_coverage < 100 || body.transparent_cabin))
 		sight &= ~BLIND
 
 /mob/living/heavy_vehicle/additional_sight_flags()
