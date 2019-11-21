@@ -230,6 +230,11 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/onlyert
 
+/obj/item/device/radio/headset/distress
+	name = "specialist radio headset"
+	desc = "A headset used by specialists."
+	ks2type = /obj/item/device/encryptionkey/onlyert
+
 /obj/item/device/radio/headset/representative
 	name = "representative headset"
 	desc = "The headset of your worst enemy."
@@ -237,7 +242,7 @@
 	item_state = "headset"
 	ks2type = /obj/item/device/encryptionkey/headset_com
 
-/obj/item/device/radio/headset/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/device/radio/headset/attackby(obj/item/W as obj, mob/user as mob)
 //	..()
 	user.set_machine(src)
 	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))

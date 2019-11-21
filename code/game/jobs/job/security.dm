@@ -34,21 +34,21 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	pda = /obj/item/device/pda/heads/hos
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/ids = 1
+		/obj/item/storage/box/ids = 1
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/implant/loyalty
 	)
 
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel = /obj/item/weapon/storage/backpack/satchel_sec
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 /datum/outfit/job/hos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -90,13 +90,13 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	l_pocket = /obj/item/device/flash
 
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel = /obj/item/weapon/storage/backpack/satchel_sec
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/ids = 1
+		/obj/item/storage/box/ids = 1
 	)
 
 /datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -138,7 +138,7 @@
 	pda = /obj/item/device/pda/detective
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/evidence = 1
+		/obj/item/storage/box/evidence = 1
 	)
 
 /datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -181,7 +181,7 @@
 	pda = /obj/item/device/pda/detective
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/evidence = 1
+		/obj/item/storage/box/evidence = 1
 	)
 
 /datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -229,13 +229,13 @@
 	pda = /obj/item/device/pda/security
 	l_pocket = /obj/item/device/flash
 
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel = /obj/item/weapon/storage/backpack/satchel_sec
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
-		/obj/item/weapon/handcuffs = 1
+		/obj/item/handcuffs = 1
 	)
 
 /datum/outfit/job/officer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -265,12 +265,12 @@
 	jobtype = /datum/job/intern_sec
 
 	uniform = /obj/item/clothing/under/rank/cadet
-	suit = /obj/item/clothing/suit/storage/vest/cadet
+	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
 	head = /obj/item/clothing/head/beret/sec/cadet
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec
 
-	backpack = /obj/item/weapon/storage/backpack/security
-	satchel = /obj/item/weapon/storage/backpack/satchel_sec
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/sec
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/sec
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec

@@ -19,6 +19,8 @@
 	health = 300
 	maxHealth = 300
 
+	destroy_surroundings = FALSE
+
 	universal_speak = TRUE
 	universal_understand = TRUE
 
@@ -67,7 +69,7 @@
 		var/mob/living/carbon/human/H = L
 		if(H.w_uniform)
 			var/obj/item/clothing/under/suit = H.w_uniform
-			if(locate(/obj/item/clothing/accessory/hadii_pin) in suit.accessories)
+			if((locate(/obj/item/clothing/accessory/hadii_pin) in suit.accessories) || (locate(/obj/item/clothing/accessory/badge/hadii_card) in suit.accessories))
 				return FALSE
 
 	if(!L.stat)
@@ -108,7 +110,7 @@
 
 	projectilesound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
-	casingtype = /obj/item/ammo_casing/a762
+	casingtype = /obj/item/ammo_casing/a762/spent
 
 /mob/living/simple_animal/hostile/republicon/ranged/Initialize()
 	. = ..()

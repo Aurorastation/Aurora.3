@@ -18,9 +18,9 @@
 
 	fill()
 		for(var/i = 0, i < 2, i++)
-			new /obj/item/weapon/reagent_containers/food/condiment/flour(src)
-		new /obj/item/weapon/reagent_containers/food/condiment/sugar(src)
-		new /obj/item/weapon/reagent_containers/food/condiment/spacespice(src)
+			new /obj/item/reagent_containers/food/condiment/flour(src)
+		new /obj/item/reagent_containers/food/condiment/sugar(src)
+		new /obj/item/reagent_containers/food/condiment/spacespice(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()
@@ -34,11 +34,10 @@
 	icon_broken = "fridgebroken"
 	icon_off = "fridge1"
 
-
-	fill()
-		..()
-		for(var/i = 0, i < 8, i++)
-			new /obj/item/weapon/reagent_containers/food/snacks/meat/monkey(src)
+/obj/structure/closet/secure_closet/freezer/meat/fill()
+	..()
+	for(var/i = 0, i < 8, i++)
+		new /obj/item/reagent_containers/food/snacks/meat/monkey(src)
 
 /obj/structure/closet/secure_closet/freezer/fridge
 	name = "refrigerator"
@@ -49,15 +48,14 @@
 	icon_broken = "fridgebroken"
 	icon_off = "fridge1"
 
-
-	fill()
-		..()
-		for(var/i = 0, i < 5, i++)
-			new /obj/item/weapon/reagent_containers/food/drinks/milk(src)
-		for(var/i = 0, i < 2, i++)
-			new /obj/item/weapon/reagent_containers/food/drinks/soymilk(src)
-		for(var/i = 0, i < 2, i++)
-			new /obj/item/weapon/storage/fancy/egg_box(src)
+/obj/structure/closet/secure_closet/freezer/fridge/fill()
+	..()
+	for(var/i = 0, i < 5, i++)
+		new /obj/item/reagent_containers/food/drinks/milk(src)
+	for(var/i = 0, i < 2, i++)
+		new /obj/item/reagent_containers/food/drinks/soymilk(src)
+	for(var/i = 0, i < 2, i++)
+		new /obj/item/storage/fancy/egg_box(src)
 
 
 /obj/structure/closet/secure_closet/freezer/money
@@ -70,10 +68,10 @@
 	icon_off = "fridge1"
 	req_access = list(access_heads_vault)
 
-	fill()
-		..()
-		for(var/i = 0, i < rand(15,25), i++)
-			new /obj/random/spacecash(src)
+/obj/structure/closet/secure_closet/freezer/money/fill()
+	..()
+	for(var/i = 0, i < rand(15,25), i++)
+		new /obj/random/spacecash(src)
 
-		for(var/i = 0, i < rand(6,9), i++)
-			new /obj/random/coin(src)
+	for(var/i = 0, i < rand(6,9), i++)
+		new /obj/random/coin(src)

@@ -192,7 +192,7 @@ BREATH ANALYZER
 				continue
 			var/limb = e.name
 			if(e.status & ORGAN_BROKEN)
-				if(((e.name == "l_arm") || (e.name == "r_arm") || (e.name == "l_leg") || (e.name == "r_leg")) && (!(e.status & ORGAN_SPLINTED)))
+				if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && (!(e.status & ORGAN_SPLINTED)))
 					to_chat(user, "<span class='warning'>Unsecured fracture in subject [limb]. Splinting recommended for transport.</span>")
 			if(e.has_infected_wound())
 				to_chat(user, "<span class='warning'>Infected wound detected in subject [limb]. Disinfection recommended.</span>")
@@ -202,18 +202,21 @@ BREATH ANALYZER
 			if(e && e.status & ORGAN_BROKEN)
 				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
 				break
-		var/IB = FALSE
+		var/found_arterial = FALSE
+		var/found_tendon = FALSE
 		for(var/obj/item/organ/external/e in H.organs)
-			if(!e)
-				continue
-			for(var/datum/wound/W in e.wounds) if(W.internal)
-				IB = TRUE
+			if(e)
+				if(!found_arterial && (e.status & ORGAN_ARTERY_CUT))
+					user.show_message(text("<span class='warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"))
+					found_arterial = TRUE
+				if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+					user.show_message(text("<span class='warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"))
+					found_tendon = TRUE
+			if(found_arterial && found_tendon)
 				break
-		if (IB == TRUE)
-			user.show_message(text("<span class='warning'>Internal bleeding detected. Advanced scanner required for location.</span>"), 1)
 		if(M:vessel)
 			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
-			var/blood_percent =  blood_volume / 560
+			var/blood_percent = blood_volume / 560
 			var/blood_type = M.dna.b_type
 			blood_percent *= 100
 			if(blood_volume <= 500 && blood_volume > 336)
@@ -524,7 +527,7 @@ BREATH ANALYZER
 		if(50 to INFINITY)
 			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
 
-	var/obj/item/organ/L = H.internal_organs_by_name["lungs"]
+	var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
 			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")

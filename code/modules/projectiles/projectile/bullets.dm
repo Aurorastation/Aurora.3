@@ -7,7 +7,7 @@
 	check_armour = "bullet"
 	embed = 1
 	sharp = 1
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
+	shrapnel_type = /obj/item/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
@@ -235,9 +235,9 @@
 						L.emote("yawns")
 					if(blocked < 20)
 						if(L.reagents)	L.reagents.add_reagent("stoxin", 10)
-				if(def_zone == "head" && blocked < 100)
+				if(def_zone == BP_HEAD && blocked < 100)
 					if(L.reagents)	L.reagents.add_reagent("stoxin", 15)
-				if(def_zone != "torso" && def_zone != "head")
+				if(def_zone != "torso" && def_zone != BP_HEAD)
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
@@ -321,7 +321,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 
 /obj/item/projectile/bullet/flechette/explosive
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
+	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
 

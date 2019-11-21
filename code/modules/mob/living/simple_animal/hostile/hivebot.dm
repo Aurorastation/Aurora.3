@@ -75,6 +75,7 @@
 	icon_state = "hivebotbomber"
 	attacktext = "bumped"
 	move_to_delay = 8
+	var/has_exploded = FALSE
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
@@ -82,19 +83,22 @@
 	stance = HOSTILE_STANCE_TIRED
 	stop_automated_movement = 1
 	wander = 0
-
-	playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
-	spawn(20)
-		fragem(src,10,30,2,3,5,1,0)
-		src.gib()
+	if(!has_exploded)
+		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
+		has_exploded = TRUE
+		addtimer(CALLBACK(src, .proc/burst), 20)
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
-	else
-		fragem(src,10,30,2,3,5,1,0)
-		src.gib()
+	else if(!has_exploded)
+		has_exploded = TRUE
+		burst()
+
+/mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
+	fragem(src,10,30,2,3,5,1,0)
+	src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
@@ -598,8 +602,8 @@
 					update_icon()
 					continue
 
-				if(istype(O, /obj/item/weapon/storage))
-					var/obj/item/weapon/storage/S = O
+				if(istype(O, /obj/item/storage))
+					var/obj/item/storage/S = O
 					src.visible_message(span("notice","[src] begins to rip apart \the [S]."))
 					busy = 2
 					update_icon()
@@ -637,8 +641,8 @@
 				update_icon()
 				return
 
-		if(istype(O, /obj/item/weapon/stool))
-			var/obj/item/weapon/stool/S = O
+		if(istype(O, /obj/item/stool))
+			var/obj/item/stool/S = O
 			src.visible_message(span("notice","[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()

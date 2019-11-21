@@ -127,7 +127,7 @@
 		set_death_time(CREW, world.time)
 
 /mob/abstract/observer/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/weapon/book/tome))
+	if(istype(W,/obj/item/book/tome))
 		var/mob/abstract/observer/M = src
 		M.manifest(user)
 
