@@ -49,8 +49,7 @@
 			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
 			if(affecting)
 				to_chat(H, "<span class='danger'><font size=2>You feel something rip open in your [affecting.name]!</span></font>")
-				var/datum/wound/internal_bleeding/I = new(15)
-				affecting.wounds += I
+				affecting.sever_artery()
 		if(H.can_feel_pain())
 			H.emote("scream")
 
