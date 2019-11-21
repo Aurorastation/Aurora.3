@@ -1161,7 +1161,7 @@
 		usr.visible_message("<span class='notice'>[usr] begins counting their pulse.</span>",\
 		"You begin counting your pulse.")
 
-	if(src.pulse)
+	if(is_pulse_present())
 		to_chat(usr, "<span class='notice'>[self ? "You have a" : "[src] has a"] pulse! Counting...</span>")
 	else
 		to_chat(usr, "<span class='danger'>[src] has no pulse!</span>")	//it is REALLY UNLIKELY that a dead person would check his own pulse)
@@ -1571,6 +1571,7 @@
 		return A.onlifesupport()
 	else
 		return 0
+
 /mob/living/carbon/human/is_clumsy()
 	if(CLUMSY in mutations)
 		return TRUE
@@ -1582,3 +1583,34 @@
 			return TRUE
 
 	return FALSE
+
+/mob/living/carbon/human/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
+	var/temp = 0								//see setup.dm:694
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(heart)
+		switch(heart.pulse)
+			if(PULSE_NONE)
+				return "0"
+			if(PULSE_SLOW)
+				temp = rand(40, 60)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_NORM)
+				temp = rand(60, 90)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_FAST)
+				temp = rand(90, 120)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_2FAST)
+				temp = rand(120, 160)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_THREADY)
+				return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
+	else
+		return "0"
+
+/mob/living/carbon/human/proc/is_pulse_present()
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(heart)
+		return heart.pulse
+	else
+		return FALSE

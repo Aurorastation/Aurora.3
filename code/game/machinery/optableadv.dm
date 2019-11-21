@@ -145,12 +145,15 @@
 /obj/machinery/optable/lifesupport/update_icon()
 	if (panel_open)
 		icon_state = "[modify_state]-open"
-	else if (victim && active)
-		icon_state = victim.pulse ? "[modify_state]-lifeactive" : "[modify_state]-lifeidle"
-	else if (victim)
-		icon_state = victim.pulse ? "[modify_state]-active" : "[modify_state]-idle"
-	else
-		icon_state = "[modify_state]-idle"
+
+	if(ishuman(victim))
+		var/mob/living/carbon/human/H = victim
+		if (victim && active)
+			icon_state = H.is_pulse_present() ? "[modify_state]-lifeactive" : "[modify_state]-lifeidle"
+		else if (victim)
+			icon_state = H.is_pulse_present() ? "[modify_state]-active" : "[modify_state]-idle"
+		else
+			icon_state = "[modify_state]-idle"
 
 
 /obj/machinery/optable/lifesupport/check_table(mob/living/carbon/patient as mob)

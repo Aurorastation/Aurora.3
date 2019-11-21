@@ -76,8 +76,6 @@
 
 		handle_medical_side_effects()
 
-		handle_heartbeat() //TODOMATT
-
 		handle_brain_damage() //TODOMATT
 
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
@@ -95,8 +93,6 @@
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
-
-	pulse = handle_pulse()
 
 	if(mind && mind.vampire)
 		handle_vampire()

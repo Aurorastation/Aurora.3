@@ -8,13 +8,12 @@
 	robotic_sprite = "heart-prosthetic"
 	var/pulse = PULSE_NORM	//current pulse level
 	var/heartbeat = 0
+	var/next_blood_squirt = 0
 
 /obj/item/organ/internal/heart/process()
 	//Check if we're on lifesupport, and whether or not organs should be processing.
 	if(owner && owner.isonlifesupport())
 		return 1
-	else
-		return 0
 
 	if(owner)
 		handle_pulse()
@@ -24,7 +23,7 @@
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
 	if((species && species.flags & NO_BLOOD)) //No heart, no pulse, buddy.
-		pulse = NONE
+		pulse = PULSE_NONE
 
 	var/temp = PULSE_NORM
 
@@ -43,14 +42,12 @@
 			if(temp <= PULSE_FAST && temp >= PULSE_NONE)
 				temp++
 		if(R.id in heartstopper) //To avoid using fakedeath
-			var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 			if(rand(0,6) == 3)
-				H.take_damage(5)
+				take_internal_damage(5)
 		if(R.id in cheartstopper) //Conditional heart-stoppage
 			if(R.volume >= R.overdose)
-				var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 				if(rand(0,6) == 3)
-					H.take_damage(5)
+					take_internal_damage(5)
 
 	pulse = temp
 
@@ -61,7 +58,7 @@
 	if(!src || status & ORGAN_ROBOT)
 		return
 
-	if(pulse >= PULSE_2FAST || shock_stage >= 10 || istype(get_turf(src), /turf/space))
+	if(pulse >= PULSE_2FAST || owner.shock_stage >= 10 || istype(get_turf(src), /turf/space))
 		//PULSE_THREADY - maximum value for pulse, currently it 5.
 		//High pulse value corresponds to a fast rate of heartbeat.
 		//Divided by 2, otherwise it is too slow.
@@ -69,7 +66,7 @@
 
 		if(heartbeat >= rate)
 			heartbeat = 0
-			sound_to(owner, 'sound/effects/singlebeat.ogg',0,0,0,50)
+			sound_to(owner, sound('sound/effects/singlebeat.ogg', 0, 0, 0, 50))
 		else
 			heartbeat++
 
@@ -100,49 +97,47 @@
 				if(blood_volume <= BLOOD_VOLUME_SAFE) //We loose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(2)
 					owner.adjustHydrationLoss(1)
-				if(CE_BLOODRESTORE in chem_effects)
-					B.volume += chem_effects[CE_BLOODRESTORE]
+				if(CE_BLOODRESTORE in owner.chem_effects)
+					B.volume += owner.chem_effects[CE_BLOODRESTORE]
 
-		//The heartfix to end all heartfixes
-		if(owner.species && owner.species.has_organ[BP_HEART])
-			var/onlifesupport = 0
-			if (buckled && istype(buckled, /obj/machinery/optable/lifesupport))
-				var/obj/machinery/optable/lifesupport/A = buckled
-				onlifesupport = A.onlifesupport()
 
-			if (!onlifesupport)
-				if(!src)
-					blood_volume = 0
-				else if (is_damaged())
-					blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
-					blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - heart.damage/heart.min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
+		var/onlifesupport = 0
+		if (owner.buckled && istype(owner.buckled, /obj/machinery/optable/lifesupport))
+			var/obj/machinery/optable/lifesupport/A = owner.buckled
+			onlifesupport = A.onlifesupport()
+
+		if (!onlifesupport)
+			if(!src)
+				blood_volume = 0
+			else if (is_damaged())
+				blood_volume = min(BLOOD_VOLUME_SAFE - 1,blood_volume)
+				blood_volume = (BLOOD_VOLUME_SURVIVE + (BLOOD_VOLUME_NORMAL-BLOOD_VOLUME_SURVIVE) * max(1 - damage/min_broken_damage,0)) * (blood_volume/BLOOD_VOLUME_NORMAL)
 
 		//Effects of bloodloss
-		if(blood_volume < BLOOD_VOLUME_SAFE && oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))
-			oxyloss += 3
+		if(blood_volume < BLOOD_VOLUME_SAFE && owner.oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))
+			owner.oxyloss += 3
 
 		//TODOMATT move this to brain
 		switch(blood_volume)
-			if(BLOOD_VOLUME_SAFE to 10000)
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				var/word = pick("dizzy","woosey","faint")
-				to_chat(src, "<span class='warning'>You feel [word]...</span>")
+				to_chat(owner, "<span class='warning'>You feel [word]...</span>")
 				if(prob(1))
-					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel [word]...</span>")
+					word = pick("dizzy","woosey","faint")
+					to_chat(owner, "<span class='warning'>You feel [word]...</span>")
 			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-				eye_blurry = max(eye_blurry,6)
-				oxyloss += 1
+				owner.eye_blurry = max(owner.eye_blurry,6)
+				owner.oxyloss += 1
 				if(prob(15))
-					Paralyse(rand(1,3))
+					owner.Paralyse(rand(1,3))
 					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel extremely [word]...</span>")
+					to_chat(owner, "<span class='warning'>You feel extremely [word]...</span>")
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-				oxyloss += 3
-				toxloss += 3
+				owner.oxyloss += 3
+				owner.toxloss += 3
 				if(prob(15))
 					var/word = pick("dizzy","woosey","faint")
-					to_chat(src, "<span class='warning'>You feel extremely [word]...</span>")
+					to_chat(owner, "<span class='warning'>You feel extremely [word]...</span>")
 			if(0 to BLOOD_VOLUME_SURVIVE)
 				// There currently is a strange bug here. If the mob is not below -100 health
 				// when death() is called, apparently they will be just fine, and this way it'll
@@ -152,12 +147,44 @@
 
 		//Bleeding out
 		var/blood_max = 0
+		var/open_wound
+		var/list/do_spray = list()
 		for(var/obj/item/organ/external/temp in owner.organs)
 			if(!(temp.status & ORGAN_BLEEDING) || temp.status & ORGAN_ROBOT)
 				continue
 			for(var/datum/wound/W in temp.wounds)
 				if(W.bleeding())
-					blood_max += ((W.damage / 40) * species.bleed_mod)
-			if (temp.open)
-				blood_max += 2 * species.bleed_mod  //Yer stomach is cut open
-		owner.drip(blood_max)
+					open_wound = TRUE
+					if(temp.applied_pressure)
+						if(ishuman(temp.applied_pressure))
+							var/mob/living/carbon/human/H = temp.applied_pressure
+							H.bloody_hands(src, 0)
+						var/min_eff_damage = max(0, W.damage - 10) / 6
+						blood_max += max(min_eff_damage, W.damage - 30) / 40
+					else
+						blood_max += ((W.damage / 40) * species.bleed_mod)
+				if(temp.status & ORGAN_ARTERY_CUT)
+					var/bleed_amount = Floor(owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 300))
+					if(bleed_amount)
+						if(open_wound)
+							blood_max += bleed_amount
+							do_spray += temp.name
+						else
+							blood_max += W.damage / 40
+			if(temp.open)
+				blood_max += 2 * owner.species.bleed_mod  //Yer stomach is cut open
+
+		if(world.time >= next_blood_squirt && istype(loc, /turf) && do_spray.len)
+			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", "<span class='danger'><font size='3'>Blood is squirting out of your [pick(do_spray)]!</font></span>")
+			owner.eye_blurry = 2
+			owner.Stun(1)
+			next_blood_squirt = world.time + 100
+			var/turf/sprayloc = get_turf(src)
+			blood_max -= owner.drip(Ceiling(blood_max/3), sprayloc)
+			if(blood_max > 0)
+				blood_max -= owner.blood_squirt(blood_max, sprayloc)
+				if(blood_max > 0)
+					owner.drip(blood_max, get_turf(src))
+		else
+			to_world("No arterial")
+			owner.drip(blood_max)
