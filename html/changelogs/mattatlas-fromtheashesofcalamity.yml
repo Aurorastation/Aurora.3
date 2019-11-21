@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - experimental: "Several backend changes regarding human processing."
+  - experiment: "Several backend changes regarding human processing."
   - bugfix: "Fixed a few runtimes."
   - rscadd: "You should now lose more or less blood depending on your pulse."
   - tweak: "Losing your lungs and your heart is now more severe. Don't lose either one or you'll have a really hard time living."

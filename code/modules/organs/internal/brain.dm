@@ -32,7 +32,7 @@
 		if(!BT.suppressed)
 			BT.on_life()
 
-	var/blood_volume = round(owner.vessel.get_reagent("blood"))
+	var/blood_volume = round(owner.vessel.get_reagent_amount("blood"))
 	switch(blood_volume)
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 			var/word = pick("dizzy","woosey","faint")
