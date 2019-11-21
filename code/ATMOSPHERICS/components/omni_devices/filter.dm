@@ -123,7 +123,7 @@
 			if(ATM_OUTPUT)
 				output = 1
 				filter = 0
-			if(ATM_O2 to ATM_N2O)
+			if(ATM_O2 to ATM_H2)
 				f_type = mode_send_switch(P.mode)
 
 		portData[++portData.len] = list("dir" = dir_name(P.dir, capitalize = 1), \
