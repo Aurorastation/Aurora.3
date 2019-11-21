@@ -13,7 +13,7 @@
 
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
-	icon_state = "mime"
+	icon_state = "white"
 
 /obj/item/clothing/shoes/swat
 	name = "\improper SWAT shoes"
@@ -125,9 +125,17 @@
 	silent = 1
 
 /obj/item/clothing/shoes/laceup
-	name = "laceup shoes"
+	name = "black oxford shoes"
 	desc = "The height of fashion, and they're pre-polished!"
-	icon_state = "laceups"
+	icon_state = "oxford_black"
+
+/obj/item/clothing/shoes/laceup/grey
+	name = "grey oxford shoes"
+	icon_state = "oxford_grey"
+
+/obj/item/clothing/shoes/laceup/brown
+	name = "brown oxford shoes"
+	icon_state = "oxford_brown"
 
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
@@ -191,6 +199,12 @@
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
+
+/obj/item/clothing/shoes/winter/toeless
+	name = "toe-less winter boots"
+	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
+	icon_state = "winterboots_toeless"
+	item_state = "winterboots_toeless"
 
 /obj/item/clothing/shoes/black_boots
 	name = "black boots"

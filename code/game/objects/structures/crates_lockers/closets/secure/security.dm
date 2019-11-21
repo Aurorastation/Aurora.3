@@ -104,7 +104,7 @@
 	new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/shoes/leather(src)
+	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/head/caphat/hop(src)
 
