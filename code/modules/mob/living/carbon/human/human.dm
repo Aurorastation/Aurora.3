@@ -1068,12 +1068,18 @@
 	if(status_flags & GODMODE)
 		return
 
+	if(!species.has_organ[BP_LUNGS])
+		return
+
 	var/species_organ = species.breathing_organ
 	if(!species_organ)
 		return
-	
+
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
+	
 	if(!L)
+		losebreath += 15 //No lungs, how do you breathe?
+		adjustOxyLoss(15)
 		failed_last_breath = TRUE
 	else
 		failed_last_breath = L.handle_breath(breath)
