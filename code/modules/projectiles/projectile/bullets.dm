@@ -348,3 +348,18 @@
 /obj/item/projectile/bullet/cannonball/explosive/on_impact(var/atom/A)
 	explosion(A, -1, 1, 2)
 	..()
+
+/obj/item/projectile/bullet/nuke
+	name = "miniaturized nuclear warhead"
+	icon_state = "nuke"
+	damage = 25
+
+/obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
+	for(var/mob/living/carbon/human/mob in human_mob_list)
+		var/turf/T = get_turf(mob)
+		if(T && (loc.z == T.z))
+			if(ishuman(mob))
+				mob.apply_effect(450, IRRADIATE)
+	new /obj/effect/temp_visual/nuke(A.loc)
+	explosion(A,2,5,9)
+	..()
