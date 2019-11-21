@@ -36,6 +36,25 @@
 	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
 	weapons, usually daggers for ease of transport and to simulate Mata'ke's sword. There is a remarkably low amount of Njarir'Akhran in the Mata'ke priesthood."
 
+/obj/item/clothing/under/tajaran/cosmonaut
+	name = "kosmostrelki uniform"
+	desc = "A military uniform used by the forces of the People's Republic of Adhomai orbital fleet."
+	icon_state = "cosmonaut"
+	item_state = "cosmonaut"
+	description_fluff = "The People's Republic of Adhomai enjoys having the only militarized spaceships of all the factions on Adhomai. Initially they relied on contracting outside \
+	protection from NanoTrasen and the Sol Alliance in order to defend their orbit from raiders. However, the Republican Navy has striven to become independent. With the help of \
+	contracted engineers, access to higher education abroad and training from Sol Alliance naval advisers, the People's Republic has been able to commission and crew some of its own \
+	ships. The Republican Navy's space-arm primarily conducts counter piracy operations in conjunction with fending off raiders."
+
+/obj/item/clothing/under/tajaran/cosmonaut/commissar
+	name = "kosmostrelki commissar uniform"
+	desc = "A military uniform used by Party Commissars attached to kosmostrelki units."
+	icon_state = "space_commissar"
+	item_state = "space_commissar"
+	description_fluff = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
+	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
+	they are expected to display bravery in combat and lead by example."
+
 /obj/item/clothing/under/dress/tajaran
 	name = "fancy adhomian dress"
 	desc = "Created for the rich and party-loving circles of Adhomai, this dress is fashioned from smooth silk and is see through at parts. This one is white."
