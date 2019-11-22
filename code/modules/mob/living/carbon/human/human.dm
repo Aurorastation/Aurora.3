@@ -1408,7 +1408,7 @@
 
 /mob/living/carbon/human/has_brain()
 	if(internal_organs_by_name[BP_BRAIN])
-		var/obj/item/organ/internal/brain = internal_organs_by_name[BP_BRAIN]
+		var/obj/item/organ/brain = internal_organs_by_name[BP_BRAIN] // budget fix until MMIs and stuff get made internal or you think of a better way, sorry matt
 		if(brain && istype(brain))
 			return 1
 	return 0
