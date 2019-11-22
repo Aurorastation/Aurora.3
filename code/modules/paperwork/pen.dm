@@ -109,7 +109,15 @@
 	colour = "#1c1713" //dark ashy brownish
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
-	return
+	if(isfountain)
+		isfountain = FALSE
+		playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>You snap the nib into position to write normally.</span>")
+	else
+		isfountain = TRUE
+		playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+		to_chat(user, "<span class='notice'>You snap the nib into position to write in cursive.</span>")
+
 /*
  * PDA Fountain Pens
  */

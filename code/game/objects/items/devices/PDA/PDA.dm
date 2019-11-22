@@ -82,9 +82,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(..(user, 1))
 		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
 		if(id)
-			to_chat(user, "There is \a [id] in the ID slot.")
+			to_chat(user, "There is \a [id] in the ID slot. Alt-click to remove \the [id].")
 		if(inserted_item)
-			to_chat(user, "There is \a [inserted_item] in the pen slot.")
+			to_chat(user, "There is \a [inserted_item] in the pen slot. Ctrl-click to remove \the [inserted_item].")
 
 /*
  * Civillian
@@ -1100,7 +1100,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if (USE_SUCCESS)
 			if (!inserted_item)
-				to_chat(user, "<span class='notice'>[src] does not have pen in it.</span>")
+				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
 				return
 
 			if (loc == user && !user.get_active_hand())
