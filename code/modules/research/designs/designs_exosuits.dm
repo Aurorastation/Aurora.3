@@ -242,6 +242,12 @@
 	req_tech = list(TECH_COMBAT = 1)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser
 
+/datum/design/item/exosuit/uac
+	name = "mounted automatic weapon"
+	id = "mech_uac"
+	req_tech = list(TECH_COMBAT = 4)
+	build_path = /obj/item/mecha_equipment/mounted_system/taser/smg
+
 /datum/design/item/exosuit/weapon/plasma
 	name = "mounted plasma cutter"
 	id = "mech_plasma"
