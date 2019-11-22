@@ -3974,7 +3974,7 @@
 	},
 /area/syndicate_mothership/elite_squad)
 "akD" = (
-/obj/mecha/combat/marauder/mauler,
+/mob/living/heavy_vehicle/premade/combat,
 /turf/unsimulated/floor{
 	icon_state = "floor4"
 	},
@@ -7350,7 +7350,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/administration/centcom)
 "arZ" = (
-/obj/mecha/combat/marauder,
+/mob/living/heavy_vehicle/premade/combat,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -9057,7 +9057,7 @@
 	},
 /area/centcom/specops)
 "avT" = (
-/obj/mecha/combat/gygax/dark,
+/mob/living/heavy_vehicle/premade/combat,
 /obj/machinery/camera/network/ert{
 	c_tag = "Assault Armor North"
 	},
@@ -9392,11 +9392,11 @@
 /area/centcom/specops)
 "awG" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/ion,
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
-/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/lmg,
-/obj/item/mecha_parts/mecha_equipment/armor_booster/anticcw_armor_booster,
-/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,
+/obj/item/mecha_equipment/mounted_system/taser/ion,
+/obj/item/mecha_equipment/mounted_system/taser,
+/obj/item/mecha_equipment/mounted_system/taser/smg,
+/obj/item/mecha_equipment/mounted_system/taser/laser,
+/obj/item/robot_parts/robot_component/armour/combat,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -9873,7 +9873,7 @@
 	},
 /area/centcom/control)
 "axM" = (
-/obj/mecha/medical/odysseus/loaded,
+/mob/living/heavy_vehicle/premade/light,
 /turf/unsimulated/floor{
 	icon_state = "delivery";
 	dir = 6
@@ -9891,9 +9891,8 @@
 	},
 /area/centcom/specops)
 "axO" = (
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
+/obj/item/mecha_equipment/sleeper,
+/obj/item/mecha_equipment/sleeper,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -10250,11 +10249,6 @@
 	},
 /area/centcom/specops)
 "ayq" = (
-/obj/item/mecha_parts/mecha_equipment/teleporter,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -10386,16 +10380,16 @@
 	},
 /area/centcom/control)
 "ayF" = (
-/obj/mecha/working/ripley/firefighter,
+/mob/living/heavy_vehicle/premade/firefighter,
 /turf/unsimulated/floor{
 	icon_state = "delivery";
 	dir = 6
 	},
 /area/centcom/specops)
 "ayG" = (
-/obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
-/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
-/obj/item/pickaxe/diamonddrill,
+/obj/item/mecha_equipment/mounted_system/extinguisher,
+/obj/item/mecha_equipment/mounted_system/rcd,
+/obj/item/mecha_equipment/drill,
 /obj/structure/table/reinforced/steel,
 /obj/item/pickaxe/diamonddrill,
 /obj/item/pickaxe/diamonddrill,
@@ -10596,8 +10590,7 @@
 	},
 /area/centcom/specops)
 "aza" = (
-/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill,
-/obj/item/mecha_parts/mecha_equipment/tool/cable_layer,
+/obj/item/mecha_equipment/drill,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -10808,21 +10801,12 @@
 	},
 /area/centcom/control)
 "azy" = (
-/obj/mecha/working/hoverpod,
 /turf/unsimulated/floor{
 	icon_state = "delivery";
 	dir = 6
 	},
 /area/centcom/specops)
 "azz" = (
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -11281,10 +11265,8 @@
 /area/centcom/control)
 "aAs" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
+/obj/item/mecha_equipment/clamp,
+/obj/item/mecha_equipment/clamp,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -23207,9 +23189,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbl" = (
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-/obj/item/mecha_parts/mecha_equipment/tool/sleeper,
-/obj/item/mecha_parts/mecha_equipment/tool/syringe_gun,
+/obj/item/mecha_equipment/sleeper,
+/obj/item/mecha_equipment/sleeper,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
@@ -23220,14 +23201,6 @@
 /turf/simulated/floor/carpet/blue,
 /area/centcom/legion)
 "bbn" = (
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/tesla_energy_relay,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
@@ -23237,16 +23210,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbq" = (
-/obj/item/mecha_parts/mecha_equipment/teleporter,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
-/obj/item/mecha_parts/mecha_tracking,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbr" = (
-/obj/mecha/working/ripley/combat,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
@@ -23287,14 +23254,12 @@
 /area/centcom/legion)
 "bbv" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
+/obj/item/mecha_equipment/clamp,
+/obj/item/mecha_equipment/clamp,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbw" = (
-/obj/mecha/medical/odysseus/loaded,
+/mob/living/heavy_vehicle/premade/light,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
@@ -23422,8 +23387,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbG" = (
-/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill,
-/obj/item/mecha_parts/mecha_equipment/tool/cable_layer,
+/obj/item/mecha_equipment/drill,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -23432,8 +23396,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbH" = (
-/obj/item/mecha_parts/mecha_equipment/tool/extinguisher,
-/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
+/obj/item/mecha_equipment/mounted_system/extinguisher,
+/obj/item/mecha_equipment/mounted_system/rcd,
 /obj/item/pickaxe/diamonddrill,
 /obj/structure/table/reinforced/steel,
 /obj/item/pickaxe/diamonddrill,
@@ -23496,7 +23460,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bbR" = (
-/obj/mecha/combat/tank/jotun,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "bjQ" = (

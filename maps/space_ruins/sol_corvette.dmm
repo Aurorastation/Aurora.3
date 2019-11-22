@@ -792,7 +792,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "cK" = (
-/obj/mecha/working/hoverpod,
+/mob/living/heavy_vehicle/premade/ripley,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -870,7 +870,6 @@
 /area/derelict/ship)
 "cV" = (
 /obj/structure/table/rack,
-/obj/item/mecha_parts/mecha_equipment/teleporter,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "cW" = (
@@ -895,8 +894,6 @@
 /area/derelict/ship)
 "db" = (
 /obj/structure/table/rack,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
-/obj/item/mecha_parts/mecha_equipment/wormhole_generator,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dc" = (

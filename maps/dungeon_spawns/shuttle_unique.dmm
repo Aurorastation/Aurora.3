@@ -280,7 +280,6 @@
 /area/crashed_ship)
 "aP" = (
 /obj/structure/table/standard,
-/obj/item/mecha_parts/part/phazon_head,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "aQ" = (
@@ -363,7 +362,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
 "aZ" = (
-/obj/effect/decal/mecha_wreckage/ripley,
+/mob/living/heavy_vehicle/premade/ripley,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/crashed_ship)
