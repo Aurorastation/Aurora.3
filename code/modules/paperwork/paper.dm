@@ -388,7 +388,11 @@
 			iscrayon = TRUE
 
 		if(istype(i, /obj/item/pen/fountain))
-			isfountain = TRUE
+			var/obj/item/pen/fountain/f
+			if(f.cursive)
+				isfountain = TRUE
+			else
+				isfountain = FALSE
 
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
 		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )

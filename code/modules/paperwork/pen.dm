@@ -107,14 +107,15 @@
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
+	var/cursive = TRUE
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
-	if(isfountain)
-		isfountain = FALSE
+	if(cursive)
+		cursive = FALSE
 		playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You snap the nib into position to write normally.</span>")
 	else
-		isfountain = TRUE
+		cursive = TRUE
 		playsound(loc, 'sound/items/penclick.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You snap the nib into position to write in cursive.</span>")
 
