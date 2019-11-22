@@ -306,6 +306,22 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
+/mob/living/heavy_vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	// The var/climbers API is implemented here.
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
+	if (!dest.is_hole)
+		return FALSE
+
+	// See if something prevents us from falling.
+	for(var/atom/A in below)
+		if(!A.CanPass(src, dest))
+			return FALSE
+
+	// True otherwise.
+	return TRUE
+
 // Only things that stop mechas are atoms that, well, stop them.
 // Lattices and stairs get crushed in fall_through.
 

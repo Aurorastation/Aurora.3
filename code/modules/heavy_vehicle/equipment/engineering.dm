@@ -24,6 +24,12 @@
 	max_water = 4000 //Good is gooder
 	icon_state = "mecha_exting"
 
+/obj/item/extinguisher/mech/New()
+	reagents = new/datum/reagents(max_water)
+	reagents.my_atom = src
+	reagents.add_reagent("monoammoniumphosphate", max_water)
+	..()
+
 /obj/item/extinguisher/mech/get_hardpoint_maptext()
 	return "[reagents.total_volume]/[max_water]"
 
