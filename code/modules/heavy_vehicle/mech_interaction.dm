@@ -275,10 +275,14 @@
 		to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
 		return
 
+	var/obj/item/cell/C = get_cell()
+	if(!C || !C.check_charge(legs.power_use * CELLRATE))
+		to_chat(user, "<span class='warning'>The power indicator flashes briefly.</span>")
+		return
+
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(cardinal)
 
-	get_cell().use(legs.power_use * CELLRATE)
 	if(dir == direction)
 		var/turf/target_loc = get_step(src, direction)
 		if(!legs.can_move_on(loc, target_loc))

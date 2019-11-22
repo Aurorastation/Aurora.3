@@ -14,7 +14,7 @@
 	desc = "A classic brought back. The Hephaestus' Landmaster class tracks are impervious to most damage and can maintain top speed regardless of load. Watch out for corners."
 	icon_state = "tracks"
 	max_damage = 150
-	move_delay = 2 //It´s fast
+	move_delay = 2 //Its fast
 	turn_delay = 7
 	power_use = 150
 	color = COLOR_WHITE
