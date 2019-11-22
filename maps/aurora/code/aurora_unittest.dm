@@ -1,7 +1,7 @@
 /datum/map/aurora
 
 	// This is formatted strangely because it fails the indentation test if it's formatted properly.
-	// ¯\_(ツ)_/¯
+	// �\_(ツ)_/�
 
 	ut_environ_exempt_areas = list(/area/space
 		,/area/syndicate_station

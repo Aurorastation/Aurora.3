@@ -403,14 +403,14 @@ proc/admin_notice(var/message, var/rights)
 		if(6)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed story to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name=="")
-				dat+="<FONT COLOR='maroon'>Â•Invalid receiving channel name.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>•Invalid receiving channel name.</FONT><BR>"
 			if(src.admincaster_feed_message.body == "" || src.admincaster_feed_message.body == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid message body.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>•Invalid message body.</FONT><BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[3]'>Return</A><BR>"
 		if(7)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed Channel to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name =="" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid channel name.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>•Invalid channel name.</FONT><BR>"
 			var/check = 0
 			for(var/channel in SSnews.network_channels)
 				var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
@@ -418,7 +418,7 @@ proc/admin_notice(var/message, var/rights)
 					check = 1
 					break
 			if(check)
-				dat+="<FONT COLOR='maroon'>Â•Channel name already in use.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>•Channel name already in use.</FONT><BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[2]'>Return</A><BR>"
 		if(9)
 			dat+="<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.author]</FONT>\]</FONT><HR>"
@@ -535,9 +535,9 @@ proc/admin_notice(var/message, var/rights)
 		if(16)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Wanted Issue rejected by Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_message.author =="" || src.admincaster_feed_message.author == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid name for person wanted.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>•Invalid name for person wanted.</FONT><BR>"
 			if(src.admincaster_feed_message.body == "" || src.admincaster_feed_message.body == "\[REDACTED\]")
-				dat+="<FONT COLOR='maroon'>Â•Invalid description.</FONT><BR>"
+				dat+="<FONT COLOR='maroon'>•Invalid description.</FONT><BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>"
 		if(17)
 			dat+={"

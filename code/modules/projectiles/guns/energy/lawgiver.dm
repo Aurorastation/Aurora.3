@@ -201,15 +201,15 @@
 	else if(findtext(msg,"reset") && (findtext(msg,"user") || findtext(msg,"dna")))
 		dna = null
 		desc = default_desc
-		to_chat(usr, "<span class='warning'>[src.name]Â's owner has been reset. Do not attempt to fire [src.name] without rebinding a new owner.</span>")
+		to_chat(usr, "<span class='warning'>[src.name]'s owner has been reset. Do not attempt to fire [src.name] without rebinding a new owner.</span>")
 	else if((findtext(msg,"disable") || findtext(msg,"deactivate")) && findtext(msg,"crowdcontrol"))
 		message_disable = 1
-		to_chat(usr, "<span class='warning'>[src.name]Â's crowdcontrol deactivation sequence started.</span>")
+		to_chat(usr, "<span class='warning'>[src.name]'s crowdcontrol deactivation sequence started.</span>")
 	else if((findtext(msg,"enable") || findtext(msg,"activate")) && findtext(msg,"crowdcontrol"))
 		if(message_enabled) //Check if a message is already broadcasting -> abort
 			to_chat(usr, "<span class='warning'>[src.name] is already broadcasting a message.</span>")
 			return
-		to_chat(usr, "<span class='warning'>[src.name]Â's crowdcontrol activation sequence started.</span>")
+		to_chat(usr, "<span class='warning'>[src.name]'s crowdcontrol activation sequence started.</span>")
 		message = "Citizens stay calm. Stand back from the crime scene. Interference with the crime scene carries an automatic brig sentence."
 		message_enabled = 1
 		message_disable = 0

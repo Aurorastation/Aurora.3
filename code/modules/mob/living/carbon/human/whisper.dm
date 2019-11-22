@@ -98,12 +98,12 @@
 				temp_message[H] = ninjaspeak(temp_message[H])
 				pick_list -= H
 			message = jointext(temp_message, " ")
-			message = replacetext(message, "o", "Â¤")
-			message = replacetext(message, "p", "Å¾")
-			message = replacetext(message, "l", "Â£")
-			message = replacetext(message, "s", "Â§")
-			message = replacetext(message, "u", "Âµ")
-			message = replacetext(message, "b", "ÃŸ")
+			message = replacetext(message, "o", "¤")
+			message = replacetext(message, "p", "ž")
+			message = replacetext(message, "l", "£")
+			message = replacetext(message, "s", "§")
+			message = replacetext(message, "u", "µ")
+			message = replacetext(message, "b", "ß")
 
 	var/list/listening = hearers(message_range, src)
 	listening |= src
