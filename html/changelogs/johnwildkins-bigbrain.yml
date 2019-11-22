@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed IPCs having no brain, or more accurately, not using it properly. To live."
