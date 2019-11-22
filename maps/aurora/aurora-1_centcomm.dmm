@@ -13351,12 +13351,6 @@
 	name = "Shuttle Hatch";
 	req_access = list(13)
 	},
-/obj/machinery/mech_sensor{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "shuttle_dock_north_mech";
-	pixel_y = -19
-	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aEX" = (
@@ -13858,12 +13852,6 @@
 	locked = 1;
 	name = "Shuttle Hatch";
 	req_access = list(13)
-	},
-/obj/machinery/mech_sensor{
-	dir = 8;
-	frequency = 1380;
-	id_tag = "shuttle_dock_south_mech";
-	pixel_y = 19
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape/centcom)

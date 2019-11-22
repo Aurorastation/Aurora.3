@@ -78133,12 +78133,10 @@
 	master_tag = "escape_dock";
 	pixel_y = -30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_south_mech";
 	tag_airpump = "escape_dock_south_pump";
 	tag_chamber_sensor = "escape_dock_south_sensor";
 	tag_exterior_door = "escape_dock_south_outer";
 	tag_interior_door = "escape_dock_south_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_south_mech"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -79014,12 +79012,10 @@
 	master_tag = "escape_dock";
 	pixel_y = 30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_north_mech";
 	tag_airpump = "escape_dock_north_pump";
 	tag_chamber_sensor = "escape_dock_north_sensor";
 	tag_exterior_door = "escape_dock_north_outer";
 	tag_interior_door = "escape_dock_north_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_north_mech"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -80300,12 +80296,10 @@
 	master_tag = "escape_dock";
 	pixel_y = 30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_center_mech";
 	tag_airpump = "escape_dock_center_pump";
 	tag_chamber_sensor = "escape_dock_center_sensor";
 	tag_exterior_door = "escape_dock_center_outer";
 	tag_interior_door = "escape_dock_center_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_center_mech"
 	},
 /obj/machinery/light/small{
 	dir = 1
