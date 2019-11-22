@@ -22657,7 +22657,7 @@
 	},
 /area/centcom/holding)
 "sLc" = (
-//obj/item/mecha_equipment/drill,
+/obj/item/mecha_equipment/drill,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	icon_state = "tube1";
