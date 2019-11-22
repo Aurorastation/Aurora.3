@@ -313,7 +313,7 @@
 		return
 
 	else if(istype(thing, /obj/item/device/kit/paint))
-		user.visible_message("<span class='notice'>\The [user] opens \the [thing] and spends some quality time customising \the [src].")
+		user.visible_message("<span class='notice'>\The [user] opens \the [thing] and spends some quality time customising \the [src].</span>")
 		var/obj/item/device/kit/paint/P = thing
 		desc = P.new_desc
 		for(var/obj/item/mech_component/comp in list(arms, legs, head, body))
