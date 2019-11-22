@@ -1,10 +1,10 @@
-/obj/item/weapon/storage/box/bloodpacks
+/obj/item/storage/box/bloodpacks
 	name = "blood packs box"
 	desc = "This box contains blood packs."
 	icon_state = "sterile"
-	starts_with = list(/obj/item/weapon/reagent_containers/blood/empty = 3, /obj/item/weapon/reagent_containers/blood/secondary = 4)
+	starts_with = list(/obj/item/reagent_containers/blood/empty = 3, /obj/item/reagent_containers/blood/secondary = 4)
 
-/obj/item/weapon/reagent_containers/blood
+/obj/item/reagent_containers/blood
 	name = "blood pack"
 	desc = "Contains blood used for transfusion."
 	icon = 'icons/obj/bloodpack.dmi'
@@ -180,11 +180,11 @@
 	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
 	return
 
-/obj/item/weapon/reagent_containers/blood/attack_self(mob/user)
+/obj/item/reagent_containers/blood/attack_self(mob/user)
 	to_chat(user, span("notice", "You [is_open_container() ? "close" : "open"] [src]."))
 	flags ^= OPENCONTAINER
 
-/obj/item/weapon/reagent_containers/blood/secondary
+/obj/item/reagent_containers/blood/secondary
 	name = "secondary IV bag"
 	desc = "A small IV bag for use in addition to a primary blood bag or other container."
 	volume = 100
@@ -192,23 +192,23 @@
 	var/label
 	var/name_unlabeled
 
-/obj/item/weapon/storage/box/bloodpacks/secondary
+/obj/item/storage/box/bloodpacks/secondary
 	name = "IV bag box"
 	desc = "This box contains secondary IV bags for intravenous medicine infusion."
 	icon_state = "sterile"
-	starts_with = list(/obj/item/weapon/reagent_containers/blood/secondary = 7)
+	starts_with = list(/obj/item/reagent_containers/blood/secondary = 7)
 
-/obj/item/weapon/reagent_containers/blood/secondary/update_icon()
+/obj/item/reagent_containers/blood/secondary/update_icon()
 	return // don't change the sprite
 
-/obj/item/weapon/reagent_containers/blood/secondary/attackby(obj/item/weapon/P as obj, mob/user as mob)
-	if (istype(P, /obj/item/weapon/pen))
+/obj/item/reagent_containers/blood/secondary/attackby(obj/item/P as obj, mob/user as mob)
+	if (istype(P, /obj/item/pen))
 		label = sanitizeSafe(input(user, "What would you like to label [src]?", "Label", ""), MAX_NAME_LEN)
 		if(!label || !length(label))
 			to_chat(user, span("notice", "You decide not to label [src]."))
 			return
 		var/obj/item/i = usr.get_active_hand()
-		if (!istype(i, /obj/item/weapon/pen) || !in_range(user, src)) return //Checks to see if pen is still held or IV bag is in range
+		if (!istype(i, /obj/item/pen) || !in_range(user, src)) return //Checks to see if pen is still held or IV bag is in range
 		to_chat(usr, "<span class='notice'>You [name_unlabeled ? "peel off the old label and " : ""]label \the [name_unlabeled ? name_unlabeled : name] as [label].</span>")
 		if(!name_unlabeled)
 			name_unlabeled = name

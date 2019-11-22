@@ -178,13 +178,19 @@
 		B.data["species"] = H.species.bodytype
 
 	var/list/temp_chem = list()
-	for(var/datum/reagent/R in src.reagents.reagent_list)
+	for(var/datum/reagent/R in src.bloodstr?.reagent_list)
 		temp_chem += R.id
 		temp_chem[R.id] = R.volume
 	B.data["trace_chem"] = list2params(temp_chem)
+	
+	container.reagents.reagent_list |= B
+	container.reagents.update_total()
+	container.on_reagent_change()
+	container.reagents.handle_reactions()
+	
 	return B
 
-//For humans, blood does not appear from blue, it comes from vessels.
+//For humans, blood does not appear out of nowhere, it comes from vessels.
 /mob/living/carbon/human/take_blood(obj/item/reagent_containers/container, var/amount)
 
 	if(species && species.flags & NO_BLOOD)
@@ -196,7 +202,7 @@
 	. = ..()
 	vessel.remove_reagent("blood",amount) // Removes blood if human
 
-//Transfers blood from container ot vessels
+//Transfers blood from injected to vessels
 /mob/living/carbon/proc/inject_blood(var/datum/reagent/blood/injected, var/amount)
 	if (!injected || !istype(injected))
 		return
@@ -234,12 +240,13 @@
 
 //Gets human's own blood.
 /mob/living/carbon/proc/get_blood(datum/reagents/container)
-	var/datum/reagent/blood/res = locate() in container.reagent_list //Grab some blood
-	if(res) // Make sure there's some blood at all
-		if(weakref && res.data["donor"] != weakref) //If it's not theirs, then we look for theirs
-			for(var/datum/reagent/blood/D in container.reagent_list)
-				if(D.data["donor"] == weakref)
-					return D
+	var/datum/reagent/blood/res = container.get_reagent("blood") //Grab some blood
+	if(!res) // Make sure there's some blood at all
+		return
+	if(weakref && res.data["donor"] != weakref) //If it's not theirs, then we look for theirs
+		for(var/datum/reagent/blood/D in container.reagent_list)
+			if(D.data["donor"] == weakref)
+				return D
 	return res
 
 proc/blood_incompatible(donor,receiver,donor_species,receiver_species)

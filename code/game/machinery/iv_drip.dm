@@ -1,13 +1,17 @@
+#define IV_MODE_INJECT	"inject"
+#define IV_MODE_DRAW  	"draw"
+#define IV_MODE_OFF		"off"
+
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
 	icon = 'icons/obj/iv_drip.dmi'
 	anchored = 0
 	density = 1
 	var/mob/living/carbon/human/attached = null
-	var/mode = 1 // 1 is injecting, 0 is taking blood.
+	var/mode = list("Primary" = 1, "Secondary" = 1) // IV_MODE_OFF, IV_MODE_INJECT, IV_MODE_DRAW
 	var/list/transfer_amount = list("Primary" = REM, "Secondary" = REM)
-	var/obj/item/weapon/reagent_containers/primary = null // can be any size, is the first one attached
-	var/obj/item/weapon/reagent_containers/secondary = null // must be less than or equal to 120 units in capacity
+	var/obj/item/reagent_containers/primary = null // can be any size, is the first one attached
+	var/obj/item/reagent_containers/secondary = null // must be less than or equal to 120 units in capacity`
 
 /obj/machinery/iv_drip/update_icon()
 	if(src.attached)
@@ -71,10 +75,10 @@
 	if (istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return
-	if (istype(W, /obj/item/weapon/reagent_containers/food))
+	if (istype(W, /obj/item/reagent_containers/food))
 		to_chat(user, "You can't put food on an IV drip.")
-	if (istype(W, /obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/R = W
+	if (istype(W, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/R = W
 		if(W.is_open_container())
 			to_chat(user, "\The [W] must be closed to put it on an IV drip.")
 		if(!isnull(primary))
@@ -98,60 +102,59 @@
 /obj/machinery/iv_drip/machinery_process()
 	set background = 1
 
-	if(attached)
-		if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
-			var/obj/item/organ/external/affecting = attached:get_organ(pick(BP_R_ARM, BP_L_ARM))
-			attached.visible_message(span("warning", "The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), span("danger", "The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
-			affecting.take_damage(brute = 5, sharp = 1)
-			attached = null
-			update_icon()
-			return
+	if(!istype(attached))
+		return
 
-	if(attached && primary) // should have primary if you have secondary but let's not take chances
+	if(!(get_dist(src, attached) <= 1 && isturf(attached.loc)))
+		var/obj/item/organ/external/affecting = attached:get_organ(pick(BP_R_ARM, BP_L_ARM))
+		attached.visible_message(span("warning", "The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), span("danger", "The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
+		affecting.take_damage(brute = 5, sharp = 1)
+		attached = null
+		update_icon()
+		return
 
-		var/mob/living/carbon/human/T = attached
+	// Give blood
+	switch(mode["Primary"])
+		if(IV_MODE_INJECT)
+			inject(primary, transfer_amount["Primary"])
+		if(IV_MODE_DRAW)
+			drawblood(primary)
+	
+	switch(mode["Secondary"])
+		if(IV_MODE_INJECT)
+			inject(secondary, transfer_amount["Secondary"])
+		if(IV_MODE_DRAW)
+			drawblood(secondary)
 
-		if(!istype(T))
-			return
+/obj/machinery/iv_drip/proc/inject(var/obj/item/reagent_containers/R, amt)
+	if(!istype(R))
+		return
+	if(R.reagents.total_volume <= 0)
+		return
+	R.reagents.trans_to_mob(attached, amt, CHEM_BLOOD)
+	update_icon()
 
-		if(!T.dna)
-			return
+/obj/machinery/iv_drip/proc/drawblood(var/obj/item/reagent_containers/R)
+	if(!istype(affected))
+		return
+	if(attached.species.flags & NO_BLOOD)
+		return
+	if(!istype(R) || !(R in src))
+		return
+	if(R != primary && R != secondary)
+		return
+	var/amount = min(R.reagents.maximum_volume - R.reagents.total_volume, 4)
+	// If the container is full, ping
+	if(amount == 0 && prob(5))
+		visible_message("\The [src] pings.")
+		return
 
-		if(NOCLONE in T.mutations)
-			return
+	// If the human is losing too much blood, beep.
+	if((affected.get_blood_volume() < BLOOD_VOLUME_SAFE) && prob(5))
+		visible_message(span("warning", "\The [src] beeps loudly."))
 
-		if(T.species.flags & NO_BLOOD)
-			return
-
-		// Give blood
-		if(mode)
-			if(primary.reagents.total_volume > 0)
-				primary.reagents.trans_to_mob(attached, primary_transfer_amount, CHEM_BLOOD)
-				update_icon()
-			if(istype(secondary) && secondary.reagents.total_volume > 0)
-				secondary.reagents.trans_to_mob(attached, secondary_transfer_amount, CHEM_BLOOD)
-
-		// Take blood
-		else
-			var/amount = primary.reagents.maximum_volume - primary.reagents.total_volume
-			amount = min(amount, 4)
-			// If the primary is full, ping
-			if(amount == 0)
-				if(prob(5)) visible_message("\The [src] pings.")
-				return
-
-			// If the human is losing too much blood, beep.
-			if(T.get_blood_volume("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
-				visible_message(span("warning", "\The [src] beeps loudly."))
-
-			var/datum/reagent/B = T.take_blood(primary,amount)
-
-			if (B)
-				primary.reagents.reagent_list |= B
-				primary.reagents.update_total()
-				primary.on_reagent_change()
-				primary.reagents.handle_reactions()
-				update_icon()
+	var/datum/reagent/B = T.take_blood(primary,amount)
+	update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
 	if (isAI(user))
@@ -169,38 +172,42 @@
 		return ..()
 
 
-/obj/machinery/iv_drip/verb/toggle_mode()
+/obj/machinery/iv_drip/verb/change_mode()
 	set category = "Object"
-	set name = "Toggle Mode"
+	set name = "Change Mode"
 	set src in view(1)
-
-	if(!istype(usr, /mob/living))
-		to_chat(usr, span("warning", "You can't do that."))
+	
+	if (use_check(usr))
 		return
-
-	if(usr.stat)
+	var/container = input("Select which container's mode you want to adjust:", "Container Selection") as null|anything in list("Primary", "Secondary")
+	if(!container)
 		return
-
-	mode = !mode
-	to_chat(usr, "The IV drip is now [mode ? "injecting" : "taking blood"].")
+	var/mode = input("Select which mode you want:", "[container] Mode Selection") as null|anything in list(IV_MODE_DRAW, IV_MODE_INJECT, IV_MODE_OFF)
+	to_chat(usr, "The [container] IV drip is now [mode][mode == IV_MODE_OFF ? "" : "ing" ].")
 
 /obj/machinery/iv_drip/examine(mob/user)
 	..(user)
-	if (!(user in view(2)) && user!=src.loc) return
-
-	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
-	to_chat(user, span("notice", "The transfer rate is set to [src.transfer_amount] u/sec"))
-
+	if (!(user in view(2)))
+		return
 	if(primary)
 		if(primary.reagents && primary.reagents.reagent_list.len)
 			to_chat(usr, "<span class='notice'>Attached is \a [primary] with [primary.reagents.total_volume] units of liquid.</span>")
 		else
 			to_chat(usr, span("notice", "Attached is an empty [primary]."))
+		if(mode["Primary"] != IV_MODE_OFF)
+			to_chat(user, span("notice", "\The [primary] is set to [mode["Primary"]] [transfer_amount["Primary"] units per second."))
+		else
+			to_chat(user, span("notice", "\The [primary]'s IV drip is off."))
+
 	if(secondary)
 		if(secondary.reagents && secondary.reagents.reagent_list.len)
 			to_chat(usr, span("notice", "Attached is \a [secondary] with [secondary.reagents.total_volume] units of liquid."))
 		else
 			to_chat(usr, span("notice", "Attached is an empty [secondary]."))
+		if(mode["Secondary"] != IV_MODE_OFF)
+			to_chat(user, span("notice", "\The [secondary] is set to [mode["Primary"]] [transfer_amount["Secondary"] units per second."))
+		else
+			to_chat(user, span("notice", "\The [secondary]'s IV drip is off."))
 	else
 		to_chat(usr, span("notice", "No chemicals are attached."))
 
