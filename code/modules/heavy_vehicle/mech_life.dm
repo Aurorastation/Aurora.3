@@ -85,6 +85,8 @@
 		if(body.loc != src)
 			body = null
 
+	explosion(get_turf(loc), 0, 0, 1, 3)
+
 	// Eject the pilot.
 	if(LAZYLEN(pilots))
 		hatch_locked = 0 // So they can get out.

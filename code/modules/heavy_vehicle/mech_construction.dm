@@ -66,7 +66,7 @@
 	if(user)
 		var/delay = 30
 		if(delay > 0)
-			user.visible_message("<span class='notice'>\The [user] begins trying to install \the [system] into \the [src].")
+			user.visible_message("<span class='notice'>\The [user] begins trying to install \the [system] into \the [src].</span>")
 			if(!do_after(user, delay, src) || user.get_active_hand() != system)
 				return FALSE
 
@@ -118,7 +118,7 @@
 	if(user)
 		var/delay = 30
 		if(delay > 0)
-			user.visible_message("<span class='notice'>\The [user] begins trying to remove \the [system] from \the [src].")
+			user.visible_message("<span class='notice'>\The [user] begins trying to remove \the [system] from \the [src].</span>")
 			if(!do_after(user, delay, src) || hardpoints[system_hardpoint] != system)
 				return FALSE
 
