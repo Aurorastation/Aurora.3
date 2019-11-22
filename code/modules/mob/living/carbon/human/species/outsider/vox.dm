@@ -109,7 +109,7 @@
 		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
 		BP_LIVER =    /obj/item/organ/internal/liver/vox,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
-		BP_BRAIN =    /obj/item/organ/pariah_brain,
+		BP_BRAIN =    /obj/item/organ/internal/pariah_brain,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 	spawn_flags = IS_RESTRICTED

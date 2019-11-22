@@ -86,7 +86,7 @@
 	breakcuffs = list(MALE, FEMALE)
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/mmi_holder/posibrain,
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		BP_CELL    = /obj/item/organ/cell,
 		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
 		"surge"   = /obj/item/organ/surge/advanced
@@ -224,7 +224,7 @@
 	)
 
 	has_organ = list(
-		BP_BRAIN = /obj/item/organ/mmi_holder/posibrain/terminator,
+		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
 		BP_OPTICS = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data,

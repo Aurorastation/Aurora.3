@@ -75,7 +75,7 @@
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
-		BP_BRAIN   = /obj/item/organ/mmi_holder/posibrain,
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		BP_CELL    = /obj/item/organ/cell,
 		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
