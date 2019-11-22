@@ -6125,7 +6125,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "lg" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /obj/machinery/alarm{
@@ -6553,7 +6553,7 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "lT" = (
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -10755,7 +10755,7 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "uj" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
@@ -10923,7 +10923,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "uH" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -11018,7 +11018,23 @@
 /area/bridge/levela)
 "uO" = (
 /turf/simulated/wall,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
+"uP" = (
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	layer = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_pod_4_berth_hatch";
+	locked = 1;
+	name = "Under Construction";
+	req_access = list(13);
+	welded = 1
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/emergency)
 "uQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11422,20 +11438,20 @@
 "vC" = (
 /obj/structure/closet/wardrobe/mixed,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "vD" = (
 /obj/structure/closet/wardrobe/grey,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "vE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "vG" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "vI" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/machinery/light{
@@ -11856,10 +11872,10 @@
 /obj/item/clothing/shoes/jackboots/unathi,
 /obj/item/clothing/shoes/jackboots/unathi,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "wu" = (
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "ww" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -12385,14 +12401,14 @@
 "xr" = (
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "xs" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "xu" = (
 /obj/machinery/light{
 	dir = 8
@@ -12921,7 +12937,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "yq" = (
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
@@ -13275,14 +13291,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "yU" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
 /obj/item/tape_roll,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "yV" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -13297,7 +13313,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "yW" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -13520,11 +13536,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "zu" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "zw" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -13598,7 +13614,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "zD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters{
@@ -13806,7 +13822,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "zX" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -13824,7 +13840,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "zY" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -14095,11 +14111,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "As" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "At" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Telecoms West Wing";
@@ -14314,47 +14330,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"AN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters{
-	id = "commissary_entry";
-	name = "Shutter"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/store)
 "AO" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
 	name = "Commissary"
 	},
 /obj/machinery/door/blast/shutters{
+	dir = 2;
 	id = "commissary_entry";
 	name = "Shutter"
 	},
-/turf/simulated/floor/tiled,
-/area/store)
-"AP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters{
-	id = "commissary_entry";
-	name = "Shutter"
-	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/store)
 "AR" = (
@@ -15084,7 +15069,7 @@
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Cr" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -15342,8 +15327,12 @@
 	layer = 2.9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/flag/nanotrasen,
-/obj/item/flag/nanotrasen/l,
+/obj/random/random_flag,
+/obj/random/random_flag,
+/obj/random/random_flag,
+/obj/random/random_flag,
+/obj/random/random_flag,
+/obj/random/random_flag,
 /turf/simulated/floor/wood,
 /area/store)
 "CS" = (
@@ -15358,7 +15347,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "CU" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/aft)
@@ -16889,7 +16878,7 @@
 /obj/structure/window/reinforced,
 /obj/structure/closet/wardrobe/suit,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "FB" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -18078,7 +18067,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/washing_machine,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "HF" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -18449,6 +18438,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
+"Is" = (
+/obj/item/stack/flag/red/planted,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "It" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters{
@@ -20779,7 +20772,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Ng" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -21189,8 +21182,9 @@
 	icon_state = "door_locked";
 	id_tag = "escape_pod_4_berth_hatch";
 	locked = 1;
-	name = "Escape Pod";
-	req_access = list(13)
+	name = "Under Construction";
+	req_access = list(13);
+	welded = 1
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
@@ -21538,7 +21532,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "OI" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -21638,7 +21632,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "OT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -21790,7 +21784,7 @@
 /obj/item/razor,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Pp" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -22075,17 +22069,6 @@
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
-"PX" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface Escape Pods - Aft Port";
-	dir = 4;
-	network = list("Civilian Surface","Emergency Dock")
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "PY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -22102,7 +22085,7 @@
 	},
 /obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -22551,7 +22534,7 @@
 	dir = 4
 	},
 /obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface Escape Pods - Port";
+	c_tag = "Surface Emergency Services Dock - Port";
 	dir = 4;
 	network = list("Civilian Surface","Emergency Dock")
 	},
@@ -22703,7 +22686,7 @@
 	},
 /obj/item/device/paicard,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Rp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -22935,7 +22918,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "RK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -23554,7 +23537,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "SY" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1332;
@@ -23626,7 +23609,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Tl" = (
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -23807,7 +23790,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface Escape Pods - Starboard";
+	c_tag = "Surface Emergency Services Dock - Starboard";
 	dir = 4;
 	network = list("Civilian Surface","Emergency Dock");
 	pixel_y = 8
@@ -23828,7 +23811,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "TK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -23972,7 +23955,7 @@
 	},
 /obj/item/clothing/glasses/threedglasses,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Ub" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
@@ -24129,7 +24112,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Uy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -24341,7 +24324,7 @@
 "UX" = (
 /obj/structure/closet/wardrobe/black,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "UZ" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -24622,7 +24605,7 @@
 "VG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "VH" = (
 /obj/machinery/door/airlock/command{
 	name = "Command Study";
@@ -25025,7 +25008,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Wv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
@@ -25304,22 +25287,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
-"WY" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters{
-	id = "commissary_entry";
-	name = "Shutter"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/store)
 "WZ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Commissary Maintenance";
@@ -25539,7 +25506,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Xz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -25760,7 +25727,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "XX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -25906,7 +25873,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Yl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
@@ -26418,7 +26385,7 @@
 "Zo" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Zq" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/alarm{
@@ -26428,7 +26395,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/locker)
+/area/hallway/secondary/entry/locker)
 "Zr" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -44177,7 +44144,7 @@ ag
 ag
 aw
 aw
-aw
+Is
 Uy
 aw
 aw
@@ -45451,14 +45418,14 @@ YC
 aw
 aw
 aw
+Is
 aw
 aw
 aw
 aw
 aw
 aw
-aw
-aw
+Is
 aw
 aw
 aw
@@ -46730,7 +46697,7 @@ nJ
 ag
 ag
 ag
-aw
+Is
 Uy
 aw
 aa
@@ -46981,7 +46948,7 @@ IJ
 Ma
 Bc
 OR
-PX
+Ae
 QI
 nJ
 ag
@@ -47737,7 +47704,7 @@ Ko
 Vy
 Ko
 Ko
-Oc
+uP
 Vh
 mg
 RX
@@ -48529,7 +48496,7 @@ nJ
 ag
 ag
 ag
-aw
+Is
 Uy
 aw
 Yx
@@ -48765,7 +48732,7 @@ Ko
 Ko
 Ko
 Ko
-Oc
+uP
 Vh
 Ak
 RX
@@ -51339,7 +51306,7 @@ yS
 wu
 Nf
 Aq
-WY
+tu
 Ds
 Oo
 MJ
@@ -51596,7 +51563,7 @@ xr
 wu
 zt
 wu
-AN
+tu
 Oo
 Bw
 mv
@@ -52110,7 +52077,7 @@ xs
 wu
 zt
 wu
-AP
+tu
 Yy
 Mw
 Bw
@@ -52367,7 +52334,7 @@ xr
 VG
 zW
 wu
-AN
+tu
 wA
 lE
 BN

@@ -78,3 +78,7 @@
 /area/hallway/secondary/entry/departure_lounge
 	name = "\improper Surface - Departures Lounge"
 	icon_state = "dep_lounge"
+
+/area/hallway/secondary/entry/locker
+	name = "\improper Surface - Locker Room"
+	icon_state = "locker"

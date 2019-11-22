@@ -22552,7 +22552,11 @@
 	icon_state = "trashcartopen";
 	opened = 1
 	},
-/obj/item/trash/koisbar,
+/obj/item/trash/koisbar{
+	layer = 3.01
+	},
+/obj/item/device/paicard,
+/obj/random/junk,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -30002,7 +30006,7 @@
 	},
 /obj/item/gun/projectile/improvised_handgun,
 /obj/item/material/kitchen/utensil/knife/boot,
-/obj/item/gun/bang/pirate,
+/obj/item/gun/projectile/pirate,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},

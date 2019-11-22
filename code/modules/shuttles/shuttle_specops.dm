@@ -259,7 +259,7 @@
 /datum/shuttle/ferry/legion/launch(var/user)
 	if(!location && earliest_departure_time > world.time)
 		var/obj/machinery/computer/shuttle_control/legion/L = user
-		L.visible_message(span("notice","The dropship's engines are currently recharging, please wait another [round((earliest_departure_time - world.time)/600)] minute\s before trying again."),null,3)
+		L.visible_message(span("notice","The dropship's skipthrusters will be done recharging in approximately [round((earliest_departure_time - world.time)/600)] minute\s."),null,3)
 		return
 	else
 		..()
