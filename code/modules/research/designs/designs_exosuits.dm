@@ -221,53 +221,53 @@
 	build_path = /obj/item/mech_component/propulsion/tracks
 	req_tech = list(TECH_MATERIAL = 4)
 
-/datum/design/item/exosuit/hydraulic_clamp
+/datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"
 	id = "hydraulic_clamp"
 	build_path = /obj/item/mecha_equipment/clamp
 
-/datum/design/item/exosuit/gravity_catapult
+/datum/design/item/mechfab/exosuit/gravity_catapult
 	name = "gravity catapult"
 	id = "gravity_catapult"
 	build_path = /obj/item/mecha_equipment/catapult
 
-/datum/design/item/exosuit/drill
+/datum/design/item/mechfab/exosuit/drill
 	name = "drill"
 	id = "mech_drill"
 	build_path = /obj/item/mecha_equipment/drill
 
-/datum/design/item/exosuit/taser
+/datum/design/item/mechfab/exosuit/taser
 	name = "mounted electrolaser"
 	id = "mech_taser"
 	req_tech = list(TECH_COMBAT = 1)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser
 
-/datum/design/item/exosuit/uac
+/datum/design/item/mechfab/exosuit/uac
 	name = "mounted automatic weapon"
 	id = "mech_uac"
 	req_tech = list(TECH_COMBAT = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser/smg
 
-/datum/design/item/exosuit/weapon/plasma
+/datum/design/item/mechfab/exosuit/weapon/plasma
 	name = "mounted plasma cutter"
 	id = "mech_plasma"
 	materials = list(DEFAULT_WALL_MATERIAL = 30000)
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/plasmacutter
 
-/datum/design/item/exosuit/weapon/ion
+/datum/design/item/mechfab/exosuit/weapon/ion
 	name = "mounted ion rifle"
 	id = "mech_ion"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser/ion
 
-/datum/design/item/exosuit/weapon/laser
+/datum/design/item/mechfab/exosuit/weapon/laser
 	name = "mounted laser gun"
 	id = "mech_laser"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser/laser
 
-/datum/design/item/exosuit/rcd
+/datum/design/item/mechfab/exosuit/rcd
 	name = "RFD-C"
 	id = "mech_rcd"
 	time = 90
@@ -275,19 +275,19 @@
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/rcd
 
-/datum/design/item/exosuit/floodlight
+/datum/design/item/mechfab/exosuit/floodlight
 	name = "floodlight"
 	id = "mech_floodlight"
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/mecha_equipment/light
 
-/datum/design/item/exosuit/sleeper
+/datum/design/item/mechfab/exosuit/sleeper
 	name = "mounted sleeper"
 	id   = "mech_sleeper"
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 10000)
 	build_path = /obj/item/mecha_equipment/sleeper
 
-/datum/design/item/exosuit/extinguisher
+/datum/design/item/mechfab/exosuit/extinguisher
 	name = "mounted extinguisher"
 	id   = "mecha_extinguisher"
 	build_path = /obj/item/mecha_equipment/mounted_system/extinguisher

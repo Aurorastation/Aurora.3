@@ -93,10 +93,6 @@
 	return total
 
 /mob/living/heavy_vehicle/emp_act(var/severity)
-	var/armourval = run_armor_check(attack_flag="energy",absorb_text="Your Faraday shielding negates the pulse!",soften_text="Your Faraday shielding lessens the pulse.")
-	if(armourval >= 2) return
-	hallucination += round((12 - (severity*3))/(armourval ? armourval : 1))
-	severity += armourval
 	if(severity <= 3)
 		for(var/obj/item/thing in list(arms,legs,head,body))
 			thing.emp_act(severity)

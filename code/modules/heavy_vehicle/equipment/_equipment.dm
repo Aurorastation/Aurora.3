@@ -32,7 +32,7 @@
 	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
 		if(target in owner.contents)
 			return 0
-	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
+
 		if(!(owner.get_cell() && owner.get_cell().check_charge(active_power_use * CELLRATE)))
 			to_chat(user, "<span class='warning'>The power indicator flashes briefly as you attempt to use \the [src].</span>")
 			return 0
