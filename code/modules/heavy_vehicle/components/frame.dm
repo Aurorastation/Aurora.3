@@ -1,9 +1,10 @@
 /obj/item/frame_holder
 	matter = list("steel" = 65000, "plastic" = 10000, "osmium" = 10000)
 
-/obj/item/frame_holder/New(var/newloc)
+/obj/item/frame_holder/Initialize(mapload, var/newloc)
+	..()
 	new /obj/structure/heavy_vehicle_frame(newloc)
-	qdel(src)
+	return  INITIALIZE_HINT_QDEL
 
 /obj/structure/heavy_vehicle_frame
 	name = "exosuit frame"
