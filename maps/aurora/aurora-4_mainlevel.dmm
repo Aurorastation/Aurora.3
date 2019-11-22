@@ -12390,7 +12390,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "awU" = (
-/obj/machinery/computer/mecha,
 /obj/effect/floor_decal/corner/purple{
 	icon_state = "corner_white";
 	dir = 6
@@ -34077,10 +34076,6 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/circuitboard/mecha_control{
-	pixel_x = 1;
-	pixel_y = -1
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/storage/tech)
@@ -40007,6 +40002,7 @@
 	dir = 1
 	},
 /obj/item/device/mmi/digital/posibrain,
+/obj/item/device/floor_painter,
 /obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
@@ -43166,7 +43162,9 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/gumballmachine,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -43196,7 +43194,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvm" = (
-/obj/machinery/gumballmachine/sucker,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -46797,7 +46797,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/rdoffice)
 "bBD" = (
-/obj/machinery/computer/mecha,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
@@ -56172,7 +56171,6 @@
 	dir = 4;
 	network = list("Service")
 	},
-/obj/machinery/gumballmachine,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVz" = (
@@ -64005,14 +64003,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
-"eNx" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
-	},
-/obj/machinery/gumballmachine/sucker,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "eNR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -66799,10 +66789,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"niw" = (
-/obj/machinery/gumballmachine/sucker,
-/turf/simulated/floor/carpet,
-/area/library)
 "njF" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -68394,10 +68380,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
-"rZl" = (
-/obj/machinery/gumballmachine,
-/turf/simulated/floor/carpet,
-/area/library)
 "saL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -96702,7 +96684,7 @@ bMF
 bJN
 bOl
 bOK
-niw
+bJL
 bPR
 bJL
 bQO
@@ -96959,7 +96941,7 @@ bMF
 bJN
 bOm
 bOK
-rZl
+bJL
 bPS
 bJL
 bQP
@@ -100060,7 +100042,7 @@ bVX
 bWl
 bVx
 bVX
-eNx
+bVX
 bVX
 bVX
 bWL
