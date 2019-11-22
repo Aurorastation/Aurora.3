@@ -51,7 +51,7 @@
 #define COLOR_WHITE            "#ffffff"
 #define COLOR_GOLD             "#ffcc33"
 #define COLOR_CLOSET_GOLD      "#6d6133"
-#define COLOR_NT_RED           "#9d2300"
+#define COLOR_DARK_RED         "#9d2300"
 #define COLOR_BOTTLE_GREEN     "#1f6b4f"
 #define COLOR_PALE_BTL_GREEN   "#57967f"
 #define COLOR_GUNMETAL         "#545c68"
@@ -78,7 +78,7 @@
 #define COLOR_ALUMINIUM        "#bbbbbb"
 #define COLOR_CRYSTAL          "#00c8a5"
 #define COLOR_ASTEROID_ROCK    "#735555"
-#define COLOR_NULLGLASS        "#ff6088"
+#define COLOR_HOT_PINK         "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
 
 //Color defines used by the assembly detailer.
