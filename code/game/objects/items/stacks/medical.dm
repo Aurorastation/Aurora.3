@@ -102,8 +102,6 @@ Contains:
 						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
-					if (W.internal)
-						continue
 					if(W.bandaged)
 						continue
 					if(used == amount)
@@ -216,8 +214,6 @@ Contains:
 						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
-					if (W.internal)
-						continue
 					if (W.bandaged && W.disinfected)
 						continue
 					if(used == amount)
@@ -327,9 +323,6 @@ Contains:
 				if(!do_after(user, 100, act_target = M))
 					return
 				for (var/datum/wound/W in affecting.wounds)
-					if (W.internal)
-						if(prob(25)) // Space Klot technology.
-							W.heal_damage(heal_brute, 1)
 					if (W.bandaged)
 						continue
 					if(used == amount)
