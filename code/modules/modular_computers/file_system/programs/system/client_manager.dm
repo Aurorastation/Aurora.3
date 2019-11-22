@@ -40,7 +40,7 @@
 
 	VUEUI_SET_CHECK(data["enrollment_status"], computer.enrolled, ., data)
 	VUEUI_SET_CHECK(data["ntnet_status"], ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD), ., data)
-	
+
 	LAZYINITLIST(data["presets"])
 	for (var/datum/modular_computer_app_presets/p in ntnet_global.available_software_presets)
 		if(p.available)
@@ -63,7 +63,7 @@
 				return 1
 	return 0
 
-//Set´s up the computer with the file manager and the downloader and removes the lock
+//Sets up the computer with the file manager and the downloader and removes the lock
 /datum/computer_file/program/clientmanager/proc/enroll_private_device()
 	if(!computer)
 		return 0
@@ -72,7 +72,7 @@
 	computer.hard_drive.store_file(new /datum/computer_file/program/ntnetdownload())
 	return 1
 
-//Set´s up the programs from the preset
+//Sets up the programs from the preset
 /datum/computer_file/program/clientmanager/proc/enroll_company_device(var/preset)
 	if(!computer)
 		return 0

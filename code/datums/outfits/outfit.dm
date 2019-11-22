@@ -78,7 +78,7 @@
 	if(islist(path))	//If its a list, select a random item
 		var/itempath = pick(path)
 		I = new itempath(H)
-	else if(gear_datums[path]) //If its something else, we´ll check if its a gearpath and try to spawn it
+	else if(gear_datums[path]) //If its something else, we'll check if its a gearpath and try to spawn it
 		var/datum/gear/G = gear_datums[path]
 		I = G.spawn_random()
 	else

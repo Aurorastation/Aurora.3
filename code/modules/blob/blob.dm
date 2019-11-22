@@ -156,7 +156,7 @@
 	if(istype(T, /turf/unsimulated/) && !istype(T, /turf/unsimulated/floor/asteroid/))
 		return
 
-	//Dont expand over space or holes, unless there´s a lattice
+	//Dont expand over space or holes, unless there's a lattice
 	if((istype(T, /turf/simulated/open) || istype(T, /turf/space)) && !(locate(/obj/structure/lattice) in T))
 		return
 

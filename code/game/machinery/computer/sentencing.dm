@@ -493,7 +493,7 @@
 		return
 
 	var/obj/item/card/id/card = incident.card.resolve()
-	//Let´s get the account of the suspect and verify they have enough money
+	//Let's get the account of the suspect and verify they have enough money
 	var/datum/money_account/suspect_account = SSeconomy.get_account(card.associated_account_number)
 	if(!suspect_account)
 		buzz("\The [src] buzzes, \"Could not get suspect account!\"")

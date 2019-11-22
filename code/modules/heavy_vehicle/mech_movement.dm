@@ -114,7 +114,7 @@
 	return 100 //Exosuits are big and heavy
 
 /mob/living/exosuit/handle_fall_effect(var/turf/landing)
-	// Return here if for any reason you shouldn´t take damage
+	// Return here if for any reason you shouldnt take damage
 	..()
 	var/damage = 30 //Enough to cause a malfunction if unlucky
 	apply_damage(rand(0, damage), BRUTE, BP_R_LEG) //Any leg is good, will damage both

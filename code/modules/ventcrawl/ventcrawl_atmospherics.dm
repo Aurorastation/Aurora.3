@@ -63,7 +63,7 @@
 	L.death()
 	qdel(L)
 
-	//Output what´s left through the connected vents
+	//Output whats left through the connected vents
 	if(N)
 		var/count = 0
 		for(var/V in N.normal_members)
