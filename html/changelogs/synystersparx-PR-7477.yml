@@ -1,0 +1,4 @@
+author: SynysterSparx
+delete-after: True
+changes: 
+  - bugfix: "Changeling arm can now be used to attack robots. Still able to open robot maintenance hatch and other crowbar things with it if in help mode."
