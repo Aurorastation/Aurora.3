@@ -1,0 +1,4 @@
+author: JohnWildkins
+delete-after: True
+changes: 
+  - bugfix: "Fix atmos tech utility belt tool overflow on spawn."
