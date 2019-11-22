@@ -9437,6 +9437,11 @@
 "rv" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals_aux)
+"rw" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/shieldwallgen,
+/turf/simulated/floor/plating,
+/area/storage/tools)
 "rx" = (
 /turf/simulated/wall/shuttle,
 /area/shuttle/escape_pod1/station)
@@ -15152,8 +15157,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "CB" = (
-/obj/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/storage/shields)
 "CC" = (
@@ -54914,8 +54919,8 @@ Wi
 WK
 WN
 ZV
-Wa
-Wa
+rw
+rw
 AZ
 CA
 TN

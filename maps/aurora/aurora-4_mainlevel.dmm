@@ -6943,6 +6943,7 @@
 /area/engineering/storage_hard)
 "anG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "anH" = (
@@ -8265,17 +8266,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "apZ" = (
-/obj/machinery/shieldgen,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aqa" = (
-/obj/machinery/shieldwallgen,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aqb" = (
@@ -8986,15 +8987,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "arm" = (
-/obj/machinery/shieldgen,
 /obj/machinery/light_switch{
 	pixel_x = 6;
 	pixel_y = -28
 	},
+/obj/machinery/shieldwallgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "arn" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
 "aro" = (
@@ -30702,11 +30703,11 @@
 "bbp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
 	name = "Custodial Closet";
 	req_access = list(26)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "bbq" = (
@@ -43165,7 +43166,9 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/machinery/gumballmachine,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvj" = (
@@ -43195,7 +43198,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvm" = (
-/obj/machinery/gumballmachine/sucker,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bvn" = (
@@ -56171,7 +56176,6 @@
 	dir = 4;
 	network = list("Service")
 	},
-/obj/machinery/gumballmachine,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bVz" = (
@@ -64004,14 +64008,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
-"eNx" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
-	},
-/obj/machinery/gumballmachine/sucker,
-/turf/simulated/floor/wood,
-/area/crew_quarters/bar)
 "eNR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -66445,6 +66441,12 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"mpm" = (
+/obj/machinery/power/singularity_beacon/emergency{
+	name = "emergency tesla beacon"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/storage_hard)
 "mqp" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/decal/cleanable/dirt,
@@ -66792,10 +66794,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"niw" = (
-/obj/machinery/gumballmachine/sucker,
-/turf/simulated/floor/carpet,
-/area/library)
 "njF" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -68063,13 +68061,6 @@
 "ral" = (
 /turf/simulated/wall,
 /area/assembly/chargebay)
-"rbC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/singularity_beacon/emergency{
-	name = "emergency tesla beacon"
-	},
-/turf/simulated/floor/plating,
-/area/engineering/storage_hard)
 "rcu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -68394,10 +68385,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
-"rZl" = (
-/obj/machinery/gumballmachine,
-/turf/simulated/floor/carpet,
-/area/library)
 "saL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
@@ -87387,7 +87374,7 @@ akz
 akz
 amv
 anE
-anE
+mpm
 apZ
 arm
 ajL
@@ -87644,7 +87631,7 @@ akA
 akA
 amw
 anG
-rbC
+anG
 aqa
 arn
 ajL
@@ -96702,7 +96689,7 @@ bMF
 bJN
 bOl
 bOK
-niw
+bJL
 bPR
 bJL
 bQO
@@ -96959,7 +96946,7 @@ bMF
 bJN
 bOm
 bOK
-rZl
+bJL
 bPS
 bJL
 bQP
@@ -100060,7 +100047,7 @@ bVX
 bWl
 bVx
 bVX
-eNx
+bVX
 bVX
 bVX
 bWL

@@ -19626,7 +19626,6 @@
 /area/wizard_station)
 "aSO" = (
 /obj/structure/table/wood,
-/obj/item/organ/heart,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "carpetside"
@@ -22562,6 +22561,14 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
+"crw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "crN" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled{
 	start_pressure = 15000
@@ -23632,6 +23639,14 @@
 /obj/structure/bed/chair/shuttle,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"fri" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "frl" = (
 /obj/machinery/chemical_dispenser/ert{
 	icon_state = "dispenser";
@@ -25273,6 +25288,14 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"jss" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "jxm" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
@@ -25627,6 +25650,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
+"kEs" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_x = 10
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
+"kEF" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "kFd" = (
 /obj/item/paper_bin{
 	pixel_x = -8;
@@ -25737,6 +25771,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"kTO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "kVO" = (
 /obj/structure/closet/crate/secure/legion{
 	icon_state = "tcflcrateopen";
@@ -26410,6 +26452,13 @@
 "naf" = (
 /turf/space/transit/east/shuttlespace_ew1,
 /area/shuttle/legion/transit)
+"nan" = (
+/obj/structure/table/wood,
+/obj/item/flame/candle{
+	pixel_x = -10
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "nco" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -27184,6 +27233,14 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"oyh" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "oyD" = (
 /obj/item/stool/padded,
 /turf/unsimulated/floor{
@@ -27679,6 +27736,10 @@
 	icon_state = "floor3"
 	},
 /area/centcom/legion)
+"pOS" = (
+/obj/structure/holostool,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "pPH" = (
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
@@ -29028,6 +29089,9 @@
 	icon_state = "whitegreen"
 	},
 /area/centcom/legion)
+"sZi" = (
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "taH" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/unsimulated/floor{
@@ -30221,6 +30285,11 @@
 	underlay_dir = 4
 	},
 /area/shuttle/distress/centcom)
+"whV" = (
+/obj/structure/table/wood,
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "wkA" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -30503,6 +30572,14 @@
 	icon_state = "platebot"
 	},
 /area/centcom/distress_prep)
+"wSA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/holofloor/grass,
+/area/holodeck/source_dininghall)
 "wUi" = (
 /obj/structure/janitorialcart{
 	icon_state = "cart";
@@ -77845,16 +77922,16 @@ acN
 acN
 aed
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+kTO
+wSA
+wSA
+kTO
+wSA
+wSA
+crw
+crw
+wSA
+wSA
 aeO
 aaM
 aaM
@@ -78102,16 +78179,16 @@ acN
 aed
 aez
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+sZi
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+sZi
 aeO
 aaM
 aaM
@@ -78359,16 +78436,16 @@ adI
 aee
 aee
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+sZi
+kEF
+kEs
+kEF
+kEs
+kEF
+kEs
+kEF
+kEF
+sZi
 aeO
 aaM
 aaM
@@ -78616,16 +78693,16 @@ adJ
 aee
 aee
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+sZi
+kEF
+whV
+kEF
+whV
+kEF
+whV
+kEF
+kEF
+sZi
 aeO
 aaM
 aaM
@@ -78873,16 +78950,16 @@ adK
 aee
 aee
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+sZi
+kEF
+kEF
+nan
+kEF
+nan
+kEF
+nan
+kEF
+sZi
 aeO
 aaM
 aaM
@@ -79130,16 +79207,16 @@ acO
 aef
 aez
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+sZi
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+pOS
+sZi
 aeO
 aaM
 aaM
@@ -79387,16 +79464,16 @@ acO
 acO
 aef
 aeO
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
-abn
+oyh
+oyh
+fri
+fri
+oyh
+oyh
+jss
+oyh
+oyh
+jss
 aeO
 aaM
 aaM

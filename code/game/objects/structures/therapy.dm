@@ -63,10 +63,10 @@
 	flick("echair1", src)
 	spark(src, 12, alldirs)
 	if(buckled_mob && istype(C))
-		if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
+		if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
 			sleep(1)
-			if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
+			if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 				buckled_mob.Stun(PN.get_electrocute_damage()*10)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
@@ -499,7 +499,7 @@
 			if("Initiate Neural Scan")
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
 				if(H && connected.occupant.resolve() == H)
-					var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
+					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 					var/retardation = H.getBrainLoss()
 					if(sponge && istype(sponge))
 						if(!sponge.lobotomized)
@@ -555,7 +555,7 @@
 			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
 			break
 
-		var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 		if (!istype(sponge) || !sponge.traumas.len)
 			if(get_dist(user,src) <= 1)
 				to_chat(user, "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>")

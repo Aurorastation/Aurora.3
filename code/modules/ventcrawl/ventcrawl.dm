@@ -11,7 +11,8 @@ var/global/list/can_enter_vent_with = list(
 	/obj/item/holder,
 	/obj/machinery/camera,
 	/mob/living/simple_animal/borer,
-	/mob/living/simple_animal/rat
+	/mob/living/simple_animal/rat,
+	/mob/living/carbon/human
 	)
 
 /mob/living/var/list/icon/pipes_shown = list()

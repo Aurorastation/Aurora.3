@@ -14,7 +14,7 @@
 
 	proc/get_max_wclass(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return 1
 			if ("upper body")
 				return 3
@@ -24,7 +24,7 @@
 
 	proc/get_cavity(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return "cranial"
 			if ("upper body")
 				return "thoracic"
@@ -130,9 +130,8 @@
 		user.visible_message("<span class='notice'>[user] puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.</span>", \
 		"<span class='notice'>You put \the [tool] inside [target]'s [get_cavity(affected)] cavity.</span>" )
 		if (tool.w_class > get_max_wclass(affected)/2 && prob(50) && !(affected.status & ORGAN_ROBOT))
-			to_chat(user, "<span class='warning'>You tear some blood vessels trying to fit such a big object in this cavity.</span>")
-			var/datum/wound/internal_bleeding/I = new (10)
-			affected.wounds += I
+			to_chat(user, "<span class='warning'>You tear \the [affected.artery_name] trying to fit an object so big!</span>")
+			affected.sever_artery()
 			affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 		user.drop_item()
 		affected.implants += tool
@@ -154,7 +153,7 @@
 	max_duration = 100
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 		return ..() && (!sponge || !sponge.damage)
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

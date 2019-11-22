@@ -35,8 +35,8 @@
 		else
 			return 3
 
-	var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
-	var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+	var/obj/item/organ/external/l_leg = H.get_organ(BP_L_LEG)
+	var/obj/item/organ/external/r_leg = H.get_organ(BP_R_LEG)
 
 	if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 		return
@@ -61,8 +61,8 @@
 		if(A && !A.has_gravity())
 			return
 
-		var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
-		var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+		var/obj/item/organ/external/l_leg = H.get_organ(BP_L_LEG)
+		var/obj/item/organ/external/r_leg = H.get_organ(BP_R_LEG)
 
 		if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 			return

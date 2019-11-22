@@ -383,14 +383,6 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
-/datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	M.adjustToxLoss(2 * removed)
-
-/datum/reagent/space_cleaner/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(prob(10))
-		to_chat(M, span("danger","Your insides are burning!"))
-	M.adjustToxLoss(3 * removed)
-
 /datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
@@ -533,8 +525,8 @@
 	stored_value = metabolism
 
 /datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
+	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
 		stored_value += removed
 		if(stored_value >= 5)
 			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -817,7 +809,7 @@
 	if(!istype(H))
 		return
 
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
 
