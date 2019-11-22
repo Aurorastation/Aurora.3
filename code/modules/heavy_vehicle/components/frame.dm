@@ -116,19 +116,19 @@
 		// Check for wiring.
 		if(is_wired < FRAME_WIRED_ADJUSTED)
 			if(is_wired == FRAME_WIRED)
-				to_chat(user, "<span class='warning'>The [src]'s wiring has not been adjusted!</span>")
+				to_chat(user, "<span class='warning'>\The [src]'s wiring has not been adjusted!</span>")
 			else
-				to_chat(user, "<span class='warning'>The [src] is not wired!</span>")
+				to_chat(user, "<span class='warning'>\The [src] is not wired!</span>")
 			return
 
 		// Check for basing metal internal plating.
 		if(is_reinforced < FRAME_REINFORCED_WELDED)
 			if(is_reinforced == FRAME_REINFORCED)
-				to_chat(user, "<span class='warning'>The [src]'s internal reinforcement has not been secured!</span>")
+				to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has not been secured!</span>")
 			else if(is_reinforced == FRAME_REINFORCED_SECURE)
-				to_chat(user, "<span class='warning'>The [src]'s internal reinforcement has not been welded down!</span>")
+				to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has not been welded down!</span>")
 			else
-				to_chat(user, "<span class='warning'>The [src] has no internal reinforcement!</span>")
+				to_chat(user, "<span class='warning'>\The [src] has no internal reinforcement!</span>")
 			return
 
 		if(is_reinforced < FRAME_REINFORCED_WELDED || is_wired < FRAME_WIRED_ADJUSTED || !(arms && legs && head && body) || QDELETED(src) || QDELETED(user))

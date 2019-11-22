@@ -61,6 +61,8 @@
 		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
+		/mob/living/heavy_vehicle/premade/combat             = TRADER_THIS_TYPE
+
 	)
 
 	speech = list(
@@ -93,7 +95,8 @@
 	possible_trading_items = list(
 		/obj/item/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
 		/obj/item/gun/energy/pulse               = TRADER_ALL,
-		/obj/item/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
+		/obj/item/gun/energy/rifle/pulse         = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/heavy         = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = list(/datum/species/monkey, /datum/species/machine, /datum/species/bug, /datum/species/diona)

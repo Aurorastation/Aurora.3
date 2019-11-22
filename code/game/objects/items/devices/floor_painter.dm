@@ -150,10 +150,6 @@
 	else if(choice == "Colour")
 		choose_colour()
 
-/obj/item/device/floor_painter/examine(mob/user)
-	..(user)
-	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
-
 /obj/item/device/floor_painter/attack_self(var/mob/user)
 	var/choice = input("What do you wish to change?") as null|anything in list("Decal","Direction", "Colour", "Preset Colour")
 	if(choice == "Decal")

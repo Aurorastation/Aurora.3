@@ -8,7 +8,7 @@
 	icon = 'icons/mecha/mech_part_items.dmi'
 	var/prepared
 
-/obj/structure/mech_wreckage/New(var/newloc, var/mob/living/heavy_vehicle/exosuit, var/gibbed)
+/obj/structure/mech_wreckage/Initialize(var/newloc, var/mob/living/heavy_vehicle/exosuit, var/gibbed)
 	if(exosuit)
 		name = "wreckage of \the [exosuit.name]"
 		if(!gibbed)
@@ -23,7 +23,7 @@
 
 	..()
 
-/obj/structure/mech_wreckage/powerloader/New(var/newloc)
+/obj/structure/mech_wreckage/powerloader/Initialize(var/newloc)
 	..(newloc, new /mob/living/heavy_vehicle/premade/ripley(newloc), FALSE)
 
 /obj/structure/mech_wreckage/attack_hand(var/mob/user)

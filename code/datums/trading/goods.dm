@@ -365,6 +365,7 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,
 		/obj/item/custom_ka_upgrade/upgrade_chips        = TRADER_SUBTYPES_ONLY,
 		/obj/item/custom_ka_upgrade/barrels              = TRADER_SUBTYPES_ONLY,
 		/obj/item/custom_ka_upgrade/cells                = TRADER_SUBTYPES_ONLY

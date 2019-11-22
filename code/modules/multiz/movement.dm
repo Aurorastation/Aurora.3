@@ -362,6 +362,17 @@
 /mob/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
 		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
+
+/mob/living/heavy_vehicle/fall_through()
+	var/obj/structure/lattice/L = locate() in loc
+	if (L)
+		visible_message("<span class='danger'>\The [src] crushes \the [L] with its weight!</span>")
+		qdel(L)
+
+	var/obj/structure/stairs/S = locate() in loc
+	if (S)
+		visible_message("<span class='danger'>\The [src] crushes \the [S] with its weight!</span>")
+		qdel(S)
 /**
  * Invoked when an atom has landed on a tile through which they can no longer fall.
  *
@@ -530,6 +541,19 @@
 
 /mob/living/carbon/human/bst/fall_impact()
 	return FALSE
+
+/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	. = ..()
+	if (!.)
+		return
+
+	var/z_velocity = 5*(levels_fallen**2)
+	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
+
+	apply_damage(damage)
+
+	playsound(loc, "sound/effects/bang.ogg", 100, 1)
+	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()

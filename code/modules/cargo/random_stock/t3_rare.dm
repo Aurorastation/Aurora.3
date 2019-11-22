@@ -78,6 +78,21 @@ STOCK_ITEM_RARE(sword, 0.5)
 STOCK_ITEM_RARE(ims, 1.5)
 	new /obj/item/scalpel/manager(L)
 
+STOCK_ITEM_RARE(exogear, 1.5)
+	var/list/equips = list(
+		/obj/item/mecha_equipment/clamp = 1,
+		/obj/item/mecha_equipment/drill = 1,
+		/obj/item/mecha_equipment/mounted_system/extinguisher = 1,
+		/obj/item/mecha_equipment/mounted_system/rcd = 0.08,
+		/obj/item/mecha_equipment/mounted_system/plasmacutter = 0.5,
+		/obj/item/mecha_equipment/catapult = 0.8,
+		/obj/item/mecha_equipment/sleeper = 0.9
+	)
+
+	for (var/i in 1 to rand(2,5))
+		var/type = pickweight(equips)
+		new type(L)
+
 STOCK_ITEM_RARE(teleporter, 1)
 	new /obj/item/hand_tele(L)
 
