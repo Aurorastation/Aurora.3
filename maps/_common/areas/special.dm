@@ -55,9 +55,11 @@
 
 /area/centcom/legion
 	name = "\improper BLV The Tower - Deck 1"
+	icon_state = "blvtower"
 
 /area/centcom/legion/hangar5
 	name = "\improper BLV The Tower - Hangar 5"
+	icon_state = "blvhangar5"
 
 /area/centcom/distress_prep
 	name = "\improper Distress Team Preparation"

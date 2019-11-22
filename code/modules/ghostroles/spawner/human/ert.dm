@@ -64,7 +64,7 @@
 	name = "TCFL Volunteer"
 	short_name = "tcflr"
 	desc = "The Tau Ceti Foreign Legion's rank and file."
-	welcome_message = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to and fix the problem. You can be a volounteer (Vol.) or a legionnaire (Lgn.). The former is recommended for new players."
+	welcome_message = "The Tau Ceti Foreign Legion works for the Republic of Biesel; your job is to protect the place you're heading to and fix the problem. You can be a Volunteer (Vol.), Legionnaire (Lgn.) or Prefect (Pfct.). The first option is recommended for new players."
 	max_count = 3
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
@@ -92,6 +92,7 @@
 	short_name = "tcflpl"
 	max_count = 1
 	desc = "A dropship pilot of the TCFL."
+	welcome_message = "As a pilot of the Tau Ceti Foreign Legion, your job is to pilot your assigned dropship and keep it safe from any hostile forces. You may also have to assist the main task force in a supporting role if the need arises."
 	outfit = /datum/outfit/admin/ert/legion/pilot
 	mob_name_prefix = "PL. "
 	spawnpoints = list("TCFLERTSpawn - Pilot")

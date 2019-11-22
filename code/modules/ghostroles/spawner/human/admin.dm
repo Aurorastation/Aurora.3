@@ -37,7 +37,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/tcfl_legate
-	possible_species = list("Human")
+	possible_species = list("Human","M'sai Tajara","Skrell", "Unathi","Baseline Frame")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -134,7 +134,7 @@
 	max_count = 4
 
 	outfit = /datum/outfit/admin/ert/legion/sentinel
-	possible_species = list("Human", "Tajara", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
+	possible_species = list("Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

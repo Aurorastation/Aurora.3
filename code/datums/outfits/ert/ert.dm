@@ -64,8 +64,8 @@
 	head = /obj/item/clothing/head/legion
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
+	shoes = /obj/item/clothing/shoes/swat/ert
+	gloves = /obj/item/clothing/gloves/swat/ert
 	glasses =  /obj/item/clothing/glasses/sunglasses/aviator
 	back = /obj/item/storage/backpack/legion
 	id = /obj/item/card/id/distress/legion
@@ -115,7 +115,7 @@
 		/obj/item/handcuffs/ziptie = 3,
 		/obj/item/clothing/mask/gas/tactical = 1,
 		/obj/item/storage/firstaid/regular = 1,
-		/obj/item/clothing/gloves/swat = 1
+		/obj/item/clothing/gloves/swat/ert = 1
 	)
 
 	belt_contents = list(

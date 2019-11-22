@@ -36,7 +36,7 @@
 	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
 	var/egun = 1			//holder to handle certain guns switching modes
 	var/sprite_set = "carbine"	//set of gun sprites the turret will use
-	var/cover_set		//set of cover sprites the turret will use
+	var/cover_set = 0		//set of cover sprites the turret will use
 	var/name_override = FALSE
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
@@ -1123,7 +1123,7 @@
 	lethal_icon = 1
 	egun = 0
 	installation = /obj/item/gun/energy/blaster/carbine
-	sprite_set = "captain"
+	sprite_set = "blaster"
 	cover_set = "legion"
 	eprojectile = /obj/item/projectile/energy/blaster/heavy
 

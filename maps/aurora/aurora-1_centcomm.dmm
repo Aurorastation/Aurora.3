@@ -22402,7 +22402,7 @@
 	desc = "A button. It's unpowered. Typical.";
 	icon = 'icons/obj/turbolift.dmi';
 	icon_state = "button";
-	name = "elevator Button";
+	name = "elevator button";
 	pixel_y = 4
 	},
 /turf/unsimulated/wall/darkshuttlewall,
@@ -22574,6 +22574,27 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"cvf" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
+	dir = 8;
+	id = "tcfl_hangar5";
+	name = "Armoury"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion/hangar5)
 "cyN" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -23640,13 +23661,14 @@
 "fzQ" = (
 /obj/machinery/vending/snack{
 	density = 0;
-	layer = 3.6;
+	layer = 2.99;
 	name = "Free Chocolate Corp";
 	pixel_x = -14;
 	pixel_y = 20;
 	prices = list()
 	},
 /obj/structure/sign/poster{
+	layer = 2.98;
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -24211,7 +24233,7 @@
 	desc = "Ding.";
 	icon = 'icons/obj/doors/doorlift.dmi';
 	icon_state = "door_open";
-	name = "elevator Door"
+	name = "elevator door"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -24376,16 +24398,6 @@
 	name = "plating"
 	},
 /area/centcom/distress_prep)
-"hln" = (
-/obj/effect/decal/fake_object{
-	desc = "A button.";
-	icon = 'icons/obj/turbolift.dmi';
-	icon_state = "button";
-	name = "elevator Button";
-	pixel_y = 4
-	},
-/turf/unsimulated/wall/darkshuttlewall,
-/area/centcom/legion)
 "hrO" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Emergency Room"
@@ -24739,7 +24751,8 @@
 	id = "tcfl_hangar5";
 	name = "raise post-launch shutters";
 	pixel_x = 4;
-	pixel_y = 6
+	pixel_y = 6;
+	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
 	dir = 6;
@@ -25101,11 +25114,11 @@
 	layer = 4
 	},
 /obj/effect/decal/fake_object{
-	name = "elevator Door";
+	density = 1;
 	desc = "Ding.";
 	icon = 'icons/obj/doors/doorlift.dmi';
 	icon_state = "o_door_half_open";
-	density = 1
+	name = "elevator door"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -25531,6 +25544,25 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
+	},
+/area/centcom/legion/hangar5)
+"kqL" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
+	dir = 8;
+	id = "tcfl_hangar5";
+	name = "Armoury"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
 	},
 /area/centcom/legion/hangar5)
 "ktR" = (
@@ -26183,6 +26215,25 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"mxr" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
+	dir = 4;
+	id = "tcfl_hangar5";
+	name = "Armoury"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion/hangar5)
 "mxY" = (
 /obj/structure/bed/roller,
 /turf/unsimulated/floor{
@@ -26192,7 +26243,7 @@
 /area/centcom/legion)
 "mym" = (
 /obj/structure/bed,
-/obj/item/bedsheet,
+/obj/item/bedsheet/black,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -26272,6 +26323,27 @@
 "mNk" = (
 /turf/unsimulated/floor{
 	icon_state = "floorscorched1"
+	},
+/area/centcom/legion/hangar5)
+"mPM" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
+	dir = 4;
+	id = "tcfl_hangar5";
+	name = "Armoury"
+	},
+/turf/unsimulated/floor{
+	name = "plating"
 	},
 /area/centcom/legion/hangar5)
 "mQj" = (
@@ -27591,7 +27663,7 @@
 /area/shuttle/legion/centcom)
 "pMl" = (
 /obj/structure/bed,
-/obj/item/bedsheet/hos,
+/obj/item/bedsheet/black,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -28143,7 +28215,7 @@
 	name = "Hangar 5 Access";
 	pixel_x = 9;
 	pixel_y = -22;
-	req_access = list(108,111)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -28450,7 +28522,7 @@
 	desc = "Ding.";
 	icon = 'icons/obj/doors/doorlift.dmi';
 	icon_state = "door_closed";
-	name = "elevator Door"
+	name = "elevator door"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -28758,7 +28830,7 @@
 	desc = "Ding.";
 	icon = 'icons/obj/doors/doorlift.dmi';
 	icon_state = "door_closed";
-	name = "elevator Door"
+	name = "elevator door"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -29296,18 +29368,17 @@
 	},
 /area/centcom/legion)
 "tQq" = (
-/obj/item/gun/energy/blaster/rifle{
-	pixel_y = 10
-	},
-/obj/item/gun/energy/blaster/rifle{
-	pixel_y = -4
-	},
 /obj/structure/table/reinforced,
 /obj/item/gun/energy/blaster/rifle{
-	pixel_y = 10
+	pixel_y = 15
 	},
 /obj/item/gun/energy/blaster/rifle{
-	pixel_y = -4
+	layer = 3.01;
+	pixel_y = 7
+	},
+/obj/item/gun/energy/blaster/rifle{
+	layer = 3.02;
+	pixel_y = -1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -29341,13 +29412,14 @@
 "tYm" = (
 /obj/machinery/vending/cola{
 	density = 0;
-	layer = 3.6;
+	layer = 2.99;
 	name = "Free Robust Softdrinks";
 	pixel_x = -7;
 	pixel_y = 20;
 	prices = list()
 	},
 /obj/structure/sign/poster{
+	layer = 2.98;
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -29712,13 +29784,17 @@
 	},
 /area/centcom/ferry)
 "vmT" = (
-/obj/item/gun/projectile/gauss{
-	pixel_y = 10
-	},
-/obj/item/gun/projectile/gauss{
-	pixel_y = -2
-	},
 /obj/structure/table/reinforced,
+/obj/item/gun/projectile/gauss{
+	pixel_y = 16
+	},
+/obj/item/gun/projectile/gauss{
+	layer = 3.01;
+	pixel_y = 8
+	},
+/obj/item/gun/projectile/gauss{
+	layer = 3.02
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -29865,6 +29941,22 @@
 	},
 /obj/item/ammo_magazine/gauss{
 	pixel_x = -10;
+	pixel_y = 4
+	},
+/obj/item/ammo_magazine/gauss{
+	pixel_x = -10;
+	pixel_y = 4
+	},
+/obj/item/ammo_magazine/gauss{
+	pixel_x = -10;
+	pixel_y = 4
+	},
+/obj/item/ammo_magazine/gauss/emp{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/ammo_magazine/gauss/emp{
+	pixel_x = 5;
 	pixel_y = 4
 	},
 /obj/item/ammo_magazine/gauss/emp{
@@ -80607,7 +80699,7 @@ kNH
 kNH
 kNH
 kNH
-hln
+bLO
 gqh
 xQF
 hVm
@@ -89613,11 +89705,11 @@ hzB
 cSQ
 ldQ
 ldQ
-pTm
-dcT
+cvf
+kqL
 ldQ
-pTm
-dcT
+cvf
+kqL
 ldQ
 ldQ
 aaM
@@ -91412,11 +91504,11 @@ hzB
 cSQ
 ldQ
 ldQ
-pTm
-dcT
+mPM
+mxr
 ldQ
-pTm
-dcT
+mPM
+mxr
 ldQ
 ldQ
 aaM

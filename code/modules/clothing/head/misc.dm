@@ -489,14 +489,14 @@
 
 /obj/item/clothing/head/legion
 	name = "TCFL field beret"
-	desc = "A stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
+	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
 	armor = list(melee = 20, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
 	icon_state = "legion_field_beret"
 	item_state = "legion_field_beret"
 
 /obj/item/clothing/head/legion/sentinel
 	name = "TCFL sentinel beret"
-	desc = "A stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
+	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
 	icon_state = "legion_sentinel_beret"
 	item_state = "legion_sentinel_beret"
 

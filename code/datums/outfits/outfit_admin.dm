@@ -237,7 +237,7 @@
 	uniform = /obj/item/clothing/under/legion/legate
 	suit = /obj/item/clothing/suit/storage/vest/legion/legate
 	gloves = /obj/item/clothing/gloves/swat/tactical
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/swat/ert
 	l_ear = /obj/item/device/radio/headset/legion
 	head = /obj/item/clothing/head/legion/legate
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
