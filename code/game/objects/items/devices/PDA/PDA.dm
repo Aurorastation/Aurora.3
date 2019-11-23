@@ -6,6 +6,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
+	description_fluff = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
@@ -82,9 +83,9 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(..(user, 1))
 		to_chat(user, "The time [worldtime2text()] is displayed in the corner of the screen.")
 		if(id)
-			to_chat(user, "There is \a [id] in the ID slot. Alt-click to remove \the [id].")
+			to_chat(user, "There is \a [id] in the ID slot.")
 		if(inserted_item)
-			to_chat(user, "There is \a [inserted_item] in the pen slot. Ctrl-click to remove \the [inserted_item].")
+			to_chat(user, "There is \a [inserted_item] in the pen slot.")
 
 /*
  * Civillian
