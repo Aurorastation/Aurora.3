@@ -174,7 +174,7 @@
 	// Securing wiring.
 	else if(thing.iswirecutter())
 		if(!is_wired)
-			user << "There is no wiring in \the [src] to neaten."
+			to_chat(user, "There is no wiring in \the [src] to neaten.")
 			return
 
 		visible_message("\The [user] [(is_wired == FRAME_WIRED_ADJUSTED) ? "snips some of" : "neatens"] the wiring in \the [src].")

@@ -128,12 +128,12 @@
 	var/modifiers = params2list(params)
 	if(modifiers["ctrl"])
 		if(owner.hardpoints_locked)
-			usr << "<span class='warning'>Hardpoint ejection system is locked.</span>"
+			to_chat(usr, "<span class='warning'>Hardpoint ejection system is locked.</span>")
 			return
 		if(owner.remove_system(hardpoint_tag))
-			usr << "<span class='notice'>You disengage and discard the system mounted to your [hardpoint_tag] hardpoint.</span>"
+			to_chat(usr, "<span class='notice'>You disengage and discard the system mounted to your [hardpoint_tag] hardpoint.</span>")
 		else
-			usr << "<span class='danger'>You fail to remove the system mounted to your [hardpoint_tag] hardpoint.</span>"
+			to_chat(usr, "<span class='danger'>You fail to remove the system mounted to your [hardpoint_tag] hardpoint.</span>")
 		return
 
 	if(owner.selected_hardpoint == hardpoint_tag)
@@ -175,7 +175,7 @@
 
 /obj/screen/movable/mecha/toggle/air/toggled()
 	owner.use_air = ..()
-	usr << "<span class='notice'>Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"].</span>"
+	to_chat(usr, "<span class='notice'>Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"].</span>")
 
 /obj/screen/movable/mecha/toggle/maint
 	name = "toggle maintenance protocol"
@@ -183,7 +183,7 @@
 
 /obj/screen/movable/mecha/toggle/maint/toggled()
 	owner.maintenance_protocols = ..()
-	usr << "<span class='notice'>Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"].</span>"
+	to_chat(usr, "<span class='notice'>Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"].</span>")
 
 /obj/screen/movable/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
@@ -191,7 +191,7 @@
 
 /obj/screen/movable/mecha/toggle/hardpoint/toggled()
 	owner.hardpoints_locked = ..()
-	usr << "<span class='notice'>Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"].</span>"
+	to_chat(usr, "<span class='notice'>Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"].</span>")
 
 /obj/screen/movable/mecha/toggle/hatch
 	name = "toggle hatch lock"
@@ -199,10 +199,10 @@
 
 /obj/screen/movable/mecha/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
-		usr << "<span class='warning'>You cannot lock the hatch while it is open.</span>"
+		to_chat(usr, "<span class='warning'>You cannot lock the hatch while it is open.</span>")
 		return
 	owner.hatch_locked = ..()
-	usr << "<span class='notice'>The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked.</span>"
+	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked.</span>")
 
 /obj/screen/movable/mecha/toggle/hatch_open
 	name = "open or close hatch"
@@ -214,10 +214,10 @@
 
 /obj/screen/movable/mecha/toggle/hatch_open/toggled()
 	if(owner.hatch_locked && owner.hatch_closed)
-		usr << "<span class='warning'>You cannot open the hatch while it is locked.</span>"
+		to_chat(usr, "<span class='warning'>You cannot open the hatch while it is locked.</span>")
 		return
 	owner.hatch_closed = ..()
-	usr << "<span class='notice'>The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ].</span>"
+	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ].</span>")
 	owner.update_icon()
 
 // This is basically just a holder for the updates the mech does.
@@ -231,12 +231,12 @@
 
 /obj/screen/movable/mecha/toggle/camera/toggled()
 	if(!owner.head)
-		usr << "<span class='warning'>I/O Error: Camera systems not found.</span>"
+		to_chat(usr, "<span class='warning'>I/O Error: Camera systems not found.</span>")
 		return
 	if(!owner.head.vision_flags)
 		to_chat(usr, "<span class='warning'>Alternative sensor configurations not found. Contact manufacturer for more details.</span>")
 		return
 	owner.head.active_sensors = ..()
-	usr << "<span class='notice'>[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active.</span>"
+	to_chat(usr, "<span class='notice'>[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active.</span>")
 
 #undef BAR_CAP
