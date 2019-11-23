@@ -1,0 +1,4 @@
+author: MoondancerPony
+delete-after: True
+changes: 
+  - tweak: "Telescience portals now output things on their tile. This fixes a number of bugs."
