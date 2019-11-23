@@ -50,7 +50,7 @@
 	if(!diagnostics)
 		to_chat(user, "<span class='warning'>It is missing a diagnostics unit.</span>")
 	if(!armour)
-		to_chat(user, "<span class='warning'>It is missing armor pltating.</span>")
+		to_chat(user, "<span class='warning'>It is missing armor plating.</span>")
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()
