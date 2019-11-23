@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "There is now a visible message when people go up and down levels."
-  - rscadd: "You can now lift people up Z-levels if you have a red grab or higher on them."
-  - rscadd: "You can now prevent people from falling down Z-levels if you're within 1 tile of them, and have a blue grab or higher on them."
