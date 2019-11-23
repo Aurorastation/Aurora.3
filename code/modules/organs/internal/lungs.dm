@@ -36,8 +36,8 @@
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
 /obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
-	if(owner.status_flags & GODMODE)
-		return
+	if(!owner)
+		return 1
 
 	//exposure to extreme pressures can rupture lungs
 	if(breath && (breath.total_moles/(owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
@@ -202,6 +202,15 @@
 
 
 	// Hot air hurts :(
+	handle_temperature_effects(breath)
+
+	breath.update_values()
+
+	var/failed_breath = failed_inhale || failed_exhale
+
+	return failed_breath
+
+/obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
 	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(COLD_RESISTANCE in owner.mutations))
 
 		if(breath.temperature <= owner.species.cold_level_1)
@@ -251,9 +260,6 @@
 		owner.species.get_environment_discomfort(src,"heat")
 	else if(breath.temperature <= owner.species.cold_discomfort_level)
 		owner.species.get_environment_discomfort(src,"cold")
-
-	breath.update_values()
-	return 1
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS
