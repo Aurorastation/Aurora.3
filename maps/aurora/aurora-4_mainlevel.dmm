@@ -45758,7 +45758,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bzz" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -45776,7 +45776,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bzA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -46291,7 +46291,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bAz" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
@@ -46705,7 +46705,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bBu" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -49531,7 +49531,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bGN" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -49549,7 +49549,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bGO" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -49566,7 +49566,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bGP" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -49585,7 +49585,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bGQ" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -50186,7 +50186,7 @@
 "bHJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bHK" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -50196,7 +50196,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bHL" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -50620,7 +50620,7 @@
 	name = "Scrubbers"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bII" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -50633,7 +50633,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bIJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -51393,7 +51393,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bKt" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -51406,7 +51406,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bKv" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -52092,7 +52092,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bLV" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -52361,7 +52361,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bMv" = (
 /obj/structure/closet,
 /obj/item/clothing/head/ushanka,
@@ -52373,7 +52373,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bMw" = (
 /obj/structure/table/rack{
 	dir = 1
@@ -52749,7 +52749,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "bNh" = (
 /obj/structure/closet,
 /obj/item/clothing/head/ushanka,
@@ -63681,6 +63681,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"dNy" = (
+/turf/simulated/floor/plating,
+/area/maintenance/bridge_elevator)
 "dQv" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -65127,6 +65130,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"hTO" = (
+/turf/simulated/wall/r_wall,
+/area/maintenance/bridge_elevator)
 "hUu" = (
 /obj/machinery/conveyor{
 	icon_state = "conveyor0";
@@ -66600,7 +66606,7 @@
 /turf/simulated/floor/plating{
 	roof_type = null
 	},
-/area/maintenance/maintcentral)
+/area/maintenance/bridge_elevator)
 "mIZ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -115690,17 +115696,17 @@ bBs
 bBs
 bEQ
 aoq
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
 aaa
 aaa
 aaa
@@ -115946,18 +115952,18 @@ bBs
 bDh
 bEa
 bBs
-bam
+aoq
 bGM
 bHJ
 bIH
 bHJ
 bKs
-aSL
-bam
+dNy
+hTO
 bMu
-aSL
-aSL
-bam
+dNy
+dNy
+hTO
 aaa
 aaa
 aaa
@@ -116203,7 +116209,7 @@ bBs
 bBs
 bEb
 bBs
-bam
+aoq
 bGN
 bHK
 bII
@@ -116214,7 +116220,7 @@ bLU
 bBt
 bBt
 bNf
-bam
+hTO
 aaa
 aaa
 aaa
@@ -116460,18 +116466,18 @@ bBs
 bDi
 bEa
 bBs
-bam
+aoq
 bGO
-bam
-bam
-bam
-bam
-bam
-bam
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
 bMv
-aSL
+dNy
 mGm
-bam
+hTO
 aaa
 aaa
 aaa
@@ -116719,16 +116725,16 @@ bBs
 bBs
 aoq
 bGO
-bam
+hTO
 aaa
 aaa
 aaa
 aaa
-bam
-bam
-bam
-bam
-bam
+hTO
+hTO
+hTO
+hTO
+hTO
 aaa
 aaa
 aaa
@@ -116976,7 +116982,7 @@ aoq
 aoq
 aoq
 bGO
-bam
+hTO
 aaa
 aaa
 aaa
@@ -117233,7 +117239,7 @@ bBt
 bBt
 bBt
 bGP
-bam
+hTO
 aaa
 aaa
 aaa
@@ -117480,17 +117486,17 @@ aab
 aab
 aaa
 aaa
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
-bam
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
+hTO
 aaa
 aaa
 aaa

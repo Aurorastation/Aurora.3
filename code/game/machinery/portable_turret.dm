@@ -37,6 +37,7 @@
 	var/egun = 1			//holder to handle certain guns switching modes
 	var/sprite_set = "carbine"	//set of gun sprites the turret will use
 	var/cover_set = 0		//set of cover sprites the turret will use
+	var/name_override = FALSE
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
 	var/shot_delay = 15		//1.5 seconds between each shot
@@ -128,7 +129,8 @@
 			shot_delay = max(installation.fire_delay_wielded, 4)
 		else
 			shot_delay = max(installation.fire_delay, 4)
-		name = "[installation.name] [name]"
+		if(!name_override)
+			name = "[installation.name] [name]"
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -1108,6 +1110,24 @@
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)
+
+/obj/machinery/porta_turret/legion
+	enabled = 0
+	use_power = 0
+	icon_state = "cover_legion"
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	installation = /obj/item/gun/energy/blaster/carbine
+	sprite_set = "blaster"
+	cover_set = "legion"
+	eprojectile = /obj/item/projectile/energy/blaster/heavy
+
+	check_arrest = 0
+	check_records = 0
+	check_access = 1
+	ailock = 1
+	req_one_access = list(access_legion)
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

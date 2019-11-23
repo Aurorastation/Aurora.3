@@ -5,7 +5,7 @@
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 3
+	w_class = 2
 	force = 5
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -20,7 +20,34 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
+/obj/item/gun/energy/blaster/revolver
+	name = "blaster revolver"
+	desc = "A robust eight-shot blaster.."
+	icon_state = "blaster_revolver"
+	fire_sound = 'sound/weapons/laserstrong.ogg'
+	projectile_type = /obj/item/projectile/energy/blaster
+	max_shots = 8
+	w_class = 3
+
+/obj/item/gun/energy/blaster/revolver/verb/spin_cylinder()
+	set name = "Spin cylinder"
+	set desc = "Fun when you're bored out of your skull."
+	set category = "Object"
+	var/mob/living/carbon/human/user
+	if(istype(usr,/mob/living/carbon/human))
+		user = usr
+	else
+		return
+
+	user.visible_message(span("warning","\The [user] spins the cylinder of \the [src]!"),span("warning","You spin the cylinder of \the [src]!"),span("notice","You hear something metallic spin and click."))
+	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
+
+/obj/item/gun/energy/blaster/revolver/pilot
+	name = "pilot's sidearm"
+	desc = "A robust, low in maintenance, eight-shot blaster. Perfect for self-defense purposes."
+
 /obj/item/gun/energy/blaster/carbine
+
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
 	icon_state = "blaster_carbine"
@@ -29,6 +56,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
+	w_class = 3
 
 /obj/item/gun/energy/blaster/rifle
 	name = "bolt slinger"
@@ -48,7 +76,7 @@
 	scoped_accuracy = 4
 
 	fire_delay_wielded = 10
-	accuracy_wielded = 0
+	accuracy_wielded = 1
 
 	is_wieldable = TRUE
 

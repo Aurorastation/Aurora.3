@@ -224,18 +224,26 @@
 	station_area = 0
 	base_turf = /turf/simulated/floor/reinforced
 
-/area/shuttle/legion/centcom
+/area/shuttle/legion
 	name = "\improper Foreign Legion Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/simulated/floor/tiled/dark
 	icon_state = "shuttlegrn"
 	centcomm_area = 1
 
+/area/shuttle/legion/centcom
+	base_turf = /turf/unsimulated/floor
+
 /area/shuttle/legion/station
-	name = "\improper Foreign Legion Landing"
+	name = "\improper Surface Escape Pods - Docking Port"
 	icon_state = "shuttlegrn2"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
+
+/area/shuttle/legion/transit
+	name = "\improper Hyperspace"
+	icon_state = "shuttle"
+	base_turf = /turf/space/transit/east
 
 /area/shuttle/distress/centcom
 	name = "\improper Unidentified Shuttle"

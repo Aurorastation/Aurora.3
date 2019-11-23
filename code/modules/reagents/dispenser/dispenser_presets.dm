@@ -56,6 +56,13 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/clonexadone
 		)
 
+/obj/machinery/chemical_dispenser/ert/attackby(obj/item/W, mob/user)
+	if(W.iswrench())
+		to_chat(user, span("notice","This dispenser is riveted to the floor and cannot be unanchored."))
+		return
+	else
+		return ..()
+
 /obj/machinery/chemical_dispenser/bar_soft
 	name = "soft drink dispenser"
 	desc = "A soda machine."
