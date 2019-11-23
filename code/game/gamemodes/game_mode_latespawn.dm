@@ -21,6 +21,10 @@
 /datum/game_mode/proc/process_autoantag()
 	message_admins("[uppertext(name)]: Attempting autospawn.")
 
+	if(emergency_shuttle.online())
+		message_admins("[uppertext(name)]: A evac or transfer shuttle is on the way. Aborted.")
+		return
+
 	var/list/usable_templates = list()
 	for(var/datum/antagonist/A in antag_templates)
 		if(A.can_late_spawn())
