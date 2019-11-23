@@ -39,7 +39,10 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - experiment: "Several backend changes regarding human processing."
+  - rscadd: "Your heart now handles your blood! If you have no heart, well... you're not gonna bleed, but you're gonna die fast."
   - bugfix: "Fixed a few runtimes."
+  - bugfix: "Fixed a few issues with arterial bleeding."
+  - tweak: "Some pain messages have been tweaked."
   - rscadd: "You should now lose more or less blood depending on your pulse."
   - tweak: "Losing your lungs and your heart is now more severe. Don't lose either one or you'll have a really hard time living."
   - rscadd: "Removed advanced operating tables. They didn't work."
