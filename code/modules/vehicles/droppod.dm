@@ -210,8 +210,6 @@
 
 /obj/vehicle/droppod/proc/fire_at_area(var/area/A)
 
-//Error no occupant detected! Return
-
 	var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
 	var/list/turf_selection = list()
 
