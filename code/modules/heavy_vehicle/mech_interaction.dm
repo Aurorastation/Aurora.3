@@ -379,6 +379,38 @@
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
 					to_fix.repair_burn_generic(thing, user)
 				return
+			else if(thing.iscrowbar())
+				if(!maintenance_protocols)
+					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
+					return
+				if(!body || !body.cell)
+					to_chat(user, "<span class='warning'>There is no cell here for you to remove!</span>")
+					return
+				var/delay = 10
+				if(!do_after(user, delay) || !maintenance_protocols || !body || !body.cell)
+					return
+
+				user.put_in_hands(body.cell)
+				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
+				playsound(user.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
+				body.cell = null
+				return
+			else if(istype(thing, /obj/item/cell))
+				if(!maintenance_protocols)
+					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
+					return
+				if(!body || body.cell)
+					to_chat(user, "<span class='warning'>There is already a cell in there!</span>")
+					return
+
+				if(user.unEquip(thing))
+					thing.forceMove(body)
+					body.cell = thing
+					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
+					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
+				return
 
 	return ..()
 
