@@ -46,17 +46,15 @@
 	if(req_head_whitelist && !check_whitelist(user))
 		return "Missing Head of Staff Whitelist"
 
-	if(req_species_whitelist)
-		if(is_alien_whitelisted(user, req_species_whitelist))
-			return FALSE
-		else
-			return "Missing Species Whitelist"
-
 	if(jobban_job && jobban_isbanned(user,jobban_job))
 		return "Job Banned"
 
 	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
 		return "Currently Disabled"
+
+	if(req_species_whitelist)
+		if(!is_alien_whitelisted(user, req_species_whitelist))
+			return "Missing Species Whitelist"
 
 	return FALSE
 
