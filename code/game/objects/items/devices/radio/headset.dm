@@ -264,6 +264,7 @@
 /obj/item/device/radio/headset/headset_cargo/alt
 	name = "cargo bowman headset"
 	icon_state = "cargo_headset_alt"
+	item_state = "cargo_headset_alt"
 
 /obj/item/device/radio/headset/headset_mining
 	name = "mining radio headset"
@@ -275,6 +276,7 @@
 /obj/item/device/radio/headset/headset_mining/alt
 	name = "mining bowman radio headset"
 	icon_state = "mine_headset_alt"
+	item_state = "cargo_headset_alt"
 
 /obj/item/device/radio/headset/qm
 	name = "quartermaster's headset"
