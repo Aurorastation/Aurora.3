@@ -27,7 +27,7 @@
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
 	max_damage = 70
-	power_use = 50
+	power_use = 30
 	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
 
 /obj/item/mech_component/propulsion/ripley
@@ -37,7 +37,7 @@
 	max_damage = 70
 	move_delay = 4
 	turn_delay = 4
-	power_use = 100
+	power_use = 10
 
 /obj/item/mech_component/sensors/ripley
 	name = "exosuit sensors"

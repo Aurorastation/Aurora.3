@@ -7,7 +7,7 @@
 	equipment_delay = 30 //don't spam it on people pls
 	active_power_use = 0 //Usage doesn't really require power. We don't want people stuck inside
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
-	passive_power_use = 1.5 KILOWATTS
+	passive_power_use = 25
 	var/obj/machinery/sleeper/mounted/sleeper = null
 
 /obj/item/mecha_equipment/sleeper/Initialize()
