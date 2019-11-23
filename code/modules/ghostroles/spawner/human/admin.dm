@@ -30,7 +30,7 @@
 /datum/ghostspawner/human/admin/legion_commander
 	short_name = "legionlegate"
 	name = "TCFL Legate"
-	desc = "Command the TCFL, a walking and talking joke, whos members regularly die before they even arrive at their target."
+	desc = "Command the TCFL onboard BLV The Tower, a legion patrolship from where Task Force XIII - Fortune operates from."
 
 	landmark_name = "TCFLLegate"
 	req_perms = R_CCIAA

@@ -26886,14 +26886,11 @@
 	name = "adjusted light fixture";
 	pixel_x = 16
 	},
-/obj/item/storage/firstaid/o2{
-	pixel_x = 0;
-	pixel_y = 2
-	},
 /obj/item/device/radio/intercom{
 	pixel_y = -30
 	},
 /obj/structure/table/reinforced/steel,
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/distress/centcom)
 "nLp" = (
@@ -28742,11 +28739,22 @@
 	pixel_x = 0;
 	pixel_y = 8
 	},
-/obj/item/storage/briefcase/inflatable{
-	pixel_x = -15;
-	pixel_y = 3
-	},
 /obj/structure/table/reinforced/steel,
+/obj/item/storage/firstaid/o2{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/storage/briefcase/inflatable,
+/obj/structure/closet/crate/internals{
+	name = "emergency equipment"
+	},
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/distress/centcom)
 "sev" = (
@@ -30080,9 +30088,9 @@
 /obj/structure/closet{
 	name = "contraband"
 	},
-/obj/item/gun/projectile/improvised_handgun,
 /obj/item/material/kitchen/utensil/knife/boot,
 /obj/item/gun/projectile/pirate,
+/obj/item/gun/projectile/improvised_handgun,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},

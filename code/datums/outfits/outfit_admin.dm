@@ -241,6 +241,7 @@
 	l_ear = /obj/item/device/radio/headset/legion
 	head = /obj/item/clothing/head/legion/legate
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
+	id = /obj/item/card/id/distress/legion
 	belt = /obj/item/storage/belt/security/tactical
 	r_pocket = /obj/item/clothing/mask/gas/tactical
 	accessory = /obj/item/clothing/accessory/holster/hip
