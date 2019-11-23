@@ -8,6 +8,7 @@
 	spawnpoints = list("pra_cosmonaut")
 	req_perms = null
 	max_count = 3
+	uses_species_whitelist = FALSE
 
 	outfit = /datum/outfit/admin/pra_cosmonaut
 	possible_species = list("Tajara", "M'sai Tajara", "Zhan-Khazan Tajara")
@@ -18,6 +19,7 @@
 	special_role = "Kosmostrelki"
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
+	uses_species_whitelist = FALSE
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar
 	short_name = "pra_commissar"
@@ -29,10 +31,9 @@
 	assigned_role = "Party Commissar"
 	special_role = "Party Commissar"
 
-	req_species_whitelist = "Tajara"
-
 	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
 	possible_species = list("Tajara", "M'sai Tajara")
+	req_species_whitelist = "Tajara"
 
 /datum/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"
