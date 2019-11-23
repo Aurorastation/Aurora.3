@@ -101,6 +101,7 @@
 	banners["banner, People's Republic of Adhomai"] = /obj/item/flag/pra
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
+	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/flag
@@ -122,6 +123,7 @@
 	flags["flag, People's Republic of Adhomai"] = /obj/item/flag/pra/l
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
+	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 /datum/gear/towel
