@@ -23788,7 +23788,7 @@
 /area/shuttle/distress/transit)
 "fRx" = (
 /obj/machinery/door/window/southleft{
-	desc = "A strong door. An angry note is posted on its front.";
+	desc = "A strong door. An angry note is taped to the front.";
 	name = "VAURCA ONLY, We shouldn't have to say it, but here we are"
 	},
 /obj/structure/table/reinforced/steel{
@@ -25073,6 +25073,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"iWp" = (
+/obj/structure/lattice/catwalk,
+/obj/item/ore{
+	name = "meteor fragment";
+	pixel_x = -8;
+	pixel_y = -8
+	},
+/turf/template_noop,
+/area/template_noop)
 "iXa" = (
 /obj/machinery/light{
 	dir = 4;
@@ -27258,7 +27267,10 @@
 	dir = 1
 	},
 /obj/item/material/shard,
-/obj/item/ore,
+/obj/item/ore{
+	name = "meteor fragment";
+	pixel_y = -4
+	},
 /obj/item/stack/rods,
 /turf/unsimulated/floor{
 	name = "plating"
@@ -93875,7 +93887,7 @@ aDQ
 aaM
 lmb
 lmb
-lmb
+iWp
 lmb
 ldQ
 ldQ

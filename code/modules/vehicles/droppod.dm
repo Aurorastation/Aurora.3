@@ -192,7 +192,10 @@
 				A = pickweight(tcoms_destination_list)
 			if("commandescape")
 				var/commandescape_destination_list = list(
-					/area/bridge/levela = 1
+					/area/bridge/levela = 2,
+					/area/bridge/levela/research_dock = 2,
+					/area/security/bridge_surface_checkpoint = 1,
+					/area/maintenance/bridge_elevator/surface = 1
 					)
 				A = pickweight(commandescape_destination_list)
 		if(A)
@@ -213,16 +216,16 @@
 	var/list/turf_selection = list()
 
 	for(var/turf/T in area_turfs)
-		var/grille_found = FALSE
+		var/obstacle_found = FALSE
 		if(!iswall(T))
 			for(var/obj/O in T)
-				if(istype(O, /obj/structure/grille)) //This is to help prevent the pod from landing right on an exterior window.
-					grille_found = TRUE
+				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external)) //This is to help prevent the pod from landing right on an exterior window or airlock.
+					obstacle_found = TRUE
 					break
-			if(!grille_found)
+			if(!obstacle_found)
 				turf_selection += T
 			else
-				grille_found = FALSE
+				obstacle_found = FALSE
 
 	var/target_turf = pick(turf_selection)
 	if(!target_turf)
