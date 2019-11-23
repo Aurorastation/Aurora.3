@@ -19,6 +19,7 @@
 /obj/item/organ/internal/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
+	max_damage = 60
 	if (!mapload)
 		addtimer(CALLBACK(src, .proc/clear_screen), 5)
 
