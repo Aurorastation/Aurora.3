@@ -77,3 +77,13 @@
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
 		beaker = I
 		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+
+/obj/machinery/sleeper/mounted/go_out()
+
+	if(!occupant)
+		return
+
+	occupant.forceMove(get_turf(src))
+	occupant = null
+
+	return
