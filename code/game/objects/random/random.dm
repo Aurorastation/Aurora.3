@@ -1321,3 +1321,39 @@
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
 		/obj/structure/largecrate/animal/hakhma = 0.5
 	)
+
+/obj/random/random_flag
+	name = "random flag"
+	desc = "Contains a random boxed flag or banner."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	spawnlist = list(
+		/obj/item/flag/biesel,
+		/obj/item/flag/biesel/l,
+		/obj/item/flag/dominia,
+		/obj/item/flag/dominia/l,
+		/obj/item/flag/dpra,
+		/obj/item/flag/dpra/l,
+		/obj/item/flag/elyra,
+		/obj/item/flag/elyra/l,
+		/obj/item/flag/eridani,
+		/obj/item/flag/eridani/l,
+		/obj/item/flag/hegemony,
+		/obj/item/flag/hegemony/l,
+		/obj/item/flag/heph,
+		/obj/item/flag/heph/l,
+		/obj/item/flag/jargon,
+		/obj/item/flag/jargon/l,
+		/obj/item/flag/nanotrasen,
+		/obj/item/flag/nanotrasen/l,
+		/obj/item/flag/nka,
+		/obj/item/flag/nka/l,
+		/obj/item/flag/pra,
+		/obj/item/flag/pra/l,
+		/obj/item/flag/sol,
+		/obj/item/flag/sol/l,
+		/obj/item/flag/vaurca,
+		/obj/item/flag/vaurca/l,
+		/obj/item/flag/zenghu,
+		/obj/item/flag/zenghu/l
+	)
