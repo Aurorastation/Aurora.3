@@ -13,7 +13,7 @@
 			/obj/item/circuitboard/optable,
 			/obj/item/stock_parts/scanning_module = 1
 		)
-	
+
 	var/mob/living/carbon/human/victim = null
 	var/strapped = 0.0
 	var/suppressing = FALSE
@@ -64,7 +64,7 @@
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message("<span class='warning'>\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor.</span>")
 		if(!do_after(user, 30, src))
-			return 
+			return
 		if(!victim)
 			to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
 

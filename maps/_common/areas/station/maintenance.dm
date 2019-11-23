@@ -77,9 +77,20 @@
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
 
+/area/maintenance/bridge_elevator
+	name = "Bridge Elevator Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/bridge_elevator/surface
+	name = "Surface - Bridge Elevator Maintenance"
+
 /area/maintenance/arrivals
 	name = "Surface Maintenance"
 	icon_state = "maint_arrivals"
+
+/area/maintenance/store
+	name = "\improper Commissary Maintenance"
+	icon_state = "maint_cargo"
 
 /area/maintenance/bar
 	name = "Bar Maintenance"
@@ -163,7 +174,7 @@
 
 /area/maintenance/engineering_ladder
 	name = "\improper Engineering Ladder Shaft"
-	icon_state = "maint_engineering"	
+	icon_state = "maint_engineering"
 
 /area/maintenance/research_xenobiology
 	name = "Research Maintenance - Xenobiology"
