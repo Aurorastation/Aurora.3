@@ -27,7 +27,7 @@
 	icon_state = "combat_arms"
 	melee_damage = 5
 	action_delay = 10
-	power_use = 50
+	power_use = 25000
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
@@ -35,14 +35,14 @@
 	icon_state = "combat_legs"
 	move_delay = 3
 	turn_delay = 3
-	power_use = 20
+	power_use = 10000
 
 /obj/item/mech_component/sensors/combat
 	name = "combat sensors"
 	gender = PLURAL
 	exosuit_desc_string = "high-resolution sensors"
 	icon_state = "combat_head"
-	power_use = 200
+	power_use = 100000
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
@@ -58,7 +58,7 @@
 	pilot_coverage = 100
 	exosuit_desc_string = "an armoured chassis"
 	icon_state = "combat_body"
-	power_use = 40
+	power_use = 20000
 	transparent_cabin =  TRUE
 
 /obj/item/mech_component/chassis/combat/prebuild()

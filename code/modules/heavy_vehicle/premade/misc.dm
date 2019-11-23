@@ -6,7 +6,7 @@
 	max_damage = 80
 	move_delay = 4
 	turn_delay = 1
-	power_use = 75
+	power_use = 37500
 
 /obj/item/mech_component/propulsion/tracks
 	name = "tracks"
@@ -16,5 +16,5 @@
 	max_damage = 150
 	move_delay = 2 //Its fast
 	turn_delay = 7
-	power_use = 150
+	power_use = 75000
 	color = COLOR_WHITE

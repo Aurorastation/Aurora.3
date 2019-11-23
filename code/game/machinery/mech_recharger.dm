@@ -57,7 +57,6 @@
 
 	if(stat & (BROKEN|NOPOWER))
 		stop_charging()
-		charging.show_message("<span class='warning'>Power port not responding. Terminating.</span>")
 		return
 
 	// Cell could have been removed.
@@ -77,13 +76,15 @@
 				break
 		charging.updatehealth()
 		if(fully_repaired())
-			charging.show_message("<span class='notice'>Exosuit integrity has been fully restored.</span>")
+			for(var/mob/pilot in charging.pilots)
+				pilot.show_message("<span class='notice'>Exosuit integrity has been fully restored.</span>")
 
 	var/obj/item/cell/cell = charging.get_cell()
 	if(cell && !cell.fully_charged() && remaining_energy > 0)
 		cell.give(remaining_energy * CELLRATE)
 		if(cell.fully_charged())
-			charging.show_message("<span class='notice'>Fully charged.</span>")
+			for(var/mob/pilot in charging.pilots)
+				pilot.show_message("<span class='notice'>Fully charged.</span>")
 
 	if((!repair || fully_repaired()) && cell.fully_charged())
 		stop_charging()
@@ -93,13 +94,14 @@
 	return charging && (charging.health == charging.maxHealth)
 
 /obj/machinery/mech_recharger/proc/start_charging(var/mob/living/heavy_vehicle/M)
-	if(stat & (NOPOWER | BROKEN))
-		M.show_message("<span class='warning'>Power port not responding. Terminating.</span>")
-		return
-	if(M.get_cell())
-		M.show_message("<span class='notice'>Now charging...</span>")
-		charging = M
-		update_use_power(2)
+	for(var/mob/pilot in M.pilots)
+		if(stat & (NOPOWER | BROKEN))
+			pilot.show_message("<span class='warning'>Power port not responding. Terminating.</span>")
+			return
+		if(M.get_cell())
+			pilot.show_message("<span class='notice'>Now charging...</span>")
+			charging = M
+			update_use_power(2)
 
 /obj/machinery/mech_recharger/proc/stop_charging()
 	update_use_power(1)

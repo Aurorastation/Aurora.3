@@ -26,8 +26,8 @@
 
 	body.update_air(hatch_closed && use_air)
 
-	if((client || LAZYLEN(pilots)) && body.cell)
-		body.cell.use(calc_power_draw())
+	if((client || LAZYLEN(pilots)) && get_cell())
+		get_cell().drain_power(0, 0, calc_power_draw())
 
 	updatehealth()
 	if(health <= 0 && stat != DEAD)
