@@ -1,6 +1,6 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
-	desc = "An energy-based carbine with two settings: Stun and kill."
+	desc = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen.  Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon_state = "energystun100"
 	item_state = null	// so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -118,7 +118,7 @@
 
 /obj/item/gun/energy/pistol
 	name = "energy pistol"
-	desc = "A basic energy-based pistol gun with two settings: Stun and kill."
+	desc = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon_state = "epistolstun100"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
