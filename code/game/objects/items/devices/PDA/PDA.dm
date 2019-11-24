@@ -128,7 +128,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Engineering
  */
 
- /obj/item/device/pda/atmos
+/obj/item/device/pda/atmos
 	icon_state = "pda-atmo"
 	default_cartridge = /obj/item/cartridge/atmos
 	inserted_item = /obj/item/pen/silver
@@ -146,7 +146,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Cargo
  */
 
- /obj/item/device/pda/cargo
+/obj/item/device/pda/cargo
 	icon_state = "pda-cargo"
 	default_cartridge = /obj/item/cartridge/quartermaster
 	inserted_item = /obj/item/pen/silver
