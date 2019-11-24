@@ -1017,10 +1017,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/multi_tile/glass{
-	autoclose = 1;
-	dir = 2;
-	id_tag = "RobMechBay";
-	req_access = list(29)
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
@@ -1289,7 +1286,9 @@
 "er" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/vending/engivend,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "et" = (
@@ -1418,7 +1417,9 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "eN" = (
-/obj/machinery/vending/medical,
+/obj/machinery/vending/medical{
+	req_access = null
+	},
 /turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eO" = (
@@ -1427,7 +1428,9 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "eP" = (
-/obj/machinery/vending/wallmed2,
+/obj/machinery/vending/wallmed2{
+	req_access = null
+	},
 /turf/simulated/wall/titanium_reinforced,
 /area/derelict/ship)
 "eQ" = (
@@ -1647,6 +1650,14 @@
 	},
 /turf/simulated/floor,
 /area/derelict/ship)
+"qJ" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2
+	},
+/turf/simulated/floor/shuttle/black,
+/area/derelict/ship)
 "rI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -1720,10 +1731,6 @@
 "Gv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/material/shard/shrapnel,
-/obj/machinery/light/small,
-/turf/simulated/floor/shuttle/black,
-/area/derelict/ship)
-"GW" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
@@ -34394,7 +34401,7 @@ ak
 ak
 ak
 bn
-GW
+Rv
 Mu
 bs
 bN
@@ -35182,7 +35189,7 @@ ag
 am
 ae
 ax
-dg
+qJ
 ae
 cG
 eH
@@ -36194,7 +36201,7 @@ ae
 ae
 ae
 bB
-Qy
+Rg
 kr
 ae
 bc

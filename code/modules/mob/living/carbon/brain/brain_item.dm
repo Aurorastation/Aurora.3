@@ -18,7 +18,7 @@
 	var/lobotomized = 0
 	var/can_lobotomize = 1
 
-/obj/item/organ/pariah_brain
+/obj/item/organ/internal/pariah_brain
 	name = "brain remnants"
 	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
 	organ_tag = "brain"
@@ -39,6 +39,7 @@
 /obj/item/organ/internal/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
+	max_damage = 60
 	if (!mapload)
 		addtimer(CALLBACK(src, .proc/clear_screen), 5)
 

@@ -133,7 +133,7 @@
 	jobtype = /datum/job/atmos
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
-	belt = /obj/item/storage/belt/utility/atmostech
+	belt = /obj/item/storage/belt/utility
 	pda = /obj/item/device/pda/atmos
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots

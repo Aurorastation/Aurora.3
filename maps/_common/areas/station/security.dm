@@ -109,6 +109,10 @@
 	name = "\improper Security - Arrivals Checkpoint"
 	icon_state = "security"
 
+/area/security/bridge_surface_checkpoint
+	name = "\improper Bridge Security Checkpoint"
+	icon_state = "security"
+
 /area/security/checkpoint/supply
 	name = "Security Post - Cargo Bay"
 	icon_state = "checkpoint1"

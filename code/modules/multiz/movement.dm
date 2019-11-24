@@ -55,7 +55,7 @@
 		return FALSE
 
 	if(!destination.CanZPass(src, direction))
-		to_chat(src, "<span class='warning'>You bump against \the [destination].</span>")
+		to_chat(src, span("warning", "\The [destination] is in the way!"))
 		return FALSE
 
 	var/area/area = get_area(src)
@@ -72,9 +72,20 @@
 			to_chat(src, "<span class='warning'>\The [A] blocks you.</span>")
 			return FALSE
 
+	var/txt_dir = direction & UP ? "upwards" : "downwards"
+	start.visible_message(span("notice", "[src] moves [txt_dir]."))
+
 	// Actually move.
 	Move(destination)
 	return TRUE
+
+/mob/living/carbon/human/zMove(direction)
+	. = ..()
+	if(.)
+		for(var/obj/item/grab/G in list(l_hand, r_hand))
+			if(G.state >= GRAB_NECK && G.affecting && !(G.affecting.buckled)) //strong grip and not buckled
+				G.affecting.Move(get_turf(src))
+				visible_message(span("warning", "[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
@@ -326,13 +337,17 @@
 
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
-	if (!restrained())
+	if(!restrained())
 		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
-		if (thrust && thrust.stabilization_on &&\
+		if(thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
+	for(var/mob/living/carbon/human/H in range(1, src)) // can't fall if someone's holding you
+		for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
+			if(G.state >= GRAB_AGGRESSIVE && G.affecting == src)
+				return FALSE
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()

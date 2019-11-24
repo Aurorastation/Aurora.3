@@ -590,6 +590,26 @@
 	var/flag_path
 	var/flag_size = 0
 
+/obj/structure/sign/flag/biesel
+	name = "Republic of Biesel flag"
+	desc = "The colours and symbols of the Republic of Biesel."
+	icon_state = "biesel"
+
+/obj/structure/sign/flag/biesel/left
+	icon_state = "biesel_l"
+
+/obj/structure/sign/flag/biesel/right
+	icon_state = "biesel_r"
+
+/obj/item/flag/biesel
+	name = "Republic of Biesel flag"
+	desc = "The flag representing the Republic of Biesel."
+	flag_path = "biesel"
+
+/obj/item/flag/biesel/l
+	name = "Large Republic of Biesel flag"
+	flag_size = 1
+
 /obj/item/flag/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
