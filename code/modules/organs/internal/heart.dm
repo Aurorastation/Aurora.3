@@ -6,38 +6,41 @@
 	dead_icon = "heart-off"
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
+	max_damage = 45
 	var/pulse = PULSE_NORM	//current pulse level
 	var/heartbeat = 0
 	var/next_blood_squirt = 0
+	var/list/external_pump
 
 /obj/item/organ/internal/heart/process()
 	if(owner)
 		handle_pulse()
 		if(pulse)
+			if(pulse == PULSE_2FAST && prob(1))
+				take_internal_damage(0.5)
+			if(pulse == PULSE_THREADY && prob(5))
+				take_internal_damage(0.5)
 			handle_heartbeat()
 		handle_blood()
 	..()
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
-	if((species && species.flags & NO_BLOOD)) //No heart, no pulse, buddy.
+	if((species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic.
 		pulse = PULSE_NONE
 
-	var/temp = PULSE_NORM
+	// pulse mod starts out as just the chemical effect amount
+	var/pulse_mod = owner.chem_effects[CE_PULSE]
+	var/is_stable = owner.chem_effects[CE_STABLE]
 
-	if(round(owner.vessel.get_reagent_amount("blood")) <= BLOOD_VOLUME_BAD)	//how much blood do we have
-		temp = PULSE_THREADY	//not enough :(
-
-	if(owner.status_flags & FAKEDEATH)
-		temp = PULSE_NONE		//pretend that we're dead. unlike actual death, can be inflienced by meds
 
 	//handles different chems' influence on pulse
 	for(var/datum/reagent/R in owner.reagents.reagent_list)
 		if(R.id in bradycardics)
-			if(temp <= PULSE_THREADY && temp >= PULSE_NORM)
-				temp--
+			if(pulse <= PULSE_THREADY && pulse >= PULSE_NORM)
+				pulse_mod--
 		if(R.id in tachycardics)
-			if(temp <= PULSE_FAST && temp >= PULSE_NONE)
-				temp++
+			if(pulse <= PULSE_FAST && pulse >= PULSE_NONE)
+				pulse_mod++
 		if(R.id in heartstopper) //To avoid using fakedeath
 			if(rand(0,6) == 3)
 				take_internal_damage(5)
@@ -46,7 +49,54 @@
 				if(rand(0,6) == 3)
 					take_internal_damage(5)
 
-	pulse = temp
+	// If you have enough heart chemicals to be over 2, you're likely to take extra damage.
+	if(pulse_mod > 2 && !is_stable)
+		var/damage_chance = (pulse_mod - 2) ** 2
+		if(prob(damage_chance))
+			take_internal_damage(0.5)
+
+	// Now pulse mod is impacted by shock stage and other things too
+	if(owner.shock_stage > 30)
+		pulse_mod++
+	if(owner.shock_stage > 80)
+		pulse_mod++
+
+	var/oxy = owner.get_blood_oxygenation()
+	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get MOAR OXY
+		pulse_mod++
+	if(oxy < BLOOD_VOLUME_BAD) //MOAR
+		pulse_mod++
+
+	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
+		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
+		return
+
+	//If heart is stopped, it isn't going to restart itself randomly.
+	if(pulse == PULSE_NONE)
+		return
+	else //and if it's beating, let's see if it should
+		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
+		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
+		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
+		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
+			to_chat(owner, "<span class='danger'>Your heart has stopped!</span>")
+			pulse = PULSE_NONE
+			return
+
+	// Pulse normally shouldn't go above PULSE_2FAST
+	pulse = Clamp(PULSE_NORM + pulse_mod, PULSE_SLOW, PULSE_2FAST)
+
+	// If fibrillation, then it can be PULSE_THREADY
+	var/fibrillation = oxy <= BLOOD_VOLUME_SURVIVE || (prob(30) && owner.shock_stage > 120)
+	if(pulse && fibrillation)	//I SAID MOAR OXYGEN
+		pulse = PULSE_THREADY
+
+	// Stablising chemicals pull the heartbeat towards the center
+	if(pulse != PULSE_NORM && is_stable)
+		if(pulse > PULSE_NORM)
+			pulse--
+		else
+			pulse++
 
 /obj/item/organ/internal/heart/proc/handle_heartbeat()
 	if(pulse == PULSE_NONE || !owner.species.has_organ[BP_HEART])
@@ -76,7 +126,7 @@
 
 	if(owner.stat == DEAD && owner.bodytemperature < 170)	//Dead or cryosleep people do not pump the blood.
 		return
-		
+
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
 		var/blood_volume = round(owner.vessel.get_reagent_amount("blood"))
 
@@ -152,3 +202,9 @@
 					owner.drip(blood_max, get_turf(src))
 		else
 			owner.drip(blood_max)
+
+/obj/item/organ/internal/heart/proc/is_working()
+	if(!is_usable())
+		return FALSE
+
+	return pulse > PULSE_NONE || BP_IS_ROBOTIC(src) || (owner.status_flags & FAKEDEATH)

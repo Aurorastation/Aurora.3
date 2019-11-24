@@ -1630,6 +1630,12 @@
 	else
 		return FALSE
 
+/mob/living/carbon/human/need_breathe()
+	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])
+		return 1
+	else
+		return 0
+
 //Get fluffy numbers
 /mob/living/carbon/human/proc/get_blood_pressure()
 	if(status_flags & FAKEDEATH)

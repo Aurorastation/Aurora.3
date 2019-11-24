@@ -441,3 +441,5 @@
 
 	return TRUE
 
+/mob/living/carbon/proc/need_breathe()
+	return

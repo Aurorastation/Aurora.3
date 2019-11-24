@@ -130,9 +130,24 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
 	blood_volume *= max(min_efficiency, (1-(heart.damage / heart.max_damage)))
 
-	if(!heart.open && chem_effects[CE_BLOCKAGE])
-		blood_volume *= max(0, 1-chem_effects[CE_BLOCKAGE])
+	return min(blood_volume, 100)
 
+/mob/living/carbon/human/proc/get_blood_oxygenation()
+	var/blood_volume = get_blood_circulation()
+	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
+		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
+
+	if(!need_breathe())
+		return blood_volume
+
+	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
+	var/oxygenated_mult = 0
+	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
+		oxygenated_mult = 0.5
+	else if(chem_effects[CE_OXYGENATED] >= 2) // Dexplus.
+		oxygenated_mult = 0.8
+	blood_volume_mod = blood_volume_mod + oxygenated_mult - (blood_volume_mod * oxygenated_mult)
+	blood_volume = blood_volume * blood_volume_mod
 	return min(blood_volume, 100)
 
 /****************************************************

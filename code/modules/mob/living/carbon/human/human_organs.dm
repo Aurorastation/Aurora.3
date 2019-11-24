@@ -177,3 +177,17 @@
 /mob/living/carbon/human/proc/get_blood_alcohol()
 	return round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
 
+/mob/living/proc/is_asystole()
+	return FALSE
+
+/mob/living/carbon/human/is_asystole()
+	if(isSynthetic())
+		var/obj/item/organ/internal/cell/CL = internal_organs_by_name[BP_CELL]
+		if(istype(CL))
+			if(!CL.is_usable())
+				return TRUE
+	else if(species.has_organ[BP_HEART])
+		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+		if(!istype(heart) || !heart.is_working())
+			return TRUE
+	return FALSE

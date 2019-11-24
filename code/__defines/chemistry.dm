@@ -56,6 +56,11 @@
 #define CE_BERSERK "berserk"
 #define CE_PACIFIED "pacified"
 
+#define CE_OXYGENATED "oxygen" //Dexalin
+#define CE_NOPULSE "heartstop" //Stops heartbeat
+#define CE_PULSE "xcardic" //increases or decreases heartrate
+
+
 // Chemistry lists.
 var/list/tachycardics  = list("coffee", "inaprovaline", "hyperzine", "nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.
 var/list/bradycardics  = list("neurotoxin", "cryoxadone", "clonexadone", "space_drugs", "stoxin")                 // Decrease heart rate.

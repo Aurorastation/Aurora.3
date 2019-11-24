@@ -57,7 +57,7 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
 
-/obj/item/organ/cell
+/obj/item/organ/internal/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
@@ -67,16 +67,16 @@
 	vital = 1
 	var/emp_counter = 0
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/process()
+/obj/item/organ/internal/cell/process()
 	..()
 	if(emp_counter)
 		emp_counter--
 
-/obj/item/organ/cell/emp_act(severity)
+/obj/item/organ/internal/cell/emp_act(severity)
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
@@ -216,7 +216,7 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/terminator
+/obj/item/organ/internal/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
 	icon = 'icons/obj/power.dmi'
@@ -226,7 +226,7 @@
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 
