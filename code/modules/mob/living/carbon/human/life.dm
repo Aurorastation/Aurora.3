@@ -735,7 +735,8 @@
 	if(!handle_some_updates())
 		return 0
 
-	if(status_flags & GODMODE)	return 0
+	if(status_flags & GODMODE)
+		return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(species.show_ssd && !client && !teleop)
@@ -752,23 +753,13 @@
 			silent = 0
 			return 1
 
-		//UNCONSCIOUS. NO-ONE IS HOME
-		if((exhaust_threshold && getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
-			Paralyse(3)
-
 		if(hallucination)
 			//Machines do not hallucinate.
-			if (hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
+			if(hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
 				if(prob(3))
 					fake_attack(src)
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
-				/*if(client && prob(5))
-					client.dir = pick(2,4,8)
-					var/client/C = client
-					spawn(rand(20,50))
-						if(C)
-							C.dir = 1*/	// This breaks the lighting system.
 
 			if(hallucination<=2)
 				hallucination = 0
@@ -793,6 +784,9 @@
 			adjustHalLoss(-3)
 			if (species.tail)
 				animate_tail_reset()
+			
+			if(prob(2) && is_asystole() && isSynthetic())
+				visible_message(src, "<b>[src]</b> [pick("emits a low pitched whirr","beeps urgently")]!")
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -800,13 +794,18 @@
 		else if(sleeping)
 			speech_problem_flag = 1
 			handle_dreams()
-			if (mind)
+			if(mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
-			if( prob(2) && health && !hal_crit )
-				spawn(0)
+			if(prob(2) && health && !hal_crit && !failed_last_breath && !isSynthetic())
+				if(!paralysis)
 					emote("snore")
+				else
+					emote("groan")
+
+				
+
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
@@ -877,9 +876,9 @@
 
 	if(stat == UNCONSCIOUS)
 		//Critical damage passage overlay
-		if(health <= 0)
+		if(health < maxHealth)
 			var/ovr = "passage0"
-			switch(health)
+			switch(health - maxHealth)
 				if(-20 to -10)
 					ovr = "passage1"
 				if(-30 to -20)
@@ -1093,10 +1092,12 @@
 
 /mob/living/carbon/human/handle_shock()
 	..()
-	if(status_flags & GODMODE)	return 0	//godmode
-	if(!can_feel_pain()) return
+	if(status_flags & GODMODE)
+		return 0
+	if(!can_feel_pain()) 
+		return
 
-	if(health < config.health_threshold_softcrit)// health 0 makes you immediately collapse
+	if(is_asystole())
 		shock_stage = max(shock_stage, 61)
 
 	if(traumatic_shock >= 80)
@@ -1159,18 +1160,11 @@
 	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
 		if(stat == DEAD)
-			holder.icon_state = "hudhealth-100" 	// X_X
+			holder.icon_state = "0" 	// X_X
+		else if(is_asystole())
+			holder.icon_state = "flatline"
 		else
-			var/percentage_health = RoundHealth((health-config.health_threshold_crit)/(maxHealth-config.health_threshold_crit)*100)
-
-			if (percentage_health == "health100" && holder.icon_state && holder.icon_state != "hudhealth100" && holder.icon_state != "hudhealth100a")
-				holder.icon_state = "hudhealth100a"
-				spawn(30)//just to prevent any issues with the animation, we'll set it to the normal state after 3 seconds
-					percentage_health = RoundHealth((health-config.health_threshold_crit)/(maxHealth-config.health_threshold_crit)*100)
-					if (percentage_health == "health100")
-						holder.icon_state = "hudhealth100"
-			else
-				holder.icon_state = "hud[percentage_health]"
+			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])

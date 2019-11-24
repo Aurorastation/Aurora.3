@@ -6,6 +6,7 @@
 	parent_organ = BP_HEAD
 	robotic_name = "visual prosthesis"
 	robotic_sprite = "eyes-prosthetic"
+	max_damage = 45
 	var/list/eye_colour = list(0,0,0)
 	var/singular_name = "eye"
 

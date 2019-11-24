@@ -107,7 +107,7 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			if(istype(H) (is_asystole() || (status_flags & FAKEDEATH)))
+			if(istype(H) && (is_asystole() || (status_flags & FAKEDEATH)))
 				if(!H.check_has_mouth())
 					to_chat(H, "<span class='danger'>You don't have a mouth, you cannot perform CPR!</span>")
 					return

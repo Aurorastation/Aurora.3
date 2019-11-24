@@ -27,7 +27,7 @@
 		if(mind)
 			mind.name = real_name
 
-	hud_list[HEALTH_HUD]      = image('icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[HEALTH_HUD]      = image('icons/mob/hud_med.dmi', src, "100")
 	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudhealthy")
 	hud_list[ID_HUD]          = image('icons/hud/hud_security.dmi', src, "hudunknown")
 	hud_list[WANTED_HUD]      = image('icons/hud/hud_security.dmi', src, "hudblank")
@@ -1076,14 +1076,14 @@
 		return
 
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
-	
+
 	if(!L)
 		losebreath += 15 //No lungs, how do you breathe?
 		adjustOxyLoss(15)
 		failed_last_breath = TRUE
 	else
 		failed_last_breath = L.handle_breath(breath)
-	
+
 	return !failed_last_breath
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
@@ -1184,7 +1184,7 @@
 		usr.visible_message("<span class='notice'>[usr] begins counting their pulse.</span>",\
 		"You begin counting your pulse.")
 
-	if(is_pulse_present())
+	if(pulse())
 		to_chat(usr, "<span class='notice'>[self ? "You have a" : "[src] has a"] pulse! Counting...</span>")
 	else
 		to_chat(usr, "<span class='danger'>[src] has no pulse!</span>")	//it is REALLY UNLIKELY that a dead person would check his own pulse)
@@ -1623,12 +1623,9 @@
 	else
 		return "0"
 
-/mob/living/carbon/human/proc/is_pulse_present()
+/mob/living/carbon/human/proc/pulse()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
-	if(heart)
-		return heart.pulse
-	else
-		return FALSE
+	return heart ? heart.pulse : PULSE_NONE
 
 /mob/living/carbon/human/need_breathe()
 	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])

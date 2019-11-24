@@ -74,12 +74,12 @@ BREATH ANALYZER
 		return
 
 	var/fake_oxy = max(rand(1,40), M.getOxyLoss(), (300 - (M.getToxLoss() + M.getFireLoss() + M.getBruteLoss())))
-	
+
 	var/OX = 0
 	var/TX = 0
 	var/BU = 0
 	var/BR = 0
-	
+
 	if (adv == TRUE)
 		OX = M.getOxyLoss()
 		TX = M.getToxLoss()
@@ -90,7 +90,7 @@ BREATH ANALYZER
 		TX = calcDamage(M.getToxLoss())
 		BU = calcDamage(M.getFireLoss())
 		BR = calcDamage(M.getBruteLoss())
-	
+
 	if(M.status_flags & FAKEDEATH)
 		if (adv == TRUE)
 			OX = fake_oxy
@@ -164,12 +164,12 @@ BREATH ANALYZER
 				var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
 				if(istype(V))
 					user.show_message("<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>")
-					
+
 	if(M.nutrition / M.max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
 		user.show_message("<span class='warning'>Subject malnourished. Food intake recommended.</span>")
 	if(M.hydration / M.max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
 		user.show_message("<span class='warning'>Subject dehydrated. Fluid intake recommended.</span>")
-	
+
 	if (M.getCloneLoss())
 		user.show_message("<span class='warning'>Subject appears to have been imperfectly cloned.</span>")
 	for(var/datum/disease/D in M.viruses)
@@ -215,18 +215,18 @@ BREATH ANALYZER
 			if(found_arterial && found_tendon)
 				break
 		if(M:vessel)
-			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
-			var/blood_percent = blood_volume / 560
+			var/total_blood = round(M:vessel.get_reagent_amount("blood"))
+			var/blood_percent = total_blood / 560
 			var/blood_type = M.dna.b_type
 			blood_percent *= 100
-			if(blood_volume <= 500 && blood_volume > 336)
-				user.show_message("<span class='danger'>Warning: Blood Level LOW: [blood_percent]% [blood_volume]cl.</span> <span class='notice'>Type: [blood_type]</span>")
-			else if(blood_volume <= 336)
-				user.show_message("<span class='danger'><i>Warning: Blood Level CRITICAL: [blood_percent]% [blood_volume]cl.</i></span> <span class='notice'>Type: [blood_type]</span>")
+			if(total_blood <= 500 && total_blood > 336)
+				user.show_message("<span class='danger'>Warning: Blood Level LOW: [blood_percent]% [total_blood]cl.</span> <span class='notice'>Type: [blood_type]</span>")
+			else if(total_blood <= 336)
+				user.show_message("<span class='danger'><i>Warning: Blood Level CRITICAL: [blood_percent]% [total_blood]cl.</i></span> <span class='notice'>Type: [blood_type]</span>")
 			else
-				user.show_message("<span class='notice'>Blood Level Normal: [blood_percent]% [blood_volume]cl. Type: [blood_type]</span>")
-		user.show_message("<span class='notice'>Subject's pulse: <font color='[H.is_pulse_present() == PULSE_THREADY || H.is_pulse_present() == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font></span>")
-		
+				user.show_message("<span class='notice'>Blood Level Normal: [blood_percent]% [total_blood]cl. Type: [blood_type]</span>")
+		user.show_message("<span class='notice'>Subject's pulse: <font color='[H.pulse() == PULSE_THREADY || H.pulse() == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font></span>")
+
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object"
@@ -237,19 +237,19 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
-		
+
 /obj/item/device/healthanalyzer/adv
 	name = "advanced health analyzer"
 	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in gold!"
 	icon_state = "advhealth"
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	
+
 /obj/item/device/healthanalyzer/adv/attack(mob/living/M as mob, mob/living/user as mob)
 	health_scan_mob(M, user, TRUE)
 	src.add_fingerprint(user)
 	return
-	
+
 /obj/item/device/healthanalyzer/adv/attack_self(mob/user)
 	health_scan_mob(user, user, TRUE)
 	src.add_fingerprint(user)

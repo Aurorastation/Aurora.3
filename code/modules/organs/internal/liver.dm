@@ -5,6 +5,7 @@
 	parent_organ = BP_GROIN
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
+	max_damage = 70
 	var/tolerance = 5
 
 /obj/item/organ/internal/liver/process()

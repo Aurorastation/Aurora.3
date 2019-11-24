@@ -1,12 +1,6 @@
 /****************************************************
 				BLOOD SYSTEM
 ****************************************************/
-//Blood levels
-var/const/BLOOD_VOLUME_NORMAL = 560
-var/const/BLOOD_VOLUME_SAFE = 501
-var/const/BLOOD_VOLUME_OKAY = 336
-var/const/BLOOD_VOLUME_BAD = 224
-var/const/BLOOD_VOLUME_SURVIVE = 122
 
 /mob/living/carbon/human/var/datum/reagents/vessel	//Container for blood and BLOOD ONLY. Do not transfer other chems here.
 
@@ -15,13 +9,13 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	if(vessel)
 		return
 
-	vessel = new/datum/reagents(BLOOD_VOLUME_NORMAL + 40)
+	vessel = new/datum/reagents(DEFAULT_BLOOD_SPECIES + 40)
 	vessel.my_atom = src
 
 	if(species && species.flags & NO_BLOOD) //We want the var for safety but we can do without the actual blood.
 		return
 
-	vessel.add_reagent("blood",BLOOD_VOLUME_NORMAL)
+	vessel.add_reagent("blood", DEFAULT_BLOOD_SPECIES)
 	fixblood()
 
 //Resets blood data
@@ -134,6 +128,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
+	to_world("INITIAL BLOOD VOLUME VOLUME: [get_blood_circulation()]") //TODOMATT
 	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
@@ -141,13 +136,17 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 		return blood_volume
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
+	to_world("INITIAL BLOOD VOLUME MOD: [blood_volume_mod]")
 	var/oxygenated_mult = 0
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
 		oxygenated_mult = 0.5
 	else if(chem_effects[CE_OXYGENATED] >= 2) // Dexplus.
 		oxygenated_mult = 0.8
 	blood_volume_mod = blood_volume_mod + oxygenated_mult - (blood_volume_mod * oxygenated_mult)
+	to_world("FINAL BLOOD VOLUME MOD: [blood_volume_mod]")
 	blood_volume = blood_volume * blood_volume_mod
+	to_world("FINAL BLOOD VOLUME: [blood_volume]")
+	to_world("----")
 	return min(blood_volume, 100)
 
 /****************************************************
@@ -215,7 +214,7 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	var/list/chems = list()
 	chems = params2list(injected.data["trace_chem"])
 	for(var/C in chems)
-		src.reagents.add_reagent(C, (text2num(chems[C]) / BLOOD_VOLUME_NORMAL) * amount)//adds trace chemicals to owner's blood
+		src.reagents.add_reagent(C, (text2num(chems[C]) / DEFAULT_BLOOD_SPECIES) * amount)//adds trace chemicals to owner's blood
 	reagents.update_total()
 
 //Transfers blood from reagents to vessel, respecting blood types compatability.

@@ -217,8 +217,6 @@
 		if(amount > 0)
 			amount *= species.oxy_mod
 
-		if(getOxyLoss() + amount >=  abs(config.health_threshold_crit)) //start taking brain damage if they go into crit from oxyloss
-			adjustBrainLoss(amount,55) //this brain damage won't be lethal)
 		..(amount)
 
 /mob/living/carbon/human/setOxyLoss(var/amount)
@@ -360,8 +358,8 @@ This function restores the subjects blood to max.
 */
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
-		var/blood_volume = vessel.get_reagent_amount("blood")
-		vessel.add_reagent("blood",560.0-blood_volume)
+		var/total_blood = vessel.get_reagent_amount("blood")
+		vessel.add_reagent("blood",560.0-total_blood)
 
 
 /*

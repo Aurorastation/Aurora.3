@@ -76,7 +76,7 @@
 	var/grab_mod =      1                    // How easy it is to grab the species. Higher is harder to grab.
 	var/metabolism_mod = 1					 // Reagent metabolism modifier
 	var/bleed_mod = 1						 // How fast this species bleeds.
-	var/blood_volume = DEFAULT_BLOOD_VOLUME  // Blood volume.
+	var/blood_volume = DEFAULT_BLOOD_SPECIES // Blood volume.
 
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.

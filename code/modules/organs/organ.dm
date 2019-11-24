@@ -16,7 +16,7 @@
 	var/damage = 0 // amount of damage to the organ
 	var/min_broken_damage = 30
 	var/min_bruised_damage = 10 // Damage before considered bruised
-	var/max_damage
+	var/max_damage = 30
 
 	//Strings.
 	var/organ_tag = "organ"
@@ -46,6 +46,11 @@
 	if (!initialized && istype(loc, /mob/living/carbon/human/dummy/mannequin))
 		args[1] = TRUE
 		SSatoms.InitAtom(src, args)
+
+	if(max_damage)
+		min_broken_damage = Floor(max_damage / 2)
+	else
+		max_damage = min_broken_damage * 2
 
 /obj/item/organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

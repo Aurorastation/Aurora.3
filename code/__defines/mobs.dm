@@ -88,7 +88,7 @@
 
 //Organ defines
 #define PROCESS_ACCURACY 10
-#define DEFAULT_BLOOD_VOLUME 560 //Default blood volume
+#define DEFAULT_BLOOD_SPECIES 560 //Default blood for species
 
 //These are used Bump() code for living mobs, in the mob_bump_flag, mob_swap_flags, and mob_push_flags vars to determine whom can bump/swap with whom.
 #define HUMAN 1

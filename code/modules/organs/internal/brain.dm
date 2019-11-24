@@ -18,6 +18,33 @@
 	var/lobotomized = 0
 	var/can_lobotomize = 1
 
+	var/const/damage_threshold_count = 10
+	var/damage_threshold_value
+	var/healed_threshold = 1
+	var/oxygen_reserve = 6
+
+/obj/item/organ/internal/brain/can_recover()
+	return ~status & ORGAN_DEAD
+
+/obj/item/organ/internal/brain/proc/get_current_damage_threshold()
+	return round(damage / damage_threshold_value)
+
+/obj/item/organ/internal/brain/proc/past_damage_threshold(var/threshold)
+	return (get_current_damage_threshold() > threshold)
+
+/obj/item/organ/internal/brain/set_max_damage(var/ndamage)
+	..()
+	damage_threshold_value = round(max_damage / damage_threshold_count)
+
+/obj/item/organ/internal/brain/Initialize(mapload)
+	. = ..()
+	if(species)
+		set_max_damage(species.total_health)
+	else
+		set_max_damage(200)
+	if(!mapload)
+		addtimer(CALLBACK(src, .proc/clear_screen), 5)
+
 /obj/item/organ/internal/brain/process()
 	..()
 
@@ -32,43 +59,51 @@
 		if(!BT.suppressed)
 			BT.on_life()
 
-	var/blood_volume = round(owner.vessel.get_reagent_amount("blood"))
-	switch(blood_volume)
-		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-			var/word = pick("dizzy","woosey","faint")
-			to_chat(owner, "<span class='warning'>You feel [word]...</span>")
-			if(prob(1))
-				word = pick("dizzy","woosey","faint")
-				to_chat(owner, "<span class='warning'>You feel [word]...</span>")
-		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-			owner.eye_blurry = max(owner.eye_blurry,6)
-			owner.oxyloss += 1
-			if(prob(15))
-				owner.Paralyse(rand(1,3))
-				var/word = pick("dizzy","woosey","faint")
-				to_chat(owner, "<span class='warning'>You feel extremely [word]...</span>")
-		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-			owner.oxyloss += 3
-			owner.toxloss += 3
-			if(prob(15))
-				var/word = pick("dizzy","woosey","faint")
-				to_chat(owner, "<span class='warning'>You feel extremely [word]...</span>")
-		if(0 to BLOOD_VOLUME_SURVIVE)
-			// There currently is a strange bug here. If the mob is not below -100 health
-			// when death() is called, apparently they will be just fine, and this way it'll
-			// spam deathgasp. Adjusting toxloss ensures the mob will stay dead.
-			owner.toxloss += 300 // just to be safe!
-			owner.death()
-
 	if(owner.species.has_organ[BP_HEART]) //This is where the bad times start if you have no heart.
-		var/obj/item/organ/internal/heart/H = owner.internal_organs_by_name[BP_HEART]
-		if(!istype(H))
-			var/damprob
-			owner.eye_blurry = max(owner.eye_blurry,6)
-			damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
-			if(prob(10))
-				to_chat(owner, "<span class='danger'><font size=3>You jerk and gasp for breath, yet you still feel like you're suffocating!</font></span>")
-				owner.emote("jerks and gasps!")
-			if(prob(damprob))
-				owner.adjustOxyLoss(15)
-		
+		// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
+		var/blood_volume = owner.get_blood_oxygenation()
+		if(blood_volume < BLOOD_VOLUME_SURVIVE)
+			if(!owner.chem_effects[CE_STABLE] || prob(60))
+				oxygen_reserve = max(0, oxygen_reserve-1)
+		else
+			oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
+		if(!oxygen_reserve) //(hardcrit)
+			owner.Paralyse(3)
+		var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
+		var/damprob
+		//Effects of bloodloss
+		switch(blood_volume)
+
+			if(BLOOD_VOLUME_SAFE to INFINITY)
+				if(can_heal)
+					damage = max(damage-1, 0)
+			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+				if(prob(1))
+					to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
+				damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
+				if(!past_damage_threshold(2) && prob(damprob))
+					take_internal_damage(1)
+			if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+				owner.eye_blurry = max(owner.eye_blurry,6)
+				damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
+				if(!past_damage_threshold(4) && prob(damprob))
+					take_internal_damage(1)
+				if(!owner.paralysis && prob(10))
+					owner.Paralyse(rand(1,3))
+					to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
+			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+				owner.eye_blurry = max(owner.eye_blurry,6)
+				damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
+				if(!past_damage_threshold(6) && prob(damprob))
+					take_internal_damage(1)
+				if(!owner.paralysis && prob(15))
+					owner.Paralyse(3,5)
+					to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
+			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
+				owner.eye_blurry = max(owner.eye_blurry,6)
+				damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
+				if(prob(damprob))
+					take_internal_damage(1)
+				if(prob(damprob))
+					take_internal_damage(1)
+	..()

@@ -76,6 +76,7 @@
 		return
 	else //and if it's beating, let's see if it should
 		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
+		to_world("BLOOD CIRCULATION: [owner.get_blood_circulation()]")
 		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
@@ -118,20 +119,20 @@
 			heartbeat++
 
 /obj/item/organ/internal/heart/proc/handle_blood()
-	if(owner.in_stasis)
+	if(!owner)
 		return
 
 	if(owner.species && owner.species.flags & NO_BLOOD)
 		return
 
-	if(owner.stat == DEAD && owner.bodytemperature < 170)	//Dead or cryosleep people do not pump the blood.
+	if(!owner || owner.stat == DEAD || owner.bodytemperature < 170 || owner.in_stasis)	//Dead or cryosleep people do not pump the blood.
 		return
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
 		var/blood_volume = round(owner.vessel.get_reagent_amount("blood"))
 
 		//Blood regeneration if there is some space
-		if(blood_volume < BLOOD_VOLUME_NORMAL && blood_volume)
+		if(blood_volume < DEFAULT_BLOOD_SPECIES && blood_volume)
 			var/datum/reagent/blood/B = locate() in owner.vessel.reagent_list //Grab some blood
 			if(B) // Make sure there's some blood at all
 				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
@@ -146,10 +147,6 @@
 					owner.adjustHydrationLoss(1)
 				if(CE_BLOODRESTORE in owner.chem_effects)
 					B.volume += owner.chem_effects[CE_BLOODRESTORE]
-
-		//Effects of bloodloss
-		if(blood_volume < BLOOD_VOLUME_SAFE && owner.oxyloss < 100 * (1 - blood_volume/BLOOD_VOLUME_NORMAL))
-			owner.oxyloss += 3
 
 		//Bleeding out
 		var/blood_max = 0

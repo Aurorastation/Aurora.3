@@ -15,6 +15,8 @@
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
 	var/oxygen_deprivation = 0
+	var/last_successful_breath
+	var/breath_fail_ratio //How badly they failed a breath
 
 /obj/item/organ/internal/lungs/process()
 	..()
@@ -53,10 +55,18 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
+	if(damage || world.time > last_successful_breath + 2 MINUTES)
+		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
+
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
 
 /obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
 	if(!owner)
+		return 1
+
+	if(!breath || (max_damage <= 0))
+		breath_fail_ratio = 1
+		handle_failed_breath()
 		return 1
 
 	//exposure to extreme pressures can rupture lungs
@@ -119,25 +129,24 @@
 	else
 		exhaling = 0
 
-	var/inhale_pp = (inhaling/breath.total_moles)*breath_pressure
 	var/toxins_pp = (poison/breath.total_moles)*breath_pressure
 	var/exhaled_pp = (exhaling/breath.total_moles)*breath_pressure
 
+	var/inhale_efficiency = min(round(((inhaling/breath.total_moles)*breath_pressure)/safe_pressure_min, 0.001), 3)
+
 	// Not enough to breathe
-	if(inhale_pp < safe_pressure_min)
+	if(inhale_efficiency < 1)
 		if(prob(20))
-			spawn(0)
+			if(inhale_efficiency < 0.8)
 				owner.emote("gasp")
-
-		var/ratio = inhale_pp/safe_pressure_min
-		// Don't fuck them up too fast (space only does HUMAN_MAX_OXYLOSS after all!)
-		owner.adjustOxyLoss(max(HUMAN_MAX_OXYLOSS*(1-ratio), 0))
+			else if(prob(20))
+				to_chat(owner, span("warning", "It's hard to breathe..."))
+		breath_fail_ratio = 1 - inhale_efficiency
 		failed_inhale = 1
-
-		owner.oxygen_alert = max(owner.oxygen_alert, 1)
 	else
-		// We're in safe limits
-		owner.oxygen_alert = 0
+		breath_fail_ratio = 0
+
+	owner.oxygen_alert = failed_inhale * 2
 
 	inhaled_gas_used = inhaling/6 * (owner.species?.breath_eff_mul || 1)
 
@@ -230,6 +239,7 @@
 	if(failed_breath)
 		handle_failed_breath()
 	else
+		last_successful_breath = world.time
 		owner.oxygen_alert = 0
 	return failed_breath
 
