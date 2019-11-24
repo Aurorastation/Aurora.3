@@ -35,7 +35,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
-					/obj/item/storage/box/syndie_kit/specal_pens,
+					/obj/item/storage/box/syndie_kit/special_pens,
 					/obj/item/grenade/chem_grenade/incendiary)
 
 	cost = 20

@@ -27,7 +27,7 @@
 /datum/uplink_item/item/stealthy_weapons/pens
 	name = "Special Pens Kit"
 	item_cost = 6
-	path = /obj/item/storage/box/syndie_kit/specal_pens
+	path = /obj/item/storage/box/syndie_kit/special_pens
 
 /datum/uplink_item/item/stealthy_weapons/parapen
 	name = "Paralysis pen"

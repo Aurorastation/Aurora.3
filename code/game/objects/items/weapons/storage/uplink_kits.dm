@@ -139,7 +139,7 @@
 		/obj/item/hand_labeler = 1
 	)
 
-/obj/item/storage/box/syndie_kit/specal_pens
+/obj/item/storage/box/syndie_kit/special_pens
 	name = "special pens kit"
 	desc = "Comes in with 4 different colored pens. Red pen - poison pen, blue pen - pacifier pen, green pen - healing pen, yellow pen - hyperzine pen."
 	starts_with = list(
