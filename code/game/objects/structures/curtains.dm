@@ -8,6 +8,8 @@
 	layer = SHOWER_OPEN_LAYER
 	opacity = 1
 	density = 0
+	anchored = TRUE //curtains start secured in place
+	var/manipulating = FALSE //prevents queuing up multiple deconstructs and returning a bunch of cloth
 
 /obj/structure/curtain/open
 	icon_state = "open"
@@ -29,6 +31,49 @@
 /obj/structure/curtain/attack_ai(mob/user)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
+
+/obj/structure/curtain/attackby(obj/item/W, mob/user)
+
+	if(W.iswirecutter())
+		if(manipulating)	return
+		manipulating = TRUE
+		visible_message(span("notice", "[user] begins cutting down \the [src]."),
+					span("notice", "You begin cutting down \the [src]."))
+		if(!do_after(user, 30/W.toolspeed))
+			manipulating = FALSE
+			return
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		visible_message(span("notice", "[user] cuts down \the [src]."),
+					span("notice", "You cut down \the [src]."))
+		if(istype(src, /obj/structure/curtain/open/medical))
+			new/obj/item/stack/material/plastic(src.loc)
+		else
+			new/obj/item/stack/material/cloth(src.loc, 2)
+		qdel(src)
+	else if(W.sharp && !W.noslice)
+		if(manipulating)	return
+		manipulating = TRUE
+		visible_message(span("notice", "[user] begins cutting down \the [src]."),
+					span("notice", "You begin cutting down \the [src]."))
+		if(!do_after(user, 30))
+			manipulating = FALSE
+			return
+		playsound(src.loc, pick('sound/items/rip1.ogg','sound/items/rip2.ogg'), 50, 1)
+		visible_message(span("notice", "[user] cuts down \the [src]."),
+					span("notice", "You cut down \the [src]."))
+		if(!istype(src, /obj/structure/curtain/open/medical))
+			new/obj/item/stack/material/cloth(src.loc, 1)
+		qdel(src)
+
+	if(W.isscrewdriver()) //You can anchor/unanchor curtains
+		anchored = !anchored
+		var/obj/structure/curtain/C
+		for(C in src.loc)
+			if(C != src && C.anchored) //Can't secure more than one curtain in a tile
+				to_chat(user, "There is already a curtain secured here!")
+				return
+		playsound(src.loc, W.usesound, 50, 1)
+		visible_message(span("notice", "\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
 
 /obj/structure/curtain/proc/toggle()
 	src.set_opacity(!src.opacity)
