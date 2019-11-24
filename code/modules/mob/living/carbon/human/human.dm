@@ -1672,7 +1672,6 @@
 		heart.handle_pulse()
 		return TRUE
 
-/mob/living/carbon/human/proc/make_reagent(amount, reagent_type) //WARNING: This takes a reagent type.
+/mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		var/limit = max(0, reagents.get_overdose(reagent_type) - reagents.get_reagent_amount(reagent_type))
-		reagents.add_reagent(reagent_type, min(amount, limit))
+		reagents.add_reagent("adrenaline", amount)

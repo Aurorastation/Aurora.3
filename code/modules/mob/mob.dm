@@ -615,7 +615,7 @@
 		var/obj/item/organ/external/e = thing
 		if(!e || e.is_stump())
 			continue
-		if((e.status & ORGAN_BROKEN) && !e.splinted)
+		if((e.status & ORGAN_BROKEN) && !(e.status & ORGAN_SPLINTED))
 			return 1
 		if(e.status & ORGAN_BLEEDING)
 			return 1

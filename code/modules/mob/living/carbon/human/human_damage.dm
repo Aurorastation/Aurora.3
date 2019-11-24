@@ -422,7 +422,7 @@ This function restores all organs.
 		damage *= BLOCKED_MULT(blocked)
 
 	if(damage > 15 && prob(damage*4) && organ.can_feel_pain())
-		make_reagent(round(damage/10), /datum/reagent/adrenaline)
+		make_adrenaline(round(damage/10))
 
 	switch(damagetype)
 		if(BRUTE)
