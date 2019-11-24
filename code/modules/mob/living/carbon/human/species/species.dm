@@ -563,3 +563,6 @@
 
 /datum/species/proc/get_cloning_variant()
 	return name
+
+/datum/species/proc/handle_death_check(var/mob/living/carbon/human/H)
+	return FALSE

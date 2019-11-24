@@ -163,3 +163,15 @@
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[3] = O.is_stump()
 	return current_flags
+
+#define DIONA_LIMB_DEATH_COUNT 7
+/datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
+	var/lost_limb_count = has_limbs.len - H.organs.len
+	if(lost_limb_count >= DIONA_LIMB_DEATH_COUNT)
+		return TRUE
+	for(var/thing in H.bad_external_organs)
+		var/obj/item/organ/external/E = thing
+		if(E && E.is_stump())
+			lost_limb_count++
+	return (lost_limb_count >= DIONA_LIMB_DEATH_COUNT)
+#undef DIONA_LIMB_DEATH_COUNT

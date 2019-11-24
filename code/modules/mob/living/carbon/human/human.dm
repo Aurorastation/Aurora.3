@@ -1642,3 +1642,15 @@
 		return "[Floor(120+rand(-5,5))*0.25]/[Floor(80+rand(-5,5)*0.25)]"
 	var/blood_result = get_blood_circulation()
 	return "[Floor((120+rand(-5,5))*(blood_result/100))]/[Floor((80+rand(-5,5))*(blood_result/100))]"
+
+//Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
+/mob/living/carbon/human/nervous_system_failure()
+	return getBrainLoss() >= maxHealth * 0.75
+
+// Check if we should die.
+/mob/living/carbon/human/proc/handle_death_check()
+	if(species && species.has_organ[BP_BRAIN])
+		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+		if(!brain || (brain.status & ORGAN_DEAD))
+			return TRUE
+	return species.handle_death_check(src)

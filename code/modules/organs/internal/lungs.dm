@@ -9,7 +9,12 @@
 	parent_organ = BP_CHEST
 	robotic_name = "gas exchange system"
 	robotic_sprite = "lungs-prosthetic"
+	min_bruised_damage = 25
+	min_broken_damage = 45
+	max_damage = 70
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
+
+	var/oxygen_deprivation = 0
 
 /obj/item/organ/internal/lungs/process()
 	..()
@@ -17,7 +22,7 @@
 	if(!owner)
 		return
 
-	if (germ_level > INFECTION_LEVEL_ONE)
+	if(germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
 			owner.emote("cough")		//Respiratory tract infection
 
@@ -35,14 +40,28 @@
 			if (owner.losebreath < 5)
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
+/obj/item/organ/internal/lungs/proc/rupture()
+	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
+	if(istype(parent))
+		owner.custom_pain("You feel a stabbing pain in your [parent.name]!", 50, affecting = parent)
+	bruise()
+
+/obj/item/organ/internal/lungs/proc/handle_failed_breath()
+	if(prob(15) && !owner.nervous_system_failure())
+		if(!owner.is_asystole())
+			owner.emote("gasp")
+		else
+			owner.emote(pick("shiver","twitch"))
+
+	owner.oxygen_alert = max(owner.oxygen_alert, 2)
+
 /obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
 	if(!owner)
 		return 1
 
 	//exposure to extreme pressures can rupture lungs
 	if(breath && (breath.total_moles/(owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
-		if(!is_bruised() && prob(5))
-			bruise()
+		rupture()
 
 	//check if we actually need to process breath
 	if(!breath || (breath.total_moles == 0))
@@ -208,6 +227,10 @@
 
 	var/failed_breath = failed_inhale || failed_exhale
 
+	if(failed_breath)
+		handle_failed_breath()
+	else
+		owner.oxygen_alert = 0
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)

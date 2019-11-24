@@ -835,3 +835,6 @@ default behaviour is:
 	QDEL_NULL(ingested)
 
 	return ..()
+
+/mob/living/proc/nervous_system_failure()
+	return FALSE
