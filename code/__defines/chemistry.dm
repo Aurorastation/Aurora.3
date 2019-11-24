@@ -59,6 +59,7 @@
 #define CE_OXYGENATED "oxygen" //Dexalin
 #define CE_NOPULSE "heartstop" //Stops heartbeat
 #define CE_PULSE "xcardic" //increases or decreases heartrate
+#define CE_ANTITOX "antitoxin" //Dylovene and stuff
 
 
 // Chemistry lists.

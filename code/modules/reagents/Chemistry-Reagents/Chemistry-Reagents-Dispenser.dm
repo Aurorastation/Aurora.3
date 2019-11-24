@@ -353,6 +353,12 @@
 
 	fallback_specific_heat = 0.214
 
+/datum/reagent/potassium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(volume > 3)
+		M.add_chemical_effect(CE_PULSE, 1)
+	if(volume > 10)
+		M.add_chemical_effect(CE_PULSE, 1)
+
 /datum/reagent/radium
 	name = "Radium"
 	id = "radium"
