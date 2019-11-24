@@ -26,7 +26,6 @@
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
 	if((species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic.
-		to_world("Pulse has to be none")
 		pulse = PULSE_NONE
 		return
 
@@ -74,7 +73,6 @@
 
 	//If heart is stopped, it isn't going to restart itself randomly.
 	if(pulse == PULSE_NONE)
-		to_world("Heart stopped, returning")
 		return
 	else //and if it's beating, let's see if it should
 		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump

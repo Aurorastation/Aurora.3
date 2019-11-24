@@ -658,6 +658,12 @@
 	required_reagents = list("mindbreaker" = 1, "carbon" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/adrenaline
+	name = "Adrenaline"
+	result = /datum/reagent/adrenaline
+	required_reagents = list("inaprovaline" = 1, "hyperzine" = 1, "dexalinp" = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/paroxetine
 	name = "Paroxetine"
 	id = "paroxetine"

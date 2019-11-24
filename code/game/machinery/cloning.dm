@@ -109,7 +109,7 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
+	H.setCloneLoss(H.maxHealth * (100 - 75) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
 	H.adjustBrainLoss(50, 55) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
@@ -162,7 +162,7 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * (occupant.health - occupant.maxHealth * config.health_threshold_crit / 100) / (occupant.maxHealth * (heal_level - config.health_threshold_crit) / 100), 100)
+	return between(0, 100 * (occupant.health - occupant.maxHealth * 75 / 100) / (occupant.maxHealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/machinery_process()

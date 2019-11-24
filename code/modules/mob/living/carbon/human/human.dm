@@ -1651,3 +1651,28 @@
 		if(!brain || (brain.status & ORGAN_DEAD))
 			return TRUE
 	return species.handle_death_check(src)
+
+/mob/living/carbon/human/should_have_organ(var/organ_check)
+	return (species && species.has_organ[organ_check])
+
+/mob/living/carbon/human/proc/resuscitate()
+	if(!is_asystole() || !should_have_organ(BP_HEART))
+		return
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(istype(heart) && !(heart.status & ORGAN_DEAD))
+		var/active_breaths = 0
+		if(!nervous_system_failure() && active_breaths)
+			visible_message("\The [src] jerks and gasps for breath!")
+		else
+			visible_message("\The [src] twitches a bit as \his heart restarts!")
+		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
+		if(getOxyLoss() >= 75)
+			setOxyLoss(75)
+		heart.pulse = PULSE_NORM
+		heart.handle_pulse()
+		return TRUE
+
+/mob/living/carbon/human/proc/make_reagent(amount, reagent_type) //WARNING: This takes a reagent type.
+	if(stat == CONSCIOUS)
+		var/limit = max(0, reagents.get_overdose(reagent_type) - reagents.get_reagent_amount(reagent_type))
+		reagents.add_reagent(reagent_type, min(amount, limit))

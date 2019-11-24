@@ -1102,7 +1102,7 @@
 
 	if(traumatic_shock >= 80)
 		shock_stage += 1
-	else if(health < config.health_threshold_softcrit)
+	else if(is_asystole())
 		shock_stage = max(shock_stage, 61)
 	else
 		shock_stage = min(shock_stage, 160)

@@ -73,17 +73,6 @@
 	if(breath && (breath.total_moles/(owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
 		rupture()
 
-	//check if we actually need to process breath
-	if(!breath || (breath.total_moles == 0))
-		owner.failed_last_breath = 1
-		if(owner.health > config.health_threshold_crit)
-			owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
-		else
-			owner.adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
-
-		owner.oxygen_alert = max(owner.oxygen_alert, 1)
-		return 0
-
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 
 	if(is_broken())
