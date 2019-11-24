@@ -42,7 +42,7 @@
 	if((status & ORGAN_DEAD) && dead_icon)
 		icon_state = dead_icon
 
-/obj/item/organ/internal/proc/is_usable()
+/obj/item/organ/internal/is_usable()
 	return ..() && !is_broken()
 
 /obj/item/organ/internal/robotize()

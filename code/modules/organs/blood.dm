@@ -128,7 +128,6 @@
 
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
-	to_world("INITIAL BLOOD VOLUME VOLUME: [get_blood_circulation()]") //TODOMATT
 	if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
 		return min(blood_volume, BLOOD_VOLUME_SURVIVE)
 
@@ -136,17 +135,13 @@
 		return blood_volume
 
 	var/blood_volume_mod = max(0, 1 - getOxyLoss()/(species.total_health/2))
-	to_world("INITIAL BLOOD VOLUME MOD: [blood_volume_mod]")
 	var/oxygenated_mult = 0
 	if(chem_effects[CE_OXYGENATED] == 1) // Dexalin.
 		oxygenated_mult = 0.5
 	else if(chem_effects[CE_OXYGENATED] >= 2) // Dexplus.
 		oxygenated_mult = 0.8
 	blood_volume_mod = blood_volume_mod + oxygenated_mult - (blood_volume_mod * oxygenated_mult)
-	to_world("FINAL BLOOD VOLUME MOD: [blood_volume_mod]")
 	blood_volume = blood_volume * blood_volume_mod
-	to_world("FINAL BLOOD VOLUME: [blood_volume]")
-	to_world("----")
 	return min(blood_volume, 100)
 
 /****************************************************

@@ -26,12 +26,13 @@
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
 	if((species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic.
+		to_world("Pulse has to be none")
 		pulse = PULSE_NONE
+		return
 
 	// pulse mod starts out as just the chemical effect amount
 	var/pulse_mod = owner.chem_effects[CE_PULSE]
 	var/is_stable = owner.chem_effects[CE_STABLE]
-
 
 	//handles different chems' influence on pulse
 	for(var/datum/reagent/R in owner.reagents.reagent_list)
@@ -73,10 +74,10 @@
 
 	//If heart is stopped, it isn't going to restart itself randomly.
 	if(pulse == PULSE_NONE)
+		to_world("Heart stopped, returning")
 		return
 	else //and if it's beating, let's see if it should
 		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
-		to_world("BLOOD CIRCULATION: [owner.get_blood_circulation()]")
 		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
@@ -100,17 +101,13 @@
 			pulse++
 
 /obj/item/organ/internal/heart/proc/handle_heartbeat()
-	if(pulse == PULSE_NONE || !owner.species.has_organ[BP_HEART])
-		return
-
-	if(!src || status & ORGAN_ROBOT)
-		return
-
-	if(pulse >= PULSE_2FAST || owner.shock_stage >= 10 || istype(get_turf(src), /turf/space))
-		//PULSE_THREADY - maximum value for pulse, currently it 5.
+	if(pulse >= PULSE_2FAST || owner.shock_stage >= 10)
+		//PULSE_THREADY - maximum value for pulse, currently it is 5.
 		//High pulse value corresponds to a fast rate of heartbeat.
 		//Divided by 2, otherwise it is too slow.
-		var/rate = (PULSE_THREADY - pulse) / 2
+		var/rate = (PULSE_THREADY - pulse)/2
+		if(owner.chem_effects[CE_PULSE] > 2)
+			heartbeat++
 
 		if(heartbeat >= rate)
 			heartbeat = 0
