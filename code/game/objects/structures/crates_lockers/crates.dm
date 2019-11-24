@@ -33,9 +33,9 @@
 			var/mob/living/L = usr
 			var/touchy_hand
 			if(L.hand)
-				touchy_hand = "r_hand"
+				touchy_hand = BP_R_HAND
 			else
-				touchy_hand = "l_hand"
+				touchy_hand = BP_L_HAND
 			if(L.electrocute_act(17, src, ground_zero = touchy_hand))
 				spark(src, 5, alldirs)
 				if(L.stunned)
@@ -525,6 +525,15 @@
 	icon_state = "weaponcrate"
 	icon_opened = "weaponcrateopen"
 	icon_closed = "weaponcrate"
+
+/obj/structure/closet/crate/secure/legion
+	name = "foreign legion supply crate"
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
+	icon_state = "tcflcrate"
+	icon_opened = "tcflcrateopen"
+	icon_closed = "tcflcrate"
+	req_access = list(access_legion)
+	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"

@@ -181,8 +181,8 @@
 				var/sound = "heartbeat"
 				var/sound_strength = "cannot hear"
 				var/heartbeat = 0
-				if(M.species && M.species.has_organ["heart"])
-					var/obj/item/organ/heart/heart = M.internal_organs_by_name["heart"]
+				if(M.species && M.species.has_organ[BP_HEART])
+					var/obj/item/organ/internal/heart/heart = M.internal_organs_by_name[BP_HEART]
 					if(heart && !heart.robotic)
 						heartbeat = 1
 				if(M.stat == DEAD || (M.status_flags&FAKEDEATH))
@@ -190,24 +190,24 @@
 					sound = "anything"
 				else
 					switch(body_part)
-						if("chest")
+						if(BP_CHEST)
 							sound_strength = "hear"
 							sound = "no heartbeat"
 							if(heartbeat)
-								var/obj/item/organ/heart/heart = M.internal_organs_by_name["heart"]
+								var/obj/item/organ/internal/heart/heart = M.internal_organs_by_name[BP_HEART]
 								if(heart.is_bruised() || M.getOxyLoss() > 50)
 									sound = "[pick("odd noises in","weak")] heartbeat"
 								else
 									sound = "healthy heartbeat"
 
-							var/obj/item/organ/heart/L = M.internal_organs_by_name["lungs"]
+							var/obj/item/organ/internal/heart/L = M.internal_organs_by_name[BP_LUNGS]
 							if(!L || M.losebreath)
 								sound += " and no respiration"
 							else if(M.is_lung_ruptured() || M.getOxyLoss() > 50)
 								sound += " and [pick("wheezing","gurgling")] sounds"
 							else
 								sound += " and healthy respiration"
-						if("eyes","mouth")
+						if(BP_EYES,"mouth")
 							sound_strength = "cannot hear"
 							sound = "anything"
 						else
@@ -218,6 +218,19 @@
 				user.visible_message("[user] places [src] against [M]'s [body_part] and listens attentively.", "You place [src] against [their] [body_part]. You [sound_strength] [sound].")
 				return
 	return ..(M,user)
+
+//Religious items
+/obj/item/clothing/accessory/rosary
+	name = "rosary"
+	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
+	icon = 'icons/obj/clothing/chaplain.dmi'
+	icon_state = "rosary"
+	overlay_state = "rosary"
+	flippable = 1
+
+	slot_flags = SLOT_BELT | SLOT_TIE
+
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 //Medals
 /obj/item/clothing/accessory/medal

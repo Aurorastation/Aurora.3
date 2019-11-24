@@ -312,3 +312,10 @@
 	name = "canister shot"
 	desc = "A solid projectile filled with deadly shrapnel."
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/canister
+
+/obj/item/ammo_casing/nuke
+	name = "miniaturized nuclear warhead"
+	icon_state = "nuke"
+	caliber = "nuke"
+	desc = "A miniaturized version of a nuclear bomb."
+	projectile_type = /obj/item/projectile/bullet/nuke

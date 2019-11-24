@@ -57,12 +57,12 @@
 		)
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/vox,
-		"lungs" =    /obj/item/organ/lungs/vox,
-		"liver" =    /obj/item/organ/liver/vox,
-		"kidneys" =  /obj/item/organ/kidneys/vox,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes,
+		BP_HEART =    /obj/item/organ/internal/heart/vox,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
+		BP_LIVER =    /obj/item/organ/internal/liver/vox,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes,
 		"stack" =    /obj/item/organ/stack/vox
 		)
 
@@ -105,12 +105,12 @@
 
 	// Pariahs have no stack.
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/vox,
-		"lungs" =    /obj/item/organ/lungs/vox,
-		"liver" =    /obj/item/organ/liver/vox,
-		"kidneys" =  /obj/item/organ/kidneys/vox,
-		"brain" =    /obj/item/organ/pariah_brain,
-		"eyes" =     /obj/item/organ/eyes
+		BP_HEART =    /obj/item/organ/internal/heart/vox,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
+		BP_LIVER =    /obj/item/organ/internal/liver/vox,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
+		BP_BRAIN =    /obj/item/organ/internal/pariah_brain,
+		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 	spawn_flags = IS_RESTRICTED
 

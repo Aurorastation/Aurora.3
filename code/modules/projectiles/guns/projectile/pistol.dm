@@ -137,7 +137,7 @@
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon_state = "deagle"
-	force = 14.0
+	force = 10
 	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
@@ -152,6 +152,11 @@
 		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-e"
+
+/obj/item/gun/projectile/deagle/adhomai
+	name = "adhomian heavy pistol"
+	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
+	icon_state = "adhomian_heavy_pistol"
 
 /obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
@@ -316,7 +321,7 @@
 
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
-	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and political commissars."
+	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon_state = "adhomian_pistol"
 	item_state = "pistol"
 	can_silence = FALSE

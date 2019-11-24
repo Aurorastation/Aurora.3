@@ -156,7 +156,7 @@
 	var/total_damage = 0
 	for(var/i in 1 to 3)
 		var/damage = min(W.force*1.5, 20)*damage_mod
-		apply_damage(damage, W.damtype, "head", 0, sharp=W.sharp, edge=W.edge)
+		apply_damage(damage, W.damtype, BP_HEAD, 0, sharp=W.sharp, edge=W.edge)
 		total_damage += damage
 
 	var/oxyloss = total_damage
@@ -173,6 +173,12 @@
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, 50, 1, -1)
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/organ/external/head = H.get_organ("head")
+		if(head)
+			head.sever_artery()
 
 	G.last_action = world.time
 	flick(G.hud.icon_state, G.hud)

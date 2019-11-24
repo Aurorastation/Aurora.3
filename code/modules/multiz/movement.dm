@@ -55,7 +55,7 @@
 		return FALSE
 
 	if(!destination.CanZPass(src, direction))
-		to_chat(src, "<span class='warning'>You bump against \the [destination].</span>")
+		to_chat(src, span("warning", "\The [destination] is in the way!"))
 		return FALSE
 
 	var/area/area = get_area(src)
@@ -72,9 +72,20 @@
 			to_chat(src, "<span class='warning'>\The [A] blocks you.</span>")
 			return FALSE
 
+	var/txt_dir = direction & UP ? "upwards" : "downwards"
+	start.visible_message(span("notice", "[src] moves [txt_dir]."))
+
 	// Actually move.
 	Move(destination)
 	return TRUE
+
+/mob/living/carbon/human/zMove(direction)
+	. = ..()
+	if(.)
+		for(var/obj/item/grab/G in list(l_hand, r_hand))
+			if(G.state >= GRAB_NECK && G.affecting && !(G.affecting.buckled)) //strong grip and not buckled
+				G.affecting.Move(get_turf(src))
+				visible_message(span("warning", "[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
@@ -326,13 +337,17 @@
 
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
-	if (!restrained())
+	if(!restrained())
 		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
-		if (thrust && thrust.stabilization_on &&\
+		if(thrust && thrust.stabilization_on &&\
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
+	for(var/mob/living/carbon/human/H in range(1, src)) // can't fall if someone's holding you
+		for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
+			if(G.state >= GRAB_AGGRESSIVE && G.affecting == src)
+				return FALSE
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()
@@ -463,15 +478,15 @@
 		var/groin_damage = rand(0,damage/4)
 
 
-		apply_damage(left_damage, BRUTE, "l_leg")
-		apply_damage(right_damage, BRUTE, "r_leg")
+		apply_damage(left_damage, BRUTE, BP_L_LEG)
+		apply_damage(right_damage, BRUTE, BP_R_LEG)
 
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, "r_foot")
+			apply_damage(leftf_damage, BRUTE, BP_R_FOOT)
 		if(prob(50))
-			apply_damage(leftf_damage, BRUTE, "l_foot")
+			apply_damage(leftf_damage, BRUTE, BP_L_FOOT)
 		if(prob(50))
-			apply_damage(groin_damage, BRUTE, "groin")
+			apply_damage(groin_damage, BRUTE, BP_GROIN)
 
 		visible_message("<span class='warning'>\The [src] falls and lands directly on their legs!</span>",
 			"<span class='danger'>You land on your feet, and the impact brings you to your knees.</span>")
@@ -484,13 +499,13 @@
 		var/lefth_damage = rand(0,damage/4)
 		var/righth_damage = rand(0,damage/4)
 
-		apply_damage(left_damage, BRUTE, "l_arm")
-		apply_damage(right_damage, BRUTE, "r_arm")
+		apply_damage(left_damage, BRUTE, BP_L_ARM)
+		apply_damage(right_damage, BRUTE, BP_R_ARM)
 
 		if(prob(50))
-			apply_damage(lefth_damage, BRUTE, "r_hand")
+			apply_damage(lefth_damage, BRUTE, BP_R_HAND)
 		if(prob(50))
-			apply_damage(righth_damage, BRUTE, "l_hand")
+			apply_damage(righth_damage, BRUTE, BP_L_HAND)
 
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
@@ -498,7 +513,7 @@
 			"<span class='danger'>You brace your fall with your arms, hitting \the [loc] with a loud thud.</span>", "You hear a thud!")
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
-		apply_damage(limb_damage, BRUTE, "head")
+		apply_damage(limb_damage, BRUTE, BP_HEAD)
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
@@ -509,7 +524,7 @@
 				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	if(!limb_damage)
-		apply_damage(damage, BRUTE, "chest")
+		apply_damage(damage, BRUTE, BP_CHEST)
 
 	Weaken(rand(damage/4, damage/2))
 
@@ -626,8 +641,8 @@
 	if (ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/cranial_damage = rand(0,damage/2)
-		H.apply_damage(cranial_damage, BRUTE, "head")
-		H.apply_damage((damage - cranial_damage), BRUTE, "chest")
+		H.apply_damage(cranial_damage, BRUTE, BP_HEAD)
+		H.apply_damage((damage - cranial_damage), BRUTE, BP_CHEST)
 
 		if (damage >= THROWNOBJ_KNOCKBACK_DIVISOR)
 			H.Weaken(rand(damage / 4, damage / 2))

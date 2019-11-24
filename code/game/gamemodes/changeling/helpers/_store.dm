@@ -38,8 +38,8 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/lesser_form
 	name = "Lesser Form"
-	desc = "We debase ourselves and become lesser. We become a monkey."
-	genomecost = 4
+	desc = "We debase ourselves and become lesser. We become a weaker, but more mobile form."
+	genomecost = 2
 	verbpath = /mob/proc/changeling_lesser_form
 
 /datum/power/changeling/mimicvoice
@@ -54,7 +54,6 @@ var/list/datum/power/changeling/powerinstances = list()
 	desc = "We fake our own death, imperceptible to even the best of doctors. We can choose when to re-animate."
 	helptext = "Can be used before or after death. Duration varies greatly."
 	genomecost = 0
-	allowduringlesserform = TRUE
 	verbpath = /mob/proc/changeling_fakedeath
 
 //Hivemind

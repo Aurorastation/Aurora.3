@@ -80,7 +80,7 @@
 		if(safety <= 0)
 			flick("e_flash", M.flash)
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.get_eyes()
+			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
 				return
 

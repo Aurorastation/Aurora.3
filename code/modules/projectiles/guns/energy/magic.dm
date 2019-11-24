@@ -37,10 +37,10 @@ obj/item/gun/energy/staff/special_check(var/mob/living/user)
 					continue
 				H.drop_from_inventory(W)
 			playsound(user, 'sound/weapons/emitter.ogg', 40, 1)
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
-			var/obj/item/organ/external/LL = H.get_organ("l_leg")
-			var/obj/item/organ/external/RL = H.get_organ("r_leg")
+			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
+			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
+			var/obj/item/organ/external/LL = H.get_organ(BP_L_LEG)
+			var/obj/item/organ/external/RL = H.get_organ(BP_R_LEG)
 			LA.droplimb(0,DROPLIMB_BLUNT)
 			RA.droplimb(0,DROPLIMB_BLUNT)
 			LL.droplimb(0,DROPLIMB_BLUNT)
@@ -80,8 +80,8 @@ obj/item/gun/energy/staff/animate/special_check(var/mob/living/user)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_hand")
-			var/obj/item/organ/external/RA = H.get_organ("r_hand")
+			var/obj/item/organ/external/LA = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/RA = H.get_organ(BP_R_HAND)
 			var/active_hand = H.hand
 			playsound(user, 'sound/effects/blobattack.ogg', 40, 1)
 			user.visible_message("<span class = 'danger'> With a sickening crunch, [user]'s hand rips itself off, and begins crawling away!</span>")
@@ -116,8 +116,8 @@ obj/item/gun/energy/staff/focus/special_check(var/mob/living/user)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
+			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
 			var/active_hand = H.hand
 			playsound(user, 'sound/magic/lightningbolt.ogg', 40, 1)
 			to_chat(user, "<span class='warning'>Coruscating waves of energy wreathe around your arm...hot...so <b>hot</b>!</span>")
@@ -168,7 +168,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		if(istype(user, /mob/living/carbon/human))
 			var/obj/P = consume_next_projectile()
 			if(P)
-				if(process_projectile(P, user, user, pick("head", "chest")))
+				if(process_projectile(P, user, user, pick(BP_HEAD, BP_CHEST)))
 					handle_post_fire(user, user)
 					user.visible_message("<span class='danger'>\The [src] backfires!</span>")
 					user.drop_item()
@@ -284,7 +284,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || "eyes","appendix","kidneys","liver", "heart", "lungs", "brain")]
+			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || BP_EYES,"appendix",BP_KIDNEYS,BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
 				to_chat(user, "<span class='notice'>You can't make any sense of the arcane glyphs... maybe you should try again.</span>")
 			else
@@ -321,7 +321,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
-			H.apply_damage(35, BRUTE, "head", 0, sharp=0, edge=0)
+			H.apply_damage(35, BRUTE, BP_HEAD, 0, sharp=0, edge=0)
 			H.adjustBrainLoss(50, 55)
 			H.sdisabilities += CLUMSY
 			H.drop_item()

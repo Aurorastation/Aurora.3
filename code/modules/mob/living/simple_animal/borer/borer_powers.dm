@@ -72,12 +72,12 @@
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 
-		var/obj/item/organ/external/E = H.organs_by_name["head"]
+		var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
 		if(!E || E.is_stump())
 			to_chat(src, "\The [H] does not have a head!")
 			return
 
-		if(!H.species.has_organ["brain"])
+		if(!H.species.has_organ[BP_BRAIN])
 			to_chat(src, "\The [H] does not seem to have an ear canal to breach.")
 			return
 
@@ -117,12 +117,12 @@
 
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/I = H.internal_organs_by_name["brain"]
+			var/obj/item/organ/I = H.internal_organs_by_name[BP_BRAIN]
 			if(!I) // No brain organ, so the borer moves in and replaces it permanently.
 				replace_brain()
 			else
 				// If they're in normally, implant removal can get them out.
-				var/obj/item/organ/external/head = H.get_organ("head")
+				var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 				head.implants += src
 
 		return
@@ -185,10 +185,10 @@
 	H.ChangeToHusk()
 
 	var/obj/item/organ/borer/B = new(H)
-	H.internal_organs_by_name["brain"] = B
+	H.internal_organs_by_name[BP_BRAIN] = B
 	H.internal_organs |= B
 
-	var/obj/item/organ/external/affecting = H.get_organ("head")
+	var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 	affecting.implants -= src
 
 	var/s2h_id = src.computer_id
