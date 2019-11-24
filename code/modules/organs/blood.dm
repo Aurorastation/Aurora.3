@@ -99,6 +99,42 @@ var/const/BLOOD_VOLUME_SURVIVE = 122
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
 
+/mob/living/carbon/human/proc/get_blood_volume()
+	return round((vessel.get_reagent_amount("blood")/species.blood_volume)*100)
+
+/mob/living/carbon/human/proc/get_blood_circulation()
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	var/blood_volume = get_blood_volume()
+	if(!heart)
+		return 0.25 * blood_volume
+
+	var/recent_pump = LAZYACCESS(heart.external_pump, 1) > world.time - (20 SECONDS)
+	var/pulse_mod = 1
+	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
+		pulse_mod = 1
+	else
+		switch(heart.pulse)
+			if(PULSE_NONE)
+				if(recent_pump)
+					pulse_mod = LAZYACCESS(heart.external_pump, 2)
+				else
+					pulse_mod *= 0.25
+			if(PULSE_SLOW)
+				pulse_mod *= 0.9
+			if(PULSE_FAST)
+				pulse_mod *= 1.1
+			if(PULSE_2FAST, PULSE_THREADY)
+				pulse_mod *= 1.25
+	blood_volume *= pulse_mod
+
+	var/min_efficiency = recent_pump ? 0.5 : 0.3
+	blood_volume *= max(min_efficiency, (1-(heart.damage / heart.max_damage)))
+
+	if(!heart.open && chem_effects[CE_BLOCKAGE])
+		blood_volume *= max(0, 1-chem_effects[CE_BLOCKAGE])
+
+	return min(blood_volume, 100)
+
 /****************************************************
 				BLOOD TRANSFERS
 ****************************************************/

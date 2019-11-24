@@ -1629,3 +1629,10 @@
 		return heart.pulse
 	else
 		return FALSE
+
+//Get fluffy numbers
+/mob/living/carbon/human/proc/get_blood_pressure()
+	if(status_flags & FAKEDEATH)
+		return "[Floor(120+rand(-5,5))*0.25]/[Floor(80+rand(-5,5)*0.25)]"
+	var/blood_result = get_blood_circulation()
+	return "[Floor((120+rand(-5,5))*(blood_result/100))]/[Floor((80+rand(-5,5))*(blood_result/100))]"
