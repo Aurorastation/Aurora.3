@@ -62,7 +62,7 @@
 	icon_state = "heavy_body"
 	max_damage = 150
 	mech_health = 500
-	has_hardpoints = list(HARDPOINT_BACK)
+	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	power_use = 25000
 
 /obj/item/mech_component/chassis/heavy/prebuild()

@@ -208,13 +208,10 @@
 	name = "drill head"
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
-	material = DEFAULT_WALL_MATERIAL
 
-/obj/item/material/drill_head/New(var/newloc, var/material_key)
-    ..(newloc)
-    if(!material_key)
-        material_key = default_material
-    durability = 2 * material.integrity
+/obj/item/material/drill_head/New(var/newloc)
+	. = ..()
+	durability = 2 * material.integrity
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -237,7 +234,7 @@
 	if(.)
 		if(drill_head)
 			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menancingly.</span>")
-			playsound(src, 'sound/weapons/saw/circsawhit.ogg', 50, 1)
+			playsound(src, 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
@@ -284,38 +281,83 @@
 					drill_head.durability -= 1
 					log_and_message_admins("used [src] on the wall [W].", user, owner.loc)
 				else if(istype(target, /turf/simulated/mineral))
-					for(var/turf/simulated/mineral/M in range(target,1))
+					for(var/turf/simulated/mineral/M in range(owner,1))
 						if(get_dir(owner,M)&owner.dir)
 							M.GetDrilled()
 							drill_head.durability -= 1
+					if(owner.hardpoints.len)
+						for(var/hardpoint in owner.hardpoints)
+							var/obj/item/mecha_equipment/clamp/I = owner.hardpoints[hardpoint]
+							if(!istype(I))
+								continue
+							var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I
+							if(ore_box)
+								for(var/obj/item/ore/ore in range(owner,1))
+									if(get_dir(owner,ore)&owner.dir)
+										ore.Move(ore_box)
 				else if(istype(target, /turf/unsimulated/floor/asteroid))
-					for(var/turf/unsimulated/floor/asteroid/M in range(target,1))
+					for(var/turf/unsimulated/floor/asteroid/M in range(owner,1))
 						if(get_dir(owner,M)&owner.dir)
 							M.gets_dug()
 							drill_head.durability -= 1
+					if(owner.hardpoints.len)
+						for(var/hardpoint in owner.hardpoints)
+							var/obj/item/mecha_equipment/clamp/I = owner.hardpoints[hardpoint]
+							if(!istype(I))
+								continue
+							var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I
+							if(ore_box)
+								for(var/obj/item/ore/ore in range(owner,1))
+									if(get_dir(owner,ore)&owner.dir)
+										ore.Move(ore_box)
 				else if(target.loc == T)
 					target.ex_act(2)
 					drill_head.durability -= 1
 					log_and_message_admins("[src] used to drill [target].", user, owner.loc)
 
-
-
-
-				if(owner.hardpoints.len) //if this isn't true the drill should not be working to be fair
-					for(var/hardpoint in owner.hardpoints)
-						var/obj/item/I = owner.hardpoints[hardpoint]
-						if(!istype(I))
-							continue
-						var/obj/structure/ore_box/ore_box = locate(/obj/structure/ore_box) in I //clamps work, but anythin that contains an ore crate internally is valid
-						if(ore_box)
-							for(var/obj/item/ore/ore in range(T,1))
-								if(get_dir(owner,ore)&owner.dir)
-									ore.Move(ore_box)
-
-				playsound(src, 'sound/weapons/saw/circsawhit.ogg', 50, 1)
+				playsound(src, 'sound/mecha/mechdrill.ogg', 50, 1)
 
 		else
 			to_chat(user, "You must stay still while the drill is engaged!")
 
 
 		return 1
+
+/obj/item/mecha_equipment/mounted_system/flarelauncher
+	name = "flare launcher"
+	desc = "The SGL-6 Special grenade launcher has been retooled to fire lit flares for emergency illumination."
+	icon_state = "mech_flaregun"
+	holding_type = /obj/item/gun/launcher/mech/flarelauncher
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+
+/obj/item/gun/launcher/mech/flarelauncher
+	name = "mounted flare launcher"
+	desc = "Shouldn't be seeing this."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "smg"
+	item_state = "smg"
+	fire_sound = 'sound/items/flare.ogg'
+
+	release_force = 5
+	throw_distance = 7
+	proj = 3
+	max_proj = 3
+	proj_gen_time = 400
+
+
+/obj/item/gun/launcher/mech/flarelauncher/consume_next_projectile()
+	if(proj < 1) return null
+	var/obj/item/device/flashlight/flare/mech/g = new (src)
+	proj--
+	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	return g
+
+/obj/item/device/flashlight/flare/mech/Initialize()
+	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
+	on = 1
+	src.force = on_damage
+	src.damtype = "fire"
+	update_icon()
+	START_PROCESSING(SSprocessing, src)
+	..()

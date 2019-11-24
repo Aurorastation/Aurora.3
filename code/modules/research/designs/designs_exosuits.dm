@@ -251,7 +251,7 @@
 /datum/design/item/mechfab/exosuit/weapon/plasma
 	name = "mounted plasma cutter"
 	id = "mech_plasma"
-	materials = list(DEFAULT_WALL_MATERIAL = 30000)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/plasmacutter
 
@@ -291,3 +291,39 @@
 	name = "mounted extinguisher"
 	id   = "mecha_extinguisher"
 	build_path = /obj/item/mecha_equipment/mounted_system/extinguisher
+
+/datum/design/item/mechfab/exosuit/xray
+	name = "xray gun"
+	id = "xray_gun"
+	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4, TECH_MATERIAL = 5, TECH_ILLEGAL = 3)
+	build_path = /obj/item/mecha_equipment/mounted_system/xray
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "phoron" = 6000)
+
+/datum/design/item/mechfab/exosuit/flashbang
+	name = "flashbang launcher"
+	id = "flashbang_launcher"
+	req_tech = list(TECH_COMBAT = 3)
+	build_path = /obj/item/mecha_equipment/mounted_system/grenadeflash
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "phoron" = 6000)
+
+
+/datum/design/item/mechfab/exosuit/crisisdrone
+	name = "crisis drone"
+	id = "crisis_drone"
+	build_path = /obj/item/mecha_equipment/crisis_drone
+	req_tech = list(TECH_MAGNET = 3, TECH_DATA = 3, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, "gold" = 1000, "silver" = 2000, "glass" = 5000)
+
+/datum/design/item/mechfab/exosuit/analyzer
+	name = "mounted health analyzer"
+	id   = "mech_analyzer"
+	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 5000)
+	build_path = /obj/item/mecha_equipment/mounted_system/medanalyzer
+
+/datum/design/item/mechfab/exosuit/flaregun
+	name = "mounted flare launcher"
+	id   = "mech_flare"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mecha_equipment/mounted_system/flarelauncher
+
