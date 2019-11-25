@@ -1590,6 +1590,8 @@
 /mob/living/carbon/human/is_clumsy()
 	if(CLUMSY in mutations)
 		return TRUE
+	if(CE_CLUMSY in chem_effects)
+		return TRUE
 
 	var/bac = get_blood_alcohol()
 	var/SR = species.ethanol_resistance

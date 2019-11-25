@@ -13,6 +13,7 @@
 	throw_range = 5
 	origin_tech = list(TECH_BIO = 3)
 	attack_verb = list("attacked", "slapped", "whacked")
+	toxin_type = CE_NEUROTOXIC
 	var/mob/living/carbon/brain/brainmob = null
 	var/list/datum/brain_trauma/traumas = list()
 	var/lobotomized = 0

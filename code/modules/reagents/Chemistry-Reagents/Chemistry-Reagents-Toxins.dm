@@ -14,8 +14,7 @@
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
-		M.add_chemical_effect(CE_TOXIN, 1)
-		M.adjustToxLoss(strength * removed)
+		M.add_chemical_effect(CE_TOXIN, strength * removed)
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
@@ -59,7 +58,6 @@
 	taste_description = "stinging needles"
 
 /datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustHalLoss(removed*15)
 
 /datum/reagent/toxin/phoron
@@ -140,7 +138,7 @@
 /datum/reagent/toxin/cardox
 	name = "Cardox"
 	id = "cardox"
-	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
+	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
 	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
@@ -154,10 +152,9 @@
 
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.add_chemical_effect(CE_TOXIN, 1)
-		M.adjustToxLoss(removed * strength*2)
+		M.add_chemical_effect(CE_TOXIN, removed * strength * 2)
 	else
-		M.adjustToxLoss(removed * strength)
+		M.add_chemical_effect(CE_TOXIN, removed * strength)
 
 /datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
@@ -436,8 +433,7 @@
 		return
 	if(prob(10))
 		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
-		M.add_chemical_effect(CE_TOXIN, 10)
-		M.adjustToxLoss(rand(100, 300) * removed)
+		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
 
@@ -495,8 +491,7 @@
 		M.sleeping = max(M.sleeping, 30)
 
 	if(dose > 1)
-		M.add_chemical_effect(CE_TOXIN, 2)
-		M.adjustToxLoss(removed)
+		M.add_chemical_effect(CE_TOXIN, removed)
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
@@ -646,7 +641,7 @@
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(20))
-		M.adjustBrainLoss(5)
+		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/toxin/berserk/Destroy()
 	QDEL_NULL(modifier)

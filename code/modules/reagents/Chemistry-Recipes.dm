@@ -138,10 +138,10 @@
 
 /* Common reactions */
 
-/datum/chemical_reaction/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	result = "inaprovaline"
+/datum/chemical_reaction/norepinephrine
+	name = "Norepinephrine"
+	id = "norepinephrine"
+	result = "norepinephrine"
 	required_reagents = list("acetone" = 1, "carbon" = 1, "sugar" = 1)
 	result_amount = 3
 
@@ -156,7 +156,7 @@
 	name = "Tramadol"
 	id = "tramadol"
 	result = "tramadol"
-	required_reagents = list("inaprovaline" = 1, "ethanol" = 1, "acetone" = 1)
+	required_reagents = list("norepinephrine" = 1, "ethanol" = 1, "acetone" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/paracetamol
@@ -293,7 +293,7 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = "tricordrazine"
-	required_reagents = list("inaprovaline" = 1, "anti_toxin" = 1)
+	required_reagents = list("epinephrine" = 1, "anti_toxin" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/alkysine
@@ -330,8 +330,8 @@
 	name = "Bicaridine"
 	id = "bicaridine"
 	result = "bicaridine"
-	required_reagents = list("inaprovaline" = 1, "carbon" = 1)
-	inhibitors = list("sugar" = 1) // Messes up with inaprovaline
+	required_reagents = list("norepinephrine" = 1, "carbon" = 1)
+	inhibitors = list("sugar" = 1) // Messes with norepinephrine
 	result_amount = 2
 
 /datum/chemical_reaction/hyperzine
@@ -614,13 +614,6 @@
 	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
 	result_amount = 1
 
-/datum/chemical_reaction/omnizine
-	name = "Omnizine"
-	id = "omnizine"
-	result = "omnizine"
-	required_reagents = list("tricordrazine" = 1, "sugar" = 1, "carbon" = 1 )
-	result_amount = 3
-
 /datum/chemical_reaction/atropine
 	name = "Atropine"
 	id = "atropine"
@@ -628,11 +621,11 @@
 	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
 	result_amount = 2
 
-/datum/chemical_reaction/epinephrine
-	name = "Epinephrine"
-	id = "epinephrine"
-	result = "epinephrine"
-	required_reagents = list("atropine" = 1, "phoron" = 0.1, "inaprovaline" = 1 )
+/datum/chemical_reaction/inaprovaline
+	name = "Inaprovaline"
+	id = "inaprovaline"
+	result = "inaprovaline"
+	required_reagents = list("atropine" = 1, "phoron" = 0.1, "adrenaline" = 1 )
 	result_amount = 2
 
 /datum/chemical_reaction/coughsyrup
@@ -660,15 +653,15 @@
 
 /datum/chemical_reaction/adrenaline
 	name = "Adrenaline"
-	result = /datum/reagent/adrenaline
-	required_reagents = list("inaprovaline" = 1, "hyperzine" = 1, "dexalinp" = 1)
+	result = "adrenaline"
+	required_reagents = list("norepinephrine" = 1, "hyperzine" = 1, "dexalinp" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/paroxetine
 	name = "Paroxetine"
 	id = "paroxetine"
 	result = "paroxetine"
-	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
+	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "norepinephrine" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/fluvoxamine
@@ -776,8 +769,8 @@
 	name = "Nightlife"
 	id = "night_juice"
 	result = "night_juice"
-	required_reagents = list("methylphenidate" = 1, "epinephrine" = 1, "synaptizine" = 1)
-	required_temperatures_min = list("methylphenidate" = T0C+300, "epinephrine" = T0C+300, "synaptizine" = T0C+300)
+	required_reagents = list("methylphenidate" = 1, "inaprovaline" = 1, "synaptizine" = 1)
+	required_temperatures_min = list("methylphenidate" = T0C+300, "inaprovaline" = T0C+300, "synaptizine" = T0C+300)
 	result_amount = 1 // doesn't make a lot
 
 /* Solidification */
@@ -3580,4 +3573,4 @@
 	id = "rmt"
 	result = "rmt"
 	result_amount = 1
-	required_reagents = list("potassium" = 1, "inaprovaline" = 1)
+	required_reagents = list("potassium" = 1, "norepinephrine" = 1)

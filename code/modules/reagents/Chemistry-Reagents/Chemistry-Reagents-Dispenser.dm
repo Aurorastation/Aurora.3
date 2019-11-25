@@ -159,9 +159,11 @@
 
 		if (halluci)
 			M.hallucination = max(M.hallucination, halluci)
-
-		if (caffeine && !caffeine_mod)
-			caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		
+		if(caffeine)
+			M.add_chemical_effect(CE_PULSE, caffeine*5)
+			if(!caffeine_mod)
+				caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))

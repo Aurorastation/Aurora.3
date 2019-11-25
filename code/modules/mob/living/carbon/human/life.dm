@@ -675,6 +675,23 @@
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
+		
+		if(CE_TOXIN in chem_effects)
+			adjustToxLoss(chem_effects[CE_TOXIN])
+		
+		if(CE_EMETIC in chem_effects)
+			var/nausea = chem_effects[CE_EMETIC]
+			if(CE_ANTIEMETIC in chem_effects)
+				nausea -= min(nausea, chem_effects[CE_ANTIEMETIC]) // so it can only go down to 0
+			if(prob(nausea))
+				delayed_vomit()
+		
+		if(CE_FEVER in chem_effects)
+			var/normal_temp = species?.body_temperature || (T0C+37)
+			var/fever = chem_effects[CE_FEVER]
+			if(CE_NOFEVER in chem_effects)
+				fever -= chem_effects[CE_NOFEVER] // a dose of 16u paracetamol should offset a stage 4 virus
+			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 5) // temperature should range from 37C to 42C, 98.6F to 107F
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)

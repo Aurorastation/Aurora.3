@@ -45,25 +45,43 @@
 #define IS_VAURCA  128
 #define IS_UNDEAD  256
 
-#define CE_STABLE "stable" // Inaprovaline
-#define CE_ANTIBIOTIC "antibiotic" // Spaceacilin
-#define CE_BLOODRESTORE "bloodrestore" // Iron/nutriment
-#define CE_PAINKILLER "painkiller"
-#define CE_TOXIN "toxins" //General toxins
-#define CE_ALCOHOL "alcohol" // Liver filtering
-#define CE_ALCOHOL_TOXIC "alcotoxic" // Liver damage
-#define CE_SPEEDBOOST "gofast" // Hyperzine
-#define CE_BERSERK "berserk"
-#define CE_PACIFIED "pacified"
+// Apply status effects
+#define CE_ALCOHOL      "alcohol"		// Liver filtering
+#define CE_ANTIEMETIC   "antiemetic"	// suppesses vomiting
+#define CE_BERSERK      "berserk"
+#define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
+#define CE_DROPITEM     "dropitem"		// keloderm side effect
+#define CE_EMETIC       "emetic"		// thetamycin side effect, ipecac
+#define CE_FEVER        "fever"			// causes fever
+#define CE_NOCOUGH      "nocough"		// suppresses coughing
+#define CE_NOFEVER      "nofever"		// suppresses fever
+#define CE_NOPULSE      "heartstop"		//Stops heartbeat
+#define CE_SEDATE       "sedation"
+#define CE_SLOWDOWN     "goslow"
+#define CE_SPEEDBOOST   "gofast"		// Hyperzine
+#define CE_STABLE       "stable"		// Epinephrine
+#define CE_PACIFIED     "pacified"
+#define CE_PAINKILLER   "painkiller"
+#define CE_PULSE        "xcardic"		//increases or decreases heartrate
 
-#define CE_OXYGENATED "oxygen" //Dexalin
-#define CE_NOPULSE "heartstop" //Stops heartbeat
-#define CE_PULSE "xcardic" //increases or decreases heartrate
-#define CE_ANTITOX "antitoxin" //Dylovene and stuff
+// Apply healing effects
+#define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
+#define CE_ANTITOX      "antitoxin"		//Dylovene and stuff
+#define CE_ANTIVIRAL    "antiviral"		// Deltamivir
+#define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
+#define CE_BRAIN_REGEN  "brainfix"
+#define CE_OXYGENATED   "oxygen"		//Dexalin
 
+// Deal damage
+#define CE_BREATHLOSS   "breathloss"
+#define CE_TOXIN        "toxins"		//General toxins
+#define CE_NEUROTOXIC   "braintoxic"
+#define CE_NEPHROTOXIC  "kidneytoxic"	// Kidney damage
+#define CE_HEPATOTOXIC  "livertoxic"	// Liver damage
+#define CE_CARDIOTOXIC  "hearttoxic"	// Heart damage
 
 // Chemistry lists.
-var/list/tachycardics  = list("coffee", "inaprovaline", "hyperzine", "nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.
+var/list/tachycardics  = list("nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.
 var/list/bradycardics  = list("neurotoxin", "cryoxadone", "clonexadone", "space_drugs", "stoxin")                 // Decrease heart rate.
 var/list/heartstopper  = list("potassium_chlorophoride", "zombie_powder") // This stops the heart.
 var/list/cheartstopper = list("potassium_chloride")                       // This stops the heart when overdose is met. -- c = conditional

@@ -4,6 +4,7 @@
 /obj/item/organ/internal
 	var/dead_icon // Icon to use when the organ has died.
 	var/damage_reduction = 0.5     //modifier for internal organ injury
+	var/toxin_type = "undefined"
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
@@ -95,6 +96,8 @@
 
 /obj/item/organ/internal/process()
 	..()
+	if(toxin_type in owner.chem_effects)
+		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
 	handle_regeneration()
 
 /obj/item/organ/internal/proc/heal_damage(amount)

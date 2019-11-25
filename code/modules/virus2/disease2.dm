@@ -112,9 +112,7 @@
 		for(var/mob/living/carbon/M in oview(1,mob))
 			if(airborne_can_reach(get_turf(mob), get_turf(M)))
 				infect_virus2(M,src)
-
-	//fever
-	mob.bodytemperature = max(mob.bodytemperature, min(310+5*min(stage,max_stage) ,mob.bodytemperature+5*min(stage,max_stage)))
+	mob.add_chemical_effect(CE_FEVER, min(stage, max_stage)*14/max_stage)
 	clicks+=speed
 
 /datum/disease2/disease/proc/cure(var/mob/living/carbon/mob)

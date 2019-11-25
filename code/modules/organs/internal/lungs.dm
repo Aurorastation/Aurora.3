@@ -12,6 +12,7 @@
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70
+	toxin_type = CE_PNEUMOTOXIC
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
 	var/oxygen_deprivation = 0
@@ -23,7 +24,7 @@
 
 	if(!owner)
 		return
-
+	
 	if(germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
 			owner.emote("cough")		//Respiratory tract infection

@@ -7,6 +7,7 @@
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 	max_damage = 45
+	toxin_type = CE_CARDIOTOXIC
 	var/pulse = PULSE_NORM	//current pulse level
 	var/heartbeat = 0
 	var/next_blood_squirt = 0
@@ -104,8 +105,11 @@
 		//High pulse value corresponds to a fast rate of heartbeat.
 		//Divided by 2, otherwise it is too slow.
 		var/rate = (PULSE_THREADY - pulse)/2
-		if(owner.chem_effects[CE_PULSE] > 2)
-			heartbeat++
+		switch(owner.chem_effects[CE_PULSE])
+			if(2 to INFINITY)
+				heartbeat++
+			if(-INFINITY to -2)
+				heartbeat--
 
 		if(heartbeat >= rate)
 			heartbeat = 0
