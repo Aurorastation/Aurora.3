@@ -169,7 +169,7 @@
 			if((K.plantname == "koisspore" || K.plantname == "blackkois") || (K.name == "kois" || K.name == "black kois"))
 				qdel(K)
 		for(var/obj/machinery/portable_atmospherics/hydroponics/H in T)
-			if((H.name == "kois" || H.name == "black kois") || H.seed == /datum/seed/koisspore)
+			if(((H.name == "kois" || H.name == "black kois") || H.seed == /datum/seed/koisspore) && !(H.closed_system))
 				H.health = 0 // kill this boi - geeves
 				H.force_update = TRUE // and quick
 				H.process()
