@@ -579,15 +579,7 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(dose/4))
-		to_chat(M, span("warning", "Your muscles feel sore..."))
-		M.adjustHalLoss(15) // side effects of antivirals include fever, muscle aches and fatigue
-	if(prob(dose/4))
-		to_chat(M, span("warning", "You feel tired..."))
-		M.drowsyness += 1
-	if(prob(dose/4))
-		to_chat(M, span("warning", "You feel cold and lethargic..."))
-		M.bodytemperature = max(M.bodytemperature, min(310+5, M.bodytemperature+5))
+	M.add_chemical_effect(CE_FEVER, dose/4)
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"

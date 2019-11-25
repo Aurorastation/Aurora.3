@@ -43,10 +43,12 @@
 			if(pulse <= PULSE_FAST && pulse >= PULSE_NONE)
 				pulse_mod++
 		if(R.id in heartstopper) //To avoid using fakedeath
+			pulse = PULSE_NONE
 			if(rand(0,6) == 3)
 				take_internal_damage(5)
 		if(R.id in cheartstopper) //Conditional heart-stoppage
 			if(R.volume >= R.overdose)
+				pulse = PULSE_NONE
 				if(rand(0,6) == 3)
 					take_internal_damage(5)
 

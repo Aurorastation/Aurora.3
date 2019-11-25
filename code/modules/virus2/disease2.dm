@@ -80,7 +80,7 @@
 			majormutate()
 
 	//Space antivirals stop disease completely
-	if(mob.reagents.has_reagent("deltamivir"))
+	if(CE_ANTIVIRAL in mob.chem_effects)
 		if(stage == 1 && prob(20))
 			src.cure(mob)
 		return
@@ -112,7 +112,7 @@
 		for(var/mob/living/carbon/M in oview(1,mob))
 			if(airborne_can_reach(get_turf(mob), get_turf(M)))
 				infect_virus2(M,src)
-	mob.add_chemical_effect(CE_FEVER, min(stage, max_stage)*14/max_stage)
+	mob.add_chemical_effect(CE_FEVER, (stage + (clicks/max(stage * 100,200)))*14/max_stage)
 	clicks+=speed
 
 /datum/disease2/disease/proc/cure(var/mob/living/carbon/mob)
