@@ -23,31 +23,31 @@ BREATH ANALYZER
 	var/mode = 1
 
 /obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
-	health_scan_mob(M, user, FALSE)
+	health_scan_mob(M, user, mode)
 	src.add_fingerprint(user)
 	return
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user, FALSE)
+	health_scan_mob(user, user, mode)
 	src.add_fingerprint(user)
 	return
 
 /proc/calcDamage(var/DMGValue)
 	switch(DMGValue)
 		if (0 to 1)
-			return "Healthy"
+			return "minor"
 		if (1 to 10)
-			return "Negligible"
+			return "moderate"
 		if (10 to 25)
-			return "Minor"
+			return "significant"
 		if (25 to 50)
-			return "Moderate"
+			return "severe"
 		if (50 to 75)
-			return "Major"
+			return "extreme"
 		if (75 to 200)
-			return "Critical"
+			return "critical"
 		if (200 to INFINITY)
-			return "Fatal"
+			return "fatal"
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE)
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
@@ -56,16 +56,21 @@ BREATH ANALYZER
 		to_chat(user, "Overall Status: Healthy</span>")
 		return
 
-	if (!usr.IsAdvancedToolUser())
+	if(!usr.IsAdvancedToolUser())
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
+
 	user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
 
-	if (!istype(M,/mob/living/carbon/human) || M.isSynthetic())
-		to_chat(user, "<span class='warning'>\The [scanner] is designed for organic humanoid patients only.</span>")
+	if(!istype(M, /mob/living/carbon/human))
+		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
 		return
 
 	var/mob/living/carbon/human/H = M
+
+	if(H.isSynthetic())
+		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		return
 
 	. = list()
 	var/header = list()
@@ -167,6 +172,21 @@ BREATH ANALYZER
 	if(H.getBruteLoss() > 50)
 		dat += "<span class='scan_red'>[b]Severe anatomical damage detected.[endb]</span>"
 
+	if(show_limb_damage)
+		var/list/damaged = H.get_damaged_organs(1,1)
+		if(damaged.len)
+			for(var/obj/item/organ/external/org in damaged)
+				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
+				if(org.brute_dam > 0)
+					limb_result = "[limb_result] \[<font color = 'red'><b>[calcDamage(org.brute_dam)] physical trauma</b></font>\]"
+				if(org.burn_dam > 0)
+					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[calcDamage(org.burn_dam)] burns</b></font>\]"
+				if(org.status & ORGAN_BLEEDING)
+					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
+				dat += limb_result
+		else
+			dat += "No detectable limb injuries."
+
 	for(var/name in H.organs_by_name)
 		var/obj/item/organ/external/e = H.organs_by_name[name]
 		if(!e)
@@ -205,38 +225,47 @@ BREATH ANALYZER
 	// Reagent data.
 	. += "[b]Reagent scan:[endb]"
 
+	var/print_reagent_default_message = TRUE
+
 	if(H.reagents.total_volume)
 		var/unknown = 0
 		var/reagentdata[0]
-		for(var/A in C.reagents.reagent_list)
+		for(var/A in H.reagents.reagent_list)
 			var/datum/reagent/R = A
 			if(R.scannable)
+				print_reagent_default_message = FALSE
 				reagentdata["[R.id]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.id), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
+			print_reagent_default_message = FALSE
 			dat += "<span class='notice'>Beneficial reagents detected in subject's blood:</span>"
 			for(var/d in reagentdata)
 				user.show_message(reagentdata[d])
 		if(unknown)
+			print_reagent_default_message = FALSE
 			dat += "<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
+
 	if(H.ingested && H.ingested.total_volume)
 		var/unknown = 0
 		for(var/datum/reagent/R in H.ingested.reagent_list)
 			if(R.scannable)
+				print_reagent_default_message = FALSE
 				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
 			else
 				++unknown
 		if(unknown)
+			print_reagent_default_message = FALSE
 			dat +=  "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+
+	if(print_reagent_default_message)
+		dat += "No results."
+
 	if(H.virus2.len)
-		for (var/ID in C.virus2)
+		for (var/ID in H.virus2)
 			var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
 			if(istype(V))
 				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
-
-	if(print_reagent_default_message)
-		. += "No results."
 
 	header = jointext(header, null)
 	. = jointext(.,"<br>")
@@ -245,7 +274,7 @@ BREATH ANALYZER
 	to_chat(user, "<hr>")
 	to_chat(user, .)
 	to_chat(user, "<hr>")
-		
+
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object"
@@ -256,23 +285,6 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
-		
-/obj/item/device/healthanalyzer/adv
-	name = "advanced health analyzer"
-	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in gold!"
-	icon_state = "advhealth"
-	matter = list(DEFAULT_WALL_MATERIAL = 250)
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	
-/obj/item/device/healthanalyzer/adv/attack(mob/living/M as mob, mob/living/user as mob)
-	health_scan_mob(M, user, TRUE)
-	src.add_fingerprint(user)
-	return
-	
-/obj/item/device/healthanalyzer/adv/attack_self(mob/user)
-	health_scan_mob(user, user, TRUE)
-	src.add_fingerprint(user)
-	return
 
 /obj/item/device/analyzer
 	name = "analyzer"
