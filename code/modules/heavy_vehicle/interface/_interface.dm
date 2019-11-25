@@ -27,7 +27,8 @@
 			/obj/screen/movable/mecha/toggle/hatch,
 			/obj/screen/movable/mecha/toggle/hatch_open,
 			/obj/screen/movable/mecha/radio,
-			/obj/screen/movable/mecha/toggle/camera
+			/obj/screen/movable/mecha/toggle/camera,
+			/obj/screen/movable/mecha/rename
 			)
 
 		if(body && body.pilot_coverage >= 100)

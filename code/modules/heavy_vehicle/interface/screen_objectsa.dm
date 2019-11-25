@@ -151,6 +151,14 @@
 	if(..())
 		owner.eject(usr)
 
+/obj/screen/movable/mecha/rename
+	name = "rename"
+	icon_state = "rename"
+
+/obj/screen/movable/mecha/rename/Click()
+	if(..())
+		owner.rename(usr)
+
 /obj/screen/movable/mecha/power
 	name = "power"
 	icon_state = null

@@ -461,3 +461,12 @@
 		if(hardpoints[h] == I)
 			return h
 	return 0
+
+/mob/living/heavy_vehicle/proc/rename(var/mob/user)
+	if(user != src && !(user in pilots))
+		return
+	var/new_name = sanitize(input("Enter a new exosuit designation.", "Exosuit Name") as text|null, max_length = MAX_NAME_LEN)
+	if(!new_name || new_name == name || (user != src && !(user in pilots)))
+		return
+	name = new_name
+	to_chat(user, "<span class='notice'>You have redesignated this exosuit as \the [name].</span>")
