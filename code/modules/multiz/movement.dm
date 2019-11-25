@@ -83,9 +83,10 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
-			if(G.state >= GRAB_NECK && G.affecting && !(G.affecting.buckled)) //strong grip and not buckled
-				G.affecting.Move(get_turf(src))
-				visible_message(span("warning", "[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
+			if(G.state >= GRAB_NECK) //strong grip
+				if(G.affecting && !(G.affecting.buckled))
+					G.affecting.Move(get_turf(src))
+					visible_message(span("warning", "[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
