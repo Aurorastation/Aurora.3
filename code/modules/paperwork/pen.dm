@@ -107,9 +107,13 @@
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
+	var/cursive = TRUE
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
-	return
+	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+	to_chat(user, span("notice", "You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+	cursive = !cursive
+
 /*
  * PDA Fountain Pens
  */

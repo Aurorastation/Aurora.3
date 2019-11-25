@@ -6,6 +6,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
+	description_info = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
@@ -127,7 +128,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Engineering
  */
 
- /obj/item/device/pda/atmos
+/obj/item/device/pda/atmos
 	icon_state = "pda-atmo"
 	default_cartridge = /obj/item/cartridge/atmos
 	inserted_item = /obj/item/pen/silver
@@ -145,7 +146,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Cargo
  */
 
- /obj/item/device/pda/cargo
+/obj/item/device/pda/cargo
 	icon_state = "pda-cargo"
 	default_cartridge = /obj/item/cartridge/quartermaster
 	inserted_item = /obj/item/pen/silver
@@ -1100,7 +1101,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if (USE_SUCCESS)
 			if (!inserted_item)
-				to_chat(user, "<span class='notice'>[src] does not have pen in it.</span>")
+				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
 				return
 
 			if (loc == user && !user.get_active_hand())
