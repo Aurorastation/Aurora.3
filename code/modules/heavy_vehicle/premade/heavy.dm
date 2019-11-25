@@ -105,6 +105,8 @@
 
 	. = ..()
 
+/mob/living/heavy_vehicle/premade/superheavy/spawn_mech_equipment()
+	..()
 	install_system(new /obj/item/mecha_equipment/mounted_system/missile(src), HARDPOINT_RIGHT_SHOULDER)
 	install_system(new /obj/item/mecha_equipment/mounted_system/pulse(src), HARDPOINT_LEFT_SHOULDER)
 	install_system(new /obj/item/mecha_equipment/mounted_system/taser/smg(src), HARDPOINT_RIGHT_HAND)
