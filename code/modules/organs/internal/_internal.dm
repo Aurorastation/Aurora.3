@@ -94,6 +94,16 @@
 			. = "necrotic [.]"
 	. = "[.][name]"
 
+/obj/item/organ/internal/proc/calculate_damage()
+	if(is_broken())
+		return "Severe"
+	if(is_bruised())
+		return "Moderate"
+	if(is_damaged())
+		return "Minor"
+	else
+		return "None"
+
 /obj/item/organ/internal/process()
 	..()
 	if(toxin_type in owner.chem_effects)

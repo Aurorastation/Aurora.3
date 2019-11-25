@@ -1077,9 +1077,7 @@
 
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 
-	if(!L)
-		losebreath += 15 //No lungs, how do you breathe?
-		adjustOxyLoss(15)
+	if(!L || nervous_system_failure())
 		failed_last_breath = TRUE
 	else
 		failed_last_breath = L.handle_breath(breath)
