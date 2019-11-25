@@ -492,10 +492,6 @@
 		if(isliving(v))
 			var/mob/living/L = v
 			assess_and_assign(L, targets, secondarytargets)
-		else if(istype(v, /obj/mecha))
-			var/obj/mecha/M = v
-			if(M.occupant)
-				secondarytargets += M
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets

@@ -144,7 +144,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/structure/AIcore                           = TRADER_THIS_TYPE,
 		/obj/structure/ore_box                          = TRADER_THIS_TYPE,
 		/obj/structure/dispenser                        = TRADER_THIS_TYPE,
-		/obj/mecha/working/hoverpod                     = TRADER_THIS_TYPE,
 		/obj/item/ladder_mobile                  = TRADER_THIS_TYPE,
 		/obj/item/inflatable_dispenser           = TRADER_THIS_TYPE,
 		/obj/machinery/pipedispenser/orderable          = TRADER_THIS_TYPE,
@@ -189,6 +188,5 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                               = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE,
-		/obj/mecha/medical/odysseus                                     = TRADER_THIS_TYPE
+		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE
 	)

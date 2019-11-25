@@ -97,7 +97,7 @@
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 
-/obj/item/proc/get_cell()
+/atom/proc/get_cell()
 	return DEVICE_NO_CELL
 
 //Checks if the item is being held by a mob, and if so, updates the held icons
@@ -431,7 +431,6 @@ var/list/global/slot_flags_enumeration = list(
 	set src in oview(1)
 	set category = "Object"
 	set name = "Pick up"
-
 	if(!(usr)) //BS12 EDIT
 		return
 	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
