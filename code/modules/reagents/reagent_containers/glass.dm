@@ -51,6 +51,18 @@
 /obj/item/reagent_containers/glass/AltClick(var/mob/user)
 	set_APTFT()
 
+/obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
+	. = ..()
+	if(speed > fragile)
+		shatter()
+
+/obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
+	if(reagents.total_volume)
+		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
+	audible_message("\The [src] shatters with a resounding crash!", "\The [src] breaks.")
+	new /obj/item/material/shard(loc, "glass")
+	qdel(src)
+
 /obj/item/reagent_containers/glass/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
@@ -66,11 +78,7 @@
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
 	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile))
-		if(reagents.total_volume)
-			reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
-		visible_message("\The [src] shatters!")
-		new /obj/item/material/shard(loc, "glass")
-		qdel(src)
+		shatter()
 		return
 
 /obj/item/reagent_containers/glass/proc/update_name_label()
