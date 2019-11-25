@@ -101,8 +101,6 @@
 		switch(A:get_species())
 			if ("Vox")
 				return 1
-			if ("Vox Pariah")
-				return 1
 			if ("Vox Armalis")
 				return 1
 	return 0

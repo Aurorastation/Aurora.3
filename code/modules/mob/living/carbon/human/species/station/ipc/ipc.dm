@@ -292,9 +292,12 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("waiting IPC screen")
 			return "#FFFFFF"
 
-
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
 	if (neuter_ipc)
 		H.gender = NEUTER
+
+/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.health <= config.health_threshold_dead)
+		H.death()

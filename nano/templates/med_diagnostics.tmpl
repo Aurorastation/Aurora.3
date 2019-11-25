@@ -27,13 +27,8 @@
 	</div>
 	{{if data.stat < 2}}
 		<div class="line">
-			<div class="statusLabel">Health:</div>
-			{{if data.health >= 0}}
-				{{:helper.displayBar(data.health, 0, data.maxHealth, 'good')}}
-			{{else}}
-				{{:helper.displayBar(data.health, 0, data.minHealth, 'average alignRight')}}
-			{{/if}}
-			<div class="statusValue">{{:helper.round(data.health)}}</div>
+			<div class="statusLabel">Brain Activity:</div>
+			<div class="statusValue">{{:helper.brain_activity}}</div>
 		</div>
 		<div class="line">
 			<div class="statusLabel">=&gt; Brute Damage:</div>

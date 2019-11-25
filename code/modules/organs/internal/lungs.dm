@@ -12,6 +12,7 @@
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70
+	relative_size = 60
 	toxin_type = CE_PNEUMOTOXIC
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 

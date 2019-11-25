@@ -180,7 +180,7 @@
 	},
 /area/derelict/ship)
 "aN" = (
-/obj/item/organ/stack/vox,
+/obj/item/organ/internal/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},

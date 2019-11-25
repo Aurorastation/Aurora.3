@@ -83,7 +83,7 @@
 		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
 
 
-/obj/item/organ/surge
+/obj/item/organ/internal/surge
 	name = "surge preventor"
 	desc = "A small device that give immunity to EMP for few pulses."
 	icon = 'icons/obj/robot_component.dmi'
@@ -94,19 +94,19 @@
 	var/surge_left = 0
 	var/broken = 0
 
-/obj/item/organ/surge/Initialize()
+/obj/item/organ/internal/surge/Initialize()
 	if(!surge_left && !broken)
 		surge_left = rand(2, 5)
 	robotize()
 	. = ..()
 
-/obj/item/organ/surge/advanced
+/obj/item/organ/internal/surge/advanced
 	name = "advanced surge preventor"
 	var/max_charges = 5
 	var/stage_ticker = 0
 	var/stage_interval = 250
 
-/obj/item/organ/surge/advanced/process()
+/obj/item/organ/internal/surge/advanced/process()
 	..()
 
 	if(!owner)
@@ -203,7 +203,7 @@
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/data
+/obj/item/organ/internal/data
 	name = "data core"
 	organ_tag = "data core"
 	parent_organ = BP_GROIN
@@ -212,7 +212,7 @@
 	vital = 0
 	emp_coeff = 0.1
 
-/obj/item/organ/data/Initialize()
+/obj/item/organ/internal/data/Initialize()
 	robotize()
 	. = ..()
 

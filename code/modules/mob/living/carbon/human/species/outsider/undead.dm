@@ -129,6 +129,10 @@
 	new /obj/effect/decal/cleanable/ash(H.loc)
 	qdel(H)
 
+/datum/species/apparition/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.health <= config.health_threshold_dead)
+		H.death()
+
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, "Zombie")
@@ -197,6 +201,10 @@
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)
 	return ..()
+
+/datum/species/zombie/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.health <= config.health_threshold_dead)
+		H.death()
 
 /datum/species/zombie/tajara
 	name = "Tajara Zombie"

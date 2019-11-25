@@ -8,6 +8,7 @@
 	robotic_sprite = "heart-prosthetic"
 	max_damage = 45
 	toxin_type = CE_CARDIOTOXIC
+	relative_size = 5
 	var/pulse = PULSE_NORM	//current pulse level
 	var/heartbeat = 0
 	var/next_blood_squirt = 0

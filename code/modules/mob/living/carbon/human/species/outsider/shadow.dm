@@ -112,3 +112,7 @@
 
 /datum/species/shadow/get_random_name()
 	return "grue"
+
+/datum/species/shadow/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.health <= config.health_threshold_dead)
+		H.death()

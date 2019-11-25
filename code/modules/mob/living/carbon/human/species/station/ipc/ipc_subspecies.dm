@@ -89,7 +89,7 @@
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
-		"surge"   = /obj/item/organ/surge/advanced
+		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/terminator, /datum/unarmed_attack/bite/strong)
@@ -227,8 +227,8 @@
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/internal/cell/terminator,
 		BP_OPTICS = /obj/item/organ/internal/eyes/optical_sensor/terminator,
-		"data core" = /obj/item/organ/data,
-		"surge"   = /obj/item/organ/surge/advanced
+		"data core" = /obj/item/organ/internal/data,
+		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
 
 	has_limbs = list(

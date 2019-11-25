@@ -335,36 +335,73 @@
 	data["ipc"]			= src.connected && occupant && isipc(occupant)
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
-		var/datum/reagents/B = occupant.vessel
+
+		var/brain_result
+		if(occupant.should_have_organ(BP_BRAIN))
+			var/obj/item/organ/internal/brain/brain = occupant.internal_organs_by_name[BP_BRAIN]
+			if(!brain || occupant.stat == DEAD || (occupant.status_flags & FAKEDEATH))
+				brain_result = 0
+			else if(occupant.stat != DEAD)
+				brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
+		else
+			brain_result = -1
+
+		switch(brain_result)
+			if(0)
+				brain_result = "<span class='bad'>none, patient is braindead</span>"
+			if(-1)
+				brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
+			else
+				if(brain_result <= 50)
+					brain_result = "<span class='bad'>[brain_result]%</span>"
+				else if(brain_result <= 80)
+					brain_result = "<span class='average'>[brain_result]%</span>"
+				else
+					brain_result = "[brain_result]%"
+
+		var/pulse_result
+		if(occupant.should_have_organ(BP_HEART))
+			var/obj/item/organ/internal/heart/heart = occupant.internal_organs_by_name[BP_HEART]
+			if(!heart)
+				pulse_result = 0
+			else if(BP_IS_ROBOTIC(heart))
+				pulse_result = -2
+			else if(occupant.status_flags & FAKEDEATH)
+				pulse_result = 0
+			else
+				pulse_result = occupant.get_pulse(GETPULSE_TOOL)
+		else
+			pulse_result = -1
+
+		if(pulse_result == ">250")
+			pulse_result = -3
+
 		data["stat"]			= occupant.stat
 		data["name"]			= occupant.name
 		data["species"]			= occupant.get_species()	// mostly for fluff.
-		data["health"]			= occupant.health
-		data["maxHealth"]		= occupant.maxHealth
-		data["minHealth"]		= config.health_threshold_dead
-		data["bruteLoss"]		= occupant.getBruteLoss()
-		data["oxyLoss"]			= occupant.getOxyLoss()
-		data["toxLoss"]			= occupant.getToxLoss()
-		data["fireLoss"]		= occupant.getFireLoss()
+		data["brain_activity"]  = brain_result
+		data["pulse"]           = text2num(pulse_result)
+		data["blood_pressure"]  = occupant.get_blood_pressure()
+		data["blood_o2"]        = occupant.get_blood_oxygenation()
+		data["blood_volume"]    = occupant.vessel.get_reagent_amount(/datum/reagent/blood)
+		data["blood_volume_max"]= occupant.species.blood_volume
 		data["rads"]			= occupant.total_radiation
-		data["cloneloss"]		= occupant.getCloneLoss()
-		data["brainloss"]		= occupant.getBrainLoss()
+
+		data["cloneLoss"]		= occupant.getCloneLoss()
+		data["oxyLoss"]			= occupant.getOxyLoss()
+		data["bruteLoss"]		= occupant.getBruteLoss()
+		data["fireLoss"]		= occupant.getFireLoss()
+		data["toxLoss"]			= occupant.getToxLoss()
+
 		data["paralysis"]		= occupant.paralysis
 		data["bodytemp"]		= occupant.bodytemperature
 		data["occupant"] 		= occupant
-		data["bloodAmt"] 		= B.get_reagent_amount("blood")
-		data["bloodMax"] 		= 560	// You'd think this'd be defined somewhere.
-		data["bloodPerc"]		= (data["bloodAmt"] / data["bloodMax"]) * 100
-		data["bloodStatus"]		= val2status(data["bloodAmt"], B.total_volume * 0.9, B.total_volume * 0.8, inverse = 1)
 		data["inaprovAmt"] 		= R.get_reagent_amount("inaprovaline")
 		data["soporAmt"] 		= R.get_reagent_amount("stoxin")
 		data["bicardAmt"] 		= R.get_reagent_amount("bicaridine")
 		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
 		data["dermAmt"]			= R.get_reagent_amount("dermaline")
 		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["inaprovAmt"] + data["dermAmt"])
-		data["brainDmgStatus"] 	= val2status(occupant.getBrainLoss(), 20, 50)
-		data["radStatus"] 		= val2status(occupant.total_radiation)
-		data["cloneDmgStatus"] 	= val2status(occupant.cloneloss, 10, 35)
 		data["bodyparts"]		= get_organ_wound_data(occupant)
 		var/list/missing 		= get_missing_organs(occupant)
 		data["missingparts"]	= missing
@@ -408,10 +445,10 @@
 		var/list/wounds = list()
 		switch (O.damtype)
 			if ("brute")
-				data["bruteDmg"] = O.damage
+				data["bruteDmg"] = get_internal_damage(O)
 				data["burnDmg"] = 0
 			if ("burn")
-				data["burnDmg"] = O.damage
+				data["burnDmg"] = get_internal_damage(O)
 				data["bruteDmg"] = 0
 
 		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
@@ -444,8 +481,8 @@
 	// Limbs.
 	for (var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
-		data["burnDmg"] = O.burn_dam
-		data["bruteDmg"] = O.brute_dam
+		data["burnDmg"] = calcDamage(O.burn_dam)
+		data["bruteDmg"] = calcDamage(O.brute_dam)
 		data["name"] = O.name
 
 		var/list/wounds = list()

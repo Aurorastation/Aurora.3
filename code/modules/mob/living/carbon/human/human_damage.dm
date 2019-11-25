@@ -70,18 +70,18 @@
 		brainloss = 0
 
 /mob/living/carbon/human/getBrainLoss()
-
-	if(status_flags & GODMODE)	return 0	//godmode
-
-	if(species && species.has_organ[BP_BRAIN])
+	if(status_flags & GODMODE)
+		return 0	//godmode
+	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
-			brainloss = min(sponge.damage,maxHealth*2)
+			if(sponge.status & ORGAN_DEAD)
+				return sponge.species.total_health
+			else
+				return sponge.damage
 		else
-			brainloss = 200
-	else
-		brainloss = 0
-	return brainloss
+			return species.total_health
+	return 0
 
 //These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()
@@ -424,18 +424,27 @@ This function restores all organs.
 	if(damage > 15 && prob(damage*4) && organ.can_feel_pain())
 		make_adrenaline(round(damage/10))
 
+	var/d_flags
+
+	if(istype(used_weapon, /obj/item/projectile))
+		var/obj/item/projectile/P = used_weapon
+		d_flags = P.damage_flags
+
 	switch(damagetype)
+
 		if(BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.brute_mod
-			if(organ.take_damage(damage, 0, sharp, edge, used_weapon))
+			if(organ.take_damage(damage, 0, sharp, edge, used_weapon, damage_flags = d_flags))
 				UpdateDamageIcon()
 		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
-			if(organ.take_damage(0, damage, sharp, edge, used_weapon))
+
+
+			if(organ.take_damage(0, damage, sharp, edge, used_weapon, damage_flags = d_flags))
 				UpdateDamageIcon()
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().

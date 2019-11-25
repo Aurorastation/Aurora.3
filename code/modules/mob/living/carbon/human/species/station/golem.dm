@@ -98,6 +98,10 @@
 		new H.species.meat_type(H.loc, rand(3,8))
 		qdel(H)
 
+/datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.health <= config.health_threshold_dead)
+		H.death()
+
 /datum/species/golem/iron
 	name = "Iron Golem"
 	name_plural = "iron golems"

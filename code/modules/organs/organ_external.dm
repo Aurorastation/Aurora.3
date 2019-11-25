@@ -229,20 +229,34 @@
 /obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
 	return (vital || brute_dam + burn_dam + additional_damage < max_damage)
 
-/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list())
+/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags)
 	if((brute <= 0) && (burn <= 0))
 		return 0
+
+	var/laser = damage_flags & DAM_LASER
 
 	brute *= brute_mod
 	burn *= burn_mod
 
+	var/damage_amt = brute
+	if(laser)
+		damage_amt += burn
+
 	// High brute damage or sharp objects may damage internal organs
-	if(internal_organs && (brute_dam >= max_damage || (((sharp && brute >= 5) || brute >= 10) && prob(5))))
+	if(internal_organs && (brute_dam >= max_damage || burn_dam >= max_damage || (((sharp && brute >= 5) || brute >= 10 || burn >= 15) && prob(5))))
 		// Damage an internal organ
-		if(internal_organs && internal_organs.len)
-			var/obj/item/organ/I = pick(internal_organs)
-			I.take_damage(brute / 2)
-			brute -= brute / 2
+		var/list/victims = list()
+		for(var/obj/item/organ/internal/I in internal_organs)
+			if(I.damage < I.max_damage && prob(I.relative_size))
+				victims += I
+		if(!victims.len)
+			victims += pick(internal_organs)
+		for(var/obj/item/organ/victim in victims)
+			brute /= 2
+			if(laser)
+				burn /= 2
+			damage_amt /= 2
+			victim.take_damage(damage_amt)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if (owner && (owner.can_feel_pain()))

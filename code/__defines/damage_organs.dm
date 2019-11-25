@@ -11,6 +11,9 @@
 #define BRUISE    "bruise"
 #define PIERCE    "pierce"
 
+#define DAM_LASER  1
+#define DAM_BULLET 2
+
 #define STUN      "stun"
 #define WEAKEN    "weaken"
 #define PARALYZE  "paralize"
