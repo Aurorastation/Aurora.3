@@ -224,6 +224,7 @@
 /datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"
 	id = "hydraulic_clamp"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/clamp
 
 /datum/design/item/mechfab/exosuit/gravity_catapult
@@ -234,11 +235,13 @@
 /datum/design/item/mechfab/exosuit/drill
 	name = "drill"
 	id = "mech_drill"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/drill
 
 /datum/design/item/mechfab/exosuit/taser
 	name = "mounted electrolaser"
 	id = "mech_taser"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 1)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser
 
@@ -248,22 +251,24 @@
 	req_tech = list(TECH_COMBAT = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser/smg
 
-/datum/design/item/mechfab/exosuit/weapon/plasma
+/datum/design/item/mechfab/exosuit/plasma
 	name = "mounted plasma cutter"
 	id = "mech_plasma"
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/plasmacutter
 
-/datum/design/item/mechfab/exosuit/weapon/ion
+/datum/design/item/mechfab/exosuit/ion
 	name = "mounted ion rifle"
 	id = "mech_ion"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser/ion
 
-/datum/design/item/mechfab/exosuit/weapon/laser
+/datum/design/item/mechfab/exosuit/laser
 	name = "mounted laser gun"
 	id = "mech_laser"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/taser/laser
 
@@ -278,6 +283,7 @@
 /datum/design/item/mechfab/exosuit/floodlight
 	name = "floodlight"
 	id = "mech_floodlight"
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 5000)
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/mecha_equipment/light
 
@@ -290,6 +296,7 @@
 /datum/design/item/mechfab/exosuit/extinguisher
 	name = "mounted extinguisher"
 	id   = "mecha_extinguisher"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/mounted_system/extinguisher
 
 /datum/design/item/mechfab/exosuit/xray
