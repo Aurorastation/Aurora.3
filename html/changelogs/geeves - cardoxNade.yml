@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Standard Cardox grenades now produce a gas explosion, instead of foaming like a cleaner grenade."
+  - rscadd: "Cardox now properly gets rids of K'ois and K'ois plants."
