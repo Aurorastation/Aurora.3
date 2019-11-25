@@ -106,7 +106,7 @@
 		damage = between(0, damage - round(amount, 0.1), max_damage)
 
 /obj/item/organ/internal/proc/handle_regeneration()
-	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN])
+	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN] || owner.is_asystole())
 		return
 	if(damage < 0.1*max_damage)
-		heal_damage(0.02)
+		heal_damage(0.1)

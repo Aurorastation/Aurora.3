@@ -811,9 +811,6 @@
 			adjustHalLoss(-3)
 			if (species.tail)
 				animate_tail_reset()
-			
-			if(prob(2) && is_asystole() && isSynthetic())
-				visible_message(src, "<b>[src]</b> [pick("emits a low pitched whirr","beeps urgently")]!")
 
 		if(paralysis)
 			AdjustParalysis(-1)
