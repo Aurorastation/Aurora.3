@@ -76,7 +76,7 @@
 
 /obj/item/mecha_equipment/mounted_system/grenadefrag
 	name = "frag grenade launcher"
-	desc = "The SGL-6FR grenade launche is designed to launch primed fragmentation grenades."
+	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades."
 	icon_state = "mecha_fraglnchr"
 	holding_type = /obj/item/gun/launcher/mech/mountedgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
@@ -84,7 +84,7 @@
 
 /obj/item/mecha_equipment/mounted_system/grenadeflash
 	name = "flashbang launcher"
-	desc = "The SGL-6FL grenade launche is designated to launch primed flashbangs."
+	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
 	holding_type = /obj/item/gun/launcher/mech/mountedfl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
@@ -125,7 +125,7 @@
 
 /obj/item/gun/launcher/mech/mountedrl
 	name = "mounted rocket launcher"
-	desc = "Shouldn't be seeing this."
+	desc = "The SRM-8 missile rack is loaded with explosive missiles."
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "smg"
 	item_state = "smg"
@@ -145,7 +145,7 @@
 
 /obj/item/gun/launcher/mech/mountedgl
 	name = "mounted grenade launcher"
-	desc = "Shouldn't be seeing this."
+	desc = "The SGL-6FR grenade launcher is designed to launch primed fragmentation grenades."
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "smg"
 	item_state = "smg"
@@ -169,7 +169,7 @@
 
 /obj/item/gun/launcher/mech/mountedfl
 	name = "mounted grenade launcher"
-	desc = "Shouldn't be seeing this."
+	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "smg"
 	item_state = "smg"

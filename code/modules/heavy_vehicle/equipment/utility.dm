@@ -333,7 +333,7 @@
 
 /obj/item/gun/launcher/mech/flarelauncher
 	name = "mounted flare launcher"
-	desc = "Shouldn't be seeing this."
+	desc = "The SGL-6 Special grenade launcher has been retooled to fire lit flares for emergency illumination."
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "smg"
 	item_state = "smg"
