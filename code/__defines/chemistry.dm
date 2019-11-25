@@ -66,7 +66,7 @@
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
-#define CE_ANTITOX      "antitoxin"		// Dylovene and stuff
+#define CE_ANTITOXIN    "antitoxin"		// Dylovene and stuff
 #define CE_ANTIVIRAL    "antiviral"		// Deltamivir
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
@@ -75,16 +75,11 @@
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
 #define CE_TOXIN        "toxins"		// General toxins
-#define CE_NEUROTOXIC   "braintoxic"
+#define CE_NEUROTOXIC   "braintoxic"	// Brain damage
 #define CE_NEPHROTOXIC  "kidneytoxic"	// Kidney damage
 #define CE_HEPATOTOXIC  "livertoxic"	// Liver damage
 #define CE_CARDIOTOXIC  "hearttoxic"	// Heart damage
-
-// Chemistry lists.
-var/list/tachycardics  = list("nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.
-var/list/bradycardics  = list("neurotoxin", "cryoxadone", "clonexadone", "space_drugs", "stoxin")                 // Decrease heart rate.
-var/list/heartstopper  = list("potassium_chlorophoride", "zombie_powder") // This stops the heart.
-var/list/cheartstopper = list("potassium_chloride")                       // This stops the heart when overdose is met. -- c = conditional
+#define CE_PNEUMOTOXIC  "lungtoxic"		// Lung damage
 
 //Alcohol
 #define INTOX_BUZZED     0.01

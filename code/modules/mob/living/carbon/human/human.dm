@@ -1654,8 +1654,8 @@
 			return TRUE
 	return species.handle_death_check(src)
 
-/mob/living/carbon/human/should_have_organ(var/organ_check)
-	return (species && species.has_organ[organ_check])
+/mob/living/carbon/human/proc/should_have_organ(var/organ_check)
+	return (species?.has_organ[organ_check])
 
 /mob/living/carbon/human/proc/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))

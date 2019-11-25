@@ -74,15 +74,15 @@
 	if (!modifier1)
 		modifier1 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
+/datum/reagent/inaprovaline/overdose(var/mob/living/carbon/human/H, var/alien, removed )
 	if(istype(H))
-		M.add_chemical_effect(CE_CARDIOTOXIC, 0.1*removed)
+		H.add_chemical_effect(CE_CARDIOTOXIC, 0.1*removed)
 		H.make_jittery(removed*10)
 		H.add_chemical_effect(CE_SPEEDBOOST, 1)
 		if (!modifier2)
 			modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/epinephrine/Destroy()
+/datum/reagent/inaprovaline/Destroy()
 	QDEL_NULL(modifier1)
 	QDEL_NULL(modifier2)
 	return ..()
@@ -103,8 +103,9 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-	if(prob(7))
-		
+	if(M.getBruteLoss() && prob(7))
+		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
+		M.Weaken(3)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -135,7 +136,7 @@
 	color = "#FF8000"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_mult = 1.5
-	var/strength = 12
+	strength = 12
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -231,6 +232,7 @@
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature < 170)
+		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
@@ -248,6 +250,7 @@
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature < 170)
+		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
@@ -272,7 +275,7 @@
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
-	M.add_chemical_effect(CE_NOFEVER, ((maxdose/2)^2-(dose-maxdose/2))/(maxdose/4)) // creates a smooth curve peaking at half the dose metabolised
+	M.add_chemical_effect(CE_NOFEVER, ((max_dose/2)^2-(dose-max_dose/2))/(max_dose/4)) // creates a smooth curve peaking at half the dose metabolised
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -821,6 +824,7 @@
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
+	M.add_chemical_effect(CE_PULSE, 1)
 
 /datum/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	. = ..()
@@ -1301,7 +1305,7 @@
 			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
 			if(prob(75)) //Cough uncontrolably
 				H.emote("cough")
-				M.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
+				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
 
 /datum/reagent/rezadone

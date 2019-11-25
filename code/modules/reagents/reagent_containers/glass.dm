@@ -15,6 +15,7 @@
 	accuracy = 0.1
 	w_class = 2
 	flags = OPENCONTAINER
+	var/fragile = 1 // most glassware is super fragile
 	unacidable = 1 //glass doesn't dissolve in acid
 
 	var/label_text = ""
@@ -62,6 +63,15 @@
 			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
 			label_text = tmp_label
 			update_name_label()
+		return
+	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
+	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile))
+		if(reagents.total_volume)
+			reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
+		visible_message("\The [src] shatters!")
+		new /obj/item/material/shard(loc, "glass")
+		qdel(src)
+		return
 
 /obj/item/reagent_containers/glass/proc/update_name_label()
 	if(label_text == "")
@@ -78,6 +88,7 @@
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list("glass" = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	fragile = 4
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -133,6 +144,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
+	fragile = 6 // a bit sturdier
 
 /obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
@@ -146,6 +158,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 	flags = OPENCONTAINER
 	unacidable = 0
+	fragile = 0
 
 /obj/item/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"
@@ -156,6 +169,7 @@
 	volume = 60
 	amount_per_transfer_from_this = 10
 	flags = OPENCONTAINER | NOREACT
+	fragile = 0
 
 /obj/item/reagent_containers/glass/beaker/bluespace
 	name = "bluespace beaker"
@@ -167,6 +181,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
 	flags = OPENCONTAINER
+	fragile = 0
 
 /obj/item/reagent_containers/glass/beaker/vial
 	name = "vial"
@@ -178,6 +193,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
+	fragile = 1
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 /obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
@@ -209,6 +225,7 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
+	fragile = 0
 
 /obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))

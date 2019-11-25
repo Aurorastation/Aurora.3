@@ -2415,9 +2415,10 @@
 
 /datum/reagent/alcohol/ethanol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien != IS_DIONA)
-		M.drowsyness = max(0, M.drowsyness - 7)
-		M.make_jittery(5)
+	if(alien == IS_DIONA)
+		return
+	M.drowsyness = max(0, M.drowsyness - 7)
+	M.make_jittery(5)
 
 	if (M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -3137,8 +3138,10 @@
 
 /datum/reagent/alcohol/ethanol/neurotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien != IS_DIONA)
-		M.Weaken(3)
+	if(alien == IS_DIONA)
+		return
+	M.Weaken(3)
+	M.add_chemical_effect(CE_PULSE, -2)
 
 /datum/reagent/alcohol/ethanol/omimosa
 	name = "Orange Mimosa"

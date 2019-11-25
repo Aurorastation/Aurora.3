@@ -34,24 +34,6 @@
 	var/pulse_mod = owner.chem_effects[CE_PULSE]
 	var/is_stable = owner.chem_effects[CE_STABLE]
 
-	//handles different chems' influence on pulse
-	for(var/datum/reagent/R in owner.reagents.reagent_list)
-		if(R.id in bradycardics)
-			if(pulse <= PULSE_THREADY && pulse >= PULSE_NORM)
-				pulse_mod--
-		if(R.id in tachycardics)
-			if(pulse <= PULSE_FAST && pulse >= PULSE_NONE)
-				pulse_mod++
-		if(R.id in heartstopper) //To avoid using fakedeath
-			pulse = PULSE_NONE
-			if(rand(0,6) == 3)
-				take_internal_damage(5)
-		if(R.id in cheartstopper) //Conditional heart-stoppage
-			if(R.volume >= R.overdose)
-				pulse = PULSE_NONE
-				if(rand(0,6) == 3)
-					take_internal_damage(5)
-
 	// If you have enough heart chemicals to be over 2, you're likely to take extra damage.
 	if(pulse_mod > 2 && !is_stable)
 		var/damage_chance = (pulse_mod - 2) ** 2

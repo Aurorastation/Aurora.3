@@ -202,6 +202,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
 			H.losebreath = max(10, H.losebreath - 10)
@@ -223,6 +224,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
 			H.losebreath = max(10, M.losebreath-10)
@@ -244,6 +246,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	M.status_flags |= FAKEDEATH
 	M.adjustOxyLoss(3 * removed)
 	M.Weaken(10)
@@ -451,8 +454,9 @@
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
+	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
+	M.add_chemical_effect(CE_PULSE, -2)
 	if(dose < 1)
 		if(dose == metabolism * 2 || prob(5))
 			M.emote("yawn")

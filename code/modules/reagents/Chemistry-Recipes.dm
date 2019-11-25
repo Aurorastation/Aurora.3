@@ -776,9 +776,9 @@
 	name = "Nightlife"
 	id = "night_juice"
 	result = "night_juice"
-	required_reagents = list("methylphenidate" = 1, "inaprovaline" = 1, "synaptizine" = 1)
-	required_temperatures_min = list("methylphenidate" = T0C+300, "inaprovaline" = T0C+300, "synaptizine" = T0C+300)
-	result_amount = 1 // doesn't make a lot
+	required_reagents = list("methylphenidate" = 1, "synaptizine" = 1, "nitroglycerin" = 1)
+	required_temperatures_min = list("methylphenidate" = T0C+200, "synaptizine" = T0C+200, "nitroglycerin" = T0C+200)
+	result_amount = 3
 
 /* Solidification */
 
@@ -876,20 +876,6 @@
 	result = "nitroglycerin"
 	required_reagents = list("glycerol" = 1, "pacid" = 1, "sacid" = 1)
 	result_amount = 2
-	log_is_important = 1
-
-/datum/chemical_reaction/nitroglycerin/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(round (created_volume/2, 1), holder.my_atom, 0, 0)
-	if(isliving(holder.my_atom))
-		e.amount *= 0.5
-		var/mob/living/L = holder.my_atom
-		if(L.stat!=DEAD)
-			e.amount *= 0.5
-	e.start()
-
-	holder.clear_reagents()
-	return
 
 /datum/chemical_reaction/napalm
 	name = "Napalm"

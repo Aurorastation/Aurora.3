@@ -14,6 +14,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_PULSE, -1)
 
 	var/power = (dose + volume)/2 //Larger the dose and volume, the more affected you are by the chemical.
 

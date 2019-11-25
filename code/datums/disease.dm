@@ -128,7 +128,7 @@ var/list/diseases = typesof(/datum/disease) - /datum/disease
 
 	if(affected_mob.reagents != null)
 		if(affected_mob)
-			if(CE_ANTIVIRAL in mob.chem_effects)
+			if(CE_ANTIVIRAL in affected_mob.chem_effects)
 				return // Don't spread if we have deltamivir in our system.
 
 	var/check_range = airborne_range//defaults to airborne - range 2
