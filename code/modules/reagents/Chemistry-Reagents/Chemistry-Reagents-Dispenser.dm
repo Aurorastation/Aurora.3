@@ -281,10 +281,7 @@
 
 /datum/reagent/hydrazine/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	. = ..()
-	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
-		if(istype(L))
-			L.take_damage(removed * 0.5)
+	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * 0.5)
 
 /datum/reagent/iron
 	name = "Iron"
@@ -297,7 +294,7 @@
 	fallback_specific_heat = 1.181
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if (!(alien & IS_SKRELL))
+	if (!(alien & (IS_SKRELL | IS_VAURCA)))
 		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/lithium
@@ -424,10 +421,7 @@
 
 /datum/reagent/acid/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	. = ..()
-	if(istype(H))
-		var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
-		if(istype(L))
-			L.take_damage(removed * power * 0.5)
+	H.add_chemical_effect(CE_PNEUMOTOXIC, removed * power * 0.5)
 
 /datum/reagent/acid/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // This is the most interesting
 	if(ishuman(M))
@@ -566,6 +560,10 @@
 	taste_description = "rotten eggs"
 
 	fallback_specific_heat = 0.503
+
+/datum/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if (alien & IS_VAURCA)
+		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
 
 /datum/reagent/tungsten
 	name = "Tungsten"

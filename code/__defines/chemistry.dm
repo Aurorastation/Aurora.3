@@ -55,26 +55,26 @@
 #define CE_FEVER        "fever"			// causes fever
 #define CE_NOCOUGH      "nocough"		// suppresses coughing
 #define CE_NOFEVER      "nofever"		// suppresses fever
-#define CE_NOPULSE      "heartstop"		//Stops heartbeat
+#define CE_NOPULSE      "heartstop"		// Stops heartbeat
 #define CE_SEDATE       "sedation"
 #define CE_SLOWDOWN     "goslow"
 #define CE_SPEEDBOOST   "gofast"		// Hyperzine
 #define CE_STABLE       "stable"		// Epinephrine
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"
-#define CE_PULSE        "xcardic"		//increases or decreases heartrate
+#define CE_PULSE        "xcardic"		// increases or decreases heartrate
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
-#define CE_ANTITOX      "antitoxin"		//Dylovene and stuff
+#define CE_ANTITOX      "antitoxin"		// Dylovene and stuff
 #define CE_ANTIVIRAL    "antiviral"		// Deltamivir
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
-#define CE_BRAIN_REGEN  "brainfix"
-#define CE_OXYGENATED   "oxygen"		//Dexalin
+#define CE_BRAIN_REGEN  "brainfix"		// Alkysine
+#define CE_OXYGENATED   "oxygen"		// Dexalin
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
-#define CE_TOXIN        "toxins"		//General toxins
+#define CE_TOXIN        "toxins"		// General toxins
 #define CE_NEUROTOXIC   "braintoxic"
 #define CE_NEPHROTOXIC  "kidneytoxic"	// Kidney damage
 #define CE_HEPATOTOXIC  "livertoxic"	// Liver damage

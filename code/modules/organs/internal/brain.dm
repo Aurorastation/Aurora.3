@@ -52,6 +52,9 @@
 	if(!owner)
 		return
 
+	if(CE_BRAIN_REGEN in owner.chem_effects)
+		damage -= min(damage, owner.chem_effects[CE_BRAIN_REGEN])
+	
 	if(lobotomized && (owner.getBrainLoss() < 40)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
 		owner.setBrainLoss(40)
 
