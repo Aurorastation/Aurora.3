@@ -691,7 +691,7 @@
 			var/fever = chem_effects[CE_FEVER]
 			if(CE_NOFEVER in chem_effects)
 				fever -= chem_effects[CE_NOFEVER] // a dose of 16u paracetamol should offset a stage 4 virus
-			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 5) // temperature should range from 37C to 42C, 98.6F to 107F
+			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 9) // temperature should range from 37C to 46C, 98.6F to 115F
 			if(fever > 1)
 				if(prob(20/3)) // every 30 seconds, roughly
 					to_chat(src, span("warning", "You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued."))
@@ -699,6 +699,9 @@
 					drowsyness += 4
 				if(prob(20))
 					adjustHalLoss(15) // muscle pain from fever
+			if(fever >= 5) // your organs are boiling, figuratively speaking
+				var/obj/item/organ/internal/IO = pick(internal_organs)
+				IO.take_internal_damage(1)
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
