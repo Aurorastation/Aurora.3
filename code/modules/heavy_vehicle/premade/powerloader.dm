@@ -124,3 +124,41 @@
 	..()
 	software = new(src)
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_ENGINEERING)
+
+/mob/living/heavy_vehicle/premade/combatripley
+	name = "combat APLU \"Ripley\""
+	desc = "A large APLU unit fitted with specialized composite armor and fancy, though old targeting systems."
+
+/mob/living/heavy_vehicle/premade/combatripley/New()
+	if(!arms)
+		arms = new /obj/item/mech_component/manipulators/ripley(src)
+		arms.color = "#849bc1"
+	if(!legs)
+		legs = new /obj/item/mech_component/propulsion/ripley(src)
+		legs.color = "#849bc1"
+	if(!head)
+		head = new /obj/item/mech_component/sensors/combatripley(src)
+		head.color = "#849bc1"
+	if(!body)
+		body = new /obj/item/mech_component/chassis/ripley(src)
+		body.color = "#849bc1"
+
+		body.armour = new /obj/item/robot_parts/robot_component/armour/combat(src)
+
+	..()
+
+	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/taser/laser(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/grenadeflash(src), HARDPOINT_RIGHT_SHOULDER)
+
+/obj/item/mech_component/sensors/combatripley
+	name = "exosuit sensors"
+	gender = PLURAL
+	power_use = 50000
+	vision_flags = SEE_MOBS
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
+/obj/item/mech_component/sensors/combatripley/prebuild()
+	..()
+	software = new(src)
+	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_WEAPONS)

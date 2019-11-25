@@ -3959,7 +3959,7 @@
 	},
 /area/syndicate_mothership/elite_squad)
 "akD" = (
-/mob/living/heavy_vehicle/premade/combat,
+/mob/living/heavy_vehicle/premade/superheavy,
 /turf/unsimulated/floor{
 	icon_state = "floor4"
 	},
@@ -7334,7 +7334,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/administration/centcom)
 "arZ" = (
-/mob/living/heavy_vehicle/premade/combat,
+/mob/living/heavy_vehicle/premade/superheavy,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -9856,6 +9856,8 @@
 "axO" = (
 /obj/item/mecha_equipment/sleeper,
 /obj/item/mecha_equipment/sleeper,
+/obj/item/mecha_equipment/mounted_system/medanalyzer,
+/obj/item/mecha_equipment/crisis_drone,
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -27607,7 +27609,7 @@
 	},
 /area/centcom/legion)
 "pxH" = (
-/mob/living/heavy_vehicle/premade/ripley,
+/mob/living/heavy_vehicle/premade/combatripley,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -30699,7 +30701,7 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/centcom/legion/hangar5)
 "xiL" = (
-/mob/living/heavy_vehicle/premade/heavy,
+/mob/living/heavy_vehicle/premade/superheavy,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	name = "plating"

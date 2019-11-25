@@ -62,9 +62,49 @@
 	icon_state = "heavy_body"
 	max_damage = 150
 	mech_health = 500
-	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	has_hardpoints = list(HARDPOINT_BACK)
 	power_use = 25000
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
 	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+
+/obj/item/mech_component/chassis/superheavy
+	name = "reinforced exosuit chassis"
+	hatch_descriptor = "hatch"
+	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however."
+	pilot_coverage = 100
+	exosuit_desc_string = "a heavily armoured chassis"
+	icon_state = "heavy_body"
+	max_damage = 150
+	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	power_use = 15000
+
+/obj/item/mech_component/chassis/superheavy/prebuild()
+	. = ..()
+	cell = new /obj/item/cell/super(src)
+	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+
+/mob/living/heavy_vehicle/premade/superheavy
+	name = "Marauder"
+	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations."
+
+/mob/living/heavy_vehicle/premade/superheavy/Initialize()
+	if(!arms)
+		arms = new /obj/item/mech_component/manipulators/heavy(src)
+		arms.color = COLOR_DARK_GUNMETAL
+	if(!legs)
+		legs = new /obj/item/mech_component/propulsion/heavy(src)
+		legs.color = COLOR_DARK_GUNMETAL
+	if(!head)
+		head = new /obj/item/mech_component/sensors/heavy(src)
+		head.color = COLOR_DARK_GUNMETAL
+	if(!body)
+		body = new /obj/item/mech_component/chassis/superheavy(src)
+		body.color = COLOR_DARK_GUNMETAL
+
+	. = ..()
+
+	install_system(new /obj/item/mecha_equipment/mounted_system/missile(src), HARDPOINT_RIGHT_SHOULDER)
+	install_system(new /obj/item/mecha_equipment/mounted_system/pulse(src), HARDPOINT_LEFT_SHOULDER)
+	install_system(new /obj/item/mecha_equipment/mounted_system/taser/smg(src), HARDPOINT_RIGHT_HAND)
