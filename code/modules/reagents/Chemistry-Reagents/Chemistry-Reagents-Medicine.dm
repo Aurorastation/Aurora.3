@@ -134,6 +134,7 @@
 	id = "dermaline"
 	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
 	color = "#FF8000"
+	fallback_specific_heat = 1
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_mult = 1.5
 	strength = 12
@@ -170,14 +171,13 @@
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
 		M.adjustToxLoss(removed * strength)
-	else
-		M.adjustOxyLoss(-strength * removed)
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent("lexorin", strength/3 * removed)
 
 /datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
 	id = "dexalinp"
+	fallback_specific_heat = 1
 	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
@@ -608,6 +608,7 @@
 	color = "#f5f2d0"
 	taste_description = "bitterness"
 	metabolism = REM * 0.25
+	fallback_specific_heat = 1
 
 /datum/reagent/ondansetron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
