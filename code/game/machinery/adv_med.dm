@@ -380,6 +380,16 @@
 		ui.open()
 		ui.set_auto_update(1)
 
+/obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
+	if(I.is_broken())
+		return "Severe"
+	if(I.is_bruised())
+		return "Moderate"
+	if(I.is_damaged())
+		return "Minor"
+	else
+		return "None"
+
 /obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
 	var/list/missingOrgans = list()
 	var/list/species_organs = H.species.has_organ
