@@ -1590,6 +1590,8 @@
 /mob/living/carbon/human/is_clumsy()
 	if(CLUMSY in mutations)
 		return TRUE
+	if(CE_CLUMSY in chem_effects)
+		return TRUE
 
 	var/bac = get_blood_alcohol()
 	var/SR = species.ethanol_resistance
@@ -1652,8 +1654,8 @@
 			return TRUE
 	return species.handle_death_check(src)
 
-/mob/living/carbon/human/should_have_organ(var/organ_check)
-	return (species && species.has_organ[organ_check])
+/mob/living/carbon/human/proc/should_have_organ(var/organ_check)
+	return (species?.has_organ[organ_check])
 
 /mob/living/carbon/human/proc/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))

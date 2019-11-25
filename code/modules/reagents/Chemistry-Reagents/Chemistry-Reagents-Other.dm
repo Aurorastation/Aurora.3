@@ -428,6 +428,44 @@
 	color = "#808080"
 	taste_description = "oil"
 
+/datum/reagent/nitroglycerin/proc/explode()
+	var/datum/effect/effect/system/reagents_explosion/e = new()
+	e.set_up(round (src.volume/2, 1), holder.my_atom, 0, 0)
+	if(isliving(holder.my_atom))
+		e.amount *= 0.5
+		var/mob/living/L = holder.my_atom
+		if(L.stat!=DEAD)
+			e.amount *= 0.5
+	e.start()
+	holder.clear_reagents()
+
+/datum/reagent/nitroglycerin/add_thermal_energy(var/added_energy)
+	. = ..()
+	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
+		explode()
+
+/datum/reagent/nitroglycerin/apply_force(var/force)
+	..()
+	if(prob(force * 6))
+		explode()
+
+/datum/reagent/nitroglycerin/touch_turf(var/turf/T)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/touch_obj(var/obj/O)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/touch_mob(var/mob/M)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(!istype(H) || alien == IS_DIONA)
+		return
+	H.add_chemical_effect(CE_PULSE, 2)
+
 /datum/reagent/coolant
 	name = "Coolant"
 	id = "coolant"

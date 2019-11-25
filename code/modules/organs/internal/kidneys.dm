@@ -9,6 +9,7 @@
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70
+	toxin_type = CE_NEPHROTOXIC
 
 /obj/item/organ/internal/kidneys/process()
 
@@ -35,7 +36,7 @@
 			owner.reagents.add_reagent("potassium", REM*2)
 
 	//If your kidneys aren't working, your body's going to have a hard time cleaning your blood.
-	if(!owner.chem_effects[CE_ANTITOX])
+	if(!owner.chem_effects[CE_ANTITOXIN])
 		if(prob(33))
 			if(is_broken())
 				owner.adjustToxLoss(0.5)

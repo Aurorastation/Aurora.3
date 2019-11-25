@@ -744,8 +744,10 @@
 
 /datum/reagent/drink/proc/digest(var/mob/living/carbon/M, var/alien, var/removed, var/add_nutrition = TRUE)
 	if(alien != IS_DIONA)
-		if (caffeine && !modifier)
-			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		if (caffeine)
+			if(!modifier)
+				modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
+			M.add_chemical_effect(CE_PULSE, caffeine*5)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -2413,9 +2415,10 @@
 
 /datum/reagent/alcohol/ethanol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien != IS_DIONA)
-		M.drowsyness = max(0, M.drowsyness - 7)
-		M.make_jittery(5)
+	if(alien == IS_DIONA)
+		return
+	M.drowsyness = max(0, M.drowsyness - 7)
+	M.make_jittery(5)
 
 	if (M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -3135,8 +3138,10 @@
 
 /datum/reagent/alcohol/ethanol/neurotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien != IS_DIONA)
-		M.Weaken(3)
+	if(alien == IS_DIONA)
+		return
+	M.Weaken(3)
+	M.add_chemical_effect(CE_PULSE, -2)
 
 /datum/reagent/alcohol/ethanol/omimosa
 	name = "Orange Mimosa"

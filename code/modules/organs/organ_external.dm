@@ -565,7 +565,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 		handle_germ_effects()
 
 /obj/item/organ/external/proc/handle_germ_sync()
-	var/antibiotics = owner.reagents.get_reagent_amount("thetamycin")
+	var/antibiotics = 0
+	if(CE_ANTIBIOTIC in owner.chem_effects)
+		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 	for(var/datum/wound/W in wounds)
 		//Open wounds can become infected
 		if (owner.germ_level > W.germ_level && W.infection_check())
@@ -583,7 +585,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(germ_level < INFECTION_LEVEL_TWO)
 		return ..()
 
-	var/antibiotics = owner.reagents.get_reagent_amount("thetamycin")
+	var/antibiotics = 0
+	if(CE_ANTIBIOTIC in owner.chem_effects)
+		antibiotics = owner.chem_effects[CE_ANTIBIOTIC]
 
 	if(germ_level >= INFECTION_LEVEL_TWO)
 		//spread the infection to internal organs

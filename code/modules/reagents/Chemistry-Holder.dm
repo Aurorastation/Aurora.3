@@ -27,6 +27,10 @@
 
 /* Internal procs */
 
+/datum/reagents/proc/apply_force(var/force) // applies force to the reagents inside it
+	for (var/datum/reagent/A in reagent_list)
+		A.apply_force(force)
+
 /datum/reagents/proc/get_free_space() // Returns free space.
 	return maximum_volume - total_volume
 

@@ -7,6 +7,7 @@
 	robotic_name = "circulatory pump"
 	robotic_sprite = "heart-prosthetic"
 	max_damage = 45
+	toxin_type = CE_CARDIOTOXIC
 	var/pulse = PULSE_NORM	//current pulse level
 	var/heartbeat = 0
 	var/next_blood_squirt = 0
@@ -32,22 +33,6 @@
 	// pulse mod starts out as just the chemical effect amount
 	var/pulse_mod = owner.chem_effects[CE_PULSE]
 	var/is_stable = owner.chem_effects[CE_STABLE]
-
-	//handles different chems' influence on pulse
-	for(var/datum/reagent/R in owner.reagents.reagent_list)
-		if(R.id in bradycardics)
-			if(pulse <= PULSE_THREADY && pulse >= PULSE_NORM)
-				pulse_mod--
-		if(R.id in tachycardics)
-			if(pulse <= PULSE_FAST && pulse >= PULSE_NONE)
-				pulse_mod++
-		if(R.id in heartstopper) //To avoid using fakedeath
-			if(rand(0,6) == 3)
-				take_internal_damage(5)
-		if(R.id in cheartstopper) //Conditional heart-stoppage
-			if(R.volume >= R.overdose)
-				if(rand(0,6) == 3)
-					take_internal_damage(5)
 
 	// If you have enough heart chemicals to be over 2, you're likely to take extra damage.
 	if(pulse_mod > 2 && !is_stable)
@@ -104,8 +89,11 @@
 		//High pulse value corresponds to a fast rate of heartbeat.
 		//Divided by 2, otherwise it is too slow.
 		var/rate = (PULSE_THREADY - pulse)/2
-		if(owner.chem_effects[CE_PULSE] > 2)
-			heartbeat++
+		switch(owner.chem_effects[CE_PULSE])
+			if(2 to INFINITY)
+				heartbeat++
+			if(-INFINITY to -2)
+				heartbeat--
 
 		if(heartbeat >= rate)
 			heartbeat = 0

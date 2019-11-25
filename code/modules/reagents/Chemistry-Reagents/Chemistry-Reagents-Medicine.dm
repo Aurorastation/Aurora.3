@@ -1,9 +1,9 @@
 /* General medicine */
 
-/datum/reagent/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	description = "Inaprovaline is a synaptic stimulant and cardiostimulant. Commonly used to stabilize patients."
+/datum/reagent/norepinephrine
+	name = "Norepinephrine"
+	id = "norepinephrine"
+	description = "Norepinephrine is a chemical that narrows blood vessels, raises blood pressure, and helps the blood pump more efficiently. Commonly used to stabilize patients."
 	reagent_state = LIQUID
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE * 2
@@ -14,20 +14,20 @@
 	taste_description = "bitterness"
 	var/datum/modifier/modifier
 
-/datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/norepinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/inaprovaline/Destroy()
+/datum/reagent/norepinephrine/Destroy()
 	QDEL_NULL(modifier)
 	return ..()
 
-/datum/reagent/epinephrine
-	name = "Epinephrine"
-	id = "epinephrine"
-	description = "Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
+/datum/reagent/inaprovaline
+	name = "Inaprovaline"
+	id = "inaprovaline"
+	description = "Inaprovaline is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
 	reagent_state = LIQUID
 	color = "#FFFFFF"
 	overdose = 20
@@ -40,7 +40,7 @@
 	var/datum/modifier/modifier1
 	var/datum/modifier/modifier2
 
-/datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 
 	var/reagent_strength = round(max(0,1 - (M.health/100)),0.1)
 
@@ -74,17 +74,15 @@
 	if (!modifier1)
 		modifier1 = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/epinephrine/overdose(var/mob/living/carbon/human/H, var/alien, removed )
+/datum/reagent/inaprovaline/overdose(var/mob/living/carbon/human/H, var/alien, removed )
 	if(istype(H))
-		var/obj/item/organ/F = H.internal_organs_by_name[BP_HEART]
-		if(istype(F))
-			F.take_damage(-removed*0.1)
-			H.make_jittery(removed*10)
-			H.add_chemical_effect(CE_SPEEDBOOST, 1)
-			if (!modifier2)
-				modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		H.add_chemical_effect(CE_CARDIOTOXIC, 0.1*removed)
+		H.make_jittery(removed*10)
+		H.add_chemical_effect(CE_SPEEDBOOST, 1)
+		if (!modifier2)
+			modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/epinephrine/Destroy()
+/datum/reagent/inaprovaline/Destroy()
 	QDEL_NULL(modifier1)
 	QDEL_NULL(modifier2)
 	return ..()
@@ -105,6 +103,9 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
+	if(M.getBruteLoss() && prob(7))
+		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
+		M.Weaken(3)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -122,23 +123,20 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
+	var/strength = 6
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
+	M.add_chemical_effect(CE_DROPITEM, 6/strength * max_dose)
 
-/datum/reagent/dermaline
+/datum/reagent/kelotane/dermaline
 	name = "Dermaline"
 	id = "dermaline"
 	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
-	reagent_state = LIQUID
 	color = "#FF8000"
 	overdose = REAGENTS_OVERDOSE * 0.5
-	scannable = 1
-	taste_description = "bitterness"
 	taste_mult = 1.5
-
-/datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0, 12 * removed)
+	strength = 12
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -167,35 +165,23 @@
 	metabolism = REM
 	breathe_met = REM * 0.5
 	breathe_mul = 2
+	var/strength = 6
 
 /datum/reagent/dexalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_VOX)
-		M.adjustToxLoss(removed * 6)
+		M.adjustToxLoss(removed * strength)
 	else
-		M.adjustOxyLoss(-15 * removed)
+		M.adjustOxyLoss(-strength * removed)
+	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
+	holder.remove_reagent("lexorin", strength/3 * removed)
 
-	holder.remove_reagent("lexorin", 2 * removed)
-
-/datum/reagent/dexalinp
+/datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
 	id = "dexalinp"
 	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
-	reagent_state = LIQUID
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
-	scannable = 1
-	taste_description = "bitterness"
-	metabolism = REM
-	breathe_met = REM * 0.5
-	breathe_mul = 2
-
-/datum/reagent/dexalinp/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
-		M.adjustToxLoss(removed * 9)
-	else
-		M.adjustOxyLoss(-300 * removed)
-
-	holder.remove_reagent("lexorin", 3 * removed)
+	strength = 12
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
@@ -215,24 +201,6 @@
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 	M.adjustToxLoss(-3 * removed)
 
-/datum/reagent/omnizine
-	name = "Omnizine"
-	id = "omnizine"
-	description = "Omnizine is a low strength over-the-counter stimulant designed and marketed as a 'treat all' pill. Ingesting or inhaling the substance has the same strength as directly injecting it."
-	reagent_state = SOLID
-	color = "#BBBBBB"
-	metabolism = REM
-	ingest_mul = 1
-	breathe_mul = 1
-	scannable = 1
-	taste_description = "bittersweet chalk"
-
-/datum/reagent/omnizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustOxyLoss(-1 * removed)
-	M.adjustBruteLoss(-1 * removed)
-	M.adjustFireLoss(-1 * removed)
-	M.adjustToxLoss(-1 * removed)
-
 /datum/reagent/atropine
 	name = "Atropine"
 	id = "atropine"
@@ -246,9 +214,9 @@
 
 /datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/reagent_strength = max(0.25,1 - (M.health/100))
-	M.adjustOxyLoss(-5 * removed * reagent_strength)
-	M.adjustBruteLoss(-5 * removed * reagent_strength)
-	M.adjustFireLoss(-5 * removed * reagent_strength)
+	M.adjustOxyLoss(-8 * removed * reagent_strength)
+	M.adjustBruteLoss(-8 * removed * reagent_strength)
+	M.adjustFireLoss(-8 * removed * reagent_strength)
 
 	M.adjustToxLoss(1 * removed)
 
@@ -264,6 +232,7 @@
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature < 170)
+		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
@@ -281,6 +250,7 @@
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature < 170)
+		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
@@ -305,8 +275,7 @@
 
 /datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
-	if(M.bodytemperature > 310)
-		M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT)) // reduces fever
+	M.add_chemical_effect(CE_NOFEVER, ((max_dose/2)^2-(dose-max_dose/2))/(max_dose/4)) // creates a smooth curve peaking at half the dose metabolised
 
 /datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -407,7 +376,7 @@
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustBrainLoss(-30 * removed)
+	M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 
 /datum/reagent/imidazoline
@@ -444,7 +413,7 @@
 /datum/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-
+		H.add_chemical_effect(CE_CLUMSY, 1)
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
@@ -489,6 +458,7 @@
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
+	M.add_chemical_effect(CE_PULSE, 2)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
@@ -612,15 +582,7 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(dose/4))
-		to_chat(M, span("warning", "Your muscles feel sore..."))
-		M.adjustHalLoss(15) // side effects of antivirals include fever, muscle aches and fatigue
-	if(prob(dose/4))
-		to_chat(M, span("warning", "You feel tired..."))
-		M.drowsyness += 1
-	if(prob(dose/4))
-		to_chat(M, span("warning", "You feel cold and lethargic..."))
-		M.bodytemperature = max(M.bodytemperature, min(310+5, M.bodytemperature+5))
+	M.add_chemical_effect(CE_FEVER, dose/4)
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
@@ -628,20 +590,29 @@
 	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
 	reagent_state = LIQUID
 	color = "#41C141"
-	metabolism = REM * 0.05 // only performs its effects while in blood
-	ingest_met = REM // .2 units per tick
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	taste_description = "bitter gauze"
+	taste_description = "bitter gauze soaked in rubbing alcohol"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/thetamycin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(dose/4))
-		to_chat(M, span("warning", "You feel sick to your stomach...")) // side effects of antibiotics
-		if(prob(25))
-			M.vomit()
+	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
+	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
+
+/datum/reagent/ondansetron
+	name = "Ondansetron"
+	id = "ondansetron"
+	description = "Ondansetron is a medication used to prevent nausea and vomiting."
+	color = "#f5f2d0"
+	taste_description = "bitterness"
+	metabolism = REM * 0.25
+
+/datum/reagent/ondansetron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien == IS_DIONA)
+		return
+	M.add_chemical_effect(CE_ANTIEMETIC, dose/4) // 1u should suppress 2u thetamycin
 
 /datum/reagent/coughsyrup
 	name = "Cough Syrup"
@@ -652,8 +623,6 @@
 	taste_description = "bitterness"
 	color = "#402060"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
-	metabolism = REM * 0.05 // only performs its effects while in blood
-	ingest_met = REM // .2 units per tick
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 
@@ -671,7 +640,7 @@
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
 	if(prob(7))
-		M.adjustBrainLoss(3 * removed) // not great for your brain
+		M.add_chemical_effect(CE_NEUROTOXIC, 3 * removed)
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
@@ -855,6 +824,7 @@
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
+	M.add_chemical_effect(CE_PULSE, 1)
 
 /datum/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	. = ..()
@@ -1255,9 +1225,9 @@
 	var/chance = dose*removed
 	if(M.bodytemperature < 170)
 		chance = (chance*4) + 5
-		M.adjustBrainLoss(-30 * removed)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	else
-		M.adjustBrainLoss(-10 * removed)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 10*removed)
 
 	if(prob(chance))
 		M.cure_trauma_type(pick(curable_traumas))
@@ -1335,8 +1305,7 @@
 			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
 			if(prob(75)) //Cough uncontrolably
 				H.emote("cough")
-				L.take_damage(0.2*removed) //Every 5 units deals 1 lung damage, absolute worse case scenario.
-
+				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
 
 /datum/reagent/rezadone
@@ -1372,10 +1341,9 @@
 
 /datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
-		to_chat(M, pick("You feel nauseous", "Ugghh....", "Your stomach churns uncomfortably", "You feel like you're about to throw up", "You feel queasy","You feel pressure in your abdomen"))
+		to_chat(M, pick("You feel nauseous!", "Your stomach churns uncomfortably.", "You feel like you're about to throw up.", "You feel queasy.", "You feel bile in your throat."))
 
-	if (prob(dose))
-		M.vomit()
+	M.add_chemical_effect(CE_EMETIC, dose)
 
 /datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
@@ -1425,17 +1393,15 @@
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
-		var/obj/item/organ/F = M.internal_organs_by_name[BP_HEART]
-		if(istype(F))
-			if(M.max_nutrition > 0)
-				var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-				F.take_damage(-removed*nutritionmod)
+		if(M.max_nutrition > 0)
+			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
+			M.add_chemical_effect(CE_CARDIOTOXIC, -removed * nutritionmod)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
 	if(istype(M))
 		if(prob(25))
-			M.add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+			M.add_chemical_effect(CE_HEPATOTOXIC, 1)
 			M.vomit()
 
 /datum/reagent/potassium_hydrophoro
@@ -1481,6 +1447,7 @@
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"
+	id = "adrenaline"
 	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
 	taste_description = "rush"
 	reagent_state = LIQUID
@@ -1493,12 +1460,10 @@
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
-
 	if(dose < 1)	//not that effective after initial rush
-		M.add_chemical_effect(CE_PAINKILLER, min(30*volume, 80))
+		M.add_chemical_effect(CE_PAINKILLER, min(20*volume, 80))
 		M.add_chemical_effect(CE_PULSE, 1)
-	else if(dose > 1)
-		M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 20))
+	M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 20))
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(dose > 10)
 		M.make_jittery(5)
@@ -1506,7 +1471,7 @@
 		remove_self(5)
 		if(M.resuscitate())
 			var/obj/item/organ/internal/heart = M.internal_organs_by_name[BP_HEART]
-			heart.take_internal_damage(heart.max_damage * 0.15)
+			M.add_chemical_effect(CE_CARDIOTOXIC, heart.max_damage * 0.15)
 
 //Secret Chems
 /datum/reagent/elixir

@@ -4,6 +4,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,50,100)
 	flags = OPENCONTAINER
 	volume = 60
+	fragile = 0 // do NOT shatter
 	var/reagent = ""
 
 

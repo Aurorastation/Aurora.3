@@ -14,8 +14,7 @@
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
-		M.add_chemical_effect(CE_TOXIN, 1)
-		M.adjustToxLoss(strength * removed)
+		M.add_chemical_effect(CE_TOXIN, strength * removed)
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
@@ -59,7 +58,6 @@
 	taste_description = "stinging needles"
 
 /datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustHalLoss(removed*15)
 
 /datum/reagent/toxin/phoron
@@ -140,7 +138,7 @@
 /datum/reagent/toxin/cardox
 	name = "Cardox"
 	id = "cardox"
-	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
+	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
 	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
@@ -154,10 +152,9 @@
 
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.add_chemical_effect(CE_TOXIN, 1)
-		M.adjustToxLoss(removed * strength*2)
+		M.add_chemical_effect(CE_TOXIN, removed * strength * 2)
 	else
-		M.adjustToxLoss(removed * strength)
+		M.add_chemical_effect(CE_TOXIN, removed * strength)
 
 /datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
@@ -205,6 +202,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
 			H.losebreath = max(10, H.losebreath - 10)
@@ -226,6 +224,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
 			H.losebreath = max(10, M.losebreath-10)
@@ -247,6 +246,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	M.status_flags |= FAKEDEATH
 	M.adjustOxyLoss(3 * removed)
 	M.Weaken(10)
@@ -436,8 +436,7 @@
 		return
 	if(prob(10))
 		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
-		M.add_chemical_effect(CE_TOXIN, 10)
-		M.adjustToxLoss(rand(100, 300) * removed)
+		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
 
@@ -455,8 +454,9 @@
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
+	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
+	M.add_chemical_effect(CE_PULSE, -2)
 	if(dose < 1)
 		if(dose == metabolism * 2 || prob(5))
 			M.emote("yawn")
@@ -495,8 +495,7 @@
 		M.sleeping = max(M.sleeping, 30)
 
 	if(dose > 1)
-		M.add_chemical_effect(CE_TOXIN, 2)
-		M.adjustToxLoss(removed)
+		M.add_chemical_effect(CE_TOXIN, removed)
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
@@ -646,7 +645,7 @@
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(20))
-		M.adjustBrainLoss(5)
+		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/toxin/berserk/Destroy()
 	QDEL_NULL(modifier)

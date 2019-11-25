@@ -13,6 +13,7 @@
 	throw_range = 5
 	origin_tech = list(TECH_BIO = 3)
 	attack_verb = list("attacked", "slapped", "whacked")
+	toxin_type = CE_NEUROTOXIC
 	var/mob/living/carbon/brain/brainmob = null
 	var/list/datum/brain_trauma/traumas = list()
 	var/lobotomized = 0
@@ -51,6 +52,9 @@
 	if(!owner)
 		return
 
+	if(CE_BRAIN_REGEN in owner.chem_effects)
+		damage -= min(damage, owner.chem_effects[CE_BRAIN_REGEN])
+	
 	if(lobotomized && (owner.getBrainLoss() < 40)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
 		owner.setBrainLoss(40)
 
