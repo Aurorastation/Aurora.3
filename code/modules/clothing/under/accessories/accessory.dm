@@ -680,12 +680,7 @@
 	desc = "A lightweight polymer frame meant to brace and hold someone's legs upright comfortably."
 	icon_state = "legbrace"
 	item_state = "legbrace"
-
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace
-	name = "neckbrace"
-	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
-	icon_state = "neckbrace"
-	item_state = "neckbrace"
+	drop_sound = 'sound/items/drop/gun.ogg'
 
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 	name = "neckbrace"
@@ -700,6 +695,7 @@
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
 	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
@@ -708,6 +704,7 @@
 	item_state = "sol-pin"
 	overlay_state = "sol-pin"
 	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
@@ -720,6 +717,7 @@
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
@@ -727,6 +725,7 @@
 	icon_state = "tags"
 	item_state = "tags"
 	overlay_state = "tags"
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
@@ -734,6 +733,7 @@
 	icon_state = "patch"
 	overlay_state = "patch"
 	flippable = 1
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/accessory/sleevepatch/necro
 	name = "\improper Necropolis Industries sleeve patch"
