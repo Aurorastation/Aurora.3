@@ -1452,6 +1452,7 @@
 	id = "epinephrine"
 	description = "Epinephrine is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
 	taste_description = "rush"
+	fallback_specific_heat = 1
 	reagent_state = LIQUID
 	color = "#c8a5dc"
 	scannable = 1
