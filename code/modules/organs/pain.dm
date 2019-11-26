@@ -59,10 +59,7 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 
 	// Excessive halloss is horrible, just give them enough to make it visible.
 	if(!nohalloss && power)
-		if(affecting)
-			affecting.add_pain(ceil(power/2))
-		else
-			adjustHalLoss(ceil(power/2))
+		adjustHalLoss(Ceiling(power/2))
 
 	flash_pain(min(round(2*power)+55, 255))
 

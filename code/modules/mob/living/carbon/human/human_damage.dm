@@ -25,49 +25,22 @@
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
 
-//Some sources of brain damage shouldn't be deadly
-/mob/living/carbon/human/adjustBrainLoss(var/amount, maximum = 60)
-
-	if(status_flags & GODMODE)	return 0	//godmode
-
-	if(species && species.has_organ[BP_BRAIN])
+/mob/living/carbon/human/adjustBrainLoss(var/amount)
+	if(status_flags & GODMODE)
+		return 0	//godmode
+	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
-			if(amount + sponge.damage > maximum)
-				if(sponge.damage < maximum)
-					amount = maximum - sponge.damage
-				else
-					return
-			sponge.take_damage(amount)
-			brainloss = sponge.damage
-		else
-			brainloss = 200
-	else
-		brainloss = 0
-
-	if(brainloss > BRAIN_DAMAGE_MILD && !has_trauma_type(BRAIN_TRAUMA_MILD))
-		if(prob((amount * 2) + ((brainloss - BRAIN_DAMAGE_MILD) / 5))) //1 damage|50 brain damage = 4% chance
-			gain_trauma_type(BRAIN_TRAUMA_MILD)
-	if(brainloss > BRAIN_DAMAGE_SEVERE && !has_trauma_type(BRAIN_TRAUMA_SEVERE) && !has_trauma_type(BRAIN_TRAUMA_SPECIAL))
-		if(prob(amount + ((brainloss - BRAIN_DAMAGE_SEVERE) / 15))) //1 damage|150 brain damage = 3% chance
-			if(prob(20))
-				gain_trauma_type(BRAIN_TRAUMA_SPECIAL)
-			else
-				gain_trauma_type(BRAIN_TRAUMA_SEVERE)
+			sponge.take_internal_damage(amount)
 
 /mob/living/carbon/human/setBrainLoss(var/amount)
-
-	if(status_flags & GODMODE)	return 0	//godmode
-
-	if(species && species.has_organ[BP_BRAIN])
+	if(status_flags & GODMODE)
+		return 0	//godmode
+	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
-			sponge.damage = min(max(amount, 0),(maxHealth*2))
-			brainloss = sponge.damage
-		else
-			brainloss = 200
-	else
-		brainloss = 0
+			sponge.damage = min(max(amount, 0),sponge.species.total_health)
+			updatehealth()
 
 /mob/living/carbon/human/getBrainLoss()
 	if(status_flags & GODMODE)

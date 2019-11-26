@@ -190,6 +190,7 @@
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
+	fallback_specific_heat = 1
 	taste_description = "bitterness"
 	breathe_mul = 0
 

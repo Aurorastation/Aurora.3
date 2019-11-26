@@ -113,7 +113,6 @@
 	..()
 	if(damage >= 10) //This probably won't be triggered by oxyloss or mercury. Probably.
 		var/damage_secondary = damage * 0.20
-		owner.flash_eyes()
 		owner.eye_blurry += damage_secondary
 		owner.confused += damage_secondary * 2
 		owner.Paralyse(damage_secondary)
@@ -149,7 +148,7 @@
 		owner.eye_blurry = 10
 	if(damage >= 0.5*max_damage && prob(1) && owner.get_active_hand())
 		to_chat(owner, "<span class='danger'>Your hand won't respond properly, and you drop what you are holding!</span>")
-		owner.unequip_item()
+		owner.drop_item()
 	if(damage >= 0.6*max_damage)
 		owner.slurring = max(owner.slurring, 2)
 	if(is_broken())
