@@ -29,10 +29,10 @@
 	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/g9mm
 
-/datum/uplink_item/item/visible_weapons/riggedlaser
-	name = "Exosuit (APLU) Rigged Laser"
+/datum/uplink_item/item/visible_weapons/exolaser
+	name = "Exosuit Mounted Laser"
 	item_cost = 8
-	path = /obj/item/mecha_parts/mecha_equipment/weapon/energy/riggedlaser
+	path = /obj/item/mecha_equipment/mounted_system/taser/laser
 
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"

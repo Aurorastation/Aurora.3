@@ -263,7 +263,7 @@
 	},
 /obj/structure/bed/chair/comfy/beige,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/repeat{
 	identifier = "pra_cosmonaut";
 	name = "igs - pra_cosmonaut"
 	},
@@ -288,7 +288,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/repeat{
 	identifier = "pra_cosmonaut";
 	name = "igs - pra_cosmonaut"
 	},
@@ -358,7 +358,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/repeat{
 	identifier = "pra_cosmonaut";
 	name = "igs - pra_cosmonaut"
 	},
@@ -439,7 +439,7 @@
 	},
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/repeat{
 	identifier = "pra_cosmonaut";
 	name = "igs - pra_cosmonaut"
 	},
@@ -1858,7 +1858,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/repeat{
 	identifier = "pra_cosmonaut";
 	name = "igs - pra_cosmonaut"
 	},

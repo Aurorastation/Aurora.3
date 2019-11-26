@@ -372,6 +372,7 @@
 	animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
 	affecting.layer = 4
 	if(affecting)
+		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src
 		affecting = null
 	if(assailant)

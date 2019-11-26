@@ -158,16 +158,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_BELT
 	w_class = 1
 
-
-/obj/item/device/kit/paint/ripley/fluff/zairjah_kit //Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk
-	name = "\"Hephaestus Industrial Exosuit MK III\" APLU customisation kit"
-	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
-	new_name = "Hephaestus Industrial Exosuit MK III"
-	new_desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
-	new_icon = "ripley_zairjah" //a lot of thanks to cakeisossim for the sprites
-	allowed_types = list("ripley","firefighter")
-
-
 /obj/item/cane/fluff/usiki_cane //Inscribed Silver-handled Cane - Usiki Guwan - fireandglory
 	name = "inscribed silver-handled cane"
 	desc = "This silver-handled cane has letters carved into the sides."

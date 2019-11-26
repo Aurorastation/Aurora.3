@@ -35,7 +35,7 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
-	if(istype(src.loc,/obj/mecha)||istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
+	if(istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
 		return FALSE
 
 	// Check if we can actually travel a Z-level.
@@ -83,9 +83,10 @@
 	. = ..()
 	if(.)
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
-			if(G.state >= GRAB_NECK && G.affecting && !(G.affecting.buckled)) //strong grip and not buckled
-				G.affecting.Move(get_turf(src))
-				visible_message(span("warning", "[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
+			if(G.state >= GRAB_NECK) //strong grip
+				if(G.affecting && !(G.affecting.buckled))
+					G.affecting.Move(get_turf(src))
+					visible_message(span("warning", "[src] pulls [G.affecting] [direction & UP ? "upwards" : "downwards"]!"))
 
 /mob/living/zMove(direction)
 	if (is_ventcrawling)
@@ -317,9 +318,7 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
-// Only things that stop mechas are atoms that, well, stop them.
-// Lattices and stairs get crushed in fall_through.
-/obj/mecha/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+/mob/living/heavy_vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
 		return FALSE
@@ -334,6 +333,9 @@
 
 	// True otherwise.
 	return TRUE
+
+// Only things that stop mechas are atoms that, well, stop them.
+// Lattices and stairs get crushed in fall_through.
 
 /mob/living/carbon/human/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// Special condition for jetpack mounted folk!
@@ -377,7 +379,7 @@
 	visible_message("\The [src] falls from the level above through \the [loc]!",
 		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
 
-/obj/mecha/fall_through()
+/mob/living/heavy_vehicle/fall_through()
 	var/obj/structure/lattice/L = locate() in loc
 	if (L)
 		visible_message("<span class='danger'>\The [src] crushes \the [L] with its weight!</span>")
@@ -387,7 +389,6 @@
 	if (S)
 		visible_message("<span class='danger'>\The [src] crushes \the [S] with its weight!</span>")
 		qdel(S)
-
 /**
  * Invoked when an atom has landed on a tile through which they can no longer fall.
  *
@@ -557,7 +558,7 @@
 /mob/living/carbon/human/bst/fall_impact()
 	return FALSE
 
-/obj/mecha/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
 	if (!.)
 		return
@@ -565,7 +566,7 @@
 	var/z_velocity = 5*(levels_fallen**2)
 	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
 
-	take_damage(damage)
+	apply_damage(damage)
 
 	playsound(loc, "sound/effects/bang.ogg", 100, 1)
 	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
