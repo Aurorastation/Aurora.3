@@ -49,27 +49,36 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 
 
 // message is the custom message to be displayed
-// flash_strength is 0 for weak pain flash, 1 for strong pain flash
-mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
-	if(stat >= 1)
-		return
-	if(!can_feel_pain())
-		return
-	if(reagents.has_reagent("tramadol"))
-		return
-	if(reagents.has_reagent("oxycodone"))
-		return
-	if(analgesic)
-		return
-	var/msg = "<span class='danger'>[message]</span>"
-	if(flash_strength >= 1)
-		msg = "<span class='danger'><font size=3>[message]</font></span>"
+// power decides how much painkillers will stop the message
+// force means it ignores anti-spam timer
+/mob/living/carbon/proc/custom_pain(var/message, var/power, var/force, var/obj/item/organ/external/affecting, var/nohalloss)
+	if(!message || stat || !can_feel_pain() || chem_effects[CE_PAINKILLER] > power)
+		return 0
+
+	power -= chem_effects[CE_PAINKILLER]/2	//Take the edge off.
+
+	// Excessive halloss is horrible, just give them enough to make it visible.
+	if(!nohalloss && power)
+		if(affecting)
+			affecting.add_pain(ceil(power/2))
+		else
+			adjustHalLoss(ceil(power/2))
+
+	flash_pain(min(round(2*power)+55, 255))
 
 	// Anti message spam checks
-	if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))
-		last_pain_message = msg
-		to_chat(src, msg)
-	next_pain_time = world.time + 100
+	if(force || (message != last_pain_message) || (world.time >= next_pain_time))
+		last_pain_message = message
+		if(power >= 70)
+			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
+		else if(power >= 40)
+			to_chat(src, "<span class='danger'><font size=2>[message]</font></span>")
+		else if(power >= 10)
+			to_chat(src, "<span class='danger'>[message]</span>")
+		else
+			to_chat(src, "<span class='warning'>[message]</span>")
+
+	next_pain_time = world.time + (100-power)
 
 mob/living/carbon/human/proc/handle_pain()
 	// not when sleeping

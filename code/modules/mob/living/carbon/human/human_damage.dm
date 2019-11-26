@@ -456,3 +456,15 @@ This function restores all organs.
 	if (species && rads > 0)
 		rads = rads * species.radiation_mod
 	..(rads)
+
+/mob/living/carbon/human/proc/get_shock()
+
+	if (!can_feel_pain())
+		return 0
+
+	var/traumatic_shock = getHalLoss()                 // Pain.
+	traumatic_shock -= chem_effects[CE_PAINKILLER] // TODO: check what is actually stored here.
+
+	if(stat == UNCONSCIOUS)
+		traumatic_shock *= 0.6
+	return max(0,traumatic_shock)

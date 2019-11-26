@@ -1122,51 +1122,54 @@
 		return
 
 	if(is_asystole())
-		shock_stage = max(shock_stage, 61)
+		shock_stage = max(shock_stage + 1, 61)
 
-	if(traumatic_shock >= 80)
+	var/traumatic_shock = get_shock()
+	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
-	else if(is_asystole())
-		shock_stage = max(shock_stage, 61)
-	else
+	else if (!is_asystole())
 		shock_stage = min(shock_stage, 160)
-		shock_stage = max(shock_stage-1, 0)
+		var/recovery = 1
+		if(traumatic_shock < 0.5 * shock_stage) //lower shock faster if pain is gone completely
+			recovery++
+		if(traumatic_shock < 0.25 * shock_stage)
+			recovery++
+		shock_stage = max(shock_stage - recovery, 0)
 		return
 
+	if(stat)
+		return 0
+
 	if(shock_stage == 10)
-		var/painful = pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")
-		to_chat(src, "<span class='danger'>[painful]!</span>")
+		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
-		if(shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
+		if(shock_stage == 30)
+			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
 		eye_blurry = max(2, eye_blurry)
 		stuttering = max(stuttering, 5)
 
 	if(shock_stage == 40)
-		var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
-		to_chat(src, "<span class='danger'>[painful]!</span>")
+		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60) emote("me",1,"'s body becomes limp.")
 		if (prob(2))
-			var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
-			to_chat(src, "<span class='danger'>[painful]!</span>")
+			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
 
 	if(shock_stage >= 80)
 		if (prob(5))
-			var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
-			to_chat(src, "<span class='danger'>[painful]!</span>")
+			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
 
 	if(shock_stage >= 120)
 		if (prob(2))
-			var/blacked = pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")
-			to_chat(src, "<span class='danger'>[blacked]!</span>")
+			custom_pain("[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!", shock_stage, nohalloss = TRUE)
 			Paralyse(5)
 
 	if(shock_stage == 150)
-		emote("me",1,"can no longer stand, collapsing!")
+		visible_message("<b>[src]</b> can no longer stand, collapsing!")
 		Weaken(20)
 
 	if(shock_stage >= 150)
