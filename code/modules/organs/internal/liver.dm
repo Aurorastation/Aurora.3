@@ -5,10 +5,14 @@
 	parent_organ = BP_GROIN
 	robotic_name = "toxin filter"
 	robotic_sprite = "liver-prosthetic"
+	toxin_type = CE_HEPATOTOXIC
+	min_bruised_damage = 25
+	min_broken_damage = 45
+
 	max_damage = 70
 	relative_size = 60
+
 	var/tolerance = 5
-	toxin_type = CE_HEPATOTOXIC
 
 /obj/item/organ/internal/liver/process()
 

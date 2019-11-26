@@ -11,11 +11,12 @@
 	robotic_sprite = "lungs-prosthetic"
 	min_bruised_damage = 25
 	min_broken_damage = 45
+	toxin_type = CE_PNEUMOTOXIC
+
 	max_damage = 70
 	relative_size = 60
-	toxin_type = CE_PNEUMOTOXIC
-	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 
+	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 	var/oxygen_deprivation = 0
 	var/last_successful_breath
 	var/breath_fail_ratio //How badly they failed a breath
