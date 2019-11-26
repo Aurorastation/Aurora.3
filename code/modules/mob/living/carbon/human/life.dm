@@ -669,7 +669,6 @@
 		analgesic = 0
 
 		if(touching) touching.metabolize()
-		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
 		if(breathing) breathing.metabolize()
 

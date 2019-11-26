@@ -710,12 +710,6 @@ proc/is_blind(A)
 /mob/living/carbon/proc/vomit()
 	var/canVomit = FALSE
 
-	var/mob/living/carbon/human/H
-	if (istype(src, /mob/living/carbon/human))
-		H = src
-		if (H.ingested.total_volume > 0)
-			canVomit = TRUE
-
 	if (nutrition > 0)
 		canVomit = TRUE
 

@@ -115,17 +115,17 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(!stomach || !stomach.is_usable())
 		if(!silent)
-			to_chat(src, SPAN_WARNING("Your stomach is not functional!"))
+			to_chat(src, span("warning", "Your stomach is not functional!"))
 		return FALSE
 
 	if(!stomach.can_eat_atom(victim))
 		if(!silent)
-			to_chat(src, SPAN_WARNING("You are not capable of devouring \the [victim] whole!"))
+			to_chat(src, span("warning", "You are not capable of devouring \the [victim] whole!"))
 		return FALSE
 
 	if(stomach.is_full(victim))
 		if(!silent)
-			to_chat(src, SPAN_WARNING("Your [stomach.name] is full!"))
+			to_chat(src, span("warning", "Your [stomach.name] is full!"))
 		return FALSE
 
 	. = stomach.get_devour_time(victim) || ..()
@@ -926,17 +926,34 @@
 			if(species.gluttonous & GLUT_PROJECTILE_VOMIT)
 				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
 
-	visible_message(span("danger", "\The [src] throws up!"), span("danger", "You throw up!"))
-	playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-	var/turf/location = loc
-	if(istype(location, /turf/simulated))
-		var/obj/effect/decal/cleanable/vomit/splat = new /obj/effect/decal/cleanable/vomit(location)
-		if(stomach.ingested.total_volume)
-			stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
-		handle_additional_vomit_reagents(splat)
-		splat.update_icon()
+	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
+	var/obj/vomitReceptacle
+	for(var/obj/vessel in view(1, src))
+		if (!is_type_in_typecache(vessel, vomitCandidate))
+			continue
+		if(!vessel.Adjacent(src))
+			continue
+		vomitReceptacle = vessel
+		break
 
-/mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
+	var/obj/effect/decal/cleanable/vomit/splat
+	if(vomitReceptacle)
+		visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
+		splat = new /obj/effect/decal/cleanable/vomit(vomitReceptacle)
+	else
+		visible_message(span("warning", "\The [src] throws up!"), span("warning", "You throw up!"))
+		var/turf/location = loc
+		if(istype(location, /turf/simulated))
+			splat = new /obj/effect/decal/cleanable/vomit(location)
+	
+	if(stomach.ingested.total_volume)
+		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
+	handle_additional_vomit_reagents(splat)
+	splat.update_icon()
+
+	playsound(vomitReceptacle, 'sound/effects/splat.ogg', 50, 1)
+
+/mob/living/carbon/human/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 	set waitfor = 0
 
 	if(!check_has_mouth() || isSynthetic() || !timevomit || !level || stat == DEAD || lastpuke)
@@ -976,6 +993,9 @@
 				vessel.trans_to_obj(vomit, 5)
 			else
 				reagents.trans_to_obj(vomit, 5)
+
+/mob/living/carbon/human/get_digestion_product()
+	return species.get_digestion_product(src)
 
 /mob/living/carbon/human/proc/morph()
 	set name = "Morph"
@@ -1797,3 +1817,10 @@
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
 		reagents.add_reagent("adrenaline", amount)
+
+/mob/living/carbon/human/proc/seizure()
+	if(!paralysis && stat == CONSCIOUS)
+		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
+		Paralyse(rand(8,16))
+		make_jittery(rand(150,200))
+		adjustHalLoss(rand(50,60))

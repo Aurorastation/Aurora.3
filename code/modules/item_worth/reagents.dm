@@ -66,6 +66,9 @@
 /datum/reagent/acid
 	value = 0.2
 
+/datum/reagent/acid/stomach
+	value = 0
+
 /datum/reagent/sodium
 	value = 0.1
 

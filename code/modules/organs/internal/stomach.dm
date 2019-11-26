@@ -60,10 +60,10 @@
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST
-	else if(istype(food, /obj/item) && !istype(food, /obj/item/weapon/holder)) //Don't eat holders. They are special.
+	else if(istype(food, /obj/item) && !istype(food, /obj/item/holder)) //Don't eat holders. They are special.
 		var/obj/item/I = food
 		var/cost = I.get_storage_cost()
-		if(cost != ITEM_SIZE_NO_CONTAINER)
+		if(cost != INFINITY) // i blame bay - geeves
 			if((species.gluttonous & GLUT_ITEM_TINY) && cost < 4)
 				return DEVOUR_SLOW
 			else if((species.gluttonous & GLUT_ITEM_NORMAL) && cost <= 4)
@@ -94,7 +94,7 @@
 	
 #define STOMACH_VOLUME 65
 	
-/obj/item/organ/internal/stomach/Process()
+/obj/item/organ/internal/stomach/process()
 	..()
 
 	if(owner)
@@ -120,11 +120,7 @@
 			next_cramp = world.time + rand(200,800)
 			owner.custom_pain("Your stomach cramps agonizingly!",1)
 
-		var/alcohol_volume = ingested.get_reagent_amount(/datum/reagent/ethanol)
-		
-		var/alcohol_threshold_met = alcohol_volume > STOMACH_VOLUME / 2
-		if(alcohol_threshold_met && (owner.disabilities & EPILEPSY) && prob(20))
-			owner.seizure()
+		var/alcohol_volume = ingested.get_reagent_amount(/datum/reagent/alcohol/ethanol)
 		
 		// Alcohol counts as double volume for the purposes of vomit probability
 		var/effective_volume = ingested.total_volume + alcohol_volume

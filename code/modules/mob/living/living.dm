@@ -838,3 +838,6 @@ default behaviour is:
 
 /mob/living/proc/nervous_system_failure()
 	return FALSE
+
+/mob/living/proc/get_digestion_product()
+	return null
