@@ -6,7 +6,7 @@
 	dir = 4
 	var/obj/item/locked = null
 	var/id = null
-	var/freq = 1451
+	var/freq = PUB_FREQ
 	var/one_time_use = 0 //Used for one-time-use teleport cards (such as clown planet coordinates.)
 						 //Setting this to 1 will set src.locked to null after a player enters the portal and will not allow hand-teles to open portals to that location.
 
@@ -124,6 +124,10 @@
 			else
 				areaindex[tmpname] = 1
 			L[tmpname] = I
+
+	if(length(L) == 0)
+		span("warning", "No beacons found!")
+		return
 
 	var/desc = input("Please select a location to lock in.", "Locking Computer") in L|null
 	if(!desc)

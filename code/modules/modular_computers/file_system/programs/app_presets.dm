@@ -188,6 +188,19 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/syndicate/commander
+	name = "cmdr"
+	display_name = "Syndicate Commander"
+	description = "Preset for the Syndicate Commander's Console."
+	available = 0
+/datum/modular_computer_app_presets/merc/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/ntnetdownload(),
+		new/datum/computer_file/program/syndicate/camera()
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/ert
 	name = "ert"
 	display_name = "EmergencyResposeTeam"
