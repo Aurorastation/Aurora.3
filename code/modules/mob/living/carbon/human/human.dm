@@ -108,6 +108,49 @@
 
 	return ..()
 
+/mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
+	if(!should_have_organ(BP_STOMACH))
+		return ..()
+
+	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+	if(!stomach || !stomach.is_usable())
+		if(!silent)
+			to_chat(src, SPAN_WARNING("Your stomach is not functional!"))
+		return FALSE
+
+	if(!stomach.can_eat_atom(victim))
+		if(!silent)
+			to_chat(src, SPAN_WARNING("You are not capable of devouring \the [victim] whole!"))
+		return FALSE
+
+	if(stomach.is_full(victim))
+		if(!silent)
+			to_chat(src, SPAN_WARNING("Your [stomach.name] is full!"))
+		return FALSE
+
+	. = stomach.get_devour_time(victim) || ..()
+
+/mob/living/carbon/human/get_ingested_reagents()
+	if(should_have_organ(BP_STOMACH))
+		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+		if(stomach)
+			return stomach.ingested
+	return touching
+
+/mob/living/carbon/human/proc/metabolize_ingested_reagents()
+	if(should_have_organ(BP_STOMACH))
+		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+		if(stomach)
+			stomach.metabolize()
+
+/mob/living/carbon/human/get_fullness()
+	if(!should_have_organ(BP_STOMACH))
+		return ..()
+	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+	if(stomach)
+		return nutrition + (stomach.ingested.total_volume * 10)
+	return 0
+
 /mob/living/carbon/human/Stat()
 	..()
 	if(statpanel("Status"))
@@ -853,7 +896,86 @@
 		return 0
 	return 1
 
+/mob/living/proc/empty_stomach()
+	return
 
+/mob/living/carbon/human/empty_stomach()
+	Stun(3)
+
+	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+	var/nothing_to_puke = FALSE
+	if(should_have_organ(BP_STOMACH))
+		if(!istype(stomach) || (stomach.ingested.total_volume <= 5 && stomach.contents.len == 0))
+			nothing_to_puke = TRUE
+	else if(!(locate(/mob) in contents))
+		nothing_to_puke = TRUE
+
+	if(nothing_to_puke)
+		custom_emote(1,"dry heaves.")
+		return
+
+	if(should_have_organ(BP_STOMACH))
+		for(var/a in stomach.contents)
+			var/atom/movable/A = a
+			A.dropInto(get_turf(src))
+			if(species.gluttonous & GLUT_PROJECTILE_VOMIT)
+				A.throw_at(get_edge_target_turf(src,dir),7,7,src)
+	else
+		for(var/mob/M in contents)
+			M.dropInto(get_turf(src))
+			if(species.gluttonous & GLUT_PROJECTILE_VOMIT)
+				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
+
+	visible_message(span("danger", "\The [src] throws up!"), span("danger", "You throw up!"))
+	playsound(loc, 'sound/effects/splat.ogg', 50, 1)
+	var/turf/location = loc
+	if(istype(location, /turf/simulated))
+		var/obj/effect/decal/cleanable/vomit/splat = new /obj/effect/decal/cleanable/vomit(location)
+		if(stomach.ingested.total_volume)
+			stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
+		handle_additional_vomit_reagents(splat)
+		splat.update_icon()
+
+/mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
+	set waitfor = 0
+
+	if(!check_has_mouth() || isSynthetic() || !timevomit || !level || stat == DEAD || lastpuke)
+		return
+
+	if(deliberate)
+		if(incapacitated())
+			to_chat(src, span("warning", "You cannot do that right now."))
+			return
+		var/datum/gender/G = gender_datums[gender]
+		visible_message(span("danger", "\The [src] starts sticking a finger down [G.his] own throat. It looks like [G.he] [G.is] trying to throw up!"))
+		if(!do_after(src, 30))
+			return
+		timevomit = max(timevomit, 5)
+
+	timevomit = Clamp(timevomit, 1, 10)
+	level = Clamp(level, 1, 3)
+
+	lastpuke = TRUE
+	to_chat(src, span("warning", "You feel nauseous..."))
+	if(level > 1)
+		sleep(150 / timevomit)	//15 seconds until second warning
+		to_chat(src, span("warning", "You feel like you are about to throw up!"))
+		if(level > 2)
+			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
+			empty_stomach()
+	sleep(350)	//wait 35 seconds before next volley
+	lastpuke = FALSE
+
+// A damaged stomach can put blood in your vomit.
+/mob/living/carbon/human/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+	..()
+	if(should_have_organ(BP_STOMACH))
+		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+		if(!stomach || stomach.is_broken() || (stomach.is_bruised() && prob(stomach.damage)))
+			if(should_have_organ(BP_HEART))
+				vessel.trans_to_obj(vomit, 5)
+			else
+				reagents.trans_to_obj(vomit, 5)
 
 /mob/living/carbon/human/proc/morph()
 	set name = "Morph"
