@@ -31,13 +31,13 @@
 	flags = NO_SLIP
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/skrell,
-		"lungs" =    /obj/item/organ/lungs/skrell,
-		"liver" =    /obj/item/organ/liver/skrell,
-		"kidneys" =  /obj/item/organ/kidneys/skrell,
-		"brain" =    /obj/item/organ/brain/skrell,
+		BP_HEART =    /obj/item/organ/internal/heart/skrell,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
+		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
 		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes/skrell
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
 	flesh_color = "#8CD7A3"

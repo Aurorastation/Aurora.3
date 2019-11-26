@@ -57,12 +57,12 @@
 		)
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/vox,
-		"lungs" =    /obj/item/organ/lungs/vox,
-		"liver" =    /obj/item/organ/liver/vox,
-		"kidneys" =  /obj/item/organ/kidneys/vox,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes,
+		BP_HEART =    /obj/item/organ/internal/heart/vox,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
+		BP_LIVER =    /obj/item/organ/internal/liver/vox,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes,
 		"stack" =    /obj/item/organ/stack/vox
 		)
 
@@ -73,12 +73,12 @@
 /datum/species/vox/before_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), slot_wear_mask)
 	if(H.backbag == 1)
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_back)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/tank/nitrogen(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H), slot_r_hand)
 		H.internal = H.back
 	else
-		H.equip_to_slot_or_del(new /obj/item/weapon/tank/nitrogen(H), slot_r_hand)
-		H.equip_to_slot_or_del(new /obj/item/weapon/storage/box/vox(H.back), slot_in_backpack)
+		H.equip_to_slot_or_del(new /obj/item/tank/nitrogen(H), slot_r_hand)
+		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
 	H.gender = NEUTER
@@ -105,12 +105,12 @@
 
 	// Pariahs have no stack.
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/vox,
-		"lungs" =    /obj/item/organ/lungs/vox,
-		"liver" =    /obj/item/organ/liver/vox,
-		"kidneys" =  /obj/item/organ/kidneys/vox,
-		"brain" =    /obj/item/organ/pariah_brain,
-		"eyes" =     /obj/item/organ/eyes
+		BP_HEART =    /obj/item/organ/internal/heart/vox,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
+		BP_LIVER =    /obj/item/organ/internal/liver/vox,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
+		BP_BRAIN =    /obj/item/organ/pariah_brain,
+		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 	spawn_flags = IS_RESTRICTED
 

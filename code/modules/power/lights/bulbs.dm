@@ -3,7 +3,7 @@
 // can be tube or bulb subtypes
 // will fit into empty /obj/machinery/light of the corresponding type
 
-/obj/item/weapon/light
+/obj/item/light
 	icon = 'icons/obj/lighting.dmi'
 	force = 2
 	throwforce = 5
@@ -18,7 +18,7 @@
 	var/lighttype = null
 	var/randomize_range = TRUE
 
-/obj/item/weapon/light/tube
+/obj/item/light/tube
 	name = "light tube"
 	desc = "A replacement light tube."
 	icon_state = "ltube_preset"//preset state for mapping
@@ -28,38 +28,38 @@
 	brightness_power = 0.8
 	lighttype = "tube"
 
-/obj/item/weapon/light/tube/colored/red
+/obj/item/light/tube/colored/red
 	name = "red light tube"
 	brightness_color = LIGHT_COLOR_SCARLET
 
-/obj/item/weapon/light/tube/colored/green
+/obj/item/light/tube/colored/green
 	name = "green light tube"
 	brightness_color = LIGHT_COLOR_GREEN
 
-/obj/item/weapon/light/tube/colored/blue
+/obj/item/light/tube/colored/blue
 	name = "blue light tube"
 	brightness_color = LIGHT_COLOR_BLUE
 
-/obj/item/weapon/light/tube/colored/magenta
+/obj/item/light/tube/colored/magenta
 	name = "magenta light tube"
 	brightness_color = LIGHT_COLOR_VIOLET
 
-/obj/item/weapon/light/tube/colored/yellow
+/obj/item/light/tube/colored/yellow
 	name = "yellow light tube"
 	brightness_color = LIGHT_COLOR_YELLOW
 
-/obj/item/weapon/light/tube/colored/cyan
+/obj/item/light/tube/colored/cyan
 	name = "cyan light tube"
 	brightness_color = LIGHT_COLOR_CYAN
 
-/obj/item/weapon/light/tube/large
+/obj/item/light/tube/large
 	w_class = 2
 	name = "large light tube"
 	brightness_range = 15
 	brightness_power = 6
 	randomize_range = FALSE
 
-/obj/item/weapon/light/bulb
+/obj/item/light/bulb
 	name = "light bulb"
 	desc = "A replacement light bulb."
 	icon_state = "lbulb_preset"//preset state for mapping
@@ -70,35 +70,35 @@
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
-/obj/item/weapon/light/bulb/colored/red
+/obj/item/light/bulb/colored/red
 	name = "red light bulb"
 	brightness_color = LIGHT_COLOR_SCARLET
 
-/obj/item/weapon/light/bulb/colored/green
+/obj/item/light/bulb/colored/green
 	name = "green light bulb"
 	brightness_color = LIGHT_COLOR_GREEN
 
-/obj/item/weapon/light/bulb/colored/blue
+/obj/item/light/bulb/colored/blue
 	name = "blue light bulb"
 	brightness_color = LIGHT_COLOR_BLUE
 
-/obj/item/weapon/light/bulb/colored/magenta
+/obj/item/light/bulb/colored/magenta
 	name = "magenta light bulb"
 	brightness_color = LIGHT_COLOR_VIOLET
 
-/obj/item/weapon/light/bulb/colored/yellow
+/obj/item/light/bulb/colored/yellow
 	name = "yellow light bulb"
 	brightness_color = LIGHT_COLOR_YELLOW
 
-/obj/item/weapon/light/bulb/colored/cyan
+/obj/item/light/bulb/colored/cyan
 	name = "cyan light bulb"
 	brightness_color = LIGHT_COLOR_CYAN
 
-/obj/item/weapon/light/throw_impact(atom/hit_atom)
+/obj/item/light/throw_impact(atom/hit_atom)
 	..()
 	shatter()
 
-/obj/item/weapon/light/bulb/fire
+/obj/item/light/bulb/fire
 	name = "fire bulb"
 	desc = "A replacement fire bulb."
 	icon_state = "flight"
@@ -108,7 +108,7 @@
 	brightness_power = 0.8
 	randomize_range = FALSE
 
-/obj/item/weapon/light/Initialize()
+/obj/item/light/Initialize()
 	. = ..()
 	if(randomize_range)
 		switch(lighttype)
@@ -119,7 +119,7 @@
 	update()
 
 // update the icon state and description of the light
-/obj/item/weapon/light/proc/update()
+/obj/item/light/proc/update()
 	cut_overlays()
 	switch(status)
 		if(LIGHT_OK)
@@ -143,10 +143,10 @@
 
 // attack bulb/tube with object
 // if a syringe, can inject phoron to make it explode
-/obj/item/weapon/light/attackby(var/obj/item/I, var/mob/user)
+/obj/item/light/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = I
+	if(istype(I, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = I
 
 		to_chat(user, "You inject the solution into the [src].")
 
@@ -166,7 +166,7 @@
 // shatter light, unless it was an attempt to put it in a light socket
 // now only shatter if the intent was harm
 
-/obj/item/weapon/light/afterattack(atom/target, mob/user, proximity)
+/obj/item/light/afterattack(atom/target, mob/user, proximity)
 	if(!proximity) return
 	if(istype(target, /obj/machinery/light))
 		return
@@ -175,7 +175,7 @@
 
 	shatter()
 
-/obj/item/weapon/light/proc/shatter()
+/obj/item/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
 		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
 		status = LIGHT_BROKEN

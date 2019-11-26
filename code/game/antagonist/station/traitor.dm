@@ -6,6 +6,7 @@ var/datum/antagonist/traitor/traitors
 	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	required_age = 10
 
 	faction = "syndicate"
 

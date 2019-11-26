@@ -14,7 +14,7 @@
 
 	proc/get_max_wclass(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return 1
 			if ("upper body")
 				return 3
@@ -24,7 +24,7 @@
 
 	proc/get_cavity(var/obj/item/organ/external/affected)
 		switch (affected.name)
-			if ("head")
+			if (BP_HEAD)
 				return "cranial"
 			if ("upper body")
 				return "thoracic"
@@ -40,8 +40,8 @@
 
 /datum/surgery_step/cavity/make_space
 	allowed_tools = list(
-	/obj/item/weapon/surgicaldrill = 100,	\
-	/obj/item/weapon/pen = 75,	\
+	/obj/item/surgicaldrill = 100,	\
+	/obj/item/pen = 75,	\
 	/obj/item/stack/rods = 50
 	)
 
@@ -69,10 +69,10 @@
 /datum/surgery_step/cavity/close_space
 	priority = 2
 	allowed_tools = list(
-	/obj/item/weapon/cautery = 100,			\
+	/obj/item/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
-	/obj/item/weapon/flame/lighter = 50,			\
-	/obj/item/weapon/weldingtool = 25
+	/obj/item/flame/lighter = 50,			\
+	/obj/item/weldingtool = 25
 	)
 
 	min_duration = 60
@@ -111,7 +111,7 @@
 			if(affected && affected.cavity)
 				var/total_volume = tool.w_class
 				for(var/obj/item/I in affected.implants)
-					if(istype(I,/obj/item/weapon/implant))
+					if(istype(I,/obj/item/implant))
 						continue
 					total_volume += I.w_class
 				return total_volume <= get_max_wclass(affected)
@@ -130,9 +130,8 @@
 		user.visible_message("<span class='notice'>[user] puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.</span>", \
 		"<span class='notice'>You put \the [tool] inside [target]'s [get_cavity(affected)] cavity.</span>" )
 		if (tool.w_class > get_max_wclass(affected)/2 && prob(50) && !(affected.status & ORGAN_ROBOT))
-			to_chat(user, "<span class='warning'>You tear some blood vessels trying to fit such a big object in this cavity.</span>")
-			var/datum/wound/internal_bleeding/I = new (10)
-			affected.wounds += I
+			to_chat(user, "<span class='warning'>You tear \the [affected.artery_name] trying to fit an object so big!</span>")
+			affected.sever_artery()
 			affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 		user.drop_item()
 		affected.implants += tool
@@ -145,16 +144,16 @@
 
 /datum/surgery_step/cavity/implant_removal
 	allowed_tools = list(
-	/obj/item/weapon/hemostat = 100,	\
-	/obj/item/weapon/wirecutters = 75,	\
-	/obj/item/weapon/material/kitchen/utensil/fork = 20
+	/obj/item/hemostat = 100,	\
+	/obj/item/wirecutters = 75,	\
+	/obj/item/material/kitchen/utensil/fork = 20
 	)
 
 	min_duration = 80
 	max_duration = 100
 
 	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 		return ..() && (!sponge || !sponge.damage)
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -173,8 +172,8 @@
 
 			var/obj/item/obj = pick(affected.implants)
 
-			if(istype(obj,/obj/item/weapon/implant))
-				var/obj/item/weapon/implant/imp = obj
+			if(istype(obj,/obj/item/implant))
+				var/obj/item/implant/imp = obj
 				if (imp.islegal())
 					find_prob +=60
 				else
@@ -200,8 +199,8 @@
 					obj.forceMove(get_turf(target))
 					obj.add_blood(target)
 					obj.update_icon()
-					if(istype(obj,/obj/item/weapon/implant))
-						var/obj/item/weapon/implant/imp = obj
+					if(istype(obj,/obj/item/implant))
+						var/obj/item/implant/imp = obj
 						imp.imp_in = null
 						imp.implanted = 0
 				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
@@ -219,7 +218,7 @@
 			var/fail_prob = 10
 			fail_prob += 100 - tool_quality(tool)
 			if (prob(fail_prob))
-				var/obj/item/weapon/implant/imp = affected.implants[1]
+				var/obj/item/implant/imp = affected.implants[1]
 				user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
 				playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
 				spawn(25)

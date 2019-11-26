@@ -30,7 +30,7 @@
 
 	tameable = FALSE
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
 	meat_amount = 5
 

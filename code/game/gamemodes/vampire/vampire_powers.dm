@@ -23,7 +23,7 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, span("warning", "You must be grabbing a victim in your active hand to drain their blood."))
 		return
@@ -250,7 +250,7 @@
 
 	vampire_phase_in(T)
 
-	for (var/obj/item/weapon/grab/G in contents)
+	for (var/obj/item/grab/G in contents)
 		if (G.affecting && (vampire.status & VAMP_FULLPOWER))
 			G.affecting.vampire_phase_out(get_turf(G.affecting.loc))
 			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
@@ -573,14 +573,12 @@
 		for (var/A in organs)
 			var/healed = FALSE
 			var/obj/item/organ/external/E = A
-			for (var/X in E.wounds)
-				var/datum/wound/W = X
-				if (W && W.internal)
-					E.wounds -= W
-					blood_used += 12
-					healed = TRUE
-					break
-
+			if(E.status & ORGAN_ARTERY_CUT)
+				E.status &= ~ORGAN_ARTERY_CUT
+				blood_used += 12
+			if(E.status & ORGAN_TENDON_CUT)
+				E.status &= ~ORGAN_TENDON_CUT
+				blood_used += 12
 			if(E.status & ORGAN_BROKEN)
 				E.status &= ~ORGAN_BROKEN
 				E.stage = 0
@@ -687,7 +685,7 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to enthrall them.</span>")
 		return
@@ -846,7 +844,7 @@
 	if (!vampire)
 		return
 
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to touch them.</span>")
 		return
@@ -874,7 +872,7 @@
 		return
 
 	// Re-using blood drain code.
-	var/obj/item/weapon/grab/G = get_active_hand()
+	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
 		to_chat(src, "<span class='warning'>You must be grabbing a victim in your active hand to drain their blood.</span>")
 		return
@@ -1014,7 +1012,7 @@
 
 	src.visible_message("<span class='warning'><b>\The [src]</b> seizes [T] aggressively!</span>")
 
-	var/obj/item/weapon/grab/G = new(src, T)
+	var/obj/item/grab/G = new(src, T)
 	if (use_hand == "left")
 		l_hand = G
 	else

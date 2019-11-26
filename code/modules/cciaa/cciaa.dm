@@ -45,7 +45,7 @@
 		announce = 1
 
 	// Create the reply message
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( null ) //hopefully the null loc won't cause trouble for us
+	var/obj/item/paper/P = new /obj/item/paper( null ) //hopefully the null loc won't cause trouble for us
 	P.name = "[current_map.boss_name] - [customname]"
 	P.info = input
 	P.update_icon()
@@ -55,7 +55,7 @@
 	stampoverlay.icon_state = "paper_stamp-cent"
 	if(!P.stamped)
 		P.stamped = new
-	P.stamped += /obj/item/weapon/stamp
+	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
