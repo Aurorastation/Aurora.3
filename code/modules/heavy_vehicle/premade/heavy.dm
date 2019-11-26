@@ -29,7 +29,7 @@
 	melee_damage = 25
 	action_delay = 15
 	max_damage = 90
-	power_use = 30000
+	power_use = 7500
 
 /obj/item/mech_component/propulsion/heavy
 	name = "heavy legs"
@@ -38,7 +38,7 @@
 	icon_state = "heavy_legs"
 	move_delay = 5
 	max_damage = 90
-	power_use = 15000
+	power_use = 5000
 
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"
@@ -63,7 +63,7 @@
 	max_damage = 150
 	mech_health = 500
 	has_hardpoints = list(HARDPOINT_BACK)
-	power_use = 12500
+	power_use = 5000
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
