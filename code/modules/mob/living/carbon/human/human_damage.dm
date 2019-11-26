@@ -359,7 +359,7 @@ This function restores all organs.
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/sharp = 0, var/edge = 0, var/obj/used_weapon = null)
+/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/sharp = 0, var/edge = 0, var/obj/used_weapon = null, var/damage_flags)
 
 	//visible_message("Hit debug. [damage] | [damagetype] | [def_zone] | [blocked] | [sharp] | [used_weapon]")
 	if (src.invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
@@ -397,19 +397,13 @@ This function restores all organs.
 	if(damage > 15 && prob(damage*4) && organ.can_feel_pain())
 		make_adrenaline(round(damage/10))
 
-	var/d_flags
-
-	if(istype(used_weapon, /obj/item/projectile))
-		var/obj/item/projectile/P = used_weapon
-		d_flags = P.damage_flags
-
 	switch(damagetype)
 
 		if(BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.brute_mod
-			if(organ.take_damage(damage, 0, sharp, edge, used_weapon, damage_flags = d_flags))
+			if(organ.take_damage(damage, 0, sharp, edge, used_weapon, damage_flags = damage_flags))
 				UpdateDamageIcon()
 		if(BURN)
 			damageoverlaytemp = 20
@@ -417,7 +411,7 @@ This function restores all organs.
 				damage *= species.burn_mod
 
 
-			if(organ.take_damage(0, damage, sharp, edge, used_weapon, damage_flags = d_flags))
+			if(organ.take_damage(0, damage, sharp, edge, used_weapon, damage_flags = damage_flags))
 				UpdateDamageIcon()
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
