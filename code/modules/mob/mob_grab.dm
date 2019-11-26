@@ -257,7 +257,7 @@
 		if(!allow_upgrade)
 			return
 		if(!affecting.lying)
-			assailant.visible_message(span("warning", "[assailant] has grabs [affecting] aggressively by the hands!"))
+			assailant.visible_message(span("warning", "[assailant] grabs [affecting] aggressively by the hands!"))
 		else
 			assailant.visible_message(span("warning", "[assailant] pins [affecting] down to the ground by the hands!"))
 			apply_pinning(affecting, assailant)
