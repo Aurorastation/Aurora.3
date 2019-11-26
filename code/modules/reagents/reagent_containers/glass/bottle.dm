@@ -245,7 +245,7 @@
 	name = "epinephrine bottle"
 	desc = "A small bottle. Contains epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
 	icon_state = "bottle-4"
-	reagents_to_add = list("epinephrine" = 60)
+	reagents_to_add = list("adrenaline" = 60)
 
 /obj/item/reagent_containers/glass/bottle/dexalin_plus
 	name = "dexalin plus bottle"

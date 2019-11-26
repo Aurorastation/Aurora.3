@@ -7,7 +7,7 @@ mob/var/next_pain_time = 0
 
 // partname is the name of a body part
 // amount is a num from 1 to 100
-mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0)
+/mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0)
 	if(stat >= 1)
 		return
 	if(!can_feel_pain())
@@ -41,11 +41,11 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 				msg = "<b><font size=3>Your [partname] hurts badly!</font></b>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "<b><font size=4>Your [partname] is screaming out in pain!</font></b>"
+				msg = "<b><font size=3>Your [partname] is screaming out in pain!</font></b>"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)
-	next_pain_time = world.time + (100 - amount)
+	next_pain_time = world.time + 50
 
 
 // message is the custom message to be displayed

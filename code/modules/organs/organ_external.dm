@@ -238,25 +238,8 @@
 	brute *= brute_mod
 	burn *= burn_mod
 
-	var/damage_amt = brute
-	if(laser)
-		damage_amt += burn
-
 	// High brute damage or sharp objects may damage internal organs
-	if(internal_organs && (brute_dam >= max_damage || burn_dam >= max_damage || (((sharp && brute >= 5) || brute >= 10 || burn >= 15) && prob(5))))
-		// Damage an internal organ
-		var/list/victims = list()
-		for(var/obj/item/organ/internal/I in internal_organs)
-			if(I.damage < I.max_damage && prob(I.relative_size))
-				victims += I
-		if(!victims.len)
-			victims += pick(internal_organs)
-		for(var/obj/item/organ/victim in victims)
-			brute /= 2
-			if(laser)
-				burn /= 2
-			damage_amt /= 2
-			victim.take_damage(damage_amt)
+	damage_internal_organs(brute, burn, sharp, damage_flags)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if (owner && (owner.can_feel_pain()))
@@ -320,6 +303,53 @@
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
 	return update_icon()
+
+/obj/item/organ/external/proc/damage_internal_organs(brute, burn, sharp, damage_flags)
+	if(!length(internal_organs))
+		return FALSE
+
+	var/laser = (damage_flags & DAM_LASER)
+
+	var/damage_amt = brute
+	var/cur_damage = brute_dam
+	if(laser || BP_IS_ROBOTIC(src))
+		damage_amt += burn
+		cur_damage += burn_dam
+
+	if(!damage_amt)
+		return FALSE
+
+	var/organ_damage_threshold = 10
+	if(sharp)
+		organ_damage_threshold *= 0.5
+	if(laser)
+		organ_damage_threshold *= 2
+
+	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
+		return FALSE
+
+	var/list/victims = list()
+	var/organ_hit_chance = 0
+	for(var/obj/item/organ/internal/I in internal_organs)
+		if(I.damage < I.max_damage)
+			victims[I] = I.relative_size
+			organ_hit_chance += I.relative_size
+
+	//No damageable organs
+	if(!length(victims))
+		return FALSE
+
+	organ_hit_chance += 5 * damage_amt/organ_damage_threshold
+
+	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
+		organ_hit_chance *= 0.6
+
+	organ_hit_chance = min(organ_hit_chance, 100)
+	if(prob(organ_hit_chance))
+		var/obj/item/organ/internal/victim = pickweight(victims)
+		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
+		victim.take_internal_damage(damage_amt)
+		return TRUE
 
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
 	//If limb took enough damage, try to cut or tear it off

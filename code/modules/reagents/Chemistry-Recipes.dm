@@ -293,7 +293,7 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = "tricordrazine"
-	required_reagents = list("epinephrine" = 1, "anti_toxin" = 1)
+	required_reagents = list("norepinephrine" = 1, "anti_toxin" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/alkysine
@@ -658,9 +658,9 @@
 	required_reagents = list("mindbreaker" = 1, "carbon" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/epinephrine
-	name = "Epinephrine"
-	result = "epinephrine"
+/datum/chemical_reaction/adrenaline
+	name = "Adrenaline"
+	result = "adrenaline"
 	required_reagents = list("norepinephrine" = 1, "hyperzine" = 1, "dexalinp" = 1)
 	result_amount = 3
 

@@ -229,20 +229,6 @@
 	taste_description = "salty metalic miner tears"
 	fallback_specific_heat = 0.2971
 
-/datum/reagent/adrenaline
-	name = "Adrenaline"
-	id = "adrenaline"
-	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
-	reagent_state = LIQUID
-	color = "#C8A5DC"
-	taste_description = "bitterness"
-	fallback_specific_heat = 0.75
-
-/datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.SetParalysis(0)
-	M.SetWeakened(0)
-	M.adjustToxLoss(rand(3)*removed)
-
 /datum/reagent/water/holywater
 	name = "Holy Water"
 	id = "holywater"
