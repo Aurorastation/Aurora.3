@@ -387,11 +387,11 @@
 		data["blood_volume_max"]= occupant.species.blood_volume
 		data["rads"]			= occupant.total_radiation
 
-		data["cloneLoss"]		= occupant.getCloneLoss()
-		data["oxyLoss"]			= occupant.getOxyLoss()
-		data["bruteLoss"]		= occupant.getBruteLoss()
-		data["fireLoss"]		= occupant.getFireLoss()
-		data["toxLoss"]			= occupant.getToxLoss()
+		data["cloneLoss"]		= calcDamage(occupant.getCloneLoss())
+		data["oxyLoss"]			= calcDamage(occupant.getOxyLoss())
+		data["bruteLoss"]		= calcDamage(occupant.getBruteLoss())
+		data["fireLoss"]		= calcDamage(occupant.getFireLoss())
+		data["toxLoss"]			= calcDamage(occupant.getToxLoss())
 
 		data["paralysis"]		= occupant.paralysis
 		data["bodytemp"]		= occupant.bodytemperature

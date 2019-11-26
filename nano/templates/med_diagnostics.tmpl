@@ -28,27 +28,26 @@
 	{{if data.stat < 2}}
 		<div class="line">
 			<div class="statusLabel">Brain Activity:</div>
-			<div class="statusValue">{{:helper.brain_activity}}</div>
+			<div class="statusValue">{{:data.brain_activity}}</div>
 		</div>
 		<div class="line">
 			<div class="statusLabel">=&gt; Brute Damage:</div>
-			{{:helper.displayBar(data.bruteLoss, 0, data.maxHealth, 'bad')}}
-			<div class="statusValue">{{:helper.round(data.bruteLoss)}}</div>
+			<div class="statusValue">{{:data.bruteLoss}}</div>
 		</div>
 		<div class="line">
 			<div class="statusLabel">=&gt; Resp. Damage:</div>
 			{{:helper.displayBar(data.oxyLoss, 0, data.maxHealth, 'bad')}}
-			<div class="statusValue">{{:helper.round(data.oxyLoss)}}</div>
+			<div class="statusValue">{{:data.oxyLoss}}</div>
 		</div>
 		<div class="line">
-			<div class="statusLabel">=&gt; Toxin Damage:</div>
+			<div class="statusLabel">=&gt; Systemic Organ Failure:</div>
 			{{:helper.displayBar(data.toxLoss, 0, data.maxHealth, 'bad')}}
-			<div class="statusValue">{{:helper.round(data.toxLoss)}}</div>
+			<div class="statusValue">{{:data.toxLoss}}</div>
 		</div>
 		<div class="line">
 			<div class="statusLabel">=&gt; Burn Severity:</div>
 			{{:helper.displayBar(data.fireLoss, 0, data.maxHealth, 'bad')}}
-			<div class="statusValue">{{:helper.round(data.fireLoss)}}</div>
+			<div class="statusValue">{{:data.fireLoss}}</div>
 		</div>
 	{{/if}}
 	<hr>
@@ -64,11 +63,6 @@
 			<span class='{{:data.cloneDmgStatus}}'>{{:data.cloneloss}}%</span>
 		</div>
 	</div>
-	<div class='line'>
-		<div class='statusLabel'>Est. Brain Dmg:</div>
-		<div class='statusValue'>
-			<span class='{{:data.brainDmgStatus}}'>{{:data.brainloss}}%</span>
-		</div>
 	</div>
 	<div class='line'>
 		<div class='statusLabel'>Est. Paralysis Lvl:</div>
@@ -102,9 +96,13 @@
 	<h3>Blood Status</h3>
 	<div class='statusDisplay'>
 	<div class="line">
-		<div class="statusLabel">Blood Level:</div>
+		<div class="statusLabel">Blood Volume:</div>
 			{{:helper.displayBar(data.bloodAmt, 0, data.bloodMax, data.bloodStatus)}}
-		<div class="statusValue">{{:helper.round(data.bloodPerc)}}% ({{:helper.round(data.bloodAmt)}}u)</div>
+		<div class="statusValue">{{:helper.round(data.blood_volume)}}% ({{:helper.round(data.blood_volume_max)}}u)</div>
+	</div>
+	<div class="line">
+		<div class="statusLabel">Blood Oxygenation:</div>
+		<div class="statusValue">{{:helper.round(data.blood_o2)}}%</div>
 	</div>
 	<div class="line">
 		<div class="statusLabel">=&gt; Inaprovaline:</div>
@@ -150,12 +148,12 @@
 			</div>
 			<div class="line">
 				<div class="statusLabel">=&gt; Burn Dmg:</div>
-				<div class="statusValue">{{:helper.round(value.burnDmg)}}</div>
+				<div class="statusValue">{{value.burnDmg}}</div>
 			</div>
 
 			<div class="line">
 				<div class="statusLabel">=&gt; Brute Dmg:</div>
-				<div class="statusValue">{{:helper.round(value.bruteDmg)}}</div>
+				<div class="statusValue">{{value.bruteDmg}}</div>
 			</div>
 			{{if value.hasWounds}}
 				<div class="line">
