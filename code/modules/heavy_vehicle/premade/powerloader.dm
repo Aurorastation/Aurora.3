@@ -20,6 +20,8 @@
 
 	. = ..()
 
+/mob/living/heavy_vehicle/premade/ripley/spawn_mech_equipment()
+	..()
 	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mecha_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
 
@@ -96,7 +98,7 @@
 	name = "firefighting exosuit"
 	desc = "A mix and match of industrial parts designed to withstand fires."
 
-/mob/living/heavy_vehicle/premade/firefighter/New()
+/mob/living/heavy_vehicle/premade/firefighter/Initialize()
 	if(!arms)
 		arms = new /obj/item/mech_component/manipulators/ripley(src)
 		arms.color = "#385b3c"
@@ -110,15 +112,14 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#385b3c"
 
-	..()
+	. = ..()
 
 	material = get_material_by_name("osmium", "carbide", "plasteel")
 
+/mob/living/heavy_vehicle/premade/firefighter/spawn_mech_equipment()
+	..()
 	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mecha_equipment/mounted_system/extinguisher(src), HARDPOINT_RIGHT_HAND)
-
-
-
 
 /obj/item/mech_component/sensors/firefighter/prebuild()
 	..()
@@ -129,7 +130,7 @@
 	name = "combat APLU \"Ripley\""
 	desc = "A large APLU unit fitted with specialized composite armor and fancy, though old targeting systems."
 
-/mob/living/heavy_vehicle/premade/combatripley/New()
+/mob/living/heavy_vehicle/premade/combatripley/Initialize()
 	if(!arms)
 		arms = new /obj/item/mech_component/manipulators/ripley(src)
 		arms.color = "#849bc1"
@@ -145,8 +146,10 @@
 
 		body.armour = new /obj/item/robot_parts/robot_component/armour/combat(src)
 
-	..()
+	. = ..()
 
+/mob/living/heavy_vehicle/premade/combatripley/spawn_mech_equipment()
+	..()
 	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mecha_equipment/mounted_system/taser/laser(src), HARDPOINT_RIGHT_HAND)
 	install_system(new /obj/item/mecha_equipment/mounted_system/grenadeflash(src), HARDPOINT_RIGHT_SHOULDER)

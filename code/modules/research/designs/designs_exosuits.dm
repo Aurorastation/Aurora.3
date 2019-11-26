@@ -313,7 +313,6 @@
 	build_path = /obj/item/mecha_equipment/mounted_system/grenadeflash
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "phoron" = 6000)
 
-
 /datum/design/item/mechfab/exosuit/crisisdrone
 	name = "crisis drone"
 	id = "crisis_drone"
@@ -333,4 +332,3 @@
 	id   = "mech_flare"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/mounted_system/flarelauncher
-
