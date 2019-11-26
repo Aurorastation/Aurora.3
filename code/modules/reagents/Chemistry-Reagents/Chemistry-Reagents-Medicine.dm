@@ -1447,10 +1447,10 @@
 	taste_description = "bitterness"
 	fallback_specific_heat = 1
 
-/datum/reagent/adrenaline
-	name = "Adrenaline"
-	id = "adrenaline"
-	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
+/datum/reagent/epinephrine
+	name = "Epinephrine"
+	id = "epinephrine"
+	description = "Epinephrine is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
 	taste_description = "rush"
 	reagent_state = LIQUID
 	color = "#c8a5dc"
@@ -1459,7 +1459,7 @@
 	metabolism = 0.1
 	value = 2
 
-/datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/epinephrine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
 	if(dose < 1)	//not that effective after initial rush

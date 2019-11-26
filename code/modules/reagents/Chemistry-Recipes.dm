@@ -658,9 +658,9 @@
 	required_reagents = list("mindbreaker" = 1, "carbon" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/adrenaline
-	name = "Adrenaline"
-	result = "adrenaline"
+/datum/chemical_reaction/epinephrine
+	name = "Epinephrine"
+	result = "epinephrine"
 	required_reagents = list("norepinephrine" = 1, "hyperzine" = 1, "dexalinp" = 1)
 	result_amount = 3
 
