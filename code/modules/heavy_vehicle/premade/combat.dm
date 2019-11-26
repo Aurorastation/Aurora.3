@@ -42,7 +42,7 @@
 	gender = PLURAL
 	exosuit_desc_string = "high-resolution sensors"
 	icon_state = "combat_head"
-	power_use = 100000
+	power_use = 50000
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
@@ -58,7 +58,7 @@
 	pilot_coverage = 100
 	exosuit_desc_string = "an armoured chassis"
 	icon_state = "combat_body"
-	power_use = 20000
+	power_use = 10000
 	transparent_cabin =  TRUE
 
 /obj/item/mech_component/chassis/combat/prebuild()

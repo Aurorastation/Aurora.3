@@ -38,7 +38,7 @@
 	icon_state = "heavy_legs"
 	move_delay = 5
 	max_damage = 90
-	power_use = 50000
+	power_use = 15000
 
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"
@@ -63,7 +63,7 @@
 	max_damage = 150
 	mech_health = 500
 	has_hardpoints = list(HARDPOINT_BACK)
-	power_use = 25000
+	power_use = 12500
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
