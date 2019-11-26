@@ -332,10 +332,3 @@
 	id   = "mech_flare"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/mounted_system/flarelauncher
-
-/datum/design/item/mechfab/exosuit/pod_torso
-	name = "spherical chassis"
-	id = "sphere_body"
-	build_path = /obj/item/mech_component/chassis/pod
-	time = 50
-	materials = list(MATERIAL_STEEL = 18000)
