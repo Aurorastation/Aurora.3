@@ -94,6 +94,7 @@
 		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
+		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
 	)

@@ -710,13 +710,7 @@ proc/is_blind(A)
 /mob/living/carbon/proc/vomit()
 	var/canVomit = FALSE
 
-	var/mob/living/carbon/human/H
-	if (istype(src, /mob/living/carbon/human))
-		H = src
-		if (H.ingested.total_volume > 0)
-			canVomit = TRUE
-
-	if (nutrition > 0)
+	if(nutrition > 0)
 		canVomit = TRUE
 
 	if(canVomit)
@@ -754,7 +748,6 @@ proc/is_blind(A)
 		Weaken(4)
 
 /mob/living/carbon/human/proc/delayed_vomit()
-
 	if(!check_has_mouth())
 		return
 	if(stat == DEAD)
@@ -765,7 +758,7 @@ proc/is_blind(A)
 		spawn(150)	//15 seconds until second warning
 			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				vomit()//Vomit function is in mob helpers
+				empty_stomach()
 				spawn(350)	//wait 35 seconds before next volley
 					lastpuke = 0
 
