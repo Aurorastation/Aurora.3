@@ -664,12 +664,15 @@
 	if(in_stasis)
 		return
 
+	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
+
 	if(reagents)
 		chem_effects.Cut()
 		analgesic = 0
 
 		if(touching) touching.metabolize()
 		if(bloodstr) bloodstr.metabolize()
+		if(ingested) metabolize_ingested_reagents()
 		if(breathing) breathing.metabolize()
 
 		if(CE_PAINKILLER in chem_effects)

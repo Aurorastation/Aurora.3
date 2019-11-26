@@ -67,12 +67,6 @@
 			else if(species.gluttonous & GLUT_ITEM_ANYTHING)
 				return DEVOUR_FAST
 
-/obj/item/organ/internal/stomach/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "puke"
-		if(action.button) action.button.UpdateIcon()
-
 /obj/item/organ/internal/stomach/return_air()
 	return null
 
@@ -86,7 +80,6 @@
 	
 /obj/item/organ/internal/stomach/process()
 	..()
-
 	if(owner)
 		var/functioning = is_usable()
 		if(damage >= min_bruised_damage && prob((damage / max_damage) * 100))
