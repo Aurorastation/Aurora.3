@@ -18,6 +18,8 @@
 
 	. = ..()
 
+/mob/living/heavy_vehicle/premade/light/spawn_mech_equipment()
+	..()
 	install_system(new /obj/item/mecha_equipment/catapult(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mecha_equipment/sleeper(src), HARDPOINT_BACK)
 	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)

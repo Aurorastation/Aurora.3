@@ -19,6 +19,10 @@
 	if(!material)
 		material = get_material_by_name("steel")
 	. = ..()
+
+	spawn_mech_equipment()
+
+/mob/living/heavy_vehicle/premade/proc/spawn_mech_equipment()
 	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)
 
 /mob/living/heavy_vehicle/premade/random
