@@ -518,6 +518,7 @@
 
 /datum/reagent/acid/stomach
 	name = "stomach acid"
+	id = "stmacid"
 	taste_description = "coppery foulness"
 	power = 2
 	color = "#d8ff00"

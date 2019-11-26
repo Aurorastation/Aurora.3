@@ -914,22 +914,10 @@
 		custom_emote(1,"dry heaves.")
 		return
 
-	if(should_have_organ(BP_STOMACH))
-		for(var/a in stomach.contents)
-			var/atom/movable/A = a
-			A.dropInto(get_turf(src))
-			if(species.gluttonous & GLUT_PROJECTILE_VOMIT)
-				A.throw_at(get_edge_target_turf(src,dir),7,7,src)
-	else
-		for(var/mob/M in contents)
-			M.dropInto(get_turf(src))
-			if(species.gluttonous & GLUT_PROJECTILE_VOMIT)
-				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
-
 	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
 	var/obj/vomitReceptacle
 	for(var/obj/vessel in view(1, src))
-		if (!is_type_in_typecache(vessel, vomitCandidate))
+		if(!is_type_in_typecache(vessel, vomitCandidate))
 			continue
 		if(!vessel.Adjacent(src))
 			continue
@@ -938,13 +926,31 @@
 
 	var/obj/effect/decal/cleanable/vomit/splat
 	if(vomitReceptacle)
-		visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
+		src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
 		splat = new /obj/effect/decal/cleanable/vomit(vomitReceptacle)
 	else
-		visible_message(span("warning", "\The [src] throws up!"), span("warning", "You throw up!"))
+		src.visible_message(span("warning", "\The [src] vomits!"), span("warning", "You vomit!"))
 		var/turf/location = loc
 		if(istype(location, /turf/simulated))
 			splat = new /obj/effect/decal/cleanable/vomit(location)
+
+	if(should_have_organ(BP_STOMACH))
+		for(var/a in stomach.contents)
+			var/atom/movable/A = a
+			if(vomitReceptacle)
+				A.dropInto(vomitReceptacle)
+			else
+				A.dropInto(get_turf(src))
+			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
+				A.throw_at(get_edge_target_turf(src,dir),7,7,src)
+	else
+		for(var/mob/M in contents)
+			if(vomitReceptacle)
+				M.dropInto(vomitReceptacle)
+			else
+				M.dropInto(get_turf(src))
+			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
+				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
 	
 	if(stomach.ingested.total_volume)
 		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
