@@ -22,6 +22,11 @@
 
 	return def_zone
 
+/mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
+	if(body.armour)
+		return isnull(body.armour.armor[type]) ? 0 : body.armour.armor[type]
+	return 0
+
 /mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
 		var/mob/living/pilot = pick(pilots)
