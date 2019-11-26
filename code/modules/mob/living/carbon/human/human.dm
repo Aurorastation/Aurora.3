@@ -954,8 +954,6 @@
 	playsound(vomitReceptacle, 'sound/effects/splat.ogg', 50, 1)
 
 /mob/living/carbon/human/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
-	set waitfor = 0
-
 	if(!check_has_mouth() || isSynthetic() || !timevomit || !level || stat == DEAD || lastpuke)
 		return
 

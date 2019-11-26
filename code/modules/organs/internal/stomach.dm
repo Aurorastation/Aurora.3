@@ -1,5 +1,3 @@
-#define PUKE_ACTION_NAME "Empty Stomach"
-
 /obj/item/organ/internal/stomach
 	name = "stomach"
 	desc = "Gross. This is hard to stomach."
@@ -17,11 +15,9 @@
 
 /obj/item/organ/internal/stomach/Initialize()
 	..()
-	ingested = new/datum/reagents/metabolism(240, owner, CHEM_INGEST)
+	ingested = new /datum/reagents/metabolism(240, owner, CHEM_INGEST)
 	if(!ingested.my_atom)
 		ingested.my_atom = src
-	if(species.gluttonous)
-		action_button_name = PUKE_ACTION_NAME
 
 /obj/item/organ/internal/stomach/removed()
 	. = ..()
@@ -77,12 +73,6 @@
 		action.button_icon_state = "puke"
 		if(action.button) action.button.UpdateIcon()
 
-/obj/item/organ/internal/stomach/attack_self(mob/user)
-	. = ..()
-	if(. && action_button_name == PUKE_ACTION_NAME && owner && !owner.incapacitated())
-		owner.vomit(deliberate = TRUE)
-		refresh_action_button()
-
 /obj/item/organ/internal/stomach/return_air()
 	return null
 
@@ -131,4 +121,3 @@
 			owner.vomit()
 
 #undef STOMACH_VOLUME
-#undef PUKE_ACTION_NAME

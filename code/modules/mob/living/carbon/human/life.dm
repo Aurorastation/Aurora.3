@@ -976,7 +976,7 @@
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
 			if(nutrition_icon)
-				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
+				var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
 				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
 				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
 					nut_icon = 0
