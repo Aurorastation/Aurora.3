@@ -31,22 +31,19 @@
 			<div class="statusValue">{{:data.brain_activity}}</div>
 		</div>
 		<div class="line">
-			<div class="statusLabel">=&gt; Brute Damage:</div>
+			<div class="statusLabel">=&gt; Physical Trauma:</div>
 			<div class="statusValue">{{:data.bruteLoss}}</div>
 		</div>
 		<div class="line">
-			<div class="statusLabel">=&gt; Resp. Damage:</div>
-			{{:helper.displayBar(data.oxyLoss, 0, data.maxHealth, 'bad')}}
+			<div class="statusLabel">=&gt; Oxygen Deprivation:</div>
 			<div class="statusValue">{{:data.oxyLoss}}</div>
 		</div>
 		<div class="line">
-			<div class="statusLabel">=&gt; Systemic Organ Failure:</div>
-			{{:helper.displayBar(data.toxLoss, 0, data.maxHealth, 'bad')}}
+			<div class="statusLabel">=&gt; Organ Failure:</div>
 			<div class="statusValue">{{:data.toxLoss}}</div>
 		</div>
 		<div class="line">
 			<div class="statusLabel">=&gt; Burn Severity:</div>
-			{{:helper.displayBar(data.fireLoss, 0, data.maxHealth, 'bad')}}
 			<div class="statusValue">{{:data.fireLoss}}</div>
 		</div>
 	{{/if}}
@@ -105,7 +102,7 @@
 		<div class="statusValue">{{:helper.round(data.blood_o2)}}%</div>
 	</div>
 	<div class="line">
-		<div class="statusLabel">=&gt; Inaprovaline:</div>
+		<div class="statusLabel">=&gt; Norepinephrine:</div>
 		<div class="statusValue">{{:helper.round(data.inaprovAmt)}} unit(s)</div>
 	</div>
 	<div class="line">
@@ -142,32 +139,30 @@
 	{{/if}}
 	<div class='statusDisplay'>
 	{{for data.bodyparts}}
-		<div><!-- container -->
-			<div class="line">
-				<b>{{:value.name}}</b>
-			</div>
-			<div class="line">
-				<div class="statusLabel">=&gt; Burn Dmg:</div>
-				<div class="statusValue">{{value.burnDmg}}</div>
-			</div>
-
-			<div class="line">
-				<div class="statusLabel">=&gt; Brute Dmg:</div>
-				<div class="statusValue">{{value.bruteDmg}}</div>
-			</div>
-			{{if value.hasWounds}}
-				<div class="line">
-					<div class="statusLabel">=&gt; Information:</div>
-					<div class="statusValue">
-						<ul>
-						{{for value.wounds :wound:woundi}}
-							<li>{{:wound}}</li>
-						{{/for}}
-						</ul>
-					</div>
-				</div>
-			{{/if}}
+		<div class="line">
+			<b>{{:value.name}}</b>
 		</div>
+		<div class="line">
+			<div class="statusLabel">=&gt; Burn Severity:</div>
+			<div class="statusValue">{{value.burnDmg}}</div>
+		</div>
+
+		<div class="line">
+			<div class="statusLabel">=&gt; Physical Trauma:</div>
+			<div class="statusValue">{{value.bruteDmg}}</div>
+		</div>
+		{{if value.hasWounds}}
+			<div class="line">
+				<div class="statusLabel">=&gt; Information:</div>
+				<div class="statusValue">
+					<ul>
+					{{for value.wounds :wound:woundi}}
+						<li>{{:wound}}</li>
+					{{/for}}
+					</ul>
+				</div>
+			</div>
+		{{/if}}
 		<hr>
 	{{/for}}
 </div>

@@ -34,9 +34,9 @@ BREATH ANALYZER
 
 /proc/calcDamage(var/DMGValue)
 	switch(DMGValue)
-		if (0 to 1)
+		if (1 to 5)
 			return "minor"
-		if (1 to 10)
+		if (6 to 10)
 			return "moderate"
 		if (10 to 25)
 			return "significant"
