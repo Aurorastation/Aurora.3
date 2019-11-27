@@ -146,11 +146,30 @@
 	scannable = 1
 
 	taste_description = "a roll of gauze"
+	var/remove_generic = 1
+	var/list/remove_toxins = list(
+		/datum/reagent/toxin/zombiepowder
+	)
 
 /datum/reagent/dylovene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.drowsyness = max(0, M.drowsyness - 6 * removed)
-	M.hallucination = max(0, M.hallucination - 9 * removed)
-	M.adjustToxLoss(-4 * removed)
+	if(alien == IS_DIONA)
+		return
+
+	if(remove_generic)
+		M.drowsyness = max(0, M.drowsyness - 6 * removed)
+		M.hallucination += (-9 * removed)
+		M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
+
+	var/removing = (4 * removed)
+	var/datum/reagents/ingested = M.get_ingested_reagents()
+	for(var/datum/reagent/R in ingested.reagent_list)
+		if((remove_generic && istype(R, /datum/reagent/toxin)) || (R.type in remove_toxins))
+			ingested.remove_reagent(R.type, removing)
+			return
+	for(var/datum/reagent/R in M.reagents.reagent_list)
+		if((remove_generic && istype(R, /datum/reagent/toxin)) || (R.type in remove_toxins))
+			M.reagents.remove_reagent(R.type, removing)
+			return
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -413,7 +432,10 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.add_chemical_effect(CE_CLUMSY, 1)
-		for(var/obj/item/organ/I in H.internal_organs)
+		for(var/obj/item/organ/internal/I in H.internal_organs)
+			if(I.organ_tag == BP_BRAIN)
+				if(I.damage >= I.min_bruised_damage)
+					continue
 			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
 				I.damage = max(I.damage - removed, 0)
 

@@ -1,0 +1,67 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: MattAtlas, MoondancerPony, Geeves
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - experiment: "An entirely new medical system! Holy balls that's a lot of changes."
+  - rscadd: "Traumas no longer happen due to oxyloss."
+  - tweak: "Inaprovaline has been renamed to epinephrine and viceversa."
+  - tweak: "CPR has been fixed up a bit. It has a small chance to restart hearts and can work with or without mouth-to-mouth."
+  - rscadd: "Humans no longer die when hitting 200 damage. Dionae, IPCs, grues and zombies are exceptions."
+  - rscadd: "Humans now die when their brain dies. For the brain to die, it must not have oxygen for quite a while."
+  - rscadd: "Suffocation damage is now a modifier to blood. If you don't have much oxygen, then you'll get the effects of low blood."
+  - rscadd: "Toxins now directly target organs. They'll try to destroy the liver and kidneys first... then move onto other organs. Be careful."
+  - rscadd: "All organs in the body now work towards making sure the brain lives. The liver filters toxins, the kidneys do the same, the lungs provide oxygen, the heart pumps blood and so on."
+  - rscadd: "Humans now have two new stats: blood oxygenation and blood pressure, shown on sensors and scanners. Blood pressure depends on how well your heart is pumping your blood. Blood oxygenation depends on how well your blood is oxygenated."
+  - rscadd: "Your heart can now stop when your pulse is too high. Your pulse depends on many factors - like pain or how much blood your brain wants. A heart in asystole cannot pump blood, meaning your brain will suffocate."
+  - rscadd: "When your heart stops, you go into asystole, aka flatlining. This can be fixed with CPR. Make sure that you fix the causes first... or they'll just go into asystole again."
+  - rscadd: "Epinephrine stabilizes your heartrate. This is a VERY important fact, do NOT forget this. Epinephrine will be your best tool!"
+  - rscadd: "Dexalin and dexalin+ no longer straight up heal oxyloss. Instead, they now fool your brain into thinking that it has 50% oxygen and 80% oxygen respectively."
+  - rscadd: "Alkysine now only heals the brain if it's properly oxygenated."
+  - rscadd: "Added a stomach organ. This controls reagent ingestion and food ingestion."
+  - rscadd: "Sleepers in dialysis mode now work as a stomach pump."
+  - tweak: "Peridaxon now heals brain damage, if it's not damaged much at all."
+  - tweak: "Dylovene no longer outright heals toxin damage. Instead, it removes toxin reagents from the blood."
+  - rscadd: "New side effects to most healing chems. Be careful."
+  - rscdel: "Numbers have been deleted from scanners. Mostly. Stop using terms like brute and burn damage, boys."
+  - rscadd: "Taking a good chunk of damage at once now produces adrenaline. Acts like a painkiller and raises your pulse. Might also restart your heart."
+  - tweak: "Sacrifice rune now only works if someone's in asystole or dead."
+  - tweak: "Changed how getting organ damage works. Lasers now deal organ damage."
+  - tweak: "Most organs can now take more punishment."
+  - tweak: "The head is now harder to hit."
+  - tweak: "The organ damage dealt now depends on the size of the organ in the area you hit."

@@ -7,14 +7,31 @@
 	reagent_state = LIQUID
 	color = "#CF3600"
 	metabolism = REM * 0.1 // 0.02 by default. They last a while and slowly kill you.
-	var/strength = 4 // How much damage it deals per unit
 	taste_description = "bitterness"
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
 
+	var/target_organ = BP_LIVER
+	var/strength = 4 // How much damage it deals per unit
+
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(strength)
-		M.add_chemical_effect(CE_TOXIN, strength * removed)
+	if(strength && alien != IS_DIONA)
+		M.add_chemical_effect(CE_TOXIN, strength)
+		var/dam = (strength * removed)
+		if(target_organ && ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+			if(I)
+				var/can_damage = I.max_damage - I.damage
+				if(can_damage > 0)
+					if(dam > can_damage)
+						I.take_internal_damage(can_damage, silent=TRUE)
+						dam -= can_damage
+					else
+						I.take_internal_damage(dam, silent=TRUE)
+						dam = 0
+		if(dam)
+			M.adjustToxLoss(target_organ ? (dam * 0.75) : dam)
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"

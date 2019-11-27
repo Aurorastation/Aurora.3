@@ -558,9 +558,9 @@
 	var/brain_result
 	if(H.should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
-		if(!brain || occupant.stat == DEAD || (occupant.status_flags & FAKEDEATH))
+		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH))
 			brain_result = 0
-		else if(occupant.stat != DEAD)
+		else if(H.stat != DEAD)
 			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
 	else
 		brain_result = -1
@@ -615,18 +615,18 @@
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
 	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
-	dat += text("\tBrain Activity: []</font><br>", occ["brain_result"])
+	dat += text("Brain Activity: []</font><br>", occ["brain_result"])
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
-	dat += text("Blood Pressure: []%", occ["blood_pressure"])
-	dat += text("Blood Oxygenation: []%", occ["blood_oxygenation"])
+	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
+	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
 	dat += text("Physical Trauma: []</font><br>", occ["bruteloss"])
 	dat += text("Oxygen Deprivation: []</font><br>", occ["oxyloss"])
 	dat += text("Systemic Organ Failure: []</font><br>", occ["toxloss"])
 	dat += text("Burn Severity: []</font><br><br>", occ["fireloss"])
 
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
-	dat += text("[]\tGenetic Tissue Damage: []</font><br>", ("<font color='[occ["cloneloss"] < 1  ? "blue" : "red"]'>"), occ["cloneloss"])
+	dat += text("Genetic Tissue Damage: []</font><br>", occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
 	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
 
