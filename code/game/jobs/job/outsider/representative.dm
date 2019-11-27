@@ -14,7 +14,7 @@
 	minimum_character_age = 25
 
 	access = list(access_lawyer, access_maint_tunnels)
-	minimal_access = list(access_lawyer)
+	minimal_access = list(access_lawyer, access_maint_tunnels)
 	outfit = /datum/outfit/job/representative
 	alt_titles = list("Consular Officer")
 
