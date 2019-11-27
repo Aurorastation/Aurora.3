@@ -40,7 +40,7 @@ delete-after: True
 changes: 
   - experiment: "An entirely new medical system! Holy balls that's a lot of changes."
   - rscadd: "Traumas no longer happen due to oxyloss."
-  - tweak: "Inaprovaline has been renamed to epinephrine and viceversa."
+  - tweak: "Inaprovaline has been renamed to norepinephrine and viceversa."
   - tweak: "CPR has been fixed up a bit. It has a small chance to restart hearts and can work with or without mouth-to-mouth."
   - rscadd: "Humans no longer die when hitting 200 damage. Dionae, IPCs, grues and zombies are exceptions."
   - rscadd: "Humans now die when their brain dies. For the brain to die, it must not have oxygen for quite a while."
