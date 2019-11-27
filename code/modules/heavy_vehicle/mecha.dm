@@ -28,6 +28,12 @@
 	var/list/pilots
 	var/list/pilot_overlays
 
+	// Remote control stuff
+	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
+	var/list/network // If it's remote, to which network does it connect?
+	var/mob/living/carbon/human/unbranded_frame/dummy // The remote controlled dummy
+	var/dummy_colour
+
 	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
 	var/obj/item/mech_component/manipulators/arms
 	var/obj/item/mech_component/propulsion/legs
@@ -50,6 +56,7 @@
 	// Cockpit access vars.
 	var/hatch_closed = 0
 	var/hatch_locked = 0
+	var/force_locked = FALSE // Is it possible to unlock the hatch?
 
 	var/use_air      = FALSE
 
@@ -73,6 +80,12 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
+	if(remote)
+		network.Remove(src)
+
+	for(var/thing in hud_elements)
+		qdel(thing)
+	hud_elements.Cut()
 
 	hardpoint_hud_elements = null
 
@@ -155,6 +168,28 @@
 
 	if(head && head.radio)
 		radio = new(src)
+
+	// Remote Controlled shenanigans
+	if(remote && network)
+		name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
+		network += src
+
+		if(hatch_closed)
+			hatch_closed = FALSE
+
+		dummy = new /mob/living/carbon/human/unbranded_frame(get_turf(src))
+		dummy.real_name = "Remote Pilot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
+		dummy.name = dummy.real_name
+		dummy.dna.real_name = dummy.real_name
+		if(dummy.mind)
+			dummy.mind.name = dummy.real_name
+		if(dummy_colour)
+			dummy.color = dummy_colour
+		enter(dummy, TRUE)
+
+		if(!hatch_closed)
+			hatch_closed = TRUE
+		hatch_locked = TRUE
 
 	// Create HUD.
 	instantiate_hud()

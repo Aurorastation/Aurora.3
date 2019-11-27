@@ -25,7 +25,12 @@
 
 /mob/living/carbon/human/death(gibbed)
 
-	if(stat == DEAD) return
+	if(stat == DEAD)
+		return
+
+	// Come out of VR right before you die, how depressing - geeves
+	if(vr_mob)
+		body_return()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
 	BITSET(hud_updateflag, STATUS_HUD)
