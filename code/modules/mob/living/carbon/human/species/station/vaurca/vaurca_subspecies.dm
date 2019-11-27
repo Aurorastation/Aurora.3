@@ -148,6 +148,7 @@
 		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
 		"mechanical liver"    = /obj/item/organ/internal/liver/vaurca/robo,
 		"mechanical kidneys"  = /obj/item/organ/internal/kidneys/vaurca/robo,
+		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES                = /obj/item/organ/internal/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit

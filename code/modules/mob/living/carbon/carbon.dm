@@ -1,7 +1,6 @@
 /mob/living/carbon/Initialize()
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(1000, src, CHEM_BLOOD)
-	ingested = new/datum/reagents/metabolism(1000, src, CHEM_INGEST)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
 	breathing = new/datum/reagents/metabolism(1000, src, CHEM_BREATHE)
 	reagents = bloodstr
@@ -27,8 +26,10 @@
 
 /mob/living/carbon/rejuvenate()
 	bloodstr.clear_reagents()
-	ingested.clear_reagents()
 	touching.clear_reagents()
+	var/datum/reagents/R = get_ingested_reagents()
+	if(istype(R)) 
+		R.clear_reagents()
 	breathing.clear_reagents()
 	..()
 
@@ -445,3 +446,12 @@
 
 /mob/living/carbon/proc/need_breathe()
 	return
+
+/**
+ *  Return FALSE if victim can't be devoured, DEVOUR_FAST if they can be devoured quickly, DEVOUR_SLOW for slow devour
+ */
+/mob/living/carbon/proc/can_devour(atom/movable/victim)
+	return FALSE
+
+/mob/living/carbon/proc/get_ingested_reagents()
+	return reagents

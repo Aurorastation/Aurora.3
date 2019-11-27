@@ -491,8 +491,9 @@
 	M.stuttering = max(0, M.stuttering - DP)
 	M.confused = max(0, M.confused - DP)
 
-	if(M.ingested)
-		for(var/datum/reagent/R in M.ingested.reagent_list)
+	var/datum/reagents/ingested = M.get_ingested_reagents()
+	if(ingested)
+		for(var/datum/reagent/R in ingested.reagent_list)
 			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
 				M.ingested.remove_reagent(R.id, amount)
