@@ -501,7 +501,7 @@
 /datum/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/kelotane
+/datum/reagent/kelotane/dermaline
 	value = 2.9
 
 /datum/reagent/dermaline
@@ -513,7 +513,7 @@
 /datum/reagent/dexalin
 	value = 2.4
 
-/datum/reagent/dexalinp
+/datum/reagent/dexalin/plus
 	value = 3.6
 
 /datum/reagent/tricordrazine
