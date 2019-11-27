@@ -718,7 +718,7 @@ var/list/sacrificed = list()
 					else
 						H.gib()
 			else
-				if(H.stat !=2)
+				if(!H.is_asystole())
 					to_chat(user, "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>")
 				else
 					if(prob(40))
