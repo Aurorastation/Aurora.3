@@ -382,6 +382,7 @@
 		data["brain_activity"]  = brain_result
 		data["pulse"]           = text2num(pulse_result)
 		data["blood_pressure"]  = occupant.get_blood_pressure()
+		data["blood_volume"]    = occupant.get_blood_volume()
 		data["blood_o2"]        = occupant.get_blood_oxygenation()
 		data["blood_volume"]    = occupant.vessel.get_reagent_amount(/datum/reagent/blood)
 		data["blood_volume_max"]= occupant.species.blood_volume
@@ -402,7 +403,8 @@
 		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
 		data["dermAmt"]			= R.get_reagent_amount("dermaline")
 		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["inaprovAmt"] + data["dermAmt"])
-		data["bodyparts"]		= get_organ_wound_data(occupant)
+		data["bodyparts"]		= get_external_wound_data(occupant)
+		data["organs"]			= get_internal_wound_data(occupant)
 		var/list/missing 		= get_missing_organs(occupant)
 		data["missingparts"]	= missing
 		data["hasmissing"]		= missing.len ? 1 : 0
@@ -419,13 +421,12 @@
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
 	if(I.is_broken())
-		return "Severe"
+		return "severe"
 	if(I.is_bruised())
-		return "Moderate"
+		return "moderate"
 	if(I.is_damaged())
-		return "Minor"
-	else
-		return "None"
+		return "minor"
+	return "none"
 
 /obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
 	var/list/missingOrgans = list()
@@ -435,44 +436,9 @@
 			missingOrgans += organ_name
 	return missingOrgans
 
-/obj/machinery/body_scanconsole/proc/get_organ_wound_data(var/mob/living/carbon/human/H)
-	var/list/organs = list()
-
-	// Internal Organs. (Duh.)
-	for (var/obj/item/organ/O in H.internal_organs)
-		var/list/data = list()
-		data["name"] = O.name
-		var/list/wounds = list()
-		data["damage"] = get_internal_damage(O)
-
-		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
-			if (O.is_broken())
-				wounds += get_broken_lung_desc()
-			else
-				wounds += get_collapsed_lung_desc()
-
-		if (istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
-			wounds += "Has an abnormal growth."
-
-		if (istype(O, H.species.vision_organ))
-			if (H.sdisabilities & BLIND)
-				wounds += "Appears to have cataracts."
-			else if (H.disabilities & NEARSIGHTED)
-				wounds += "Appears to have misaligned retinas."
-
-		if (O.germ_level)
-			var/level = get_infection_level(O.germ_level)
-			if (level && level != "")
-				wounds += "Shows symptoms of \a [level] infection."
-
-		if (O.rejecting)
-			wounds += "Shows symptoms of organ rejection."
-
-		data["hasWounds"] = length(wounds) ? 1 : 0
-		data["wounds"] = wounds
-		organs += list(data)
-
+/obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
 	// Limbs.
+	var/organs = list()
 	for (var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
 		data["burnDmg"] = calcDamage(O.burn_dam)
@@ -520,6 +486,42 @@
 
 	return organs
 
+/obj/machinery/body_scanconsole/proc/get_internal_wound_data(var/mob/living/carbon/human/H)
+	var/list/organs = list()
+	// Internal Organs. (Duh.)
+	for (var/obj/item/organ/internal/O in H.internal_organs)
+		var/list/data = list()
+		data["name"] = O.name
+		var/list/wounds = list()
+		data["damage"] = get_internal_damage(O)
+		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
+			if (O.is_broken())
+				wounds += get_broken_lung_desc()
+			else
+				wounds += get_collapsed_lung_desc()
+
+		if (istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
+			wounds += "Has an abnormal growth."
+
+		if (istype(O, H.species.vision_organ))
+			if (H.sdisabilities & BLIND)
+				wounds += "Appears to have cataracts."
+			else if (H.disabilities & NEARSIGHTED)
+				wounds += "Appears to have misaligned retinas."
+
+		if (O.germ_level)
+			var/level = get_infection_level(O.germ_level)
+			if (level && level != "")
+				wounds += "Shows symptoms of \a [level] infection."
+
+		if (O.rejecting)
+			wounds += "Shows symptoms of organ rejection."
+
+		data["hasWounds"] = length(wounds) ? 1 : 0
+		data["wounds"] = wounds
+		organs += list(data)
+	return organs
+
 /obj/machinery/body_scanconsole/proc/get_infection_level(var/level)
 	switch (level)
 		if (INFECTION_LEVEL_ONE to INFECTION_LEVEL_ONE + 200)
@@ -553,18 +555,44 @@
 	if (!occupant || !istype(occupant, /mob/living/carbon/human))
 		return
 	var/mob/living/carbon/human/H = occupant
+	var/brain_result
+	if(H.should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
+		if(!brain || occupant.stat == DEAD || (occupant.status_flags & FAKEDEATH))
+			brain_result = 0
+		else if(occupant.stat != DEAD)
+			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
+	else
+		brain_result = -1
+
+	switch(brain_result)
+		if(0)
+			brain_result = "<span class='bad'>none, patient is braindead</span>"
+		if(-1)
+			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
+		else
+			if(brain_result <= 50)
+				brain_result = "<span class='bad'>[brain_result]%</span>"
+			else if(brain_result <= 80)
+				brain_result = "<span class='average'>[brain_result]%</span>"
+			else
+				brain_result = "[brain_result]%"
+
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
-		"stat" = H.stat,
-		"health" = H.health,
+		"brain_activity" = brain_result,
 		"virus_present" = H.virus2.len,
-		"bruteloss" = H.getBruteLoss(),
-		"fireloss" = H.getFireLoss(),
-		"oxyloss" = H.getOxyLoss(),
-		"toxloss" = H.getToxLoss(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = calcDamage(H.getBruteLoss()),
+		"fireloss" = calcDamage(H.getFireLoss()),
+		"oxyloss" = calcDamage(H.getOxyLoss()),
+		"toxloss" = calcDamage(H.getToxLoss()),
+		"cloneloss" = calcDamage(H.getCloneLoss()),
+
 		"rads" = H.total_radiation,
-		"cloneloss" = H.getCloneLoss(),
-		"brainloss" = H.getBrainLoss(),
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
@@ -587,32 +615,23 @@
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
 	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
-	var/aux
-	switch (occ["stat"])
-		if(0)
-			aux = "Conscious"
-		if(1)
-			aux = "Unconscious"
-		else
-			aux = "Dead"
-	dat += text("[]\tHealth %: [] ([])</font><br>", ("<font color='[occ["health"] > 50 ? "blue" : "red"]>"), occ["health"], aux)
+	dat += text("\tBrain Activity: []</font><br>", occ["brain_result"])
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
-	dat += text("[]\t-Brute Damage %: []</font><br>", ("<font color='[occ["bruteloss"] < 60  ? "blue" : "red"]'>"), occ["bruteloss"])
-	dat += text("[]\t-Respiratory Damage %: []</font><br>", ("<font color='[occ["oxyloss"] < 60  ? "blue'" : "red"]'>"), occ["oxyloss"])
-	dat += text("[]\t-Toxin Content %: []</font><br>", ("<font color='[occ["toxloss"] < 60  ? "blue" : "red"]'>"), occ["toxloss"])
-	dat += text("[]\t-Burn Severity %: []</font><br><br>", ("<font color='[occ["fireloss"] < 60  ? "blue" : "red"]'>"), occ["fireloss"])
+	dat += text("Blood Pressure: []%", occ["blood_pressure"])
+	dat += text("Blood Oxygenation: []%", occ["blood_oxygenation"])
+	dat += text("Physical Trauma: []</font><br>", occ["bruteloss"])
+	dat += text("Oxygen Deprivation: []</font><br>", occ["oxyloss"])
+	dat += text("Systemic Organ Failure: []</font><br>", occ["toxloss"])
+	dat += text("Burn Severity: []</font><br><br>", occ["fireloss"])
 
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
-	dat += text("[]\tGenetic Tissue Damage %: []</font><br>", ("<font color='[occ["cloneloss"] < 1  ? "blue" : "red"]'>"), occ["cloneloss"])
-	dat += text("[]\tApprox. Brain Damage %: []</font><br>", ("<font color='[occ["brainloss"] < 1  ? "blue" : "red"]'>"), occ["brainloss"])
+	dat += text("[]\tGenetic Tissue Damage: []</font><br>", ("<font color='[occ["cloneloss"] < 1  ? "blue" : "red"]'>"), occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
 	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
-
-	dat += text("[]\tBlood Level %: [] ([] units)</FONT><BR>", ("<font color='[occ["blood_amount"] > 448  ? "blue" : "red"]'>"), occ["blood_amount"]*100 / 560, occ["blood_amount"])
 
 	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
@@ -627,8 +646,8 @@
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"
 	dat += "<th>Organ</th>"
-	dat += "<th>Burn Damage</th>"
-	dat += "<th>Brute Damage</th>"
+	dat += "<th>Burn Severity</th>"
+	dat += "<th>Physical Trauma</th>"
 	dat += "<th>Other Wounds</th>"
 	dat += "</tr>"
 
@@ -685,12 +704,12 @@
 		if(!AN && !open && !infected & !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[e.brute_dam]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[calcDamage(e.brute_dam)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"
 
-	for(var/obj/item/organ/i in occ["internal_organs"])
+	for(var/obj/item/organ/internal/i in occ["internal_organs"])
 
 		var/mech = ""
 		if(i.robotic == 1)
@@ -707,7 +726,7 @@
 			infection += "(being rejected)"
 
 		dat += "<tr>"
-		dat += "<td>[i.name]</td><td>N/A</td><td>[i.damage]</td><td>[infection]:[mech]</td><td></td>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection]:[mech]</td><td></td>"
 		dat += "</tr>"
 	dat += "</table>"
 

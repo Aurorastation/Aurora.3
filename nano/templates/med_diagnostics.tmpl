@@ -25,11 +25,12 @@
 		<div class="statusLabel">Species:</div>
 		<div class="statusValue">{{:data.species}}</div>
 	</div>
+
+	<div class="line">
+		<div class="statusLabel">Brain Activity:</div>
+		<div class="statusValue">{{:data.brain_activity}}</div>
+	</div>
 	{{if data.stat < 2}}
-		<div class="line">
-			<div class="statusLabel">Brain Activity:</div>
-			<div class="statusValue">{{:data.brain_activity}}</div>
-		</div>
 		<div class="line">
 			<div class="statusLabel">=&gt; Physical Trauma:</div>
 			<div class="statusValue">{{:data.bruteLoss}}</div>
@@ -51,13 +52,13 @@
 	<div class='line'>
 		<div class='statusLabel'>Radiation Lvl:</div>
 		<div class='statusValue'>
-			<span class="statusValue">{{:data.rads}} rads</span>
+			<span class="statusValue">{{:helper.round(data.rads)}} rads</span>
 		</div>
 	</div>
 	<div class='line'>
 		<div class='statusLabel'>Genetic Dmg:</div>
 		<div class='statusValue'>
-			<span class="statusValue">{{:data.cloneloss}}</span>
+			<span class="statusValue">{{:data.cloneLoss}}</span>
 		</div>
 	</div>
 	</div>
@@ -94,7 +95,7 @@
 	<div class='statusDisplay'>
 	<div class="line">
 		<div class="statusLabel">Blood Volume:</div>
-			{{:helper.displayBar(data.bloodAmt, 0, data.bloodMax, data.bloodStatus)}}
+			{{:helper.displayBar(data.bloodAmt, 0, data.blood_volume, data.blood_volume_max)}}
 		<div class="statusValue">{{:helper.round(data.blood_volume)}}% ({{:helper.round(data.blood_volume_max)}}u)</div>
 	</div>
 	<div class="line">
@@ -138,25 +139,56 @@
 	</div>
 	{{/if}}
 	<div class='statusDisplay'>
+
+	{{for data.organs}}
+		<div><!-- container -->
+			<div class="line">
+				<b>{{:value.name}}</b>
+			</div>
+
+			<div class="line">
+				<div class="statusLabel">=&gt; Trauma: <b>{{:value.damage}}</b>
+			</div>
+
+			<div class="line">
+			{{if value.hasWounds}}
+				<div class="statusLabel">=&gt; Information:</div>
+				<div class="statusValue">
+					<ul>
+					{{for value.wounds :wound:woundi}}
+						<li>{{:wound}}</li>
+					{{/for}}
+					</ul>
+				</div>
+			</div>
+			{{/if}}
+		</div>
+		<hr>
+	{{/for}}
+
 	{{for data.bodyparts}}
 		<div><!-- container -->
-			<b>{{:value.name}}</b>
 			<div class="line">
-				<div class="statusLabel">=&gt; Trauma:</div>
-				<div class="statusValue">{{value.damage}}</div>
+				<b>{{:value.name}}</b>
 			</div>
-		
+
+			<div class="line">
+				<div class="statusLabel">=&gt;Physical Trauma: <b>{{:value.bruteDmg}}</b>
+				<br>
+				<div class="statusLabel">=&gt; Burn Severity: <b>{{:value.burnDmg}}</b>
+			</div>
+
+			<div class="line">
 			{{if value.hasWounds}}
-				<div class="line">
-					<div class="statusLabel">=&gt; Information:</div>
-					<div class="statusValue">
-						<ul>
-						{{for value.wounds :wound:woundi}}
-							<li>{{:wound}}</li>
-						{{/for}}
-						</ul>
-					</div>
+				<div class="statusLabel">=&gt; Information:</div>
+				<div class="statusValue">
+					<ul>
+					{{for value.wounds :wound:woundi}}
+						<li>{{:wound}}</li>
+					{{/for}}
+					</ul>
 				</div>
+			</div>
 			{{/if}}
 		</div>
 		<hr>
