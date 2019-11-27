@@ -23,6 +23,7 @@
 
 	if(emergency_shuttle.online())
 		message_admins("[uppertext(name)]: An evac or transfer shuttle is on the way. Aborted.")
+		next_spawn = world.time + min_autotraitor_delay
 		return
 
 	var/list/usable_templates = list()

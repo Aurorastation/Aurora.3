@@ -19,7 +19,7 @@
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
 				    access_detective, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
-			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+			            access_forensics_lockers, access_morgue, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
 				    access_detective, access_weapons)
@@ -75,7 +75,7 @@
 	minimum_character_age = 25
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_external_airlocks, access_weapons)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
 
@@ -124,7 +124,7 @@
 	minimum_character_age = 25
 
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
-	minimal_access = list(access_security, access_sec_doors, access_morgue, access_maint_tunnels, access_detective, access_weapons)
+	minimal_access = list(access_security, access_sec_doors, access_morgue, access_detective, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/detective
 
@@ -165,7 +165,7 @@
 	minimum_character_age = 25
 
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
-	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
+	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	alt_titles = list("Crime Scene Investigator")
 	minimal_player_age = 3
 	outfit = /datum/outfit/job/forensics
@@ -215,7 +215,7 @@
 	minimum_character_age = 18
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks, access_weapons)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
 
@@ -257,7 +257,7 @@
 	supervisors = "the Head of Security"
 	selection_color = "#FFA4A4"
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
-	minimal_access = list(access_security, access_sec_doors, access_maint_tunnels)
+	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
 
 /datum/outfit/job/intern_sec
