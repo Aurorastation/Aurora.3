@@ -615,18 +615,18 @@
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
 	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
-	dat += text("Brain Activity: []</font><br>", occ["brain_result"])
+	dat += text("Brain Activity: []<br>", occ["brain_result"])
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
 	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
-	dat += text("Physical Trauma: []</font><br>", occ["bruteloss"])
-	dat += text("Oxygen Deprivation: []</font><br>", occ["oxyloss"])
-	dat += text("Systemic Organ Failure: []</font><br>", occ["toxloss"])
-	dat += text("Burn Severity: []</font><br><br>", occ["fireloss"])
+	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
+	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
+	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
+	dat += text("Burn Severity: []<br><br>", occ["fireloss"])
 
 	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
-	dat += text("Genetic Tissue Damage: []</font><br>", occ["cloneloss"])
+	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
 	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
 	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
 
