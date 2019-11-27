@@ -443,13 +443,7 @@
 		var/list/data = list()
 		data["name"] = O.name
 		var/list/wounds = list()
-		switch (O.damtype)
-			if ("brute")
-				data["bruteDmg"] = get_internal_damage(O)
-				data["burnDmg"] = 0
-			if ("burn")
-				data["burnDmg"] = get_internal_damage(O)
-				data["bruteDmg"] = 0
+		data["damage"] = get_internal_damage(O)
 
 		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
 			if (O.is_broken())

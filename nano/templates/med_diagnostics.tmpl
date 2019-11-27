@@ -51,13 +51,13 @@
 	<div class='line'>
 		<div class='statusLabel'>Radiation Lvl:</div>
 		<div class='statusValue'>
-			<span class='{{:data.radStatus}}'>{{:data.rads}} rads</span>
+			<span class="statusValue">{{:data.rads}} rads</span>
 		</div>
 	</div>
 	<div class='line'>
 		<div class='statusLabel'>Genetic Dmg:</div>
 		<div class='statusValue'>
-			<span class='{{:data.cloneDmgStatus}}'>{{:data.cloneloss}}%</span>
+			<span class="statusValue">{{:data.cloneloss}}</span>
 		</div>
 	</div>
 	</div>
@@ -140,17 +140,10 @@
 	<div class='statusDisplay'>
 	{{for data.bodyparts}}
 		<div><!-- container -->
+			<b>{{:value.name}}</b>
 			<div class="line">
-				<b>{{:value.name}}</b>
-			</div>
-
-			<div class="line">
-				<div class="statusLabel">=&gt; Burn Severity:</div>
-				<div class="statusValue">{{value.burnDmg}}</div>
-			</div>
-			<div class="line">
-				<div class="statusLabel">=&gt; Physical Trauma:</div>
-				<div class="statusValue">{{value.bruteDmg}}</div>
+				<div class="statusLabel">=&gt; Trauma:</div>
+				<div class="statusValue">{{value.damage}}</div>
 			</div>
 		
 			{{if value.hasWounds}}
