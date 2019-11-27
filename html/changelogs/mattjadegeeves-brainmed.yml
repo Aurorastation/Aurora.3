@@ -50,7 +50,7 @@ changes:
   - rscadd: "Humans now have two new stats: blood oxygenation and blood pressure, shown on sensors and scanners. Blood pressure depends on how well your heart is pumping your blood. Blood oxygenation depends on how well your blood is oxygenated."
   - rscadd: "Your heart can now stop when your pulse is too high. Your pulse depends on many factors - like pain or how much blood your brain wants. A heart in asystole cannot pump blood, meaning your brain will suffocate."
   - rscadd: "When your heart stops, you go into asystole, aka flatlining. This can be fixed with CPR. Make sure that you fix the causes first... or they'll just go into asystole again."
-  - rscadd: "Epinephrine stabilizes your heartrate. This is a VERY important fact, do NOT forget this. Epinephrine will be your best tool!"
+  - rscadd: "Norepinephrine stabilizes your heartrate. This is a VERY important fact, do NOT forget this. Norepinephrine will be your best tool!"
   - rscadd: "Dexalin and dexalin+ no longer straight up heal oxyloss. Instead, they now fool your brain into thinking that it has 50% oxygen and 80% oxygen respectively."
   - rscadd: "Alkysine now only heals the brain if it's properly oxygenated."
   - rscadd: "Added a stomach organ. This controls reagent ingestion and food ingestion."
