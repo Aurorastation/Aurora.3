@@ -57,8 +57,8 @@
 
 	minimum_character_age = 25
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
+	access = list(access_maint_tunnels, access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch)
+	minimal_access = list(access_maint_tunnels, access_tox, access_tox_storage, access_research, access_xenoarch)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14
@@ -99,8 +99,8 @@
 
 	minimum_character_age = 25
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
-	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
+	access = list(access_maint_tunnels, access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
+	minimal_access = list(access_maint_tunnels, access_research, access_xenobiology, access_hydroponics, access_tox_storage)
 	alt_titles = list("Xenobotanist")
 
 	minimal_player_age = 14
@@ -131,8 +131,8 @@
 
 	minimum_character_age = 25
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
+	access = list(access_maint_tunnels, access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
+	minimal_access = list(access_maint_tunnels, access_robotics, access_tech_storage, access_morgue, access_research) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
 
 	minimal_player_age = 7
@@ -175,8 +175,8 @@
 	spawn_positions = 2
 	supervisors = "the Research Director"
 	selection_color = "#FFAAFF"
-	access = list(access_research, access_tox)
-	minimal_access = list(access_research, access_tox)
+	access = list(access_maint_tunnels, access_research, access_tox)
+	minimal_access = list(access_maint_tunnels, access_research, access_tox)
 	outfit = /datum/outfit/job/intern_sci
 
 /datum/outfit/job/intern_sci
