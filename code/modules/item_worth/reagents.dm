@@ -501,7 +501,7 @@
 /datum/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/kelodermaline
+/datum/reagent/kelotane/dermaline
 	value = 3.9
 
 /datum/reagent/dylovene
