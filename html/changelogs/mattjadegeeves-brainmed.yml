@@ -60,7 +60,6 @@ changes:
   - rscadd: "New side effects to most healing chems. Be careful."
   - rscdel: "Numbers have been deleted from scanners. Mostly. Stop using terms like brute and burn damage, boys."
   - rscadd: "Taking a good chunk of damage at once now produces adrenaline. Acts like a painkiller and raises your pulse. Might also restart your heart."
-  - tweak: "Sacrifice rune now only works if someone's in asystole or dead."
   - tweak: "Soulstones work only when someone's in asystole."
   - tweak: "Changed how getting organ damage works. Lasers now deal organ damage."
   - tweak: "Most organs can now take more punishment."

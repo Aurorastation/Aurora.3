@@ -661,7 +661,7 @@ var/list/sacrificed = list()
 					to_chat(user, "<span class='warning'>Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.</span>")
 			else
 				if(cultsinrange.len >= 3)
-					if(!lamb.is_asystole())
+					if(M.stat != DEAD)
 						if(prob(80) || worth)
 							to_chat(user, "<span class='cult'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>")
 						else
@@ -682,7 +682,7 @@ var/list/sacrificed = list()
 						else
 							H.gib()
 				else
-					if(!lamb.is_asystole())
+					if(M.stat != DEAD)
 						to_chat(user, "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>")
 					else
 						if(prob(40))
@@ -697,7 +697,7 @@ var/list/sacrificed = list()
 							H.gib()
 		else
 			if(cultsinrange.len >= 3)
-				if(!lamb.is_asystole())
+				if(M.stat != DEAD)
 					if(prob(80))
 						to_chat(user, "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>")
 					else
@@ -718,7 +718,7 @@ var/list/sacrificed = list()
 					else
 						H.gib()
 			else
-				if(!lamb.is_asystole())
+				if(M.stat != DEAD)
 					to_chat(user, "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>")
 				else
 					if(prob(40))
