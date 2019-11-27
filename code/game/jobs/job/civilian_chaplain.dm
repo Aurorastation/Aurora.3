@@ -10,7 +10,7 @@
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
-	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
+	minimal_access = list(access_maint_tunnels, access_morgue, access_chapel_office, access_crematorium)
 	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
 	outfit = /datum/outfit/job/chaplain
 
