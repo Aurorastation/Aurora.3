@@ -35,7 +35,7 @@
 	var/justzap = 0
 	var/safe = 1
 	normalspeed = 1
-	var/obj/item/weapon/airlock_electronics/electronics = null
+	var/obj/item/airlock_electronics/electronics = null
 	var/hasShocked = 0 //Prevents multiple shocks from happening
 	var/secured_wires = 0
 	var/datum/wires/airlock/wires = null
@@ -788,7 +788,7 @@ About the new airlock wires panel:
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 				if(!istype(H.head, /obj/item/clothing/head/helmet))
 					user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
-					var/obj/item/organ/external/affecting = H.get_organ("head")
+					var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 					H.Stun(8)
 					H.Weaken(5)
 					if(affecting.take_damage(10, 0))
@@ -820,14 +820,14 @@ About the new airlock wires panel:
 	return
 
 //returns 1 on success, 0 on failure
-/obj/machinery/door/airlock/proc/cut_bolts(var/obj/item/weapon/tool, var/mob/user)
+/obj/machinery/door/airlock/proc/cut_bolts(var/obj/item/tool, var/mob/user)
 	var/cut_delay = 200
 	var/cut_verb
 	var/cut_sound
 	var/cutting = FALSE
 
-	if(istype(tool,/obj/item/weapon/weldingtool))
-		var/obj/item/weapon/weldingtool/WT = tool
+	if(istype(tool,/obj/item/weldingtool))
+		var/obj/item/weldingtool/WT = tool
 		if(!WT.isOn())
 			return
 		if(!WT.remove_fuel(0,user))
@@ -837,24 +837,24 @@ About the new airlock wires panel:
 		cut_sound = 'sound/items/Welder.ogg'
 		cut_delay *= 1.5/WT.toolspeed
 		cutting = TRUE
-	else if(istype(tool,/obj/item/weapon/gun/energy/plasmacutter))
+	else if(istype(tool,/obj/item/gun/energy/plasmacutter))
 		cut_verb = "cutting"
 		cut_sound = 'sound/items/Welder.ogg'
 		cut_delay *= 1
 		cutting = TRUE
-	else if(istype(tool,/obj/item/weapon/melee/energy/blade) || istype(tool,/obj/item/weapon/melee/energy/sword))
+	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
 		cut_verb = "slicing"
 		cut_sound = "sparks"
 		cut_delay *= 1
 		cutting = TRUE
-	else if(istype(tool,/obj/item/weapon/circular_saw))
+	else if(istype(tool,/obj/item/circular_saw))
 		cut_verb = "sawing"
 		cut_sound = 'sound/weapons/saw/circsawhit.ogg'
 		cut_delay *= 2
 		cutting = TRUE
-	else if(istype(tool,/obj/item/weapon/material/twohanded/fireaxe))
+	else if(istype(tool,/obj/item/material/twohanded/fireaxe))
 		//fireaxe can smash open the bolt cover instantly
-		var/obj/item/weapon/material/twohanded/fireaxe/F = tool
+		var/obj/item/material/twohanded/fireaxe/F = tool
 		if (!F.wielded)
 			return FALSE
 		if(src.bolt_cut_state == BOLTS_FINE)
@@ -995,7 +995,7 @@ About the new airlock wires panel:
 	da.created_name = src.name
 	da.update_state()
 	if(operating == -1 || (stat & BROKEN))
-		new /obj/item/weapon/circuitboard/broken(src.loc)
+		new /obj/item/circuitboard/broken(src.loc)
 		operating = 0
 	else
 		if (!electronics) create_electronics()
@@ -1004,7 +1004,7 @@ About the new airlock wires panel:
 	qdel(src)
 
 
-/obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
+/obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
 /obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
@@ -1027,7 +1027,7 @@ About the new airlock wires panel:
 		newbracer.attachto(src, user)
 		return
 	if(!repairing && (C.iswelder() && !( src.operating > 0 ) && src.density))
-		var/obj/item/weapon/weldingtool/WT = C
+		var/obj/item/weldingtool/WT = C
 		if(WT.isOn())
 			user.visible_message(
 				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
@@ -1063,11 +1063,11 @@ About the new airlock wires panel:
 		return src.attack_hand(user)
 	else if(istype(C, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
-	else if(istype(C, /obj/item/weapon/pai_cable))	// -- TLE
-		var/obj/item/weapon/pai_cable/cable = C
+	else if(istype(C, /obj/item/pai_cable))	// -- TLE
+		var/obj/item/pai_cable/cable = C
 		cable.plugin(src, user)
 	else if(!repairing && C.iscrowbar())
-		if(istype(C, /obj/item/weapon/melee/arm_blade))
+		if(istype(C, /obj/item/melee/arm_blade))
 			if(!arePowerSystemsOn()) //if this check isn't done and empty, the armblade will never be used to hit the airlock
 			else if(!(stat & BROKEN))
 				..()
@@ -1088,35 +1088,36 @@ About the new airlock wires panel:
 				open(1)
 			else
 				close(1)
-	else if(istype(C, /obj/item/weapon/material/twohanded/fireaxe) && !arePowerSystemsOn())
-		if(locked)
+	else if(istype(C, /obj/item/material/twohanded/fireaxe) && !arePowerSystemsOn())
+		if(locked && user.a_intent != I_HURT)
 			to_chat(user, "<span class='notice'>The airlock's bolts prevent it from being forced.</span>")
-		else if( !welded && !operating )
+		else if(locked && user.a_intent == I_HURT)
+			..()
+		else if(!welded && !operating)
 			if(density)
-
-				var/obj/item/weapon/material/twohanded/fireaxe/F = C
+				var/obj/item/material/twohanded/fireaxe/F = C
 				if(F.wielded)
 					open(1)
 				else
 					to_chat(user, "<span class='warning'>You need to be wielding \the [C] to do that.</span>")
 			else
-				var/obj/item/weapon/material/twohanded/fireaxe/F = C
+				var/obj/item/material/twohanded/fireaxe/F = C
 				if(F.wielded)
 					close(1)
 				else
 					to_chat(user, "<span class='warning'>You need to be wielding \the [C] to do that.</span>")
-
-	else if(istype(C, /obj/item/weapon/melee/hammer) && !arePowerSystemsOn())
-		if(locked)
+	else if(istype(C, /obj/item/melee/hammer) && !arePowerSystemsOn())
+		if(locked && user.a_intent != I_HURT)
 			to_chat(user, "<span class='notice'>The airlock's bolts prevent it from being forced.</span>")
-		else if( !welded && !operating )
-
+		else if(locked && user.a_intent == I_HURT)
+			..()
+		else if(!welded && !operating)
 			if(density)
 				open(1)
 			else
 				close(1)
-	else if(density && istype(C, /obj/item/weapon/material/twohanded/chainsaw))
-		var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar = C
+	else if(density && istype(C, /obj/item/material/twohanded/chainsaw))
+		var/obj/item/material/twohanded/chainsaw/ChainSawVar = C
 		if(!ChainSawVar.wielded)
 			to_chat(user, "<span class='notice'>Cutting the airlock requires the strength of two hands.</span>")
 		else if(ChainSawVar.cutting)
@@ -1409,9 +1410,9 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/create_electronics()
 	//create new electronics
 	if (secured_wires)
-		src.electronics = new/obj/item/weapon/airlock_electronics/secure( src.loc )
+		src.electronics = new/obj/item/airlock_electronics/secure( src.loc )
 	else
-		src.electronics = new/obj/item/weapon/airlock_electronics( src.loc )
+		src.electronics = new/obj/item/airlock_electronics( src.loc )
 
 	//update the electronics to match the door's access
 	if(!src.req_access)

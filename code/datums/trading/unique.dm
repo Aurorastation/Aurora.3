@@ -30,39 +30,39 @@
 	origin = "Cloaked ship"
 
 	possible_wanted_items = list (
-		/obj/item/weapon/gun/energy/captain                 = TRADER_THIS_TYPE,
-		/obj/item/weapon/hand_tele                          = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/captain                 = TRADER_THIS_TYPE,
+		/obj/item/hand_tele                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                                = TRADER_THIS_TYPE,
-		/obj/item/weapon/disk/nuclear                       = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/hypospray       = TRADER_ALL,
-		/obj/item/weapon/card/id/captains_spare             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/heavysniper/tranq   = TRADER_THIS_TYPE,
+		/obj/item/disk/nuclear                       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/hypospray       = TRADER_ALL,
+		/obj/item/card/id/captains_spare             = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/heavysniper/tranq   = TRADER_THIS_TYPE,
 		/obj/item/stack/telecrystal                         = TRADER_THIS_TYPE,
 		/obj/item/bluespace_crystal                         = TRADER_ALL,
 		/obj/random/telecrystals                            = TRADER_THIS_TYPE,
 		/obj/item/device/pin_extractor                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/aicore                = TRADER_THIS_TYPE,
-		/obj/item/weapon/aiModule                           = TRADER_SUBTYPES_ONLY
+		/obj/item/circuitboard/aicore                = TRADER_THIS_TYPE,
+		/obj/item/aiModule                           = TRADER_SUBTYPES_ONLY
 	)
 
 	possible_trading_items = list (
-		/obj/item/weapon/antag_spawner/borg_tele            = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/syndie/c4explosive                 = TRADER_ALL,
-		/obj/item/weapon/melee/energy/sword                 = TRADER_ALL,
-		/obj/item/weapon/melee/energy/sword/color           = TRADER_BLACKLIST,
-		/obj/item/weapon/melee/energy/axe                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/shield/energy                      = TRADER_ALL,
+		/obj/item/antag_spawner/borg_tele            = TRADER_THIS_TYPE,
+		/obj/item/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
+		/obj/item/syndie/c4explosive                 = TRADER_ALL,
+		/obj/item/melee/energy/sword                 = TRADER_ALL,
+		/obj/item/melee/energy/sword/color           = TRADER_BLACKLIST,
+		/obj/item/melee/energy/axe                   = TRADER_THIS_TYPE,
+		/obj/item/shield/energy                      = TRADER_ALL,
 		/obj/item/clothing/gloves/force/syndicate           = TRADER_THIS_TYPE,
-		/obj/item/weapon/card/id/syndicate                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/merc                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/light/stealth                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/light/hacker                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/launcher/grenade               = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/combat/marauder/mauler                   = TRADER_THIS_TYPE,
-		/obj/mecha/working/ripley/deathripley               = TRADER_THIS_TYPE
+		/obj/item/card/id/syndicate                  = TRADER_THIS_TYPE,
+		/obj/item/rig/merc                           = TRADER_THIS_TYPE,
+		/obj/item/rig/light/stealth                  = TRADER_THIS_TYPE,
+		/obj/item/rig/light/hacker                   = TRADER_THIS_TYPE,
+		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
+		/mob/living/heavy_vehicle/premade/combat             = TRADER_THIS_TYPE
+
 	)
 
 	speech = list(
@@ -87,18 +87,16 @@
 	origin = "SGS Severance"
 
 	possible_wanted_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
+		/obj/item/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
 		/mob/living/carbon/human                                   = TRADER_ALL
 	)
 
 	possible_trading_items = list(
-		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST_ALL,
-		/obj/mecha/combat/tank                          = TRADER_BLACKLIST_ALL,
-		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/gun/energy/pulse               = TRADER_ALL,
-		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
+		/obj/item/gun/energy/pulse               = TRADER_ALL,
+		/obj/item/gun/energy/rifle/pulse         = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/heavy         = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = list(/datum/species/monkey, /datum/species/machine, /datum/species/bug, /datum/species/diona)
@@ -126,12 +124,12 @@
 	origin = "Floating rock"
 
 	possible_wanted_items = list(
-		/obj/item/weapon/ore = TRADER_ALL
+		/obj/item/ore = TRADER_ALL
 	)
 	possible_trading_items = list(
 		/obj/machinery/power/supermatter                = TRADER_ALL,
 		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE,
-		/obj/item/weapon/aiModule                       = TRADER_SUBTYPES_ONLY
+		/obj/item/aiModule                       = TRADER_SUBTYPES_ONLY
 	)
 
 	speech = list(
@@ -155,22 +153,22 @@
 	name_language = LANGUAGE_VAURCA
 
 	possible_wanted_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
 		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
 		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/energy/vaurca             = TRADER_THIS_TYPE,
+		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
 		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/vaurca/rock               = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
+		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,
+		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/magboots/vox/vaurca     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
+		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
 	)
 
 	speech = list(
@@ -197,24 +195,18 @@
 		/obj/item/bluespace_crystal                   = TRADER_ALL,
 		/obj/machinery/bluespacerelay                 = TRADER_ALL,
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
-		/obj/item/organ/brain/golem                   = TRADER_THIS_TYPE,
+		/obj/item/organ/internal/brain/golem                   = TRADER_THIS_TYPE,
 		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/telesci_console = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
+		/obj/item/circuitboard/telesci_console = TRADER_THIS_TYPE,
+		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE,
-		/obj/item/weapon/teleportation_scroll         = TRADER_THIS_TYPE
+		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE,
+		/obj/item/teleportation_scroll         = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
-		/obj/item/mecha_parts/chassis/phazon                 = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_torso              = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_head               = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_left_arm           = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_right_arm          = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_left_leg           = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_right_leg          = TRADER_THIS_TYPE
+		/obj/item/bluespace_crystal			                 = TRADER_THIS_TYPE
 	)
 
 	speech = list(

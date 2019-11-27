@@ -557,7 +557,7 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
-	if(istype(A,/obj/item/weapon/disk/nuclear))
+	if(istype(A,/obj/item/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
@@ -583,7 +583,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/atom/movable/AM in shuttle_area)
 			if(bounty_ship_item_and_contents(AM, dry_run = FALSE))
 				matched_bounty = TRUE
-			if(!AM.anchored || istype(AM, /obj/mecha))
+			if(!AM.anchored)
 				sold_atoms += export_item_and_contents(AM, FALSE, FALSE, dry_run = FALSE)
 
 	if(sold_atoms)
@@ -683,7 +683,7 @@ var/datum/controller/subsystem/cargo/SScargo
 							log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 
 		//Spawn the Paper Inside
-		var/obj/item/weapon/paper/P = new(A)
+		var/obj/item/paper/P = new(A)
 		P.set_content_unsafe("[co.order_id] - [co.ordered_by]", co.get_report_delivery_order())
 
 	//Shuttle is loaded now - Charge cargo for it

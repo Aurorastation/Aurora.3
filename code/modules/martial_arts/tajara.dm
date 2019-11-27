@@ -27,10 +27,10 @@
 	A.do_attack_animation(D)
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 
-	if(!D.species.has_limbs["head"])
+	if(!D.species.has_limbs[BP_HEAD])
 		return 0
 
-	var/obj/item/organ/external/affecting = D.get_organ("head")
+	var/obj/item/organ/external/affecting = D.get_organ(BP_HEAD)
 	if(!istype(affecting) || affecting.is_stump())
 		return 0
 
@@ -46,10 +46,10 @@
 	if(isipc(D))
 		return 1
 
-	var/obj/item/organ/eyes/eyes = D.get_eyes()
+	var/obj/item/organ/internal/eyes/eyes = D.get_eyes()
 	eyes.take_damage(rand(3,4), 1)
 	var/armor = D.getarmor_organ(affecting,"melee")
-	D.apply_damage(10,BRUTE, "head", armor, sharp=1, edge=1)
+	D.apply_damage(10,BRUTE, BP_HEAD, armor, sharp=1, edge=1)
 
 	return 1
 

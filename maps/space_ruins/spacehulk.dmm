@@ -163,7 +163,7 @@
 	dir = 4
 	},
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict)
@@ -225,7 +225,7 @@
 /area/derelict)
 "aB" = (
 /obj/structure/track,
-/obj/item/weapon/resonator/upgraded,
+/obj/item/resonator/upgraded,
 /turf/simulated/floor,
 /area/derelict)
 "aC" = (
@@ -437,7 +437,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
-/obj/item/weapon/grenade/anti_photon,
+/obj/item/grenade/anti_photon,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "be" = (
@@ -470,7 +470,7 @@
 	dir = 4
 	},
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor,
 /area/derelict)
 "bi" = (
@@ -626,8 +626,8 @@
 	dir = 8
 	},
 /obj/machinery/door/blast/shutters/open,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "bD" = (
@@ -651,7 +651,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/weapon/gun/energy/blaster,
+/obj/item/gun/energy/blaster,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "bG" = (
@@ -702,7 +702,7 @@
 "bL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/weapon/gun/energy/blaster/carbine,
+/obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "bM" = (
@@ -716,7 +716,7 @@
 "bN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/guncabinet,
-/obj/item/weapon/gun/energy/blaster/rifle,
+/obj/item/gun/energy/blaster/rifle,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "bO" = (
@@ -898,8 +898,8 @@
 /area/derelict)
 "cl" = (
 /obj/structure/closet/crate/trashcart,
-/obj/item/weapon/rfd/construction,
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd/construction,
+/obj/item/rfd_ammo,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
@@ -922,12 +922,12 @@
 /turf/simulated/floor,
 /area/derelict)
 "cp" = (
-/obj/item/weapon/shield/riot,
+/obj/item/shield/riot,
 /obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/shoes/leg_guard/riot,
 /obj/item/clothing/suit/armor/riot,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -1033,7 +1033,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/obj/item/weapon/flame/lighter/random,
+/obj/item/flame/lighter/random,
 /turf/simulated/floor,
 /area/derelict)
 "cz" = (
@@ -1349,7 +1349,7 @@
 "dc" = (
 /obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/weapon/flame/lighter/random,
+/obj/item/flame/lighter/random,
 /turf/simulated/floor,
 /area/derelict)
 "dd" = (
@@ -1364,7 +1364,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "de" = (
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
@@ -1380,7 +1380,7 @@
 "dg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/paper/crumpled/bloody,
+/obj/item/paper/crumpled/bloody,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "dh" = (
@@ -1718,7 +1718,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "eg" = (
-/obj/item/weapon/storage/box/excavation,
+/obj/item/storage/box/excavation,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict)
 "eh" = (
@@ -1839,13 +1839,13 @@
 "ew" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/steel,
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "ex" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced/steel,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "ey" = (
@@ -2093,7 +2093,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "fi" = (
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2101,7 +2101,7 @@
 /area/derelict)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/mecha/working/ripley/firefighter,
+/mob/living/heavy_vehicle/premade/ripley/flames_red,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "fk" = (
@@ -2153,7 +2153,7 @@
 /turf/simulated/floor/shuttle/yellow,
 /area/derelict)
 "ft" = (
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd_ammo,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/yellow,
 /area/derelict)
@@ -2262,7 +2262,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "fK" = (
-/obj/item/weapon/caution,
+/obj/item/caution,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
@@ -2327,7 +2327,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "fW" = (
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd_ammo,
 /obj/structure/plasticflaps/airtight,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
@@ -2531,7 +2531,7 @@
 "gB" = (
 /obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd_ammo,
 /turf/simulated/floor,
 /area/derelict)
 "gC" = (
@@ -2554,7 +2554,7 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/derelict)
 "gE" = (
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd_ammo,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/dark_red,
@@ -2685,7 +2685,7 @@
 /area/derelict)
 "gW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/disk/tech_disk,
+/obj/item/disk/tech_disk,
 /obj/structure/table/glass,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
@@ -2893,8 +2893,8 @@
 "hA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/glass,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "hB" = (
@@ -2929,7 +2929,7 @@
 /area/derelict)
 "hE" = (
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/battery_module/lambda,
+/obj/item/computer_hardware/battery_module/lambda,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "hF" = (
@@ -2961,7 +2961,7 @@
 "hI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/tesla_link,
+/obj/item/computer_hardware/tesla_link,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "hJ" = (
@@ -3022,13 +3022,13 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /obj/item/clothing/mask/muzzle,
 /obj/item/clothing/glasses/sunglasses/blindfold,
-/obj/item/weapon/melee/whip,
-/obj/item/weapon/melee/baton/cattleprod,
-/obj/item/weapon/lipstick/pink,
-/obj/item/weapon/melee/telebaton,
+/obj/item/melee/whip,
+/obj/item/melee/baton/cattleprod,
+/obj/item/lipstick/pink,
+/obj/item/melee/telebaton,
 /turf/simulated/floor/shuttle/dark_red,
 /area/derelict)
 "hP" = (
@@ -3118,7 +3118,7 @@
 /area/derelict)
 "ic" = (
 /obj/structure/cult/talisman,
-/obj/item/weapon/melee/cultblade,
+/obj/item/melee/cultblade,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/cult,
 /area/derelict)
@@ -3507,7 +3507,7 @@
 /area/derelict)
 "jo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jp" = (
@@ -3599,7 +3599,7 @@
 /area/derelict)
 "jG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/rxglasses,
+/obj/item/storage/box/rxglasses,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
@@ -3610,7 +3610,7 @@
 /area/derelict)
 "jI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/masks,
+/obj/item/storage/box/masks,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jJ" = (
@@ -3626,7 +3626,7 @@
 /area/derelict)
 "jL" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/medical/odysseus/loaded,
+/mob/living/heavy_vehicle/premade/light,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jM" = (
@@ -3669,7 +3669,6 @@
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jR" = (
-/obj/effect/decal/mecha_wreckage/durand,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict)
@@ -3980,8 +3979,8 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/trap,
-/obj/item/weapon/trap,
+/obj/item/trap,
+/obj/item/trap,
 /turf/simulated/floor/shuttle/dark_red,
 /area/derelict)
 "kD" = (
@@ -3992,7 +3991,7 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/razor,
+/obj/item/razor,
 /turf/simulated/floor/shuttle/dark_red,
 /area/derelict)
 "kE" = (
@@ -4049,8 +4048,8 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/personal_inhaler,
-/obj/item/weapon/reagent_containers/chem_disp_cartridge/dexalin,
+/obj/item/personal_inhaler,
+/obj/item/reagent_containers/chem_disp_cartridge/dexalin,
 /turf/simulated/floor/shuttle/dark_red,
 /area/derelict)
 "kJ" = (
@@ -4090,7 +4089,7 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/reagent_containers/chem_disp_cartridge/rum,
+/obj/item/reagent_containers/chem_disp_cartridge/rum,
 /turf/simulated/floor/shuttle/dark_red,
 /area/derelict)
 "kN" = (
@@ -4107,7 +4106,6 @@
 /area/derelict)
 "kP" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/mecha/working/hoverpod/shuttlepod,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
@@ -4224,7 +4222,7 @@
 /area/derelict)
 "lp" = (
 /obj/structure/lattice,
-/obj/item/weapon/arrow,
+/obj/item/arrow,
 /turf/simulated/floor,
 /area/derelict)
 "lG" = (
@@ -4262,7 +4260,7 @@
 /area/derelict)
 "lY" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd_ammo,
 /turf/simulated/floor,
 /area/derelict)
 "mK" = (
@@ -4563,7 +4561,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict)
 "nJ" = (
-/obj/mecha/working/ripley/mining,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict)
 "nK" = (
@@ -5071,7 +5069,6 @@
 /turf/simulated/floor,
 /area/derelict)
 "pg" = (
-/obj/effect/decal/mecha_wreckage/gygax,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict)

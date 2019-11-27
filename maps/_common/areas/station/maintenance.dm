@@ -77,9 +77,20 @@
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
 
+/area/maintenance/bridge_elevator
+	name = "Bridge Elevator Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/bridge_elevator/surface
+	name = "Surface - Bridge Elevator Maintenance"
+
 /area/maintenance/arrivals
 	name = "Surface Maintenance"
 	icon_state = "maint_arrivals"
+
+/area/maintenance/store
+	name = "\improper Commissary Maintenance"
+	icon_state = "maint_cargo"
 
 /area/maintenance/bar
 	name = "Bar Maintenance"
@@ -161,6 +172,10 @@
 	name = "\improper Telecoms Ladder Shaft"
 	icon_state = "tcomsatentrance"
 
+/area/maintenance/engineering_ladder
+	name = "\improper Engineering Ladder Shaft"
+	icon_state = "maint_engineering"
+
 /area/maintenance/research_xenobiology
 	name = "Research Maintenance - Xenobiology"
 	icon_state = "maint_research_port"
@@ -228,10 +243,12 @@
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
 
-/area/maintenance/substation/engineering // Probably will be connected to engineering SMES room, as wires cannot be crossed properly without them sharing powernets.
+/area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"
 
-// No longer used:
+/area/maintenance/substation/engineering_sublevel // Engineering
+	name = "Engineering Sublevel Substation"
+
 /area/maintenance/substation/medical_science // Medbay and Science. Each has it's own separated machinery, but it originates from the same room.
 	name = "Medical Research Substation"
 

@@ -75,10 +75,10 @@
 
 /datum/reagent/paint/touch_obj(var/obj/O)
 	//special checks for special items
-	if(istype(O, /obj/item/weapon/reagent_containers))
+	if(istype(O, /obj/item/reagent_containers))
 		return
-	else if(istype(O, /obj/item/weapon/light))
-		var/obj/item/weapon/light/L = O
+	else if(istype(O, /obj/item/light))
+		var/obj/item/light/L = O
 		L.brightness_color = color
 		L.update()
 	else if(istype(O, /obj/machinery/light))
@@ -383,14 +383,6 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
-/datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	M.adjustToxLoss(2 * removed)
-
-/datum/reagent/space_cleaner/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(prob(10))
-		to_chat(M, span("danger","Your insides are burning!"))
-	M.adjustToxLoss(3 * removed)
-
 /datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
@@ -533,8 +525,8 @@
 	stored_value = metabolism
 
 /datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
+	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
 		stored_value += removed
 		if(stored_value >= 5)
 			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -742,7 +734,7 @@
 	fallback_specific_heat = 1.25
 
 /datum/reagent/sglue/touch_obj(var/obj/O)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
@@ -759,7 +751,7 @@
 	fallback_specific_heat = 1.75
 
 /datum/reagent/usolve/touch_obj(var/obj/O)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
@@ -776,7 +768,7 @@
 	fallback_specific_heat = 0.75
 
 /datum/reagent/shapesand/touch_obj(var/obj/O)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
 		mimic.desc = O.desc
@@ -799,7 +791,7 @@
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
 	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
-	new /obj/item/weapon/ore/glass(get_turf(src))
+	new /obj/item/ore/glass(get_turf(src))
 	qdel(src)
 	return
 
@@ -817,7 +809,7 @@
 	if(!istype(H))
 		return
 
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
 

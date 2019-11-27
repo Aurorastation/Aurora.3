@@ -33,16 +33,26 @@
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
 	head = /obj/item/clothing/head/hardhat/white
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/storage/belt/utility
 	pda = /obj/item/device/pda/heads/ce
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/heads/ce
 
-	backpack = /obj/item/weapon/storage/backpack/industrial
-	satchel = /obj/item/weapon/storage/backpack/satchel_eng
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
 
 /datum/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -78,16 +88,27 @@
 
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
-	belt = /obj/item/weapon/storage/belt/utility/full
+	belt = /obj/item/storage/belt/utility
 	pda = /obj/item/device/pda/engineering
+	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/headset_eng
 	r_pocket = /obj/item/device/t_scanner
 
-	backpack = /obj/item/weapon/storage/backpack/industrial
-	satchel = /obj/item/weapon/storage/backpack/satchel_eng
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
 
 /datum/job/atmos
 	title = "Atmospheric Technician"
@@ -112,15 +133,25 @@
 	jobtype = /datum/job/atmos
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
-	belt = /obj/item/weapon/storage/belt/utility/atmostech
+	belt = /obj/item/storage/belt/utility
 	pda = /obj/item/device/pda/atmos
+	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/headset_eng
 
-	backpack = /obj/item/weapon/storage/backpack/industrial
-	satchel = /obj/item/weapon/storage/backpack/satchel_eng
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/device/t_scanner = 1
+	)
 
 /datum/job/intern_eng
 	title = "Engineering Apprentice"
@@ -144,7 +175,7 @@
 	head = /obj/item/clothing/head/beret/engineering
 	l_ear = /obj/item/device/radio/headset/headset_eng
 
-	backpack = /obj/item/weapon/storage/backpack/industrial
-	satchel = /obj/item/weapon/storage/backpack/satchel_eng
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi

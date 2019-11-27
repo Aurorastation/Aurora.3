@@ -182,7 +182,7 @@
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != "eyes" && target_zone != "head")
+	if(target_zone != BP_EYES && target_zone != BP_HEAD)
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user
@@ -248,3 +248,14 @@
 	icon_state = "eelcaligae"
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0.75
+
+/obj/item/clothing/shoes/carp
+	name = "carp slippers"
+	desc = "Slippers made to look like baby carp, but on your feet! Squeeeeeee!!"
+	item_state = "carpslippers"
+	icon_state = "carpslippers"
+	species_restricted = null
+	silent = TRUE
+
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE

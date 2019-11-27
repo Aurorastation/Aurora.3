@@ -27,7 +27,7 @@
 	var/mob_name_pick_message = "Pick a name."
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
-	
+
 /datum/ghostspawner/New()
 	. = ..()
 	if(!jobban_job)
@@ -45,15 +45,16 @@
 
 	if(req_head_whitelist && !check_whitelist(user))
 		return "Missing Head of Staff Whitelist"
-	
-	if(req_species_whitelist && !is_alien_whitelisted(user, req_species_whitelist))
-		return "Missing Species Whitelist"
 
 	if(jobban_job && jobban_isbanned(user,jobban_job))
 		return "Job Banned"
-	
+
 	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
 		return "Currently Disabled"
+
+	if(req_species_whitelist)
+		if(!is_alien_whitelisted(user, req_species_whitelist))
+			return "Missing Species Whitelist"
 
 	return FALSE
 
@@ -61,7 +62,7 @@
 /datum/ghostspawner/proc/cant_spawn(mob/user) //If the user can spawn using the spawner
 	if(!ROUND_IS_STARTED)
 		return "The round is not started yet."
-	var/cant_see = cant_see()
+	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
 	if(!istype(user, /mob/abstract/observer))
@@ -83,10 +84,10 @@
 	return FALSE
 
 //Proc executed before someone is spawned in
-/datum/ghostspawner/proc/pre_spawn(mob/user) 
+/datum/ghostspawner/proc/pre_spawn(mob/user)
 	count++ //Increment the spawned in mob count
 	if(max_count && count >= max_count)
-		disable()
+		enabled = FALSE
 	return TRUE
 
 //This proc selects the spawnpoint to use.
@@ -114,6 +115,8 @@
 
 //Proc executed after someone is spawned in
 /datum/ghostspawner/proc/post_spawn(mob/user)
+	if(max_count && count >= max_count)
+		disable()
 	if(welcome_message)
 		to_chat(user, span("notice", welcome_message))
 	return TRUE

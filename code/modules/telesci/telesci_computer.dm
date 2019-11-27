@@ -3,7 +3,7 @@
 	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
 	light_color = LIGHT_COLOR_BLUE
-	circuit = /obj/item/weapon/circuitboard/telesci_console
+	circuit = /obj/item/circuitboard/telesci_console
 	var/sending = 1
 	var/obj/machinery/telepad/telepad = null
 	var/temp_msg = "Telescience control console initialized.<BR>Welcome."
@@ -214,8 +214,8 @@
 			var/total_lifespawn = 25 * crystals.len
 			var/total_failchance = crystals.len
 
-			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn)
-			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn)
+			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn, 0)
+			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn, 0)
 
 			origin.target = destination
 			destination.target = origin

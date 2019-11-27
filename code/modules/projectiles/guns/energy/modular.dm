@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/laser/prototype
+/obj/item/gun/energy/laser/prototype
 	name = "laser prototype"
 	desc = "A custom prototype laser weapon."
 	icon_state = "energykill"
@@ -26,7 +26,7 @@
 	var/named = 0
 	var/described = 0
 
-/obj/item/weapon/gun/energy/laser/prototype/examine(mob/user)
+/obj/item/gun/energy/laser/prototype/examine(mob/user)
 	..(user)
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
@@ -38,13 +38,13 @@
 	if(modulator)
 		to_chat(user, "You can see \the [modulator] attached.")
 
-/obj/item/weapon/gun/energy/laser/prototype/attackby(var/obj/item/weapon/D, var/mob/user)
+/obj/item/gun/energy/laser/prototype/attackby(var/obj/item/D, var/mob/user)
 	if(!D.isscrewdriver())
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
 
-/obj/item/weapon/gun/energy/laser/prototype/update_icon()
+/obj/item/gun/energy/laser/prototype/update_icon()
 	..()
 	if(origin_chassis == CHASSIS_LARGE)
 		if(wielded)
@@ -53,7 +53,7 @@
 			item_state = "heavyprotogun"
 	update_held_icon()
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/reset_vars()
+/obj/item/gun/energy/laser/prototype/proc/reset_vars()
 	burst = initial(burst)
 	reliability = initial(reliability)
 	burst_delay = initial(burst_delay)
@@ -66,7 +66,7 @@
 	is_wieldable = initial(is_wieldable)
 	action_button_name = initial(action_button_name)
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
+/obj/item/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()
 	if(!focusing_lens || !capacitor || !modulator)
 		disassemble(user)
@@ -113,7 +113,7 @@
 	w_class = gun_type
 	reliability = max(reliability, 1)
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/update_chassis()
+/obj/item/gun/energy/laser/prototype/proc/update_chassis()
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
 			gun_type =  CHASSIS_SMALL
@@ -131,7 +131,7 @@
 			is_wieldable = TRUE
 	update_wield_verb()
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/handle_mod()
+/obj/item/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		switch(modifier.mod_type)
 			if(MOD_SILENCE)
@@ -151,7 +151,7 @@
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
-/obj/item/weapon/gun/energy/laser/prototype/consume_next_projectile()
+/obj/item/gun/energy/laser/prototype/consume_next_projectile()
 	if(!power_supply)
 		return null
 	if(!ispath(projectile_type))
@@ -188,7 +188,7 @@
 	updatetype(ismob(loc) ? loc : null)
 	return A
 
-/obj/item/weapon/gun/energy/laser/prototype/proc/disassemble(var/mob/user)
+/obj/item/gun/energy/laser/prototype/proc/disassemble(var/mob/user)
 	var/atom/A
 	if (user && user.loc)
 		A = user.loc
@@ -220,35 +220,35 @@
 			new /obj/item/device/laser_assembly/large(A)
 	qdel(src)
 
-/obj/item/weapon/gun/energy/laser/prototype/small_fail(var/mob/user)
+/obj/item/gun/energy/laser/prototype/small_fail(var/mob/user)
 	if(capacitor)
 		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] short-circuits!</span>")
 		capacitor.small_fail(user, src)
 	return
 
-/obj/item/weapon/gun/energy/laser/prototype/medium_fail(var/mob/user)
+/obj/item/gun/energy/laser/prototype/medium_fail(var/mob/user)
 	if(capacitor)
 		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] overloads!</span>")
 		capacitor.medium_fail(user, src)
 	return
 
-/obj/item/weapon/gun/energy/laser/prototype/critical_fail(var/mob/user)
+/obj/item/gun/energy/laser/prototype/critical_fail(var/mob/user)
 	if(capacitor)
 		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] goes critical!</span>")
 		capacitor.critical_fail(user, src)
 	return
 
-/obj/item/weapon/gun/energy/laser/prototype/can_wield()
+/obj/item/gun/energy/laser/prototype/can_wield()
 	if(origin_chassis >= CHASSIS_MEDIUM)
 		return 1
 	else
 		return 0
 
-/obj/item/weapon/gun/energy/laser/prototype/ui_action_click()
+/obj/item/gun/energy/laser/prototype/ui_action_click()
 	if(src in usr)
 		toggle_wield(usr)
 
-/obj/item/weapon/gun/energy/laser/prototype/verb/scope()
+/obj/item/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
@@ -261,7 +261,7 @@
 	else
 		to_chat(usr, "<span class='warning'>This device does not have a scope installed!</span>")
 
-/obj/item/weapon/gun/energy/laser/prototype/special_check(var/mob/user)
+/obj/item/gun/energy/laser/prototype/special_check(var/mob/user)
 	if(is_charging && chargetime)
 		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0
@@ -287,7 +287,7 @@
 
 	return ..()
 
-/obj/item/weapon/gun/energy/laser/prototype/verb/rename_gun()
+/obj/item/gun/energy/laser/prototype/verb/rename_gun()
 	set name = "Name Prototype"
 	set category = "Object"
 	set desc = "Name your invention so that its glory might be eternal"
@@ -304,7 +304,7 @@
 		named = 1
 		return 1
 
-/obj/item/weapon/gun/energy/laser/prototype/verb/describe_gun()
+/obj/item/gun/energy/laser/prototype/verb/describe_gun()
 	set name = "Describe Prototype"
 	set category = "Object"
 	set desc = "Describe your invention so that its glory might be eternal"

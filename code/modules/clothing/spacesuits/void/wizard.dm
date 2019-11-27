@@ -16,8 +16,8 @@
 /obj/item/clothing/head/helmet/space/void/wizard/equipped(var/mob/living/user)
 	if(!user.is_wizard())
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/LH = H.get_organ("l_hand")
-		var/obj/item/organ/external/RH = H.get_organ("r_hand")
+		var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+		var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
 		var/active_hand = H.hand
 		to_chat(user, "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>")
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
@@ -46,14 +46,14 @@
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
 	siemens_coefficient = 0.35
 	wizard_garb = 1
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/teleportation_scroll,/obj/item/weapon/scrying,/obj/item/weapon/spellbook,/obj/item/device/soulstone,/obj/item/weapon/material/knife/ritual)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/teleportation_scroll,/obj/item/scrying,/obj/item/spellbook,/obj/item/device/soulstone,/obj/item/material/knife/ritual)
 	species_restricted = list("Human", "Skrell", "Heavy Machine", "Skeleton", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
 
 /obj/item/clothing/suit/space/void/wizard/equipped(var/mob/living/user)
 	if(!user.is_wizard())
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/LH = H.get_organ("l_hand")
-		var/obj/item/organ/external/RH = H.get_organ("r_hand")
+		var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+		var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
 		var/active_hand = H.hand
 		to_chat(user, "<span class='warning'>Your hand passes through the [src] with a flash of searing heat!</span>")
 		playsound(user, 'sound/effects/sparks4.ogg', 40, 1)
