@@ -12,7 +12,7 @@
 
 	minimum_character_age = 18
 
-	access = list(access_hydroponics, access_bar, access_kitchen)
+	access = list(access_maint_tunnels, access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
 	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
@@ -40,7 +40,7 @@
 
 	minimum_character_age = 18
 
-	access = list(access_hydroponics, access_bar, access_kitchen)
+	access = list(access_maint_tunnels, access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_kitchen)
 	alt_titles = list("Cook")
 	outfit = /datum/outfit/job/chef
@@ -73,7 +73,7 @@
 
 	minimum_character_age = 18
 
-	access = list(access_hydroponics, access_bar, access_kitchen)
+	access = list(access_maint_tunnels, access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_hydroponics)
 	alt_titles = list("Hydroponicist")
 	outfit = /datum/outfit/job/hydro
@@ -152,7 +152,7 @@
 	minimum_character_age = 18
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
+	minimal_access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
@@ -181,7 +181,7 @@
 	minimum_character_age = 18
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+	minimal_access = list(access_maint_tunnels, access_mining, access_mining_station, access_mailsorting)
 	outfit = /datum/outfit/job/mining
 
 /datum/outfit/job/mining
@@ -216,7 +216,7 @@
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
-	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
+	minimal_access = list(access_maint_tunnels, access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
 
 /datum/outfit/job/janitor
@@ -285,7 +285,7 @@
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
 	access = list(access_library, access_maint_tunnels)
-	minimal_access = list(access_library)
+	minimal_access = list(access_maint_tunnels, access_library)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
