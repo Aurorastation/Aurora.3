@@ -139,30 +139,33 @@
 	{{/if}}
 	<div class='statusDisplay'>
 	{{for data.bodyparts}}
-		<div class="line">
-			<b>{{:value.name}}</b>
-		</div>
-		<div class="line">
-			<div class="statusLabel">=&gt; Burn Severity:</div>
-			<div class="statusValue">{{value.burnDmg}}</div>
-		</div>
-
-		<div class="line">
-			<div class="statusLabel">=&gt; Physical Trauma:</div>
-			<div class="statusValue">{{value.bruteDmg}}</div>
-		</div>
-		{{if value.hasWounds}}
+		<div><!-- container -->
 			<div class="line">
-				<div class="statusLabel">=&gt; Information:</div>
-				<div class="statusValue">
-					<ul>
-					{{for value.wounds :wound:woundi}}
-						<li>{{:wound}}</li>
-					{{/for}}
-					</ul>
-				</div>
+				<b>{{:value.name}}</b>
 			</div>
-		{{/if}}
+
+			<div class="line">
+				<div class="statusLabel">=&gt; Burn Severity:</div>
+				<div class="statusValue">{{value.burnDmg}}</div>
+			</div>
+			<div class="line">
+				<div class="statusLabel">=&gt; Physical Trauma:</div>
+				<div class="statusValue">{{value.bruteDmg}}</div>
+			</div>
+		
+			{{if value.hasWounds}}
+				<div class="line">
+					<div class="statusLabel">=&gt; Information:</div>
+					<div class="statusValue">
+						<ul>
+						{{for value.wounds :wound:woundi}}
+							<li>{{:wound}}</li>
+						{{/for}}
+						</ul>
+					</div>
+				</div>
+			{{/if}}
+		</div>
 		<hr>
 	{{/for}}
 </div>

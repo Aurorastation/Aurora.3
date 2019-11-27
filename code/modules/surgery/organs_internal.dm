@@ -55,7 +55,7 @@
 					user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 					"You start treating damage to [target]'s [I.name] with [tool_name]." )
 
-		target.custom_pain("The pain in your [affected.name] is living hell!",1)
+		target.custom_pain("The pain in your [affected.name] is living hell!", 50)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -70,11 +70,12 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 		for(var/obj/item/organ/I in affected.internal_organs)
-			if(I && I.damage > 0)
+			if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
 				if(I.robotic < 2)
 					user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
 					"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
-					I.damage = 0
+					var/organ_damage = I.damage
+					I.heal_damage(organ_damage)
 					var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 					if(sponge && istype(I, sponge))
 						target.cure_all_traumas(cure_type = CURE_SURGERY)
