@@ -901,7 +901,6 @@ proc/is_hot(obj/item/W as obj)
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	if(M.lying)
 		if(locate(/obj/machinery/optable, M.loc))
-			world << "2"
 			return 2
 		else if(locate(/obj/structure/bed/roller, M.loc))
 			if(prob(80))
@@ -1209,4 +1208,3 @@ var/list/wall_items = typecacheof(list(
 	else if (istype(A.loc, /obj/item/rig_module))
 		return 0
 	return 1
-
