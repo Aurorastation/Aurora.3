@@ -73,7 +73,7 @@
 				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
 					"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
 				I.damage = 0
-				I.status &= ~ORGAN_BROKEN
+				
 				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 				if(sponge && istype(I, sponge))
 					target.cure_all_traumas(cure_type = CURE_SURGERY)
