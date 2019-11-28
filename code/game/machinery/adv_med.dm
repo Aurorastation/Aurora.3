@@ -397,12 +397,12 @@
 		data["paralysis"]		= occupant.paralysis
 		data["bodytemp"]		= occupant.bodytemperature
 		data["occupant"] 		= occupant
-		data["inaprovAmt"] 		= R.get_reagent_amount("inaprovaline")
+		data["norepiAmt"] 		= R.get_reagent_amount("norepiAmt")
 		data["soporAmt"] 		= R.get_reagent_amount("stoxin")
 		data["bicardAmt"] 		= R.get_reagent_amount("bicaridine")
 		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
 		data["dermAmt"]			= R.get_reagent_amount("dermaline")
-		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["inaprovAmt"] + data["dermAmt"])
+		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"])
 		data["bodyparts"]		= get_external_wound_data(occupant)
 		data["organs"]			= get_internal_wound_data(occupant)
 		var/list/missing 		= get_missing_organs(occupant)
@@ -596,7 +596,7 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"inaprovaline_amount" = H.reagents.get_reagent_amount("inaprovaline"),
+		"norepinephrine_amount" = H.reagents.get_reagent_amount("norepinephrine"),
 		"dexalin_amount" = H.reagents.get_reagent_amount("dexalin"),
 		"stoxin_amount" = H.reagents.get_reagent_amount("stoxin"),
 		"bicaridine_amount" = H.reagents.get_reagent_amount("bicaridine"),
@@ -633,7 +633,7 @@
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
-	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
+	dat += text("Norepinephrine: [] units<BR>", occ["norepinephrine_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
 	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
 	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])

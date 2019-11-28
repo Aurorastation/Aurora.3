@@ -334,7 +334,7 @@
 
 	charges = list(
 		list("dexalin",   "dexalin",   0, 5),
-		list("inaprovaline",     "inaprovaline",     0, 5)
+		list("norepinephrine",     "norepinephrine",     0, 5)
 		)
 
 	interface_name = "chem dispenser"
@@ -364,7 +364,7 @@
 		list("tricordrazine",	"tricordrazine", 0, 40),
 		list("tramadol",	"tramadol",      0, 40),
 		list("dexalin",		"dexalin",      0, 40),
-		list("inaprovaline",	"inaprovaline",     0, 40)
+		list("norepinephrine",	"norepinephrine",     0, 40)
 		)
 
 /obj/item/rig_module/voice

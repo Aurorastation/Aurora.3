@@ -77,6 +77,7 @@
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"
+	norepi		spawn_reagent = "norepinephrine"
 	ryetalyn	spawn_reagent = "ryetalyn"
 	paracetamol	spawn_reagent = "paracetamol"
 	tramadol	spawn_reagent = "tramadol"

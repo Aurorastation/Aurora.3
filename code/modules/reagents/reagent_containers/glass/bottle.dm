@@ -243,7 +243,7 @@
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
-	desc = "A small bottle. Contains epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
+	desc = "A small bottle. Contains epinephrine. Epinephrine, also known as adrenaline, is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
 	icon_state = "bottle-4"
 	reagents_to_add = list("adrenaline" = 60)
 
@@ -253,11 +253,11 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list("dexalinp" = 60)
 
-/obj/item/reagent_containers/glass/bottle/spaceacillin
-	name = "spaceacillin bottle"
-	desc = "A small bottle. Contains spaceacillin. An all-purpose antiviral agent."
+/obj/item/reagent_containers/glass/bottle/deltamivir
+	name = "deltamivir bottle"
+	desc = "A small bottle. Contains deltamivir. An all-purpose antiviral agent."
 	icon_state = "bottle-4"
-	reagents_to_add = list("spaceacillin" = 60)
+	reagents_to_add = list("deltamivir" = 60)
 
 /obj/item/reagent_containers/glass/bottle/coughsyrup
 	name = "cough syrup bottle"

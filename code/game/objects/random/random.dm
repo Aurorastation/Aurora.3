@@ -154,7 +154,7 @@
 		/obj/item/storage/pill_bottle/tramadol = 2,
 		/obj/item/reagent_containers/syringe/antitoxin = 2,
 		/obj/item/reagent_containers/syringe/antiviral = 1,
-		/obj/item/reagent_containers/syringe/inaprovaline = 2,
+		/obj/item/reagent_containers/syringe/norepinephrine = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
