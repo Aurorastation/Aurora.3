@@ -109,7 +109,7 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.setCloneLoss(H.maxHealth * (100 - 75) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
+	H.setCloneLoss(H.maxHealth * (100 - 75) / 100)
 	H.adjustBrainLoss(50, 55) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
