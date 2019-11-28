@@ -61,11 +61,11 @@
 	if (!is_open_container())
 		add_overlay("lid_bottle")
 
-/obj/item/reagent_containers/glass/bottle/inaprovaline
-	name = "inaprovaline bottle"
-	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
+/obj/item/reagent_containers/glass/bottle/norepinephrine
+	name = "norepinephrine bottle"
+	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
 	icon_state = "bottle-4"
-	reagents_to_add = list("inaprovaline" = 60)
+	reagents_to_add = list("norepinephrine" = 60)
 	
 
 /obj/item/reagent_containers/glass/bottle/toxin

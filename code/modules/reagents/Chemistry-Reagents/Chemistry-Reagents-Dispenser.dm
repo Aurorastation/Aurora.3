@@ -162,7 +162,7 @@
 			M.hallucination = max(M.hallucination, halluci)
 		
 		if(caffeine)
-			M.add_chemical_effect(CE_PULSE, caffeine*5)
+			M.add_chemical_effect(CE_PULSE, caffeine*2)
 			if(!caffeine_mod)
 				caffeine_mod = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
 

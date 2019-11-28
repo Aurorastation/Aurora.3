@@ -31,7 +31,7 @@
 
 /datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
-	if((alien != IS_VAURCA) || (istype(P) && P.stage >= 3))
+	if((alien != IS_VAURCA) || !(istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
 		switch(kois_type)
 			if(1) //Normal
@@ -747,7 +747,7 @@
 		if (caffeine)
 			if(!modifier)
 				modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
-			M.add_chemical_effect(CE_PULSE, caffeine*5)
+			M.add_chemical_effect(CE_PULSE, caffeine*2)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
