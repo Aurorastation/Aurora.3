@@ -287,7 +287,6 @@
 	total_radiation = Clamp(total_radiation,0,100)
 
 	if (total_radiation)
-		//var/obj/item/organ/internal/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
 			diona_handle_regeneration(get_dionastats())
 			return

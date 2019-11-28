@@ -430,7 +430,7 @@ This function restores all organs.
 		return 0
 
 	var/traumatic_shock = getHalLoss()                 // Pain.
-	traumatic_shock -= chem_effects[CE_PAINKILLER] // TODO: check what is actually stored here.
+	traumatic_shock -= chem_effects[CE_PAINKILLER]
 
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.6

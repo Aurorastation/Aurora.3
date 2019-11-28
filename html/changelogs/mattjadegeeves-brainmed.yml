@@ -54,7 +54,7 @@ changes:
   - rscadd: "Dexalin and dexalin+ no longer straight up heal oxyloss. Instead, they now fool your brain into thinking that it has 50% oxygen and 80% oxygen respectively."
   - rscadd: "Alkysine now only heals the brain if it's properly oxygenated."
   - rscadd: "Added a stomach organ. This controls reagent ingestion and food ingestion."
-  - rscadd: "Sleepers in dialysis mode now work as a stomach pump."
+  - rscadd: "Added a stomach pump mode to sleepers to pump INGESTED reagents out of people's stomach."
   - tweak: "Peridaxon now heals brain damage, if it's not damaged much at all."
   - tweak: "Dylovene no longer outright heals toxin damage. Instead, it removes toxin reagents from the blood."
   - rscadd: "New side effects to most healing chems. Be careful."
