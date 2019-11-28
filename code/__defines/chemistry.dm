@@ -47,7 +47,7 @@
 
 // Apply status effects
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
-#define CE_ANTIEMETIC   "antiemetic"	// suppesses vomiting
+#define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect
