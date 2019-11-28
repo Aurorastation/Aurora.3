@@ -71,6 +71,7 @@
 	var/med_record = ""
 	var/sec_record = ""
 	var/list/incidents = list()
+	var/list/additional_vision_handlers = list()
 	var/gen_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()

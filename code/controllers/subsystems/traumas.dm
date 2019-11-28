@@ -101,7 +101,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 					   "doctors" = typecacheof(list(/obj/item/gun/launcher/syringe, /obj/item/reagent_containers/syringe, /obj/item/clothing/suit/storage/toggle/labcoat,
 												 /obj/item/toy/figure/md, /obj/item/bedsheet/medical, /obj/item/rig/medical, /obj/item/storage/backpack/duffel/med,
 												 /obj/item/storage/backpack/medic, /obj/item/storage/backpack/messenger/med, /obj/item/storage/belt/medical,
-												 /obj/machinery/vending/medical, /obj/mecha/medical/odysseus, /obj/structure/closet/crate/medical, /obj/structure/closet/medical_wall,
+												 /obj/machinery/vending/medical, /obj/structure/closet/crate/medical, /obj/structure/closet/medical_wall,
 												 /obj/structure/sign/greencross, /obj/item/clothing/accessory/armband/med, /obj/item/clothing/head/helmet/space/void/medical, /obj/item/clothing/mask/breath/medical,
 												 /obj/item/clothing/under/rank/medical, /obj/item/scalpel, /obj/machinery/clonepod, /obj/item/storage/firstaid, /obj/machinery/optable,
 												 /obj/item/clothing/accessory/armband/science, /obj/item/clothing/under/rank/scientist, /obj/machinery/door/airlock/science, /obj/machinery/door/airlock/medical))

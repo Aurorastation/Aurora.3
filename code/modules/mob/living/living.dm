@@ -20,10 +20,6 @@
 	src.visible_message("<b>[src]</b> points to [A].")
 	return 1
 
-/mob/living/Crossed(var/atom/movable/AM)
-	if(istype(AM, /obj/mecha))
-		var/obj/mecha/MB = AM
-		MB.trample(src)
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
