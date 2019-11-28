@@ -48,7 +48,7 @@
 				var/datum/reagents/ingested = occupant.get_ingested_reagents()
 				if(ingested)
 					for(var/datum/reagent/x in ingested.reagent_list)
-						ingested.trans_to_obj(beaker, pump_speed)
+						ingested.trans_to_obj(beaker, 1)
 		else
 			toggle_pump()
 
