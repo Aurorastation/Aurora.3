@@ -112,7 +112,7 @@ BREATH ANALYZER
 			else
 				brain_result = "<span class='scan_danger'>ERROR - Organ not recognized</span>"
 	else
-		brain_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
+		brain_result = "<span class='scan_danger'>ERROR - Non-standard biology</span>"
 	dat += "Brain activity: [brain_result]."
 
 	if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
