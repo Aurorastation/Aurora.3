@@ -899,22 +899,21 @@ proc/is_hot(obj/item/W as obj)
 
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
+	var/surgery_attempt = SURGERY_IGNORE
 	if(M.lying)
 		if(locate(/obj/machinery/optable, M.loc))
-			return 2
+			surgery_attempt = SURGERY_SUCCESS
 		else if(locate(/obj/structure/bed/roller, M.loc))
 			if(prob(80))
-				return 2
+				surgery_attempt = SURGERY_SUCCESS
 			else
-				return 1
+				surgery_attempt = SURGERY_FAIL
 		else if(locate(/obj/structure/table, M.loc))
 			if(prob(66))
-				return 2
+				surgery_attempt = SURGERY_SUCCESS
 			else
-				return 1
-		else
-			return 0
-	return 0
+				surgery_attempt = SURGERY_FAIL
+	return surgery_attempt
 
 /proc/reverse_direction(var/dir)
 	switch(dir)

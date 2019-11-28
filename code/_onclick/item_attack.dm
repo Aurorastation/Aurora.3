@@ -40,16 +40,18 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return FALSE
 
 	var/operating = can_operate(src)
-	if(operating == 2) //Safe surgery
+	if(operating == SURGERY_SUCCESS)
 		if(do_surgery(src, user, I))
 			return TRUE
 		else
 			return I.attack(src, user, user.zone_sel.selecting)
-	if(operating == 1) //Failed surgery
+	if(operating == SURGERY_FAIL)
 		if(do_surgery(src, user, I, TRUE))
 			return TRUE
 		else
 			return I.attack(src, user, user.zone_sel.selecting)
+	else
+		return I.attack(src, user, user.zone_sel.selecting)
 
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
