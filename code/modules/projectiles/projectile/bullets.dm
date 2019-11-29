@@ -320,7 +320,7 @@
 /obj/item/projectile/bullet/flechette/explosive
 	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
-	damage = 15
+	damage = 10
 
 /obj/item/projectile/bullet/gauss
 	name = "slug"
