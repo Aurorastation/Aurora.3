@@ -99,9 +99,6 @@
 		death()
 		return
 
-	if (halloss)
-		halloss = 0
-
 	if(prob(30))
 		adjustOxyLoss(-1)
 		adjustToxLoss(-1)

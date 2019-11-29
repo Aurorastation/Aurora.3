@@ -21,6 +21,22 @@
 	var/last_successful_breath
 	var/breath_fail_ratio //How badly they failed a breath
 
+/obj/item/organ/internal/lungs/proc/remove_oxygen_deprivation(var/amount)
+	var/last_suffocation = oxygen_deprivation
+	oxygen_deprivation = min(species.total_health,max(0,oxygen_deprivation - amount))
+	return -(oxygen_deprivation - last_suffocation)
+
+/obj/item/organ/internal/lungs/proc/add_oxygen_deprivation(var/amount)
+	var/last_suffocation = oxygen_deprivation
+	oxygen_deprivation = min(species.total_health,max(0,oxygen_deprivation + amount))
+	return (oxygen_deprivation - last_suffocation)
+
+// Returns a percentage value for use by GetOxyloss().
+/obj/item/organ/internal/lungs/proc/get_oxygen_deprivation()
+	if(status & ORGAN_DEAD)
+		return 100
+	return round((oxygen_deprivation/species.total_health)*100)
+
 /obj/item/organ/internal/lungs/process()
 	..()
 

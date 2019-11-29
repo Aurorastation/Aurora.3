@@ -14,34 +14,45 @@
 	dir = SOUTH
 	organ_tag = "limb"
 
-	var/brute_mod = 1
-	var/burn_mod = 1
-
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
 	var/model
-	var/force_icon
 	var/damage_state = "00"
+
+	//Damage variables
+	var/brute_mod = 1
 	var/brute_dam = 0
+	var/burn_mod = 1
 	var/burn_dam = 0
-	var/max_size = 0
 	var/last_dam = -1
+	var/genetic_degradation = 0        // Amount of current genetic damage.
+	var/pain = 0                       // How much the limb hurts.
+	var/pain_disability_threshold      // Point at which a limb becomes unusable due to pain.
+
+	var/max_size = 0
 	var/icon/mob_icon
 	var/gendered_icon = 0
+	var/force_icon
+
 	var/limb_name
 	var/disfigured = 0
 	var/cannot_amputate
 	var/cannot_break
+
 	var/s_tone
 	var/skin_color
 	var/hair_color
+
 	var/list/wounds = list()
+	var/list/implants = list()
 	var/number_wounds = 0 // cache the number of wounds, which is NOT wounds.len!
 	var/perma_injury = 0
+
 	var/obj/item/organ/external/parent
 	var/list/obj/item/organ/external/children
 	var/list/internal_organs = list() 	// Internal organs of this body part
+
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
 	var/broken_description
 	var/open = 0
@@ -49,23 +60,25 @@
 	var/cavity = 0
 	var/sabotaged = 0 // If a prosthetic limb is emagged, it will detonate when it fails.
 	var/encased       // Needs to be opened with a saw to access the organs.
-	var/list/implants = list()
-	var/wound_update_accuracy = 1 	// how often wounds should be updated, a higher number means less often
 	var/has_tendon = FALSE   //Does this limb have a tendon?
 	var/joint = "joint"   // Descriptive string used in dislocation.
 	var/artery_name = "artery"   //Name of the artery. Cartoid, etc.
 	var/tendon_name = "tendon"   //Name of the limb's tendon. Achilles heel, etc.
 	var/amputation_point  // Descriptive string used in amputation.
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
+
+	var/wound_update_accuracy = 1 	// how often wounds should be updated, a higher number means less often
 	var/can_grasp //It would be more appropriate if these two were named "affects_grasp" and "affects_stand" at this point
 	var/can_stand
 	var/body_hair
 	var/painted = 0
+
+	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
+	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
+
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
 	var/list/cached_markings	// The two above lists cached for perf. reasons.
-	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
-	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
 
 	var/atom/movable/applied_pressure //Pressure applied to wounds. It'll make them bleed less, generally.
 
@@ -829,7 +842,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/parent_organ = parent
 	removed(null, ignore_children)
-	victim.traumatic_shock += 60
+	if(!clean)
+		victim.shock_stage += min_broken_damage
 
 	if(parent_organ)
 		var/datum/wound/lost_limb/W = new (src, disintegrate, clean)
@@ -1039,14 +1053,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 			T.robotize_advanced()
 
 /obj/item/organ/external/proc/mutate()
-	if(src.status & ORGAN_ROBOT)
+	if(BP_IS_ROBOTIC(src))
 		return
 	src.status |= ORGAN_MUTATED
 	if(owner) owner.update_body()
 
 /obj/item/organ/external/proc/unmutate()
-	src.status &= ~ORGAN_MUTATED
-	if(owner) owner.update_body()
+	if(!BP_IS_ROBOTIC(src))
+		src.status &= ~ORGAN_MUTATED
+		if(owner) owner.update_body()
 
 /obj/item/organ/external/proc/get_damage()	//returns total damage
 	return max(brute_dam + burn_dam - perma_injury, perma_injury)	//could use max_damage?
@@ -1234,3 +1249,74 @@ Note that amputating the affected organ does in fact remove the infection from t
 		status |= ORGAN_TENDON_CUT
 		return TRUE
 
+// Damage procs
+/obj/item/organ/external/proc/get_brute_damage()
+	return brute_dam
+
+/obj/item/organ/external/proc/get_burn_damage()
+	return burn_dam
+
+/obj/item/organ/external/proc/get_genetic_damage()
+	return BP_IS_ROBOTIC(src) ? 0 : genetic_degradation
+
+/obj/item/organ/external/proc/remove_genetic_damage(var/amount)
+	if(BP_IS_ROBOTIC(src))
+		genetic_degradation = 0
+		status &= ~ORGAN_MUTATED
+		return
+	var/last_gene_dam = genetic_degradation
+	genetic_degradation = min(100,max(0,genetic_degradation - amount))
+	if(genetic_degradation <= 30)
+		if(status & ORGAN_MUTATED)
+			unmutate()
+			to_chat(src, "<span class = 'notice'>Your [name] is shaped normally again.</span>")
+	return -(genetic_degradation - last_gene_dam)
+
+/obj/item/organ/external/proc/add_genetic_damage(var/amount)
+	if(BP_IS_ROBOTIC(src))
+		genetic_degradation = 0
+		status &= ~ORGAN_MUTATED
+		return
+	var/last_gene_dam = genetic_degradation
+	genetic_degradation = min(100,max(0,genetic_degradation + amount))
+	if(genetic_degradation > 30)
+		if(!(status & ORGAN_MUTATED) && prob(genetic_degradation))
+			mutate()
+			to_chat(owner, "<span class = 'notice'>Something is not right with your [name]...</span>")
+	return (genetic_degradation - last_gene_dam)
+
+// Pain/halloss
+/obj/item/organ/external/proc/get_pain()
+	if(!can_feel_pain() || BP_IS_ROBOTIC(src))
+		return 0
+	var/lasting_pain = 0
+	if(is_broken())
+		lasting_pain += 10
+	else if(is_dislocated())
+		lasting_pain += 5
+	var/tox_dam = 0
+	for(var/obj/item/organ/internal/I in internal_organs)
+		tox_dam += I.getToxLoss()
+	return pain + lasting_pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.3 * tox_dam + 0.5 * get_genetic_damage()
+
+/obj/item/organ/external/proc/remove_pain(var/amount)
+	if(!can_feel_pain())
+		pain = 0
+		return
+	var/last_pain = pain
+	pain = max(0,min(max_damage,pain-amount))
+	return -(pain-last_pain)
+
+/obj/item/organ/external/proc/add_pain(var/amount)
+	if(!can_feel_pain())
+		pain = 0
+		return
+	var/last_pain = pain
+	if(owner)
+		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
+		if(amount <= 0)
+			return
+	pain = max(0,min(max_damage,pain+amount))
+	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
+		owner.emote("scream")
+	return pain-last_pain

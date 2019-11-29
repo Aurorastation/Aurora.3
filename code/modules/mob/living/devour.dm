@@ -115,8 +115,8 @@
 
 	//Now, incase we're resuming an earlier feeding session on the same creature
 	//We calculate the actual bites needed to fully eat it based on how eaten it already is
-	if (victim.cloneloss)
-		var/percentageDamaged = victim.cloneloss / victim_maxhealth
+	if (victim.getCloneLoss())
+		var/percentageDamaged = victim.getCloneLoss() / victim_maxhealth
 		var/percentageRemaining = 1 - percentageDamaged
 		num_bites_needed = percentageRemaining / PEPB
 
@@ -144,7 +144,7 @@
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if (messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
-			if (victim.cloneloss >= victim_maxhealth)
+			if (victim.getCloneLoss() >= victim_maxhealth)
 				visible_message("[src] finishes devouring [victim].","You finish devouring [victim].")
 				handle_devour_mess(src, victim, vessel, 1)
 				qdel(victim)

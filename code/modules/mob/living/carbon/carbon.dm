@@ -212,11 +212,11 @@
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
 				var/burndamage = org.burn_dam
-				if(halloss > 0)
+				if(getHalLoss() > 0)
 					if(prob(30))
-						brutedamage += halloss
+						brutedamage += getHalLoss()
 					if(prob(30))
-						burndamage += halloss
+						burndamage += getHalLoss()
 				switch(brutedamage)
 					if(1 to 20)
 						status += "bruised"

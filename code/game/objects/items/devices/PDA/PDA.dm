@@ -1420,7 +1420,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 					O.show_message("<span class='warning'>\The [user] has analyzed [C]'s vitals!</span>", 1)
 
 				user.show_message("<span class='notice'>Analyzing Results for [C]:</span>")
-				user.show_message("<span class='notice'>    Overall Status: [C.stat > 1 ? "dead" : "[C.health - C.halloss]% healthy"]</span>", 1)
+				user.show_message("<span class='notice'>    Overall Status: [C.stat > 1 ? "dead" : "[C.health - C.getHalLoss()]% healthy"]</span>", 1)
 				user.show_message(text("<span class='notice'>    Damage Specifics:</span> <span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>",
 						(C.getOxyLoss() > 50) ? "warning" : "", calcDamage(C.getOxyLoss()),
 						(C.getToxLoss() > 50) ? "warning" : "", calcDamage(C.getToxLoss()),

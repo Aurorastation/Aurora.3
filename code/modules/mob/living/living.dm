@@ -244,56 +244,54 @@ default behaviour is:
 // I touched them without asking... I'm soooo edgy ~Erro (added nodamage checks)
 
 /mob/living/proc/getBruteLoss()
-	return bruteloss
+	return maxHealth - health
 
 /mob/living/proc/adjustBruteLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	amount *= brute_mod
-	bruteloss = min(max(bruteloss + amount, 0),(maxHealth*2))
+	if (status_flags & GODMODE)
+		return
+	health = Clamp(health - amount, 0, maxHealth)
 
 /mob/living/proc/getOxyLoss()
-	return oxyloss
+	return 0
 
 /mob/living/proc/adjustOxyLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	oxyloss = min(max(oxyloss + amount, 0),(maxHealth*2))
+	return
 
 /mob/living/proc/setOxyLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	oxyloss = amount
+	return
 
 /mob/living/proc/getToxLoss()
-	return toxloss
+	return 0
 
 /mob/living/proc/adjustToxLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	toxloss = min(max(toxloss + amount, 0),(maxHealth*2))
+	adjustBruteLoss(amount * 0.5)
 
 /mob/living/proc/setToxLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	toxloss = amount
+	adjustBruteLoss((amount * 0.5)-getBruteLoss())
 
 /mob/living/proc/getFireLoss()
-	return fireloss
+	return
 
 /mob/living/proc/adjustFireLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	amount *= burn_mod
-	fireloss = min(max(fireloss + amount, 0),(maxHealth*2))
+	adjustBruteLoss(amount * 0.5)
+
+/mob/living/proc/setFireLoss(var/amount)
+	adjustBruteLoss((amount * 0.5)-getBruteLoss())
+
+/mob/living/proc/getHalLoss()
+	return 0
 
 /mob/living/proc/getCloneLoss()
-	return cloneloss
+	return 0
 
 /mob/living/proc/adjustCloneLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	cloneloss = min(max(cloneloss + amount, 0),(maxHealth*2))
+	return
 
 /mob/living/proc/setCloneLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	cloneloss = amount
+	return
 
 /mob/living/proc/getBrainLoss()
-	. = 0
+	return 0
 
 /mob/living/proc/adjustBrainLoss(var/amount, var/maximum)
 	return
@@ -301,33 +299,11 @@ default behaviour is:
 /mob/living/proc/setBrainLoss(var/amount)
 	return
 
-/mob/living/proc/getHalLoss()
-	return halloss
-
 /mob/living/proc/adjustHalLoss(var/amount)
-	if(status_flags & GODMODE)
-		return 0
-
-	if(amount > 0)
-		amount *= 2/(get_nutrition_mul(0.5,1) + get_hydration_mul(0.5,1))
-
-	halloss = min(max(halloss + amount, 0),(maxHealth*2))
-
-/mob/living/carbon/adjustHalLoss(var/amount, var/ignoreImmunity = 0)//An inherited version so this doesnt affect cyborgs
-	if(status_flags & GODMODE)	return 0	//godmode
-	if(!ignoreImmunity)//Adjusting how hallloss works. Species with the NO_PAIN flag will suffer most of the effects of halloss, but will be immune to most conventional sources of accumulating it
-		if (!can_feel_pain())//Species with the NO_PAIN flag will only gather halloss through species-specific mechanics, which apply it with the ignoreImmunity flag
-			return 0
-
-	if(amount > 0)
-		amount *= 1/get_hydration_mul()
-		amount *= 1/get_nutrition_mul()
-
-	halloss = min(max(halloss + amount, 0),(maxHealth*2))
+	adjustBruteLoss(amount * 0.5)
 
 /mob/living/proc/setHalLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
-	halloss = amount
+	adjustBruteLoss((amount * 0.5)-getBruteLoss())
 
 /mob/living/proc/getMaxHealth()
 	return maxHealth

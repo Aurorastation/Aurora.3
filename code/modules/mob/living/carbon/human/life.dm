@@ -673,17 +673,17 @@
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
-		
+
 		if(CE_TOXIN in chem_effects)
 			adjustToxLoss(chem_effects[CE_TOXIN])
-		
+
 		if(CE_EMETIC in chem_effects)
 			var/nausea = chem_effects[CE_EMETIC]
 			if(CE_ANTIEMETIC in chem_effects)
 				nausea -= min(nausea, chem_effects[CE_ANTIEMETIC]) // so it can only go down to 0
 			if(prob(nausea))
 				delayed_vomit()
-		
+
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]
@@ -788,7 +788,7 @@
 
 			if(hallucination<=2)
 				hallucination = 0
-				halloss = 0
+				adjustHalLoss(0)
 			else
 				hallucination -= 2
 
@@ -796,7 +796,7 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(halloss > 100)
+		if(getHalLoss() > 100)
 			to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
 			src.visible_message("<B>[src]</B> [species.halloss_message].")
 			Paralyse(10)
@@ -826,7 +826,7 @@
 				else
 					emote("groan")
 
-				
+
 
 		//CONSCIOUS
 		else
@@ -1112,11 +1112,11 @@
 	if(mind && mind.changeling)
 		mind.changeling.regenerate()
 
-/mob/living/carbon/human/handle_shock()
+/mob/living/carbon/human/proc/handle_shock()
 	..()
 	if(status_flags & GODMODE)
 		return 0
-	if(!can_feel_pain()) 
+	if(!can_feel_pain())
 		return
 
 	if(is_asystole())
@@ -1386,7 +1386,7 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || (oxyloss + halloss) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (getOxyLoss() + getHalLoss()) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain()
 		return
 
@@ -1403,7 +1403,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((getHalLoss()) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
@@ -1428,7 +1428,7 @@
 				new_state = "health7"
 			else
 				//switch(health - halloss)
-				switch(health - traumatic_shock)
+				switch(health - get_shock())
 					if(100 to INFINITY)
 						new_state = "health0"
 					if(80 to 100)
@@ -1449,8 +1449,8 @@
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy
-	if(oxyloss)
-		switch(oxyloss)
+	if(getOxyLoss())
+		switch(getOxyLoss())
 			if(10 to 20)
 				new_oxy = "oxydamageoverlay1"
 			if(20 to 25)

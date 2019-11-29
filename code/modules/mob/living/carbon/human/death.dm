@@ -58,6 +58,7 @@
 	callHook("death", list(src, gibbed))
 
 	if(!gibbed && species.death_sound)
+		handle_organs()
 		playsound(loc, species.death_sound, 80, 1, 1)
 
 	if(SSticker.mode)
