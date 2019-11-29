@@ -83,7 +83,7 @@ STOCK_ITEM_RARE(exogear, 1.5)
 		/obj/item/mecha_equipment/clamp = 1,
 		/obj/item/mecha_equipment/drill = 1,
 		/obj/item/mecha_equipment/mounted_system/extinguisher = 1,
-		/obj/item/mecha_equipment/mounted_system/rcd = 0.08,
+		/obj/item/mecha_equipment/mounted_system/rfd = 0.08,
 		/obj/item/mecha_equipment/mounted_system/plasmacutter = 0.5,
 		/obj/item/mecha_equipment/catapult = 0.8,
 		/obj/item/mecha_equipment/sleeper = 0.9

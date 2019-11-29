@@ -44,6 +44,22 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_ADVWEAPONS)
 
+/obj/item/mecha_equipment/mounted_system/blaster
+	name = "rapidfire blaster"
+	desc = "A weapon for combat exosuits. Shoots armor penetrating blaster beams."
+	icon_state = "mecha_blaster"
+	holding_type = /obj/item/gun/energy/blaster/mounted/mech
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
+/obj/item/mecha_equipment/mounted_system/gauss
+	name = "heavy gauss cannon"
+	desc = "A weapon for combat exosuits. Shoots high explosive gauss propelled projectiles."
+	icon_state = "mecha_gauss"
+	holding_type = /obj/item/gun/energy/gauss/mounted/mech
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
 /obj/item/gun/energy/taser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
@@ -87,6 +103,22 @@
 	desc = "The SGL-6FL grenade launcher is designated to launch primed flashbangs."
 	icon_state = "mecha_grenadelnchr"
 	holding_type = /obj/item/gun/launcher/mech/mountedfl
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
+/obj/item/mecha_equipment/mounted_system/grenadetear
+	name = "teargas launcher"
+	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
+	icon_state = "mecha_grenadelnchr"
+	holding_type = /obj/item/gun/launcher/mech/mountedtgl
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_WEAPONS)
+
+/obj/item/mecha_equipment/mounted_system/grenadesmoke
+	name = "smoke grenade launcher"
+	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
+	icon_state = "mecha_grenadelnchr"
+	holding_type = /obj/item/gun/launcher/mech/mountedsgl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
@@ -190,6 +222,52 @@
 	proj--
 	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
 	return g
+
+/obj/item/gun/launcher/mech/mountedtgl
+	name = "mounted teargas launcher"
+	desc = "The SGL-6TGL grenade launcher is designated to launch primed teargas grenades."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "smg"
+	item_state = "smg"
+	fire_sound = 'sound/weapons/grenadelaunch.ogg'
+
+	release_force = 5
+	throw_distance = 7
+	proj = 3
+	max_proj = 3
+	proj_gen_time = 200
+
+/obj/item/gun/launcher/mech/mountedtgl/consume_next_projectile()
+	if(proj < 1) return null
+	var/obj/item/grenade/chem_grenade/teargas/tg = new (src)
+	tg.det_time = 10
+	tg.activate(null)
+	proj--
+	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	return tg
+
+/obj/item/gun/launcher/mech/mountedsgl
+	name = "mounted smoke launcher"
+	desc = "The SGL-6SGL grenade launcher is designated to launch primed smoke grenades."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "smg"
+	item_state = "smg"
+	fire_sound = 'sound/weapons/grenadelaunch.ogg'
+
+	release_force = 5
+	throw_distance = 7
+	proj = 3
+	max_proj = 3
+	proj_gen_time = 200
+
+/obj/item/gun/launcher/mech/mountedsgl/consume_next_projectile()
+	if(proj < 1) return null
+	var/obj/item/grenade/smokebomb/sg = new (src)
+	sg.det_time = 10
+	sg.activate(null)
+	proj--
+	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	return sg
 
 /obj/item/gun/launcher/mech/get_hardpoint_maptext()
 	return "[proj]/[max_proj]"

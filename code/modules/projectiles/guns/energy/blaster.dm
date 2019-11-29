@@ -20,6 +20,20 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
+/obj/item/gun/energy/blaster/mounted/mech
+	name = "rapidfire blaster"
+	desc = "An aged but reliable rapidfire blaster tuned to expel projectiles at high fire rates."
+	fire_sound = 'sound/weapons/laserstrong.ogg'
+	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	burst = 5
+	burst_delay = 3
+	max_shots = 30
+	charge_cost = 100
+	use_external_power = TRUE
+	self_recharge = TRUE
+	recharge_time = 1.5
+	dispersion = list(3,6,9,12)
+
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
 	desc = "A robust eight-shot blaster.."
@@ -47,7 +61,6 @@
 	desc = "A robust, low in maintenance, eight-shot blaster. Perfect for self-defense purposes."
 
 /obj/item/gun/energy/blaster/carbine
-
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
 	icon_state = "blaster_carbine"

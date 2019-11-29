@@ -1,5 +1,6 @@
-/obj/item/mecha_equipment/mounted_system/rcd
-	icon_state = "mech_rfd"
+/obj/item/mecha_equipment/mounted_system/rfd
+	name = "mounted rfd"
+	icon_state = "mecha_rfd"
 	holding_type = /obj/item/rfd/construction/borg
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_ENGINEERING)
@@ -21,6 +22,7 @@
 	return null
 
 /obj/item/extinguisher/mech
+	name = "mounted fire extinguisher"
 	max_water = 4000 //Good is gooder
 	icon_state = "mecha_exting"
 
