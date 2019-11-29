@@ -1275,7 +1275,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return BP_IS_ROBOTIC(src) ? 0 : genetic_degradation
 
 /obj/item/organ/external/proc/remove_genetic_damage(var/amount)
-	if(BP_IS_ROBOTIC(src))
+	if(BP_IS_ROBOTIC(src) || (species.flags & NO_SCAN))
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
 		return
@@ -1288,7 +1288,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return -(genetic_degradation - last_gene_dam)
 
 /obj/item/organ/external/proc/add_genetic_damage(var/amount)
-	if(BP_IS_ROBOTIC(src))
+	if(BP_IS_ROBOTIC(src) || (species.flags & NO_SCAN))
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
 		return
