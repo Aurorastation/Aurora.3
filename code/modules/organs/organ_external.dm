@@ -201,6 +201,8 @@
 		robotize(robotize_type)
 
 	. = ..(mapload, FALSE)
+	if(isnull(pain_disability_threshold))
+		pain_disability_threshold = (max_damage * 0.75)
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
