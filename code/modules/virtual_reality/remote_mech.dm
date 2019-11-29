@@ -10,7 +10,7 @@
 			continue
 		if(!R.remote)
 			continue
-		if(R.pilots.len == 0)
+		if(!R.pilots.len)
 			continue
 		if(R.pilots[1].client || R.pilots[1].ckey)
 			continue

@@ -5,9 +5,6 @@
 	can_dismantle = FALSE
 	var/list/remote_network // Which network does this remote control belong to?
 
-/obj/structure/bed/chair/remote/Initialize()
-	..()
-
 /obj/structure/bed/chair/remote/update_icon()
 	return
 
