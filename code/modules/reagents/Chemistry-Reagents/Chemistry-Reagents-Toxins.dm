@@ -16,7 +16,7 @@
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength && alien != IS_DIONA)
-		M.add_chemical_effect(CE_TOXIN, strength)
+		M.add_chemical_effect(CE_TOXIN, strength * removed)
 		var/dam = (strength * removed)
 		if(target_organ && ishuman(M))
 			var/mob/living/carbon/human/H = M
