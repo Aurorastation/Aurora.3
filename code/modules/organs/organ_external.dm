@@ -22,9 +22,13 @@
 
 	//Damage variables
 	var/brute_mod = 1
-	var/brute_dam = 0
+	var/brute_dam = 0                  // Actual current brute damage.
+	var/brute_ratio = 0                // Ratio of current brute damage to max damage.
+
 	var/burn_mod = 1
-	var/burn_dam = 0
+	var/burn_dam = 0                   // Actual current burn damage.
+	var/burn_ratio = 0                 // Ratio of current burn damage to max damage.
+
 	var/last_dam = -1
 	var/genetic_degradation = 0        // Amount of current genetic damage.
 	var/pain = 0                       // How much the limb hurts.
@@ -249,14 +253,19 @@
 	brute *= brute_mod
 	burn *= burn_mod
 
-	// High brute damage or sharp objects may damage internal organs
-	damage_internal_organs(brute, burn, sharp, damage_flags)
+	add_pain(0.6*burn + 0.4*brute)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if (owner && (owner.can_feel_pain()))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
+
+	// High brute damage or sharp objects may damage internal organs
+	if(length(internal_organs))
+		if(damage_internal_organs(brute, burn, sharp, damage_flags))
+			brute /= 2
+			burn /= 2
 
 	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
 
@@ -267,35 +276,35 @@
 		if(brute)
 			if(can_cut)
 				if(sharp && !edge)
-					createwound( PIERCE, brute )
+					createwound(PIERCE, brute)
 				else
-					createwound( CUT, brute )
+					createwound(CUT, brute)
 			else
-				createwound( BRUISE, brute )
+				createwound(BRUISE, brute)
 		if(burn)
-			createwound( BURN, burn )
+			createwound(BURN, burn)
 	else
 		//If we can't inflict the full amount of damage, spread the damage in other ways
 		//How much damage can we actually cause?
 		var/can_inflict = max_damage * config.organ_health_multiplier - (brute_dam + burn_dam)
 		var/spillover = 0
 		if(can_inflict)
-			if (brute > 0)
-				//Inflict all burte damage we can
+			if(brute > 0)
+				//Inflict all brute damage we can
 				if(can_cut)
 					if(sharp && !edge)
-						createwound( PIERCE, min(brute,can_inflict) )
+						createwound(PIERCE, min(brute,can_inflict))
 					else
-						createwound( CUT, min(brute,can_inflict) )
+						createwound(CUT, min(brute,can_inflict))
 				else
-					createwound( BRUISE, min(brute,can_inflict) )
+					createwound(BRUISE, min(brute,can_inflict))
 				var/temp = can_inflict
-				//How much mroe damage can we inflict
+				//How much more damage can we inflict
 				can_inflict = max(0, can_inflict - brute)
 				//How much brute damage is left to inflict
 				spillover += max(0, brute - temp)
 
-			if (burn > 0 && can_inflict)
+			if(burn > 0 && can_inflict)
 				//Inflict all burn damage we can
 				createwound(BURN, min(burn,can_inflict))
 				//How much burn damage is left to inflict
@@ -765,6 +774,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	//Bone fractures
 	if(config.bones_can_break && brute_dam > min_broken_damage * config.organ_health_multiplier && !(status & ORGAN_ROBOT))
 		src.fracture()
+	update_damage_ratios()
+
+/obj/item/organ/external/proc/update_damage_ratios()
+	var/limb_loss_threshold = max_damage
+	brute_ratio = brute_dam / (limb_loss_threshold * 2)
+	burn_ratio = burn_dam / (limb_loss_threshold * 2)
 
 // new damage icon system
 // adjusted to set damage_state to brute/burn code only (without r_name0 as before)
@@ -1073,7 +1088,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return 0
 
 /obj/item/organ/external/is_usable()
-	return !is_dislocated() && !(status & (ORGAN_MUTATED|ORGAN_DEAD)) && !(status & ORGAN_TENDON_CUT)
+	return ..() && !is_dislocated() && !(status & ORGAN_TENDON_CUT) && (!can_feel_pain() || get_pain() < pain_disability_threshold) && brute_ratio < 1 && burn_ratio < 1
 
 /obj/item/organ/external/proc/is_malfunctioning()
 	return ((status & ORGAN_ROBOT) && (brute_dam + burn_dam) >= 10 && prob(brute_dam + burn_dam))

@@ -495,25 +495,6 @@
 
 	return
 
-/*
-/mob/living/carbon/human/proc/adjust_body_temperature(current, loc_temp, boost)
-	var/temperature = current
-	var/difference = abs(current-loc_temp)	//get difference
-	var/increments// = difference/10			//find how many increments apart they are
-	if(difference > 50)
-		increments = difference/5
-	else
-		increments = difference/10
-	var/change = increments*boost	// Get the amount to change by (x per increment)
-	var/temp_change
-	if(current < loc_temp)
-		temperature = min(loc_temp, temperature+change)
-	else if(current > loc_temp)
-		temperature = max(loc_temp, temperature-change)
-	temp_change = (temperature - current)
-	return temp_change
-*/
-
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
@@ -796,11 +777,11 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(getHalLoss() > 100)
-			to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-			src.visible_message("<B>[src]</B> [species.halloss_message].")
+		if(get_shock() >= species.total_health)
+			if(!stat)
+				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
+				src.visible_message("<B>[src]</B> [species.halloss_message].")
 			Paralyse(10)
-			setHalLoss(99)
 
 		if(paralysis || sleeping)
 			blinded = 1
@@ -900,7 +881,7 @@
 		//Critical damage passage overlay
 		if(health < maxHealth)
 			var/ovr = "passage0"
-			switch(health - maxHealth)
+			switch(health - maxHealth/2)
 				if(-20 to -10)
 					ovr = "passage1"
 				if(-30 to -20)

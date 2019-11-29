@@ -178,8 +178,8 @@ default behaviour is:
 
 /mob/living/verb/succumb()
 	set hidden = 1
-	if ((src.health < 0 && src.health > -95.0))
-		src.death()
+	if (health < maxHealth/2)
+		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
 	else
 		to_chat(src, "<span class='warning'>You are not injured enough to succumb to death!</span>")
@@ -190,7 +190,7 @@ default behaviour is:
 		health = 100
 		stat = CONSCIOUS
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
 		//Removed Halloss from here. Halloss isn't supposed to count towards death
 
 

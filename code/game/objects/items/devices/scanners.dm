@@ -32,20 +32,41 @@ BREATH ANALYZER
 	src.add_fingerprint(user)
 	return
 
-/proc/calcDamage(var/DMGValue)
-	switch(DMGValue)
-		if(0 to 1)
-			return "none"
-		if (1 to 5)
-			return "minor"
-		if (6 to 10)
-			return "moderate"
-		if (10 to 25)
-			return "significant"
-		if (25 to 50)
-			return "severe"
-		if (50 to INFINITY)
-			return "extreme"
+/proc/get_wound_severity(var/damage_ratio) //Used for ratios.
+	var/degree
+
+	switch(damage_ratio)
+		if(0 to 0.1)
+			degree = "minor"
+		if(0.1 to 0.25)
+			degree = "moderate"
+		if(0.25 to 0.5)
+			degree = "significant"
+		if(0.5 to 0.75)
+			degree = "severe"
+		if(0.75 to 1)
+			degree = "extreme"
+	return degree
+
+/proc/get_severity(amount, var/tag = FALSE)
+	if(!amount)
+		return "none"
+	. = "minor"
+	if(amount > 50)
+		if(tag)
+			. = "<span class='bad'>severe</span>"
+		else
+			. = "severe"
+	else if(amount > 25)
+		if(tag)
+			. = "<span class='bad'>significant</span>"
+		else
+			. = "significant"
+	else if(amount > 10)
+		if(tag)
+			. = "<span class='average'>moderate</span>"
+		else
+			. = "moderate"
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE)
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
@@ -176,9 +197,9 @@ BREATH ANALYZER
 			for(var/obj/item/organ/external/org in damaged)
 				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
 				if(org.brute_dam > 0)
-					limb_result = "[limb_result] \[<font color = 'red'><b>[calcDamage(org.brute_dam)] physical trauma</b></font>\]"
+					limb_result = "[limb_result] \[<font color = 'red'><b>[get_severity(org.brute_dam, TRUE)] physical trauma</b></font>\]"
 				if(org.burn_dam > 0)
-					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[calcDamage(org.burn_dam)] burns</b></font>\]"
+					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_severity(org.burn_dam, TRUE)] burns</b></font>\]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
 				dat += limb_result

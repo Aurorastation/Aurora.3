@@ -244,9 +244,6 @@
 
 	msg += "</span>"
 
-	if(getBrainLoss() >= 60)
-		msg += "[T.He] [T.has] a stupid expression on [T.his] face.\n"
-
 	var/have_client = client
 	var/inactivity = client ? client.inactivity : null
 

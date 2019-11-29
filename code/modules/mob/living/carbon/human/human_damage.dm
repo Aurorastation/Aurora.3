@@ -17,10 +17,9 @@
 	var/tox_l = ((species.flags & NO_POISON) ? 0 : getToxLoss())
 	var/clone_l = getCloneLoss()
 
-	health = maxHealth - oxy_l - tox_l - clone_l - total_burn - total_brute
 	update_health_display()
 	//TODO: fix husking
-	if( ((maxHealth - total_burn) < config.health_threshold_dead) && stat == DEAD)
+	if(((max_health - getFireLoss()) < config.health_threshold_dead) && stat == DEAD)
 		ChangeToHusk()
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
