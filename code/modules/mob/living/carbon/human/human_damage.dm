@@ -13,13 +13,9 @@
 		total_brute += O.brute_dam
 		total_burn  += O.burn_dam
 
-	var/oxy_l = ((species.flags & NO_BREATHE) ? 0 : getOxyLoss())
-	var/tox_l = ((species.flags & NO_POISON) ? 0 : getToxLoss())
-	var/clone_l = getCloneLoss()
-
 	update_health_display()
 	//TODO: fix husking
-	if(((max_health - getFireLoss()) < config.health_threshold_dead) && stat == DEAD)
+	if(((maxHealth - getFireLoss()) < config.health_threshold_dead) && stat == DEAD)
 		ChangeToHusk()
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
