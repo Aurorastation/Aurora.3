@@ -118,6 +118,7 @@
 
 	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
+	default_citizenship = CITIZENSHIP_ZORA
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
