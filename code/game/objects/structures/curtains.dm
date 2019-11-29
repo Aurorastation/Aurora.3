@@ -46,9 +46,9 @@
 		visible_message(span("notice", "[user] cuts down \the [src]."),
 					span("notice", "You cut down \the [src]."))
 		if(istype(src, /obj/structure/curtain/open/medical))
-			new/obj/item/stack/material/plastic(src.loc)
+			new /obj/item/stack/material/plastic(src.loc)
 		else
-			new/obj/item/stack/material/cloth(src.loc, 2)
+			new /obj/item/stack/material/cloth(src.loc, 2)
 		qdel(src)
 	else if(W.sharp && !W.noslice)
 		if(manipulating)	return
@@ -62,7 +62,7 @@
 		visible_message(span("notice", "[user] cuts down \the [src]."),
 					span("notice", "You cut down \the [src]."))
 		if(!istype(src, /obj/structure/curtain/open/medical))
-			new/obj/item/stack/material/cloth(src.loc, 1)
+			new /obj/item/stack/material/cloth(src.loc, 1)
 		qdel(src)
 
 	if(W.isscrewdriver()) //You can anchor/unanchor curtains

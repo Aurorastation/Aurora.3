@@ -158,13 +158,13 @@
 /material/cloth/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe_list("curtains list",list( \
-		new/datum/stack_recipe("white curtain", /obj/structure/curtain, 2, time = 10), \
-		new/datum/stack_recipe("bed curtain", /obj/structure/curtain/open/bed, 2, time = 10), \
-		new/datum/stack_recipe("black curtain", /obj/structure/curtain/black, 2, time = 10), \
-		new/datum/stack_recipe("shower curtain", /obj/structure/curtain/open/shower, 2, time = 10), \
-		new/datum/stack_recipe("orange shower curtain", /obj/structure/curtain/open/shower/engineering, 2, time = 10), \
-		new/datum/stack_recipe("red shower curtain", /obj/structure/curtain/open/shower/security, 2, time = 10), \
-		new/datum/stack_recipe("privacy curtain", /obj/structure/curtain/open/privacy, 2, time = 10), \
+		new /datum/stack_recipe("white curtain", /obj/structure/curtain, 2, time = 10), \
+		new /datum/stack_recipe("bed curtain", /obj/structure/curtain/open/bed, 2, time = 10), \
+		new /datum/stack_recipe("black curtain", /obj/structure/curtain/black, 2, time = 10), \
+		new /datum/stack_recipe("shower curtain", /obj/structure/curtain/open/shower, 2, time = 10), \
+		new /datum/stack_recipe("orange shower curtain", /obj/structure/curtain/open/shower/engineering, 2, time = 10), \
+		new /datum/stack_recipe("red shower curtain", /obj/structure/curtain/open/shower/security, 2, time = 10), \
+		new /datum/stack_recipe("privacy curtain", /obj/structure/curtain/open/privacy, 2, time = 10), \
 
 		))
 
