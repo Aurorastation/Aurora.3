@@ -89,7 +89,7 @@
 							/obj/item/personal_inhaler/combat = 1,
 							/obj/item/reagent_containers/personal_inhaler_cartridge/large = 2,
 							/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-							/obj/item/reagent_containers/glass/bottle/epinephrine = 1,
+							/obj/item/reagent_containers/glass/bottle/norepinephrine = 1,
 							/obj/item/reagent_containers/glass/bottle/deltamivir = 1,
 							/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 

@@ -633,7 +633,7 @@
 /datum/reagent/adrenaline
 	value = 3
 
-/datum/reagent/epinephrine
+/datum/reagent/inaprovaline
 	value = 3.2
 
 /datum/reagent/diethylamine
