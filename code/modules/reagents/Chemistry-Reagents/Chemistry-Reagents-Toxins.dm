@@ -11,7 +11,7 @@
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
 
-	var/target_organ // needs to be null by default or else phoron will kill you instantly
+	var/target_organ // needs to be null by default
 	var/strength = 4 // How much damage it deals per unit
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -59,6 +59,7 @@
 	color = "#003333"
 	strength = 10
 	taste_description = "fish"
+	target_organ = BP_BRAIN
 
 /datum/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNATHI)
@@ -206,6 +207,7 @@
 	metabolism = REM * 2
 	taste_description = "bitter almonds"
 	taste_mult = 1.5
+	target_organ = BP_HEART
 
 /datum/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -267,6 +269,7 @@
 	metabolism = REM
 	strength = 3
 	taste_description = "death"
+	target_organ = BP_BRAIN
 
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()

@@ -388,11 +388,11 @@
 		data["blood_volume_max"]= occupant.species.blood_volume
 		data["rads"]			= occupant.total_radiation
 
-		data["cloneLoss"]		= calcDamage(occupant.getCloneLoss())
-		data["oxyLoss"]			= calcDamage(occupant.getOxyLoss())
-		data["bruteLoss"]		= calcDamage(occupant.getBruteLoss())
-		data["fireLoss"]		= calcDamage(occupant.getFireLoss())
-		data["toxLoss"]			= calcDamage(occupant.getToxLoss())
+		data["cloneLoss"]		= get_severity(occupant.getCloneLoss(), TRUE)
+		data["oxyLoss"]			= get_severity(occupant.getOxyLoss(), TRUE)
+		data["bruteLoss"]		= get_severity(occupant.getBruteLoss(), TRUE)
+		data["fireLoss"]		= get_severity(occupant.getFireLoss(), TRUE)
+		data["toxLoss"]			= get_severity(occupant.getToxLoss(), TRUE)
 
 		data["paralysis"]		= occupant.paralysis
 		data["bodytemp"]		= occupant.bodytemperature
@@ -441,8 +441,8 @@
 	var/organs = list()
 	for (var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
-		data["burnDmg"] = calcDamage(O.burn_dam)
-		data["bruteDmg"] = calcDamage(O.brute_dam)
+		data["burnDmg"] = get_wound_severity(O.burn_ratio, TRUE)
+		data["bruteDmg"] = get_wound_severity(O.brute_ratio, TRUE)
 		data["name"] = O.name
 
 		var/list/wounds = list()
@@ -586,11 +586,11 @@
 		"blood_oxygenation" = H.get_blood_oxygenation(),
 		"blood_pressure" = H.get_blood_pressure(),
 
-		"bruteloss" = calcDamage(H.getBruteLoss()),
-		"fireloss" = calcDamage(H.getFireLoss()),
-		"oxyloss" = calcDamage(H.getOxyLoss()),
-		"toxloss" = calcDamage(H.getToxLoss()),
-		"cloneloss" = calcDamage(H.getCloneLoss()),
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
 
 		"rads" = H.total_radiation,
 		"paralysis" = H.paralysis,
@@ -704,7 +704,7 @@
 		if(!AN && !open && !infected & !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[calcDamage(e.brute_dam)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"

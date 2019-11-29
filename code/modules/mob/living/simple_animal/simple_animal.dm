@@ -338,12 +338,12 @@
 				var/datum/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
-				if (bruteloss > 0)
-					var/n = min(heal_amount, bruteloss)
+				if (getBruteLoss() > 0)
+					var/n = min(heal_amount, getBruteLoss())
 					adjustBruteLoss(-n)
 					heal_amount -= n
-				if (fireloss && heal_amount)
-					var/n = min(heal_amount, fireloss)
+				if (getFireLoss() && heal_amount)
+					var/n = min(heal_amount, getFireLoss())
 					adjustFireLoss(-n)
 					heal_amount -= n
 				updatehealth()
