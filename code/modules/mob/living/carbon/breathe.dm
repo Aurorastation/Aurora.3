@@ -21,7 +21,6 @@
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
-	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
 	if(species && (species.flags & NO_BREATHE)) return
 	
 	volume_needed *= (species?.breath_vol_mul || 1)

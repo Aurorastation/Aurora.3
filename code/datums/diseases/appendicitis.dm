@@ -47,7 +47,6 @@
 			H.Weaken(10)
 
 			var/obj/item/organ/external/groin = H.get_organ("groin")
-			var/datum/wound/W = new /datum/wound/internal_bleeding(20)
+			groin.sever_artery()
 			H.adjustToxLoss(25)
-			groin.wounds += W
 			src.cure()

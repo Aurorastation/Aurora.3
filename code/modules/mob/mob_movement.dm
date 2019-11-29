@@ -279,8 +279,8 @@
 				var/min_move_delay = 0
 				if(ishuman(mob.buckled))
 					var/mob/living/carbon/human/driver = mob.buckled
-					var/obj/item/organ/external/l_hand = driver.get_organ("l_hand")
-					var/obj/item/organ/external/r_hand = driver.get_organ("r_hand")
+					var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
+					var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
 					if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
 						return // No hands to drive your chair? Tough luck!
 					min_move_delay = driver.min_walk_delay
@@ -325,7 +325,7 @@
 		//We are now going to move
 		moving = 1
 		//Something with pulling things
-		if (mob_is_human && (istype(mob:l_hand, /obj/item/weapon/grab) || istype(mob:r_hand, /obj/item/weapon/grab)))
+		if (mob_is_human && (istype(mob:l_hand, /obj/item/grab) || istype(mob:r_hand, /obj/item/grab)))
 			move_delay = max(move_delay, world.time + 7)
 			var/list/L = mob.ret_grab()
 			if(istype(L, /list))
@@ -362,12 +362,12 @@
 		else
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/weapon/grab/G in list(mob:l_hand, mob:r_hand))
+		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
 			G.adjust_position()
 
-		for (var/obj/item/weapon/grab/G in mob.grabbed_by)
+		for (var/obj/item/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0

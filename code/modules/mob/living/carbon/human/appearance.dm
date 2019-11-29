@@ -113,7 +113,7 @@
 	return 1
 
 /mob/living/carbon/human/proc/change_skin_color(var/red, var/green, var/blue)
-	if((red == r_skin && green == g_skin && blue == b_skin) || !((species.appearance_flags & HAS_SKIN_COLOR) && (species.appearance_flags & HAS_SKIN_PRESET)))
+	if((red == r_skin && green == g_skin && blue == b_skin) || (!(species.appearance_flags & HAS_SKIN_COLOR) && !(species.appearance_flags & HAS_SKIN_PRESET)))
 		return
 
 	r_skin = red

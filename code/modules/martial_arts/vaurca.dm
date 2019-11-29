@@ -56,8 +56,8 @@
 
 /datum/martial_art/vkutet/proc/swift_bite(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.grabbedby(A,1)
-	if(istype(A.get_active_hand(),/obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = A.get_active_hand()
+	if(istype(A.get_active_hand(),/obj/item/grab))
+		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			G.state = GRAB_AGGRESSIVE
 			D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
@@ -70,8 +70,8 @@
 	if(!isvaurca(A))
 		return 0
 	D.grabbedby(A,1)
-	if(istype(A.get_active_hand(),/obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = A.get_active_hand()
+	if(istype(A.get_active_hand(),/obj/item/grab))
+		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			var/armor_block = D.run_armor_check(null, "melee")
 			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")

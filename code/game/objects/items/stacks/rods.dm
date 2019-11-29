@@ -2,14 +2,14 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-	new /datum/stack_recipe("cane", /obj/item/weapon/cane, 1, time = 6),
-	new /datum/stack_recipe("crowbar", /obj/item/weapon/crowbar, 1, time = 6),
-	new /datum/stack_recipe("screwdriver", /obj/item/weapon/screwdriver, 1, time = 12),
-	new /datum/stack_recipe("wrench", /obj/item/weapon/wrench, 1, time = 6),
-	new /datum/stack_recipe("spade", /obj/item/weapon/shovel/spade, 2, time = 12),
-	new /datum/stack_recipe("bolt", /obj/item/weapon/arrow, 1, time = 6),
-	new /datum/stack_recipe("small animal trap", /obj/item/weapon/trap/animal, 6, time = 10),
-	new /datum/stack_recipe("medium animal trap", /obj/item/weapon/trap/animal/medium, 12, time = 20)
+	new /datum/stack_recipe("cane", /obj/item/cane, 1, time = 6),
+	new /datum/stack_recipe("crowbar", /obj/item/crowbar, 1, time = 6),
+	new /datum/stack_recipe("screwdriver", /obj/item/screwdriver, 1, time = 12),
+	new /datum/stack_recipe("wrench", /obj/item/wrench, 1, time = 6),
+	new /datum/stack_recipe("spade", /obj/item/shovel/spade, 2, time = 12),
+	new /datum/stack_recipe("bolt", /obj/item/arrow, 1, time = 6),
+	new /datum/stack_recipe("small animal trap", /obj/item/trap/animal, 6, time = 10),
+	new /datum/stack_recipe("medium animal trap", /obj/item/trap/animal/medium, 12, time = 20)
 )
 
 /obj/item/stack/rods
@@ -53,7 +53,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 /obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if (W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 
 		if(get_amount() < 2)
 			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
@@ -72,7 +72,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 				user.put_in_hands(new_item)
 		return
 
-	if (istype(W, /obj/item/weapon/tape_roll))
+	if (istype(W, /obj/item/tape_roll))
 		var/obj/item/stack/medical/splint/makeshift/new_splint = new(user.loc)
 		new_splint.add_fingerprint(user)
 

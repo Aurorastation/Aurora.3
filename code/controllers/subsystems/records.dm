@@ -198,7 +198,7 @@
 		var/rank = sanitize(t.rank)
 		var/real_rank = make_list_rank(t.real_rank)
 
-		var/isactive = t.phisical_status
+		var/isactive = t.physical_status
 		var/department = 0
 		var/depthead = 0            // Department Heads will be placed at the top of their lists.
 

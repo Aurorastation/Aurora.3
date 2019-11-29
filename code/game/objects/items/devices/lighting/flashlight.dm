@@ -50,7 +50,7 @@
 
 /obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
 	add_fingerprint(user)
-	if(on && user.zone_sel.selecting == "eyes")
+	if(on && user.zone_sel.selecting == BP_EYES)
 
 		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
@@ -101,6 +101,7 @@
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
 	item_state = ""
+	drop_sound = 'sound/items/drop/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2

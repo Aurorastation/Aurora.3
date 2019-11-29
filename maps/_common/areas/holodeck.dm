@@ -66,6 +66,10 @@
 	name = "\improper Holodeck - Picnic Area"
 	sound_env = PLAIN
 
+/area/holodeck/source_dininghall
+	name = "\improper Holodeck - Dining Hall"
+	sound_env = PLAIN
+
 /area/holodeck/source_snowfield
 	name = "\improper Holodeck - Snow Field"
 	sound_env = FOREST

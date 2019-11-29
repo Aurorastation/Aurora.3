@@ -162,22 +162,28 @@
 		to_chat(target, "<span class='notice'>A healing warmth suffuses you.</span>")
 
 		for(var/datum/wound/W in E.wounds)
-			if(W.internal)
-				to_chat(user, "<span class='notice'>You painstakingly mend the torn veins in \the [E], stemming the internal bleeding.</span>")
-				E.wounds -= W
-				E.update_damages()
-				return 1
-
 			if(W.bleeding())
 				to_chat(user, "<span class='notice'>You knit together severed veins and broken flesh, stemming the bleeding.</span>")
 				W.bleed_timer = 0
 				E.status &= ~ORGAN_BLEEDING
 				return 1
 
+		if(E.status & ORGAN_ARTERY_CUT)
+			to_chat(user, "<span class='notice'>You painstakingly start joining the two ends of \the [E.artery_name] in [target]'s [E.name]. This might take some time...</span>")
+			if(do_mob(user, target, 75, TRUE))
+				to_chat(user, "<span class='notice'>After a while, you mend the damaged [E.artery_name].</span>")
+				E.status &= ~ORGAN_ARTERY_CUT
+				return 1
+
 		if(E.status & ORGAN_BROKEN)
 			to_chat(user, "<span class='notice'>You coax shattered bones to come together and fuse, mending the break.</span>")
 			E.status &= ~ORGAN_BROKEN
 			E.stage = 0
+			return 1
+
+		if(E.status & ORGAN_TENDON_CUT)
+			to_chat(user, "<span class='notice'>You place your hands over [target]'s [E.name], joining the two ends of their [E.tendon_name] in the process.</span>")
+			E.status &= ~ORGAN_TENDON_CUT
 			return 1
 
 		for(var/obj/item/organ/I in E.internal_organs)
