@@ -495,7 +495,7 @@
 /datum/reagent/alcohol/ethanol/tallrussian
 	value = 0.15
 
-/datum/reagent/inaprovaline
+/datum/reagent/norepinephrine
 	value = 3.5
 
 /datum/reagent/bicaridine
@@ -631,7 +631,10 @@
 	value = 3
 
 /datum/reagent/adrenaline
-	value = 2
+	value = 3
+
+/datum/reagent/inaprovaline
+	value = 3.2
 
 /datum/reagent/diethylamine
 	value = 0.9

@@ -348,7 +348,7 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
+		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
 		/obj/item/reagent_containers/glass/bottle/stoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
@@ -371,7 +371,7 @@
 		/obj/item/reagent_containers/pill/stox = 4
 	)
 	premium = list(
-		/obj/item/reagent_containers/glass/bottle/epinephrine = 2
+		/obj/item/reagent_containers/glass/bottle/adrenaline = 2
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
@@ -415,7 +415,7 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -439,7 +439,7 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
+		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 5,
 		/obj/item/reagent_containers/syringe/antitoxin = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,

@@ -8,16 +8,16 @@
 	var/reagent = ""
 
 
-/obj/item/reagent_containers/glass/bottle/robot/inaprovaline
-	name = "internal inaprovaline bottle"
-	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
+/obj/item/reagent_containers/glass/bottle/robot/norepinephrine
+	name = "internal norepinephrine bottle"
+	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-4"
-	reagent = "inaprovaline"
+	reagent = "norepinephrine"
 
 	New()
 		..()
-		reagents.add_reagent("inaprovaline", 60)
+		reagents.add_reagent("norepinephrine", 60)
 		update_icon()
 
 

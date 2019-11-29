@@ -11,13 +11,13 @@
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
 
-	var/target_organ = null
+	var/target_organ // needs to be null by default
 	var/strength = 4 // How much damage it deals per unit
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength && alien != IS_DIONA)
-		M.add_chemical_effect(CE_TOXIN, strength * removed)
 		var/dam = (strength * removed)
+		M.add_chemical_effect(CE_TOXIN, dam)
 		if(target_organ && ishuman(M))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
