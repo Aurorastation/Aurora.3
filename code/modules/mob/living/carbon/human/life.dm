@@ -879,7 +879,7 @@
 
 	if(stat == UNCONSCIOUS)
 		//Critical damage passage overlay
-		if(health < maxHealth)
+		if(health < maxHealth/2)
 			var/ovr = "passage0"
 			switch(health - maxHealth/2)
 				if(-20 to -10)

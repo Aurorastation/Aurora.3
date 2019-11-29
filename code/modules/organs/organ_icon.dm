@@ -217,4 +217,3 @@
 		LAZYADD(cached_markings, genetic_markings)
 	if (LAZYLEN(temporary_markings))
 		LAZYADD(cached_markings, temporary_markings)
-
