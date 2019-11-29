@@ -496,7 +496,7 @@
 	value = 0.15
 
 /datum/reagent/norepinephrine
-	value = 3.5
+	value = 2.5
 
 /datum/reagent/bicaridine
 	value = 4.9
@@ -634,7 +634,7 @@
 	value = 3
 
 /datum/reagent/inaprovaline
-	value = 3.2
+	value = 3.5
 
 /datum/reagent/diethylamine
 	value = 0.9
