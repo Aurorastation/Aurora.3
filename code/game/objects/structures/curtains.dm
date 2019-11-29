@@ -91,11 +91,13 @@
 /obj/structure/curtain/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"
+	anchored = FALSE
 	alpha = 200
 
 /obj/structure/curtain/open/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"
+	anchored = FALSE
 	alpha = 200
 
 /obj/structure/curtain/open/bed
@@ -105,6 +107,7 @@
 /obj/structure/curtain/open/privacy
 	name = "privacy curtain"
 	color = "#B8F5E3"
+	anchored = FALSE
 
 /obj/structure/curtain/open/shower
 	name = "shower curtain"
