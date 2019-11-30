@@ -289,3 +289,10 @@
 	name = "\improper Burial Chamber"
 	icon_state = "yellow"
 	flags = SPAWN_ROOF
+
+/area/syndie_listening_post
+	name = "\improper Abandoned Listening Post"
+	icon_state = "red"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1

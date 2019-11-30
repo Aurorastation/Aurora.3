@@ -9,7 +9,9 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
-/mob/living/simple_animal/hostile/carp,
+/mob/living/simple_animal/hostile/carp{
+	wander = 0
+	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
@@ -52,19 +54,20 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "m" = (
-/turf/simulated/wall/shuttle,
+/turf/simulated/wall/shuttle/cardinal,
 /area/mine/unexplored)
 "n" = (
 /obj/structure/grille/broken,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor,
 /area/mine/unexplored)
 "o" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/tracks,
 /obj/machinery/door/airlock/external{
-	icon_state = "door_open";
+	icon_state = "door_locked";
 	locked = 1
 	},
 /obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/tracks,
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "p" = (
@@ -75,7 +78,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/material/shard,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor,
 /area/mine/unexplored)
 "q" = (
 /obj/effect/decal/cleanable/blood,
@@ -94,12 +97,12 @@
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "u" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_open";
-	locked = 1
+/obj/structure/grille,
+/obj/item/material/shard,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor,
 /area/mine/unexplored)
 "v" = (
 /obj/structure/bed/chair/shuttle,
@@ -118,8 +121,11 @@
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "y" = (
-/obj/effect/decal/cleanable/blood/tracks,
-/mob/living/simple_animal/hostile/carp,
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "z" = (
@@ -128,17 +134,7 @@
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "A" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/blood/tracks,
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "B" = (
@@ -158,7 +154,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
 /area/mine/unexplored)
 "E" = (
 /obj/structure/closet/crate/secure/loot,
@@ -177,6 +176,24 @@
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
 "H" = (
+/obj/effect/decal/cleanable/blood/drip,
+/mob/living/simple_animal/hostile/carp{
+	wander = 0
+	},
+/turf/simulated/floor/shuttle,
+/area/mine/unexplored)
+"I" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/mine/unexplored)
+"J" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -186,13 +203,12 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/floor/shuttle,
+/turf/simulated/floor,
 /area/mine/unexplored)
-"I" = (
-/obj/structure/grille,
-/obj/item/material/shard,
-/obj/structure/window/reinforced{
-	dir = 8
+"K" = (
+/obj/item/arrow/rod,
+/mob/living/simple_animal/hostile/carp/shark{
+	wander = 0
 	},
 /turf/simulated/floor/shuttle,
 /area/mine/unexplored)
@@ -592,7 +608,7 @@ m
 m
 m
 v
-t
+K
 b
 b
 b
@@ -624,7 +640,7 @@ c
 c
 n
 q
-I
+u
 w
 B
 b
@@ -658,7 +674,7 @@ e
 h
 o
 r
-u
+y
 x
 w
 E
@@ -693,8 +709,8 @@ k
 p
 t
 n
-y
-w
+A
+H
 F
 b
 b
@@ -795,9 +811,9 @@ g
 c
 c
 m
-A
 D
-H
+I
+J
 m
 a
 b
