@@ -75,7 +75,7 @@
 					user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
 					"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
 					I.damage = 0
-					var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+					var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 					if(sponge && istype(I, sponge))
 						target.cure_all_traumas(cure_type = CURE_SURGERY)
 
@@ -361,7 +361,7 @@
 			return 0
 
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		var/obj/item/organ/brain/sponge = target.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 		if (!affected || !istype(sponge) || !(sponge in affected.internal_organs))
 			return 0
 
@@ -372,14 +372,14 @@
 		return ..()
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/brain/B = target.op_stage.current_organ
+		var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
 		user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
 		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
 		target.custom_pain("Someone's scraping away at your [B]!",1)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/brain/B = target.op_stage.current_organ
+		var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
 		user.visible_message("<span class='notice'>[user] has modified [target]'s [B] to remove their memory recall with \the [tool].</span>" , \
 		"<span class='notice'>You have removed [target]'s memory recall with \the [tool].</span>")
 		B.lobotomize(user)
@@ -389,21 +389,3 @@
 		user.visible_message("<span class='warning'>[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>")
 		affected.createwound(BRUISE, 20)
-
-//////////////////////////////////////////////////////////////////
-//						HEART SURGERY							//
-//////////////////////////////////////////////////////////////////
-// To be finished after some tests.
-// /datum/surgery_step/ribcage/heart/cut
-//	allowed_tools = list(
-//	/obj/item/scalpel = 100,		\
-//	/obj/item/material/knife = 75,	\
-//	/obj/item/material/shard = 50, 		\
-//	)
-
-//	min_duration = 30
-//	max_duration = 40
-
-//	can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-//		return ..() && target.op_stage.ribcage == 2
-

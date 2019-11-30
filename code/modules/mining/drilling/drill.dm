@@ -342,8 +342,8 @@
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_hand")
-			var/obj/item/organ/external/RA = H.get_organ("r_hand")
+			var/obj/item/organ/external/LA = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/RA = H.get_organ(BP_R_HAND)
 			var/active_hand = H.hand
 			if(prob(20))
 				if(active_hand)

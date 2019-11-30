@@ -126,15 +126,15 @@
 
 	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
 		var/mob/living/carbon/human/H = target
-		if (check_zone(user.zone_sel.selecting) == "chest") // impromptu needle thoracostomy, re-inflate a collapsed lung
-			var/P = (user == target) ? "their" : (target + "\'s")
-			var/SM = (user == target) ? "your" : (target + "\'s")
+		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
+			var/P = (user == target) ? "their" : (target.name + "\'s")
+			var/SM = (user == target) ? "your" : (target.name + "\'s")
 			user.visible_message(span("danger", "[user] aims \the [src] between [P] ribs!"), span("danger", "You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
 			user.visible_message(span("warning", "[user] jabs \the [src] between [P] ribs with \the [src]!"), span("warning", "You jab \the [src] between [SM] ribs!"))
 			if(H.is_lung_ruptured())
-				var/obj/item/organ/lungs/L = H.internal_organs_by_name["lungs"]
+				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 				if(!L.rescued)
 					L.rescued = TRUE
 				else

@@ -306,6 +306,16 @@
 	icon_open = "wflight_open"
 	icon_closed = "wflight"
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	name = "tcfl flight jacket"
+	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
+	icon_state = "lflight"
+	item_state = "lflight"
+	icon_open = "lflight_open"
+	icon_closed = "lflight"
+	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
 	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."

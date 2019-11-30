@@ -175,7 +175,7 @@
 				user.visible_message("<span class='warning'>\The [user] covers [target]'s face!</span>")
 			if(target.silent < 3)
 				target.silent = 3
-		if("eyes")
+		if(BP_EYES)
 			if(announce)
 				assailant.visible_message("<span class='warning'>[assailant] covers [affecting]'s eyes!</span>")
 			if(affecting.eye_blind < 3)
@@ -337,17 +337,17 @@
 					jointlock(affecting, assailant, hit_zone)
 
 				if(I_HURT)
-					if(hit_zone == "eyes")
+					if(hit_zone == BP_EYES)
 						attack_eye(affecting, assailant)
-					else if(hit_zone == "head")
+					else if(hit_zone == BP_HEAD)
 						headbut(affecting, assailant)
 					else
 						dislocate(affecting, assailant, hit_zone)
 
 				if(I_DISARM)
-					if(hit_zone != "head")
+					if(hit_zone != BP_HEAD)
 						pin_down(affecting, assailant)
-					if(hit_zone == "head")
+					if(hit_zone == BP_HEAD)
 						hair_pull(affecting, assailant)
 
 	//clicking on yourself while grabbing them
@@ -372,6 +372,7 @@
 	animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
 	affecting.layer = 4
 	if(affecting)
+		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src
 		affecting = null
 	if(assailant)

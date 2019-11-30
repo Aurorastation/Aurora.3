@@ -7,6 +7,10 @@
 	if(!changeling)
 		return
 
+	if(!ishuman(src))
+		to_chat(src, "<span class='warning'>We cannot perform this ability as this form!</span>")
+		return
+
 	var/list/names = list()
 	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
 		names += "[DNA.name]"
@@ -33,9 +37,8 @@
 	return TRUE
 
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
-	src.visible_message("<span class='warning'>[src] transforms!</span>")
-
 	if(ishuman(src))
+		src.visible_message("<span class='warning'>[src] transforms!</span>")
 		var/mob/living/carbon/human/H = src
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
@@ -75,7 +78,30 @@
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
 	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
-	H = H.monkeyize()
+
+	var/mob/living/simple_animal/hostile/lesser_changeling/ling = new (get_turf(H))
+
+	if(istype(H,/mob/living/carbon/human))
+		for(var/obj/item/I in H.contents)
+			if(isorgan(I))
+				continue
+			H.drop_from_inventory(I)
+
+	if(H.mind)
+		H.mind.transfer_to(ling)
+	else
+		ling.key = H.key
+	ling.occupant = H
+	var/atom/movable/overlay/effect = new /atom/movable/overlay(get_turf(H))
+	effect.density = FALSE
+	effect.anchored = TRUE
+	effect.icon = 'icons/effects/effects.dmi'
+	effect.layer = 3
+	flick("summoning", effect)
+	QDEL_IN(effect, 10)
+	H.forceMove(ling)
+	H.status_flags |= GODMODE
+
 	feedback_add_details("changeling_powers", "LF")
 	return TRUE
 
@@ -338,7 +364,7 @@
 	if(M.l_hand && M.r_hand)
 		to_chat(M, "<span class='danger'>Your hands are full.</span>")
 		return
-	
+
 	if(M.handcuffed)
 		var/cuffs = M.handcuffed
 		M.u_equip(M.handcuffed)

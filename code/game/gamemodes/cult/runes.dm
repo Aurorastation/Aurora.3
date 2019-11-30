@@ -623,8 +623,8 @@ var/list/sacrificed = list()
 			if(!(iscultist(V)))
 				victims += V//Checks for cult status and mob type
 	for(var/obj/item/I in src.loc)//Checks for MMIs/brains/Intellicards
-		if(istype(I,/obj/item/organ/brain))
-			var/obj/item/organ/brain/B = I
+		if(istype(I,/obj/item/organ/internal/brain))
+			var/obj/item/organ/internal/brain/B = I
 			victims += B.brainmob
 		else if(istype(I,/obj/item/device/mmi))
 			var/obj/item/device/mmi/B = I
@@ -1028,26 +1028,31 @@ var/list/sacrificed = list()
 //////////             Rune 24 (counting burningblood, which kinda doesnt work yet.)
 
 /obj/effect/rune/proc/runestun(var/mob/living/user, var/mob/living/T as mob)
-	if(istype(src,/obj/effect/rune))   ///When invoked as rune, flash and stun everyone around.
+	if(istype(src,/obj/effect/rune))   ///When invoked as rune, flash and briefly stun everyone around.
 		user.say("Fuu ma[pick("'","`")]jin!")
 		for(var/mob/living/L in viewers(src))
+			if(iscultist(L))
+				continue
 			if(iscarbon(L))
 				var/mob/living/carbon/C = L
 				flick("e_flash", C.flash)
 				if(C.stuttering < 1 && (!(HULK in C.mutations)))
 					C.stuttering = 1
-				C.Weaken(1)
-				C.Stun(1)
+				C.Weaken(3)
+				C.Stun(3)
+				C.silent += 15
 				C.show_message("<span class='danger'>The rune explodes in a bright flash.</span>", 3)
 				admin_attack_log(user, C, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 
 			else if(issilicon(L))
 				var/mob/living/silicon/S = L
 				S.Weaken(5)
+				flick("e_flash", S.flash)
+				S.silent += 15
 				S.show_message("<span class='danger'>BZZZT... The rune has exploded in a bright flash.</span>", 3)
 				admin_attack_log(user, S, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 		qdel(src)
-	else                        ///When invoked as talisman, stun and mute the target mob.
+	else                        ///When invoked as talisman, flash and mute the target mob.
 		user.say("Dream sign ''Evil sealing talisman'[pick("'","`")]!")
 		var/obj/item/nullrod/N = locate() in T
 		if(N)

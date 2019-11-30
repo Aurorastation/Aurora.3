@@ -5,9 +5,6 @@
 	if(load && istype(load,/mob/living))
 		return load
 
-/obj/mecha/get_mob()
-	return occupant
-
 /obj/vehicle/train/get_mob()
 	return buckled_mob
 
@@ -165,17 +162,19 @@ Proc for attack log creation, because really why not
 
 //checks whether this item is a module of the robot it is located in.
 /proc/is_robot_module(var/obj/item/thing)
-	if (!thing || !istype(thing.loc, /mob/living/silicon/robot))
-		return 0
-	var/mob/living/silicon/robot/R = thing.loc
-	return (thing in R.module.modules)
+	if(!thing)
+		return FALSE
+	if(istype(thing.loc, /mob/living/heavy_vehicle))
+		return FALSE
+	if(!istype(thing.loc, /mob/living/silicon/robot))
+		return FALSE
 
 /proc/get_exposed_defense_zone(var/atom/movable/target)
 	var/obj/item/grab/G = locate() in target
 	if(G && G.state >= GRAB_NECK) //works because mobs are currently not allowed to upgrade to NECK if they are grabbing two people.
-		return pick("head", "l_hand", "r_hand", "l_foot", "r_foot", "l_arm", "r_arm", "l_leg", "r_leg")
+		return pick(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	else
-		return pick("chest", "groin")
+		return pick(BP_CHEST, BP_GROIN)
 
 
 // Returns true if M was not already in the dead mob list
