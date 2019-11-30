@@ -57,7 +57,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
-		target.custom_pain("The pain in your chest is living hell!",1)
+		target.custom_pain("The pain in your chest is living hell!", 75)
 		affected.cavity = 1
 		..()
 
@@ -87,7 +87,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", \
 		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
-		target.custom_pain("The pain in your chest is living hell!",1)
+		target.custom_pain("The pain in your chest is living hell!", 75)
 		affected.cavity = 0
 		..()
 
@@ -120,7 +120,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts putting \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
 		"You start putting \the [tool] inside [target]'s [get_cavity(affected)] cavity." )
-		target.custom_pain("The pain in your chest is living hell!",1)
+		target.custom_pain("The pain in your chest is living hell!", 75)
 		playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 		..()
 
@@ -132,7 +132,7 @@
 		if (tool.w_class > get_max_wclass(affected)/2 && prob(50) && !(affected.status & ORGAN_ROBOT))
 			to_chat(user, "<span class='warning'>You tear \the [affected.artery_name] trying to fit an object so big!</span>")
 			affected.sever_artery()
-			affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
+			affected.owner.custom_pain("You feel something rip in your [affected.name]!", 75)
 		user.drop_item()
 		affected.implants += tool
 		tool.forceMove(affected)
@@ -160,7 +160,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
 		"You start poking around inside [target]'s [affected.name] with \the [tool]" )
-		target.custom_pain("The pain in your [affected.name] is living hell!",1)
+		target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

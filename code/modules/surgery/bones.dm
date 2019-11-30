@@ -25,7 +25,7 @@
 		if (affected.stage == 0)
 			user.visible_message("[user] starts applying medication to the damaged bones in [target]'s [affected.name] with \the [tool]." , \
 			"You start applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].")
-		target.custom_pain("Something in your [affected.name] is causing you a lot of pain!",1)
+		target.custom_pain("Something in your [affected.name] is causing you a lot of pain!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -58,7 +58,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] is beginning to set the bone in [target]'s [affected.name] in place with \the [tool]." , \
 			"You are beginning to set the bone in [target]'s [affected.name] in place with \the [tool].")
-		target.custom_pain("The pain in your [affected.name] is going to make you pass out!",1)
+		target.custom_pain("The pain in your [affected.name] is going to make you pass out!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

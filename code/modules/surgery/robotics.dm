@@ -229,7 +229,7 @@
 					user.visible_message("[user] starts mending the damage to [target]'s [I.name]'s mechanisms.", \
 					"You start mending the damage to [target]'s [I.name]'s mechanisms." )
 
-		target.custom_pain("The pain in your [affected.name] is living hell!",1)
+		target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

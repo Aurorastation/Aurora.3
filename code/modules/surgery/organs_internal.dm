@@ -145,7 +145,7 @@
 
 		user.visible_message("[user] starts to separate [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start to separate [target]'s [target.op_stage.current_organ] with \the [tool]." )
-		target.custom_pain("The pain in your [affected.name] is living hell!",1)
+		target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -196,7 +196,7 @@
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("[user] starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start removing [target]'s [target.op_stage.current_organ] with \the [tool].")
-		target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!",1)
+		target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -277,7 +277,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
 		"You start transplanting \the [tool] into [target]'s [affected.name].")
-		target.custom_pain("Someone's rooting around in your [affected.name]!",1)
+		target.custom_pain("Someone's rooting around in your [affected.name]!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -329,7 +329,7 @@
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("[user] begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool].")
-		target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!",1)
+		target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -376,7 +376,7 @@
 		var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
 		user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
 		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
-		target.custom_pain("Someone's scraping away at your [B]!",1)
+		target.custom_pain("Someone's scraping away at your [B]!", 75)
 		..()
 
 	end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

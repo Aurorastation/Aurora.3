@@ -1239,7 +1239,7 @@
 	var/species_organ = species.breathing_organ
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	if(L && !L.is_bruised())
-		custom_pain("You feel a stabbing pain in your chest!", 1)
+		custom_pain("You feel a stabbing pain in your chest!", 50)
 		L.bruise()
 
 //returns 1 if made bloody, returns 0 otherwise
