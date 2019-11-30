@@ -211,7 +211,7 @@
 
 /obj/item/clothing/head/helmet/unathi/klax
 	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful, the retrofit is only a bit shoddy."
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"
