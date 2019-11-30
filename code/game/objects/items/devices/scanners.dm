@@ -269,7 +269,7 @@ BREATH ANALYZER
 			print_reagent_default_message = FALSE
 			dat += "<span class='notice'>Beneficial reagents detected in subject's blood:</span>"
 			for(var/d in reagentdata)
-				user.show_message(reagentdata[d])
+				dat += reagentdata[d]
 		if(unknown)
 			print_reagent_default_message = FALSE
 			dat += "<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
