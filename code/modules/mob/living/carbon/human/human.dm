@@ -1184,7 +1184,7 @@
 		usr.visible_message("<span class='notice'>[usr] begins counting their pulse.</span>",\
 		"You begin counting your pulse.")
 
-	if(is_pulse_present())
+	if(pulse())
 		to_chat(usr, "<span class='notice'>[self ? "You have a" : "[src] has a"] pulse! Counting...</span>")
 	else
 		to_chat(usr, "<span class='danger'>[src] has no pulse!</span>")	//it is REALLY UNLIKELY that a dead person would check his own pulse)
@@ -1623,9 +1623,6 @@
 	else
 		return "0"
 
-/mob/living/carbon/human/proc/is_pulse_present()
-	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
-	if(heart)
-		return heart.pulse
-	else
-		return FALSE
+/mob/living/carbon/human/proc/pulse()
+	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
+	return H ? H.pulse : PULSE_NONE
