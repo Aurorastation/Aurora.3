@@ -296,6 +296,8 @@ BREATH ANALYZER
 			if(istype(V))
 				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
 
+	. += dat
+
 	header = jointext(header, null)
 	. = jointext(.,"<br>")
 	. = jointext(list(header,.),null)

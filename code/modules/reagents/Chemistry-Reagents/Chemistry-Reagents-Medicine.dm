@@ -847,12 +847,12 @@
 /datum/reagent/mental/nicotine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
-	M.add_chemical_effect(CE_PULSE, 0.5)
 
 /datum/reagent/mental/nicotine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
 	. = ..()
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(10 * removed * scale)
+	M.add_chemical_effect(CE_PULSE, 0.5)
 
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"

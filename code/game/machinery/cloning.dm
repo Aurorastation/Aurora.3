@@ -109,8 +109,8 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.setCloneLoss(H.maxHealth * (100 - 75) / 100)
-	H.adjustBrainLoss(50, 55) // Even if healed to full health, it will have some brain damage
+	H.setCloneLoss(H.maxHealth - 50)
+	H.adjustBrainLoss(100, 120) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
