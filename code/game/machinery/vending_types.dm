@@ -420,7 +420,7 @@
 		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
-		/obj/item/reagent_containers/syringe/antitoxin = 4,
+		/obj/item/reagent_containers/syringe/dylovene = 4,
 		/obj/item/reagent_containers/syringe/antiviral = 4,
 		/obj/item/reagent_containers/pill/tox = 1
 	)
@@ -440,7 +440,7 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 5,
-		/obj/item/reagent_containers/syringe/antitoxin = 3,
+		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
 		/obj/item/device/healthanalyzer = 3

@@ -52,7 +52,7 @@
 	icon_state = "antitoxin"
 	item_state = "firstaid-toxin"
 	starts_with = list(
-		/obj/item/reagent_containers/syringe/antitoxin = 3,
+		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/reagent_containers/pill/antitox = 3,
 		/obj/item/device/healthanalyzer = 1
 	)
