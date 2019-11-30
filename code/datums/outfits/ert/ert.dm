@@ -140,8 +140,8 @@
 	gloves = /obj/item/clothing/gloves/yellow
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel_syndie
-	suit = /obj/item/clothing/suit/space/void/merc
-	head = /obj/item/clothing/head/helmet/space/void/merc
+	suit = /obj/item/clothing/suit/space/void/freelancer
+	head = /obj/item/clothing/head/helmet/space/void/freelancer
 	suit_store = /obj/item/tank/oxygen
 	id = /obj/item/card/id/syndicate
 

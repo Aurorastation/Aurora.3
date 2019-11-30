@@ -7334,10 +7334,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/administration/centcom)
 "arZ" = (
-/mob/living/heavy_vehicle/premade/superheavy,
 /obj/machinery/light{
 	dir = 1
 	},
+/mob/living/heavy_vehicle/premade/superheavy,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/administration/centcom)
 "asa" = (
@@ -9021,10 +9021,10 @@
 	},
 /area/centcom/specops)
 "avT" = (
-/mob/living/heavy_vehicle/premade/combat,
 /obj/machinery/camera/network/ert{
 	c_tag = "Assault Armor North"
 	},
+/mob/living/heavy_vehicle/premade/combat,
 /turf/unsimulated/floor{
 	icon_state = "delivery";
 	dir = 6
@@ -10770,13 +10770,6 @@
 /turf/unsimulated/floor{
 	icon_state = "delivery";
 	dir = 6
-	},
-/area/centcom/specops)
-"azz" = (
-/obj/structure/table/reinforced/steel,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 1
 	},
 /area/centcom/specops)
 "azA" = (
@@ -20931,17 +20924,6 @@
 	dir = 8
 	},
 /area/centcom/evac)
-"aWj" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "escape_shuttle_hatch";
-	locked = 1;
-	name = "Shuttle Hatch";
-	req_access = list(13)
-	},
-/turf/simulated/floor/shuttle,
-/area/shuttle/escape/centcom)
 "aWk" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -25173,11 +25155,7 @@
 	},
 /area/centcom/living)
 "jgo" = (
-/obj/machinery/suit_cycler/syndicate{
-	density = 0;
-	locked = 0;
-	pixel_y = 16
-	},
+/obj/machinery/suit_cycler/freelancer,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 5
@@ -30701,8 +30679,8 @@
 /turf/unsimulated/wall/fakepdoor,
 /area/centcom/legion/hangar5)
 "xiL" = (
-/mob/living/heavy_vehicle/premade/superheavy,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/superheavy,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -58265,7 +58243,7 @@ axO
 ayq
 ayG
 aza
-azz
+ayq
 avW
 avW
 aAs
@@ -72423,9 +72401,9 @@ aEW
 aCP
 aCQ
 aCP
-aWj
-aWj
-aWj
+aEW
+aEW
+aEW
 aCP
 aCQ
 aCP
