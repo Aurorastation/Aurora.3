@@ -147,8 +147,8 @@
 
 /datum/chemical_reaction/dylovene
 	name = "Dylovene"
-	id = "anti_toxin"
-	result = "anti_toxin"
+	id = "dylovene"
+	result = "dylovene"
 	required_reagents = list("silicon" = 1, "potassium" = 1, "ammonia" = 1)
 	result_amount = 3
 
@@ -178,7 +178,7 @@
 	name = "Sterilizine"
 	id = "sterilizine"
 	result = "sterilizine"
-	required_reagents = list("ethanol" = 1, "anti_toxin" = 1, "hclacid" = 1)
+	required_reagents = list("ethanol" = 1, "dylovene" = 1, "hclacid" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/silicate
@@ -234,7 +234,7 @@
 	name = "Hyronalin"
 	id = "hyronalin"
 	result = "hyronalin"
-	required_reagents = list("radium" = 1, "anti_toxin" = 1)
+	required_reagents = list("radium" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/arithrazine
@@ -293,14 +293,14 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = "tricordrazine"
-	required_reagents = list("norepinephrine" = 1, "anti_toxin" = 1)
+	required_reagents = list("norepinephrine" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/alkysine
 	name = "Alkysine"
 	id = "alkysine"
 	result = "alkysine"
-	required_reagents = list("hclacid" = 1, "ammonia" = 1, "anti_toxin" = 1)
+	required_reagents = list("hclacid" = 1, "ammonia" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/dexalin
@@ -374,7 +374,7 @@
 	name = "Thetamycin"
 	id = "thetamycin"
 	result = "thetamycin"
-	required_reagents = list("cryptobiolin" = 1, "anti_toxin" = 1)
+	required_reagents = list("cryptobiolin" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/antihistamine
@@ -394,28 +394,28 @@
 	name = "imidazoline"
 	id = "imidazoline"
 	result = "imidazoline"
-	required_reagents = list("carbon" = 1, "hydrazine" = 1, "anti_toxin" = 1)
+	required_reagents = list("carbon" = 1, "hydrazine" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	id = "ethylredoxrazine"
 	result = "ethylredoxrazine"
-	required_reagents = list("acetone" = 1, "anti_toxin" = 1, "carbon" = 1)
+	required_reagents = list("acetone" = 1, "dylovene" = 1, "carbon" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/ipecac
 	name = "Ipecac"
 	id = "ipecac"
 	result = "ipecac"
-	required_reagents = list("hydrazine" = 1, "anti_toxin" = 1, "ethanol" = 1)
+	required_reagents = list("hydrazine" = 1, "dylovene" = 1, "ethanol" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/adipemcina
 	name = "Adipemcina"
 	id = "adipemcina"
 	result = "adipemcina"
-	required_reagents = list("lithium" = 1, "anti_toxin" = 1, "potassium" = 1)
+	required_reagents = list("lithium" = 1, "dylovene" = 1, "potassium" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/soporific
@@ -458,7 +458,7 @@
 	name = "Mindbreaker Toxin"
 	id = "mindbreaker"
 	result = "mindbreaker"
-	required_reagents = list("silicon" = 1, "hydrazine" = 1, "anti_toxin" = 1)
+	required_reagents = list("silicon" = 1, "hydrazine" = 1, "dylovene" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/lipozine

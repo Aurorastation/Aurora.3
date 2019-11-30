@@ -139,7 +139,7 @@
 
 /datum/reagent/dylovene
 	name = "Dylovene"
-	id = "anti_toxin"
+	id = "dylovene"
 	description = "Dylovene is a broad-spectrum antitoxin."
 	reagent_state = LIQUID
 	color = "#00A000"

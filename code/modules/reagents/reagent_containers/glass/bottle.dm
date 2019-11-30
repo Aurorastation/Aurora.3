@@ -102,7 +102,7 @@
 	name = "dylovene bottle"
 	desc = "A small bottle of dylovene. Counters poisons, and repairs damage. A wonder drug."
 	icon_state = "bottle-4"
-	reagents_to_add = list("anti_toxin" = 60)
+	reagents_to_add = list("dylovene" = 60)
 
 /obj/item/reagent_containers/glass/bottle/mutagen
 	name = "unstable mutagen bottle"

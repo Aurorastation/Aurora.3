@@ -87,7 +87,7 @@
 	icon_state = "pill17"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 25)
+		reagents.add_reagent("dylovene", 25)
 
 /obj/item/reagent_containers/pill/tox
 	name = "Toxins pill"
@@ -208,7 +208,7 @@
 	icon_state = "pill13"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
+		reagents.add_reagent("dylovene", 15)
 
 /obj/item/reagent_containers/pill/bicaridine
 	name = "Bicaridine pill"

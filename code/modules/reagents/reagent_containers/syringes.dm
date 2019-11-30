@@ -414,7 +414,7 @@
 	desc = "Contains anti-toxins."
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
+		reagents.add_reagent("dylovene", 15)
 		mode = SYRINGE_INJECT
 		update_icon()
 
