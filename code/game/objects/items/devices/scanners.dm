@@ -87,7 +87,7 @@ BREATH ANALYZER
 
 	var/mob/living/carbon/human/H = M
 
-	if(H.isSynthetic())
+	if(H.isSynthetic() && !H.isFBP())
 		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
 		return
 
@@ -131,7 +131,10 @@ BREATH ANALYZER
 					else
 						brain_result = "<span class='scan_danger'>ERROR - Hardware fault</span>"
 			else
-				brain_result = "<span class='scan_danger'>ERROR - Organ not recognized</span>"
+				if(H.isFBP())
+					brain_result = "normal"
+				else
+					brain_result = "<span class='scan_danger'>ERROR - Organ not recognized</span>"
 	else
 		brain_result = "<span class='scan_danger'>ERROR - Non-standard biology</span>"
 	dat += "Brain activity: [brain_result]."
@@ -154,7 +157,10 @@ BREATH ANALYZER
 		else if(H.pulse() > PULSE_NORM)
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
-		pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
+		if(H.isFBP())
+			pulse_result = "[rand(70, 85)]bpm"
+		else 
+			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
 	dat += "Pulse rate: [pulse_result]."
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
@@ -171,7 +177,10 @@ BREATH ANALYZER
 				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
 		dat += "[b]Blood pressure:[endb] [H.get_blood_pressure()] ([oxygenation_string])"
 	else
-		dat += "[b]Blood pressure:[endb] N/A"
+		if(H.isFBP())
+			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
+		else
+			dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
 	dat += "Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)"

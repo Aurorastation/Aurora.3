@@ -16,6 +16,9 @@
 			return 0
 	return 1
 
+/mob/living/carbon/human/proc/isFBP()
+	return species && (species.appearance_flags & HAS_FBP)
+
 /mob/living/bot/isSynthetic()
 	return 1
 
