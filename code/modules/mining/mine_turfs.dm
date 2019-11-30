@@ -391,8 +391,6 @@ var/list/mineral_can_smooth_with = list(
 
 	clear_ore_effects()
 	var/obj/item/ore/O = new mineral.ore (src)
-	if(src.mineral == "diamond")
-		spawndiamond()
 	if(istype(O))
 		geologic_data.UpdateNearbyArtifactInfo(src)
 		O.geologic_data = geologic_data
@@ -426,15 +424,15 @@ var/list/mineral_can_smooth_with = list(
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
+	if(prob(5))
+		findgem()
+
 	//Add some rubble,  you did just clear out a big chunk of rock.
-
 	ChangeTurf(mined_turf)
-
+	
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)
-	else if(prob(5))
-		findgem(loc)
 
 /turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
 	//with skill and luck, players can cleanly extract finds
