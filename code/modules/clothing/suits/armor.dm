@@ -520,6 +520,19 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
+// Vaurca version of Unathi armour
+/obj/item/clothing/suit/armor/unathi/klax
+	name = "klaxan hopeful body armor"
+	desc = "An armored chestplate designated to be worn by a K'lax hopeful, the retrofit is only a bit shoddy."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "klax_hopeful"
+	item_state = "klax_hopeful"
+	contained_sprite = TRUE
+	species_restricted = list("Vaurca")
+	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+
 /obj/item/clothing/suit/armor/tajara
 	name = "amohdan swordsmen armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."

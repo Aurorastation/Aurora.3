@@ -1,0 +1,7 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a Klaxan Kataphract Hopeful to the Kataphract response team."
+  - tweak: "The Kataphracts now start with better and more stylized gear."
