@@ -57,7 +57,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_service
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/produce = 1
+		/obj/item/storage/box/produce = 1
 	)
 
 /datum/job/hydro
@@ -89,10 +89,10 @@
 	l_ear = /obj/item/device/radio/headset/headset_service
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
-	backpack = /obj/item/weapon/storage/backpack/hydroponics
-	satchel = /obj/item/weapon/storage/backpack/satchel_hyd
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/hyd
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/hyd
+	backpack = /obj/item/storage/backpack/hydroponics
+	satchel = /obj/item/storage/backpack/satchel_hyd
+	dufflebag = /obj/item/storage/backpack/duffel/hyd
+	messengerbag = /obj/item/storage/backpack/messenger/hyd
 
 /datum/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -120,7 +120,7 @@
 	minimum_character_age = 22
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 
 	ideal_character_age = 40
 
@@ -133,8 +133,8 @@
 	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/headset_cargo
-	l_hand = /obj/item/weapon/clipboard
+	l_ear = /obj/item/device/radio/headset/qm
+	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 
@@ -152,7 +152,7 @@
 	minimum_character_age = 18
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
+	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
@@ -161,7 +161,7 @@
 
 	uniform = /obj/item/clothing/under/rank/cargotech
 	pda = /obj/item/device/pda/cargo
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 
@@ -190,19 +190,19 @@
 
 	uniform = /obj/item/clothing/under/rank/miner
 	pda = /obj/item/device/pda/shaftminer
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	l_ear = /obj/item/device/radio/headset/headset_mining
 
 	backpack_contents = list(
-		/obj/item/weapon/crowbar = 1,
-		/obj/item/weapon/storage/bag/ore = 1
+		/obj/item/crowbar = 1,
+		/obj/item/storage/bag/ore = 1
 	)
 
-	backpack = /obj/item/weapon/storage/backpack/industrial
-	satchel = /obj/item/weapon/storage/backpack/satchel_eng
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/eng
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/engi
+	backpack = /obj/item/storage/backpack/industrial
+	satchel = /obj/item/storage/backpack/satchel_eng
+	dufflebag = /obj/item/storage/backpack/duffel/eng
+	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 //Not engineers, just the mop boys
 /datum/job/janitor
@@ -216,7 +216,7 @@
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
-	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
+	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
 
 /datum/outfit/job/janitor
@@ -296,5 +296,5 @@
 	pda = /obj/item/device/pda/librarian
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
-	r_pocket = /obj/item/weapon/barcodescanner
-	l_hand = /obj/item/weapon/storage/bag/books
+	r_pocket = /obj/item/barcodescanner
+	l_hand = /obj/item/storage/bag/books

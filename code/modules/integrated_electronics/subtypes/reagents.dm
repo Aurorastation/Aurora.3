@@ -148,7 +148,7 @@
 				var/datum/reagent/B
 				if(istype(T, /mob/living/carbon/human))
 					var/mob/living/carbon/human/H = T
-					if(H.species && !H.has_organ("heart"))
+					if(H.species && !H.has_organ(BP_HEART))
 						H.reagents.trans_to_obj(src, tramount)
 					else
 						B = T.take_blood(src, tramount)

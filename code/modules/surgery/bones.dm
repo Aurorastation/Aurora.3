@@ -5,8 +5,8 @@
 
 /datum/surgery_step/glue_bone
 	allowed_tools = list(
-	/obj/item/weapon/bonegel = 100,	\
-	/obj/item/weapon/tape_roll = 60
+	/obj/item/bonegel = 100,	\
+	/obj/item/tape_roll = 60
 	)
 	can_infect = 1
 	blood_level = 1
@@ -41,8 +41,8 @@
 
 /datum/surgery_step/set_bone
 	allowed_tools = list(
-	/obj/item/weapon/bonesetter = 100,	\
-	/obj/item/weapon/wrench = 75		\
+	/obj/item/bonesetter = 100,	\
+	/obj/item/wrench = 75		\
 	)
 
 	min_duration = 60
@@ -52,7 +52,7 @@
 		if (!hasorgans(target))
 			return 0
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.name != "head" && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
+		return affected && affected.name != BP_HEAD && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -80,8 +80,8 @@
 
 /datum/surgery_step/mend_skull
 	allowed_tools = list(
-	/obj/item/weapon/bonesetter = 100,	\
-	/obj/item/weapon/wrench = 75		\
+	/obj/item/bonesetter = 100,	\
+	/obj/item/wrench = 75		\
 	)
 
 	min_duration = 60
@@ -91,7 +91,7 @@
 		if (!hasorgans(target))
 			return 0
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.name == "head" && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
+		return affected && affected.name == BP_HEAD && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
 
 	begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 		user.visible_message("[user] is beginning to piece together [target]'s skull with \the [tool]."  , \
@@ -114,8 +114,8 @@
 
 /datum/surgery_step/finish_bone
 	allowed_tools = list(
-	/obj/item/weapon/bonegel = 100,	\
-	/obj/item/weapon/tape_roll = 60
+	/obj/item/bonegel = 100,	\
+	/obj/item/tape_roll = 60
 	)
 	can_infect = 1
 	blood_level = 1

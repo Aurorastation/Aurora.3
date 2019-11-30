@@ -12,7 +12,7 @@
 /turf/simulated/wall/shuttle/dark,
 /area/mine/unexplored)
 "e" = (
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/simulated/floor,
 /area/mine/unexplored)
 "f" = (

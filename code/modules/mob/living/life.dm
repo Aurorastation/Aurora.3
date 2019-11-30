@@ -42,7 +42,7 @@
 
 	update_pulling()
 
-	for(var/obj/item/weapon/grab/G in src)
+	for(var/obj/item/grab/G in src)
 		G.process()
 
 	blinded = 0 // Placing this here just show how out of place it is.
@@ -183,6 +183,9 @@
 		if (!stop_sight_update) //If true, it won't reset the mob vision flags to the initial ones
 			see_in_dark = initial(see_in_dark)
 			see_invisible = initial(see_invisible)
+		var/list/vision = get_accumulated_vision_handlers()
+		sight|= vision[1]
+		see_invisible = (max(vision[2], see_invisible))
 
 /mob/living/proc/update_dead_sight()
 	sight |= SEE_TURFS

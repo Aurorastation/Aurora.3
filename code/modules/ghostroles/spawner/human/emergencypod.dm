@@ -76,20 +76,20 @@
 /datum/outfit/admin/pod
 	head = /obj/item/clothing/head/helmet/space/emergency
 	mask = /obj/item/clothing/mask/breath
-	id = /obj/item/weapon/card/id
+	id = /obj/item/card/id
 	suit = /obj/item/clothing/suit/space/emergency
-	suit_store = /obj/item/weapon/tank/emergency_oxygen/double
+	suit_store = /obj/item/tank/emergency_oxygen/double
 	l_ear = /obj/item/device/radio/headset
-	back = /obj/item/weapon/storage/backpack
+	back = /obj/item/storage/backpack
 
 /datum/outfit/admin/pod/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	//Turn on the oxygen tank
 	H.internal = H.s_store
-	if(istype(H.internal,/obj/item/weapon/tank) && H.internals)
+	if(istype(H.internal,/obj/item/tank) && H.internals)
 		H.internals.icon_state = "internal1"
 	//Spawn a drill
-	new /obj/item/weapon/pickaxe/drill(H.loc)
+	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
 
 /datum/outfit/admin/pod/star
@@ -99,9 +99,9 @@
 	shoes = "flats selection"
 
 	backpack_contents = list(
-		/obj/item/weapon/lipstick/random = 2,
-		/obj/item/weapon/haircomb/random = 1,
-		/obj/item/weapon/spacecash/c1000 = 2,
+		/obj/item/lipstick/random = 2,
+		/obj/item/haircomb/random = 1,
+		/obj/item/spacecash/c1000 = 2,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -121,7 +121,7 @@
 	pda = /obj/item/device/pda/chaplain
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/bible/fluff/oscar_bible = 1,
+		/obj/item/storage/bible/fluff/oscar_bible = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -137,15 +137,15 @@
 	name = "RescuePod - IdrisRep"
 
 	uniform = /obj/item/clothing/under/rank/idris
-	id = /obj/item/weapon/card/id/idris
+	id = /obj/item/card/id/idris
 	pda = /obj/item/device/pda/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	l_hand =  /obj/item/weapon/storage/briefcase
+	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/clothing/head/beret/liaison = 1,
 		/obj/item/device/camera = 1,
-		/obj/item/weapon/gun/energy/pistol = 1,
+		/obj/item/gun/energy/pistol = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -164,10 +164,10 @@
 	uniform = "pants selection"
 
 	backpack_contents = list(
-		/obj/item/weapon/reagent_containers/inhaler/space_drugs = 3,
-		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 2,
-		/obj/item/weapon/reagent_containers/inhaler/soporific = 1,
-		/obj/item/weapon/gun/projectile/leyon = 1,
+		/obj/item/reagent_containers/inhaler/space_drugs = 3,
+		/obj/item/reagent_containers/inhaler/hyperzine = 2,
+		/obj/item/reagent_containers/inhaler/soporific = 1,
+		/obj/item/gun/projectile/leyon = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -184,11 +184,11 @@
 	head = null
 	suit = null
 	suit_store = null // the rig has an inbuilt tank
-	l_hand = /obj/item/weapon/material/twohanded/spear/plasteel
+	l_hand = /obj/item/material/twohanded/spear/plasteel
 	shoes = /obj/item/clothing/shoes/jackboots
-	id = /obj/item/weapon/card/id
+	id = /obj/item/card/id
 	uniform = "pants selection"
-	back = /obj/item/weapon/rig/gunslinger
+	back = /obj/item/rig/gunslinger
 
 /datum/outfit/admin/pod/hunter/get_id_assignment()
 	return "Visitor"
@@ -199,13 +199,13 @@
 
 /datum/outfit/admin/pod/occultist
 	name = "RescuePod - Occultist"
-	id = /obj/item/weapon/card/id
+	id = /obj/item/card/id
 	shoes = /obj/item/clothing/shoes/laceup
 	uniform = "suit selection"
 	backpack_contents = list(
 		/obj/item/clothing/head/fake_culthood = 1,
 		/obj/item/clothing/suit/fake_cultrobes = 1,
-		/obj/item/weapon/deck/tarot = 1,
+		/obj/item/deck/tarot = 1,
 		/obj/item/device/oxycandle = 1,
 		/obj/item/airbubble = 1
 	)
@@ -221,11 +221,11 @@
 	name = "RescuePod - EPMC Sergeant"
 	head = /obj/item/clothing/head/helmet/space/void/cruiser
 	suit = /obj/item/clothing/suit/space/void/cruiser
-	suit_store = /obj/item/weapon/tank/oxygen
+	suit_store = /obj/item/tank/oxygen
 	shoes = /obj/item/clothing/shoes/jackboots
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 	pda = /obj/item/device/pda/security
-	belt = /obj/item/weapon/gun/energy/gun/nuclear
+	belt = /obj/item/gun/energy/gun/nuclear
 	uniform = /obj/item/clothing/under/rank/security/eridani
 
 /datum/outfit/admin/pod/pmc/get_id_assignment()

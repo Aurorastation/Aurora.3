@@ -17,9 +17,9 @@
 	var/global/list/acceptable_reagents // List of the reagents you can put in
 	var/global/max_n_of_items = 20
 	var/list/acceptable_containers = list(
-		/obj/item/weapon/reagent_containers/glass,
-		/obj/item/weapon/reagent_containers/food/drinks,
-		/obj/item/weapon/reagent_containers/food/condiment
+		/obj/item/reagent_containers/glass,
+		/obj/item/reagent_containers/food/drinks,
+		/obj/item/reagent_containers/food/condiment
 	)
 	var/appliancetype = MICROWAVE
 	var/datum/looping_sound/microwave/soundloop
@@ -32,10 +32,10 @@
 	var/failed = FALSE // pretty much exclusively for sending the fail state across to the UI, using recipe elsewhere is preferred
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/microwave = 1,
-			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/micro_laser = 1,
-			/obj/item/weapon/stock_parts/matter_bin = 2
+			/obj/item/circuitboard/microwave = 1,
+			/obj/item/stock_parts/capacitor = 3,
+			/obj/item/stock_parts/micro_laser = 1,
+			/obj/item/stock_parts/matter_bin = 2
 		)
 
 	var/cook_time = 400
@@ -87,8 +87,8 @@
 		// This will do until I can think of a fun recipe to use dionaea in -
 		// will also allow anything using the holder item to be microwaved into
 		// impure carbon. ~Z
-		acceptable_items[/obj/item/weapon/holder] = TRUE
-		acceptable_items[/obj/item/weapon/reagent_containers/food/snacks/grown] = TRUE
+		acceptable_items[/obj/item/holder] = TRUE
+		acceptable_items[/obj/item/reagent_containers/food/snacks/grown] = TRUE
 
 /*******************
 *   Item Adding
@@ -132,7 +132,7 @@
 			to_chat(user, "<span class='warning'>It's broken!</span>")
 			return 1
 	else if(dirty >= 100) // The microwave is all dirty so can't be used!
-		if(istype(O, /obj/item/weapon/reagent_containers/spray/cleaner) || istype(O, /obj/item/weapon/soap) || istype(O, /obj/item/weapon/reagent_containers/glass/rag)) // If they're trying to clean it then let them
+		if(istype(O, /obj/item/reagent_containers/spray/cleaner) || istype(O, /obj/item/soap) || istype(O, /obj/item/reagent_containers/glass/rag)) // If they're trying to clean it then let them
 			user.visible_message( \
 				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
 				"<span class='notice'>You start to clean the microwave.</span>" \
@@ -157,8 +157,8 @@
 				to_chat(user, "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>")
 				return 1
 		return // Note to the future: reagents are added after this in the container's afterattack().
-	else if(istype(O,/obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = O
+	else if(istype(O,/obj/item/grab))
+		var/obj/item/grab/G = O
 		to_chat(user, "<span class='warning'>This is ridiculous. You can not fit \the [G.affecting] in this [src].</span>")
 		return 1
 	else if(O.isscrewdriver())
@@ -281,6 +281,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 ************************************/
 
 /obj/machinery/microwave/proc/cook()
+	cook_break = FALSE
+	cook_dirty = FALSE
+
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -340,10 +343,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	//Any leftover reagents are divided amongst the foods
 	var/total = reagents.total_volume
-	for (var/obj/item/weapon/reagent_containers/food/snacks/S in cooked_items)
+	for (var/obj/item/reagent_containers/food/snacks/S in cooked_items)
 		reagents.trans_to_holder(S.reagents, total/cooked_items.len)
 
-	for (var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
+	for (var/obj/item/reagent_containers/food/snacks/S in contents)
 		S.cook()
 
 	eject(0) //clear out anything left
@@ -372,8 +375,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 /obj/machinery/microwave/proc/has_extra_item()
 	for (var/obj/O in contents)
 		if ( \
-				!istype(O,/obj/item/weapon/reagent_containers/food) && \
-				!istype(O, /obj/item/weapon/grown) \
+				!istype(O,/obj/item/reagent_containers/food) && \
+				!istype(O, /obj/item/grown) \
 			)
 			return TRUE
 	return FALSE
@@ -426,7 +429,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/microwave/proc/fail()
-	var/obj/item/weapon/reagent_containers/food/snacks/badrecipe/ffuu = new(src)
+	var/obj/item/reagent_containers/food/snacks/badrecipe/ffuu = new(src)
 	var/amount = 0
 	for (var/obj/O in contents-ffuu)
 		amount++
@@ -490,8 +493,8 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	return
 
 /obj/machinery/microwave/proc/eject_reagent(datum/reagent/R, mob/user)
-	if(istype(user.l_hand, /obj/item/weapon/reagent_containers) || istype(user.r_hand, /obj/item/weapon/reagent_containers))
-		var/obj/item/weapon/reagent_containers/RC = user.l_hand || user.r_hand
+	if(istype(user.l_hand, /obj/item/reagent_containers) || istype(user.r_hand, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/RC = user.l_hand || user.r_hand
 		var/free_space = RC.reagents.get_free_space()
 		if(free_space > R.volume)
 			to_chat(user, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
@@ -539,7 +542,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	var/cap_rating = 0 // 3
 	var/las_rating = 0 // 1
 
-	for (var/obj/item/weapon/stock_parts/P in component_parts)
+	for (var/obj/item/stock_parts/P in component_parts)
 		if(ismatterbin(P))
 			bin_rating += (P.rating - 1)
 		else if(iscapacitor(P))

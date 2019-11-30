@@ -692,7 +692,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "cd" = (
-/obj/item/weapon/resonator/upgraded,
+/obj/item/resonator/upgraded,
 /turf/simulated/floor/bluegrid{
 	desc = "A creepy intertwined mess of circuits, wires and pipes overlapping eachother. It seems to quiver and pulsate slowly.";
 	name = "circuit growth"
@@ -728,8 +728,8 @@
 /area/derelict/ship)
 "cj" = (
 /obj/structure/table/standard,
-/obj/item/weapon/autopsy_scanner,
-/obj/item/weapon/scalpel,
+/obj/item/autopsy_scanner,
+/obj/item/scalpel,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "ck" = (
@@ -862,7 +862,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -1050,7 +1050,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/structure/bed/padded,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -1120,7 +1120,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "dk" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -1196,7 +1196,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -1236,7 +1236,7 @@
 /obj/item/clothing/suit/apron/surgery,
 /obj/item/clothing/head/surgery,
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/hypospray/combat,
+/obj/item/reagent_containers/hypospray/combat,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "dy" = (
@@ -1325,7 +1325,7 @@
 /area/derelict/ship)
 "dK" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/banhammer,
+/obj/item/banhammer,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dL" = (
@@ -1349,7 +1349,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dP" = (
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1502,17 +1501,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ep" = (
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
+/obj/item/mecha_equipment/clamp,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eq" = (
-/obj/item/mecha_parts/chassis/gygax,
+/obj/item/mech_component/chassis/combat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "er" = (
-/obj/item/mecha_parts/part/gygax_armour,
+/obj/item/robot_parts/robot_component/armour/combat,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1538,7 +1536,7 @@
 	dir = 9
 	},
 /obj/machinery/mech_recharger,
-/obj/mecha/medical/odysseus,
+/mob/living/heavy_vehicle/premade/light,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "ew" = (
@@ -1656,7 +1654,7 @@
 /area/derelict/ship)
 "eL" = (
 /obj/structure/table/rack,
-/obj/item/weapon/plastique,
+/obj/item/plastique,
 /turf/simulated/floor/bluegrid{
 	desc = "A creepy intertwined mess of circuits, wires and pipes overlapping eachother. It seems to quiver and pulsate slowly.";
 	name = "circuit growth"
@@ -1724,7 +1722,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eT" = (
-/obj/effect/decal/mecha_wreckage/gygax/dark,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eU" = (
@@ -1733,7 +1730,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eV" = (
-/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
+/obj/item/mecha_equipment/mounted_system/rcd,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1765,17 +1762,17 @@
 /turf/simulated/floor/bluegrid,
 /area/derelict/ship)
 "fb" = (
-/obj/item/weapon/spike,
+/obj/item/spike,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/bluegrid,
 /area/derelict/ship)
 "fc" = (
-/obj/item/mecha_parts/part/gygax_torso,
+/obj/item/mech_component/chassis/combat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fd" = (
-/obj/item/mecha_parts/part/gygax_right_arm,
+/obj/item/mech_component/sensors/combat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fe" = (
@@ -1834,8 +1831,8 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/storage/backpack/satchel_med,
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/backpack/satchel_med,
+/obj/item/storage/toolbox/syndicate,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -1848,8 +1845,8 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/item/weapon/storage/firstaid/adv,
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1859,8 +1856,8 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/storage/firstaid/adv,
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1870,8 +1867,8 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/storage/firstaid/combat,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1885,24 +1882,22 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "fp" = (
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
+/obj/item/mecha_equipment/mounted_system/taser,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/mecha_wreckage/marauder,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fr" = (
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_tracking,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fs" = (
@@ -1935,14 +1930,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "fw" = (
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fx" = (
-/obj/item/mecha_parts/mecha_tracking,
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_tracking,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1994,7 +1987,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fI" = (
-/obj/item/weapon/spike,
+/obj/item/spike,
 /turf/simulated/floor/bluegrid,
 /area/derelict/ship)
 "fJ" = (
@@ -2063,7 +2056,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fV" = (
-/obj/item/weapon/spike,
+/obj/item/spike,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fW" = (
@@ -2143,8 +2136,8 @@
 /area/derelict/ship)
 "gk" = (
 /obj/structure/closet/secure_closet/freezer/kitchen,
-/obj/item/weapon/storage/box/crabmeat,
-/obj/item/weapon/storage/box/clams,
+/obj/item/storage/box/crabmeat,
+/obj/item/storage/box/clams,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "gl" = (
@@ -2241,13 +2234,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "gD" = (
-/obj/item/weapon/rfd/construction,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
+/obj/item/rfd/construction,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -2429,7 +2422,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "hh" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "hi" = (
@@ -2687,7 +2680,7 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "hT" = (
-/obj/item/weapon/spike,
+/obj/item/spike,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2776,17 +2769,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ih" = (
-/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ii" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ij" = (
-/obj/effect/decal/mecha_wreckage/seraph,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2838,7 +2830,7 @@
 /area/derelict/ship)
 "is" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/rig/elyran,
+/obj/item/rig/elyran,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2862,7 +2854,7 @@
 "iw" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large/hyperzine,
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ix" = (
@@ -2870,9 +2862,9 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/storage/box/masks,
+/obj/item/storage/box/masks,
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/hypospray/combat,
+/obj/item/reagent_containers/hypospray/combat,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "iy" = (
@@ -2993,12 +2985,12 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "iQ" = (
-/obj/item/weapon/shield/riot,
+/obj/item/shield/riot,
 /obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/shoes/leg_guard/riot,
 /obj/item/clothing/suit/armor/riot,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3012,7 +3004,7 @@
 /area/derelict/ship)
 "iR" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/mecha/working/ripley,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "iS" = (
@@ -3051,12 +3043,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "iY" = (
-/obj/item/weapon/shield/riot,
+/obj/item/shield/riot,
 /obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/shoes/leg_guard/riot,
 /obj/item/clothing/suit/armor/riot,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -3135,7 +3127,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/head/welding,
-/obj/item/weapon/weldingtool,
+/obj/item/weldingtool,
 /turf/simulated/floor,
 /area/derelict/ship)
 "jm" = (
@@ -3150,12 +3142,12 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "jo" = (
-/obj/item/weapon/shield/riot,
+/obj/item/shield/riot,
 /obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/shoes/leg_guard/riot,
 /obj/item/clothing/suit/armor/riot,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -3182,7 +3174,7 @@
 /area/derelict/ship)
 "jt" = (
 /obj/structure/table/rack,
-/obj/item/weapon/weldpack,
+/obj/item/weldpack,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ju" = (
@@ -3251,7 +3243,6 @@
 /area/derelict/ship)
 "jF" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/effect/decal/mecha_wreckage/seraph,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "jG" = (
@@ -3291,8 +3282,8 @@
 /obj/machinery/door/blast/shutters/open,
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "jL" = (
@@ -3339,7 +3330,6 @@
 /area/derelict/ship)
 "jR" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/effect/decal/mecha_wreckage/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "jS" = (
@@ -3387,7 +3377,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kb" = (
-/obj/item/weapon/pipewrench,
+/obj/item/pipewrench,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3398,7 +3388,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kd" = (
-/obj/item/weapon/caution,
+/obj/item/caution,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ke" = (
@@ -3553,7 +3543,7 @@
 /area/derelict/ship)
 "kF" = (
 /obj/structure/window/reinforced,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/derelict/ship)
 "kG" = (
@@ -3574,7 +3564,7 @@
 	},
 /area/derelict/ship)
 "kJ" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor,
 /area/derelict/ship)
 "kK" = (
@@ -3754,7 +3744,7 @@
 /area/derelict/ship)
 "lj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/spike,
+/obj/item/spike,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -3767,7 +3757,7 @@
 "ll" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/spike,
+/obj/item/spike,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -3811,13 +3801,12 @@
 /area/derelict/ship)
 "ls" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/mecha_wreckage/seraph,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "lt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -4003,7 +3992,7 @@
 	},
 /area/derelict/ship)
 "lX" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4023,7 +4012,7 @@
 	},
 /area/derelict/ship)
 "ma" = (
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4114,7 +4103,7 @@
 	},
 /area/derelict/ship)
 "mk" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -4162,7 +4151,7 @@
 	},
 /area/derelict/ship)
 "mr" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
@@ -4181,7 +4170,7 @@
 "mt" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/d762,
-/obj/item/weapon/gun/projectile/dragunov,
+/obj/item/gun/projectile/dragunov,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4437,13 +4426,13 @@
 /area/derelict/ship)
 "nk" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "nl" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "nm" = (
@@ -4452,7 +4441,7 @@
 /area/derelict/ship)
 "nn" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "no" = (
@@ -4476,12 +4465,12 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "nr" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "ns" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "nt" = (
@@ -4524,7 +4513,7 @@
 "nz" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -4548,7 +4537,7 @@
 "nD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "nE" = (
@@ -4558,7 +4547,7 @@
 "nG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor,
 /area/derelict/ship)
 "nH" = (
@@ -4566,12 +4555,12 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "nI" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "nJ" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -4815,17 +4804,17 @@
 /area/derelict/ship)
 "oy" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/syndie_kit/space,
+/obj/item/storage/box/syndie_kit/space,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "oz" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "oA" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/smokebombs,
+/obj/item/storage/box/smokebombs,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4833,7 +4822,7 @@
 /area/derelict/ship)
 "oB" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4847,17 +4836,17 @@
 /area/derelict/ship)
 "oD" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/toolbox/lunchbox/heart,
+/obj/item/storage/toolbox/lunchbox/heart,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "oE" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid,
+/obj/item/storage/firstaid,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "oF" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
@@ -4892,7 +4881,7 @@
 /area/derelict/ship)
 "oM" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
@@ -4908,7 +4897,7 @@
 /area/derelict/ship)
 "oP" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/pill_bottle/rmt,
+/obj/item/storage/pill_bottle/rmt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
@@ -4958,7 +4947,7 @@
 /area/derelict/ship)
 "oW" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/flashshells,
+/obj/item/storage/box/flashshells,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4966,7 +4955,7 @@
 /area/derelict/ship)
 "oX" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4981,22 +4970,22 @@
 "oZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/kitchen,
+/obj/item/storage/box/kitchen,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "pa" = (
-/obj/item/weapon/toolbox_tiles_sensor,
+/obj/item/toolbox_tiles_sensor,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "pb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/matches,
+/obj/item/storage/box/matches,
 /turf/simulated/floor/lino,
 /area/derelict/ship)
 "pc" = (
 /obj/structure/closet/wardrobe/tactical,
-/obj/item/weapon/storage/box/emps,
+/obj/item/storage/box/emps,
 /turf/simulated/floor/bluegrid{
 	desc = "A creepy intertwined mess of circuits, wires and pipes overlapping eachother. It seems to quiver and pulsate slowly.";
 	name = "circuit growth"
@@ -5009,7 +4998,7 @@
 /area/derelict/ship)
 "pe" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -5067,7 +5056,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/item/weapon/reagent_containers/food/drinks/cans/space_mountain_wind,
+/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "pn" = (
@@ -5077,7 +5066,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/item/weapon/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "po" = (
@@ -5102,7 +5091,7 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/food/snacks/spacetwinkie,
+/obj/item/reagent_containers/food/snacks/spacetwinkie,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ps" = (
@@ -5266,7 +5255,7 @@
 /area/derelict/ship)
 "pR" = (
 /obj/structure/table/standard,
-/obj/item/weapon/fossil/shell,
+/obj/item/fossil/shell,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -5384,7 +5373,7 @@
 /area/derelict/ship)
 "qk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "ql" = (
@@ -5458,7 +5447,7 @@
 /area/derelict/ship)
 "qB" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor,
 /area/derelict/ship)
 "qC" = (
@@ -5534,14 +5523,14 @@
 /area/derelict/ship)
 "qO" = (
 /obj/structure/table/wood,
-/obj/item/weapon/material/sword/sabre,
-/obj/item/weapon/reagent_containers/syringe/drugs,
+/obj/item/material/sword/sabre,
+/obj/item/reagent_containers/syringe/drugs,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "qP" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/toothpaste,
-/obj/item/weapon/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "qQ" = (
@@ -5551,7 +5540,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "qR" = (
-/obj/item/weapon/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -5620,12 +5609,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "re" = (
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "rf" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/plastique,
+/obj/item/plastique,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "rg" = (
@@ -5654,12 +5643,12 @@
 /area/mine/unexplored)
 "rl" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/item/weapon/ore/phoron,
+/obj/item/ore/phoron,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "rm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/ore/strangerock,
+/obj/item/ore/strangerock,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
 "rn" = (
@@ -5757,7 +5746,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/obj/item/weapon/melee/chainofcommand,
+/obj/item/melee/chainofcommand,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "rB" = (
@@ -5785,8 +5774,8 @@
 "rF" = (
 /obj/structure/table/wood,
 /obj/item/device/binoculars,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "rG" = (
@@ -5821,7 +5810,7 @@
 "rL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/storage/box/chess_kit,
+/obj/item/storage/box/chess_kit,
 /obj/structure/table/wood,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -5849,14 +5838,14 @@
 "rP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "rQ" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "rR" = (
@@ -5890,7 +5879,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "rX" = (
-/obj/item/weapon/ore/phoron,
+/obj/item/ore/phoron,
 /turf/simulated/floor,
 /area/mine/unexplored)
 "rY" = (
@@ -6347,7 +6336,7 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/tech_supply,
-/obj/item/weapon/storage/briefcase/inflatable,
+/obj/item/storage/briefcase/inflatable,
 /obj/item/stack/material/steel{
 	amount = 50
 	},
@@ -6361,7 +6350,7 @@
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/tech_supply,
-/obj/item/weapon/storage/briefcase/inflatable,
+/obj/item/storage/briefcase/inflatable,
 /obj/item/stack/material/steel{
 	amount = 50
 	},
@@ -6392,7 +6381,6 @@
 	},
 /area/derelict)
 "tj" = (
-/obj/effect/decal/mecha_wreckage/hoverpod,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
@@ -6461,13 +6449,13 @@
 /area/derelict)
 "ts" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/cartridge/syndicate,
+/obj/item/cartridge/syndicate,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict)
 "tt" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/storage/card,
+/obj/item/storage/card,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -6477,7 +6465,7 @@
 /area/derelict)
 "tv" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/hos,
+/obj/item/bedsheet/hos,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
@@ -6511,7 +6499,6 @@
 	},
 /area/derelict)
 "tA" = (
-/obj/effect/decal/mecha_wreckage/mauler,
 /obj/machinery/mech_recharger,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
@@ -6570,7 +6557,7 @@
 /area/derelict)
 "tI" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -6578,7 +6565,7 @@
 /area/derelict)
 "tJ" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -6606,7 +6593,7 @@
 /area/derelict)
 "tN" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	dir = 8
@@ -6676,11 +6663,11 @@
 /area/derelict)
 "tW" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/weapon/pen{
+/obj/item/pen{
 	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6691,7 +6678,7 @@
 "tX" = (
 /obj/structure/table/reinforced,
 /obj/item/device/healthanalyzer,
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -6714,7 +6701,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/weapon/storage/fancy/cigarettes = 10, /obj/item/weapon/storage/box/matches = 10, /obj/item/weapon/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino,
@@ -6961,7 +6948,7 @@
 	},
 /area/derelict)
 "uH" = (
-/obj/item/weapon/soap/syndie,
+/obj/item/soap/syndie,
 /obj/machinery/shower{
 	pixel_y = 32
 	},
@@ -6981,7 +6968,7 @@
 /obj/machinery/shower{
 	pixel_y = 32
 	},
-/obj/item/weapon/soap/syndie,
+/obj/item/soap/syndie,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -7019,7 +7006,7 @@
 /turf/simulated/floor/wood,
 /area/derelict)
 "uN" = (
-/obj/item/weapon/ore/slag,
+/obj/item/ore/slag,
 /turf/simulated/floor,
 /area/mine/unexplored)
 "uO" = (
@@ -7058,7 +7045,7 @@
 /area/derelict)
 "uT" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -7099,7 +7086,7 @@
 /turf/simulated/floor/lino,
 /area/derelict)
 "uZ" = (
-/obj/item/weapon/card/emag_broken,
+/obj/item/card/emag_broken,
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -7205,7 +7192,7 @@
 	},
 /area/derelict)
 "vo" = (
-/obj/item/weapon/caution,
+/obj/item/caution,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
@@ -7255,7 +7242,7 @@
 /area/mine/unexplored)
 "vu" = (
 /obj/structure/table/rack,
-/obj/item/weapon/shield/energy,
+/obj/item/shield/energy,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -7275,7 +7262,7 @@
 "vx" = (
 /obj/structure/mopbucket,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -7330,7 +7317,7 @@
 	},
 /area/derelict)
 "vD" = (
-/obj/item/weapon/folder{
+/obj/item/folder{
 	pixel_y = 2
 	},
 /obj/structure/table/glass,
@@ -7340,11 +7327,11 @@
 	},
 /area/derelict)
 "vE" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/weapon/pen{
+/obj/item/pen{
 	pixel_y = 4
 	},
 /obj/structure/table/glass,
@@ -7580,11 +7567,11 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/drinkingglasses{
+/obj/item/storage/box/drinkingglasses{
 	pixel_x = 1;
 	pixel_y = 4
 	},
-/obj/item/weapon/material/kitchen/rollingpin,
+/obj/item/material/kitchen/rollingpin,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -7622,11 +7609,11 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka{
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
 	pixel_x = 3;
 	pixel_y = 12
 	},
-/obj/item/weapon/reagent_containers/food/snacks/berrymuffin,
+/obj/item/reagent_containers/food/snacks/berrymuffin,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -7649,7 +7636,7 @@
 /area/derelict)
 "wi" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/tray{
+/obj/item/tray{
 	pixel_y = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7684,7 +7671,7 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/storage/box/donkpockets{
+/obj/item/storage/box/donkpockets{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -7721,7 +7708,7 @@
 "wp" = (
 /obj/structure/table/rack,
 /obj/random/glowstick,
-/obj/item/weapon/shield/energy,
+/obj/item/shield/energy,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
@@ -7939,7 +7926,7 @@
 /obj/structure/closet/syndicate/suit{
 	name = "suit closet"
 	},
-/obj/item/weapon/plastique,
+/obj/item/plastique,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
@@ -8268,7 +8255,7 @@
 /area/derelict)
 "xS" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/phone,
+/obj/item/phone,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict)
@@ -8514,7 +8501,7 @@
 /area/derelict)
 "yA" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/spacecash/c1000,
+/obj/item/spacecash/c1000,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -8538,7 +8525,7 @@
 /area/derelict)
 "yD" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/spacecash/c1000,
+/obj/item/spacecash/c1000,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -8579,7 +8566,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "yL" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "yM" = (
@@ -8907,7 +8894,7 @@
 /area/derelict/bridge)
 "zP" = (
 /obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/bed,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
@@ -8924,11 +8911,11 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/gun/energy/blaster,
-/obj/item/weapon/card/id/distress/legion,
-/obj/item/weapon/shield/energy/legion,
-/obj/item/weapon/melee/whip,
-/obj/item/weapon/melee/telebaton,
+/obj/item/gun/energy/blaster,
+/obj/item/card/id/distress/legion,
+/obj/item/shield/energy/legion,
+/obj/item/melee/whip,
+/obj/item/melee/telebaton,
 /obj/effect/floor_decal/carpet{
 	icon_state = "carpet_edges";
 	dir = 1
@@ -8944,9 +8931,9 @@
 /obj/item/clothing/suit/captunic,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/gloves/combat,
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/storage/fancy/cigarettes,
-/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/carpet,
 /area/derelict/bridge)
 "zR" = (
@@ -9197,7 +9184,7 @@
 "Ax" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/carpet,
-/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/carpet,
 /area/derelict/bridge)
 "Ay" = (
@@ -9238,7 +9225,7 @@
 /area/derelict/bridge)
 "AD" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/bridge)
 "AE" = (
@@ -9355,19 +9342,19 @@
 /area/derelict/bridge)
 "AU" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/item/clothing/mask/smokable/cigarette,
 /turf/simulated/floor/wood,
 /area/derelict/bridge)
 "AV" = (
 /obj/structure/table/wood,
-/obj/item/weapon/phone,
+/obj/item/phone,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/wood,
 /area/derelict/bridge)
 "AW" = (
@@ -9405,7 +9392,7 @@
 "Ba" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/wood,
 /area/derelict/bridge)
 "Bb" = (
@@ -9452,7 +9439,7 @@
 /area/derelict/bridge)
 "Bg" = (
 /obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/bed,
 /obj/machinery/light{
 	dir = 1
@@ -9634,8 +9621,8 @@
 /area/derelict/bridge)
 "BD" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/derelict/bridge)
@@ -9911,7 +9898,7 @@
 "Cx" = (
 /obj/structure/table/steel,
 /obj/structure/noose,
-/obj/item/weapon/storage/photo_album,
+/obj/item/storage/photo_album,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
 "Cy" = (
@@ -9922,7 +9909,7 @@
 /area/derelict/arrival)
 "Cz" = (
 /obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/bed,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
@@ -10026,7 +10013,7 @@
 	pixel_y = 0
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/device/firing_pin/dna,
@@ -10045,9 +10032,9 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/gun/energy/blaster,
-/obj/item/weapon/card/id/distress/legion,
-/obj/item/weapon/shield/energy/legion,
+/obj/item/gun/energy/blaster,
+/obj/item/card/id/distress/legion,
+/obj/item/shield/energy/legion,
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
@@ -10278,7 +10265,7 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/banhammer,
+/obj/item/banhammer,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
 "DC" = (
@@ -10337,7 +10324,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /obj/item/device/handheld_medical,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
@@ -10403,7 +10390,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "DQ" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
@@ -10434,7 +10421,7 @@
 /area/derelict/arrival)
 "DT" = (
 /obj/structure/table/steel,
-/obj/item/weapon/storage/toolbox/lunchbox/heart,
+/obj/item/storage/toolbox/lunchbox/heart,
 /obj/item/poppet,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
@@ -10453,7 +10440,7 @@
 "DV" = (
 /obj/structure/table/standard,
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 10
@@ -10463,7 +10450,7 @@
 /area/derelict/arrival)
 "DW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 6
@@ -10508,7 +10495,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "Ea" = (
@@ -10609,13 +10596,12 @@
 /area/derelict/arrival)
 "Ep" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/effect/decal/mecha_wreckage/ripley,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "Eq" = (
 /obj/structure/table/steel,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
 "Er" = (
@@ -10700,7 +10686,7 @@
 /area/derelict/arrival)
 "EB" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 6
@@ -10775,7 +10761,7 @@
 /area/derelict/arrival)
 "EL" = (
 /obj/structure/bed/padded,
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 6
@@ -10806,7 +10792,7 @@
 /area/derelict/arrival)
 "EQ" = (
 /obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/bed,
 /obj/item/clothing/accessory/legion/specialist,
 /turf/simulated/floor/carpet,
@@ -10827,7 +10813,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "ET" = (
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -10837,7 +10823,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "EU" = (
-/obj/item/weapon/storage/box/masks,
+/obj/item/storage/box/masks,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -10875,7 +10861,6 @@
 /turf/simulated/wall/r_wall,
 /area/derelict/arrival)
 "EZ" = (
-/obj/effect/decal/mecha_wreckage/odysseus,
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
@@ -10907,7 +10892,7 @@
 /area/derelict/arrival)
 "Fe" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/backpack/satchel_med,
+/obj/item/storage/backpack/satchel_med,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
@@ -11005,7 +10990,7 @@
 	pixel_y = 0
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/under/legion,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
@@ -11120,7 +11105,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "FF" = (
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/latex,
 /obj/effect/floor_decal/corner/green{
@@ -11151,7 +11136,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "FH" = (
-/obj/item/weapon/storage/firstaid/surgery,
+/obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /obj/item/clothing/gloves/latex,
 /obj/effect/floor_decal/corner/green{
@@ -11261,7 +11246,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "FX" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -11461,7 +11446,7 @@
 /area/derelict/arrival)
 "GD" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/working/ripley/combat,
+/mob/living/heavy_vehicle/premade/ripley,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -11469,7 +11454,6 @@
 "GE" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -11503,7 +11487,7 @@
 	pixel_y = 0
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/under/legion,
 /obj/item/clothing/accessory/legion/specialist,
 /obj/item/clothing/head/legion_beret,
@@ -11511,7 +11495,7 @@
 /area/derelict/arrival)
 "GL" = (
 /obj/structure/table/steel,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/carpet,
 /area/derelict/arrival)
 "GM" = (
@@ -11647,7 +11631,6 @@
 "Hk" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/obj/item/mecha_parts/mecha_equipment/teleporter,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Hl" = (
@@ -11675,14 +11658,12 @@
 "Hp" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
-/obj/item/mecha_parts/mecha_tracking,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Hq" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Hr" = (
@@ -11718,7 +11699,7 @@
 "Hx" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/weapon/rfd/service,
+/obj/item/rfd/service,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "Hy" = (
@@ -11746,7 +11727,7 @@
 "HB" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
-/obj/item/weapon/rig/retro/equipped,
+/obj/item/rig/retro/equipped,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
 "HC" = (
@@ -11756,8 +11737,8 @@
 "HD" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "HE" = (
@@ -11767,7 +11748,7 @@
 "HF" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "HG" = (
@@ -11986,8 +11967,8 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/device/flashlight/flare,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
@@ -12001,7 +11982,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/random/toolbox,
 /obj/item/device/flashlight/flare,
 /turf/simulated/floor/tiled/dark,
@@ -12021,7 +12002,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/device/flashlight/flare,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
@@ -12129,7 +12110,7 @@
 /area/derelict/arrival)
 "II" = (
 /obj/structure/table/glass,
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "IJ" = (
@@ -12270,7 +12251,7 @@
 /area/derelict/arrival)
 "Jc" = (
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Jd" = (
@@ -12319,7 +12300,7 @@
 /area/derelict/arrival)
 "Jk" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/arrival)
@@ -12333,7 +12314,7 @@
 /area/derelict/arrival)
 "Jn" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -12400,7 +12381,7 @@
 /area/derelict/storage/engine_storage)
 "Jz" = (
 /obj/structure/mopbucket,
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/lino,
 /area/derelict/arrival)
 "JA" = (
@@ -12428,7 +12409,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/arrival)
 "JE" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -12439,7 +12420,7 @@
 	dir = 4
 	},
 /obj/structure/table/wood,
-/obj/item/weapon/dice/d20,
+/obj/item/dice/d20,
 /turf/simulated/floor/wood,
 /area/derelict/arrival)
 "JG" = (
@@ -12509,7 +12490,7 @@
 /area/derelict/arrival)
 "JS" = (
 /obj/structure/curtain/open/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/bed,
 /turf/simulated/floor/lino,
 /area/derelict/arrival)
@@ -12528,7 +12509,7 @@
 "JU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood/gamblingtable,
-/obj/item/weapon/deck/cards,
+/obj/item/deck/cards,
 /turf/simulated/floor/wood,
 /area/derelict/arrival)
 "JV" = (
@@ -12547,7 +12528,7 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/obj/item/weapon/storage/card,
+/obj/item/storage/card,
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -12582,7 +12563,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/cowboy,
 /obj/machinery/light/small,
@@ -12593,7 +12574,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/machinery/light/small,
 /turf/simulated/floor/lino,
@@ -12603,7 +12584,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/turban,
 /obj/machinery/light/small,
@@ -12614,7 +12595,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/helmet/tank,
 /obj/machinery/light/small,
@@ -12651,7 +12632,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/ushanka,
 /obj/machinery/light/small{
@@ -12664,7 +12645,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/machinery/light/small{
 	dir = 1
@@ -12676,7 +12657,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/device/batterer,
 /obj/machinery/light/small{
@@ -12689,7 +12670,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/turban/grey,
 /obj/machinery/light/small{
@@ -12702,7 +12683,7 @@
 /obj/item/clothing/head/helmet/legion,
 /obj/item/clothing/suit/storage/vest/legion,
 /obj/item/clothing/under/legion,
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/item/clothing/head/legion_beret,
 /obj/item/clothing/head/sombrero,
 /obj/machinery/light/small{
@@ -12730,8 +12711,8 @@
 /area/derelict/storage/engine_storage)
 "Ks" = (
 /obj/structure/table/wood,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/lino,
 /area/derelict/arrival)
 "Kt" = (
@@ -12753,7 +12734,7 @@
 "Kv" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/item/weapon/weldingtool/hugetank,
+/obj/item/weldingtool/hugetank,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Kw" = (
@@ -12786,7 +12767,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "KC" = (
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
@@ -12880,7 +12861,7 @@
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
 "KV" = (
-/obj/item/weapon/rig/retro/equipped,
+/obj/item/rig/retro/equipped,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
@@ -13009,7 +12990,7 @@
 /area/derelict/storage/engine_storage)
 "Lp" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/security/tactical,
+/obj/item/storage/belt/security/tactical,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
 "Lq" = (
@@ -13025,8 +13006,8 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/eastright,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Ls" = (
@@ -13059,7 +13040,7 @@
 /area/derelict/arrival)
 "Lw" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Lx" = (
@@ -13134,7 +13115,7 @@
 /area/derelict/arrival)
 "LK" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/blaster/rifle,
+/obj/item/gun/energy/blaster/rifle,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
@@ -13143,12 +13124,12 @@
 /area/derelict/arrival)
 "LL" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/energy/blaster/carbine,
+/obj/item/gun/energy/blaster/carbine,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
 "LM" = (
 /obj/structure/table/rack,
-/obj/item/weapon/gun/projectile/gauss,
+/obj/item/gun/projectile/gauss,
 /turf/simulated/floor/tiled/red,
 /area/derelict/arrival)
 "LN" = (
@@ -13731,27 +13712,27 @@
 "NB" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/rack,
-/obj/item/weapon/tank/jetpack/oxygen,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/oxygen,
 /obj/random/toolbox,
 /turf/simulated/floor,
 /area/derelict/arrival)
 "NC" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor,
 /area/derelict/arrival)
 "ND" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "NE" = (
 /obj/random/junk,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "NF" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "NG" = (
@@ -13759,12 +13740,12 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "NH" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor,
 /area/mine/unexplored)
 "NI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor,
 /area/derelict/storage/engine_storage)
 "NJ" = (
@@ -13784,7 +13765,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "NM" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "NN" = (
@@ -13833,12 +13814,12 @@
 /turf/simulated/floor,
 /area/derelict/ship)
 "NW" = (
-/obj/item/weapon/shield/riot,
+/obj/item/shield/riot,
 /obj/item/clothing/gloves/arm_guard/riot,
 /obj/item/clothing/head/helmet/riot,
 /obj/item/clothing/shoes/leg_guard/riot,
 /obj/item/clothing/suit/armor/riot,
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -14217,7 +14198,7 @@
 /area/derelict/ship)
 "Pa" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/mecha/working/hermes,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "Pb" = (
@@ -14339,7 +14320,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "Pm" = (
-/obj/item/weapon/storage/part_replacer,
+/obj/item/storage/part_replacer,
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -14414,7 +14395,7 @@
 /area/derelict/arrival)
 "Pu" = (
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/battery_module/lambda,
+/obj/item/computer_hardware/battery_module/lambda,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -14521,12 +14502,12 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/item/weapon/anomaly_core,
+/obj/item/anomaly_core,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "PE" = (
 /obj/structure/table/glass,
-/obj/item/weapon/disk/tech_disk,
+/obj/item/disk/tech_disk,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 9
@@ -14605,7 +14586,7 @@
 /area/derelict/arrival)
 "PN" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 9
@@ -14618,7 +14599,7 @@
 /area/derelict/arrival)
 "PO" = (
 /obj/structure/table/glass,
-/obj/item/weapon/reagent_containers/glass/beaker,
+/obj/item/reagent_containers/glass/beaker,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -14873,7 +14854,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "Qt" = (
-/obj/item/weapon/gun/projectile/gauss,
+/obj/item/gun/projectile/gauss,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "Qu" = (
@@ -14888,18 +14869,18 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "Qw" = (
-/obj/item/weapon/landmine/frag{
+/obj/item/landmine/frag{
 	anchored = 1;
 	deployed = 1
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "Qx" = (
-/obj/item/weapon/storage/backpack/legion,
+/obj/item/storage/backpack/legion,
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "Qy" = (
-/obj/item/weapon/landmine/frag{
+/obj/item/landmine/frag{
 	anchored = 1;
 	deployed = 1
 	},
@@ -14987,7 +14968,7 @@
 "QO" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/emergency,
+/obj/item/storage/toolbox/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "QP" = (
@@ -15014,14 +14995,14 @@
 	icon_state = "deck";
 	name = "randomly spawned deck of cards";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/deck
+	spawn_object = /obj/item/deck
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "QS" = (
 /obj/effect/floor_decal/industrial/outline,
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "QT" = (
@@ -15035,7 +15016,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/glass,
 /obj/machinery/door/window/westright,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "QV" = (
@@ -15069,7 +15050,7 @@
 	icon_state = "cola";
 	name = "randomly spawned cola";
 	spawn_nothing_percentage = 50;
-	spawn_object = /obj/item/weapon/reagent_containers/food/drinks/cans/cola
+	spawn_object = /obj/item/reagent_containers/food/drinks/cans/cola
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
@@ -15085,7 +15066,7 @@
 /area/derelict/arrival)
 "Rb" = (
 /obj/structure/table/glass,
-/obj/item/weapon/disk/tech_disk,
+/obj/item/disk/tech_disk,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "Rc" = (
@@ -15275,8 +15256,8 @@
 /area/derelict/arrival)
 "Rq" = (
 /obj/structure/table/glass,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled/white,
 /area/derelict/arrival)
 "Rr" = (
@@ -15302,7 +15283,7 @@
 /area/derelict/arrival)
 "Ru" = (
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/tesla_link,
+/obj/item/computer_hardware/tesla_link,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 6
@@ -15326,8 +15307,8 @@
 /area/derelict/arrival)
 "Rw" = (
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/hard_drive/portable/super,
-/obj/item/weapon/computer_hardware/ai_slot,
+/obj/item/computer_hardware/hard_drive/portable/super,
+/obj/item/computer_hardware/ai_slot,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -15336,7 +15317,7 @@
 /area/derelict/arrival)
 "Rx" = (
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/network_card/advanced,
+/obj/item/computer_hardware/network_card/advanced,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -15345,7 +15326,7 @@
 /area/derelict/arrival)
 "Ry" = (
 /obj/structure/table/glass,
-/obj/item/weapon/computer_hardware/processor_unit/photonic/small,
+/obj/item/computer_hardware/processor_unit/photonic/small,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
@@ -15486,7 +15467,7 @@
 /turf/simulated/floor/plating,
 /area/mine/unexplored)
 "RU" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/unsimulated/floor/asteroid/ash,
@@ -15496,7 +15477,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
 "RW" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/unsimulated/floor/asteroid/ash,
@@ -15544,11 +15525,11 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/arrival)
 "Sg" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/arrival)
 "Sh" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor,
@@ -15558,7 +15539,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/arrival)
 "Sj" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/unsimulated/floor/asteroid/ash,
@@ -15568,7 +15549,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict/arrival)
 "Sl" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/unsimulated/floor/asteroid/ash,
@@ -15833,7 +15814,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "SQ" = (
-/obj/item/weapon/landmine/frag{
+/obj/item/landmine/frag{
 	anchored = 1;
 	deployed = 1
 	},

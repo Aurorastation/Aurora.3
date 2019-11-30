@@ -2,13 +2,13 @@
 // Other harvested materials from plants (that are not food)
 // **********************
 
-/obj/item/weapon/grown // Grown weapons
+/obj/item/grown // Grown weapons
 	name = "grown_weapon"
 	icon = 'icons/obj/weapons.dmi'
 	var/plantname
 	var/potency = 1
 
-/obj/item/weapon/grown/Initialize(newloc,planttype)
+/obj/item/grown/Initialize(newloc,planttype)
 	. = ..()
 
 	var/datum/reagents/R = new/datum/reagents(50)
@@ -31,7 +31,7 @@
 				rtotal += round(potency/reagent_data[2])
 			reagents.add_reagent(rid,max(1,rtotal))
 
-/obj/item/weapon/corncob
+/obj/item/corncob
 	name = "corn cob"
 	desc = "A reminder of meals gone by."
 	icon = 'icons/obj/trash.dmi'
@@ -42,15 +42,15 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/weapon/corncob/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/corncob/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/weapon/circular_saw) || istype(W, /obj/item/weapon/material/hatchet) || istype(W, /obj/item/weapon/material/kitchen/utensil/knife) || istype(W, /obj/item/weapon/material/knife) || istype(W, /obj/item/weapon/material/knife/ritual))
+	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to fashion a pipe out of the corn cob!</span>")
 		new /obj/item/clothing/mask/smokable/pipe/cobpipe (user.loc)
 		qdel(src)
 		return
 
-/obj/item/weapon/bananapeel
+/obj/item/bananapeel
 	name = "banana peel"
 	desc = "A peel from a banana."
 	icon = 'icons/obj/trash.dmi'
@@ -61,7 +61,7 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/weapon/bananapeel/Crossed(AM as mob|obj)
+/obj/item/bananapeel/Crossed(AM as mob|obj)
 	if (istype(AM, /mob/living))
 		var/mob/living/M = AM
 		M.slip("the [src.name]",4)

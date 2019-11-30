@@ -16,7 +16,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"
@@ -129,7 +129,7 @@
 	mob_size = 3.5
 
 	befriend_job = "Chief Engineer"
-	holder_type = /obj/item/weapon/holder/carp/baby
+	holder_type = /obj/item/holder/carp/baby
 
 /mob/living/simple_animal/carp/fluff/ginny/death()
 	.=..()
@@ -146,7 +146,7 @@
 	can_nap = TRUE
 	gender = NEUTER
 	mob_size = 3.5
-	holder_type = /obj/item/weapon/holder/carp/baby
+	holder_type = /obj/item/holder/carp/baby
 
 /mob/living/simple_animal/carp/baby/death()
 	.=..()
