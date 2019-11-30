@@ -53,7 +53,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Tajaran employees, to be used as leverage in future diplomatic talks",
-							"Compile a report on suspicious PRA citizens to be forwarded to authorities")
+							"Convince one republican citizen to adopt Democratic People's Republic's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 1000 credits each",
@@ -95,11 +95,11 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Tajaran employees, to be used as leverage in future diplomatic talks",
-							"Compile a report on suspicious PRA citizens to be forwarded to authorities")
+							"Convince one republican citizen to adopt New Kingdom's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 1000 credits each",
-							"Have [rand(2,5)] DPRA citizens to write down their grievances with the company, and present the report to station command",
+							"Have [rand(2,5)] NKA citizens to write down their grievances with the company, and present the report to station command",
 							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
 		else
 			rep_objectives = pick("Ensure Party loyalty for Tajara in prestigious positions",
@@ -113,7 +113,7 @@
 	uniform = /obj/item/clothing/under/suit_jacket/checkered
 	head = /obj/item/clothing/head/fedora
 	backpack_contents = list(
-		/obj/item/storage/box/hadii_card = 1,
+		/obj/item/gun/projectile/revolver/adhomian = 1,
 		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1
 	)
