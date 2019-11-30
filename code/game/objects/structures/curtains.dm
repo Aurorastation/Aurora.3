@@ -34,7 +34,7 @@
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
 
-	if(W.iswirecutter())
+	if(W.iswirecutter() || W.sharp && !W.noslice)
 		if(manipulating)	return
 		manipulating = TRUE
 		visible_message(span("notice", "[user] begins cutting down \the [src]."),
@@ -48,21 +48,7 @@
 		if(istype(src, /obj/structure/curtain/open/medical))
 			new /obj/item/stack/material/plastic(src.loc)
 		else
-			new /obj/item/stack/material/cloth(src.loc, 2)
-		qdel(src)
-	else if(W.sharp && !W.noslice)
-		if(manipulating)	return
-		manipulating = TRUE
-		visible_message(span("notice", "[user] begins cutting down \the [src]."),
-					span("notice", "You begin cutting down \the [src]."))
-		if(!do_after(user, 30))
-			manipulating = FALSE
-			return
-		playsound(src.loc, pick('sound/items/rip1.ogg','sound/items/rip2.ogg'), 50, 1)
-		visible_message(span("notice", "[user] cuts down \the [src]."),
-					span("notice", "You cut down \the [src]."))
-		if(!istype(src, /obj/structure/curtain/open/medical))
-			new /obj/item/stack/material/cloth(src.loc, 1)
+			new /obj/item/stack/material/cloth(src.loc, (W.iswirecutter() ? 2 : 1)) //wirecutters return full. Sharp items return half.
 		qdel(src)
 
 	if(W.isscrewdriver()) //You can anchor/unanchor curtains

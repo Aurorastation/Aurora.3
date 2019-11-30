@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Allows players to cut down plastic flaps and curtains, using wirecutters or other cutting objects."
   - rscadd: "Allows you to construct all curtains (except plastic curtains) from cloth, requiring two pieces each."
-  - tweak: "Curtains begin anchored. You can anchor and unanchor curtains with a screwdriver."
+  - tweak: "Most curtains begin anchored (Medical curtains do not). You can anchor and unanchor curtains with a screwdriver."
