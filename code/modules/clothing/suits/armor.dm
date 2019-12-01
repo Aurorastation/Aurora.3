@@ -592,7 +592,7 @@
 	item_state = "iru_trench_brown"
 
 /obj/item/clothing/suit/armor/vest/idris/duster/black
-	name = "Black Idris Unit duster coat"
+	name = "black Idris Unit duster coat"
 	desc = "A duster coat worn by the Idris units, notorious across space. This one is black."
 	icon_state = "iru_duster_black"
 	item_state = "iru_duster_black"
