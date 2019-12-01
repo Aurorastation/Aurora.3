@@ -24,10 +24,7 @@
 
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
-	var/damage_this_tick = getBruteLoss() + getFireLoss() + getToxLoss()
-	if(damage_this_tick > last_dam)
-		force_process = 1
-	last_dam = damage_this_tick
+
 	if(force_process)
 		bad_external_organs.Cut()
 		for(var/obj/item/organ/external/Ex in organs)
@@ -60,7 +57,7 @@
 
 			if (!lying && !buckled && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
-				if (E.is_broken() && E.internal_organs && E.internal_organs.len && prob(15))
+				if (prob(10) && !stat && can_feel_pain() && chem_effects[CE_PAINKILLER] < 50 && E.is_broken() && E.internal_organs.len)
 					var/obj/item/organ/I = pick(E.internal_organs)
 					custom_pain("Pain jolts through your broken [E.name]!", 50)
 					I.take_damage(rand(3,5))
