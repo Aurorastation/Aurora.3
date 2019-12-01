@@ -36,7 +36,7 @@ BREATH ANALYZER
 	var/degree
 
 	switch(damage_ratio)
-		if(0 to 0.1)
+		if(0.05 to 0.1)
 			degree = "minor"
 		if(0.1 to 0.25)
 			degree = "moderate"
