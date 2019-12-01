@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed some animals missing their inhand sprites. Fixed some wizard familiars missing their sprites."
