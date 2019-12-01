@@ -381,7 +381,7 @@
 		SStheming.apply_theme_from_perfs(src)
 
 	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1))
+	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
 		server_greeting.display_to_client(src)
 
 /client/proc/InitClient()
