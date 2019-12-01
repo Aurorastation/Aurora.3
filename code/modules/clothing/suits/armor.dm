@@ -586,7 +586,7 @@
 	item_state = "iru_trench_black"
 
 /obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
-	name = "Brown Idris Unit trench coat"
+	name = "brown Idris Unit trench coat"
 	desc = "A trench coat worn by the Idris units, notorious across space. This one is brown."
 	icon_state = "iru_trench_brown"
 	item_state = "iru_trench_brown"
