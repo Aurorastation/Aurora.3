@@ -87,7 +87,7 @@
 	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
-	display_name = "Idris Reclamation Unit coats"
+	display_name = "Idris Unit coats"
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
@@ -96,10 +96,10 @@
 /datum/gear/suit/idris/New()
 	..()
 	var/idris = list()
-	idris["Black Idris Reclamation Unit coat"] = /obj/item/clothing/suit/armor/vest/idris
-	idris["Brown Idris Reclamation Unit coat"] = /obj/item/clothing/suit/armor/vest/idris/brown
-	idris["Black Idris Reclamation Unit trench coat"] = /obj/item/clothing/suit/armor/vest/idris/trenchcoat/black
-	idris["Brown Idris Reclamation Unit trench coat"] = /obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
-	idris["Black Idris Reclamation Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/black
-	idris["Brown Idris Reclamation Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/brown
+	idris["Black Idris Unit coat"] = /obj/item/clothing/suit/armor/vest/idris
+	idris["Brown Idris Unit coat"] = /obj/item/clothing/suit/armor/vest/idris/brown
+	idris["Black Idris Unit trench coat"] = /obj/item/clothing/suit/armor/vest/idris/trenchcoat/black
+	idris["Brown Idris Unit trench coat"] = /obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
+	idris["Black Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/black
+	idris["Brown Idris Unit duster coat"] = /obj/item/clothing/suit/armor/vest/idris/duster/brown
 	gear_tweaks += new/datum/gear_tweak/path(idris)

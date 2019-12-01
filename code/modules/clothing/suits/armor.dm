@@ -564,8 +564,8 @@
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/vest/idris
-	name = "Black Idris Reclamation Unit coat"
-	desc = "A coat worn by the Idris reclamation units, notorious across space."
+	name = "Black Idris Unit coat"
+	desc = "A coat worn by the Idris units, notorious across space."
 	icon_state = "iru_coat"
 	item_state = "iru_coat"
 	cold_protection = 0
@@ -574,32 +574,32 @@
 	max_heat_protection_temperature = 0
 
 /obj/item/clothing/suit/armor/vest/idris/brown
-	name = "Brown Idris Reclamation Unit coat"
-	desc = "A coat worn by the Idris reclamation units, notorious across space. This one is brown."
+	name = "Brown Idris Unit coat"
+	desc = "A coat worn by the Idris units, notorious across space. This one is brown."
 	icon_state = "iru_coat_brown"
 	item_state = "iru_coat_brown"
 
 /obj/item/clothing/suit/armor/vest/idris/trenchcoat/black
-	name = "Black Idris Reclamation Unit trench coat"
-	desc = "A trench coat worn by the Idris reclamation units, notorious across space. This one is black."
+	name = "Black Idris Unit trench coat"
+	desc = "A trench coat worn by the Idris units, notorious across space. This one is black."
 	icon_state = "iru_trench_black"
 	item_state = "iru_trench_black"
 
 /obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
-	name = "Brown Idris Reclamation Unit trench coat"
-	desc = "A trench coat worn by the Idris reclamation units, notorious across space. This one is brown."
+	name = "Brown Idris Unit trench coat"
+	desc = "A trench coat worn by the Idris units, notorious across space. This one is brown."
 	icon_state = "iru_trench_brown"
 	item_state = "iru_trench_brown"
 
 /obj/item/clothing/suit/armor/vest/idris/duster/black
-	name = "Black Idris Reclamation Unit duster coat"
-	desc = "A duster coat worn by the Idris reclamation units, notorious across space. This one is black."
+	name = "Black Idris Unit duster coat"
+	desc = "A duster coat worn by the Idris units, notorious across space. This one is black."
 	icon_state = "iru_duster_black"
 	item_state = "iru_duster_black"
 
 /obj/item/clothing/suit/armor/vest/idris/duster/brown
-	name = "Brown Idris Reclamation Unit duster coat"
-	desc = "A duster coat worn by the Idris reclamation units, notorious across space. This one is brown."
+	name = "Brown Idris Unit duster coat"
+	desc = "A duster coat worn by the Idris units, notorious across space. This one is brown."
 	icon_state = "iru_duster_brown"
 	item_state = "iru_duster_brown"
 
