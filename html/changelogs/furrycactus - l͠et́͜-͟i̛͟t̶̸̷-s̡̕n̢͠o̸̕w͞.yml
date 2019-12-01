@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: Furrycactus
+author: Furrycactus, Doxxmedearly
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -39,3 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - maptweak: "The month of a certain over-commercialised holiday and tacky decorations has begun. NanoTrasen has seen fit to leave no public hall, break room, Head of Staff (+Quartermaster, how generous) office spared of holiday decor, and no Civilian department workspace bare of tacky flashing holiday lights. They even put a gaudily decorated tree in the bar, with gifts layed under it every shift, and all of the special grass and astroturf on the station has been replaced with Authentic(tm) Snow! Show some holiday spirit, and spend money on the newest flashiest devices for your friends and family."
+  - tweak: "Removed trash and added new items to list of contents for xmas gifts."
+  - tweak: "Cleaned up the list of gift givers by removing some memes and adding new names."
+  - tweak: "Gifts will spawn randomly as small, medium, or large."
