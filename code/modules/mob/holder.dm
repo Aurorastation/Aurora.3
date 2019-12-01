@@ -16,7 +16,7 @@ var/list/holder_mob_icon_cache = list()
 	var/desc_dead
 	var/name_dead
 	var/isalive
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 	var/static/list/unsafe_containers
 
@@ -277,6 +277,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/human
 	icon = null
+	contained_sprite = FALSE
 	var/holder_icon = 'icons/mob/holder_complex.dmi'
 	var/list/generate_for_slots = list(slot_l_hand_str, slot_r_hand_str, slot_back_str)
 	slot_flags = SLOT_BACK
@@ -338,7 +339,7 @@ var/list/holder_mob_icon_cache = list()
 		icon_state = species_name
 		item_state = species_name
 
-		contained_sprite = 1
+		contained_sprite = TRUE
 
 		color = M.color
 		name = M.name
@@ -380,7 +381,6 @@ var/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
 	w_class = 4
-	contained_sprite = 1
 
 /obj/item/holder/drone/heavy
 	name = "construction drone"
@@ -445,7 +445,6 @@ var/list/holder_mob_icon_cache = list()
 	slot_flags = SLOT_HEAD
 	flags_inv = HIDEEARS|BLOCKHEADHAIR // carp wings blocks stuff - geeves
 	w_class = 1
-	contained_sprite = TRUE
 
 /obj/item/holder/carp/baby/verb/toggle_block_hair(mob/user)
 	set name = "Toggle Hair Coverage"
@@ -467,7 +466,6 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "monkey"
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
-	contained_sprite = 1
 	w_class = 3
 
 /obj/item/holder/monkey/farwa
@@ -504,7 +502,6 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "rat_brown"
 	icon_state_dead = "rat_brown_dead"
 	slot_flags = SLOT_EARS
-	contained_sprite = 1
 	origin_tech = list(TECH_BIO = 2)
 	w_class = 1
 
@@ -598,7 +595,6 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/pai
 	icon = 'icons/mob/npc/pai.dmi'
 	dir = EAST
-	contained_sprite = 1
 	slot_flags = SLOT_HEAD
 
 /obj/item/holder/pai/drone
@@ -641,7 +637,6 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "corgi"
 	item_state = "corgi"
-	contained_sprite = 1
 	w_class = 3
 
 /obj/item/holder/fox
@@ -649,5 +644,4 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "fox"
 	item_state = "fox"
-	contained_sprite = 1
 	w_class = 3
