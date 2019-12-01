@@ -213,19 +213,14 @@
 	get_icon()
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
-	owner = target
-	if(!species)
-		species = owner.species
-	if(!dna)
-		dna = owner.dna
-	forceMove(owner)
+	..()
 	if(istype(owner))
 		owner.organs_by_name[limb_name] = src
 		owner.organs |= src
 		for(var/obj/item/organ/organ in src)
 			organ.replaced(owner,src)
 
-	if(parent_organ)
+	if(!parent && parent_organ)
 		parent = owner.organs_by_name[src.parent_organ]
 		if(parent)
 			if(!parent.children)

@@ -376,31 +376,13 @@
 	owner.update_action_buttons()
 	owner = null
 
-/obj/item/organ/proc/replaced(var/mob/living/carbon/human/target,var/obj/item/organ/external/affected)
-
-	if(!istype(target)) return
-
-	var/datum/reagent/blood/transplant_blood = locate(/datum/reagent/blood) in reagents.reagent_list
-	transplant_data = list()
-	if(!transplant_blood)
-		transplant_data["species"] =    target.species.name
-		transplant_data["blood_type"] = target.dna.b_type
-		transplant_data["blood_DNA"] =  target.dna.unique_enzymes
-	else
-		transplant_data["species"] =    transplant_blood.data["species"]
-		transplant_data["blood_type"] = transplant_blood.data["blood_type"]
-		transplant_data["blood_DNA"] =  transplant_blood.data["blood_DNA"]
-
+/obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
 	action_button_name = initial(action_button_name)
-	src.forceMove(owner)
-	STOP_PROCESSING(SSprocessing, src)
-	target.internal_organs |= src
-	affected.internal_organs |= src
-	target.internal_organs_by_name[organ_tag] = src
-	if(robotic)
-		robotize()
-	owner.update_action_buttons()
+	forceMove(owner) //just in case
+	if(BP_IS_ROBOTIC(src))
+		set_dna(owner.dna)
+	return 1
 
 /obj/item/organ/internal/eyes/replaced(var/mob/living/carbon/human/target)
 
