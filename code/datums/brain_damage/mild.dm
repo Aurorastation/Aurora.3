@@ -135,6 +135,12 @@
 
 	..()
 
+/datum/brain_trauma/mild/concussion/on_lose()
+	owner.dizziness = 0
+	owner.slurring = 0
+	owner.confused = 0
+	..()
+
 /datum/brain_trauma/mild/muscle_weakness
 	name = "Muscle Weakness"
 	desc = "Patient experiences occasional bouts of muscle weakness."
@@ -191,7 +197,7 @@
 
 				var/list/mob/living/targets = list()
 				var/range = 1
-				if(istype(owner.get_active_hand(), /obj/item/weapon/gun)) //get targets to shoot at
+				if(istype(owner.get_active_hand(), /obj/item/gun)) //get targets to shoot at
 					range = 7
 					for(var/turf/T in oview(owner, range))
 						targets += T

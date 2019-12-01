@@ -52,7 +52,7 @@
 
 /obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
 	var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
-	if(isnum(new_input) && CanInteract(user, physical_state))
+	if(isnum(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
@@ -71,7 +71,7 @@
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
 	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
-	if(istext(new_input) && CanInteract(user, physical_state))
+	if(istext(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()
 		activate_pin(1)
@@ -90,7 +90,7 @@
 
 /obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
 	var/new_color = input(user, "Enter a color, please.", "Color pad", get_pin_data(IC_OUTPUT, 1)) as color|null
-	if(new_color && CanInteract(user, physical_state))
+	if(new_color && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_color)
 		push_data()
 		activate_pin(1)
@@ -502,7 +502,7 @@
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
-		if(istype(A, /obj/item/weapon/storage))
+		if(istype(A, /obj/item/storage))
 			return FALSE
 
 	set_pin_data(IC_OUTPUT, 1, A)
@@ -592,11 +592,11 @@
 	if(AM)
 
 
-		var/obj/item/weapon/cell/cell = null
-		if(istype(AM, /obj/item/weapon/cell)) // Is this already a cell?
+		var/obj/item/cell/cell = null
+		if(istype(AM, /obj/item/cell)) // Is this already a cell?
 			cell = AM
 		else // If not, maybe there's a cell inside it?
-			for(var/obj/item/weapon/cell/C in AM.contents)
+			for(var/obj/item/cell/C in AM.contents)
 				if(C) // Find one cell to charge.
 					cell = C
 					break
@@ -915,7 +915,7 @@
 		return FALSE
 	var/ignore_bags = get_pin_data(IC_INPUT, 1)
 	if(ignore_bags)
-		if(istype(A, /obj/item/weapon/storage))
+		if(istype(A, /obj/item/storage))
 			return FALSE
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
@@ -970,7 +970,7 @@
 	)
 
 /obj/item/integrated_circuit/input/card_reader/attackby_react(obj/item/I, mob/living/user, intent)
-	var/obj/item/weapon/card/id/card = I.GetID()
+	var/obj/item/card/id/card = I.GetID()
 	var/list/access = I.GetAccess()
 	if(!access)
 		return

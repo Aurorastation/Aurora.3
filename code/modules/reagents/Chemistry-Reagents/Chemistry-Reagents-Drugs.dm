@@ -205,7 +205,7 @@
 		M.make_jittery(special_counter)
 		if(prob(special_counter))
 			M.emote("twitch")
-		var/obj/item/organ/H = M.internal_organs_by_name["heart"]
+		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		H.take_damage(special_counter * removed * 0.025)
 
 /datum/reagent/guwan_painkillers
@@ -288,7 +288,7 @@
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
-/datum/reagent/toxin/krok/
+/datum/reagent/toxin/krok
 	name = "Krok Juice"
 	id = "krok"
 	description = "An Eridanian variant of krokodil, known for causing prosthetic malfunctions."
@@ -314,6 +314,18 @@
 				H.drop_r_hand()
 	if(robo)
 		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to tramadol
-	var/obj/item/organ/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || "eyes"]
+	var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || BP_EYES]
 	if(eyes.status & ORGAN_ROBOT)
 		M.hallucination = max(M.hallucination, 40)
+
+/datum/reagent/wulumunusha
+	name = "Wulumunusha Extract"
+	id = "wulumunusha"
+	description = "The extract of the wulumunusha fruit, it can cause hallucionations and muteness."
+	color = "#61E2EC"
+	taste_description = "sourness"
+	fallback_specific_heat = 1
+
+/datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.druggy = max(M.druggy, 100)
+	M.silent = max(M.silent, 5)

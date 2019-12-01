@@ -6,6 +6,7 @@
 	and the availability of both C'thur and Dionaea as manual labourers), allowing Federation Citizens to focus on less intensive pursuits. A rogue artificial intelligence, \
 	Glorsh-Omega, has traumatized this nation for centuries to come, and the Federation is very wary of humanity, who has acquired AI technology (such as IPCs) after a Federation \
 	tech leak."
+	consular_outfit = /datum/outfit/job/representative/consular/jargon
 
 /datum/citizenship/jargon/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
@@ -25,3 +26,8 @@
 							"Some Skrell are not part of the Federation; attempt to convince them to become a citizen")
 
 	return rep_objectives
+
+/datum/outfit/job/representative/consular/jargon
+	name = "Jargon Consular Officer"
+
+	uniform = /obj/item/clothing/under/skrell

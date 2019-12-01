@@ -50,7 +50,7 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	w_class = 2
-	siemens_coefficient = 3.0
+	siemens_coefficient = 0.9 
 
 /obj/item/clothing/mask/luchador/tecnicos
 	name = "tecnicos mask"

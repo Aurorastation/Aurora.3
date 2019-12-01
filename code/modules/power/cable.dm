@@ -495,21 +495,22 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(amount <= 10)
 		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
+		return
 	
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
 
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
-		if(affecting.open == 0)
+		if(affecting.open == 0 && !(affecting.status & ORGAN_ROBOT))
+
 			if(affecting.is_bandaged())
 				to_chat(user, "<span class='warning'>The cuts on [M]'s [affecting.name] have already been closed.</span>")
 				return 1
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				for(var/datum/wound/W in affecting.wounds)
-					if(W.internal)
-						continue
+
 					if(W.bandaged)
 						continue
 					if(W.current_stage <= W.max_bleeding_stage)
@@ -533,11 +534,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 						to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
 				affecting.update_damages()
 		else
-			if (can_operate(H))
+			if(can_operate(H))
 				if (do_surgery(H,user,src))
 					return
-			else
-				to_chat(user, "<span class='notice'>You can't suture this kind of wound!</span>")
 	return
 
 /obj/item/stack/cable_coil/iscoil()
@@ -648,7 +647,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 14)
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
-		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
+		var/obj/item/handcuffs/cable/B = new /obj/item/handcuffs/cable(usr.loc)
 		B.color = color
 		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
@@ -960,7 +959,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
-		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+		if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 			to_chat(usr, "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>")
 			return 0
 		if(src.amount <= 24)
@@ -1064,7 +1063,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!affecting)
 			to_chat(user, "<span class='danger'>They don't have a head.</span>")
 			return

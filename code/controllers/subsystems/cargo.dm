@@ -89,48 +89,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	NEW_SS_GLOBAL(SScargo)
 
 
-/*
-	Data Migrations
-*/
-/datum/controller/subsystem/cargo/proc/run_migration_1()
-	if(!establish_db_connection(dbcon))
-		log_debug("SScargo: SQL ERROR - Failed to connect. - Migration not executed")
-		return
-	//Gets those that havnt been migrated
-	var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, path_old, suppliers_old FROM ss13_cargo_items WHERE deleted_at is NULL AND items is NULL")
-	item_query.Execute()
-	while(item_query.NextRow())
-		CHECK_TICK
 
-		//Gets the vars of the row
-		var/id = item_query.item[1]
-		var/name = item_query.item[2]
-		var/path = item_query.item[3]
-		var/list/suppliers = list()
-		try
-			suppliers = json_decode(item_query.item[4])
-		catch(var/exception/e)
-			log_debug("SScargo: Error Decoding supplier data for item: [id] - [e]")
-			continue
-
-		// Calculate the following items
-		//Supplier - The first supplier in the suppliers list
-		var/supplier
-		//Price - The price of the supplier
-		var/price
-		//Items - A list containing the items (only one for legacy items) and the attributes of the supplier
-		var/list/items = list()
-		for(var/sup in suppliers)
-			supplier = sup
-			price = suppliers[sup]["base_purchase_price"]
-			items[name] = list()
-			items[name]["path"] = path
-			items[name]["vars"] = suppliers[sup]["vars"]
-			break
-
-		log_debug("Data Conversion for id: [id] - Supplier: [supplier] - Price: [price] - items: [json_encode(items)]")
-		var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET supplier = :supplier:, price = :price:, items = :items: WHERE id = :id:")
-		update_query.Execute(list("id"=id,"price"=price,"supplier"=supplier,"items"=json_encode(items)))
 
 /*
 	Loading Data
@@ -153,9 +112,6 @@ var/datum/controller/subsystem/cargo/SScargo
 	else
 		//Reset the currently loaded data
 		reset_cargo()
-
-		//Run the data migration
-		run_migration_1()
 
 		//Load the categories
 		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
@@ -601,7 +557,7 @@ var/datum/controller/subsystem/cargo/SScargo
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
 		return 1
-	if(istype(A,/obj/item/weapon/disk/nuclear))
+	if(istype(A,/obj/item/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))
 		return 1
@@ -627,7 +583,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/atom/movable/AM in shuttle_area)
 			if(bounty_ship_item_and_contents(AM, dry_run = FALSE))
 				matched_bounty = TRUE
-			if(!AM.anchored || istype(AM, /obj/mecha))
+			if(!AM.anchored)
 				sold_atoms += export_item_and_contents(AM, FALSE, FALSE, dry_run = FALSE)
 
 	if(sold_atoms)
@@ -727,7 +683,7 @@ var/datum/controller/subsystem/cargo/SScargo
 							log_debug("SScargo: Bad variable name [var_name] for item name: [coi.ci.name] id: [coi.ci.id] - [e]")
 
 		//Spawn the Paper Inside
-		var/obj/item/weapon/paper/P = new(A)
+		var/obj/item/paper/P = new(A)
 		P.set_content_unsafe("[co.order_id] - [co.ordered_by]", co.get_report_delivery_order())
 
 	//Shuttle is loaded now - Charge cargo for it

@@ -6,7 +6,6 @@
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
-	center_of_mass = null
 
 	var/default_type = DEFAULT_WALL_MATERIAL
 	var/material/material
@@ -209,7 +208,7 @@
 		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
 			for(var/i in 1 to rand(1,3)) // average of 2 per
-				new /obj/item/weapon/reagent_containers/glass/rag(get_turf(src))
+				new /obj/item/reagent_containers/glass/rag(get_turf(src))
 			use(1)
 		return
 	..()

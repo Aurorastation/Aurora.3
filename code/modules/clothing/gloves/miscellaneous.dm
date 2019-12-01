@@ -24,10 +24,14 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/swat/ert
+	species_restricted = null
+
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
 	item_state = "black_leather_gloves"
+	species_restricted = null
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
@@ -41,6 +45,19 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/ring/ninja
+	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
+	name = "black slipgloves"
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "s-ninja"
+	item_state = "s-ninja"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	undergloves = 1
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
@@ -147,7 +164,7 @@
 	if (get_dist(src, user) <= 1)
 		checktime()
 
-/obj/item/clothing/gloves/watch/attackby(obj/item/weapon/W, mob/user)
+/obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
 			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
@@ -338,13 +355,13 @@
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	gender = NEUTER
-	var/obj/item/weapon/gun/projectile/mounted
-	var/gun_type = /obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet
+	var/obj/item/gun/projectile/mounted
+	var/gun_type = /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 
 /obj/item/clothing/gloves/ballistic/Initialize()
 	. = ..()
 	if(!mounted)
-		var/obj/item/weapon/gun/projectile/new_gun = new gun_type (src)
+		var/obj/item/gun/projectile/new_gun = new gun_type (src)
 		mounted = new_gun
 		mounted.name = "wrist-mounted [initial(new_gun.name)]"
 

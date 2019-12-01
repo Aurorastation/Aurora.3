@@ -1,4 +1,4 @@
-/obj/item/weapon/spellbook/cleric
+/obj/item/spellbook/cleric
 	spellbook_type = /datum/spellbook/cleric
 
 /datum/spellbook/cleric
@@ -29,8 +29,8 @@
 				/spell/aoe_turf/conjure/forcewall = 				1,
 				/spell/targeted/subjugation = 						1,
 				/spell/targeted/mindcontrol =                       2,
-				/obj/item/weapon/gun/energy/staff/focus = 			2,
-				/obj/item/weapon/storage/belt/wands/full = 			2,
-				/obj/item/weapon/contract/apprentice = 				1,
+				/obj/item/gun/energy/staff/focus = 			2,
+				/obj/item/storage/belt/wands/full = 			2,
+				/obj/item/contract/apprentice = 				1,
 				/obj/item/poppet =									1
 				)

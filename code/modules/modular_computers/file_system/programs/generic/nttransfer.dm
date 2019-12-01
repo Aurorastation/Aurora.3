@@ -98,7 +98,7 @@ var/global/nttransfer_uid = 0
 	if(!istype(PRG))
 		return
 
-	var/list/data = program.get_header_data()
+	var/list/data = list("_PC" = program.get_header_data())
 
 	if(PRG.error)
 		data["error"] = PRG.error

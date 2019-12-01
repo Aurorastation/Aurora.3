@@ -19,7 +19,7 @@
 	activators = list(
 		"fire" = IC_PINTYPE_PULSE_IN
 	)
-	var/obj/item/weapon/gun/installed_gun
+	var/obj/item/gun/installed_gun
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
 	power_draw_per_use = 50 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
@@ -29,8 +29,8 @@
 	. = ..()
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attackby(var/obj/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/gun))
-		var/obj/item/weapon/gun/gun = O
+	if(istype(O, /obj/item/gun))
+		var/obj/item/gun/gun = O
 		if(installed_gun)
 			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
 			return
@@ -123,7 +123,7 @@
 	activators = list("prime grenade" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
-	var/obj/item/weapon/grenade/attached_grenade
+	var/obj/item/grenade/attached_grenade
 	var/pre_attached_grenade_type
 
 /obj/item/integrated_circuit/manipulation/grenade/Initialize()
@@ -138,7 +138,7 @@
 	detach_grenade()
 	. = ..()
 
-/obj/item/integrated_circuit/manipulation/grenade/attackby(var/obj/item/weapon/grenade/G, var/mob/user)
+/obj/item/integrated_circuit/manipulation/grenade/attackby(var/obj/item/grenade/G, var/mob/user)
 	if(istype(G))
 		if(attached_grenade)
 			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
@@ -167,7 +167,7 @@
 		log_and_message_admins("activated a grenade assembly. Last touches: Assembly: [holder.fingerprintslast] Circuit: [fingerprintslast] Grenade: [attached_grenade.fingerprintslast]")
 
 // These procs do not relocate the grenade, that's the callers responsibility
-/obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/weapon/grenade/G)
+/obj/item/integrated_circuit/manipulation/grenade/proc/attach_grenade(var/obj/item/grenade/G)
 	attached_grenade = G
 	destroyed_event.register(attached_grenade, src, .proc/detach_grenade)
 	size += G.w_class
@@ -182,39 +182,9 @@
 	desc = initial(desc)
 
 /obj/item/integrated_circuit/manipulation/grenade/frag
-	pre_attached_grenade_type = /obj/item/weapon/grenade/frag
+	pre_attached_grenade_type = /obj/item/grenade/frag
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 10)
 	spawn_flags = null			// Used for world initializing, see the #defines above.
-
-/obj/item/integrated_circuit/manipulation/shocker
-	name = "shocker circuit"
-	desc = "Used to shock adjacent creatures with electricity."
-	icon_state = "shocker"
-	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
-	Severity determines hardness of shock and its power consumption. It accepts values between 0 and 60."
-	w_class = ITEMSIZE_TINY
-	complexity = 10
-	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
-	outputs = list()
-	activators = list("shock" = IC_PINTYPE_PULSE_IN)
-	spawn_flags = IC_SPAWN_RESEARCH
-	power_draw_per_use = 0
-
-/obj/item/integrated_circuit/manipulation/shocker/on_data_written()
-	var/s = get_pin_data(IC_INPUT, 2)
-	power_draw_per_use = Clamp(s,0,60)*4
-
-/obj/item/integrated_circuit/manipulation/shocker/do_work()
-	..()
-	var/turf/T = get_turf(src)
-	var/mob/living/M = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
-	if(!istype(M)) //Invalid input
-		return
-	if(!T.Adjacent(M))
-		return //Can't reach
-	to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
-	spark(get_turf(M), 3, 1)
-	M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,60), null)
 
 /obj/item/integrated_circuit/manipulation/grabber
 	name = "grabber"
@@ -336,3 +306,40 @@
 
 		A.forceMove(get_turf(src))
 		A.throw_at(T, round(Clamp(sqrt(target_x.data*target_x.data+target_y.data*target_y.data),0,8),1), 3, assembly)
+		
+/obj/item/integrated_circuit/manipulation/shocker
+	name = "shocker circuit"
+	desc = "Used to shock adjacent creatures with electricity."
+	icon_state = "shocker"
+	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
+	Severity determines the power draw and usage of each shock. It accepts values between 0 and 20."
+	w_class = ITEMSIZE_TINY
+	complexity = 24
+	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
+	outputs = list()
+	activators = list("shock" = IC_PINTYPE_PULSE_IN)
+	spawn_flags = IC_SPAWN_RESEARCH
+	power_draw_per_use = 0
+	var/shocktime
+
+/obj/item/integrated_circuit/manipulation/shocker/on_data_written()
+	var/s = get_pin_data(IC_INPUT, 2)
+	power_draw_per_use = Clamp(s,0,20)*8
+
+/obj/item/integrated_circuit/manipulation/shocker/do_work()
+	..()
+	var/turf/T = get_turf(src)
+	var/mob/living/M = get_pin_data_as_type(IC_INPUT, 1, /mob/living)
+	if(!istype(M)) //Invalid input
+		return
+	if(!T.Adjacent(M))
+		return //Can't reach
+	if(shocktime + (5 SECONDS) > world.time)
+		to_chat(M, "<span class='danger'>You feel a light tingle from [src]. Luckily it was charging!</span>")
+		return
+	else
+		to_chat(M, "<span class='danger'>You feel a sharp shock from the [src]!</span>")
+		spark(get_turf(M), 3, 1)
+		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
+		shocktime = world.time
+		return

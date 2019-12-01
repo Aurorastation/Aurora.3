@@ -51,3 +51,28 @@
 	path = /obj/item/clothing/under/rank/zeng/alt
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/necro_patch
+	display_name = "necropolis sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/necro
+	slot = slot_tie
+	faction = "Necropolis Industries"
+
+/datum/gear/faction/necrosec_patch
+	display_name = "necropolis security sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/necrosec
+	slot = slot_tie
+	faction = "Necropolis Industries"
+	allowed_roles = list("Security Officer","Forensic Technician","Warden")
+
+/datum/gear/faction/erisec_patch
+	display_name = "EPMC sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/erisec
+	slot = slot_tie
+	faction = "Eridani Private Military Contractors"
+
+/datum/gear/faction/idrissec_patch
+	display_name = "idris security sleeve patch"
+	path = /obj/item/clothing/accessory/sleevepatch/idrissec
+	faction = "Idris Incorporated"
+	allowed_roles = list("Security Officer","Detective")

@@ -7,9 +7,12 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "company officials"
-	selection_color = "#dddddd"
+	selection_color = "#C0C0C0"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
+
+	minimum_character_age = 25
+
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
@@ -34,14 +37,14 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_ear = /obj/item/device/radio/headset/representative
-	l_hand =  /obj/item/weapon/storage/briefcase
+	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
-		/obj/item/weapon/gun/energy/pistol = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/implant/loyalty
 	)
 
 
@@ -65,7 +68,7 @@
 
 	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
 		if (F.department == "Representative's Office")
-			var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(get_turf(F))
+			var/obj/item/paper/P = new /obj/item/paper(get_turf(F))
 			P.name = "[name] - Directives"
 			P.info = faxtext
 			P.update_icon()
@@ -90,7 +93,7 @@
 	suit = null
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
-		/obj/item/weapon/gun/energy/pistol = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 	implants = null
 

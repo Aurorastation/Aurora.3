@@ -21,9 +21,13 @@
 	display_name = "monocle"
 	path = /obj/item/clothing/glasses/monocle
 
-/datum/gear/eyes/glasses/goggles
-	display_name = "goggles"
-	path = /obj/item/clothing/glasses/goggles
+/datum/gear/eyes/glasses/safety
+	display_name = "safety glasses"
+	path = /obj/item/clothing/glasses/safety
+
+/datum/gear/eyes/glasses/safety/goggles
+	display_name = "safety goggles"
+	path = /obj/item/clothing/glasses/safety/goggles
 
 /datum/gear/eyes/scanning_goggles
 	display_name = "scanning goggles"

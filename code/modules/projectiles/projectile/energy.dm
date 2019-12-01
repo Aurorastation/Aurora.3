@@ -132,7 +132,7 @@
 			if(M.stat == DEAD)
 				M.gib()
 			else
-				M.apply_damage(60, BRUTE, "head")
+				M.apply_damage(60, BRUTE, BP_HEAD)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 		else if(isturf(a) || isobj(a))
 			var/atom/A = a
@@ -200,7 +200,7 @@
 /obj/item/projectile/energy/bee/on_impact(var/atom/A)
 	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
 	var/turf/T = get_turf(A)
-	if(!istype(T, /turf/simulated/wall) && !istype(T, /turf/simulated/shuttle/wall) && !istype(A, /obj/structure/window) && !istype(A, /obj/machinery/door))
+	if(!istype(T, /turf/simulated/wall) && !istype(A, /obj/structure/window) && !istype(A, /obj/machinery/door))
 		for(var/i=1, i<=8, i++)
 			var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
 			x.forceMove(T)

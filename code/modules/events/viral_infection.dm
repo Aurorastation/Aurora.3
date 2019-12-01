@@ -43,7 +43,7 @@ datum/event/viral_infection/start()
 	for(var/mob/living/carbon/human/H in player_list)
 		if(H.mind && H.stat != DEAD && H.is_client_active(5) && !player_is_antag(H.mind))
 			var/turf/T = get_turf(H)
-			if(T.z in current_map.station_levels)
+			if(isStationLevel(T.z))
 				candidates += H
 	if(!candidates.len)	return
 	candidates = shuffle(candidates)

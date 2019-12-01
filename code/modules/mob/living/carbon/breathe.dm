@@ -20,9 +20,10 @@
 
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
-/mob/living/carbon/proc/breathe()
-	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
+/mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
 	if(species && (species.flags & NO_BREATHE)) return
+	
+	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null
 
@@ -32,13 +33,13 @@
 
 	if(losebreath>0) //Suffocating so do not take a breath
 		losebreath--
-		if (prob(10)) //Gasp per 10 ticks? Sounds about right.
+		if (prob(10) && !isipc(src)) //Gasp per 10 ticks? Sounds about right.
 			spawn emote("gasp")
 	else
 		//Okay, we can breathe, now check if we can get air
-		breath = get_breath_from_internal() //First, check for air from internals
+		breath = get_breath_from_internal(volume_needed) //First, check for air from internals
 		if(!breath)
-			breath = get_breath_from_environment() //No breath from internals so let's try to get air from our location
+			breath = get_breath_from_environment(volume_needed) //No breath from internals so let's try to get air from our location
 
 	handle_breath(breath)
 	handle_post_breath(breath)
@@ -98,5 +99,6 @@
 	return
 
 /mob/living/carbon/proc/handle_post_breath(datum/gas_mixture/breath)
-	if(breath)
-		loc.assume_air(breath) //by default, exhale
+	if(!breath)
+		return
+	loc.assume_air(breath) //exhale into the environment

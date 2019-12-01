@@ -1,21 +1,22 @@
 
 //########################## CONTRABAND ;3333333333333333333 -Agouri ###################################################
 
-/obj/item/weapon/contraband
+/obj/item/contraband
 	name = "contraband item"
 	desc = "You probably shouldn't be holding this."
 	icon = 'icons/obj/contraband.dmi'
 	force = 0
 
 
-/obj/item/weapon/contraband/poster
+/obj/item/contraband/poster
 	name = "rolled-up poster"
 	desc = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	icon_state = "rolled_poster"
+	drop_sound = 'sound/items/drop/wrapper.ogg'
 	var/serial_number = 0
 
 
-/obj/item/weapon/contraband/poster/Initialize(mapload, given_serial = 0)
+/obj/item/contraband/poster/Initialize(mapload, given_serial = 0)
 	. = ..()
 	if(given_serial == 0)
 		serial_number = rand(1, poster_designs.len)
@@ -24,7 +25,7 @@
 	name += " - No. [serial_number]"
 
 //Places the poster on a wall
-/obj/item/weapon/contraband/poster/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
+/obj/item/contraband/poster/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
 
@@ -60,11 +61,11 @@
 	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), serial_number)
 
 	flick("poster_being_set", P)
-	//playsound(W, 'sound/items/poster_being_created.ogg', 100, 1) //why the hell does placing a poster make printer sounds?
+	playsound(W, 'sound/items/package_wrap.ogg', 100, 1)
 
 	addtimer(CALLBACK(src, .proc/place_on_wall, P, user, W), 28, TIMER_CLIENT_TIME)
 
-/obj/item/weapon/contraband/poster/proc/place_on_wall(obj/structure/sign/poster/P, mob/user, turf/W)
+/obj/item/contraband/poster/proc/place_on_wall(obj/structure/sign/poster/P, mob/user, turf/W)
 	if (QDELETED(P))
 		return
 
@@ -81,10 +82,11 @@
 	name = "poster"
 	desc = "A large piece of space-resistant printed paper. "
 	icon = 'icons/obj/contraband.dmi'
+	icon_state = "poster_map"
 	anchored = 1
 	var/serial_number	//Will hold the value of src.loc if nobody initialises it
 	var/poster_type		//So mappers can specify a desired poster
-	var/ruined = 0
+	var/ruined = FALSE
 
 /obj/structure/sign/poster/Initialize(mapload, placement_dir = null, serial = null)
 	. = ..()
@@ -123,7 +125,7 @@
 	desc = "[initial(desc)] [design.desc]"
 	icon_state = design.icon_state // poster[serial_number]
 
-/obj/structure/sign/poster/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
@@ -136,25 +138,24 @@
 
 
 /obj/structure/sign/poster/attack_hand(mob/user as mob)
-
 	if(ruined)
 		return
-
+	if(user.a_intent == I_HELP)
+		user.examinate(src)
+		return
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
-
 		if(ruined || !user.Adjacent(src))
 			return
-
 		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
-		ruined = 1
+		ruined = TRUE
 		icon_state = "poster_ripped"
 		name = "ripped poster"
 		desc = "You can't make out anything from the poster's original print. It's ruined."
 		add_fingerprint(user)
 
 /obj/structure/sign/poster/proc/roll_and_drop(turf/newloc)
-	var/obj/item/weapon/contraband/poster/P = new(src, serial_number)
+	var/obj/item/contraband/poster/P = new(src, serial_number)
 	P.forceMove(newloc)
 	src.forceMove(P)
 	qdel(src)

@@ -19,6 +19,12 @@
 
 	light_range = 0
 	light_power = 0
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/bite
+	)
 
 	eyes = "eyes_s"
 	show_ssd = "completely quiescent"
@@ -35,26 +41,30 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS | HAS_SKIN_PRESET
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/shell),
-		"groin" =  list("path" = /obj/item/organ/external/groin/shell),
-		"head" =   list("path" = /obj/item/organ/external/head/shell),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/shell),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/shell),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/shell),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/shell),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/shell),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/shell),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/shell),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/shell)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/shell),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/shell),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/shell),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/shell),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/shell),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/shell),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/shell),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/shell),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/shell),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/shell),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/shell)
 		)
+
+	base_color = "#25032"
+	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
 	sprint_temperature_factor = 1.3
 	sprint_charge_factor = 0.85
 
 	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/tie_hair)
 
 /datum/species/machine/shell/get_light_color()
@@ -74,9 +84,9 @@
 	breakcuffs = list(MALE, FEMALE)
 
 	has_organ = list(
-		"brain"   = /obj/item/organ/mmi_holder/posibrain,
-		"cell"    = /obj/item/organ/cell,
-		"optics"  = /obj/item/organ/eyes/optical_sensor,
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
+		BP_CELL    = /obj/item/organ/cell,
+		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
 		"surge"   = /obj/item/organ/surge/advanced
 	)
 
@@ -109,17 +119,17 @@
 	show_ssd = "completely quiescent"
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/industrial),
-		"groin" =  list("path" = /obj/item/organ/external/groin/industrial),
-		"head" =   list("path" = /obj/item/organ/external/head/industrial),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/industrial),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/industrial),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/industrial),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/industrial),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/industrial),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/industrial),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/industrial),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/industrial),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/industrial),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/industrial),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/industrial),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial)
 		)
 
 	has_organ = list(
@@ -147,6 +157,10 @@
 	sprint_speed_factor = 1.4
 	sprint_temperature_factor = 0.9
 	sprint_charge_factor = 1.1
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics
+		)
 
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
@@ -184,8 +198,10 @@
 	mob_size = 20
 
 	show_ssd = "laying inert, its activation glyph dark"
+
 	death_sound = 'sound/effects/bang.ogg'
 	death_message = "collapses to the ground with a CLUNK, and begins to beep ominously."
+	death_message_range = 7
 
 	heat_level_1 = 1500
 	heat_level_2 = 2000
@@ -213,9 +229,9 @@
 	)
 
 	has_organ = list(
-		"brain" = /obj/item/organ/mmi_holder/posibrain/terminator,
+		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
-		"optics" = /obj/item/organ/eyes/optical_sensor/terminator,
+		BP_OPTICS = /obj/item/organ/internal/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
 		"coolant pump" = /obj/item/organ/coolantpump,
@@ -225,17 +241,17 @@
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/terminator),
-		"groin" =  list("path" = /obj/item/organ/external/groin/terminator),
-		"head" =   list("path" = /obj/item/organ/external/head/terminator),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/terminator),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/terminator),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/terminator),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/terminator),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/terminator),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/terminator),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/terminator),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/terminator)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/terminator),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/terminator),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/terminator),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/terminator),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/terminator),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/terminator),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/terminator),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/terminator),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/terminator),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/terminator),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/terminator)
 		)
 
 
@@ -281,17 +297,17 @@
 	blurb = "Being a corporation focused primarily on medical sciences and treatments, Zeng-Hu Pharmaceuticals had little interest in the market of synthetics in the beginning (especially considering a good portion of Zeng-Hu employees are Skrellian). However, after seeing the advances in almost all fields of the galactic market after the advent of synthetics, Zeng-Hu set aside some funds for their own robotics department, focused mainly on medical service and even science related operations. Having taken some inspiration from biological life, the chassis has an interesting leg design: digitigrade legs provide the chassis with enhanced speed. A downside to this development was the reduction of metals on the chassis. Most plates covering the sensitive interior electronics are polymer casts to reduce the weight of the unit, resulting in a not-so-durable android."
 
 	has_limbs = list(
-		"chest"  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
-		"groin"  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
-		"head"   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
-		"l_arm"  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
-		"r_arm"  = list("path" = /obj/item/organ/external/arm/right/industrial/zenghu),
-		"l_leg"  = list("path" = /obj/item/organ/external/leg/industrial/zenghu),
-		"r_leg"  = list("path" = /obj/item/organ/external/leg/right/industrial/zenghu),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/industrial/zenghu),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/industrial/zenghu),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/industrial/zenghu),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
+		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/zenghu),
+		BP_GROIN  = list("path" = /obj/item/organ/external/groin/industrial/zenghu),
+		BP_HEAD   = list("path" = /obj/item/organ/external/head/industrial/zenghu),
+		BP_L_ARM  = list("path" = /obj/item/organ/external/arm/industrial/zenghu),
+		BP_R_ARM  = list("path" = /obj/item/organ/external/arm/right/industrial/zenghu),
+		BP_L_LEG  = list("path" = /obj/item/organ/external/leg/industrial/zenghu),
+		BP_R_LEG  = list("path" = /obj/item/organ/external/leg/right/industrial/zenghu),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/industrial/zenghu),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/industrial/zenghu),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/industrial/zenghu),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/zenghu)
 	)
 
 	has_organ = list(

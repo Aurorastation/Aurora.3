@@ -39,7 +39,7 @@
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
 
-	var/obj/item/weapon/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
 
 		var/atype
@@ -152,7 +152,7 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
@@ -192,10 +192,10 @@
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		if(istype(Proj.firer))
-			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
+			log_and_message_admins("shot a welding tank", Proj.firer)
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
 			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
@@ -281,7 +281,7 @@
 	. = ..()
 	reagents.add_reagent("water",capacity)
 
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
 		src.add_fingerprint(user)
 		playsound(src.loc, W.usesound, 100, 1)
@@ -313,7 +313,7 @@
 	if(filled)
 		reagents.add_reagent(src.reagentid,capacity)
 
-/obj/structure/reagent_dispensers/keg/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/keg/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = W
 		if(!R.can_use(3)) // like a tripod

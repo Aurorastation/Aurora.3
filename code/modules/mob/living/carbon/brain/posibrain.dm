@@ -11,7 +11,6 @@
 	req_access = list(access_robotics)
 	var/damageamount = 60
 	locked = 0
-	mecha = null//This does not appear to be used outside of reference in mecha.dm.
 
 
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user as mob)

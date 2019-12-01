@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/update_eyes()
-	var/obj/item/organ/eyes/eyes = internal_organs_by_name[species.vision_organ || "eyes"]
+	var/obj/item/organ/internal/eyes/eyes = internal_organs_by_name[species.vision_organ || BP_EYES]
 	if(eyes)
 		eyes.update_colour()
 		regenerate_icons()
@@ -52,7 +52,7 @@
 			//Moving around with fractured ribs won't do you any good
 				if (E.is_broken() && E.internal_organs && E.internal_organs.len && prob(15))
 					var/obj/item/organ/I = pick(E.internal_organs)
-					custom_pain("You feel broken bones moving in your [E.name]!", 1)
+					custom_pain("Pain jolts through your broken [E.name]!", 50)
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
@@ -73,7 +73,7 @@
 	if (istype(buckled, /obj/structure/bed))
 		return
 
-	for(var/limb_tag in list("l_leg","r_leg","l_foot","r_foot"))
+	for(var/limb_tag in list(BP_L_LEG,BP_R_LEG,BP_L_FOOT,BP_R_FOOT))
 		var/obj/item/organ/external/E = organs_by_name[limb_tag]
 		if(!E || (E.status & (ORGAN_MUTATED|ORGAN_DEAD)) || E.is_stump()) //should just be !E.is_usable() here but dislocation screws that up.
 			stance_damage += 2 // let it fail even if just foot&leg
@@ -91,9 +91,9 @@
 	// Canes and crutches help you stand (if the latter is ever added)
 	// One cane mitigates a broken leg+foot, or a missing foot.
 	// Two canes are needed for a lost leg. If you are missing both legs, canes aren't gonna help you.
-	if (l_hand && istype(l_hand, /obj/item/weapon/cane))
+	if (l_hand && istype(l_hand, /obj/item/cane))
 		stance_damage -= 2
-	if (r_hand && istype(r_hand, /obj/item/weapon/cane))
+	if (r_hand && istype(r_hand, /obj/item/cane))
 		stance_damage -= 2
 
 	// standing is poor
@@ -110,7 +110,7 @@
 
 	// You should not be able to pick anything up, but stranger things have happened.
 	if(l_hand)
-		for(var/limb_tag in list("l_hand","l_arm"))
+		for(var/limb_tag in list(BP_L_HAND,BP_L_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
 				visible_message("<span class='danger'>Lacking a functioning left hand, \the [src] drops \the [l_hand].</span>")
@@ -118,7 +118,7 @@
 				break
 
 	if(r_hand)
-		for(var/limb_tag in list("r_hand","r_arm"))
+		for(var/limb_tag in list(BP_R_HAND,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
 				visible_message("<span class='danger'>Lacking a functioning right hand, \the [src] drops \the [r_hand].</span>")

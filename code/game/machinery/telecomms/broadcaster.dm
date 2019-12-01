@@ -21,7 +21,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	machinetype = 5
 	produces_heat = 0
 	delay = 7
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/broadcaster"
+	circuitboard = "/obj/item/circuitboard/telecomms/broadcaster"
 
 /obj/machinery/telecomms/broadcaster/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	// Don't broadcast rejected signals
@@ -380,6 +380,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_syndicate += blackbox_msg
 				if(RAID_FREQ)
 					SSfeedback.msg_raider += blackbox_msg
+				if(NINJ_FREQ)
+					SSfeedback.msg_ninja += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
@@ -566,6 +568,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_syndicate += blackbox_msg
 				if(RAID_FREQ)
 					SSfeedback.msg_raider += blackbox_msg
+				if(NINJ_FREQ)
+					SSfeedback.msg_ninja += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)

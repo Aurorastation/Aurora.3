@@ -10,7 +10,7 @@
 	density = 0
 	anchored = 0
 	use_power = 0
-	var/obj/item/weapon/circuitboard/circuit = null
+	var/obj/item/circuitboard/circuit = null
 	var/list/components = null
 	var/list/req_components = null
 	var/list/req_component_names = null
@@ -62,7 +62,7 @@
 					if(P.iswirecutter())
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 						to_chat(user, span("notice", "You decide to scrap the blueprint."))
-						new /obj/item/stack/material/steel(src.loc, 5)
+						new /obj/item/stack/material/steel(src.loc, 2)
 						qdel(src)
 			if(2)
 				if(P.iscoil())
@@ -84,8 +84,8 @@
 						new /obj/item/stack/material/steel(src.loc, 2)
 						qdel(src)
 			if(3)
-				if(istype(P, /obj/item/weapon/circuitboard))
-					var/obj/item/weapon/circuitboard/B = P
+				if(istype(P, /obj/item/circuitboard))
+					var/obj/item/circuitboard/B = P
 					if(B.board_type == "machine")
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 						to_chat(user, span("notice", "You add the circuit board to the blueprint."))
@@ -110,7 +110,7 @@
 					if(P.iswirecutter())
 						playsound(src.loc, P.usesound, 50, 1, pitch_toggle)
 						to_chat(user, span("notice", "You remove the cables."))
-						state = 1
+						state = 2
 						icon_state = "blueprint_0"
 						var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( src.loc )
 						A.amount = 5
@@ -125,7 +125,7 @@
 						to_chat(user, span("notice", "You remove the circuit board."))
 					else
 						to_chat(user, span("notice", "You remove the circuit board and other components."))
-						for(var/obj/item/weapon/W in components)
+						for(var/obj/item/W in components)
 							W.forceMove(src.loc)
 					desc = initial(desc)
 					req_components = null
@@ -208,6 +208,12 @@
 	name = "machine frame"
 	desc = "An old and dusty machine frame that once housed a machine of some kind."
 	icon_state = "box_0"
-	density = 1
 	anchored = 1
-	state = 2
+	density = 1
+
+/obj/machinery/constructable_frame/temp_deco/attackby(obj/item/P as obj, mob/user as mob)
+	if(P.iswrench())
+		playsound(src.loc, P.usesound, 75, 1)
+		to_chat(user, "<span class='notice'>You dismantle [src]</span>")
+		new /obj/item/stack/material/steel(src.loc, 5)
+		qdel(src)

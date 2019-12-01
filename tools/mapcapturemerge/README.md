@@ -14,5 +14,6 @@ Map capture merge tool manual
 5. After execution you will find all merged map images in this folder.
 
 Notes:
- * This tool been tested with Python 2.7.6 under Windows 10 Bash.
- * This tool also been tested with Python 3.6.1 under Windows 10.
+ * This tool has been tested with Python 2.7.6 under Windows 10 WSL Bash.
+ * This tool has been tested with Python 3.6.1 under Windows 10.
+ * This tool has been tested with Python 3.7.3 under Windows 10 1903.
