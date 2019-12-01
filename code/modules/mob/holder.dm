@@ -372,7 +372,6 @@ var/list/holder_mob_icon_cache = list()
 	slot_flags = SLOT_HEAD | SLOT_OCLOTHING
 	w_class = 2
 
-
 /obj/item/holder/drone
 	name = "maintenance drone"
 	desc = "It's a small maintenance robot."
@@ -419,7 +418,6 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "cat3"
 	icon_state_dead = "cat3_dead"
 	item_state = "cat3"
-
 
 /obj/item/holder/cat/kitten
 	name = "kitten"
