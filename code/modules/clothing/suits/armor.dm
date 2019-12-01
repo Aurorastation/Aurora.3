@@ -574,7 +574,7 @@
 	max_heat_protection_temperature = 0
 
 /obj/item/clothing/suit/armor/vest/idris/brown
-	name = "Brown Idris Unit coat"
+	name = "brown Idris Unit coat"
 	desc = "A coat worn by the Idris units, notorious across space. This one is brown."
 	icon_state = "iru_coat_brown"
 	item_state = "iru_coat_brown"
