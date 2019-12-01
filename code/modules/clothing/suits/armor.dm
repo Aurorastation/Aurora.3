@@ -564,7 +564,7 @@
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/vest/idris
-	name = "Black Idris Unit coat"
+	name = "black Idris Unit coat"
 	desc = "A coat worn by the Idris units, notorious across space."
 	icon_state = "iru_coat"
 	item_state = "iru_coat"
