@@ -20,7 +20,7 @@
 	var/sight_mode = 0
 	var/custom_name = ""
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
-	var/crisis //Admin-settable for combat module use.
+	var/crisis = 0 //Admin-settable for combat module use.
 	var/crisis_override = 0
 	var/malfAImodule = 0
 	var/integrated_light_power = 4
@@ -293,7 +293,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
+	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA || crisis == 1) //no fun allowed anymore.
 		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
