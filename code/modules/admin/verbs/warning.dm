@@ -222,6 +222,7 @@
 	query.Execute(list("warning_id" = warning_id))
 
 	warnings_check()
+	fetch_unacked_warning_count()
 
 /client/proc/notifications_acknowledge(var/id)
 	if(!id)
@@ -278,15 +279,15 @@
 /*
  * A proc used to gather if someone has Unacknowledged Warnings
  */
-/client/proc/unacked_warning_count()
+/client/proc/fetch_unacked_warning_count()
 	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
 		return
-	var/list/client_details = list("ckey" = ckey, "computer_id" = computer_id, "address" = address)
-	var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
-	query.Execute(client_details)
-	if(query.NextRow())
-		return text2num(query.item[1])
+	var/DBQuery/warning_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
+	warning_count_query.Execute(list("ckey" = ckey, "computer_id" = computer_id, "address" = address))
+	if(warning_count_query.NextRow())
+		unacked_warning_count = text2num(warning_count_query.item[1])
+		return unacked_warning_count
 
 /*
  * A proc for an admin/moderator to look up a member's warnings.

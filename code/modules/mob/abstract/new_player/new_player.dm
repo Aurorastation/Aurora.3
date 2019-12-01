@@ -106,8 +106,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			if (config.sql_saves && !client.prefs.current_character)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
-			if(client.unacked_warning_count() > 0)
-				to_chat(src, alert("You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications"))
+			if(client.unacked_warning_count > 0)
+				to_chat(src, alert("You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications."))
 				return
 
 			ready = text2num(href_list["ready"])
@@ -196,8 +196,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
 			return
 
-		if(client.unacked_warning_count() > 0)
-			to_chat(src, alert("You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications"))
+		if(client.unacked_warning_count > 0)
+			to_chat(src, alert("You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications."))
 			return
 
 		var/datum/species/S = all_species[client.prefs.species]
