@@ -1726,7 +1726,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/firealarm/north,
 /obj/structure/table/wood,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Training Division 3";
 	dir = 8

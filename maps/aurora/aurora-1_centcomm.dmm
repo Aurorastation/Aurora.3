@@ -10502,7 +10502,7 @@
 /area/centcom/control)
 "ayU" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11267,7 +11267,7 @@
 /area/centcom/specops)
 "aAv" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -27009,7 +27009,7 @@
 /area/centcom/legion)
 "nZO" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donut{
+/obj/item/storage/fancy/donut{
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{

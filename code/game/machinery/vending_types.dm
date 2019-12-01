@@ -471,14 +471,14 @@
 		/obj/item/device/holowarrant = 5
 	)
 	premium = list(
-		/obj/item/storage/box/donut = 2
+		/obj/item/storage/fancy/donut = 2
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/storage/box/donut,
+		/obj/item/storage/fancy/donut,
 		/obj/item/storage/box/evidence,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper

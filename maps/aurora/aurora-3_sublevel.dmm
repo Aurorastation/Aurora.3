@@ -31352,7 +31352,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
