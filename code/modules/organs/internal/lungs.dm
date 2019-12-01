@@ -27,7 +27,7 @@
 			owner.drip(10)
 		if(prob(4))
 			spawn owner.emote("me", 1, "gasps for air!")
-			owner.losebreath += 15
+			owner.losebreath = 1
 
 	if(is_bruised() && rescued)
 		if(prob(4))
