@@ -17,6 +17,8 @@ var/datum/antagonist/ninja/ninjas
 	hard_cap = 2
 	hard_cap_round = 3
 
+	faction = "syndicate"
+
 	id_type = /obj/item/card/id/syndicate
 
 /datum/antagonist/ninja/New()
