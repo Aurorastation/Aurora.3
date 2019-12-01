@@ -115,7 +115,7 @@
 
 				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
 
-				if(!do_after(H, 50, src))
+				if(!do_after(H, rand(3, 5), src))
 					cpr_time = 1
 					return
 				cpr_time = 1
