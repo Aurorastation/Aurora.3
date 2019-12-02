@@ -246,6 +246,9 @@
 	no_light_control = 1
 	centcomm_area = 1
 
+/area/merchant_station/exterior
+	dynamic_lighting = 0
+
 /area/merchant_station/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
