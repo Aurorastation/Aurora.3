@@ -1,6 +1,7 @@
 /mob/living/simple_animal/ice_tunneler
 	name = "ice tunneler"
 	desc = "An egg producing beast from Adhomai. It is known for burrowing in ice and snow."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "tunneler"
 	icon_living = "tunneler"
 	icon_dead = "tunneler_dead"
@@ -44,6 +45,7 @@
 /mob/living/simple_animal/fatshouter
 	name = "fatshouter"
 	desc = "An adhomian animal known for its production of milk and wool."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "fatshouter"
 	icon_living = "fatshouter"
 	icon_dead = "fatshouter_dead"
@@ -75,6 +77,7 @@
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
 	desc = "An animal native to Adhomai, known for its agressive behavior and mighty tusks."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "rafama"
 	icon_living = "rafama"
 	icon_dead = "rafama_dead"
