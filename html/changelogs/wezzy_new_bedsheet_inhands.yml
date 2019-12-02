@@ -42,3 +42,5 @@ changes:
   - tweak: "Extinguishing cigarettes in the ashtray should play the sound properly now."
   - tweak: "Tweaks power drill sprites."
   - tweak: "Health analysers should show the proper inhands now."
+  - bugfix: "Fixes some more drop sounds."
+

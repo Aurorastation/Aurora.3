@@ -3869,6 +3869,7 @@
 	desc = "A box suited for pizzas."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
+	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x" = 16,"y" = 6)
 
 	var/open = 0 // Is the box open?
