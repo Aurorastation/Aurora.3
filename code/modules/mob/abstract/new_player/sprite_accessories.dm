@@ -2123,12 +2123,6 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
-		una_demonback
-			name = "Unathi Back Demon Horns"
-			icon_state = "unathi_demonback"
-			length = 5
-			chatname = "horns"
-
 		una_bullhorns
 			name = "Unathi Bull Horns"
 			icon_state = "unathi_bullhorn"
@@ -2548,10 +2542,6 @@ Follow by example and make good judgement based on length which list to include 
 		una_demonforward
 			name = "Unathi Forward Demon Horns"
 			icon_state = "facial_demonforward"
-
-		una_demonback
-			name = "Unathi Back Demon Horns"
-			icon_state = "facial_demonback"
 
 		una_bullhorns
 			name = "Unathi Bull Horns"
