@@ -138,7 +138,7 @@
 
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
-	desc = "A roll of treated canvas used for wrapping clawed feet."
+	desc = "A roll of treated cloth used for wrapping clawed feet."
 	icon_state = "clothwrap"
 	item_state = "clothwrap"
 	w_class = 2
