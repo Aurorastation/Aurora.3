@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Surgery sites now have icon overlays, you can now physically see incisions and retracted ribcages."
+  - tweak: "Roller beds have been buffed to be 80% safe to operate on, up from 75%"
+  - tweak: "Using surgery tools on unsafe surfaces (rollerbeds, tables) no longer ATTACKS the patient."
+  - bugfix: "Fixed organ repair surgery not properly repairing the organ."
