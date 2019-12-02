@@ -159,6 +159,18 @@
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
 
+/datum/gear/suit/winter/temperature
+	display_name = "winter coat, pack selection"
+	description = "A selection of winter coats with sewn in temperature packs."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/heated
+
+/datum/gear/suit/winter/temperature/New()
+	..()
+	var/coat = list()
+	coat["padded winter coat (Heat)"] = /obj/item/clothing/suit/storage/hooded/wintercoat/heated
+	coat["padded winter coat (Cooling)"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cooled
+	gear_tweaks += new/datum/gear_tweak/path(coat)
+
 /datum/gear/suit/winter/captain
 	display_name = "winter coat, captain"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain

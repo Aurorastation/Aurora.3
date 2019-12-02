@@ -13,6 +13,7 @@
 	var/image/mob_overlay = null
 	var/flippable = 0 //whether it has an attack_self proc which causes the icon to flip horizontally
 	var/flipped = 0
+	var/temperature // The amount the accessory affects temperature by (Positive increases, Negative decreases, use Kelvin)
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -758,3 +759,26 @@
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
+
+/*
+	Temperature Pack
+*/
+/obj/item/clothing/accessory/heatpack
+	name = "heat pack"
+	desc = "This pack contains chemicals that, when activated, produce a substantial but safe amount of heat."
+	icon_state = "heat_pack"
+	icon_override = 'icons/mob/ties.dmi'
+	slot_flags = SLOT_TIE
+	w_class = ITEMSIZE_SMALL
+	slot = "over"
+	temperature = 5
+
+/obj/item/clothing/accessory/coldpack
+	name = "cold pack"
+	desc = "This pack contains chemicals that, when activated, provide a substantial but safe amount of cooling."
+	icon_state = "cold_pack"
+	icon_override = 'icons/mob/ties.dmi'
+	slot_flags = SLOT_TIE
+	w_class = ITEMSIZE_SMALL
+	slot = "over"
+	temperature = -5

@@ -259,3 +259,16 @@
 /datum/gear/accessory/sleeve_patch/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/accessory/temppack
+	display_name = "temperature pack selection"
+	description = "A selection of temperature packs that can be attached to clothing."
+	path = /obj/item/clothing/accessory/heatpack
+	cost = 2
+
+/datum/gear/accessory/temppack/New()
+	..()
+	var/pack = list()
+	pack["heatpack"] = /obj/item/clothing/accessory/heatpack
+	pack["cooling pack"] = /obj/item/clothing/accessory/coldpack
+	gear_tweaks += new/datum/gear_tweak/path(pack)

@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Made Unathi properly coldblooded. They now don't generate their own bodyheat. In exchange, they use less nutrition and thirst to continue functioning."
+  - rscdel: "Removed Unathi always spawning with sandals. Pick sandals in the loadout menu, they were made free. Otherwise, pick other footwear, they will now be equipped automatically."
+  - rscadd: "Coldblooded human mobs now regenerate stamina slower when cold, even losing stamina when very cold. And regenerate stamina faster when warm."
+  - rscadd: "Added heatpacks and coldpacks, they increase or decrease the temperature you receive from an environment by five Kelvin. Does not work in space."
+  - rscadd: "Added padded winter coats that spawn with heatpacks and coldpacks in them."

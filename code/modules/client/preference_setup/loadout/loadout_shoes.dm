@@ -16,6 +16,7 @@
 /datum/gear/shoes/sandals
 	display_name = "sandals"
 	path = /obj/item/clothing/shoes/sandal
+	cost = 0
 
 /datum/gear/shoes/color
 	display_name = "shoe selection"

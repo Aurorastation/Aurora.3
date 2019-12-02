@@ -245,3 +245,22 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
 	color = "#777777"
+
+// Coats with Heatpacks in them, for use with cold-blooded species
+/obj/item/clothing/suit/storage/hooded/wintercoat/heated
+	name = "padded coat"
+	desc = "A heavy jacket made from animal furs. This one appears to have special pockets for a temperature pack."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/heated/Initialize()
+	..()
+	var/obj/item/clothing/accessory/heatpack/pack = new(src)
+	attach_accessory(null, pack)
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/cooled
+	name = "padded coat"
+	desc = "A heavy jacket made from animal furs. This one appears to have special pockets for a temperature pack."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/cooled/Initialize()
+	..()
+	var/obj/item/clothing/accessory/coldpack/pack = new(src)
+	attach_accessory(null, pack)

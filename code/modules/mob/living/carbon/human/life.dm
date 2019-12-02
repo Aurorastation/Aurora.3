@@ -412,11 +412,26 @@
 			loc_temp = loc:air_contents.temperature
 		else
 			loc_temp = environment.temperature
+		if(w_uniform)
+			var/obj/item/clothing/under/U = w_uniform
+			for(var/obj/item/clothing/accessory/accessory in U.accessories)
+				if(accessory.temperature)
+					loc_temp += accessory.temperature
+		if(wear_suit)
+			var/obj/item/clothing/suit/S = wear_suit
+			for(var/obj/item/clothing/accessory/accessory in S.accessories)
+				if(accessory.temperature)
+					loc_temp += accessory.temperature
 
-		if(adjusted_pressure < species.warning_high_pressure && adjusted_pressure > species.warning_low_pressure && abs(loc_temp - bodytemperature) < 20 && bodytemperature < species.heat_level_1 && bodytemperature > species.cold_level_1)
+		if(species.body_temperature && adjusted_pressure < species.warning_high_pressure && adjusted_pressure > species.warning_low_pressure && abs(loc_temp - bodytemperature) < 20 && bodytemperature < species.heat_level_1 && bodytemperature > species.cold_level_1)
 			pressure_alert = 0
-			return // Temperatures are within normal ranges, fuck all this processing. ~Ccomp
-
+			return // Temperatures are within normal ranges, fuck all this processing. ~Ccomp Unless they're coldblooded - geeves
+		if(!species.body_temperature) // Don't calculate that specifically, though - geeves
+			if(bodytemperature > loc_temp && bodytemperature - loc_temp <= 0.5)
+				return
+			else if(bodytemperature < loc_temp && loc_temp - bodytemperature <= 0.5)
+				return
+	
 		//Body temperature adjusts depending on surrounding atmosphere based on your thermal protection (convection)
 		var/temp_adj = 0
 		if(loc_temp < bodytemperature)			//Place is colder than we are
@@ -518,7 +533,8 @@
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
-	if (species.body_temperature == null)
+	if (!species.body_temperature)
+		handle_coldblooded_body_temp()
 		return //this species doesn't have metabolic thermoregulation
 
 	var/body_temperature_difference = species.body_temperature - bodytemperature
@@ -540,6 +556,18 @@
 		//We totally need a sweat system cause it totally makes sense...~
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
+
+// Cold Blooded Species have special interactions with temperature
+/mob/living/carbon/human/proc/handle_coldblooded_body_temp()
+	if(species.stamina != -1)
+		if(bodytemperature >= species.heat_discomfort_level)
+			var/regen = (stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1)) / 0.5)
+			if(regen > 0)
+				stamina = min(max_stamina, stamina + regen)
+		else if(bodytemperature <= species.cold_discomfort_level)
+			var/loss = (stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1)) / 0.5)
+			if(loss > 0)
+				stamina = max(0, stamina - loss)
 
 	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
@@ -1029,8 +1057,11 @@
 			else
 				//TODO: precalculate all of this stuff when the species datum is created
 				var/base_temperature = species.body_temperature
-				if(base_temperature == null) //some species don't have a set metabolic temperature
-					base_temperature = (species.heat_level_1 + species.cold_level_1)/2
+				if(!base_temperature) //some species don't have a set metabolic temperature
+					if(species.standard_temperature)
+						base_temperature = species.standard_temperature
+					else
+						base_temperature = (species.heat_level_1 + species.cold_level_1)/2
 
 				var/temp_step
 				if (bodytemperature >= base_temperature)
