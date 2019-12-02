@@ -951,7 +951,7 @@
 				M.dropInto(get_turf(src))
 			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
 				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
-	
+
 	if(stomach.ingested.total_volume)
 		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
 	handle_additional_vomit_reagents(splat)
@@ -1745,29 +1745,38 @@
 
 	return FALSE
 
+// Similar to get_pulse, but returns only integer numbers instead of text.
+/mob/living/carbon/human/proc/get_pulse_as_number()
+	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
+	if(!heart_organ)
+		return 0
+
+	switch(pulse())
+		if(PULSE_NONE)
+			return 0
+		if(PULSE_SLOW)
+			return rand(40, 60)
+		if(PULSE_NORM)
+			return rand(60, 90)
+		if(PULSE_FAST)
+			return rand(90, 120)
+		if(PULSE_2FAST)
+			return rand(120, 160)
+		if(PULSE_THREADY)
+			return PULSE_MAX_BPM
+	return 0
+
 /mob/living/carbon/human/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
-	var/temp = 0								//see setup.dm:694
-	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
-	if(heart)
-		switch(heart.pulse)
-			if(PULSE_NONE)
-				return "0"
-			if(PULSE_SLOW)
-				temp = rand(40, 60)
-				return num2text(method ? temp : temp + rand(-10, 10))
-			if(PULSE_NORM)
-				temp = rand(60, 90)
-				return num2text(method ? temp : temp + rand(-10, 10))
-			if(PULSE_FAST)
-				temp = rand(90, 120)
-				return num2text(method ? temp : temp + rand(-10, 10))
-			if(PULSE_2FAST)
-				temp = rand(120, 160)
-				return num2text(method ? temp : temp + rand(-10, 10))
-			if(PULSE_THREADY)
-				return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
-	else
+	var/obj/item/organ/internal/heart/heart_organ = internal_organs_by_name[BP_HEART]
+	if(!heart_organ)
+		// No heart, no pulse
 		return "0"
+
+	var/bpm = get_pulse_as_number()
+	if(bpm >= PULSE_MAX_BPM)
+		return method ? ">[PULSE_MAX_BPM]" : "extremely weak and fast, patient's artery feels like a thread"
+
+	return "[method ? bpm : bpm + rand(-10, 10)]"
 
 /mob/living/carbon/human/proc/pulse()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]

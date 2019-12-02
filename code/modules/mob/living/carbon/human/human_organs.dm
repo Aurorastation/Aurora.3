@@ -57,7 +57,7 @@
 
 			if (!lying && !buckled && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
-				if (prob(10) && !stat && can_feel_pain() && chem_effects[CE_PAINKILLER] < 50 && E.is_broken() && E.internal_organs.len)
+				if (prob(10) && !stat && can_feel_pain() && E.is_broken() && E.internal_organs.len)
 					var/obj/item/organ/I = pick(E.internal_organs)
 					custom_pain("Pain jolts through your broken [E.name]!", 50)
 					I.take_damage(rand(3,5))
