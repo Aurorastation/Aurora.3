@@ -47,7 +47,7 @@
 		src.victim = src.table.victim
 		dat += {"
 <B>Patient Information:</B><BR>
-Pulse: [victim.pulse()]
+Pulse: [victim.get_pulse(GETPULSE_TOOL)]
 BP: [victim.get_blood_pressure()]/[victim.get_blood_oxygenation()]
 "}
 	else

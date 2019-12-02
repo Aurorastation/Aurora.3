@@ -95,7 +95,7 @@
 	<div class='statusDisplay'>
 	<div class="line">
 		<div class="statusLabel">Blood Volume:</div>
-			{{:helper.displayBar(data.bloodAmt, 0, data.blood_volume, data.blood_volume_max)}}
+			{{:helper.displayBar(data.blood_volume, 0, data.blood_volume_max, 'good')}}
 		<div class="statusValue">{{:helper.round(data.blood_volume)}}% ({{:helper.round(data.blood_volume_max)}}u)</div>
 	</div>
 	<div class="line">

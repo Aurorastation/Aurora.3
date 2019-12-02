@@ -33,7 +33,7 @@ BREATH ANALYZER
 	return
 
 /proc/get_wound_severity(var/damage_ratio) //Used for ratios.
-	var/degree
+	var/degree = "none"
 
 	switch(damage_ratio)
 		if(0.05 to 0.1)
