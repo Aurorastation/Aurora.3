@@ -41,8 +41,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts the bloodless incision on [target]'s [affected.name] with \the [tool].", \
 		"You start the bloodless incision on [target]'s [affected.name] with \the [tool].")
-		target.custom_pain("You feel a horrible, searing pain in your [affected.name]!", 75)
-		..()
+	target.custom_pain("You feel a horrible, searing pain in your [affected.name]!", 75)
+	..()
 
 /datum/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -82,8 +82,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
 		"You start to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].")
-		target.custom_pain("You feel a horrible, searing pain in your [affected.name] as it is pushed apart!", 75)
-		..()
+	target.custom_pain("You feel a horrible, searing pain in your [affected.name] as it is pushed apart!", 75)
+	..()
 
 /datum/surgery_step/generic/incision_manager/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -128,8 +128,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts the incision on [target]'s [affected.name] with \the [tool].", \
 		"You start the incision on [target]'s [affected.name] with \the [tool].")
-		target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.name]!", 75)
-		..()
+	target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.name]!", 75)
+	..()
 
 /datum/surgery_step/generic/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -170,8 +170,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts drilling into [target]'s [affected.name] carapace with \the [tool].", \
 		"You start drilling into [target]'s [affected.name] carapace with \the [tool].")
-		target.custom_pain("You feel a horrible pain as if from a jackhammer in your [affected.name]!", 75)
-		..()
+	target.custom_pain("You feel a horrible pain as if from a jackhammer in your [affected.name]!", 75)
+	..()
 
 /datum/surgery_step/generic/cut_open_vaurca/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -209,8 +209,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts clamping bleeders in [target]'s [affected.name] with \the [tool].", \
 		"You start clamping bleeders in [target]'s [affected.name] with \the [tool].")
-		target.custom_pain("The pain in your [affected.name] is maddening!", 75)
-		..()
+	target.custom_pain("The pain in your [affected.name] is maddening!", 75)
+	..()
 
 /datum/surgery_step/generic/clamp_bleeders/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -311,8 +311,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] is beginning to cauterize the incision on [target]'s [affected.name] with \the [tool]." , \
 		"You are beginning to cauterize the incision on [target]'s [affected.name] with \the [tool].")
-		target.custom_pain("Your [affected.name] is being burned!", 75)
-		..()
+	target.custom_pain("Your [affected.name] is being burned!", 75)
+	..()
 
 /datum/surgery_step/generic/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -366,8 +366,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='danger'>[user] is beginning to amputate [target]'s [affected.name] with \the [tool].</span>" , \
 		"<span class='danger'>You begin to cut through [target]'s [affected.amputation_point] with \the [tool].</span>")
-		target.custom_pain("Your [affected.amputation_point] is being ripped apart!", 75)
-		..()
+	target.custom_pain("Your [affected.amputation_point] is being ripped apart!", 75)
+	..()
 
 /datum/surgery_step/generic/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

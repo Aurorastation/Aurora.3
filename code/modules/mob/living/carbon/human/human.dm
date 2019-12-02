@@ -957,7 +957,7 @@
 	handle_additional_vomit_reagents(splat)
 	splat.update_icon()
 
-	playsound(get_turf(owner), 'sound/effects/splat.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 
 /mob/living/carbon/human/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 
