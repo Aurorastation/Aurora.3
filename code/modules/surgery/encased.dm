@@ -86,7 +86,7 @@
 	var/msg = "[user] starts to force open the [affected.encased] in [target]'s [affected.name] with \the [tool]."
 	var/self_msg = "You start to force open the [affected.encased] in [target]'s [affected.name] with \the [tool]."
 	user.visible_message(msg, self_msg)
-	target.custom_pain("Something hurts horribly in your [affected.name]!",1)
+	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
 		var/msg = "[user] starts to force open the [affected.encased] in [target]'s [affected.name] with \the [tool]."
@@ -136,7 +136,7 @@
 	var/msg = "[user] starts bending [target]'s [affected.encased] back into place with \the [tool]."
 	var/self_msg = "You start bending [target]'s [affected.encased] back into place with \the [tool]."
 	user.visible_message(msg, self_msg)
-	target.custom_pain("Something hurts horribly in your [affected.name]!",1)
+	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
 /datum/surgery_step/open_encased/close/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -193,7 +193,7 @@
 	var/msg = "[user] starts applying \the [tool] to [target]'s [affected.encased]."
 	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
 	user.visible_message(msg, self_msg)
-	target.custom_pain("Something hurts horribly in your [affected.name]!",1)
+	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
 /datum/surgery_step/open_encased/mend/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
