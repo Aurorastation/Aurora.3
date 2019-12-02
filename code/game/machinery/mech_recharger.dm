@@ -7,12 +7,12 @@
 	density = 0
 	layer = TURF_LAYER + 0.1
 	anchored = 1
-	idle_power_usage = 200	// Some electronics, passive drain.
-	active_power_usage = 60 KILOWATTS // When charging
+	idle_power_usage = 300	// Some electronics, passive drain.
+	active_power_usage = 90 KILOWATTS // When charging
 
 	var/mob/living/heavy_vehicle/charging
-	var/base_charge_rate = 60 KILOWATTS
-	var/repair_power_usage = 10 KILOWATTS		// Per 1 HP of health.
+	var/base_charge_rate = 90 KILOWATTS
+	var/repair_power_usage = 15 KILOWATTS		// Per 1 HP of health.
 	var/repair = 0
 	var/charge
 
