@@ -5389,7 +5389,7 @@
 
 /obj/item/reagent_containers/food/snacks/tuna
 	name = "\improper Tuna Snax"
-	desc = "A packaged fish snack, guaranteed to do not contain space carp."
+	desc = "A packaged fish snack. Guaranteed to not contain space carp."
 	icon_state = "tuna"
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
