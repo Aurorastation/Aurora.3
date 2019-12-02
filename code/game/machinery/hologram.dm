@@ -50,7 +50,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	var/mob/living/caller_id
 	var/obj/machinery/hologram/holopad/sourcepad
 	var/obj/machinery/hologram/holopad/targetpad
-	var/obj/machinery/hologram/holopad/forced
+	var/forced
 	var/last_message
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
@@ -74,7 +74,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		take_call(user)
 		return
 	else if(caller_id && !incoming_connection && forced)
-		audible_message("Access denied. Terminating a command level transmission locally is not permitted.")
+		audible_message("Access denied. Terminating a command-level transmission locally is not permitted.")
 		return
 	else if(caller_id && !incoming_connection)
 		visible_message("Severing connection to distant holopad.")
@@ -99,7 +99,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				last_request = world.time
 				var/obj/item/card/id/I = user.GetIdCard()
 				if(!user.GetIdCard())
-					to_chat(user, "<span class='notice'>You need authorization to use the holocall system. please equip a valid ID card.</span>")
+					to_chat(user, span("notice", "You need authorization to use the holocall system. Please equip a valid ID card."))
 				var/forcedcall = 0
 				if(access_heads in I.access) //Special functions for command level people
 					switch(alert(user,"Command level authorization detected. Additional functions available", "Command level menu", "Forced call","Regular call"))
