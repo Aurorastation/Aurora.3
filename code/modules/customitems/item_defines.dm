@@ -483,7 +483,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
+/obj/item/clothing/shoes/jackboots/toeless/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
 	name = "marching sandals"
 	desc = "A pair of sturdy marching sandals made of layers of leather and with a reinforced sole, they are also rather big."
 	icon = 'icons/obj/custom_items/yinzr_sandals.dmi'

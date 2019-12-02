@@ -158,7 +158,7 @@
 		return
 
 	if(!H.shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/unathi(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 
 /datum/outfit/admin/syndicate/raider
 	name = "Raider"

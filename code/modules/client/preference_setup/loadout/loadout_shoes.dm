@@ -45,7 +45,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/dress
-	display_name = "oxford shoes selection"
+	display_name = "oxford shoe selection"
 	path = /obj/item/clothing/shoes/laceup
 
 /datum/gear/shoes/dress/New()

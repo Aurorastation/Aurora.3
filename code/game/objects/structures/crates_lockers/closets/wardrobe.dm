@@ -35,7 +35,7 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots/unathi(src)
+	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return
 
