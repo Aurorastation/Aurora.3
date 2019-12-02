@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - imageadd: "New bedsheet, lantern and penlight inhands"
   - tweak: "Extinguishing cigarettes in the ashtray should play the sound properly now."
+  - tweak: "Tweaks power drill sprites."
