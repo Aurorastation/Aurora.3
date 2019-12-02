@@ -3,7 +3,7 @@
 	short_name = "dog"
 	desc = "A dog trained to listen and obey its owner commands, this one is a german shepherd."
 
-	icon = 'icons/mob/npc/dog.dmi'
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "german"
 	icon_living = "german"
 	icon_dead = "german_dead"
