@@ -51,6 +51,7 @@
 		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
 			if (cig.lit == 1)
+				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 				src.visible_message("[user] crushes [cig] in \the [src], putting it out.")
 				STOP_PROCESSING(SSprocessing, cig)
 				var/obj/item/butt = new cig.type_butt(src)
