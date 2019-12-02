@@ -1726,7 +1726,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/firealarm/north,
 /obj/structure/table/wood,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Training Division 3";
 	dir = 8
@@ -4185,6 +4185,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
+"hA" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full"
+	},
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "hC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5983,6 +5990,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/firedoor/multi_tile,
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "kX" = (
@@ -6146,6 +6154,7 @@
 	req_access = list(64)
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lk" = (
@@ -6184,6 +6193,10 @@
 	dir = 9
 	},
 /obj/structure/bed/chair,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lp" = (
@@ -6191,10 +6204,18 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lq" = (
 /obj/structure/table/wood,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lr" = (
@@ -6232,6 +6253,10 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = 0;
 	pixel_y = 32
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
@@ -6279,6 +6304,10 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "ly" = (
@@ -6304,6 +6333,10 @@
 "lz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/disposalpipe/segment,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "lA" = (
@@ -6400,6 +6433,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled,
 /area/medical/psych)
 "lH" = (
@@ -6478,6 +6512,10 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "lP" = (
@@ -6502,6 +6540,7 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/firedoor/multi_tile,
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lU" = (
@@ -7074,6 +7113,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
+"oP" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/open,
+/area/medical/psych)
 "pa" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7629,6 +7672,13 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site/zone_2)
+"sZ" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "ta" = (
 /turf/simulated/wall,
 /area/maintenance/interstitial_construction_site)
@@ -7929,6 +7979,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
+"vg" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/sign/christmas/wreath,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "vk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/freezer{
@@ -9438,6 +9501,14 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Hg" = (
+/obj/structure/lattice,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/medical/psych)
 "Hm" = (
 /obj/structure/lattice,
 /turf/simulated/open,
@@ -9629,6 +9700,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"Iu" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "Ix" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10593,6 +10671,7 @@
 	name = "Psychiatry Wing";
 	req_access = list(5)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
 "Lr" = (
@@ -10963,6 +11042,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
+"MY" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/open,
+/area/medical/psych)
 "Nd" = (
 /obj/structure/lattice,
 /obj/machinery/floodlight{
@@ -11000,6 +11086,18 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"Nz" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/sign/christmas/wreath,
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "NB" = (
 /turf/simulated/wall,
 /area/maintenance/interstitial_construction_site/zone_2)
@@ -11535,6 +11633,17 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
+"RI" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/psych)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -52040,7 +52149,7 @@ hZ
 aa
 hZ
 GT
-GT
+oP
 Nf
 QM
 sl
@@ -52287,17 +52396,17 @@ kE
 hZ
 hZ
 hZ
-GT
-GT
-GT
-GT
-Hm
+MY
+MY
+MY
+MY
+Hg
 GT
 hZ
 aa
 hZ
 GT
-GT
+oP
 qQ
 yO
 sU
@@ -52554,7 +52663,7 @@ hZ
 hZ
 hZ
 kh
-kR
+hA
 ZY
 QM
 sl
@@ -52801,11 +52910,11 @@ kG
 kR
 hZ
 kZ
-kL
+Iu
 ln
 lq
 lx
-kL
+Iu
 lL
 hZ
 lN
@@ -53313,7 +53422,7 @@ kj
 kt
 kI
 kS
-kX
+vg
 kX
 li
 kX
@@ -53321,7 +53430,7 @@ lr
 kX
 lE
 lM
-lM
+Nz
 lV
 mp
 mt
@@ -53574,10 +53683,10 @@ hZ
 II
 kL
 Gm
-kL
+sZ
 lp
 lF
-ko
+RI
 hZ
 lW
 kt
