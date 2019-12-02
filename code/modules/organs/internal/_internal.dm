@@ -97,7 +97,7 @@
 
 /obj/item/organ/internal/process()
 	..()
-	if(owner && toxin_type in owner.chem_effects)
+	if(istype(owner) && (toxin_type in owner.chem_effects))
 		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
 	handle_regeneration()
 
