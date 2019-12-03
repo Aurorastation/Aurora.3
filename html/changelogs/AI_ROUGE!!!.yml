@@ -47,4 +47,4 @@ changes:
   - rscadd: "Seperates traitor borg powers into a seperate verbs tab for you to actually know about"
   - admin: "Autoborger now tells admins that it made a borg"
   - rscadd: "You shouldn't know what the Autoborger is at a glance. It has a more descriptive description"
-  - rscadd: "It now tells players that they are lobotamized"
+  - rscadd: "It now tells players that they are lobotomized"
