@@ -56,12 +56,14 @@
 		visible_message("<span class='danger'>The machine makes a series of loud sounds as it starts to replace [H]'s organs and limbs with robotic parts!</span>")
 		to_chat(H, "<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>")
 		H.Robotize()
+		message_admin("[key_name(H)] has been borgified by the Autoborger 9000")
 		to_chat(H, "<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>")
+		to_chat(H, "<span class='danger'>You are lobotamized by the machine. You do not remember your past identity or self</span>")
 		if(isrobot(H))
 			var/mob/living/silicon/robot/T = H
 			T.emagged = 1
 		else
-			log_debug("[key_name(user)] experienced a failure in becoming overclocked from the [src])
+			log_debug("[key_name(H)] experienced a failure in becoming overclocked from the [src])
 			return
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		canuse = FALSE
