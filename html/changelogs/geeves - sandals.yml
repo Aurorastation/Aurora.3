@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Unathi, Vaurca and Tajara no longer always spawn with sandals, loadout shoes will replace them properly."
