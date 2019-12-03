@@ -273,7 +273,7 @@
 	var/state = G.state
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
-	var/def_zone = ran_zone("head", 20)
+	var/def_zone = ran_zone(BP_HEAD, 20)
 	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
@@ -493,6 +493,12 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
+
+/obj/structure/window/shuttle/legion
+	name = "cockpit window"
+	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
+	health = 160
+	maxhealth = 160
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."

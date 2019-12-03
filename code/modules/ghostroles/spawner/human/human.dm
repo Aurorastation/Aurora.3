@@ -16,6 +16,7 @@
 	var/possible_species = list("Human")
 	var/possible_genders = list(MALE,FEMALE)
 	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	var/list/extra_languages = list() //Which languages are added to this mob
 
 	var/assigned_role = null
 	var/special_role = null
@@ -121,6 +122,9 @@
 	else if(outfit)
 		M.preEquipOutfit(outfit, FALSE)
 		M.equipOutfit(outfit, FALSE)
+
+	for(var/language in extra_languages)
+		M.add_language(language)
 
 	M.force_update_limbs()
 	M.update_eyes()

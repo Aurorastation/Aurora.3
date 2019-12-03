@@ -61,8 +61,8 @@
 		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/combat/marauder/mauler                   = TRADER_THIS_TYPE,
-		/obj/mecha/working/ripley/deathripley               = TRADER_THIS_TYPE
+		/mob/living/heavy_vehicle/premade/combat             = TRADER_THIS_TYPE
+
 	)
 
 	speech = list(
@@ -93,12 +93,10 @@
 	)
 
 	possible_trading_items = list(
-		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST_ALL,
-		/obj/mecha/combat/tank                          = TRADER_BLACKLIST_ALL,
 		/obj/item/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
 		/obj/item/gun/energy/pulse               = TRADER_ALL,
-		/obj/item/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
+		/obj/item/gun/energy/rifle/pulse         = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/heavy         = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = list(/datum/species/monkey, /datum/species/machine, /datum/species/bug, /datum/species/diona)
@@ -197,7 +195,7 @@
 		/obj/item/bluespace_crystal                   = TRADER_ALL,
 		/obj/machinery/bluespacerelay                 = TRADER_ALL,
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
-		/obj/item/organ/brain/golem                   = TRADER_THIS_TYPE,
+		/obj/item/organ/internal/brain/golem                   = TRADER_THIS_TYPE,
 		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
 		/obj/item/circuitboard/telesci_console = TRADER_THIS_TYPE,
 		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
@@ -208,13 +206,7 @@
 	)
 
 	possible_trading_items = list(
-		/obj/item/mecha_parts/chassis/phazon                 = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_torso              = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_head               = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_left_arm           = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_right_arm          = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_left_leg           = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_right_leg          = TRADER_THIS_TYPE
+		/obj/item/bluespace_crystal			                 = TRADER_THIS_TYPE
 	)
 
 	speech = list(

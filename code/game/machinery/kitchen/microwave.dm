@@ -281,6 +281,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 ************************************/
 
 /obj/machinery/microwave/proc/cook()
+	cook_break = FALSE
+	cook_dirty = FALSE
+
 	if(stat & (NOPOWER|BROKEN))
 		return
 

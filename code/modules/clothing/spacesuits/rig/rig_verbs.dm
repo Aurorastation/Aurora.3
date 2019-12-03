@@ -65,7 +65,7 @@
 	if(!check_suit_access(usr))
 		return
 
-	toggle_piece("chest",wearer)
+	toggle_piece(BP_CHEST,wearer)
 
 /obj/item/rig/proc/toggle_gauntlets()
 

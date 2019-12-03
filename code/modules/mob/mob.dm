@@ -367,8 +367,6 @@
 	set category = "Object"
 	set src = usr
 
-	if(istype(loc,/obj/mecha)) return
-
 	if(hand)
 		var/obj/item/W = l_hand
 		if (W)
@@ -1062,9 +1060,8 @@ mob/proc/yank_out_object()
 		affected.take_damage((selection.w_class * 3), 0, 0, 1, "Embedded object extraction")
 
 		if(prob(selection.w_class * 5)) //I'M SO ANEMIC I COULD JUST -DIE-.
-			var/datum/wound/internal_bleeding/I = new (min(selection.w_class * 5, 15))
-			affected.wounds += I
-			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 1)
+			affected.sever_artery()
+			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 50)
 
 		if (ishuman(U))
 			var/mob/living/carbon/human/human_user = U
@@ -1299,37 +1296,37 @@ mob/proc/yank_out_object()
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
 	set hidden = 1
-	toggle_zone_sel(list("head","eyes","mouth"))
+	toggle_zone_sel(list(BP_HEAD,BP_EYES,"mouth"))
 
 /client/verb/body_r_arm()
 	set name = "body-r-arm"
 	set hidden = 1
-	toggle_zone_sel(list("r_arm","r_hand"))
+	toggle_zone_sel(list(BP_R_ARM,BP_R_HAND))
 
 /client/verb/body_l_arm()
  	set name = "body-l-arm"
  	set hidden = 1
- 	toggle_zone_sel(list("l_arm","l_hand"))
+ 	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
 
 /client/verb/body_chest()
  	set name = "body-chest"
  	set hidden = 1
- 	toggle_zone_sel(list("chest"))
+ 	toggle_zone_sel(list(BP_CHEST))
 
 /client/verb/body_groin()
  	set name = "body-groin"
  	set hidden = 1
- 	toggle_zone_sel(list("groin"))
+ 	toggle_zone_sel(list(BP_GROIN))
 
 /client/verb/body_r_leg()
  	set name = "body-r-leg"
  	set hidden = 1
- 	toggle_zone_sel(list("r_leg","r_foot"))
+ 	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
 
 /client/verb/body_l_leg()
  	set name = "body-l-leg"
  	set hidden = 1
- 	toggle_zone_sel(list("l_leg","l_foot"))
+ 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())

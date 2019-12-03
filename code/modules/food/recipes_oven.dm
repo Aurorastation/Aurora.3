@@ -493,7 +493,7 @@
 
 /datum/recipe/cake/brain
 	appliance = OVEN
-	items = list(/obj/item/organ/brain)
+	items = list(/obj/item/organ/internal/brain)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/brain
 
 /datum/recipe/pancakes

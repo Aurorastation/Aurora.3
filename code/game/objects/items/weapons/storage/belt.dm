@@ -251,7 +251,8 @@
 		/obj/item/device/lightreplacer,
 		/obj/item/soap,
 		/obj/item/storage/bag/trash,
-		/obj/item/reagent_containers/glass/rag
+		/obj/item/reagent_containers/glass/rag,
+		/obj/item/gun/energy/mousegun
 		)
 
 /obj/item/storage/belt/wands

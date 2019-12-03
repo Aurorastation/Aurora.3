@@ -29,7 +29,6 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "aj" = (
-/obj/effect/decal/mecha_wreckage/hermes,
 /turf/simulated/floor/diona,
 /area/derelict)
 "ak" = (
@@ -66,7 +65,6 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "as" = (
-/obj/item/mecha_parts/part/phazon_head,
 /turf/simulated/floor/diona,
 /area/derelict)
 "at" = (

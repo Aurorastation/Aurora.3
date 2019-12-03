@@ -138,7 +138,7 @@
 
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
-	desc = "A roll of treated canvas used for wrapping clawed feet."
+	desc = "A roll of treated cloth used for wrapping clawed feet."
 	icon_state = "clothwrap"
 	item_state = "clothwrap"
 	w_class = 2
@@ -182,7 +182,7 @@
 /obj/item/clothing/shoes/heels/attack(mob/living/carbon/M, mob/living/carbon/user, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != "eyes" && target_zone != "head")
+	if(target_zone != BP_EYES && target_zone != BP_HEAD)
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user

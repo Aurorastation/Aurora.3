@@ -73,20 +73,6 @@
 	req_components = list(
 							"/obj/item/stock_parts/scanning_module" = 1)
 
-/obj/item/circuitboard/optableadv
-	name = T_BOARD("Advanced Operation Table")
-	desc = "The circuitboard for a advanced operating table."
-	build_path = "/obj/machinery/optable/lifesupport"
-	origin_tech = list(TECH_BIO = 4, TECH_ENGINEERING = 5)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/stock_parts/scanning_module" = 1,
-							"/obj/item/stock_parts/capacitor" = 1,
-							"/obj/item/device/healthanalyzer" = 1,
-							"/obj/item/stock_parts/scanning_module/adv" = 1,
-							"/obj/item/clothing/mask/breath/medical" = 1,
-							"/obj/item/reagent_containers/glass/beaker/large" = 2)
-
 /obj/item/circuitboard/smartfridge
 	name = T_BOARD("Smart Fridge")
 	desc = "The circuitboard for a smart fridge."

@@ -2810,7 +2810,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/security/main)
@@ -26421,7 +26421,6 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/machinery/computer/mecha,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "aXg" = (
@@ -28414,7 +28413,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -30261,7 +30260,7 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "bed" = (
@@ -31685,7 +31684,7 @@
 /area/crew_quarters/captain)
 "bgT" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -33191,7 +33190,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "bjH" = (
@@ -53679,10 +53678,6 @@
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/circuitboard/mecha_control{
-	pixel_x = 1;
-	pixel_y = -1
-	},
 /turf/simulated/floor/tiled,
 /area/storage/tech)
 "bTI" = (
@@ -55561,7 +55556,7 @@
 "bWV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/glass,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bWW" = (
@@ -78138,12 +78133,10 @@
 	master_tag = "escape_dock";
 	pixel_y = -30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_south_mech";
 	tag_airpump = "escape_dock_south_pump";
 	tag_chamber_sensor = "escape_dock_south_sensor";
 	tag_exterior_door = "escape_dock_south_outer";
 	tag_interior_door = "escape_dock_south_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_south_mech"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -79019,12 +79012,10 @@
 	master_tag = "escape_dock";
 	pixel_y = 30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_north_mech";
 	tag_airpump = "escape_dock_north_pump";
 	tag_chamber_sensor = "escape_dock_north_sensor";
 	tag_exterior_door = "escape_dock_north_outer";
 	tag_interior_door = "escape_dock_north_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_north_mech"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -80305,12 +80296,10 @@
 	master_tag = "escape_dock";
 	pixel_y = 30;
 	req_one_access = list(13);
-	tag_airlock_mech_sensor = "escape_dock_center_mech";
 	tag_airpump = "escape_dock_center_pump";
 	tag_chamber_sensor = "escape_dock_center_sensor";
 	tag_exterior_door = "escape_dock_center_outer";
 	tag_interior_door = "escape_dock_center_inner";
-	tag_shuttle_mech_sensor = "shuttle_dock_center_mech"
 	},
 /obj/machinery/light/small{
 	dir = 1

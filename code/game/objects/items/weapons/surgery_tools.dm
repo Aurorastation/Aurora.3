@@ -178,6 +178,7 @@
 
 /obj/item/storage/fancy/tray
 	name = "surgery tray"
+	desc = "A tray of surgical tools."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgerytray"
 	use_sound = null
@@ -251,10 +252,10 @@
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
+			var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 			if (H.hand)
-				temp = H.organs_by_name["l_hand"]
+				temp = H.organs_by_name[BP_L_HAND]
 			if(temp && !temp.is_usable())
 				to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
 				return

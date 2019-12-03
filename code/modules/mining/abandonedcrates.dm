@@ -112,7 +112,7 @@
 		if(89)
 			new/obj/item/stack/material/animalhide/xeno(src)
 		if(90)
-			new/obj/item/organ/heart(src)
+			new/obj/item/organ/internal/heart(src)
 		if(91)
 			new/obj/item/poppet(src)
 		if(92)

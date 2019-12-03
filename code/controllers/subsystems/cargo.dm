@@ -583,7 +583,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/atom/movable/AM in shuttle_area)
 			if(bounty_ship_item_and_contents(AM, dry_run = FALSE))
 				matched_bounty = TRUE
-			if(!AM.anchored || istype(AM, /obj/mecha))
+			if(!AM.anchored)
 				sold_atoms += export_item_and_contents(AM, FALSE, FALSE, dry_run = FALSE)
 
 	if(sold_atoms)

@@ -36,7 +36,7 @@
 			to_chat(user, "<span class='warning'>\The [H] is mindless!</span>")
 			return FALSE
 
-		var/obj/item/organ/brain/F = H.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/F = H.internal_organs_by_name[BP_BRAIN]
 
 		if(isnull(F))
 			to_chat(user, "<span class='warning'>\The [H] is brainless!</span>")
