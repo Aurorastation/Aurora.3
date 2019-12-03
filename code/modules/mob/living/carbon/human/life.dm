@@ -641,10 +641,11 @@
 	if(in_stasis)
 		return
 
+	chem_effects.Cut()
+
 	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
 
 	if(reagents)
-		chem_effects.Cut()
 		analgesic = 0
 
 		if(touching) touching.metabolize()

@@ -162,13 +162,13 @@
 
 	var/removing = (4 * removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
-	for(var/datum/reagent/R in ingested.reagent_list)
+	for(var/datum/reagent/toxin/R in ingested.reagent_list)
 		if((remove_generic && istype(R, /datum/reagent/toxin)) || (R.type in remove_toxins))
-			ingested.remove_reagent(R.type, removing)
+			ingested.remove_reagent(R.id, removing)
 			return
 	for(var/datum/reagent/R in M.reagents.reagent_list)
 		if((remove_generic && istype(R, /datum/reagent/toxin)) || (R.type in remove_toxins))
-			M.reagents.remove_reagent(R.type, removing)
+			M.reagents.remove_reagent(R.id, removing)
 			return
 
 /datum/reagent/dexalin
