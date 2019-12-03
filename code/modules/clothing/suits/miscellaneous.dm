@@ -636,3 +636,37 @@
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/caution
+	name = "wet floor sign"
+	desc = "Caution! Wet Floor!"
+	description_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
+	description_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "caution"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	force = 1
+	throwforce = 3
+	throw_speed = 2
+	throw_range = 5
+	w_class = 2
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	attack_verb = list("warned", "cautioned", "smashed")
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/suit/caution/attack_self()
+	toggle()
+
+/obj/item/clothing/suit/caution/AltClick()
+	toggle()
+
+/obj/item/clothing/suit/caution/proc/toggle()
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
+	else if(src.icon_state == "caution")
+		src.icon_state = "caution_blinking"
+		usr.show_message("You turn the wet floor sign on.")
+		playsound(src.loc, 'sound/items/flashlight.ogg', 75, 1)
+	else
+		src.icon_state = "caution"
+		usr.show_message("You turn the wet floor sign off.")
+	update_clothing_icon()

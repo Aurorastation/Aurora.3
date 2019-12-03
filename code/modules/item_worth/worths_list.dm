@@ -284,7 +284,7 @@ var/list/worths = list(
 					/obj/item/cane = 40,
 					/obj/item/disk/nuclear = 10000,
 					/obj/item/disk = 90,
-					/obj/item/caution = 15,
+					/obj/item/clothing/suit/caution = 15,
 					/obj/item/module = 100,
 //STOCK PARTS,
 					/obj/item/stock_parts/capacitor/adv = 160,

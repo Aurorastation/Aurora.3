@@ -370,7 +370,7 @@
 /area/maintenance/bridge_elevator)
 "aV" = (
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/item/caution/cone,
+/obj/item/clothing/head/cone,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
 "aW" = (
@@ -11470,14 +11470,14 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/caution/cone,
-/obj/item/caution/cone,
-/obj/item/caution/cone,
-/obj/item/caution/cone,
-/obj/item/caution/cone,
-/obj/item/caution/cone,
-/obj/item/caution/cone,
-/obj/item/caution/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
