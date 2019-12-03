@@ -45,7 +45,6 @@
 #define IS_VAURCA  128
 #define IS_UNDEAD  256
 
-#define CE_UNDEXTROUS "undextrous" // arms no work right
 // Apply status effects
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
@@ -64,6 +63,7 @@
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
+#define CE_UNDEXTROUS "undextrous" // arms no work right
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
