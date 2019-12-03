@@ -4,6 +4,7 @@
 /area/mine/unexplored)
 "ab" = (
 /obj/machinery/access_button/airlock_exterior{
+	frequency = 1352;
 	master_tag = "bunker_airlock";
 	pixel_y = -25
 	},
@@ -11,7 +12,7 @@
 	brightness_color = "#FA8282"
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
+/area/dungeon/sol_outpost)
 "ac" = (
 /turf/simulated/wall/r_wall,
 /area/dungeon/sol_outpost)
@@ -297,7 +298,7 @@
 /area/dungeon/sol_outpost)
 "aZ" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1379;
+	frequency = 1352;
 	icon_state = "door_locked";
 	id_tag = "bunker_exterior";
 	locked = 1
@@ -349,6 +350,7 @@
 "bg" = (
 /obj/effect/decal/cleanable/mucus,
 /obj/machinery/airlock_sensor{
+	frequency = 1352;
 	id_tag = "bunker_sensor";
 	pixel_x = -25
 	},
@@ -361,7 +363,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
-	frequency = 1379;
+	frequency = 1352;
 	id_tag = "bunker_vent"
 	},
 /obj/machinery/light/small{
@@ -393,6 +395,7 @@
 "bm" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1352;
 	id_tag = "bunker_airlock";
 	pixel_x = -25;
 	tag_airpump = "bunker_vent";
@@ -410,7 +413,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
-	frequency = 1379;
+	frequency = 1352;
 	id_tag = "bunker_vent"
 	},
 /turf/simulated/floor,
@@ -508,7 +511,7 @@
 /area/dungeon/sol_outpost)
 "bz" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1379;
+	frequency = 1352;
 	icon_state = "door_locked";
 	id_tag = "bunker_interior";
 	locked = 1
@@ -518,7 +521,7 @@
 /area/dungeon/sol_outpost)
 "bA" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1379;
+	frequency = 1352;
 	icon_state = "door_locked";
 	id_tag = "bunker_interior";
 	locked = 1
@@ -616,6 +619,7 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/access_button/airlock_interior{
+	frequency = 1352;
 	master_tag = "bunker_airlock";
 	pixel_y = 25
 	},

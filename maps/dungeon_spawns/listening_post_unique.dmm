@@ -7,7 +7,7 @@
 /area/dungeon/syndie_listening_post)
 "ac" = (
 /obj/machinery/atmospherics/unary/vent_pump{
-	frequency = 1379;
+	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -19,6 +19,7 @@
 /area/mine/unexplored)
 "ae" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1351;
 	id_tag = "listening_post_airlock";
 	pixel_y = 25;
 	tag_airpump = "listening_post_vent";
@@ -27,14 +28,14 @@
 	tag_interior_door = "listening_post_interior"
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
-	frequency = 1379;
+	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "af" = (
 /obj/machinery/atmospherics/unary/vent_pump{
-	frequency = 1379;
+	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /obj/item/trash/liquidfood,
@@ -42,6 +43,7 @@
 /area/dungeon/syndie_listening_post)
 "ag" = (
 /obj/machinery/access_button/airlock_interior{
+	frequency = 1351;
 	master_tag = "listening_post_airlock";
 	pixel_x = -25
 	},
@@ -100,7 +102,7 @@
 /area/dungeon/syndie_listening_post)
 "an" = (
 /obj/machinery/door/airlock/hatch{
-	frequency = 1379;
+	frequency = 1351;
 	icon_state = "door_locked";
 	id_tag = "listening_post_exterior";
 	locked = 1;
@@ -125,7 +127,7 @@
 /area/dungeon/syndie_listening_post)
 "ar" = (
 /obj/machinery/door/airlock/hatch{
-	frequency = 1379;
+	frequency = 1351;
 	icon_state = "door_locked";
 	id_tag = "listening_post_interior";
 	locked = 1;
@@ -171,12 +173,13 @@
 /area/dungeon/syndie_listening_post)
 "ax" = (
 /obj/machinery/airlock_sensor{
+	frequency = 1351;
 	id_tag = "listening_post_sensor";
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
-	frequency = 1379;
+	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /obj/machinery/light{
@@ -188,7 +191,7 @@
 "ay" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
-	frequency = 1379;
+	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -311,7 +314,7 @@
 "aN" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 1;
-	frequency = 1379;
+	frequency = 1351;
 	id_tag = "listening_post_vent"
 	},
 /obj/item/reagent_containers/glass/bucket{
@@ -407,6 +410,7 @@
 /area/mine/unexplored)
 "bc" = (
 /obj/machinery/access_button/airlock_exterior{
+	frequency = 1351;
 	master_tag = "listening_post_airlock";
 	pixel_x = 25
 	},
