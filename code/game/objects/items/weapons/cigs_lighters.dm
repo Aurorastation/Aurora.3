@@ -45,7 +45,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
-	drop_sound = null
+	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/flame/match/process()
 	if(isliving(loc))
@@ -383,6 +383,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	w_class = 1
 	slot_flags = SLOT_EARS
 	throwforce = 1
+	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
 
 /obj/item/cigbutt/Initialize()
 	. = ..()
@@ -418,6 +419,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	zippomes = "<span class='notice'>With much care, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER recklessly lights NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/mask/smokable/pipe/Initialize()
 	. = ..()
@@ -523,6 +525,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	'sound/items/cigs_lighters/cheap_on3.ogg',
 	)
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -531,6 +534,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "zippo"
 	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/flame/lighter/random
 	New()
