@@ -56,8 +56,7 @@
 							"Convince one republican citizen to adopt Democratic People's Republic's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 1000 credits each",
-							"Have [rand(2,5)] DPRA citizens to write down their grievances with the company, and present the report to station command",
+			rep_objectives = pick("Have [rand(2,5)] DPRA citizens to write down their grievances with the company, and present the report to station command",
 							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
 		else
 			rep_objectives = pick("Ensure Party loyalty for Tajara in prestigious positions",
@@ -71,7 +70,6 @@
 	uniform = /obj/item/clothing/under/suit_jacket/checkered
 	head = /obj/item/clothing/head/fedora
 	backpack_contents = list(
-		/obj/item/storage/box/hadii_card = 1,
 		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1
 	)
@@ -98,8 +96,7 @@
 							"Convince one republican citizen to adopt New Kingdom's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 1000 credits each",
-							"Have [rand(2,5)] NKA citizens to write down their grievances with the company, and present the report to station command",
+			rep_objectives = pick("Have [rand(2,5)] NKA citizens to write down their grievances with the company, and present the report to station command",
 							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
 		else
 			rep_objectives = pick("Ensure Party loyalty for Tajara in prestigious positions",
@@ -113,8 +110,6 @@
 	uniform = /obj/item/clothing/under/suit_jacket/checkered
 	head = /obj/item/clothing/head/fedora
 	backpack_contents = list(
-		/obj/item/gun/projectile/revolver/adhomian = 1,
-		/obj/item/storage/box/hadii_manifesto = 1,
-		/obj/item/gun/projectile/pistol/adhomai = 1
+		/obj/item/gun/projectile/revolver/adhomian = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
