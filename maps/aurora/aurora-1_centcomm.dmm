@@ -556,7 +556,16 @@
 /area/holodeck/source_desert)
 "abw" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/holofloor/grass,
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abx" = (
 /obj/structure/flora/ausbushes/fullgrass,
@@ -564,7 +573,11 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "aby" = (
 /obj/effect/decal/cleanable/dirt,
@@ -580,7 +593,11 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abA" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -588,11 +605,27 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abB" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/holofloor/grass,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	icon_state = "spline_fancy_corner";
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abC" = (
 /obj/effect/landmark/costume,
@@ -647,15 +680,18 @@
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
 "abN" = (
-/obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abO" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 4
@@ -664,15 +700,20 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abP" = (
-/obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "abQ" = (
 /obj/effect/landmark{
@@ -732,39 +773,50 @@
 /turf/simulated/floor/holofloor/desert,
 /area/holodeck/source_desert)
 "acc" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "acd" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "ace" = (
-/obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/holofloor/grass,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	icon_state = "spline_fancy_corner";
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	icon_state = "spline_fancy_corner";
+	dir = 4
+	},
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "acf" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "acg" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	icon_state = "spline_fancy_corner";
 	dir = 8
@@ -773,7 +825,12 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "ach" = (
 /obj/structure/bed/chair/holochair,
@@ -1172,14 +1229,6 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/desert,
 /area/holodeck/source_picnicarea)
-"acX" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_picnicarea)
 "acY" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_theatre)
@@ -1529,7 +1578,6 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_gym)
 "adL" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	icon_state = "spline_fancy_corner";
 	dir = 1
@@ -1538,10 +1586,14 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "adM" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
@@ -1550,18 +1602,23 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "adN" = (
-/obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	icon_state = "spline_fancy_corner";
+	dir = 8
+	},
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "adO" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 1
@@ -1570,10 +1627,10 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "adP" = (
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	icon_state = "spline_fancy_corner";
 	dir = 4
@@ -1582,7 +1639,12 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "adQ" = (
 /obj/effect/floor_decal/carpet{
@@ -1880,7 +1942,8 @@
 	icon_state = "spline_fancy";
 	dir = 5
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "aeC" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -1888,7 +1951,8 @@
 	icon_state = "spline_fancy";
 	dir = 9
 	},
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_picnicarea)
 "aeD" = (
 /obj/structure/bed/chair/holochair{
@@ -10502,7 +10566,7 @@
 /area/centcom/control)
 "ayU" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11260,7 +11324,7 @@
 /area/centcom/specops)
 "aAv" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12229,6 +12293,10 @@
 /area/centcom/holding)
 "aCn" = (
 /obj/machinery/computer/records/security,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -12511,6 +12579,7 @@
 	name = "Holding Cell";
 	req_access = list(2)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aDa" = (
@@ -12547,6 +12616,7 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12630,6 +12700,7 @@
 	name = "Holding Cell";
 	req_access = list(2)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12642,12 +12713,20 @@
 	name = "Arrivals Processing";
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/holding)
 "aDq" = (
 /obj/item/modular_computer/console/preset/command,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12718,6 +12797,7 @@
 	c_tag = "Crescent Arrivals North";
 	dir = 8
 	},
+/obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12745,6 +12825,10 @@
 /area/centcom/holding)
 "aDD" = (
 /obj/structure/table/reinforced,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -12815,6 +12899,14 @@
 /area/holodeck/source_battlemonsters)
 "aDK" = (
 /obj/item/modular_computer/console/preset/security,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aDL" = (
@@ -12832,6 +12924,10 @@
 /area/centcom/ferry)
 "aDN" = (
 /obj/structure/banner,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 8
@@ -12843,6 +12939,10 @@
 	},
 /area/centcom/holding)
 "aDP" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
 	dir = 5
@@ -12946,10 +13046,8 @@
 	},
 /area/centcom/ferry)
 "aDZ" = (
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/snow,
 /area/centcom/holding)
 "aEa" = (
 /obj/structure/bed/chair{
@@ -13004,6 +13102,10 @@
 "aEh" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -13049,10 +13151,8 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/grass/both,
+/turf/simulated/floor/snow,
 /area/centcom/holding)
 "aEp" = (
 /turf/unsimulated/floor{
@@ -13115,6 +13215,10 @@
 "aEx" = (
 /obj/structure/bed/chair,
 /obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
 	dir = 1
 	},
 /turf/simulated/floor/shuttle,
@@ -13204,6 +13308,7 @@
 /area/shuttle/transport1/centcom)
 "aEJ" = (
 /obj/machinery/door/unpowered/shuttle,
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport1/centcom)
 "aEK" = (
@@ -13254,6 +13359,10 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "greencorner";
 	dir = 1
@@ -13298,6 +13407,7 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13344,6 +13454,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/structure/sign/christmas/lights,
 /turf/simulated/floor/shuttle,
 /area/shuttle/transport1/centcom)
 "aFc" = (
@@ -13368,6 +13479,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Arrivals Bar"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -13441,6 +13553,10 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aFo" = (
@@ -13477,6 +13593,10 @@
 /area/centcom/holding)
 "aFq" = (
 /obj/item/modular_computer/console/preset/captain,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/escape/centcom)
 "aFr" = (
@@ -13487,6 +13607,10 @@
 /area/centcom/holding)
 "aFs" = (
 /obj/machinery/computer/shuttle_control/emergency,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/escape/centcom)
 "aFt" = (
@@ -13497,6 +13621,10 @@
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
@@ -13950,6 +14078,7 @@
 /obj/machinery/door/airlock/glass_medical{
 	name = "Arrivals Medbay"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -14255,6 +14384,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -14608,6 +14738,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "NMSS Odin Cryogenic Storage"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "whitegreenfull"
@@ -14623,6 +14754,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "NMSS Odin Sports Megacenter"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -14903,6 +15035,7 @@
 	name = "Secure Holding";
 	req_access = list(1)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape/centcom)
 "aID" = (
@@ -15356,6 +15489,10 @@
 	pixel_x = 0;
 	pixel_y = 0
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	dir = 4;
 	icon_state = "whitegreen"
@@ -15807,6 +15944,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -15831,6 +15969,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "To: Arrivals Deck"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aKz" = (
@@ -15900,12 +16039,20 @@
 /area/shuttle/arrival/centcom)
 "aKH" = (
 /obj/structure/closet/emcloset,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/centcom)
 "aKI" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/camera/network/civilian_east{
 	c_tag = "Surface - Arrivals Shuttle"
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/centcom)
@@ -16697,6 +16844,7 @@
 /area/syndicate_mothership/raider_base)
 "aMo" = (
 /obj/machinery/door/airlock/glass,
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -16815,6 +16963,10 @@
 	c_tag = "Crescent Arrivals North";
 	dir = 8
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -16823,6 +16975,10 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals - Holding Cell";
 	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -16854,6 +17010,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "To: NMSS Odin Hab Complex"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aMJ" = (
@@ -16951,6 +17108,7 @@
 	},
 /area/centcom/spawning)
 "aMV" = (
+/obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 10
@@ -16962,6 +17120,7 @@
 	},
 /area/centcom/spawning)
 "aMX" = (
+/obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 6
@@ -17123,6 +17282,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17142,6 +17302,7 @@
 	opacity = 1;
 	req_access = newlist()
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17276,6 +17437,10 @@
 /area/centcom/spawning)
 "aNJ" = (
 /obj/structure/banner/unmovable,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
 	dir = 9
@@ -17519,6 +17684,10 @@
 /obj/structure/flora/pottedplant/random{
 	anchored = 1
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
 	dir = 4
@@ -17648,6 +17817,10 @@
 /area/centcom/spawning)
 "aOC" = (
 /obj/structure/bed/chair,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aOD" = (
@@ -17788,11 +17961,10 @@
 	name = "Cockpit";
 	req_access = list(19)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aOY" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
 	dir = 1
@@ -17802,66 +17974,39 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/snow,
 /area/centcom/spawning)
 "aOZ" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/snow,
 /area/centcom/spawning)
 "aPa" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/grass/both,
+/turf/simulated/floor/snow,
 /area/centcom/spawning)
 "aPb" = (
-/obj/structure/flora/ausbushes/brflowers,
-/obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
-/area/centcom/spawning)
-"aPc" = (
-/obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/flora/ausbushes/lavendergrass,
-/obj/structure/window/reinforced/crescent{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
+/turf/simulated/floor/snow,
 /area/centcom/spawning)
 "aPd" = (
-/obj/structure/flora/ausbushes/ywflowers,
-/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/window/reinforced/crescent{
 	icon_state = "rwindow";
 	dir = 1
@@ -17871,10 +18016,9 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	icon_state = "grass1";
-	name = "grass"
-	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/brown,
+/turf/simulated/floor/snow,
 /area/centcom/spawning)
 "aPe" = (
 /obj/structure/window/reinforced,
@@ -17888,6 +18032,10 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Departures";
 	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "blue";
@@ -18192,6 +18340,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18518,6 +18667,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18555,6 +18705,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cryogenic Storage"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -18564,6 +18715,7 @@
 /obj/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -18846,6 +18998,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19046,6 +19199,7 @@
 	name = "Real Fake Doors! and Co";
 	opacity = 1
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19069,6 +19223,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19532,6 +19687,10 @@
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/coffee/full,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -19556,6 +19715,10 @@
 /obj/structure/table/steel,
 /obj/machinery/microwave,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -20606,6 +20769,10 @@
 "aVo" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -20696,6 +20863,14 @@
 /area/shuttle/escape/centcom)
 "aVC" = (
 /obj/item/modular_computer/console/preset/medical,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aVD" = (
@@ -20710,6 +20885,7 @@
 	name = "Cockpit";
 	req_access = list(19)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aVF" = (
@@ -20721,6 +20897,10 @@
 /area/shuttle/escape/centcom)
 "aVG" = (
 /obj/item/modular_computer/console/preset/research,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aVH" = (
@@ -20742,6 +20922,10 @@
 /area/shuttle/escape/centcom)
 "aVK" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/escape/centcom)
 "aVL" = (
@@ -20769,6 +20953,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Emergency Supplies"
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/escape/centcom)
 "aVO" = (
@@ -20839,10 +21024,15 @@
 /area/shuttle/escape/centcom)
 "aVX" = (
 /obj/structure/bed/chair,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aVZ" = (
 /obj/machinery/computer/records/security,
+/obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20856,12 +21046,17 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
 "aWb" = (
 /obj/structure/banner,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20994,6 +21189,7 @@
 	name = "Medical Bay";
 	req_access = list(5)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aWt" = (
@@ -21023,12 +21219,17 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
 "aWz" = (
 /obj/machinery/computer/records/security,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21042,16 +21243,25 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
 "aWB" = (
 /obj/structure/closet/crate/freezer/rations,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/escape/centcom)
 "aWC" = (
 /obj/structure/flora/pottedplant/random,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aWD" = (
@@ -21140,6 +21350,10 @@
 	icon_state = "sleeper_0";
 	dir = 8
 	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aWS" = (
@@ -21152,6 +21366,10 @@
 /area/shuttle/escape/centcom)
 "aWT" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aWU" = (
@@ -21202,6 +21420,10 @@
 /obj/machinery/light{
 	dir = 4;
 	status = 2
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
@@ -21315,6 +21537,7 @@
 	opacity = 1;
 	req_access = list(109)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21482,6 +21705,10 @@
 	},
 /obj/structure/bed/chair/comfy/black{
 	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "grimy"
@@ -21753,6 +21980,7 @@
 /area/centcom/shared_dream)
 "aYn" = (
 /obj/structure/simple_door/wood,
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -21984,6 +22212,10 @@
 /area/skipjack_station/start)
 "aYO" = (
 /obj/structure/coatrack,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22126,6 +22358,7 @@
 /obj/structure/bed/chair/wood{
 	dir = 1
 	},
+/obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -22249,6 +22482,7 @@
 	},
 /area/centcom/legion)
 "bmH" = (
+/obj/structure/sign/christmas/lights,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 5
@@ -22365,6 +22599,10 @@
 /obj/item/material/ashtray/glass,
 /obj/item/storage/fancy/cigarettes/dromedaryco,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -22467,6 +22705,13 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"ckG" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 4
+	},
+/area/centcom/spawning)
 "coC" = (
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
@@ -22515,14 +22760,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
-"crw" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
-	dir = 4
-	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass,
-/area/holodeck/source_dininghall)
 "crN" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled{
 	start_pressure = 15000
@@ -22860,6 +23097,10 @@
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
+"dpr" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/shuttle,
+/area/shuttle/arrival/centcom)
 "dqY" = (
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/vending/wallmed1{
@@ -22876,6 +23117,25 @@
 "drL" = (
 /turf/space/transit/east/shuttlespace_ew10,
 /area/shuttle/distress/transit)
+"dsF" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/spawning)
+"dxJ" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "dzL" = (
 /obj/machinery/vending/security,
 /obj/machinery/light{
@@ -22894,12 +23154,24 @@
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion)
+"dAS" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "blue"
+	},
+/area/centcom/spawning)
 "dBu" = (
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 5
 	},
 /area/centcom/distress_prep)
+"dBG" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/holding)
 "dCz" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -23017,12 +23289,30 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/legion/hangar5)
+"dNA" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	dir = 2;
+	icon_state = "whitegreencorner"
+	},
+/area/centcom/holding)
 "dPt" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"dQM" = (
+/obj/structure/bed/chair,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/transport1/centcom)
 "dTq" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle,
@@ -23044,6 +23334,18 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"dUQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
 "dUW" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -23282,6 +23584,18 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"ePR" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/grass/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
 "eQJ" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small/emergency{
@@ -23569,6 +23883,19 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"fid" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
 "fkT" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/blood/OMinus,
@@ -23586,6 +23913,20 @@
 	icon_state = "floor3"
 	},
 /area/centcom/legion/hangar5)
+"flk" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "flX" = (
 /obj/structure/bed/chair/shuttle,
 /turf/simulated/floor/shuttle/black,
@@ -23595,8 +23936,12 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/ywflowers,
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_dininghall)
 "frl" = (
 /obj/machinery/chemical_dispenser/ert{
@@ -23714,6 +24059,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/distress/centcom)
+"fNp" = (
+/obj/structure/banner/unmovable,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 5
+	},
+/area/centcom/spawning)
 "fPQ" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
@@ -23737,6 +24093,24 @@
 "fQF" = (
 /turf/space/transit/east/shuttlespace_ew9,
 /area/shuttle/distress/transit)
+"fRk" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "fRx" = (
 /obj/machinery/door/window/southleft{
 	desc = "A strong door. An angry note is taped to the front.";
@@ -23945,6 +24319,14 @@
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/distress/centcom)
+"gmK" = (
+/obj/item/modular_computer/console/preset/research,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/white,
+/area/shuttle/escape/centcom)
 "gmT" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion";
@@ -23971,6 +24353,18 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"grt" = (
+/obj/structure/bed,
+/obj/item/bedsheet/red,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/centcom/holding)
 "grY" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp{
@@ -24143,6 +24537,10 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
+"gDe" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "gDh" = (
 /obj/machinery/telecomms/receiver/preset_cent,
 /turf/unsimulated/floor{
@@ -24179,6 +24577,19 @@
 	icon_state = "floor"
 	},
 /area/centcom/distress_prep)
+"gLc" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
 "gLr" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Laundry";
@@ -24471,6 +24882,19 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"hEl" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
 "hEN" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/hypospray{
@@ -24541,6 +24965,16 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"hOG" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
 "hRs" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -24603,6 +25037,12 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/legion)
+"hTf" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/ferry)
 "hVm" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -24771,6 +25211,28 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion/hangar5)
+"ijP" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/checkpoint/fore)
+"ikg" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
 "ikA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/oil,
@@ -24826,6 +25288,26 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"ivH" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding4"
+	},
+/area/centcom/holding)
+"iwx" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 4
+	},
+/area/centcom/spawning)
 "izN" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -24897,6 +25379,10 @@
 "iIs" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/records/employment,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -24915,6 +25401,16 @@
 	icon_state = "floor"
 	},
 /area/centcom/distress_prep)
+"iLu" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 5
+	},
+/area/centcom/spawning)
 "iLV" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -24975,6 +25471,19 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/legion)
+"iRF" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "iUt" = (
 /turf/space/transit/east/shuttlespace_ew8,
 /area/shuttle/distress/transit)
@@ -25103,6 +25612,26 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"jap" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 6
+	},
+/area/centcom/spawning)
+"jaG" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
 "jaZ" = (
 /turf/unsimulated/wall/riveted,
 /area/syndicate_mothership/elite_squad)
@@ -25209,6 +25738,7 @@
 	opacity = 0;
 	req_access = list(19)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -25250,7 +25780,13 @@
 	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/brown,
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_dininghall)
 "jxm" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -25422,6 +25958,15 @@
 	icon_state = "cafeteria"
 	},
 /area/centcom/legion)
+"jRD" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/holding)
 "jTp" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
@@ -25517,6 +26062,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion)
+"kis" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/shuttle,
+/area/shuttle/transport1/centcom)
 "kmV" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -25548,12 +26100,28 @@
 	name = "plating"
 	},
 /area/centcom/legion/hangar5)
+"ksz" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
 "ktR" = (
 /turf/unsimulated/floor{
 	icon_state = "green";
 	dir = 4
 	},
 /area/centcom/living)
+"ktS" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
 "kuK" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 8
@@ -25566,6 +26134,19 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"kxm" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/holding)
+"kys" = (
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "kzV" = (
 /obj/structure/toilet{
 	pixel_x = 0;
@@ -25582,6 +26163,15 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"kBF" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "kBT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/crescent{
@@ -25733,7 +26323,16 @@
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_dininghall)
 "kVO" = (
 /obj/structure/closet/crate/secure/legion{
@@ -26128,6 +26727,16 @@
 "mfg" = (
 /turf/space/transit/east/shuttlespace_ew7,
 /area/shuttle/legion/transit)
+"mfM" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "red"
+	},
+/area/centcom/holding)
 "mkQ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/mecha_equipment/clamp,
@@ -26137,6 +26746,15 @@
 	name = "plating"
 	},
 /area/centcom/legion/hangar5)
+"mlO" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/shared_dream)
 "mnk" = (
 /obj/machinery/light{
 	dir = 4;
@@ -26195,6 +26813,10 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"mud" = (
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/snow,
+/area/centcom/holding)
 "mvu" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
@@ -26275,6 +26897,19 @@
 	icon_state = "tiles"
 	},
 /area/centcom/legion/hangar5)
+"mCI" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights,
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
 "mEu" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -26403,6 +27038,13 @@
 /obj/structure/cryofeed,
 /turf/simulated/floor/tiled,
 /area/centcom/ferry)
+"mWr" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "naf" = (
 /turf/space/transit/east/shuttlespace_ew1,
 /area/shuttle/legion/transit)
@@ -26413,6 +27055,13 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_dininghall)
+"naO" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 10
+	},
+/area/centcom/spawning)
 "nco" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -26624,6 +27273,13 @@
 	icon_state = "floor3"
 	},
 /area/centcom/legion/hangar5)
+"npP" = (
+/obj/structure/banner,
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "nte" = (
 /turf/space/transit/east/shuttlespace_ew5,
 /area/shuttle/distress/transit)
@@ -26633,6 +27289,16 @@
 	dir = 9
 	},
 /area/centcom/living)
+"nuU" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 8
+	},
+/area/centcom/holding)
 "nvT" = (
 /obj/structure/sign/flag/biesel/left{
 	dir = 8;
@@ -26897,6 +27563,19 @@
 	dir = 8
 	},
 /area/centcom/living)
+"nQF" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "nRm" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "legion weapon cabinet";
@@ -26985,9 +27664,16 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"nZz" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/white,
+/area/shuttle/escape/centcom)
 "nZO" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donut{
+/obj/item/storage/fancy/donut{
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{
@@ -27116,6 +27802,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/legion/centcom)
+"olh" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/checkpoint/aft)
 "oll" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -27184,13 +27876,28 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/fore)
+"oya" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 10
+	},
+/area/centcom/holding)
 "oyh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_dininghall)
 "oyD" = (
 /obj/item/stool/padded,
@@ -27198,6 +27905,21 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"ozc" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "ozg" = (
 /obj/structure/grille/broken,
 /obj/structure/window/reinforced/crescent{
@@ -27296,6 +28018,16 @@
 	icon_state = "dark"
 	},
 /area/centcom/living)
+"oLA" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 1
+	},
+/area/centcom/holding)
 "oMF" = (
 /obj/structure/table/standard,
 /obj/machinery/vending/wallmed1{
@@ -27321,6 +28053,13 @@
 	icon_state = "whitegreen"
 	},
 /area/centcom/legion)
+"oNW" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled/dark,
+/area/holodeck/source_dininghall)
 "oOS" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -27400,6 +28139,16 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"oUJ" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 9
+	},
+/area/centcom/spawning)
 "oVL" = (
 /obj/machinery/door/window{
 	dir = 8;
@@ -27514,6 +28263,13 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"pgN" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/transport1/centcom)
 "pku" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -27534,6 +28290,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/living)
+"pkX" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner"
+	},
+/area/centcom/holding)
 "plA" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
@@ -27660,6 +28425,16 @@
 	dir = 8
 	},
 /area/centcom/legion/hangar5)
+"pFC" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 1
+	},
+/area/centcom/spawning)
 "pGH" = (
 /obj/structure/closet/wardrobe/orange,
 /turf/unsimulated/floor{
@@ -28115,6 +28890,10 @@
 /area/centcom/holding)
 "qNk" = (
 /obj/structure/bed/chair/comfy/black,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -28185,6 +28964,16 @@
 	dir = 8
 	},
 /area/centcom/legion/hangar5)
+"qUu" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 1
+	},
+/area/centcom/holding)
 "qXv" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -28408,6 +29197,16 @@
 	dir = 5
 	},
 /area/centcom/ferry)
+"rpg" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 4
+	},
+/area/centcom/holding)
 "rpT" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
@@ -28434,6 +29233,18 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"rqW" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
 "rug" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/unsimulated/floor{
@@ -28445,6 +29256,13 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"rxv" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "rxN" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -28478,6 +29296,16 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
+"rCK" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "whitegreen"
+	},
+/area/centcom/holding)
 "rEP" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -28655,6 +29483,19 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"rYS" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	icon_state = "spline_fancy_corner";
+	dir = 1
+	},
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
 "sdE" = (
 /obj/structure/shuttle/engine/heater{
 	icon_state = "heater";
@@ -28714,10 +29555,34 @@
 	name = "Cryo Storage";
 	req_access = list(38)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
 /area/centcom/ferry)
+"siv" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/escape/centcom)
+"skj" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/escape/centcom)
 "skD" = (
 /obj/machinery/light{
 	dir = 4;
@@ -29193,6 +30058,15 @@
 	},
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/legion/centcom)
+"tmg" = (
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent,
+/obj/structure/flora/grass/green,
+/turf/simulated/floor/snow,
+/area/centcom/spawning)
 "tnJ" = (
 /obj/machinery/vending/snack{
 	name = "Free Chocolate Corp";
@@ -29361,6 +30235,18 @@
 	icon_state = "engine"
 	},
 /area/centcom/legion/hangar5)
+"tIZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
 "tJm" = (
 /turf/unsimulated/floor{
 	icon_state = "wood-broken5"
@@ -29429,6 +30315,18 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"tVT" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/grass/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
 "tVX" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -29496,6 +30394,27 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"ugy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/grass/both,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
+"ujs" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "ukL" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/crescent,
@@ -29548,6 +30467,31 @@
 	dir = 1
 	},
 /area/centcom/legion)
+"uuM" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	icon_state = "spline_fancy_corner";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_picnicarea)
+"uzX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/structure/flora/grass/brown,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
+/area/holodeck/source_dininghall)
 "uFy" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -27;
@@ -29569,6 +30513,7 @@
 	opacity = 1;
 	req_access = list(101)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -29688,6 +30633,17 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
+"uYE" = (
+/obj/structure/banner,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 9
+	},
+/area/centcom/holding)
 "uZl" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
@@ -29733,6 +30689,12 @@
 	},
 /turf/simulated/wall/shuttle/legion,
 /area/shuttle/legion/centcom)
+"vdp" = (
+/obj/structure/sign/christmas/lights,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "vdD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -29809,6 +30771,10 @@
 /area/centcom/checkpoint/aft)
 "vjK" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -30017,6 +30983,20 @@
 	dir = 8
 	},
 /area/centcom/distress_prep)
+"vFh" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
 "vFT" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
@@ -30501,6 +31481,16 @@
 	dir = 5
 	},
 /area/centcom/distress_prep)
+"wNX" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "blue";
+	dir = 8
+	},
+/area/centcom/spawning)
 "wOb" = (
 /turf/unsimulated/floor{
 	dir = 8;
@@ -30537,8 +31527,12 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/brflowers,
-/turf/simulated/floor/holofloor/grass,
+/obj/structure/flora/grass/green,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_dininghall)
 "wUi" = (
 /obj/structure/janitorialcart{
@@ -30640,6 +31634,16 @@
 	icon_state = "platebot"
 	},
 /area/centcom/distress_prep)
+"xel" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/centcom/holding)
 "xgB" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -30675,6 +31679,16 @@
 	icon_state = "steel_dirty"
 	},
 /area/centcom/legion/hangar5)
+"xif" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 8
+	},
+/area/centcom/holding)
 "xii" = (
 /turf/unsimulated/wall/fakepdoor,
 /area/centcom/legion/hangar5)
@@ -30780,6 +31794,16 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion)
+"xwi" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "greencorner";
+	dir = 4
+	},
+/area/centcom/holding)
 "xws" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -30822,11 +31846,46 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
+"xxz" = (
+/obj/machinery/porta_turret/crescent,
+/obj/effect/decal/warning_stripes,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/control)
 "xxW" = (
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
 /area/centcom/legion)
+"xyw" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/turf/simulated/floor/shuttle,
+/area/shuttle/escape/centcom)
+"xAR" = (
+/obj/machinery/door/blast/odin{
+	density = 0;
+	dir = 1;
+	icon_state = "pdoor0";
+	id = "CentComArrivalsCommand";
+	name = "Security Doors";
+	opacity = 0
+	},
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/evac)
 "xBh" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -31035,6 +32094,16 @@
 "xZs" = (
 /turf/space/transit/east/shuttlespace_ew3,
 /area/shuttle/legion/transit)
+"yeT" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "rampbottom";
+	dir = 4
+	},
+/area/centcom/spawning)
 "ygK" = (
 /turf/unsimulated/floor{
 	dir = 8;
@@ -31053,11 +32122,16 @@
 	name = "Service Airlock"
 	},
 /area/centcom/legion/hangar5)
+"yhy" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/snow,
+/area/centcom/holding)
 "yhL" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Representative Office";
 	req_access = list(38)
 	},
+/obj/structure/sign/christmas/wreath,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -31088,6 +32162,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion/hangar5)
+"yjY" = (
+/obj/structure/banner,
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "green";
+	dir = 5
+	},
+/area/centcom/holding)
 "ykH" = (
 /obj/effect/floor_decal/corner/blue,
 /turf/unsimulated/floor{
@@ -59031,7 +60116,7 @@ aaM
 hHP
 vjK
 raM
-otY
+hTf
 hHP
 aaM
 aaM
@@ -59288,7 +60373,7 @@ aaM
 hHP
 iIs
 gXE
-otY
+hTf
 hHP
 aaM
 aaM
@@ -60059,7 +61144,7 @@ aaM
 hHP
 qNk
 otY
-otY
+hTf
 hHP
 aaM
 aaM
@@ -60316,7 +61401,7 @@ aaM
 hHP
 bPG
 ewG
-otY
+hTf
 hHP
 aaM
 aaM
@@ -61862,7 +62947,7 @@ aDU
 aEf
 aEk
 aEk
-aEy
+pgN
 aEk
 aEk
 aDM
@@ -63403,9 +64488,9 @@ aDM
 aDU
 aEf
 aEl
-aEw
+dQM
 aEy
-aFa
+kis
 aEl
 aDM
 aFv
@@ -63662,7 +64747,7 @@ aEf
 aEm
 aEy
 aEy
-aFa
+kis
 aEl
 aDM
 aEP
@@ -63917,9 +65002,9 @@ aDM
 aDU
 aEf
 aEl
-aEw
+dQM
 aEy
-aFa
+kis
 aEl
 aDM
 aFw
@@ -64087,10 +65172,10 @@ asL
 auk
 aXz
 aXF
-aXN
+ktS
 aYm
 aYO
-aYa
+mlO
 aZg
 aYr
 asL
@@ -64456,22 +65541,22 @@ aCq
 aLQ
 aLP
 aMD
-aLP
-aLP
-aLP
-aLP
-aLP
+jRD
+jRD
+jRD
+jRD
+jRD
 aLP
 aOO
 aCq
 aLP
 aLP
 aMD
-aLP
-aLP
-aLP
-aLP
-aLP
+jRD
+jRD
+jRD
+jRD
+jRD
 aLP
 aLQ
 aCq
@@ -64699,9 +65784,9 @@ aFY
 aEP
 aGD
 aHd
-aEP
+ksz
 aDb
-aCC
+uYE
 aIM
 aCM
 aEa
@@ -64956,9 +66041,9 @@ aFL
 aEP
 aFL
 aFL
-aEP
+ksz
 aDb
-aIv
+oLA
 aCo
 aCo
 aCo
@@ -64969,23 +66054,23 @@ aGb
 aCM
 aLR
 aMp
-aGb
-aCM
-aCM
-aCM
-aCM
-aCD
+nuU
+xif
+xif
+xif
+xif
+qUu
 aMp
 aOP
 aCM
 aCD
 aMp
-aGb
-aCM
-aCM
-aCM
-aCM
-aCD
+nuU
+xif
+xif
+xif
+xif
+qUu
 aMp
 aOP
 aCM
@@ -65470,9 +66555,9 @@ aEP
 aGp
 aGp
 aGp
-aGp
+ivH
 aDb
-aIv
+oLA
 aCo
 aCo
 aCo
@@ -65483,23 +66568,23 @@ aLv
 aCN
 aLS
 aMq
-aLv
-aCN
-aCN
-aCN
-aCN
-aOi
+pkX
+rpg
+rpg
+rpg
+rpg
+xwi
 aMq
 aOQ
 aCN
 aOi
 aMq
-aLv
-aCN
-aCN
-aCN
-aCN
-aOi
+pkX
+rpg
+rpg
+rpg
+rpg
+xwi
 aMq
 aOQ
 aCN
@@ -65727,9 +66812,9 @@ azL
 aGq
 aGE
 aGF
-aGF
+dBG
 aDb
-aCF
+yjY
 aIN
 aCN
 aJv
@@ -65998,22 +67083,22 @@ aCq
 aLP
 aLP
 aME
-aLP
-aLP
-aLP
-aLP
-aLP
+kxm
+kxm
+kxm
+kxm
+kxm
 aLP
 aLQ
 aCq
 aLQ
 aLP
 aME
-aLP
-aLP
-aLP
-aLP
-aLP
+kxm
+kxm
+kxm
+kxm
+kxm
 aLP
 aLP
 aCq
@@ -66476,13 +67561,13 @@ ave
 ave
 ave
 ave
+xel
+xel
+xel
 aCj
-aCj
-aCj
-aCj
-aDm
-aDm
-aDm
+grt
+grt
+grt
 aDM
 aDY
 tou
@@ -66991,11 +68076,11 @@ avh
 aBO
 aAf
 aCn
+mfM
+mfM
 aCB
-aCB
-aCB
-aCB
-aCB
+mfM
+mfM
 aDD
 aDM
 aDY
@@ -67513,11 +68598,11 @@ aDn
 aDF
 aCq
 aDZ
-aDZ
+yhy
 aEo
-aDZ
+mud
 aDb
-aCo
+kBF
 aCo
 aCo
 eSC
@@ -67774,7 +68859,7 @@ aDb
 aDb
 aDb
 aDb
-aCo
+kBF
 aCo
 aCo
 aCo
@@ -68022,14 +69107,14 @@ auT
 aCC
 aCM
 aDb
-aCM
-aDw
+hOG
+oya
 aDb
 aDN
-aEa
-aEa
-aEa
-aEa
+jaG
+jaG
+jaG
+jaG
 aEQ
 aCo
 aCo
@@ -69567,7 +70652,7 @@ aaM
 aaM
 aaM
 mbM
-etF
+dxJ
 etF
 nhD
 mRM
@@ -69585,8 +70670,8 @@ aWo
 aHG
 aIb
 aIz
-aHE
-aIr
+dNA
+rCK
 aJB
 aKh
 aCq
@@ -69600,11 +70685,11 @@ aMU
 aNq
 aKx
 aKx
-aKx
-aKx
-aKx
-aKx
-aKx
+iwx
+iwx
+iwx
+iwx
+iwx
 aKx
 aKx
 aNq
@@ -69824,16 +70909,16 @@ aaM
 aaM
 aaM
 mbM
-etF
+dxJ
 oBU
 nhD
 iVE
 mRM
 aVZ
 aWg
-mRM
+ijP
 dCz
-rwg
+olh
 aWr
 aWz
 rwg
@@ -70081,7 +71166,7 @@ ait
 ait
 ait
 oQO
-etF
+dxJ
 etF
 nhD
 aVO
@@ -70099,9 +71184,9 @@ aWo
 aHH
 aIc
 aIA
-aIc
-aIc
-aIc
+dsF
+dsF
+dsF
 aIA
 aKw
 aIc
@@ -70114,11 +71199,11 @@ aMV
 aKZ
 aNJ
 aMT
-aMT
-aMT
-aMT
-aMT
-aMT
+wNX
+wNX
+wNX
+wNX
+wNX
 aMT
 aQi
 aHK
@@ -70338,7 +71423,7 @@ aaM
 aaM
 aaM
 mbM
-etF
+dxJ
 etF
 uIG
 mRM
@@ -70595,7 +71680,7 @@ aaM
 aaM
 aaM
 mbM
-etF
+dxJ
 etF
 nhD
 aVO
@@ -70626,7 +71711,7 @@ aIU
 aMH
 aMX
 aKZ
-aNK
+fNp
 aNW
 aId
 aId
@@ -70852,16 +71937,16 @@ aaM
 aaM
 aaM
 mbM
-etF
+dxJ
 oBU
 nhD
 oda
 mRM
 aVZ
 aWg
-mRM
+ijP
 eZa
-rwg
+olh
 aWr
 aWz
 rwg
@@ -71109,7 +72194,7 @@ ifh
 ifh
 ifh
 lkF
-etF
+dxJ
 etF
 nhD
 mRM
@@ -71143,9 +72228,9 @@ aNs
 aHK
 aNY
 aOl
-aOl
+ckG
 aKZ
-aOl
+yeT
 aOl
 aPO
 aHK
@@ -71366,7 +72451,7 @@ aDe
 wne
 wne
 srl
-mak
+xAR
 mak
 nhD
 nhD
@@ -71400,9 +72485,9 @@ aNt
 aHK
 aMr
 aId
-aOz
+naO
 aKZ
-aMr
+oUJ
 aId
 aOz
 aQk
@@ -71623,12 +72708,12 @@ wne
 wne
 wne
 srl
+dxJ
 etF
 etF
-etF
-etF
+vdp
 srl
-etF
+dxJ
 etF
 etF
 jKW
@@ -71657,9 +72742,9 @@ aNu
 aHK
 aMs
 aOm
-aOA
+dAS
 aKZ
-aMs
+pFC
 aOm
 aOA
 aQl
@@ -71880,10 +72965,10 @@ wne
 wne
 wne
 srl
-etF
-etF
-etF
-etF
+nQF
+ujs
+ujs
+vdp
 srl
 aWb
 aWh
@@ -71891,7 +72976,7 @@ etF
 etF
 etF
 etF
-aWb
+npP
 srl
 bmH
 srl
@@ -71914,9 +72999,9 @@ aNt
 aHK
 aNM
 aId
-aOB
+jap
 aKZ
-aNM
+iLu
 aId
 aOB
 aQm
@@ -72171,9 +73256,9 @@ aNv
 aHK
 aNY
 aOl
-aOl
+ckG
 aKZ
-aOl
+yeT
 aOl
 aPO
 aHK
@@ -72652,7 +73737,7 @@ aCP
 aVG
 aCP
 aOC
-aDs
+xyw
 aVL
 aDs
 aCP
@@ -72682,7 +73767,7 @@ aJH
 aJH
 aJG
 aKZ
-axw
+xxz
 aMs
 aId
 aId
@@ -72905,7 +73990,7 @@ ifh
 aCG
 aCQ
 aCQ
-aGQ
+nZz
 aFZ
 aCP
 aIx
@@ -72913,11 +73998,11 @@ aDs
 aVS
 aVP
 aOX
-aDs
-aDs
+rxv
+rxv
 aVP
-aDs
-aDs
+rxv
+rxv
 aDs
 aDs
 aIC
@@ -72939,7 +74024,7 @@ aKn
 aJH
 aJH
 aNw
-aMr
+oUJ
 aOa
 aId
 aId
@@ -73175,10 +74260,10 @@ aCQ
 aCP
 aCQ
 aCQ
-aDs
-aDs
+mWr
+gDe
 aCQ
-aWI
+skj
 aWV
 aWI
 aXf
@@ -73196,7 +74281,7 @@ aKn
 aJH
 aJH
 aKZ
-aMs
+pFC
 aId
 aId
 aId
@@ -73427,11 +74512,11 @@ aVH
 aCP
 aVQ
 aVU
-aWc
-aWc
+iRF
+iRF
 aWk
-aWc
-aWm
+iRF
+flk
 aDs
 aWF
 aCP
@@ -73453,7 +74538,7 @@ aMz
 aKZ
 aKZ
 aKZ
-aMs
+pFC
 aId
 aId
 aDX
@@ -73690,9 +74775,9 @@ aDs
 aDs
 aDs
 aDs
-aDs
+gDe
 aCQ
-aWv
+siv
 aWW
 aWv
 aXg
@@ -73967,7 +75052,7 @@ aKn
 aKZ
 aKZ
 aKZ
-aMs
+pFC
 aId
 aId
 aOD
@@ -74219,12 +75304,12 @@ aKH
 aKK
 aKK
 aKK
-aKK
+dpr
 aKo
 aJH
 aJH
 aKZ
-aMs
+pFC
 aId
 aId
 aDX
@@ -74461,7 +75546,7 @@ aDs
 aDs
 aDs
 aDs
-aDs
+gDe
 aCQ
 aVX
 aGQ
@@ -74476,12 +75561,12 @@ aKI
 aLi
 aLi
 aLi
-aKK
+dpr
 aKo
 aJH
 aNc
 aNw
-aMs
+pFC
 aId
 aId
 aDX
@@ -74718,7 +75803,7 @@ aWd
 aWd
 aWn
 aDs
-aDs
+gDe
 aCQ
 aVX
 aGQ
@@ -74733,16 +75818,16 @@ aKH
 aLj
 aLj
 aLj
-aKK
+dpr
 aKo
 aJH
 aJH
 aKZ
-aMs
+pFC
 aId
 aId
 aDX
-aPc
+aPa
 aEp
 aId
 aId
@@ -74975,7 +76060,7 @@ aWc
 aWc
 aWm
 aDs
-aDs
+gDe
 aCQ
 aWR
 aGQ
@@ -74995,7 +76080,7 @@ aKn
 aKZ
 aKZ
 aKZ
-aMs
+pFC
 aId
 aId
 aOD
@@ -75218,7 +76303,7 @@ ifh
 wne
 aCQ
 aCQ
-aGQ
+nZz
 aIf
 aCP
 aVD
@@ -75256,7 +76341,7 @@ aMs
 aId
 aId
 aDX
-aPb
+tmg
 aEp
 aId
 aId
@@ -75476,19 +76561,19 @@ wne
 wne
 aCP
 aCP
-aVG
+gmK
 aCP
 aWB
 aVK
 aCP
 aVT
-aVV
-aWd
-aWd
+fRk
+vFh
+vFh
 aWl
-aWd
-aWn
-aDs
+vFh
+ozc
+rxv
 aWD
 aCP
 aWT
@@ -75509,7 +76594,7 @@ aMz
 aKZ
 aKZ
 aKZ
-aMs
+pFC
 aId
 aId
 aDX
@@ -75766,7 +76851,7 @@ aKn
 aJH
 aJH
 aKZ
-aMs
+pFC
 aId
 aId
 aId
@@ -76023,7 +77108,7 @@ aJH
 aJH
 aJH
 aNw
-aNM
+iLu
 aNW
 aId
 aId
@@ -76280,7 +77365,7 @@ aJH
 aJH
 aJH
 aKZ
-axw
+xxz
 aMs
 aId
 aId
@@ -76540,9 +77625,9 @@ aHK
 aHK
 aNK
 aOn
-aKx
+iwx
 aPf
-aKx
+iwx
 aOn
 aPR
 aHK
@@ -77884,14 +78969,14 @@ aed
 aeO
 kTO
 wSA
+uzX
+ugy
+hEl
 wSA
-kTO
+uzX
+hEl
 wSA
-wSA
-crw
-crw
-wSA
-wSA
+gLc
 aeO
 aaM
 aaM
@@ -78139,7 +79224,7 @@ acN
 aed
 aez
 aeO
-sZi
+oNW
 pOS
 pOS
 pOS
@@ -78148,7 +79233,7 @@ pOS
 pOS
 pOS
 pOS
-sZi
+kys
 aeO
 aaM
 aaM
@@ -78653,7 +79738,7 @@ adJ
 aee
 aee
 aeO
-sZi
+oNW
 kEF
 whV
 kEF
@@ -78662,7 +79747,7 @@ kEF
 whV
 kEF
 kEF
-sZi
+kys
 aeO
 aaM
 aaM
@@ -79167,7 +80252,7 @@ acO
 aef
 aez
 aeO
-sZi
+oNW
 pOS
 pOS
 pOS
@@ -79176,7 +80261,7 @@ pOS
 pOS
 pOS
 pOS
-sZi
+kys
 aeO
 aaM
 aaM
@@ -79425,14 +80510,14 @@ acO
 aef
 aeO
 oyh
-oyh
+fid
+fri
+ikg
 fri
 fri
-oyh
-oyh
-jss
-oyh
-oyh
+fri
+dUQ
+fri
 jss
 aeO
 aaM
@@ -84042,13 +85127,13 @@ aaO
 abw
 abN
 acc
+tVT
+rqW
 abN
-abN
-abN
-abN
+rqW
 adL
-abN
-abw
+tVT
+rYS
 aeP
 aeV
 aeV
@@ -84819,7 +85904,7 @@ acW
 acu
 adN
 abO
-abz
+mCI
 aeP
 aeV
 aeV
@@ -85584,13 +86669,13 @@ aaO
 abB
 abP
 acg
+tIZ
 abP
-acX
-acX
-abP
+tIZ
+ePR
 adP
 abP
-abB
+uuM
 aeP
 aeV
 afs
