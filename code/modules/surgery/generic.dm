@@ -239,7 +239,7 @@
 /datum/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open = 1
+		return affected && affected.open == 1
 
 /datum/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
