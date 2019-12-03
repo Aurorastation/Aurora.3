@@ -87,6 +87,7 @@
 		return
 	if(owner.eyeobj != src)
 		return
+	visualnet.remove_eye(src)
 	owner.eyeobj = null
 	owner = null
 	name = initial(name)
