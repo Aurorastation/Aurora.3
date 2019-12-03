@@ -59,8 +59,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 	return -1
 
-/obj/machinery/hologram/holopad/New()
-	..()
+/obj/machinery/hologram/holopad/Initialize()
+	. = ..()
 	desc = "It's a floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
@@ -98,7 +98,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
 				last_request = world.time
 				var/obj/item/card/id/I = user.GetIdCard()
-				if(!user.GetIdCard())
+				if(!I)
 					to_chat(user, span("notice", "You need authorization to use the holocall system. Please equip a valid ID card."))
 				var/forcedcall = 0
 				if(access_heads in I.access) //Special functions for command level people
