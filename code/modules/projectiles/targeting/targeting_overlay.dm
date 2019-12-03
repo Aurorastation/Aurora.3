@@ -164,7 +164,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	to_chat(target, "<span class='danger'>You now have a gun pointed at you. No sudden moves!</span>")
 	aiming_with = thing
 	aiming_at = target
-	if(istype(aiming_with, /obj/item/weapon/gun))
+	if(istype(aiming_with, /obj/item/gun))
 		playsound(get_turf(owner), 'sound/weapons/TargetOn.ogg', 50,1)
 
 	admin_attack_log(owner, aiming_at, "\The [owner] is aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is aiming at \the [aiming_at] with \the [aiming_with].")
@@ -213,7 +213,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(!aiming_with || !aiming_at)
 		return
 	admin_attack_log(owner, aiming_at, "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].", "\The [owner] is no longer aiming at \the [aiming_at] with \the [aiming_with].")
-	if(istype(aiming_with, /obj/item/weapon/gun))
+	if(istype(aiming_with, /obj/item/gun))
 		playsound(get_turf(owner), 'sound/weapons/TargetOff.ogg', 50,1)
 	if(!no_message)
 		owner.visible_message("<span class='notice'>\The [owner] lowers \the [aiming_with].</span>")

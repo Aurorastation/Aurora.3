@@ -149,13 +149,20 @@
 
 	// Tau Ceti Foreign Legion
 
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/legion/centcom)
-	shuttle.area_station = locate(/area/shuttle/legion/station)
-	shuttles["Tau Ceti Foreign Legion"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	var/datum/shuttle/ferry/legion/legion = new()
+	legion = new()
+	legion.location = 1
+	legion.warmup_time = 10
+	legion.area_offsite = locate(/area/shuttle/legion/centcom)
+	legion.area_station = locate(/area/shuttle/legion/station)
+	legion.area_transition = locate(/area/shuttle/legion/transit)
+	legion.transit_direction = EAST
+	legion.move_time = 75
+	legion.docking_controller_tag = "legion_shuttle"
+	legion.dock_target_station = "legion_shuttle_dock"
+	legion.dock_target_offsite = "legion_hangar"
+	shuttles["Tau Ceti Foreign Legion"] = legion
+	START_PROCESSING(shuttle_controller, legion)
 
 	//Away Site shuttle.
 

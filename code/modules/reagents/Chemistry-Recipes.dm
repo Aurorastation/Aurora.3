@@ -1283,7 +1283,7 @@
 
 /datum/chemical_reaction/slime/monkey/on_reaction(var/datum/reagents/holder)
 	for(var/i = 1, i <= 3, i++)
-		var /obj/item/weapon/reagent_containers/food/snacks/monkeycube/M = new /obj/item/weapon/reagent_containers/food/snacks/monkeycube
+		var /obj/item/reagent_containers/food/snacks/monkeycube/M = new /obj/item/reagent_containers/food/snacks/monkeycube
 		M.forceMove(get_turf(holder.my_atom))
 	..()
 
@@ -1358,6 +1358,8 @@
 		/mob/living/simple_animal/hostile/krampus,
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
+		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
+		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged
 	)
@@ -1389,40 +1391,40 @@
 
 /datum/chemical_reaction/slime/bork/on_reaction(var/datum/reagents/holder)
 	var/list/blocked = list(
-	/obj/item/weapon/reagent_containers/food/snacks,
-	/obj/item/weapon/reagent_containers/food/snacks/meat/undead,
-	/obj/item/weapon/reagent_containers/food/snacks/meatbreadslice,
-	/obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice,
-	/obj/item/weapon/reagent_containers/food/snacks/bananabreadslice,
-	/obj/item/weapon/reagent_containers/food/snacks/tofubreadslice,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/carrot,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/brain,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/cheese,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/plain,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/orange,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lime,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/lemon,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/chocolate,
-	/obj/item/weapon/reagent_containers/food/snacks/cheesewedge,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday,
-	/obj/item/weapon/reagent_containers/food/snacks/sliceable/bread,
-	/obj/item/weapon/reagent_containers/food/snacks/breadslice,
-	/obj/item/weapon/reagent_containers/food/snacks/sliceable/creamcheesebread,
-	/obj/item/weapon/reagent_containers/food/snacks/creamcheesebreadslice,
-	/obj/item/weapon/reagent_containers/food/snacks/watermelonslice,
-	/obj/item/weapon/reagent_containers/food/snacks/cakeslice/apple,
-	/obj/item/weapon/reagent_containers/food/snacks/pumpkinpieslice,
-	/obj/item/weapon/reagent_containers/food/snacks/keylimepieslice,
-	/obj/item/weapon/reagent_containers/food/snacks/quicheslice,
-	/obj/item/weapon/reagent_containers/food/snacks/browniesslice,
-	/obj/item/weapon/reagent_containers/food/snacks/cosmicbrowniesslice,
-	/obj/item/weapon/reagent_containers/food/snacks/margheritaslice,
-	/obj/item/weapon/reagent_containers/food/snacks/meatpizzaslice,
-	/obj/item/weapon/reagent_containers/food/snacks/mushroompizzaslice,
-	/obj/item/weapon/reagent_containers/food/snacks/vegetablepizzaslice,
-	/obj/item/weapon/reagent_containers/food/snacks/pineappleslice
+	/obj/item/reagent_containers/food/snacks,
+	/obj/item/reagent_containers/food/snacks/meat/undead,
+	/obj/item/reagent_containers/food/snacks/meatbreadslice,
+	/obj/item/reagent_containers/food/snacks/xenomeatbreadslice,
+	/obj/item/reagent_containers/food/snacks/bananabreadslice,
+	/obj/item/reagent_containers/food/snacks/tofubreadslice,
+	/obj/item/reagent_containers/food/snacks/cakeslice/carrot,
+	/obj/item/reagent_containers/food/snacks/cakeslice/brain,
+	/obj/item/reagent_containers/food/snacks/cakeslice/cheese,
+	/obj/item/reagent_containers/food/snacks/cakeslice/plain,
+	/obj/item/reagent_containers/food/snacks/cakeslice/orange,
+	/obj/item/reagent_containers/food/snacks/cakeslice/lime,
+	/obj/item/reagent_containers/food/snacks/cakeslice/lemon,
+	/obj/item/reagent_containers/food/snacks/cakeslice/chocolate,
+	/obj/item/reagent_containers/food/snacks/cheesewedge,
+	/obj/item/reagent_containers/food/snacks/cakeslice/birthday,
+	/obj/item/reagent_containers/food/snacks/sliceable/bread,
+	/obj/item/reagent_containers/food/snacks/breadslice,
+	/obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread,
+	/obj/item/reagent_containers/food/snacks/creamcheesebreadslice,
+	/obj/item/reagent_containers/food/snacks/watermelonslice,
+	/obj/item/reagent_containers/food/snacks/cakeslice/apple,
+	/obj/item/reagent_containers/food/snacks/pumpkinpieslice,
+	/obj/item/reagent_containers/food/snacks/keylimepieslice,
+	/obj/item/reagent_containers/food/snacks/quicheslice,
+	/obj/item/reagent_containers/food/snacks/browniesslice,
+	/obj/item/reagent_containers/food/snacks/cosmicbrowniesslice,
+	/obj/item/reagent_containers/food/snacks/margheritaslice,
+	/obj/item/reagent_containers/food/snacks/meatpizzaslice,
+	/obj/item/reagent_containers/food/snacks/mushroompizzaslice,
+	/obj/item/reagent_containers/food/snacks/vegetablepizzaslice,
+	/obj/item/reagent_containers/food/snacks/pineappleslice
 	)
-	var/list/borks = typesof(/obj/item/weapon/reagent_containers/food/snacks) - blocked
+	var/list/borks = typesof(/obj/item/reagent_containers/food/snacks) - blocked
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
@@ -1514,7 +1516,7 @@
 	required = /obj/item/slime_extract/yellow
 
 /datum/chemical_reaction/slime/cell/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/obj/item/weapon/cell/slime/P = new /obj/item/weapon/cell/slime
+	var/obj/item/cell/slime/P = new /obj/item/cell/slime
 	P.forceMove(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/slime/glow
@@ -1542,7 +1544,7 @@
 
 /datum/chemical_reaction/slime/psteroid/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	var/obj/item/weapon/slimesteroid/P = new /obj/item/weapon/slimesteroid
+	var/obj/item/slimesteroid/P = new /obj/item/slimesteroid
 	P.forceMove(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/slime/jam
@@ -1602,7 +1604,7 @@
 
 /datum/chemical_reaction/slime/ppotion/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/weapon/slimepotion/P = new /obj/item/weapon/slimepotion
+	var/obj/item/slimepotion/P = new /obj/item/slimepotion
 	P.forceMove(get_turf(holder.my_atom))
 
 //Black
@@ -1640,7 +1642,7 @@
 
 /datum/chemical_reaction/slime/potion2/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/weapon/slimepotion2/P = new /obj/item/weapon/slimepotion2
+	var/obj/item/slimepotion2/P = new /obj/item/slimepotion2
 	P.forceMove(get_turf(holder.my_atom))
 
 //Adamantine
@@ -1665,14 +1667,14 @@
 	var/strength = 3
 
 /datum/chemical_reaction/soap_key/can_happen(var/datum/reagents/holder)
-	if(holder.my_atom && istype(holder.my_atom, /obj/item/weapon/soap))
+	if(holder.my_atom && istype(holder.my_atom, /obj/item/soap))
 		return ..()
 	return 0
 
 /datum/chemical_reaction/soap_key/on_reaction(var/datum/reagents/holder)
-	var/obj/item/weapon/soap/S = holder.my_atom
+	var/obj/item/soap/S = holder.my_atom
 	if(S.key_data)
-		var/obj/item/weapon/key/soap/key = new(get_turf(holder.my_atom), S.key_data)
+		var/obj/item/key/soap/key = new(get_turf(holder.my_atom), S.key_data)
 		key.uses = strength
 	..()
 
@@ -1693,7 +1695,7 @@
 /datum/chemical_reaction/tofu/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/tofu(location)
+		new /obj/item/reagent_containers/food/snacks/tofu(location)
 	return
 
 /datum/chemical_reaction/chocolate_bar
@@ -1706,7 +1708,7 @@
 /datum/chemical_reaction/chocolate_bar/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(location)
+		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
 	return
 
 /datum/chemical_reaction/chocolate_bar2
@@ -1719,7 +1721,7 @@
 /datum/chemical_reaction/chocolate_bar2/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(location)
+		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
 	return
 
 /datum/chemical_reaction/hot_coco
@@ -1768,7 +1770,7 @@
 /datum/chemical_reaction/cheesewheel/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel(location)
+		new /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 	return
 
 /datum/chemical_reaction/meatball
@@ -1781,7 +1783,7 @@
 /datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/rawmeatball(location)
+		new /obj/item/reagent_containers/food/snacks/rawmeatball(location)
 	return
 
 /datum/chemical_reaction/dough
@@ -1795,7 +1797,7 @@
 /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/dough(location)
+		new /obj/item/reagent_containers/food/snacks/dough(location)
 	return
 
 /datum/chemical_reaction/syntiflesh
@@ -1808,7 +1810,7 @@
 /datum/chemical_reaction/syntiflesh/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh(location)
+		new /obj/item/reagent_containers/food/snacks/meat/syntiflesh(location)
 	return
 
 /datum/chemical_reaction/hot_ramen
@@ -1856,7 +1858,7 @@
 /datum/chemical_reaction/butter/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/spreads/butter(location)
+		new /obj/item/reagent_containers/food/snacks/spreads/butter(location)
 	return
 
 /*

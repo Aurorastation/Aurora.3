@@ -20,7 +20,7 @@
 	taste_sensitivity = TASTE_NUMB
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/undead
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	reagent_tag = IS_UNDEAD
 
@@ -56,17 +56,17 @@
 	spawn_flags = IS_RESTRICTED
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/skeleton),
-		"groin" =  list("path" = /obj/item/organ/external/groin/skeleton),
-		"head" =   list("path" = /obj/item/organ/external/head/skeleton),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/skeleton),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/skeleton),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/skeleton),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/skeleton),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/skeleton),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/skeleton),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/skeleton),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/skeleton)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/skeleton),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/skeleton),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/skeleton),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/skeleton),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/skeleton),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/skeleton),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/skeleton),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/skeleton),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/skeleton),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/skeleton),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/skeleton)
 		)
 
 	stamina	=	500			  //Tireless automatons
@@ -105,7 +105,7 @@
 
 	remains_type = /obj/effect/decal/cleanable/ash
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/undead
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	flesh_color = "#551A8B"
 
@@ -160,8 +160,8 @@
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 
 	has_organ = list(
-		"zombie" =    /obj/item/organ/parasite/zombie,
-		"brain" =    /obj/item/organ/brain
+		"zombie" =    /obj/item/organ/internal/parasite/zombie,
+		BP_BRAIN =    /obj/item/organ/internal/brain
 		)
 
 	virus_immune = 1
@@ -175,7 +175,7 @@
 
 	remains_type = /obj/effect/decal/remains/human
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/undead
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	flesh_color = "#76a05e"
 
@@ -272,8 +272,8 @@
 	remains_type = /obj/effect/decal/remains/xeno
 
 	has_organ = list(
-		"zombie" =    /obj/item/organ/parasite/zombie,
-		/obj/item/organ/brain/skrell
+		"zombie" =    /obj/item/organ/internal/parasite/zombie,
+		/obj/item/organ/internal/brain/skrell
 		)
 
 	default_h_style = "Skrell Short Tentacles"

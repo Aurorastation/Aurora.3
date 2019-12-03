@@ -281,7 +281,7 @@
 		var/cuff = 1
 		if(istype(C, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
-			if(istype(H.back, /obj/item/weapon/rig) && istype(H.gloves,/obj/item/clothing/gloves/rig))
+			if(istype(H.back, /obj/item/rig) && istype(H.gloves,/obj/item/clothing/gloves/rig))
 				cuff = 0
 		if(!C.lying || C.handcuffed || arrest_type)
 			cuff = 0
@@ -298,7 +298,7 @@
 			visible_message("<span class='warning'>[src] is trying to put handcuffs on [C]!</span>")
 			if(do_mob(src, C, 60))
 				if(!C.handcuffed)
-					C.handcuffed = new /obj/item/weapon/handcuffs(C)
+					C.handcuffed = new /obj/item/handcuffs(C)
 					C.update_inv_handcuffed()
 				if(preparing_arrest_sounds.len)
 					playsound(loc, pick(preparing_arrest_sounds), 50, 0)
@@ -320,12 +320,12 @@
 	visible_message("<span class='warning'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
-	var/obj/item/weapon/secbot_assembly/Sa = new /obj/item/weapon/secbot_assembly(Tsec)
+	var/obj/item/secbot_assembly/Sa = new /obj/item/secbot_assembly(Tsec)
 	Sa.build_step = 1
 	Sa.add_overlay("hs_hole")
 	Sa.created_name = name
 	new /obj/item/device/assembly/prox_sensor(Tsec)
-	new /obj/item/weapon/melee/baton(Tsec)
+	new /obj/item/melee/baton(Tsec)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
@@ -528,7 +528,7 @@
 		mode = SECBOT_HUNT
 		var/mob/living/carbon/human/H = M
 		var/perpname = H.name
-		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		var/obj/item/card/id/id = H.GetIdCard()
 		if(id)
 			perpname = id.registered_name
 
@@ -548,7 +548,7 @@
 		idcheck = TRUE
 		var/mob/living/carbon/human/H = user
 		var/perpname = H.name
-		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		var/obj/item/card/id/id = H.GetIdCard()
 		if(id)
 			perpname = id.registered_name
 
@@ -584,7 +584,7 @@
 			idcheck = TRUE
 			var/mob/living/carbon/human/H = P.firer
 			var/perpname = H.name
-			var/obj/item/weapon/card/id/id = H.GetIdCard()
+			var/obj/item/card/id/id = H.GetIdCard()
 			if(id)
 				perpname = id.registered_name
 
@@ -597,7 +597,7 @@
 
 /mob/living/bot/secbot/attackby(var/obj/item/O, var/mob/user)
 	..()
-	if(istype(O, /obj/item/weapon/card/id) || O.ispen() || istype(O, /obj/item/device/pda))
+	if(istype(O, /obj/item/card/id) || O.ispen() || istype(O, /obj/item/device/pda))
 		return
 
 	target = user
@@ -606,7 +606,7 @@
 		idcheck = TRUE
 		var/mob/living/carbon/human/H = user
 		var/perpname = H.name
-		var/obj/item/weapon/card/id/id = H.GetIdCard()
+		var/obj/item/card/id/id = H.GetIdCard()
 		if(id)
 			perpname = id.registered_name
 
@@ -629,7 +629,7 @@
 				idcheck = TRUE
 				var/mob/living/carbon/human/H = O.thrower
 				var/perpname = H.name
-				var/obj/item/weapon/card/id/id = H.GetIdCard()
+				var/obj/item/card/id/id = H.GetIdCard()
 				if(id)
 					perpname = id.registered_name
 
@@ -653,7 +653,7 @@
 
 	if(S.secured)
 		qdel(S)
-		var/obj/item/weapon/secbot_assembly/A = new /obj/item/weapon/secbot_assembly
+		var/obj/item/secbot_assembly/A = new /obj/item/secbot_assembly
 		user.put_in_hands(A)
 		to_chat(user, "You add the signaler to the helmet.")
 		user.drop_from_inventory(src)
@@ -662,7 +662,7 @@
 	else
 		return
 
-/obj/item/weapon/secbot_assembly
+/obj/item/secbot_assembly
 	name = "helmet/signaler assembly"
 	desc = "Some sort of bizarre assembly."
 	icon = 'icons/obj/aibots.dmi'
@@ -671,10 +671,10 @@
 	var/build_step = 0
 	var/created_name = "Securitron"
 
-/obj/item/weapon/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
+/obj/item/secbot_assembly/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(O.iswelder() && !build_step)
-		var/obj/item/weapon/weldingtool/WT = O
+		var/obj/item/weldingtool/WT = O
 		if(WT.remove_fuel(0, user))
 			build_step = 1
 			add_overlay("hs_hole")
@@ -699,7 +699,7 @@
 		qdel(O)
 		return 1
 
-	else if(istype(O, /obj/item/weapon/melee/baton) && build_step == 3)
+	else if(istype(O, /obj/item/melee/baton) && build_step == 3)
 		to_chat(user, "You complete the Securitron! Beep boop.")
 		var/mob/living/bot/secbot/S = new /mob/living/bot/secbot(get_turf(src))
 		S.name = created_name

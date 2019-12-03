@@ -112,7 +112,7 @@
 			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
 		if(2)
-			var/subtype = pick(subtypesof(/datum/bounty/item/mech))
+			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
 		if(3)
 			var/subtype = pick(subtypesof(/datum/bounty/item/chef))
@@ -165,7 +165,7 @@
 
 	for(var/i = 0; i < 1; ++i)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/mech,/datum/bounty/item/bot))
+		var/list/subtype = pick(subtypesof(/datum/bounty/item/bot))
 		try_add_bounty(new subtype)
 
 	for(var/i = 0; i < 2; ++i)
@@ -177,7 +177,7 @@
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/security))
 		try_add_bounty(new subtype)
-	
+
 	for(var/i = 0; i < 5; ++i)
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/weapon_prototype, /datum/bounty/item/science, /datum/bounty/item/slime))

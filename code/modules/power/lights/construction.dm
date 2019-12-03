@@ -10,7 +10,7 @@
 	var/fixture_type = "tube"
 	var/sheets_refunded = 2
 	var/obj/machinery/light/newlight = null
-	var/obj/item/weapon/cell/cell
+	var/obj/item/cell/cell
 	var/cell_connectors = TRUE
 
 /obj/machinery/light_construct/Initialize()
@@ -42,7 +42,7 @@
 	else
 		to_chat(user, "This casing doesn't support a backup power cell.")
 
-/obj/machinery/light_construct/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/light_construct/attackby(obj/item/W as obj, mob/user as mob)
 	add_fingerprint(user)
 	if (W.iswrench())
 		if (src.stage == 1)
@@ -132,7 +132,7 @@
 			qdel(src)
 			return
 
-	if (istype(W, /obj/item/weapon/cell))
+	if (istype(W, /obj/item/cell))
 		if (!cell_connectors)
 			to_chat(user, "<span class='notice'>[src] does not have power cell connectors.</span>")
 			return
