@@ -3,17 +3,27 @@
 // A mob that the AI controls to look around the station with.
 // It streams chunks as it moves around, which will show it what the AI can and cannot see.
 
+/mob/abstract/eye/cameranet
+	// Generic version of the AI eye without the AI-specific handling, for things like the Camera MIU mask.
+	name = "Inactive Camera Eye"
+	name_suffix = "Camera Eye"
+
+/mob/abstract/eye/cameranet/Initialize()
+	. = ..()
+	visualnet = cameranet
+
 /mob/abstract/eye/aiEye
 	name = "Inactive AI Eye"
 	name_suffix = "AI Eye"
 	icon_state = "AI-eye"
 
-/mob/abstract/eye/aiEye/New()
-	..()
+/mob/abstract/eye/aiEye/Initialize()
+	. = ..()
 	visualnet = cameranet
 
 /mob/abstract/eye/aiEye/setLoc(var/T, var/cancel_tracking = 1)
-	if(..() && isAI(owner))
+	. = ..()
+	if(. && isAI(owner))
 		var/mob/living/silicon/ai/ai = owner
 		if(cancel_tracking)
 			ai.ai_cancel_tracking()
@@ -49,10 +59,6 @@
 /mob/living/silicon/ai/Initialize()
 	. = ..()
 	create_eyeobj()
-
-/mob/living/silicon/ai/proc/init_move_eyeobj()
-	if (eyeobj)
-		eyeobj.forceMove(loc)
 
 /mob/living/silicon/ai/Destroy()
 	destroy_eyeobj()

@@ -132,13 +132,14 @@
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
 	body_parts_covered = FACE|EYES
-	action_button_name = "Toggle MUI"
+	action_button_name = "Toggle MIU"
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
 	var/active = FALSE
-	var/mob/abstract/eye/aiEye/eye
+	var/mob/abstract/eye/cameranet/eye
 
 /obj/item/clothing/mask/ai/Initialize()
 	eye = new(src)
+	eye.name_suffix = "camera MIU"
 	. = ..()
 
 /obj/item/clothing/mask/ai/Destroy()

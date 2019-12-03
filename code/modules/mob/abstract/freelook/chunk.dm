@@ -10,6 +10,7 @@
 	var/icon_state = "black"
 	var/list/obfuscation_images = list()
 	var/static/icon/obfuscation_underlay
+	// There is an exploit were clients can memory-edit their local version of the static images, allowing them to see everything. This is a minor attempt to make that more difficult.
 
 /datum/obfuscation/Destroy()
 	obfuscation_images.Cut()
@@ -21,7 +22,8 @@
 /datum/obfuscation/proc/get_obfuscation(var/turf/T)
 	var/image/obfuscation = obfuscation_images[T]
 	if(!obfuscation)
-		obfuscation = image(icon, T, icon_state, OBFUSCATION_LAYER)
+		obfuscation = image(icon, T, icon_state)
+		obfuscation.layer = OBFUSCATION_LAYER
 		if(!obfuscation_underlay)
 			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
 			var/turf/floor = /turf/simulated/floor/tiled
@@ -48,7 +50,7 @@
 
 // Create a new camera chunk, since the chunks are made as they are needed.
 
-/datum/chunk/New(loc, x, y, z)
+/datum/chunk/New(var/datum/visualnet/visualnet, x, y, z)
 	..()
 	src.visualnet = visualnet
 	// 0xf = 15
@@ -125,7 +127,7 @@
 	if(update_now)
 		update(TRUE)
 		return
-	
+
 	if(updating)
 		return
 
@@ -182,6 +184,9 @@
 
 /proc/seen_turfs_in_range(var/source, var/range)
 	var/turf/pos = get_turf(source)
-	return hear(range, pos)
+	if(pos)
+		. = hear(range, pos)
+	else
+		. = list()
 
 #undef UPDATE_BUFFER

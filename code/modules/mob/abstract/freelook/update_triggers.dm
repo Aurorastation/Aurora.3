@@ -2,17 +2,13 @@
 
 // TURFS
 
-/proc/updateVisibility(atom/A, var/opacity_check = 1)
-	for(var/datum/visualnet/VN in visual_nets)
-		VN.update_visibility(A, opacity_check)
+/proc/updateVisibility(atom/A, var/opacity_check = TRUE)
+	if(SSticker)
+		for(var/datum/visualnet/VN in visual_nets)
+			VN.update_visibility(A, opacity_check)
 
 /turf/drain_power()
 	return -1
-
-/atom/New()
-	..()
-	if(opacity)
-		updateVisibility(src)
 
 /atom/Destroy()
 	if(opacity)
@@ -44,4 +40,3 @@
 	. = ..()
 	if(.)
 		updateVisibility(src, FALSE)
-	

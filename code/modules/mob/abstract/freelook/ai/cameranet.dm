@@ -2,12 +2,6 @@
 //
 // The datum containing all the chunks.
 
-var/datum/visualnet/camera/cameranet_
-/proc/cameranet()
-	if(!cameranet_)
-		cameranet_ = new()
-	return cameranet_
-
 /datum/visualnet/camera
 	// The cameras on the map, no matter if they work or not.
 	var/list/cameras
@@ -32,6 +26,8 @@ var/datum/visualnet/camera/cameranet_
 	else if(isAI(c))
 		var/mob/living/silicon/AI = c
 		return ..(AI, AI.stat != DEAD)
+	else
+		..()
 
 /datum/visualnet/camera/remove_source(obj/machinery/camera/c)
 	if(istype(c) && cameras.Remove(c))
@@ -39,3 +35,5 @@ var/datum/visualnet/camera/cameranet_
 	if(isAI(c))
 		var/mob/living/silicon/AI = c
 		return ..(AI, AI.stat != DEAD)
+	else
+		..()

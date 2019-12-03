@@ -41,11 +41,9 @@
 		ghostimage = null
 		updateallghostimages()
 
-	visualnet.update_eye_chunks(src, add_eye = FALSE)
-	visualnet = null
-	if(owner.eyeobj == src)
-		owner.eyeobj = null
+	release(owner)
 	owner = null
+	visualnet = null
 	return ..()
 
 /mob/abstract/eye/Move(n, direct)
@@ -85,7 +83,7 @@
 	visualnet.update_eye_chunks(src, TRUE)
 
 /mob/abstract/eye/proc/release(var/mob/user)
-	if(owner != user)
+	if(owner != user || !user)
 		return
 	if(owner.eyeobj != src)
 		return

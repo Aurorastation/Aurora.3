@@ -5,7 +5,7 @@
 /obj/machinery/camera/deactivate(user as mob, var/choice = 1)
 	..(user, choice)
 	invalidateCameraCache()
-	if(can_use())
+	if(!can_use())
 		set_light(0)
 	cameranet.update_visibility(src)
 
@@ -37,8 +37,8 @@
 	invalidateCameraCache()
 
 // Mobs
-/mob/living/silicon/ai/New()
-	..()
+/mob/living/silicon/ai/Initialize()
+	. = ..()
 	cameranet.add_source(src)
 
 /mob/living/silicon/ai/Destroy()
