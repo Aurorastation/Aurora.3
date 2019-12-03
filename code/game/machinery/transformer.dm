@@ -58,7 +58,8 @@
 		H.Robotize()
 		to_chat(H, "<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>")
 		if(isrobot(H))
-			H.emagged = 1
+			var/mob/living/silicon/robot/T = H
+			T.emagged = 1
 		else
 			log_debug("[key_name(user)] experienced a failure in becoming overclocked from the [src])
 			return
