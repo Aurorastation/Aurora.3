@@ -53,7 +53,7 @@
 
 /obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if(speed > fragile)
+	if(speed > fragile && !(flags & NOSHATTER))
 		shatter()
 
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
