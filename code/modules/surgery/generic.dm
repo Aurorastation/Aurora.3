@@ -239,17 +239,7 @@
 /datum/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		var/msg = "[user] starts to pry open the incision on [target]'s [affected.name] with \the [tool]."
-		var/self_msg = "You start to pry open the incision on [target]'s [affected.name] with \the [tool]."
-		if (target_zone == BP_CHEST)
-			msg = "[user] starts to separate the ribcage and rearrange the organs in [target]'s torso with \the [tool]."
-			self_msg = "You start to separate the ribcage and rearrange the organs in [target]'s torso with \the [tool]."
-		if (target_zone == BP_GROIN)
-			msg = "[user] starts to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
-			self_msg = "You start to pry open the incision and rearrange the organs in [target]'s lower abdomen with \the [tool]."
-		user.visible_message(msg, self_msg)
-		target.custom_pain("It feels like the skin on your [affected.name] is on fire!", 75)
-		..()
+		return affected && affected.open = 1
 
 /datum/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

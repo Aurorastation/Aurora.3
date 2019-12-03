@@ -57,9 +57,10 @@
 
 	callHook("death", list(src, gibbed))
 
-	if(!gibbed && species.death_sound)
+	if(!gibbed)
 		handle_organs()
-		playsound(loc, species.death_sound, 80, 1, 1)
+		if(species.death_sound)
+			playsound(loc, species.death_sound, 80, 1, 1)
 
 	if(SSticker.mode)
 		sql_report_death(src)
