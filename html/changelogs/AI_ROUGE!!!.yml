@@ -38,9 +38,13 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
+  - rscadd: ----MALF UPDATES----
   - rscadd: "Borg Combat Module now unlocks with synthetic domination. It only activates on all the current borgs, not the later ones."
   - rscdel: "Removes code delta from elite encryption hack"
   - rscadd: "Replaces code delta with code yellow"
   - tweak: "Borgs come out of the robot transformer hacked"
-  - rscdel: "Combat Borgs no longer will have a laser cannon."
-  - rscadd: "Seperates traitor borg powers into a seperate verbs tab"
+  - rscdel: "Combat Borgs no longer have a laser cannon"
+  - rscadd: "Seperates traitor borg powers into a seperate verbs tab for you to actually know about"
+  - admin: "Autoborger now tells admins that it made a borg"
+  - rscadd: "You shouldn't know what the Autoborger is at a glance. It has a more descriptive description"
+  - rscadd: "It now tells players that they are lobotamized"
