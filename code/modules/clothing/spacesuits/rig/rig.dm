@@ -60,6 +60,8 @@
 	// Rig status vars.
 	var/open = 0                                              // Access panel status.
 	var/locked = 1                                            // Lock status.
+	var/dnaLock                                               // To whom do we belong?
+	var/crushing = FALSE                                      // Are we crushing the occupant to death?
 	var/subverted = 0
 	var/interface_locked = 0
 	var/control_overridden = 0
@@ -189,6 +191,7 @@
 /obj/item/rig/proc/reset()
 	offline = 2
 	canremove = 1
+	crushing = FALSE
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(!piece) continue
 		piece.icon_state = "[initial(icon_state)]"
@@ -301,6 +304,11 @@
 	if (has_sealed_state)
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
 
+	if(dnaLock && !offline)
+		if(dnaLock != wearer.dna)
+			visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
+			crushing = TRUE
+
 	if(wearer != initiator)
 		to_chat(initiator, "<font color='blue'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</font>")
 
@@ -357,12 +365,19 @@
 
 	set_vision(!offline)
 	if(offline)
+		crushing = FALSE
 		if(offline == 1)
 			for(var/obj/item/rig_module/module in installed_modules)
 				module.deactivate()
 			offline = 2
 			slowdown = offline_slowdown
 		return
+
+	if(crushing)
+		wearer.apply_damage(10) // Applies 10 brute damage to a random extremity each process
+		if(wearer.stat == DEAD)
+			crushing = FALSE
+			visible_message(span("danger", "A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
 
 	if(cell && cell.charge > 0 && electrified > 0)
 		electrified--
