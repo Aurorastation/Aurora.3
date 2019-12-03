@@ -58,7 +58,7 @@
 		to_chat(H, "<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>")
 		to_chat(H, "<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>")
 		to_chat(H, "<span class='danger'>You are lobotamized by the machine. You do not remember your past identity or self</span>")
-		H.Robotize()
+		H.Robotize(var/emagged = 1)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		canuse = FALSE
 		addtimer(CALLBACK(src, .proc/rearm), 120 SECONDS)
