@@ -15,11 +15,8 @@
 
 
 /obj/item/storage/fancy
-	name = "donut box"
-	desc = "A box of half-a-dozen donuts."
-	icon = 'icons/obj/food.dmi'
-	icon_state = "donutbox6"
-	var/icon_type = "donut"
+	item_state = "syringe_kit" //placeholder, many of these don't have inhands
+	var/icon_type = null
 	var/storage_type = "box"
 	drop_sound = 'sound/items/drop/box.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
@@ -29,7 +26,7 @@
 	src.icon_state = "[src.icon_type]box[total_contents]"
 	return
 
-/obj/item/storage/fancy/examine(mob/user)
+/obj/item/storage/fancy/examine(mob/user as mob)
 	if(!..(user, 1))
 		return
 
@@ -43,14 +40,45 @@
 	return
 
 /*
+ * Donut Box
+ */
+
+/obj/item/storage/fancy/donut
+	name = "donut box"
+	desc = "A box of half-a-dozen donuts."
+	icon = 'icons/obj/food.dmi'
+	icon_state = "donutbox"
+	icon_type = "donut"
+	center_of_mass = list("x" = 16,"y" = 9)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/donut)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
+	storage_slots = 6
+
+/obj/item/storage/fancy/donut/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/fancy/donut/update_icon()
+	cut_overlays()
+	var/i = 0
+	for(var/obj/item/reagent_containers/food/snacks/donut/D in contents)
+		add_overlay("[i][D.overlay_state]")
+		i++
+
+/obj/item/storage/fancy/donut/empty
+	starts_with = null
+
+
+/*
  * Egg Box
  */
 /obj/item/storage/fancy/egg_box
-	name = "egg box"
+	name = "egg carton"
 	desc = "A carton of eggs."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "eggbox"
 	icon_type = "egg"
+	storage_type = "carton"
 	center_of_mass = list("x" = 16,"y" = 7)
 	storage_slots = 12
 	can_hold = list(
@@ -84,7 +112,6 @@
 	icon = 'icons/obj/crayons.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
-	drop_sound = 'sound/items/drop/box.ogg'
 	w_class = 2.0
 	can_hold = list(
 		/obj/item/pen/crayon
@@ -260,9 +287,11 @@
  */
 /obj/item/storage/fancy/vials
 	name = "vial storage box"
+	desc = "A box of vials."
 	icon = 'icons/obj/vialbox.dmi'
 	icon_state = "vialbox6"
 	icon_type = "vial"
+	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	storage_slots = 6
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
@@ -274,6 +303,7 @@
 	icon = 'icons/obj/vialbox.dmi'
 	icon_state = "vialbox0"
 	item_state = "syringe_kit"
+	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	max_w_class = 2
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
@@ -301,10 +331,11 @@
 	update_icon()
 
 /obj/item/storage/fancy/chocolate_box
+	name = "chocolate box"
+	desc = "A lot like life, you never know what you're going to get."
 	icon = 'icons/obj/chocolate.dmi'
 	icon_state = "chocolatebox"
 	icon_type = "chocolate"
-	name = "chocolate box"
 	storage_slots = 8
 	can_hold = list(
 		/obj/item/reagent_containers/food/snacks/truffle/random

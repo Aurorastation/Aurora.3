@@ -243,6 +243,9 @@
 		bodytype = name
 	return bodytype
 
+/datum/species/proc/get_surgery_overlay_icon(var/mob/living/carbon/human/H)
+	return 'icons/mob/surgery.dmi'
+
 /datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
 
 	if(!prob(5))

@@ -898,11 +898,22 @@ proc/is_hot(obj/item/W as obj)
 	return W && W.loc && isrobot(W.loc)
 
 //check if mob is lying down on something we can operate him on.
-/proc/can_operate(mob/living/carbon/M)
-	return (M.lying && \
-	locate(/obj/machinery/optable, M.loc) || \
-	(locate(/obj/structure/bed/roller, M.loc) && prob(75)) || \
-	(locate(/obj/structure/table/, M.loc) && prob(66)))
+/proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
+	var/surgery_attempt = SURGERY_IGNORE
+	if(M.lying)
+		if(locate(/obj/machinery/optable, M.loc))
+			surgery_attempt = SURGERY_SUCCESS
+		else if(locate(/obj/structure/bed/roller, M.loc))
+			if(prob(80))
+				surgery_attempt = SURGERY_SUCCESS
+			else
+				surgery_attempt = SURGERY_FAIL
+		else if(locate(/obj/structure/table, M.loc))
+			if(prob(66))
+				surgery_attempt = SURGERY_SUCCESS
+			else
+				surgery_attempt = SURGERY_FAIL
+	return surgery_attempt
 
 /proc/reverse_direction(var/dir)
 	switch(dir)
@@ -1196,4 +1207,3 @@ var/list/wall_items = typecacheof(list(
 	else if (istype(A.loc, /obj/item/rig_module))
 		return 0
 	return 1
-
