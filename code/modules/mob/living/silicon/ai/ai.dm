@@ -176,7 +176,7 @@ var/list/ai_verbs_default = list(
 
 	addtimer(CALLBACK(src, .proc/create_powersupply), 5)
 
-	hud_list[HEALTH_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = image('icons/mob/hud_med.dmi', src, "100")
 	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[LIFE_HUD] 		  = image('icons/mob/hud.dmi', src, "hudblank")
 	hud_list[ID_HUD]          = image('icons/mob/hud.dmi', src, "hudblank")
