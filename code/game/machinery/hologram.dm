@@ -100,6 +100,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				var/obj/item/card/id/I = user.GetIdCard()
 				if(!I)
 					to_chat(user, span("notice", "You need authorization to use the holocall system. Please equip a valid ID card."))
+					return
 				var/forcedcall = 0
 				if(access_heads in I.access) //Special functions for command level people
 					switch(alert(user,"Command level authorization detected. Additional functions available", "Command level menu", "Forced call","Regular call"))
