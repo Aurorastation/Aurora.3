@@ -57,6 +57,10 @@
 		to_chat(H, "<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>")
 		H.Robotize()
 		to_chat(H, "<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>")
+		if(/mob/living/silicon/robot(H))
+			H.emagged = 1
+		else
+			return
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		canuse = FALSE
 		addtimer(CALLBACK(src, .proc/rearm), 120 SECONDS)
