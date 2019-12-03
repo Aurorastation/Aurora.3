@@ -38,5 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a new set of R&D suits available in toxins, telescience and expedition prep on the sublevel."
-  - tweak: "Resprited the AMI suit."
+  - rscadd: "Added Freelance mercenary sprites and a cycler in their base."
+  - rscadd: "Added the Rhino hardsuit, the freelancer's own hardsuit with roughly merc hardsuit statistics with some extra modules and modified resists."
+  - tweak: "Resprited all mercenary/syndicate gear, adopting a more rusty crimson color scheme over the former cartoonish neon red ones."
