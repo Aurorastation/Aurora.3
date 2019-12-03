@@ -146,7 +146,7 @@
 	for(var/name in auglimb_data)
 		var/augmentpath = auglimb_data[name]
 		var/obj/item/organ/external/O = organs_by_name[name]
-		var/obj/item/organ/augment/AUG = new augmentpath()
+		var/obj/item/organ/internal/augment/AUG = new augmentpath()
 		AUG.replaced(src,O)
 		AUG.online = 1
 		AUG.owner = src

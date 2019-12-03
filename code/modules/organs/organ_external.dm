@@ -143,8 +143,8 @@
 				stage--
 				return
 
-			if(istype(W, /obj/item/organ/augment) && augment_capacity)
-				var/obj/item/organ/augment/AUG = W
+			if(istype(W, /obj/item/organ/internal/augment) && augment_capacity)
+				var/obj/item/organ/internal/augment/AUG = W
 				if(((body_part in AUG.install_locations) || !AUG.install_locations))
 					user.visible_message("<span class='danger'><b>[user]</b> installs [W] into [src]!</span>")
 					augment_capacity--
@@ -155,7 +155,7 @@
 					return
 
 			if(W.iswirecutter())
-				for(var/obj/item/organ/augment/AUG in contents)
+				for(var/obj/item/organ/internal/augment/AUG in contents)
 					if(AUG.online)
 						user.visible_message("<span class='danger'><b>[user]</b> uninstalls [W] from [src]!</span>")
 						AUG.online = 0

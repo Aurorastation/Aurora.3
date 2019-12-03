@@ -114,8 +114,8 @@
 
 /obj/item/organ/proc/die()
 	if(status & ORGAN_ROBOT)
-		if(istype(src,/obj/item/organ/augment))
-			var/obj/item/organ/augment/A = src
+		if(istype(src,/obj/item/organ/internal/augment))
+			var/obj/item/organ/internal/augment/A = src
 			A.online = 0
 			STOP_PROCESSING(SSprocessing, src)
 		else

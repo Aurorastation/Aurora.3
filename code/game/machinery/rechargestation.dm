@@ -153,10 +153,10 @@
 			return
 		else if(default_part_replacement(user, O))
 			return
-		if(istype(O, /obj/item/weapon/reagent_containers) && O.reagents)
+		if(istype(O, /obj/item/reagent_containers) && O.reagents)
 			for (var/datum/reagent/R in O.reagents.reagent_list)
 				if (istype(R, /datum/reagent/coolant))
-					var/obj/item/weapon/reagent_containers/glass/G = O
+					var/obj/item/reagent_containers/glass/G = O
 					var/amount_transferred = min(O.reagents.maximum_volume - O.reagents.total_volume, G.reagents.total_volume)
 					G.reagents.trans_to(beaker, amount_transferred)
 					O.reagents.remove_reagent(R.id, amount_transferred)

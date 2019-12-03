@@ -104,13 +104,13 @@
 				healthcheck()
 				damageamount -= (rand(25,30))
 
-/obj/item/device/mmi/digital/posibrain/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
+/obj/item/device/mmi/digital/posibrain/attackby(obj/item/O as obj, mob/user as mob, params)
 
-	if (istype(O, /obj/item/weapon) && user.a_intent == "harm")
+	if (istype(O, /obj/item) && user.a_intent == "harm")
 		healthcheck()
 		damageamount -= (rand(5,8))
 
-	if (istype(O, /obj/item/weapon/weldingtool) && user.a_intent == "harm")
+	if (istype(O, /obj/item/weldingtool) && user.a_intent == "harm")
 		healthcheck()
 		damageamount -= (rand(10,20))
 

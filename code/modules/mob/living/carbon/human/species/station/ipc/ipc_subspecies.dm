@@ -133,10 +133,9 @@
 		)
 
 	has_organ = list(
-		"brain"   = /obj/item/organ/mmi_holder/posibrain,
-		"cell"    = /obj/item/organ/cell,
-		"optics"  = /obj/item/organ/eyes/optical_sensor,
-		"ipc tag" = /obj/item/organ/ipc_tag,
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
+		BP_CELL    = /obj/item/organ/cell,
+		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
 		"coolant pump" = /obj/item/organ/coolantpump/heavy,
 		"calibration system" = /obj/item/organ/powercontrolunit
@@ -231,12 +230,12 @@
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
 		"shielded cell" = /obj/item/organ/cell/terminator,
-		BP_OPTICS = /obj/item/organ/internal/eyes/optical_sensor/terminator,
+		BP_OPTICS = /obj/item/organ/eyes/optical_sensor/terminator,
 		"data core" = /obj/item/organ/data,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
 		"coolant pump" = /obj/item/organ/coolantpump,
 		"calibration system" = /obj/item/organ/powercontrolunit,
-		"tesla unit" = /obj/item/organ/augment/integratedtesla,
+		"tesla unit" = /obj/item/organ/internal/augment/integratedtesla,
 		"surge"   = /obj/item/organ/surge/advanced
 	)
 
@@ -311,10 +310,10 @@
 	)
 
 	has_organ = list(
-		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		"cell"    = /obj/item/organ/cell,
 		"optics"  = /obj/item/organ/eyes/optical_sensor,
-		"ipc tag" = /obj/item/organ/ipc_tag,
+		"ipc tag" = /obj/item/organ/internal/ipc_tag,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
 		"coolant pump" = /obj/item/organ/coolantpump,
 		"calibration system" = /obj/item/organ/powercontrolunit

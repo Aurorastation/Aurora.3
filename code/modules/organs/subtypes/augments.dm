@@ -8,12 +8,12 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 /datum/augment/brainaugment
 
 	name = "Augmented Brain"
-	linkedaugment = /obj/item/organ/augment/aci
+	linkedaugment = /obj/item/organ/internal/augment/aci
 
 
 
 
-/obj/item/organ/augment
+/obj/item/organ/internal/augment
 	name = "aug"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "screen"
@@ -30,20 +30,20 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 
 
 
-/obj/item/organ/augment/Initialize()
+/obj/item/organ/internal/augment/Initialize()
 	START_PROCESSING(SSfast_process, src)
 	robotize()
 	. = ..()
 
 
-/obj/item/organ/augment/refresh_action_button()
+/obj/item/organ/internal/augment/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = action_icon
 		if(action.button)
 			action.button.UpdateIcon()
 
-/obj/item/organ/augment/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
@@ -66,7 +66,7 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
-/obj/item/organ/augment/process()
+/obj/item/organ/internal/augment/process()
 	..()
 	if(!online)
 		return
@@ -77,14 +77,14 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 /////////////////
 /////////////////
 
-/obj/item/organ/augment/aci
+/obj/item/organ/internal/augment/aci
 	name = "Augmented Cranial Implant"
 	action_icon = "aci"
 	icon_state = "aci"
 	var/connected = FALSE
 	var/useraccount = null
 
-/obj/item/organ/augment/aci/proc/augmentbrain(var/mob/user)
+/obj/item/organ/internal/augment/aci/proc/augmentbrain(var/mob/user)
 
 	var/mob/living/carbon/human/H = owner
 	var/obj/item/organ/IO = H.internal_organs_by_name["brain"]
@@ -93,13 +93,13 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	H.add_language(LANGUAGE_ERDANICYBER)
 
 
-/obj/item/organ/augment/aci/Initialize()
+/obj/item/organ/internal/augment/aci/Initialize()
 	augmentbrain()
 	robotize()
 	. = ..()
 
 
-/obj/item/organ/augment/aci/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/aci/attack_self(var/mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	var/userid = H.mind.holonetname
@@ -132,13 +132,13 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 					to_chat(H, "<span class='warning'>Your HoloChat name is now [idinput], restarting connection</span>")
 
 			if("Insert ID")
-				var/obj/item/weapon/card/I = user.get_active_hand()
-				if (istype(I, /obj/item/weapon/card/id))
+				var/obj/item/card/I = user.get_active_hand()
+				if (istype(I, /obj/item/card/id))
 					useraccount += I.associated_account_number
 					to_chat(H, "<span class='warning'>Financial Info saved!</span>")
 
 
-/obj/item/organ/augment/integratedtesla
+/obj/item/organ/internal/augment/integratedtesla
 	name = "tesla unit"
 	organ_tag = "tesla unit"
 	parent_organ = "groin"
@@ -148,26 +148,26 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	vital = 0
 	emp_coeff = 0.1
 	install_locations = list(ARM_LEFT, ARM_RIGHT, HEAD)
-	var/obj/item/weapon/cell/teslacell
+	var/obj/item/cell/teslacell
 	var/celldischarge = 1000
 
-/obj/item/organ/augment/integratedtesla/Initialize()
+/obj/item/organ/internal/augment/integratedtesla/Initialize()
 	START_PROCESSING(SSfast_process, src)
-	teslacell = new/obj/item/weapon/cell/high(src)
+	teslacell = new/obj/item/cell/high(src)
 	robotize()
 	. = ..()
 
-/obj/item/organ/augment/integratedtesla/refresh_action_button()
+/obj/item/organ/internal/augment/integratedtesla/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "teslaunit"
 		if(action.button)
 			action.button.UpdateIcon()
 
-/obj/item/organ/augment/integratedtesla/get_cell()
+/obj/item/organ/internal/augment/integratedtesla/get_cell()
 	return teslacell
 
-/obj/item/organ/augment/integratedtesla/proc/teslacelldeduct(var/chargeremoveal)
+/obj/item/organ/internal/augment/integratedtesla/proc/teslacelldeduct(var/chargeremoveal)
 	if(teslacell)
 		if(teslacell.checked_use(chargeremoveal))
 			return 1
@@ -176,8 +176,8 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 			return 0
 	return null
 
-/obj/item/organ/augment/integratedtesla/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W, /obj/item/weapon/cell))
+/obj/item/organ/internal/augment/integratedtesla/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/cell))
 		if(!teslacell)
 			user.drop_from_inventory(W,src)
 			teslacell = W
@@ -195,7 +195,7 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 		..()
 	return
 
-/obj/item/organ/augment/integratedtesla/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/integratedtesla/attack_self(var/mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = owner
 	if(.)
@@ -220,10 +220,10 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 							tesla_zap(A, 3, celldischarge)
 							update_icon()
 					for (var/obj/machinery/power/apc/APC in range(25, T))
-						for (var/obj/item/weapon/cell/B in APC.contents)
+						for (var/obj/item/cell/B in APC.contents)
 							B.charge += celldischarge
 					for (var/mob/living/silicon/robot/M in range(6, T))
-						for (var/obj/item/weapon/cell/D in M.contents)
+						for (var/obj/item/cell/D in M.contents)
 							D.charge += celldischarge
 					teslacelldeduct(celldischarge)
 					H.nutrition -= celldischarge

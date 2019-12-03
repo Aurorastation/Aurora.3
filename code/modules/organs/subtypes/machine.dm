@@ -465,13 +465,13 @@
 			N.use(amount_used)
 			pumphealth = round(pumphealth + amount_used * 10)
 			return
-	if(istype(I, /obj/item/weapon/reagent_containers) && I.reagents)
+	if(istype(I, /obj/item/reagent_containers) && I.reagents)
 		for (var/datum/reagent/R in I.reagents.reagent_list)
 			if (coolantamount >= coolantbaseamount)
 				to_chat(user, "<span class='info'>You can't put anymore coolant into the [src].</span>")
 				return
 			if (istype(R, /datum/reagent/coolant))
-				var/obj/item/weapon/reagent_containers/glass/G = I
+				var/obj/item/reagent_containers/glass/G = I
 				var/amount_transferred = min(I.reagents.maximum_volume - I.reagents.total_volume, G.reagents.total_volume)
 				G.reagents.trans_to(src, amount_transferred)
 				I.reagents.remove_reagent(R.id, amount_transferred)
