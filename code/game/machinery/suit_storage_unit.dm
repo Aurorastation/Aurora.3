@@ -720,6 +720,7 @@
 	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
+<<<<<<< HEAD
 /obj/machinery/suit_cycler/freelancer
 	name = "Freelancers suit cycler"
 	model_text = "Freelancers"
@@ -728,6 +729,8 @@
 	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
+=======
+>>>>>>> master
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
 
@@ -1143,6 +1146,7 @@
 				suit.name = "research voidsuit"
 				suit.item_state = "research_voidsuit"
 				suit.icon_state = "rig-sci"
+<<<<<<< HEAD
 		if("Freelancers")
 			if(helmet)
 				helmet.name = "freelancer voidsuit helmet"
@@ -1152,6 +1156,8 @@
 				suit.name = "freelancer voidsuit"
 				suit.item_state = "freelancer"
 				suit.icon_state = "freelancer"
+=======
+>>>>>>> master
 
 	if(helmet) helmet.name = "refitted [helmet.name]"
 	if(suit) suit.name = "refitted [suit.name]"
