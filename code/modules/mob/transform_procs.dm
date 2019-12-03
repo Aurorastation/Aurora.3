@@ -172,6 +172,8 @@
 	O.gender = gender
 	O.invisibility = 0
 
+	O.emagged = 1 //Needed for the autoborger 5000 due to robotize() deleting the mob.
+	
 	if(mind)		//TODO
 		mind.transfer_to(O)
 		if(O.mind.assigned_role == "Cyborg")
