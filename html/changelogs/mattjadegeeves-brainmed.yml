@@ -74,4 +74,5 @@ changes:
   - tweak: "Most organs can now take more punishment."
   - tweak: "The head is now harder to hit."
   - tweak: "The organ damage dealt now depends on the size of the organ in the area you hit."
-  - tweak: "Self surgery works again. However, you'll hit yourself if you fail."
+  - tweak: "Surgery pain is MUCH higher if you're awake."
+  - tweak: "Self surgery works again."
