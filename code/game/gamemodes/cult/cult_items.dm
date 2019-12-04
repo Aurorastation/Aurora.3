@@ -42,10 +42,19 @@
 	return 1
 
 /obj/item/melee/cultblade/pickup(mob/living/user as mob)
-	..()
-	if(!iscultist(user))
+	if(!iscultist(user)&&!ishuman(user))
+		..()
 		to_chat(user, "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up \the [src]. It would be wise to be rid of this blade quickly.</span>")
 		user.make_dizzy(120)
+
+//corrupt if human
+/obj/item/melee/cultblade/pickup(mob/living/carbon/human/user)
+	if(!iscultist(user)&&ishuman(user))
+		..()
+		to_chat(user, "<span class='warning'>An overwhelming feeling of dread comes over you as you pick up \the [src]. It would be wise to be rid of this blade quickly.</span>")
+		user.make_dizzy(120)
+		user.corrupt(10) //picking up a cult blade is bad news
+		playsound(loc, 'sound/hallucinations/i_see_you1.ogg', 50, 1)
 
 /obj/item/melee/cultblade/attackby(var/obj/item/I, var/mob/user)
 	..()
@@ -129,3 +138,77 @@
 
 /obj/item/clothing/suit/space/cult/cultify()
 	return
+
+//Corrupting items
+
+/obj/item/idol
+	name = "Strange Idol"
+	desc = "A grotesque depiction of a thing with too many appendages. It's beady eyes seem to bore straight into your skull."
+	icon_state = "cultblade" //TODO: new icon
+	item_state = "cultblade"
+	icon = 'icons/obj/weapons.dmi'
+	w_class = 4
+	throwforce = 3
+
+//Corrupts on pickup
+/obj/item/idol/pickup(mob/living/carbon/human/user as mob)
+	..()
+	if(!iscultist(user))
+		to_chat(user, "<span class='warning'>A curious feeling overcomes you as you touch the [src]. Like someone, or something, just passed very close behind you.</span>")
+		user.corrupt(5)
+
+//Corrupts when carried
+/obj/item/idol/process()
+	if((world.time/1000) - (round(world.time/1000)) == 0) //Do every thousand ticks -> every 100 seconds
+		var/var/mob/living/carbon/human/m = src.loc
+		if(ishuman(m))
+			m.corrupt(2) //corruption gain 72/hour
+
+//Orb that corrupts people around them and gets destroyed and burns the user when touched
+/obj/machinery/chaosorb
+	name = "Chaotic Orb"
+	desc = "A strangely mesmerizing, glowing orb. It seems to suck in the light from the area around it."
+	icon = 'icons/obj/stationobjs.dmi' //TODO new Icon
+	icon_state = "igniter1"
+	matter = list("glass" = 200)
+
+/obj/machinery/chaosorb/attack_hand(mob/user as mob)
+	if(!iscultist(user))
+		spark(src, 2, alldirs) //shoot some sparks
+		set_light(9,8) //Shine like the heavens
+		playsound(loc, 'sound/hallucinations/i_see_you1.ogg', 50, 1)
+		visible_message("\the [src] suddenly glows a lot brighter... and starts vibrating... and hissing...")
+		sleep(rand(20, 100)) //Explode after 2-10 seconds
+		var/turf/T = get_turf(src)
+		if(T)
+			T.hotspot_expose(700,125)
+		Destroy()
+
+//loop over things the orb can "see" and corrupt them if they're human
+/obj/machinery/chaosorb/machinery_process()
+	if(prob(20)) //only do it every 5th tick to save resources
+		for(var/mob/living/carbon/human/m in view(world.view, src)) //Look up all humans in 8 tiles radius
+			if(ishuman(m))
+				m.corrupt(rand(0.2, 1)) //TODO balance
+	return
+
+/obj/machinery/chaosorb/Initialize()
+	set_light(4,3,LIGHT_COLOR_FLARE) //Make it glow a nice, friendly red
+
+/obj/machinery/chaosorb/Destroy()
+	..()
+	playsound(loc, "shatter", 70, 1)
+	playsound(loc, 'sound/hallucinations/growl3.ogg', 50, 1)
+	new /obj/item/material/shard( src.loc )
+
+//The cultists source of Nar-Sie blood
+
+/obj/item/reagent_containers/food/drinks/drinkingglass/goblet
+	name = "Goblet"
+	desc = "A very finely decorated drinking goblet."
+	matter = list("metal" = 350)
+	icon_state = "alco-clear" //TODO: new icon
+	volume = 30
+	Initialize()
+		. = ..()
+		reagents.add_reagent("narsie-blood", 30)

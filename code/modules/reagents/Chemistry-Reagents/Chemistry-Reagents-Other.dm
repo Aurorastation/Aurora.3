@@ -826,3 +826,29 @@
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
+
+//Relevant for Cult
+/datum/reagent/blood_of_narsie
+	name = "Blood of Nar-Sie"
+	id = "narsie-blood"
+	description = "A viscous, slightly sticky liquid."
+	reagent_state = LIQUID
+	color = "#70838A"
+	taste_description = "rotting blood"
+	metabolism = REM/20
+	metabolism_min = 0.005
+	ingest_mul = 1
+	ingest_met = REM/10
+	taste_mult = 5 //You can taste it in your food very easily
+	touch_met = REM*2 //splashing on people corrupts also
+	fallback_specific_heat = 1.5
+
+/datum/reagent/blood_of_narsie/initial_effect(var/mob/living/carbon/M, var/alien)
+	to_chat(M, "<span class='warning'>An overwhelming feeling of disgust nearly makes you vomit.</span>")
+	M.make_dizzy(120)
+	return
+
+/datum/reagent/blood_of_narsie/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	. = ..()
+	M.corrupt(0.05) //Not a lot, but it adds up over the time the stuff metabolizes
+	return

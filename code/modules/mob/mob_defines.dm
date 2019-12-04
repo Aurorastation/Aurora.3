@@ -239,3 +239,5 @@
 
 	var/authed = TRUE
 	var/player_age = "Requires database"
+	var/corruption = 0 //Used in cultrounds to track how corrupted a mob is
+	var/corruptionlevel = 0 //Used to track the highest 10 level increment of corruption the mob has reached

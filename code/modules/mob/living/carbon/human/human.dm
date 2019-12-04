@@ -1076,14 +1076,14 @@
 		return
 
 	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
-	
+
 	if(!L)
 		losebreath += 15 //No lungs, how do you breathe?
 		adjustOxyLoss(15)
 		failed_last_breath = TRUE
 	else
 		failed_last_breath = L.handle_breath(breath)
-	
+
 	return !failed_last_breath
 
 /mob/living/carbon/human/proc/is_lung_ruptured()
@@ -1626,3 +1626,45 @@
 /mob/living/carbon/human/proc/pulse()
 	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 	return H ? H.pulse : PULSE_NONE
+
+//Proc for Cultmode to apply corruption to the mob
+//TODO: Add cooldown.
+/mob/living/carbon/human/proc/corrupt(var/amount)
+	src.corruption += amount
+	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
+	switch(corruption)
+		if(90 to 99)
+			if(src.corruptionlevel == 8) //checks if mob is on the corruption level under this one
+				to_chat(src, "<span class='notice'>corruption level 90+</span>") //effect
+				src.corruptionlevel = 9 //increments corruption level, so effect only happens once upon reaching new level
+		if(80 to 89)
+			if(src.corruptionlevel == 7)
+				src.corruptionlevel = 8
+		if(70 to 79)
+			if(src.corruptionlevel == 6)
+				src.corruptionlevel = 7
+		if(60 to 69)
+			if(src.corruptionlevel == 5)
+				src.corruptionlevel = 6
+		if(50 to 59)
+			if(src.corruptionlevel == 4)
+				src.corruptionlevel = 5
+		if(40 to 49)
+			if(src.corruptionlevel == 3)
+				src.corruptionlevel = 4
+		if(30 to 39)
+			if(src.corruptionlevel == 2)
+				src.corruptionlevel = 3
+		if(20 to 29)
+			if(src.corruptionlevel == 1)
+				src.corruptionlevel = 2
+		if(10 to 19)
+			if(src.corruptionlevel == 0)
+				B.gain_trauma(/datum/brain_trauma/corruption/ten,TRUE) //Give the affected mob's brain the coresponding trauma
+				src.corruptionlevel = 1
+	return
+
+//Proc for Cultmode to subtract corruption from the mob
+/mob/living/carbon/human/proc/uncorrupt(var/amount)
+	src.corruption -= amount
+	return
