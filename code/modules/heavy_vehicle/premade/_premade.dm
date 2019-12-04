@@ -1,9 +1,12 @@
 /mob/living/heavy_vehicle/premade
 	name = "impossible mech"
 	desc = "It seems to be saying 'please let me die'."
-	var/decal
+	icon = 'icons/mecha/mecha.dmi'
+	icon_state = "ripley"
 
 /mob/living/heavy_vehicle/premade/Initialize()
+	icon = null
+	icon_state = null
 	if(arms)
 		arms.decal = decal
 		arms.prebuild()
