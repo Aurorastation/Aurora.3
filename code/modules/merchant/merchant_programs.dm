@@ -91,7 +91,7 @@
 		last_comms = "ERROR: NUMBER BETWEEN 1 AND 50 EXPECTED"
 		return
 	if(pad)
-		for(var/BulkCounter = 0, BulkCounter<BulkAmount, BulkCounter++)
+		for(var/BulkCounter = 0, BulkCounter < BulkAmount, BulkCounter++)
 			var/response = T.offer_money_for_trade(num, bank)
 			if(istext(response))
 				last_comms = T.get_response(response, "No thank you.")
