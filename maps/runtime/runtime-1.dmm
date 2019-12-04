@@ -1049,7 +1049,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cG" = (
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},

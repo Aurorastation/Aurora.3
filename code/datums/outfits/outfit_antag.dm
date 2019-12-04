@@ -109,7 +109,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = /obj/item/clothing/under/syndicate/ninja
-	back = /obj/item/rig/light/ninja
+	back = null
 	belt = /obj/item/storage/belt/ninja
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/ring/ninja
@@ -136,6 +136,10 @@
 	. = ..()
 	if(visualsOnly)
 		return
+
+	var/obj/item/rig/light/ninja/rig = new /obj/item/rig/light/ninja(src)
+	rig.dnaLock = H.dna
+	H.equip_to_slot_or_del(rig, slot_l_hand)
 
 	H.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(H, H.mind), slot_l_store)
 
