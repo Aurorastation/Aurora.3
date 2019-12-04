@@ -83,12 +83,12 @@
 	last_comms = "PAD NOT CONNECTED"
 	
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
-	var/BulkAmount = input("How many items? (1-50)") as num
+	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
 		return 
-	if(BulkAmount < 1 || BulkAmount > 50)
-		last_comms = "ERROR: NUMBER BETWEEN 1 AND 50 EXPECTED"
+	if(BulkAmount < 0 || BulkAmount > 50)
+		last_comms = "ERROR: POSITIVE NUMBER UP TO 50 EXPECTED"
 		return
 	if(pad)
 		for(var/BulkCounter = 0, BulkCounter < BulkAmount, BulkCounter++)
