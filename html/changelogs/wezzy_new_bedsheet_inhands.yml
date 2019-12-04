@@ -40,6 +40,7 @@ delete-after: True
 changes: 
   - imageadd: "New bedsheet, lantern and penlight inhands."
   - tweak: "Extinguishing cigarettes in the ashtray should play the sound properly now."
+  - tweak: "You can put cigarette butts in cigarette packets."
   - tweak: "Tweaks power drill sprites."
   - tweak: "Health analysers should show the proper inhands now."
   - bugfix: "Fixes some more drop sounds."
