@@ -170,6 +170,7 @@
 
 	O.gender = gender
 	O.invisibility = 0
+	O.emagged = 1
 	
 	if(mind)		//TODO
 		mind.transfer_to(O)
