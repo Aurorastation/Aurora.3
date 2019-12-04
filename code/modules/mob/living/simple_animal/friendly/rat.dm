@@ -326,3 +326,10 @@
 
 /mob/living/simple_animal/rat/cannot_use_vents()
 	return
+
+/mob/living/simple_animal/rat/proc/rattepathy()
+	set category = "Abilities"
+	set name = "Communal Squeak"
+	set desc = "Send a telepathic broadcast to local rats."
+
+	visible_message("<span class='notice'>[src] squeaks loudly!</span>")
