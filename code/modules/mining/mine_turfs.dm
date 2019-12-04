@@ -161,11 +161,6 @@ var/list/mineral_can_smooth_with = list(
 		if(istype(R.module_active,/obj/item/pickaxe))
 			attackby(R.module_active,R)
 
-	else if(istype(AM,/obj/mecha))
-		var/obj/mecha/M = AM
-		if(istype(M.selected,/obj/item/mecha_parts/mecha_equipment/tool/drill))
-			M.selected.action(src)
-
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid
 	name = "rock"
@@ -429,10 +424,12 @@ var/list/mineral_can_smooth_with = list(
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
+	if(prob(5))
+		findgem()
+
 	//Add some rubble,  you did just clear out a big chunk of rock.
-
 	ChangeTurf(mined_turf)
-
+	
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)

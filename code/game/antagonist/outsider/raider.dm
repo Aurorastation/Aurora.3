@@ -270,6 +270,8 @@ var/datum/antagonist/raider/raiders
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat/vox(player), slot_wear_mask)
 	player.equip_to_slot_or_del(new /obj/item/tank/nitrogen(player), slot_back)
 	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_r_store)
+	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/raider(player), slot_l_ear)
+	player.equip_to_slot_or_del(new /obj/item/card/id/syndicate/raider(player), slot_wear_id)
 
 	player.internal = locate(/obj/item/tank) in player.contents
 	if(istype(player.internal,/obj/item/tank) && player.internals)

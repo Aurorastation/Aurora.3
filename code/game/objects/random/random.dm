@@ -754,7 +754,6 @@
 		/obj/item/device/floor_painter = 0.6,
 		/obj/item/device/gps/engineering = 0.6,
 		/obj/item/device/kinetic_analyzer = 0.1,
-		/obj/item/device/kit/paint/ripley/random = 0.1,
 		/obj/item/device/laser_pointer/purple = 0.1,
 		/obj/item/device/light_meter = 0.1,
 		/obj/item/device/magnetic_lock/engineering = 0.3,
@@ -1356,4 +1355,15 @@
 		/obj/item/flag/vaurca/l,
 		/obj/item/flag/zenghu,
 		/obj/item/flag/zenghu/l
+	)
+
+/obj/random/gift
+	name = "random gift"
+	desc = "Contains a randomly sized gift."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift1"
+	spawnlist = list(
+		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift/medium =  0.3,
+		/obj/item/xmasgift/large = 0.2
 	)

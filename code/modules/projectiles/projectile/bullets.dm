@@ -33,9 +33,6 @@
 /obj/item/projectile/bullet/check_penetrate(var/atom/A)
 	if(!A || !A.density) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
 
-	if(istype(A, /obj/mecha))
-		return 1 //mecha have their own penetration handling
-
 	if(ismob(A))
 		if(!mob_passthrough_check)
 			return 0
@@ -331,6 +328,22 @@
 	damage = 30
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
+
+/obj/item/projectile/bullet/gauss/highex
+	name ="high-ex shell"
+	damage = 10
+
+/obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
+	explosion(A, -1, 0, 2)
+	..()
+
+/obj/item/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
+	explosion(target, -1, 0, 2)
+	sleep(0)
+	var/obj/T = target
+	var/throwdir = get_dir(firer,target)
+	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
+	return 1
 
 /obj/item/projectile/bullet/cannonball
 	name = "cannonball"

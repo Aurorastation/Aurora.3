@@ -94,7 +94,7 @@
 		var/mob/living/carbon/human/H = locate() in loc
 		if(istype(H))
 			if(H.lying)
-				icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
+				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
@@ -120,7 +120,7 @@
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		src.victim = H
-		icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
+		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 	else
 		icon_state = "[modify_state]-idle"
 
