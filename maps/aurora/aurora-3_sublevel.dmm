@@ -20966,6 +20966,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/jar,
 /obj/item/reagent_containers/glass/beaker/jar,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQK" = (

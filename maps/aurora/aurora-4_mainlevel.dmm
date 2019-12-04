@@ -66603,6 +66603,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"jyy" = (
+/obj/structure/table/standard,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/item/folder/purple,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/hand_labeler,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/research)
 "jAb" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/sign/christmas/lights{
@@ -69191,6 +69199,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"pSK" = (
+/obj/structure/table/standard,
+/obj/item/folder/purple,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/hand_labeler,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/sleep/research)
 "pSX" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle{
@@ -92343,7 +92358,7 @@ bCq
 bDl
 bEe
 bET
-bFW
+pSK
 bGT
 gGk
 bIK
@@ -93371,7 +93386,7 @@ bCt
 bvS
 bEi
 bEV
-bFX
+jyy
 bGX
 bHQ
 bIK
