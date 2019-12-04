@@ -83,16 +83,15 @@
 	last_comms = "PAD NOT CONNECTED"
 	
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
-	var/BulkCounter = 0
-	var/BulkAmount = input("How many?") as num
+	var/BulkAmount = input("How many items? (1-50)") as num
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
 		return 
-	if(BulkAmount < 1)
-		last_comms = "ERROR: NUMBER 1 OR GREATER EXPECTED"
+	if(BulkAmount < 1 || BulkAmount > 50)
+		last_comms = "ERROR: NUMBER BETWEEN 1 AND 50 EXPECTED"
 		return
 	if(pad)
-		while(BulkCounter < BulkAmount)
+		for(var/BulkCounter = 0, BulkCounter<BulkAmount, BulkCounter++)
 			var/response = T.offer_money_for_trade(num, bank)
 			if(istext(response))
 				last_comms = T.get_response(response, "No thank you.")
@@ -100,7 +99,6 @@
 				last_comms = T.get_response("trade_complete", "Thank you!")
 				T.trade(null,num, get_turf(pad))
 				bank -= response
-			BulkCounter += 1
 		return
 	last_comms = "PAD NOT CONNECTED"
 
