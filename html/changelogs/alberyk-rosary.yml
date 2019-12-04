@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Added the rosary to the loadout options."
+  - tweak: "The rosary no longer automatically spawns in holy books that have bible sprites."
