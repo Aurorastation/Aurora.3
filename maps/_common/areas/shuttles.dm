@@ -270,11 +270,13 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/space
 	icon_state = "yellow"
+	sound_env = LARGE_ENCLOSED
 
 /area/shuttle/merchant/start
 	centcomm_area = 1
 
 /area/shuttle/merchant/transit
+	name = "\improper Hyperspace"
 	centcomm_area = 1
 	base_turf = /turf/space/transit/east
 

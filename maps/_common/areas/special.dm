@@ -246,8 +246,9 @@
 	no_light_control = 1
 	centcomm_area = 1
 
-/area/merchant_station/exterior
-	dynamic_lighting = 0
+/area/merchant_station/warehouse
+	name = "\improper Merchant Warehouse"
+	icon_state = "merchant_ware"
 
 /area/merchant_station/transit
 	name = "\improper Hyperspace"

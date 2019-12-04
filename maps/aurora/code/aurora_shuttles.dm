@@ -86,7 +86,7 @@
 	shuttle.dock_target_offsite = "merchant_station"
 	shuttle.area_transition = locate(/area/shuttle/merchant/transit)
 	shuttle.transit_direction = EAST
-	shuttle.move_time = 25
+	shuttle.move_time = 20
 	shuttles["Merchant"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 

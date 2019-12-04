@@ -419,7 +419,13 @@
 		/obj/item/clothing/suit/space/void/security = /obj/item/clothing/head/helmet/space/void/security,
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos,
 		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
-		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain
+		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain,
+		/obj/item/clothing/suit/space/void/cruiser = /obj/item/clothing/head/helmet/space/void/cruiser,
+		/obj/item/clothing/suit/space/void/frontier = /obj/item/clothing/head/helmet/space/void/frontier,
+		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -429,7 +435,13 @@
 		/obj/item/clothing/suit/space/void/security = 1,
 		/obj/item/clothing/suit/space/void/atmos = 1.5,
 		/obj/item/clothing/suit/space/void/merc = 0.5,
-		/obj/item/clothing/suit/space/void/captain = 0.3
+		/obj/item/clothing/suit/space/void/captain = 0.3,
+		/obj/item/clothing/suit/space/void/cruiser = 0.5,
+		/obj/item/clothing/suit/space/void/frontier = 1,
+		/obj/item/clothing/suit/space/void/hos = 0.3,
+		/obj/item/clothing/suit/space/void/lancer = 0.3,
+		/obj/item/clothing/suit/space/void/sci = 2,
+		/obj/item/clothing/suit/space/void/sol = 0.5
 	)
 	has_postspawn = TRUE
 
