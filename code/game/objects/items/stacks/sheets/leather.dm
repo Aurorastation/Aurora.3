@@ -101,7 +101,7 @@
 	if(W.sharp && !W.noslice && !bare && !W.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
 
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
-		user.visible_message(span("notice", "\The [user] starts slicing the [hide_type] from \the [src]</span>"),
+		user.visible_message(span("notice", "\The [user] starts slicing the [hide_type] from \the [src]."),
 				span("notice", "You start slicing the [hide_type] from \the [src]"),
 				span("notice", "You hear the sound of a knife rubbing against flesh."))
 		if(do_after(user,50))
