@@ -74,3 +74,4 @@ changes:
   - tweak: "Most organs can now take more punishment."
   - tweak: "The head is now harder to hit."
   - tweak: "The organ damage dealt now depends on the size of the organ in the area you hit."
+  - tweak: "Self surgery works again. However, you'll hit yourself if you fail, and you'll also have a debuff to surgery chance."

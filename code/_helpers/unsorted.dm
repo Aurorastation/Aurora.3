@@ -900,19 +900,29 @@ proc/is_hot(obj/item/W as obj)
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
-	if(M.lying)
-		if(locate(/obj/machinery/optable, M.loc))
+	var/success_chance_high = 80
+	var/success_chance_medium = 66
+	var/located = FALSE
+	if(!M.lying)
+		success_chance_high -= 20
+		success_chance_medium -= 26
+	if(locate(/obj/machinery/optable, M.loc))
+		located = TRUE
+		surgery_attempt = SURGERY_SUCCESS
+	else if(locate(/obj/structure/bed/roller, M.loc))
+		located = TRUE
+		if(prob(success_chance_high))
 			surgery_attempt = SURGERY_SUCCESS
-		else if(locate(/obj/structure/bed/roller, M.loc))
-			if(prob(80))
-				surgery_attempt = SURGERY_SUCCESS
-			else
-				surgery_attempt = SURGERY_FAIL
-		else if(locate(/obj/structure/table, M.loc))
-			if(prob(66))
-				surgery_attempt = SURGERY_SUCCESS
-			else
-				surgery_attempt = SURGERY_FAIL
+		else
+			surgery_attempt = SURGERY_FAIL
+	else if(locate(/obj/structure/table, M.loc))
+		located = TRUE
+		if(prob(success_chance_medium))
+			surgery_attempt = SURGERY_SUCCESS
+		else
+			surgery_attempt = SURGERY_FAIL
+	if(!M.lying && surgery_attempt == SURGERY_FAIL && located)
+		surgery_attempt = SURGERY_IGNORE //hit yourself if you're not lying
 	return surgery_attempt
 
 /proc/reverse_direction(var/dir)
