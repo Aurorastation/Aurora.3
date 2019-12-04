@@ -61,7 +61,7 @@
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		canuse = FALSE
 		addtimer(CALLBACK(src, .proc/rearm), 120 SECONDS)
-		H.robotize(var/emagged = 1)
+		H.Robotize()
 	else
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 		visible_message("<span class='notice'>The machine displays an error message reading it is still making the required parts.</span>")
