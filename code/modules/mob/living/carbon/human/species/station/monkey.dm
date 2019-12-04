@@ -134,7 +134,6 @@ var/list/monkey_descriptors = list("clever","small","large","skinny","fat","tiny
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
 		)
- 
 	tail = "vkrexitail"
 	greater_form = "Vaurca Worker"
 	default_language = "V'krexi"
@@ -164,4 +163,3 @@ var/list/monkey_descriptors = list("clever","small","large","skinny","fat","tiny
 	burn_mod = 2
 	fall_mod = 0
 	slowdown = -1
-
