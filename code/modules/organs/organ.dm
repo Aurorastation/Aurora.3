@@ -253,7 +253,6 @@
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
-		to_world("Can Recover: [name]")
 		damage = between(0, damage - round(amount, 0.1), max_damage)
 
 /obj/item/organ/proc/is_broken()
