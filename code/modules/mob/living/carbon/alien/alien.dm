@@ -30,7 +30,7 @@
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 
-	name = " ([get_descriptor()] [initial(name)]"
+	name = "([get_descriptor()] [initial(name)]"
 	real_name = name
 	regenerate_icons()
 
