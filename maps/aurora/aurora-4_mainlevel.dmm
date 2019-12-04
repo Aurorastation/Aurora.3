@@ -50752,11 +50752,22 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bHV" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_cycler/science,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
 "bHW" = (
-/obj/structure/closet/bombcloset,
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/sci,
+/obj/item/clothing/head/helmet/space/void/sci,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
 "bHX" = (
@@ -69090,6 +69101,9 @@
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)

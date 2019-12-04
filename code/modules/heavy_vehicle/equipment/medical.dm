@@ -266,6 +266,7 @@
 
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer
+	name = "mounted health analyzer"
 	icon_state = "mecha_healthyanalyzer"
 	holding_type = /obj/item/device/healthanalyzer/adv/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
