@@ -115,9 +115,9 @@
 		return
 
 	if (M == src)
-		log_and_message_admins(src, "changed their name to [input].")
+		log_and_message_admins("changed their name to [input].", src)
 	else
-		log_and_message_admins(M, "changed [key_name(src)]'s name to [input].") //To track name changes and ooc shittery.
+		log_and_message_admins("changed [key_name(src)]'s name to [input].", M) //To track name changes and ooc shittery.
 	name = input
 	real_name = name
 	
