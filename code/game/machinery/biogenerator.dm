@@ -159,9 +159,9 @@
 			emag = 0
 		),
 		"cash" = list(
-			name = "Cash Bag",
+			name = "Money Bag",
 			class = "Items",
-			object = /obj/item/storage/bag/cash,
+			object = /obj/item/storage/bag/money,
 			cost = 400,
 			amount = list(1,2,3,4,5),
 			emag = 0
