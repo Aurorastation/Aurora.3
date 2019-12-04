@@ -126,9 +126,6 @@
 	if(owner && vital)
 		owner.death()
 
-/obj/item/organ/proc/is_damaged()
-	return damage > 1
-
 /obj/item/organ/proc/is_bruised()
 	return damage >= min_bruised_damage
 
@@ -139,7 +136,7 @@
 	return (!BP_IS_ROBOTIC(src) && (!species || !(species.flags & NO_PAIN)))
 
 /obj/item/organ/proc/can_recover()
-	return (max_damage > 0) && !(status & ORGAN_DEAD)
+	return max_damage > 0
 
 /obj/item/organ/process()
 
@@ -256,6 +253,7 @@
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())
+		to_world("Can Recover: [name]")
 		damage = between(0, damage - round(amount, 0.1), max_damage)
 
 /obj/item/organ/proc/is_broken()

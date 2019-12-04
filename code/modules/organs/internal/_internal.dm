@@ -44,8 +44,14 @@
 	if((status & ORGAN_DEAD) && dead_icon)
 		icon_state = dead_icon
 
+/obj/item/organ/internal/proc/surgical_fix() //to be used for scarring -mattatlas
+	heal_damage(damage)
+
 /obj/item/organ/internal/is_usable()
 	return ..() && !is_broken()
+
+/obj/item/organ/internal/proc/is_damaged()
+	return damage > 0
 
 /obj/item/organ/internal/robotize()
 	..()

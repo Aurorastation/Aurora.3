@@ -37,7 +37,7 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
 		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
-		BP_APPENDIX = /obj/item/organ/appendix,
+		BP_APPENDIX = /obj/item/organ/internal/appendix,
 		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 

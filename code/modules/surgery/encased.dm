@@ -89,9 +89,15 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-	msg = "<span class='notice'>[user] forces open [target]'s [affected.encased] with \the [tool].</span>"
-	self_msg = "<span class='notice'>You force open [target]'s [affected.encased] with \the [tool].</span>"
+/datum/surgery_step/open_encased/retract/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!hasorgans(target))
+		return
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/msg = "<span class='notice'>[user] forces open [target]'s [affected.encased] with \the [tool].</span>"
+	var/self_msg = "<span class='notice'>You force open [target]'s [affected.encased] with \the [tool].</span>"
 	user.visible_message(msg, self_msg)
+	..()
 
 	affected.open = 3
 

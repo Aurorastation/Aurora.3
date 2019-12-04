@@ -37,21 +37,20 @@
 	return ..() && is_organ_damaged
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!hasorgans(target))
+		return
+
 	var/tool_name = "\the [tool]"
 	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		tool_name = "regenerative membrane"
 	else if(istype(tool, /obj/item/stack/medical/bruise_pack))
 		tool_name = "the bandaid"
-
-	if(!hasorgans(target))
-		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
-			if(I.robotic < 2)
-				user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
-				"You start treating damage to [target]'s [I.name] with [tool_name]." )
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
+			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 
 	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
@@ -67,16 +66,14 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
-			if(I.robotic < 2)
-				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
-					"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
-				var/organ_damage = I.damage
-				I.heal_damage(organ_damage)
-				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-				if(sponge && istype(I, sponge))
-					target.cure_all_traumas(cure_type = CURE_SURGERY)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+			user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
+				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
+			I.surgical_fix()
+			var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
+			if(sponge && istype(I, sponge))
+				target.cure_all_traumas(cure_type = CURE_SURGERY)
 
 /datum/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!hasorgans(target))

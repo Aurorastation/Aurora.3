@@ -384,7 +384,7 @@
 		data["blood_pressure"]  = occupant.get_blood_pressure()
 		data["blood_volume"]    = occupant.get_blood_volume()
 		data["blood_o2"]        = occupant.get_blood_oxygenation()
-		data["blood_volume"]    = occupant.vessel.get_reagent_amount(/datum/reagent/blood)
+		data["blood_volume"]    = occupant.vessel.get_reagent_amount("blood")
 		data["blood_volume_max"]= occupant.species.blood_volume
 		data["rads"]			= occupant.total_radiation
 
@@ -494,27 +494,30 @@
 		data["name"] = O.name
 		var/list/wounds = list()
 		data["damage"] = get_internal_damage(O)
-		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
-			if (O.is_broken())
+		if(istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
+			if(O.is_broken())
 				wounds += get_broken_lung_desc()
 			else
 				wounds += get_collapsed_lung_desc()
 
-		if (istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
+		if(O.status & ORGAN_DEAD)
+			wounds += "Necrotic and decaying."
+
+		if(istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."
 
-		if (istype(O, H.species.vision_organ))
-			if (H.sdisabilities & BLIND)
+		if(istype(O, H.species.vision_organ))
+			if(H.sdisabilities & BLIND)
 				wounds += "Appears to have cataracts."
-			else if (H.disabilities & NEARSIGHTED)
+			else if(H.disabilities & NEARSIGHTED)
 				wounds += "Appears to have misaligned retinas."
 
-		if (O.germ_level)
+		if(O.germ_level)
 			var/level = get_infection_level(O.germ_level)
 			if (level && level != "")
 				wounds += "Shows symptoms of \a [level] infection."
 
-		if (O.rejecting)
+		if(O.rejecting)
 			wounds += "Shows symptoms of organ rejection."
 
 		data["hasWounds"] = length(wounds) ? 1 : 0
@@ -725,8 +728,12 @@
 		if(i.rejecting)
 			infection += "(being rejected)"
 
+		var/necrotic = ""
+		if(i.status & ORGAN_DEAD)
+			necrotic = ", <font color='red'>necrotic and decaying</font>"
+
 		dat += "<tr>"
-		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection]:[mech]</td><td></td>"
+		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
 		dat += "</tr>"
 	dat += "</table>"
 

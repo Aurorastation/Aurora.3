@@ -159,7 +159,7 @@ BREATH ANALYZER
 	else
 		if(H.isFBP())
 			pulse_result = "[rand(70, 85)]bpm"
-		else 
+		else
 			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
 	dat += "Pulse rate: [pulse_result]."
 
@@ -589,7 +589,7 @@ BREATH ANALYZER
 		if(50 to INFINITY)
 			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
 
-	var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
+	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
 			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")
