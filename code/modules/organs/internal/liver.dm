@@ -82,3 +82,7 @@
 	if(toxin_type in owner.chem_effects)
 		if(is_damaged())
 			owner.adjustToxLoss(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY) // as actual organ damage is handled elsewhere
+
+//We got it covered in Process with more detailed thing
+/obj/item/organ/internal/liver/handle_regeneration()
+	return
