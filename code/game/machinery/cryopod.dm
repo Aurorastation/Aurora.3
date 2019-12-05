@@ -169,7 +169,7 @@
 	var/disallow_occupant_types = list()
 
 	var/mob/occupant = null       // Person waiting to be despawned.
-	var/time_till_despawn = 9000  // 15 minutes-ish safe period before being despawned.
+	var/time_till_despawn = 600   // One minute safe period before being despawned.
 	var/time_entered = 0          // Used to keep track of the safe period.
 	var/obj/item/device/radio/intercom/announce //
 
@@ -254,7 +254,7 @@
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
 /obj/machinery/cryopod/machinery_process()
 	if(occupant)
-		//Allow a ten minute gap between entering the pod and actually despawning.
+		//Allow a one minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
 			return
 
