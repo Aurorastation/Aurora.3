@@ -1427,36 +1427,20 @@
 			M.add_chemical_effect(CE_HEPATOTOXIC, 1)
 			M.vomit()
 
-/datum/reagent/potassium_hydrophoro
-	name = "Potassium Hydrophoride"
-	id = "potassium_hydrophoro"
-	description = "A liquid compound that can miraculously restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems, however the effects of an overdose are to be noted."
+/datum/reagent/saline
+	name = "Saline"
+	id = "saline"
+	description = "A liquid compound that restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems. Yes, it's literally just saline."
 	reagent_state = LIQUID
 	color = "#1ca9c9"
-	taste_description = "numbness"
+	taste_description = "salty water"
 	unaffected_species = IS_MACHINE
 
-/datum/reagent/potassium_hydrophoro/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VAURCA)
-		if( (M.hydration / M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
-			M.adjustHydrationLoss(removed*2)
-		else
-			M.adjustHydrationLoss(-removed*5)
+/datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+		M.adjustHydrationLoss(-removed*2)
 	else
-		if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
-			overdose(M,alien,removed,0)
-			M.adjustHydrationLoss(-removed*2)
-		else
-			M.adjustHydrationLoss(-removed*5)
-
-/datum/reagent/potassium_hydrophoro/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
-	if(alien != IS_VAURCA) //Vaurca can't overdose on this
-		if(scale >= 1) //Overdose by too much of the chemical
-			M.adjustToxLoss(1*removed*scale)
-
-		if (ishuman(M) && prob(10))
-			var/mob/living/carbon/human/H = M
-			H.delayed_vomit()
+		M.adjustHydrationLoss(-removed*5)
 
 /datum/reagent/coagulant
 	name = "Coagulant"

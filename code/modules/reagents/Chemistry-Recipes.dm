@@ -387,7 +387,7 @@
 	name = "Ondansetron"
 	id = "ondansetron"
 	result = "ondansetron"
-	required_reagents = list("antihistamine" = 1, "synaptizine" = 1, "water" = 3)
+	required_reagents = list("diphenhydramine" = 1, "synaptizine" = 1, "water" = 3)
 	catalysts = list("tungsten" = 5)
 
 /datum/chemical_reaction/imidazoline
@@ -614,11 +614,11 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/potassium_hydrophoro
-	name = "Potassium Hydrophoride"
-	id = "potassium_hydrophoro"
-	result = "potassium_hydrophoro"
-	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
+/datum/chemical_reaction/saline
+	name = "Saline"
+	id = "saline"
+	result = "saline"
+	required_reagents = list("sugar" = 0.4, "water" = 1, "sodiumchloride" = 0.9)
 	result_amount = 1
 
 /datum/chemical_reaction/mannitol
