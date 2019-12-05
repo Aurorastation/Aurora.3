@@ -226,6 +226,18 @@
 	else
 		set_light(0)
 
+/obj/item/shield/energy/hegemony
+	name = "hegemony barrier"
+	desc = "A hardlight kite shield capable of protecting the wielder from both material and energy attack."
+	icon_state = "kataphract-eshield0"
+ 
+/obj/item/shield/energy/hegemony/update_icon()
+	icon_state = "kataphract-eshield[active]"
+	if(active)
+		set_light(1.5, 1.5, "#e68917")
+	else
+		set_light(0)
+
 /obj/item/shield/energy/legion
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."

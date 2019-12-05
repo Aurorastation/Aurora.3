@@ -121,7 +121,6 @@
 		return
 	if(src.gemtype != GEM_MIXED)
 		to_chat(user, span("notice", "You mix the gemstones together into a pile."))
-		src.stacksize -= 1
 		G.stacksize -= 1
 		switch(gemsize)
 			if(GEM_SMALL)
@@ -133,6 +132,7 @@
 			if(GEM_LARGE)
 				var/obj/item/precious/gemstone/mixed/large/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
+		qdel(src)
 	else 
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
 		stack_contents[G.gemtype] += 1
@@ -246,7 +246,7 @@ var/list/gemtype2type = list(
 
 	for (var/gtype in stack_contents)
 		var/realtype = global.gemtype2type[gtype][gemsize]
-		new realtype(loc, stack_contents[gtype])
+		new realtype(get_turf(loc), stack_contents[gtype])
 	to_chat(usr, span("notice", "You separate the gemstone pile into neat, organized stacks of similar gems."))
 	qdel(src)
 
