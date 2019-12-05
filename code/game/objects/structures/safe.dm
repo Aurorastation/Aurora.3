@@ -28,7 +28,12 @@ FLOOR SAFES
 
 	tumbler_2_pos = rand(0, 72)
 	tumbler_2_open = rand(0, 72)
-
+	
+	while(tumbler_1_open - tumbler_2_open > 34 || tumbler_2_open - tumbler_1_open > 34)
+		if(tumbler_1_open > tumbler_2_open)
+			tumbler_2_open++
+		else
+			tumbler_1_open++
 
 /obj/structure/safe/Initialize()
 	. = ..()
