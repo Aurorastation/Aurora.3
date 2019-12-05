@@ -209,6 +209,17 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
+/obj/item/clothing/head/helmet/unathi/klax
+	name = "klaxan hopeful helmet"
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "klax_hopeful_helmet"
+	item_state = "klax_hopeful_helmet"
+	contained_sprite = 1
+	species_restricted = list("Vaurca")
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
 	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
