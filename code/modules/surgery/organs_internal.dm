@@ -97,6 +97,7 @@
 			I.take_damage(dam_amt,0)
 
 /datum/surgery_step/internal/detach_organ
+	priority = 1
 	allowed_tools = list(
 	/obj/item/scalpel = 100,
 	/obj/item/material/knife = 75,

@@ -76,3 +76,4 @@ changes:
   - tweak: "The organ damage dealt now depends on the size of the organ in the area you hit."
   - tweak: "Surgery pain is MUCH higher if you're awake."
   - tweak: "Self surgery works again."
+  - tweak: "Using a scalpel on necrotic organs now fixes the necrosis. However, it'll also lower the organ's max damage as well."
