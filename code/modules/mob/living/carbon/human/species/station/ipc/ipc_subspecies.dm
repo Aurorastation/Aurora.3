@@ -112,7 +112,10 @@
 
 	brute_mod = 0.8
 	burn_mod = 1.1
-	grab_mod = 2
+
+	grab_mod = 0.8 // Big, easy to grab onto
+	resist_mod = 10 // Good luck wrestling against this powerhouse.
+
 	slowdown = 4
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
@@ -190,7 +193,10 @@
 
 	brute_mod = 0.3
 	burn_mod = 0.5
-	grab_mod = 2
+
+	grab_mod = 0.9
+	resist_mod = 10
+
 	flash_mod = 0
 	siemens_coefficient = 0
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -354,7 +360,9 @@
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
 	sprint_speed_factor = 1.5
-	grab_mod = 1.1
+
+	grab_mod = 1.1 // Smooth, fast
+	resist_mod = 4 // Not super strong, but still rather strong
 
 	appearance_flags = HAS_EYE_COLOR
 
@@ -399,6 +407,8 @@
 	max_nutrition_factor = 1.75
 
 	brute_mod = 1.2
+	grab_mod = 1.1
+	resist_mod = 4
 
 	appearance_flags = HAS_EYE_COLOR
 
@@ -441,6 +451,7 @@
 
 	bald = 1
 	grab_mod = 1.1 //pity points - geeves
+	resist_mod = 3
 
 	appearance_flags = HAS_EYE_COLOR
 	spawn_flags = IS_RESTRICTED

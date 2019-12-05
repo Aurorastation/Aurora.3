@@ -16,8 +16,12 @@
 	)
 	darksight = 8
 	slowdown = -1
+
 	brute_mod = 1.2
 	fall_mod = 0.5
+
+	grab_mod = 1.25 // Fur easy to cling onto
+
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS

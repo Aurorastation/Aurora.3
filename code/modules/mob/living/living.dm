@@ -677,20 +677,24 @@ default behaviour is:
 		requests.Remove(O)
 		qdel(O)
 		resisting++
+	var/resist_power = 0 // How easily the mob can break out of a grab
+	if(istype(src, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = src
+		resist_power = H.species.resist_mod
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
 		switch(G.state)
 			if(GRAB_PASSIVE)
-				if((incapacitated(INCAPACITATION_DISABLED) || src.lying)? prob(30) : prob(70)) //only a bit difficult to break out of a passive grab
+				if((incapacitated(INCAPACITATION_DISABLED) || src.lying)? prob(30 + resist_power) : prob(70 + resist_power)) //only a bit difficult to break out of a passive grab
 					visible_message(span("warning", "[src] pulls away from [G.assailant]'s grip!"))
 					qdel(G)
 			if(GRAB_AGGRESSIVE)
-				if((incapacitated(INCAPACITATION_DISABLED) || (src.lying))? prob(15) : prob(50))
+				if((incapacitated(INCAPACITATION_DISABLED) || (src.lying))? prob(15 + resist_power) : prob(50 + resist_power))
 					visible_message(span("warning", "[src] has broken free of [G.assailant]'s grip!"))
 					qdel(G)
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
-				if((world.time - G.assailant.l_move_time < 30 || !stunned || !(src.lying) || (incapacitated(INCAPACITATION_DISABLED)))? prob(15) : prob(3))
+				if((world.time - G.assailant.l_move_time < 30 || !stunned || !(src.lying) || (incapacitated(INCAPACITATION_DISABLED)))? prob(15 + resist_power) : prob(3 + resist_power))
 					visible_message(span("danger", "[src] has broken free of [G.assailant]'s headlock!"))
 					qdel(G)
 	if(resisting)
