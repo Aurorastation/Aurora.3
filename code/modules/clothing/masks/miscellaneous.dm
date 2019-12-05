@@ -28,16 +28,46 @@
 	..()
 
 /obj/item/clothing/mask/surgical
-	name = "sterile mask"
-	desc = "A sterile mask designed to help prevent the spread of diseases."
-	icon_state = "sterile"
-	item_state = "sterile"
+	name = "surgical mask"
+	desc = "A surgical mask designed to help prevent the spread of diseases."
+	icon_state = "surgical"
+	item_state = "surgical"
 	w_class = 2
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
+
+/obj/item/clothing/mask/cloth
+	name = "cloth mask"
+	desc = "A cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
+	icon_state = "cloth"
+	item_state = "cloth"
+	w_class = 2
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 0)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
+
+/obj/item/clothing/mask/dust
+	name = "dust mask"
+	desc = "A dust mask designed to protect the wearer against construction and/or custodial particulate."
+	icon_state = "dust"
+	item_state = "dust"
+	w_class = 2
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 0)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
