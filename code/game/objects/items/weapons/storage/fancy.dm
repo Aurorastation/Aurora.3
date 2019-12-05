@@ -162,7 +162,7 @@
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter)
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/cigbutt)
 	icon_type = "cigarette"
 
 /obj/item/storage/fancy/cigarettes/Initialize()
