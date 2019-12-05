@@ -262,7 +262,7 @@
 			if(!find_control_computer(urgent=1))
 				return
 
-		if(!occupant.client && occupant.stat<2) //Occupant is living and has no client.
+		if(!occupant.client && occupant.stat != DEAD) //Occupant is living and has no client.
 			despawn_occupant()
 
 		else if(world.time - time_entered > time_till_force_cryo)
