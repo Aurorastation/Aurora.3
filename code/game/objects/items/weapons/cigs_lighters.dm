@@ -100,7 +100,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
 	var/burn_rate = 0
-	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
+	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
@@ -337,6 +337,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
 	. = ..()
