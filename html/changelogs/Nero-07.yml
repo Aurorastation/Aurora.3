@@ -1,0 +1,6 @@
+author: Nero-07
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed formatting and typo when examining mechas"
