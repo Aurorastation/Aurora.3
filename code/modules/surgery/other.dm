@@ -87,7 +87,7 @@
 			organ = I
 			break
 	user.visible_message("[user] starts cutting away necrotic tissue from [target]'s [organ.name] with \the [tool]." , \
-	"You start cutting away necrotic tissue from [target]'s [organ.name] with \the [tool].[organ.max_damage > 15 ? " Some parts of the organ won't make it, and as a result, it'll be weaker." : ""]")
+	"You start cutting away necrotic tissue from [target]'s [organ.name] with \the [tool].[organ.max_damage > 15 ? " Some of it has to be cut away permanently." : ""]")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 75)
 	..()
 
