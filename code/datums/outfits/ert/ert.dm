@@ -139,17 +139,18 @@
 	shoes = /obj/item/clothing/shoes/swat
 	gloves = /obj/item/clothing/gloves/yellow
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel_syndie
-	suit = /obj/item/clothing/suit/space/void/freelancer
-	head = /obj/item/clothing/head/helmet/space/void/freelancer
-	suit_store = /obj/item/tank/oxygen
+	back = /obj/item/storage/backpack/satchel_norm
+	l_hand = /obj/item/clothing/suit/space/void/freelancer
+	r_hand = /obj/item/clothing/head/helmet/space/void/freelancer
+	accessory = /obj/item/clothing/accessory/storage/black_vest
 	id = /obj/item/card/id/syndicate
 
 	l_ear = /obj/item/device/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/c20r = 1,
-		/obj/item/storage/belt/utility/full = 1
+		/obj/item/storage/belt/utility/full = 1,
+		/obj/item/tank/oxygen = 1
 	)
 
 	belt_contents = list(
@@ -165,12 +166,13 @@
 	name = "Mercenary Freelancer Medic"
 
 	belt = /obj/item/storage/belt/medical
-	l_hand = /obj/item/storage/firstaid/adv
-	r_hand = /obj/item/storage/firstaid/combat
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/c20r = 1,
-		/obj/item/ammo_magazine/a10mm = 2
+		/obj/item/ammo_magazine/a10mm = 2,
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/tank/oxygen = 1
 	)
 
 	belt_contents = list(
@@ -183,6 +185,7 @@
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
 	l_hand = /obj/item/gun/projectile/automatic/rifle/sts35
+	r_hand = null
 	back = /obj/item/rig/merc/distress
 	suit_store = null
 	suit = null
