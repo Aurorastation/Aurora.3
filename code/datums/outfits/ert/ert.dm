@@ -136,8 +136,8 @@
 	name = "Mercenary Freelancer"
 
 	uniform = /obj/item/clothing/under/syndicate
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/yellow
+	shoes = /obj/item/clothing/shoes/swat/ert
+	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel_norm
 	l_hand = /obj/item/clothing/suit/space/void/freelancer
@@ -150,7 +150,9 @@
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/storage/belt/utility/full = 1,
-		/obj/item/tank/oxygen = 1
+		/obj/item/tank/oxygen = 1,
+		/obj/item/clothing/gloves/yellow = 1,
+		/obj/item/material/knife/trench = 1
 	)
 
 	belt_contents = list(
@@ -166,6 +168,7 @@
 	name = "Mercenary Freelancer Medic"
 
 	belt = /obj/item/storage/belt/medical
+	gloves = /obj/item/clothing/gloves/latex
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/c20r = 1,
