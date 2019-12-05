@@ -168,10 +168,11 @@
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
 
-	var/mob/occupant = null       // Person waiting to be despawned.
-	var/time_till_despawn = 600   // One minute safe period before being despawned.
-	var/time_entered = 0          // Used to keep track of the safe period.
-	var/obj/item/device/radio/intercom/announce //
+	var/mob/occupant = null         // Person waiting to be despawned.
+	var/time_till_despawn = 600     // One minute safe period before being despawned.
+	var/time_till_force_cryo = 1800 // Three minutes safe period until they're despawned even if active.
+	var/time_entered = 0            // Used to keep track of the safe period.
+	var/obj/item/device/radio/intercom/announce
 
 	var/obj/machinery/computer/cryopod/control_computer
 	var/last_no_computer_message = 0
@@ -257,12 +258,14 @@
 		//Allow a one minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
 			return
+		if(!control_computer)
+			if(!find_control_computer(urgent=1))
+				return
 
 		if(!occupant.client && occupant.stat<2) //Occupant is living and has no client.
-			if(!control_computer)
-				if(!find_control_computer(urgent=1))
-					return
+			despawn_occupant()
 
+		else if(world.time - time_entered > time_till_force_cryo)
 			despawn_occupant()
 
 // This function can not be undone; do not call this unless you are sure
@@ -375,7 +378,7 @@
 			icon_state = occupied_icon_state
 
 			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
-			to_chat(M, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+			to_chat(M, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 			time_entered = world.time
 
@@ -437,7 +440,7 @@
 		icon_state = occupied_icon_state
 
 		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
-		to_chat(L, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		occupant = L
 		time_entered = world.time
 
@@ -513,7 +516,7 @@
 		icon_state = occupied_icon_state
 
 		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
-		to_chat(usr, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+		to_chat(usr, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		time_entered = world.time
 

@@ -3,4 +3,5 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - tweaking: "The safety timeperiod between entering cryo and being cryo'd has been changed from 10 minutes to 1 minute, due to people not ghosting."
+  - tweak: "The safety timeperiod between entering cryo and being cryo'd has been changed from 10 minutes to 1 minute, due to people not ghosting."
+  - rscadd: "If you are in cryo for 3 minutes, you will be despawned even if you're still logged on."
