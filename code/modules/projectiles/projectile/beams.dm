@@ -28,6 +28,15 @@
 /obj/item/projectile/beam/pistol
 	damage = 30
 
+/obj/item/projectile/beam/pistol/hegemony
+	icon_state = "hegemony"
+	damage = 30
+	armor_penetration = 5
+ 
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
+
 /obj/item/projectile/beam/midlaser
 	damage = 35
 	armor_penetration = 10
