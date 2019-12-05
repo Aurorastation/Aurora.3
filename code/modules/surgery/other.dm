@@ -73,6 +73,8 @@
 		if((I.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(I))
 			organ = I
 			break
+	if(!organ)
+		return
 	if(organ.damage >= organ.max_damage)
 		to_chat(user, span("warning", "\The [organ] is too damaged. Repair it first."))
 		return 0
