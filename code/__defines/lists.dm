@@ -8,6 +8,8 @@
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 #define LAZYSET(L, K, V) if (!L) { L = list(); } L[K] = V;
 #define LAZYPICK(L,DEFAULT) (LAZYLEN(L) ? pick(L) : DEFAULT)
+#define LAZYISIN(L, I) (L ? (I in L) : FALSE)
+#define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
 
 // Shims for some list procs in lists.dm.
 #define islist(L) istype(L,/list)

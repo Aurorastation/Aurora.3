@@ -1064,15 +1064,38 @@
 
 	..()
 
+/mob/living/carbon/human/handle_breath(datum/gas_mixture/breath)
+	if(status_flags & GODMODE)
+		return
+
+	if(!species.has_organ[BP_LUNGS])
+		return
+
+	var/species_organ = species.breathing_organ
+	if(!species_organ)
+		return
+
+	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
+	
+	if(!L)
+		losebreath += 15 //No lungs, how do you breathe?
+		adjustOxyLoss(15)
+		failed_last_breath = TRUE
+	else
+		failed_last_breath = L.handle_breath(breath)
+	
+	return !failed_last_breath
+
 /mob/living/carbon/human/proc/is_lung_ruptured()
-	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[BP_LUNGS]
+	var/species_organ = species.breathing_organ
+	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	return L && L.is_bruised()
 
 /mob/living/carbon/human/proc/rupture_lung()
-	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[BP_LUNGS]
-
+	var/species_organ = species.breathing_organ
+	var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species_organ]
 	if(L && !L.is_bruised())
-		src.custom_pain("You feel a stabbing pain in your chest!", 1)
+		custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.bruise()
 
 //returns 1 if made bloody, returns 0 otherwise
@@ -1161,7 +1184,7 @@
 		usr.visible_message("<span class='notice'>[usr] begins counting their pulse.</span>",\
 		"You begin counting your pulse.")
 
-	if(src.pulse)
+	if(pulse())
 		to_chat(usr, "<span class='notice'>[self ? "You have a" : "[src] has a"] pulse! Counting...</span>")
 	else
 		to_chat(usr, "<span class='danger'>[src] has no pulse!</span>")	//it is REALLY UNLIKELY that a dead person would check his own pulse)
@@ -1408,7 +1431,7 @@
 
 /mob/living/carbon/human/has_brain()
 	if(internal_organs_by_name[BP_BRAIN])
-		var/obj/item/organ/internal/brain = internal_organs_by_name[BP_BRAIN]
+		var/obj/item/organ/brain = internal_organs_by_name[BP_BRAIN] // budget fix until MMIs and stuff get made internal or you think of a better way, sorry matt
 		if(brain && istype(brain))
 			return 1
 	return 0
@@ -1564,13 +1587,6 @@
 /mob/living/carbon/human/get_metabolism(metabolism)
 	return ..() * (species ? species.metabolism_mod : 1)
 
-
-/mob/living/carbon/human/proc/isonlifesupport()
-	if (buckled && istype(buckled, /obj/machinery/optable/lifesupport))
-		var/obj/machinery/optable/lifesupport/A = buckled
-		return A.onlifesupport()
-	else
-		return 0
 /mob/living/carbon/human/is_clumsy()
 	if(CLUMSY in mutations)
 		return TRUE
@@ -1582,3 +1598,31 @@
 			return TRUE
 
 	return FALSE
+
+/mob/living/carbon/human/proc/get_pulse(var/method)	//method 0 is for hands, 1 is for machines, more accurate
+	var/temp = 0								//see setup.dm:694
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(heart)
+		switch(heart.pulse)
+			if(PULSE_NONE)
+				return "0"
+			if(PULSE_SLOW)
+				temp = rand(40, 60)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_NORM)
+				temp = rand(60, 90)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_FAST)
+				temp = rand(90, 120)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_2FAST)
+				temp = rand(120, 160)
+				return num2text(method ? temp : temp + rand(-10, 10))
+			if(PULSE_THREADY)
+				return method ? ">250" : "extremely weak and fast, patient's artery feels like a thread"
+	else
+		return "0"
+
+/mob/living/carbon/human/proc/pulse()
+	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
+	return H ? H.pulse : PULSE_NONE

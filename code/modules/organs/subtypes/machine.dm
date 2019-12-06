@@ -147,14 +147,14 @@
 	. = ..()
 
 // Used for an MMI or posibrain being installed into a human.
-/obj/item/organ/mmi_holder
+/obj/item/organ/internal/mmi_holder
 	name = "brain"
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
 	vital = 1
 	var/obj/item/device/mmi/stored_mmi
 
-/obj/item/organ/mmi_holder/proc/update_from_mmi()
+/obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
 	if(!stored_mmi)
 		return
 	name = stored_mmi.name
@@ -162,7 +162,7 @@
 	icon = stored_mmi.icon
 	icon_state = stored_mmi.icon_state
 
-/obj/item/organ/mmi_holder/removed(var/mob/living/user)
+/obj/item/organ/internal/mmi_holder/removed(var/mob/living/user)
 
 	if(stored_mmi)
 		stored_mmi.forceMove(get_turf(src))
@@ -175,13 +175,13 @@
 		holder_mob.drop_from_inventory(src)
 	qdel(src)
 
-/obj/item/organ/mmi_holder/posibrain/Initialize()
+/obj/item/organ/internal/mmi_holder/posibrain/Initialize()
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/setup_brain), 1)
 
-/obj/item/organ/mmi_holder/posibrain/proc/setup_brain()
+/obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
 		stored_mmi.name = "positronic brain ([owner.name])"
 		stored_mmi.brainmob.real_name = owner.name
@@ -196,7 +196,7 @@
 //Terminator//
 //////////////
 
-/obj/item/organ/mmi_holder/posibrain/terminator
+/obj/item/organ/internal/mmi_holder/posibrain/terminator
 	name = BP_BRAIN
 	organ_tag = BP_BRAIN
 	parent_organ = BP_CHEST

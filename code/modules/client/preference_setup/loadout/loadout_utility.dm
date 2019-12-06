@@ -26,6 +26,21 @@
 	folders["yellow folder"] = /obj/item/folder/yellow
 	gear_tweaks += new/datum/gear_tweak/path(folders)
 
+/datum/gear/utility/fountainpen
+	display_name = "fountain pen selection"
+	description = "A selection of fountain pens."
+	path = /obj/item/pen/fountain
+	cost = 1
+
+/datum/gear/utility/fountainpen/New()
+	..()
+	var/fountainpens = list()
+	fountainpens["black fountain pen"] = /obj/item/pen/fountain/black
+	fountainpens["grey fountain pen"] = /obj/item/pen/fountain
+	fountainpens["silver fountain pen"] = /obj/item/pen/fountain/silver
+	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
+	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
+
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard

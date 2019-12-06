@@ -127,8 +127,8 @@
 	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
 		var/mob/living/carbon/human/H = target
 		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
-			var/P = (user == target) ? "their" : (target + "\'s")
-			var/SM = (user == target) ? "your" : (target + "\'s")
+			var/P = (user == target) ? "their" : (target.name + "\'s")
+			var/SM = (user == target) ? "your" : (target.name + "\'s")
 			user.visible_message(span("danger", "[user] aims \the [src] between [P] ribs!"), span("danger", "You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return

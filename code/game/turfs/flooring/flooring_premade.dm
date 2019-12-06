@@ -273,3 +273,15 @@
 	name = "alien floor"
 	icon = 'icons/turf/flooring/misc.dmi'
 	icon_state = "vaurca"
+
+/turf/simulated/floor/foamedmetal
+	name = "foamed metal"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "metalfoam"
+	footstep_sound = "gravelstep"
+
+/turf/simulated/floor/foamedmetal/attack_hand(var/mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(ishuman(user))
+		ChangeTurf(/turf/space)
+		to_chat(user, span("notice","You clear away the metal foam."))

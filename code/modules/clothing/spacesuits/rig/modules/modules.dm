@@ -175,7 +175,7 @@
 	if(!holder.check_power_cost(usr, use_power_cost, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
 		return 0
 
-	if(!confined_use && istype(usr.loc, /obj/mecha))
+	if(!confined_use && istype(usr.loc, /mob/living/heavy_vehicle))
 		to_chat(usr, "<span class='danger'>You cannot use the suit in the confined space.</span>")
 		return 0
 

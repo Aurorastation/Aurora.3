@@ -128,14 +128,6 @@
 	. = ..()
 	if(!surpress_send) send_status()
 
-
-/obj/machinery/door/airlock/CollidedWith(atom/AM)
-	. = ..()
-	if(istype(AM, /obj/mecha))
-		var/obj/mecha/mecha = AM
-		if(density && radio_connection && mecha.occupant && (src.allowed(mecha.occupant) || src.check_access_list(mecha.operation_req_access)))
-			send_status(1)
-
 /obj/machinery/door/airlock/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)

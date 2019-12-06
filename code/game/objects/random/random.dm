@@ -754,7 +754,6 @@
 		/obj/item/device/floor_painter = 0.6,
 		/obj/item/device/gps/engineering = 0.6,
 		/obj/item/device/kinetic_analyzer = 0.1,
-		/obj/item/device/kit/paint/ripley/random = 0.1,
 		/obj/item/device/laser_pointer/purple = 0.1,
 		/obj/item/device/light_meter = 0.1,
 		/obj/item/device/magnetic_lock/engineering = 0.3,
@@ -1320,4 +1319,51 @@
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
 		/obj/structure/largecrate/animal/hakhma = 0.5
+	)
+
+/obj/random/random_flag
+	name = "random flag"
+	desc = "Contains a random boxed flag or banner."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	spawnlist = list(
+		/obj/item/flag/biesel,
+		/obj/item/flag/biesel/l,
+		/obj/item/flag/dominia,
+		/obj/item/flag/dominia/l,
+		/obj/item/flag/dpra,
+		/obj/item/flag/dpra/l,
+		/obj/item/flag/elyra,
+		/obj/item/flag/elyra/l,
+		/obj/item/flag/eridani,
+		/obj/item/flag/eridani/l,
+		/obj/item/flag/hegemony,
+		/obj/item/flag/hegemony/l,
+		/obj/item/flag/heph,
+		/obj/item/flag/heph/l,
+		/obj/item/flag/jargon,
+		/obj/item/flag/jargon/l,
+		/obj/item/flag/nanotrasen,
+		/obj/item/flag/nanotrasen/l,
+		/obj/item/flag/nka,
+		/obj/item/flag/nka/l,
+		/obj/item/flag/pra,
+		/obj/item/flag/pra/l,
+		/obj/item/flag/sol,
+		/obj/item/flag/sol/l,
+		/obj/item/flag/vaurca,
+		/obj/item/flag/vaurca/l,
+		/obj/item/flag/zenghu,
+		/obj/item/flag/zenghu/l
+	)
+
+/obj/random/gift
+	name = "random gift"
+	desc = "Contains a randomly sized gift."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift1"
+	spawnlist = list(
+		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift/medium =  0.3,
+		/obj/item/xmasgift/large = 0.2
 	)

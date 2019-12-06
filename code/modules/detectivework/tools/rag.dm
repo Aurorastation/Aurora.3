@@ -128,8 +128,6 @@
 			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 			if(LAZYLEN(affecting.wounds))
 				for (var/datum/wound/W in affecting.wounds)
-					if (W.internal)
-						continue
 					if(W.bandaged || W.clamped)
 						continue
 					to_chat(user, span("notice", "You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))

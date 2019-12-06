@@ -4,6 +4,7 @@
 	icon_state = "cannon"
 	item_state = "cannon"
 	caliber = "cannon"
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	load_method = SINGLE_CASING
 	handle_casings = DELETE_CASINGS
@@ -29,6 +30,49 @@
 
 
 /obj/item/gun/projectile/cannon/special_check(mob/user)
+	if(!wielded)
+		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
+		return 0
+	return ..()
+
+/obj/item/gun/projectile/nuke
+	name = "nuclear launcher"
+	desc = "A launcher weapon designated to fire miniaturized nuclear warheads."
+	icon_state = "blockbuster"
+	item_state = "blockbuster"
+	caliber = "nuke"
+	w_class = ITEMSIZE_LARGE
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
+	load_method = MAGAZINE
+	handle_casings = DELETE_CASINGS
+	slot_flags = SLOT_BACK
+	magazine_type = /obj/item/ammo_magazine/nuke
+	allowed_magazines = list(/obj/item/ammo_magazine/nuke)
+	fire_delay = 40
+	fire_sound = 'sound/weapons/empty.ogg'
+	recoil = 4
+
+	auto_eject = TRUE
+
+	is_wieldable = TRUE
+
+	description_fluff = "The People's Republic of Adhomai is the only Adhomian faction able to master the nuclear fission. Atomic weapons were used before in the tajaran civil war, \
+	causing the annihilation of the military base of Quizosa. The nuclear launcher was created by republican scientists as way to deploy this destructive force while on the field."
+
+/obj/item/gun/projectile/nuke/update_icon()
+	if(ammo_magazine)
+		icon_state = "blockbuster-[(ammo_magazine.stored_ammo.len)]"
+	else
+		icon_state = "blockbuster-0"
+
+	if(wielded)
+		item_state = "blockbuster-wielded"
+	else
+		item_state = "blockbuster"
+
+	update_held_icon()
+
+/obj/item/gun/projectile/nuke/special_check(mob/user)
 	if(!wielded)
 		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
 		return 0

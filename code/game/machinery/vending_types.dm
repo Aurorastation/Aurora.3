@@ -192,22 +192,17 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
+		/obj/item/reagent_containers/food/snacks/cookiesnack = 6,
+		/obj/item/storage/box/gum = 4,
+		/obj/item/clothing/mask/chewable/candy/lolli = 8,
+		/obj/item/storage/box/admints = 4,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
 		/obj/item/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/reagent_containers/food/snacks/maps = 2,
 		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
-		/obj/item/reagent_containers/food/snacks/cb01 = 6,
-		/obj/item/reagent_containers/food/snacks/cb02 = 6,
-		/obj/item/reagent_containers/food/snacks/cb03 = 6,
-		/obj/item/reagent_containers/food/snacks/cb04 = 6,
-		/obj/item/reagent_containers/food/snacks/cb05 = 6,
-		/obj/item/reagent_containers/food/snacks/cb06 = 6,
-		/obj/item/reagent_containers/food/snacks/cb07 = 6,
-		/obj/item/reagent_containers/food/snacks/cb08 = 6,
-		/obj/item/reagent_containers/food/snacks/cb09 = 6,
-		/obj/item/reagent_containers/food/snacks/cb10 = 6
+		/obj/item/reagent_containers/food/snacks/tuna = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -225,22 +220,17 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 15,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
+		/obj/item/storage/box/gum = 15,
+		/obj/item/clothing/mask/chewable/candy/lolli = 2,
+		/obj/item/storage/box/admints = 12,
+		/obj/item/reagent_containers/food/snacks/cookiesnack = 20,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/reagent_containers/food/snacks/maps = 23,
 		/obj/item/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
-		/obj/item/reagent_containers/food/snacks/cb01 = 15,
-		/obj/item/reagent_containers/food/snacks/cb02 = 14,
-		/obj/item/reagent_containers/food/snacks/cb03 = 15,
-		/obj/item/reagent_containers/food/snacks/cb04 = 16,
-		/obj/item/reagent_containers/food/snacks/cb05 = 18,
-		/obj/item/reagent_containers/food/snacks/cb06 = 10,
-		/obj/item/reagent_containers/food/snacks/cb07 = 12,
-		/obj/item/reagent_containers/food/snacks/cb08 = 13,
-		/obj/item/reagent_containers/food/snacks/cb09 = 12,
-		/obj/item/reagent_containers/food/snacks/cb10 = 15
+		/obj/item/reagent_containers/food/snacks/tuna = 23
 	)
 
 /obj/machinery/vending/cola
@@ -481,14 +471,14 @@
 		/obj/item/device/holowarrant = 5
 	)
 	premium = list(
-		/obj/item/storage/box/donut = 2
+		/obj/item/storage/fancy/donut = 2
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/storage/box/donut,
+		/obj/item/storage/fancy/donut,
 		/obj/item/storage/box/evidence,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper

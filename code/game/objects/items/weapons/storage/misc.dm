@@ -38,34 +38,6 @@
 		icon_state = "card_holder_empty"
 	return
 
-/*
- * Donut Box
- */
-
-/obj/item/storage/box/donut
-	icon = 'icons/obj/food.dmi'
-	icon_state = "donutbox"
-	center_of_mass = list("x" = 16,"y" = 9)
-	name = "donut box"
-	can_hold = list(/obj/item/reagent_containers/food/snacks/donut)
-	foldable = /obj/item/stack/material/cardboard
-	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
-
-/obj/item/storage/box/donut/fill()
-	. = ..()
-	update_icon()
-
-/obj/item/storage/box/donut/update_icon()
-	cut_overlays()
-	var/i = 0
-	for(var/obj/item/reagent_containers/food/snacks/donut/D in contents)
-		add_overlay("[i][D.overlay_state]")
-		i++
-
-/obj/item/storage/box/donut/empty
-	starts_with = null
-	max_storage_space = 12
-
 /obj/item/storage/box/pineapple
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "pineapple_rings"

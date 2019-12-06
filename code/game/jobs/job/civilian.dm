@@ -5,8 +5,8 @@
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
 
@@ -120,7 +120,7 @@
 	minimum_character_age = 22
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 
 	ideal_character_age = 40
 
@@ -133,7 +133,7 @@
 	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	l_ear = /obj/item/device/radio/headset/qm
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -152,7 +152,7 @@
 	minimum_character_age = 18
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
+	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
@@ -192,7 +192,7 @@
 	pda = /obj/item/device/pda/shaftminer
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_cargo
+	l_ear = /obj/item/device/radio/headset/headset_mining
 
 	backpack_contents = list(
 		/obj/item/crowbar = 1,
@@ -216,7 +216,7 @@
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
-	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
+	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
 	outfit = /datum/outfit/job/janitor
 
 /datum/outfit/job/janitor
