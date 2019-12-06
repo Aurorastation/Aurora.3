@@ -44,7 +44,7 @@
 
 /obj/item/clothing/mask/cloth
 	name = "cloth mask"
-	desc = "A cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
+	desc = "A colorable cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
 	icon_state = "cloth"
 	item_state = "cloth"
 	w_class = 2
@@ -67,7 +67,7 @@
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 0)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 10)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
