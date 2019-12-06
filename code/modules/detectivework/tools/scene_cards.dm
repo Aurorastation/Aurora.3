@@ -2,7 +2,8 @@
 	name = "crime scene markers box"
 	desc = "A cardboard box for crime scene marker cards."
 	icon = 'icons/obj/forensics.dmi'
-	icon_state = "cards"
+	icon_state = "markerbox"
+	icon_type = "marker"
 	w_class = 1
 	storage_slots = 7
 	can_hold = list(/obj/item/csi_marker)
