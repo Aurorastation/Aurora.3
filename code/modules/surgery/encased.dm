@@ -144,8 +144,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "[user] starts bending [target]'s [affected.encased] back into place with \the [tool]."
-	var/self_msg = "You start bending [target]'s [affected.encased] back into place with \the [tool]."
+	var/msg = "[user] bends [target]'s [affected.encased] back into place with \the [tool]."
+	var/self_msg = "You bend [target]'s [affected.encased] back into place with \the [tool]."
 	user.visible_message(msg, self_msg)
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
