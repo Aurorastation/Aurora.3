@@ -11,7 +11,7 @@ BREATH ANALYZER
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	icon_state = "health"
-	item_state = "analyzer"
+	item_state = "healthanalyzer"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3

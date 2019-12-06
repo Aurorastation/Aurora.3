@@ -27,6 +27,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"

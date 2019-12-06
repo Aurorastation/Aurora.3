@@ -18,7 +18,7 @@
 	var/fragile = 1 // most glassware is super fragile
 	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
-
+	drop_sound = 'sound/items/drop/bottle.ogg'
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()

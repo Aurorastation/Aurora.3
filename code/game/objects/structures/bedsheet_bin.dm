@@ -7,9 +7,15 @@ LINEN BINS
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
+	description_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up."
+	description_fluff = "It seems like you can equip it in your backpack slot..."
 	icon = 'icons/obj/bedsheets.dmi'
-	icon_state = "bedsheet"
-	item_state = "bedsheet"
+	icon_state = "sheetwhite"
+	item_state = "sheetwhite"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_bedsheet.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_bedsheet.dmi',
+		)
 	slot_flags = SLOT_BACK
 	layer = 4.0
 	throwforce = 1
@@ -189,6 +195,11 @@ LINEN BINS
 			qdel(src)
 		return
 	..()
+
+/obj/item/bedsheet/grey
+	icon_state = "sheetgrey"
+	item_state = "sheetgrey"
+
 /obj/item/bedsheet/red
 	icon_state = "sheetred"
 	item_state = "sheetred"
@@ -315,6 +326,47 @@ LINEN BINS
 	icon_state = "sheetcostume"
 	item_state = "sheetcostume"
 	slot_flags = SLOT_OCLOTHING
+
+/obj/item/bedsheet/random
+	name = "random bedsheet"
+	icon_state = "sheetrandom"
+	item_state = "sheetrainbow"
+	desc = "If you're reading this description ingame, something has gone wrong! Honk!"
+
+/obj/item/bedsheet/random/Initialize()
+	..()
+	var/type = pick(typesof(/obj/item/bedsheet) - /obj/item/bedsheet/random)
+	new type(loc)
+	return INITIALIZE_HINT_QDEL
+
+/obj/item/bedsheet/dorms
+	name = "random dorms bedsheet"
+	icon_state = "sheetrandom"
+	item_state = "sheetrainbow"
+	desc = "If you're reading this description ingame, something has gone wrong! Honk!"
+
+/obj/item/bedsheet/dorms/Initialize()
+	..()
+	var/type = pickweight(list("Colors" = 80, "Special" = 20))
+	switch(type)
+		if("Colors")
+			type = pick(list(/obj/item/bedsheet,
+				/obj/item/bedsheet/blue,
+				/obj/item/bedsheet/green,
+				/obj/item/bedsheet/grey,
+				/obj/item/bedsheet/orange,
+				/obj/item/bedsheet/purple,
+				/obj/item/bedsheet/red,
+				/obj/item/bedsheet/yellow,
+				/obj/item/bedsheet/brown,
+				/obj/item/bedsheet/black))
+		if("Special")
+			type = pick(list(/obj/item/bedsheet/rainbow,
+				/obj/item/bedsheet/ian,
+				/obj/item/bedsheet/nanotrasen))
+	new type(loc)
+	return INITIALIZE_HINT_QDEL
+
 
 /obj/structure/bedsheetbin
 	name = "linen bin"
