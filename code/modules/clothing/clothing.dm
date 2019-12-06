@@ -436,6 +436,8 @@
 	var/brightness_on
 	var/on = 0
 
+	var/head_under_hair = 0
+
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/head.dmi'
 		)
@@ -495,6 +497,16 @@
 	else if(success == 1)
 		to_chat(user, "<span class='notice'>You crawl under \the [src].</span>")
 	return 1
+
+/obj/item/clothing/head/verb/toggle_layer()
+	set name = "Switch Hat Layer"
+	set category = "Object"
+
+	if(head_under_hair == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn under your hair!</span>"
+		return
+	head_under_hair = !head_under_hair
+	update_icon()
 
 /obj/item/clothing/head/update_icon(var/mob/user)
 
