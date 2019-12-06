@@ -16,6 +16,7 @@
 	w_class = 2
 	flags = OPENCONTAINER
 	var/fragile = 1 // most glassware is super fragile
+	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 
 	var/label_text = ""
@@ -53,7 +54,7 @@
 
 /obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if(speed > fragile && !(flags & NOSHATTER))
+	if(speed > fragile && !no_shatter)
 		shatter()
 
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
@@ -166,7 +167,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 	flags = OPENCONTAINER
 	unacidable = 0
-	fragile = 0
+	no_shatter = TRUE
 
 /obj/item/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"
@@ -233,6 +234,7 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
+	no_shatter = TRUE
 	fragile = 0
 
 /obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
