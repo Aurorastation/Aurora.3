@@ -16,7 +16,7 @@
 							"Compile a report on suspicious PRA citizens to be forwarded to authorities")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 1000 credits each",
+			rep_objectives = pick("Sell [rand(3,6)] Party Membership Cards, 300 credits each",
 							"Have [rand(2,5)] PRA citizens to write down their grievances with the company, and present the report to station command",
 							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
 		else
@@ -53,14 +53,13 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Tajaran employees, to be used as leverage in future diplomatic talks",
-							"Convince one republican citizen to adopt Democratic People's Republic's citizenship")
+							"Convince [rand(1,3)] republican citizen to adopt Democratic People's Republic's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Have [rand(2,5)] DPRA citizens to write down their grievances with the company, and present the report to station command",
-							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
+							"Collect [rand(3,7)] pictures of secure station areas")
 		else
-			rep_objectives = pick("Ensure Party loyalty for Tajara in prestigious positions",
-							"Ensure [rand(2,5)] PRA citizens are secure and follow Party guidelines")
+			rep_objectives = pick("Ensure that DPRA citizens are following the principles of Al'mariism")
 
 	return rep_objectives
 
@@ -93,14 +92,12 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Tajaran employees, to be used as leverage in future diplomatic talks",
-							"Convince one republican citizen to adopt New Kingdom's citizenship")
+							"Convince [rand(1,3)] republican citizen to adopt New Kingdom's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Have [rand(2,5)] NKA citizens to write down their grievances with the company, and present the report to station command",
-							"Sell [rand(3,6)] copies of Hadiist manifesto, 30 credits each")
+			rep_objectives = pick("Convince [rand(1,3)] foreign citizens to sign the imperial volunteer Alam'ardii corps pledge")
 		else
-			rep_objectives = pick("Ensure Party loyalty for Tajara in prestigious positions",
-							"Ensure [rand(2,5)] PRA citizens are secure and follow Party guidelines")
+			rep_objectives = pick("Have [rand(2,5)] NKA citizens to write down their grievances with the company, and present the report to station command")
 
 	return rep_objectives
 
@@ -110,6 +107,7 @@
 	uniform = /obj/item/clothing/under/suit_jacket/checkered
 	head = /obj/item/clothing/head/fedora
 	backpack_contents = list(
+		/obj/item/folder/blue/nka = 1,
 		/obj/item/gun/projectile/revolver/adhomian = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
