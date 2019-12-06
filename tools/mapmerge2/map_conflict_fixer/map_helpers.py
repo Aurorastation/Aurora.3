@@ -177,9 +177,8 @@ def write_dictionary_tgm(filename, dictionary, header = None): #write dictionary
 def write_grid_coord_small(filename, grid, maxx, maxy): #thanks to YotaXP for finding out about this one
     with open(filename, "a", newline='\n') as output:
         output.write("\n")
-
         for x in range(1, maxx+1):
-            output.write("({},{},1) = {{\"\n".format(x, 1, 1))
+            output.write("({},{},1) = {{\"\n".format(x, 1))
             for y in range(1, maxy):
                 output.write("{}\n".format(grid[x,y]))
             output.write("{}\n\"}}\n".format(grid[x,maxy]))

@@ -4,6 +4,10 @@ import os
 import time
 
 def main(relative_root):
+    version = (3, 4)
+    if sys.version_info < version:
+        print("Sorry, this requires python >= {}. Your version is {}!".format(version, tuple(sys.version_info)))
+        exit()
     git_version = map_helpers.run_shell_command("git version")
     if not git_version:
         print("ERROR: Failed to run git. Make sure it is installed and in your PATH.")

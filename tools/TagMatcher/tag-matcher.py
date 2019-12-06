@@ -21,6 +21,11 @@ import argparse, re, sys
 from os import path, walk
 import io
 
+version = (3, 4)
+if sys.version_info < version:
+    print("Sorry, this requires python >= {}. Your version is {}!".format(version, tuple(sys.version_info)))
+    exit()
+
 opt = argparse.ArgumentParser()
 opt.add_argument('dir', help='The directory to scan for *.dm files with non-matching spans')
 args = opt.parse_args()
