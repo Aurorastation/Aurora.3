@@ -1,9 +1,11 @@
-/obj/item/storage/box/csi_markers
+/obj/item/storage/fancy/csi_markers
 	name = "crime scene markers box"
 	desc = "A cardboard box for crime scene marker cards."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "cards"
 	w_class = 1
+	storage_slots = 7
+	can_hold = list(/obj/item/csi_marker)
 	starts_with = list(
 		/obj/item/csi_marker/n1 = 1,
 		/obj/item/csi_marker/n2 = 1,
@@ -13,10 +15,6 @@
 		/obj/item/csi_marker/n6 = 1,
 		/obj/item/csi_marker/n7 = 1
 	)
-
-/obj/item/storage/box/csi_markers/Initialize()
-	. = ..()
-	make_exact_fit()
 
 /obj/item/csi_marker
 	name = "crime scene marker"
