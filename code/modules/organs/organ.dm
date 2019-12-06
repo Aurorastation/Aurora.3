@@ -266,7 +266,7 @@
 	if(!owner)
 		return
 
-	var/antibiotics = owner.reagents.get_reagent_amount("thetamycin")
+	var/antibiotics = owner.reagents?.get_reagent_amount("thetamycin")
 
 	if (!germ_level || antibiotics < 5)
 		return

@@ -140,7 +140,11 @@
 			face_atom(victim)
 			victim.apply_damage(victim_maxhealth*PEPB,HALLOSS)
 			victim.apply_damage(victim_maxhealth*PEPB*5,CLONE)
-			ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
+			if(ishuman(src))
+				var/mob/living/carbon/human/H = src
+				var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
+				if(S)
+					S.ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if (messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
@@ -153,13 +157,13 @@
 		else
 			devouring = null
 			if(H.nutrition >= H.max_nutrition - 60)
-				src << "<span class='danger'>You cant eat anymore!.</span>"
+				to_chat(src, "<span class='danger'>You can't eat anymore!</span>")
 			if (victim && victimloc != victim.loc)
 				to_chat(src, "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>")
 			else if (ourloc != src.loc)
 				to_chat(src, "<span class='danger'>You moved! Devouring cancelled.</span>")
 			else
-				to_chat(src, "Devouring Cancelled.")//reason unknown, maybe the eater got stunned?)
+				to_chat(src, "Devouring cancelled.")//reason unknown, maybe the eater got stunned?)
 				//This can also happen if you start devouring something else
 			break
 
@@ -186,7 +190,11 @@
 			M.adjustBruteLoss(round(dmg_factor * 0.33, 0.1) || 0.1)
 			M.adjustFireLoss(round(dmg_factor * 0.66, 0.1) || 0.1)
 
-			ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * dmg_factor)
+			if(ishuman(src))
+				var/mob/living/carbon/human/H = src
+				var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
+				if(S)
+					S.ingested.add_reagent(M.composition_reagent, M.composition_reagent_quantity * dmg_factor)
 
 			if (M.stat == DEAD && !stomach_contents[M])	// If the mob has died, poke the consuming mob about it.
 				to_chat(src, "Your stomach feels a little more relaxed as \the [M] finally stops fighting.")

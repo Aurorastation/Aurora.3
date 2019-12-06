@@ -94,9 +94,8 @@
 	<h3>Blood Status</h3>
 	<div class='statusDisplay'>
 	<div class="line">
-		<div class="statusLabel">Blood Volume:</div>
-			{{:helper.displayBar(data.blood_volume, 0, data.blood_volume_max, 'good')}}
-		<div class="statusValue">{{:helper.round(data.blood_volume)}}% ({{:helper.round(data.blood_volume_max)}}u)</div>
+		<div class="statusLabel">BP:</div>
+		<div class="statusValue"> {{data.blood_pressure}}/{{data.blood_oxygenation}}</div>
 	</div>
 	<div class="line">
 		<div class="statusLabel">Blood Oxygenation:</div>

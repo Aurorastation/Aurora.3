@@ -45,8 +45,36 @@
 	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
 	if(src.table && (src.table.check_victim()))
 		src.victim = src.table.victim
+		var/brain_result = "normal"
+		if(victim.should_have_organ(BP_BRAIN))
+			var/obj/item/organ/internal/brain/brain = victim.internal_organs_by_name[BP_BRAIN]
+			if(!brain || victim.stat == DEAD || (victim.status_flags & FAKEDEATH))
+				brain_result = "<span class='scan_danger'>none, patient is braindead</span>"
+			else if(victim.stat != DEAD)
+				if(istype(brain))
+					switch(brain.get_current_damage_threshold())
+						if(0)
+							brain_result = "normal"
+						if(1 to 2)
+							brain_result = "<span class='scan_notice'>minor brain damage</span>"
+						if(3 to 5)
+							brain_result = "<span class='scan_warning'>weak</span>"
+						if(6 to 8)
+							brain_result = "<span class='scan_danger'>extremely weak</span>"
+						if(9 to INFINITY)
+							brain_result = "<span class='scan_danger'>fading</span>"
+						else
+							brain_result = "<span class='scan_danger'>ERROR - Hardware fault</span>"
+				else
+					if(victim.isFBP())
+						brain_result = "normal"
+					else
+						brain_result = "<span class='scan_danger'>ERROR - Organ not recognized</span>"
+		else
+			brain_result = "<span class='scan_danger'>ERROR - Non-standard biology</span>"
 		dat += {"
 <B>Patient Information:</B><BR>
+Brain Activity: [brain_result]
 Pulse: [victim.get_pulse(GETPULSE_TOOL)]
 BP: [victim.get_blood_pressure()]/[victim.get_blood_oxygenation()]
 "}

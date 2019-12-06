@@ -384,8 +384,6 @@
 		data["blood_pressure"]  = occupant.get_blood_pressure()
 		data["blood_volume"]    = occupant.get_blood_volume()
 		data["blood_o2"]        = occupant.get_blood_oxygenation()
-		data["blood_volume"]    = occupant.vessel.get_reagent_amount("blood")
-		data["blood_volume_max"]= occupant.species.blood_volume
 		data["rads"]			= occupant.total_radiation
 
 		data["cloneLoss"]		= get_severity(occupant.getCloneLoss(), TRUE)
@@ -397,7 +395,7 @@
 		data["paralysis"]		= occupant.paralysis
 		data["bodytemp"]		= occupant.bodytemperature
 		data["occupant"] 		= occupant
-		data["norepiAmt"] 		= R.get_reagent_amount("norepiAmt")
+		data["norepiAmt"] 		= R.get_reagent_amount("norepinephrine")
 		data["soporAmt"] 		= R.get_reagent_amount("stoxin")
 		data["bicardAmt"] 		= R.get_reagent_amount("bicaridine")
 		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
