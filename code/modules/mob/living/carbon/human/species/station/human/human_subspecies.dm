@@ -46,7 +46,7 @@
 		if(locate(/obj/item/clothing/accessory/offworlder/bracer) in suit.accessories)
 			return 0
 
-	var/obj/item/organ/internal/stomach/S = internal_organs_by_name[BP_STOMACH]
+	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 	if(S)
 		for(var/datum/reagent/R in S.ingested.reagent_list)
 			if(R.id == "rmt")

@@ -74,9 +74,10 @@
 			brain_result = "<span class='scan_danger'>ERROR - Non-standard biology</span>"
 		dat += {"
 <B>Patient Information:</B><BR>
-Brain Activity: [brain_result]
-Pulse: [victim.get_pulse(GETPULSE_TOOL)]
-BP: [victim.get_blood_pressure()]/[victim.get_blood_oxygenation()]
+Brain Activity: <b>[brain_result]</b><br>
+Pulse: <b>[victim.get_pulse(GETPULSE_TOOL)]</b><br>
+BP: <b>[victim.get_blood_pressure()]</b><br>
+Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
 "}
 	else
 		src.victim = null

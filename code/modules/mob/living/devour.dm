@@ -140,11 +140,9 @@
 			face_atom(victim)
 			victim.apply_damage(victim_maxhealth*PEPB,HALLOSS)
 			victim.apply_damage(victim_maxhealth*PEPB*5,CLONE)
-			if(ishuman(src))
-				var/mob/living/carbon/human/H = src
-				var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
-				if(S)
-					S.ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
+			var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
+			if(S)
+				S.ingested.add_reagent(victim.composition_reagent, victim.composition_reagent_quantity*PEPB)
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if (messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
