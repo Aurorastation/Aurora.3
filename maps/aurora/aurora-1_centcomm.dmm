@@ -10417,7 +10417,7 @@
 /area/centcom/specops)
 "ayG" = (
 /obj/item/mecha_equipment/mounted_system/extinguisher,
-/obj/item/mecha_equipment/mounted_system/rcd,
+/obj/item/mecha_equipment/mounted_system/rfd,
 /obj/item/pickaxe/diamonddrill,
 /obj/structure/table/reinforced/steel,
 /obj/item/pickaxe/diamonddrill,
@@ -10566,7 +10566,7 @@
 /area/centcom/control)
 "ayU" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11324,7 +11324,7 @@
 /area/centcom/specops)
 "aAv" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -22445,6 +22445,7 @@
 /area/centcom/legion)
 "bjl" = (
 /obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/combatripley,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -22488,12 +22489,6 @@
 	dir = 5
 	},
 /area/centcom/evac)
-"bpk" = (
-/obj/item/stool,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/legion/hangar5)
 "bpY" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22712,6 +22707,19 @@
 	dir = 4
 	},
 /area/centcom/spawning)
+"clq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/legion/hangar5)
 "coC" = (
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
@@ -22719,8 +22727,22 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion)
 "cpE" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/mecha_equipment/sleeper,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_y = 0
+	},
+/obj/item/hoist_kit{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/hoist_kit{
+	pixel_x = -1;
+	pixel_y = 4
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -23268,12 +23290,6 @@
 	dir = 5
 	},
 /area/centcom/living)
-"dMN" = (
-/obj/machinery/mech_recharger,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/legion/hangar5)
 "dNm" = (
 /obj/item/storage/fancy/cigar{
 	layer = 3.01;
@@ -23353,8 +23369,17 @@
 /turf/simulated/floor/tiled,
 /area/centcom/ferry)
 "dWj" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/mecha_equipment/mounted_system/extinguisher,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "The half-built chassis of some kind of outdated mech. It's rather dusty.";
+	icon = 'icons/mecha/mech_construction.dmi';
+	icon_state = "hermes7";
+	layer = 3;
+	name = "half-built mech";
+	pixel_x = -4;
+	pixel_y = 3
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -24174,14 +24199,18 @@
 /area/centcom/legion/hangar5)
 "fTp" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/mecha_equipment/drill{
-	pixel_x = 0;
-	pixel_y = 10
+/obj/item/clothing/head/welding{
+	pixel_y = 6
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/mecha_equipment/mounted_system/rcd,
+/obj/item/weldingtool/hugetank,
 /turf/unsimulated/floor{
 	name = "plating"
+	},
+/area/centcom/legion/hangar5)
+"fTE" = (
+/obj/structure/closet/crate/secure/legion,
+/turf/unsimulated/floor{
+	icon_state = "tiles"
 	},
 /area/centcom/legion/hangar5)
 "fWe" = (
@@ -24336,6 +24365,22 @@
 	name = "plating"
 	},
 /area/centcom/legion)
+"gnj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A heavy armored vehicle. Commonly produced by the Sol Alliance and fielded by the forces of the Tau Ceti Foreign Legion. This one has suffered too much damage to be operational.";
+	icon = 'icons/mecha/mecha_114x59.dmi';
+	icon_state = "jotun-broken";
+	layer = 3.3;
+	name = "Jotun";
+	pixel_x = -42;
+	pixel_y = -10
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion/hangar5)
 "gpl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -24798,6 +24843,12 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"hyZ" = (
+/obj/structure/closet/crate/secure/legion,
+/turf/unsimulated/floor{
+	icon_state = "steel_dirty"
+	},
+/area/centcom/legion/hangar5)
 "hzB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -25233,13 +25284,6 @@
 	},
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_dininghall)
-"ikA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/oil,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/legion/hangar5)
 "iol" = (
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	density = 1;
@@ -25747,6 +25791,15 @@
 	icon_state = "floor"
 	},
 /area/centcom/evac)
+"joT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion/hangar5)
 "jpq" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/decal/fake_object{
@@ -26262,6 +26315,17 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"kKZ" = (
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
+	dir = 2;
+	id = "tcfl_hangar5";
+	name = "Garage"
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion/hangar5)
 "kLE" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -26743,9 +26807,13 @@
 /area/centcom/holding)
 "mkQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/mecha_equipment/clamp,
-/obj/item/mecha_equipment/clamp,
-/obj/effect/decal/cleanable/dirt,
+/obj/item/device/flashlight/lamp{
+	on = 1
+	},
+/obj/item/screwdriver{
+	pixel_x = -1;
+	pixel_y = -12
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -27018,16 +27086,6 @@
 	dir = 9
 	},
 /area/centcom/legion)
-"mSX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/area/centcom/legion/hangar5)
 "mUu" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	icon_state = "air_map";
@@ -27677,7 +27735,7 @@
 /area/shuttle/escape/centcom)
 "nZO" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donut{
+/obj/item/storage/fancy/donut{
 	pixel_y = 0
 	},
 /turf/unsimulated/floor{
@@ -28093,10 +28151,15 @@
 	},
 /area/centcom/living)
 "oQd" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/mecha_equipment/sleeper,
-/obj/machinery/light/small{
-	dir = 1
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A wooden crate containing spare parts.";
+	icon = 'icons/obj/storage.dmi';
+	icon_state = "densecrate";
+	layer = 3;
+	name = "mechanical supply crate";
+	pixel_x = 1;
+	pixel_y = 0
 	},
 /turf/unsimulated/floor{
 	name = "plating"
@@ -28355,12 +28418,6 @@
 	name = "plating"
 	},
 /area/centcom/legion)
-"pxH" = (
-/mob/living/heavy_vehicle/premade/combatripley,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/legion/hangar5)
 "pBa" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -30442,9 +30499,16 @@
 	},
 /area/centcom/legion)
 "upy" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/light/small{
-	dir = 8
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "This one is beyond repair and only worth as much as its weight in scrap. The cockpit has some long dried bloodstains.";
+	icon = 'icons/mecha/mecha.dmi';
+	icon_state = "combatripley-broken";
+	layer = 3;
+	name = "wrecked combat ripley";
+	pixel_x = 0;
+	pixel_y = 4
 	},
 /turf/unsimulated/floor{
 	name = "plating"
@@ -30832,13 +30896,22 @@
 	},
 /area/shuttle/legion/centcom)
 "vqz" = (
-/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/ladder_mobile{
+	pixel_y = 6
+	},
+/obj/item/ladder_mobile{
+	pixel_y = 6
+	},
 /turf/unsimulated/floor{
 	name = "plating"
 	},
 /area/centcom/legion/hangar5)
 "vsg" = (
-/mob/living/heavy_vehicle/premade/light,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/light/legion,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -31683,6 +31756,13 @@
 	icon_state = "steel_dirty"
 	},
 /area/centcom/legion/hangar5)
+"xia" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/combatripley,
+/turf/unsimulated/floor{
+	name = "plating"
+	},
+/area/centcom/legion/hangar5)
 "xif" = (
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
@@ -31695,13 +31775,6 @@
 /area/centcom/holding)
 "xii" = (
 /turf/unsimulated/wall/fakepdoor,
-/area/centcom/legion/hangar5)
-"xiL" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/heavy_vehicle/premade/superheavy,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
 /area/centcom/legion/hangar5)
 "xjq" = (
 /obj/machinery/light,
@@ -32011,12 +32084,12 @@
 /turf/space/transit/east/shuttlespace_ew8,
 /area/shuttle/legion/transit)
 "xKS" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	dir = 2;
 	id = "tcfl_hangar5";
 	name = "Garage"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	name = "plating"
 	},
@@ -90046,8 +90119,8 @@ nkv
 nkv
 ldQ
 dWj
-bpk
 orV
+joT
 xKS
 hzB
 hiF
@@ -90303,8 +90376,8 @@ orV
 orV
 vDl
 blQ
-pxH
-pWv
+orV
+orV
 xKS
 hzB
 hiF
@@ -90555,13 +90628,13 @@ aDQ
 aaM
 lmb
 lBN
+gnj
 orV
-xiL
 orV
 vDl
-ikA
-pWv
-pWv
+orV
+xia
+orV
 bft
 hzB
 hiF
@@ -90816,9 +90889,9 @@ orV
 orV
 orV
 vDl
-dMN
-pWv
-pWv
+blQ
+orV
+orV
 bft
 hzB
 hiF
@@ -91069,14 +91142,14 @@ aDQ
 aaM
 lmb
 ldQ
-cpV
+clq
 wZy
 cpV
 ldQ
 vsg
 pWv
-pWv
-bft
+orV
+kKZ
 hzB
 hiF
 pWv
@@ -91327,7 +91400,7 @@ aaM
 lmb
 ldQ
 bjl
-mSX
+bjl
 bjl
 ldQ
 oQd
@@ -92356,10 +92429,10 @@ lmb
 lBN
 hYP
 hkI
-iVa
+cPn
+hyZ
 gwQ
 cPn
-iVa
 iVa
 xPz
 chO
@@ -92614,9 +92687,9 @@ lBN
 rbI
 mzf
 iVa
+fTE
 oXZ
 iAR
-iVa
 cPn
 xPz
 chO
