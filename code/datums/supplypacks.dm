@@ -1327,11 +1327,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_packs/alienmedicalgloves
 	name = "Non-Human Sterile Glove Kit"
 	contains = list(/obj/item/clothing/gloves/latex/unathi,
-					/obj/item/clothing/gloves/latex/unathi,
-					/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/nitrile/unathi,
+					/obj/item/clothing/gloves/latex/nitrile/unathi,
 					/obj/item/clothing/gloves/latex/tajara,
-					/obj/item/clothing/gloves/latex/tajara,
-					/obj/item/clothing/gloves/latex/tajara)
+					/obj/item/clothing/gloves/latex/nitrile/tajara,
+					/obj/item/clothing/gloves/latex/nitrile/tajara)
 	cost = 25
 	containertype = /obj/structure/closet/crate
 	containername = "speciality sterile gloves kit"
