@@ -369,6 +369,7 @@
 #include "code\datums\wires\vending.dm"
 #include "code\datums\wires\wires.dm"
 #include "code\defines\gases.dm"
+#include "code\defines\mutable_appearance.dm"
 #include "code\defines\obj.dm"
 #include "code\defines\obj\weapon.dm"
 #include "code\defines\procs\announce.dm"
