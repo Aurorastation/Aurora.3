@@ -9,7 +9,7 @@
 		the omniscience of the AI and rival the most hardened weapons your station is capable of. Tread lightly and \
 		only hope these unknown assassins aren't here for you."
 	config_tag = "ninja"
-	required_players = 10
+	required_players = 15
 	max_players = 30
 	required_enemies = 2
 	end_on_antag_death = 0

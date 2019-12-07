@@ -1,20 +1,5 @@
 #define DEBUG
 
-//These get to go at the top, because they're special
-//You can use these defines to get the typepath of the currently running proc/verb (yes procs + verbs are objects)
-/* eg:
-/mob/living/carbon/human/death()
-	world << THIS_PROC_TYPE_STR //You can only output the string versions
-Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a string with () (eg: the _WITH_ARGS defines) to make it look nicer)
-*/
-#define THIS_PROC_TYPE .....
-#define THIS_PROC_TYPE_STR "[THIS_PROC_TYPE]" //Because you can only obtain a string of THIS_PROC_TYPE using "[]", and it's nice to just +/+= strings
-#define THIS_PROC_TYPE_STR_WITH_ARGS "[THIS_PROC_TYPE]([args.Join(",")])"
-#define THIS_PROC_TYPE_WEIRD ...... //This one is WEIRD, in some cases (When used in certain defines? (eg: ASSERT)) THIS_PROC_TYPE will fail to work, but THIS_PROC_TYPE_WEIRD will work instead
-#define THIS_PROC_TYPE_WEIRD_STR "[THIS_PROC_TYPE_WEIRD]" //Included for completeness
-#define THIS_PROC_TYPE_WEIRD_STR_WITH_ARGS "[THIS_PROC_TYPE_WEIRD]([args.Join(",")])" //Ditto
-
-
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
 #define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
@@ -49,7 +34,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define AGE_MIN 17
 #define AGE_MAX 85
 
-#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
@@ -300,11 +285,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
-// These defines write to log_debug, prefixing the path to the current proc.
-//  When using them, try PROCLOG first. If it does not compile, try PROCLOG_WEIRD.
-#define PROCLOG(thing) log_debug("[THIS_PROC_TYPE]: [thing]")
-#define PROCLOG_WEIRD(thing) log_debug("[THIS_PROC_TYPE_WEIRD]: [thing]")
-
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1
 #define FRYER				0x2
@@ -366,6 +346,15 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
+
+#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
+
+#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isNotAdminLevel(Z) !isAdminLevel(Z)
+
+#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
 //If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.

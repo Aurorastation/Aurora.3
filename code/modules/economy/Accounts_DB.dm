@@ -9,7 +9,7 @@
 	anchored = 1
 	var/receipt_num
 	var/machine_id = ""
-	var/obj/item/weapon/card/id/held_card
+	var/obj/item/card/id/held_card
 	var/datum/money_account/detailed_account_view
 	var/creating_new_account = 0
 	var/const/fund_cap = 1000000
@@ -45,7 +45,7 @@
 	machine_id = "[station_name()] Acc. DB #[SSeconomy.num_financial_terminals++]"
 
 /obj/machinery/account_database/attackby(obj/O, mob/user)
-	if(!istype(O, /obj/item/weapon/card/id))
+	if(!istype(O, /obj/item/card/id))
 		return ..()
 
 	if(!held_card)
@@ -167,8 +167,8 @@
 
 				else
 					var/obj/item/I = usr.get_active_hand()
-					if (istype(I, /obj/item/weapon/card/id))
-						var/obj/item/weapon/card/id/C = I
+					if (istype(I, /obj/item/card/id))
+						var/obj/item/card/id/C = I
 						usr.drop_from_inventory(C,src)
 						held_card = C
 
@@ -194,7 +194,7 @@
 
 			if("print")
 				var/text
-				var/obj/item/weapon/paper/P = new()
+				var/obj/item/paper/P = new()
 				var/pname
 				if (detailed_account_view)
 					pname = "account #[detailed_account_view.account_number] details"

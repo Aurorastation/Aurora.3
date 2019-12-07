@@ -4,12 +4,12 @@
 	icon_state = "webbing"
 	slot = "utility"
 	var/slots = 3
-	var/obj/item/weapon/storage/internal/hold
+	var/obj/item/storage/internal/hold
 	w_class = 3.0
 
 /obj/item/clothing/accessory/storage/Initialize()
 	. = ..()
-	hold = new/obj/item/weapon/storage/internal(src)
+	hold = new/obj/item/storage/internal(src)
 	hold.storage_slots = slots
 	hold.max_storage_space = 12
 	hold.max_w_class = 2
@@ -66,6 +66,30 @@
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
 	icon_state = "vest_white"
 	slots = 5
+
+/obj/item/clothing/accessory/storage/overalls
+	name = "overalls"
+	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
+	icon_state = "mining_overalls"
+	overlay_state = "mining_overalls"
+	slots = 5
+
+/obj/item/clothing/accessory/storage/overalls/mining
+	name = "shaft miner's overalls"
+	desc = "Heavy-duty overalls. Ostensibly for your protection, not vacuum-rated. Comes with convenient pockets for miscellaneous tools."
+
+
+/obj/item/clothing/accessory/storage/overalls/engineer
+	name = "engineer's overalls"
+	desc = "Heavy-duty overalls to keep all your extra tools and notes in place, and keep the inevitable oil off your jumpsuit."
+	icon_state = "engineering_overalls"
+	overlay_state = "engineering_overalls"
+
+/obj/item/clothing/accessory/storage/overalls/chief
+	name = "chief engineer's overalls"
+	desc = "Heavy duty overalls, bleached white to signify a \"Chief Engineer.\" Keeping them clean until the end of shift is a challenge unto itself."
+	icon_state = "ce_overalls"
+	overlay_state = "ce_overalls"
 
 /obj/item/clothing/accessory/storage/pouches
 	name = "drop pouches"
@@ -136,15 +160,15 @@
 	. = ..()
 	hold.max_storage_space = 4
 	hold.can_hold = list(
-		/obj/item/weapon/material/hatchet/unathiknife,
-		/obj/item/weapon/material/kitchen/utensil/knife,
-		/obj/item/weapon/material/kitchen/utensil/knife/plastic,
-		/obj/item/weapon/material/knife,
-		/obj/item/weapon/material/knife/ritual
+		/obj/item/material/hatchet/unathiknife,
+		/obj/item/material/kitchen/utensil/knife,
+		/obj/item/material/kitchen/utensil/knife/plastic,
+		/obj/item/material/knife,
+		/obj/item/material/knife/ritual
 	)
 
-	new /obj/item/weapon/material/hatchet/unathiknife(hold)
-	new /obj/item/weapon/material/hatchet/unathiknife(hold)
+	new /obj/item/material/hatchet/unathiknife(hold)
+	new /obj/item/material/hatchet/unathiknife(hold)
 
 /obj/item/clothing/accessory/storage/bayonet
 	name = "bayonet sheath"
@@ -157,10 +181,10 @@
 	hold.max_storage_space = 4
 	hold.max_w_class = 3
 	hold.can_hold = list(
-		/obj/item/weapon/material/knife/bayonet
+		/obj/item/material/knife/bayonet
 	)
 
-	new /obj/item/weapon/material/knife/bayonet(hold)
+	new /obj/item/material/knife/bayonet(hold)
 
 /obj/item/clothing/accessory/storage/bandolier
 	name = "bandolier"

@@ -218,10 +218,6 @@ var/global/list/additional_antag_types = list()
 		antag.update_initial_spawn_target()
 		antag.build_candidate_list() //compile a list of all eligible candidates
 
-		//can't find enough antags? check again but don't apply the antag chance restrictions per job
-		if(antag.candidates.len < required_enemies)
-			antag.build_candidate_list(FALSE, FALSE, FALSE)
-
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
 		if(antag.flags & ANTAG_OVERRIDE_JOB)
 			antag.attempt_spawn() //select antags to be spawned
@@ -536,19 +532,23 @@ var/global/list/additional_antag_types = list()
 		for(var/mob/living/carbon/human/M in suspects)
 			if(player_is_antag(M.mind, only_offstation_roles = 1))
 				continue
-			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)]."
+			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)].<br>"
 		intercepttext += "Cent. Com recommends coordinating with human resources to resolve any issues with employment.<br>"
 
 	if(repeat_offenders)
 		intercepttext += "<br><B>The personnel listed below possess three or more offenses listed on record:</B>"
 		for(var/mob/living/carbon/human/M in repeat_offenders)
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses."
+			if(player_is_antag(M.mind, only_offstation_roles = 1))
+				continue
+			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses.<br>"
 		intercepttext += "Cent. Com recommends coordinating with internal security to monitor and rehabilitate these personnel.<br>"
 
 	if(loyalists)
 		intercepttext += "<br><B>The personnel listed below have been indicated as particularly loyal to NanoTrasen:</B>"
 		for(var/mob/living/carbon/human/M in loyalists)
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name]."
+			if(player_is_antag(M.mind, only_offstation_roles = 1))
+				continue
+			intercepttext += "<br>     + [M.mind.assigned_role] [M.name].<br>"
 		intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
 
 	if(evil_department)

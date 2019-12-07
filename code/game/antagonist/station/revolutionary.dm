@@ -30,7 +30,7 @@ var/datum/antagonist/revolutionary/revs
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
-	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 40, "Detective" = 50, "Forensic Technician" = 50, "Head of Personnel" = 25, "Chief Engineer" = 25, "Research Director" = 25, "Chief Medical Officer" = 25) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
+	required_age = 31
 
 /datum/antagonist/revolutionary/New()
 	..()
@@ -51,7 +51,7 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary/can_become_antag(var/datum/mind/player)
 	if(!..())
 		return 0
-	for(var/obj/item/weapon/implant/loyalty/L in player.current)
+	for(var/obj/item/implant/loyalty/L in player.current)
 		if(L && (L.imp_in == player.current))
 			return 0
 	return 1

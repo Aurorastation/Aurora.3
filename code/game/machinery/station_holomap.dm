@@ -170,7 +170,7 @@
 	else
 		cut_overlay("station_map-panel")
 
-/*/obj/machinery/station_map/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/*/obj/machinery/station_map/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 	if(default_deconstruction_screwdriver(user, W))
 		return

@@ -49,11 +49,13 @@
 #define CE_ANTIBIOTIC "antibiotic" // Spaceacilin
 #define CE_BLOODRESTORE "bloodrestore" // Iron/nutriment
 #define CE_PAINKILLER "painkiller"
+#define CE_TOXIN "toxins" //General toxins
 #define CE_ALCOHOL "alcohol" // Liver filtering
 #define CE_ALCOHOL_TOXIC "alcotoxic" // Liver damage
 #define CE_SPEEDBOOST "gofast" // Hyperzine
 #define CE_BERSERK "berserk"
 #define CE_PACIFIED "pacified"
+#define CE_UNDEXTROUS "undextrous" // arms no work right
 
 // Chemistry lists.
 var/list/tachycardics  = list("coffee", "inaprovaline", "hyperzine", "nitroglycerin", "thirteenloko", "nicotine") // Increase heart rate.

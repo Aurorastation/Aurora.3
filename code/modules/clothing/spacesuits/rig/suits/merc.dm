@@ -3,7 +3,7 @@
 	camera_networks = list(NETWORK_MERCENARY)
 	light_color = "#3e7c3e"
 
-/obj/item/weapon/rig/merc
+/obj/item/rig/merc
 	name = "crimson hardsuit control module"
 	desc = "A blood-red hardsuit featuring some fairly illegal technology."
 	icon_state = "merc_rig"
@@ -15,7 +15,7 @@
 	emp_protection = 30
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
 	req_access = list(access_syndicate)
 
@@ -34,9 +34,12 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 //Has most of the modules removed
-/obj/item/weapon/rig/merc/empty
+/obj/item/rig/merc/empty
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/electrowarfare_suite, //might as well
 		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
+
+/obj/item/rig/merc/distress
+	req_access = list(access_distress)

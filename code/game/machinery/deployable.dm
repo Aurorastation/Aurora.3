@@ -3,6 +3,7 @@ CONTAINS:
 
 Deployable items
 Barricades
+Deployable Kits
 
 for reference:
 
@@ -141,6 +142,9 @@ for reference:
 	else
 		return 0
 
+/obj/structure/barricade/steel/Initialize(var/newloc)
+	.=..(newloc,"steel")
+
 //Actual Deployable machinery stuff
 /obj/machinery/deployable
 	name = "deployable"
@@ -154,7 +158,7 @@ for reference:
 	icon = 'icons/obj/objects.dmi'
 	anchored = 0.0
 	density = 1.0
-	icon_state = "barrier0"
+	icon_state = "barrier"
 	var/health = 100.0
 	var/maxhealth = 100.0
 	var/locked = 0.0
@@ -163,15 +167,15 @@ for reference:
 	New()
 		..()
 
-		src.icon_state = "barrier[src.locked]"
+		src.icon_state = "[initial(icon_state)][src.locked]"
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/weapon/card/id/))
+	attackby(obj/item/W as obj, mob/user as mob)
+		if (istype(W, /obj/item/card/id/))
 			if (src.allowed(user))
 				if	(src.emagged < 2.0)
 					src.locked = !src.locked
 					src.anchored = !src.anchored
-					src.icon_state = "barrier[src.locked]"
+					src.icon_state = "[initial(icon_state)][src.locked]"
 					if ((src.locked == 1.0) && (src.emagged < 2.0))
 						to_chat(user, "Barrier lock toggled on.")
 						return
@@ -226,7 +230,7 @@ for reference:
 		if(prob(50/severity))
 			locked = !locked
 			anchored = !anchored
-			icon_state = "barrier[src.locked]"
+			icon_state = "[initial(icon_state)][src.locked]"
 
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 		if(air_group || (height==0))
@@ -262,3 +266,71 @@ for reference:
 		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
+
+/obj/machinery/deployable/barrier/legion
+	name = "legion barrier"
+	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
+	icon_state = "barrier_legion"
+	req_access = list(access_legion)
+
+/obj/item/deployable_kit
+	name = "Emergency Floodlight Kit"
+	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "inf_box"
+	item_state = "syringe_kit"
+	var/kit_product = /obj/machinery/floodlight
+	var/assembly_time = 8 SECONDS
+
+/obj/item/deployable_kit/attack_self(mob/user)
+	to_chat(user, span("notice","You start assembling \the [src]..."))
+	if(do_after(user, assembly_time))
+		assemble_kit(user)
+		qdel(src)
+
+/obj/item/deployable_kit/proc/assemble_kit(mob/user)
+	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
+	var/atom/A = new kit_product(user.loc)
+	user.visible_message(span("notice","[user] assembles \a [A]."),span("notice","You assemble \a [A]."))
+	A.add_fingerprint(user)
+
+/obj/item/deployable_kit/legion_barrier
+	name = "legion barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
+	icon_state = "barrier_kit"
+	w_class = 2
+	kit_product = /obj/machinery/deployable/barrier/legion
+
+/obj/item/deployable_kit/surgery_table
+	name = "surgery table assembly kit"
+	desc = "A quick assembly kit to deploy a surgery table in the field. Cannot be put together again after being unfolded, choose your spot wisely."
+	icon = 'icons/obj/surgery.dmi'
+	icon_state = "table_deployable"
+	item_state = "table_parts"
+	w_class = 4
+	kit_product = /obj/machinery/optable
+	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/surgery_table/assemble_kit(mob/user)
+	..()
+	var/free_spot = null
+	for(var/check_dir in cardinal)
+		var/turf/T = get_step(src, check_dir)
+		if(turf_clear(T))
+			free_spot = T
+			break
+	if(!free_spot)
+		free_spot = src.loc
+	new /obj/structure/curtain/open/medical(free_spot, src)
+	new /obj/structure/curtain/open/medical(free_spot, src)
+
+/obj/item/deployable_kit/legion_turret
+	name = "legion blaster turret assembly kit"
+	desc = "A quick assembly kit to deploy a blaster turret in the field. Swipe with a TCFL id card to configure it once assembled."
+	icon = 'icons/obj/turrets.dmi'
+	icon_state = "blaster_turret_kit"
+	item_state = "table_parts"
+	drop_sound = 'sound/items/drop/axe.ogg'
+	w_class = 4
+	kit_product = /obj/machinery/porta_turret/legion
+	assembly_time = 15 SECONDS
