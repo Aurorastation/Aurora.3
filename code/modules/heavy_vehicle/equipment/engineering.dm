@@ -25,6 +25,7 @@
 	name = "mounted fire extinguisher"
 	max_water = 4000 //Good is gooder
 	icon_state = "mecha_exting"
+	safety = FALSE
 
 /obj/item/extinguisher/mech/New()
 	reagents = new/datum/reagents(max_water)
