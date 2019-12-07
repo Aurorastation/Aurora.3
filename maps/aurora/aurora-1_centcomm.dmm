@@ -25728,11 +25728,7 @@
 	},
 /area/centcom/living)
 "jgo" = (
-/obj/machinery/suit_cycler/syndicate{
-	density = 0;
-	locked = 0;
-	pixel_y = 16
-	},
+/obj/machinery/suit_cycler/freelancer,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 5
@@ -27464,6 +27460,7 @@
 /obj/item/tank/emergency_oxygen/double{
 	pixel_y = 3
 	},
+/obj/item/clothing/shoes/magboots,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -31595,6 +31592,7 @@
 	name = "adjusted light fixture";
 	pixel_y = 16
 	},
+/obj/item/clothing/shoes/magboots,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -31707,6 +31705,7 @@
 /area/centcom/legion/hangar5)
 "xcu" = (
 /obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
