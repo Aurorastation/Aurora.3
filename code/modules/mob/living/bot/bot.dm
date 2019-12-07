@@ -8,7 +8,7 @@
 	density = 0
 	var/obj/item/weapon/card/id/botcard = null
 	var/list/botcard_access = list()
-	var/on = 0
+	var/on = FALSE
 	var/open = 0
 	var/locked = 0
 	var/emagged = 0
@@ -152,4 +152,3 @@
 
 /mob/living/bot/proc/explode()
 	qdel(src)
-
