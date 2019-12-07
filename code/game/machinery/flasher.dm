@@ -47,7 +47,7 @@
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/flasher/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.iswirecutter())
 		add_fingerprint(user)
 		src.disable = !src.disable
@@ -85,7 +85,7 @@
 			if(!H.eyecheck(TRUE) <= 0)
 				continue
 			flash_time *= H.species.flash_mod
-			var/obj/item/organ/eyes/E = H.get_eyes()
+			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
 				return
 
@@ -114,7 +114,7 @@
 	if (src.anchored)
 		src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/flasher/portable/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.iswrench())
 		add_fingerprint(user)
 		src.anchored = !src.anchored

@@ -42,16 +42,26 @@
 
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
-	maxHealth = 80
+	maxHealth = 45
 	melee_damage_lower = 20
 	melee_damage_upper = 20
+	wander = 0
 	icon_state = "hivebotguardian"
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind. This one seems to be of a larger design."
+	mob_bump_flag = HEAVY
+	mob_swap_flags = ~HEAVY
+	mob_push_flags = 0
+
 
 /mob/living/simple_animal/hostile/hivebot/guardian/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	.=..()
 	if(hivebotbeacon && linked_parent)
 		linked_parent.guard_amt++
+
+/mob/living/simple_animal/hostile/hivebot/guardian/think()
+	. =..()
+	if(stance != HOSTILE_STANCE_IDLE)
+		wander = 1
 
 /mob/living/simple_animal/hostile/hivebot/guardian/Destroy()
 	.=..()
@@ -65,6 +75,7 @@
 	icon_state = "hivebotbomber"
 	attacktext = "bumped"
 	move_to_delay = 8
+	var/has_exploded = FALSE
 
 /mob/living/simple_animal/hostile/hivebot/bomber/AttackingTarget()
 	..()
@@ -72,19 +83,22 @@
 	stance = HOSTILE_STANCE_TIRED
 	stop_automated_movement = 1
 	wander = 0
-
-	playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
-	spawn(20)
-		fragem(src,10,30,2,3,5,1,0)
-		src.gib()
+	if(!has_exploded)
+		playsound(src.loc, 'sound/items/countdown.ogg', 125, 1)
+		has_exploded = TRUE
+		addtimer(CALLBACK(src, .proc/burst), 20)
 
 /mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
 		Proj.no_attack_log = 1
 		return PROJECTILE_CONTINUE
-	else
-		fragem(src,10,30,2,3,5,1,0)
-		src.gib()
+	else if(!has_exploded)
+		has_exploded = TRUE
+		burst()
+
+/mob/living/simple_animal/hostile/hivebot/bomber/proc/burst()
+	fragem(src,10,30,2,3,5,1,0)
+	src.gib()
 
 /mob/living/simple_animal/hostile/hivebot/range
 	name = "Hivebot"
@@ -174,6 +188,7 @@
 
 /obj/item/projectile/beam/hivebot/incendiary
 	name = "archaic energy welder"
+	damage_type = BURN
 	damage = 20
 	incinerate = 10
 	taser_effect = 0
@@ -248,7 +263,7 @@
 		S.start()
 		visible_message(span("danger","[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
-		addtimer(CALLBACK(src, .proc/activate_beacon), 300)
+		addtimer(CALLBACK(src, .proc/activate_beacon), 450)
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
 	generate_warp_destinations()
@@ -271,7 +286,7 @@
 			destinations |= floor_turfs
 
 	close_destinations.Cut()
-	for(var/turf/simulated/floor/T in oview(src,3))
+	for(var/turf/simulated/floor/T in oview(src,5))
 		if(turf_clear(T))
 			close_destinations += T
 	if(!close_destinations.len)
@@ -382,24 +397,23 @@
 		else
 			var/selection = rand(1,100)
 			switch(selection)
-				if(1 to 65)
+				if(1 to 70)
 					bot_type = NORMAL
-				if(66 to 77)
+				if(71 to 82)
 					bot_type = RANGED
-				if(78 to 89)
+				if(83 to 92)
 					bot_type = RAPID
-				if(90 to 100)
+				if(93 to 100)
 					bot_type = BOMBER
 
-		if(guard_amt == 4 && harvester_amt < 2 && stance == HOSTILE_STANCE_IDLE)
-			if(!harvester_amt || 24 < linked_bots.len)
-				bot_type = HARVESTER
+		if(guard_amt == 4 && !harvester_amt && stance == HOSTILE_STANCE_IDLE && prob(10))
+			bot_type = HARVESTER
 
 		if(latest_area != get_area(src))
 			generate_warp_destinations()
 
 		var/turf/Destination
-		if(stance == HOSTILE_STANCE_IDLE)
+		if(stance == HOSTILE_STANCE_IDLE && !(linked_bots.len < 12))
 			Destination = pick(destinations)
 		else
 			Destination = pick(close_destinations)
@@ -415,9 +429,17 @@
 			if(BOMBER)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/bomber(Destination, src)
 			if(GUARDIAN)
-				Destination = pick(close_destinations)
+				Destination = null
+				for(var/check_dir in cardinal)
+					var/turf/T = get_step(src, check_dir)
+					if(turf_clear(T))
+						Destination = T
+						break
+				if(!Destination)
+					Destination = pick(close_destinations)
 				latest_child = new /mob/living/simple_animal/hostile/hivebot/guardian(Destination, src)
 			if(HARVESTER)
+				Destination = pick(close_destinations)
 				latest_child = new /mob/living/simple_animal/hostile/retaliate/hivebotharvester(Destination, src)
 
 		linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
@@ -431,7 +453,7 @@
 		max_bots_reached = 1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
-	spawn_delay = 40*1.075**(linked_bots.len + 1)
+	spawn_delay = 60*1.085**(linked_bots.len + 1)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
@@ -454,7 +476,7 @@
 
 //---Hivebot Harvester---//
 
-/obj/item/projectile/beam/hivebotincendiary/heavy
+/obj/item/projectile/beam/hivebot/incendiary/heavy
 	name = "archaic mining laser"
 	damage = 25
 	incinerate = 10
@@ -475,7 +497,7 @@
 	rapid = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebotincendiary/heavy
+	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
@@ -498,6 +520,10 @@
 	var/turf/last_prospect_target
 	var/turf/last_prospect_loc
 	var/busy
+
+	mob_bump_flag = HEAVY
+	mob_swap_flags = ~HEAVY
+	mob_push_flags = 0
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)
@@ -576,8 +602,8 @@
 					update_icon()
 					continue
 
-				if(istype(O, /obj/item/weapon/storage))
-					var/obj/item/weapon/storage/S = O
+				if(istype(O, /obj/item/storage))
+					var/obj/item/storage/S = O
 					src.visible_message(span("notice","[src] begins to rip apart \the [S]."))
 					busy = 2
 					update_icon()
@@ -615,8 +641,8 @@
 				update_icon()
 				return
 
-		if(istype(O, /obj/item/weapon/stool))
-			var/obj/item/weapon/stool/S = O
+		if(istype(O, /obj/item/stool))
+			var/obj/item/stool/S = O
 			src.visible_message(span("notice","[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()
@@ -697,7 +723,7 @@
 	if(busy)
 		return
 
-	if(istype(T, /turf/unsimulated) || istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
+	if(istype(T, /turf/space) || istype(T, /turf/simulated/mineral))
 		last_prospect_target = null
 		last_prospect_loc = null
 		return

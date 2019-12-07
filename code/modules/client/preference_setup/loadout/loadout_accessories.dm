@@ -126,6 +126,18 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/accessory/overalls_mining
+	display_name = "overalls, mining"
+	path = /obj/item/clothing/accessory/storage/overalls/mining
+	allowed_roles = list("Shaft Miner")
+	cost = 2
+
+/datum/gear/accessory/overalls_engineer
+	display_name = "overalls, engineering"
+	path = /obj/item/clothing/accessory/storage/overalls/engineer
+	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	cost = 2
+
 /datum/gear/accessory/sweater
 	display_name = "sweater"
 	path = /obj/item/clothing/accessory/sweater
@@ -247,3 +259,7 @@
 /datum/gear/accessory/sleeve_patch/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/accessory/rosary
+	display_name = "rosary"
+	path = /obj/item/clothing/accessory/rosary

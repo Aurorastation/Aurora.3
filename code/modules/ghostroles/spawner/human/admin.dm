@@ -28,25 +28,25 @@
 	mob_name_pick_message = "Pick a name."
 
 /datum/ghostspawner/human/admin/legion_commander
-	short_name = "legioncommander"
-	name = "TCFL Commander"
-	desc = "Command the TCFL, a walking and talking joke, whos members regularly die before they even arrive at their target."
+	short_name = "legionlegate"
+	name = "TCFL Legate"
+	desc = "Command the TCFL onboard BLV The Tower, a legion patrolship from where Task Force XIII - Fortune operates from."
 
-	landmark_name = "TCFLCommander"
+	landmark_name = "TCFLLegate"
 	req_perms = R_CCIAA
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/tcfl_commander
-	possible_species = list("Human")
+	outfit = /datum/outfit/admin/nt/tcfl_legate
+	possible_species = list("Human","M'sai Tajara","Skrell", "Unathi","Baseline Frame")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Tau Ceti Foreign Legion Commander"
-	special_role = "TCFL Commander"
+	assigned_role = "Tau Ceti Foreign Legion Legate"
+	special_role = "TCFL Legate"
 	respawn_flag = null
 
 	mob_name = null
-	mob_name_prefix = "Cmdr. "
+	mob_name_prefix = "Lgt. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/cciaagent
@@ -74,7 +74,7 @@
 /datum/ghostspawner/human/admin/cciaescort
 	short_name = "cciaescort"
 	name = "CCIA Escort"
-	desc = "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselvs under their own shuttle."
+	desc = "Escort a CCIA Agent to the station, watch them annoy the crew and prevent them from throwing themselves under their own shuttle."
 
 	enabled = FALSE
 	landmark_name = "CCIAEscort"
@@ -122,7 +122,29 @@
 	mob_name_prefix = "Spec. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
+/datum/ghostspawner/human/admin/tcflsentinel
+	short_name = "tcflsentinel"
+	name = "TCFL Sentinel"
+	desc = "Secure BLV The Tower from any would-be interlopers, provide assistance to returning personnel and/or evacuees."
 
+	enabled = FALSE
+	spawnpoints = list("TCFLSentinel")
+	req_perms = null
+	req_perms_edit = R_CCIAA
+	max_count = 4
+
+	outfit = /datum/outfit/admin/ert/legion/sentinel
+	possible_species = list("Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
+	possible_genders = list(MALE,FEMALE)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "TCFL Sentinel"
+	special_role = "TCFL Sentinel"
+	respawn_flag = null
+
+	mob_name = null
+	mob_name_prefix = "Sent. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /client/proc/despawn()
 	set name = "Despawn"

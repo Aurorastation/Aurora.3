@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/spray/luminol
+/obj/item/reagent_containers/spray/luminol
 	name = "luminol bottle"
 	desc = "A bottle containing an odourless, colorless liquid."
 	icon = 'icons/obj/forensics.dmi'
@@ -8,6 +8,6 @@
 	possible_transfer_amounts = list(5,10)
 	volume = 250
 
-/obj/item/weapon/reagent_containers/spray/luminol/Initialize()
+/obj/item/reagent_containers/spray/luminol/Initialize()
 	. = ..()
 	reagents.add_reagent("luminol", 250)

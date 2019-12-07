@@ -41,37 +41,37 @@
 	/obj/item/device/radio,\
 	/obj/item/device/radio/headset,\
 	/obj/item/device/radio/beacon,\
-	/obj/item/weapon/autopsy_scanner,\
-	/obj/item/weapon/bikehorn,\
-	/obj/item/weapon/bonesetter,\
-	/obj/item/weapon/material/hatchet/butch,\
-	/obj/item/weapon/caution,\
-	/obj/item/weapon/caution/cone,\
-	/obj/item/weapon/crowbar,\
-	/obj/item/weapon/clipboard,\
-	/obj/item/weapon/cell,\
-	/obj/item/weapon/circular_saw,\
-	/obj/item/weapon/material/hatchet,\
-	/obj/item/weapon/handcuffs,\
-	/obj/item/weapon/hemostat,\
-	/obj/item/weapon/material/knife,\
-	/obj/item/weapon/flame/lighter,\
-	/obj/item/weapon/light/bulb,\
-	/obj/item/weapon/light/tube,\
-	/obj/item/weapon/pickaxe,\
-	/obj/item/weapon/shovel,\
-	/obj/item/weapon/weldingtool,\
-	/obj/item/weapon/wirecutters,\
-	/obj/item/weapon/wrench,\
-	/obj/item/weapon/screwdriver,\
-	/obj/item/weapon/grenade/chem_grenade/cleaner,\
-	/obj/item/weapon/grenade/chem_grenade/metalfoam\
+	/obj/item/autopsy_scanner,\
+	/obj/item/bikehorn,\
+	/obj/item/bonesetter,\
+	/obj/item/material/hatchet/butch,\
+	/obj/item/caution,\
+	/obj/item/caution/cone,\
+	/obj/item/crowbar,\
+	/obj/item/clipboard,\
+	/obj/item/cell,\
+	/obj/item/circular_saw,\
+	/obj/item/material/hatchet,\
+	/obj/item/handcuffs,\
+	/obj/item/hemostat,\
+	/obj/item/material/knife,\
+	/obj/item/flame/lighter,\
+	/obj/item/light/bulb,\
+	/obj/item/light/tube,\
+	/obj/item/pickaxe,\
+	/obj/item/shovel,\
+	/obj/item/weldingtool,\
+	/obj/item/wirecutters,\
+	/obj/item/wrench,\
+	/obj/item/screwdriver,\
+	/obj/item/grenade/chem_grenade/cleaner,\
+	/obj/item/grenade/chem_grenade/metalfoam\
 	)
 
 	var/quantity = rand(5,15)
 	for(var/i=0, i<quantity, i++)
 		var/button_desc = "a [pick("yellow","purple","green","blue","red","orange","white")], "
-		button_desc += "[pick("round","square","diamond","heart","dog","human")] shaped "
+		button_desc += "[pick("round","square","diamond",BP_HEART,"dog","human")] shaped "
 		button_desc += "[pick("toggle","switch","lever","button","pad","hole")]"
 		var/type = pick(viables)
 		viables.Remove(type)
@@ -127,7 +127,7 @@
 
 	user << browse(dat, "window=alien_replicator")
 
-/obj/machinery/replicator/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/machinery/replicator/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.drop_from_inventory(W,src)
 	stored_materials.Add(W)
 	src.visible_message("<span class='notice'>[user] inserts [W] into [src].</span>")

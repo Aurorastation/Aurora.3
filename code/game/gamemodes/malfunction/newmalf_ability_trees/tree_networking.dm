@@ -218,14 +218,14 @@
 	log_ability_use(user, "system override (STARTED)")
 	var/list/remaining_apcs = list()
 	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
-		if(!(A.z in current_map.station_levels)) 		// Only station APCs
+		if(isNotStationLevel(A.z)) // Only station APCs
 			continue
 		if(A.hacker == user || A.aidisabled) 		// This one is already hacked, or AI control is disabled on it.
 			continue
 		remaining_apcs += A
 
-	var/duration = (remaining_apcs.len * 100)		// Calculates duration for announcing system
-	if(duration > 3000)								// Two types of announcements. Short hacks trigger immediate warnings. Long hacks are more "progressive".
+	var/duration = (remaining_apcs.len * 50)		// Calculates duration for announcing system
+	if(duration > 1500)								// Two types of announcements. Short hacks trigger immediate warnings. Long hacks are more "progressive".
 		spawn(0)
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
@@ -249,9 +249,9 @@
 	to_chat(user, "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES")
 	user.hacking = 1
 	user.system_override = 1
-	// Now actually begin the hack. Each APC takes 10 seconds.
+	// Now actually begin the hack. Each APC takes 5 seconds.
 	for(var/obj/machinery/power/apc/A in shuffle(remaining_apcs))
-		sleep(100)
+		sleep(50)
 		if(!user || user.stat == DEAD)
 			return
 		if(!A || !istype(A) || A.aidisabled)
@@ -264,7 +264,7 @@
 	sleep(300)
 	// Hack all APCs, including those built during hack sequence.
 	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
-		if((!A.hacker || A.hacker != src) && !A.aidisabled && A.z in current_map.station_levels)
+		if((!A.hacker || A.hacker != src) && !A.aidisabled && isStationLevel(A.z))
 			A.ai_hack(src)
 
 	log_ability_use(user, "system override (FINISHED)")

@@ -3,6 +3,8 @@
 /obj/effect/step_trigger
 	var/affect_ghosts = 0
 	var/stopper = 1 // stops throwers
+	icon = 'icons/mob/screen/generic.dmi'
+	icon_state = "x2"
 	invisibility = 101 // nope cant see this shit
 	anchored = 1
 
