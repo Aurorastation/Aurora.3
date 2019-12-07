@@ -2133,7 +2133,7 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Long Bull Horns"
 			icon_state = "unathi_longhorn"
 			length = 5
-			chantame = "horns"
+			chatname = "horns"
 
 		una_faun
 			name = "Unathi Faun Horns"
