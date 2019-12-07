@@ -1,8 +1,0 @@
-author: JohnWildkins
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-changes: 
-  - backend: "Ported BS12 fixes for visualnets."
-  - bugfix: "Camera MIU and other non-AI eye mobs should no longer run into issues with obfuscation layers."
