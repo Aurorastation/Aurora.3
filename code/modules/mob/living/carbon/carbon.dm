@@ -49,6 +49,8 @@
 		if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
 			germ_level++
 
+		src.help_up_offer = 0
+
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
 	if((user in src.stomach_contents) && istype(user))
 		if(user.last_special <= world.time)
@@ -309,9 +311,10 @@
 											"<span class='notice'>You grab onto [src]'s hand and are hoisted up.</span>")
 						if(do_after(M, 0.5 SECONDS))
 							M.resting = 0
+							src.help_up_offer = 0
 					else
 						M.visible_message("<span class='warning'>[M] grabs onto [src], trying to pull themselves up.</span>", \
-											"span class='warning'>You grab onto [src], trying to pull yourself up.</span>")
+											"<span class='warning'>You grab onto [src], trying to pull yourself up.</span>")
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
