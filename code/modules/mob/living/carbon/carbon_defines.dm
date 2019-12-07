@@ -33,3 +33,5 @@
 
 	var/willfully_sleeping = 0
 	var/consume_nutrition_from_air = FALSE // used by Diona
+
+	var/help_up_offer = 0 //if they have their hand out to offer someone up from the ground.

@@ -288,15 +288,39 @@
 				else
 					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
 										"<span class='notice'>You shake [src], but they do not respond... Maybe they have S.S.D?</span>")
-			else if(lying || src.sleeping)
-				src.sleeping = max(0,src.sleeping-5)
-				if(src.sleeping == 0)
-					src.resting = 0
-				M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
-									"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
+			else if(lying)
+				if(src.sleeping)
+					src.sleeping = max(0,src.sleeping-5)
+					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
+										"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
+				else
+					M.help_up_offer = !M.help_up_offer
+					if(M.help_up_offer)
+						M.visible_message("<span class='notice'>[M] holds a hand out to [src].</span>", \
+											"<span class='notice'>You hold a hand out to [src].</span>")
+					else
+						M.visible_message("<span class='warning'>[M] retracts their hand from [src]'s direction.</span>", \
+											"<span class='warning'>You retract your hand from [src]'s direction.</span>")
 			else
 				var/mob/living/carbon/human/tapper = M
-				if(istype(tapper))
+				if(M.resting)
+					if(src.help_up_offer)
+						M.visible_message("<span class='notice'>[M] grabs onto [src]'s hand and is hoisted up.</span>", \
+											"<span class='notice'>You grab onto [src]'s hand and are hoisted up.</span>")
+						if(do_after(M, 0.5 SECONDS))
+							M.resting = 0
+					else
+						M.visible_message("<span class='warning'>[M] grabs onto [src], trying to pull themselves up.</span>", \
+											"span class='warning'>You grab onto [src], trying to pull yourself up.</span>")
+						if(M.fire_stacks >= (src.fire_stacks + 3))
+							src.adjust_fire_stacks(1)
+							M.adjust_fire_stacks(-1)
+						if(M.on_fire)
+							src.IgniteMob()
+						if(do_after(M, 5 SECONDS))
+							M.resting = 0
+
+				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
 					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
