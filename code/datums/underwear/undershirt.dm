@@ -308,6 +308,22 @@
 	name = "Shirt, Fleet Feminine"
 	icon_state = "shirt_fleet_fem"
 
+/datum/category_item/underwear/undershirt/shirt_necropolis
+	name = "Shirt, Necropolis Industries"
+	icon_state = "shirt_necropolis"
+
+/datum/category_item/underwear/undershirt/shirt_necropolis_fem
+	name = "Shirt, Necropolis Industries Feminine"
+	icon_state = "shirt_necropolis_fem"
+
+/datum/category_item/underwear/undershirt/shirt_epmc
+	name = "Shirt, EPMC"
+	icon_state = "shirt_epmc"
+
+/datum/category_item/underwear/undershirt/shirt_epmc_fem
+	name = "Shirt, EPMC Feminine"
+	icon_state = "shirt_epmc_fem"
+
 /datum/category_item/underwear/undershirt/polo
 	name = "Polo"
 	icon_state = "polo"

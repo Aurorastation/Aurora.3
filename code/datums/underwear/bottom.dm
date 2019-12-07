@@ -118,6 +118,14 @@
 	name = "Shorts, Fleet"
 	icon_state = "shorts_fleet"
 
+/datum/category_item/underwear/bottom/shorts_necropolis
+	name = "Shorts, Necropolis Industries"
+	icon_state = "shorts_necropolis"
+
+/datum/category_item/underwear/bottom/shorts_epmc
+	name = "Shorts, EPMC"
+	icon_state = "shorts_epmc"
+
 /datum/category_item/underwear/bottom/midway
 	name = "Midway Briefs"
 	icon_state = "midway"
