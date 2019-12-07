@@ -64,7 +64,7 @@
 	desc = "It's Officer Beep O'sky! Powered by a potato and a shot of whiskey."
 	auto_patrol = 1
 	on = TRUE
-	locked = 1
+	locked = TRUE
 
 /mob/living/bot/secbot/Initialize()
 	. = ..()
