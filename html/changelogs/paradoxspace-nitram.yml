@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "You can now toggle your hat item to layer under your hair."
   - rscadd: "Some tweaks to the Unathi bull horns sprite, as well as a longer version."
+  - bugfix: "Slight fixes on the forward demon horns. My bad."
