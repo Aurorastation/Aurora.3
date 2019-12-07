@@ -294,7 +294,7 @@
 				if(src.sleeping)
 					src.sleeping = max(0,src.sleeping-5)
 					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
-										"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
+										span("notice", "You shake [src] trying to wake [t_him] up!"))
 				else
 					M.help_up_offer = !M.help_up_offer
 					if(M.help_up_offer)
