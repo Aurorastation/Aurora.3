@@ -1,6 +1,10 @@
 /mob/living/simple_animal/hostile/republicon
 	name = "republican defensive robot"
 	desc = "An outdated defense drone commonly used by People's Republic of Adhomai Orbital Fleet."
+	description_fluff = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
+	blades,	ballistic rifles or rockets. Those machines are usually deployed in rare cases of boarding operations. They possess a rudimentary artificial intelligence and targeting system, \
+	being only capable of perfoming simple tasks outside of attacking. The People's Republic is unable to manufacture this kind of synthetics, but their fleet technicians can \
+	easily repair and reprogram them."
 	icon = 'icons/mob/npc/republicon.dmi'
 	icon_state = "republicon"
 	icon_living = "republicon"
@@ -18,6 +22,8 @@
 	stop_automated_movement_when_pulled = FALSE
 	health = 300
 	maxHealth = 300
+
+	destroy_surroundings = FALSE
 
 	universal_speak = TRUE
 	universal_understand = TRUE
@@ -67,7 +73,7 @@
 		var/mob/living/carbon/human/H = L
 		if(H.w_uniform)
 			var/obj/item/clothing/under/suit = H.w_uniform
-			if(locate(/obj/item/clothing/accessory/hadii_pin) in suit.accessories)
+			if((locate(/obj/item/clothing/accessory/hadii_pin) in suit.accessories) || (locate(/obj/item/clothing/accessory/badge/hadii_card) in suit.accessories))
 				return FALSE
 
 	if(!L.stat)
@@ -108,7 +114,7 @@
 
 	projectilesound = 'sound/weapons/gunshot/gunshot_saw.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle/a762
-	casingtype = /obj/item/ammo_casing/a762
+	casingtype = /obj/item/ammo_casing/a762/spent
 
 /mob/living/simple_animal/hostile/republicon/ranged/Initialize()
 	. = ..()

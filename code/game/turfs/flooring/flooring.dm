@@ -247,3 +247,36 @@ var/list/flooring_types
 	icon_base = "diamond"
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/diamond
+
+//Shuttle turfs
+
+/decl/flooring/shuttle
+	name = "shuttle floor"
+	desc = "Typical shuttle flooring."
+	icon = 'icons/turf/shuttle.dmi'
+	icon_base = "floor"
+	flags = TURF_ACID_IMMUNE
+	apply_thermal_conductivity = 0.025
+	apply_heat_capacity = 325000
+	can_paint = 1
+
+/decl/flooring/shuttle/yellow
+	icon_base = "floor2"
+
+/decl/flooring/shuttle/white
+	icon_base = "floor3"
+
+/decl/flooring/shuttle/red
+	icon_base = "floor4"
+
+/decl/flooring/shuttle/dark_red
+	icon_base = "floor6"
+
+/decl/flooring/shuttle/black
+	icon_base = "floor7"
+
+/decl/flooring/shuttle/tan
+	icon_base = "floor8"
+
+/decl/flooring/shuttle/dark_blue
+	icon_base = "floor9"

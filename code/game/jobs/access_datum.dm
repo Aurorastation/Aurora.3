@@ -482,6 +482,12 @@ var/const/access_journalist = 70//journalist's office access
 	desc = "Tau Ceti Foreign Legion Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
+var/const/access_distress = 112
+/datum/access/distress
+	id = access_distress
+	desc = "General ERT Base Access"
+	access_type = ACCESS_TYPE_CENTCOM
+
 /***************
 * Antag access *
 ***************/

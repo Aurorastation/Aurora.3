@@ -52,9 +52,9 @@ datum/preferences
 	var/b_facial = 0					//Face hair color
 	var/s_tone = 0						//Skin tone
 	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
-	var/r_skin = 0						//Skin color
-	var/g_skin = 0						//Skin color
-	var/b_skin = 0						//Skin color
+	var/r_skin = 37						//Skin color
+	var/g_skin = 3						//Skin color
+	var/b_skin = 2						//Skin color
 	var/eyes_colour = "#000000"			//Eye colour hex value, for SQL loading
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
@@ -127,6 +127,7 @@ datum/preferences
 	// SPAAAACE
 	var/parallax_speed = 2
 	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -311,9 +312,9 @@ datum/preferences
 		character.dna.real_name = character.real_name
 
 	character.flavor_texts["general"] = flavor_texts["general"]
-	character.flavor_texts["head"] = flavor_texts["head"]
+	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
 	character.flavor_texts["face"] = flavor_texts["face"]
-	character.flavor_texts["eyes"] = flavor_texts["eyes"]
+	character.flavor_texts[BP_EYES] = flavor_texts[BP_EYES]
 	character.flavor_texts["torso"] = flavor_texts["torso"]
 	character.flavor_texts["arms"] = flavor_texts["arms"]
 	character.flavor_texts["hands"] = flavor_texts["hands"]

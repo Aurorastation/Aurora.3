@@ -77,6 +77,51 @@
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
 	regenerate_icons()
 
+/mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
+	..()
+
+/mob/living/carbon/slime/metal/Initialize(mapload, colour = "metal")
+	..()
+
+/mob/living/carbon/slime/orange/Initialize(mapload, colour = "orange")
+	..()
+
+/mob/living/carbon/slime/blue/Initialize(mapload, colour = "blue")
+	..()
+
+/mob/living/carbon/slime/dark_blue/Initialize(mapload, colour = "dark blue")
+	..()
+
+/mob/living/carbon/slime/dark_purple/Initialize(mapload, colour = "dark purple")
+	..()
+
+/mob/living/carbon/slime/yellow/Initialize(mapload, colour = "yellow")
+	..()
+
+/mob/living/carbon/slime/silver/Initialize(mapload, colour = "silver")
+	..()
+
+/mob/living/carbon/slime/pink/Initialize(mapload, colour = "pink")
+	..()
+
+/mob/living/carbon/slime/red/Initialize(mapload, colour = "red")
+	..()
+
+/mob/living/carbon/slime/gold/Initialize(mapload, colour = "gold")
+	..()
+
+/mob/living/carbon/slime/green/Initialize(mapload, colour = "green")
+	..()
+
+/mob/living/carbon/slime/oil/Initialize(mapload, colour = "oil")
+	..()
+
+/mob/living/carbon/slime/adamantine/Initialize(mapload, colour = "adamantine")
+	..()
+
+/mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
+	..()
+
 /mob/living/carbon/slime/movement_delay()
 	if (bodytemperature >= 330.23) // 135 F
 		return -1	// slimes become supercharged at high temperatures
@@ -269,7 +314,7 @@
 		if (I_GRAB)
 			if (M == src || anchored)
 				return
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
 			M.put_in_active_hand(G)
 

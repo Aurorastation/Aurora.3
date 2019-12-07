@@ -56,14 +56,13 @@
 	var/mail_destination = ""
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
-	var/module_type = /obj/item/weapon/robot_module/drone
+	var/module_type = /obj/item/robot_module/drone
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
-	var/range_limit = 1
 	var/hacked = FALSE
 
-	holder_type = /obj/item/weapon/holder/drone
+	holder_type = /obj/item/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -101,13 +100,12 @@
 /mob/living/silicon/robot/drone/construction
 	icon_state = "constructiondrone"
 	law_type = /datum/ai_laws/construction_drone
-	module_type = /obj/item/weapon/robot_module/drone/construction
+	module_type = /obj/item/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
-	holder_type = /obj/item/weapon/holder/drone/heavy
-	range_limit = 0
+	holder_type = /obj/item/holder/drone/heavy
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
@@ -174,7 +172,7 @@
 	updateicon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
-/mob/living/silicon/robot/drone/attackby(var/obj/item/weapon/W, var/mob/user)
+/mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
 
 	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
 		if(hat)
@@ -192,7 +190,7 @@
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
 		return
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 
 		if(stat == 2)
 
@@ -282,6 +280,12 @@
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
+	var/turf/T = get_turf(src)
+	var/area/A = get_area(T)
+	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
+		to_chat(src,"WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated.")
+		gib()
+		return
 	return
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
@@ -297,11 +301,7 @@
 //Standard robots use config for crit, which is somewhat excessive for these guys.
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
-	var/turf/T = get_turf(src)
-	var/area/A = get_area(T)
-	if((!T || health <= -maxHealth || (range_limit && !(A in the_station_areas))) && src.stat != DEAD)
-		timeofdeath = world.time
-		death() //Possibly redundant, having trouble making death() cooperate.
+	if(health <= -maxHealth && src.stat != DEAD)
 		gib()
 		return
 	..()
@@ -412,6 +412,17 @@
 /mob/living/silicon/robot/drone/construction/updatename()
 	real_name = "construction drone ([rand(100,999)])"
 	name = real_name
+
+/mob/living/silicon/robot/drone/construction/process_level_restrictions()
+	//Abort if they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	//Check if they are not on station level -> abort
+	var/turf/T = get_turf(src)
+	if (!T || isNotStationLevel(T.z))
+		return
+	to_chat(src,"WARNING: Lost contact with controller. Anti-Theft mode activated.")
+	gib()
 
 /proc/too_many_active_drones()
 	var/drones = 0

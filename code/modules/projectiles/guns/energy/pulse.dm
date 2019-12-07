@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/pulse
+/obj/item/gun/energy/pulse
 	name = "pulse carbine"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. Because of its complexity and cost, it is rarely seen in use except by specialists."
 	icon_state = "pulse_carbine"
@@ -23,7 +23,7 @@
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
 		)
 
-/obj/item/weapon/gun/energy/pulse/mounted
+/obj/item/gun/energy/pulse/mounted
 	name = "mounted pulse carbine"
 	charge_cost = 400
 	self_recharge = 1
@@ -31,7 +31,7 @@
 	recharge_time = 10
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/pulse/pistol
+/obj/item/gun/energy/pulse/pistol
 	name = "pulse pistol"
 	desc = "A weapon that uses advanced pulse-based beam generation technology to emit powerful laser blasts. This one is a really compact model."
 	slot_flags = SLOT_BELT|SLOT_HOLSTER

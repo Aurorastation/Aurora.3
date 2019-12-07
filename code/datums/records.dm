@@ -70,7 +70,7 @@
 	var/age = 0
 	var/sex = "Unknown"
 	var/fingerprint = "Unknown"
-	var/phisical_status = "Active"
+	var/physical_status = "Active"
 	var/mental_status = "Stable"
 	var/species = "Unknown"
 	var/citizenship = "Unknown"

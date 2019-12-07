@@ -78,10 +78,6 @@
 			makepowernets()
 			powernet_update_queued = FALSE
 
-		if (cameranet.cameras_unsorted)
-			sortTim(cameranet.cameras, /proc/cmp_camera)
-			cameranet.cameras_unsorted = FALSE
-
 	var/list/curr_machinery = working_machinery
 	var/list/curr_powersinks = working_powersinks
 

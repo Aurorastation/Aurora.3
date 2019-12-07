@@ -2,7 +2,7 @@
 	name = "pAI"
 	icon = 'icons/mob/npc/pai.dmi'
 	icon_state = "repairbot"
-	holder_type = /obj/item/weapon/holder/pai/drone
+	holder_type = /obj/item/holder/pai/drone
 
 	emote_type = 2		// pAIs emotes are heard, not seen, so they can be seen through a container (eg. person)
 	pass_flags = PASSTABLE | PASSDOORHATCH
@@ -30,11 +30,11 @@
 		)
 
 	var/global/list/pai_holder_types = list(
-		"Drone" = /obj/item/weapon/holder/pai/drone,
-		"Cat" = /obj/item/weapon/holder/pai/cat,
-		"Rat" = /obj/item/weapon/holder/pai/rat,
-		"Monkey" = /obj/item/weapon/holder/pai/monkey,
-		"Rabbit" = /obj/item/weapon/holder/pai/rabbit
+		"Drone" = /obj/item/holder/pai/drone,
+		"Cat" = /obj/item/holder/pai/cat,
+		"Rat" = /obj/item/holder/pai/rat,
+		"Monkey" = /obj/item/holder/pai/monkey,
+		"Rabbit" = /obj/item/holder/pai/rabbit
 		)
 
 	var/global/list/possible_say_verbs = list(
@@ -46,8 +46,8 @@
 		"Rodent" = list("squeaks","squeals","squeeks")
 		)
 
-	var/obj/item/weapon/pai_cable/cable		// The cable we produce and use when door or camera jacking
-	idcard_type = /obj/item/weapon/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
+	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
+	idcard_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -157,7 +157,7 @@
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
 		possible_chassis["Custom"] = "[sprite.paiicon]"
-		pai_holder_types["Custom"] = /obj/item/weapon/holder/pai/custom
+		pai_holder_types["Custom"] = /obj/item/holder/pai/custom
 		icon = CUSTOM_ITEM_SYNTH
 	else
 		return
@@ -420,7 +420,7 @@
 	// Pass lying down or getting up to our pet human, if we're in a rig.
 	if(istype(src.loc,/obj/item/device/paicard))
 		resting = 0
-		var/obj/item/weapon/rig/rig = src.get_rig()
+		var/obj/item/rig/rig = src.get_rig()
 		if(istype(rig))
 			rig.force_rest(src)
 	else
@@ -431,7 +431,7 @@
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
-/mob/living/silicon/pai/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/mob/living/silicon/pai/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.force)
 		visible_message("<span class='danger'>[user.name] attacks [src] with [W]!</span>")
 		src.adjustBruteLoss(W.force)
@@ -467,7 +467,7 @@
 	resting = 0
 
 	// If we are being held, handle removing our holder from their inv.
-	var/obj/item/weapon/holder/H = loc
+	var/obj/item/holder/H = loc
 	if(istype(H))
 		var/mob/living/M = H.loc
 		if(istype(M))
@@ -489,7 +489,7 @@
 
 // Handle being picked up.
 /mob/living/silicon/pai/get_scooped(var/mob/living/carbon/grabber, var/self_drop)
-	var/obj/item/weapon/holder/H = ..(grabber, self_drop)
+	var/obj/item/holder/H = ..(grabber, self_drop)
 	if(!istype(H))
 		return
 	H.icon_state = "pai-[icon_state]"

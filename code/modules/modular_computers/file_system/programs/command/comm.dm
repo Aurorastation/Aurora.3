@@ -136,7 +136,7 @@
 		if("announce")
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 				if(user)
-					var/obj/item/weapon/card/id/id_card = user.GetIdCard()
+					var/obj/item/card/id/id_card = user.GetIdCard()
 					crew_announcement.announcer = GetNameAndAssignmentFromId(id_card)
 				else
 					crew_announcement.announcer = "Unknown"
@@ -368,10 +368,6 @@ Command action procs
 		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
 		return 0
 
-	if(deathsquad.deployed)
-		to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
-		return 0
-
 	if(emergency_shuttle.deny_shuttle)
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
@@ -414,10 +410,6 @@ Command action procs
 	if(!force)
 		if(emergency_shuttle.deny_shuttle)
 			to_chat(user, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later.")
-			return
-
-		if(deathsquad.deployed == 1)
-			to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 			return
 
 		if(world.time < 54000) // 30 minute grace period to let the game get going

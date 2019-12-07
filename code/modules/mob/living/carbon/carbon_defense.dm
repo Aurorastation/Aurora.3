@@ -126,14 +126,14 @@
 // Attacking someone with a weapon while they are neck-grabbed
 /mob/living/carbon/proc/check_attack_throat(obj/item/W, mob/user)
 	if(user.a_intent == I_HURT)
-		for(var/obj/item/weapon/grab/G in src.grabbed_by)
+		for(var/obj/item/grab/G in src.grabbed_by)
 			if(G.assailant == user && G.state >= GRAB_NECK)
 				if(attack_throat(W, G, user))
 					return 1
 	return 0
 
 // Knifing
-/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/weapon/grab/G, mob/user)
+/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/grab/G, mob/user)
 
 	if(!W.edge || !W.force || W.damtype != BRUTE)
 		return 0 //unsuitable weapon
@@ -156,7 +156,7 @@
 	var/total_damage = 0
 	for(var/i in 1 to 3)
 		var/damage = min(W.force*1.5, 20)*damage_mod
-		apply_damage(damage, W.damtype, "head", 0, sharp=W.sharp, edge=W.edge)
+		apply_damage(damage, W.damtype, BP_HEAD, 0, sharp=W.sharp, edge=W.edge)
 		total_damage += damage
 
 	var/oxyloss = total_damage
@@ -173,6 +173,12 @@
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, 50, 1, -1)
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/organ/external/head = H.get_organ("head")
+		if(head)
+			head.sever_artery()
 
 	G.last_action = world.time
 	flick(G.hud.icon_state, G.hud)

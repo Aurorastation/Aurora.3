@@ -1,4 +1,4 @@
-/obj/item/weapon/mining_scanner
+/obj/item/mining_scanner
 	name = "ore detector"
 	desc = "A complex device used to locate ore deep underground."
 	icon = 'icons/obj/device.dmi'
@@ -7,7 +7,7 @@
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 
-/obj/item/weapon/mining_scanner/attack_self(mob/user as mob)
+/obj/item/mining_scanner/attack_self(mob/user as mob)
 	to_chat(user, "You begin sweeping \the [src] about, scanning for metal deposits.")
 
 	if(!do_after(user, 50))
