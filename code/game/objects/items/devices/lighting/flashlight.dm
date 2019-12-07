@@ -100,7 +100,7 @@
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
-	item_state = ""
+	item_state = "pen"
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
