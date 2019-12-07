@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Shaking people on the floor now has you offer a hand out to them like a true civilised person. The person on the floor must click on that civilised person with help intent to be helped up. Clicking on them with harm intent has you performing a show of independence."
+  - tweak: "Shaking people on the floor now has you offer a hand out to them like a true civilised person. The person on the floor must click on that civilised person with help intent to be helped up."
