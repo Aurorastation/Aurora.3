@@ -382,6 +382,7 @@
 	id = "diphenhydramine"
 	result = "diphenhydramine"
 	required_reagents = list("cryptobiolin" = 1, "norepinephrine" = 1)
+	result_amount = 2
 
 /datum/chemical_reaction/ondansetron
 	name = "Ondansetron"
@@ -389,6 +390,7 @@
 	result = "ondansetron"
 	required_reagents = list("diphenhydramine" = 1, "synaptizine" = 1, "water" = 3)
 	catalysts = list("tungsten" = 5)
+	result_amount = 3
 
 /datum/chemical_reaction/imidazoline
 	name = "imidazoline"

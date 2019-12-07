@@ -595,7 +595,7 @@
 	else
 		M.apply_effect(agony_amount, AGONY, 0)
 		if(prob(5))
-			M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
+			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
@@ -671,8 +671,8 @@
 	else if(!no_pain)
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
-			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
-		M.apply_effect(40, AGONY, 0)
+			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
+		M.apply_effect(40, HALLOSS, 0)
 
 /datum/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -682,7 +682,7 @@
 	if(dose == metabolism)
 		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
-		M.apply_effect(4, AGONY, 0)
+		M.apply_effect(4, HALLOSS, 0)
 		if(prob(5))
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -3878,7 +3878,7 @@
 		else
 			M.apply_effect(agony_amount, AGONY, 0)
 			if(prob(5))
-				M.custom_emote(2, "[pick("dry heaves!","coughs!","splutters!")]")
+				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
