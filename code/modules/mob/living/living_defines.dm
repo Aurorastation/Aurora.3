@@ -78,3 +78,5 @@
 
 	var/burn_mod = 1
 	var/brute_mod = 1
+
+	var/limb_breaking = FALSE // used to limit people from queuing up limb-breaks

@@ -1,5 +1,5 @@
 //Made KAs
-/obj/item/weapon/gun/custom_ka/frame01
+/obj/item/gun/custom_ka/frame01
 	name = "compact kinetic accelerator frame"
 	build_name = "compact"
 	icon_state = "frame01"
@@ -10,7 +10,7 @@
 	mod_limit_increase = 2
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
 
-/obj/item/weapon/gun/custom_ka/frame02
+/obj/item/gun/custom_ka/frame02
 	name = "light kinetic accelerator frame"
 	build_name = "light"
 	icon_state = "frame02"
@@ -22,7 +22,7 @@
 	mod_limit_increase = 3
 	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 3)
 
-/obj/item/weapon/gun/custom_ka/frame03
+/obj/item/gun/custom_ka/frame03
 	name = "medium kinetic accelerator frame"
 	build_name = "medium"
 	icon_state = "frame03"
@@ -34,7 +34,7 @@
 	mod_limit_increase = 4
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
 
-/obj/item/weapon/gun/custom_ka/frame04
+/obj/item/gun/custom_ka/frame04
 	name = "heavy kinetic accelerator frame"
 	build_name = "heavy"
 	icon_state = "frame04"
@@ -47,7 +47,7 @@
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
 	require_wield = TRUE
 
-/obj/item/weapon/gun/custom_ka/frame05
+/obj/item/gun/custom_ka/frame05
 	name = "tactical kinetic accelerator frame"
 	build_name = "tactical"
 	icon_state = "frame05"
@@ -60,7 +60,7 @@
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	require_wield = TRUE
 
-/obj/item/weapon/gun/custom_ka/cyborg
+/obj/item/gun/custom_ka/cyborg
 	name = "cyborg kinetic accelerator"
 	build_name = "cyborg compatible"
 	icon_state = "frame_cyborg"
@@ -75,7 +75,7 @@
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cyborg
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel01
 
-/obj/item/weapon/gun/custom_ka/frameA
+/obj/item/gun/custom_ka/frameA
 	name = "vented kinetic accelerator frame"
 	build_name = "vented"
 	icon_state = "frameA"
@@ -92,7 +92,7 @@
 	mod_limit_increase = 4
 	aoe_increase = 0
 
-/obj/item/weapon/gun/custom_ka/frameB
+/obj/item/gun/custom_ka/frameB
 	name = "ultra heavy kinetic accelerator frame"
 	build_name = "ultra heavy"
 	icon_state = "frameB"
@@ -108,7 +108,7 @@
 	require_wield = TRUE
 	slot_flags = 0
 
-/obj/item/weapon/gun/custom_ka/frameC
+/obj/item/gun/custom_ka/frameC
 	name = "vaurca kinetic accelerator frame"
 	build_name = "vaurca"
 	icon_state = "frameC"
@@ -120,7 +120,7 @@
 	mod_limit_increase = 5
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
 
-/obj/item/weapon/gun/custom_ka/frameD
+/obj/item/gun/custom_ka/frameD
 	name = "burst fire kinetic accelerator frame"
 	build_name = "burst-fire"
 	icon_state = "frameD"
@@ -135,7 +135,7 @@
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	require_wield = TRUE
 
-/obj/item/weapon/gun/custom_ka/frameE
+/obj/item/gun/custom_ka/frameE
 	name = "large kinetic accelerator frame"
 	build_name = "large"
 	icon_state = "frameE"
@@ -148,7 +148,7 @@
 	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	require_wield = TRUE
 
-/obj/item/weapon/gun/custom_ka/frameF
+/obj/item/gun/custom_ka/frameF
 	name = "long kinetic accelerator frame"
 	build_name = "long"
 	icon_state = "frameF"
@@ -164,73 +164,73 @@
 
 //Built KAs
 
-/obj/item/weapon/gun/custom_ka/frame01/prebuilt
+/obj/item/gun/custom_ka/frame01/prebuilt
 	name = "class E kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell01
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel01
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
 
-/obj/item/weapon/gun/custom_ka/frame02/prebuilt
+/obj/item/gun/custom_ka/frame02/prebuilt
 	name = "class D kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell02
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/firerate
 
-/obj/item/weapon/gun/custom_ka/frame03/prebuilt
+/obj/item/gun/custom_ka/frame03/prebuilt
 	name = "class C kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell03
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel03
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
 
-/obj/item/weapon/gun/custom_ka/frame04/prebuilt
+/obj/item/gun/custom_ka/frame04/prebuilt
 	name = "class B kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell04
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/effeciency
 
-/obj/item/weapon/gun/custom_ka/frame04/illegal
+/obj/item/gun/custom_ka/frame04/illegal
 	name = "illegal kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/illegal
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/illegal
 
-/obj/item/weapon/gun/custom_ka/frame05/prebuilt
+/obj/item/gun/custom_ka/frame05/prebuilt
 	name = "class A kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell05
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel05
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
 
-/obj/item/weapon/gun/custom_ka/frame01/illegal
+/obj/item/gun/custom_ka/frame01/illegal
 	name = "illegal kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/illegal
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/illegal
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/illegal
 
-/obj/item/weapon/gun/custom_ka/frameA/prebuilt
+/obj/item/gun/custom_ka/frameA/prebuilt
 	installed_cell = /obj/item/custom_ka_upgrade/cells/kinetic_charging
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02_alt
 
-/obj/item/weapon/gun/custom_ka/frameB/prebuilt
+/obj/item/gun/custom_ka/frameB/prebuilt
 	installed_cell = /obj/item/custom_ka_upgrade/cells/loader
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/phoron
 
-/obj/item/weapon/gun/custom_ka/frameC/prebuilt
+/obj/item/gun/custom_ka/frameC/prebuilt
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell03
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel03
 
-/obj/item/weapon/gun/custom_ka/frameD/prebuilt
+/obj/item/gun/custom_ka/frameD/prebuilt
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell03
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
 
-/obj/item/weapon/gun/custom_ka/frameE/prebuilt //ADMIN SPAWN ONLY
+/obj/item/gun/custom_ka/frameE/prebuilt //ADMIN SPAWN ONLY
 	installed_cell = /obj/item/custom_ka_upgrade/cells/loader/uranium
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/supermatter
 
-/obj/item/weapon/gun/custom_ka/frameF/prebuilt01
+/obj/item/gun/custom_ka/frameF/prebuilt01
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell04
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
 
-/obj/item/weapon/gun/custom_ka/frameF/prebuilt02
+/obj/item/gun/custom_ka/frameF/prebuilt02
 	installed_cell = /obj/item/custom_ka_upgrade/cells/loader/hydrogen
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/capacity

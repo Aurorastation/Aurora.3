@@ -14,6 +14,7 @@
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength)
+		M.add_chemical_effect(CE_TOXIN, 1)
 		M.adjustToxLoss(strength * removed)
 
 /datum/reagent/toxin/plasticide
@@ -58,6 +59,7 @@
 	taste_description = "stinging needles"
 
 /datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustHalLoss(removed*15)
 
 /datum/reagent/toxin/phoron
@@ -76,7 +78,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
-		var/obj/item/organ/parasite/PA = H.internal_organs_by_name["blackkois"]
+		var/obj/item/organ/internal/parasite/PA = H.internal_organs_by_name["blackkois"]
 		if((istype(PA) && PA.stage >= 3))
 			H.heal_organ_damage(2 * removed, 2 * removed)
 			H.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
@@ -112,7 +114,7 @@
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/parasite/P = H.internal_organs_by_name["blackkois"]
+		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 			return
 
@@ -150,8 +152,9 @@
 	if(!istype(M))
 		return
 
-	var/obj/item/organ/parasite/P = M.internal_organs_by_name["blackkois"]
+	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
+		M.add_chemical_effect(CE_TOXIN, 1)
 		M.adjustToxLoss(removed * strength*2)
 	else
 		M.adjustToxLoss(removed * strength)
@@ -161,10 +164,20 @@
 	holder.remove_reagent(conflicting.id, amount)
 
 /datum/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
-
 	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(amount*10)
+	if(amount >= 10)
+		for(var/obj/item/reagent_containers/food/snacks/grown/K in T)
+			if((K.plantname == "koisspore" || K.plantname == "blackkois") || (K.name == "kois" || K.name == "black kois"))
+				qdel(K)
+		for(var/obj/machinery/portable_atmospherics/hydroponics/H in T)
+			if(((H.name == "kois" || H.name == "black kois") || H.seed == /datum/seed/koisspore) && !(H.closed_system))
+				H.health = 0 // kill this boi - geeves
+				H.force_update = TRUE // and quick
+				H.process()
+				if(istype(H, /obj/machinery/portable_atmospherics/hydroponics/soil/invisible))
+					qdel(H)
 
 	var/datum/gas_mixture/environment = T.return_air()
 	environment.adjust_gas("phoron",-amount*10)
@@ -433,6 +446,7 @@
 		return
 	if(prob(10))
 		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
+		M.add_chemical_effect(CE_TOXIN, 10)
 		M.adjustToxLoss(rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
@@ -491,6 +505,7 @@
 		M.sleeping = max(M.sleeping, 30)
 
 	if(dose > 1)
+		M.add_chemical_effect(CE_TOXIN, 2)
 		M.adjustToxLoss(removed)
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
@@ -543,7 +558,7 @@
 	M.cut_overlays()
 	M.invisibility = 101
 	for(var/obj/item/W in M)
-		if(istype(W, /obj/item/weapon/implant)) //TODO: Carn. give implants a dropped() or something
+		if(istype(W, /obj/item/implant)) //TODO: Carn. give implants a dropped() or something
 			qdel(W)
 			continue
 		W.layer = initial(W.layer)
@@ -601,13 +616,13 @@
 
 /datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
-		var/obj/item/organ/H = M.internal_organs_by_name["heart"]
+		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		if(istype(H))
 			H.take_damage(removed * strength * 0.5,1)
-		var/obj/item/organ/L = M.internal_organs_by_name["lungs"]
+		var/obj/item/organ/L = M.internal_organs_by_name[BP_LUNGS]
 		if(istype(L))
 			L.take_damage(removed * strength,1)
-		var/obj/item/organ/A = M.internal_organs_by_name["liver"]
+		var/obj/item/organ/A = M.internal_organs_by_name[BP_LIVER]
 		if(istype(A))
 			A.take_damage(removed * strength * 0.25,1)
 
@@ -685,12 +700,12 @@
 			return
 
 		if(!H.internal_organs_by_name["zombie"] && prob(15))
-			var/obj/item/organ/external/affected = H.get_organ("chest")
-			var/obj/item/organ/parasite/zombie/infest = new()
+			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
 
 		if(H.species.zombie_type)
-			if(!H.internal_organs_by_name["brain"])	//destroying the brain stops trioxin from bringing the dead back to life
+			if(!H.internal_organs_by_name[BP_BRAIN])	//destroying the brain stops trioxin from bringing the dead back to life
 				return
 
 			if(H && H.stat != DEAD)
@@ -708,3 +723,33 @@
 			H.change_skin_color(r, g, b)
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+
+
+			
+/datum/reagent/toxin/dextrotoxin
+	name = "Dextrotoxin"
+	id = "dextrotoxin"
+	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
+	reagent_state = LIQUID
+	color = "#002067"
+	metabolism = REM * 0.2
+	strength = 0
+	taste_description = "danger"
+
+/datum/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
+		return
+	if (!(CE_UNDEXTROUS in M.chem_effects))
+		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		M.confused = max(M.confused, 250)
+	M.add_chemical_effect(CE_UNDEXTROUS, 1)
+	if(dose > 0.2)	
+		M.Weaken(10)
+
+/datum/reagent/toxin/dextrotoxin/Destroy()
+	if(holder && holder.my_atom && ismob(holder.my_atom))
+		var/mob/M = holder.my_atom
+		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))
+	return ..()

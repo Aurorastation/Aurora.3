@@ -388,7 +388,7 @@
 				"phoron" = list(8))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "koisspore"
-	mutants = list("blackkois")
+	mutants = null
 
 /datum/seed/koisspore/setup_traits()
 	..()
@@ -769,7 +769,7 @@
 	seed_name = "banana"
 	display_name = "banana tree"
 	chems = list("banana" = list(10,10))
-	trash_type = /obj/item/weapon/bananapeel
+	trash_type = /obj/item/bananapeel
 	kitchen_tag = "banana"
 
 /datum/seed/banana/setup_traits()
@@ -792,7 +792,7 @@
 	display_name = "ears of corn"
 	chems = list("nutriment" = list(1,10), "cornoil" = list(1,10))
 	kitchen_tag = "corn"
-	trash_type = /obj/item/weapon/corncob
+	trash_type = /obj/item/corncob
 
 /datum/seed/corn/setup_traits()
 	..()

@@ -9,6 +9,7 @@
 	S["html_UI_style"]  >> pref.html_UI_style
 	S["skin_theme"]  >> pref.skin_theme
 	S["ooccolor"]       >> pref.ooccolor
+	S["clientfps"]			>> pref.clientfps
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
 	S["UI_style"]       << pref.UI_style
@@ -17,6 +18,7 @@
 	S["html_UI_style"]  << pref.html_UI_style
 	S["skin_theme"]  << pref.skin_theme
 	S["ooccolor"]       << pref.ooccolor
+	S["clientfps"]			<< pref.clientfps
 
 /datum/category_item/player_setup_item/player_global/ui/gather_load_query()
 	return list(
@@ -27,7 +29,8 @@
 				"UI_style_alpha",
 				"html_UI_style",
 				"skin_theme",
-				"ooccolor"
+				"ooccolor",
+				"clientfps"
 			),
 			"args" = list("ckey")
 		)
@@ -45,6 +48,7 @@
 			"html_UI_style",
 			"skin_theme",
 			"ooccolor",
+			"clientfps",
 			"ckey" = 1
 		)
 	)
@@ -57,13 +61,15 @@
 		"UI_style" = pref.UI_style,
 		"html_UI_style" = pref.html_UI_style,
 		"skin_theme" = pref.skin_theme,
-		"ooccolor" = pref.ooccolor
+		"ooccolor" = pref.ooccolor,
+		"clientfps" = pref.clientfps
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
 	pref.UI_style       = sanitize_inlist(pref.UI_style, all_ui_styles, initial(pref.UI_style))
 	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
 	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
+	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
 	pref.html_UI_style       = sanitize_inlist(pref.html_UI_style, SStheming.available_html_themes, initial(pref.html_UI_style))
 	pref.skin_theme       = sanitize_inlist(pref.skin_theme, SStheming.skin_themes, initial(pref.skin_theme))
 	pref.ooccolor       = sanitize_hexcolor(pref.ooccolor, initial(pref.ooccolor))
@@ -77,6 +83,7 @@
 	dat += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
 	dat += "<b>HTML UI Style:</b> <a href='?src=\ref[src];select_html=1'><b>[pref.html_UI_style]</b></a><br>"
 	dat += "<b>Main UI Style:</b> <a href='?src=\ref[src];select_skin_theme=1'><b>[pref.skin_theme]</b></a><br>"
+	dat += "-FPS: <a href='?src=\ref[src];select_fps=1'><b>[pref.clientfps]</b></a> - <a href='?src=\ref[src];reset=fps'>reset</a><br>"
 	if(can_select_ooc_color(user))
 		dat += "<b>OOC Color:</b> "
 		if(pref.ooccolor == initial(pref.ooccolor))
@@ -125,6 +132,17 @@
 			pref.ooccolor = new_ooccolor
 			return TOPIC_REFRESH
 
+	else if ("select_fps")
+		#if DM_VERSION >= 511
+		var/desiredfps = input(user, "Choose your desired fps.\n(0 = synced with server tick rate (currently:[world.fps]))", "Character Preference")  as null|num
+		pref.clientfps = sanitize_integer(desiredfps, 0, 1000, initial(pref.clientfps))
+		user.client.fps = pref.clientfps
+		#else
+		to_user_chat("\nThis server does not currently support client side fps. You can set now for when it does.")
+		#endif // DM_VERSION >= 511
+
+
+
 	else if(href_list["reset"])
 		switch(href_list["reset"])
 			if("ui")
@@ -133,6 +151,8 @@
 				pref.UI_style_alpha = initial(pref.UI_style_alpha)
 			if("ooc")
 				pref.ooccolor = initial(pref.ooccolor)
+			if("fps")
+				pref.clientfps = 0
 		return TOPIC_REFRESH
 
 	return ..()

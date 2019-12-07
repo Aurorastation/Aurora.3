@@ -6,7 +6,7 @@
 	//If a list of paths is supplied a random item from that list is selected
 	var/uniform = null
 	var/suit = null
-	var/back = null
+	var/back = null // Mutually exclusive with and will override backpack choices below. Use for RIGs, tanks, etc.
 	var/belt = null
 	var/gloves = null
 	var/shoes = null
@@ -26,6 +26,14 @@
 	var/id = null
 	var/pda = null
 
+	// Must be paths, used to allow player-pref backpack choice
+	var/allow_backbag_choice = FALSE
+	var/backpack = /obj/item/storage/backpack
+	var/satchel = /obj/item/storage/backpack/satchel_norm
+	var/satchel_alt = /obj/item/storage/backpack/satchel
+	var/dufflebag = /obj/item/storage/backpack/duffel
+	var/messengerbag = /obj/item/storage/backpack/messenger
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
@@ -34,6 +42,30 @@
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
+	if(allow_backbag_choice)
+		var/use_job_specific = H.backbag_style == 1
+		switch(H.backbag)
+			if (1)
+				back = null
+			if (2)
+				back = use_job_specific ? backpack : /obj/item/storage/backpack
+			if (3)
+				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
+			if (4)
+				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel
+			if (5)
+				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
+			if (6)
+				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
+			else
+				back = backpack //Department backpack
+	if(back)
+		equip_item(H, back, slot_back)
+
+	if(istype(H.back,/obj/item/storage/backpack))
+		var/obj/item/storage/backpack/B = H.back
+		B.autodrobe_no_remove = TRUE
+
 	return
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
@@ -78,7 +110,7 @@
 		else if(istype(A, /obj/item/clothing/accessory/holster))
 			var/obj/item/clothing/accessory/holster/holster = A
 			var/w_type = accessory_contents[1]
-			var/obj/item/weapon/W = new w_type(H.loc)
+			var/obj/item/W = new w_type(H.loc)
 			if(W)
 				holster.holster(W, H)
 
@@ -158,12 +190,12 @@
 
 		if(implants)
 			for(var/implant_type in implants)
-				var/obj/item/weapon/implant/I = new implant_type(H)
+				var/obj/item/implant/I = new implant_type(H)
 				if(I.implanted(H))
 					I.forceMove(H)
 					I.imp_in = H
 					I.implanted = 1
-					var/obj/item/organ/external/affected = H.get_organ("head")
+					var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
 					affected.implants += I
 					I.part = affected
 
@@ -209,7 +241,7 @@
 		H.r_store.add_fingerprint(H, 1)
 	return 1
 
-/datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/weapon/card/id/C)
+/datum/outfit/proc/imprint_idcard(mob/living/carbon/human/H, obj/item/card/id/C)
 	if(istype(C))
 		C.access = get_id_access(H)
 		C.rank = get_id_rank(H)
@@ -220,7 +252,7 @@
 			C.associated_account_number = H.mind.initial_account.account_number
 
 /datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/device/pda/PDA)
-	var/obj/item/weapon/card/id/C = PDA.id
+	var/obj/item/card/id/C = PDA.id
 	PDA.owner = H.real_name
 	if(istype(PDA) && istype(C))
 		PDA.ownjob = C.assignment

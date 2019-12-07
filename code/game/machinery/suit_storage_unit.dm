@@ -501,8 +501,8 @@
 		update_icon()
 		src.updateUsrDialog()
 		return
-	if ( istype(I, /obj/item/weapon/grab) )
-		var/obj/item/weapon/grab/G = I
+	if ( istype(I, /obj/item/grab) )
+		var/obj/item/grab/G = I
 		if( !(ismob(G.affecting)) )
 			return
 		if (!src.isopen)
@@ -712,6 +712,14 @@
 	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
+/obj/machinery/suit_cycler/science
+	name = "Research suit cycler"
+	model_text = "Research"
+	req_access = list(access_research)
+	departments = list("Research")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
 
@@ -727,8 +735,8 @@
 			attack_hand(user)
 		return
 	//Other interface stuff.
-	if(istype(I, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = I
+	if(istype(I, /obj/item/grab))
+		var/obj/item/grab/G = I
 
 		if(!(ismob(G.affecting)))
 			return
@@ -1118,6 +1126,15 @@
 				suit.name = "blood-red voidsuit"
 				suit.item_state = "syndie_voidsuit"
 				suit.icon_state = "rig-syndie"
+		if("Research")
+			if(helmet)
+				helmet.name = "research voidsuit helmet"
+				helmet.icon_state = "rig0-sci"
+				helmet.item_state = "research_voidsuit_helmet"
+			if(suit)
+				suit.name = "research voidsuit"
+				suit.item_state = "research_voidsuit"
+				suit.icon_state = "rig-sci"
 
 	if(helmet) helmet.name = "refitted [helmet.name]"
 	if(suit) suit.name = "refitted [suit.name]"

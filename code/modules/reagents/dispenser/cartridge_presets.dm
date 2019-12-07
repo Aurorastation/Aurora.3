@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/chem_disp_cartridge
+/obj/item/reagent_containers/chem_disp_cartridge
 	small
 		volume = CARTRIDGE_VOLUME_SMALL
 
@@ -63,13 +63,17 @@
 	lime		spawn_reagent = "limejuice"
 	watermelon	spawn_reagent = "watermelonjuice"
 	apple   	spawn_reagent = "applejuice"
+	banana  	spawn_reagent = "banana"
 
-	// Bar, coffee
+	// Bar, coffee and tea
 	coffee		spawn_reagent = "coffee"
 	espresso	spawn_reagent = "espresso"
 	cream		spawn_reagent = "cream"
 	milk		spawn_reagent = "milk"
 	soymilk		spawn_reagent = "soymilk"
+	greentea	spawn_reagent = "greentea"
+	chaitea		spawn_reagent = "chaitea"
+	ciderhot	spawn_reagent = "ciderhot"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"

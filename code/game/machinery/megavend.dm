@@ -35,7 +35,7 @@
 	if(H.megavend)
 		return
 
-	var/obj/item/weapon/storage/box/gearbox = new(null, TRUE)
+	var/obj/item/storage/box/gearbox = new(null, TRUE)
 	gearbox.name = "personal possessions box"
 	gearbox.desc = "All of the personal effects of [H.real_name], packaged neatly by the AutoDrobe."
 	for(var/obj/item/W in H.contents) //Strip 'em
@@ -53,8 +53,8 @@
 	H.megavend = 1
 
 	//Give them the box
-	if(istype(H.back,/obj/item/weapon/storage/backpack))
-		var/obj/item/weapon/storage/backpack/B = H.back
+	if(istype(H.back,/obj/item/storage/backpack))
+		var/obj/item/storage/backpack/B = H.back
 		if(!B.insert_into_storage(gearbox))
 			H.put_in_any_hand_if_possible(gearbox)
 	else		

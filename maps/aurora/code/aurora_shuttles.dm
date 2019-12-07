@@ -149,13 +149,20 @@
 
 	// Tau Ceti Foreign Legion
 
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/legion/centcom)
-	shuttle.area_station = locate(/area/shuttle/legion/station)
-	shuttles["Tau Ceti Foreign Legion"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	var/datum/shuttle/ferry/legion/legion = new()
+	legion = new()
+	legion.location = 1
+	legion.warmup_time = 10
+	legion.area_offsite = locate(/area/shuttle/legion/centcom)
+	legion.area_station = locate(/area/shuttle/legion/station)
+	legion.area_transition = locate(/area/shuttle/legion/transit)
+	legion.transit_direction = EAST
+	legion.move_time = 75
+	legion.docking_controller_tag = "legion_shuttle"
+	legion.dock_target_station = "legion_shuttle_dock"
+	legion.dock_target_offsite = "legion_hangar"
+	shuttles["Tau Ceti Foreign Legion"] = legion
+	START_PROCESSING(shuttle_controller, legion)
 
 	//Away Site shuttle.
 
@@ -168,3 +175,22 @@
 	shuttle.dock_target_station = "science_bridge"
 	shuttles["Research"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
+
+	// Distress Team Shuttle
+
+	var/datum/shuttle/ferry/multidock/distress = new()
+	distress.location = 1
+	distress.warmup_time = 10
+	distress.area_offsite = locate(/area/shuttle/distress/centcom)
+	distress.area_station = locate(/area/shuttle/distress/station)
+	distress.area_transition = locate(/area/shuttle/distress/transit)
+	distress.transit_direction = EAST
+	distress.move_time = 45
+	distress.docking_controller_tag = "distress_shuttle_aft"
+	distress.docking_controller_tag_station = "distress_shuttle_fore"
+	distress.docking_controller_tag_offsite = "distress_shuttle_aft"
+	distress.dock_target_station = "distress_shuttle_dock"
+	distress.dock_target_offsite = "distress_shuttle_origin"
+
+	shuttles["Distress"] = distress
+	START_PROCESSING(shuttle_controller, distress)

@@ -36,7 +36,7 @@
 
 	uniform =/obj/item/clothing/under/color/grey
 	shoes = /obj/item/clothing/shoes/brown
-	id = /obj/item/weapon/card/id/merchant
+	id = /obj/item/card/id/merchant
 	pda = /obj/item/device/pda/merchant
 	r_pocket = /obj/item/device/price_scanner
 

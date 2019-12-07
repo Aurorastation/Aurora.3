@@ -33,7 +33,7 @@
 
 /datum/autolathe/recipe/bucket
 	name = "bucket"
-	path = /obj/item/weapon/reagent_containers/glass/bucket
+	path = /obj/item/reagent_containers/glass/bucket
 	category = "General"
 
 /datum/autolathe/recipe/flashlight
@@ -48,7 +48,7 @@
 
 /datum/autolathe/recipe/extinguisher
 	name = "extinguisher"
-	path = /obj/item/weapon/extinguisher
+	path = /obj/item/extinguisher
 	category = "General"
 
 /datum/autolathe/recipe/jar
@@ -58,12 +58,12 @@
 
 /datum/autolathe/recipe/bowl
 	name = "bowl"
-	path = /obj/item/weapon/reagent_containers/glass/beaker/bowl
+	path = /obj/item/reagent_containers/glass/beaker/bowl
 	category = "General"
 
 /datum/autolathe/recipe/crowbar
 	name = "crowbar"
-	path = /obj/item/weapon/crowbar
+	path = /obj/item/crowbar
 	category = "Tools"
 
 /datum/autolathe/recipe/multitool
@@ -78,32 +78,32 @@
 
 /datum/autolathe/recipe/weldertool
 	name = "welding tool"
-	path = /obj/item/weapon/weldingtool
+	path = /obj/item/weldingtool
 	category = "Tools"
 
 /datum/autolathe/recipe/screwdriver
 	name = "screwdriver"
-	path = /obj/item/weapon/screwdriver
+	path = /obj/item/screwdriver
 	category = "Tools"
 
 /datum/autolathe/recipe/wirecutters
 	name = "wirecutters"
-	path = /obj/item/weapon/wirecutters
+	path = /obj/item/wirecutters
 	category = "Tools"
 
 /datum/autolathe/recipe/wrench
 	name = "wrench"
-	path = /obj/item/weapon/wrench
+	path = /obj/item/wrench
 	category = "Tools"
 
 /datum/autolathe/recipe/hatchet
 	name = "hatchet"
-	path = /obj/item/weapon/material/hatchet
+	path = /obj/item/material/hatchet
 	category = "Tools"
 
 /datum/autolathe/recipe/minihoe
 	name = "mini hoe"
-	path = /obj/item/weapon/material/minihoe
+	path = /obj/item/material/minihoe
 	category = "Tools"
 
 /datum/autolathe/recipe/radio_headset
@@ -147,17 +147,17 @@
 
 /datum/autolathe/recipe/knife
 	name = "kitchen knife"
-	path = /obj/item/weapon/material/knife
+	path = /obj/item/material/knife
 	category = "General"
 
 /datum/autolathe/recipe/drinking_glass
 	name = "drinking glass"
-	path = /obj/item/weapon/reagent_containers/food/drinks/drinkingglass
+	path = /obj/item/reagent_containers/food/drinks/drinkingglass
 	category = "General"
 
 /datum/autolathe/recipe/bottle
 	name = "bottle"
-	path = /obj/item/weapon/reagent_containers/food/drinks/bottle
+	path = /obj/item/reagent_containers/food/drinks/bottle
 	category = "General"
 
 /datum/autolathe/recipe/taperecorder
@@ -167,92 +167,92 @@
 
 /datum/autolathe/recipe/airlockmodule
 	name = "airlock electronics"
-	path = /obj/item/weapon/airlock_electronics
+	path = /obj/item/airlock_electronics
 	category = "Engineering"
 
 /datum/autolathe/recipe/airalarm
 	name = "air alarm electronics"
-	path = /obj/item/weapon/airalarm_electronics
+	path = /obj/item/airalarm_electronics
 	category = "Engineering"
 
 /datum/autolathe/recipe/firealarm
 	name = "fire alarm electronics"
-	path = /obj/item/weapon/firealarm_electronics
+	path = /obj/item/firealarm_electronics
 	category = "Engineering"
 
 /datum/autolathe/recipe/powermodule
 	name = "power control module"
-	path = /obj/item/weapon/module/power_control
+	path = /obj/item/module/power_control
 	category = "Engineering"
 
 /datum/autolathe/recipe/rfd_ammo
 	name = "compressed matter cartridge"
-	path = /obj/item/weapon/rfd_ammo
+	path = /obj/item/rfd_ammo
 	category = "Engineering"
 
 /datum/autolathe/recipe/scalpel
 	name = "scalpel"
-	path = /obj/item/weapon/scalpel
+	path = /obj/item/scalpel
 	category = "Medical"
 
 /datum/autolathe/recipe/circularsaw
 	name = "circular saw"
-	path = /obj/item/weapon/circular_saw
+	path = /obj/item/circular_saw
 	category = "Medical"
 
 /datum/autolathe/recipe/surgicaldrill
 	name = "surgical drill"
-	path = /obj/item/weapon/surgicaldrill
+	path = /obj/item/surgicaldrill
 	category = "Medical"
 
 /datum/autolathe/recipe/retractor
 	name = "retractor"
-	path = /obj/item/weapon/retractor
+	path = /obj/item/retractor
 	category = "Medical"
 
 /datum/autolathe/recipe/cautery
 	name = "cautery"
-	path = /obj/item/weapon/cautery
+	path = /obj/item/cautery
 	category = "Medical"
 
 /datum/autolathe/recipe/hemostat
 	name = "hemostat"
-	path = /obj/item/weapon/hemostat
+	path = /obj/item/hemostat
 	category = "Medical"
 
 /datum/autolathe/recipe/beaker
 	name = "glass beaker"
-	path = /obj/item/weapon/reagent_containers/glass/beaker
+	path = /obj/item/reagent_containers/glass/beaker
 	category = "Medical"
 
 /datum/autolathe/recipe/beaker_large
 	name = "large glass beaker"
-	path = /obj/item/weapon/reagent_containers/glass/beaker/large
+	path = /obj/item/reagent_containers/glass/beaker/large
 	category = "Medical"
 
 /datum/autolathe/recipe/vial
 	name = "glass vial"
-	path = /obj/item/weapon/reagent_containers/glass/beaker/vial
+	path = /obj/item/reagent_containers/glass/beaker/vial
 	category = "Medical"
 
 /datum/autolathe/recipe/autoinjector
 	name = "autoinjector"
-	path = /obj/item/weapon/reagent_containers/hypospray/autoinjector
+	path = /obj/item/reagent_containers/hypospray/autoinjector
 	category = "Medical"
 
 /datum/autolathe/recipe/autoinhaler
 	name = "autoinhaler"
-	path = /obj/item/weapon/reagent_containers/inhaler
+	path = /obj/item/reagent_containers/inhaler
 	category = "Medical"
 
 /datum/autolathe/recipe/syringe
 	name = "syringe"
-	path = /obj/item/weapon/reagent_containers/syringe
+	path = /obj/item/reagent_containers/syringe
 	category = "Medical"
 
 /datum/autolathe/recipe/syringegun_ammo
 	name = "syringe gun cartridge"
-	path = /obj/item/weapon/syringe_cartridge
+	path = /obj/item/syringe_cartridge
 	category = "Arms and Ammunition"
 
 /datum/autolathe/recipe/shotgun_blanks
@@ -292,7 +292,7 @@
 
 /datum/autolathe/recipe/consolescreen
 	name = "console screen"
-	path = /obj/item/weapon/stock_parts/console_screen
+	path = /obj/item/stock_parts/console_screen
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/igniter
@@ -322,22 +322,22 @@
 
 /datum/autolathe/recipe/tube
 	name = "light tube"
-	path = /obj/item/weapon/light/tube
+	path = /obj/item/light/tube
 	category = "General"
 
 /datum/autolathe/recipe/bulb
 	name = "light bulb"
-	path = /obj/item/weapon/light/bulb
+	path = /obj/item/light/bulb
 	category = "General"
 
 /datum/autolathe/recipe/ashtray_glass
 	name = "glass ashtray"
-	path = /obj/item/weapon/material/ashtray/glass
+	path = /obj/item/material/ashtray/glass
 	category = "General"
 
 /datum/autolathe/recipe/camera_assembly
 	name = "camera assembly"
-	path = /obj/item/weapon/camera_assembly
+	path = /obj/item/camera_assembly
 	category = "Engineering"
 
 /datum/autolathe/recipe/suit_cooling
@@ -347,7 +347,7 @@
 
 /datum/autolathe/recipe/emergency_cell
 	name = "miniature cell"
-	path = /obj/item/weapon/cell/device/emergency_light/empty
+	path = /obj/item/cell/device/emergency_light/empty
 	category = "Engineering"
 
 /datum/autolathe/recipe/cable_coil
@@ -358,7 +358,7 @@
 
 /datum/autolathe/recipe/labeler
 	name = "hand labeler"
-	path = /obj/item/weapon/hand_labeler
+	path = /obj/item/hand_labeler
 	category = "General"
 
 /datum/autolathe/recipe/destTagger
@@ -374,32 +374,32 @@
 // Basic Stock Parts for Engineering
 /datum/autolathe/recipe/micromanip
 	name = "micro-manipulator"
-	path = /obj/item/weapon/stock_parts/manipulator
+	path = /obj/item/stock_parts/manipulator
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/matterbin
 	name = "matter bin"
-	path = /obj/item/weapon/stock_parts/matter_bin
+	path = /obj/item/stock_parts/matter_bin
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/capacitor
 	name = "capacitor"
-	path = /obj/item/weapon/stock_parts/capacitor
+	path = /obj/item/stock_parts/capacitor
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/scanningmod
 	name = "scanning module"
-	path = /obj/item/weapon/stock_parts/scanning_module
+	path = /obj/item/stock_parts/scanning_module
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/microlaser
 	name = "micro-laser"
-	path = /obj/item/weapon/stock_parts/micro_laser
+	path = /obj/item/stock_parts/micro_laser
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/flamethrower
 	name = "flamethrower"
-	path = /obj/item/weapon/flamethrower/full
+	path = /obj/item/flamethrower/full
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -465,7 +465,7 @@
 
 /datum/autolathe/recipe/tacknife
 	name = "tactical knife"
-	path = /obj/item/weapon/material/knife/tacknife
+	path = /obj/item/material/knife/tacknife
 	hidden = 1
 	category = "Arms and Ammunition"
 
@@ -501,7 +501,7 @@
 
 /datum/autolathe/recipe/rfd_construction
 	name = "rapid-fabrication-device c-class"
-	path = /obj/item/weapon/rfd/construction
+	path = /obj/item/rfd/construction
 	hidden = 1
 	category = "Engineering"
 
@@ -513,18 +513,18 @@
 
 /datum/autolathe/recipe/trap
 	name = "mechanical trap"
-	path = /obj/item/weapon/trap
+	path = /obj/item/trap
 	hidden = 1
 	category = "Devices and Components"
 
 /datum/autolathe/recipe/welder_industrial
 	name = "industrial welding tool"
-	path = /obj/item/weapon/weldingtool/largetank
+	path = /obj/item/weldingtool/largetank
 	hidden = 1
 	category = "Tools"
 
 /datum/autolathe/recipe/handcuffs
 	name = "handcuffs"
-	path = /obj/item/weapon/handcuffs
+	path = /obj/item/handcuffs
 	hidden = 1
 	category = "General"

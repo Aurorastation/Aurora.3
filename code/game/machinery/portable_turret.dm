@@ -30,13 +30,14 @@
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
 
-	var/obj/item/weapon/gun/energy/installation = /obj/item/weapon/gun/energy/gun //the type of weapon installed
+	var/obj/item/gun/energy/installation = /obj/item/gun/energy/gun //the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
 	var/reqpower = 500		//holder for power needed
 	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
 	var/egun = 1			//holder to handle certain guns switching modes
 	var/sprite_set = "carbine"	//set of gun sprites the turret will use
 	var/cover_set = 0		//set of cover sprites the turret will use
+	var/name_override = FALSE
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
 	var/shot_delay = 15		//1.5 seconds between each shot
@@ -114,21 +115,22 @@
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
-	installation = /obj/item/weapon/gun/energy/laser
+	installation = /obj/item/gun/energy/laser
 	sprite_set = "laser"
 
 /obj/machinery/porta_turret/Initialize(mapload)
 	. = ..()
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
-	if(!istype(installation, /obj/item/weapon/gun/energy))
+	if(!istype(installation, /obj/item/gun/energy))
 		installation = new installation(src)
 	if(installation)
 		if(installation.fire_delay_wielded > 0)
 			shot_delay = max(installation.fire_delay_wielded, 4)
 		else
 			shot_delay = max(installation.fire_delay, 4)
-		name = "[installation.name] [name]"
+		if(!name_override)
+			name = "[installation.name] [name]"
 
 	var/area/control_area = get_area(src)
 	if(istype(control_area))
@@ -348,7 +350,7 @@
 				update_icon()
 		wrenching = 0
 
-	else if(istype(I, /obj/item/weapon/card/id) || istype(I, /obj/item/device/pda))
+	else if(istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
 		//Behavior lock/unlock mangement
 		if(allowed(user))
 			locked = !locked
@@ -358,7 +360,7 @@
 			to_chat(user, "<span class='notice'>Access denied.</span>")
 
 	else if(I.iswelder())
-		var/obj/item/weapon/weldingtool/WT = I
+		var/obj/item/weldingtool/WT = I
 		if (!WT.welding)
 			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
 			return
@@ -490,10 +492,6 @@
 		if(isliving(v))
 			var/mob/living/L = v
 			assess_and_assign(L, targets, secondarytargets)
-		else if(istype(v, /obj/mecha))
-			var/obj/mecha/M = v
-			if(M.occupant)
-				secondarytargets += M
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
@@ -682,14 +680,14 @@
 
 	update_icon()
 	var/obj/item/projectile/A
-	
+
 	if(emagged || lethal)
 		A = new eprojectile(loc)
 		playsound(loc, eshot_sound, 75, 1)
 	else
 		A = new projectile(loc)
 		playsound(loc, shot_sound, 75, 1)
-	
+
 	A.accuracy = max(installation.accuracy * 0.25 , installation.accuracy_wielded * 0.25, A.accuracy * 0.25)  // Because turrets should be better at shooting.
 
 	// Lethal/emagged turrets use twice the power due to higher energy beams
@@ -755,9 +753,9 @@
 	var/target_type = /obj/machinery/porta_turret	// The type we intend to build
 	var/build_step = 0			//the current step in the building process
 	var/finish_name = "turret"	//the name applied to the product turret
-	var/obj/item/weapon/gun/energy/installation = null		//the gun type installed
+	var/obj/item/gun/energy/installation = null		//the gun type installed
 	var/case_sprite_set = 0		//sprite set the turret case will use
-	var/obj/item/weapon/gun/energy/E = null
+	var/obj/item/gun/energy/E = null
 
 /obj/machinery/porta_turret_construct/dark
 	icon_state = "turret_frame_0_1"
@@ -811,7 +809,7 @@
 				return
 
 			else if(I.iswelder())
-				var/obj/item/weapon/weldingtool/WT = I
+				var/obj/item/weldingtool/WT = I
 				if(!WT.isOn())
 					return
 				if(WT.get_fuel() < 5) //uses up 5 fuel.
@@ -829,7 +827,7 @@
 
 
 		if(3)
-			if(istype(I, /obj/item/weapon/gun/energy)) //the gun installation part
+			if(istype(I, /obj/item/gun/energy)) //the gun installation part
 				E = I //typecasts the item to a gun
 				if(E.can_turret)
 					if(isrobot(user))
@@ -902,7 +900,7 @@
 
 		if(7)
 			if(I.iswelder())
-				var/obj/item/weapon/weldingtool/WT = I
+				var/obj/item/weldingtool/WT = I
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
@@ -957,7 +955,7 @@
 				add_overlay("turret_frame_5c_[case_sprite_set]")
 				return
 
-	if(istype(I, /obj/item/weapon/pen))	//you can rename turrets like bots!
+	if(I.ispen())	//you can rename turrets like bots!
 		var/t = sanitizeSafe(input(user, "Enter new turret name", name, finish_name) as text, MAX_NAME_LEN)
 		if(!t)
 			return
@@ -997,7 +995,7 @@
 //preset turrets
 
 /obj/machinery/porta_turret/xray
-	installation = /obj/item/weapon/gun/energy/xray
+	installation = /obj/item/gun/energy/xray
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1008,7 +1006,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/ion
-	installation = /obj/item/weapon/gun/energy/rifle/ionrifle
+	installation = /obj/item/gun/energy/rifle/ionrifle
 	lethal = 0
 	lethal_icon = 0
 	egun = 1
@@ -1021,7 +1019,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow
-	installation = /obj/item/weapon/gun/energy/crossbow
+	installation = /obj/item/gun/energy/crossbow
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1032,7 +1030,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon
-	installation = /obj/item/weapon/gun/energy/rifle/laser/heavy
+	installation = /obj/item/gun/energy/rifle/laser/heavy
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1043,7 +1041,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/pulse
-	installation = /obj/item/weapon/gun/energy/pulse
+	installation = /obj/item/gun/energy/pulse
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1055,7 +1053,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/sniper
-	installation = /obj/item/weapon/gun/energy/sniperrifle
+	installation = /obj/item/gun/energy/sniperrifle
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1067,7 +1065,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/net
-	installation = /obj/item/weapon/gun/energy/net
+	installation = /obj/item/gun/energy/net
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1078,7 +1076,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/thermal
-	installation = /obj/item/weapon/gun/energy/vaurca/thermaldrill
+	installation = /obj/item/gun/energy/vaurca/thermaldrill
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1089,7 +1087,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/meteor
-	installation = /obj/item/weapon/gun/energy/meteorgun
+	installation = /obj/item/gun/energy/meteorgun
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1101,7 +1099,7 @@
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/ballistic
-	installation = /obj/item/weapon/gun/energy/mountedsmg
+	installation = /obj/item/gun/energy/mountedsmg
 	lethal = 1
 	lethal_icon = 1
 	egun = 0
@@ -1112,6 +1110,24 @@
 	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
 
 	req_one_access = list(access_syndicate)
+
+/obj/machinery/porta_turret/legion
+	enabled = 0
+	use_power = 0
+	icon_state = "cover_legion"
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	installation = /obj/item/gun/energy/blaster/carbine
+	sprite_set = "blaster"
+	cover_set = "legion"
+	eprojectile = /obj/item/projectile/energy/blaster/heavy
+
+	check_arrest = 0
+	check_records = 0
+	check_access = 1
+	ailock = 1
+	req_one_access = list(access_legion)
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

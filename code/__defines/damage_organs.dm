@@ -37,6 +37,8 @@
 #define ORGAN_ASSISTED   (1<<8)
 #define ORGAN_ADV_ROBOT  (1<<9)
 #define ORGAN_PLANT      (1<<10)
+#define ORGAN_ARTERY_CUT (1<<11)
+#define ORGAN_TENDON_CUT (1<<12)
 
 #define DROPLIMB_EDGE 0
 #define DROPLIMB_BLUNT 1

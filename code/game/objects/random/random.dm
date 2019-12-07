@@ -60,11 +60,11 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder_off"
 	spawnlist = list(
-		/obj/item/weapon/screwdriver,
-		/obj/item/weapon/wirecutters,
-		/obj/item/weapon/weldingtool,
-		/obj/item/weapon/crowbar,
-		/obj/item/weapon/wrench,
+		/obj/item/screwdriver,
+		/obj/item/wirecutters,
+		/obj/item/weldingtool,
+		/obj/item/crowbar,
+		/obj/item/wrench,
 		/obj/item/device/flashlight
 	)
 
@@ -85,11 +85,11 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "cell"
 	problist = list(
-		/obj/item/weapon/cell/crap = 10,
-		/obj/item/weapon/cell = 40,
-		/obj/item/weapon/cell/high = 40,
-		/obj/item/weapon/cell/super = 9,
-		/obj/item/weapon/cell/hyper = 1
+		/obj/item/cell/crap = 10,
+		/obj/item/cell = 40,
+		/obj/item/cell/high = 40,
+		/obj/item/cell/super = 9,
+		/obj/item/cell/hyper = 1
 	)
 
 /obj/random/bomb_supply
@@ -110,9 +110,9 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "red"
 	spawnlist = list(
-		/obj/item/weapon/storage/toolbox/mechanical = 3,
-		/obj/item/weapon/storage/toolbox/electrical = 2,
-		/obj/item/weapon/storage/toolbox/emergency = 1
+		/obj/item/storage/toolbox/mechanical = 3,
+		/obj/item/storage/toolbox/electrical = 2,
+		/obj/item/storage/toolbox/emergency = 1
 	)
 
 /obj/random/tech_supply
@@ -126,13 +126,13 @@
 		/obj/random/technology_scanner = 2,
 		/obj/item/stack/packageWrap = 1,
 		/obj/random/bomb_supply = 2,
-		/obj/item/weapon/extinguisher = 1,
+		/obj/item/extinguisher = 1,
 		/obj/item/clothing/gloves/fyellow = 1,
 		/obj/item/stack/cable_coil = 3,
 		/obj/random/toolbox = 2,
-		/obj/item/weapon/storage/belt/utility = 2,
+		/obj/item/storage/belt/utility = 2,
 		/obj/random/tool = 5,
-		/obj/item/weapon/tape_roll = 2
+		/obj/item/tape_roll = 2
 	)
 
 /obj/random/medical
@@ -149,12 +149,12 @@
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
-		/obj/item/weapon/storage/pill_bottle/kelotane = 2,
-		/obj/item/weapon/storage/pill_bottle/antitox = 2,
-		/obj/item/weapon/storage/pill_bottle/tramadol = 2,
-		/obj/item/weapon/reagent_containers/syringe/antitoxin = 2,
-		/obj/item/weapon/reagent_containers/syringe/antiviral = 1,
-		/obj/item/weapon/reagent_containers/syringe/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/kelotane = 2,
+		/obj/item/storage/pill_bottle/antitox = 2,
+		/obj/item/storage/pill_bottle/tramadol = 2,
+		/obj/item/reagent_containers/syringe/antitoxin = 2,
+		/obj/item/reagent_containers/syringe/antiviral = 1,
+		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -164,11 +164,11 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "firstaid"
 	problist = list(
-		/obj/item/weapon/storage/firstaid/regular = 3,
-		/obj/item/weapon/storage/firstaid/toxin = 2,
-		/obj/item/weapon/storage/firstaid/o2 = 2,
-		/obj/item/weapon/storage/firstaid/adv = 1,
-		/obj/item/weapon/storage/firstaid/fire = 2
+		/obj/item/storage/firstaid/regular = 3,
+		/obj/item/storage/firstaid/toxin = 2,
+		/obj/item/storage/firstaid/o2 = 2,
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/storage/firstaid/fire = 2
 	)
 
 /obj/random/contraband
@@ -178,32 +178,32 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/weapon/storage/pill_bottle/tramadol = 3,
-		/obj/item/weapon/storage/pill_bottle/happy = 2,
-		/obj/item/weapon/storage/pill_bottle/zoom = 2,
-		/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin = 1,
-		/obj/item/weapon/contraband/poster = 5,
-		/obj/item/weapon/material/knife/butterfly = 2,
-		/obj/item/weapon/material/butterflyblade = 3,
-		/obj/item/weapon/material/butterflyhandle = 3,
-		/obj/item/weapon/material/wirerod = 3,
-		/obj/item/weapon/melee/baton/cattleprod = 1,
-		/obj/item/weapon/material/knife/tacknife = 1,
-		/obj/item/weapon/material/kitchen/utensil/knife/boot = 2,
-		/obj/item/weapon/storage/secure/briefcase/money = 1,
-		/obj/item/weapon/material/knife/butterfly/switchblade = 1,
-		/obj/item/weapon/reagent_containers/syringe/drugs = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/reishi = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/destroyingangel = 1,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/mushroom/ghostmushroom = 0.5,
+		/obj/item/storage/pill_bottle/tramadol = 3,
+		/obj/item/storage/pill_bottle/happy = 2,
+		/obj/item/storage/pill_bottle/zoom = 2,
+		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
+		/obj/item/contraband/poster = 5,
+		/obj/item/material/knife/butterfly = 2,
+		/obj/item/material/butterflyblade = 3,
+		/obj/item/material/butterflyhandle = 3,
+		/obj/item/material/wirerod = 3,
+		/obj/item/melee/baton/cattleprod = 1,
+		/obj/item/material/knife/tacknife = 1,
+		/obj/item/material/kitchen/utensil/knife/boot = 2,
+		/obj/item/storage/secure/briefcase/money = 1,
+		/obj/item/material/knife/butterfly/switchblade = 1,
+		/obj/item/reagent_containers/syringe/drugs = 1,
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap = 2,
+		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris = 2,
+		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus = 1,
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/reishi = 1,
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/destroyingangel = 1,
+		/obj/item/reagent_containers/food/snacks/grown/mushroom/ghostmushroom = 0.5,
 		/obj/item/seeds/ambrosiavulgarisseed = 2,
 		/obj/item/seeds/ambrosiadeusseed = 1,
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
-		/obj/item/weapon/reagent_containers/inhaler/space_drugs = 2
+		/obj/item/reagent_containers/inhaler/space_drugs = 2
 	)
 
 /obj/random/energy
@@ -212,9 +212,9 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "energykill100"
 	problist = list(
-		/obj/item/weapon/gun/energy/rifle/laser = 2,
-		/obj/item/weapon/gun/energy/gun = 2,
-		/obj/item/weapon/gun/energy/stunrevolver = 1
+		/obj/item/gun/energy/rifle/laser = 2,
+		/obj/item/gun/energy/gun = 2,
+		/obj/item/gun/energy/stunrevolver = 1
 	)
 
 /obj/random/projectile
@@ -223,9 +223,9 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "revolver"
 	problist = list(
-		/obj/item/weapon/gun/projectile/shotgun/pump = 3,
-		/obj/item/weapon/gun/projectile/automatic/wt550 = 2,
-		/obj/item/weapon/gun/projectile/shotgun/pump/combat = 1
+		/obj/item/gun/projectile/shotgun/pump = 3,
+		/obj/item/gun/projectile/automatic/wt550 = 2,
+		/obj/item/gun/projectile/shotgun/pump/combat = 1
 	)
 
 /obj/random/handgun
@@ -234,8 +234,8 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "secgundark"
 	problist = list(
-		/obj/item/weapon/gun/projectile/sec = 3,
-		/obj/item/weapon/gun/projectile/sec/wood = 1
+		/obj/item/gun/projectile/sec = 3,
+		/obj/item/gun/projectile/sec/wood = 1
 	)
 
 /obj/random/ammo
@@ -244,10 +244,10 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "45-10"
 	problist = list(
-		/obj/item/weapon/storage/box/beanbags = 6,
-		/obj/item/weapon/storage/box/shotgunammo = 2,
-		/obj/item/weapon/storage/box/shotgunshells = 4,
-		/obj/item/weapon/storage/box/stunshells = 1,
+		/obj/item/storage/box/beanbags = 6,
+		/obj/item/storage/box/shotgunammo = 2,
+		/obj/item/storage/box/shotgunshells = 4,
+		/obj/item/storage/box/stunshells = 1,
 		/obj/item/ammo_magazine/c45m = 2,
 		/obj/item/ammo_magazine/c45m/rubber = 4,
 		/obj/item/ammo_magazine/c45m/flash = 4,
@@ -327,21 +327,21 @@
 
 /obj/random/smalltank/item_to_spawn()
 	if (prob(40))
-		return /obj/item/weapon/tank/emergency_oxygen
+		return /obj/item/tank/emergency_oxygen
 	else if (prob(60))
-		return /obj/item/weapon/tank/emergency_oxygen/engi
+		return /obj/item/tank/emergency_oxygen/engi
 	else
-		return /obj/item/weapon/tank/emergency_oxygen/double
+		return /obj/item/tank/emergency_oxygen/double
 
 /obj/random/belt
 	name = "random belt"
 	problist = list(
-		/obj/item/weapon/storage/belt/utility = 1,
-		/obj/item/weapon/storage/belt/medical = 0.4,
-		/obj/item/weapon/storage/belt/medical/emt = 0.4,
-		/obj/item/weapon/storage/belt/security/tactical = 0.1,
-		/obj/item/weapon/storage/belt/military = 0.1,
-		/obj/item/weapon/storage/belt/janitor = 0.4
+		/obj/item/storage/belt/utility = 1,
+		/obj/item/storage/belt/medical = 0.4,
+		/obj/item/storage/belt/medical/emt = 0.4,
+		/obj/item/storage/belt/security/tactical = 0.1,
+		/obj/item/storage/belt/military = 0.1,
+		/obj/item/storage/belt/janitor = 0.4
 	)
 
 // Spawns a random backpack.
@@ -349,63 +349,63 @@
 /obj/random/backpack
 	name = "random backpack"
 	problist = list(
-		/obj/item/weapon/storage/backpack = 3,
-		/obj/item/weapon/storage/backpack/holding = 0.5,
-		/obj/item/weapon/storage/backpack/cultpack = 2,
-		/obj/item/weapon/storage/backpack/clown = 2,
-		/obj/item/weapon/storage/backpack/medic = 3,
-		/obj/item/weapon/storage/backpack/security = 3,
-		/obj/item/weapon/storage/backpack/captain = 2,
-		/obj/item/weapon/storage/backpack/industrial = 3,
-		/obj/item/weapon/storage/backpack/toxins = 3,
-		/obj/item/weapon/storage/backpack/hydroponics = 3,
-		/obj/item/weapon/storage/backpack/genetics = 3,
-		/obj/item/weapon/storage/backpack/virology = 3,
-		/obj/item/weapon/storage/backpack/pharmacy = 3,
-		/obj/item/weapon/storage/backpack/cloak = 2,
-		/obj/item/weapon/storage/backpack/syndie = 1,
-		/obj/item/weapon/storage/backpack/wizard = 1,
-		/obj/item/weapon/storage/backpack/satchel = 3,
-		/obj/item/weapon/storage/backpack/satchel_norm = 3,
-		/obj/item/weapon/storage/backpack/satchel_eng = 3,
-		/obj/item/weapon/storage/backpack/satchel_med = 3,
-		/obj/item/weapon/storage/backpack/satchel_vir = 3,
-		/obj/item/weapon/storage/backpack/satchel_pharm = 3,
-		/obj/item/weapon/storage/backpack/satchel_gen = 3,
-		/obj/item/weapon/storage/backpack/satchel_tox = 3,
-		/obj/item/weapon/storage/backpack/satchel_sec = 3,
-		/obj/item/weapon/storage/backpack/satchel_hyd = 3,
-		/obj/item/weapon/storage/backpack/satchel_cap = 1,
-		/obj/item/weapon/storage/backpack/satchel_syndie = 1,
-		/obj/item/weapon/storage/backpack/satchel_wizard = 1,
-		/obj/item/weapon/storage/backpack/ert = 1,
-		/obj/item/weapon/storage/backpack/ert/security = 1,
-		/obj/item/weapon/storage/backpack/ert/engineer = 1,
-		/obj/item/weapon/storage/backpack/ert/medical = 1,
-		/obj/item/weapon/storage/backpack/duffel = 3,
-		/obj/item/weapon/storage/backpack/duffel/cap = 1,
-		/obj/item/weapon/storage/backpack/duffel/hyd = 3,
-		/obj/item/weapon/storage/backpack/duffel/vir = 3,
-		/obj/item/weapon/storage/backpack/duffel/med = 3,
-		/obj/item/weapon/storage/backpack/duffel/eng = 3,
-		/obj/item/weapon/storage/backpack/duffel/tox = 3,
-		/obj/item/weapon/storage/backpack/duffel/sec = 3,
-		/obj/item/weapon/storage/backpack/duffel/gen = 3,
-		/obj/item/weapon/storage/backpack/duffel/pharm = 3,
-		/obj/item/weapon/storage/backpack/duffel/syndie = 1,
-		/obj/item/weapon/storage/backpack/duffel/wizard = 1,
-		/obj/item/weapon/storage/backpack/messenger = 2,
-		/obj/item/weapon/storage/backpack/messenger/pharm = 2,
-		/obj/item/weapon/storage/backpack/messenger/med = 2,
-		/obj/item/weapon/storage/backpack/messenger/viro = 2,
-		/obj/item/weapon/storage/backpack/messenger/tox = 2,
-		/obj/item/weapon/storage/backpack/messenger/gen = 2,
-		/obj/item/weapon/storage/backpack/messenger/com = 1,
-		/obj/item/weapon/storage/backpack/messenger/engi = 2,
-		/obj/item/weapon/storage/backpack/messenger/hyd = 2,
-		/obj/item/weapon/storage/backpack/messenger/sec = 2,
-		/obj/item/weapon/storage/backpack/messenger/syndie = 1,
-		/obj/item/weapon/storage/backpack/messenger/wizard = 1
+		/obj/item/storage/backpack = 3,
+		/obj/item/storage/backpack/holding = 0.5,
+		/obj/item/storage/backpack/cultpack = 2,
+		/obj/item/storage/backpack/clown = 2,
+		/obj/item/storage/backpack/medic = 3,
+		/obj/item/storage/backpack/security = 3,
+		/obj/item/storage/backpack/captain = 2,
+		/obj/item/storage/backpack/industrial = 3,
+		/obj/item/storage/backpack/toxins = 3,
+		/obj/item/storage/backpack/hydroponics = 3,
+		/obj/item/storage/backpack/genetics = 3,
+		/obj/item/storage/backpack/virology = 3,
+		/obj/item/storage/backpack/pharmacy = 3,
+		/obj/item/storage/backpack/cloak = 2,
+		/obj/item/storage/backpack/syndie = 1,
+		/obj/item/storage/backpack/wizard = 1,
+		/obj/item/storage/backpack/satchel = 3,
+		/obj/item/storage/backpack/satchel_norm = 3,
+		/obj/item/storage/backpack/satchel_eng = 3,
+		/obj/item/storage/backpack/satchel_med = 3,
+		/obj/item/storage/backpack/satchel_vir = 3,
+		/obj/item/storage/backpack/satchel_pharm = 3,
+		/obj/item/storage/backpack/satchel_gen = 3,
+		/obj/item/storage/backpack/satchel_tox = 3,
+		/obj/item/storage/backpack/satchel_sec = 3,
+		/obj/item/storage/backpack/satchel_hyd = 3,
+		/obj/item/storage/backpack/satchel_cap = 1,
+		/obj/item/storage/backpack/satchel_syndie = 1,
+		/obj/item/storage/backpack/satchel_wizard = 1,
+		/obj/item/storage/backpack/ert = 1,
+		/obj/item/storage/backpack/ert/security = 1,
+		/obj/item/storage/backpack/ert/engineer = 1,
+		/obj/item/storage/backpack/ert/medical = 1,
+		/obj/item/storage/backpack/duffel = 3,
+		/obj/item/storage/backpack/duffel/cap = 1,
+		/obj/item/storage/backpack/duffel/hyd = 3,
+		/obj/item/storage/backpack/duffel/vir = 3,
+		/obj/item/storage/backpack/duffel/med = 3,
+		/obj/item/storage/backpack/duffel/eng = 3,
+		/obj/item/storage/backpack/duffel/tox = 3,
+		/obj/item/storage/backpack/duffel/sec = 3,
+		/obj/item/storage/backpack/duffel/gen = 3,
+		/obj/item/storage/backpack/duffel/pharm = 3,
+		/obj/item/storage/backpack/duffel/syndie = 1,
+		/obj/item/storage/backpack/duffel/wizard = 1,
+		/obj/item/storage/backpack/messenger = 2,
+		/obj/item/storage/backpack/messenger/pharm = 2,
+		/obj/item/storage/backpack/messenger/med = 2,
+		/obj/item/storage/backpack/messenger/viro = 2,
+		/obj/item/storage/backpack/messenger/tox = 2,
+		/obj/item/storage/backpack/messenger/gen = 2,
+		/obj/item/storage/backpack/messenger/com = 1,
+		/obj/item/storage/backpack/messenger/engi = 2,
+		/obj/item/storage/backpack/messenger/hyd = 2,
+		/obj/item/storage/backpack/messenger/sec = 2,
+		/obj/item/storage/backpack/messenger/syndie = 1,
+		/obj/item/storage/backpack/messenger/wizard = 1
 	)
 
 /obj/random/voidsuit
@@ -499,11 +499,11 @@
 			V.products[content] = round(V.products[content])
 
 /obj/random/pda_cart/item_to_spawn()
-	var/list/options = typesof(/obj/item/weapon/cartridge)
+	var/list/options = typesof(/obj/item/cartridge)
 	var/type = pick(options)
 
 	//reroll syndicate cartridge once to make it less common
-	if (type == /obj/item/weapon/cartridge/syndicate)
+	if (type == /obj/item/cartridge/syndicate)
 		type = pick(options)
 
 	return type
@@ -527,36 +527,36 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
 	spawnlist = list(
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/gin,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/whiskey,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/bottleofnothing,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/rum,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/vermouth,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/kahlua,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/wine,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/absinthe,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/melonliquor,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/pwine,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/brandy,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/guinnes,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/drambuie,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremeyvette,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/cremewhite,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreuseyellow,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/chartreusegreen,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/grenadine,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/bluecuracao,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/bitters,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/champagne,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/mintsyrup,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/sarezhiwine,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/ale,
-		/obj/item/weapon/reagent_containers/food/drinks/bottle/small/xuizijuice
+		/obj/item/reagent_containers/food/drinks/bottle/gin,
+		/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka,
+		/obj/item/reagent_containers/food/drinks/bottle/tequilla,
+		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
+		/obj/item/reagent_containers/food/drinks/bottle/rum,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne,
+		/obj/item/reagent_containers/food/drinks/bottle/vermouth,
+		/obj/item/reagent_containers/food/drinks/bottle/kahlua,
+		/obj/item/reagent_containers/food/drinks/bottle/cognac,
+		/obj/item/reagent_containers/food/drinks/bottle/wine,
+		/obj/item/reagent_containers/food/drinks/bottle/absinthe,
+		/obj/item/reagent_containers/food/drinks/bottle/melonliquor,
+		/obj/item/reagent_containers/food/drinks/bottle/pwine,
+		/obj/item/reagent_containers/food/drinks/bottle/brandy,
+		/obj/item/reagent_containers/food/drinks/bottle/guinnes,
+		/obj/item/reagent_containers/food/drinks/bottle/drambuie,
+		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette,
+		/obj/item/reagent_containers/food/drinks/bottle/cremewhite,
+		/obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow,
+		/obj/item/reagent_containers/food/drinks/bottle/chartreusegreen,
+		/obj/item/reagent_containers/food/drinks/bottle/grenadine,
+		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao,
+		/obj/item/reagent_containers/food/drinks/bottle/bitters,
+		/obj/item/reagent_containers/food/drinks/bottle/champagne,
+		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup,
+		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+		/obj/item/reagent_containers/food/drinks/bottle/small/ale,
+		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice
 	)
 
 /obj/random/melee
@@ -565,22 +565,22 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "baton"
 	spawnlist = list(
-		/obj/item/weapon/melee/telebaton,
-		/obj/item/weapon/melee/energy/sword,
-		/obj/item/weapon/melee/energy/sword/pirate,
-		/obj/item/weapon/melee/energy/glaive,
-		/obj/item/weapon/melee/chainsword,
-		/obj/item/weapon/melee/baton/stunrod,
-		/obj/item/weapon/material/harpoon,
+		/obj/item/melee/telebaton,
+		/obj/item/melee/energy/sword,
+		/obj/item/melee/energy/sword/pirate,
+		/obj/item/melee/energy/glaive,
+		/obj/item/melee/chainsword,
+		/obj/item/melee/baton/stunrod,
+		/obj/item/material/harpoon,
 		/obj/random/sword,
-		/obj/item/weapon/melee/hammer,
-		/obj/item/weapon/melee/hammer/powered,
-		/obj/item/weapon/material/twohanded/fireaxe,
-		/obj/item/weapon/melee/classic_baton,
-		/obj/item/weapon/material/twohanded/pike,
-		/obj/item/weapon/material/twohanded/pike/halberd,
-		/obj/item/weapon/material/twohanded/pike/pitchfork,
-		/obj/item/weapon/melee/whip,
+		/obj/item/melee/hammer,
+		/obj/item/melee/hammer/powered,
+		/obj/item/material/twohanded/fireaxe,
+		/obj/item/melee/classic_baton,
+		/obj/item/material/twohanded/pike,
+		/obj/item/material/twohanded/pike/halberd,
+		/obj/item/material/twohanded/pike/pitchfork,
+		/obj/item/melee/whip,
 		/obj/item/clothing/accessory/storage/bayonet
 	)
 
@@ -590,13 +590,13 @@
 	icon = 'icons/obj/coins.dmi'
 	icon_state = "coin"
 	problist = list(
-		/obj/item/weapon/coin/iron = 5,
-		/obj/item/weapon/coin/silver = 3,
-		/obj/item/weapon/coin/gold = 0.7,
-		/obj/item/weapon/coin/phoron = 0.5,
-		/obj/item/weapon/coin/uranium = 0.5,
-		/obj/item/weapon/coin/platinum = 0.2,
-		/obj/item/weapon/coin/diamond = 0.1
+		/obj/item/coin/iron = 5,
+		/obj/item/coin/silver = 3,
+		/obj/item/coin/gold = 0.7,
+		/obj/item/coin/phoron = 0.5,
+		/obj/item/coin/uranium = 0.5,
+		/obj/item/coin/platinum = 0.2,
+		/obj/item/coin/diamond = 0.1
 	)
 
 /obj/random/spacecash
@@ -605,13 +605,13 @@
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	problist = list(
-		/obj/item/weapon/spacecash/c1 = 6,
-		/obj/item/weapon/spacecash/c10 = 3,
-		/obj/item/weapon/spacecash/c20 = 2,
-		/obj/item/weapon/spacecash/c50 = 1,
-		/obj/item/weapon/spacecash/c100 = 0.3,
-		/obj/item/weapon/spacecash/c200 = 0.2,
-		/obj/item/weapon/spacecash/c1000 = 0.1
+		/obj/item/spacecash/c1 = 6,
+		/obj/item/spacecash/c10 = 3,
+		/obj/item/spacecash/c20 = 2,
+		/obj/item/spacecash/c50 = 1,
+		/obj/item/spacecash/c100 = 0.3,
+		/obj/item/spacecash/c200 = 0.2,
+		/obj/item/spacecash/c1000 = 0.1
 	)
 
 /obj/random/energy_antag
@@ -620,22 +620,22 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "retro100"
 	spawnlist = list(
-		/obj/item/weapon/gun/energy/retro,
-		/obj/item/weapon/gun/energy/xray,
-		/obj/item/weapon/gun/energy/gun,
-		/obj/item/weapon/gun/energy/pistol,
-		/obj/item/weapon/gun/energy/mindflayer,
-		/obj/item/weapon/gun/energy/toxgun,
-		/obj/item/weapon/gun/energy/vaurca/gatlinglaser,
-		/obj/item/weapon/gun/energy/vaurca/blaster,
-		/obj/item/weapon/gun/energy/crossbow/largecrossbow,
-		/obj/item/weapon/gun/energy/rifle,
-		/obj/item/weapon/gun/energy/rifle/laser,
-		/obj/item/weapon/gun/energy/rifle/laser/heavy,
-		/obj/item/weapon/gun/energy/rifle/laser/xray,
-		/obj/item/weapon/gun/energy/net,
-		/obj/item/weapon/gun/energy/laser/shotgun,
-		/obj/item/weapon/gun/energy/decloner
+		/obj/item/gun/energy/retro,
+		/obj/item/gun/energy/xray,
+		/obj/item/gun/energy/gun,
+		/obj/item/gun/energy/pistol,
+		/obj/item/gun/energy/mindflayer,
+		/obj/item/gun/energy/toxgun,
+		/obj/item/gun/energy/vaurca/gatlinglaser,
+		/obj/item/gun/energy/vaurca/blaster,
+		/obj/item/gun/energy/crossbow/largecrossbow,
+		/obj/item/gun/energy/rifle,
+		/obj/item/gun/energy/rifle/laser,
+		/obj/item/gun/energy/rifle/laser/heavy,
+		/obj/item/gun/energy/rifle/laser/xray,
+		/obj/item/gun/energy/net,
+		/obj/item/gun/energy/laser/shotgun,
+		/obj/item/gun/energy/decloner
 	)
 
 /obj/random/colored_jumpsuit
@@ -673,170 +673,240 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	problist = list(
-		/obj/item/clothing/glasses/meson = 1,
-		/obj/item/weapon/trap/animal = 0.8,
-		/obj/item/clothing/glasses/meson/prescription = 0.7,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/sunglasses = 1.5,
-		/obj/item/clothing/glasses/welding = 1.2,
-		/obj/item/clothing/under/captain_fly = 0.5,
-		/obj/item/clothing/under/rank/mailman = 0.6,
-		/obj/item/clothing/under/rank/vice = 0.8,
-		/obj/item/clothing/under/assistantformal = 1,
-		/obj/item/clothing/under/rainbow = 0.9,
-		/obj/item/clothing/under/overalls = 1,
-		/obj/item/clothing/under/redcoat = 0.5,
-		/obj/item/clothing/under/serviceoveralls = 1,
-		/obj/item/clothing/under/rank/dispatch = 0.8,
-		/obj/item/clothing/under/syndicate/tacticool = 1,
-		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
-		/obj/item/clothing/under/rank/clown = 0.1,
-		/obj/item/clothing/under/mime = 0.1,
-		/obj/item/clothing/accessory/storage/webbing = 0.6,
+		/obj/item/assembly/shock_kit = 0.1,
+		/obj/item/bluespace_crystal/artificial = 0.1,
+		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
+		/obj/item/clothing/accessory/storage/webbing = 0.6,
+		/obj/item/clothing/glasses/material = 0.8,
+		/obj/item/clothing/glasses/meson = 0.5,
+		/obj/item/clothing/glasses/meson/prescription = 0.25,
+		/obj/item/clothing/glasses/sunglasses = 0.75,
+		/obj/item/clothing/glasses/welding = 0.75,
+		/obj/item/clothing/head/bearpelt = 0.4,
 		/obj/item/clothing/head/collectable/petehat = 0.1,
+		/obj/item/clothing/head/cueball = 0.25,
 		/obj/item/clothing/head/hardhat = 1.2,
-		/obj/item/clothing/head/redcoat = 0.4,
-		/obj/item/clothing/head/syndicatefake = 0.5,
+		/obj/item/clothing/head/helmet/augment = 0.1,
+		/obj/item/clothing/head/kitty = 0.2,
+		/obj/item/clothing/head/pirate = 0.2,
+		/obj/item/clothing/head/plaguedoctorhat = 0.3,
+		/obj/item/clothing/head/pumpkin/lantern = 0.4,
+		/obj/item/clothing/head/redcoat = 0.2,
 		/obj/item/clothing/head/richard = 0.3,
 		/obj/item/clothing/head/soft/rainbow = 0.7,
-		/obj/item/clothing/head/plaguedoctorhat = 0.5,
-		/obj/item/clothing/head/cueball = 0.5,
-		/obj/item/clothing/head/pirate = 0.4,
-		/obj/item/clothing/head/bearpelt = 0.4,
+		/obj/item/clothing/head/syndicatefake = 0.5,
+		/obj/item/clothing/head/ushanka = 0.3,
 		/obj/item/clothing/head/witchwig = 0.5,
-		/obj/item/clothing/head/pumpkinhead = 0.6,
-		/obj/item/clothing/head/kitty = 0.2,
-		/obj/item/clothing/head/ushanka = 0.6,
-		/obj/item/clothing/head/helmet/augment = 0.1,
-		/obj/item/clothing/mask/balaclava = 1,
-		/obj/item/clothing/mask/gas = 1.5,
-		/obj/item/clothing/mask/gas/old = 1.0,
+		/obj/item/clothing/mask/balaclava = 0.75,
+		/obj/item/clothing/mask/fakemoustache = 0.4,
+		/obj/item/clothing/mask/gas = 1.25,
+		/obj/item/clothing/mask/gas/clown_hat = 0.1,
 		/obj/item/clothing/mask/gas/cyborg = 0.7,
+		/obj/item/clothing/mask/gas/mime = 0.1,
+		/obj/item/clothing/mask/gas/old = 0.75,
 		/obj/item/clothing/mask/gas/owl_mask = 0.5,
 		/obj/item/clothing/mask/gas/syndicate = 0.4,
-		/obj/item/clothing/mask/fakemoustache = 0.4,
 		/obj/item/clothing/mask/horsehead = 0.5,
-		/obj/item/clothing/mask/gas/clown_hat = 0.1,
-		/obj/item/clothing/mask/gas/mime = 0.1,
-		/obj/item/clothing/mask/pig = 0.3,
-		/obj/item/clothing/mask/muzzle = 0.2,
 		/obj/item/clothing/mask/luchador = 0.1,
-		/obj/item/clothing/mask/luchador/tecnicos = 0.1,
 		/obj/item/clothing/mask/luchador/rudos = 0.1,
-		/obj/item/clothing/shoes/rainbow = 1,
-		/obj/item/clothing/shoes/jackboots = 1,
-		/obj/item/clothing/shoes/workboots = 1,
+		/obj/item/clothing/mask/luchador/tecnicos = 0.1,
+		/obj/item/clothing/mask/muzzle = 0.2,
+		/obj/item/clothing/mask/pig = 0.3,
+		/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba = 0.7,
+		/obj/item/clothing/mask/smokable/pipe/cobpipe = 0.5,
+		/obj/item/clothing/shoes/carp = 0.5,
+		/obj/item/clothing/shoes/clown_shoes = 0.1,
+		/obj/item/clothing/shoes/combat = 0.2,
 		/obj/item/clothing/shoes/cyborg = 0.4,
 		/obj/item/clothing/shoes/galoshes = 0.6,
+		/obj/item/clothing/shoes/jackboots = 0.5,
+		/obj/item/clothing/shoes/rainbow = 0.5,
 		/obj/item/clothing/shoes/slippers_worn = 0.5,
-		/obj/item/clothing/shoes/combat = 0.2,
-		/obj/item/clothing/shoes/clown_shoes = 0.1,
 		/obj/item/clothing/shoes/winter = 0.3,
-		/obj/item/clothing/suit/storage/hazardvest = 1,
-		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
+		/obj/item/clothing/shoes/workboots = 0.75,
 		/obj/item/clothing/suit/ianshirt = 0.5,
-		/obj/item/clothing/suit/syndicatefake = 0.6,
 		/obj/item/clothing/suit/imperium_monk = 0.4,
+		/obj/item/clothing/suit/storage/hazardvest = 0.75,
+		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
+		/obj/item/clothing/suit/syndicatefake = 0.6,
+		/obj/item/clothing/under/assistantformal = 0.75,
+		/obj/item/clothing/under/captain_fly = 0.5,
+		/obj/item/clothing/under/mime = 0.1,
+		/obj/item/clothing/under/overalls = 1,
+		/obj/item/clothing/under/rainbow = 0.9,
+		/obj/item/clothing/under/rank/clown = 0.1,
+		/obj/item/clothing/under/rank/dispatch = 0.8,
+		/obj/item/clothing/under/rank/mailman = 0.6,
+		/obj/item/clothing/under/rank/vice = 0.8,
+		/obj/item/clothing/under/redcoat = 0.5,
+		/obj/item/clothing/under/serviceoveralls = 0.75,
+		/obj/item/clothing/under/syndicate/tacticool = 0.4,
+		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
+		/obj/item/device/firing_pin = 0.3,
+		/obj/item/device/firing_pin/clown = 0.01,
+		/obj/item/device/flashlight = 1,
+		/obj/item/device/flashlight/flare = 0.5,
+		/obj/item/device/flashlight/heavy = 0.5,
+		/obj/item/device/flashlight/lantern = 0.4,
+		/obj/item/device/flashlight/maglight = 0.4,
+		/obj/item/device/floor_painter = 0.6,
+		/obj/item/device/gps/engineering = 0.6,
+		/obj/item/device/kinetic_analyzer = 0.1,
+		/obj/item/device/laser_pointer/purple = 0.1,
+		/obj/item/device/light_meter = 0.1,
+		/obj/item/device/magnetic_lock/engineering = 0.3,
+		/obj/item/device/magnetic_lock/keypad = 0.1,
+		/obj/item/device/magnetic_lock/security = 0.3,
+		/obj/item/device/megaphone = 0.3,
+		/obj/item/device/price_scanner = 0.1,
+		/obj/item/device/taperecorder = 0.6,
+		/obj/item/device/uv_light = 0.1,
+		/obj/item/device/wormhole_jaunter = 0.1,
+		/obj/item/inflatable/door/ = 0.1,
+		/obj/item/seeds/random = 0.25,
+		/obj/item/stack/material/bronze{amount=10},
+		/obj/item/banhammer = 0.05,
+		/obj/item/caution/cone = 0.7,
+		/obj/item/contraband/poster = 1.3,
+		/obj/item/extinguisher = 1.3,
+		/obj/item/extinguisher/mini = 0.9,
+		/obj/item/flag/america = 0.1,
+		/obj/item/flag/america/l = 0.1,
+		/obj/item/flame/lighter = 0.9,
+		/obj/item/flame/lighter/zippo = 0.7,
+		/obj/item/grenade/chem_grenade/cleaner = 0.1,
+		/obj/item/grenade/smokebomb = 0.05, //We /tg/ now.
+		/obj/item/haircomb = 0.5,
+		/obj/item/inflatable_duck = 0.2,
+		/obj/item/lipstick = 0.6,
+		/obj/item/material/hook = 0.3,
+		/obj/item/material/knife/tacknife = 0.4,
+		/obj/item/mesmetron = 0.1,
+		/obj/item/pickaxe = 0.4,
+		/obj/item/razor = 0.5,
+		/obj/item/reagent_containers/extinguisher_refill = 0.1,
+		/obj/item/reagent_containers/extinguisher_refill/filled = 0.5,
+		/obj/item/reagent_containers/food/drinks/flask/lithium = 0.3,
+		/obj/item/reagent_containers/food/drinks/flask/shiny = 0.3,
+		/obj/item/reagent_containers/food/drinks/teapot = 0.4,
+		/obj/item/reagent_containers/glass/beaker/bowl = 0.8,
+		/obj/item/reagent_containers/inhaler/hyperzine = 0.1,
+		/obj/item/reagent_containers/spray/cleaner = 0.6,
+		/obj/item/reagent_containers/spray/sterilizine = 0.4,
+		/obj/item/reagent_containers/spray/waterflower = 0.2,
+		/obj/item/shovel = 0.5,
+		/obj/item/spacecash/ewallet/lotto = 0.3,
+		/obj/item/staff/broom = 0.5,
+		/obj/item/storage/bag/plasticbag = 1,
+		/obj/item/storage/box/condimentbottles = 0.2,
+		/obj/item/storage/box/donkpockets = 0.6,
+		/obj/item/storage/box/drinkingglasses = 0.2,
+		/obj/item/storage/box/lights = 0.5,
+		/obj/item/storage/box/lights/colored/blue = 0.1,
+		/obj/item/storage/box/lights/colored/cyan = 0.1,
+		/obj/item/storage/box/lights/colored/green = 0.1,
+		/obj/item/storage/box/lights/colored/magenta = 0.1,
+		/obj/item/storage/box/lights/colored/red = 0.1,
+		/obj/item/storage/box/lights/colored/yellow = 0.1,
+		/obj/item/storage/box/lights/coloredmixed = 0.2,
+		/obj/item/storage/box/masks = 0.5,
+		/obj/item/storage/box/mousetraps = 0.3,
+		/obj/item/storage/box/pineapple = 0.1,
+		/obj/item/storage/box/smokebombs = 0.1,
+		/obj/item/storage/box/syringes = 0.3,
+		/obj/item/storage/fancy/cigarettes = 1.2,
+		/obj/item/storage/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/storage/fancy/cigarettes/blank = 1,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 0.8,
+		/obj/item/storage/fancy/crayons = 0.5,
+		/obj/item/storage/wallet/random/ = 0.1,
+		/obj/item/trap/animal = 0.8,
+		/obj/random/arcade = 0.25,
+		/obj/random/backpack = 0.7,
+		/obj/random/belt = 0.9,
+		/obj/random/booze = 1.1,
+		/obj/random/chameleon = 0.5,
+		/obj/random/coin = 1.2,
+		/obj/random/colored_jumpsuit = 0.7,
+		/obj/random/contraband = 0.9,
+		/obj/random/document = 0.5,
+		/obj/random/firstaid = 0.4,
+		/obj/random/gloves = 2,
+		/obj/random/glowstick = 0.4,
+		/obj/random/hoodie = 0.5,
+		/obj/random/junk = 0.4,
+		/obj/random/medical = 0.4,
+		/obj/random/pda_cart = 0.5,
+		/obj/random/powercell = 0.8,
+		/obj/random/smalltank = 0.5,
+		/obj/random/soap = 0.5,
+		/obj/random/spacecash = 0.3,
+		/obj/random/tech_supply = 1.2,
+		/obj/random/technology_scanner = 1,
+		/obj/random/tool = 1,
+		/obj/random/toolbox = 1,
+		/obj/random_produce = 0.25
+	)
+
+
+/obj/random/chameleon
+	name = "random possible chameleon item"
+	desc = "A random possible chameleon item. What could possibly go wrong?"
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "yellow"
+	problist = list(
+
+		/obj/item/clothing/gloves/chameleon = 1,
+		/obj/item/clothing/gloves/black = 10,
+
+		/obj/item/clothing/head/chameleon = 0.5,
+		/obj/item/clothing/head/soft/grey = 5,
+
+		/obj/item/clothing/mask/chameleon = 1,
+		/obj/item/clothing/mask/gas/ = 10,
+
+		/obj/item/clothing/shoes/chameleon = 0.5,
+		/obj/item/clothing/shoes/black = 5,
+
+		/obj/item/clothing/suit/chameleon = 0.1,
+		/obj/item/clothing/suit/armor/vest = 1,
+
+		/obj/item/clothing/under/chameleon = 0.75,
+		/obj/item/clothing/under/color/black = 7.5,
+
+		/obj/item/gun/energy/chameleon = 0.1,
+		/obj/item/gun/bang/deagle = 0.1,
+
+		/obj/item/storage/backpack/chameleon = 1,
+		/obj/item/storage/backpack/ = 10,
+
+		/obj/item/clothing/glasses/chameleon = 1,
+		/obj/item/clothing/glasses/meson = 1
+
+	)
+
+/obj/random/gloves
+	name = "random gloves"
+	desc = "Random gloves, assorted usefulness."
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "yellow"
+	problist = list(
 		/obj/item/clothing/gloves/black = 1,
-		/obj/item/clothing/gloves/fyellow = 1.2,
-		/obj/item/clothing/gloves/yellow = 0.9,
-		/obj/item/clothing/gloves/watch = 0.3,
+		/obj/item/clothing/gloves/black_leather = 0.5,
+		/obj/item/clothing/gloves/botanic_leather = 0.7,
 		/obj/item/clothing/gloves/boxing = 0.3,
 		/obj/item/clothing/gloves/boxing/green = 0.3,
-		/obj/item/clothing/gloves/botanic_leather = 0.7,
+		/obj/item/clothing/gloves/captain = 0.1,
 		/obj/item/clothing/gloves/combat = 0.2,
+		/obj/item/clothing/gloves/fyellow = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
-		/obj/item/toy/bosunwhistle = 0.5,
-		/obj/item/toy/balloon = 0.4,
-		/obj/item/weapon/haircomb = 0.5,
-		/obj/item/weapon/lipstick = 0.6,
-		/obj/item/weapon/material/hook = 0.3,
-		/obj/item/weapon/material/knife/tacknife = 0.4,
-		/obj/item/weapon/storage/fancy/cigarettes = 1.2,
-		/obj/item/weapon/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/weapon/storage/fancy/cigarettes/acmeco = 0.3,
-		/obj/item/weapon/storage/fancy/cigarettes/blank = 1,
-		/obj/item/weapon/storage/bag/plasticbag = 1,
-		/obj/item/weapon/extinguisher = 1.3,
-		/obj/item/weapon/extinguisher/mini = 0.9,
-		/obj/item/device/flashlight = 1,
-		/obj/item/device/flashlight/heavy = 0.5,
-		/obj/item/device/flashlight/maglight = 0.4,
-		/obj/item/device/flashlight/flare = 0.5,
-		/obj/item/device/flashlight/lantern = 0.4,
-		/obj/item/device/taperecorder = 0.6,
-		/obj/item/weapon/reagent_containers/glass/beaker/bowl = 0.8,
-		/obj/item/weapon/reagent_containers/food/drinks/teapot = 0.4,
-		/obj/item/weapon/reagent_containers/food/drinks/flask/shiny = 0.3,
-		/obj/item/weapon/reagent_containers/food/drinks/flask/lithium = 0.3,
-		/obj/item/bodybag = 0.7,
-		/obj/item/weapon/reagent_containers/spray/cleaner = 0.6,
-		/obj/item/weapon/reagent_containers/spray/sterilizine = 0.4,
-		/obj/item/weapon/reagent_containers/spray/waterflower = 0.2,
-		/obj/item/weapon/tank/emergency_oxygen = 0.7,
-		/obj/item/weapon/tank/emergency_oxygen/double = 0.4,
-		/obj/item/clothing/mask/smokable/pipe/cobpipe = 0.5,
-		/obj/item/clothing/mask/smokable/cigarette/cigar/cohiba = 0.7,
-		/obj/item/weapon/flame/lighter = 0.9,
-		/obj/item/weapon/flame/lighter/zippo = 0.7,
-		/obj/item/device/gps/engineering = 0.6,
-		/obj/item/device/megaphone = 0.5,
-		/obj/item/device/floor_painter = 0.6,
-		/obj/item/device/wormhole_jaunter = 0.1,
-		/obj/random/toolbox = 1,
-		/obj/random/coin = 1.2,
-		/obj/random/tech_supply = 1.2,
-		/obj/random/powercell = 0.8,
-		/obj/random/colored_jumpsuit = 0.7,
-		/obj/random/booze = 1.1,
-		/obj/random/belt = 0.9,
-		/obj/random/backpack = 0.7,
-		/obj/random/contraband = 0.9,
-		/obj/random/firstaid = 0.4,
-		/obj/random/medical = 0.4,
-		/obj/random/glowstick = 0.7,
-		/obj/random/tool = 1,
-		/obj/random/plushie = 0.7,
-		/obj/item/weapon/caution/cone = 0.7,
-		/obj/item/weapon/staff/broom = 0.5,
-		/obj/item/weapon/soap = 0.4,
-		/obj/item/weapon/storage/fancy/crayons = 0.5,
-		/obj/item/weapon/storage/box/donkpockets = 0.6,
-		/obj/item/weapon/storage/box/masks = 0.5,
-		/obj/item/weapon/storage/box/syringes = 0.3,
-		/obj/item/weapon/storage/box/smokebombs = 0.1,
-		/obj/item/weapon/storage/box/drinkingglasses = 0.2,
-		/obj/item/weapon/storage/box/condimentbottles = 0.2,
-		/obj/item/weapon/storage/box/mousetraps = 0.3,
-		/obj/item/weapon/storage/box/lights = 0.5,
-		/obj/item/weapon/storage/box/lights/coloredmixed = 0.2,
-		/obj/item/weapon/storage/box/lights/colored/red = 0.1,
-		/obj/item/weapon/storage/box/lights/colored/green = 0.1,
-		/obj/item/weapon/storage/box/lights/colored/blue = 0.1,
-		/obj/item/weapon/storage/box/lights/colored/cyan = 0.1,
-		/obj/item/weapon/storage/box/lights/colored/yellow = 0.1,
-		/obj/item/weapon/storage/box/lights/colored/magenta = 0.1,
-		/obj/item/weapon/contraband/poster = 1.3,
-		/obj/item/device/magnetic_lock/security = 0.3,
-		/obj/item/device/magnetic_lock/engineering = 0.3,
-		/obj/item/weapon/shovel = 0.5,
-		/obj/item/weapon/pickaxe = 0.4,
-		/obj/item/weapon/inflatable_duck = 0.2,
-		/obj/random/hoodie = 0.5,
-		/obj/random/junk = 0.9,
-		/obj/random/document = 0.5,
-		/obj/item/weapon/spacecash/ewallet/lotto = 0.3,
-		/obj/random/spacecash = 0.3,
-		/obj/item/device/firing_pin = 0.3,
-		/obj/item/weapon/reagent_containers/inhaler/hyperzine = 0.1,
-		/obj/item/weapon/storage/box/pineapple = 0.1,
-		/obj/item/weapon/flag/america = 0.1,
-		/obj/item/weapon/flag/america/l = 0.1,
-		/obj/item/weapon/razor = 0.5
+		/obj/item/clothing/gloves/watch = 0.3,
+		/obj/item/clothing/gloves/yellow = 0.9
 	)
+
 
 /obj/random/hoodie
 	name = "random winter coat"
@@ -866,15 +936,15 @@
 		/obj/item/stack/telecrystal{amount = 10} = 5,
 		/obj/item/clothing/suit/armor/reactive = 0.5,
 		/obj/item/clothing/glasses/thermal = 0.5,
-		/obj/item/weapon/gun/projectile/automatic/rifle/shotgun = 0.5,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 0.5,
 		/obj/random/sword = 0.5,
-		/obj/item/weapon/gun/energy/lawgiver = 0.5,
-		/obj/item/weapon/melee/energy/axe = 0.5,
-		/obj/item/weapon/gun/projectile/automatic/terminator = 0.5,
-		/obj/item/weapon/rig/military = 0.5,
-		/obj/item/weapon/rig/unathi/fancy = 0.5,
-		/obj/item/weapon/rig/vaurca/minimal = 0.5,
-		/obj/item/weapon/anomaly_core = 0.5
+		/obj/item/gun/energy/lawgiver = 0.5,
+		/obj/item/melee/energy/axe = 0.5,
+		/obj/item/gun/projectile/automatic/terminator = 0.5,
+		/obj/item/rig/military = 0.5,
+		/obj/item/rig/unathi/fancy = 0.5,
+		/obj/item/rig/vaurca/minimal = 0.5,
+		/obj/item/anomaly_core = 0.5
 	)
 
 /obj/random/junk
@@ -914,20 +984,31 @@
 		/obj/effect/decal/cleanable/liquid_fuel = 0.5,
 		/obj/effect/decal/cleanable/mucus = 1.5,
 		/obj/effect/decal/cleanable/blood/drip = 1.5,
-		/obj/item/weapon/storage/box = 1,
-		/obj/item/weapon/material/shard = 1,
-		/obj/item/weapon/material/shard/shrapnel = 1,
-		/obj/item/weapon/broken_bottle = 1,
+		/obj/item/storage/box = 1,
+		/obj/item/material/shard = 1,
+		/obj/item/material/shard/shrapnel = 1,
+		/obj/item/broken_bottle = 1,
 		/obj/item/stack/material/cardboard = 1,
 		/obj/item/stack/rods = 1,
-		/obj/item/weapon/corncob = 1,
-		/obj/item/weapon/paper/crumpled = 1,
+		/obj/item/corncob = 1,
+		/obj/item/paper/crumpled = 1,
 		/obj/item/inflatable/torn = 1,
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
 		/obj/random/document/junk = 0.5,
+		/obj/item/flame/lighter/random = 0.25,
+		/obj/item/lipstick/random = 0.25,
+		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
+		/obj/item/towel/random = 0.1,
+		/obj/item/device/flashlight/flare/glowstick/random = 0.25,
+		/obj/item/stack/cable_coil/random/ = 0.1,
+		/obj/item/bananapeel = 0.1, //honk,
+		/obj/item/key = 0.1,
+		/obj/item/reagent_containers/blood/ripped = 0.1,
+		/obj/item/shreddedp = 0.1
+
 	)
 
 //Sometimes the chef will have spare oil in storage.
@@ -950,15 +1031,15 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "claymore"
 	spawnlist = list(
-		/obj/item/weapon/material/sword,
-		/obj/item/weapon/material/sword/katana,
-		/obj/item/weapon/material/sword/rapier,
-		/obj/item/weapon/material/sword/longsword,
-		/obj/item/weapon/material/sword/sabre,
-		/obj/item/weapon/material/sword/axe,
-		/obj/item/weapon/material/sword/khopesh,
-		/obj/item/weapon/material/sword/dao,
-		/obj/item/weapon/material/sword/gladius
+		/obj/item/material/sword,
+		/obj/item/material/sword/katana,
+		/obj/item/material/sword/rapier,
+		/obj/item/material/sword/longsword,
+		/obj/item/material/sword/sabre,
+		/obj/item/material/sword/axe,
+		/obj/item/material/sword/khopesh,
+		/obj/item/material/sword/dao,
+		/obj/item/material/sword/gladius
 	)
 
 /obj/random/arcade
@@ -967,12 +1048,12 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift3"
 	spawnlist = list(
-		/obj/item/weapon/storage/box/snappops			= 11,
+		/obj/item/storage/box/snappops			= 11,
 		/obj/item/clothing/under/syndicate/tacticool	= 5,
 		/obj/item/toy/sword								= 22,
-		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
+		/obj/item/gun/projectile/revolver/capgun	= 11,
 		/obj/item/toy/crossbow							= 11,
-		/obj/item/weapon/storage/fancy/crayons			= 11,
+		/obj/item/storage/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
 		/obj/item/toy/prize/ripley						= 1,
 		/obj/item/toy/prize/fireripley					= 1,
@@ -993,21 +1074,23 @@
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
 		/obj/item/toy/bosunwhistle						= 5,
-		/obj/item/weapon/storage/belt/champion			= 11,
-		/obj/item/weapon/pen/invisible					= 5,
-		/obj/item/weapon/grenade/fake					= 1,
-		/obj/item/weapon/bikehorn						= 11,
+		/obj/item/storage/belt/champion			= 11,
+		/obj/item/pen/invisible					= 5,
+		/obj/item/grenade/fake					= 1,
+		/obj/item/bikehorn						= 11,
 		/obj/item/clothing/mask/fakemoustache			= 11,
 		/obj/item/clothing/mask/gas/clown_hat			= 11,
 		/obj/item/clothing/mask/gas/mime				= 11,
-		/obj/item/weapon/gun/energy/wand/toy			= 5,
+		/obj/item/clothing/shoes/carp					= 9,
+		/obj/item/gun/energy/wand/toy			= 5,
 		/obj/item/device/binoculars						= 11,
 		/obj/item/device/megaphone						= 11,
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
-		/obj/item/weapon/spirit_board					= 5,
-		/obj/item/device/laser_pointer						= 1
+		/obj/item/spirit_board					= 5,
+		/obj/item/device/laser_pointer					= 1,
+		/obj/item/clothing/accessory/badge/press/plastic = 2
 
 
 	)
@@ -1020,8 +1103,8 @@
 	spawnlist = list(
 		/obj/item/clothing/under/syndicate/tacticool	= 7,
 		/obj/item/toy/sword								= 22,
-		/obj/item/weapon/gun/projectile/revolver/capgun	= 11,
-		/obj/item/weapon/gun/bang						= 22,
+		/obj/item/gun/projectile/revolver/capgun	= 11,
+		/obj/item/gun/bang						= 22,
 		/obj/item/toy/crossbow							= 11,
 		/obj/random/action_figure						= 11,
 		/obj/item/toy/cultsword							= 7,
@@ -1029,15 +1112,16 @@
 		/obj/item/toy/nanotrasenballoon					= 5,
 		/obj/item/toy/katana							= 11,
 		/obj/random/plushie								= 55,
-		/obj/item/weapon/storage/belt/champion			= 11,
-		/obj/item/weapon/pen/invisible					= 10,
-		/obj/item/weapon/grenade/fake					= 7,
-		/obj/item/weapon/gun/energy/wand/toy			= 7,
+		/obj/item/storage/belt/champion			= 11,
+		/obj/item/pen/invisible					= 10,
+		/obj/item/grenade/fake					= 7,
+		/obj/item/gun/energy/wand/toy			= 7,
 		/obj/item/device/binoculars						= 11,
 		/obj/item/device/megaphone						= 11,
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 5,
-		/obj/item/weapon/spirit_board					= 5
+		/obj/item/spirit_board					= 5,
+		/obj/item/clothing/accessory/badge/press/plastic = 2
 	)
 
 /obj/random/custom_ka
@@ -1051,11 +1135,11 @@
 	has_postspawn = TRUE
 	post_spawn(obj/thing)
 		var/list/frames = list(
-			/obj/item/weapon/gun/custom_ka/frame01 = 1,
-			/obj/item/weapon/gun/custom_ka/frame02 = 2,
-			/obj/item/weapon/gun/custom_ka/frame03 = 3,
-			/obj/item/weapon/gun/custom_ka/frame04 = 2,
-			/obj/item/weapon/gun/custom_ka/frame05 = 1
+			/obj/item/gun/custom_ka/frame01 = 1,
+			/obj/item/gun/custom_ka/frame02 = 2,
+			/obj/item/gun/custom_ka/frame03 = 3,
+			/obj/item/gun/custom_ka/frame04 = 2,
+			/obj/item/gun/custom_ka/frame05 = 1
 		)
 
 		var/list/cells = list(
@@ -1075,7 +1159,7 @@
 		)
 
 		var/frame_type = pickweight(frames)
-		var/obj/item/weapon/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
+		var/obj/item/gun/custom_ka/spawned_frame = new frame_type(thing.loc)
 
 		var/cell_type = pickweight(cells)
 		spawned_frame.installed_cell = new cell_type(spawned_frame)
@@ -1096,17 +1180,17 @@
 	icon = 'icons/obj/kinetic_accelerators.dmi'
 	icon_state = "frameA"
 	spawnlist = list(
-		/obj/item/weapon/gun/custom_ka/frame01/prebuilt = 2.5,
-		/obj/item/weapon/gun/custom_ka/frame02/prebuilt = 5,
-		/obj/item/weapon/gun/custom_ka/frame03/prebuilt = 10,
-		/obj/item/weapon/gun/custom_ka/frame04/prebuilt = 5,
-		/obj/item/weapon/gun/custom_ka/frame05/prebuilt = 2.5,
-		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
-		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 1,
-		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 1,
-		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 1,
-		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 1,
-		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 1
+		/obj/item/gun/custom_ka/frame01/prebuilt = 2.5,
+		/obj/item/gun/custom_ka/frame02/prebuilt = 5,
+		/obj/item/gun/custom_ka/frame03/prebuilt = 10,
+		/obj/item/gun/custom_ka/frame04/prebuilt = 5,
+		/obj/item/gun/custom_ka/frame05/prebuilt = 2.5,
+		/obj/item/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/gun/custom_ka/frameB/prebuilt = 1,
+		/obj/item/gun/custom_ka/frameC/prebuilt = 1,
+		/obj/item/gun/custom_ka/frameD/prebuilt = 1,
+		/obj/item/gun/custom_ka/frameF/prebuilt01 = 1,
+		/obj/item/gun/custom_ka/frameF/prebuilt02 = 1
 	)
 
 /obj/random/vault_rig
@@ -1115,12 +1199,12 @@
 	icon = 'icons/obj/rig_modules.dmi'
 	icon_state = "breacher_rig"
 	spawnlist = list(
-		/obj/item/weapon/rig/ce = 1,
-		/obj/item/weapon/rig/eva= 1,
-		/obj/item/weapon/rig/hazard = 1,
-		/obj/item/weapon/rig/hazmat = 1,
-		/obj/item/weapon/rig/medical = 1,
-		/obj/item/weapon/rig/industrial = 1
+		/obj/item/rig/ce = 1,
+		/obj/item/rig/eva= 1,
+		/obj/item/rig/hazard = 1,
+		/obj/item/rig/hazmat = 1,
+		/obj/item/rig/medical = 1,
+		/obj/item/rig/industrial = 1
 	)
 
 /obj/random/telecrystals
@@ -1140,13 +1224,13 @@
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
 	spawnlist = list(
-		/obj/item/weapon/aiModule/antimov = 1,
-		/obj/item/weapon/aiModule/asimov = 1,
-		/obj/item/weapon/aiModule/purge = 1,
-		/obj/item/weapon/aiModule/quarantine = 1,
-		/obj/item/weapon/aiModule/freeform = 1,
-		/obj/item/weapon/aiModule/oneHuman = 0.5,
-		/obj/item/weapon/aiModule/oxygen = 1
+		/obj/item/aiModule/antimov = 1,
+		/obj/item/aiModule/asimov = 1,
+		/obj/item/aiModule/purge = 1,
+		/obj/item/aiModule/quarantine = 1,
+		/obj/item/aiModule/freeform = 1,
+		/obj/item/aiModule/oneHuman = 0.5,
+		/obj/item/aiModule/oxygen = 1
 	)
 
 /obj/random/rig_module
@@ -1175,9 +1259,9 @@
 	name = "random valued item"
 	desc = "Contains raw valued items like phoron, gold, and money."
 	spawnlist = list(
-		/obj/item/weapon/spacecash/bundle{worth = 5000} = 0.25,
-		/obj/item/weapon/spacecash/bundle{worth = 10000} = 0.5,
-		/obj/item/weapon/spacecash/bundle{worth = 25000} = 0.25,
+		/obj/item/spacecash/bundle{worth = 5000} = 0.25,
+		/obj/item/spacecash/bundle{worth = 10000} = 0.5,
+		/obj/item/spacecash/bundle{worth = 25000} = 0.25,
 		/obj/item/stack/material/phoron{amount = 50} = 1,
 		/obj/item/stack/material/gold{amount = 50} = 1
 	)
@@ -1193,29 +1277,29 @@
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "retro100"
 	spawnlist = list(
-		/obj/item/weapon/gun/custom_ka/frameA/prebuilt = 1,
-		/obj/item/weapon/gun/custom_ka/frameB/prebuilt = 0.5,
-		/obj/item/weapon/gun/custom_ka/frameC/prebuilt = 0.25,
-		/obj/item/weapon/gun/custom_ka/frameD/prebuilt = 0.125,
-		/obj/item/weapon/gun/custom_ka/frameF/prebuilt01 = 0.03125,
-		/obj/item/weapon/gun/custom_ka/frameF/prebuilt02 = 0.03125,
-		/obj/item/weapon/gun/custom_ka/frameE/prebuilt = 0.03125,
-		/obj/item/weapon/gun/energy/captain/xenoarch = 0.5,
-		/obj/item/weapon/gun/energy/laser/xenoarch = 0.5,
-		/obj/item/weapon/gun/energy/laser/practice/xenoarch = 0.25,
-		/obj/item/weapon/gun/energy/xray/xenoarch = 0.25,
-		/obj/item/weapon/gun/energy/net = 1
+		/obj/item/gun/custom_ka/frameA/prebuilt = 1,
+		/obj/item/gun/custom_ka/frameB/prebuilt = 0.5,
+		/obj/item/gun/custom_ka/frameC/prebuilt = 0.25,
+		/obj/item/gun/custom_ka/frameD/prebuilt = 0.125,
+		/obj/item/gun/custom_ka/frameF/prebuilt01 = 0.03125,
+		/obj/item/gun/custom_ka/frameF/prebuilt02 = 0.03125,
+		/obj/item/gun/custom_ka/frameE/prebuilt = 0.03125,
+		/obj/item/gun/energy/captain/xenoarch = 0.5,
+		/obj/item/gun/energy/laser/xenoarch = 0.5,
+		/obj/item/gun/energy/laser/practice/xenoarch = 0.25,
+		/obj/item/gun/energy/xray/xenoarch = 0.25,
+		/obj/item/gun/energy/net = 1
 	)
 
-/obj/random/vault_weapon/post_spawn(var/obj/item/weapon/gun/spawned)
+/obj/random/vault_weapon/post_spawn(var/obj/item/gun/spawned)
 	spawned.name = "prototype [spawned.name]"
-	if(istype(spawned,/obj/item/weapon/gun/custom_ka/))
-		var/obj/item/weapon/gun/custom_ka/KA = spawned
+	if(istype(spawned,/obj/item/gun/custom_ka/))
+		var/obj/item/gun/custom_ka/KA = spawned
 		KA.can_disassemble_barrel = FALSE
 		KA.can_disassemble_cell = FALSE
 
-	if(istype(spawned,/obj/item/weapon/gun/energy/))
-		var/obj/item/weapon/gun/energy/E = spawned
+	if(istype(spawned,/obj/item/gun/energy/))
+		var/obj/item/gun/energy/E = spawned
 		E.charge_cost *= 2
 		E.self_recharge = 0
 		E.reliability = 90
@@ -1233,5 +1317,53 @@
 		/obj/structure/largecrate/animal/chick = 4,
 		/obj/structure/largecrate/animal/adhomai = 0.5,
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
-		/obj/structure/largecrate/animal/adhomai/rafama = 0.5
+		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
+		/obj/structure/largecrate/animal/hakhma = 0.5
+	)
+
+/obj/random/random_flag
+	name = "random flag"
+	desc = "Contains a random boxed flag or banner."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	spawnlist = list(
+		/obj/item/flag/biesel,
+		/obj/item/flag/biesel/l,
+		/obj/item/flag/dominia,
+		/obj/item/flag/dominia/l,
+		/obj/item/flag/dpra,
+		/obj/item/flag/dpra/l,
+		/obj/item/flag/elyra,
+		/obj/item/flag/elyra/l,
+		/obj/item/flag/eridani,
+		/obj/item/flag/eridani/l,
+		/obj/item/flag/hegemony,
+		/obj/item/flag/hegemony/l,
+		/obj/item/flag/heph,
+		/obj/item/flag/heph/l,
+		/obj/item/flag/jargon,
+		/obj/item/flag/jargon/l,
+		/obj/item/flag/nanotrasen,
+		/obj/item/flag/nanotrasen/l,
+		/obj/item/flag/nka,
+		/obj/item/flag/nka/l,
+		/obj/item/flag/pra,
+		/obj/item/flag/pra/l,
+		/obj/item/flag/sol,
+		/obj/item/flag/sol/l,
+		/obj/item/flag/vaurca,
+		/obj/item/flag/vaurca/l,
+		/obj/item/flag/zenghu,
+		/obj/item/flag/zenghu/l
+	)
+
+/obj/random/gift
+	name = "random gift"
+	desc = "Contains a randomly sized gift."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift1"
+	spawnlist = list(
+		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift/medium =  0.3,
+		/obj/item/xmasgift/large = 0.2
 	)

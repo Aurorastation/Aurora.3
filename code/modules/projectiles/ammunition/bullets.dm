@@ -189,6 +189,10 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
+/obj/item/ammo_casing/a762/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."
@@ -308,3 +312,10 @@
 	name = "canister shot"
 	desc = "A solid projectile filled with deadly shrapnel."
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/canister
+
+/obj/item/ammo_casing/nuke
+	name = "miniaturized nuclear warhead"
+	icon_state = "nuke"
+	caliber = "nuke"
+	desc = "A miniaturized version of a nuclear bomb."
+	projectile_type = /obj/item/projectile/bullet/nuke

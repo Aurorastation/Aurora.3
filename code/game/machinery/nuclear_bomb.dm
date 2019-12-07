@@ -16,7 +16,7 @@ var/bomb_set
 	var/code = ""
 	var/yes_code = 0
 	var/safety = 1
-	var/obj/item/weapon/disk/nuclear/auth = null
+	var/obj/item/disk/nuclear/auth = null
 	var/removal_stage = 0 // 0 is no removal, 1 is covers removed, 2 is covers open, 3 is sealant open, 4 is unwrenched, 5 is removed from bolts.
 	var/lastentered
 	use_power = 0
@@ -43,7 +43,7 @@ var/bomb_set
 		SSnanoui.update_uis(src)
 	return
 
-/obj/machinery/nuclearbomb/attackby(obj/item/weapon/O as obj, mob/user as mob, params)
+/obj/machinery/nuclearbomb/attackby(obj/item/O as obj, mob/user as mob, params)
 	if (O.isscrewdriver())
 		src.add_fingerprint(user)
 		if (src.auth)
@@ -72,7 +72,7 @@ var/bomb_set
 		return attack_hand(user)
 
 	if (src.extended)
-		if (istype(O, /obj/item/weapon/disk/nuclear))
+		if (istype(O, /obj/item/disk/nuclear))
 			usr.drop_from_inventory(O,src)
 			src.auth = O
 			src.add_fingerprint(user)
@@ -82,7 +82,7 @@ var/bomb_set
 		switch(removal_stage)
 			if(0)
 				if(O.iswelder())
-					var/obj/item/weapon/weldingtool/WT = O
+					var/obj/item/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
@@ -109,7 +109,7 @@ var/bomb_set
 			if(2)
 				if(O.iswelder())
 
-					var/obj/item/weapon/weldingtool/WT = O
+					var/obj/item/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
 						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
@@ -235,7 +235,7 @@ var/bomb_set
 			auth = null
 		else
 			var/obj/item/I = usr.get_active_hand()
-			if (istype(I, /obj/item/weapon/disk/nuclear))
+			if (istype(I, /obj/item/disk/nuclear))
 				usr.drop_from_inventory(I,src)
 				auth = I
 	if (is_auth(usr))
@@ -349,7 +349,7 @@ var/bomb_set
 
 	var/off_station = 0
 	var/turf/bomb_location = get_turf(src)
-	if(bomb_location && (bomb_location.z in current_map.station_levels))
+	if(bomb_location && isStationLevel(bomb_location.z))
 		if( (bomb_location.x < (128-NUKERANGE)) || (bomb_location.x > (128+NUKERANGE)) || (bomb_location.y < (128-NUKERANGE)) || (bomb_location.y > (128+NUKERANGE)) )
 			off_station = 1
 	else
@@ -358,7 +358,7 @@ var/bomb_set
 	if(SSticker.mode && SSticker.mode.name == "Mercenary")
 		var/obj/machinery/computer/shuttle_control/multi/syndicate/syndie_location = locate(/obj/machinery/computer/shuttle_control/multi/syndicate)
 		if(syndie_location)
-			SSticker.mode:syndies_didnt_escape = !(syndie_location.z in current_map.admin_levels)
+			SSticker.mode:syndies_didnt_escape = isNotAdminLevel(syndie_location.z)
 		SSticker.mode:nuke_off_station = off_station
 
 	SSticker.station_explosion_cinematic(off_station, null, GetConnectedZlevels(z))
@@ -391,29 +391,29 @@ var/bomb_set
 		icon_state = "idle"
 
 //====The nuclear authentication disc====
-/obj/item/weapon/disk/nuclear
+/obj/item/disk/nuclear
 	name = "authentication disk"
 	desc = "Better keep this safe."
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = 1.0
 
-/obj/item/weapon/disk/nuclear/Initialize()
+/obj/item/disk/nuclear/Initialize()
 	. = ..()
 	nuke_disks |= src
 
-/obj/item/weapon/disk/nuclear/Destroy()
+/obj/item/disk/nuclear/Destroy()
 	nuke_disks -= src
 	if(!nuke_disks.len)
 		var/turf/T = pick_area_turf(/area/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 		if(T)
-			var/obj/D = new /obj/item/weapon/disk/nuclear(T)
+			var/obj/D = new /obj/item/disk/nuclear(T)
 			log_and_message_admins("[src], the last authentication disk, has been destroyed. Spawning [D] at ([D.x], [D.y], [D.z]).", location = T)
 		else
 			log_and_message_admins("[src], the last authentication disk, has been destroyed. Failed to respawn disc!")
 	return ..()
 
-/obj/item/weapon/disk/nuclear/touch_map_edge()
+/obj/item/disk/nuclear/touch_map_edge()
 	qdel(src)
 
 /obj/machinery/nuclearbomb/station

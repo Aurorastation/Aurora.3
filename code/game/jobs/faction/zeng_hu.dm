@@ -47,7 +47,8 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug
+		/datum/species/bug,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
@@ -72,37 +73,37 @@
 /datum/outfit/job/doctor/zeng_hu
 	name = "Medical Doctor - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/roboticist/zeng_hu
 	name = "Roboticist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/paramedic/zeng_hu
 	name = "Paramedic - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/scientist/xenobiologist/zeng_hu
 	name = "Xenobiologist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/representative/zeng_hu
 	name = "Zeng-Hu Corporate Liaison"
@@ -110,4 +111,4 @@
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
