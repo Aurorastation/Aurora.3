@@ -293,7 +293,7 @@
 			else if(lying)
 				if(src.sleeping)
 					src.sleeping = max(0,src.sleeping-5)
-					M.visible_message("<span class='notice'>[M] shakes [src] trying to wake [t_him] up!</span>", \
+					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
 										"<span class='notice'>You shake [src] trying to wake [t_him] up!</span>")
 				else
 					M.help_up_offer = !M.help_up_offer
