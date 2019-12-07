@@ -332,6 +332,11 @@
 			// Finally, apply damage to target
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
+
+			if(M.resting && src.help_up_offer)
+				M.visible_message("<span class='warning'>[M] slaps away [src]'s hand!</span>")
+				src.help_up_offer = 0
+
 		if(I_DISARM)
 			var/disarm_cost
 			var/usesStamina

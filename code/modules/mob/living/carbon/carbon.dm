@@ -320,7 +320,7 @@
 							M.adjust_fire_stacks(-1)
 						if(M.on_fire)
 							src.IgniteMob()
-						if(do_after(M, 5 SECONDS))
+						if(do_after(M, 4 SECONDS))
 							M.resting = 0
 
 				else if(istype(tapper))
@@ -467,4 +467,3 @@
 		return FALSE
 
 	return TRUE
-
