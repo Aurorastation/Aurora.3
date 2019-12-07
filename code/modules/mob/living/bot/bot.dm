@@ -10,7 +10,7 @@
 	var/list/botcard_access = list()
 	var/on = FALSE
 	var/open = 0
-	var/locked = 0
+	var/locked = FALSE
 	var/emagged = 0
 	var/light_strength = 3
 
