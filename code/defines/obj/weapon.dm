@@ -1,6 +1,6 @@
 /obj/item/weapon/phone
 	name = "red phone"
-	desc = "A 20th-cenctury handset-style red telephone complete with receiver, base station, and rotary dial."
+	desc = "A 20th-century handset-style red telephone complete with receiver, base station, and rotary dial."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	flags = CONDUCT
@@ -420,7 +420,7 @@
 	icon_state = "broom"
 
 /obj/item/weapon/staff/gentcane
-	name = "gentleman cane"
+	name = "gentleman's cane"
 	desc = "An ebony cane with an ivory tip."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
@@ -516,7 +516,7 @@
 	target.lastattacker = user
 	if(!no_attack_log)
 		user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
-		target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYPE: [uppertext(damagetype)])</font>"
 		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 	/////////////////////////
 
@@ -714,7 +714,7 @@
 
 /obj/item/weapon/neuralbroke
 	name = "fried neural socket"
-	desc = "A chip with wires on it. There is some transparent, viscous fluid coating. The chip seems badly damaged."
+	desc = "A chip with wires on it, coated with a transparent, viscous fluid. The chip seems badly damaged."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 

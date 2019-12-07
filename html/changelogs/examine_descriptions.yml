@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Reworked descripions of all things so that they give physical descriptions. Background information and other abstract things are moved to the Examine tab accordingly."
+  - tweak: "Reworked descriptions of all things so that they give physical descriptions. Background information and other abstract things are moved to the Examine tab accordingly."
   - rscadd: "Added descriptions to several things that don't have them, as well as fluff information."
   - rscadd: "Added Examine tab descriptions for clothing that give an idea as to their armour values and other protective properties. Ported from Polaris."
   - rscadd: "Added the ability to examine items worn by another person which provides only the physical description."

@@ -104,7 +104,7 @@ var/global/list/syndicate_access = list(access_maint_tunnels, access_syndicate, 
 //Cloaking devices
 var/global/list/cloaking_devices = list()
 
-// Strings which corraspond to bodypart covering flags, useful for outputting what something covers.
+// Strings which correspond to bodypart covering flags, useful for outputting what something covers.
 var/global/list/string_part_flags = list(
 	"head" = HEAD,
 	"face" = FACE,
@@ -117,7 +117,7 @@ var/global/list/string_part_flags = list(
 	"hands" = HANDS
 )
 
-// Strings which corraspond to slot flags, useful for outputting what slot something is.
+// Strings which correspond to slot flags, useful for outputting what slot something is.
 var/global/list/string_slot_flags = list(
 	"back" = SLOT_BACK,
 	"face" = SLOT_MASK,
