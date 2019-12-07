@@ -411,6 +411,7 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
+	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
@@ -449,15 +450,35 @@
 	damaged = _damaged
 	. = ..(mapload)
 
-/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
+/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/suit)
 	var/helmet = suitmap[suit.type]
 	if (helmet)
 		new helmet(loc)
 	else
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
-	new /obj/item/clothing/shoes/magboots(loc)
+	if(!for_vox)
+		new /obj/item/clothing/shoes/magboots(loc)
+	else
+		new /obj/item/clothing/shoes/magboots/vox(loc)
+		new /obj/item/clothing/gloves/yellow/vox(loc)
 	if (damaged && prob(60))
 		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+
+/obj/random/voidsuit/vox
+	name = "random vox voidsuit"
+	for_vox = TRUE
+	suitmap = list(
+		/obj/item/clothing/suit/space/vox/carapace = /obj/item/clothing/head/helmet/space/vox/carapace,
+		/obj/item/clothing/suit/space/vox/medic = /obj/item/clothing/head/helmet/space/vox/medic,
+		/obj/item/clothing/suit/space/vox/pressure = /obj/item/clothing/head/helmet/space/vox/pressure,
+		/obj/item/clothing/suit/space/vox/stealth = /obj/item/clothing/head/helmet/space/vox/stealth
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/vox/carapace = 1,
+		/obj/item/clothing/suit/space/vox/medic = 1,
+		/obj/item/clothing/suit/space/vox/pressure = 1,
+		/obj/item/clothing/suit/space/vox/stealth = 1
+	)
 
 /obj/random/vendor
 	name = "random vendor"

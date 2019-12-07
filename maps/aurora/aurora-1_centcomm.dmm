@@ -6380,16 +6380,10 @@
 /obj/structure/closet/wardrobe{
 	name = "vox apparel"
 	},
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/shoes/magboots/vox,
 /obj/item/clothing/under/vox/vox_robes,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/pressure,
-/obj/item/clothing/head/helmet/space/vox/pressure,
-/obj/item/clothing/suit/space/vox/medic,
-/obj/item/clothing/head/helmet/space/vox/medic,
 /obj/item/clothing/under/vox/vox_casual,
+/obj/random/voidsuit/vox,
+/obj/random/voidsuit/vox,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "apv" = (
@@ -6514,7 +6508,6 @@
 	pixel_y = 32
 	},
 /obj/structure/table/wood,
-/obj/item/storage/wallet/random,
 /turf/simulated/floor/lino,
 /area/merchant_station)
 "apO" = (
@@ -22154,6 +22147,7 @@
 /obj/structure/closet{
 	name = "materials"
 	},
+/obj/item/device/floor_painter,
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station/warehouse)
 "bLO" = (
@@ -22296,7 +22290,7 @@
 	icon_state = "tube1";
 	dir = 2
 	},
-/obj/item/hand_labeler,
+/obj/item/storage/wallet/random,
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant/start)
 "ckG" = (
@@ -23060,6 +23054,7 @@
 "dQD" = (
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
+	closed_layer = 3.1;
 	density = 0;
 	dir = 8;
 	icon_state = "shutter0";
@@ -23213,6 +23208,9 @@
 /obj/item/clothing/suit/storage/legion,
 /obj/item/towel,
 /obj/item/towel,
+/obj/item/rig/light/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer,
+/obj/item/storage/pill_bottle/rmt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -24637,22 +24635,23 @@
 /area/centcom/legion)
 "gZC" = (
 /turf/unsimulated/wall/fakeairlock{
+	desc = "Locked during work hours due to safety concerns. Particularly pirate ones.";
 	icon_state = "door_locked";
-	name = "Upper Levels"
+	name = "Upper Levels access"
 	},
 /area/merchant_station)
 "gZS" = (
 /obj/structure/closet/wardrobe/suit,
 /obj/random/colored_jumpsuit,
 /obj/random/backpack,
-/obj/item/clothing/shoes/black_boots,
-/obj/item/clothing/shoes/tajara,
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/shoes/workboots/toeless,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots/unathi,
 /obj/item/clothing/shoes/laceup,
+/obj/item/rig/light/offworlder,
+/obj/item/clothing/accessory/offworlder/bracer,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "haK" = (
@@ -27196,6 +27195,9 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
+/obj/item/storage/pill_bottle/rmt{
+	pixel_x = -12
+	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
 "mrR" = (
@@ -28038,9 +28040,9 @@
 	},
 /area/centcom/living)
 "nQl" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Warehouse";
-	opacity = 1
+/obj/machinery/door/airlock/hatch{
+	name = "Lounge";
+	req_access = null
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -28377,11 +28379,12 @@
 	req_access = list(110)
 	},
 /obj/machinery/button/remote/blast_door{
+	desc = "It controls the shuttle shutter.";
 	dir = 1;
 	id = "merchant_airlock";
-	name = "Merchant Airlock Lockdown";
-	pixel_x = -2;
-	pixel_y = -22;
+	name = "airlock shutter controller";
+	pixel_x = -3;
+	pixel_y = -21;
 	req_access = list(110)
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -28531,7 +28534,7 @@
 /obj/structure/closet/crate/loot{
 	desc = "A worn container that has been through many long travels.";
 	name = "leftover merchandise";
-	quantity = 10;
+	quantity = 8;
 	rarity = 2
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28986,7 +28989,7 @@
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
 	icon_state = "door_locked";
-	name = "Service Airlock"
+	name = "service airlock"
 	},
 /area/template_noop)
 "poi" = (
@@ -31906,6 +31909,7 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
+/obj/item/storage/box/tcfl_pamphlet,
 /turf/unsimulated/floor{
 	icon_state = "carpet5-1"
 	},
@@ -32549,10 +32553,7 @@
 	},
 /area/centcom/legion)
 "wDV" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = 12;
-	pixel_y = -2
-	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "wEJ" = (

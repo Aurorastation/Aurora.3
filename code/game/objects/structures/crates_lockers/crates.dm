@@ -676,7 +676,8 @@
 		"trashcart" = "trashcartopen",
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
-		"medicalcrate" = "medicalcrateopen"
+		"medicalcrate" = "medicalcrateopen",
+		"tcflcrate" = "tcflcrateopen"
 	)
 
 
