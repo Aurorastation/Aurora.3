@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/rig/merc
 	light_overlay = "helmet_light_dual_green"
-	camera_networks = list(NETWORK_MERCENARY)
 	light_color = "#3e7c3e"
+	camera = /obj/machinery/camera/network/mercenary
 
 /obj/item/rig/merc
 	name = "crimson hardsuit control module"

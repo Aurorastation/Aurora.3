@@ -19,6 +19,7 @@
 #define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
 #define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
 #define SCREEN_LAYER 22			//Mob HUD/effects layer
+#define CINEMA_LAYER 23
 
 #define MECH_BASE_LAYER             4.01
 #define MECH_INTERMEDIATE_LAYER     4.02
