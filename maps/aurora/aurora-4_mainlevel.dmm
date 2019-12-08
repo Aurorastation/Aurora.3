@@ -27779,14 +27779,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/vehicle/train/cargo/trolley/pussywagon,
+/obj/vehicle/train/cargo/trolley/janiwagon,
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aWd" = (
-/obj/vehicle/train/cargo/engine/pussywagon,
+/obj/vehicle/train/cargo/engine/janiwagon,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aWe" = (

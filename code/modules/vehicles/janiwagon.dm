@@ -1,4 +1,4 @@
-/obj/vehicle/train/cargo/engine/pussywagon
+/obj/vehicle/train/cargo/engine/janiwagon
 	name = "janicart deluxe engine"
 	desc = "The engine for the janicart deluxe trolley, the bread to your butter."
 	icon = 'icons/obj/vehicles.dmi'
@@ -11,20 +11,20 @@
 	var/cart_icon = "janicart"
 
 /obj/item/key/janicart
-	name = "key"
-	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
+	name = "janicart deluxe keys"
+	desc = "A keyring with a small steel key, and a purple fob."
 	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "keys"
+	icon_state = "janikeys"
 	w_class = 1
 
-/obj/vehicle/train/cargo/engine/pussywagon/Initialize()
+/obj/vehicle/train/cargo/engine/janiwagon/Initialize()
 	. = ..()
 	cell = new /obj/item/cell/high(src)
 	key = null
 	update_icon()
 	turn_off()	//so engine verbs are correctly set
 
-/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/engine/janiwagon/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/key/janicart))
 		if(!key)
 			user.drop_from_inventory(W,src)
@@ -33,30 +33,30 @@
 		return
 	..()
 
-/obj/vehicle/train/cargo/engine/pussywagon/turn_on()
+/obj/vehicle/train/cargo/engine/janiwagon/turn_on()
 	if(!key)
 		return
 	else
 		..()
 		update_stats()
 
-		verbs += /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop
-		verbs += /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover
+		verbs += /obj/vehicle/train/cargo/engine/janiwagon/verb/toggle_mop
+		verbs += /obj/vehicle/train/cargo/engine/janiwagon/verb/toggle_hoover
 
-/obj/vehicle/train/cargo/engine/pussywagon/turn_off()
+/obj/vehicle/train/cargo/engine/janiwagon/turn_off()
 	..()
 
 	if(tow)
-		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
-			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
+		if(istype(tow,/obj/vehicle/train/cargo/trolley/janiwagon))
+			var/obj/vehicle/train/cargo/trolley/janiwagon/PW = tow
 			if(PW.mopping)
 				PW.mop_toggle()
 			if(PW.hoover)
 				PW.hoover_toggle()
-	verbs -= /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop
-	verbs -= /obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover
+	verbs -= /obj/vehicle/train/cargo/engine/janiwagon/verb/toggle_mop
+	verbs -= /obj/vehicle/train/cargo/engine/janiwagon/verb/toggle_hoover
 
-/obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_mop()
+/obj/vehicle/train/cargo/engine/janiwagon/verb/toggle_mop()
 	set name = "Toggle Mop-o-matic"
 	set category = "Vehicle"
 	set src in view(0)
@@ -65,14 +65,14 @@
 		return
 
 	if(on && tow)
-		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
-			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
+		if(istype(tow,/obj/vehicle/train/cargo/trolley/janiwagon))
+			var/obj/vehicle/train/cargo/trolley/janiwagon/PW = tow
 			if(!PW.bucket)
 				to_chat(usr, "<span class='warning'>You must insert a reagent container first!</span>")
 				return
 			PW.mop_toggle()
 
-/obj/vehicle/train/cargo/engine/pussywagon/verb/toggle_hoover()
+/obj/vehicle/train/cargo/engine/janiwagon/verb/toggle_hoover()
 	set name = "Toggle Space Hoover"
 	set category = "Vehicle"
 	set src in view(0)
@@ -81,11 +81,11 @@
 		return
 
 	if(on && tow)
-		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
-			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
+		if(istype(tow,/obj/vehicle/train/cargo/trolley/janiwagon))
+			var/obj/vehicle/train/cargo/trolley/janiwagon/PW = tow
 			PW.hoover_toggle()
 
-/obj/vehicle/train/cargo/engine/pussywagon/update_icon()
+/obj/vehicle/train/cargo/engine/janiwagon/update_icon()
 	cut_overlays()
 
 	if(on)
@@ -96,7 +96,7 @@
 		icon_state = "[cart_icon]_off"
 	..()
 
-/obj/vehicle/train/cargo/engine/pussywagon/Move(var/turf/destination)
+/obj/vehicle/train/cargo/engine/janiwagon/Move(var/turf/destination)
 	switch(dir)
 		if(NORTH)
 			mob_offset_y = 7
@@ -120,7 +120,7 @@
 			load.pixel_x = load_offset_x
 	..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon
+/obj/vehicle/train/cargo/trolley/janiwagon
 	name = "janicart deluxe trolley"
 	desc = "The trolley of the janicart deluxe, equipped with dual rotary mop and a NT-X1 Vacuum Cleaner."
 	icon = 'icons/obj/vehicles.dmi'
@@ -133,7 +133,7 @@
 	var/hoover = 0
 
 
-/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/trolley/janiwagon/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/reagent_containers) && open)
 		if(!bucket)
 			user.drop_from_inventory(W,src)
@@ -158,7 +158,7 @@
 			return
 	..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/Move(var/turf/destination)
+/obj/vehicle/train/cargo/trolley/janiwagon/Move(var/turf/destination)
 	if(lead)
 		var/turf/tile = loc
 		if(mopping && bucket)
@@ -182,7 +182,7 @@
 				playsound(src, 'sound/machines/disposalflush.ogg', 100, 1)
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/mop_toggle()
+/obj/vehicle/train/cargo/trolley/janiwagon/proc/mop_toggle()
 	if(!mopping)
 		mopping = 1
 		src.visible_message("\The [src]'s mop-o-matic rumbles to life.", "You hear something rumble deeply.")
@@ -193,7 +193,7 @@
 	update_icon()
 
 
-/obj/vehicle/train/cargo/trolley/pussywagon/proc/hoover_toggle()
+/obj/vehicle/train/cargo/trolley/janiwagon/proc/hoover_toggle()
 	if(!hoover)
 		hoover = 1
 		src.visible_message("\The [src]'s space hoover rumbles to life.", "You hear something rumble deeply.")
@@ -203,7 +203,7 @@
 		src.visible_message("\The [src]'s space hoover putters before turning off.", "You hear something putter slowly.")
 	update_icon()
 
-/obj/vehicle/train/cargo/trolley/pussywagon/update_icon()
+/obj/vehicle/train/cargo/trolley/janiwagon/update_icon()
 	cut_overlays()
 
 	if(mopping)

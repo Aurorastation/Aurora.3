@@ -16,10 +16,10 @@
 	var/obj/item/key/cargo_train/key
 
 /obj/item/key/cargo_train
-	name = "key"
-	desc = "A keyring with a small steel key, and a yellow fob reading \"Choo Choo!\"."
+	name = "cargo trolley key"
+	desc = "A keyring with a small steel key, and a yellow fob."
 	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "train_keys"
+	icon_state = "trainkeys"
 	w_class = 1
 
 /obj/vehicle/train/cargo/trolley
