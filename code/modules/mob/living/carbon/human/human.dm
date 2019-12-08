@@ -1626,3 +1626,8 @@
 /mob/living/carbon/human/proc/pulse()
 	var/obj/item/organ/internal/heart/H = internal_organs_by_name[BP_HEART]
 	return H ? H.pulse : PULSE_NONE
+
+/mob/living/carbon/human/proc/gigashatter()
+	for(var/obj/item/organ/external/E in organs)
+		E.fracture()
+	return

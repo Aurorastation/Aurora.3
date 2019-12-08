@@ -24,7 +24,6 @@
 	allow_hair_covering = FALSE
 
 	var/obj/machinery/camera/camera
-	var/list/camera_networks
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
@@ -34,7 +33,7 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	if(camera_networks && camera_networks.len)
+	if(camera)
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 
 /obj/item/clothing/head/helmet/space/proc/toggle_camera()
@@ -42,9 +41,8 @@
 	set category = "Object"
 	set src in usr
 
-	if(!camera && camera_networks)
-		camera = new /obj/machinery/camera(src)
-		camera.replace_networks(camera_networks)
+	if(ispath(camera))
+		camera = new camera(src)
 		camera.set_status(0)
 
 	if(camera)
@@ -56,8 +54,8 @@
 			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
 
 /obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera_networks && camera_networks.len)
-		to_chat(user, "This helmet has a built-in camera. It's [camera && camera.status ? "" : "in"]active.")
+	if(..(user, 1) && camera)
+		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/suit/space
 	name = "space suit"
