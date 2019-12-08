@@ -67,6 +67,7 @@
 
 /obj/item/storage/fancy/donut/empty
 	starts_with = null
+	max_storage_space = 12
 
 
 /*
