@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixed the mech rfd, and the extinguisher will now have a proper name."
