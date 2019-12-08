@@ -33,6 +33,10 @@
 	name = "Short, Wool Red/Blue"
 	icon_state = "woolrb_short"
 
+/datum/category_item/underwear/socks/spider_short
+	name = "Short, Spider"
+	icon_state = "spider_short"
+
 /datum/category_item/underwear/socks/rainbow_short
 	name = "Short, Rainbow"
 	icon_state = "rainbow_short"
@@ -67,6 +71,10 @@
 /datum/category_item/underwear/socks/woolredblue_normal
 	name = "Normal, Wool Red/Blue"
 	icon_state = "woolrb_normal"
+
+/datum/category_item/underwear/socks/spider_normal
+	name = "Normal, Spider"
+	icon_state = "spider_normal"
 
 /datum/category_item/underwear/socks/rainbow_normal
 	name = "Normal, Rainbow"
@@ -103,6 +111,10 @@
 	name = "Knee, Wool Red/Blue"
 	icon_state = "woolrb_knee"
 
+/datum/category_item/underwear/socks/spider_knee
+	name = "Knee, Spider"
+	icon_state = "spider_knee"
+
 /datum/category_item/underwear/socks/rainbow_knee
 	name = "Knee, Rainbow"
 	icon_state = "rainbow_knee"
@@ -137,6 +149,10 @@
 /datum/category_item/underwear/socks/woolredblue_thigh
 	name = "Thigh, Wool Red/Blue"
 	icon_state = "woolrb_thigh"
+
+/datum/category_item/underwear/socks/spider_thigh
+	name = "Thigh, Spider"
+	icon_state = "spider_thigh"
 
 /datum/category_item/underwear/socks/rainbow_thigh
 	name = "Thigh, Rainbow"

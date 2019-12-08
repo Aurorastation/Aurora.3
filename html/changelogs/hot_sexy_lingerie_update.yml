@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - rscadd: "Splits the underwear into top and bottom pieces."
   - rscadd: "Allows underwear to be removed."
-  - rscadd: "Ports some many more underwear, undershirt, socks styles from BS12, Polaris, and tg using this new system. Adds some corporate-specific ones made by The Stryker."
+  - rscadd: "Ports some many more underwear, undershirt, socks styles from BS12, Polaris, tg, as well as some made by The Stryker, using this new system."
   - bugfix: "Backpack styles (job-specific or grey) no longer keep changing back to job-specific."
