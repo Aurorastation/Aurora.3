@@ -284,12 +284,38 @@
 
 //dungeon areas
 
-/area/crashed_ship
+/area/dungeon/crashed_ship
 	name = "\improper Derelict Ship"
 	icon_state = "yellow"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
-/area/tomb
+/area/dungeon/tomb
 	name = "\improper Burial Chamber"
 	icon_state = "yellow"
 	flags = SPAWN_ROOF
+
+/area/dungeon/syndie_listening_post
+	name = "\improper Abandoned Listening Post"
+	icon_state = "red"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1
+
+/area/dungeon/anomaly_outpost
+	name = "\improper Xenoarchaeological Outpost"
+	icon_state = "anomaly"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1
+
+/area/dungeon/sol_outpost
+	name = "\improper Solarian Outpost"
+	icon_state = "red"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1
+
+/area/dungeon/crashed_satellite
+	name = "\improper Communications Satellite"
+	icon_state = "tcomsatcham"
+	no_light_control = 1
