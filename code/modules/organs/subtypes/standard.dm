@@ -13,6 +13,7 @@
 	vital = 1
 	amputation_point = "spine"
 	joint = "neck"
+	artery_name = "internal thoracic artery"
 	dislocated = -1
 	gendered_icon = 1
 	cannot_amputate = 1
@@ -32,6 +33,7 @@
 	parent_organ = BP_CHEST
 	amputation_point = "lumbar"
 	joint = "hip"
+	artery_name = "iliac artery"
 	dislocated = -1
 	gendered_icon = 1
 	maim_bonus = 0.25
@@ -46,6 +48,9 @@
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	joint = "left elbow"
+	has_tendon = TRUE
+	tendon_name = "palmaris longus tendon"
+	artery_name = "basilic vein"
 	amputation_point = "left shoulder"
 	can_grasp = 1
 
@@ -55,6 +60,9 @@
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
 	joint = "right elbow"
+	has_tendon = TRUE
+	tendon_name = "cruciate ligament"
+	artery_name = "brachial artery"
 	amputation_point = "right shoulder"
 
 /obj/item/organ/external/leg
@@ -68,6 +76,9 @@
 	icon_position = LEFT
 	parent_organ = BP_GROIN
 	joint = "left knee"
+	has_tendon = TRUE
+	tendon_name = "quadriceps tendon"
+	artery_name = "femoral artery"
 	amputation_point = "left hip"
 	can_stand = 1
 
@@ -120,6 +131,8 @@
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
+	has_tendon = TRUE
+	tendon_name = "carpal ligament"
 	amputation_point = "left wrist"
 	can_grasp = 1
 	maim_bonus = 1
@@ -152,6 +165,7 @@
 	vital = 1
 	parent_organ = BP_CHEST
 	joint = "jaw"
+	artery_name = "cartoid artery"
 	amputation_point = "neck"
 	gendered_icon = 1
 	encased = "skull"

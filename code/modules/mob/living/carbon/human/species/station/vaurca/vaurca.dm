@@ -59,7 +59,7 @@
 	heat_level_1 = 330 //Default 360
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 600 //Default 1000
-	flags = NO_SLIP | NO_CHUBBY
+	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	blood_color = "#E6E600" // dark yellow
@@ -122,12 +122,16 @@
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = 1
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
+
+/datum/species/bug/after_equip(var/mob/living/carbon/human/H)
+	if(H.shoes)
+		return
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))

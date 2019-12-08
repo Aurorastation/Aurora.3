@@ -62,8 +62,7 @@
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/ntnetmonitor(),
-		new/datum/computer_file/program/aidiag(),
-		new/datum/computer_file/program/exosuit_monitor()
+		new/datum/computer_file/program/aidiag()
 	)
 	return _prg_list
 
@@ -128,7 +127,7 @@
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/game/arcade(),
-		new/datum/computer_file/program/game/sudoku()		
+		new/datum/computer_file/program/game/sudoku()
 	)
 	return _prg_list
 

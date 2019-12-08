@@ -79,7 +79,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/bag/ore/drone               = TRADER_BLACKLIST, // don't want drone bags
 		/obj/item/storage/bag/sheetsnatcher/borg      = TRADER_BLACKLIST, // don't want borg bags
 		/obj/item/storage/bag/circuits                = TRADER_BLACKLIST_ALL, //can spawn glitchy circuit boxes, circuitry should belong to science
-		/obj/item/storage/bag/cash                    = TRADER_BLACKLIST, // spawns with money
+		/obj/item/storage/bag/money                   = TRADER_BLACKLIST, // spawns with money
 		/obj/item/storage/backpack                    = TRADER_ALL,
 		/obj/item/storage/backpack/cultpack           = TRADER_BLACKLIST, // cult stuff
 		/obj/item/storage/backpack/holding            = TRADER_BLACKLIST_ALL, // research stuff
@@ -144,7 +144,6 @@ They sell generic supplies and ask for generic supplies.
 		/obj/structure/AIcore                           = TRADER_THIS_TYPE,
 		/obj/structure/ore_box                          = TRADER_THIS_TYPE,
 		/obj/structure/dispenser                        = TRADER_THIS_TYPE,
-		/obj/mecha/working/hoverpod                     = TRADER_THIS_TYPE,
 		/obj/item/ladder_mobile                  = TRADER_THIS_TYPE,
 		/obj/item/inflatable_dispenser           = TRADER_THIS_TYPE,
 		/obj/machinery/pipedispenser/orderable          = TRADER_THIS_TYPE,
@@ -189,6 +188,5 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                               = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE,
-		/obj/mecha/medical/odysseus                                     = TRADER_THIS_TYPE
+		/obj/item/stack/medical/advanced/bruise_pack/spaceklot          = TRADER_THIS_TYPE
 	)

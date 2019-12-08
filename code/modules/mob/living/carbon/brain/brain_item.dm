@@ -1,23 +1,3 @@
-/obj/item/organ/internal/brain
-	name = "brain"
-	health = 400 //They need to live awhile longer than other organs. Is this even used by organ code anymore?
-	desc = "A piece of juicy meat found in a person's head."
-	organ_tag = BP_BRAIN
-	parent_organ = BP_HEAD
-	vital = 1
-	icon_state = "brain"
-	force = 1.0
-	w_class = 2.0
-	throwforce = 1.0
-	throw_speed = 3
-	throw_range = 5
-	origin_tech = list(TECH_BIO = 3)
-	attack_verb = list("attacked", "slapped", "whacked")
-	var/mob/living/carbon/brain/brainmob = null
-	var/list/datum/brain_trauma/traumas = list()
-	var/lobotomized = 0
-	var/can_lobotomize = 1
-
 /obj/item/organ/pariah_brain
 	name = "brain remnants"
 	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
@@ -39,6 +19,7 @@
 /obj/item/organ/internal/brain/Initialize(mapload)
 	. = ..()
 	health = config.default_brain_health
+	max_damage = 60
 	if (!mapload)
 		addtimer(CALLBACK(src, .proc/clear_screen), 5)
 
@@ -130,15 +111,6 @@
 		else
 			to_chat(user, "<span class='notice'>The brain has already been operated on!</span>")
 	..()
-
-/obj/item/organ/internal/brain/process()
-	..()
-
-	if(!owner)
-		return
-
-	if(lobotomized && (owner.getBrainLoss() < 40)) //lobotomized brains cannot be healed with chemistry. Part of the brain is irrevocably missing. Can be fixed magically with cloning, ofc.
-		owner.setBrainLoss(40)
 
 /obj/item/organ/internal/brain/slime
 	name = "slime core"

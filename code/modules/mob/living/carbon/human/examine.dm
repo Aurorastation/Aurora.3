@@ -208,8 +208,11 @@
 	//splints
 	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
-		if(o && o.status & ORGAN_SPLINTED)
-			msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"
+		if(o)
+			if(o.status & ORGAN_SPLINTED)
+				msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"
+			if(o.applied_pressure == src)
+				msg += "<span class='warning'>[T.He] [T.is] applying pressure to [T.his] [o.name]!</span>\n"
 
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] small halfling!\n"
@@ -225,7 +228,7 @@
 			spawn (0)
 				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
 				if (do_mob(user, src, 15))
-					if(pulse == PULSE_NONE)
+					if(pulse() == PULSE_NONE)
 						to_chat(user, "<span class='deadsay'>[T.He] [T.has] no pulse[src.client ? "" : " and [T.his] soul has departed"]...</span>")
 					else
 						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")

@@ -243,6 +243,9 @@
 		bodytype = name
 	return bodytype
 
+/datum/species/proc/get_surgery_overlay_icon(var/mob/living/carbon/human/H)
+	return 'icons/mob/surgery.dmi'
+
 /datum/species/proc/get_environment_discomfort(var/mob/living/carbon/human/H, var/msg_type)
 
 	if(!prob(5))
@@ -437,9 +440,11 @@
 	return vision_flags
 
 /datum/species/proc/handle_vision(var/mob/living/carbon/human/H)
+	var/list/vision = H.get_accumulated_vision_handlers()
 	H.update_sight()
 	H.sight |= get_vision_flags(H)
 	H.sight |= H.equipment_vision_flags
+	H.sight |= vision[1]
 
 	if(H.stat == DEAD)
 		return 1

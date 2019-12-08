@@ -46,8 +46,7 @@
 			to_chat(H, "<span class='danger'>Your abdomen is a world of pain!</span>")
 			H.Weaken(10)
 
-			var/obj/item/organ/external/groin = H.get_organ(BP_GROIN)
-			var/datum/wound/W = new /datum/wound/internal_bleeding(20)
+			var/obj/item/organ/external/groin = H.get_organ("groin")
+			groin.sever_artery()
 			H.adjustToxLoss(25)
-			groin.wounds += W
 			src.cure()

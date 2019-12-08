@@ -174,6 +174,12 @@
 		if(W.hitsound)
 			playsound(loc, W.hitsound, 50, 1, -1)
 
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/organ/external/head = H.get_organ("head")
+		if(head)
+			head.sever_artery()
+
 	G.last_action = world.time
 	flick(G.hud.icon_state, G.hud)
 

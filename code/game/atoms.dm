@@ -51,6 +51,12 @@
 		return 0
 	return -1
 
+/atom/proc/additional_sight_flags()
+	return 0
+
+/atom/proc/additional_see_invisible()
+	return 0
+
 /atom/proc/on_reagent_change()
 	return
 

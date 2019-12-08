@@ -262,12 +262,30 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "broken"
 
+/obj/item/robot_parts/robot_component/proc/take_damage(var/brute_amt, var/burn_amt)
+	brute += brute_amt
+	burn += burn_amt
+	total_dam = brute+burn
+	if(total_dam >= max_dam)
+		var/obj/item/circuitboard/broken/broken_device = new (get_turf(src))
+		if(icon_state_broken != "broken")
+			broken_device.icon = src.icon
+			broken_device.icon_state = icon_state_broken
+		broken_device.name = "broken [name]"
+		return broken_device
+	return 0
+
+/obj/item/robot_parts/robot_component/proc/is_functional()
+	return ((brute + burn) < max_dam)
+
 /obj/item/robot_parts/robot_component
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "working"
 	var/brute = 0
 	var/burn = 0
 	var/icon_state_broken = "broken"
+	var/total_dam = 0
+	var/max_dam = 30
 
 /obj/item/robot_parts/robot_component/binary_communication_device
 	name = "binary communication device"

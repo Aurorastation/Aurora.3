@@ -9,7 +9,7 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = 20.0
+	layer = SCREEN_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	appearance_flags = NO_CLIENT_COLOR
@@ -82,15 +82,13 @@
 
 /obj/screen/storage
 	name = "storage"
-	layer = 19
+	layer = SCREEN_LAYER
 	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
@@ -189,8 +187,6 @@
 			usr.hud_used.hidden_inventory_update()
 
 		if("equip")
-			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-				return 1
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
@@ -276,8 +272,6 @@
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return 1
 	switch(name)
 		if(BP_R_HAND)
 			if(iscarbon(usr))
@@ -300,7 +294,7 @@
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
-	layer = 20
+	layer = SCREEN_LAYER
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)

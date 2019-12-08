@@ -19,7 +19,8 @@
 
 /obj/item/gun/energy/stunrevolver
 	name = "stun revolver"
-	desc = "A high-tech revolver that fires rechargeable stun bolts."
+	desc = "A Hephaestus designed high-tech revolver that fires rechargable stun bolts."
+	description_fluff = "The ST-30 is a highly advanced sidearm produced by Hephaestus Industries. It is designed for self-defense in a less-than-lethal manner. While the weapon design itself is not groundbreaking, it fires high velocity energy bolts with rechargable cartridges, possessing unusual high stopping power. "
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
 	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'

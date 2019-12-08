@@ -377,6 +377,18 @@
 	icon_state = "redflag"
 	light_color = LIGHT_COLOR_RED
 
+/obj/item/stack/flag/red/planted
+	name = "red beacon"
+	icon_state = "redflag_open"
+	amount = 1
+	upright = 1
+	anchored = 1
+
+/obj/item/stack/flag/red/planted/Initialize()
+	..()
+	base_state = "redflag"
+	set_light(2)
+
 /obj/item/stack/flag/yellow
 	name = "yellow beacons"
 	singular_name = "yellow beacon"

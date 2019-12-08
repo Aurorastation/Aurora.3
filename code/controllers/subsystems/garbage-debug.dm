@@ -321,7 +321,6 @@
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)
-	SearchVar(cultnet)
 	SearchVar(syndnet)
 	SearchVar(rune_list)
 	SearchVar(escape_list)
