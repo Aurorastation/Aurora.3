@@ -1,23 +1,23 @@
 /obj/item/clothing/head/helmet/space/rig/industrial
-	camera_networks = list(NETWORK_MINE)
+	camera = /obj/machinery/camera/network/mining
 
 /obj/item/clothing/head/helmet/space/rig/ce
-	camera_networks = list(NETWORK_ENGINEERING)
+	camera = /obj/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/eva
 	light_overlay = "helmet_light_dual"
-	camera_networks = list(NETWORK_ENGINEERING)
+	camera = /obj/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/hazmat
 	light_overlay = "hardhat_light"
-	camera_networks = list(NETWORK_RESEARCH)
+	camera = /obj/machinery/camera/network/research
 
 /obj/item/clothing/head/helmet/space/rig/medical
-	camera_networks = list(NETWORK_MEDICAL)
+	camera = /obj/machinery/camera/network/medbay
 
 /obj/item/clothing/head/helmet/space/rig/hazard
 	light_overlay = "helmet_light_dual"
-	camera_networks = list(NETWORK_SECURITY)
+	camera = /obj/machinery/camera/network/security
 
 /obj/item/rig/internalaffairs
 	name = "augmented tie"
@@ -261,7 +261,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate
-	camera_networks = list()
+	camera = /obj/machinery/camera/network/mercenary
 
 /obj/item/rig/diving
 	name = "diving suit control module"

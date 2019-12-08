@@ -411,6 +411,7 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
+	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
@@ -419,7 +420,13 @@
 		/obj/item/clothing/suit/space/void/security = /obj/item/clothing/head/helmet/space/void/security,
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos,
 		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
-		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain
+		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain,
+		/obj/item/clothing/suit/space/void/cruiser = /obj/item/clothing/head/helmet/space/void/cruiser,
+		/obj/item/clothing/suit/space/void/frontier = /obj/item/clothing/head/helmet/space/void/frontier,
+		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -429,7 +436,13 @@
 		/obj/item/clothing/suit/space/void/security = 1,
 		/obj/item/clothing/suit/space/void/atmos = 1.5,
 		/obj/item/clothing/suit/space/void/merc = 0.5,
-		/obj/item/clothing/suit/space/void/captain = 0.3
+		/obj/item/clothing/suit/space/void/captain = 0.3,
+		/obj/item/clothing/suit/space/void/cruiser = 0.5,
+		/obj/item/clothing/suit/space/void/frontier = 1,
+		/obj/item/clothing/suit/space/void/hos = 0.3,
+		/obj/item/clothing/suit/space/void/lancer = 0.3,
+		/obj/item/clothing/suit/space/void/sci = 2,
+		/obj/item/clothing/suit/space/void/sol = 0.5
 	)
 	has_postspawn = TRUE
 
@@ -437,15 +450,35 @@
 	damaged = _damaged
 	. = ..(mapload)
 
-/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
+/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/suit)
 	var/helmet = suitmap[suit.type]
 	if (helmet)
 		new helmet(loc)
 	else
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
-	new /obj/item/clothing/shoes/magboots(loc)
+	if(!for_vox)
+		new /obj/item/clothing/shoes/magboots(loc)
+	else
+		new /obj/item/clothing/shoes/magboots/vox(loc)
+		new /obj/item/clothing/gloves/yellow/vox(loc)
 	if (damaged && prob(60))
 		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+
+/obj/random/voidsuit/vox
+	name = "random vox voidsuit"
+	for_vox = TRUE
+	suitmap = list(
+		/obj/item/clothing/suit/space/vox/carapace = /obj/item/clothing/head/helmet/space/vox/carapace,
+		/obj/item/clothing/suit/space/vox/medic = /obj/item/clothing/head/helmet/space/vox/medic,
+		/obj/item/clothing/suit/space/vox/pressure = /obj/item/clothing/head/helmet/space/vox/pressure,
+		/obj/item/clothing/suit/space/vox/stealth = /obj/item/clothing/head/helmet/space/vox/stealth
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/vox/carapace = 1,
+		/obj/item/clothing/suit/space/vox/medic = 1,
+		/obj/item/clothing/suit/space/vox/pressure = 1,
+		/obj/item/clothing/suit/space/vox/stealth = 1
+	)
 
 /obj/random/vendor
 	name = "random vendor"
