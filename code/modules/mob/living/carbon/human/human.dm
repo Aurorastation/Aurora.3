@@ -1840,3 +1840,8 @@
 		Paralyse(rand(8,16))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
+
+/mob/living/carbon/human/proc/gigashatter()
+	for(var/obj/item/organ/external/E in organs)
+		E.fracture()
+	return
