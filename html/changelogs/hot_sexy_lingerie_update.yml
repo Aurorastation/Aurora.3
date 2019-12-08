@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: Mwahahahaha
+author: Mwahahahaha, The Stryker
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -40,5 +40,5 @@ delete-after: True
 changes: 
   - rscadd: "Splits the underwear into top and bottom pieces."
   - rscadd: "Allows underwear to be removed."
-  - rscadd: "Ports some many more underwear, undershirt, socks styles from BS12, Polaris, and tg using this new system."
+  - rscadd: "Ports some many more underwear, undershirt, socks styles from BS12, Polaris, and tg using this new system. Adds some corporate-specific ones made by The Stryker."
   - bugfix: "Backpack styles (job-specific or grey) no longer keep changing back to job-specific."
