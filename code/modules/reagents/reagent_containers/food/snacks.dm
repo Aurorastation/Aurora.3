@@ -80,7 +80,6 @@
 
 		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		var/amount_eaten = m_bitesize
-		SA.scan_interval = SA.min_scan_interval//Feeding an animal will make it suddenly care about food
 		m_bitesize = min(m_bitesize, reagents.total_volume)
 
 		if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
