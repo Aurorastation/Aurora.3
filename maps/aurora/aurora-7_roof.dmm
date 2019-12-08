@@ -2904,9 +2904,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
-"kB" = (
-/turf/simulated/open/airless,
-/area/shuttle/syndicate_commander/station)
 "kE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
