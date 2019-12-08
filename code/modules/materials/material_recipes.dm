@@ -140,7 +140,7 @@
 /material/cardboard/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("box", /obj/item/storage/box)
-	recipes += new/datum/stack_recipe("donut box", /obj/item/storage/box/donut/empty)
+	recipes += new/datum/stack_recipe("donut box", /obj/item/storage/fancy/donut/empty)
 	recipes += new/datum/stack_recipe("egg box", /obj/item/storage/fancy/egg_box)
 	recipes += new/datum/stack_recipe("light tubes box", /obj/item/storage/box/lights/tubes)
 	recipes += new/datum/stack_recipe("light bulbs box", /obj/item/storage/box/lights/bulbs)

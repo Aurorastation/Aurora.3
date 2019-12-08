@@ -5,6 +5,7 @@
  * Utensils
  */
 /obj/item/material/kitchen/utensil
+	drop_sound = 'sound/items/drop/knife.ogg'
 	w_class = 1
 	thrown_force_divisor = 1
 	origin_tech = list(TECH_MATERIAL = 1)

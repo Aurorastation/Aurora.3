@@ -261,6 +261,15 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"aaC" = (
+/obj/structure/table/standard,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/glass/beaker/sulphuric,
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
 "aaD" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -7682,7 +7691,7 @@
 /area/security/brig)
 "apn" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/machinery/newscaster{
 	pixel_x = -28
 	},
@@ -18297,7 +18306,7 @@
 /area/security/brig)
 "aGI" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/donut{
+/obj/item/storage/fancy/donut{
 	pixel_y = 2
 	},
 /obj/machinery/firealarm/west,
@@ -21815,7 +21824,7 @@
 /area/crew_quarters/captain)
 "aMp" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aMq" = (
@@ -31467,7 +31476,7 @@
 /area/crew_quarters/medbreak)
 "bcn" = (
 /obj/structure/table/glass,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/newscaster{
 	pixel_y = 32
@@ -37499,16 +37508,6 @@
 /area/assembly/robotics)
 "bmg" = (
 /obj/machinery/mineral/rigpress,
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
-"bmh" = (
-/obj/structure/table/standard,
-/obj/item/book/manual/ripley_build_and_repair,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/reagent_dispensers/acid{
-	pixel_y = 32
-	},
-/obj/item/reagent_containers/glass/beaker/sulphuric,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bmi" = (
@@ -50752,11 +50751,22 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bHV" = (
-/obj/machinery/suit_storage_unit/standard_unit,
+/obj/machinery/suit_cycler/science,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
 "bHW" = (
-/obj/structure/closet/bombcloset,
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/sci,
+/obj/item/clothing/head/helmet/space/void/sci,
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
 "bHX" = (
@@ -69090,6 +69100,9 @@
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/telesci)
@@ -94110,7 +94123,7 @@ aKT
 aKT
 aKT
 baE
-bmh
+aaC
 bnE
 bpb
 bqn

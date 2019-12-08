@@ -78,12 +78,15 @@
 
 	shuttle = new()
 	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/merchant_ship/start)
-	shuttle.area_station = locate(/area/merchant_ship/docked)
+	shuttle.warmup_time = 5
+	shuttle.area_offsite = locate(/area/shuttle/merchant/start)
+	shuttle.area_station = locate(/area/shuttle/merchant/station)
 	shuttle.docking_controller_tag = "merchant_shuttle"
 	shuttle.dock_target_station = "merchant_shuttle_dock"
 	shuttle.dock_target_offsite = "merchant_station"
+	shuttle.area_transition = locate(/area/shuttle/merchant/transit)
+	shuttle.transit_direction = EAST
+	shuttle.move_time = 20
 	shuttles["Merchant"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 

@@ -7,6 +7,7 @@
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
+	var/decal
 
 	var/emp_damage = 0
 
@@ -109,9 +110,9 @@
 		to_chat(user, "It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			to_chat(user, "- [hardpoint]: [istype(I) ? "\the [I]" : "nothing"].")
+			to_chat(user, "- [hardpoint]: [istype(I) ? "[I]" : "nothing"].")
 	else
-		to_chat(user, "It no visible hardpoints:")
+		to_chat(user, "It has no visible hardpoints.")
 
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
