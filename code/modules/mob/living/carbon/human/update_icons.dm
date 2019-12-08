@@ -102,18 +102,17 @@ There are several things that need to be remembered:
 #define BELT_LAYER_ALT   16
 #define SUIT_STORE_LAYER 17
 #define BACK_LAYER       18
-#define HEAD_LAYER_ALT   19
-#define HAIR_LAYER       20
-#define EARS_LAYER       21
-#define FACEMASK_LAYER   22
-#define HEAD_LAYER       23
-#define COLLAR_LAYER     24
-#define HANDCUFF_LAYER   25
-#define LEGCUFF_LAYER    26
-#define L_HAND_LAYER     27
-#define R_HAND_LAYER     28
-#define FIRE_LAYER       29		//If you're on fire
-#define TOTAL_LAYERS     30
+#define HAIR_LAYER       19
+#define EARS_LAYER       20
+#define FACEMASK_LAYER   21
+#define HEAD_LAYER       22
+#define COLLAR_LAYER     23
+#define HANDCUFF_LAYER   24
+#define LEGCUFF_LAYER    25
+#define L_HAND_LAYER     26
+#define R_HAND_LAYER     27
+#define FIRE_LAYER       28		//If you're on fire
+#define TOTAL_LAYERS     29
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
@@ -791,7 +790,6 @@ There are several things that need to be remembered:
 		return
 
 	overlays_raw[HEAD_LAYER] = null
-	overlays_raw[HEAD_LAYER_ALT] = null
 	if(head)
 		head.screen_loc = ui_head		//TODO
 		var/image/standing = null
@@ -816,13 +814,6 @@ There are several things that need to be remembered:
 			//Create the image
 			standing = image(t_icon, head.icon_state)
 
-		var/head_layer = HEAD_LAYER
-		if(istype(head, /obj/item/clothing/head))
-			var/obj/item/clothing/head/uhead = head
-			if(uhead.head_under_hair == 1)
-				head_layer = HEAD_LAYER_ALT
-
-
 		standing.color = head.color
 
 		var/list/ovr
@@ -840,7 +831,7 @@ There are several things that need to be remembered:
 					ovr = list(standing)
 				ovr += SSicon_cache.light_overlay_cache["[cache_key]"]
 
-		overlays_raw[head_layer] = ovr || standing
+		overlays_raw[HEAD_LAYER] = ovr || standing
 
 	if (recurse)
 		update_hair(FALSE)

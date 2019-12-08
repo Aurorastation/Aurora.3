@@ -38,6 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "You can now toggle your hat item to layer under your hair."
   - rscadd: "Some tweaks to the Unathi bull horns sprite, as well as a longer version."
   - bugfix: "Slight fixes on the forward demon horns. My bad."
