@@ -1,4 +1,4 @@
-/datum/computer_file/program/syndicate/camera
+/datum/computer_file/program/syndicam
 	filename = "syndeye"
 	filedesc = "Syndicate Camera Uplink"
 	nanomodule_path = /datum/nano_module/syndicate_eye
@@ -13,15 +13,10 @@
 /datum/nano_module/syndicate_eye
 	name = "Syndicate Camera Uplink"
 	available_to_ai = FALSE
-	var/mob/abstract/eye/syndicate/eye
+	// var/mob/abstract/eye/syndicate/eye
 
 /datum/nano_module/syndicate_eye/New()
 	. = ..()
-	eye = new(src)
+	// eye = new(src)
 
 /datum/nano_module/syndicate_eye/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui=null, force_open = 1, state = default_state)
-	var/list/data = host.initial_data()
-
-	data["eye"] = eye
-
-	

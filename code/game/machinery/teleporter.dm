@@ -126,7 +126,7 @@
 			L[tmpname] = I
 
 	if(length(L) == 0)
-		span("warning", "No beacons found!")
+		to_chat(usr, span("warning", "No beacons found!"))
 		return
 
 	var/desc = input("Please select a location to lock in.", "Locking Computer") in L|null

@@ -196,7 +196,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/ntnetdownload(),
-		new/datum/computer_file/program/syndicate/camera()
+		new/datum/computer_file/program/syndicam()
 	)
 	return _prg_list
 
