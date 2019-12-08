@@ -80,9 +80,9 @@
 	if(icon_state == "paper_talisman")
 		return
 	else if (info && length(trim(info)))
-		icon_state = "paper_words"
+		icon_state = "[initial(icon_state)]_words"
 	else
-		icon_state = "paper"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)

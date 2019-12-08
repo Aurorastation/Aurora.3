@@ -318,14 +318,27 @@
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
-		/obj/item/storage/fancy/cigarettes = 10,
+		/obj/item/storage/fancy/cigarettes = 7,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 5,
 		/obj/item/storage/box/matches = 10,
 		/obj/item/flame/lighter/random = 4,
-		/obj/item/spacecash/ewallet/lotto = 30
+		/obj/item/spacecash/ewallet/lotto = 30,
+		/obj/item/storage/chewables/rollable/bad = 2,
+		/obj/item/storage/chewables/rollable = 2,
+		/obj/item/storage/chewables/rollable/fine = 2,
+		/obj/item/storage/chewables/rollable/nico = 2,
+		/obj/item/storage/cigfilters = 5,
+		/obj/item/storage/fancy/cigpaper = 3,
+		/obj/item/storage/fancy/cigpaper/fine = 2,
+		/obj/item/storage/chewables/tobacco/bad = 2,
+		/obj/item/storage/chewables/tobacco = 2,
+		/obj/item/storage/chewables/tobacco/fine = 2,
+		/obj/item/storage/fancy/chewables/tobacco/nico = 2
 	)
 	contraband = list(
 		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 5
+		/obj/item/storage/fancy/cigarettes/acmeco = 5,
+		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,
@@ -333,9 +346,21 @@
 	)
 	prices = list(
 		/obj/item/storage/fancy/cigarettes = 200,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 250,
 		/obj/item/storage/box/matches = 12,
 		/obj/item/flame/lighter/random = 12,
-		/obj/item/spacecash/ewallet/lotto = 200
+		/obj/item/spacecash/ewallet/lotto = 200,
+		/obj/item/storage/chewables/rollable/bad = 40,
+		/obj/item/storage/chewables/rollable = 50,
+		/obj/item/storage/chewables/rollable/fine = 60,
+		/obj/item/storage/chewables/rollable/nico = 90,
+		/obj/item/storage/cigfilters = 20,
+		/obj/item/storage/fancy/cigpaper = 32,
+		/obj/item/storage/fancy/cigpaper/fine = 48,
+		/obj/item/storage/chewables/tobacco/bad = 60,
+		/obj/item/storage/chewables/tobacco = 90,
+		/obj/item/storage/chewables/tobacco/fine = 120,
+		/obj/item/storage/fancy/chewables/tobacco/nico = 150
 	)
 
 /obj/machinery/vending/medical

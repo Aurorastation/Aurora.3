@@ -48,3 +48,118 @@
 /obj/item/storage/box/pineapple/fill()
 	. = ..()
 	update_icon()
+
+//cigarette papers
+/obj/item/storage/fancy/cigpaper
+	name = "\improper Gen. Eric cigarette paper"
+	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "cigpaperbook_generic"
+	item_state = "cigpacket"
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
+	w_class = 2
+	max_storage_space = 10
+	throwforce = 2
+	slot_flags = SLOT_BELT
+	starts_with = list(/obj/item/paper/cig = 10)
+	make_exact_fit()
+
+/obj/item/storage/fancy/cigpaper/update_icon()
+	. = ..()
+	if(contents.len)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]_empty"
+
+/obj/item/storage/cigfilters
+	name = "box of cigarette filters"
+	desc = "A box of generic cigarette filters for those who rolls their own but prefers others to inhale the fumes."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "cigfilters_generic"
+	starts_with = list(/obj/item/paper/cig/filter = 10)
+	make_exact_fit()
+
+/obj/item/storage/fancy/cigpaper/fine
+	name = "\improper Trident cigarette paper"
+	desc = "A fancy brand of Trident cigarette paper, for rolling your own cigarettes. Like a person who appreciates the finer things in life."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "cigpaperbook_fine"
+	starts_with = list(/obj/item/paper/cig/fine = 10)
+
+//chewing tobacco
+/obj/item/storage/chewables
+	name = "box of chewing wads master"
+	desc = "A generic brand of Waffle Co Wads, unflavored chews. Why do these exist?"
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "placeholder"
+	item_state = "cigpacket"
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	use_sound = 'sound/items/storage/pillbottle.ogg'
+	w_class = 2
+	throwforce = 2
+	slot_flags = SLOT_BELT
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco = 6)
+	make_exact_fit()
+
+/obj/item/storage/chewables/tobacco/bad
+	name = "can of Lenny's brand chewing tobacco"
+	desc = "A cheap brand of chewing tobacco, for when you can't even be assed to light up."
+	icon_state = "chew_bad"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/bad = 6)
+
+/obj/item/storage/chewables/tobacco
+	name = "tin of Mendell Smooth chewing tobacco"
+	desc = "Shipped straight from District 8, a decent method to get your fix."
+	icon_state = "chew_generic"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
+	storage_slots = 6
+
+/obj/item/storage/chewables/tobacco/fine
+	name = "tin of Red Lady chewing tobacco"
+	desc = "For the person who enjoys the finer things in life, the Red Lady is here to solve your problems."
+	icon_state = "chew_fine"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
+
+/obj/item/storage/fancy/chewables/tobacco/nico
+	name = "box of Nico-Tine gum"
+	desc = "A Sol-approved brand of nicotine gum. Cut out the middleman for your addiction fix."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "chew_nico"
+	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/nico = 6)
+	storage_slots = 6
+	drop_sound = 'sound/items/drop/box.ogg'
+	use_sound = 'sound/items/storage/box.ogg'
+
+/obj/item/storage/fancy/chewables/tobacco/update_icon()
+	icon_state = "[initial(icon_state)][contents.len]"
+
+//loose leaf
+
+/obj/item/storage/chewables/rollable/bad
+	name = "box of Men at Arms tobacco"
+	desc = "A box of coarse gritty tobacco marketed towards leather-necks."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/bad = 8)
+	icon_state = "roll_bad"
+
+/obj/item/storage/chewables/rollable
+	name = "box of Piper brand tobacco"
+	desc = "A generic bag of tobacco, grown fresh from the biodomes of Mars."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco = 8)
+	icon_state = "roll_generic"
+	max_storage_space = 8
+	drop_sound = 'sound/items/drop/box.ogg'
+	use_sound = 'sound/items/storage/box.ogg'
+
+/obj/item/storage/chewables/rollable/fine
+	name = "box of RedSpace tobacco"
+	desc = "Quality tobacco for upper-middle income earners and long haul space sailors."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/fine = 8)
+	icon_state = "roll_fine"
+
+/obj/item/storage/chewables/rollable/nico
+	name = "box of Golden Sol tobacco"
+	desc = "A exclusive brand of overpriced tobacco, allegedly grown at a lagrange point station in Sol system."
+	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
+	icon_state = "roll_nico"
+

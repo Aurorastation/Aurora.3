@@ -861,6 +861,37 @@
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(10 * removed * scale)
 
+/datum/reagent/tobacco
+	name = "Tobacco"
+	id = "tobacco"
+	description = "Cut and processed tobacco leaves."
+	taste_description = "tobacco"
+	reagent_state = SOLID
+	color = "#684b3c"
+	data = 0
+	scannable = 1
+	var/nicotine = REM * 0.2
+	fallback_specific_heat = 1
+	value = 3
+
+/datum/reagent/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.reagents.add_reagent("nicotine")
+
+/datum/reagent/tobacco/fine
+	name = "Fine Tobacco"
+	id = "tobaccofine"
+	taste_description = "fine tobacco"
+	data = 0
+	value = 5
+
+/datum/reagent/tobacco/bad
+	name = "Terrible Tobacco"
+	id = "tobaccobad"
+	taste_description = "acrid smoke"
+	data = 0
+	value = 0
+
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"
 	id = "methylphenidate"

@@ -33,6 +33,7 @@ obj/item/clothing/mask/chewable/Initialize()
 		reagents.add_reagent(R, filling[R])
 	if(wrapped)
 		slot_flags = null
+		update_icon()
 
 /obj/item/clothing/mask/chewable/equipped(var/mob/living/user, var/slot)
 	..()
@@ -97,27 +98,28 @@ obj/item/clothing/mask/chewable/Destroy()
 				to_chat(M, span("notice", "You spit out the [name]."))
 		qdel(src)
 
-/obj/item/clothing/mask/chewable/tobacco/lenni
+/obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
-	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
-	filling = list("nicotine" = 2)
+	desc = "A chewy wad of cheap tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
+	filling = list("tobaccobad" = 2)
 
-/obj/item/clothing/mask/chewable/tobacco/redlady
+/obj/item/clothing/mask/chewable/tobacco/generic
+	name = "chewing tobacco"
+	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
+	filling = list("tobacco" = 2)
+
+/obj/item/clothing/mask/chewable/tobacco/fine
 	name = "chewing tobacco"
 	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	filling = list("nicotine" = 2)
+	filling = list("tobaccofine" = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
 	name = "nicotine gum"
 	desc = "A chewy wad of synthetic rubber, laced with nicotine. Possibly the least disgusting method of nicotine delivery."
+	filling = list("nicotine" = 2)
 	icon_state = "nic_gum"
 	type_butt = /obj/item/trash/spitgum
 	wrapped = TRUE
-
-/obj/item/clothing/mask/chewable/tobacco/nico/Initialize()
-	. = ..()
-	reagents.add_reagent("nicotine", 2)
-	color = reagents.get_color()
 
 /obj/item/clothing/mask/chewable/candy
 	name = "wad"

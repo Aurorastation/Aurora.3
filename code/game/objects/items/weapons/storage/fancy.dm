@@ -162,7 +162,7 @@
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/cigbutt)
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
 	icon_type = "cigarette"
 
 /obj/item/storage/fancy/cigarettes/Initialize()
@@ -238,8 +238,8 @@
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigs_lighters.dmi'
-	drop_sound = 'sound/items/drop/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	use_sound = 'sound/items/storage/briefcase.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
