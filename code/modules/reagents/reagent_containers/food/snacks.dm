@@ -1326,29 +1326,15 @@
 	. = ..()
 	reagents.add_reagent("cheese", 5)
 
-/obj/item/reagent_containers/food/snacks/soylentgreen
-	name = "soylent green"
-	desc = "Not made of people. Honest." //Totally people.
-	icon_state = "soylent_green"
-	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
-	filling_color = "#B8E6B5"
-	center_of_mass = list("x"=15, "y"=11)
-	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/soylentgreen/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 10)
-
-/obj/item/reagent_containers/food/snacks/soylenviridians
-	name = "soylen virdians"
-	desc = "Not made of people. Honest." //Actually honest for once.
+/obj/item/reagent_containers/food/snacks/soywafers
+	name = "Soy Wafers"
+	desc = "Simple pressed soy wafers."
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
 	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
-	nutriment_desc = list("some sort of protein" = 5)
+	nutriment_desc = list("bland dry soy" = 5)
 	nutriment_amt = 10
 	bitesize = 2
 
@@ -3869,6 +3855,7 @@
 	desc = "A box suited for pizzas."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
+	drop_sound = 'sound/items/drop/box.ogg'
 	center_of_mass = list("x" = 16,"y" = 6)
 
 	var/open = 0 // Is the box open?
@@ -5389,7 +5376,7 @@
 
 /obj/item/reagent_containers/food/snacks/tuna
 	name = "\improper Tuna Snax"
-	desc = "A packaged fish snack, guaranteed to do not contain space carp."
+	desc = "A packaged fish snack. Guaranteed to not contain space carp."
 	icon_state = "tuna"
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)

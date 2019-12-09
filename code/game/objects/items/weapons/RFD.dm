@@ -234,7 +234,6 @@ RFD Construction-Class
 /obj/item/rfd/construction/borg/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat)
 
-
 /obj/item/rfd/construction/mounted/useResource(var/amount, var/mob/user)
 	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
 	if(istype(loc,/obj/item/rig_module))
@@ -243,6 +242,11 @@ RFD Construction-Class
 			if(module.holder.cell.charge >= cost)
 				module.holder.cell.use(cost)
 				return 1
+	else if(istype(user, /mob/living/heavy_vehicle))
+		var/obj/item/cell/c = user.get_cell()
+		if(c && c.charge >= cost)
+			c.use(cost)
+			return 1
 	return 0
 
 /obj/item/rfd/construction/mounted/attackby()

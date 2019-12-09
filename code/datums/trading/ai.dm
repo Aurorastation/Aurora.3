@@ -79,7 +79,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/bag/ore/drone               = TRADER_BLACKLIST, // don't want drone bags
 		/obj/item/storage/bag/sheetsnatcher/borg      = TRADER_BLACKLIST, // don't want borg bags
 		/obj/item/storage/bag/circuits                = TRADER_BLACKLIST_ALL, //can spawn glitchy circuit boxes, circuitry should belong to science
-		/obj/item/storage/bag/cash                    = TRADER_BLACKLIST, // spawns with money
+		/obj/item/storage/bag/money                   = TRADER_BLACKLIST, // spawns with money
 		/obj/item/storage/backpack                    = TRADER_ALL,
 		/obj/item/storage/backpack/cultpack           = TRADER_BLACKLIST, // cult stuff
 		/obj/item/storage/backpack/holding            = TRADER_BLACKLIST_ALL, // research stuff
