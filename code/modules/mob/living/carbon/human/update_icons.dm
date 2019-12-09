@@ -112,7 +112,7 @@ There are several things that need to be remembered:
 #define L_HAND_LAYER     26
 #define R_HAND_LAYER     27
 #define FIRE_LAYER       28		//If you're on fire
-#define TOTAL_LAYERS     29
+#define TOTAL_LAYERS     28
 //////////////////////////////////
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
