@@ -51,6 +51,12 @@
 	icon_state = "furscarf_cream"
 	item_state = "furscarf_cream"
 
+/obj/item/clothing/accessory/tajaran/summershirt
+	name = "adhomian summerwear shirt"
+	desc = "A simple piece of adhomian summerwear made with linen."
+	icon_state = "summer-shirt"
+	item_state = "summer-shirt"
+
 /obj/item/clothing/accessory/tajaran_wrap
 	name = "marriage wrap"
 	desc = "A holy cloth wrap that signifies marriage amongst tajara, it has white and gold markings. This one is meant for the husband."
@@ -79,10 +85,3 @@
 	contained_sprite = TRUE
 	description_fluff = "Tajara under the worship of Ma'ta'ke have a less celebratory and less ritualistic wedding ceremony, instead having a simple meeting between families with a \
 	clergyman to proclaim the lovers \"Zrrazhil Ekrratul\" (Continuation of the families), named for the simple notion of propagating the blood of the families involved."
-
-/obj/item/clothing/accessory/tajara/summershirt
-	name = "adhomian summerwear shirt"
-	desc = "A simple piece of adhomian summerwear made with linen."
-	icon_state = "summer-shirt"
-	item_state = "summer-shirt"
-

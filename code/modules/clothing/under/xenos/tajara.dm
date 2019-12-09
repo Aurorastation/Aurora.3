@@ -6,7 +6,7 @@
 	item_state = "taj_labor"
 	contained_sprite = TRUE
 	description_fluff = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
-	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara communistic \
+	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
 
 /obj/item/clothing/under/tajaran/fancy
@@ -112,7 +112,7 @@
 	icon_state = "summer-dress"
 	item_state = "summer-dress"
 	body_parts_covered = LOWER_TORSO
-	starting_accessories = (/obj/item/clothing/accessory/tajara/summershirt)
+	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 
 /obj/item/clothing/under/pants/tajaran
 	name = "adhomian summer pants"
@@ -121,9 +121,9 @@
 	icon_state = "summer-pants"
 	item_state = "summer-pants"
 	contained_sprite = TRUE
-	starting_accessories = (/obj/item/clothing/accessory/tajara/summershirt)
+	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 	description_fluff = "Having direct and friendly contact with humanity, The People's Republic of Adhomai has been the most influenced by the spacer fashion. The most known \
-	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara communistic \
+	being the \"assistant jumpsuits\" which directly inspired the design of factory overalls, the plight and low pay of the assistants being close to the hearts of Tajara Hadiist \
 	workers and their Republic."
 
 /obj/item/clothing/under/tajaran/pra_uniform
@@ -131,11 +131,11 @@
 	desc = "A military uniform used by the forces of Grand People's Army."
 	icon_state = "prauniform"
 	item_state = "prauniform"
-	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/tajaran/nka_uniform
 	name = "imperial adhomian army uniform"
 	desc = "A military uniform used by the forces of New Kingdom's army."
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
-	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
+	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
