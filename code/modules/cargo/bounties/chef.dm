@@ -112,12 +112,6 @@
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/variable/kebab)
 
-/datum/bounty/item/chef/soylentgreen
-	name = "Soylent Green"
-	description = "%BOSSSHORT has heard wonderful things about the product 'Soylent Green', and would love to try some. If you endulge them, expect a pleasant bonus."
-	reward = 5000
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/soylentgreen)
-
 /datum/bounty/item/chef/pancakes
 	name = "Pancakes"
 	description = "Here at %COMPNAME we consider employees to be family. And you know what families love? Pancakes. Ship a baker's dozen."
