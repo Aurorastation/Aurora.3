@@ -664,9 +664,11 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	else if(src.icon_state == "caution")
 		src.icon_state = "caution_blinking"
+		src.item_state = "caution_blinking"
 		usr.show_message("You turn the wet floor sign on.")
 		playsound(src.loc, 'sound/items/flashlight.ogg', 75, 1)
 	else
 		src.icon_state = "caution"
+		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
