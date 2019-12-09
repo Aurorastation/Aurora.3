@@ -112,11 +112,11 @@
 			playsound(user.loc, drop_sound, 50, 1)
 
 			//Try locating an exisitng stack on the tile and add to there if possible
-			for(var/obj/item/stack/material/animalhide/barehide/BH in user.loc)
-				if(BH.amount < 50)
-					BH.amount ++
-					to_chat(user, "You add the newly-stripped hide to the stack. It now contains [BH.amount] hides.")
-					return
+			var/obj/item/stack/material/animalhide/barehide/BH
+			if(BH in user.loc && BH,amount < 50)
+				BH.amount ++
+				to_chat(user, "You add the newly-stripped hide to the stack. It now contains [BH.amount] hides.")
+				return
 			//if there isn't one, just make a new hide.
 			new /obj/item/stack/material/animalhide/barehide(user.loc)
 	else
