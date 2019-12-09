@@ -103,21 +103,21 @@
 	make_exact_fit()
 
 /obj/item/storage/chewables/tobacco/bad
-	name = "can of Lenny's brand chewing tobacco"
-	desc = "A cheap brand of chewing tobacco, for when you can't even be assed to light up."
+	name = "can of Rredouane Long Cuts chewing tobacco"
+	desc = "A cheap, widely used replacement for cigarettes, it provided much needed respite for soldiers in Adhomian wars."
 	icon_state = "chew_bad"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/bad = 6)
 
 /obj/item/storage/chewables/tobacco
 	name = "tin of Mendell Smooth chewing tobacco"
-	desc = "Shipped straight from District 8, a decent method to get your fix."
+	desc = "Packaged and shipped straight from District 8, popularised by the city-slickers of Vega De Rosa."
 	icon_state = "chew_generic"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
 	storage_slots = 6
 
 /obj/item/storage/chewables/tobacco/fine
-	name = "tin of Red Lady chewing tobacco"
-	desc = "For the person who enjoys the finer things in life, the Red Lady is here to solve your problems."
+	name = "tin of Taba-Kamu chewing tobacco"
+	desc = "Said to be cultivated by employees of Nojusuru Foods in secret, the strand has been released for the public to enjoy."
 	icon_state = "chew_fine"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
 
@@ -137,14 +137,14 @@
 //loose leaf
 
 /obj/item/storage/chewables/rollable/bad
-	name = "box of Men at Arms tobacco"
-	desc = "A box of coarse gritty tobacco marketed towards leather-necks."
+	name = "box of S'th Kasavakh tobacco"
+	desc = "A box of coarse gritty tobacco which still manages to grow against the desertification of Moghes."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/bad = 8)
 	icon_state = "roll_bad"
 
 /obj/item/storage/chewables/rollable
-	name = "box of Piper brand tobacco"
-	desc = "A generic bag of tobacco, grown fresh from the biodomes of Mars."
+	name = "box of Agyre Lake tobacco"
+	desc = "Advertised to be grown using fresh water pumped directly from the titular Martian lake."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco = 8)
 	icon_state = "roll_generic"
 	max_storage_space = 8
@@ -152,8 +152,8 @@
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/chewables/rollable/fine
-	name = "box of RedSpace tobacco"
-	desc = "Quality tobacco for upper-middle income earners and long haul space sailors."
+	name = "box of Excelsior Epsilon tobacco"
+	desc = "Quality tobacco favored by the Corporates of Eridani - just don't read the label at the bottom."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/fine = 8)
 	icon_state = "roll_fine"
 

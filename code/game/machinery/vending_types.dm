@@ -316,7 +316,7 @@
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
-		/obj/item/storage/fancy/cigarettes = 7,
+		/obj/item/storage/fancy/cigarettes = 5,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 5,
 		/obj/item/storage/box/matches = 10,
 		/obj/item/flame/lighter/random = 4,
