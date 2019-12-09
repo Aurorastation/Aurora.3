@@ -151,8 +151,8 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "cigarette packet"
-	desc = "The most popular brand of Space Cigarettes, sponsors of the Space Olympics."
+	name = "Trans-Stellar Duty Free cigarette packet"
+	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
@@ -213,21 +213,21 @@
 // get it? A - AcmeCo, B - Blank, C - Cigar, D - DromedaryCo. How convenient is that? - Wezzy
 
 /obj/item/storage/fancy/cigarettes/acmeco
-	name = "\improper AcmeCo packet"
+	name = "\improper AcmeCo cigarette packet"
 	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
 	icon_state = "Apacket"
 	item_state = "Apacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
 
 /obj/item/storage/fancy/cigarettes/blank
-	name = "\improper blank packet"
+	name = "\improper blank cigarette packet"
 	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
 	icon_state = "Bpacket"
 	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
-	name = "\improper DromedaryCo packet"
+	name = "\improper DromedaryCo cigarette packet"
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
 	icon_state = "Dpacket"
 	item_state = "Dpacket"
@@ -282,6 +282,20 @@
 		update_icon()
 	else
 		..()
+
+/obj/item/storage/fancy/cigarettes/nicotine
+	name = "\improper Nico-Tine cigarette packet"
+	desc = "A packet of six Nico-Tine cigarettes. Allegedly advertised as the most enviromentally friendly cigarettes in the market. It doesn't specify how, but it definitely isn't your body."
+	icon_state = "Epacket"
+	item_state = "Epacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/nicotine
+
+/obj/item/storage/fancy/cigarettes/rugged
+	name = "\improper Lucky Strike cigarette packet"
+	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, it's original purpose long forgotten."
+	icon_state = "Fpacket"
+	item_state = "Fpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
 
 /*
  * Vial Box

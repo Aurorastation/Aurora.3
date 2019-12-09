@@ -310,13 +310,27 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
-
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco/Initialize()
 	. = ..()
 	reagents.clear_reagents()
 	reagents.add_reagent("tobacco",5)
 	reagents.add_reagent("nicotine",10)
 
+/obj/item/clothing/mask/smokable/cigarette/nicotine
+
+/obj/item/clothing/mask/smokable/cigarette/nicotine/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobaccofine",5)
+	reagents.add_reagent("nicotine",10)
+
+/obj/item/clothing/mask/smokable/cigarette/rugged
+
+/obj/item/clothing/mask/smokable/cigarette/rugged/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobaccobad",10)
+	reagents.add_reagent("nicotine",5)
 
 ////////////
 // CIGARS //

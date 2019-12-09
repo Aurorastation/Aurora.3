@@ -103,7 +103,7 @@
 	make_exact_fit()
 
 /obj/item/storage/chewables/tobacco/bad
-	name = "can of Rredouane Long Cuts chewing tobacco"
+	name = "can of Rredouane Cuts chewing tobacco"
 	desc = "A cheap, widely used replacement for cigarettes, it provided much needed respite for soldiers in Adhomian wars."
 	icon_state = "chew_bad"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/bad = 6)

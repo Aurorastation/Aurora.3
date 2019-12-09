@@ -316,11 +316,10 @@
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
-		/obj/item/storage/fancy/cigarettes = 5,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 5,
-		/obj/item/storage/box/matches = 10,
-		/obj/item/flame/lighter/random = 4,
-		/obj/item/spacecash/ewallet/lotto = 30,
+		/obj/item/storage/fancy/cigarettes/rugged = 2,
+		/obj/item/storage/fancy/cigarettes = 3,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 2,
+		/obj/item/storage/fancy/cigarettes/nicotine = 2,
 		/obj/item/storage/chewables/rollable/bad = 2,
 		/obj/item/storage/chewables/rollable = 2,
 		/obj/item/storage/chewables/rollable/fine = 2,
@@ -331,7 +330,10 @@
 		/obj/item/storage/chewables/tobacco/bad = 2,
 		/obj/item/storage/chewables/tobacco = 2,
 		/obj/item/storage/chewables/tobacco/fine = 2,
-		/obj/item/storage/fancy/chewables/tobacco/nico = 2
+		/obj/item/storage/fancy/chewables/tobacco/nico = 2,
+		/obj/item/storage/box/matches = 10,
+		/obj/item/flame/lighter/random = 4,
+		/obj/item/spacecash/ewallet/lotto = 30
 	)
 	contraband = list(
 		/obj/item/storage/fancy/cigarettes/blank = 5,
@@ -343,11 +345,10 @@
 		/obj/item/storage/fancy/cigar = 5
 	)
 	prices = list(
-		/obj/item/storage/fancy/cigarettes = 200,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 250,
-		/obj/item/storage/box/matches = 12,
-		/obj/item/flame/lighter/random = 12,
-		/obj/item/spacecash/ewallet/lotto = 200,
+		/obj/item/storage/fancy/cigarettes/rugged = 200,
+		/obj/item/storage/fancy/cigarettes = 245,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 270,
+		/obj/item/storage/fancy/cigarettes/nicotine = 325,
 		/obj/item/storage/chewables/rollable/bad = 40,
 		/obj/item/storage/chewables/rollable = 50,
 		/obj/item/storage/chewables/rollable/fine = 60,
@@ -358,7 +359,10 @@
 		/obj/item/storage/chewables/tobacco/bad = 60,
 		/obj/item/storage/chewables/tobacco = 90,
 		/obj/item/storage/chewables/tobacco/fine = 120,
-		/obj/item/storage/fancy/chewables/tobacco/nico = 150
+		/obj/item/storage/fancy/chewables/tobacco/nico = 150,
+		/obj/item/storage/box/matches = 12,
+		/obj/item/flame/lighter/random = 12,
+		/obj/item/spacecash/ewallet/lotto = 200
 	)
 
 /obj/machinery/vending/medical
