@@ -156,6 +156,11 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
+	icon_type = "cigarette"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
@@ -164,7 +169,6 @@
 	storage_slots = 6
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
-	icon_type = "cigarette"
 
 /obj/item/storage/fancy/cigarettes/Initialize()
 	flags |= NOREACT
@@ -216,14 +220,14 @@
 	name = "\improper AcmeCo cigarette packet"
 	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
 	icon_state = "Apacket"
-	item_state = "Apacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	item_state = "Apacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
 
 /obj/item/storage/fancy/cigarettes/blank
 	name = "\improper blank cigarette packet"
 	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
 	icon_state = "Bpacket"
-	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
@@ -241,6 +245,10 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	use_sound = 'sound/items/storage/briefcase.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT

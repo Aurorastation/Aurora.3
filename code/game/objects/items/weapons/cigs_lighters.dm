@@ -39,6 +39,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A simple match stick, used for lighting fine smokables."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "match_unlit"
+	item_state = "match_unlit"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	var/burnt = 0
 	var/smoketime = 5
 	w_class = 1.0
@@ -76,7 +81,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	burnt = 1
 	damtype = "brute"
 	icon_state = "match_burnt"
-	item_state = "cigoff"
+	item_state = "match_burnt"
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
 	STOP_PROCESSING(SSprocessing, src)
@@ -87,6 +92,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	body_parts_covered = 0
 	var/lit = 0
 	var/icon_on
@@ -338,12 +347,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar
 	name = "premium cigar"
 	desc = "A brown roll of tobacco and... well, you're not quite sure. This thing's huge!"
-	icon_state = "cigar2off"
-	icon_on = "cigar2on"
-	icon_off = "cigar2off"
+	icon_state = "cigaroff"
+	icon_on = "cigaron"
+	icon_off = "cigaroff"
+	item_state = "cigaroff"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-	item_state = "cigaroff"
 	burn_rate = 0.003 //Lasts ~300 seconds
 	chem_volume = 60
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
@@ -547,6 +556,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	w_class = 1
 	throwforce = 4
 	flags = CONDUCT
@@ -702,7 +715,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "\improper Trident rolling paper"
 	desc = "A thin piece of trident branded paper used to make fine smokables."
 	icon_state = "cigpaper_fine"
-
 
 /obj/item/paper/cig/filter
 	name = "cigarette filter"

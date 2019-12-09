@@ -58,6 +58,10 @@
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	w_class = 2
 	max_storage_space = 10
 	throwforce = 2
@@ -77,6 +81,7 @@
 	desc = "A box of generic cigarette filters for those who rolls their own but prefers others to inhale the fumes."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilters_generic"
+	item_state = "cigpacket"
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
 
@@ -85,6 +90,11 @@
 	desc = "A fancy brand of Trident cigarette paper, for rolling your own cigarettes. Like a person who appreciates the finer things in life."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaperbook_fine"
+	item_state = "Dpacket"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	starts_with = list(/obj/item/paper/cig/fine = 10)
 
 //chewing tobacco
@@ -106,12 +116,18 @@
 	name = "can of Rredouane Cuts chewing tobacco"
 	desc = "A cheap, widely used replacement for cigarettes, it provided much needed respite for soldiers in Adhomian wars."
 	icon_state = "chew_bad"
+	item_state = "Fpacket"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/bad = 6)
 
 /obj/item/storage/chewables/tobacco
 	name = "tin of Mendell Smooth chewing tobacco"
 	desc = "Packaged and shipped straight from District 8, popularised by the city-slickers of Vega De Rosa."
 	icon_state = "chew_generic"
+	item_state = "cigpacket"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/generic = 6)
 	storage_slots = 6
 
@@ -119,6 +135,7 @@
 	name = "tin of Taba-Kamu chewing tobacco"
 	desc = "Said to be cultivated by employees of Nojusuru Foods in secret, the strand has been released for the public to enjoy."
 	icon_state = "chew_fine"
+	item_state = "Dpacket"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
 
 /obj/item/storage/fancy/chewables/tobacco/nico
@@ -126,6 +143,11 @@
 	desc = "A Sol-approved brand of nicotine gum. Cut out the middleman for your addiction fix."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "chew_nico"
+	item_state = "Epacket"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/nico = 6)
 	storage_slots = 6
 	drop_sound = 'sound/items/drop/box.ogg'
@@ -141,12 +163,18 @@
 	desc = "A box of coarse gritty tobacco which still manages to grow against the desertification of Moghes."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/bad = 8)
 	icon_state = "roll_bad"
+	item_state = "Fpacket"
 
 /obj/item/storage/chewables/rollable
 	name = "box of Agyre Lake tobacco"
 	desc = "Advertised to be grown using fresh water pumped directly from the titular Martian lake."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco = 8)
 	icon_state = "roll_generic"
+	item_state = "cigpacket"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	max_storage_space = 8
 	drop_sound = 'sound/items/drop/box.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
@@ -156,10 +184,12 @@
 	desc = "Quality tobacco favored by the Corporates of Eridani - just don't read the label at the bottom."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/fine = 8)
 	icon_state = "roll_fine"
+	item_state = "Dpacket"
 
 /obj/item/storage/chewables/rollable/nico
 	name = "box of Golden Sol tobacco"
 	desc = "A exclusive brand of overpriced tobacco, allegedly grown at a lagrange point station in Sol system."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"
+	item_state = "Epacket"
 
