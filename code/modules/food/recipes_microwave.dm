@@ -161,20 +161,11 @@
 		)
 	result = /obj/item/reagent_containers/food/snacks/eggplantparm
 
-/datum/recipe/soylenviridians
+/datum/recipe/soywafers
 	fruit = list("soybeans" = 1)
 	reagents = list("flour" = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/soylenviridians
-
-/datum/recipe/soylentgreen
-	reagents = list("flour" = 10)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	items = list(
-		/obj/item/reagent_containers/food/snacks/meat/human,
-		/obj/item/reagent_containers/food/snacks/meat/human
-	)
-	result = /obj/item/reagent_containers/food/snacks/soylentgreen
+	result = /obj/item/reagent_containers/food/snacks/soywafers
 
 /datum/recipe/berryclafoutis
 	fruit = list("berries" = 1)
