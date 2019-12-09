@@ -1,0 +1,5 @@
+author: Ferner
+delete-after: True
+
+changes: 
+  - tweak: "Flags can now be placed onto windows directly."
