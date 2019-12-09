@@ -180,6 +180,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 
 /obj/item/spacecash/ewallet/lotto
 	name = "space lottery card"
+	icon_state = "lottocard_3"
 	desc = "A virtual scratch-action charge card that contains a variable amount of money."
 	worth = 0
 	var/scratches_remaining = 3
@@ -198,7 +199,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 	next_scratch = world.time + 6 SECONDS
 
 	to_chat(user, "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>")
-	playsound(src.loc, 'sound/items/drumroll.ogg', 50, 0, -4)
+	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
 	if(do_after(user,4.5 SECONDS))
 		var/won = 0
 		var/result = rand(1,10000)
@@ -234,6 +235,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
 
 		scratches_remaining -= 1
+		update_icon()
 		worth += won
 		sleep(1 SECONDS)
 		if(scratches_remaining > 0)
@@ -246,4 +248,8 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 /obj/item/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!")
 	for(var/mob/O in hearers(src.loc, null))
 		O.show_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>",2)
-	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0, -4)
+	playsound(src.loc, 'sound/machines/ping.ogg', 20, 0, -4)
+
+
+/obj/item/spacecash/ewallet/lotto/update_icon()
+	icon_state = "lottocard_[scratches_remaining]"
