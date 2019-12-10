@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hakhma
 	name = "hakhma"
 	desc = "An oversized insect breed by Scarab colony ships, known for their milk."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "hakhma"
 	icon_living = "hakhma"
 	icon_dead = "hakhma_dead"

@@ -1,6 +1,7 @@
 /mob/living/heavy_vehicle/premade/light
 	name = "light exosuit"
 	desc = "A light and agile exosuit."
+	icon_state = "odysseus"
 
 /mob/living/heavy_vehicle/premade/light/Initialize()
 	if(!arms)
@@ -87,3 +88,32 @@
 		)
 	)
 	. = ..()
+
+/mob/living/heavy_vehicle/premade/light/legion
+	name = "legion support exosuit"
+	desc = "A light and agile exosuit painted in the colours of the Tau Ceti Foreign Legion."
+	icon_state = "odysseus"
+
+/mob/living/heavy_vehicle/premade/light/legion/Initialize()
+	if(!arms)
+		arms = new /obj/item/mech_component/manipulators/light(src)
+		arms.color = "#849bc1"
+	if(!legs)
+		legs = new /obj/item/mech_component/propulsion/light(src)
+		legs.color = "#849bc1"
+	if(!head)
+		head = new /obj/item/mech_component/sensors/light(src)
+		head.color = "#849bc1"
+	if(!body)
+		body = new /obj/item/mech_component/chassis/light(src)
+		body.color = "#849bc1"
+
+	. = ..()
+
+/mob/living/heavy_vehicle/premade/light/legion/spawn_mech_equipment()
+	install_system(new /obj/item/mecha_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/medanalyzer(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/sleeper(src), HARDPOINT_BACK)
+	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)
+	install_system(new /obj/item/mecha_equipment/mounted_system/flarelauncher(src), HARDPOINT_RIGHT_SHOULDER)
+	install_system(new /obj/item/mecha_equipment/crisis_drone(src), HARDPOINT_LEFT_SHOULDER)

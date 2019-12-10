@@ -144,3 +144,28 @@
 	siemens_coefficient = 0.35
 	species_restricted = list("Unathi")
 	refittable = FALSE
+	//Freelancer voidsuit
+/obj/item/clothing/head/helmet/space/void/freelancer
+	name = "freelancer voidsuit helmet"
+	desc = "An older design of special operations voidsuit helmet utilized by private military corporations."
+	icon_state = "rig0-freelancer"
+
+	armor = list(melee = 65, bullet = 55, laser = 20,energy = 15, bomb = 35, bio = 100, rad = 60)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	light_overlay = "freelancer_light"
+	brightness_on = 6
+	light_color = "#7ffbf7"
+
+/obj/item/clothing/suit/space/void/freelancer
+	icon_state = "freelancer"
+	name = "freelancer voidsuit"
+	desc = "An advanced protective voidsuit used for special operations."
+	item_state = "freelancer"
+
+	slowdown = 1
+	w_class = 3
+	armor = list(melee = 65, bullet = 55, laser = 20, energy = 15, bomb = 35, bio = 100, rad = 60)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Skrell", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")

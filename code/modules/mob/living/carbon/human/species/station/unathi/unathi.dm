@@ -91,8 +91,10 @@
 
 	zombie_type = "Unathi Zombie"
 
-/datum/species/unathi/before_equip(var/mob/living/carbon/human/H)
+/datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
+	if(H.shoes)
+		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1

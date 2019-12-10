@@ -10,7 +10,7 @@
 	set category = "IC"
 
 	if(zMove(UP))
-		to_chat(usr, "<span class='notice'>You move upwards.</span>")
+		visible_message(span("notice", "[src] has moved upwards."), span("notice", "You move upwards."))
 
 /**
  * Verb for the mob to move down a z-level if possible.
@@ -20,7 +20,7 @@
 	set category = "IC"
 
 	if(zMove(DOWN))
-		to_chat(usr, "<span class='notice'>You move down.</span>")
+		visible_message(span("notice", "[src] has moved downwards."), span("notice", "You move downwards."))
 
 /**
  * Used to check if a mob can move up or down a Z-level and to then actually do the move.
@@ -71,9 +71,6 @@
 		if (!A.CanPass(src, start, 1.5, 0))
 			to_chat(src, "<span class='warning'>\The [A] blocks you.</span>")
 			return FALSE
-
-	var/txt_dir = direction & UP ? "upwards" : "downwards"
-	start.visible_message(span("notice", "[src] moves [txt_dir]."))
 
 	// Actually move.
 	Move(destination)

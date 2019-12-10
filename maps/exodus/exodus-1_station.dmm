@@ -2810,7 +2810,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/security/main)
@@ -28413,7 +28413,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -30260,7 +30260,7 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "bed" = (
@@ -31684,7 +31684,7 @@
 /area/crew_quarters/captain)
 "bgT" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -33190,7 +33190,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "bjH" = (
@@ -55556,7 +55556,7 @@
 "bWV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/glass,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bWW" = (

@@ -270,6 +270,25 @@
 	desc = "An energy with a curved output, useful for defense and intimidation."
 	active_force = 20 // 20 damage per hit, seems more balanced for what it can do
 
+/obj/item/melee/energy/sword/hegemony
+	name = "hegemony energy blade"
+	desc = "A righteous hardlight blade to strike down the dishonourable."
+	slot_flags = SLOT_BELT
+	item_state = "kataphract-esword0"
+	icon_state = "kataphract-esword0"
+ 
+/obj/item/melee/energy/sword/hegemony/activate(mob/living/user)
+	..()
+	item_state = "kataphract-esword1"
+	icon_state = "kataphract-esword1"
+	to_chat(user, span("notice", "\The [src] is now energised."))
+ 
+/obj/item/melee/energy/sword/hegemony/deactivate(mob/living/user)
+	..()
+	item_state = initial(item_state)
+	icon_state = initial(icon_state)
+	to_chat(user, span("notice", "\The [src] is de-energised."))
+
 /obj/item/melee/energy/sword/knife
 	name = "energy utility knife"
 	desc = "Some cheap energy blade, branded at the hilt with the logo of the Tau Ceti Foreign Legion."

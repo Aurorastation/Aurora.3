@@ -520,8 +520,19 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
-//tau ceti foreign legion armor
-
+// Vaurca version of Unathi armour
+/obj/item/clothing/suit/armor/unathi/klax
+	name = "klaxan hopeful body armor"
+	desc = "An armored chestplate designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "klax_hopeful"
+	item_state = "klax_hopeful"
+	contained_sprite = TRUE
+	species_restricted = list("Vaurca")
+	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+  
 /obj/item/clothing/suit/storage/vest/legion
 	name = "foreign legion armored suit"
 	desc = "A set of cheap composite armor with elbow guards, shoulder and knee pads."
@@ -545,14 +556,44 @@
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/vest/idris
-	name = "Idris Reclamation Unit coat"
-	desc = "A coat worn by the Idris reclamation units, notorious across space."
+	name = "black Idris Unit coat"
+	desc = "A coat worn by the Idris units, notorious across space."
 	icon_state = "iru_coat"
 	item_state = "iru_coat"
 	cold_protection = 0
 	min_cold_protection_temperature = 0
 	heat_protection = 0
 	max_heat_protection_temperature = 0
+
+/obj/item/clothing/suit/armor/vest/idris/brown
+	name = "brown Idris Unit coat"
+	desc = "A coat worn by the Idris units, notorious across space. This one is brown."
+	icon_state = "iru_coat_brown"
+	item_state = "iru_coat_brown"
+
+/obj/item/clothing/suit/armor/vest/idris/trenchcoat/black
+	name = "black Idris Unit trench coat"
+	desc = "A trench coat worn by the Idris units, notorious across space. This one is black."
+	icon_state = "iru_trench_black"
+	item_state = "iru_trench_black"
+
+/obj/item/clothing/suit/armor/vest/idris/trenchcoat/brown
+	name = "brown Idris Unit trench coat"
+	desc = "A trench coat worn by the Idris units, notorious across space. This one is brown."
+	icon_state = "iru_trench_brown"
+	item_state = "iru_trench_brown"
+
+/obj/item/clothing/suit/armor/vest/idris/duster/black
+	name = "black Idris Unit duster coat"
+	desc = "A duster coat worn by the Idris units, notorious across space. This one is black."
+	icon_state = "iru_duster_black"
+	item_state = "iru_duster_black"
+
+/obj/item/clothing/suit/armor/vest/idris/duster/brown
+	name = "brown Idris Unit duster coat"
+	desc = "A duster coat worn by the Idris units, notorious across space. This one is brown."
+	icon_state = "iru_duster_brown"
+	item_state = "iru_duster_brown"
 
 /obj/item/clothing/suit/storage/vest/sol
 	name = "sol heavy armor vest"

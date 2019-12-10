@@ -140,7 +140,7 @@
 
 /obj/structure/mirror/merchant/attack_hand(var/mob/living/carbon/human/user)
 	if(istype(get_area(src),/area/merchant_station))
-		if(istype(user) && user.mind && user.mind.assigned_role == "Merchant" && user.species.name != "Vox")
+		if(istype(user) && user.mind && (user.mind.assigned_role == "Merchant" || user.mind.assigned_role == "Merchants Assistant")  && user.species.name != "Vox")
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
 				user.set_species("Vox")

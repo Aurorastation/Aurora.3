@@ -151,8 +151,7 @@
 		/obj/item/reagent_containers/food/drinks/chaitea = 25,
 		/obj/item/reagent_containers/food/drinks/hotcider = 25,
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 25,
-		/obj/item/reagent_containers/food/snacks/donut/normal = 20,
-		/obj/item/reagent_containers/food/drinks/pslatte = 10
+		/obj/item/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/ice = 10,
@@ -165,8 +164,7 @@
 		/obj/item/reagent_containers/food/drinks/chaitea = 25,
 		/obj/item/reagent_containers/food/drinks/hotcider = 28,
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 22,
-		/obj/item/reagent_containers/food/snacks/donut/normal = 6,
-		/obj/item/reagent_containers/food/drinks/pslatte = 25
+		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/teapot/ = 5
@@ -471,14 +469,14 @@
 		/obj/item/device/holowarrant = 5
 	)
 	premium = list(
-		/obj/item/storage/box/donut = 2
+		/obj/item/storage/fancy/donut = 2
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/storage/box/donut,
+		/obj/item/storage/fancy/donut,
 		/obj/item/storage/box/evidence,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper
