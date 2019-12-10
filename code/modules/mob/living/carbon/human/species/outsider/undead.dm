@@ -9,6 +9,8 @@
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
+	maxHealth = 85 //gotta get headshots to kill them, so they're frail
+
 	default_language = "Ceti Basic"
 	language = "Cult"
 	name_language = "Cult"
@@ -130,8 +132,9 @@
 	qdel(H)
 
 /datum/species/apparition/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.health <= config.health_threshold_dead)
-		H.death()
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
 
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
@@ -201,10 +204,6 @@
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)
 	return ..()
-
-/datum/species/zombie/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.health <= config.health_threshold_dead)
-		H.death()
 
 /datum/species/zombie/tajara
 	name = "Tajara Zombie"

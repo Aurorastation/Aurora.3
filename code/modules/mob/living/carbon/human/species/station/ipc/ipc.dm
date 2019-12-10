@@ -299,5 +299,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		H.gender = NEUTER
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.health <= config.health_threshold_dead)
-		H.death()
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE

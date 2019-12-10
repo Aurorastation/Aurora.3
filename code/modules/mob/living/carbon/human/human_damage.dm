@@ -5,20 +5,21 @@
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	var/total_burn  = 0
-	var/total_brute = 0
-	for(var/obj/item/organ/external/O in organs)	//hardcoded to streamline things a bit
-		if((O.status & ORGAN_ROBOT) && !O.vital)
-			continue //*non-vital* robot limbs don't count towards shock and crit
-		total_brute += O.brute_dam
-		total_burn  += O.burn_dam
 
 	update_health_display()
+
+	health = maxHealth - getBrainLoss()
+
 	//TODO: fix husking
 	if(((maxHealth - getFireLoss()) < config.health_threshold_dead) && stat == DEAD)
 		ChangeToHusk()
+
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
+
+/mob/living/carbon/human/proc/get_total_health()
+	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getFireLoss() - getOxyLoss() - getToxLoss()
+	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
 	if(status_flags & GODMODE)	return 0	//godmode
