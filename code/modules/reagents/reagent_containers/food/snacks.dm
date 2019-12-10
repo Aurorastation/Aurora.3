@@ -1331,29 +1331,15 @@
 	. = ..()
 	reagents.add_reagent("cheese", 5)
 
-/obj/item/reagent_containers/food/snacks/soylentgreen
-	name = "soylent green"
-	desc = "Not made of people. Honest." //Totally people.
-	icon_state = "soylent_green"
-	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
-	filling_color = "#B8E6B5"
-	center_of_mass = list("x"=15, "y"=11)
-	bitesize = 2
-
-/obj/item/reagent_containers/food/snacks/soylentgreen/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 10)
-
-/obj/item/reagent_containers/food/snacks/soylenviridians
-	name = "soylen virdians"
-	desc = "Not made of people. Honest." //Actually honest for once.
+/obj/item/reagent_containers/food/snacks/soywafers
+	name = "Soy Wafers"
+	desc = "Simple pressed soy wafers."
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
 	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
-	nutriment_desc = list("some sort of protein" = 5)
+	nutriment_desc = list("bland dry soy" = 5)
 	nutriment_amt = 10
 	bitesize = 2
 
