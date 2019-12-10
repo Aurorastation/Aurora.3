@@ -799,7 +799,7 @@
 		var/mob/living/silicon/robot/R = M
 		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
 			return 1
-	else
+	else if(istype(M, /mob/living))
 		var/id = M.GetIdCard()
 		// Check if the ID card the user has (if any) has access
 		if(id)
