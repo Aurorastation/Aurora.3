@@ -21,7 +21,7 @@
 #define CRITICAL_TEMPERATURE 5000	//K
 #define CHARGING_FACTOR 0.05
 #define DAMAGE_RATE_LIMIT 2			//damage rate cap at power = 300, scales linearly with power
-#define SPACED_DAMAGE_FACTOR 0.1	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
+#define SPACED_DAMAGE_FACTOR 0.5	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
 
 //These would be what you would get at point blank, decreases with distance
 #define DETONATION_RADS 200
