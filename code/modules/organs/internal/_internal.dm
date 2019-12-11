@@ -57,7 +57,7 @@
 /obj/item/organ/internal/proc/get_scarring_level()
 	. = (initial(max_damage) - max_damage)/initial(max_damage)
 
-/obj/item/organ/internal/get_scan_results()
+/obj/item/organ/internal/proc/get_scan_results()
 	. = ..()
 	var/scar_level = get_scarring_level()
 	if(scar_level > 0.01)
