@@ -9,19 +9,45 @@
 	parent_organ = BP_CHEST
 	robotic_name = "gas exchange system"
 	robotic_sprite = "lungs-prosthetic"
+	min_bruised_damage = 25
+	min_broken_damage = 45
+	toxin_type = CE_PNEUMOTOXIC
+
+	max_damage = 70
+	relative_size = 60
+
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
+	var/oxygen_deprivation = 0
+	var/last_successful_breath
+	var/breath_fail_ratio //How badly they failed a breath
+
+/obj/item/organ/internal/lungs/proc/remove_oxygen_deprivation(var/amount)
+	var/last_suffocation = oxygen_deprivation
+	oxygen_deprivation = min(species.total_health,max(0,oxygen_deprivation - amount))
+	return -(oxygen_deprivation - last_suffocation)
+
+/obj/item/organ/internal/lungs/proc/add_oxygen_deprivation(var/amount)
+	var/last_suffocation = oxygen_deprivation
+	oxygen_deprivation = min(species.total_health,max(0,oxygen_deprivation + amount))
+	return (oxygen_deprivation - last_suffocation)
+
+// Returns a percentage value for use by GetOxyloss().
+/obj/item/organ/internal/lungs/proc/get_oxygen_deprivation()
+	if(status & ORGAN_DEAD)
+		return 100
+	return round((oxygen_deprivation/species.total_health)*100)
 
 /obj/item/organ/internal/lungs/process()
 	..()
 
 	if(!owner)
 		return
-
-	if (germ_level > INFECTION_LEVEL_ONE)
+	
+	if(germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
 			owner.emote("cough")		//Respiratory tract infection
 
-	if(is_broken() || (is_bruised() && !rescued)) // a thoracostomy can only help with a collapsed lung, not a mangled one
+	if(is_broken() || (is_bruised() && !rescued) && !owner.is_asystole()) // a thoracostomy can only help with a collapsed lung, not a mangled one
 		if(prob(2))
 			spawn owner.emote("me", 1, "coughs up blood!")
 			owner.drip(10)
@@ -35,25 +61,36 @@
 			if (owner.losebreath < 5)
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
+/obj/item/organ/internal/lungs/proc/rupture()
+	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
+	if(istype(parent))
+		owner.custom_pain("You feel a stabbing pain in your [parent.name]!", 50, affecting = parent)
+	bruise()
+
+/obj/item/organ/internal/lungs/proc/handle_failed_breath()
+	if(prob(15) && !owner.nervous_system_failure())
+		if(!owner.is_asystole())
+			owner.emote("gasp")
+		else
+			owner.emote(pick("shiver","twitch"))
+
+	if(damage || world.time > last_successful_breath + 2 MINUTES)
+		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
+
+	owner.oxygen_alert = max(owner.oxygen_alert, 2)
+
 /obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
 	if(!owner)
 		return 1
 
+	if(!breath || (max_damage <= 0))
+		breath_fail_ratio = 1
+		handle_failed_breath()
+		return 1
+
 	//exposure to extreme pressures can rupture lungs
 	if(breath && (breath.total_moles/(owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
-		if(!is_bruised() && prob(5))
-			bruise()
-
-	//check if we actually need to process breath
-	if(!breath || (breath.total_moles == 0))
-		owner.failed_last_breath = 1
-		if(owner.health > config.health_threshold_crit)
-			owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
-		else
-			owner.adjustOxyLoss(HUMAN_CRIT_MAX_OXYLOSS)
-
-		owner.oxygen_alert = max(owner.oxygen_alert, 1)
-		return 0
+		rupture()
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 
@@ -100,25 +137,24 @@
 	else
 		exhaling = 0
 
-	var/inhale_pp = (inhaling/breath.total_moles)*breath_pressure
 	var/toxins_pp = (poison/breath.total_moles)*breath_pressure
 	var/exhaled_pp = (exhaling/breath.total_moles)*breath_pressure
 
+	var/inhale_efficiency = min(round(((inhaling/breath.total_moles)*breath_pressure)/safe_pressure_min, 0.001), 3)
+
 	// Not enough to breathe
-	if(inhale_pp < safe_pressure_min)
+	if(inhale_efficiency < 1)
 		if(prob(20))
-			spawn(0)
+			if(inhale_efficiency < 0.8)
 				owner.emote("gasp")
-
-		var/ratio = inhale_pp/safe_pressure_min
-		// Don't fuck them up too fast (space only does HUMAN_MAX_OXYLOSS after all!)
-		owner.adjustOxyLoss(max(HUMAN_MAX_OXYLOSS*(1-ratio), 0))
+			else if(prob(20))
+				to_chat(owner, span("warning", "It's hard to breathe..."))
+		breath_fail_ratio = 1 - inhale_efficiency
 		failed_inhale = 1
-
-		owner.oxygen_alert = max(owner.oxygen_alert, 1)
 	else
-		// We're in safe limits
-		owner.oxygen_alert = 0
+		breath_fail_ratio = 0
+
+	owner.oxygen_alert = failed_inhale * 2
 
 	inhaled_gas_used = inhaling/6 * (owner.species?.breath_eff_mul || 1)
 
@@ -208,6 +244,11 @@
 
 	var/failed_breath = failed_inhale || failed_exhale
 
+	if(failed_breath)
+		handle_failed_breath()
+	else
+		last_successful_breath = world.time
+		owner.oxygen_alert = 0
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)

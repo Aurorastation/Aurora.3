@@ -153,9 +153,9 @@
 	DS.dionatype = 2//Gestalt
 
 	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/diona/node))
+		if (istype(organ, /obj/item/organ/internal/diona/node))
 			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/diona/nutrients))
+		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
 			DS.nutrient_organ = organ
 
 //This proc can be called if some dionastats information needs to be refreshed or re-found
@@ -165,9 +165,9 @@
 	DS.nutrient_organ = null
 
 	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/diona/node))
+		if (istype(organ, /obj/item/organ/internal/diona/node))
 			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/diona/nutrients))
+		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
 			DS.nutrient_organ = organ
 
 //Splitting functions

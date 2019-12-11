@@ -14,6 +14,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_PULSE, -1)
 
 	var/power = (dose + volume)/2 //Larger the dose and volume, the more affected you are by the chemical.
 
@@ -92,7 +93,7 @@
 /datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.jitteriness = max(M.jitteriness - 5, 0)
 	if(prob(80))
-		M.adjustBrainLoss(3 * removed)
+		M.add_chemical_effect(CE_NEUROTOXIC, 3*removed)
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 	if(prob(10))
@@ -282,8 +283,9 @@
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
-	M.adjustOxyLoss(0.5 * removed) // poor man's lexorin
-	if(M.losebreath < 15)
+		to_chat(M, span("warning", pick("You feel great!", "You don't have a care in the world.", "You couldn't care less about anything.", "You feel so relaxed...")))
+	M.adjustOxyLoss(0.01 * removed)
+	if(M.losebreath < 5)
 		M.losebreath++
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)

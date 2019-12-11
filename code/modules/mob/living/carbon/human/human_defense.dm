@@ -167,7 +167,7 @@ emp_act
 
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src))
-		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = src.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 1)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
