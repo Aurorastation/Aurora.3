@@ -124,8 +124,7 @@
 	desc = "It's a wearable case for electronics. This one is a pair of goggles, with wiring sticking out. \
 	Could this augment your vision?" // Sadly it won't, or at least not yet.
 	icon_state = "circuitry"
-	item_state = "glasses"
-	off_state = "denight"
+	item_state = "circuitry"
 
 /obj/item/clothing/glasses/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
@@ -134,7 +133,7 @@
 /obj/item/clothing/glasses/circuitry/Look(var/atom/A, mob/user, var/proximity)
 	if(!A)
 		return 0
-	
+
 	if(istype(action_circuit) && action_circuit.check_power())
 		action_circuit.set_pin_data(IC_OUTPUT, 1, A)
 		action_circuit.push_data() // we have to not return 1 so we can still do normal stuff like picking things up, etc.

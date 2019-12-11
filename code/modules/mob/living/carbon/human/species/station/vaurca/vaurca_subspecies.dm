@@ -142,14 +142,14 @@
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		"right heart"         = /obj/item/organ/internal/heart/right,
-		"left heart"          = /obj/item/organ/internal/heart/left,
+		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
+		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
 		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
 		"mechanical liver"    = /obj/item/organ/internal/liver/vaurca/robo,
 		"mechanical kidneys"  = /obj/item/organ/internal/kidneys/vaurca/robo,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/vaurca,
+		BP_STOMACH            = /obj/item/organ/internal/stomach,
+		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
 

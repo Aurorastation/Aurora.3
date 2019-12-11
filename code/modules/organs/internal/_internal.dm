@@ -4,6 +4,8 @@
 /obj/item/organ/internal
 	var/dead_icon // Icon to use when the organ has died.
 	var/damage_reduction = 0.5     //modifier for internal organ injury
+	var/toxin_type = "undefined"
+	var/relative_size = 25 //Used for size calcs
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
@@ -42,8 +44,14 @@
 	if((status & ORGAN_DEAD) && dead_icon)
 		icon_state = dead_icon
 
-/obj/item/organ/internal/proc/is_usable()
+/obj/item/organ/internal/proc/surgical_fix() //to be used for scarring -mattatlas
+	heal_damage(damage)
+
+/obj/item/organ/internal/is_usable()
 	return ..() && !is_broken()
+
+/obj/item/organ/internal/proc/is_damaged()
+	return damage > 0
 
 /obj/item/organ/internal/robotize()
 	..()
@@ -75,7 +83,7 @@
 					degree = " a lot"
 				if(damage < 5)
 					degree = " a bit"
-				owner.custom_pain("Something inside your [parent.name] hurts[degree].", amount, affecting = parent)
+				owner.custom_pain("Something inside your [parent.name] hurts[degree].", amount)
 
 /obj/item/organ/internal/proc/get_visible_state()
 	if(damage > max_damage)
@@ -95,10 +103,12 @@
 
 /obj/item/organ/internal/process()
 	..()
+	if(istype(owner) && (toxin_type in owner.chem_effects))
+		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
 	handle_regeneration()
 
 /obj/item/organ/internal/proc/handle_regeneration()
-	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN])
+	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN] || owner.is_asystole())
 		return
 	if(damage < 0.1*max_damage)
-		heal_damage(0.02)
+		heal_damage(0.1)

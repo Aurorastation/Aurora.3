@@ -109,8 +109,8 @@
 	H.real_name = R.dna.real_name
 
 	//Get the clone body ready
-	H.setCloneLoss(H.maxHealth * (100 - config.health_threshold_crit) / 100) // We want to put them exactly at the crit level, so we deal this much clone damage
-	H.adjustBrainLoss(50, 55) // Even if healed to full health, it will have some brain damage
+	H.setCloneLoss(H.maxHealth - 50)
+	H.adjustBrainLoss(100, 120) // Even if healed to full health, it will have some brain damage
 	H.Paralyse(4)
 
 	//Here let's calculate their health so the pod doesn't immediately eject them!!!
@@ -162,7 +162,7 @@
 	if(occupant.getCloneLoss() == 0) // Rare case, but theoretically possible
 		return 100
 
-	return between(0, 100 * (occupant.health - occupant.maxHealth * config.health_threshold_crit / 100) / (occupant.maxHealth * (heal_level - config.health_threshold_crit) / 100), 100)
+	return between(0, 100 * (occupant.health - occupant.maxHealth * 75 / 100) / (occupant.maxHealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
 /obj/machinery/clonepod/machinery_process()
@@ -194,10 +194,10 @@
 		occupant.adjustCloneLoss(-2 * heal_rate)
 
 		//So clones don't die of oxyloss in a running pod.
-		if(occupant.reagents.get_reagent_amount("inaprovaline") < 30)
-			occupant.reagents.add_reagent("inaprovaline", 60)
+		if(occupant.reagents.get_reagent_amount("norepinephrine") < 30)
+			occupant.reagents.add_reagent("norepinephrine", 60)
 		occupant.Sleeping(30)
-		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
+		//Also heal some oxyloss ourselves because norepinephrine is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
 		use_power(7500) //This might need tweaking.
