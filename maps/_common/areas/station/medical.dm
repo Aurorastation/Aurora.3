@@ -182,8 +182,8 @@
 	icon_state = "genetics"
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
-/area/medical/genetics_cloning
-	name = "\improper Medical - Cloning Lab"
+/area/medical/custodial_closet
+	name = "\improper Medical - Custodial Closet"
 	icon_state = "cloning"
 
 /area/medical/sleeper

@@ -41529,7 +41529,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "byp" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/shuttle,
@@ -41919,7 +41919,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bzc" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -41938,7 +41938,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bze" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -44855,10 +44855,10 @@
 	c_tag = "Medbay Cloning"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bDV" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bDW" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
@@ -44868,7 +44868,7 @@
 	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bDX" = (
 /obj/structure/sign/greencross,
 /turf/simulated/wall,
@@ -44910,7 +44910,7 @@
 "bEb" = (
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bEd" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -45752,11 +45752,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bFG" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bFH" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -47566,7 +47566,7 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bID" = (
 /obj/structure/bookcase,
 /turf/simulated/floor/wood,
@@ -47576,7 +47576,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bIF" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -48548,7 +48548,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bKf" = (
 /obj/machinery/computer/cloning,
 /obj/machinery/light,
@@ -48558,7 +48558,7 @@
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bKg" = (
 /obj/machinery/dna_scannernew,
 /obj/machinery/light_switch{
@@ -48572,7 +48572,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bKh" = (
 /obj/machinery/light{
 	dir = 1
@@ -49406,7 +49406,7 @@
 /area/medical/sleeper)
 "bLJ" = (
 /turf/simulated/wall,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bLK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -53700,12 +53700,6 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/cloning{
-	pixel_x = 0
-	},
-/obj/item/circuitboard/clonescanner,
-/obj/item/circuitboard/clonepod,
-/obj/item/circuitboard/scan_consolenew,
 /obj/item/circuitboard/med_data{
 	pixel_x = 3;
 	pixel_y = -3
