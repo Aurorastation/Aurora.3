@@ -15,7 +15,7 @@
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
 		var/mob/living/carbon/human/H = A
-		var/obj/item/organ/surge/s = H.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)

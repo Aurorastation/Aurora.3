@@ -87,7 +87,7 @@
 	icon_state = "pill17"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 25)
+		reagents.add_reagent("dylovene", 25)
 
 /obj/item/reagent_containers/pill/tox
 	name = "Toxins pill"
@@ -170,13 +170,13 @@
 		. = ..()
 		reagents.add_reagent("escitalopram", 15)
 
-/obj/item/reagent_containers/pill/inaprovaline
-	name = "Inaprovaline pill"
+/obj/item/reagent_containers/pill/norepinephrine
+	name = "norepinephrine pill"
 	desc = "Used to stabilize patients."
 	icon_state = "pill20"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("inaprovaline", 30)
+		reagents.add_reagent("norepinephrine", 30)
 
 /obj/item/reagent_containers/pill/dexalin
 	name = "Dexalin pill"
@@ -208,15 +208,7 @@
 	icon_state = "pill13"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
-
-/obj/item/reagent_containers/pill/inaprovaline
-	name = "Inaprovaline pill"
-	desc = "Used to stabilize patients."
-	icon_state = "pill20"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("inaprovaline", 30)
+		reagents.add_reagent("dylovene", 15)
 
 /obj/item/reagent_containers/pill/bicaridine
 	name = "Bicaridine pill"
@@ -245,13 +237,21 @@
 		reagents.add_reagent("synaptizine", 5)
 		reagents.add_reagent("hyperzine", 5)
 
-/obj/item/reagent_containers/pill/spaceacillin
-	name = "Spaceacillin pill"
+/obj/item/reagent_containers/pill/deltamivir
+	name = "Deltamivir pill"
 	desc = "Contains antiviral agents."
 	icon_state = "pill19"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("spaceacillin", 15)
+		reagents.add_reagent("deltamivir", 15)
+
+/obj/item/reagent_containers/pill/thetamycin
+	name = "thetamycin pill"
+	desc = "Contains theta-lactam antibiotics."
+	icon_state = "pill19"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("thetamycin", 15)
 
 /obj/item/reagent_containers/pill/bio_vitamin
 	name = "Vitamin pill"

@@ -145,11 +145,14 @@ var/list/sacrificed = list()
 			switch(target.getFireLoss())
 				if(0 to 25)
 					to_chat(target, "<span class='cult'>Your blood boils as you force yourself to resist the corruption invading every corner of your mind.</span>")
+					target.take_overall_damage(0, 3)
 				if(25 to 45)
 					to_chat(target, "<span class='cult'>Your blood boils and your body burns as the corruption further forces itself into your body and mind.</span>")
+					target.take_overall_damage(0, 5)
 				if(45 to 75)
 					to_chat(target, "<span class='cult'>You begin to hallucinate images of a dark and incomprehensible being and your entire body feels like its engulfed in flame as your mental defenses crumble.</span>")
 					target.apply_effect(rand(1,10), STUTTER)
+					target.take_overall_damage(0, 10)
 				if(75 to 100)
 					to_chat(target, "<span class='cult'>Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance.</span>")
 					//broken mind - 5000 may seem like a lot I wanted the effect to really stand out for maxiumum losing-your-mind-spooky
@@ -658,7 +661,7 @@ var/list/sacrificed = list()
 					to_chat(user, "<span class='warning'>Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.</span>")
 			else
 				if(cultsinrange.len >= 3)
-					if(H.stat !=2)
+					if(H.stat != DEAD)
 						if(prob(80) || worth)
 							to_chat(user, "<span class='cult'>The Geometer of Blood accepts this [worth ? "exotic " : ""]sacrifice.</span>")
 						else
@@ -679,7 +682,7 @@ var/list/sacrificed = list()
 						else
 							H.gib()
 				else
-					if(H.stat !=2)
+					if(H.stat != DEAD)
 						to_chat(user, "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>")
 					else
 						if(prob(40))
@@ -694,7 +697,7 @@ var/list/sacrificed = list()
 							H.gib()
 		else
 			if(cultsinrange.len >= 3)
-				if(H.stat !=2)
+				if(H.stat != DEAD)
 					if(prob(80))
 						to_chat(user, "<span class='cult'>The Geometer of Blood accepts this sacrifice.</span>")
 					else
@@ -715,7 +718,7 @@ var/list/sacrificed = list()
 					else
 						H.gib()
 			else
-				if(H.stat !=2)
+				if(H.stat != DEAD)
 					to_chat(user, "<span class='warning'>The victim is still alive, you will need more cultists chanting for the sacrifice to succeed.</span>")
 				else
 					if(prob(40))

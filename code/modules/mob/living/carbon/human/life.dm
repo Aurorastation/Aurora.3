@@ -287,7 +287,6 @@
 	total_radiation = Clamp(total_radiation,0,100)
 
 	if (total_radiation)
-		//var/obj/item/organ/diona/nutrients/rad_organ = locate() in internal_organs
 		if(src.is_diona())
 			diona_handle_regeneration(get_dionastats())
 			return
@@ -496,25 +495,6 @@
 
 	return
 
-/*
-/mob/living/carbon/human/proc/adjust_body_temperature(current, loc_temp, boost)
-	var/temperature = current
-	var/difference = abs(current-loc_temp)	//get difference
-	var/increments// = difference/10			//find how many increments apart they are
-	if(difference > 50)
-		increments = difference/5
-	else
-		increments = difference/10
-	var/change = increments*boost	// Get the amount to change by (x per increment)
-	var/temp_change
-	if(current < loc_temp)
-		temperature = min(loc_temp, temperature+change)
-	else if(current > loc_temp)
-		temperature = max(loc_temp, temperature-change)
-	temp_change = (temperature - current)
-	return temp_change
-*/
-
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
 		bodytemperature += species.passive_temp_gain
@@ -661,17 +641,47 @@
 	if(in_stasis)
 		return
 
+	chem_effects.Cut()
+
+	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
+
 	if(reagents)
-		chem_effects.Cut()
 		analgesic = 0
 
 		if(touching) touching.metabolize()
-		if(ingested) ingested.metabolize()
 		if(bloodstr) bloodstr.metabolize()
+		if(ingested) metabolize_ingested_reagents()
 		if(breathing) breathing.metabolize()
 
 		if(CE_PAINKILLER in chem_effects)
 			analgesic = chem_effects[CE_PAINKILLER]
+
+		if(CE_TOXIN in chem_effects)
+			adjustToxLoss(chem_effects[CE_TOXIN])
+
+		if(CE_EMETIC in chem_effects)
+			var/nausea = chem_effects[CE_EMETIC]
+			if(CE_ANTIEMETIC in chem_effects)
+				nausea -= min(nausea, chem_effects[CE_ANTIEMETIC]) // so it can only go down to 0
+			if(prob(nausea))
+				delayed_vomit()
+
+		if(CE_FEVER in chem_effects)
+			var/normal_temp = species?.body_temperature || (T0C+37)
+			var/fever = chem_effects[CE_FEVER]
+			if(CE_NOFEVER in chem_effects)
+				fever -= chem_effects[CE_NOFEVER] // a dose of 16u paracetamol should offset a stage 4 virus
+			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 9) // temperature should range from 37C to 46C, 98.6F to 115F
+			if(fever > 1)
+				if(prob(20/3)) // every 30 seconds, roughly
+					to_chat(src, span("warning", pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+				if(prob(20)) // once every 10 seconds, roughly
+					drowsyness += 4
+				if(prob(20))
+					adjustHalLoss(15) // muscle pain from fever
+			if(fever >= 5) // your organs are boiling, figuratively speaking
+				var/obj/item/organ/internal/IO = pick(internal_organs)
+				IO.take_internal_damage(1)
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
@@ -732,7 +742,8 @@
 	if(!handle_some_updates())
 		return 0
 
-	if(status_flags & GODMODE)	return 0
+	if(status_flags & GODMODE)
+		return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(species.show_ssd && !client && !teleop)
@@ -743,33 +754,23 @@
 	else				//ALIVE. LIGHTS ARE ON
 		updatehealth()	//TODO
 
-		if(health <= config.health_threshold_dead || (species.has_organ[BP_BRAIN] && !has_brain()))
+		if(handle_death_check())
 			death()
 			blinded = 1
 			silent = 0
 			return 1
 
-		//UNCONSCIOUS. NO-ONE IS HOME
-		if((exhaust_threshold && getOxyLoss() > exhaust_threshold) || (health <= config.health_threshold_crit))
-			Paralyse(3)
-
 		if(hallucination)
 			//Machines do not hallucinate.
-			if (hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
+			if(hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
 				if(prob(3))
 					fake_attack(src)
 				if(!handling_hal)
 					spawn handle_hallucinations() //The not boring kind!
-				/*if(client && prob(5))
-					client.dir = pick(2,4,8)
-					var/client/C = client
-					spawn(rand(20,50))
-						if(C)
-							C.dir = 1*/	// This breaks the lighting system.
 
 			if(hallucination<=2)
 				hallucination = 0
-				halloss = 0
+				adjustHalLoss(0)
 			else
 				hallucination -= 2
 
@@ -777,11 +778,11 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(halloss > 100)
-			to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-			src.visible_message("<B>[src]</B> [species.halloss_message].")
+		if(get_shock() >= species.total_health)
+			if(!stat)
+				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
+				src.visible_message("<B>[src]</B> [species.halloss_message].")
 			Paralyse(10)
-			setHalLoss(99)
 
 		if(paralysis || sleeping)
 			blinded = 1
@@ -797,13 +798,18 @@
 		else if(sleeping)
 			speech_problem_flag = 1
 			handle_dreams()
-			if (mind)
+			if(mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
-			if( prob(2) && health && !hal_crit )
-				spawn(0)
+			if(prob(2) && health && !hal_crit && !failed_last_breath && !isSynthetic())
+				if(!paralysis)
 					emote("snore")
+				else
+					emote("groan")
+
+
+
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
@@ -874,9 +880,9 @@
 
 	if(stat == UNCONSCIOUS)
 		//Critical damage passage overlay
-		if(health <= 0)
+		if(health < maxHealth/2)
 			var/ovr = "passage0"
-			switch(health)
+			switch(health - maxHealth/2)
 				if(-20 to -10)
 					ovr = "passage1"
 				if(-30 to -20)
@@ -951,7 +957,7 @@
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
 			if(nutrition_icon)
-				var/nut_factor = max(0,min(nutrition / max_nutrition,1))
+				var/nut_factor = max_nutrition ? Clamp(nutrition / max_nutrition, 0, 1) : 1
 				var/nut_icon = 5 //5 to 0, with 5 being lowest, 0 being highest
 				if(nut_factor >= CREW_NUTRITION_OVEREATEN)
 					nut_icon = 0
@@ -1088,57 +1094,62 @@
 	if(mind && mind.changeling)
 		mind.changeling.regenerate()
 
-/mob/living/carbon/human/handle_shock()
+/mob/living/carbon/human/proc/handle_shock()
 	..()
-	if(status_flags & GODMODE)	return 0	//godmode
-	if(!can_feel_pain()) return
-
-	if(health < config.health_threshold_softcrit)// health 0 makes you immediately collapse
-		shock_stage = max(shock_stage, 61)
-
-	if(traumatic_shock >= 80)
-		shock_stage += 1
-	else if(health < config.health_threshold_softcrit)
-		shock_stage = max(shock_stage, 61)
-	else
-		shock_stage = min(shock_stage, 160)
-		shock_stage = max(shock_stage-1, 0)
+	if(status_flags & GODMODE)
+		return 0
+	if(!can_feel_pain())
 		return
 
+	if(is_asystole())
+		shock_stage = max(shock_stage + 1, 61)
+
+	var/traumatic_shock = get_shock()
+	if(traumatic_shock >= max(30, 0.8*shock_stage))
+		shock_stage += 1
+	else if (!is_asystole())
+		shock_stage = min(shock_stage, 160)
+		var/recovery = 1
+		if(traumatic_shock < 0.5 * shock_stage) //lower shock faster if pain is gone completely
+			recovery++
+		if(traumatic_shock < 0.25 * shock_stage)
+			recovery++
+		shock_stage = max(shock_stage - recovery, 0)
+		return
+
+	if(stat)
+		return 0
+
 	if(shock_stage == 10)
-		var/painful = pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")
-		to_chat(src, "<span class='danger'>[painful]!</span>")
+		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
-		if(shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
+		if(shock_stage == 30)
+			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
 		eye_blurry = max(2, eye_blurry)
 		stuttering = max(stuttering, 5)
 
 	if(shock_stage == 40)
-		var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
-		to_chat(src, "<span class='danger'>[painful]!</span>")
+		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60) emote("me",1,"'s body becomes limp.")
 		if (prob(2))
-			var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
-			to_chat(src, "<span class='danger'>[painful]!</span>")
+			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
 
 	if(shock_stage >= 80)
 		if (prob(5))
-			var/painful = pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")
-			to_chat(src, "<span class='danger'>[painful]!</span>")
+			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
 
 	if(shock_stage >= 120)
 		if (prob(2))
-			var/blacked = pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")
-			to_chat(src, "<span class='danger'>[blacked]!</span>")
+			custom_pain("[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!", shock_stage, nohalloss = TRUE)
 			Paralyse(5)
 
 	if(shock_stage == 150)
-		emote("me",1,"can no longer stand, collapsing!")
+		visible_message("<b>[src]</b> can no longer stand, collapsing!")
 		Weaken(20)
 
 	if(shock_stage >= 150)
@@ -1156,18 +1167,11 @@
 	if (BITTEST(hud_updateflag, HEALTH_HUD) && hud_list[HEALTH_HUD])
 		var/image/holder = hud_list[HEALTH_HUD]
 		if(stat == DEAD)
-			holder.icon_state = "hudhealth-100" 	// X_X
+			holder.icon_state = "0" 	// X_X
+		else if(is_asystole())
+			holder.icon_state = "flatline"
 		else
-			var/percentage_health = RoundHealth((health-config.health_threshold_crit)/(maxHealth-config.health_threshold_crit)*100)
-
-			if (percentage_health == "health100" && holder.icon_state && holder.icon_state != "hudhealth100" && holder.icon_state != "hudhealth100a")
-				holder.icon_state = "hudhealth100a"
-				spawn(30)//just to prevent any issues with the animation, we'll set it to the normal state after 3 seconds
-					percentage_health = RoundHealth((health-config.health_threshold_crit)/(maxHealth-config.health_threshold_crit)*100)
-					if (percentage_health == "health100")
-						holder.icon_state = "hudhealth100"
-			else
-				holder.icon_state = "hud[percentage_health]"
+			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder
 
 	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
@@ -1195,12 +1199,6 @@
 			holder.icon_state = "hudxeno"
 		else if(foundVirus)
 			holder.icon_state = "hudill"
-	/*	else if(has_brain_worms())
-			var/mob/living/simple_animal/borer/B = has_brain_worms()
-			if(B.controlling)
-				holder.icon_state = "hudbrainworm"
-			else
-				holder.icon_state = "hudhealthy"*/
 		else
 			holder.icon_state = "hudhealthy"
 
@@ -1364,7 +1362,7 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || (oxyloss + halloss) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (getOxyLoss() + getHalLoss()) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain()
 		return
 
@@ -1381,7 +1379,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((oxyloss) / exhaust_threshold) + ((halloss) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((getHalLoss()) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
@@ -1406,7 +1404,7 @@
 				new_state = "health7"
 			else
 				//switch(health - halloss)
-				switch(health - traumatic_shock)
+				switch(health - get_shock())
 					if(100 to INFINITY)
 						new_state = "health0"
 					if(80 to 100)
@@ -1427,8 +1425,8 @@
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy
-	if(oxyloss)
-		switch(oxyloss)
+	if(getOxyLoss())
+		switch(getOxyLoss())
 			if(10 to 20)
 				new_oxy = "oxydamageoverlay1"
 			if(20 to 25)

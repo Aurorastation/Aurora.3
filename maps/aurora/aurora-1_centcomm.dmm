@@ -13436,7 +13436,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/reagent_containers/food/snacks/soylenviridians,
+/obj/item/reagent_containers/food/snacks/soywafers,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14395,7 +14395,7 @@
 /area/shuttle/escape/centcom)
 "aIh" = (
 /obj/machinery/optable,
-/obj/item/organ/stack,
+/obj/item/organ/internal/stack,
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/machinery/light/small{
 	dir = 1
