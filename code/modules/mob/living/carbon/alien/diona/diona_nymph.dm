@@ -312,7 +312,7 @@
 			silent = 0
 			return 1
 
-		if (halloss > 50)
+		if(getHalLoss() > 50)
 			paralysis = 8
 
 

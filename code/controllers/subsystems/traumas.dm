@@ -81,7 +81,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 					   "robots" = typecacheof(list(/obj/item/device/electronic_assembly/drone, /obj/item/holder/drone, /obj/item/device/mmi/digital,
 												 /obj/item/organ/internal/ipc_tag, /obj/machinery/computer/borgupload, /obj/item/clothing/suit/cyborg_suit,
 												 /obj/machinery/cryopod/robot, /obj/machinery/robotic_fabricator, /obj/effect/decal/cleanable/blood/gibs/robot, /obj/effect/decal/remains/robot,
-												 /obj/item/robot_parts, /obj/item/organ/cell, /obj/item/organ/data, /obj/item/toy/figure/borg)),
+												 /obj/item/robot_parts, /obj/item/organ/internal/cell, /obj/item/organ/internal/data, /obj/item/toy/figure/borg)),
 
 					   "nanotrasen" = typecacheof(list(/obj/item/toy/nanotrasenballoon, /obj/item/soap/nanotrasen, /obj/structure/sign/flag/nanotrasen,
 												 /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen, /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen, /obj/item/storage/toolbox/lunchbox/nt,

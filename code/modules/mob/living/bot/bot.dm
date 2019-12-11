@@ -50,10 +50,6 @@
 		stat = CONSCIOUS
 	else
 		health = maxHealth - getFireLoss() - getBruteLoss()
-	oxyloss = 0
-	toxloss = 0
-	cloneloss = 0
-	halloss = 0
 
 /mob/living/bot/death()
 	explode()

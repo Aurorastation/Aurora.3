@@ -120,16 +120,16 @@
 		to_chat(user, "<span class='notice'>It is empty.</span>")
 
 
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
-	name = "autoinjector (inaprovaline)"
+/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
+	name = "autoinjector (norepinephrine)"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
 
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine/Initialize()
 	. =..()
-	reagents.add_reagent("inaprovaline", 5)
+	reagents.add_reagent("norepinephrine", 5)
 	update_icon()
 	return
 
@@ -154,7 +154,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/survival/Initialize()
 	. = ..()
 	reagents.add_reagent("tricordrazine", 15)
-	reagents.add_reagent("inaprovaline", 5)
+	reagents.add_reagent("norepinephrine", 5)
 	reagents.add_reagent("dexalinp", 5)
 	reagents.add_reagent("oxycodone", 5)
 	reagents.add_reagent("methylphenidate", 5)
