@@ -205,5 +205,7 @@
 	shuttle.warmup_time = 20
 	shuttle.area_offsite = locate(/area/shuttle/syndicate_commander/centcom)
 	shuttle.area_station = locate(/area/shuttle/syndicate_commander/station)
+	shuttle.docking_controller_tag = "syndiecom_shuttle"
+	shuttle.dock_target_offsite = "syndiecom_wing"
 	shuttles["Syndicate Commander"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
