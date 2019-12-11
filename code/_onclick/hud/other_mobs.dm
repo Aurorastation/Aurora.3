@@ -69,7 +69,7 @@
 	using.name = "help"
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = 21
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	help_intent = using
 
@@ -80,7 +80,7 @@
 	using.name = "disarm"
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = 21
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	disarm_intent = using
 
@@ -91,7 +91,7 @@
 	using.name = "grab"
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = 21
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	grab_intent = using
 
@@ -102,7 +102,7 @@
 	using.name = I_HURT
 	using.icon = ico
 	using.screen_loc = ui_zonesel
-	using.layer = 21
+	using.layer = SCREEN_LAYER
 	src.adding += using
 	hurt_intent = using
 

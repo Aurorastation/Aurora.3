@@ -166,10 +166,10 @@
 	adjustOxyLoss(min(oxyloss, 100 - getOxyLoss())) //don't put them over 100 oxyloss
 
 	if(total_damage)
-		if(oxyloss >= 40)
-			user.visible_message("<span class='danger'>\The [user] slit [src]'s throat open with \the [W]!</span>")
+		if(getOxyLoss() >= 40)
+			user.visible_message("<span class='danger'>\The [user] slices [src]'s throat open with \the [W]!</span>")
 		else
-			user.visible_message("<span class='danger'>\The [user] cut [src]'s neck with \the [W]!</span>")
+			user.visible_message("<span class='danger'>\The [user] cuts [src]'s neck open with \the [W]!</span>")
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, 50, 1, -1)

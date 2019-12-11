@@ -82,7 +82,7 @@ proc/airborne_can_reach(turf/source, turf/target)
 	var/list/antibodies_in_common = M.antibodies & disease.antigen
 	if(antibodies_in_common.len)
 		return
-	if(M.reagents.has_reagent("deltamivir"))
+	if(CE_ANTIVIRAL in M.chem_effects)
 		return
 
 	if(!disease.affected_species.len)

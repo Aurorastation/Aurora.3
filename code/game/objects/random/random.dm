@@ -152,9 +152,9 @@
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/tramadol = 2,
-		/obj/item/reagent_containers/syringe/antitoxin = 2,
+		/obj/item/reagent_containers/syringe/dylovene = 2,
 		/obj/item/reagent_containers/syringe/antiviral = 1,
-		/obj/item/reagent_containers/syringe/inaprovaline = 2,
+		/obj/item/reagent_containers/syringe/norepinephrine = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 

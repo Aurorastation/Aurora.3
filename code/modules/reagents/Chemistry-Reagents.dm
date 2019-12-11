@@ -108,6 +108,10 @@
 
 	remove_self(removed)
 
+// Called when a beaker is thrown or something is hit with it, AND the beaker doesn't break.
+/datum/reagent/proc/apply_force(var/force)
+	return force
+
 //Initial effect is called once when the reagent first starts affecting a mob.
 /datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)
 	return

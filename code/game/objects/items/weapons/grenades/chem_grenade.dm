@@ -270,7 +270,7 @@
 	B1.reagents.add_reagent("sugar", 20)
 	B1.reagents.add_reagent("potassium",20)
 	B1.reagents.add_reagent("stoxin", 10)
-	B1.reagents.add_reagent("anti_toxin", 10)
+	B1.reagents.add_reagent("dylovene", 10)
 	B2.reagents.add_reagent("chloralhydrate",40)
 	B2.reagents.add_reagent("phosphorus",20)
 
