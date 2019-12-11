@@ -184,7 +184,7 @@
 
 /area/medical/custodial_closet
 	name = "\improper Medical - Custodial Closet"
-	icon_state = "cloning"
+	icon_state = "medcustodial"
 
 /area/medical/sleeper
 	name = "\improper Medical - Emergency Treatment Centre"

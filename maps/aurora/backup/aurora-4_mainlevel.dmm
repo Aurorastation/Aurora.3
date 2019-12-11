@@ -43138,7 +43138,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "buz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -43151,7 +43151,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "buA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -43167,7 +43167,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "buB" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -43184,7 +43184,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "buD" = (
 /obj/structure/table/rack{
 	dir = 1
@@ -43703,7 +43703,7 @@
 /area/turbolift/medical_station)
 "bvE" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bvF" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -43717,19 +43717,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bvG" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bvH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/wall,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bvI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -44193,14 +44193,14 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bwB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bwC" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -44212,7 +44212,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bwD" = (
 /obj/machinery/firealarm/east,
 /obj/machinery/light{
@@ -44220,7 +44220,7 @@
 	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bwE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -45211,7 +45211,7 @@
 "bxY" = (
 /obj/structure/mopbucket,
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bxZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -45220,7 +45220,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "byb" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -45886,16 +45886,16 @@
 	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bzr" = (
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bzs" = (
 /turf/simulated/wall,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bzt" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Lift Lobby";
@@ -46478,7 +46478,7 @@
 	},
 /obj/item/wrench,
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bAs" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -46491,7 +46491,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bAt" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -46502,7 +46502,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
+/area/medical/genetics_cloning)
 "bAv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
