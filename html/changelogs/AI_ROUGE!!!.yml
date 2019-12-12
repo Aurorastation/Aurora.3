@@ -38,7 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: ----MALF UPDATES----
   - rscadd: "Borg Combat Module now unlocks with synthetic domination. It only activates on all the current borgs, not the later ones."
   - rscdel: "Removes code delta from elite encryption hack"
   - rscadd: "Replaces code delta with code yellow"
