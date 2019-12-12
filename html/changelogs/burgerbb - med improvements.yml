@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Removed both the side effects for bicaridine and kelotane and replaced them with a low drowsiness. Bicaridine metabolism rate reduced by 66% (REM * 0.5). Kelotane and Dermaline metabolism rate reduced by 90% (REM * 0.5). Atropine causes weakness and a heartrate increase. Atropine toxin damaged increased from 1 to 2 per unit."
+  - balance: "Removed both the side effects for bicaridine and kelotane and replaced them with a low drowsiness. Bicaridine metabolism rate reduced by 66% (REM * 0.5). Kelotane and Dermaline metabolism rate reduced by 90% (REM * 0.5). Atropine causes weakness and a heartrate increase. Atropine toxin damage increased from 1 to 2 per unit."
