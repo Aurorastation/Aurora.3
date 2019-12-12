@@ -1,0 +1,6 @@
+author: aleksix
+
+delete-after: True
+
+changes: 
+  - bugfix: "Integrated Circuits <ANY> pins will now accept lists."
