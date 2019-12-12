@@ -430,7 +430,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/storage/firstaid/o2,
 					/obj/item/storage/firstaid/adv,
 					/obj/item/reagent_containers/glass/bottle/antitoxin,
-					/obj/item/reagent_containers/glass/bottle/inaprovaline,
+					/obj/item/reagent_containers/glass/bottle/norepinephrine,
 					/obj/item/reagent_containers/glass/bottle/stoxin,
 					/obj/item/storage/box/syringes,
 					/obj/item/storage/box/autoinjectors)

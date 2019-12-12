@@ -261,6 +261,15 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"aaC" = (
+/obj/structure/table/standard,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/reagent_dispensers/acid{
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/glass/beaker/sulphuric,
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
 "aaD" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -37505,16 +37514,6 @@
 /area/assembly/robotics)
 "bmg" = (
 /obj/machinery/mineral/rigpress,
-/turf/simulated/floor/tiled/white,
-/area/assembly/robotics)
-"bmh" = (
-/obj/structure/table/standard,
-/obj/item/book/manual/ripley_build_and_repair,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/reagent_dispensers/acid{
-	pixel_y = 32
-	},
-/obj/item/reagent_containers/glass/beaker/sulphuric,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bmi" = (
@@ -94142,7 +94141,7 @@ aKT
 aKT
 aKT
 baE
-bmh
+aaC
 bnE
 bpb
 bqn

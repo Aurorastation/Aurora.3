@@ -76,7 +76,7 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
-		BP_CELL    = /obj/item/organ/cell,
+		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
@@ -292,9 +292,13 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("waiting IPC screen")
 			return "#FFFFFF"
 
-
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
 	if (neuter_ipc)
 		H.gender = NEUTER
+
+/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE

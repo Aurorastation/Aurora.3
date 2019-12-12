@@ -231,7 +231,7 @@
 
 			owner.vessel.remove_reagent("blood",rand(15,30))
 			owner.reagents.add_reagent("paracetamol", 5)
-			owner.reagents.add_reagent("inaprovaline", 5)
+			owner.reagents.add_reagent("norepinephrine", 5)
 
 /obj/item/organ/internal/haemodynamic
 	name = "haemodynamic control system"

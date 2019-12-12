@@ -11,6 +11,7 @@
 		/obj/item/clothing/mask/smokable,
 		/obj/item/clothing/accessory/badge,
 		/obj/item/clothing/accessory/locket,
+		/obj/item/clothing/ring,
 		/obj/item/device/flashlight/pen,
 		/obj/item/seeds,
 		/obj/item/stack/medical,

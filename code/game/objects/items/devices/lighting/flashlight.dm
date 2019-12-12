@@ -84,9 +84,10 @@
 
 				var/list/pinpoint = list("oxycodone"=1,"tramadol"=5)
 				var/list/dilating = list("space_drugs"=5,"mindbreaker"=1)
-				if(M.reagents.has_any_reagent(pinpoint) || H.ingested.has_any_reagent(pinpoint) || H.breathing.has_any_reagent(pinpoint))
+				var/datum/reagents/ingested = H.get_ingested_reagents()
+				if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
 					to_chat(user, span("notice", "\The [M]'s pupils are already pinpoint and cannot narrow any more."))
-				else if(M.reagents.has_any_reagent(dilating) || H.ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
+				else if(H.shock_stage >= 30 || H.reagents.has_any_reagent(dilating) || ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
 					to_chat(user, span("notice", "\The [M]'s pupils narrow slightly, but are still very dilated."))
 				else
 					to_chat(user, span("notice", "\The [M]'s pupils narrow."))
