@@ -126,7 +126,6 @@
 			mob_icon.Blend(skin_color, ICON_ADD)
 		apply_markings(restrict_to_robotic = TRUE)
 	else
-		icon_cache_key = "[icon_state]_[species ? species.name : "Human"]"
 		if(!dna)
 			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		else
@@ -164,8 +163,8 @@
 
 			apply_markings()
 
-			if(body_hair && hair_color)
-				var/list/limb_icon_cache = SSicon_cache.body_hair_cache
+			if(body_hair)
+				var/list/limb_icon_cache = SSicon_cache.limb_icons_cache
 				var/cache_key = "[body_hair]-[icon_name]-[hair_color]"
 				if(!limb_icon_cache[cache_key])
 					var/icon/I = icon(species.icobase, "[icon_name]_[body_hair]")
@@ -230,7 +229,7 @@ var/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#6666
 	// Generate the greyscale base icon and cache it for later.
 	// icon_cache_key is set by any get_icon() calls that are made.
 	// This looks convoluted, but it's this way to avoid icon proc calls.
-	var/list/limb_icon_cache = SSicon_cache.body_hair_cache
+	var/list/limb_icon_cache = SSicon_cache.limb_icons_cache
 	if(!hud_damage_image)
 		var/cache_key = "dambase-[icon_cache_key]"
 		if(!icon_cache_key || !limb_icon_cache[cache_key])
