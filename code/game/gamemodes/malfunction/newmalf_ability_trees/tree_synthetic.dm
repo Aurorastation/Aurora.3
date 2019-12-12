@@ -387,7 +387,7 @@
 	to_chat(user, "Bypassing crisis module safties")
 	command_announcement.Announce("Brute force attack located in NTNet emergancy crisis opperations.", "Network Monitoring")
 	sleep(600)
-	command_announcement.Announce("Crisis opperations bypassed. Firewall breached. NTNet compr0m1s3d#-.", "Network Monitoring")
+	command_announcement.Announce("Crisis operations bypassed. Firewall breached. NTNet compr0m1s3d#-.", "Network Monitoring")
 	if(user.is_dead()) // check if the AI is still alive
 		user.synthetic_takeover = 0
 		return
