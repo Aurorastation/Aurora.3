@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Cyborg rescue module now has adrenaline in its hypospray."
   - tweak: "Chemistry gripper renamed to medical gripper since it's used for way more than just chemistry."
-  - rscadd: "Medical grippers can now hold blood bags, med cups, and paper cups. 
+  - rscadd: "Medical grippers can now hold blood bags, med cups, and paper cups."
