@@ -93,17 +93,13 @@
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	metabolism = REM * 1.5//Get to overdose state a bit faster
+	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	taste_mult = 3
-	breathe_met = REM * 1.5 * 0.5
-	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-	if(M.getBruteLoss() && prob(7))
-		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
-		M.Weaken(3)
+	M.drowsyness = max(M.drowsyness, 5)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -120,12 +116,13 @@
 	color = "#FFA800"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	var/strength = 6
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	M.add_chemical_effect(CE_DROPITEM, 6/strength * max_dose)
+	M.drowsyness = max(M.drowsyness, strength)
 
 /datum/reagent/kelotane/dermaline
 	name = "Dermaline"
@@ -143,10 +140,11 @@
 	description = "Dylovene is a broad-spectrum antitoxin."
 	reagent_state = LIQUID
 	color = "#00A000"
-	scannable = 1
+	scannable = TRUE
+	metabolism = REM * 0.5
 
 	taste_description = "a roll of gauze"
-	var/remove_generic = 1
+	var/remove_generic = TRUE
 	var/list/remove_toxins = list(
 		/datum/reagent/toxin/zombiepowder
 	)
@@ -210,6 +208,7 @@
 	fallback_specific_heat = 1
 	taste_description = "bitterness"
 	breathe_mul = 0
+	metabolism = REM * 0.25
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
@@ -222,7 +221,7 @@
 /datum/reagent/atropine
 	name = "Atropine"
 	id = "atropine"
-	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase."
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase, muscle weakness, and increased heartrate."
 	reagent_state = LIQUID
 	metabolism = 1
 	color = "#FF40FF"
@@ -231,12 +230,15 @@
 	breathe_mul = 0
 
 /datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/reagent_strength = max(0.25,1 - (M.health/100))
+	var/reagent_strength = Clamp(1 - (M.health/100),0.1,2)
 	M.adjustOxyLoss(-8 * removed * reagent_strength)
 	M.adjustBruteLoss(-8 * removed * reagent_strength)
 	M.adjustFireLoss(-8 * removed * reagent_strength)
-
-	M.adjustToxLoss(1 * removed)
+	M.adjustToxLoss(2 * removed)
+	M.add_chemical_effect(CE_PULSE, 1)
+	if(prob(10))
+		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
+		M.Weaken(3)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
