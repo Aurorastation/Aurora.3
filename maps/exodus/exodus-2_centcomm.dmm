@@ -9189,7 +9189,7 @@
 /area/shuttle/escape/centcom)
 "aBk" = (
 /obj/machinery/optable,
-/obj/item/organ/stack,
+/obj/item/organ/internal/stack,
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -9924,7 +9924,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/reagent_containers/food/snacks/soylenviridians,
+/obj/item/reagent_containers/food/snacks/soywafers,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -11784,7 +11784,7 @@
 /area/wizard_station)
 "aJX" = (
 /obj/structure/table/wood,
-/obj/item/storage/bag/cash,
+/obj/item/storage/bag/money,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

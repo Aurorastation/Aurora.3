@@ -2800,7 +2800,7 @@
 "ir" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/organ/stack/vox,
+/obj/item/organ/internal/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
