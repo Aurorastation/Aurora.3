@@ -500,7 +500,6 @@
 		if(O.get_scarring_level() > 0.01)
 			wounds += "[O.get_scarring_results()]."
 
-
 		data["hasWounds"] = length(wounds) ? 1 : 0
 		data["wounds"] = wounds
 		organs += list(data)
@@ -689,6 +688,8 @@
 			infection += "(being rejected)"
 
 		var/necrotic = ""
+		if(i.get_scarring_level() > 0.01)
+			necrotic += ", [i.get_scarring_results()]"
 		if(i.status & ORGAN_DEAD)
 			necrotic = ", <font color='red'>necrotic and decaying</font>"
 
