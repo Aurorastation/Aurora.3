@@ -122,7 +122,7 @@
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	M.drowsyness = max(M.drowsyness, strength)
+	M.drowsyness = max(M.drowsyness, strength/6)
 
 /datum/reagent/kelotane/dermaline
 	name = "Dermaline"
