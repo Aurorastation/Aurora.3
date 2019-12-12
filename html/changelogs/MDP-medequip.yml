@@ -3,4 +3,8 @@ delete-after: True
 changes: 
   - rscadd: "Adds secondary IV bags for Medical/Chemistry to use, so there's a viable IV alternative for patients besides syringes/bottles on IV stands."
   - bugfix: "Makes sure you can only place sane containers on IV stands (closed beakers, bottles, IV bags, etc. NO FOOD!)"
-  - tweak: "Replaces inaprovaline autoinjectors with epinephrine autoinjectors in preparation for later updates, and in an attempt to phase out inaprovaline somewhat."
+  - tweak: "Significantly changes how norepinephrine works."
+  - rscadd: "Adds a new blood perfusion system."
+  - rscadd: "Adds arrhythmias and defibrillators."
+  - rscadd: "Adds ambu bags/bag-valve masks."
+  - tweak: "You now have twice as much blood, but you go into shock at a higher percentage."

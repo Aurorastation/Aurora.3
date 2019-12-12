@@ -56,14 +56,15 @@
 #define CE_NOCOUGH      "nocough"		// suppresses coughing
 #define CE_NOFEVER      "nofever"		// suppresses fever
 #define CE_NOPULSE      "heartstop"		// Stops heartbeat
+#define CE_PACIFIED     "pacified"
+#define CE_PAINKILLER   "painkiller"
+#define CE_PULSE        "xcardic"		// increases or decreases heartrate
 #define CE_SEDATE       "sedation"
 #define CE_SLOWDOWN     "goslow"
 #define CE_SPEEDBOOST   "gofast"		// Hyperzine
 #define CE_STABLE       "stable"		// Epinephrine
-#define CE_PACIFIED     "pacified"
-#define CE_PAINKILLER   "painkiller"
-#define CE_PULSE        "xcardic"		// increases or decreases heartrate
-#define CE_UNDEXTROUS "undextrous" // arms no work right
+#define CE_UNDEXTROUS   "undextrous"	// arms no work right
+#define CE_VASOMOD      "vasomodulator"	// raises/lowers blood pressure
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin

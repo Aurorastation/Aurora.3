@@ -135,7 +135,7 @@
 	update_icon()
 
 /obj/machinery/iv_drip/proc/drawblood(var/obj/item/reagent_containers/R)
-	if(!istype(affected))
+	if(!istype(attached))
 		return
 	if(attached.species.flags & NO_BLOOD)
 		return
@@ -150,10 +150,10 @@
 		return
 
 	// If the human is losing too much blood, beep.
-	if((affected.get_blood_volume() < BLOOD_VOLUME_SAFE) && prob(5))
+	if((attached.get_blood_volume() < BLOOD_VOLUME_SAFE) && prob(5))
 		visible_message(span("warning", "\The [src] beeps loudly."))
 
-	var/datum/reagent/B = T.take_blood(primary,amount)
+	attached.take_blood(primary,amount)
 	update_icon()
 
 /obj/machinery/iv_drip/attack_hand(mob/user as mob)
@@ -168,8 +168,8 @@
 		primary.forceMove(get_turf(src))
 		primary = null
 		update_icon()
-	else
-		return ..()
+		return
+	return ..()
 
 
 /obj/machinery/iv_drip/verb/change_mode()
@@ -195,7 +195,7 @@
 		else
 			to_chat(usr, span("notice", "Attached is an empty [primary]."))
 		if(mode["Primary"] != IV_MODE_OFF)
-			to_chat(user, span("notice", "\The [primary] is set to [mode["Primary"]] [transfer_amount["Primary"] units per second."))
+			to_chat(user, span("notice", "\The [primary] is set to [mode["Primary"]] [transfer_amount["Primary"]] units per second."))
 		else
 			to_chat(user, span("notice", "\The [primary]'s IV drip is off."))
 
@@ -205,7 +205,7 @@
 		else
 			to_chat(usr, span("notice", "Attached is an empty [secondary]."))
 		if(mode["Secondary"] != IV_MODE_OFF)
-			to_chat(user, span("notice", "\The [secondary] is set to [mode["Primary"]] [transfer_amount["Secondary"] units per second."))
+			to_chat(user, span("notice", "\The [secondary] is set to [mode["Primary"]] [transfer_amount["Secondary"]] units per second."))
 		else
 			to_chat(user, span("notice", "\The [secondary]'s IV drip is off."))
 	else

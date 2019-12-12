@@ -59,7 +59,7 @@
 #define INFECTION_LEVEL_THREE 1000
 
 //Blood levels. These are percentages based on the species blood_volume var.
-#define BLOOD_VOLUME_SAFE    85
-#define BLOOD_VOLUME_OKAY    70
-#define BLOOD_VOLUME_BAD     60
-#define BLOOD_VOLUME_SURVIVE 30
+#define BLOOD_VOLUME_SAFE    95
+#define BLOOD_VOLUME_OKAY    85
+#define BLOOD_VOLUME_BAD     70
+#define BLOOD_VOLUME_SURVIVE 60

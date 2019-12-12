@@ -6,7 +6,7 @@
 	description = "Norepinephrine is a chemical that narrows blood vessels, raises blood pressure, and helps the blood pump more efficiently. Commonly used to stabilize patients."
 	reagent_state = LIQUID
 	color = "#00BFFF"
-	overdose = REAGENTS_OVERDOSE * 2
+	overdose = 5
 	metabolism = REM * 0.5
 	metabolism_min = REM * 0.125
 	breathe_mul = 0.5
@@ -16,9 +16,16 @@
 
 /datum/reagent/norepinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
+	M.add_chemical_effect(CE_PULSE, 2) // with CE_STABLE, this is effectively 1
+	M.add_chemical_effect(CE_VASOMOD, 1) // vasoconstrictor, raises blood pressure
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/norepinephrine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_PULSE, 1) // so 3 total, 2 effective
+	M.add_chemical_effect(CE_VASOMOD, 1) // 2 total
+	M.add_chemical_effect(CE_CARDIOTOXIC, 0.2 * removed)
 
 /datum/reagent/norepinephrine/Destroy()
 	QDEL_NULL(modifier)
@@ -71,6 +78,7 @@
 	M.make_jittery(removed*10)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
+	M.add_chemical_effect(CE_VASOMOD, 1)
 
 /datum/reagent/inaprovaline/overdose(var/mob/living/carbon/human/H, var/alien, removed )
 	if(istype(H))
@@ -1435,15 +1443,25 @@
 	color = "#1ca9c9"
 	taste_description = "salty water"
 	unaffected_species = IS_MACHINE
+	var/strength = 5
 
 /datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
-		M.adjustHydrationLoss(-removed*2)
+	if( (M.hydration > M.max_hydration))
+		M.adjustHydrationLoss(-removed*strength/2)
 	else
-		M.adjustHydrationLoss(-removed*5)
+		M.adjustHydrationLoss(-removed*strength)
+	
+
+/datum/reagent/saline/ringer
+	name = "Ringer's acetate"
+	id = "ringer"
+	description = "A liquid blood volume expander which has mostly replaced saline due to its greater effectiveness."
+
+/datum/reagent/saline/ringer/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	
 
 /datum/reagent/coagulant
-	name = "Coagulant"
+	name = "Tranexamic acid"
 	id = "coagulant"
 	description = "A chemical that can temporarily stop the blood loss caused by internal wounds."
 	reagent_state = LIQUID

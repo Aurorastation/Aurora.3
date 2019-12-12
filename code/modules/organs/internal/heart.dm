@@ -16,6 +16,8 @@
 	var/heartbeat = 0
 	var/next_blood_squirt = 0
 	var/list/external_pump
+	var/diastolic = 120
+	var/systolic = 90
 
 /obj/item/organ/internal/heart/process()
 	if(owner)
@@ -26,8 +28,15 @@
 			if(pulse == PULSE_THREADY && prob(5))
 				take_internal_damage(0.5)
 			handle_heartbeat()
+			handle_pressure()
 		handle_blood()
 	..()
+
+/obj/item/organ/internal/heart/proc/handle_pressure()
+	var/compensation = owner.get_vascular_compensation()
+	var/circulation = owner.get_blood_circulation()
+	systolic = 60 * (compensation - compensation * circulation/100) + 60
+	diastolic = 40 * (compensation - compensation * circulation/100) + 40
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
 	if((species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic.

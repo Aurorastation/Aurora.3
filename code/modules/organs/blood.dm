@@ -94,7 +94,26 @@
 #undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()
-	return round((vessel.get_reagent_amount("blood")/species.blood_volume)*100)
+	return round((vessel.total_volume/species.blood_volume)*100)
+
+/mob/living/carbon/human/proc/get_blood_fraction() // How much of our blood is blood?
+	return (vessel.get_reagent_amount("blood")/vessel.total_volume)
+
+/mob/living/carbon/human/proc/get_vascular_compensation()
+	var/blood_result = get_blood_circulation()
+	if(status_flags & FAKEDEATH)
+		return 0
+	var/compensation = blood_result/BLOOD_VOLUME_BAD // can the body still compensate for blood loss?
+	if(CE_VASOMOD in chem_effects)
+		compensation = compensation + chem_effects[CE_VASOMOD] // if we're compensating AND using norepinephrine, we should have a higher blood pressure
+	return compensation
+
+// Get blood pressure string
+/mob/living/carbon/human/proc/get_blood_pressure()
+	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+	if(!heart)
+		return "None"
+	return "[Floor(heart.systolic)]/[Floor(heart.diastolic)]"
 
 /mob/living/carbon/human/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
@@ -120,6 +139,7 @@
 			if(PULSE_2FAST, PULSE_THREADY)
 				pulse_mod *= 1.25
 	blood_volume *= pulse_mod
+	blood_volume *= get_vascular_compensation() // blood pressure compensation
 
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
 	blood_volume *= max(min_efficiency, (1-(heart.damage / heart.max_damage)))
@@ -141,7 +161,8 @@
 	else if(chem_effects[CE_OXYGENATED] >= 2) // Dexplus.
 		oxygenated_mult = 0.8
 	blood_volume_mod = blood_volume_mod + oxygenated_mult - (blood_volume_mod * oxygenated_mult)
-	blood_volume = blood_volume * blood_volume_mod
+	var/blood_frac = get_blood_fraction()
+	blood_volume = blood_volume * blood_volume_mod * (blood_frac <= BLOOD_VOLUME_BAD/100 ? blood_frac : 1)
 	return min(blood_volume, 100)
 
 /****************************************************
