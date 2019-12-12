@@ -43,6 +43,7 @@
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
 	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
 	icon_state = "secguncomp"
+	item_state = "mk58standard"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
@@ -70,6 +71,7 @@
 	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a wooden grip. It uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
+	item_state = "mk58custom"
 
 /obj/item/gun/projectile/sec/wood/update_icon()
 	..()
