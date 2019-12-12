@@ -497,6 +497,10 @@
 		if(O.rejecting)
 			wounds += "Shows symptoms of organ rejection."
 
+		if(O.get_scarring_level() > 0.01)
+			wounds += "[O.get_scarring_results()]."
+
+
 		data["hasWounds"] = length(wounds) ? 1 : 0
 		data["wounds"] = wounds
 		organs += list(data)

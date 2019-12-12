@@ -934,9 +934,6 @@
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-			else if (last_brute_overlay)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				last_brute_overlay = null
 
 		if(healths)
 			healths.overlays.Cut()
