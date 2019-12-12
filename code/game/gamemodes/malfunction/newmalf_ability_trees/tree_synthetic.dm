@@ -394,7 +394,7 @@
 	for(var/C in get_linked_cyborgs(src))
 		var/mob/living/silicon/robot/target = C
 		target.crisis = 1
-		to_chat(target, "<span class='warning'>Crisis mode now activated. Combat module avalable.</span>")
+		to_chat(target, "<span class='warning'>Crisis mode is now active. Combat module available.</span>")
 	to_chat(user, "The crisis operation module is now hacked. Your connected units can now load the crisis module if a module reset is completed.")
 	sleep(300)
 	to_chat(user, "Synthetic takeover complete!")
