@@ -268,11 +268,11 @@
 /obj/item/mecha_equipment/mounted_system/medanalyzer
 	name = "mounted health analyzer"
 	icon_state = "mecha_healthyanalyzer"
-	holding_type = /obj/item/device/healthanalyzer/adv/mech
+	holding_type = /obj/item/device/healthanalyzer/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 
-/obj/item/device/healthanalyzer/adv/mech/attack(mob/living/M as mob, var/mob/living/heavy_vehicle/user as mob)
+/obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
 	for(var/mob/pilot in user.pilots)
 		health_scan_mob(M, pilot, FALSE)
 		return

@@ -397,7 +397,7 @@
 			"plasticide",
 			"mutationtoxin",
 			"amutationtoxin",
-			"inaprovaline",
+			"norepinephrine",
 			"space_drugs",
 			"paroxetine",
 			"mercury",

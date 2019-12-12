@@ -102,15 +102,15 @@
 ////////////////////////////Proc for moving soul in and out off stone//////////////////////////////////////
 /obj/item/device/soulstone/proc/transfer_human(var/mob/living/carbon/human/T,var/mob/U)
 	if(!istype(T))
-		return;
+		return
 	if(src.imprinted != "empty")
 		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone has already been imprinted with [src.imprinted]'s mind!")
 		return
-	if ((T.health + T.halloss) > config.health_threshold_crit && T.stat != DEAD)
+	if(T.stat != DEAD && !T.is_asystole())
 		to_chat(U, "<span class='danger'>Capture failed!</span>: Kill or maim the victim first!")
 		return
 	if(T.client == null)
-		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul has already fled it's mortal frame.")
+		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul has already fled its mortal frame.")
 		return
 	if(src.contents.len)
 		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is full! Use or free an existing soul to make room.")

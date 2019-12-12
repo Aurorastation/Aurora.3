@@ -388,35 +388,47 @@
 	visible_name = "a giant syringe"
 	time = 300
 
-	afterattack(obj/target, mob/user, flag)
-		if(mode == SYRINGE_DRAW && ismob(target)) // No drawing 50 units of blood at once
-			to_chat(user, "<span class='notice'>This needle isn't designed for drawing blood.</span>")
-			return
-		if(user.a_intent == "hurt" && ismob(target)) // No instant injecting
-			to_chat(user, "<span class='notice'>This syringe is too big to stab someone with it.</span>")
-		..()
+/obj/item/reagent_containers/syringe/ld50_syringe/afterattack(obj/target, mob/user, flag)
+	if(mode == SYRINGE_DRAW && ismob(target)) // No drawing 50 units of blood at once
+		to_chat(user, "<span class='notice'>This needle isn't designed for drawing blood.</span>")
+		return
+	if(user.a_intent == "hurt" && ismob(target)) // No instant injecting
+		to_chat(user, "<span class='notice'>This syringe is too big to stab someone with it.</span>")
+	..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
+/obj/item/reagent_containers/syringe/norepinephrine
+	name = "Syringe (norepinephrine)"
+	desc = "Contains norepinephrine - used to stabilize patients."
+	
+/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+	. = ..()
+	reagents.add_reagent("norepinephrine", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
+
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
-	Initialize()
-		. = ..()
-		reagents.add_reagent("inaprovaline", 15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	
+/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+	. = ..()
+	reagents.add_reagent("inaprovaline", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
-/obj/item/reagent_containers/syringe/antitoxin
-	name = "Syringe (anti-toxin)"
+/obj/item/reagent_containers/syringe/dylovene
+	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	Initialize()
-		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	
+/obj/item/reagent_containers/syringe/dylovene/Initialize()
+	. = ..()
+	reagents.add_reagent("dylovene", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
 /obj/item/reagent_containers/syringe/antiviral
 	name = "Syringe (deltamivir)"

@@ -318,7 +318,7 @@ var/list/diona_descriptors = list("rustling","skittering","friendly","leafy","fr
 			silent = 0
 			return 1
 
-		if (halloss > 50)
+		if(getHalLoss() > 50)
 			paralysis = 8
 
 
