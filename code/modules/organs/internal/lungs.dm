@@ -252,9 +252,6 @@
 		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
 			if(breathing || owner.shock_stage >= 10)
 				sound_to(owner, sound(species.breathing_sound,0,0,0,5))
-				breathing = 0
-			else
-				breathing = 1
 
 	return failed_breath
 
