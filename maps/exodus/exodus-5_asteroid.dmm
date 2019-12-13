@@ -5665,7 +5665,7 @@
 /turf/simulated/floor,
 /area/outpost/research/eva)
 "le" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -6194,7 +6194,7 @@
 	dir = 2;
 	id = "anominerals"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "mj" = (
@@ -8177,7 +8177,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
 "pI" = (
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/conveyor{
 	dir = 4;
 	id = "mining_north"
@@ -8191,7 +8191,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
 "pK" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/machinery/conveyor{
 	backwards = 2;
 	dir = 2;
@@ -14053,7 +14053,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "zU" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/machinery/conveyor{
 	backwards = 2;
 	dir = 2;
@@ -14071,7 +14071,7 @@
 	dir = 8;
 	id = "mining_west"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "zX" = (
@@ -15254,7 +15254,7 @@
 	dir = 4;
 	id = "mining_external"
 	},
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -15527,7 +15527,7 @@
 	dir = 2;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -15706,7 +15706,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "CF" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/machinery/door/firedoor{
 	dir = 2
 	},
@@ -15724,7 +15724,7 @@
 	dir = 4;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "CI" = (
@@ -16011,7 +16011,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/mineral/rigpress,
+/obj/machinery/rigpress,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "Df" = (
@@ -16021,7 +16021,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/mining_equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "Dg" = (
@@ -16236,7 +16236,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "Dx" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
@@ -16318,7 +16318,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "DF" = (
-/obj/machinery/mineral/processing_unit_console,
+/obj/machinery/mineralconsole/processing_unit,
 /turf/simulated/wall/r_wall,
 /area/outpost/mining_main/refinery)
 "DG" = (
@@ -16411,7 +16411,7 @@
 	dir = 2;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "DQ" = (
@@ -16491,7 +16491,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "DX" = (
-/obj/machinery/mineral/stacking_unit_console,
+/obj/machinery/mineralconsole/stacking_unit,
 /turf/simulated/wall/r_wall,
 /area/outpost/mining_main/refinery)
 "DY" = (
@@ -16709,7 +16709,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "Em" = (
@@ -16722,7 +16722,7 @@
 	icon_state = "conveyor0";
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "Eo" = (

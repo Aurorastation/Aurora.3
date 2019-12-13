@@ -17,8 +17,8 @@
 
 /obj/machinery/button/Initialize()
 	. = ..()
-	pixel_x = DIR2PIXEL_X(dir)
-	pixel_y = DIR2PIXEL_Y(dir)
+	pixel_x = -DIR2PIXEL_X(dir)
+	pixel_y = -DIR2PIXEL_Y(dir)
 	update_icon()
 	if(_wifi_id && !wifi_sender)
 		wifi_sender = new/datum/wifi/sender/button(_wifi_id, src)
