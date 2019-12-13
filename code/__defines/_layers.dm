@@ -24,8 +24,8 @@
 #define MECH_BASE_LAYER             4.01
 #define MECH_INTERMEDIATE_LAYER     4.02
 #define MECH_PILOT_LAYER            4.03
-#define MECH_ARM_LAYER              4.04
-#define MECH_LEG_LAYER              4.05
-#define MECH_COCKPIT_LAYER          4.06
+#define MECH_LEG_LAYER              4.04
+#define MECH_COCKPIT_LAYER          4.05
+#define MECH_ARM_LAYER              4.06
 #define MECH_DECAL_LAYER            4.07
 #define MECH_GEAR_LAYER             4.08
