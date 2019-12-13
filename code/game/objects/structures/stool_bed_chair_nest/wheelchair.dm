@@ -18,7 +18,7 @@
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 
-/obj/structure/bed/chair/wheelchair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/wheelchair/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench() || istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
@@ -86,6 +86,7 @@
 
 /obj/structure/bed/chair/wheelchair/Move()
 	. = ..()
+	playsound(src, 'sound/effects/roll.ogg', 75, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		if(!driving)

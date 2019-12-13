@@ -31,8 +31,8 @@
 			i++
 
 		output += "</table>"
-
-		src << browse(output,"window=playerpolllist;size=500x300")
+		send_theme_resources(src)
+		src << browse(enable_ui_theme(src, output),"window=playerpolllist;size=500x300")
 
 /mob/abstract/new_player/proc/show_poll_link(var/pollid = -1)
 	if(pollid == -1) return
@@ -46,7 +46,7 @@
 			link = select_query.item[1]
 
 		if(link && link != "")
-			to_chat(usr, link(link))
+			send_link(usr, link)
 		else
 			log_debug("Polling: [usr.ckey] tried to open poll [pollid] with a invalid link: [link]")
 

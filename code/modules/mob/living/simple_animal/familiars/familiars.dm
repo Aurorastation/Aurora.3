@@ -65,7 +65,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -119,6 +119,7 @@
 /mob/living/simple_animal/familiar/goat
 	name = "goat"
 	desc = "A sprightly looking goat."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
@@ -133,6 +134,10 @@
 	mob_size = 4.5 //weight based on Chanthangi goats
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_amount = 6
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
 
 /mob/living/simple_animal/familiar/pet //basically variants of normal animals with spells.
@@ -151,6 +156,7 @@
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"
 	desc = "A pitch black cat. Said to be especially unlucky."
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
@@ -161,7 +167,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
-	holder_type = /obj/item/weapon/holder/cat
+	holder_type = /obj/item/holder/cat/black/familiar
 	mob_size = MOB_SMALL
 
 	health = 45
@@ -173,9 +179,12 @@
 
 	wizardy_spells = list(/spell/targeted/subjugation)
 
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
-/mob/living/simple_animal/mouse/familiar
-	name = "ancient mouse"
+
+/mob/living/simple_animal/rat/familiar
+	name = "ancient rat"
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 
@@ -198,7 +207,7 @@
 
 	supernatural = 1
 
-/mob/living/simple_animal/mouse/familiar/Initialize()
+/mob/living/simple_animal/rat/familiar/Initialize()
 	. = ..()
 	add_spell(new /spell/targeted/heal_target, "const_spell_ready")
 	add_spell(new /spell/targeted/heal_target/area, "const_spell_ready")

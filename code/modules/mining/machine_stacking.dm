@@ -10,7 +10,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 	component_types = list(
-		/obj/item/weapon/circuitboard/stackerconsole
+		/obj/item/circuitboard/stackerconsole
 		)
 
 /obj/machinery/mineralconsole/stacking_unit/proc/setup_machine(mob/user)
@@ -98,7 +98,7 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 	component_types = list(
-		/obj/item/weapon/circuitboard/stacker
+		/obj/item/circuitboard/stacker
 		)
 
 /obj/machinery/mineral/stacking_machine/Initialize()
@@ -133,8 +133,8 @@
 			new sheet(get_turf(output), stack_amt)
 			stack_storage[sheet] -= stack_amt
 
-/obj/machinery/mineral/stacking_machine/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(default_deconstruction_screwdriver(user, W))
+/obj/machinery/mineral/stacking_machine/attackby(obj/item/I as obj, mob/user as mob)
+	if(default_deconstruction_screwdriver(user, I))
 		return
-	else if(default_deconstruction_crowbar(user, W))
+	else if(default_deconstruction_crowbar(user, I))
 		return

@@ -213,8 +213,16 @@ note dizziness decrements automatically in the mob's Life() proc.
 	if(!direction) // Attacked self?!
 		I.pixel_z = 16
 
+	var/matrix/M = new
+	M.Turn(pick(-20, 20))
 	// And animate the attack!
-	animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 3)
+	animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 2, easing = CUBIC_EASING)
+	sleep(2)
+	animate(I, transform = M, time = 1) // apply the fancy matrix
+	sleep(1)
+	animate(I, transform = matrix(), time = 1) // back to a default matrix
+	sleep(1)
+	animate(I, alpha = 0, time = 1)
 
 /mob/proc/spin(spintime, speed)
 	spawn()

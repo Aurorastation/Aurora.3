@@ -66,6 +66,9 @@
 /datum/reagent/acid
 	value = 0.2
 
+/datum/reagent/acid/stomach
+	value = 0
+
 /datum/reagent/sodium
 	value = 0.1
 
@@ -492,16 +495,13 @@
 /datum/reagent/alcohol/ethanol/tallrussian
 	value = 0.15
 
-/datum/reagent/inaprovaline
-	value = 3.5
+/datum/reagent/norepinephrine
+	value = 2.5
 
 /datum/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/kelotane
-	value = 2.9
-
-/datum/reagent/dermaline
+/datum/reagent/kelotane/dermaline
 	value = 3.9
 
 /datum/reagent/dylovene
@@ -510,7 +510,7 @@
 /datum/reagent/dexalin
 	value = 2.4
 
-/datum/reagent/dexalinp
+/datum/reagent/dexalin/plus
 	value = 3.6
 
 /datum/reagent/tricordrazine
@@ -558,8 +558,14 @@
 /datum/reagent/arithrazine
 	value = 2.7
 
-/datum/reagent/spaceacillin
+/datum/reagent/deltamivir
 	value = 2.5
+
+/datum/reagent/thetamycin
+	value = 2.5
+
+/datum/reagent/coughsyrup
+	value = 1.5
 
 /datum/reagent/sterilizine
 	value = 2.2
@@ -572,28 +578,28 @@
 
 /datum/reagent/mental/sertraline
 	value = 6
-	
+
 /datum/reagent/mental/fluvoxamine
 	value = 6
-	
+
 /datum/reagent/mental/escitalopram
 	value = 6
 
 /datum/reagent/mental/paroxetine
 	value = 3.5
-	
+
 /datum/reagent/mental/duloxetine
 	value = 6
-	
+
 /datum/reagent/mental/venlafaxine
 	value = 6
-	
+
 /datum/reagent/mental/risperidone
 	value = 6
-	
+
 /datum/reagent/mental/olanzapine
 	value = 6
-	
+
 /datum/reagent/mental/truthserum
 	value = 8
 
@@ -620,12 +626,15 @@
 
 /datum/reagent/uranium
 	value = 9
-	
+
 /datum/reagent/platinum
 	value = 3
 
 /datum/reagent/adrenaline
-	value = 2
+	value = 3
+
+/datum/reagent/inaprovaline
+	value = 3.5
 
 /datum/reagent/diethylamine
 	value = 0.9
@@ -737,9 +746,6 @@
 
 /datum/reagent/nanites
 	value = 9
-
-/datum/reagent/xenomicrobes
-	value = 5
 
 /datum/reagent/estus
 	value = 50

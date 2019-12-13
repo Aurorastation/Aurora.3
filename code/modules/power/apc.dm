@@ -38,21 +38,21 @@
 	is_critical = 1
 
 /obj/machinery/power/apc/high
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/cell/high
 
 /obj/machinery/power/apc/isolation
-	cell_type = /obj/item/weapon/cell
+	cell_type = /obj/item/cell
 	req_access = null
 	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
 
 
 /obj/machinery/power/apc/vault
-	cell_type = /obj/item/weapon/cell
+	cell_type = /obj/item/cell
 	req_access = list(access_captain)
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/cell/high
 	lighting = 0
 	equipment = 0
 	environ = 0
@@ -61,13 +61,13 @@
 	start_charge = 100
 
 /obj/machinery/power/apc/super
-	cell_type = /obj/item/weapon/cell/super
+	cell_type = /obj/item/cell/super
 
 /obj/machinery/power/apc/super/critical
 	is_critical = 1
 
 /obj/machinery/power/apc/hyper
-	cell_type = /obj/item/weapon/cell/hyper
+	cell_type = /obj/item/cell/hyper
 
 /obj/machinery/power/apc
 	name = "area power controller"
@@ -77,14 +77,15 @@
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/area/area
 	var/areastring = null
-	var/obj/item/weapon/cell/cell
+	var/obj/item/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/cellused = 0
 	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
-	var/cell_type = /obj/item/weapon/cell/apc
+	var/cell_type = /obj/item/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
 	var/shorted = 0
 	var/night_mode = 0 // Determines if the light level is set to dimmed or not
@@ -446,8 +447,8 @@
 				to_chat(user, "<span class='warning'>Disconnect wires first.</span>")
 				return
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(user, "You are trying to remove the power control board...") //lpeters - fixed grammar issues)
-			if(do_after(user, 50))
+			to_chat(user, "You are trying to remove the power control board...")
+			if(do_after(user, 50/W.toolspeed))
 				if (has_electronics==1)
 					has_electronics = 0
 					if ((stat & BROKEN))
@@ -460,7 +461,7 @@
 						user.visible_message(\
 							"<span class='warning'>[user.name] has removed the power control board from [src.name]!</span>",\
 							"<span class='notice'>You remove the power control board.</span>")
-						new /obj/item/weapon/module/power_control(loc)
+						new /obj/item/module/power_control(loc)
 		else if (opened!=2) //cover isn't removed
 			panel_open = 0
 			opened = 0
@@ -473,8 +474,8 @@
 			opened = 1
 			panel_open = 1
 			update_icon()
-	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
-		var/obj/item/weapon/gripper/Gri = W
+	else if (istype(W, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
+		var/obj/item/gripper/Gri = W
 		if(opened && cell)
 			if (Gri.grip_item(cell, user))
 				cell.add_fingerprint(user)
@@ -486,7 +487,7 @@
 				charging = 0
 				src.update_icon()
 				return
-	else if	(istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
+	else if	(istype(W, /obj/item/cell) && opened)	// trying to put a cell inside
 		if(cell)
 			to_chat(user, "There is a power cell already installed.")
 			return
@@ -513,12 +514,12 @@
 				if (has_electronics==1 && terminal)
 					has_electronics = 2
 					stat &= ~MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					to_chat(user, "You screw the circuit electronics into place.")
 				else if (has_electronics==2)
 					has_electronics = 1
 					stat |= MAINT
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					to_chat(user, "You unfasten the electronics.")
 				else /* has_electronics==0 */
 					to_chat(user, "<span class='warning'>There is nothing to secure.</span>")
@@ -529,7 +530,7 @@
 			to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"]")
 			update_icon()
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
 		if(emagged)
 			to_chat(user, "The interface is broken.")
 		else if(opened)
@@ -559,7 +560,7 @@
 		user.visible_message("<span class='warning'>[user.name] adds cables to the APC frame.</span>", \
 							"You start adding cables to the APC frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 20))
+		if(do_after(user, 20/W.toolspeed))
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
@@ -580,7 +581,7 @@
 		user.visible_message("<span class='warning'>[user.name] dismantles the power terminal from [src].</span>", \
 							"You begin to cut the cables...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 					spark(src, 5, alldirs)
@@ -589,20 +590,20 @@
 				new /obj/item/stack/cable_coil(loc,10)
 				to_chat(user, "<span class='notice'>You cut the cables and dismantle the power terminal.</span>")
 				qdel(terminal)
-	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
+	else if (istype(W, /obj/item/module/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
 		user.visible_message("<span class='warning'>[user.name] inserts the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 10))
+		if(do_after(user, 10/W.toolspeed))
 			if(has_electronics==0)
 				has_electronics = 1
 				to_chat(user, "<span class='notice'>You place the power control board inside the frame.</span>")
 				qdel(W)
-	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
+	else if (istype(W, /obj/item/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
 		to_chat(user, "<span class='warning'>You cannot put the board inside, the frame is damaged.</span>")
 		return
 	else if (W.iswelder() && opened && has_electronics==0 && !terminal)
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
 			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
@@ -611,7 +612,7 @@
 							"You start welding the APC frame...", \
 							"You hear welding.")
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			if(!src || !WT.remove_fuel(3, user)) return
 			if (emagged || (stat & BROKEN) || opened==2)
 				new /obj/item/stack/material/steel(loc)
@@ -642,7 +643,7 @@
 			return
 		user.visible_message("<span class='warning'>[user.name] replaces the damaged APC frame with a new one.</span>",\
 							"You begin to replace the damaged APC frame...")
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			user.visible_message(\
 				"<span class='notice'>[user.name] has replaced the damaged APC frame with new one.</span>",\
 				"You replace the damaged APC frame with new one.")
@@ -658,16 +659,16 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, "<span class='warning'>There is a software error with the device. Attempting to fix...</span>")
-			if(do_after(user, 10 SECONDS, act_target = src))
+			if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
 				to_chat(user, "<span class='notice'>Problem diagnosed, searching for solution...</span>")
-				if(do_after(user, 30 SECONDS, act_target = src))
+				if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
 					to_chat(user, "<span class='notice'>Solution found. Applying fixes...</span>")
-					if(do_after(user, 60 SECONDS, act_target = src))
+					if(do_after(user, 60/W.toolspeed SECONDS, act_target = src))
 						if(prob(15))
 							to_chat(user, "<span class='warning'>Error while applying fixes. Please try again.</span>")
 							return
 					to_chat(user, "<span class='notice'>Applied default software. Restarting APC...</span>")
-					if(do_after(user, 10 SECONDS, act_target = src))
+					if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
 						to_chat(user, "<span class='notice'>APC Reset. Fixes applied.</span>")
 						if(hacker)
 							hacker.hacked_apcs -= src
@@ -688,13 +689,13 @@
 		if ((stat & BROKEN) \
 				&& !opened \
 				&& W.iswelder() )
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 				return
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-			if(do_after(user, 10))
+			if(do_after(user, 10/W.toolspeed))
 				if(!src || !WT.remove_fuel(1, user)) return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)

@@ -128,7 +128,7 @@ var/datum/uplink/uplink
 	return I
 
 /datum/uplink_item/item/get_goods(var/obj/item/device/uplink/U, var/loc)
-	var/obj/item/I = new path(loc)
+	var/obj/I = new path(loc)
 	return I
 
 /datum/uplink_item/item/description()

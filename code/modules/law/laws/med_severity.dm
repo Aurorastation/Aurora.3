@@ -172,3 +172,19 @@
 
 	min_brig_time = 15
 	max_brig_time = 20
+
+/datum/law/med_severity/unregistered_ipc
+	name = "i222 - Unregistered Positronic Machine"
+	desc = "To function as an untagged positronic machine within the Republic of Biesel, or to function as a positronic machine with a tag that has been tampered with or rendered inoperable."
+	id = "i222"
+
+	min_brig_time = 10
+	max_brig_time = 30
+
+/datum/law/med_severity/kidnapping_ipc
+	name = "i223 - Kidnapping of Free Intelligence"
+	desc = "To take away or transport a free positronic intelligence against its will."
+	id = "i223"
+
+	min_brig_time = 15
+	max_brig_time = 25

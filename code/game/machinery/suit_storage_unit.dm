@@ -6,8 +6,8 @@
 /obj/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
-	icon = 'icons/obj/suitstorage.dmi'
-	icon_state = "suitstorage000000100" //order is: [has helmet][has suit][has human][is open][is locked][is UV cycling][is powered][is dirty/broken] [is superUVcycling]
+	icon = 'icons/obj/suit_storage.dmi'
+	icon_state = "base"
 	anchored = 1
 	density = 1
 	var/mob/living/carbon/human/OCCUPANT = null
@@ -46,17 +46,32 @@
 		MASK = new MASK_TYPE(src)
 
 /obj/machinery/suit_storage_unit/update_icon()
-	var/hashelmet = 0
-	var/hassuit = 0
-	var/hashuman = 0
-	if(HELMET)
-		hashelmet = 1
-	if(SUIT)
-		hassuit = 1
-	if(OCCUPANT)
-		hashuman = 1
-	icon_state = text("suitstorage[][][][][][][][][]",hashelmet,hassuit,hashuman,src.isopen,src.islocked,src.isUV,src.ispowered,src.isbroken,src.issuperUV)
+	cut_overlays()
 
+	if(panelopen)
+		add_overlay("panel")
+	if(isUV)
+		if(issuperUV)
+			add_overlay("super")
+		else if(OCCUPANT)
+			add_overlay("uvhuman")
+		else
+			add_overlay("uv")
+	if(!isopen)
+		add_overlay("closed")
+	else if(isopen)
+		if(isbroken)
+			add_overlay("broken")
+		else
+			add_overlay("open")
+			if(SUIT)
+				add_overlay("suit")
+			if(HELMET)
+				add_overlay("helm")
+			if(MASK)
+				add_overlay("storage")
+	else if(OCCUPANT)
+		add_overlay("human")
 
 /obj/machinery/suit_storage_unit/power_change()
 	..()
@@ -98,7 +113,7 @@
 	if(!user.IsAdvancedToolUser())
 		return 0
 	if(src.panelopen) //The maintenance panel is open. Time for some shady stuff
-		dat+= "<HEAD><TITLE>Suit storage unit: Maintenance panel</TITLE></HEAD>"
+		dat+= ""
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR></font>"
 		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></font>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
@@ -115,7 +130,7 @@
 
 	else
 		if(!src.isbroken)
-			dat+= "<HEAD><TITLE>Suit storage unit</TITLE></HEAD>"
+			dat+= ""
 			dat+= "<font color='blue'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></FONT><BR>"
 			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
 			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.") )
@@ -141,13 +156,14 @@
 			//user << browse(dat, "window=Suit Storage Unit;size=400x500")
 			//onclose(user, "Suit Storage Unit")
 		else //Ohhhh shit it's dirty or broken! Let's inform the guy.
-			dat+= "<HEAD><TITLE>Suit storage unit</TITLE></HEAD>"
+			dat+= ""
 			dat+= "<font color='maroon'><B>Unit chamber is too contaminated to continue usage. Please call for a qualified individual to perform maintenance.</font></B><BR><BR>"
 			dat+= text("<HR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close control panel</A>", user)
 			//user << browse(dat, "window=suit_storage_unit;size=400x500")
 			//onclose(user, "suit_storage_unit")
 
-	user << browse(dat, "window=suit_storage_unit;size=400x500")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=suit_storage_unit;size=400x500")
 	onclose(user, "suit_storage_unit")
 	return
 
@@ -480,12 +496,13 @@
 		return
 	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		to_chat(user, text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") ))
+		update_icon()
 		src.updateUsrDialog()
 		return
-	if ( istype(I, /obj/item/weapon/grab) )
-		var/obj/item/weapon/grab/G = I
+	if ( istype(I, /obj/item/grab) )
+		var/obj/item/grab/G = I
 		if( !(ismob(G.affecting)) )
 			return
 		if (!src.isopen)
@@ -575,8 +592,8 @@
 	anchored = 1
 	density = 1
 
-	icon = 'icons/obj/suitstorage.dmi'
-	icon_state = "suitstorage000000100"
+	icon = 'icons/obj/suit_storage.dmi'
+	icon_state = "base"
 
 	req_access = list(access_captain,access_heads)
 
@@ -609,12 +626,36 @@
 	wires = new(src)
 	target_department = departments[1]
 	target_species = species[1]
-	if(!target_department || !target_species) qdel(src)
+	update_icon()
+	if(!target_department || !target_species)
+		qdel(src)
 
 /obj/machinery/suit_cycler/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
+
+/obj/machinery/suit_cycler/update_icon()
+	cut_overlays()
+
+	if(panel_open)
+		add_overlay("panel")
+
+	if(irradiating)
+		if(occupant)
+			add_overlay("uvhuman")
+		else
+			add_overlay("uv")
+
+
+	if(occupant)
+		add_overlay("human")
+
+	if(stat & BROKEN)
+		add_overlay("broken")
+
+	else
+		add_overlay("closed")
 
 /obj/machinery/suit_cycler/engineering
 	name = "Engineering suit cycler"
@@ -671,6 +712,22 @@
 	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
+/obj/machinery/suit_cycler/science
+	name = "Research suit cycler"
+	model_text = "Research"
+	req_access = list(access_research)
+	departments = list("Research")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
+/obj/machinery/suit_cycler/freelancer
+	name = "Freelancers suit cycler"
+	model_text = "Freelancers"
+	req_access = list(access_distress)
+	departments = list("Freelancers")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
 
@@ -686,8 +743,8 @@
 			attack_hand(user)
 		return
 	//Other interface stuff.
-	if(istype(I, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = I
+	if(istype(I, /obj/item/grab))
+		var/obj/item/grab/G = I
 
 		if(!(ismob(G.affecting)))
 			return
@@ -722,6 +779,7 @@
 		panel_open = !panel_open
 		to_chat(user, "You [panel_open ?  "open" : "close"] the maintenance panel.")
 		src.updateUsrDialog()
+		update_icon()
 		return
 
 	else if(istype(I,/obj/item/clothing/head/helmet/space) && !istype(I, /obj/item/clothing/head/helmet/space/rig))
@@ -800,7 +858,7 @@
 
 	usr.set_machine(src)
 
-	var/dat = "<HEAD><TITLE>Suit Cycler Interface</TITLE></HEAD>"
+	var/dat = ""
 
 	if(src.active)
 		dat+= "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
@@ -826,12 +884,13 @@
 
 		dat += "<h2>Customisation</h2>"
 		dat += "<b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_department]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
-		dat += "<A href='?src=\ref[src];apply_paintjob=1'><br>\[apply customisation routine\]</a><br><hr>"
+		dat += "<br><A href='?src=\ref[src];apply_paintjob=1'>\[apply customisation routine\]</a><br><hr>"
 
 	if(panel_open)
 		wires.Interact(user)
 
-	user << browse(dat, "window=suit_cycler")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=suit_cycler")
 	onclose(user, "suit_cycler")
 	return
 
@@ -902,6 +961,7 @@
 
 		active = 1
 		irradiating = 10
+		update_icon()
 		src.updateUsrDialog()
 
 		sleep(10)
@@ -933,11 +993,13 @@
 		active = 0
 		irradiating = 0
 		electrified = 0
+		update_icon()
 		return
 
 	if(irradiating == 1)
 		finished_job()
 		irradiating = 0
+		update_icon()
 		return
 
 	irradiating--
@@ -1072,6 +1134,25 @@
 				suit.name = "blood-red voidsuit"
 				suit.item_state = "syndie_voidsuit"
 				suit.icon_state = "rig-syndie"
+		if("Research")
+			if(helmet)
+				helmet.name = "research voidsuit helmet"
+				helmet.icon_state = "rig0-sci"
+				helmet.item_state = "research_voidsuit_helmet"
+			if(suit)
+				suit.name = "research voidsuit"
+				suit.item_state = "research_voidsuit"
+				suit.icon_state = "rig-sci"
+
+		if("Freelancers")
+			if(helmet)
+				helmet.name = "freelancer voidsuit helmet"
+				helmet.icon_state = "rig0-freelancer"
+				helmet.item_state = "rig0-freelancer"
+			if(suit)
+				suit.name = "freelancer voidsuit"
+				suit.item_state = "freelancer"
+				suit.icon_state = "freelancer"
 
 	if(helmet) helmet.name = "refitted [helmet.name]"
 	if(suit) suit.name = "refitted [suit.name]"

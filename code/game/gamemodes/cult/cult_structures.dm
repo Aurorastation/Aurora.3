@@ -53,7 +53,7 @@
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy"
 	description_antag  = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
-	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or mouse. Use the creature on the pylon, or drag and drop to present it.\
+	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it.\
 	</br>Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess. After this point the pylon is fixed to the floor and cant be moved\
 	</br>The pylon will fire weak beams that are harmless to the cult. In addition it can be upgraded even more by shooting it with a laser, which will give it a limited number of extra-power shots."
 
@@ -248,8 +248,8 @@
 	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract...")
 	to_chat(sacrifice, span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!"))
 
-	if (istype(sacrifice.loc,/obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = sacrifice.loc
+	if (istype(sacrifice.loc,/obj/item/holder))
+		var/obj/item/holder/H = sacrifice.loc
 		H.release_to_floor()
 	else
 		sacrifice.forceMove(get_turf(sacrifice))
@@ -295,8 +295,8 @@
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
 	sacrifice.visible_message(span("danger","\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
-	if (istype(sacrifice.loc,/obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = sacrifice.loc
+	if (istype(sacrifice.loc,/obj/item/holder))
+		var/obj/item/holder/H = sacrifice.loc
 		H.release_to_floor()
 	else
 		sacrifice.forceMove(get_turf(sacrifice)) //Make sure its on the floor before we gib it
@@ -418,8 +418,8 @@
 	attackpylon(user, damage, user)
 
 /obj/structure/cult/pylon/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/holder))
-		var/obj/item/weapon/holder/H = W
+	if (istype(W, /obj/item/holder))
+		var/obj/item/holder/H = W
 		if (H.contained)
 			present_sacrifice(user, H.contained)
 		return
@@ -427,7 +427,7 @@
 	attackpylon(user, W.force, W)
 
 
-//Mousedrop so that constructs can drag mice out of maintenance to make turrets
+//Mousedrop so that constructs can drag rats out of maintenance to make turrets
 /obj/structure/cult/pylon/MouseDrop_T(var/atom/movable/C, mob/user)
 	if (istype(C, /mob/living))
 		present_sacrifice(user, C)
@@ -449,7 +449,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(source, /obj/item))
 		var/obj/item/I = source
-		if(istype(I, /obj/item/weapon/nullrod))
+		if(istype(I, /obj/item/nullrod))
 			shatter()
 			return
 		if (I.damtype != BRUTE)
@@ -629,7 +629,7 @@
 
 /obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/nullrod))
+	if(istype(I, /obj/item/nullrod))
 		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
 		qdel(src)
 

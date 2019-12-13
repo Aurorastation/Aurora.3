@@ -1,13 +1,14 @@
 /obj/item/glass_jar
 	name = "glass jar"
-	desc = "A small empty jar."
-	icon = 'icons/obj/items.dmi'
-	icon_state = "jar"
+	desc = "A glass jar. You can remove the lid and use it as a reagent container."
+	icon = 'icons/obj/drinks.dmi'
+	icon_state = "jar_lid"
 	w_class = 2
 	matter = list("glass" = 200)
 	flags = NOBLUDGEON
-	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/mouse)
+	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/glass_jar/New()
 	..()
@@ -63,14 +64,20 @@
 			contains = 0
 			update_icon()
 			return
+		if(0)
+			to_chat(user, "<span class='notice'>You remove the lid from \the [src].</span>")
+			user.drop_from_inventory(src)
+			user.put_in_hands(new /obj/item/reagent_containers/glass/beaker/jar) //found in jar.dm
+			qdel(src)
+			return
 
 /obj/item/glass_jar/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/weapon/spacecash))
+	if(istype(W, /obj/item/spacecash))
 		if(contains == 0)
 			contains = 1
 		if(contains != 1)
 			return
-		var/obj/item/weapon/spacecash/S = W
+		var/obj/item/spacecash/S = W
 		user.visible_message("<span class='notice'>[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src].</span>")
 		user.drop_from_inventory(S,src)
 		update_icon()
@@ -85,7 +92,7 @@
 		if(1)
 			name = "tip jar"
 			desc = "A small jar with money inside."
-			for(var/obj/item/weapon/spacecash/S in src)
+			for(var/obj/item/spacecash/S in src)
 				var/image/money = image(S.icon, S.icon_state)
 				money.pixel_x = rand(-2, 3)
 				money.pixel_y = rand(-6, 6)

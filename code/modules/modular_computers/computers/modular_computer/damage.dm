@@ -9,7 +9,7 @@
 	visible_message("\The [src] breaks apart!")
 	var/turf/newloc = get_turf(src)
 	new /obj/item/stack/material/steel(newloc, round(steel_sheet_cost/2))
-	for(var/obj/item/weapon/computer_hardware/H in get_all_components())
+	for(var/obj/item/computer_hardware/H in get_all_components())
 		uninstall_component(null, H)
 		H.forceMove(newloc)
 		if(prob(25))
@@ -27,21 +27,22 @@
 		damage = between(0, damage, max_damage)
 
 	if(component_probability)
-		for(var/obj/item/weapon/computer_hardware/H in get_all_components())
+		for(var/obj/item/computer_hardware/H in get_all_components())
 			if(prob(component_probability))
 				H.take_damage(round(amount / 2))
 
 	if(damage >= max_damage)
 		break_apart()
+	update_icon()
 
 // Stronger explosions cause serious damage to internal components
 // Minor explosions are mostly mitigitated by casing.
 /obj/item/modular_computer/ex_act(var/severity)
-	take_damage(rand(100,200) / severity, 30 / severity)
+	take_damage(rand(125, 200) / severity, 30 / severity)
 
 // EMPs are similar to explosions, but don't cause physical damage to the casing. Instead they screw up the components
 /obj/item/modular_computer/emp_act(var/severity)
-	take_damage(rand(100,200) / severity, 50 / severity, 0)
+	take_damage(rand(100, 200) / severity, 50 / severity, 0)
 
 // "Stun" weapons can cause minor damage to components (short-circuits?)
 // "Burn" damage is equally strong against internal components and exterior casing

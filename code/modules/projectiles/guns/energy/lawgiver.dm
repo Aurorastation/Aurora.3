@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/lawgiver
+/obj/item/gun/energy/lawgiver
 	name = "\improper Lawgiver Mk II"
 	icon_state = "lawgiver"
 	item_state = "gun"
@@ -26,7 +26,7 @@
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pistol,
-			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
 		list(
 			mode_name = "rapidfire",
@@ -38,7 +38,7 @@
 			accuracy = list(1, 0, 0,-1,-1),
 			dispersion = list(0, 10, 10),
 			projectile_type = /obj/item/projectile/bullet/pistol,
-			fire_sound = 'sound/weapons/Gunshot_smg.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
 		list(
 			mode_name = "highex",
@@ -74,7 +74,7 @@
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
-			fire_sound = 'sound/weapons/Gunshot.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		),
 		list(
 			mode_name = "armorpiercing",
@@ -86,7 +86,7 @@
 			accuracy = 1,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/rifle/a556,
-			fire_sound = 'sound/weapons/Gunshot.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		),
 		list(
 			mode_name = "pellets",
@@ -98,22 +98,22 @@
 			accuracy = 0,
 			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
-			fire_sound = 'sound/weapons/Gunshot.ogg'
+			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		)
 	)
 
-/obj/item/weapon/gun/energy/lawgiver/Initialize()
+/obj/item/gun/energy/lawgiver/Initialize()
 	. = ..()
 	listening_objects += src
-	power_supply = new /obj/item/weapon/cell/device/variable(src, 2000)
+	power_supply = new /obj/item/cell/device/variable(src, 2000)
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 
-/obj/item/weapon/gun/energy/lawgiver/Destroy()
+/obj/item/gun/energy/lawgiver/Destroy()
 	listening_objects -= src
 	return ..()
 
-/obj/item/weapon/gun/energy/lawgiver/proc/play_message()
+/obj/item/gun/energy/lawgiver/proc/play_message()
 	while (message_enabled && !message_disable) //Shut down command issued. Inform user that boardcasting has been stopped
 		usr.audible_message("<span class='warning'>[usr]'s [src.name] broadcasts: [message]</span>","")
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
@@ -122,7 +122,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/weapon/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
+/obj/item/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else
@@ -132,13 +132,13 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/weapon/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
+/obj/item/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/LA = H.get_organ("l_arm")
-			var/obj/item/organ/external/RA = H.get_organ("r_arm")
+			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
+			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
 			var/active_hand = H.hand
 			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 			to_chat(user, "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>")
@@ -153,18 +153,18 @@
 		return 0
 	..()
 
-/obj/item/weapon/gun/energy/lawgiver/proc/Emag(mob/user as mob)
+/obj/item/gun/energy/lawgiver/proc/Emag(mob/user as mob)
 	to_chat(usr, "<span class='warning'>You short out [src]'s id check</span>")
 	emagged = 1
 	return 1
 
-/obj/item/weapon/gun/energy/lawgiver/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/card/emag) && !emagged)
+/obj/item/gun/energy/lawgiver/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/card/emag) && !emagged)
 		Emag(user)
 	else
 		..()
 
-/obj/item/weapon/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
+/obj/item/gun/energy/lawgiver/hear_talk(mob/living/M in range(0,src), msg)
 	var/mob/living/carbon/human/H = M
 	if (!H || !istype(H))
 		return
@@ -172,7 +172,7 @@
 		hear(msg)
 	return
 
-/obj/item/weapon/gun/energy/lawgiver/proc/hear(var/msg)
+/obj/item/gun/energy/lawgiver/proc/hear(var/msg)
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = ""," " = "")
 	msg = sanitize_old(msg, replacechars)
 	/* Firing Modes*/

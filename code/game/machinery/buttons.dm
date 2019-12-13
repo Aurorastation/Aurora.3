@@ -38,37 +38,38 @@
 	qdel(src)
 	return 1
 
-/obj/machinery/button/attackby(obj/item/weapon/W, mob/user)
-	if(isscrewdriver(W))
-		default_deconstruction_screwdriver(user, W)
+/obj/machinery/button/attackby(obj/item/I, mob/user)
+	if(isscrewdriver(I))
+		default_deconstruction_screwdriver(user, I)
 		return
-	if(iscrowbar(W))
+	if(iscrowbar(I))
 		if(trigger)
 			to_chat(user, span("notice", "You remove \the [trigger] from \the [src]."))
 			trigger.forceMove(loc)
 			trigger = null
 			return
-		default_deconstruction_crowbar(user, W)
+		default_deconstruction_crowbar(user, I)
 		return
-	if(istype(W, /obj/item/device/debugger) && panel_open)
+	if(istype(I, /obj/item/device/debugger) && panel_open)
 		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
 		_wifi_id = newid
 		wifi_sender = new/datum/wifi/sender/button(newid, src)
 		return
-	if(istype(W, /obj/item/device/assembly))
+	if(istype(I, /obj/item/device/assembly))
 		if(trigger)
 			to_chat(user, span("notice", "There is already a device in \the [src]."))
 			return
-		to_chat(user, span("notice", "You put \the [W] in \the [src]."))
-		trigger = W
+		to_chat(user, span("notice", "You put \the [I] in \the [src]."))
+		trigger = I
 		trigger.forceMove(src)
 		return
 	return attack_hand(user)
 
 /obj/machinery/button/attack_hand(mob/living/user)
 	if(..()) return 1
+	user.visible_message("<span class='notice'>[user] hits \the [src] button.</span>")
 	activate(user)
 
 /obj/machinery/button/proc/activate(mob/living/user)
@@ -185,31 +186,31 @@
 	active = 0
 	update_icon()
 
-/obj/machinery/button/mass_driver/attackby(obj/item/weapon/W, mob/user)
-	if(isscrewdriver(W))
-		default_deconstruction_screwdriver(user, W)
+/obj/machinery/button/mass_driver/attackby(obj/item/I, mob/user)
+	if(isscrewdriver(I))
+		default_deconstruction_screwdriver(user, I)
 		return
-	if(iscrowbar(W))
+	if(I.iscrowbar())
 		if(trigger)
 			to_chat(user, span("notice", "You remove \the [trigger] from \the [src]."))
 			trigger.forceMove(loc)
 			trigger = null
 			return
-		default_deconstruction_crowbar(user, W)
+		default_deconstruction_crowbar(user, I)
 		return
-	if(istype(W,/obj/item/device/debugger) && panel_open)
+	if(istype(I,/obj/item/device/debugger) && panel_open)
 		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
 		_wifi_id = newid
 		wifi_sender = new/datum/wifi/sender/mass_driver(newid, src)
 		return
-	if(istype(W, /obj/item/device/assembly))
+	if(istype(I, /obj/item/device/assembly))
 		if(trigger)
 			to_chat(user, span("notice", "There is already a device in \the [src]."))
 			return
-		to_chat(user, span("notice", "You put \the [W] in \the [src]."))
-		trigger = W
+		to_chat(user, span("notice", "You put \the [I] in \the [src]."))
+		trigger = I
 		trigger.forceMove(src)
 		return
 	return attack_hand(user)
@@ -289,31 +290,31 @@
 			wifi_sender.activate("lock")
 	operating = 0
 
-/obj/machinery/button/toggle/door/attackby(obj/item/weapon/W, mob/user)
-	if(isscrewdriver(W))
-		default_deconstruction_screwdriver(user, W)
+/obj/machinery/button/toggle/door/attackby(obj/item/I, mob/user)
+	if(isscrewdriver(I))
+		default_deconstruction_screwdriver(user, I)
 		return
-	if(iscrowbar(W))
+	if(iscrowbar(I))
 		if(trigger)
 			to_chat(user, span("notice", "You remove \the [trigger] from \the [src]."))
 			trigger.forceMove(loc)
 			trigger = null
 			return
-		default_deconstruction_crowbar(user, W)
+		default_deconstruction_crowbar(user, I)
 		return
-	if(istype(W,/obj/item/device/debugger) && panel_open)
+	if(istype(I,/obj/item/device/debugger) && panel_open)
 		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
 		_wifi_id = newid
 		wifi_sender = new/datum/wifi/sender/door(newid, src)
 		return
-	if(istype(W, /obj/item/device/assembly))
+	if(istype(I, /obj/item/device/assembly))
 		if(trigger)
 			to_chat(user, span("notice", "There is already a device in \the [src]."))
 			return
-		to_chat(user, span("notice", "You put \the [W] in \the [src]."))
-		trigger = W
+		to_chat(user, span("notice", "You put \the [I] in \the [src]."))
+		trigger = I
 		trigger.forceMove(src)
 		return
 	return attack_hand(user)

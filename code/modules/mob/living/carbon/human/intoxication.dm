@@ -1,5 +1,3 @@
-var/mob/living/carbon/human/alcohol_clumsy = 0
-
 //This proc handles the effects of being intoxicated. Removal of intoxication is done elswhere: By the liver, in organ_internal.dm
 /mob/living/carbon/human/proc/handle_intoxication()
 
@@ -44,13 +42,6 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			to_chat(src,"<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
 		confused = max(confused, 10)
 		slurring = max(slurring, 50)
-		if (!alcohol_clumsy && !(CLUMSY in mutations))
-			mutations.Add(CLUMSY)
-			alcohol_clumsy = 1
-	else if (alcohol_clumsy)
-		to_chat(src,"<span class='notice'>You feel more sober and steady.</span>")
-		mutations.Remove(CLUMSY)
-		alcohol_clumsy = 0
 
 	if(bac > INTOX_VOMIT*SR)
 		slurring = max(slurring, 75)
@@ -58,7 +49,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
 			if (prob(chance))
 				delayed_vomit()
-				add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+				add_chemical_effect(CE_HEPATOTOXIC, 1)
 
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
@@ -84,7 +75,7 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 				adjustBrainLoss(1,5)
 
 	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent("ethylredoxrazine")) //Death usually occurs here
-		add_chemical_effect(CE_ALCOHOL_TOXIC, 10)
+		add_chemical_effect(CE_HEPATOTOXIC, 10)
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)
 
@@ -142,4 +133,3 @@ var/mob/living/carbon/human/alcohol_clumsy = 0
 		return 1
 
 	return 0
-

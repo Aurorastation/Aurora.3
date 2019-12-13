@@ -8,7 +8,7 @@
 	buckle_lying = 0 //force people to sit up in chairs when buckled
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
-/obj/structure/bed/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
@@ -41,7 +41,8 @@
 	var/cache_key = "[base_icon]-[material.name]-over"
 	if(isnull(stool_cache[cache_key]))
 		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
-		I.color = material.icon_colour
+		if(apply_material_color)
+			I.color = material.icon_colour
 		I.layer = FLY_LAYER
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
@@ -50,7 +51,8 @@
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]-over"
 		if(isnull(stool_cache[padding_cache_key]))
 			var/image/I =  image(icon, "[base_icon]_padding_over")
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			I.layer = FLY_LAYER
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
@@ -60,7 +62,8 @@
 		if(isnull(stool_cache[cache_key]))
 			var/image/I = image(icon, "[base_icon]_armrest")
 			I.layer = MOB_LAYER + 0.1
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			stool_cache[cache_key] = I
 		add_overlay(stool_cache[cache_key])
 
@@ -78,7 +81,7 @@
 		src.set_dir(turn(src.dir, 90))
 		return
 	else
-		if(istype(usr,/mob/living/simple_animal/mouse))
+		if(israt(usr))
 			return
 		if(!usr || !isturf(usr.loc))
 			return
@@ -127,13 +130,14 @@
 /obj/structure/bed/chair/office/update_icon()
 	return
 
-/obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/office/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
+	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		occupant.buckled = null
@@ -185,6 +189,19 @@
 	icon_state = "bridge"
 	anchored = 1
 
+/obj/structure/bed/chair/office/bridge/legion
+	name = "legion pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "bridge_legion"
+
+/obj/structure/bed/chair/office/bridge/generic
+	icon_state = "bridge_generic"
+
+/obj/structure/bed/chair/office/bridge/pilot
+	name = "pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "pilot"
+
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()
 	var/image/I = image(icon, "[icon_state]_over")
@@ -200,7 +217,7 @@
 /obj/structure/bed/chair/wood/update_icon()
 	return
 
-/obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
@@ -216,3 +233,42 @@
 
 /obj/structure/bed/chair/unmovable
 	can_dismantle = 0
+
+/obj/structure/bed/chair/shuttle
+	icon_state = "shuttlechair"
+	base_icon = "shuttlechair"
+	can_dismantle = FALSE
+	apply_material_color = FALSE
+	anchored = TRUE
+
+/obj/structure/bed/chair/shuttle/update_icon()
+	cut_overlays()
+
+	var/image/O = image(icon, "[icon_state]_over")
+	O.layer = FLY_LAYER
+	add_overlay(O)
+
+	var/list/stool_cache = SSicon_cache.stool_cache
+
+	var/cache_key = "[base_icon]_over"
+	if(isnull(stool_cache[cache_key]))
+		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
+		if(apply_material_color)
+			I.color = material.icon_colour
+		I.layer = FLY_LAYER
+		stool_cache[cache_key] = I
+	add_overlay(stool_cache[cache_key])
+
+	if(buckled_mob)
+		icon_state = "[base_icon]_down"
+		cache_key = "[base_icon]-armrest"
+		if(isnull(stool_cache[cache_key]))
+			var/image/I = image(icon, "[base_icon]_armrest")
+			I.layer = MOB_LAYER + 0.1
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
+			stool_cache[cache_key] = I
+		add_overlay(stool_cache[cache_key])
+
+	else
+		icon_state = initial(icon_state)

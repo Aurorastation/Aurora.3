@@ -21,9 +21,13 @@
 	display_name = "monocle"
 	path = /obj/item/clothing/glasses/monocle
 
-/datum/gear/eyes/glasses/goggles
-	display_name = "goggles"
-	path = /obj/item/clothing/glasses/goggles
+/datum/gear/eyes/glasses/safety
+	display_name = "safety glasses"
+	path = /obj/item/clothing/glasses/safety
+
+/datum/gear/eyes/glasses/safety/goggles
+	display_name = "safety goggles"
+	path = /obj/item/clothing/glasses/safety/goggles
 
 /datum/gear/eyes/scanning_goggles
 	display_name = "scanning goggles"
@@ -41,12 +45,12 @@
 /datum/gear/eyes/mesonaviators
 	display_name = "aviators, meson"
 	path = /obj/item/clothing/glasses/meson/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
 
 /datum/gear/eyes/mesonprescription
 	display_name = "meson goggles, prescription"
 	path = /obj/item/clothing/glasses/meson/prescription
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist")
+	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
 
 /datum/gear/eyes/security
 	display_name = "security HUD"
@@ -133,3 +137,7 @@
 /datum/gear/eyes/spiffygogs
 	display_name = "orange goggles"
 	path = /obj/item/clothing/glasses/spiffygogs
+
+/datum/gear/eyes/circuitry
+	display_name = "goggles, circuitry (empty)"
+	path = /obj/item/clothing/glasses/circuitry

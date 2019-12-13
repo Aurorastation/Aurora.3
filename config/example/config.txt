@@ -42,6 +42,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 # What to multiply power by when crossing Z-levels.
 #EXPLOSION_Z_MULT 0.75
 
+# What to subtract power by when crossing Z-levels.
+#EXPLOSION_Z_SUB 2
+
 ## log OOC channel
 LOG_OOC
 
@@ -219,11 +222,11 @@ ALLOW_ANTAG_HUD
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
 
-## Prevents observers from joining as mice.
-#DISABLE_PLAYER_MICE
+## Prevents observers from joining as rats.
+#DISABLE_PLAYER_RATS
 
-## If enabled, observer-mice will only be able to understand other mice.
-#UNEDUCATED_MICE
+## If enabled, observer-rats will only be able to understand other rats.
+#UNEDUCATED_RATS
 
 ## How much time a drone fabricator will take to produce a single drone. In deciseconds.
 #DRONE_BUILD_TIME 1200
@@ -376,8 +379,11 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Uncomment to disable the OOC channel by default.
 #DISABLE_OOC
 
-## Uncomment to disable the dead OOC channel by default.
+## Uncomment to disable the dead (global) OOC channel by default.
 #DISABLE_DEAD_OOC
+
+## Uncomment to disable the dead LOOC channel by default.
+#DISABLE_DEAD_LOOC
 
 ## Uncomment to disable ghost chat by default.
 #DISABLE_DSAY
@@ -428,6 +434,9 @@ MERCHANT_CHANCE 20
 
 ## Uncomment this to house player preferences and characters on the SQL database.
 # SQL_SAVES
+
+## Uncomment this to enable SQL CCIA Logs
+# SQL_CCIA_LOGS
 
 ## Uncomment this and fill in the web interface's URL to use the web interface.
 # WEBINT_URL http://www.address.com/
@@ -522,12 +531,16 @@ FORCE_MAP aurora
 # n - do this every n rounds.
 #ROUNDS_UNTIL_HARD_RESTART -1
 
-ERT_BASE_CHANCE 10
-ERT_GREEN_INC 1
-ERT_YELLOW_INC 1
-ERT_BLUE_INC 2
-ERT_RED_INC 3
-ERT_DELTA_INC 10
-ERT_SCALING_FACTOR 1
-ERT_SCALING_FACTOR_ANTAG 1
-ERT_SCALING_FACTOR_DEAD 2
+# NTSL2+ Connection Info
+NTSL_HOSTNAME localhost
+NTSL_PORT 1945
+
+# Limit to how many hacked drones can AI have at the same time.
+# HACKED_DRONES_LIMIT 5
+
+# Specifies where to load random documents from. Valid values: sql, json
+DOCS_LOAD_DOCS_FROM sql
+# Specifies where to load custom synth sprites from. Valid values: sql, json
+LOAD_CUSTOMSYNTHS_FROM sql
+# Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
+DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/

@@ -5,14 +5,14 @@
 	density = 0
 	anchored = 1
 	layer = 2
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/trash.dmi'
 	icon_state = "shards"
 
 /obj/effect/decal/cleanable/ash
 	name = "ashes"
 	desc = "Ashes to ashes, dust to dust, and into space."
 	gender = PLURAL
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/trash.dmi'
 	icon_state = "ash"
 	anchored = 1
 
@@ -102,6 +102,10 @@
 	icon_state = "vomit_1"
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
 	var/list/viruses = list()
+
+/obj/effect/decal/cleanable/vomit/Initialize()
+	..()
+	create_reagents(20, src)
 
 /obj/effect/decal/cleanable/vomit/Destroy()
 	for(var/datum/disease/D in viruses)

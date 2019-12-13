@@ -12,11 +12,13 @@
 	desc = "A non-descript floor tile"
 	w_class = 3
 	max_amount = 60
+	icon = 'icons/obj/stacks/tiles.dmi'
+	randpixel = 7
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/tile/New()
 	..()
-	pixel_x = rand(-7, 7)
-	pixel_y = rand(-7, 7)
+	randpixel_xy()
 
 /*
  * Grass
@@ -32,6 +34,7 @@
 	throw_range = 20
 	flags = 0
 	origin_tech = list(TECH_BIO = 1)
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /*
  * Wood
@@ -46,6 +49,7 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
+	drop_sound = 'sound/items/drop/wooden.ogg'
 
 /*
  * Carpets
@@ -60,6 +64,7 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
+	drop_sound = 'sound/items/drop/clothing.ogg'
 
 /obj/item/stack/tile/floor
 	name = "floor tile"

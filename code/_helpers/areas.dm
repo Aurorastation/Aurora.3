@@ -17,6 +17,7 @@
 			if(!cache[A.type])
 				continue
 			for(var/turf/T in A)
+				CHECK_TICK
 				if(target_z == 0 || target_z == T.z)
 					if (predicates && predicates.len)
 						var/predicates_true = TRUE
@@ -34,6 +35,7 @@
 			if(A.type != areatype)
 				continue
 			for(var/turf/T in A)
+				CHECK_TICK
 				if (target_z == 0 || target_z == T.z)
 					if (predicates && predicates.len)
 						var/predicates_true = TRUE

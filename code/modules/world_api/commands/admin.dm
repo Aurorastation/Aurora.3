@@ -105,10 +105,9 @@
 	sound_to(C, 'sound/effects/adminhelp.ogg')
 	to_chat(C, message)
 
-	for(var/client/A in admins)
-		if(A != C)
+	for(var/client/A in staff)
+		if(A != C && check_rights(R_MOD|R_ADMIN, show_msg = FALSE, user = A.mob))
 			to_chat(A, amessage)
-
 
 	statuscode = 200
 	response = "Admin Message sent"

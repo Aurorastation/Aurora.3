@@ -21,6 +21,7 @@
 	var/base_icon = "bed"
 	var/can_dismantle = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	var/apply_material_color = TRUE
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
@@ -48,7 +49,8 @@
 	var/cache_key = "[base_icon]-[material.name]"
 	if(!stool_cache[cache_key])
 		var/image/I = image('icons/obj/furniture.dmi', base_icon)
-		I.color = material.icon_colour
+		if(apply_material_color)
+			I.color = material.icon_colour
 		stool_cache[cache_key] = I
 	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
@@ -56,7 +58,8 @@
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]"
 		if(!stool_cache[padding_cache_key])
 			var/image/I =  image(icon, "[base_icon]_padding")
-			I.color = padding_material.icon_colour
+			if(apply_material_color)
+				I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])
 
@@ -89,10 +92,10 @@
 				qdel(src)
 				return
 
-/obj/structure/bed/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		if(can_dismantle)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(src.loc, W.usesound, 50, 1)
 			dismantle()
 			qdel(src)
 	else if(istype(W,/obj/item/stack))
@@ -129,8 +132,8 @@
 		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 		remove_padding()
 
-	else if(istype(W, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = W
+	else if(istype(W, /obj/item/grab))
+		var/obj/item/grab/G = W
 		var/mob/living/affecting = G.affecting
 		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
 		if(do_after(user, 20))
@@ -142,7 +145,8 @@
 						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
-	else
+
+	else if(!istype(W, /obj/item/bedsheet))
 		..()
 
 /obj/structure/bed/proc/remove_padding()
@@ -172,13 +176,6 @@
 /obj/structure/bed/padded/New(var/newloc)
 	..(newloc,"plastic","cotton")
 
-/obj/structure/bed/alien
-	name = "resting contraption"
-	desc = "This looks similar to contraptions from earth. Could aliens be stealing our technology?"
-
-/obj/structure/bed/alien/New(var/newloc)
-	..(newloc,"resin")
-
 /*
  * Roller beds
  */
@@ -191,7 +188,7 @@
 /obj/structure/bed/roller/update_icon()
 	return // Doesn't care about material or anything else.
 
-/obj/structure/bed/roller/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/roller/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench() || istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	else if(istype(W,/obj/item/roller_holder))
@@ -210,6 +207,8 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "folded"
+	drop_sound = 'sound/items/drop/axe.ogg'
+	center_of_mass = list("x" = 17,"y" = 7)
 	w_class = 4.0 // Can't be put in backpacks. Oh well.
 
 /obj/item/roller/attack_self(mob/user)
@@ -217,7 +216,7 @@
 		R.add_fingerprint(user)
 		qdel(src)
 
-/obj/item/roller/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/roller/attackby(obj/item/W as obj, mob/user as mob)
 
 	if(istype(W,/obj/item/roller_holder))
 		var/obj/item/roller_holder/RH = W
@@ -255,6 +254,7 @@
 
 /obj/structure/bed/roller/Move()
 	..()
+	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.forceMove(src.loc)

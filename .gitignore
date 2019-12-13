@@ -16,3 +16,4 @@ __pycache__/
 *$py.class
 /.atom-build.json
 .vscode/
+.vs/

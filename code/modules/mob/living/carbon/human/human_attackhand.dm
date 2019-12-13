@@ -23,7 +23,7 @@
 		return
 
 	..()
-	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/weapon/rig)))
+	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
 		to_chat(H, "<span class='danger'>You are now visible.</span>")
 		H.invisibility = 0
 
@@ -107,39 +107,59 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			if(istype(H) && health < config.health_threshold_crit && health > config.health_threshold_dead)
-				if(!H.check_has_mouth())
-					to_chat(H, "<span class='danger'>You don't have a mouth, you cannot perform CPR!</span>")
-					return
-				if(!check_has_mouth())
-					to_chat(H, "<span class='danger'>They don't have a mouth, you cannot perform CPR!</span>")
-					return
-				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-					to_chat(H, "<span class='notice'>Remove your mask!</span>")
-					return 0
-				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-					to_chat(H, "<span class='notice'>Remove [src]'s mask!</span>")
-					return 0
-
+			if(H != src && istype(H) && (is_asystole() || (status_flags & FAKEDEATH) || failed_last_breath))
 				if (!cpr_time)
 					return 0
 
 				cpr_time = 0
-				spawn(30)
+
+				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
+
+				if(!do_after(H, rand(3, 5), src))
 					cpr_time = 1
-
-				H.visible_message("<span class='danger'>\The [H] is trying perform CPR on \the [src]!</span>")
-
-				if(!do_after(H, 30))
 					return
+				cpr_time = 1
 
-				adjustOxyLoss(-(min(getOxyLoss(), 5)))
-				updatehealth()
-				H.visible_message("<span class='danger'>\The [H] performs CPR on \the [src]!</span>")
-				to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
-				to_chat(H, "<span class='warning'>Repeat at least every 7 seconds.</span>")
+				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
 
-			else
+				if(is_asystole())
+					if(prob(5 * rand(0.5, 1)))
+						var/obj/item/organ/external/chest = get_organ(BP_CHEST)
+						if(chest)
+							chest.fracture()
+
+					var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+					if(heart)
+						heart.external_pump = list(world.time, 0.4 + 0.1 + rand(-0.1,0.1))
+
+					if(stat != DEAD && prob(10 * rand(0.5, 1)))
+						resuscitate()
+
+				if(!H.check_has_mouth())
+					to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+					return
+				if(!check_has_mouth())
+					to_chat(H, "<span class='warning'>They don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+					return
+				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
+					to_chat(H, "<span class='warning'>You need to remove your mouth covering for mouth-to-mouth resuscitation!</span>")
+					return 0
+				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
+					to_chat(H, "<span class='warning'>You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!</span>")
+					return 0
+				if (!H.internal_organs_by_name[H.species.breathing_organ])
+					to_chat(H, "<span class='danger'>You need lungs for mouth-to-mouth resuscitation!</span>")
+					return
+				if(!need_breathe())
+					return
+				var/obj/item/organ/internal/lungs/L = internal_organs_by_name[species.breathing_organ]
+				if(L)
+					var/datum/gas_mixture/breath = H.get_breath_from_environment()
+					var/fail = L.handle_breath(breath, 1)
+					if(!fail)
+						to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
+
+			else if(!(M == src && apply_pressure(M, M.zone_sel.selecting)))
 				help_shake_act(M)
 			return 1
 
@@ -153,7 +173,7 @@
 			if(attacker_style && attacker_style.grab_act(H, src))
 				return 1
 
-			for(var/obj/item/weapon/grab/G in src.grabbed_by)
+			for(var/obj/item/grab/G in src.grabbed_by)
 				if(G.assailant == M)
 					to_chat(M, "<span class='notice'>You already grabbed [src].</span>")
 					return
@@ -164,7 +184,7 @@
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 			if(buckled)
 				to_chat(M, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
@@ -178,6 +198,8 @@
 			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
 				G.state = GRAB_AGGRESSIVE
 				G.icon_state = "grabbed1"
+				G.hud.icon_state = "reinforce1"
+				G.last_action = world.time
 				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
 				return 1
 			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
@@ -253,7 +275,7 @@
 				*/
 				if(prob(80))
 					hit_zone = ran_zone(hit_zone)
-				if(prob(15) && hit_zone != "chest") // Missed!
+				if(prob(15) && hit_zone != BP_CHEST) // Missed!
 					if(!src.lying)
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
@@ -331,12 +353,31 @@
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
 
 		if(I_DISARM)
+			var/disarm_cost
+			var/usesStamina
+
+			if(M.max_stamina > 0)
+				disarm_cost = M.max_stamina / 6
+				usesStamina = TRUE
+			else if(M.max_stamina <= 0)
+				disarm_cost = M.max_nutrition / 8
+				usesStamina = FALSE
+
+			if(usesStamina)
+				if(M.stamina <= disarm_cost)
+					to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
+					return FALSE
+			else
+				if(M.nutrition <= disarm_cost)
+					to_chat(M, "<span class='danger'>You don't have enough power to disarm someone!</span>")
+					return FALSE
+
 			if(M.is_pacified())
 				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
-				return 0
+				return FALSE
 
 			if(attacker_style && attacker_style.disarm_act(H, src))
-				return 1
+				return TRUE
 
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
@@ -344,22 +385,37 @@
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
 
+			if(usesStamina)
+				M.stamina = M.stamina - disarm_cost //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+				M.stamina = Clamp(M.stamina, 0, M.max_stamina)
+			else
+				M.nutrition = M.nutrition - disarm_cost
+				M.nutrition = Clamp(M.nutrition, 0, M.max_nutrition)
+
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
 
-			var/list/holding = list(get_active_hand() = 40, get_inactive_hand = 20)
+			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
 
-			//See if they have any guns that might go off
-			for(var/obj/item/weapon/gun/W in holding)
-				if(W && prob(holding[W]))
-					var/list/turfs = list()
-					for(var/turf/T in view())
-						turfs += T
-					if(turfs.len)
-						var/turf/target = pick(turfs)
-						visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
-						return W.afterattack(target,src)
+			//See if they have any weapons to retaliate with
+			if(src.a_intent != I_HELP)
+				for(var/obj/item/W in holding)
+					if(W && prob(holding[W]))
+						if(istype(W, /obj/item/grab))
+							continue
+						if(istype(W,/obj/item/gun))
+							var/list/turfs = list()
+							for(var/turf/T in view())
+								turfs += T
+							if(turfs.len)
+								var/turf/target = pick(turfs)
+								visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
+								return W.afterattack(target,src)
+						else
+							if(M.Adjacent(src))
+								visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
+								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
 			if(randn <= 25)
@@ -436,7 +492,10 @@
 //Used to attack a joint through grabbing
 /mob/living/carbon/human/proc/grab_joint(var/mob/living/user, var/def_zone)
 	var/has_grab = 0
-	for(var/obj/item/weapon/grab/G in list(user.l_hand, user.r_hand))
+
+	if(user.limb_breaking)
+		return 0
+	for(var/obj/item/grab/G in list(user.l_hand, user.r_hand))
 		if(G.affecting == src && G.state == GRAB_NECK)
 			has_grab = 1
 			break
@@ -453,12 +512,15 @@
 		return 0
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
+	user.limb_breaking = TRUE
 	if(do_after(user, 100))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		user.limb_breaking = FALSE
 		return 1
 	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
+	user.limb_breaking = FALSE
 	return 0
 
 //Breaks all grips and pulls that the mob currently has.
@@ -469,21 +531,51 @@
 		success = 1
 		stop_pulling()
 
-	if(istype(l_hand, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/lgrab = l_hand
+	if(istype(l_hand, /obj/item/grab))
+		var/obj/item/grab/lgrab = l_hand
 		if(lgrab.affecting)
 			visible_message("<span class='danger'>[user] has broken [src]'s grip on [lgrab.affecting]!</span>")
 			success = 1
 		spawn(1)
 			qdel(lgrab)
-	if(istype(r_hand, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/rgrab = r_hand
+	if(istype(r_hand, /obj/item/grab))
+		var/obj/item/grab/rgrab = r_hand
 		if(rgrab.affecting)
 			visible_message("<span class='danger'>[user] has broken [src]'s grip on [rgrab.affecting]!</span>")
 			success = 1
 		spawn(1)
 			qdel(rgrab)
 	return success
+
+//Apply pressure to wounds.
+/mob/living/carbon/human/proc/apply_pressure(mob/living/user, var/target_zone)
+	var/obj/item/organ/external/organ = get_organ(target_zone)
+	if(!organ || !(organ.status & ORGAN_BLEEDING) || organ.status & ORGAN_ROBOT)
+		return 0
+
+	if(organ.applied_pressure)
+		var/message = "<span class='warning'>[ismob(organ.applied_pressure)? "Someone" : "\A [organ.applied_pressure]"] is already applying pressure to [user == src? "your [organ.name]" : "[src]'s [organ.name]"].</span>"
+		to_chat(user, message)
+		return 0
+
+	if(user == src)
+		user.visible_message("<span class='notice'>\The [user] starts applying pressure to \his [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
+	else
+		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You start applying pressure to [src]'s [organ.name]!</span>")
+	spawn(0)
+		organ.applied_pressure = user
+
+		//apply pressure as long as they stay still and keep grabbing
+		do_after(user, INFINITY, TRUE, display_progress = FALSE)
+
+		organ.applied_pressure = null
+
+		if(user == src)
+			user.visible_message("<span class='notice'>\The [user] stops applying pressure to \his [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
+		else
+			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You stop applying pressure to [src]'s [organ.name]!</span>")
+
+	return 1
 
 
 /mob/living/carbon/human/verb/check_attacks()

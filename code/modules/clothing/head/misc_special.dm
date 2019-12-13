@@ -25,11 +25,15 @@
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
-	siemens_coefficient = 0.9
+	siemens_coefficient = 0.75 // what? it's steel.
 	w_class = 3
 	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	sprite_sheets = list(
+		"Vox" = 'icons/mob/species/vox/head.dmi'
+		)
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -112,30 +116,122 @@
  */
 /obj/item/clothing/head/ushanka
 	name = "ushanka"
-	desc = "Perfect for winter in Siberia, da?"
-	icon_state = "ushankadown"
+	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
+	icon_state = "ushanka"
 	flags_inv = HIDEEARS
+	var/earsup = 0
+
+/obj/item/clothing/head/ushanka/grey
+	name = "grey ushanka"
+	desc = "Perfect for winter in Siberia, da?"
+	icon_state = "greyushanka"
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
-	if(src.icon_state == "ushankadown")
-		src.icon_state = "ushankaup"
+	src.earsup = !src.earsup
+	if(src.earsup)
+		icon_state = "[icon_state]_up"
 		to_chat(user, "You raise the ear flaps on the ushanka.")
 	else
-		src.icon_state = "ushankadown"
+		src.icon_state = initial(icon_state)
 		to_chat(user, "You lower the ear flaps on the ushanka.")
+	update_clothing_icon()
 
 /*
  * Pumpkin head
  */
-/obj/item/clothing/head/pumpkinhead
+
+/obj/item/clothing/head/pumpkin
 	name = "carved pumpkin"
-	desc = "A jack o' lantern! Believed to ward off evil spirits."
-	icon_state = "hardhat0_pumpkin"//Could stand to be renamed
+	desc = "A pumpkin with a spooky face carved on it. Looks like it needs a candle."
+	icon_state = "pumpkin_carved"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	brightness_on = 2
-	light_overlay = "helmet_light"
+	drop_sound = 'sound/items/drop/herb.ogg'
 	w_class = 3
+	throwforce = 1
+	throw_speed = 0.5
+
+/obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
+	if(istype(O, /obj/item/flame/candle))
+		var/obj/item/flame/candle/c = O
+		var/candle_wax = c.wax
+		if(c.lit)
+			to_chat(user, span("notice", "You should extinguish \the [O] first!"))
+			return
+		to_chat(user, "You add \the [O] to \the [src].")
+		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
+		qdel(O)
+		var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
+		L.wax = candle_wax
+		user.put_in_hands(L)
+		qdel(src)
+		return
+
+/obj/item/clothing/head/pumpkin/lantern
+	name = "jack o' lantern"
+	desc = "A pumpkin with a spooky face carved on it, with a candle inside. Believed to ward off evil spirits."
+	light_color = "#E09D37"
+	var/wax = 900
+	var/lit = 0
+
+/obj/item/clothing/head/pumpkin/lantern/update_icon()
+	icon_state = "pumpkin_carved[lit ? "_lit" : ""]"
+	if(ismob(loc))
+		var/mob/living/M = loc
+		M.update_inv_head(0)
+		M.update_inv_l_hand(0)
+		M.update_inv_r_hand(1)
+
+/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if(W.iswelder())
+		var/obj/item/weldingtool/WT = W
+		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
+			light()
+			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
+	else if(isflamesource(W))
+		light()
+		to_chat(user, span("notice", "\The [user] lights \the [name]."))
+	else if(istype(W, /obj/item/flame/candle))
+		var/obj/item/flame/candle/C = W
+		if(C.lit)
+			light()
+			to_chat(user, span("notice", "\The [user] lights \the [name]."))
+
+/obj/item/clothing/head/pumpkin/lantern/proc/light()
+	if(!src.lit)
+		src.lit = 1
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
+		//src.damtype = "fire"
+		set_light(CANDLE_LUM)
+		update_icon()
+		START_PROCESSING(SSprocessing, src)
+
+/obj/item/clothing/head/pumpkin/lantern/process(mob/user)
+	if(!lit)
+		return
+	wax--
+	if(!wax)
+		new /obj/item/clothing/head/pumpkin(src.loc)
+		new /obj/item/trash/candle(src.loc)
+		if(istype(src.loc, /mob))
+			src.dropped()
+		to_chat(user, span("notice", "The candle burns out."))
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
+		STOP_PROCESSING(SSprocessing, src)
+		qdel(src)
+	update_icon()
+	if(istype(loc, /turf)) //start a fire if possible
+		var/turf/T = loc
+		T.hotspot_expose(700, 5)
+
+/obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
+	if(lit)
+		lit = 0
+		to_chat(user, span("notice", "You snuff out the flame."))
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
+		update_icon()
+		set_light(0)
 
 /*
  * Kitty ears

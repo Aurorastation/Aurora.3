@@ -27,12 +27,22 @@
 
 	for(var/L in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]),
 	                   locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
+
+
 		var/turf/B = L
-		atoms += B
-		for(var/A in B)
-			atoms += A
-			if(istype(A,/obj/structure/cable))
-				cables += A
+		if (!B.initialized)
+			atoms += B
+
+		if (TURF_IS_DYNAMICALLY_LIT_UNSAFE(B) && !B.lighting_overlay)
+			new /atom/movable/lighting_overlay(B)
+
+		for(var/thing in B)
+			if(istype(thing, /obj/structure/cable))
+				cables += thing
+
+			var/atom/movable/AM = thing
+			if (!AM.initialized)
+				atoms += AM
 
 	SSatoms.InitializeAtoms(atoms)
 	SSmachinery.setup_template_powernets(cables)
@@ -41,7 +51,7 @@
 	var/x = round(world.maxx/2)
 	var/y = round(world.maxy/2)
 
-	var/list/bounds = maploader.load_map(file(mappath), x, y)
+	var/list/bounds = maploader.load_map(file(mappath), x, y, no_changeturf = TRUE)
 	if(!bounds)
 		return FALSE
 
@@ -65,7 +75,7 @@
 	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
 	if(!bounds)
 		return
-	
+
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 

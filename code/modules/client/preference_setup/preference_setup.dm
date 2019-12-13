@@ -220,6 +220,10 @@
 	pref = null
 	return ..()
 
+/datum/category_item/player_setup_item/proc/to_client_chat(str)
+	if (pref && pref.client)
+		to_chat(pref.client, str)
+
 /*
 * Called when the item is asked to load per character settings - Only called when sql saves are disabled or unavailable
 */

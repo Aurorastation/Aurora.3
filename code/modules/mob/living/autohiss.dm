@@ -108,6 +108,8 @@
 		)
 
 /datum/species/proc/handle_autohiss(message, datum/language/lang, mode)
+	if (!autohiss_basic_map || !autohiss_basic_map.len)
+		return message
 
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message

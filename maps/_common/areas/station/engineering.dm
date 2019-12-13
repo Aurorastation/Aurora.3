@@ -63,6 +63,10 @@
 	name = "\improper Engineering - Monitoring Room"
 	icon_state = "engine_monitoring"
 
+/area/engineering/engineering_hallway_main
+	name = "\improper Engineering - Main Level Hallway"
+	icon_state = "engine_monitoring"
+
 /area/engineering/foyer
 	name = "\improper Engineering - Foyer"
 	icon_state = "engineering_foyer"
@@ -70,6 +74,22 @@
 
 /area/engineering/storage
 	name = "\improper Engineering - Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_hard
+	name = "\improper Engineering - Hard Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_eva
+	name = "\improper Engineering - EVA Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_sublevel
+	name = "\improper Engineering - Sublevel Storage"
+	icon_state = "engineering_storage"
+
+/area/engineering/storage_tesla
+	name = "\improper Engineering - Tesla Parts Storage"
 	icon_state = "engineering_storage"
 
 /area/engineering/break_room
@@ -85,6 +105,10 @@
 	name = "\improper Engineering - Locker Room"
 	icon_state = "engineering_locker"
 
+/area/engineering/bathroom
+	name = "\improper Engineering - Bathroom"
+	icon_state = "engineering_locker"
+
 /area/engineering/workshop
 	name = "\improper Engineering - Workshop"
 	icon_state = "engineering_workshop"
@@ -96,3 +120,8 @@
 /area/engineering/gravity_gen
 	name = "\improper Engineering - Gravity Generator"
 	icon_state = "engine"
+
+/area/engineering/backup_SMES
+	name = "\improper Engineering - Backup Power Storage"
+	icon_state = "substation"
+	sound_env = SMALL_ENCLOSED

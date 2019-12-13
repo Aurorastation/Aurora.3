@@ -20,6 +20,7 @@
 	pass_flags = PASSTABLE
 	turns_per_move = 6
 	var/obj/machinery/portable_atmospherics/hydroponics/my_hydrotray
+	emote_sounds = list('sound/effects/creatures/bees.ogg')
 
 /mob/living/simple_animal/bee/Initialize(mapload, var/obj/machinery/beehive/new_parent)
 	. = ..()

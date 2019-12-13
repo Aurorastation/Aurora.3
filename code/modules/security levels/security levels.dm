@@ -6,7 +6,7 @@
 //4 = code delta
 
 //config.alert_desc_blue_downto
-/var/datum/announcement/priority/security/security_announcement_up = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/notice1.ogg'))
+/var/datum/announcement/priority/security/security_announcement_up = new(do_log = 0, do_newscast = 1, new_sound = sound('sound/misc/announcements/security_level.ogg'))
 /var/datum/announcement/priority/security/security_announcement_down = new(do_log = 0, do_newscast = 1)
 
 /proc/set_security_level(var/level)
@@ -55,7 +55,7 @@
 
 		var/newlevel = get_security_level()
 		for(var/obj/machinery/firealarm/FA in SSmachinery.processing_machines)
-			if(FA.z in current_map.contact_levels)
+			if(isContactLevel(FA.z))
 				FA.set_security_level(newlevel)
 
 

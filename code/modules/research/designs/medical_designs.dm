@@ -9,6 +9,15 @@
 	..()
 	name = "Biotech device prototype ([item_name])"
 
+/datum/design/item/medical/health_analyzer
+	name = "Health Analyzer"
+	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
+	id = "health_analyzer"
+	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 200)
+	build_path = /obj/item/device/healthanalyzer
+	sort_string = "MBCAF"
+
 /datum/design/item/medical/robot_scanner
 	desc = "A hand-held scanner able to diagnose robotic injuries."
 	id = "robot_scanner"
@@ -54,7 +63,7 @@
 	id = "splitbeaker"
 	req_tech = list(TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
-	build_path = /obj/item/weapon/reagent_containers/glass/beaker/noreact
+	build_path = /obj/item/reagent_containers/glass/beaker/noreact
 	sort_string = "MADAA"
 
 /datum/design/item/beaker/bluespace
@@ -63,7 +72,7 @@
 	id = "bluespacebeaker"
 	req_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, "phoron" = 3000, "diamond" = 500)
-	build_path = /obj/item/weapon/reagent_containers/glass/beaker/bluespace
+	build_path = /obj/item/reagent_containers/glass/beaker/bluespace
 	sort_string = "MADAB"
 
 /datum/design/item/medical/nanopaste
@@ -80,7 +89,7 @@
 	id = "scalpel_laser1"
 	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2, TECH_MAGNET = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500)
-	build_path = /obj/item/weapon/scalpel/laser1
+	build_path = /obj/item/scalpel/laser1
 	sort_string = "MBBAA"
 
 /datum/design/item/scalpel_laser2
@@ -89,7 +98,7 @@
 	id = "scalpel_laser2"
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 4, TECH_MAGNET = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 2500)
-	build_path = /obj/item/weapon/scalpel/laser2
+	build_path = /obj/item/scalpel/laser2
 	sort_string = "MBBAB"
 
 /datum/design/item/scalpel_laser3
@@ -98,7 +107,7 @@
 	id = "scalpel_laser3"
 	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 6, TECH_MAGNET = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 2000, "gold" = 1500)
-	build_path = /obj/item/weapon/scalpel/laser3
+	build_path = /obj/item/scalpel/laser3
 	sort_string = "MBBAC"
 
 /datum/design/item/scalpel_manager
@@ -107,7 +116,7 @@
 	id = "scalpel_manager"
 	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 7, TECH_MAGNET = 5, TECH_DATA = 4)
 	materials = list (DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 1500, "gold" = 1500, "diamond" = 750)
-	build_path = /obj/item/weapon/scalpel/manager
+	build_path = /obj/item/scalpel/manager
 	sort_string = "MBBAD"
 
 /datum/design/item/medical/inhaler
@@ -116,7 +125,7 @@
 	id = "inhaler"
 	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000)
-	build_path = /obj/item/weapon/personal_inhaler
+	build_path = /obj/item/personal_inhaler
 	sort_string = "MBCAA"
 
 /datum/design/item/medical/inhaler_combat
@@ -125,7 +134,7 @@
 	id = "inhaler_combat"
 	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4 )
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 3000, "silver" = 1500)
-	build_path = /obj/item/weapon/personal_inhaler/combat
+	build_path = /obj/item/personal_inhaler/combat
 	sort_string = "MBCAB"
 
 /datum/design/item/medical/inhaler_cartridge_small
@@ -134,7 +143,7 @@
 	id = "inhaler_cartridge_small"
 	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500)
-	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge
+	build_path = /obj/item/reagent_containers/personal_inhaler_cartridge
 	sort_string = "MBCAC"
 
 /datum/design/item/medical/inhaler_cartridge_large
@@ -143,7 +152,7 @@
 	id = "inhaler_cartridge_large"
 	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500, "silver" = 500)
-	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/large
+	build_path = /obj/item/reagent_containers/personal_inhaler_cartridge/large
 	sort_string = "MBCAD"
 
 /datum/design/item/medical/inhaler_cartridge_bluespace
@@ -152,5 +161,5 @@
 	id = "inhaler_cartridge_bluespace"
 	req_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6, TECH_BIO = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, "phoron" = 3000, "diamond" = 500)
-	build_path = /obj/item/weapon/reagent_containers/personal_inhaler_cartridge/bluespace
+	build_path = /obj/item/reagent_containers/personal_inhaler_cartridge/bluespace
 	sort_string = "MBCAE"

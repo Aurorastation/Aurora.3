@@ -23,22 +23,22 @@
 		if(istype(W, /obj/item/clothing/glasses/material) || istype (W,/obj/item/clothing/glasses/meson))
 			outcome_path = /obj/item/rig_module/vision/meson
 
-		if(istype(W, /obj/item/weapon/tank/jetpack))
+		if(istype(W, /obj/item/tank/jetpack))
 			outcome_path = /obj/item/rig_module/maneuvering_jets
 
-		if(istype(W, /obj/item/weapon/mining_scanner))
+		if(istype(W, /obj/item/mining_scanner))
 			outcome_path = /obj/item/rig_module/device/orescanner
 
-		if(istype(W, /obj/item/weapon/pickaxe/drill))
+		if(istype(W, /obj/item/pickaxe/drill))
 			outcome_path = /obj/item/rig_module/device/basicdrill
 
-		if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+		if(istype(W, /obj/item/gun/energy/plasmacutter))
 			outcome_path = /obj/item/rig_module/mounted/plasmacutter
 
-		if(istype(W, /obj/item/weapon/pickaxe/diamond))
+		if(istype(W, /obj/item/pickaxe/diamond))
 			outcome_path = /obj/item/rig_module/device/drill
 
-		if(istype(W, /obj/item/weapon/gun/energy/vaurca/thermaldrill))
+		if(istype(W, /obj/item/gun/energy/vaurca/thermaldrill))
 			outcome_path = /obj/item/rig_module/mounted/thermalldrill
 
 		if(!outcome_path)

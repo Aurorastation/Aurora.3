@@ -26,17 +26,15 @@ datum/event/viral_infection/setup()
 
 datum/event/viral_infection/announce()
 
-	var/disease_name = generated_disease ? generated_disease.generated_name : pick("Xenomorph Transformation", "Wizarditis", "GBS", "The Rhumba Beat")
-
 	var/announcement_body
 	var/announcement_title
 
 	if(!generated_disease || generated_disease.dangerous)
 		announcement_title = "High Risk Viral Outbreak"
-		announcement_body = "Confirmed outbreak of level 7 viral infection classification \"[disease_name]\". Failure to contain outbreak and comply with official orders may result in contract termination and/or death."
+		announcement_body = "Confirmed outbreak of level 7 viral infection. Failure to contain outbreak and comply with official orders may result in contract termination and/or death."
 	else
 		announcement_title = "Viral Outbreak"
-		announcement_body = "Confirmed outbreak of level 5 viral infection classification \"[disease_name]\". Please report to the medbay if you show any unusual symptoms."
+		announcement_body = "Confirmed outbreak of level 5 viral infection. Please report to the medbay if you show any unusual symptoms."
 
 	command_announcement.Announce(announcement_body, announcement_title)
 
@@ -45,7 +43,7 @@ datum/event/viral_infection/start()
 	for(var/mob/living/carbon/human/H in player_list)
 		if(H.mind && H.stat != DEAD && H.is_client_active(5) && !player_is_antag(H.mind))
 			var/turf/T = get_turf(H)
-			if(T.z in current_map.station_levels)
+			if(isStationLevel(T.z))
 				candidates += H
 	if(!candidates.len)	return
 	candidates = shuffle(candidates)

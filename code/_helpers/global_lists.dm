@@ -1,5 +1,5 @@
 var/list/clients = list()							//list of all clients
-var/list/admins = list()							//list of all clients whom are admins
+var/list/staff = list()							//list of all clients who have any permissions
 var/list/directory = list()							//list of all ckeys with associated client
 
 //Since it didn't really belong in any other category, I'm putting this here
@@ -56,6 +56,7 @@ var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
+
 	//Underwear
 var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "Boxers" = "boxers", "Green and blue boxers" = "boxers_green_and_blue","Loveheart boxers" = "boxers_loveheart","None") //Curse whoever made male/female underwear diffrent colours
 var/global/list/underwear_f = list("Red" = "f1", "White" = "f2", "Yellow" = "f3", "Blue" = "f4", "Black" = "f5", "Thong" = "f6", "Black Sports" = "f7","White Sports" = "f8","None")
@@ -91,7 +92,6 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/
 // Visual nets
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
-var/datum/visualnet/cult/cultnet = new()
 
 // Runes
 var/global/list/rune_list = new()
@@ -209,7 +209,6 @@ var/global/list/cloaking_devices = list()
 	for(var/T in paths)
 		var/datum/poster/P = new T
 		poster_designs += P
-
 
 	return 1
 

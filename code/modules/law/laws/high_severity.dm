@@ -77,3 +77,10 @@
 	min_brig_time = 30
 	max_brig_time = 90
 
+/datum/law/high_severity/automacide
+	name = "i310 - Automacide"
+	desc = "To willfully, unlawfully and permanently terminate a free positronic intelligence."
+	id = "i310"
+
+	min_brig_time = 20
+	max_brig_time = 90

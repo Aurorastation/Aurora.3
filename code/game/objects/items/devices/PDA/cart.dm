@@ -1,7 +1,7 @@
-/obj/item/weapon/cartridge
+/obj/item/cartridge
 	name = "generic cartridge"
 	desc = "A data cartridge for portable microcomputers."
-	icon = 'icons/obj/pda.dmi'
+	icon = 'icons/obj/cartridge.dmi'
 	icon_state = "cart"
 	item_state = "electronic"
 	w_class = 1
@@ -25,114 +25,113 @@
 	var/charges = 0
 	var/mode = null
 	var/menu
-	var/datum/data/record/active1 = null //General
-	var/datum/data/record/active2 = null //Medical
-	var/datum/data/record/active3 = null //Security
+	var/datum/record/general/active = null //General
+	var/list/listify_cache
 	var/selected_sensor = null // Power Sensor
 	var/message1	// used for status_displays
 	var/message2
 	var/list/stored_data = list()
 
-/obj/item/weapon/cartridge/Destroy()
+/obj/item/cartridge/Destroy()
 	QDEL_NULL(radio)
 	return ..()
 
-/obj/item/weapon/cartridge/engineering
+/obj/item/cartridge/engineering
 	name = "\improper Power-ON cartridge"
 	icon_state = "cart-e"
 	access_engine = 1
 
-/obj/item/weapon/cartridge/atmos
+/obj/item/cartridge/atmos
 	name = "\improper BreatheDeep cartridge"
 	icon_state = "cart-a"
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/medical
+/obj/item/cartridge/medical
 	name = "\improper Med-U cartridge"
 	icon_state = "cart-m"
 	access_medical = 1
 
-/obj/item/weapon/cartridge/chemistry
+/obj/item/cartridge/chemistry
 	name = "\improper ChemWhiz cartridge"
 	icon_state = "cart-chem"
 	access_reagent_scanner = 1
 
-/obj/item/weapon/cartridge/security
+/obj/item/cartridge/security
 	name = "\improper R.O.B.U.S.T. cartridge"
 	icon_state = "cart-s"
 	access_security = 1
 
-/obj/item/weapon/cartridge/security/Initialize()
+/obj/item/cartridge/security/Initialize()
 	. = ..()
 	radio = new /obj/item/radio/integrated/beepsky(src)
 
-/obj/item/weapon/cartridge/detective
+/obj/item/cartridge/detective
 	name = "\improper D.E.T.E.C.T. cartridge"
 	icon_state = "cart-s"
 	access_security = 1
 	access_medical = 1
 
 
-/obj/item/weapon/cartridge/janitor
+/obj/item/cartridge/janitor
 	name = "\improper CustodiPRO cartridge"
 	desc = "The ultimate in clean-room design."
 	icon_state = "cart-j"
 	access_janitor = 1
 
-/obj/item/weapon/cartridge/lawyer
+/obj/item/cartridge/lawyer
 	name = "\improper P.R.O.V.E. cartridge"
 	icon_state = "cart-s"
 	access_security = 1
 
-/obj/item/weapon/cartridge/clown
+/obj/item/cartridge/clown
 	name = "\improper Honkworks 5.0 cartridge"
 	icon_state = "cart-clown"
 	access_clown = 1
 	charges = 5
 
-/obj/item/weapon/cartridge/mime
+/obj/item/cartridge/mime
 	name = "\improper Gestur-O 1000 cartridge"
 	icon_state = "cart-mi"
 	access_mime = 1
 	charges = 5
 /*
-/obj/item/weapon/cartridge/botanist
+/obj/item/cartridge/botanist
 	name = "Green Thumb v4.20"
 	icon_state = "cart-b"
 	access_flora = 1
 */
 
-/obj/item/weapon/cartridge/signal
+/obj/item/cartridge/signal
 	name = "generic signaler cartridge"
 	desc = "A data cartridge with an integrated radio signaler module."
 
-/obj/item/weapon/cartridge/signal/science
+/obj/item/cartridge/signal/science
 	name = "\improper Signal Ace 2 cartridge"
 	desc = "Complete with integrated radio signaler!"
 	icon_state = "cart-tox"
 	access_reagent_scanner = 1
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/signal/Initialize()
+/obj/item/cartridge/signal/Initialize()
     . = ..()
     radio = new /obj/item/radio/integrated/signal(src)
 
-/obj/item/weapon/cartridge/quartermaster
+/obj/item/cartridge/quartermaster
 	name = "\improper Space Parts & Space Vendors cartridge"
 	desc = "Perfect for the Quartermaster on the go!"
 	icon_state = "cart-q"
 	access_quartermaster = 1
 
-/obj/item/weapon/cartridge/quartermaster/Initialize()
+/obj/item/cartridge/quartermaster/Initialize()
 	. = ..()
 	radio = new /obj/item/radio/integrated/mule(src)
 
-/obj/item/weapon/cartridge/head
+/obj/item/cartridge/head
 	name = "\improper Easy-Record DELUXE"
 	icon_state = "cart-h"
 	access_status_display = 1
 
-/obj/item/weapon/cartridge/hop
+/obj/item/cartridge/hop
 	name = "\improper HumanResources9001 cartridge"
 	icon_state = "cart-h"
 	access_status_display = 1
@@ -140,46 +139,46 @@
 	access_janitor = 1
 	access_security = 1
 
-/obj/item/weapon/cartridge/hop/Initialize()
+/obj/item/cartridge/hop/Initialize()
 	. = ..()
 	radio = new /obj/item/radio/integrated/mule(src)
 
-/obj/item/weapon/cartridge/hos
+/obj/item/cartridge/hos
 	name = "\improper R.O.B.U.S.T. DELUXE"
 	icon_state = "cart-hos"
 	access_status_display = 1
 	access_security = 1
 
-/obj/item/weapon/cartridge/hos/Initialize()
+/obj/item/cartridge/hos/Initialize()
 	. = ..()
 	radio = new /obj/item/radio/integrated/beepsky(src)
 
-/obj/item/weapon/cartridge/ce
+/obj/item/cartridge/ce
 	name = "\improper Power-On DELUXE"
 	icon_state = "cart-ce"
 	access_status_display = 1
 	access_engine = 1
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/cmo
+/obj/item/cartridge/cmo
 	name = "\improper Med-U DELUXE"
 	icon_state = "cart-cmo"
 	access_status_display = 1
 	access_reagent_scanner = 1
 	access_medical = 1
 
-/obj/item/weapon/cartridge/rd
+/obj/item/cartridge/rd
 	name = "\improper Signal Ace DELUXE"
 	icon_state = "cart-rd"
 	access_status_display = 1
 	access_reagent_scanner = 1
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/rd/Initialize()
+/obj/item/cartridge/rd/Initialize()
 	. = ..()
 	radio = new /obj/item/radio/integrated/signal(src)
 
-/obj/item/weapon/cartridge/captain
+/obj/item/cartridge/captain
 	name = "\improper Value-PAK cartridge"
 	desc = "Now with 200% more value!"
 	icon_state = "cart-c"
@@ -192,7 +191,7 @@
 	access_status_display = 1
 	access_atmos = 1
 
-/obj/item/weapon/cartridge/syndicate
+/obj/item/cartridge/syndicate
 	name = "\improper Detomatix cartridge"
 	icon_state = "cart"
 	access_remote_door = 1
@@ -200,7 +199,7 @@
 	remote_door_id = "smindicate" //Make sure this matches the syndicate shuttle's shield/door id!!	//don't ask about the name, testing.
 	charges = 4
 
-/obj/item/weapon/cartridge/proc/post_status(var/command, var/data1, var/data2)
+/obj/item/cartridge/proc/post_status(var/command, var/data1, var/data2)
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(1435)
 	if(!frequency) return
@@ -237,7 +236,7 @@
 */
 
 
-/obj/item/weapon/cartridge/proc/create_NanoUI_values(mob/user as mob)
+/obj/item/cartridge/proc/create_NanoUI_values(mob/user as mob)
 	var/values[0]
 
 	/*		Signaler (Mode: 40)				*/
@@ -274,8 +273,12 @@
 
 	/*		General Records (Mode: 44 / 441 / 45 / 451)	*/
 	if(mode == 44 || mode == 441 || mode == 45 || mode ==451)
-		if(istype(active1, /datum/data/record) && (active1 in data_core.general))
-			values["general"] = active1.fields
+		if(istype(active, /datum/record/general) && (active in SSrecords.records))
+			LAZYINITLIST(listify_cache)
+			if(listify_cache["type"] != RECORD_GENERAL)
+				listify_cache["type"] = RECORD_GENERAL
+				listify_cache["data"] = active.Listify()
+			values["general"] = listify_cache["data"]
 			values["general_exists"] = 1
 
 		else
@@ -287,12 +290,17 @@
 
 	if(mode == 44 || mode == 441)
 		var/medData[0]
-		for(var/datum/data/record/R in sortRecord(data_core.general))
-			medData[++medData.len] = list(Name = R.fields["name"],"ref" = "\ref[R]")
+		for(var/datum/record/general/R in sortRecord(SSrecords.records))
+			medData += list(list(Name = R.name,"ref" = "\ref[R]"))
 		values["medical_records"] = medData
 
-		if(istype(active2, /datum/data/record) && (active2 in data_core.medical))
-			values["medical"] = active2.fields
+		if(istype(active, /datum/record/general) && (active in SSrecords.records) && istype(active.medical, /datum/record/medical))
+			LAZYINITLIST(listify_cache)
+			if(listify_cache["type"] != RECORD_MEDICAL)
+				listify_cache["type"] = RECORD_MEDICAL
+				listify_cache["data"] = active.Listify(0)
+				listify_cache["data"] += active.medical.Listify()
+			values["medical"] = listify_cache["data"]
 			values["medical_exists"] = 1
 		else
 			values["medical_exists"] = 0
@@ -301,12 +309,17 @@
 
 	if(mode == 45 || mode == 451)
 		var/secData[0]
-		for (var/datum/data/record/R in sortRecord(data_core.general))
-			secData[++secData.len] = list(Name = R.fields["name"], "ref" = "\ref[R]")
+		for(var/datum/record/general/R in sortRecord(SSrecords.records))
+			secData += list(list(Name = R.name,"ref" = "\ref[R]"))
 		values["security_records"] = secData
 
-		if(istype(active3, /datum/data/record) && (active3 in data_core.security))
-			values["security"] = active3.fields
+		if(istype(active, /datum/record/general) && (active in SSrecords.records) && istype(active.security, /datum/record/security))
+			LAZYINITLIST(listify_cache)
+			if(listify_cache["type"] != RECORD_SECURITY)
+				listify_cache["type"] = RECORD_SECURITY
+				listify_cache["data"] = active.Listify(0)
+				listify_cache["data"] += active.security.Listify()
+			values["security"] = listify_cache["data"]
 			values["security_exists"] = 1
 		else
 			values["security_exists"] = 0
@@ -419,7 +432,7 @@
 		else
 			JaniData["user_loc"] = list("x" = 0, "y" = 0)
 		var/MopData[0]
-		for(var/obj/item/weapon/mop/M in global.janitorial_supplies)
+		for(var/obj/item/mop/M in global.janitorial_supplies)
 			var/turf/ml = get_turf(M)
 			if(ml)
 				if(ml.z != cl.z)
@@ -473,7 +486,7 @@
 	return values
 
 
-/obj/item/weapon/cartridge/Topic(href, href_list)
+/obj/item/cartridge/Topic(href, href_list)
 	..()
 
 	if (!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
@@ -486,30 +499,18 @@
 
 	switch(href_list["choice"])
 		if("Medical Records")
-			var/datum/data/record/R = locate(href_list["target"])
-			var/datum/data/record/M = locate(href_list["target"])
+			var/datum/record/general/R = locate(href_list["target"])
 			loc:mode = 441
 			mode = 441
-			if (R in data_core.general)
-				for (var/datum/data/record/E in data_core.medical)
-					if ((E.fields["name"] == R.fields["name"] || E.fields["id"] == R.fields["id"]))
-						M = E
-						break
-				active1 = R
-				active2 = M
+			if ((R in SSrecords.records) && istype(R))
+				active = R
 
 		if("Security Records")
-			var/datum/data/record/R = locate(href_list["target"])
-			var/datum/data/record/S = locate(href_list["target"])
+			var/datum/record/general/R = locate(href_list["target"])
 			loc:mode = 451
 			mode = 451
-			if (R in data_core.general)
-				for (var/datum/data/record/E in data_core.security)
-					if ((E.fields["name"] == R.fields["name"] || E.fields["id"] == R.fields["id"]))
-						S = E
-						break
-				active1 = R
-				active3 = S
+			if ((R in SSrecords.records) && istype(R))
+				active = R
 
 		if("Send Signal")
 			spawn( 0 )

@@ -123,9 +123,9 @@
 	else if(!enabled && screen_on)
 		turn_on(user)
 
-/obj/item/modular_computer/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/weapon/card/id)) // ID Card, try to insert it.
-		var/obj/item/weapon/card/id/I = W
+/obj/item/modular_computer/attackby(var/obj/item/W as obj, var/mob/user as mob)
+	if(istype(W, /obj/item/card/id)) // ID Card, try to insert it.
+		var/obj/item/card/id/I = W
 		if(!card_slot)
 			to_chat(user, "You try to insert \the [I] into \the [src], but it does not have an ID card slot installed.")
 			return
@@ -138,16 +138,16 @@
 		update_uis()
 		to_chat(user, "You insert \the [I] into \the [src].")
 		return
-	if(istype(W, /obj/item/weapon/paper))
+	if(istype(W, /obj/item/paper))
 		if(!nano_printer)
 			return
 		nano_printer.attackby(W, user)
-	if(istype(W, /obj/item/weapon/aicard))
+	if(istype(W, /obj/item/aicard))
 		if(!ai_slot)
 			return
 		ai_slot.attackby(W, user)
-	if(istype(W, /obj/item/weapon/computer_hardware))
-		var/obj/item/weapon/computer_hardware/C = W
+	if(istype(W, /obj/item/computer_hardware))
+		var/obj/item/computer_hardware/C = W
 		if(C.hardware_size <= max_hardware_size)
 			try_install_component(user, C)
 		else
@@ -158,8 +158,8 @@
 			to_chat(user, "Remove all components from \the [src] before disassembling it.")
 			return
 		to_chat(user, span("notice", "You begin to disassemble \the [src]."))
-		playsound(user, 'sound/items/Ratchet.ogg', 100, 1)
-		if (do_after(user, 20))
+		playsound(user, W.usesound, 100, 1)
+		if (do_after(user, 20/W.toolspeed))
 			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
 			src.visible_message("\The [user] disassembles \the [src].",
 				"You disassemble \the [src].",
@@ -167,7 +167,7 @@
 			qdel(src)
 		return
 	if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(!WT.isOn())
 			to_chat(user, "\The [W] is off.")
 			return
@@ -181,6 +181,7 @@
 		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10))
 			damage = 0
 			to_chat(user, "You repair \the [src].")
+		update_icon()
 		return
 
 	if(W.isscrewdriver())
@@ -189,7 +190,7 @@
 			to_chat(user, "This device doesn't have any components installed.")
 			return
 		var/list/component_names = list()
-		for(var/obj/item/weapon/computer_hardware/H in all_components)
+		for(var/obj/item/computer_hardware/H in all_components)
 			component_names.Add(H.name)
 
 		var/choice = input(usr, "Which component do you want to uninstall?", "Computer maintenance", null) as null|anything in component_names
@@ -200,7 +201,7 @@
 		if(!Adjacent(usr))
 			return
 
-		var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(choice)
+		var/obj/item/computer_hardware/H = find_hardware_by_name(choice)
 
 		if(!H)
 			return

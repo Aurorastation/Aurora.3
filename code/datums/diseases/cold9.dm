@@ -3,8 +3,8 @@
 	max_stages = 3
 	spread = "On contact"
 	spread_type = CONTACT_GENERAL
-	cure = "Common Cold Anti-bodies & Spaceacillin"
-	cure_id = "spaceacillin"
+	cure = "Common Cold Anti-bodies & Deltamivir"
+	cure_id = "deltamivir"
 	agent = "ICE9-rhinovirus"
 	affected_species = list("Human")
 	desc = "If left untreated the subject will slow, as if partly frozen."

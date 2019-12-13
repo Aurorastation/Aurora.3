@@ -17,7 +17,7 @@
 	var/base_icon = "ladder"
 
 	var/const/climb_time = 2 SECONDS
-	var/static/list/climbsounds = list('sound/effects/ladder.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
+	var/static/list/climbsounds = list('sound/effects/ladder1.ogg','sound/effects/ladder2.ogg','sound/effects/ladder3.ogg','sound/effects/ladder4.ogg')
 
 /obj/structure/ladder/Initialize()
 	. = ..()
@@ -56,7 +56,7 @@
 	if(!target_ladder)
 		return
 
-	var/obj/item/weapon/grab/G = M.l_hand
+	var/obj/item/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
 
@@ -136,6 +136,9 @@
 	if(istype(target_ladder, target_down))
 		direction = DOWN
 	if(!LAD.CanZPass(M, direction))
+		to_chat(M, "<span class='notice'>\The [LAD] is blocking \the [src].</span>")
+		return FALSE
+	if(!T.CanZPass(M, direction))
 		to_chat(M, "<span class='notice'>\The [T] is blocking \the [src].</span>")
 		return FALSE
 	for(var/atom/A in T)
@@ -144,7 +147,7 @@
 			return FALSE
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
-	var/obj/item/weapon/grab/G = M.l_hand
+	var/obj/item/grab/G = M.l_hand
 	if (!istype(G))
 		G = M.r_hand
 	if (istype(G))

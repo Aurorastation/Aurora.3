@@ -136,7 +136,7 @@
 		if("announce")
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 				if(user)
-					var/obj/item/weapon/card/id/id_card = user.GetIdCard()
+					var/obj/item/card/id/id_card = user.GetIdCard()
 					crew_announcement.announcer = GetNameAndAssignmentFromId(id_card)
 				else
 					crew_announcement.announcer = "Unknown"
@@ -144,7 +144,7 @@
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					SSnanoui.update_uis(src)
 					return
-				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|text
+				var/input = input(usr, "Please write a message to announce to the station crew.", "Priority Announcement") as null|message
 				if(!input || !can_still_topic())
 					SSnanoui.update_uis(src)
 					return
@@ -297,7 +297,7 @@ var/last_message_id = 0
 		if(computer && computer.working && !!computer.nano_printer)
 			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
 			if(C && C.intercept)
-				computer.nano_printer.print_text(message_text, message_title)
+				computer.nano_printer.print_text(message_text, message_title, "#deebff")
 
 
 /datum/comm_message_listener
@@ -368,10 +368,6 @@ Command action procs
 		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
 		return 0
 
-	if(deathsquad.deployed)
-		to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
-		return 0
-
 	if(emergency_shuttle.deny_shuttle)
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
@@ -414,10 +410,6 @@ Command action procs
 	if(!force)
 		if(emergency_shuttle.deny_shuttle)
 			to_chat(user, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later.")
-			return
-
-		if(deathsquad.deployed == 1)
-			to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 			return
 
 		if(world.time < 54000) // 30 minute grace period to let the game get going

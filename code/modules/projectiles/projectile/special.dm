@@ -15,7 +15,7 @@
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
 		var/mob/living/carbon/human/H = A
-		var/obj/item/organ/surge/s = H.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -274,3 +274,33 @@
 
 /obj/item/projectile/magic/teleport/proc/blink_mob(mob/living/L)
 	do_teleport(L, get_turf(L), blink_range, asoundin = 'sound/effects/phasein.ogg')
+
+/obj/item/projectile/plasma
+	name = "plasma slug"
+	icon_state = "plasma_bolt"
+	damage = 25
+	damage_type = BRUTE
+	check_armour = "energy"
+	incinerate = 10
+	armor_penetration = 20
+	penetrating = 1
+
+/obj/item/projectile/plasma/light
+	name = "plasma bolt"
+	damage = 10
+	armor_penetration = 10
+	incinerate = 5
+
+/obj/item/missile
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "missile"
+	var/primed = null
+	throwforce = 15
+
+/obj/item/missile/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 0, 1, 2, 4)
+		qdel(src)
+	else
+		..()
+	return

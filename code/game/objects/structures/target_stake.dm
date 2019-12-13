@@ -2,7 +2,7 @@
 /obj/structure/target_stake
 	name = "target stake"
 	desc = "A thin platform with negatively-magnetized wheels."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/target_stake.dmi'
 	icon_state = "target_stake"
 	density = 1
 	w_class = 5

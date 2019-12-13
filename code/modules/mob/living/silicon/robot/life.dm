@@ -19,6 +19,7 @@
 		process_killswitch()
 		process_locks()
 		process_queued_alarms()
+		process_level_restrictions()
 	update_canmove()
 
 /mob/living/silicon/robot/proc/clamp_values()
@@ -297,7 +298,7 @@
 	if (src.client)
 		src.client.screen -= src.contents
 		for(var/obj/I in src.contents)
-			if(I && !(istype(I,/obj/item/weapon/cell) || istype(I,/obj/item/device/radio)  || istype(I,/obj/machinery/camera) || istype(I,/obj/item/device/mmi)))
+			if(I && !(istype(I,/obj/item/cell) || istype(I,/obj/item/device/radio)  || istype(I,/obj/machinery/camera) || istype(I,/obj/item/device/mmi)))
 				src.client.screen += I
 	if(src.module_state_1)
 		src.module_state_1:screen_loc = ui_inv1
@@ -331,6 +332,19 @@
 	if(paralysis || stunned || weakened || buckled || lockcharge || !is_component_functioning("actuator")) canmove = 0
 	else canmove = 1
 	return canmove
+
+/mob/living/silicon/robot/proc/process_level_restrictions()
+	//Abort if they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	//Check if they are on a player level -> abort
+	var/turf/T = get_turf(src)
+	if (!T || isStationLevel(T.z))
+		return
+	//If they are on centcom -> abort
+	if (istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
+		return
+	self_destruct(TRUE)
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))

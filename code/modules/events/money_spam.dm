@@ -72,6 +72,7 @@
 					"Better Business Bureau",\
 					"Tau Ceti E-Payments",\
 					"NAnoTransen Finance Deparmtent",\
+					"IDrist Corp",\
 					"Luxury Replicas")
 					message = pick("Luxury watches for Blowout sale prices!",\
 					"Watches, Jewelry & Accessories, Bags & Wallets !",\
@@ -79,9 +80,10 @@
 					" 100K NT.|WOWGOLD õnly $89            <HOT>",\
 					"We have been filed with a complaint from one of your customers in respect of their business relations with you.",\
 					"We kindly ask you to open the COMPLAINT REPORT (attached) to reply on this complaint..",\
-					"Thizzz izz the NT bank, we need your pazzzword, plzzz click here.",\
-					"Your NT Account has been Limited! Click here for more informtion",\
+					"Thizzz izz the Idrizz bank, we need your pazzzword, plzzz click here.",\
+					"Your Idris Account has been Limited! Click here for more informtion",\
 					"Your password has been upated. Please click to confirm.",\
+					"This is the Reclamation Unit bureau. We ask that you reply or a unit will be sent to your location.",\
 					"This staff assistant is making mad credits and basically, you're fucking stupid. How? ...Just Watch The Free Video >")
 
 				if(4)
@@ -98,7 +100,7 @@
 					sender = pick("Dr","Crown prince","King Regent","Professor","Captain")
 					sender += " " + pick("Robert","Alfred","Josephat","Kingsley","Sehi","Zbahi")
 					sender += " " + pick("Mugawe","Nkem","Gbatokwia","Nchekwube","Ndim","Ndubisi")
-					message = pick("YOUR FUND HAS BEEN MOVED TO [pick("Sol","Biesel","Dominia","Elyra","Qerrbalak","Adhomai","NTCC Odin","Hephaestus","Kentucky")] DEVELOPMENTARY BANK FOR ONWARD REMITTANCE.",\
+					message = pick("YOUR FUND HAS BEEN MOVED TO [pick("Sol","Biesel","Dominia","Elyra","Qerrbalak","Adhomai","NTCC Odin","Hephaestus","NSS Upsilon")] DEVELOPMENTARY BANK FOR ONWARD REMITTANCE.",\
 					"We are happy to inform you that due to the delay, we have been instructed to IMMEDIATELY deposit all funds into your account",\
 					"Dear fund beneficiary, We have please to inform you that overdue funds payment has finally been approved and released for payment",\
 					"Due to my lack of agents I require an off-world financial account to immediately deposit the sum of 1 POINT FIVE MILLION credits.",\
@@ -109,6 +111,10 @@
 					"www.badkitty.nt",\
 					"www.scalesnstuff.nt",\
 					"www.spacelube.nt",\
+					"www.pervertedprogramming.nt",\
+					"www.risquerobots.tc",\
+					"www.clanked.tc",\
+					"www.filledsockets.tc",\
 					"www.hivenetmingle.nt")
 					sender = pick("[current_map.company_name] Morale Divison",\
 					"Feeling Lonely?",\
@@ -117,6 +123,7 @@
 					message = pick("The [current_map.company_name] Morale Division wishes to provide you with quality entertainment sites.",\
 					"[pornography] is a xenophillic website endorsed by NT for the use of male crewmembers among it's many stations and outposts.",\
 					"[pornography] only provides the higest quality of male entertaiment to [current_map.company_name] Employees.",\
+					"district14.nt : Find local Scrapheap babes near your area. Click to learn more.",\
 					"Simply enter your [current_map.company_name] Bank account system number and pin. With three easy steps this service could be yours!",
 					"Warning! Your connection is not private. Attackers might be trying to steal your information from [pornography] (for example, passwords, messages, or credit cards). Click to learn more.")
 

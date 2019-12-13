@@ -18,6 +18,8 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_sounds = list()
+	var/sound_time = TRUE
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
@@ -104,8 +106,31 @@
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
+	var/has_udder = FALSE
+	var/datum/reagents/udder = null
+	var/milk_type = "milk"
+
+	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+
 /mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
 	visible_emote("gazes longingly at [holder]'s [thing]",0)
+
+/mob/living/simple_animal/proc/steal_food(var/obj/item/reagent_containers/food/snacks/F, var/mob/living/carbon/human/H)
+	if(!F || !H)
+		return
+	H.visible_message(
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
+						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
+	)
+	H.drop_from_inventory(F)
+	UnarmedAttack(F)
+	if (get_turf(F) == loc)
+		set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
+
+/mob/living/simple_animal/proc/update_nutrition_stats()
+	nutrition_step = mob_size * 0.03 * metabolic_factor
+	bite_factor = mob_size * 0.3
+	max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
 
 /mob/living/simple_animal/Initialize()
 	. = ..()
@@ -115,9 +140,7 @@
 	verbs -= /mob/verb/observe
 	health = maxHealth
 	if (mob_size)
-		nutrition_step = mob_size * 0.03 * metabolic_factor
-		bite_factor = mob_size * 0.3
-		max_nutrition *= 1 + (nutrition_step*4)//Max nutrition scales faster than costs, so bigger creatures eat less often
+		update_nutrition_stats()
 		reagents = new/datum/reagents(stomach_size_mult*mob_size, src)
 	else
 		reagents = new/datum/reagents(20, src)
@@ -125,6 +148,10 @@
 
 	if (can_nap)
 		verbs += /mob/living/simple_animal/lay_down
+
+	if(has_udder)
+		udder = new(50)
+		udder.my_atom = src
 
 /mob/living/simple_animal/Move(NewLoc, direct)
 	. = ..()
@@ -177,6 +204,7 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
+	autoseek_food = nutrition / max_nutrition <= 0.05 ? TRUE : initial(autoseek_food)
 	process_food()
 
 	//Movement
@@ -223,6 +251,12 @@
 
 	if(!atmos_suitable)
 		apply_damage(unsuitable_atoms_damage, OXY, used_weapon = "Atmosphere")
+
+	if(has_udder)
+		if(stat == CONSCIOUS)
+			if(udder && prob(5))
+				udder.add_reagent(milk_type, rand(5, 10))
+
 	return 1
 
 /mob/living/simple_animal/think()
@@ -304,12 +338,12 @@
 				var/datum/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
-				if (bruteloss > 0)
-					var/n = min(heal_amount, bruteloss)
+				if (getBruteLoss() > 0)
+					var/n = min(heal_amount, getBruteLoss())
 					adjustBruteLoss(-n)
 					heal_amount -= n
-				if (fireloss && heal_amount)
-					var/n = min(heal_amount, fireloss)
+				if (getFireLoss() && heal_amount)
+					var/n = min(heal_amount, getFireLoss())
 					adjustFireLoss(-n)
 					heal_amount -= n
 				updatehealth()
@@ -374,7 +408,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			if (!attempt_grab(M))
 				return
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
 			M.put_in_active_hand(G)
 
@@ -395,19 +429,32 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
+	if(has_udder)
+		var/obj/item/reagent_containers/glass/G = O
+		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
+			if(udder.total_volume <= 0)
+				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				return
+			if(G.reagents.total_volume >= G.volume)
+				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+				return
+			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			udder.trans_id_to(G, milk_type , rand(5,10))
+			return
+
+	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
 		..()
 		poke()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife)|| istype(O, /obj/item/weapon/material/hatchet))
+		if(istype(O, /obj/item/material/knife) || istype(O, /obj/item/material/kitchen/utensil/knife)|| istype(O, /obj/item/material/hatchet))
 			harvest(user)
 	else
 		attacked_with_item(O, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/trap/animal))
+	if(istype(O, /obj/item/trap/animal))
 		O.attack(src, user)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -420,7 +467,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		var/damage = O.force
 		if (O.damtype == HALLOSS)
 			damage = 0
-		if(supernatural && istype(O,/obj/item/weapon/nullrod))
+		if(supernatural && istype(O,/obj/item/nullrod))
 			damage *= 2
 			purge = 3
 
@@ -493,15 +540,36 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		var/mob/living/L = target_mob
 		if(!L.stat)
 			return (0)
-	if (istype(target_mob,/obj/mecha))
-		var/obj/mecha/M = target_mob
-		if (M.occupant)
-			return (0)
-	if (istype(target_mob,/obj/machinery/bot))
+	if (istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		if(B.health > 0)
 			return (0)
+	if(istype(target_mob, /obj/machinery/porta_turret/))
+		var/obj/machinery/porta_turret/T = target_mob
+		if(T.health > 0)
+			return (0)
+	if(istype(target_mob, /obj/effect/energy_field))
+		return (0)
 	return 1
+
+/mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
+	set name = "Resist"
+	set category = "Abilities"
+
+	if((usr && usr.stat == DEAD) || !make_sound)
+		return
+
+	if(usr && !sound_time)
+		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		return
+
+	playsound(src, pick(emote_sounds), 75, 1)
+	if(client)
+		sound_time = FALSE
+		addtimer(CALLBACK(src, .proc/reset_sound_time), 2 SECONDS)
+
+/mob/living/simple_animal/proc/reset_sound_time()
+	sound_time = TRUE
 
 /mob/living/simple_animal/say(var/message)
 	var/verb = "says"
@@ -509,6 +577,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
+	if(emote_sounds.len)
+		var/sound_chance = TRUE
+		if(client) // we do not want people who assume direct control to spam
+			sound_chance = prob(50)
+		make_noise(sound_chance)
 
 	..(message, null, verb)
 
@@ -524,9 +597,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	var/actual_meat_amount = max(1,(meat_amount*0.75))
 	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
 		for(var/i=0;i<actual_meat_amount;i++)
-			var/obj/item/meat = new meat_type(get_turf(src))
-			if (meat.name == "meat")
-				meat.name = "[src.name] [meat.name]"
+			new meat_type(get_turf(src))
+
+		if(butchering_products)
+			for(var/path in butchering_products)
+				var/number = butchering_products[path]
+				for(var/i in 1 to number)
+					new path(get_turf(src))
+
 		if(issmall(src))
 			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
@@ -557,7 +635,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				foodtarget = 0
 				stop_automated_movement = 0
 				if (can_eat())
-					for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,7))
+					for(var/obj/item/reagent_containers/food/snacks/S in oview(src,7))
 						if(isturf(S.loc) || ishuman(S.loc))
 							movement_target = S
 							foodtarget = 1
@@ -565,12 +643,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 					//Look for food in people's hand
 					if (!movement_target && beg_for_food)
-						var/obj/item/weapon/reagent_containers/food/snacks/F = null
+						var/obj/item/reagent_containers/food/snacks/F = null
 						for(var/mob/living/carbon/human/H in oview(src,scan_range))
-							if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							if(istype(H.l_hand, /obj/item/reagent_containers/food/snacks))
 								F = H.l_hand
 
-							if(istype(H.r_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							if(istype(H.r_hand, /obj/item/reagent_containers/food/snacks))
 								F = H.r_hand
 
 							if (F)
@@ -594,8 +672,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 						UnarmedAttack(movement_target)
 						if (get_turf(movement_target) == loc)
 							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(src, get_turf(movement_target)) && prob(10))
-						beg(movement_target, movement_target.loc)
+					else if(ishuman(movement_target.loc) && Adjacent(get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
+						if(nutrition / max_nutrition <= 0.25)
+							steal_food(movement_target, movement_target.loc)
+						else
+							beg(movement_target, movement_target.loc)
 			else
 				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
 
@@ -687,3 +768,20 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/simple_animal/emp_act(severity)
+	if(!isSynthetic())
+		return
+
+	switch(severity)
+		if(1)
+			adjustFireLoss(rand(20, 25))
+		if(2)
+			adjustFireLoss(rand(10, 15))
+		if(3)
+			adjustFireLoss(rand(5, 10))
+		if(4)
+			adjustFireLoss(rand(3, 5))
+
+/mob/living/simple_animal/get_digestion_product()
+	return /datum/reagent/nutriment

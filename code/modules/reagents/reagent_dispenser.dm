@@ -1,7 +1,7 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
 	anchored = 0
@@ -39,7 +39,7 @@
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
 
-	var/obj/item/weapon/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
 
 		var/atype
@@ -54,6 +54,7 @@
 		switch(atype)
 			if ("Fill")
 				RG.standard_dispenser_refill(user,src)
+				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
 			if ("Empty")
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
@@ -87,22 +88,11 @@
 	var/splash_amount = min(amount_per_transfer_from_this,60) //Hard limit of 60 per process
 	reagents.trans_to_turf(get_turf(src),splash_amount)
 
-//Dispensers
-/obj/structure/reagent_dispensers/watertank
-	name = "water tank"
-	desc = "A tank filled with water."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "watertank"
-	amount_per_transfer_from_this = 10
-
-/obj/structure/reagent_dispensers/watertank/Initialize()
-	. = ..()
-	reagents.add_reagent("water",capacity)
+//Fire extinguisher tank
 
 /obj/structure/reagent_dispensers/extinguisher
 	name = "extinguisher tank"
 	desc = "A tank filled with extinguisher fluid."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "extinguisher_tank"
 	amount_per_transfer_from_this = 10
 
@@ -110,10 +100,20 @@
 	. = ..()
 	reagents.add_reagent("monoammoniumphosphate",capacity)
 
+// Tanks
+/obj/structure/reagent_dispensers/watertank
+	name = "water tank"
+	desc = "A tank filled with water."
+	icon_state = "watertank"
+	amount_per_transfer_from_this = 10
+
+/obj/structure/reagent_dispensers/watertank/Initialize()
+	. = ..()
+	reagents.add_reagent("water",capacity)
+
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
 	desc = "A tank filled with a silly amount of lube."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "lubetank"
 	amount_per_transfer_from_this = 10
 
@@ -124,7 +124,6 @@
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank filled with welding fuel."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "weldtank"
 	accept_any_reagent = FALSE
 	amount_per_transfer_from_this = 10
@@ -153,7 +152,7 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
@@ -193,10 +192,10 @@
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		if(istype(Proj.firer))
-			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
+			log_and_message_admins("shot a welding tank", Proj.firer)
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
 			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
@@ -224,78 +223,20 @@
 	..()
 	ex_act(2.0)
 
+//Wall Dispensers
+
 /obj/structure/reagent_dispensers/peppertank
 	name = "pepper spray refiller"
 	desc = "Refill pepper spray canisters."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "peppertank"
 	anchored = 1
 	density = 0
 	amount_per_transfer_from_this = 45
 	can_tamper = FALSE
 
-/obj/structure/reagent_dispensers/peppertank/Initialize()
-	. = ..()
-	reagents.add_reagent("condensedcapsaicin",capacity)
-
-/obj/structure/reagent_dispensers/water_cooler
-	name = "water-cooler"
-	desc = "A machine that dispenses water to drink."
-	amount_per_transfer_from_this = 5
-	icon = 'icons/obj/vending.dmi'
-	icon_state = "water_cooler"
-	possible_transfer_amounts = null
-	anchored = 1
-	capacity = 500
-	can_tamper = FALSE
-
-/obj/structure/reagent_dispensers/water_cooler/Initialize()
-	. = ..()
-	reagents.add_reagent("water",capacity)
-
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
-		src.add_fingerprint(user)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		if(do_after(user, 20))
-			if(!src) return
-			switch (anchored)
-				if (0)
-					anchored = 1
-					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.", "You tighten the screws securing \the [src] to the floor.")
-				if (1)
-					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
-					anchored = 0
-		return
-	else
-		..()
-
-/obj/structure/reagent_dispensers/beerkeg
-	name = "beer keg"
-	desc = "A beer keg"
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "beertankTEMP"
-	amount_per_transfer_from_this = 10
-
-/obj/structure/reagent_dispensers/beerkeg/Initialize()
-	. = ..()
-	reagents.add_reagent("beer",capacity)
-
-/obj/structure/reagent_dispensers/xuizikeg
-	name = "xuizi juice keg"
-	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "keg_xuizi"
-	amount_per_transfer_from_this = 10
-
-/obj/structure/reagent_dispensers/xuizikeg/Initialize()
-	. = ..()
-	reagents.add_reagent("xuizijuice",capacity)
-
 /obj/structure/reagent_dispensers/virusfood
 	name = "virus food dispenser"
 	desc = "A dispenser of virus food."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "virusfoodtank"
 	amount_per_transfer_from_this = 10
 	anchored = 1
@@ -309,7 +250,6 @@
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
 	desc = "A dispenser of acid for industrial processes."
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "acidtank"
 	amount_per_transfer_from_this = 10
 	anchored = 1
@@ -320,11 +260,95 @@
 	. = ..()
 	reagents.add_reagent("sacid", capacity)
 
-//Cooking oil refill tank
+/obj/structure/reagent_dispensers/peppertank/Initialize()
+	. = ..()
+	reagents.add_reagent("condensedcapsaicin",capacity)
+
+//Water Cooler
+
+/obj/structure/reagent_dispensers/water_cooler
+	name = "water cooler"
+	desc = "A machine that dispenses water to drink."
+	amount_per_transfer_from_this = 5
+	icon = 'icons/obj/vending.dmi'
+	icon_state = "water_cooler"
+	possible_transfer_amounts = null
+	anchored = 1
+	capacity = 500
+	can_tamper = FALSE
+
+/obj/structure/reagent_dispensers/water_cooler/Initialize()
+	. = ..()
+	reagents.add_reagent("water",capacity)
+
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
+	if (W.isscrewdriver())
+		src.add_fingerprint(user)
+		playsound(src.loc, W.usesound, 100, 1)
+		if(do_after(user, 20))
+			if(!src) return
+			switch (anchored)
+				if (0)
+					anchored = 1
+					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.", "You tighten the screws securing \the [src] to the floor.")
+				if (1)
+					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.", "You unfasten the screws securing \the [src] to the floor.")
+					anchored = 0
+		return
+	else
+		..()
+
+//Beer Kegs
+
+/obj/structure/reagent_dispensers/keg
+	name = "keg"
+	desc = "An empty keg."
+	icon_state = "beertankTEMP"
+	amount_per_transfer_from_this = 10
+	var/reagentid = "beer"
+	var/filled = FALSE
+
+/obj/structure/reagent_dispensers/keg/Initialize()
+	. = ..()
+	if(filled)
+		reagents.add_reagent(src.reagentid,capacity)
+
+/obj/structure/reagent_dispensers/keg/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = W
+		if(!R.can_use(3)) // like a tripod
+			to_chat(user, span("notice", "You need three rods to make a still!"))
+			return
+		if(do_after(user, 20))
+			if (QDELETED(src))
+				return
+			R.use(3)
+			new /obj/structure/distillery(src.loc)
+			if(reagents)
+				to_chat(user, span("notice", "As you prop the still up on the rods, the reagents inside are spilled. However, you successfully make the still."))
+				reagents.trans_to_turf(get_turf(src), reagents.total_volume)
+			else
+				to_chat(user, span("notice", "You successfully build a still."))
+			qdel(src)
+		return
+	. = ..()
+
+/obj/structure/reagent_dispensers/keg/beerkeg
+	name = "beer keg"
+	desc = "A beer keg"
+	filled = TRUE
+
+/obj/structure/reagent_dispensers/keg/xuizikeg
+	name = "xuizi juice keg"
+	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
+	icon_state = "keg_xuizi"
+	reagentid = "xuizijuice"
+	filled = TRUE
+
+//Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
 	name = "cooking oil tank"
 	desc = "A fifty-litre tank of commercial-grade corn oil, intended for use in large scale deep fryers. Store in a cool, dark place"
-	icon = 'icons/obj/objects.dmi'
 	icon_state = "oiltank"
 	amount_per_transfer_from_this = 120
 	capacity = 5000
@@ -336,3 +360,39 @@
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		ex_act(2.0)
+
+//Coolant tank
+
+/obj/structure/reagent_dispensers/coolanttank
+	name = "coolant tank"
+	desc = "A tank of industrial coolant"
+	icon_state = "coolanttank"
+	amount_per_transfer_from_this = 10
+
+/obj/structure/reagent_dispensers/coolanttank/Initialize()
+	. = ..()
+	reagents.add_reagent("coolant",1000)
+
+/obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
+	if(Proj.get_structure_damage())
+		if (Proj.damage_type != HALLOSS)
+			explode()
+
+/obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)
+	explode()
+
+/obj/structure/reagent_dispensers/coolanttank/proc/explode()
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread
+	//S.attach(src)
+	S.set_up(5, 0, src.loc)
+
+	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
+	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/start)
+
+	var/datum/gas_mixture/env = src.loc.return_air()
+	if(env)
+		if (reagents.total_volume > 750)
+			env.temperature = 0
+		else if (reagents.total_volume > 500)
+			env.temperature -= 100
+		QDEL_IN(src, 10)

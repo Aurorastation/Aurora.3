@@ -53,7 +53,7 @@
 /datum/export/large/reagent_dispenser/beer
 	unit_name = "beer keg"
 	contents_cost = 700
-	export_types = list(/obj/structure/reagent_dispensers/beerkeg)
+	export_types = list(/obj/structure/reagent_dispensers/keg/beerkeg)
 
 
 

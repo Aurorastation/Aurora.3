@@ -4,6 +4,10 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
+/datum/gear/head/ushanka_grey
+	display_name = "ushanka, grey"
+	path = /obj/item/clothing/head/ushanka/grey
+
 /datum/gear/head/bandana
 	display_name = "bandana selection"
 	path = /obj/item/clothing/head/bandana
@@ -18,6 +22,7 @@
 
 /datum/gear/head/cap
 	display_name = "cap selection"
+	description = "A selection of colored caps."
 	path = /obj/item/clothing/head/soft/blue
 
 /datum/gear/head/cap/New()
@@ -64,6 +69,11 @@
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
+/datum/gear/head/beret/medical
+	display_name = "beret, medical"
+	path = /obj/item/clothing/head/beret/medical
+	allowed_roles = list("Medical Doctor", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
@@ -94,7 +104,7 @@
 
 /datum/gear/head/hairflower/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/pin
 	display_name = "pin selection"
@@ -110,6 +120,7 @@
 
 /datum/gear/head/hats
 	display_name = "hat selection"
+	description = "A selection of hats."
 	path = /obj/item/clothing/head/boaterhat
 
 /datum/gear/head/hats/New()
@@ -122,6 +133,7 @@
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
 	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
 	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
+	hats["hat, dark brown fedora"] = /obj/item/clothing/head/fedora/brown/dark
 	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
 	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
 	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
@@ -185,7 +197,7 @@
 
 /datum/gear/head/headbando/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/beanie
 	display_name = "beanie"
@@ -193,7 +205,7 @@
 
 /datum/gear/head/beanie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/loose_beanie
 	display_name = "loose beanie"
@@ -201,7 +213,7 @@
 
 /datum/gear/head/loose_beanie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 
 /datum/gear/head/iacberet
@@ -212,3 +224,7 @@
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/circuitry
+	display_name = "headwear, circuitry (empty)"
+	path = /obj/item/clothing/head/circuitry

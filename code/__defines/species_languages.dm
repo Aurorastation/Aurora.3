@@ -10,6 +10,8 @@
 #define IS_MECHANICAL       256    // Is a robot.
 #define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
 #define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
+#define NO_ARTERIES         2048   // This species does not have arteries.
+#define NO_TENDONS          4096   // This species does not have tendons.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
@@ -19,6 +21,7 @@
 #define IS_WHITELISTED    0x1    // Must be whitelisted to play.
 #define CAN_JOIN          0x2    // Species is selectable in chargen.
 #define IS_RESTRICTED     0x4    // Is not a core/normally playable species. (castes, mutantraces)
+#define NO_AGE_MINIMUM    0x8    // Doesn't respect minimum job age requirements.
 
 // Species appearance flags
 #define HAS_SKIN_TONE     0x1    // Skin tone selectable in chargen. (0-255)
@@ -29,6 +32,7 @@
 #define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
 #define HAS_SOCKS         0x40   // If this species can wear socks
 #define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
+#define HAS_SKIN_PRESET   0x100  // Skin color presets selectable in character generation.
 
 // Tau-Ceti basic, language common to all crew.
 #define LANGUAGE_TCB "Ceti Basic"
@@ -41,9 +45,7 @@
 #define LANGUAGE_SIGN_TAJARA "Nal'rasan"
 #define LANGUAGE_YA_SSA "Ya'ssa"
 #define LANGUAGE_DELVAHII "Delvahhi"
-#define LANGUAGE_SIIK_TAU "Siik'Tau"
 #define LANGUAGE_SKRELLIAN "Nral'Malic"
-#define LANGUAGE_RESOMI "Resomi"
 #define LANGUAGE_ROOTSONG "Rootsong"
 #define LANGUAGE_TRADEBAND "Tradeband"
 #define LANGUAGE_GUTTER "Freespeak"
@@ -52,8 +54,6 @@
 #define LANGUAGE_SIGN "Sign Language"
 
 // Antag Languages
-#define LANGUAGE_XENOMORPH "Xenomorph"
-#define LANGUAGE_HIVEMIND "Hivemind"	// xeno hivemind
 #define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"
@@ -85,3 +85,8 @@
 #define NO_TALK_MSG  128 // Do not show the "\The [speaker] talks into \the [radio]" message
 #define NO_STUTTER   256 // No stuttering, slurring, or other speech problems
 #define TCOMSSIM     512 // Can be synthesized in tcoms
+
+// Representative missions levels
+#define REPRESENTATIVE_MISSION_LOW 1
+#define REPRESENTATIVE_MISSION_MEDIUM 2
+#define REPRESENTATIVE_MISSION_HIGH 3

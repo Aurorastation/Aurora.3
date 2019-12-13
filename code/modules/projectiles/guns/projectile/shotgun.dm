@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/shotgun
+/obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = "A strange shotgun that doesn't seem to belong anywhere. You feel like you shouldn't be able to see this and should... submit an issue?"
 
@@ -6,16 +6,16 @@
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
 
-/obj/item/weapon/gun/projectile/shotgun
+/obj/item/gun/projectile/shotgun
 
-/obj/item/weapon/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
+/obj/item/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
 	if (!can_sawoff || sawing_in_progress)
 		return ..()
 
 	var/static/list/barrel_cutting_tools = typecacheof(list(
-		/obj/item/weapon/circular_saw,
-		/obj/item/weapon/melee/energy,
-		/obj/item/weapon/gun/energy/plasmacutter	// does this even work?
+		/obj/item/circular_saw,
+		/obj/item/melee/energy,
+		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
 	if(is_type_in_typecache(A, barrel_cutting_tools) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to [sawnoff_workmsg] of \the [src].</span>")
@@ -33,11 +33,11 @@
 		..()
 
 // called on a SUCCESSFUL saw-off.
-/obj/item/weapon/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
+/obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
 	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
 	log_debug("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
-/obj/item/weapon/gun/projectile/shotgun/pump
+/obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
 	icon_state = "shotgun"
@@ -52,39 +52,24 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
 	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
 	var/has_wield_state = TRUE
 
-	action_button_name = "Wield shotgun"
-
-/obj/item/weapon/gun/projectile/shotgun/pump/can_wield()
-	return 1
-
-/obj/item/weapon/gun/projectile/shotgun/pump/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/shotgun/pump/verb/wield_shotgun()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
-/obj/item/weapon/gun/projectile/shotgun/pump/consume_next_projectile()
+/obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
 		return chambered.BB
 	return null
 
-/obj/item/weapon/gun/projectile/shotgun/pump/attack_self(mob/living/user)
+/obj/item/gun/projectile/shotgun/pump/attack_self(mob/living/user)
 	if(world.time >= recentpump + 10)
 		pump(user)
 		recentpump = world.time
 
-/obj/item/weapon/gun/projectile/shotgun/pump/proc/pump(mob/M)
+/obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	if(!wielded)
 		to_chat(M, pump_fail_msg)
 		return
@@ -102,7 +87,7 @@
 
 	update_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/pump/update_icon()
+/obj/item/gun/projectile/shotgun/pump/update_icon()
 	..()
 	if(wielded && has_wield_state)
 		item_state = "[icon_state]-wielded"
@@ -110,7 +95,7 @@
 		item_state = "[icon_state]"
 	update_held_icon()
 
-/obj/item/weapon/gun/projectile/shotgun/pump/combat
+/obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
 	icon_state = "cshotgun"
@@ -118,9 +103,17 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
-	fire_sound = 'sound/weapons/shotgun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel
+/obj/item/gun/projectile/shotgun/pump/combat/sol
+	name = "naval shotgun"
+	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Necropolis Industries."
+	icon_state = "malella"
+	item_state = "malella"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
 	icon_state = "dshotgun"
@@ -137,7 +130,7 @@
 	caliber = "shotgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
-	fire_sound = 'sound/weapons/shotgun.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 
 	burst_delay = 0
 	firemodes = list(
@@ -148,18 +141,18 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/pellet
+/obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/flare
+/obj/item/gun/projectile/shotgun/doublebarrel/flare
 	name = "signal shotgun"
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
 	..(user, allow_dump=1)
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/saw_off(mob/user, obj/item/tool)
+/obj/item/gun/projectile/shotgun/doublebarrel/saw_off(mob/user, obj/item/tool)
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
 	w_class = 3
@@ -170,7 +163,7 @@
 	desc = "Omar's coming!"
 	to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
 
-/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"
 	desc = "Omar's coming!"
 	icon_state = "sawnshotgun"

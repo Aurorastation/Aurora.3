@@ -1,5 +1,3 @@
-
-
 /obj/item/clothing/head/centhat
 	name = "\improper CentComm. hat"
 	icon_state = "centcom"
@@ -17,6 +15,7 @@
 	desc = "A nice hair pin."
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/head/pin/pink
 	icon_state = "pinkpin"
@@ -173,10 +172,11 @@
 	item_state = "cardborg_h"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
-	desc = "fight for what's righteous!"
+	desc = "Fight for what's righteous!"
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
@@ -269,11 +269,6 @@
 	icon_state = "witch"
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0
-
-/obj/item/clothing/head/legion_beret
-	name = "TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "legion_beret"
 
 /obj/item/clothing/head/chicken
 	name = "chicken suit head"
@@ -432,15 +427,18 @@
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "detective"
+	icon_state = "brown_fedora"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat"
 		)
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/head/fedora/brown/dark
+	icon_state = "darkbrown_fedora"
+
 /obj/item/clothing/head/fedora/grey
-	icon_state = "detective2"
+	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
 /obj/item/clothing/head/beanie
@@ -463,6 +461,7 @@
 	icon_state = "sunflower_crown"
 	item_state = "sunflower_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/clothing/head/lavender_crown
 	name = "harebell crown"
@@ -470,6 +469,7 @@
 	icon_state = "lavender_crown"
 	item_state = "lavender_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
 
 /obj/item/clothing/head/poppy_crown
 	name = "poppy crown"
@@ -477,6 +477,34 @@
 	icon_state = "poppy_crown"
 	item_state = "poppy_crown"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/herb.ogg'
+
+//Tau Ceti Foreign Legion
+
+/obj/item/clothing/head/legion_beret
+	name = "TCFL dress beret"
+	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
+	icon_state = "legion_beret"
+	item_state = "legion_beret"
+
+/obj/item/clothing/head/legion
+	name = "TCFL field beret"
+	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
+	armor = list(melee = 20, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
+	icon_state = "legion_field_beret"
+	item_state = "legion_field_beret"
+
+/obj/item/clothing/head/legion/sentinel
+	name = "TCFL sentinel beret"
+	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
+	icon_state = "legion_sentinel_beret"
+	item_state = "legion_sentinel_beret"
+
+/obj/item/clothing/head/legion/legate
+	name = "TCFL peaked cap"
+	desc = "A stark red peaked cap. Worn by senior officers of the Tau Ceti Foreign Legion."
+	icon_state = "legion_cap"
+	item_state = "legion_cap"
 
 //golden beep stuff
 
@@ -486,6 +514,7 @@
 	icon_state = "cobalt_headchains"
 	item_state = "cobalt_headchains"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/head/headchain/emerald
 	name = "emerald head chains"
@@ -505,6 +534,7 @@
 	icon_state = "cobalt_crest"
 	item_state = "cobalt_crest"
 	body_parts_covered = 0
+	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/head/crest/emerald
 	name = "emerald head crest"
@@ -529,6 +559,7 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /obj/item/clothing/head/antenna/straight
 	name = "straight antennae"
@@ -554,3 +585,103 @@
 	icon_state = "dish"
 	item_state = "dish"
 
+/obj/item/clothing/head/antenna/double
+	name = "antenna ears"
+	desc = "Despite being commonly seen on Shells, nobody knows what these actually do."
+	icon_state = "dual_robot_antennae"
+	item_state = "dual_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/left
+	name = "left antenna ear"
+	icon_state = "left_robot_antennae"
+	item_state = "left_robot_antennae"
+
+/obj/item/clothing/head/antenna/double/right
+	name = "right antenna ear"
+	icon_state = "right_robot_antennae"
+	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/fake_culthood
+	name = "occultist hood"
+	icon_state = "culthood"
+	desc = "A torn, dust-caked hood. Very authentic!"
+	flags_inv = HIDEFACE|HIDEEARS|HIDEEYES
+	body_parts_covered = HEAD|EYES
+	cold_protection = HEAD
+	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/head/vaurca_breeder
+	name = "zo'ra representative shroud"
+	desc = "Large shroud used by Zo'ra representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "shroud"
+	icon_state = "shroud"
+	contained_sprite = FALSE
+	species_restricted = list("Vaurca Breeder")
+	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi')
+
+/obj/item/clothing/head/navy
+	name = "sol navy utility cover"
+	desc = "An eight pointed cover issued to Sol Alliance navy members as part of their field uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "greyutility"
+	item_state = "greyutility"
+	contained_sprite = 1
+	armor = list(melee = 10, bullet = 10, laser = 10,energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/head/navy/marine
+	name = "sol marine utility cover"
+	desc = "An eight pointed cover issued to Sol Alliance marines as part of their field uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "greenutility"
+	item_state = "greenutility"
+	contained_sprite = 1
+
+/obj/item/clothing/head/navy/garrison
+	name = "sol marine garrison cap"
+	desc = "A green garrison cap issued to Sol Alliance marines."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "greengarrisoncap"
+	item_state = "greengarrisoncap"
+	contained_sprite = 1
+
+/obj/item/clothing/head/dress
+	name = "sol navy dress cap"
+	desc = "A white cap issued as part of the Sol Alliance navy dress uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "whitepeakcap"
+	item_state = "whitepeakcap"
+	contained_sprite = 1
+
+/obj/item/clothing/head/dress/marine
+	name = "sol marine dress cap"
+	desc = "A green cap issued as part of the Sol Alliance marine dress uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "whitepeakcap"
+	item_state = "whitepeakcap"
+	contained_sprite = 1
+
+/obj/item/clothing/head/dress/officer
+	name = "sol navy officer dress cap"
+	desc = "A white cap issued as part of the Sol Alliance navy officers dress uniform."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "whitewheelcap"
+	item_state = "whitewheelcap"
+	contained_sprite = 1
+
+/obj/item/clothing/head/dress/admiral
+	name = "sol navy admiral dress cap"
+	desc = "A fancy looking cap issued to a higher member of the Sol Alliance navy."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "admiral_cap"
+	item_state = "admiral_cap"
+	contained_sprite = 1
+
+/obj/item/clothing/head/helmet/sol
+	name = "sol combat helmet"
+	desc = "A woodland colored helmet made from advanced ceramic."
+	icon = 'icons/obj/sol_uniform.dmi'
+	icon_state = "helmet_tac_sol"
+	item_state = "helmet_tac_sol"
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	contained_sprite = 1

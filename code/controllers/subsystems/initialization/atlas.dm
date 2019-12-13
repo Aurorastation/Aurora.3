@@ -138,7 +138,7 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 	admin_departments = list(
 		"[current_map.boss_name]",
-		"[current_map.system_name] Government",
+		"External Routing",
 		"Supply"
 	)
 

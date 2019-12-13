@@ -35,7 +35,7 @@
 	check_update_ui_need()
 
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
-		playsound(loc, "computerbeep", 30, 1, 10, is_ambience = TRUE)
+		playsound(loc, "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
@@ -65,7 +65,7 @@
 
 /obj/item/modular_computer/Destroy()
 	kill_program(1)
-	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
+	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
@@ -85,13 +85,17 @@
 	icon_state = icon_state_unpowered
 
 	cut_overlays()
+	if(damage >= broken_damage)
+		icon_state = icon_state_broken
+		add_overlay("broken")
+		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
 				add_overlay(icon_state_screensaver)
-		
+
 		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
 		else
@@ -138,9 +142,10 @@
 /obj/item/modular_computer/proc/kill_program(var/forced = 0)
 	if(active_program)
 		active_program.kill_program(forced)
+		src.vueui_transfer(active_program)
 		active_program = null
 	var/mob/user = usr
-	if(user && istype(user))
+	if(user && istype(user) && !forced)
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
@@ -157,12 +162,14 @@
 	return ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = 1)
+	SSvueui.close_uis(active_program)
 	kill_program(1)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(1)
 		idle_threads.Remove(P)
 	if(loud)
 		visible_message("\The [src] shuts down.")
+	SSvueui.close_uis(active_program)
 	enabled = 0
 	update_icon()
 
@@ -185,6 +192,7 @@
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
 	SSnanoui.close_uis(active_program.NM ? active_program.NM : active_program)
+	src.vueui_transfer(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -210,6 +218,8 @@
 		active_program = P
 		idle_threads.Remove(P)
 		update_icon()
+		if(!P.vueui_transfer(src))
+			SSvueui.close_uis(src)
 		return
 
 	if(idle_threads.len >= processor_unit.max_idle_programs+1)
@@ -225,6 +235,8 @@
 
 	if(P.run_program(user))
 		active_program = P
+		if(!P.vueui_transfer(src))
+			SSvueui.close_uis(src)
 		update_icon()
 	return 1
 

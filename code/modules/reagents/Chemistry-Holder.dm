@@ -6,6 +6,8 @@
 	var/maximum_volume = 100
 	var/atom/my_atom = null
 
+	var/temperature = T20C
+
 /datum/reagents/New(var/max = 100, atom/A = null)
 	..()
 	maximum_volume = max
@@ -24,6 +26,10 @@
 		my_atom.reagents = null
 
 /* Internal procs */
+
+/datum/reagents/proc/apply_force(var/force) // applies force to the reagents inside it
+	for (var/datum/reagent/A in reagent_list)
+		A.apply_force(force)
 
 /datum/reagents/proc/get_free_space() // Returns free space.
 	return maximum_volume - total_volume
@@ -123,8 +129,11 @@
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
 
-	update_holder(equalize_temperature()) //If the thermal energy of the reagents is different after a reaction, then run process_reactions again.
-	return reaction_occured
+	var/temps_updated = equalize_temperature()
+
+	update_holder(reactions = reaction_occured)
+
+	return temps_updated
 
 /* Holder-to-chemical */
 
@@ -245,6 +254,12 @@
 		. += "[current.id] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
+/datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
+	. = list()
+	for(var/datum/reagent/current in reagent_list)
+		if(phase == current.reagent_state)
+			. += current.id
+
 /* Holder-to-holder and similar procs */
 
 /datum/reagents/proc/remove_any(var/amount = 1) // Removes up to [amount] of reagents from [src]. Returns actual amount removed.
@@ -348,6 +363,16 @@
 	else if (istype(target, /datum/reagents))
 		return F.trans_to_holder(target, amount)
 
+/datum/reagents/proc/trans_ids_to(var/target, var/list/ids, var/amount = 1) // amount is distributed equally over all reagents
+	if(!target)
+		return
+	if(!LAZYLEN(ids)) // it's always going to be defined but, you know, good practice and all
+		return
+	var/amounteach = amount / ids.len
+	. = 0
+	for(var/id in ids)
+		. += src.trans_id_to(target, id, amounteach)
+
 // When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
 // This does not handle transferring reagents to things.
 // For example, splashing someone with water will get them wet and extinguish them if they are on fire,
@@ -423,7 +448,7 @@
 			var/datum/reagents/R = C.reagents
 			return trans_to_holder(R, amount, multiplier, copy)
 		if(type == CHEM_INGEST)
-			var/datum/reagents/R = C.ingested
+			var/datum/reagents/R = C.get_ingested_reagents()
 			return C.ingest(src, R, amount, multiplier, copy)
 		if(type == CHEM_TOUCH)
 			var/datum/reagents/R = C.touching

@@ -18,13 +18,12 @@
 	body_parts_covered = HEAD|FACE|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.9
-	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+	siemens_coefficient = 0.5
+	species_restricted = list("exclude","Diona","Vox","Golem")
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
 
 	var/obj/machinery/camera/camera
-	var/list/camera_networks
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
@@ -34,7 +33,7 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	if(camera_networks && camera_networks.len)
+	if(camera)
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 
 /obj/item/clothing/head/helmet/space/proc/toggle_camera()
@@ -42,9 +41,8 @@
 	set category = "Object"
 	set src in usr
 
-	if(!camera && camera_networks)
-		camera = new /obj/machinery/camera(src)
-		camera.replace_networks(camera_networks)
+	if(ispath(camera))
+		camera = new camera(src)
 		camera.set_status(0)
 
 	if(camera)
@@ -56,27 +54,29 @@
 			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
 
 /obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera_networks && camera_networks.len)
-		to_chat(user, "This helmet has a built-in camera. It's [camera && camera.status ? "" : "in"]active.")
+	if(..(user, 1) && camera)
+		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/suit/space
 	name = "space suit"
 	desc = "A suit that protects against low pressure environments. \"NSS AURORA\" is written in large block letters on the back."
 	icon_state = "space"
 	item_state = "s_suit"
+	randpixel = 0
+	center_of_mass = null
 	w_class = 4//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
 	slowdown = 3
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 50)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.9
-	species_restricted = list("exclude","Diona","Xenomorph","Vox","Golem")
+	siemens_coefficient = 0.5
+	species_restricted = list("exclude","Diona","Vox","Golem")
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 

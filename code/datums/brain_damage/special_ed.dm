@@ -89,8 +89,8 @@
 		new /obj/effect/overlay/temp/bluespace_fissure(get_turf(src))
 		new /obj/effect/overlay/temp/bluespace_fissure(get_turf(linked_to))
 		user.forceMove(get_turf(linked_to))
-		user.visible_message("<span class='warning'>[user] [slip_in_message].</span>", ignored_mob = user)
-		user.visible_message("<span class='warning'>[user] [slip_out_message].</span>", "<span class='notice'>...and find your way to the other side.</span>")
+		user.visible_message(span("warning", "[user] [slip_in_message]."), span("notice", "You enter \the [src]..."))
+		user.visible_message(span("warning", "[user] [slip_out_message]."), span("notice", "...and find your way to the other side."))
 
 /datum/brain_trauma/special/love
 	name = "Hyper-dependency"
@@ -176,7 +176,7 @@
 			else
 				if(prob(15) && ishuman(owner))
 					var/mob/living/carbon/human/H = owner
-					var/obj/item/organ/heart/heart = H.internal_organs_by_name["heart"]
+					var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 					heart.take_damage(heart.min_bruised_damage)
 					to_chat(H, "<span class='danger'>You feel a stabbing pain in your heart!</span>")
 				else

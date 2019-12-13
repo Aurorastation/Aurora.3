@@ -15,10 +15,10 @@
 /*
  * Wrench
  */
-/obj/item/weapon/wrench
+/obj/item/wrench
 	name = "wrench"
-	desc = "A wrench with many common uses. Can be usually found in your hand."
-	icon = 'icons/obj/items.dmi'
+	desc = "An adjustable tool used for gripping and turning nuts or bolts."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -28,20 +28,23 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
+	usesound = 'sound/items/Ratchet.ogg'
 
-/obj/item/weapon/wrench/iswrench()
+/obj/item/wrench/iswrench()
 	return TRUE
 
 /*
  * Screwdriver
  */
-/obj/item/weapon/screwdriver
+/obj/item/screwdriver
 	name = "screwdriver"
-	desc = "You can be totally screwwy with this."
-	icon = 'icons/obj/items.dmi'
+	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
+	center_of_mass = list("x" = 13,"y" = 7)
 	force = 5.0
 	w_class = 1.0
 	throwforce = 5.0
@@ -51,9 +54,11 @@
 	attack_verb = list("stabbed")
 	lock_picking_level = 5
 	var/random_icon = TRUE
+	drop_sound = 'sound/items/drop/scrap.ogg'
+	usesound = 'sound/items/Screwdriver.ogg'
 
 
-/obj/item/weapon/screwdriver/Initialize()
+/obj/item/screwdriver/Initialize()
 	. = ..()
 	if(!random_icon)
 		return
@@ -84,27 +89,28 @@
 	if (prob(75))
 		src.pixel_y = rand(0, 16)
 
-/obj/item/weapon/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if(target_zone != "eyes" && target_zone != "head")
+	if(target_zone != BP_EYES && target_zone != BP_HEAD)
 		return ..()
-	if((CLUMSY in user.mutations) && prob(50))
+	if((user.is_clumsy()) && prob(50))
 		M = user
 	return eyestab(M,user)
 
-/obj/item/weapon/screwdriver/isscrewdriver()
+/obj/item/screwdriver/isscrewdriver()
 	return TRUE
 
 /*
  * Wirecutters
  */
-/obj/item/weapon/wirecutters
+/obj/item/wirecutters
 	name = "wirecutters"
-	desc = "This cuts wires."
-	icon = 'icons/obj/items.dmi'
+	desc = "A tool used to cut wires in electrical work."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "cutters"
 	flags = CONDUCT
+	center_of_mass = list("x" = 18,"y" = 10)
 	slot_flags = SLOT_BELT
 	force = 6.0
 	throw_speed = 2
@@ -115,15 +121,16 @@
 	attack_verb = list("pinched", "nipped")
 	sharp = 1
 	edge = 1
+	drop_sound = 'sound/items/drop/knife.ogg'
 
-/obj/item/weapon/wirecutters/New()
+/obj/item/wirecutters/New()
 	if(prob(50))
 		icon_state = "cutters-y"
 		item_state = "cutters_yellow"
 	..()
 
-/obj/item/weapon/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
-	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/weapon/handcuffs/cable)))
+/obj/item/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
+	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		usr.visible_message("\The [usr] cuts \the [C]'s restraints with \the [src]!",\
 		"You cut \the [C]'s restraints with \the [src]!",\
 		"You hear cable being cut.")
@@ -135,22 +142,22 @@
 	else
 		..()
 
-/obj/item/weapon/wirecutters/iswirecutter()
+/obj/item/wirecutters/iswirecutter()
 	return TRUE
 
 /*
  * Welding Tool
  */
-/obj/item/weapon/weldingtool
+/obj/item/weldingtool
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
-	icon = 'icons/obj/tools/welding.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder_off"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
-	contained_sprite = 1
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
 	force = 3.0
@@ -170,10 +177,10 @@
 	var/status = 1 		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
 	var/max_fuel = 20 	//The max amount of fuel the welder can hold
 
-/obj/item/weapon/weldingtool/iswelder()
+/obj/item/weldingtool/iswelder()
 	return TRUE
 
-/obj/item/weapon/weldingtool/largetank
+/obj/item/weldingtool/largetank
 	name = "industrial welding tool"
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
 	max_fuel = 40
@@ -182,7 +189,7 @@
 	origin_tech = list(TECH_ENGINEERING = 2)
 
 
-/obj/item/weapon/weldingtool/hugetank
+/obj/item/weldingtool/hugetank
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
 	max_fuel = 80
@@ -192,9 +199,9 @@
 	origin_tech = list(TECH_ENGINEERING = 3)
 
 //The Experimental Welding Tool!
-/obj/item/weapon/weldingtool/experimental
+/obj/item/weldingtool/experimental
 	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply"
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
@@ -203,12 +210,11 @@
 	base_itemstate = "exp_welder"
 
 	var/last_gen = 0
-	var/fuelgen_delay = 800//The time, in deciseconds, required to regenerate one unit of fuel
-	//800 = 1 unit per 1 minute and 20 seconds,
-	//This is roughly half the rate that fuel is lost if the welder is left idle, so it you carelessly leave it on it will still run out
+	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
+	//400 = 1 unit per 40 seconds
 
 //Welding tool functionality here
-/obj/item/weapon/weldingtool/Initialize()
+/obj/item/weldingtool/Initialize()
 	. = ..()
 //	var/random_fuel = min(rand(10,20),max_fuel)
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
@@ -217,25 +223,31 @@
 	R.add_reagent("fuel", max_fuel)
 	update_icon()
 
-/obj/item/weapon/weldingtool/update_icon()
+/obj/item/weldingtool/update_icon()
 	..()
 	var/add = welding ? "_on" : "_off"
 	icon_state = base_iconstate + add //These are given an _on/_off suffix before being used
 	item_state = base_itemstate + add
+	if(welding == 2)
+		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
+	else if (welding == 1)
+		set_light(0.6, 1.5, l_color = LIGHT_COLOR_LAVA)
+	else
+		set_light(0)
 	var/mob/M = loc
 	if(istype(M))
 		M.update_inv_l_hand()
 		M.update_inv_r_hand()
 
-/obj/item/weapon/weldingtool/Destroy()
+/obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weapon/weldingtool/examine(mob/user)
+/obj/item/weldingtool/examine(mob/user)
 	if(..(user, 0))
 		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
 
-/obj/item/weapon/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		if (isrobot(loc))
 			to_chat(user, span("alert", "You cannot modify your own welder!"))
@@ -254,7 +266,7 @@
 	if((!status) && (istype(W,/obj/item/stack/rods)))
 		var/obj/item/stack/rods/R = W
 		R.use(1)
-		var/obj/item/weapon/flamethrower/F = new/obj/item/weapon/flamethrower(user.loc)
+		var/obj/item/flamethrower/F = new/obj/item/flamethrower(user.loc)
 		src.forceMove(F)
 		F.weldtool = src
 		if (user.client)
@@ -275,10 +287,10 @@
 	..()
 	return
 
-/obj/item/weapon/weldingtool/process()
+/obj/item/weldingtool/process()
 	if(welding)
 		if(prob(5))
-			remove_fuel(1)
+			remove_fuel(1, null, colourChange = FALSE)
 
 		if(get_fuel() < 1)
 			setWelding(0)
@@ -293,7 +305,7 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weapon/weldingtool/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/weldingtool/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 
 	if(hasorgans(M))
 
@@ -303,7 +315,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Hunter-Killer"))
+		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
 			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
 		if(S.brute_dam == 0)
@@ -332,7 +344,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
+/obj/item/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !src.welding)
 		O.reagents.trans_to_obj(src, max_fuel)
@@ -344,24 +356,30 @@
 		if(tank.armed)
 			to_chat(user, "You are already heating the [O]")
 			return
-		tank.armed = 1
 		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
-		message_admins("[key_name_admin(user)] is attempting a welder bomb at ([loc.x],[loc.y],[loc.z]) - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>")
-		if(do_after(user,100))
-			if(tank.defuse)
-				user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
-				tank.defuse = 0
+		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
+			if("Yes")
+				log_and_message_admins("is attempting to welderbomb", user)
+				to_chat(user, span("alert", "Heating the fueltank..."))
+				tank.armed = 1
+				if(do_after(user, 100))
+					if(tank.defuse)
+						user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
+						tank.defuse = 0
+						tank.armed = 0
+						return
+					log_and_message_admins("triggered a fuel tank explosion", user)
+					to_chat(user, span("alert", "That was stupid of you."))
+					tank.ex_act(3.0)
+					return
+				else
+					tank.armed = 0
+					to_chat(user, "You thought better of yourself.")
+					return
+			if("No")
 				tank.armed = 0
+				to_chat(user, "You thought better of yourself.")
 				return
-			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
-			log_game("[key_name(user)] triggered a fueltank explosion with a welding tool.",ckey=key_name(user))
-			to_chat(user, span("alert", "That was stupid of you."))
-			tank.ex_act(3.0)
-			return
-		else
-			tank.armed = 0
-			to_chat(user, "You thought better of yourself.")
-			return
 		return
 	if (src.welding)
 		remove_fuel(1)
@@ -373,18 +391,21 @@
 			location.hotspot_expose(700, 50, 1)
 	return
 
-/obj/item/weapon/weldingtool/attack_self(mob/user as mob)
+/obj/item/weldingtool/attack_self(mob/user as mob)
 	setWelding(!welding, usr)
 	return
 
 //Returns the amount of fuel in the welder
-/obj/item/weapon/weldingtool/proc/get_fuel()
+/obj/item/weldingtool/proc/get_fuel()
 	return reagents.get_reagent_amount("fuel")
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
-/obj/item/weapon/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null)
+/obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
 	if(!welding)
 		return 0
+	else if(welding > 0 && colourChange)
+		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
+		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
 		reagents.remove_reagent("fuel", amount)
 		if(M)
@@ -396,12 +417,12 @@
 		return 0
 
 //Returns whether or not the welding tool is currently on.
-/obj/item/weapon/weldingtool/proc/isOn()
+/obj/item/weldingtool/proc/isOn()
 	return src.welding
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
-/obj/item/weapon/weldingtool/proc/setWelding(var/set_welding, var/mob/M)
+/obj/item/weldingtool/proc/setWelding(var/set_welding, var/mob/M)
 	if(!status)	return
 
 	var/turf/T = get_turf(src)
@@ -438,7 +459,7 @@
 		update_icon()
 
 //A wrapper function for the experimental tool to override
-/obj/item/weapon/weldingtool/proc/set_processing(var/state = 0)
+/obj/item/weldingtool/proc/set_processing(var/state = 0)
 	if (state == 1)
 		START_PROCESSING(SSprocessing, src)
 	else
@@ -446,11 +467,11 @@
 
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
-/obj/item/weapon/weldingtool/proc/eyecheck(mob/user as mob)
+/obj/item/weldingtool/proc/eyecheck(mob/user as mob)
 	if(!iscarbon(user))	return 1
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/eyes/E = H.get_eyes()
+		var/obj/item/organ/internal/eyes/E = H.get_eyes()
 		if(!E)
 			return
 		var/safety = H.eyecheck()
@@ -489,23 +510,23 @@
 /mob/proc/reset_nearsighted()
 	disabilities &= ~NEARSIGHTED
 
-/obj/item/weapon/weldingtool/Destroy()
+/obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
 	return ..()
 
 //Make sure the experimental tool only stops processing when its turned off AND full
-/obj/item/weapon/weldingtool/experimental/set_processing(var/state = 0)
+/obj/item/weldingtool/experimental/set_processing(var/state = 0)
 	if (state == 1)
 		START_PROCESSING(SSprocessing, src)
 		last_gen = world.time
 	else if (welding == 0 && get_fuel() >= max_fuel)
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/weldingtool/experimental/process()
+/obj/item/weldingtool/experimental/process()
 	..()
 	fuel_gen()
 
-/obj/item/weapon/weldingtool/experimental/proc/fuel_gen()//Proc to make the experimental welder generate fuel, optimized as fuck -Sieve
+/obj/item/weldingtool/experimental/proc/fuel_gen()//Proc to make the experimental welder generate fuel, optimized as fuck -Sieve
 
 	if (get_fuel() < max_fuel)
 		var/gen_amount = ((world.time-last_gen)/fuelgen_delay)
@@ -525,10 +546,10 @@
  * Crowbar
  */
 
-/obj/item/weapon/crowbar
+/obj/item/crowbar
 	name = "crowbar"
-	desc = "Used to remove floors and to pry open doors."
-	icon = 'icons/obj/items.dmi'
+	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "crowbar"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -539,20 +560,21 @@
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/sword.ogg'
 
-/obj/item/weapon/crowbar/iscrowbar()
+/obj/item/crowbar/iscrowbar()
 	return TRUE
 
-/obj/item/weapon/crowbar/red
-	icon = 'icons/obj/items.dmi'
+/obj/item/crowbar/red
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "red_crowbar"
 	item_state = "crowbar_red"
 
 // Pipe wrench
-/obj/item/weapon/pipewrench
+/obj/item/pipewrench
 	name = "pipe wrench"
 	desc = "A big wrench that is made for working with pipes."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "pipewrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -568,7 +590,7 @@
 /obj/item/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
-	icon = 'icons/obj/combitool.dmi'
+	icon = 'icons/obj/tools.dmi'
 	icon_state = "combitool"
 	force = 3
 	w_class = 2
@@ -577,7 +599,8 @@
 		"crowbar",
 		"screwdriver",
 		"wrench",
-		"wirecutters"
+		"wirecutters",
+		"multitool"
 		)
 	var/current_tool = 1
 
@@ -604,6 +627,9 @@
 /obj/item/combitool/iscrowbar()
 	return tools[current_tool] == "crowbar"
 
+/obj/item/combitool/ismultitool()
+	return tools[current_tool] == "multitool"
+
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
 
@@ -618,3 +644,70 @@
 	update_tool()
 	return 1
 
+
+/obj/item/powerdrill
+	name = "impact wrench"
+	desc = " The screwdriver's big brother."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "powerdrillyellow"
+	var/drillcolor = null
+	force = 3
+	w_class = 2
+	toolspeed = 3
+	usesound = 'sound/items/drill_use.ogg'
+
+	var/list/tools = list(
+		"screwdriverbit",
+		"wrenchbit"
+		)
+	var/current_tool = 1
+
+/obj/item/powerdrill/Initialize()
+	. = ..()
+
+	switch(pick("red","blue","yellow","green"))
+		if ("red")
+			drillcolor = "red"
+		if ("blue")
+			drillcolor = "blue"
+		if ("green")
+			drillcolor = "green"
+		if ("yellow")
+			drillcolor = "yellow"
+	icon_state = "powerdrill[drillcolor]"
+
+/obj/item/powerdrill/examine(var/mob/user)
+	. = ..()
+	if(. && tools.len)
+		to_chat(user, "It has the following fittings:")
+		for(var/tool in tools)
+			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+
+/obj/item/powerdrill/iswrench()
+	usesound = 'sound/items/air_wrench.ogg'
+	return tools[current_tool] == "wrenchbit"
+
+/obj/item/powerdrill/isscrewdriver()
+	usesound = 'sound/items/drill_use.ogg'
+
+	return tools[current_tool] == "screwdriverbit"
+
+/obj/item/powerdrill/proc/update_tool()
+	if(isscrewdriver())
+		cut_overlays()
+		add_overlay("screwdriverbit")
+	if(iswrench())
+		cut_overlays()
+		add_overlay("wrenchbit")
+
+/obj/item/powerdrill/attack_self(var/mob/user)
+	if(++current_tool > tools.len)
+		current_tool = 1
+	var/tool = tools[current_tool]
+	if(!tool)
+		to_chat(user, "You can't seem to find any fittings in \the [src].")
+	else
+		to_chat(user, "You switch \the [src] to the [tool] fitting.")
+		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
+	update_tool()
+	return 1

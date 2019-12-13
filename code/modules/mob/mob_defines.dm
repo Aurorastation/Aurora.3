@@ -51,7 +51,6 @@
 	var/character_id = 0
 	var/obj/machinery/machine = null
 	var/other_mobs = null
-	var/memory = ""
 	var/sdisabilities = 0	//Carbon
 	var/disabilities = 0	//Carbon
 	var/atom/movable/pulling = null
@@ -72,6 +71,7 @@
 	var/med_record = ""
 	var/sec_record = ""
 	var/list/incidents = list()
+	var/list/additional_vision_handlers = list()
 	var/gen_record = ""
 	var/ccia_record = ""
 	var/list/ccia_actions = list()
@@ -136,9 +136,9 @@
 	var/obj/buckled = null//Living
 	var/obj/item/l_hand = null//Living
 	var/obj/item/r_hand = null//Living
-	var/obj/item/weapon/back = null//Human/Monkey
-	var/obj/item/weapon/tank/internal = null//Human/Monkey
-	var/obj/item/weapon/storage/s_active = null//Carbon
+	var/obj/item/back = null//Human/Monkey
+	var/obj/item/tank/internal = null//Human/Monkey
+	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
 	var/seer = 0 //for cult//Carbon, probably Human
@@ -236,3 +236,6 @@
 	var/disconnect_time = null//Time of client loss, set by Logout(), for timekeeping
 
 	var/mob_thinks = TRUE
+
+	var/authed = TRUE
+	var/player_age = "Requires database"

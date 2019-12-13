@@ -1,4 +1,5 @@
 //Standard Rings
+
 /obj/item/clothing/ring/engagement
 	name = "engagement ring"
 	desc = "An engagement ring. It certainly looks expensive."

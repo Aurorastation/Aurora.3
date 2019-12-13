@@ -16,6 +16,7 @@
 	siemens_coefficient = 0.5
 	w_class = 3
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
+	drop_sound = 'sound/items/drop/helm.ogg'
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
 	set name = "Toggle Helmet Hair Coverage"
@@ -28,7 +29,7 @@
 
 /obj/item/clothing/head/helmet/warden
 	name = "warden's hat"
-	desc = "It's a special helmet issued to the Warden of a securiy force. Protects the head from impacts."
+	desc = "It's a special helmet issued to the Warden of a security force. Protects the head from impacts."
 	icon_state = "policehelm"
 	flags_inv = 0
 
@@ -37,14 +38,22 @@
 	desc = "A security commissar's cap."
 	icon_state = "commissarcap"
 
-/obj/item/clothing/head/helmet/HoS
+/obj/item/clothing/head/helmet/hos/cap
 	name = "head of security hat"
 	desc = "The hat of the Head of Security. For showing the officers who's in charge."
 	icon_state = "hoscap"
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS
 
-/obj/item/clothing/head/helmet/HoS/dermal
+/obj/item/clothing/head/helmet/hos
+	name = "head of security helmet"
+	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
+	description_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
+	icon_state = "hoshelmet"
+	item_state = "hoshelmet"
+	armor = list(melee = 62, bullet = 50, laser = 50, energy = 35, bomb = 10, bio = 2, rad = 0)
+
+/obj/item/clothing/head/helmet/hos/dermal
 	name = "dermal armour patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
@@ -68,11 +77,12 @@
 	icon_state = "riot"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
@@ -97,12 +107,14 @@
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
 	icon_state = "helmet_bulletproof"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
 	icon_state = "helmet_tac"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
@@ -113,18 +125,19 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/swat/peacekeeper
 	name = "\improper ERT civil protection helmet"
 	desc = "A full helmet made of highly advanced ceramic materials, complete with a jetblack visor. Shines with a mirror sheen."
-	icon_state = "erthelmet_peacekeeper"
-	item_state = "erthelmet_peacekeeper"
+	icon_state = "civilprotection_helmet"
+	item_state = "civilprotection_helmet"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
@@ -158,13 +171,14 @@
 	name = "tactical helmet"
 	desc = "An armored helmet capable of being fitted with a multitude of attachments."
 	icon_state = "swathelm"
+	flags_inv = HIDEEARS|BLOCKHAIR
 	sprite_sheets = list(
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
-
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
-	flags_inv = HIDEEARS
+	siemens_coefficient = 0.35
+
 
 /obj/item/clothing/head/helmet/augment
 	name = "augment array"
@@ -175,6 +189,7 @@
 	body_parts_covered = HEAD|EYES
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"
@@ -192,20 +207,36 @@
 	contained_sprite = 1
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+
+/obj/item/clothing/head/helmet/unathi/klax
+	name = "klaxan hopeful helmet"
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "klax_hopeful_helmet"
+	item_state = "klax_hopeful_helmet"
+	contained_sprite = 1
+	species_restricted = list("Vaurca")
+	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
-	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
+	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
 	color = "#5f5f5f"
 	armor = list(melee = 25, bullet = 5, laser = 5, energy = 10, bomb = 5, bio = 0, rad = 0)
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/head/helmet/tank/olive
 	color = "#727c58"
 
 /obj/item/clothing/head/helmet/tank/tan
 	color = "#ae9f79"
+
+/obj/item/clothing/head/helmet/tank/legion
+	color = "#5674a6"
 
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
@@ -217,6 +248,7 @@
 		slot_r_hand_str = "syndicate-helm-green"
 		)
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
+	siemens_coefficient = 0.35
 
 //Commander
 /obj/item/clothing/head/helmet/ert/command
@@ -246,12 +278,50 @@
 	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
 	icon_state = "legion_helmet"
 	body_parts_covered = HEAD|FACE|EYES
-	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+
+	action_button_name = "Toggle Helmet Light"
+	light_overlay = "helmet_light_dual"
+	brightness_on = 6
+	light_wedge = LIGHT_WIDE
+	on = 0
+
+/obj/item/clothing/head/helmet/legion_pilot
+	name = "foreign legion flight helmet"
+	desc = "A helmet with an aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
+	icon_state = "legion_pilot_up"
+	body_parts_covered = null
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 40, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+	action_button_name = "Flip Pilot Visor"
+
+/obj/item/clothing/head/helmet/legion_pilot/attack_self()
+	flip_visor()
+
+/obj/item/clothing/head/helmet/legion_pilot/verb/flip_visor()
+	set category = "Object"
+	set name = "Flip pilot visor"
+	var/mob/living/carbon/human/user
+	if(istype(usr,/mob/living/carbon/human))
+		user = usr
+	else
+		return
+	if(icon_state == initial(icon_state))
+		icon_state = "legion_pilot"
+		to_chat(user, "You flip down the pilot visor.")
+		sound_to(user, 'sound/items/goggles_charge.ogg')
+	else
+		icon_state = initial(icon_state)
+		to_chat(user, "You flip up the pilot visor.")
+	update_clothing_icon()
+	user.update_action_buttons()
 
 /obj/item/clothing/head/helmet/tajara
 	name = "amohdan swordsmen helmet"
-	desc = "A helmet used by the traditional warriors of Amohhda."
+	desc = "A helmet used by the traditional warriors of Amohda."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "amohdan_helmet"
 	item_state = "amohdan_helmet"
@@ -261,3 +331,8 @@
 	species_restricted = list("Tajara")
 	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 	allow_hair_covering = FALSE
+	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
+	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
+	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+	siemens_coefficient = 0.35

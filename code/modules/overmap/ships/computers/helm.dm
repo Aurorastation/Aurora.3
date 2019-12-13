@@ -23,11 +23,11 @@
 	for(var/level in map_sectors)
 		var/obj/effect/map/sector/S = map_sectors["[level]"]
 		if (istype(S) && S.always_known)
-			var/datum/data/record/R = new()
-			R.fields["name"] = S.name
-			R.fields["x"] = S.x
-			R.fields["y"] = S.y
-			known_sectors += R
+			var/list/R = list()
+			R["name"] = S.name
+			R["x"] = S.x
+			R["y"] = S.y
+			known_sectors += list(R)
 
 /obj/machinery/computer/helm/machinery_process()
 	if (autopilot && dx && dy)
@@ -93,11 +93,11 @@
 	data["manual_control"] = manual_control
 
 	var/list/locations[0]
-	for (var/datum/data/record/R in known_sectors)
+	for (var/list/R in known_sectors)
 		var/list/rdata[0]
-		rdata["name"] = R.fields["name"]
-		rdata["x"] = R.fields["x"]
-		rdata["y"] = R.fields["y"]
+		rdata["name"] = R["name"]
+		rdata["x"] = R["x"]
+		rdata["y"] = R["y"]
 		rdata["reference"] = "\ref[R]"
 		locations.Add(list(rdata))
 
@@ -118,24 +118,24 @@
 		return
 
 	if (href_list["add"])
-		var/datum/data/record/R = new()
+		var/list/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
 		if(!sec_name)
 			sec_name = "Sector #[known_sectors.len]"
-		R.fields["name"] = sec_name
+		R["name"] = sec_name
 		switch(href_list["add"])
 			if("current")
-				R.fields["x"] = linked.x
-				R.fields["y"] = linked.y
+				R["x"] = linked.x
+				R["y"] = linked.y
 			if("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", linked.x) as num
-				R.fields["x"] = Clamp(newx, 1, world.maxx)
+				R["x"] = Clamp(newx, 1, world.maxx)
 				var/newy = input("Input new entry y coordinate", "Coordinate input", linked.y) as num
-				R.fields["y"] = Clamp(newy, 1, world.maxy)
-		known_sectors += R
+				R["y"] = Clamp(newy, 1, world.maxy)
+		known_sectors += list(R)
 
 	if (href_list["remove"])
-		var/datum/data/record/R = locate(href_list["remove"])
+		var/list/R = locate(href_list["remove"])
 		known_sectors.Remove(R)
 
 	if (href_list["setx"])

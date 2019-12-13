@@ -1,5 +1,5 @@
 # Licensing
-Aurora Station code is licensed under the GNU Affero General Public License version 3, which can be found in full in LICENSE-AGPL3.txt.
+Aurora Station code is licensed under the [GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl-3.0.en.html), which can be found in full in LICENSE-AGPL3.txt.
 
 Commits with a git authorship date prior to `1420675200 +0000` (2015/01/08 00:00) are licensed under the GNU General Public License version 3, which can be found in full in LICENSE-GPL3.txt.
 
@@ -8,6 +8,39 @@ All commits whose authorship dates are not prior to `1420675200 +0000` are assum
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) license unless otherwise indicated.
 
 # Github Standards
+
+### Sub-licensing External Content
+**When does this section apply to me?** When you are integrating content that is **not** licensed under [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) (code)
+or [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) (icons and sounds). The most common application here is for icons and sounds gathered
+from an external source or repository.
+
+As a contributor, you must do your utmost to pay respect to international copyright law. This means that, if copying code or content from an external source, you **must**
+be aware of what license it is published under. And you must ensure that the conditions of said license are followed when integrating the content into the codebase. (Sometimes
+this is not possible, and the content cannot be used.)
+
+**If you cannot locate or reasonably dicern authorship or the license associated with given content, we ask that you not submit it into a pull request.**
+
+As a courtesy, attribution of authorship is also encouraged, even if the license of the content does not require this outright. Generally this is done in the PR by declaring
+the source of the material, the author(s) (if known), and adding similar attributions to the relevant changelog entry (if applicable). This may be both done in the `author` field
+or within the plain text describing the change itself.
+
+When reading the sub-sections that follow, note that these will be **generalizations**, and the specifics will be dictated by the license itself.
+
+#### Code
+Code from most other open source SS13 code bases is GPLv3 or AGPLv3. This means that it's free to be copied without any additional effort. Though any notes of authorship within
+the code files, if presents, must be kept intact. Be wary of **Goon**: their code is licensed under CC-BY-SA-NC and is **not** directly compatible with our codebase's license.
+Porting Goon code directly is highly discouraged as a result.
+
+If the code is external, or licensed under something else (example being the TGS library), then ensure that the copyright notices within the file(s) (if present) are kept intact,
+and that a separate license file (if present in/packaged with the original source) is added to the repository. This generally means that you have to put all of the code you are
+porting in this manner into a `modules/` sub folder, and stick the license file in there.
+
+#### Other Assets (Sound, Icons)
+If the material is distributed under CC-BY-SA 3.0, then it can go straight into the relevant folders, as long as you attribute the author(s) in the PR and changelog if they can be
+identified.
+
+In any other case, create a subfolder somewhere in the relevant structure, stick the items in there, and provide a copy of the license with the content. Also, ensure that the
+license permits the intended use of the content in the appropriate manner.
 
 ### Peer Review
 All pull requests are subject to peer review prior to being merged. After said reviews, they are given a final once-over by a maintainer and
@@ -186,3 +219,24 @@ for (var/client/C in world)
 All tables for the database should be prefixed according to the following list:
 * `ss13_` for tables in which ingame data is held.
 * `discord_` for tables in which BOREALIS data is held.
+
+# HTML UI Standards
+
+### UI conversion policy
+Due to our current situation with 5 different HTML UI systems we are now enforcing a policy that all new UIs should be made using the VueUi UI system. This policy also applies to editing existing UIs, with the following exceptions:
+
+ 1. Modification is security / severe bug fix.
+ 0. It is typo fix.
+ 0. Touched UI file is too large.
+ 0. VueUi can't accommodate that type of UI.
+
+### Responsiveness
+All new UIs must be responsive, that means that when parameters change in game world, UI data must update as quickly as possible to reflect that change. If change is time dependant, then client side time approximation should be used.
+
+### Conditional usage policy
+If you need to use conditional rendering inside UI, then try to put conditional statements on elements you want to hide, then try using `<template>` to apply condition to multiple components.
+
+For conditional rendering try to prefer to use `v-show` attribute when change is expected to be often occurring. Use `v-if` when you need `v-else` and switch is expected expected not often.
+
+### Reusability
+If there is segment of UI that is used multiple times with different content, then we strongly encourage making of new component. If that component is general or may be reused globally, then it should be made in to global component (placed in `vui` folder), else it should be made in to UI specific component that must be placed in folder inside `view` folder.

@@ -1,6 +1,6 @@
 
 //TODO: Matter decompiler.
-/obj/item/weapon/matter_decompiler
+/obj/item/matter_decompiler
 
 	name = "matter decompiler"
 	desc = "Eating trash, bits of glass, or other debris will replenish your stores."
@@ -13,10 +13,10 @@
 	var/datum/matter_synth/wood = null
 	var/datum/matter_synth/plastic = null
 
-/obj/item/weapon/matter_decompiler/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/matter_decompiler/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	return
 
-/obj/item/weapon/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)
+/obj/item/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)
 
 	if(!proximity) return //Not adjacent.
 
@@ -58,9 +58,10 @@
 				plastic.add_charge(1000)
 
 
-		else if(istype(M,/mob/living/simple_animal/lizard) || (istype(M,/mob/living/simple_animal/mouse) && M.mob_size <= 2))
+		else if(istype(M,/mob/living/simple_animal) && M.mob_size <= 3 && !istype(M, /mob/living/simple_animal/cat)) //includes things like rats, lizards, tindalos while excluding bigger things and station pets.
 			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			playsound(src.loc, 'sound/effects/squelch1.ogg')
 			qdel(M)
 			if(wood)
 				wood.add_charge(2000)
@@ -72,10 +73,10 @@
 
 	for(var/obj/W in T)
 		//Different classes of items give different commodities.
-		if(istype(W,/obj/item/weapon/cigbutt))
+		if(istype(W,/obj/item/cigbutt))
 			if(plastic)
 				plastic.add_charge(500)
-		else if (istype(W, /obj/item/weapon/flame/match))
+		else if (istype(W, /obj/item/flame/match))
 			if (wood)
 				wood.add_charge(100)
 		else if(istype(W,/obj/effect/spider/spiderling))
@@ -83,8 +84,8 @@
 				wood.add_charge(2000)
 			if(plastic)
 				plastic.add_charge(2000)
-		else if(istype(W,/obj/item/weapon/light))
-			var/obj/item/weapon/light/L = W
+		else if(istype(W,/obj/item/light))
+			var/obj/item/light/L = W
 			if(L.status >= 2) //In before someone changes the inexplicably local defines. ~ Z
 				if(metal)
 					metal.add_charge(250)
@@ -112,17 +113,20 @@
 		else if(istype(W,/obj/item/ammo_casing))
 			if(metal)
 				metal.add_charge(1000)
-		else if(istype(W,/obj/item/weapon/material/shard/shrapnel))
+		else if(istype(W,/obj/item/material/shard/shrapnel))
 			if(metal)
 				metal.add_charge(1000)
-		else if(istype(W,/obj/item/weapon/material/shard))
+		else if(istype(W,/obj/item/material/shard))
 			if(glass)
 				glass.add_charge(1000)
-		else if(istype(W,/obj/item/weapon/reagent_containers/food/snacks/grown))
+		else if(istype(W,/obj/item/reagent_containers/food/snacks/grown))
 			if(wood)
 				wood.add_charge(4000)
 		else if(istype(W,/obj/item/pipe))
 			// This allows drones and engiborgs to clear pipe assemblies from floors.
+		else if(istype(W,/obj/item/broken_bottle))
+			if(glass)
+				glass.add_charge(2000)
 		else
 			continue
 
@@ -146,7 +150,7 @@
 		return
 
 	if(!module)
-		module = new /obj/item/weapon/robot_module/drone(src)
+		module = new /obj/item/robot_module/drone(src)
 
 	var/dat = "<HEAD><TITLE>Drone modules</TITLE></HEAD><BODY>\n"
 	dat += {"
@@ -174,7 +178,7 @@
 			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
 
 		var/obj/item/I = O
-		if((istype(I,/obj/item/weapon) || istype(I,/obj/item/device)) && !(I.iscoil()))
+		if((istype(I,/obj/item) || istype(I,/obj/item/device)) && !(I.iscoil()))
 			tools += module_string
 		else
 			resources += module_string

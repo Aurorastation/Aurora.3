@@ -129,8 +129,11 @@
 /area/outpost/research/emergency_storage
 	name = "Research - Sublevel Emergency Storage"
 
+/area/outpost/research/anomaly_harvest
+	name = "Research - Exotic Energy Harvesting"
+
 /area/outpost/research/anomaly_storage
-	name = "Research - Anomalous Storage"
+	name = "Research - Artifact Storage"
 
 /area/outpost/research/anomaly_analysis
 	name = "Research - Anomaly Analysis"

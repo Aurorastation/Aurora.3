@@ -6,7 +6,8 @@
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	punch_force = 3
 	w_class = 3
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.35
+	drop_sound = 'sound/items/drop/metalshield.ogg'
 
 /obj/item/clothing/gloves/arm_guard/mob_can_equip(var/mob/living/carbon/human/H, slot)
 	if(..()) //This will only run if no other problems occured when equiping.
@@ -24,7 +25,7 @@
 	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/gloves/arm_guard/bulletproof
-	name = "bulletproof arm guards"
+	name = "ballistic arm guards"
 	desc = "These arm guards will protect your hands and arms from ballistic weapons."
 	icon_state = "arm_guards_bullet"
 	armor = list(melee = 25, bullet = 80, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)

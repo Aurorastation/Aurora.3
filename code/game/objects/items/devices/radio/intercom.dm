@@ -8,6 +8,7 @@
 	flags = CONDUCT | NOBLOODY
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
+	var/radio_sound = null
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"

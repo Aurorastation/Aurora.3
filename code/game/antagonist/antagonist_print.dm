@@ -7,12 +7,12 @@
 	for(var/datum/mind/P in current_antagonists)
 		text += print_player_full(P)
 		text += get_special_objective_text(P)
+		if(P.ambitions)
+			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
+			text += "<br>  '[P.ambitions]'"
 		if(!global_objectives.len && P.objectives && P.objectives.len)
 			var/failed
 			var/num = 1
-			if(P.ambitions)
-				text += "<br>Their goals for today were..."
-				text += "<br><b>[P.ambitions]</b>"
 
 			for(var/datum/objective/O in P.objectives)
 				text += print_objective(O, num)
@@ -50,7 +50,7 @@
 
 /datum/antagonist/proc/print_player_lite(var/datum/mind/ply)
 	var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]"
-	var/text = "<br><b>[ply.name]</b> (<b>[ply.key]</b>) as \a <b>[role]</b> ("
+	var/text = "<br><b>[ply.name]</b> as \a <b>[role]</b> ("
 	if(ply.current)
 		if(ply.current.stat == DEAD)
 			text += "died"
@@ -107,7 +107,7 @@
 	var/text = "[current_antagonists.len > 1 ? "The [lowertext(role_text_plural)] were:\n" : "The [lowertext(role_text)] was:\n"]"
 	for (var/datum/mind/ply in current_antagonists)
 		var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]: "
-		text += "**[ply.name]** (**[ply.key]**) as \a **[role]** ("
+		text += "**[ply.name]** as \a **[role]** ("
 		if(ply.current)
 			if(ply.current.stat == DEAD)
 				text += "died"

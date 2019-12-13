@@ -56,17 +56,6 @@
 	min_fine = 50
 	max_fine = 300
 
-/datum/law/low_severity/suspicious_conduct
-	name = "i106 - Suspicious Conduct"
-	desc = " To possess a suspiciously wide skill set not indicated in employee record, wielding dangerous weapons near other staff, extensive inquiring about critical areas, or stalking other employees."
-	id = "i106"
-
-	min_brig_time = 2
-	max_brig_time = 15
-
-	min_fine = 50
-	max_fine = 250
-
 /datum/law/low_severity/radio_misuse
 	name = "i107 - Misuse of Public Radio Channels"
 	desc = "To continually broadcast unimportant, untrue, or insignificant messages on the public radio frequency."
@@ -187,3 +176,25 @@
 
 	min_fine = 50
 	max_fine = 400
+
+/datum/law/low_severity/violation_privacy
+	name = "i118 - Violation of Privacy Laws"
+	desc = "To intentionally leak private aspects of employee records or financial account information to unauthorized personnel."
+	id = "i118"
+
+	min_brig_time = 3
+	max_brig_time = 10
+
+	min_fine = 50
+	max_fine = 550
+
+/datum/law/low_severity/illegal_search
+	name = "i119 - Illegal Search"
+	desc = "To preform a search of an employee or workplace without a search warrant, clearance, or probable cause."
+	id = "i119"
+
+	min_brig_time = 3
+	max_brig_time = 10
+
+	min_fine = 50
+	max_fine = 550

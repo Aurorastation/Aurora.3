@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 // Please do not use relative paths.
 
-/obj/item/weapon/airlock_electronics
+/obj/item/airlock_electronics
 	name = "airlock electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
@@ -20,7 +20,7 @@
 	var/wifi_id = ""
 	var/id_tag = ""
 
-/obj/item/weapon/airlock_electronics/attack_self(mob/user as mob)
+/obj/item/airlock_electronics/attack_self(mob/user as mob)
 	if (!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
@@ -62,7 +62,7 @@
 	user << browse(t1, "window=airlock_electronics")
 	onclose(user, "airlock")
 
-/obj/item/weapon/airlock_electronics/attackby(obj/item/C, mob/user)
+/obj/item/airlock_electronics/attackby(obj/item/C, mob/user)
 	if(istype(C,/obj/item/device/debugger))
 		switch(input(user, "Would you like to change the wireless ID or the ID tag?", "Airlock Selection") as null|anything in list("Wireless ID","ID Tag"))
 			if("Wireless ID")
@@ -73,12 +73,12 @@
 				id_tag = newtag
 		return
 	else
-		var/obj/item/weapon/card/id/I = C.GetID()
+		var/obj/item/card/id/I = C.GetID()
 		if(istype(I) && src.check_access(I))
 			last_configurator = I.registered_name ? I.registered_name : "Unknown"
 			locked = !locked
 
-/obj/item/weapon/airlock_electronics/Topic(href, href_list)
+/obj/item/airlock_electronics/Topic(href, href_list)
 	..()
 	if (usr.stat || usr.restrained() || (!ishuman(usr) && !istype(usr,/mob/living/silicon)))
 		return
@@ -91,7 +91,7 @@
 			src.locked = 0
 			src.last_configurator = usr.name
 		else
-			var/obj/item/weapon/card/id/I = usr.get_active_hand()
+			var/obj/item/card/id/I = usr.get_active_hand()
 			if (istype(I, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = I
 				I = pda.id
@@ -113,7 +113,7 @@
 
 	attack_self(usr)
 
-/obj/item/weapon/airlock_electronics/proc/toggle_access(var/acc)
+/obj/item/airlock_electronics/proc/toggle_access(var/acc)
 	if (acc == "all")
 		conf_access = null
 	else
@@ -130,7 +130,7 @@
 				conf_access = null
 
 
-/obj/item/weapon/airlock_electronics/secure
+/obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"
 	desc = "designed to be somewhat more resistant to hacking than standard electronics."
 	origin_tech = list(TECH_DATA = 2)

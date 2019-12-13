@@ -396,6 +396,11 @@ proc/TextPreview(var/string,var/len=40)
 		. += ascii2text(letter)
 	. = jointext(.,null)
 
+/proc/random_string(length, list/characters)
+	. = ""
+	for(var/i=1, i<=length, i++)
+		. += pick(characters)
+
 #define starts_with(string, substring) (copytext(string,1,1+length(substring)) == substring)
 
 #define gender2text(gender) capitalize(gender)
@@ -444,11 +449,19 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[/grid\]", "</td></tr></table>")
 	t = replacetext(t, "\[row\]", "</td><tr>")
 	t = replacetext(t, "\[cell\]", "<td>")
-	t = replacetext(t, "\[logo\]", "<img src = ntlogo.png>")
+	t = replacetext(t, "\[logo_nt\]", "<img src = ntlogo.png>")
+	t = replacetext(t, "\[logo_nt_small\]", "<img src = ntlogo_small.png>")
+	t = replacetext(t, "\[logo_zh\]", "<img src = zhlogo.png>")
+	t = replacetext(t, "\[logo_idris\]", "<img src = idrislogo.png>")
+	t = replacetext(t, "\[logo_eridani\]", "<img src = eridanilogo.png>")
+	t = replacetext(t, "\[logo_necro\]", "<img src = necrologo.png>")
+	t = replacetext(t, "\[logo_hp\]", "<img src = hplogo.png>")
+	t = replacetext(t, "\[logo_be\]", "<img src = belogo.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
+	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [config.docs_image_host]$1></img>")
 	return t
 
 /proc/html2pencode(t)
@@ -470,7 +483,7 @@ proc/TextPreview(var/string,var/len=40)
 	var/next_backslash = findtext(string, "\\")
 	if(!next_backslash)
 		return string
-	
+
 	var/leng = length(string)
 
 	var/next_space = findtext(string, " ", next_backslash + 1)

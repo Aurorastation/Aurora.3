@@ -490,7 +490,7 @@ var/controlling
 
 	if(!host) return
 
-	for (var/obj/item/weapon/implant/loyalty/I in host)
+	for (var/obj/item/implant/loyalty/I in host)
 		if (I.implanted)
 			to_chat(src, "<span class='warning'>Your host's mind is shielded!</span>")
 			return
@@ -543,7 +543,7 @@ var/controlling
 		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
 		return
 
-	for (var/obj/item/weapon/implant/loyalty/I in host)
+	for (var/obj/item/implant/loyalty/I in host)
 		if (I.implanted)
 			to_chat(src, "<span class='warning'>Your host's mind is shielded!</span>")
 			return
@@ -607,7 +607,7 @@ var/controlling
 
 	if(istype(host,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = host
-		var/obj/item/organ/external/head = H.get_organ("head")
+		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		head.implants -= src
 
 	controlling = 0

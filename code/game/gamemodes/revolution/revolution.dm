@@ -10,3 +10,4 @@
 //	shuttle_delay = 3
 	antag_tags = list(MODE_REVOLUTIONARY, MODE_LOYALIST)
 	require_all_templates = 1
+	ert_disabled = TRUE

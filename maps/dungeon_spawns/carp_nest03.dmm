@@ -6,11 +6,11 @@
 /turf/simulated/mineral,
 /area/mine/unexplored)
 "c" = (
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "d" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
 /turf/simulated/wall/wood,
@@ -24,7 +24,7 @@
 /area/mine/unexplored)
 "h" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "i" = (
 /mob/living/simple_animal/hostile/carp/shark,
@@ -32,16 +32,16 @@
 /area/mine/unexplored)
 "j" = (
 /obj/structure/closet/crate/secure/loot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "k" = (
 /obj/effect/decal/remains,
 /obj/random/loot,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "l" = (
 /obj/effect/decal/remains,
-/turf/simulated/floor/asteroid/ash/rocky,
+/turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "m" = (
 /turf/simulated/open/airless,

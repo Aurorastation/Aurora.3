@@ -58,9 +58,9 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.target_name = station_account.owner_name
 	T.purpose = "Account creation"
 	T.amount = 75000
-	T.date = "2nd April, 2454"
+	T.date = "13th May, 2461"
 	T.time = "11:24"
-	T.source_terminal = "Biesel GalaxyNet Terminal #277"
+	T.source_terminal = "Idris Remote Terminal #[rand(111,11111)]"
 
 	//add the account
 	add_transaction_log(station_account,T)
@@ -84,9 +84,9 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.target_name = department_account.owner_name
 	T.purpose = "Account creation"
 	T.amount = department_account.money
-	T.date = "2nd April, 2454"
+	T.date = "13th May, 2461"
 	T.time = "11:24"
-	T.source_terminal = "Biesel GalaxyNet Terminal #277"
+	T.source_terminal = "Idris Remote Terminal #[rand(111,11111)]"
 
 	//add the account
 	add_transaction_log(department_account,T)
@@ -112,10 +112,10 @@ var/datum/controller/subsystem/economy/SSeconomy
 	T.amount = starting_funds
 
 	if(!source_db)
-		//set a random date, time and location some time over the past few decades
-		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], 24[rand(10,48)]"
+		//set a random date from recent months
+		T.date = "[num2text(rand(1,31))] [pick("January","February","March","April","May")], 2461"
 		T.time = "[rand(0,24)]:[rand(11,59)]"
-		T.source_terminal = "NTGalaxyNet Terminal #[rand(111,1111)]"
+		T.source_terminal = "Idris SelfServ Terminal #[rand(111,11111)]"
 	else
 		T.date = worlddate2text()
 		T.time = worldtime2text()
@@ -124,7 +124,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 		//create a sealed package containing the account details
 		var/obj/item/smallDelivery/P = new /obj/item/smallDelivery(source_db.loc)
 
-		var/obj/item/weapon/paper/R = new /obj/item/weapon/paper(P)
+		var/obj/item/paper/R = new /obj/item/paper(P)
 		P.wrapped = R
 		var/pname = "Account information: [M.owner_name]"
 		var/info = "<b>Account details (confidential)</b><br><hr><br>"
@@ -143,7 +143,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 		stampoverlay.icon_state = "paper_stamp-cent"
 		if(!R.stamped)
 			R.stamped = new
-		R.stamped += /obj/item/weapon/stamp
+		R.stamped += /obj/item/stamp
 		R.add_overlay(stampoverlay)
 		R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
 

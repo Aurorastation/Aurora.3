@@ -65,7 +65,8 @@ validPrefixes = [
     'balance',
     'admin',
     'backend',
-    'security'
+    'security',
+    'refactor'
 ]
 
 

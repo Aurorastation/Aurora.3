@@ -1,64 +1,50 @@
-/obj/item/weapon/storage/pill_bottle/dice
+/obj/item/storage/pill_bottle/dice
 	name = "pack of dice"
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
+	use_sound = "rustle"
+	drop_sound = 'sound/items/drop/hat.ogg'
+	starts_with = list(
+		/obj/item/dice = 1,
+		/obj/item/dice/d20 = 1
+	)
 
-/obj/item/weapon/storage/pill_bottle/dice/fill()
-	..()
-	new /obj/item/weapon/dice( src )
-	new /obj/item/weapon/dice/d20( src )
-
-/obj/item/weapon/storage/pill_bottle/dice/gaming
+/obj/item/storage/pill_bottle/dice/gaming
 	name = "pack of gaming dice"
 	desc = "It's a small container with gaming dice inside."
 	icon_state = "magicdicebag"
+	starts_with = list(
+		/obj/item/dice/d4 = 1,
+		/obj/item/dice/d8 = 1,
+		/obj/item/dice/d10 = 1,
+		/obj/item/dice/d12 = 1,
+		/obj/item/dice/d100 = 1
+	)
 
-/obj/item/weapon/storage/pill_bottle/dice/gaming/fill()
-	..()
-	new /obj/item/weapon/dice/d4(src)
-	new /obj/item/weapon/dice/d8(src)
-	new /obj/item/weapon/dice/d10(src)
-	new /obj/item/weapon/dice/d12(src)
-	new /obj/item/weapon/dice/d100(src)
+/obj/item/storage/card
+	name = "card box"
+	desc = "A small leather case to show how classy you are compared to everyone else."
+	icon_state = "card_holder_empty"
+	can_hold = list(/obj/item/deck, /obj/item/battle_monsters/deck, /obj/item/hand, /obj/item/pack/, /obj/item/card) //sneaky folks can hide ID and other cards
+	storage_slots = 1 //can hold one deck
+	use_sound = "sound/items/drop/shoes.ogg"
+	drop_sound = "sound/items/drop/hat.ogg"
 
-/*
- * Donut Box
- */
+/obj/item/storage/card/update_icon()
+	if(contents.len)
+		icon_state = "card_holder_items"
+	else
+		icon_state = "card_holder_empty"
+	return
 
-/obj/item/weapon/storage/box/donut
-	icon = 'icons/obj/food.dmi'
-	icon_state = "donutbox"
-	name = "donut box"
-	var/startswith = 6
-	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/donut)
-	foldable = /obj/item/stack/material/cardboard
-
-/obj/item/weapon/storage/box/donut/fill()
-	..()
-	for(var/i=1; i <= startswith; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/donut/normal(src)
-	update_icon()
-
-/obj/item/weapon/storage/box/donut/update_icon()
-	cut_overlays()
-	var/i = 0
-	for(var/obj/item/weapon/reagent_containers/food/snacks/donut/D in contents)
-		add_overlay("[i][D.overlay_state]")
-		i++
-
-/obj/item/weapon/storage/box/donut/empty
-	startswith = 0
-	max_storage_space = 12
-
-/obj/item/weapon/storage/box/pineapple
+/obj/item/storage/box/pineapple
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "pineapple_rings"
 	name = "can of pineapple rings"
-	var/startswith = 6
-	can_hold = list(/obj/item/weapon/reagent_containers/food/snacks/pineapple_ring)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/pineapple_ring = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/pineapple_ring)
 
-/obj/item/weapon/storage/box/pineapple/fill()
-	for(var/i=1; i <= startswith; i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/pineapple_ring(src)
+/obj/item/storage/box/pineapple/fill()
+	. = ..()
 	update_icon()

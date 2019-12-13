@@ -252,7 +252,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	idle_power_usage = 600
 	machinetype = 1
 	produces_heat = 0
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/receiver"
+	circuitboard = "/obj/item/circuitboard/telecomms/receiver"
 
 /obj/machinery/telecomms/receiver/receive_signal(datum/signal/signal)
 
@@ -307,7 +307,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	use_power = 1
 	idle_power_usage = 1600
 	machinetype = 7
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/hub"
+	circuitboard = "/obj/item/circuitboard/telecomms/hub"
 	long_range_link = 1
 	netspeed = 40
 
@@ -341,7 +341,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	idle_power_usage = 600
 	machinetype = 8
 	produces_heat = 0
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/relay"
+	circuitboard = "/obj/item/circuitboard/telecomms/relay"
 	netspeed = 5
 	long_range_link = 1
 	var/broadcasting = 1
@@ -391,7 +391,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	use_power = 1
 	idle_power_usage = 1000
 	machinetype = 2
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/bus"
+	circuitboard = "/obj/item/circuitboard/telecomms/bus"
 	netspeed = 40
 	var/change_frequency = 0
 
@@ -443,7 +443,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	idle_power_usage = 600
 	machinetype = 3
 	delay = 5
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/processor"
+	circuitboard = "/obj/item/circuitboard/telecomms/processor"
 	var/process_mode = 1 // 1 = Uncompress Signals, 0 = Compress Signals
 
 	receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
@@ -479,7 +479,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	use_power = 1
 	idle_power_usage = 300
 	machinetype = 4
-	circuitboard = "/obj/item/weapon/circuitboard/telecomms/server"
+	circuitboard = "/obj/item/circuitboard/telecomms/server"
 	var/list/log_entries = list()
 	var/list/stored_names = list()
 	var/list/TrafficActions = list()
@@ -488,7 +488,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	var/list/memory = list()	// stored memory
 	var/rawcode = ""	// the code to compile (raw text)
-	var/datum/TCS_Compiler/Compiler	// the compiler that compiles and runs the code
+	var/datum/TCS_Compiler/ntsl2/Compiler	// the compiler that compiles and runs the code
 	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
 
 	var/encryption = "null" // encryption key: ie "password"
@@ -582,6 +582,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				relay_information(signal, "/obj/machinery/telecomms/broadcaster")
 
 
+/obj/machinery/telecomms/server/machinery_process()
+	. = ..()
+	if(Compiler)
+		Compiler.update_code()
+
 /obj/machinery/telecomms/server/proc/setcode(var/t)
 	if(t)
 		if(istext(t))
@@ -589,7 +594,10 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server/proc/compile()
 	if(Compiler)
-		return Compiler.Compile(rawcode)
+		var/er = Compiler.Compile(rawcode)
+		if(istype(Compiler.running_code))
+			Compiler.running_code.S = src
+		return er
 
 /obj/machinery/telecomms/server/proc/update_logs()
 	// start deleting the very first log entry

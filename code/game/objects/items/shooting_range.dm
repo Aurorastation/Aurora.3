@@ -2,7 +2,7 @@
 /obj/item/target
 	name = "shooting target"
 	desc = "A shooting target."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/target_stake.dmi'
 	icon_state = "target_h"
 	density = 0
 	var/hp = 1800
@@ -34,7 +34,7 @@
 
 	attackby(obj/item/W as obj, mob/user as mob)
 		if (W.iswelder())
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(WT.remove_fuel(0, user))
 				cut_overlays()
 				to_chat(usr, "You slice off [src]'s uneven chunks of aluminum and scorch marks.")

@@ -58,6 +58,10 @@
 	name = "\improper Arrival Shuttle Hallway - Starboard"
 	icon_state = "entry_3"
 
+/area/hallway/secondary/entry/central
+	name = "\improper Surface Lvl. Hallway Central"
+	icon_state = "entry_3"
+
 /area/hallway/secondary/entry/aft
 	name = "\improper Surface Lvl. Hallway Aft"
 	icon_state = "entry_4"
@@ -66,3 +70,15 @@
 	name = "\improper Surface - Blue Dock"
 	icon_state = "arrivals_dock"
 	holomap_color = HOLOMAP_AREACOLOR_ARRIVALS
+
+/area/hallway/secondary/entry/emergency
+	name = "\improper Emergency Services Dock"
+	icon_state = "escape"
+
+/area/hallway/secondary/entry/departure_lounge
+	name = "\improper Surface - Departures Lounge"
+	icon_state = "dep_lounge"
+
+/area/hallway/secondary/entry/locker
+	name = "\improper Surface - Locker Room"
+	icon_state = "locker"

@@ -9,7 +9,7 @@
 	action_button_name = "Toggle Face Concealing"
 
 /obj/item/clothing/mask/balaclava/attack_self(mob/user as mob)
-	if (use_check(user))
+	if (use_check_and_message(user))
 		return
 
 	if(src.icon_state == initial(icon_state))
@@ -26,9 +26,14 @@
 	update_clothing_icon()
 
 /obj/item/clothing/mask/balaclava/tactical
-	name = "green balaclava"
+	name = "white balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	icon_state = "swatclava"
+
+/obj/item/clothing/mask/balaclava/military
+	name = "green balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	icon_state = "milclava"
 
 /obj/item/clothing/mask/balaclava/iacmask
 	name = "IAC balaclava"
@@ -45,7 +50,7 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	w_class = 2
-	siemens_coefficient = 3.0
+	siemens_coefficient = 0.9 
 
 /obj/item/clothing/mask/luchador/tecnicos
 	name = "tecnicos mask"

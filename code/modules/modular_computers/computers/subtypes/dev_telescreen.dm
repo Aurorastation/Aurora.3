@@ -5,6 +5,7 @@
 	icon_state = "telescreen"
 	icon_state_unpowered = "telescreen"
 	icon_state_menu = "menu"
+	icon_state_broken = "telescreen-broken"
 	hardware_flag = PROGRAM_TELESCREEN
 	anchored = TRUE
 	density = 0
@@ -13,12 +14,10 @@
 	max_hardware_size = 2
 	steel_sheet_cost = 10
 	light_strength = 4
-	max_damage = 300
-	broken_damage = 150
 	w_class = 5
 	is_holographic = TRUE
 
-/obj/item/modular_computer/telescreen/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
+/obj/item/modular_computer/telescreen/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(W.iscrowbar())
 		if(anchored)
 			shutdown_computer()

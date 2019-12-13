@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/custom_ka
+/obj/item/gun/custom_ka
 	name = null // Abstract
 	var/official_name
 	var/custom_name
@@ -17,7 +17,7 @@
 	fire_delay = 0 	//delay after shooting before the gun can be used again
 	burst_delay = 2	//delay between shots, if firing in bursts
 	move_delay = 1
-	fire_sound = 'sound/weapons/Kenetic_accel.ogg'
+	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	fire_sound_text = "blast"
 	recoil = 0
 	silenced = 0
@@ -27,8 +27,6 @@
 	burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	dispersion = list(0)
 	reliability = 100
-
-	action_button_name = "Wield kinetic accelerator"
 
 	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
 
@@ -42,7 +40,8 @@
 	recoil_wielded = 0
 	accuracy_wielded = 0
 	wielded = 0
-	needspin = TRUE
+
+	is_wieldable = TRUE
 
 	var/require_wield = FALSE
 
@@ -71,21 +70,24 @@
 	var/can_disassemble_cell = TRUE
 	var/can_disassemble_barrel = TRUE
 
-/obj/item/weapon/gun/custom_ka/verb/wield_accelerator()
-	set name = "Wield"
-	set category = "Object"
-	set src in usr
-
-	toggle_wield(usr)
-
-/obj/item/weapon/gun/custom_ka/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/custom_ka/can_wield()
+/obj/item/gun/custom_ka/can_wield()
 	return 1
 
-/obj/item/weapon/gun/custom_ka/examine(var/mob/user)
+/obj/item/gun/custom_ka/toggle_wield()
+	..()
+	if(wielded)
+		item_state = "[initial(item_state)]_w"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
+
+/obj/item/gun/custom_ka/pickup(mob/user)
+	..()
+	if(can_wield())
+		item_state = initial(item_state)
+	update_held_icon()
+
+/obj/item/gun/custom_ka/examine(var/mob/user)
 	. = ..()
 	if(installed_upgrade_chip)
 		to_chat(user,"It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip].")
@@ -103,16 +105,16 @@
 	if(installed_cell)
 		to_chat(user,"It has [round(installed_cell.stored_charge / cost_increase)] shots remaining.")
 
-/obj/item/weapon/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
+/obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
 	is_emagged = 1
 	return 1
 
-/obj/item/weapon/gun/custom_ka/emp_act(severity)
+/obj/item/gun/custom_ka/emp_act(severity)
 	is_emped = 1
 	return 1
 
-/obj/item/weapon/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
 	if(require_wield && !wielded)
 		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!</span>")
@@ -222,13 +224,13 @@
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay
 
-/obj/item/weapon/gun/custom_ka/consume_next_projectile()
+/obj/item/gun/custom_ka/consume_next_projectile()
 	if(!installed_cell || installed_cell.stored_charge < cost_increase)
 		return null
 
 	installed_cell.stored_charge -= cost_increase
 
-	var/obj/item/projectile/shot_projectile
+	var/obj/item/projectile/kinetic/shot_projectile
 	//Send fire events
 	if(installed_cell)
 		installed_cell.on_fire(src)
@@ -241,9 +243,10 @@
 	shot_projectile.damage = damage_increase
 	shot_projectile.range = range_increase
 	shot_projectile.aoe = aoe_increase
+	shot_projectile.base_damage = damage_increase
 	return shot_projectile
 
-/obj/item/weapon/gun/custom_ka/Initialize()
+/obj/item/gun/custom_ka/Initialize()
 	. = ..()
 
 	START_PROCESSING(SSprocessing, src)
@@ -258,11 +261,11 @@
 	update_stats()
 	queue_icon_update()
 
-/obj/item/weapon/gun/custom_ka/Destroy()
+/obj/item/gun/custom_ka/Destroy()
 	. = ..()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/gun/custom_ka/process()
+/obj/item/gun/custom_ka/process()
 	if(installed_cell)
 		installed_cell.on_update(src)
 	if(installed_barrel)
@@ -270,7 +273,7 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_update(src)
 
-/obj/item/weapon/gun/custom_ka/update_icon()
+/obj/item/gun/custom_ka/update_icon()
 	. = ..()
 	cut_overlays()
 	var/name_list = list("","","","")
@@ -299,7 +302,13 @@
 	else
 		name = initial(name)
 
-/obj/item/weapon/gun/custom_ka/proc/update_stats()
+	if(wielded)
+		item_state = "[initial(item_state)]_w"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
+
+/obj/item/gun/custom_ka/proc/update_stats()
 	//pls don't bully me for this code
 	damage_increase = initial(damage_increase)
 	firedelay_increase = initial(firedelay_increase)
@@ -367,7 +376,7 @@
 	accuracy = round(recoil_increase*0.25)
 	accuracy_wielded = accuracy * 0.5
 
-/obj/item/weapon/gun/custom_ka/attack_self(mob/user as mob)
+/obj/item/gun/custom_ka/attack_self(mob/user as mob)
 	. = ..()
 
 	if(!wielded)
@@ -381,17 +390,17 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.attack_self(user)
 
-/obj/item/weapon/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
 
 	. = ..()
 
-	if(istype(I,/obj/item/weapon/pen))
+	if(istype(I,/obj/item/pen))
 		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
-	else if(istype(I,/obj/item/weapon/wrench))
+	else if(I.iswrench())
 		if(installed_upgrade_chip)
-			playsound(src,'sound/items/Screwdriver.ogg', 50, 0)
+			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")
 			installed_upgrade_chip.forceMove(user.loc)
 			installed_upgrade_chip.update_icon()
@@ -399,7 +408,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_barrel && can_disassemble_barrel)
-			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
+			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_barrel].")
 			installed_barrel.forceMove(user.loc)
 			installed_barrel.update_icon()
@@ -407,7 +416,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_cell && can_disassemble_cell)
-			playsound(src,'sound/items/Ratchet.ogg', 50, 0)
+			playsound(src,I.usesound, 50, 0)
 			to_chat(user,"You remove \the [installed_cell].")
 			installed_cell.forceMove(user.loc)
 			installed_cell.update_icon()
@@ -485,10 +494,10 @@
 
 	var/disallow_chip = FALSE //Prevent installation of an upgrade chip.
 
-/obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/weapon/gun/custom_ka)
+/obj/item/custom_ka_upgrade/proc/on_update(var/obj/item/gun/custom_ka)
 	//Do update related things here
 
-/obj/item/custom_ka_upgrade/proc/on_fire(var/obj/item/weapon/gun/custom_ka)
+/obj/item/custom_ka_upgrade/proc/on_fire(var/obj/item/gun/custom_ka)
 	//Do fire related things here
 
 /obj/item/custom_ka_upgrade/cells
@@ -521,7 +530,7 @@
 	cell_increase = 0
 	capacity_increase = 0
 	mod_limit_increase = 0
-	var/fire_sound = 'sound/weapons/Kenetic_accel.ogg'
+	var/fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	var/projectile_type = /obj/item/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2)
 
@@ -553,10 +562,10 @@
 		"<span class='warning'>\The [user] scans \the [target] with \the [src].</span>",
 		"<span class='alert'>You scan \the [target] with \the [src].</span>")
 
-	if(istype(target,/obj/item/weapon/gun/custom_ka))
+	if(istype(target,/obj/item/gun/custom_ka))
 		playsound(src, 'sound/machines/ping.ogg', 10, 1)
 
-		var/obj/item/weapon/gun/custom_ka/ka = target
+		var/obj/item/gun/custom_ka/ka = target
 
 		var/total_message = "<b>Kinetic Accelerator Stats:</b><br>\
 		Damage Rating: [ka.damage_increase*0.1]MJ<br>\

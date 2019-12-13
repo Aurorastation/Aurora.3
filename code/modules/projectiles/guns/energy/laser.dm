@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/energy/laser
+/obj/item/gun/energy/laser
 	name = "laser carbine"
 	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
 	icon_state = "laserrifle"
@@ -12,20 +12,25 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/beam/midlaser
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "laser"
 
-/obj/item/weapon/gun/energy/laser/mounted
+/obj/item/gun/energy/laser/mounted
 	name = "mounted laser carbine"
 	self_recharge = 1
 	use_external_power = 1
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/laser/practice
+/obj/item/gun/energy/laser/mounted/cyborg/overclocked
+	max_shots = 15
+	recharge_time = 1
+
+/obj/item/gun/energy/laser/practice
 	name = "practice laser carbine"
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/item/projectile/beam/practice
 
-obj/item/weapon/gun/energy/retro
+obj/item/gun/energy/retro
 	name = "retro laser"
 	icon_state = "retro"
 	item_state = "retro"
@@ -36,9 +41,10 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "retro"
 
-/obj/item/weapon/gun/energy/captain
+/obj/item/gun/energy/captain
 	name = "antique laser gun"
 	icon_state = "caplaser"
 	item_state = "caplaser"
@@ -52,11 +58,13 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "captain"
 
-/obj/item/weapon/gun/energy/lasercannon
+/obj/item/gun/energy/lasercannon
 	name = "laser cannon"
-	desc = "With the laser cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
+	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
+	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon_state = "lasercannon"
 	item_state = null
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
@@ -67,18 +75,24 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5
 	fire_delay = 20
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "cannon"
 
-/obj/item/weapon/gun/energy/lasercannon/mounted
+/obj/item/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 10
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/xray
+/obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked
+	recharge_time = 1
+	max_shots = 15
+
+/obj/item/gun/energy/xray
 	name = "xray laser gun"
-	desc = "A high-power laser gun capable of expelling concentrated xray blasts."
+	desc = "A Nanotrasen designed high-power laser sidearm capable of expelling concentrated xray blasts."
+	description_fluff = "The NT XG-1 is a laser sidearm developed and produced by Nanotrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
 	icon_state = "xray"
 	item_state = "xray"
 	fire_sound = 'sound/weapons/laser3.ogg'
@@ -88,9 +102,10 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 20
 	fire_delay = 1
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "xray"
 
-/obj/item/weapon/gun/energy/xray/mounted
+/obj/item/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
 	self_recharge = 1
@@ -98,7 +113,7 @@ obj/item/weapon/gun/energy/retro
 	recharge_time = 5
 	can_turret = 0
 
-/obj/item/weapon/gun/energy/sniperrifle
+/obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	icon_state = "sniper"
@@ -116,21 +131,14 @@ obj/item/weapon/gun/energy/retro
 	scoped_accuracy = 4
 	can_turret = 1
 	turret_sprite_set = "sniper"
+	turret_is_lethal = 1
+
+	is_wieldable = TRUE
 
 	fire_delay_wielded = 35
 	accuracy_wielded = 0
 
-	//action button for wielding
-	action_button_name = "Wield rifle"
-
-/obj/item/weapon/gun/energy/sniperrifle/can_wield()
-	return 1
-
-/obj/item/weapon/gun/energy/sniperrifle/ui_action_click()
-	if(src in usr)
-		toggle_wield(usr)
-
-/obj/item/weapon/gun/energy/sniperrifle/verb/scope()
+/obj/item/gun/energy/sniperrifle/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
 	set popup_menu = 1
@@ -140,9 +148,10 @@ obj/item/weapon/gun/energy/retro
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
-/obj/item/weapon/gun/energy/laser/shotgun
+/obj/item/gun/energy/laser/shotgun
 	name = "quad-beam laser"
-	desc = "A modified laser weapon, designed to split a single beam four times."
+	desc = "A Nanotrasen designed laser weapon, designed to split a single beam four times."
+	description_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
 	icon_state = "oldenergykill"
 	item_state = "energykill"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -161,11 +170,12 @@ obj/item/weapon/gun/energy/retro
 	fire_delay = 2
 	dispersion = list(10)
 	can_turret = 1
+	turret_is_lethal = 1
 	turret_sprite_set = "laser"
 
 ////////Laser Tag////////////////////
 
-/obj/item/weapon/gun/energy/lasertag
+/obj/item/gun/energy/lasertag
 	name = "laser tag gun"
 	item_state = "laser"
 	desc = "Standard issue weapon of the Imperial Guard"
@@ -176,14 +186,14 @@ obj/item/weapon/gun/energy/retro
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	var/required_vest
 
-/obj/item/weapon/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
+/obj/item/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
 	if(ishuman(M))
 		if(!istype(M.wear_suit, required_vest))
 			to_chat(M, "<span class='warning'>You need to be wearing your laser tag vest!</span>")
 			return 0
 	return ..()
 
-/obj/item/weapon/gun/energy/lasertag/blue
+/obj/item/gun/energy/lasertag/blue
 	icon_state = "bluetag"
 	item_state = "bluetag"
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
@@ -193,7 +203,7 @@ obj/item/weapon/gun/energy/retro
 	turret_is_lethal = 0
 	turret_sprite_set = "blue"
 
-/obj/item/weapon/gun/energy/lasertag/red
+/obj/item/gun/energy/lasertag/red
 	icon_state = "redtag"
 	item_state = "redtag"
 	projectile_type = /obj/item/projectile/beam/lastertag/red

@@ -115,10 +115,6 @@
 		else
 			src.take_damage(rand(1, 10) / fire_resist)
 
-	for(var/obj/mecha/M in range(src,"3x3"))
-		M.visible_message("<span class='danger'>The blob attacks \the [M]!</span>")
-		M.take_damage(rand(20,40))
-
 	hangry -= 1
 	if(hangry < 0)
 		hangry = 0
@@ -156,12 +152,21 @@
 	update_icon()
 
 /obj/effect/blob/proc/expand(var/turf/T)
-	if(istype(T, /turf/unsimulated/) || (istype(T, /turf/simulated/mineral) && T.density))
+	//Dont epxand over unsimulated unless its astroid trufs
+	if(istype(T, /turf/unsimulated/) && !istype(T, /turf/unsimulated/floor/asteroid/))
 		return
 
+	//Dont expand over space or holes, unless there´s a lattice
 	if((istype(T, /turf/simulated/open) || istype(T, /turf/space)) && !(locate(/obj/structure/lattice) in T))
 		return
 
+	//If its rock, mine it
+	if(istype(T,/turf/simulated/mineral))
+		var/turf/simulated/mineral/M = T
+		M.kinetic_hit(8,get_dir(src,M)) //8 so its destroyed in 2 or 3 hits (mineral health is randomized between 10 and 20)
+		return
+
+	//If its a wall, destroy it
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/SW = T
 		SW.ex_act(2)
@@ -189,6 +194,10 @@
 				health += rand(1,10)
 				if(health > maxHealth)
 					health = maxHealth
+		return
+
+	//If its a astroid turf, ignore it with a 50% chance (so the expansion mostly focuses on the station)
+	if(istype(T,/turf/unsimulated/floor/asteroid/) && prob(50))
 		return
 
 	if(parent_core)
@@ -226,7 +235,7 @@
 			take_damage((Proj.damage / laser_resist) / fire_resist)
 	return 0
 
-/obj/effect/blob/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/effect/blob/attackby(var/obj/item/W, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)

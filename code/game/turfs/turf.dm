@@ -34,6 +34,16 @@
 
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
+	//Mining resources (for the large drills).
+	var/has_resources
+	var/list/resources
+
+	// Plating data.
+	var/base_name = "plating"
+	var/base_desc = "The naked hull."
+	var/base_icon = 'icons/turf/flooring/plating.dmi'
+	var/base_icon_state = "plating"
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
@@ -329,16 +339,22 @@ var/const/enterloopsanity = 100
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
 /turf/proc/spawn_roof(flags = 0)
-	var/turf/simulated/open/above = GetAbove(src)
+	var/turf/above = GetAbove(src)
 	if (!above)
 		return FALSE
 
-	if (((istype(above)) || (flags & ROOF_FORCE_SPAWN)) && roof_type && above)
-		above.ChangeTurf(roof_type)
+	if ((isopenturf(above) || (flags & ROOF_FORCE_SPAWN)) && get_roof_type() && above)
+		above.ChangeTurf(get_roof_type())
 		roof_flags |= flags
 		return TRUE
 
 	return FALSE
+
+/**
+ * Returns the roof type of the current turf
+ */
+/turf/proc/get_roof_type()
+	return roof_type
 
 /**
  * Cleans up the roof above a tile if there is one spawned and the ROOF_CLEANUP
@@ -393,7 +409,7 @@ var/const/enterloopsanity = 100
 			L.Add(t)
 	return L
 
-
+// CRAWLING + MOVING STUFF
 /turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	var/turf/T = get_turf(user)
 	var/area/A = T.loc
@@ -401,7 +417,7 @@ var/const/enterloopsanity = 100
 		return
 	if(istype(O, /obj/screen))
 		return
-	if(user.restrained() || user.stat || user.stunned || user.paralysis || !user.lying)
+	if(user.restrained() || user.stat || user.incapacitated(INCAPACITATION_KNOCKOUT) || !user.lying)
 		return
 	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
 		return
@@ -409,15 +425,40 @@ var/const/enterloopsanity = 100
 		return
 	if(isanimal(user) && O != user)
 		return
+
+	var/tally = 0
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/has_right_hand = TRUE
-		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
-		if(!rhand || rhand.is_stump())
-			has_right_hand = FALSE
-		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
-		if(!lhand || lhand.is_stump())
-			if(!has_right_hand)
-				return
-	if (do_after(user, 25 + (5 * user.weakened)) && !(user.stat))
+
+		var/obj/item/organ/external/rhand = H.organs_by_name[BP_R_HAND]
+		tally += limbCheck(rhand)
+
+		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
+		tally += limbCheck(lhand)
+	
+		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
+		tally += limbCheck(rfoot)
+
+		var/obj/item/organ/external/lfoot = H.organs_by_name[BP_L_FOOT]
+		tally += limbCheck(lfoot)
+
+	if(tally >= 120)
+		to_chat(user, span("notice", "You're too injured to do this!"))
+		return
+
+	var/finaltime = 25 + (5 * (user.weakened * 1.5))
+	if(tally >= 45) // If you have this much missing, you'll crawl slower.
+		finaltime += tally
+
+	if(do_after(user, finaltime) && !user.stat)
 		step_towards(O, src)
+
+// Checks status of limb, returns an amount to
+/turf/proc/limbCheck(var/obj/item/organ/external/limb)
+	if(!limb) // Limb is null, thus missing. Add 3 seconds.
+		return 30
+	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to manoevre yourself
+		return 15
+	else
+		return 0

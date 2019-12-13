@@ -15,7 +15,7 @@
 	var/last_used = 0 //last world.time it was used.
 
 /obj/item/device/flash/proc/clown_check(var/mob/user)
-	if(user && (CLUMSY in user.mutations) && prob(50))
+	if(user && (user.is_clumsy()) && prob(50))
 		to_chat(user, "<span class='warning'>\The [src] slips out of your hand.</span>")
 		user.drop_from_inventory(src)
 		return 0
@@ -80,7 +80,7 @@
 		if(safety <= 0)
 			flick("e_flash", M.flash)
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.get_eyes()
+			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
 				return
 
@@ -167,8 +167,8 @@
 
 	for(var/mob/living/carbon/M in oviewers(3, null))
 		if(prob(50))
-			if (locate(/obj/item/weapon/cloaking_device, M))
-				for(var/obj/item/weapon/cloaking_device/S in M)
+			if (locate(/obj/item/cloaking_device, M))
+				for(var/obj/item/cloaking_device/S in M)
 					S.active = 0
 					S.icon_state = "shield0"
 		var/safety = M.eyecheck(TRUE)

@@ -93,13 +93,16 @@
 	var/debug = 0
 	var/last_message_time = -100 //for message
 
+	var/datum/looping_sound/supermatter/soundloop
+
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-
+	soundloop = new(list(src), TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/machinery/power/supermatter/proc/explode()
@@ -190,6 +193,9 @@
 
 	if(!istype(L)) 	//We are in a crate or somewhere that isn't turf, if we return to turf resume processing but for now.
 		return  //Yeah just stop.
+
+	if(power)
+		soundloop.volume = min(40, (round(power/100)/50)+1)
 
 	if(damage > explosion_point)
 		if(!exploded)
@@ -360,7 +366,7 @@
 	return
 */
 
-/obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
@@ -394,8 +400,8 @@
 		user.dust()
 		power += 200
 	else
-		if (istype(user, /obj/item/weapon/holder))
-			var/obj/item/weapon/holder/H = user
+		if (istype(user, /obj/item/holder))
+			var/obj/item/holder/H = user
 			Consume(H.contained)//If its a holder, eat the thing inside
 			qdel(H)
 			return

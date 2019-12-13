@@ -8,18 +8,18 @@
 
 
 /proc/announceToRodents(var/message)
-	for(var/R in SSmob.all_mice)
+	for(var/R in SSmob.all_rats)
 		to_chat(R, message)
 
-/mob/living/simple_animal/mouse/king
+/mob/living/simple_animal/rat/king
 	attacktext = "bitten"
 	a_intent = "harm"
 
-	icon_state = "mouse_gray"
-	item_state = "mouse_gray"
-	icon_living = "mouse_gray"
-	icon_dead = "mouse_gray_dead"
-	icon_rest = "mouse_gray_sleep"
+	icon_state = "rat_gray"
+	item_state = "rat_gray"
+	icon_living = "rat_gray"
+	icon_dead = "rat_gray_dead"
+	icon_rest = "rat_gray_sleep"
 
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -28,7 +28,7 @@
 	var/announce_name = "Request"
 	var/list/rats = list()
 
-/mob/living/simple_animal/mouse/king/Initialize()
+/mob/living/simple_animal/rat/king/Initialize()
 	. = ..()
 
 	update()
@@ -41,24 +41,24 @@
 	say_dead_direct("An heir to the rat throne has risen, all rejoice and celebrate.")
 	announceToRodents("<span class='notice'>The rat king has risen! Go at once and join his kingdom, long live the king!</span>")
 
-/mob/living/simple_animal/mouse/king/death()
+/mob/living/simple_animal/rat/king/death()
 	while(rats.len)
 		eject(rats[1], 1)
 
 	..()
 
-/mob/living/simple_animal/mouse/king/Move()
+/mob/living/simple_animal/rat/king/Move()
 	..()
 
 	for(var/image/I in overlays)
 		I.dir = src.dir
 
-/mob/living/simple_animal/mouse/king/update_icon()
+/mob/living/simple_animal/rat/king/update_icon()
 	..()
 
 	cut_overlays()
 
-	for(var/mob/living/simple_animal/mouse/R in rats)
+	for(var/mob/living/simple_animal/rat/R in rats)
 		var/image/rat_overlay = image('icons/mob/npc/animal.dmi', "[R.icon_state]")
 		rat_overlay.dir = src.dir
 		var/matrix/M = matrix()
@@ -66,7 +66,7 @@
 		rat_overlay.transform = M
 		add_overlay(rat_overlay)
 
-/mob/living/simple_animal/mouse/king/proc/update()
+/mob/living/simple_animal/rat/king/proc/update()
 	if( rats.len >= RAT_GOD_LEVEL)
 		name = "rat god"
 		swarm_name = "creation"
@@ -153,11 +153,12 @@
 	real_name = name
 
 	update_icon()
+	update_nutrition_stats()
 
-/mob/living/simple_animal/mouse/king/splat()
+/mob/living/simple_animal/rat/king/splat()
 	src.apply_damage(5, BRUTE)
 
-/mob/living/simple_animal/mouse/king/verb/kingDecree()
+/mob/living/simple_animal/rat/king/verb/kingDecree()
 	set category = "Abilities"
 	set name = "Decree"
 
@@ -175,7 +176,7 @@
 
 	announceToRodents( "[full_message]" )
 
-/mob/living/simple_animal/mouse/king/verb/roar()
+/mob/living/simple_animal/rat/king/verb/roar()
 	set category = "Abilities"
 	set name = "Mighty Roar"
 
@@ -199,7 +200,7 @@
 			L.flicker()
 	last_special = world.time + 30
 
-/mob/living/simple_animal/mouse/king/verb/devourdead(mob/target as mob in oview())
+/mob/living/simple_animal/rat/king/verb/devourdead(mob/target as mob in oview())
 	set category = "Abilities"
 	set name = "Devour Body"
 
@@ -235,7 +236,7 @@
 	last_special = world.time + 100
 	return
 
-/mob/living/simple_animal/mouse/king/proc/absorb(var/mob/living/simple_animal/mouse/R, var/update = 1)
+/mob/living/simple_animal/rat/king/proc/absorb(var/mob/living/simple_animal/rat/R, var/update = 1)
 	if(!(R in rats))
 		R.forceMove(src)
 		rats += R
@@ -243,7 +244,7 @@
 	if( update )
 		update()
 
-/mob/living/simple_animal/mouse/king/proc/eject(var/mob/living/simple_animal/mouse/R, var/update = 1)
+/mob/living/simple_animal/rat/king/proc/eject(var/mob/living/simple_animal/rat/R, var/update = 1)
 	if(R in rats)
 		R.forceMove(get_turf(src))
 		rats -= R
@@ -251,7 +252,7 @@
 	if(update)
 		update()
 
-/mob/living/simple_animal/mouse/king/proc/kingdomMessage(var/message, var/king_message)
+/mob/living/simple_animal/rat/king/proc/kingdomMessage(var/message, var/king_message)
 	for(var/R in rats)
 		to_chat(R, message)
 
@@ -260,22 +261,22 @@
 	else
 		to_chat(src, message)
 
-/mob/living/simple_animal/mouse/king/proc/canNibbleWire()
+/mob/living/simple_animal/rat/king/proc/canNibbleWire()
 	if(rats.len >= RAT_MAYOR_LEVEL)
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canRoar()
+/mob/living/simple_animal/rat/king/proc/canRoar()
 	if(rats.len >= RAT_BARON_LEVEL)
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canRoarBreakLights()
+/mob/living/simple_animal/rat/king/proc/canRoarBreakLights()
 	if(rats.len >= RAT_EMPEROR_LEVEL)
 		return 1
 	return 0
 
-/mob/living/simple_animal/mouse/king/proc/canEatCorpse()
+/mob/living/simple_animal/rat/king/proc/canEatCorpse()
 	if(rats.len >= RAT_KING_LEVEL)
 		return 1
 	return 0

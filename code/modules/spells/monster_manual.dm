@@ -1,4 +1,4 @@
-/obj/item/weapon/monster_manual
+/obj/item/monster_manual
 	name = "bestiarum"
 	desc = "A book detailing various magical creatures."
 	icon = 'icons/obj/library.dmi'
@@ -9,21 +9,21 @@
 	var/uses = 1
 	var/temp = null
 	var/list/monster = list(/mob/living/simple_animal/familiar/pet/cat,
-							/mob/living/simple_animal/mouse/familiar,
+							/mob/living/simple_animal/rat/familiar,
 							/mob/living/simple_animal/familiar/carcinus,
 							/mob/living/simple_animal/familiar/horror,
 							/mob/living/simple_animal/familiar/goat,
 							/mob/living/simple_animal/familiar/pike
 							)
 	var/list/monster_info = list(   "It is well known that the blackest of cats make good familiars.",
-									"Mice are small but fragile creatures. This one is gifted with unending life, and the ability to renew others.",
+									"Rats are small but fragile creatures. This one is gifted with unending life, and the ability to renew others.",
 									"A mortal decendant of the original Carcinus, it is said their shells are near impenetrable and their claws as sharp as knives.",
 									"A creature from other plane, its very own presence is enough to shatter the sanity of men.",
 									"A stubborn and mischievous creature, this goat delights in stirring trouble.",
 									"The more carnivorous and knowledge hungry cousin of the space carp. Keep away from books."
 									)
 
-/obj/item/weapon/monster_manual/attack_self(mob/living/user as mob)
+/obj/item/monster_manual/attack_self(mob/living/user as mob)
 	if(!user)
 		return
 	if(!user.is_wizard())
@@ -35,7 +35,7 @@
 		user.set_machine(src)
 		interact(user)
 
-/obj/item/weapon/monster_manual/interact(mob/user as mob)
+/obj/item/monster_manual/interact(mob/user as mob)
 	var/dat
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"
@@ -48,7 +48,7 @@
 	user << browse(dat,"window=monstermanual")
 	onclose(user,"monstermanual")
 
-/obj/item/weapon/monster_manual/Topic(href, href_list)
+/obj/item/monster_manual/Topic(href, href_list)
 	..()
 	if(!Adjacent(usr))
 		usr << browse(null,"window=monstermanual")

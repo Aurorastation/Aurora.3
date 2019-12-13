@@ -84,7 +84,7 @@ obj/machinery/embedded_controller/radio/Destroy()
 	radio_connection = SSradio.add_object(src, frequency, radio_filter)
 
 /obj/machinery/embedded_controller/radio/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/weapon/screwdriver))
+	if(C.isscrewdriver())
 		to_chat(user, span("notice", "You unscrew \the [src] from the wall."))
 		dismantle()
 	else if(istype(C,/obj/item/device/debugger))

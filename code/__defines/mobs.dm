@@ -45,12 +45,52 @@
 #define PULSE_THREADY 5 // Occurs during hypovolemic shock
 #define GETPULSE_HAND 0 // Less accurate. (hand)
 #define GETPULSE_TOOL 1 // More accurate. (med scanner, sleeper, etc.)
+#define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"
 #define I_DISARM	"disarm"
 #define I_GRAB		"grab"
 #define I_HURT		"harm"
+
+// Limbs and robotic stuff.
+#define BP_L_FOOT "l_foot"
+#define BP_R_FOOT "r_foot"
+#define BP_L_LEG  "l_leg"
+#define BP_R_LEG  "r_leg"
+#define BP_L_HAND "l_hand"
+#define BP_R_HAND "r_hand"
+#define BP_L_ARM  "l_arm"
+#define BP_R_ARM  "r_arm"
+#define BP_HEAD   "head"
+#define BP_CHEST  "chest"
+#define BP_GROIN  "groin"
+#define BP_ALL_LIMBS list(BP_CHEST, BP_GROIN, BP_HEAD, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT)
+#define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
+
+//Generic organs
+#define BP_EYES     "eyes"
+#define BP_HEART    "heart"
+#define BP_LUNGS    "lungs"
+#define BP_BRAIN    "brain"
+#define BP_LIVER    "liver"
+#define BP_KIDNEYS  "kidneys"
+#define BP_STOMACH  "stomach"
+#define BP_APPENDIX "appendix"
+
+//Aut'akh organs
+#define BP_ANCHOR   "anchor"
+#define BP_HAEMO    "haemodynamic"
+#define BP_ADRENAL  "adrenal"
+
+//IPC organs
+#define BP_CELL     "cell"
+#define BP_OPTICS   "optics"
+#define BP_IPCTAG   "ipc tag"
+
+//Organ defines
+#define PROCESS_ACCURACY 10
+#define DEFAULT_BLOOD_SPECIES 560 //Default blood for species
 
 //These are used Bump() code for living mobs, in the mob_bump_flag, mob_swap_flags, and mob_push_flags vars to determine whom can bump/swap with whom.
 #define HUMAN 1
@@ -129,8 +169,8 @@
 #define BASE_MAX_HYDRATION  800
 #define THIRST_FACTOR       0.02 // Factor of how fast mob hydration decreases over time.
 
-#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_SLIGHTLYTHIRSTY	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
-#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// Same as above, but maximum.
+#define CREW_MINIMUM_HYDRATION CREW_HYDRATION_HYDRATED	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage
+#define CREW_MAXIMUM_HYDRATION CREW_HYDRATION_OVERHYDRATED	// Same as above, but maximum.
 
 #define CREW_MINIMUM_NUTRITION CREW_NUTRITION_FULL	// The minimum amount of nutrition a crewmember will spawn with, represented as a percentage.
 #define CREW_MAXIMUM_NUTRITION CREW_NUTRITION_OVEREATEN	// Same as above, but maximum.
@@ -164,6 +204,20 @@
 #define ANIMAL_SPAWN_DELAY round(config.respawn_delay / 6)
 #define DRONE_SPAWN_DELAY  round(config.respawn_delay / 3)
 
+// Gluttony levels.
+#define GLUT_TINY 1       // Eat anything tiny and smaller
+#define GLUT_SMALLER 2    // Eat anything smaller than we are
+#define GLUT_ANYTHING 4   // Eat anything, ever
+
+#define GLUT_ITEM_TINY 8         // Eat items with a w_class of small or smaller
+#define GLUT_ITEM_NORMAL 16      // Eat items with a w_class of normal or smaller
+#define GLUT_ITEM_ANYTHING 32    // Eat any item
+#define GLUT_PROJECTILE_VOMIT 64 // When vomitting, does it fly out?
+
+// Devour speeds, returned by can_devour()
+#define DEVOUR_SLOW 1
+#define DEVOUR_FAST 2
+
 // Incapacitation flags, used by the mob/proc/incapacitated() proc
 #define INCAPACITATION_NONE 0
 #define INCAPACITATION_RESTRAINED 1
@@ -186,7 +240,7 @@
 //Time of Death constants
 //Used with a list in preference datums to track times of death
 #define CREW "crew" //Used for crewmembers, AI, cyborgs, nymphs, antags
-#define ANIMAL "animal" //Used for mice and any other simple animals
+#define ANIMAL "animal" //Used for rats and any other simple animals
 #define MINISYNTH "minisynth"//Used for drones and pAIs
 
 #define RESPAWN_ANIMAL 3000
@@ -239,3 +293,8 @@
 #define CURE_HYPNOSIS "hypnosis"
 #define CURE_SURGERY "surgery"
 #define CURE_ADMIN "all"
+
+// Surgery Stuff
+#define SURGERY_SUCCESS 2 // Proceed with surgery
+#define SURGERY_FAIL 1 // Autofail surgery
+#define SURGERY_IGNORE 0 // Ignore surgery completely and just attack

@@ -77,9 +77,20 @@
 	name = "Bridge Maintenance"
 	icon_state = "maintcentral"
 
+/area/maintenance/bridge_elevator
+	name = "Bridge Elevator Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/bridge_elevator/surface
+	name = "Surface - Bridge Elevator Maintenance"
+
 /area/maintenance/arrivals
 	name = "Surface Maintenance"
 	icon_state = "maint_arrivals"
+
+/area/maintenance/store
+	name = "\improper Commissary Maintenance"
+	icon_state = "maint_cargo"
 
 /area/maintenance/bar
 	name = "Bar Maintenance"
@@ -92,6 +103,9 @@
 /area/maintenance/cargo
 	name = "Cargo Maintenance"
 	icon_state = "maint_cargo"
+
+/area/maintenance/cargo/surface
+	name = "Cargo Maintenance - Surface"
 
 /area/maintenance/disposal
 	name = "Waste Disposal"
@@ -145,7 +159,7 @@
 /area/maintenance/medbay
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
-	
+
 /area/maintenance/medbay_interstitial
 	name = "\improper Medbay Interstitial Maintenance"
 	icon_state = "maint_medbay"
@@ -153,6 +167,14 @@
 /area/maintenance/research_port
 	name = "Research Maintenance - Port"
 	icon_state = "maint_research_port"
+
+/area/maintenance/telecoms_ladder
+	name = "\improper Telecoms Ladder Shaft"
+	icon_state = "tcomsatentrance"
+
+/area/maintenance/engineering_ladder
+	name = "\improper Engineering Ladder Shaft"
+	icon_state = "maint_engineering"
 
 /area/maintenance/research_xenobiology
 	name = "Research Maintenance - Xenobiology"
@@ -174,6 +196,10 @@
 	name = "Security Maintenance - Starboard"
 	icon_state = "maint_security_starboard"
 
+/area/maintenance/security_interstitial
+	name = "Security Maintenance - Interstitial"
+	icon_state = "maint_security_starboard"
+
 /area/maintenance/storage
 	name = "Atmospherics"
 	icon_state = "green"
@@ -191,8 +217,24 @@
 	icon_state = "maintcentral"
 
 /area/maintenance/interstitial_construction_site
-	name = "\improper Construction Site"
+	name = "\improper Construction Zone"
 	icon_state = "engineering_workshop"
+	flags = HIDE_FROM_HOLOMAP
+
+/area/maintenance/interstitial_construction_site/zone_2
+	name = "\improper Secondary Construction Zone"
+
+/area/maintenance/interstitial_construction_site/office
+	name = "\improper Construction Office"
+
+/area/maintenance/elevator
+	name = "\improper Primary Elevator Shaft Maintenance"
+	sound_env = SMALL_ENCLOSED
+	icon_state = "green"
+
+/area/maintenance/vault
+	name = "\improper Vault Maintenance"
+	icon_state = "green"
 
 // SUBSTATIONS (Subtype of maint, that should let them serve as shielded area during radstorm)
 
@@ -201,23 +243,31 @@
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
 
-/area/maintenance/substation/engineering // Probably will be connected to engineering SMES room, as wires cannot be crossed properly without them sharing powernets.
+/area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"
 
-// No longer used:
+/area/maintenance/substation/engineering_sublevel // Engineering
+	name = "Engineering Sublevel Substation"
+
 /area/maintenance/substation/medical_science // Medbay and Science. Each has it's own separated machinery, but it originates from the same room.
 	name = "Medical Research Substation"
 
 /area/maintenance/substation/medical // Medbay
 	name = "Main Lvl. Medical Substation"
 
+/area/maintenance/substation/medical_sublevel // Medbay
+	name = "Medical Sublevel - Substation"
+
 /area/maintenance/substation/research // Research
 	name = "Main Lvl. Research Substation"
+
+/area/maintenance/substation/research_sublevel
+	name = "Research Sublevel - Substation"
 
 /area/maintenance/substation/civilian_east // Bar, kitchen, dorms, ...
 	name = "Surface Lvl. Civilian Substation"
 
-/area/maintenance/substation/civilian_west // Cargo, PTS, locker room, probably arrivals, ...)
+/area/maintenance/substation/civilian_west // PTS, locker room, probably arrivals, ...)
 	name = "Main Lvl. Civilian Substation"
 
 /area/maintenance/substation/command // AI and central cluster. This one will be between HoP office and meeting room (probably).
@@ -228,6 +278,9 @@
 
 /area/maintenance/substation/interstitial // Construction Level.
 	name = "Construction Level Substation"
+
+/area/maintenance/substation/supply // Cargo and Mining.
+	name = "Main Lvl. Supply Substation"
 
 //Solars
 

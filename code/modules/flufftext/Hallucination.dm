@@ -117,9 +117,9 @@ mob/living/carbon/proc/handle_hallucinations()
 					if(8) sound_to(src, 'sound/machines/windowdoor.ogg')
 					if(9)
 						//To make it more realistic, I added two gunshots (enough to kill)
-						sound_to(src, 'sound/weapons/Gunshot.ogg')
+						sound_to(src, 'sound/weapons/gunshot/gunshot1.ogg')
 						spawn(rand(10,30))
-							sound_to(src, 'sound/weapons/Gunshot.ogg')
+							sound_to(src, 'sound/weapons/gunshot/gunshot1.ogg')
 					if(10) sound_to(src, 'sound/weapons/smash.ogg')
 					if(11)
 						//Same as above, but with tasers.
@@ -129,11 +129,30 @@ mob/living/carbon/proc/handle_hallucinations()
 				//Rare audio
 					if(12)
 //These sounds are (mostly) taken from Hidden: Source
-						var/list/creepyasssounds = list('sound/effects/ghost.ogg', 'sound/effects/ghost2.ogg', 'sound/effects/Heart Beat.ogg', 'sound/effects/screech.ogg',\
-							'sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/far_noise.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg',\
-							'sound/hallucinations/growl3.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg',\
-							'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
-							'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
+						var/list/creepyasssounds = list(
+						'sound/effects/ghost.ogg',
+						'sound/effects/ghost2.ogg',
+						'sound/effects/Heart Beat.ogg',
+						'sound/effects/screech.ogg',
+						'sound/hallucinations/behind_you1.ogg',
+						'sound/hallucinations/behind_you2.ogg',
+						'sound/hallucinations/far_noise.ogg',
+						'sound/hallucinations/growl1.ogg',
+						'sound/hallucinations/growl2.ogg',
+						'sound/hallucinations/growl3.ogg',
+						'sound/hallucinations/im_here1.ogg',
+						'sound/hallucinations/im_here2.ogg',
+						'sound/hallucinations/i_see_you1.ogg',
+						'sound/hallucinations/i_see_you2.ogg',
+						'sound/hallucinations/look_up1.ogg',
+						'sound/hallucinations/look_up2.ogg',
+						'sound/hallucinations/over_here1.ogg',
+						'sound/hallucinations/over_here2.ogg',
+						'sound/hallucinations/over_here3.ogg',
+						'sound/hallucinations/turn_around1.ogg',
+						'sound/hallucinations/turn_around2.ogg',
+						'sound/hallucinations/veryfar_noise.ogg',
+						'sound/hallucinations/wail.ogg')
 						sound_to(src, pick(creepyasssounds))
 			if(66 to 70)
 				//Flashes of danger
@@ -233,7 +252,7 @@ proc/check_panel(mob/M)
 
 	var/health = 100
 
-	attackby(var/obj/item/weapon/P as obj, mob/user as mob)
+	attackby(var/obj/item/P as obj, mob/user as mob)
 		step_away(src,my_target,2)
 		for(var/mob/M in oviewers(world.view,my_target))
 			to_chat(M, "<span class='danger'>[my_target] flails around wildly.</span>")
@@ -294,7 +313,7 @@ proc/check_panel(mob/M)
 					if(weapon_name)
 						my_target << sound(pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
 						my_target.show_message("<span class='danger'>[my_target] has been attacked with [weapon_name] by [src.name] </span>", 1)
-						my_target.halloss += 8
+						my_target.adjustHalLoss(10)
 						if(prob(20)) my_target.eye_blurry += 3
 						if(prob(33))
 							if(!locate(/obj/effect/overlay) in my_target.loc)
@@ -302,7 +321,7 @@ proc/check_panel(mob/M)
 					else
 						my_target << sound(pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
 						my_target.show_message("<span class='danger'>[src.name] has punched [my_target]!</span>", 1)
-						my_target.halloss += 4
+						my_target.adjustHalLoss(10)
 						if(prob(33))
 							if(!locate(/obj/effect/overlay) in my_target.loc)
 								fake_blood(my_target)
@@ -321,21 +340,21 @@ proc/check_panel(mob/M)
 	target << I
 	QDEL_IN(O, 300)
 
-var/list/non_fakeattack_weapons = list(/obj/item/weapon/gun/projectile, /obj/item/ammo_magazine/a357,\
-	/obj/item/weapon/gun/energy/crossbow, /obj/item/weapon/melee/energy/sword,\
-	/obj/item/weapon/storage/box/syndicate, /obj/item/weapon/storage/box/emps,\
-	/obj/item/weapon/cartridge/syndicate, /obj/item/clothing/under/chameleon,\
-	/obj/item/clothing/shoes/syndigaloshes, /obj/item/weapon/card/id/syndicate,\
+var/list/non_fakeattack_weapons = list(/obj/item/gun/projectile, /obj/item/ammo_magazine/a357,\
+	/obj/item/gun/energy/crossbow, /obj/item/melee/energy/sword,\
+	/obj/item/storage/box/syndicate, /obj/item/storage/box/emps,\
+	/obj/item/cartridge/syndicate, /obj/item/clothing/under/chameleon,\
+	/obj/item/clothing/shoes/syndigaloshes, /obj/item/card/id/syndicate,\
 	/obj/item/clothing/mask/gas/voice, /obj/item/clothing/glasses/thermal,\
-	/obj/item/device/chameleon, /obj/item/weapon/card/emag,\
-	/obj/item/weapon/storage/toolbox/syndicate, /obj/item/weapon/aiModule,\
-	/obj/item/device/radio/headset/syndicate,	/obj/item/weapon/plastique,\
-	/obj/item/device/powersink, /obj/item/weapon/storage/box/syndie_kit,\
-	/obj/item/toy/syndicateballoon, /obj/item/weapon/gun/energy/captain,\
-	/obj/item/weapon/hand_tele, /obj/item/weapon/rcd, /obj/item/weapon/tank/jetpack,\
-	/obj/item/clothing/under/rank/captain, /obj/item/weapon/aicard,\
-	/obj/item/clothing/shoes/magboots, /obj/item/blueprints, /obj/item/weapon/disk/nuclear,\
-	/obj/item/clothing/suit/space/void, /obj/item/weapon/tank)
+	/obj/item/device/chameleon, /obj/item/card/emag,\
+	/obj/item/storage/toolbox/syndicate, /obj/item/aiModule,\
+	/obj/item/device/radio/headset/syndicate,	/obj/item/plastique,\
+	/obj/item/device/powersink, /obj/item/storage/box/syndie_kit,\
+	/obj/item/toy/syndicateballoon, /obj/item/gun/energy/captain,\
+	/obj/item/hand_tele, /obj/item/rfd/construction, /obj/item/tank/jetpack,\
+	/obj/item/clothing/under/rank/captain, /obj/item/aicard,\
+	/obj/item/clothing/shoes/magboots, /obj/item/blueprints, /obj/item/disk/nuclear,\
+	/obj/item/clothing/suit/space/void, /obj/item/tank)
 
 /proc/fake_attack(var/mob/living/target)
 	var/mob/living/carbon/human/clone = null

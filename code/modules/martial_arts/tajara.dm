@@ -27,10 +27,10 @@
 	A.do_attack_animation(D)
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 
-	if(!D.species.has_limbs["head"])
+	if(!D.species.has_limbs[BP_HEAD])
 		return 0
 
-	var/obj/item/organ/external/affecting = D.get_organ("head")
+	var/obj/item/organ/external/affecting = D.get_organ(BP_HEAD)
 	if(!istype(affecting) || affecting.is_stump())
 		return 0
 
@@ -46,10 +46,10 @@
 	if(isipc(D))
 		return 1
 
-	var/obj/item/organ/eyes/eyes = D.get_eyes()
+	var/obj/item/organ/internal/eyes/eyes = D.get_eyes()
 	eyes.take_damage(rand(3,4), 1)
 	var/armor = D.getarmor_organ(affecting,"melee")
-	D.apply_damage(10,BRUTE, "head", armor, sharp=1, edge=1)
+	D.apply_damage(10,BRUTE, BP_HEAD, armor, sharp=1, edge=1)
 
 	return 1
 
@@ -102,4 +102,9 @@
 	name = "baghrar manual"
 	desc = "A manual designated to teach the user about the tajaran martial art of Baghrar."
 	martial_art = /datum/martial_art/baghrar
+	description_fluff = "An ancient martial art from Adhomai primarily used for sport and contests of strength. The fighting style consists of attacks against the opponent from the waist \
+	up. The form of the attacks are primarily swiping motions which take advantage of a Tajara's claws to rake an opponents torso or head. Other moves include punching for friendlier \
+	matches or stabbing forward with the claws in typical matches. Modern Baghrariri, or people who fight in the Baghrar style for sport, usually fight with implements that cover and \
+	support their claws to avoid serious bodily damage. Modern Baghrar matches are decided upon with a point scoring system over three 10 minute rounds of fighting, but historical \
+	victories were secured by knocking opponents onto the ground."
 

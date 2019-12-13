@@ -1,7 +1,7 @@
 /obj/item/ammo_casing/a357
 	desc = "A .357 bullet casing."
 	caliber = "357"
-	projectile_type = /obj/item/projectile/bullet/pistol/strong
+	projectile_type = /obj/item/projectile/bullet/pistol/revolver
 
 /obj/item/ammo_casing/a454
 	desc = "A .454 bullet casing."
@@ -189,6 +189,10 @@
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
+/obj/item/ammo_casing/a762/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."
@@ -274,3 +278,44 @@
 	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
+
+/obj/item/ammo_casing/plasma_slug
+	name = "plasma slug"
+	desc = "A plasma slug."
+	icon_state = "plasmaslug"
+	caliber = "plasma slug"
+	projectile_type = /obj/item/projectile/plasma
+
+/obj/item/ammo_casing/plasma_bolt
+	name = "plasma bolt"
+	desc = "A plasma bolt."
+	icon_state = "plasmabolt"
+	caliber = "plasma bolt"
+	projectile_type = /obj/item/projectile/plasma/light
+
+/obj/item/ammo_casing/cannon
+	name = "cannonball"
+	desc = "A solid metal projectile."
+	icon_state = "cannonball"
+	caliber = "cannon"
+	projectile_type = /obj/item/projectile/bullet/cannonball
+	matter = list(DEFAULT_WALL_MATERIAL = 800)
+	w_class = 3
+
+/obj/item/ammo_casing/cannon/explosive
+	name = "explosive cannonball"
+	desc = "A solid metal projectile loaded with an explosive charge."
+	icon_state = "cannonball_explosive"
+	projectile_type = /obj/item/projectile/bullet/cannonball/explosive
+
+/obj/item/ammo_casing/cannon/canister
+	name = "canister shot"
+	desc = "A solid projectile filled with deadly shrapnel."
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/canister
+
+/obj/item/ammo_casing/nuke
+	name = "miniaturized nuclear warhead"
+	icon_state = "nuke"
+	caliber = "nuke"
+	desc = "A miniaturized version of a nuclear bomb."
+	projectile_type = /obj/item/projectile/bullet/nuke

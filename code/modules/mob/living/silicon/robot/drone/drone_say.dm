@@ -1,4 +1,7 @@
 /mob/living/silicon/robot/drone/say(var/message)
+	if(hacked)
+		return ..(message)
+
 	if(local_transmit)
 		message = sanitize(message)
 

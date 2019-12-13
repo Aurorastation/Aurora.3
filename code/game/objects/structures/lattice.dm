@@ -17,13 +17,14 @@
 		/turf/simulated/mineral,
 		/turf/unsimulated/wall,
 		/turf/unsimulated/floor,
-		/obj/structure/grille
+		/obj/structure/grille,
+		/turf/unsimulated/mineral/asteroid
 	)
 
 /obj/structure/lattice/Initialize()
 	. = ..()
 	if (restrict_placement)
-		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/simulated/floor/asteroid)))
+		if(!(istype(loc, /turf/space) || isopenturf(loc) || istype(loc, /turf/unsimulated/floor/asteroid)))
 			return INITIALIZE_HINT_QDEL
 	for(var/obj/structure/lattice/LAT in loc)
 		if(LAT != src)
@@ -43,7 +44,7 @@
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
 	if (C.iswelder())
-		var/obj/item/weapon/weldingtool/WT = C
+		var/obj/item/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
@@ -74,8 +75,8 @@
 
 /obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
 	if (C.iswelder())
-		var/obj/item/weapon/weldingtool/WT = C
-		if (do_after(user, 5, act_target = src) && WT.remove_fuel(1, user))
+		var/obj/item/weldingtool/WT = C
+		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
 			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			new /obj/item/stack/rods{amount = 3}(loc)
@@ -85,7 +86,7 @@
 	if (C.isscrewdriver())
 		anchored = !anchored
 		to_chat(user, "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>")
-		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src, C.usesound, 50, 1)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)
 	else

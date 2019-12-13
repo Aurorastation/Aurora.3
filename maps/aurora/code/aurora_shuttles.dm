@@ -78,12 +78,15 @@
 
 	shuttle = new()
 	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/merchant_ship/start)
-	shuttle.area_station = locate(/area/merchant_ship/docked)
+	shuttle.warmup_time = 5
+	shuttle.area_offsite = locate(/area/shuttle/merchant/start)
+	shuttle.area_station = locate(/area/shuttle/merchant/station)
 	shuttle.docking_controller_tag = "merchant_shuttle"
 	shuttle.dock_target_station = "merchant_shuttle_dock"
 	shuttle.dock_target_offsite = "merchant_station"
+	shuttle.area_transition = locate(/area/shuttle/merchant/transit)
+	shuttle.transit_direction = EAST
+	shuttle.move_time = 20
 	shuttles["Merchant"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
@@ -149,10 +152,48 @@
 
 	// Tau Ceti Foreign Legion
 
+	var/datum/shuttle/ferry/legion/legion = new()
+	legion = new()
+	legion.location = 1
+	legion.warmup_time = 10
+	legion.area_offsite = locate(/area/shuttle/legion/centcom)
+	legion.area_station = locate(/area/shuttle/legion/station)
+	legion.area_transition = locate(/area/shuttle/legion/transit)
+	legion.transit_direction = EAST
+	legion.move_time = 75
+	legion.docking_controller_tag = "legion_shuttle"
+	legion.dock_target_station = "legion_shuttle_dock"
+	legion.dock_target_offsite = "legion_hangar"
+	shuttles["Tau Ceti Foreign Legion"] = legion
+	START_PROCESSING(shuttle_controller, legion)
+
+	//Away Site shuttle.
+
 	shuttle = new()
-	shuttle.location = 1
+	shuttle.location = 0
 	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/legion/centcom)
-	shuttle.area_station = locate(/area/shuttle/legion/station)
-	shuttles["Tau Ceti Foreign Legion"] = shuttle
+	shuttle.area_station = locate(/area/shuttle/research/station)
+	shuttle.area_offsite = locate(/area/shuttle/research/away)
+	shuttle.docking_controller_tag = "science_shuttle"
+	shuttle.dock_target_station = "science_bridge"
+	shuttles["Research"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
+
+	// Distress Team Shuttle
+
+	var/datum/shuttle/ferry/multidock/distress = new()
+	distress.location = 1
+	distress.warmup_time = 10
+	distress.area_offsite = locate(/area/shuttle/distress/centcom)
+	distress.area_station = locate(/area/shuttle/distress/station)
+	distress.area_transition = locate(/area/shuttle/distress/transit)
+	distress.transit_direction = EAST
+	distress.move_time = 45
+	distress.docking_controller_tag = "distress_shuttle_aft"
+	distress.docking_controller_tag_station = "distress_shuttle_fore"
+	distress.docking_controller_tag_offsite = "distress_shuttle_aft"
+	distress.dock_target_station = "distress_shuttle_dock"
+	distress.dock_target_offsite = "distress_shuttle_origin"
+
+	shuttles["Distress"] = distress
+	START_PROCESSING(shuttle_controller, distress)

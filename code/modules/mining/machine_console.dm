@@ -1,10 +1,10 @@
 /obj/machinery/mineralconsole
 	var/obj/machinery/mineral/machine = null
 
-/obj/machinery/mineralconsole/attackby(obj/item/weapon/W, mob/user)
-	if(default_deconstruction_screwdriver(user, W))
+/obj/machinery/mineralconsole/attackby(obj/item/I, mob/user)
+	if(default_deconstruction_screwdriver(user, I))
 		return
-	else if(default_deconstruction_crowbar(user, W))
+	else if(default_deconstruction_crowbar(user, I))
 		return
 
 /obj/machinery/mineralconsole/Initialize()

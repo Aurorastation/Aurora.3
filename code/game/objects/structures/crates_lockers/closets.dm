@@ -210,19 +210,24 @@
 	if(!proj_damage)
 		return
 
+	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
+		var/distance = get_dist(Proj.starting, get_turf(loc))
+		for(var/mob/living/L in contents)
+			Proj.attack_mob(L, distance)
+
 	..()
 	damage(proj_damage)
 
-/obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
 		if(istype(W,/obj/item/tk_grab))
 			return 0
 		if(W.iswelder())
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
 					"<span class='warning'>[user] begins cutting [src] apart.</span>",
@@ -243,8 +248,8 @@
 					)
 					qdel(src)
 					return
-		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
-			var/obj/item/weapon/storage/laundry_basket/LB = W
+		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
+			var/obj/item/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
@@ -260,10 +265,10 @@
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
-	else if(istype(W, /obj/item/weapon/packageWrap))
+	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			user.visible_message(
 				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
@@ -271,7 +276,7 @@
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
-			if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")

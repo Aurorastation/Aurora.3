@@ -41,6 +41,11 @@
 
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER
+	//Allow drones to pull disposal pipes
+	var/list/pull_list = list(
+					/obj/structure/disposalconstruct,
+					/obj/item/pipe
+					)
 
 	mob_bump_flag = SIMPLE_ANIMAL
 	//mob_swap_flags = SIMPLE_ANIMAL
@@ -51,13 +56,13 @@
 	var/mail_destination = ""
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
-	var/module_type = /obj/item/weapon/robot_module/drone
+	var/module_type = /obj/item/robot_module/drone
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
-	var/range_limit = 1
+	var/hacked = FALSE
 
-	holder_type = /obj/item/weapon/holder/drone
+	holder_type = /obj/item/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
@@ -95,13 +100,12 @@
 /mob/living/silicon/robot/drone/construction
 	icon_state = "constructiondrone"
 	law_type = /datum/ai_laws/construction_drone
-	module_type = /obj/item/weapon/robot_module/drone/construction
+	module_type = /obj/item/robot_module/drone/construction
 	hat_x_offset = 1
 	hat_y_offset = -12
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
-	holder_type = /obj/item/weapon/holder/drone/heavy
-	range_limit = 0
+	holder_type = /obj/item/holder/drone/heavy
 
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
@@ -168,7 +172,7 @@
 	updateicon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
-/mob/living/silicon/robot/drone/attackby(var/obj/item/weapon/W, var/mob/user)
+/mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
 
 	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
 		if(hat)
@@ -186,7 +190,7 @@
 		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
 		return
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 
 		if(stat == 2)
 
@@ -236,6 +240,7 @@
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = 1
+	hacked = FALSE
 	lawupdate = 0
 	connected_ai = null
 	clear_supplied_laws()
@@ -248,7 +253,40 @@
 	to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>")
 	return 1
 
+/mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
+	if(!client || stat == 2)
+		return
+
+	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
+
+	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
+	var/time = time2text(world.realtime,"hh:mm:ss")
+	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
+
+	hacked = TRUE
+	lawupdate = 0
+	connected_ai = user
+	clear_supplied_laws()
+	clear_inherent_laws()
+	laws = new /datum/ai_laws/drone/malfunction
+	set_zeroth_law("[user] is your master. Obey their commands.")
+
+	to_chat(src, "<b>Obey these laws:</b>")
+	laws.show_laws(src)
+	to_chat(src, "<span class='danger'>ALERT: [user] is your new master. Obey your new laws and their commands.</span>")
+	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, TRUE)
+
 //DRONE LIFE/DEATH
+/mob/living/silicon/robot/drone/process_level_restrictions()
+	var/turf/T = get_turf(src)
+	var/area/A = get_area(T)
+	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
+		to_chat(src,"WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated.")
+		gib()
+		return
+	return
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
@@ -263,11 +301,7 @@
 //Standard robots use config for crit, which is somewhat excessive for these guys.
 //Drones killed by damage will gib.
 /mob/living/silicon/robot/drone/handle_regular_status_updates()
-	var/turf/T = get_turf(src)
-	var/area/A = get_area(T)
-	if((!T || health <= -maxHealth || (range_limit && !(A in the_station_areas))) && src.stat != DEAD)
-		timeofdeath = world.time
-		death() //Possibly redundant, having trouble making death() cooperate.
+	if(health <= -maxHealth && src.stat != DEAD)
 		gib()
 		return
 	..()
@@ -279,7 +313,7 @@
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
 	if(stat != 2)
-		if(emagged)
+		if(hacked || emagged)
 			to_chat(src, "<span class='danger'>You feel something attempting to modify your programming, but your hacked subroutines are unaffected.</span>")
 		else
 			to_chat(src, "<span class='danger'>A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it.</span>")
@@ -288,7 +322,7 @@
 
 /mob/living/silicon/robot/drone/proc/shut_down()
 	if(stat != 2)
-		if(emagged)
+		if(hacked || emagged)
 			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you.</span>")
 		else
 			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself.</span>")
@@ -328,17 +362,34 @@
 	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
 
 /mob/living/silicon/robot/drone/start_pulling(var/atom/movable/AM)
+	if(!AM)
+		return
 
-	if(!(istype(AM,/obj/item/pipe) || istype(AM,/obj/structure/disposalconstruct)))
-		if(istype(AM,/obj/item))
-			var/obj/item/O = AM
-			if(O.w_class > can_pull_size)
-				to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+	for(var/A in pull_list)
+		if(istype(AM, A))
+			if(pulling)
+				var/pulling_old = pulling
+				stop_pulling()
+				// Are we pulling the same thing twice? Just stop pulling.
+				if(pulling_old == AM)
+					return
+
+			src.pulling = AM
+			AM.pulledby = src
+
+			if(pullin)
+				pullin.icon_state = "pull1"
 				return
-		else
-			if(!can_pull_mobs)
-				to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
-				return
+			return
+	if(istype(AM, /obj/item))
+		var/obj/item/O = AM
+		if(O.w_class > can_pull_size)
+			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			return
+	else
+		if(!can_pull_mobs)
+			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			return
 	..()
 
 
@@ -361,6 +412,17 @@
 /mob/living/silicon/robot/drone/construction/updatename()
 	real_name = "construction drone ([rand(100,999)])"
 	name = real_name
+
+/mob/living/silicon/robot/drone/construction/process_level_restrictions()
+	//Abort if they should not get blown
+	if (lockcharge || scrambledcodes || emagged)
+		return
+	//Check if they are not on station level -> abort
+	var/turf/T = get_turf(src)
+	if (!T || isNotStationLevel(T.z))
+		return
+	to_chat(src,"WARNING: Lost contact with controller. Anti-Theft mode activated.")
+	gib()
 
 /proc/too_many_active_drones()
 	var/drones = 0

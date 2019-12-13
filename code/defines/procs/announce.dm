@@ -11,23 +11,23 @@
 	var/channel_name = "Station Announcements"
 	var/announcement_type = "Announcement"
 
-/datum/announcement/New(var/do_log = 0, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/New(var/do_log = 1, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
 	sound = new_sound
 	log = do_log
 	newscast = do_newscast
 	print = do_print
 
-/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
-/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "[current_map.boss_name] Update"
 	announcement_type = "[current_map.boss_name] Update"
 
-/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/notice2.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
@@ -42,49 +42,46 @@
 		message = sanitize(message, extra = 0)
 	message_title = sanitizeSafe(message_title)
 
-	Message(message, message_title)
+	MessageAndSound(message, message_title, message_sound)
 	if(do_newscast)
 		NewsCast(message, message_title)
 	if(do_print)
 		post_comm_message(message_title, message)
-	Sound(message_sound)
 	Log(message, message_title)
 
-datum/announcement/proc/Message(message as text, message_title as text)
+/datum/announcement/proc/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
-			to_chat(M, "<h2 class='alert'>[title]</h2>")
-			to_chat(M, "<span class='alert'>[message]</span>")
-			if (announcer)
-				to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
+			var/turf/T = get_turf(M)
+			if(T && isContactLevel(T.z))
+				to_chat(M, "<h2 class='alert'>[message_title]</h2>")
+				to_chat(M, "<span class='alert'>[message]</span>")
+				if (announcer)
+					to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
+				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
+					sound_to(M, message_sound)
 
-datum/announcement/minor/Message(message as text, message_title as text)
+/datum/announcement/minor/MessageAndSound(var/message as text, var/message_title as text)
 	to_world("<b>[message]</b>")
 
-datum/announcement/priority/Message(message as text, message_title as text)
-	to_world("<h1 class='alert'>[message_title]</h1>")
-	to_world("<span class='alert'>[message]</span>")
-	if(announcer)
-		to_world("<span class='alert'> -[html_encode(announcer)]</span>")
-	to_world("<br>")
-
-datum/announcement/priority/command/Message(message as text, message_title as text)
-	var/command
-	command += "<h1 class='alert'>[current_map.boss_name] Update</h1>"
+/datum/announcement/priority/command/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
+	var/command_title
+	command_title += "<h2><font color='#272727'>[current_map.boss_name] Update</font></h2>"
 	if (message_title)
-		command += "<br><h2 class='alert'>[message_title]</h2>"
+		command_title += "<h3><span class='alert'>[message_title]</span></h3>"
 
-	command += "<br><span class='alert'>[message]</span><br>"
-	command += "<br>"
-	for(var/mob/M in player_list)
-		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
-			to_chat(M, command)
+	var/command_body
+	command_body += "<br><span class='alert'>[message]</span><br>"
+	command_body += "<br>"
+	. = ..(command_body, command_title, message_sound)
 
-datum/announcement/priority/security/Message(message as text, message_title as text)
+/datum/announcement/priority/security/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	to_world("<font size=4 color='red'>[message_title]</font>")
 	to_world("<font color='red'>[message]</font>")
+	if(message_sound)
+		to_world(message_sound)
 
-datum/announcement/proc/NewsCast(message as text, message_title as text)
+/datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)
 		return
 
@@ -96,29 +93,12 @@ datum/announcement/proc/NewsCast(message as text, message_title as text)
 	news.can_be_redacted = 0
 	announce_newscaster_news(news)
 
-datum/announcement/proc/PlaySound(var/message_sound)
-	if(!message_sound)
-		return
-	for(var/mob/M in player_list)
-		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
-			to_chat(M, message_sound)
-
-datum/announcement/proc/Sound(var/message_sound)
-	PlaySound(message_sound)
-
-datum/announcement/priority/Sound(var/message_sound)
-	if(message_sound)
-		to_world(message_sound)
-
-datum/announcement/priority/command/Sound(var/message_sound)
-	PlaySound(message_sound)
-
-datum/announcement/proc/Log(message as text, message_title as text)
+/datum/announcement/proc/Log(message as text, message_title as text)
 	if(log)
 		log_say("[key_name(usr)] has made \a [announcement_type]: [message_title] - [message] - [announcer]",ckey=key_name(usr))
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)
 
-/proc/GetNameAndAssignmentFromId(var/obj/item/weapon/card/id/I)
+/proc/GetNameAndAssignmentFromId(var/obj/item/card/id/I)
 	if(!I)
 		return "Unknown"
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
@@ -136,5 +116,5 @@ datum/announcement/proc/Log(message as text, message_title as text)
 			rank = character.mind.role_alt_title
 		AnnounceArrivalSimple(character.real_name, rank, join_message)
 
-/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station")
+/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station", var/new_sound = 'sound/misc/announcements/nightlight.ogg')
 	global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcement Computer")

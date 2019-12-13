@@ -5,3 +5,4 @@
 	icon_state = "vaurca_clothes"
 	item_state = "vaurca_clothes"
 	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO

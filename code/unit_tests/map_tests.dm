@@ -27,7 +27,7 @@ datum/unit_test/apc_area_test/start_test()
 	var/list/exempt_from_apc = typecacheof(current_map.ut_apc_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(all_areas, exempt_areas))
-		if(A.z in current_map.station_levels)
+		if(isStationLevel(A.z))
 			area_test_count++
 			var/area_good = 1
 			var/bad_msg = "[ascii_red]--------------- [A.name]([A.type])"
@@ -70,7 +70,7 @@ datum/unit_test/wire_test/start_test()
 
 	for(C in world)
 		T = get_turf(C)
-		if(T && T.z in current_map.station_levels)
+		if(T && isStationLevel(T.z))
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
@@ -132,7 +132,7 @@ datum/unit_test/wire_test/start_test()
 	var/ladders_blocked = 0
 
 	for (var/obj/structure/ladder/ladder in world)
-		if (ladder.z in current_map.admin_levels)
+		if (isAdminLevel(ladder.z))
 			continue
 
 		ladders_total++
@@ -172,7 +172,7 @@ datum/unit_test/wire_test/start_test()
 	for(var/obj/machinery/door/airlock/A in world)
 		var/turf/T = get_turf(A)
 		checks++
-		if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+		if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Airlock [A] with bad turf at ([A.x],[A.y],[A.z]) in [T.loc].")
 	
@@ -198,7 +198,7 @@ datum/unit_test/wire_test/start_test()
 		if(firelock_increment > 1)
 			failed_checks++
 			log_unit_test("Double firedoor [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
-		else if(istype(T, /turf/space) || istype(T, /turf/simulated/floor/asteroid) || isopenturf(T) || T.density)
+		else if(istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || T.density)
 			failed_checks++
 			log_unit_test("Firedoor with bad turf at ([F.x],[F.y],[F.z]) in [T.loc].")
 	
@@ -219,7 +219,7 @@ datum/unit_test/wire_test/start_test()
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
 	for (var/obj/machinery/atmospherics/plumbing in world)
-		if(!(plumbing.z in current_map.station_levels))
+		if(isNotStationLevel(plumbing.z))
 			continue
 		checks++
 		if (plumbing.nodealert)
@@ -228,7 +228,7 @@ datum/unit_test/wire_test/start_test()
 
 	//Manifolds
 	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
-		if(!(pipe.z in current_map.station_levels))
+		if(isNotStationLevel(pipe.z))
 			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
@@ -237,7 +237,7 @@ datum/unit_test/wire_test/start_test()
 
 	//Pipes
 	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
-		if(!(pipe.z in current_map.station_levels))
+		if(isNotStationLevel(pipe.z))
 			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2)

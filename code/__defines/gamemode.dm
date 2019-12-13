@@ -35,7 +35,6 @@
 
 // Mode/antag template macros.
 #define MODE_BORER "borer"
-#define MODE_XENOMORPH "xeno"
 #define MODE_LOYALIST "loyalist"
 #define MODE_MUTINEER "mutineer"
 #define MODE_COMMANDO "commando"
@@ -55,7 +54,6 @@
 #define MODE_TRAITOR "traitor"
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
-#define MODE_LEGION "tau ceti foreign legion"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 

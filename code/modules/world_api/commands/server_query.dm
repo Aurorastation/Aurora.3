@@ -17,16 +17,17 @@
 	s["roundduration"] = get_round_duration_formatted()
 	s["gameid"] = game_id
 	s["game_state"] = SSticker ? 0 : SSticker.current_state
-	s["transferring"] = emergency_shuttle ? !emergency_shuttle.online() : FALSE
+	s["transferring"] = !!(emergency_shuttle?.online())
 
 	s["players"] = clients.len
 	s["admins"] = 0
+	s["staff"] = staff.len
 
-	for(var/client/C in clients)
-		if(C.holder)
-			if(C.holder.fakekey)
-				continue
-
+	for(var/S in staff)
+		var/client/C = S
+		if(C.holder.fakekey)
+			continue
+		if(C.holder.rights & (R_MOD|R_ADMIN))
 			s["admins"]++
 
 	statuscode = 200
@@ -41,13 +42,14 @@
 	description = "Gets a list of connected staffmembers"
 
 /datum/topic_command/get_stafflist/run_command(queryparams)
-	var/list/staff = list()
-	for (var/client/C in admins)
-		staff[C] = C.holder.rank
+	var/list/l_staff = list()
+	for (var/s in staff)
+		var/client/C = s
+		l_staff[C] = C.holder.rank
 
 	statuscode = 200
 	response = "Staff list fetched"
-	data = staff
+	data = l_staff
 	return TRUE
 
 //Char Names
@@ -68,52 +70,78 @@
 	data = chars
 	return TRUE
 
-//Admin Count
-/datum/topic_command/get_count_admin
-	name = "get_count_admin"
-	description = "Gets the number of admins connected"
+/datum/topic_command/get_staff_by_flag
+	name = "get_staff_by_flag"
+	description = "Gets the list of staff, selected by flag values."
+	params = list(
+		"flags" = list("name"="flags","desc"="The flags to query based on.","req"=1,"type"="int"),
+		"strict" = list("name"="strict","desc"="Set to 1 if you want all flags to be present on the holder.","req"=0,"type"="int"),
+		"show_fakekeys" = list("name"="strict","desc"="Set to 1 if you want to show fake key holders as well.","req"=0,"type"="int")
+	)
 
-/datum/topic_command/get_count_admin/run_command(queryparams)
-	var/n = 0
+/datum/topic_command/get_staff_by_flag/run_command(queryparams)
+	var/flags = text2num(queryparams["flags"])
+
+	flags &= R_ALL
+
+	var/strict = !!(queryparams["strict"] && (text2num(queryparams["strict"]) == 1))
+	var/show_fakes = !!(queryparams["show_fakekeys"] && (text2num(queryparams["show_fakekeys"]) == 1))
+
+	var/list/ckeys_found = list()
+
 	for (var/client/client in clients)
-		if (client.holder && client.holder.rights & (R_ADMIN))
-			n++
+		if (!client.holder)
+			continue
+
+		if (!show_fakes && client.holder.fakekey)
+			continue
+
+		if (strict)
+			if (client.holder.rights == flags)
+				ckeys_found += client.ckey
+		else
+			if (client.holder.rights & flags)
+				ckeys_found += client.ckey
 
 	statuscode = 200
-	response = "Admin count fetched"
-	data = n
+	response = "Staff count and list fetched."
+	data = list(
+		"ckeys" = ckeys_found
+	)
+
 	return TRUE
 
-//CCIA Count
-/datum/topic_command/get_count_cciaa
-	name = "get_count_cciaa"
-	description = "Gets the number of ccia connected"
+/datum/topic_command/get_staff_by_rank
+	name = "get_staff_by_rank"
+	description = "Gets the list of staff, selected by their rank."
+	params = list(
+		"rank" = list("name"="flags","desc"="The rank name to query based on.","req"=1,"type"="str"),
+		"show_fakekeys" = list("name"="strict","desc"="Set to 1 if you want to show fake key holders as well.","req"=0,"type"="int")
+	)
 
-/datum/topic_command/get_count_ccia/run_command(queryparams)
-	var/n = 0
+/datum/topic_command/get_staff_by_flag/run_command(queryparams)
+	var/rank = queryparams["rank"]
+
+	var/show_fakes = !!(queryparams["show_fakekeys"] && (text2num(queryparams["show_fakekeys"]) == 1))
+
+	var/list/ckeys_found = list()
+
 	for (var/client/client in clients)
-		if (client.holder && (client.holder.rights & R_CCIAA) && !(client.holder.rights & R_ADMIN))
-			n++
+		if (!client.holder)
+			continue
+
+		if (!show_fakes && client.holder.fakekey)
+			continue
+
+		if (client.holder.rank == rank)
+			ckeys_found += client.ckey
 
 	statuscode = 200
-	response = "CCIA count fetched"
-	data = n
-	return TRUE
+	response = "Staff count and list fetched."
+	data = list(
+		"ckeys" = ckeys_found
+	)
 
-//Mod Count
-/datum/topic_command/get_count_mod
-	name = "get_count_mod"
-	description = "Gets the number of mods connected"
-
-/datum/topic_command/get_count_mod/run_command(queryparams)
-	var/n = 0
-	for (var/client/client in clients)
-		if (client.holder && (client.holder.rights & R_MOD) && !(client.holder.rights & R_ADMIN))
-			n++
-
-	statuscode = 200
-	response = "Mod count fetched"
-	data = n
 	return TRUE
 
 //Player Count
@@ -164,10 +192,10 @@
 			"bot" = nonhuman_positions
 		)
 
-	for(var/datum/data/record/t in data_core.general)
-		var/name = t.fields["name"]
-		var/rank = t.fields["rank"]
-		var/real_rank = make_list_rank(t.fields["real_rank"])
+	for(var/datum/record/general/R in SSrecords.records)
+		var/name = R.name
+		var/rank = R.rank
+		var/real_rank = make_list_rank(R.real_rank)
 
 		var/department = 0
 		for(var/k in set_names)
@@ -202,7 +230,7 @@
 
 	var/list/players = list()
 	for (var/client/C in clients)
-		if (show_hidden_admins && C.holder && C.holder.fakekey)
+		if (!show_hidden_admins && C.holder?.fakekey)
 			players += ckey(C.holder.fakekey)
 		else
 			players += C.ckey

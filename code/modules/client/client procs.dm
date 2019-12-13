@@ -23,6 +23,11 @@
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
 
+	if(!authed)
+		if(href_list["authaction"] in list("guest", "forums")) // Protection
+			..()
+		return
+
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		//to_chat(src, "ASSET JOB [href_list["asset_cache_confirm_arrival"]] ARRIVED.")
@@ -189,9 +194,9 @@
 				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
-						to_chat(src, link(pr_link))
+						send_link(src, pr_link)
 					else
-						to_chat(src, link(config.githuburl))
+						send_link(src, config.githuburl)
 
 			// Forum link from various panels.
 			if ("forums")
@@ -199,7 +204,7 @@
 
 			// Wiki link from various panels.
 			if ("wiki")
-				src.wiki()
+				src.wiki(sub_page = (href_list["wiki_page"] || null))
 
 			// Web interface href link from various panels.
 			if ("webint")
@@ -258,7 +263,9 @@
 			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
-	spam_alert = max(0, spam_alert - 1)
+	else
+		spam_alert = max(0, spam_alert - 1)
+
 	return FALSE
 
 /client/proc/automute_by_duplicate(message, mute_type)
@@ -324,24 +331,84 @@
 	if(byond_version < MIN_CLIENT_VERSION)		//Out of date client.
 		return null
 
-	if(!config.guests_allowed && IsGuestKey(key))
+	if(!(config.guests_allowed || config.external_auth) && IsGuestKey(key))
 		alert(src,"This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.","Guest","OK")
 		del(src)
 		return
 
-	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
-
-
 	clients += src
 	directory[ckey] = src
+
+	if (LAZYLEN(config.client_blacklist_version))
+		var/client_version = "[byond_version].[byond_build]"
+		if (client_version in config.client_blacklist_version)
+			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat(src, "Your current version: [client_version].")
+			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
+			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
+			del(src)
+			return 0
+
+	if(IsGuestKey(key) && config.external_auth)
+		//src.real_mob = ..()
+		src.authed = FALSE
+		var/mob/abstract/unauthed/m = new()
+		m.client = src
+		src.InitPrefs() //Init some default prefs
+		return m
+		//Do auth shit
+	else
+		. = ..()
+		src.InitClient()
+		src.InitPrefs()
+
+/client/proc/InitPrefs()
+	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
+	prefs = preferences_datums[ckey]
+	if(!prefs)
+		prefs = new /datum/preferences(src)
+		preferences_datums[ckey] = prefs
+
+		prefs.gather_notifications(src)
+	prefs.client = src					// Safety reasons here.
+	prefs.last_ip = address				//these are gonna be used for banning
+	prefs.last_id = computer_id			//these are gonna be used for banning
+#if DM_VERSION >= 511
+	if (byond_version >= 511 && prefs.clientfps)
+		fps = prefs.clientfps
+#endif // DM_VERSION >= 511
+	if(SStheming)
+		SStheming.apply_theme_from_perfs(src)
+
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
+		server_greeting.display_to_client(src)
+
+/client/proc/InitClient()
+	if(initialized)
+		return
+	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
 	holder = admin_datums[ckey]
 	if(holder)
-		admins += src
+		staff += src
 		holder.owner = src
 
 	log_client_to_db()
+
+	if (byond_version < config.client_error_version)
+		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat(src, config.client_error_message)
+		to_chat(src, "Your version: [byond_version].")
+		to_chat(src, "Required version: [config.client_error_version] or later.")
+		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
+		if (holder)
+			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
+		else
+			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
+			del(src)
+			return 0
 
 	// New player, and we don't want any.
 	if (!holder)
@@ -360,42 +427,6 @@
 			del(src)
 			return 0
 
-	if (byond_version < config.client_error_version)
-		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
-		to_chat(src, config.client_error_message)
-		to_chat(src, "Your version: [byond_version].")
-		to_chat(src, "Required version: [config.client_error_version] or later.")
-		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
-		if (holder)
-			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
-		else
-			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
-			del(src)
-			return 0
-
-	if (LAZYLEN(config.client_blacklist_version))
-		var/client_version = "[byond_version].[byond_build]"
-		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
-			to_chat(src, "Your current version: [client_version].")
-			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
-			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
-			del(src)
-			return 0
-
-	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
-	prefs = preferences_datums[ckey]
-	if(!prefs)
-		prefs = new /datum/preferences(src)
-		preferences_datums[ckey] = prefs
-
-		prefs.gather_notifications(src)
-	prefs.client = src					// Safety reasons here.
-	prefs.last_ip = address				//these are gonna be used for banning
-	prefs.last_id = computer_id			//these are gonna be used for banning
-
-	. = ..()	//calls mob.Login()
-
 	if(holder)
 		add_admin_verbs()
 
@@ -409,23 +440,23 @@
 
 	send_resources()
 
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1))
-		server_greeting.display_to_client(src)
-
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
 
 	check_ip_intel()
 
-	//////////////
-	//DISCONNECT//
-	//////////////
+	fetch_unacked_warning_count()
+
+	initialized = TRUE
+
+//////////////
+//DISCONNECT//
+//////////////
 /client/Del()
 	ticket_panels -= src
 	if(holder)
 		holder.owner = null
-		admins -= src
+		staff -= src
 	directory -= ckey
 	clients -= src
 	SSassets.handle_disconnect(src)
@@ -651,7 +682,7 @@
 			log_debug("Unrecognized process_webint_link() call used. Route sent: '[route]'.")
 			return
 
-	to_chat(src, link(linkURL))
+	send_link(src, linkURL)
 	return
 
 /client/verb/show_greeting()

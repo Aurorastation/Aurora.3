@@ -7,7 +7,7 @@
 
 	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "crew"
-	circuit = /obj/item/weapon/circuitboard/operating
+	circuit = /obj/item/circuitboard/operating
 	var/mob/living/carbon/human/victim = null
 	var/obj/machinery/optable/table = null
 
@@ -45,20 +45,39 @@
 	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
 	if(src.table && (src.table.check_victim()))
 		src.victim = src.table.victim
+		var/brain_result = "normal"
+		if(victim.should_have_organ(BP_BRAIN))
+			var/obj/item/organ/internal/brain/brain = victim.internal_organs_by_name[BP_BRAIN]
+			if(!brain || victim.stat == DEAD || (victim.status_flags & FAKEDEATH))
+				brain_result = "<span class='scan_danger'>none, patient is braindead</span>"
+			else if(victim.stat != DEAD)
+				if(istype(brain))
+					switch(brain.get_current_damage_threshold())
+						if(0)
+							brain_result = "normal"
+						if(1 to 2)
+							brain_result = "<span class='scan_notice'>minor brain damage</span>"
+						if(3 to 5)
+							brain_result = "<span class='scan_warning'>weak</span>"
+						if(6 to 8)
+							brain_result = "<span class='scan_danger'>extremely weak</span>"
+						if(9 to INFINITY)
+							brain_result = "<span class='scan_danger'>fading</span>"
+						else
+							brain_result = "<span class='scan_danger'>ERROR - Hardware fault</span>"
+				else
+					if(victim.isFBP())
+						brain_result = "normal"
+					else
+						brain_result = "<span class='scan_danger'>ERROR - Organ not recognized</span>"
+		else
+			brain_result = "<span class='scan_danger'>ERROR - Non-standard biology</span>"
 		dat += {"
 <B>Patient Information:</B><BR>
-<BR>
-<B>Name:</B> [src.victim.real_name]<BR>
-<B>Age:</B> [src.victim.age]<BR>
-<B>Blood Type:</B> [src.victim.b_type]<BR>
-<BR>
-<B>Health:</B> [src.victim.health]<BR>
-<B>Brute Damage:</B> [src.victim.getBruteLoss()]<BR>
-<B>Toxins Damage:</B> [src.victim.getToxLoss()]<BR>
-<B>Fire Damage:</B> [src.victim.getFireLoss()]<BR>
-<B>Suffocation Damage:</B> [src.victim.getOxyLoss()]<BR>
-<B>Patient Status:</B> [src.victim.stat ? "Non-Responsive" : "Stable"]<BR>
-<B>Heartbeat rate:</B> [victim.get_pulse(GETPULSE_TOOL)]<BR>
+Brain Activity: <b>[brain_result]</b><br>
+Pulse: <b>[victim.get_pulse(GETPULSE_TOOL)]</b><br>
+BP: <b>[victim.get_blood_pressure()]</b><br>
+Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
 "}
 	else
 		src.victim = null
@@ -69,7 +88,6 @@
 "}
 	user << browse(dat, "window=op")
 	onclose(user, "op")
-
 
 /obj/machinery/computer/operating/Topic(href, href_list)
 	if(..())

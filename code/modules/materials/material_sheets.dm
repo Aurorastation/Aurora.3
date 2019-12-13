@@ -11,11 +11,11 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/material/Initialize()
 	. = ..()
-	pixel_x = rand(0,4)-4
-	pixel_y = rand(0,4)-4
+	randpixel_xy()
 
 	if(!default_type)
 		default_type = DEFAULT_WALL_MATERIAL
@@ -74,7 +74,7 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
-	if(W.iscoil())
+	if(iscoil(W))
 		material.build_wired_product(user, W, src)
 		return
 	else if(istype(W, /obj/item/stack/rods))
@@ -93,16 +93,19 @@
 	icon_state = "sheet-sandstone"
 	default_type = "sandstone"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/stack/material/marble
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = "marble"
+	drop_sound = 'sound/items/drop/boots.ogg'
 
 /obj/item/stack/material/diamond
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = "diamond"
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/uranium
 	name = "uranium"
@@ -114,12 +117,15 @@
 	icon_state = "sheet-phoron"
 	default_type = "phoron"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/plastic
 	name = "plastic"
 	icon_state = "sheet-plastic"
+	item_state = "sheet-plastic"
 	default_type = "plastic"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/card.ogg'
 
 /obj/item/stack/material/gold
 	name = "gold"
@@ -176,17 +182,42 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = "wood"
+	drop_sound = 'sound/items/drop/wooden.ogg'
+
+/obj/item/stack/material/woodlog
+	name = "log"
+	icon_state = "sheet-woodlog"
+	default_type = "log"
+
+/obj/item/stack/material/woodbranch
+	name = "branch"
+	icon_state = "sheet-branch"
+	default_type = "branch"
+
 
 /obj/item/stack/material/cloth
 	name = "cloth"
 	icon_state = "sheet-cloth"
 	default_type = "cloth"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
+	if(is_sharp(I))
+		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
+		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
+			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			for(var/i in 1 to rand(1,3)) // average of 2 per
+				new /obj/item/reagent_containers/glass/rag(get_turf(src))
+			use(1)
+		return
+	..()
 
 /obj/item/stack/material/cardboard
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = "cardboard"
+	drop_sound = 'sound/items/drop/box.ogg'
 
 /obj/item/stack/material/leather
 	name = "leather"
@@ -194,16 +225,25 @@
 	icon_state = "sheet-leather"
 	default_type = "leather"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/leather.ogg'
 
 /obj/item/stack/material/glass
 	name = "glass"
 	icon_state = "sheet-glass"
 	default_type = "glass"
 	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
+
+/obj/item/stack/material/glass/wired
+	name = "wired glass"
+	icon = 'icons/obj/stacks/tiles.dmi'
+	icon_state = "glass_wire"
+	default_type = "wired glass"
 
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"
+	item_state = "sheet-rglass"
 	default_type = "rglass"
 
 /obj/item/stack/material/glass/phoronglass
@@ -211,6 +251,7 @@
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures"
 	singular_name = "borosilicate glass sheet"
 	icon_state = "sheet-phoronglass"
+	item_state = "sheet-pglass"
 	default_type = "borosilicate glass"
 
 /obj/item/stack/material/glass/phoronrglass
@@ -218,6 +259,7 @@
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
 	singular_name = "reinforced borosilicate glass sheet"
 	icon_state = "sheet-phoronrglass"
+	item_state = "sheet-prglass"
 	default_type = "reinforced borosilicate glass"
 
 /obj/item/stack/material/bronze

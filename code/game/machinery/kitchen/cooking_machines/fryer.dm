@@ -7,26 +7,33 @@
 	on_icon = "fryer_on"
 	off_icon = "fryer_off"
 	food_color = "#FFAD33"
-	cooked_sound = 'sound/machines/ding.ogg'
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
+	heating_power = 12000
 
-	optimal_power = 0.35
+	optimal_power = 1.35
 
 	idle_power_usage = 3.6 KILOWATTS
 	//Power used to maintain temperature once it's heated.
 	//Going with 25% of the active power. This is a somewhat arbitrary value
 
-	resistance = 20000	// Approx. 8-9 minutes to heat up.
+	resistance = 60000	// Approx. 10 minutes.
 
 	max_contents = 2
-	container_type = /obj/item/weapon/reagent_containers/cooking_container/fryer
+	container_type = /obj/item/reagent_containers/cooking_container/fryer
 
 	stat = POWEROFF//Starts turned off
 
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil
+	var/datum/looping_sound/deep_fryer/fry_loop
 
+	component_types = list(
+			/obj/item/circuitboard/fryer,
+			/obj/item/stock_parts/capacitor = 3,
+			/obj/item/stock_parts/scanning_module,
+			/obj/item/stock_parts/matter_bin = 2
+		)
 
 /obj/machinery/appliance/cooker/fryer/examine(var/mob/user)
 	if (..())//no need to duplicate adjacency check
@@ -42,6 +49,7 @@
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
 	oil.add_reagent("cornoil", optimal_oil*(1 - variance))
+	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
@@ -81,8 +89,10 @@
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
 		icon_state = on_icon
+		fry_loop.start()
 	else
 		icon_state = off_icon
+		fry_loop.stop()
 	..()
 
 
@@ -165,7 +175,7 @@
 
 	var/obj/item/organ/external/E
 	var/nopain
-	if(ishuman(victim) && user.zone_sel.selecting != "groin" && user.zone_sel.selecting != "chest")
+	if(ishuman(victim) && user.zone_sel.selecting != BP_GROIN && user.zone_sel.selecting != BP_CHEST)
 		var/mob/living/carbon/human/H = victim
 		E = H.get_organ(user.zone_sel.selecting)
 		if(!E || !H.can_feel_pain())
@@ -206,7 +216,7 @@
 	oil.trans_to(victim, 40)
 
 /obj/machinery/appliance/cooker/fryer/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/weapon/reagent_containers/glass) && I.reagents)
+	if(istype(I, /obj/item/reagent_containers/glass) && I.reagents)
 		if (I.reagents.total_volume <= 0 && oil)
 			//Its empty, handle scooping some hot oil out of the fryer
 			oil.trans_to(I, I.reagents.maximum_volume)

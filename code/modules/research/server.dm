@@ -15,8 +15,8 @@
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/rdserver,
-		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/circuitboard/rdserver,
+		/obj/item/stock_parts/scanning_module,
 		/obj/item/stack/cable_coil = 2
 	)
 
@@ -27,7 +27,7 @@
 /obj/machinery/r_n_d/server/RefreshParts()
 	var/tot_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/SP in component_parts)
+	for(var/obj/item/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
 	idle_power_usage /= max(1, tot_rating)
 
@@ -150,12 +150,29 @@
 /obj/machinery/r_n_d/server/centcom/machinery_process()
 	return PROCESS_KILL //don't need process()
 
+/obj/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
+
+/obj/machinery/r_n_d/server/advanced/setup()
+	if(!files)
+		files = new /datum/research/hightech(src)
+	var/list/temp_list
+	if(!id_with_upload.len)
+		temp_list = list()
+		temp_list = text2list(id_with_upload_string, ";")
+		for(var/N in temp_list)
+			id_with_upload += text2num(N)
+	if(!id_with_download.len)
+		temp_list = list()
+		temp_list = text2list(id_with_download_string, ";")
+		for(var/N in temp_list)
+			id_with_download += text2num(N)
+
 /obj/machinery/computer/rdservercontrol
 	name = "R&D Server Controller"
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
-	circuit = /obj/item/weapon/circuitboard/rdservercontrol
+	circuit = /obj/item/circuitboard/rdservercontrol
 	var/screen = 0
 	var/obj/machinery/r_n_d/server/temp_server
 	var/list/servers = list()
@@ -301,13 +318,13 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/r_n_d/server/robotics
+/obj/machinery/r_n_d/server/advanced/robotics
 	name = "Robotics R&D Server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
-/obj/machinery/r_n_d/server/core
+/obj/machinery/r_n_d/server/advanced/core
 	name = "Core R&D Server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"

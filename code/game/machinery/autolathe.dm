@@ -24,10 +24,10 @@
 	var/datum/wires/autolathe/wires
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/autolathe,
-		/obj/item/weapon/stock_parts/matter_bin = 3,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/console_screen
+		/obj/item/circuitboard/autolathe,
+		/obj/item/stock_parts/matter_bin = 3,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/console_screen
 	)
 
 /obj/machinery/autolathe/Initialize()
@@ -97,6 +97,8 @@
 				//Build list of multipliers for sheets.
 				if(R.is_stack)
 					if(max_sheets && max_sheets > 0)
+						var/obj/item/stack/R_stack = R.path
+						max_sheets = min(max_sheets, initial(R_stack.max_amount))
 						multiplier_string  += "<br>"
 						for(var/i = 5;i<max_sheets;i*=2) //5,10,20,40...
 							multiplier_string  += "<a href='?src=\ref[src];make=[index];multiplier=[i]'>\[x[i]\]</a>"
@@ -279,9 +281,9 @@
 	..()
 	var/mb_rating = 0
 	var/man_rating = 0
-	for(var/obj/item/weapon/stock_parts/matter_bin/MB in component_parts)
+	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
 		mb_rating += MB.rating
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		man_rating += M.rating
 
 	storage_capacity[DEFAULT_WALL_MATERIAL] = mb_rating  * 25000

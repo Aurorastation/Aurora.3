@@ -17,7 +17,7 @@
 /datum/uplink_item/item/hardsuit_modules/ewar_voice
 	name = "Electrowarfare Suite and Voice Synthesiser"
 	item_cost = 6
-	path = /obj/item/weapon/storage/box/syndie_kit/ewar_voice
+	path = /obj/item/storage/box/syndie_kit/ewar_voice
 
 /datum/uplink_item/item/hardsuit_modules/maneuvering_jets
 	name = "Maneuvering Jets"
@@ -38,3 +38,9 @@
 	name = "Mounted Laser Cannon"
 	item_cost = 16
 	path = /obj/item/rig_module/mounted
+
+/datum/uplink_item/item/tools/rig_cooling_unit
+	name = "mounted suit cooling unit"
+	item_cost = 8
+	path = /obj/item/rig_module/cooling_unit
+	desc = "A mounted suit cooling unit for use with hardsuits."

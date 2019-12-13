@@ -14,6 +14,11 @@
 	var/recent_fault = 0
 	var/power_output = 1
 	has_special_power_checks = TRUE
+	var/datum/looping_sound/generator/soundloop
+
+/obj/machinery/power/port_gen/Initialize()
+	. = ..()
+	soundloop = new(list(src), active)
 
 /obj/machinery/power/port_gen/proc/IsBroken()
 	return (stat & (BROKEN|EMPED))
@@ -45,8 +50,12 @@
 
 /obj/machinery/power/port_gen/attack_hand(mob/user as mob)
 	if(..())
+		update_icon()
+		soundloop.stop()
 		return
 	if(!anchored)
+		update_icon()
+		soundloop.start()
 		return
 
 /obj/machinery/power/port_gen/examine(mob/user)
@@ -89,7 +98,7 @@
 
 	var/sheet_name = "Phoron Sheets"
 	var/sheet_path = /obj/item/stack/material/phoron
-	var/board_path = "/obj/item/weapon/circuitboard/pacman"
+	var/board_path = "/obj/item/circuitboard/pacman"
 
 	/*
 		These values were chosen so that the generator can run safely up to 80 kW
@@ -111,10 +120,10 @@
 	var/overheating = 0		//if this gets high enough the generator explodes
 
 	component_types = list(
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/micro_laser,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/micro_laser,
 		/obj/item/stack/cable_coil = 2,
-		/obj/item/weapon/stock_parts/capacitor
+		/obj/item/stock_parts/capacitor
 	)
 
 /obj/machinery/power/port_gen/pacman/Initialize()
@@ -131,10 +140,10 @@
 /obj/machinery/power/port_gen/pacman/RefreshParts()
 	var/temp_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/SP in component_parts)
-		if(istype(SP, /obj/item/weapon/stock_parts/matter_bin))
+	for(var/obj/item/stock_parts/SP in component_parts)
+		if(istype(SP, /obj/item/stock_parts/matter_bin))
 			max_sheets = SP.rating * SP.rating * 50
-		else if(istype(SP, /obj/item/weapon/stock_parts/micro_laser) || istype(SP, /obj/item/weapon/stock_parts/capacitor))
+		else if(istype(SP, /obj/item/stock_parts/micro_laser) || istype(SP, /obj/item/stock_parts/capacitor))
 			temp_rating += SP.rating
 
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
@@ -281,7 +290,7 @@
 
 		else if(O.isscrewdriver())
 			open = !open
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, O.usesound, 50, 1)
 			if(open)
 				to_chat(user, "<span class='notice'>You open the access panel.</span>")
 			else
@@ -400,7 +409,7 @@
 	sheet_path = /obj/item/stack/material/uranium
 	sheet_name = "Uranium Sheets"
 	time_per_sheet = 576 //same power output, but a 50 sheet stack will last 2 hours at max safe power
-	board_path = "/obj/item/weapon/circuitboard/pacman/super"
+	board_path = "/obj/item/circuitboard/pacman/super"
 
 /obj/machinery/power/port_gen/pacman/super/UseFuel()
 	//produces a tiny amount of radiation when in use
@@ -435,7 +444,7 @@
 	time_per_sheet = 576
 	max_temperature = 800
 	temperature_gain = 90
-	board_path = "/obj/item/weapon/circuitboard/pacman/mrs"
+	board_path = "/obj/item/circuitboard/pacman/mrs"
 
 /obj/machinery/power/port_gen/pacman/mrs/explode()
 	//no special effects, but the explosion is pretty big (same as a supermatter shard).

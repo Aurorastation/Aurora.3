@@ -17,6 +17,10 @@
 	//Proper origin and source mandatory
 	if(!(origin && source))
 		return
+
+	if(isNotStationLevel(origin.z))
+		return
+
 	origin = origin.get_alarm_origin()
 
 	new_alarm = 0

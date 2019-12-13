@@ -5,6 +5,7 @@
 	item_state = "ygloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
+	drop_sound = 'sound/items/drop/rubber.ogg'
 
 /obj/item/clothing/gloves/fyellow                             //Cheap Chinese Crap
 	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
@@ -13,6 +14,7 @@
 	item_state = "ygloves"
 	siemens_coefficient = 1			//Set to a default of 1, gets overridden in New()
 	permeability_coefficient = 0.05
+	drop_sound = 'sound/items/drop/rubber.ogg'
 
 	New()
 		//average of 0.5, somewhat better than regular gloves' 0.75
@@ -195,6 +197,12 @@
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow."
 	icon_state = "evening_gloves"
+
+/obj/item/clothing/gloves/black_leather
+	name = "black leather gloves"
+	desc = "A pair of tight-fitting synthleather gloves."
+	icon_state = "black_leather"
+	item_state = "black_leather_gloves"
 
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."

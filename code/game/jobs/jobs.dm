@@ -99,7 +99,7 @@ var/list/cargo_positions = list(
 
 var/list/civilian_positions = list(
 	"Head of Personnel",
-	"Internal Affairs Agent",
+	"Corporate Liaison",
 	"Bartender",
 	"Gardener",
 	"Chef",
@@ -128,7 +128,7 @@ var/list/nonhuman_positions = list(
 )
 
 /proc/guest_jobbans(var/job)
-	return ((job in command_positions) || job == "Internal Affairs Agent")
+	return ((job in command_positions) || job == "Corporate Liaison")
 
 /proc/get_job_datums()
 	var/list/occupations = list()

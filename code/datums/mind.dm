@@ -46,6 +46,7 @@
 	var/role_alt_title
 
 	var/datum/job/assigned_job
+	var/datum/faction/selected_faction
 
 	var/list/datum/objective/objectives = list()
 	var/list/datum/objective/special_verbs = list()
@@ -114,7 +115,12 @@
 		new_character.key = key		//now transfer the key to link the client to our new body
 
 /datum/mind/proc/store_memory(new_text)
-	memory += "[new_text]<BR>"
+	. = length(memory + new_text)
+
+	if (. > MAX_PAPER_MESSAGE_LEN)
+		memory = copytext(memory, . - MAX_PAPER_MESSAGE_LEN, .)
+	else
+		memory += "[new_text]<BR>"
 
 /datum/mind/proc/show_memory(mob/recipient)
 	var/output = "<B>[current.real_name]'s Memory</B><HR>"
@@ -350,7 +356,7 @@
 
 		switch(href_list["implant"])
 			if("remove")
-				for(var/obj/item/weapon/implant/loyalty/I in H.contents)
+				for(var/obj/item/implant/loyalty/I in H.contents)
 					for(var/obj/item/organ/external/organs in H.organs)
 						if(I in organs.implants)
 							qdel(I)
@@ -452,7 +458,7 @@
 	var/is_currently_brigged = 0
 	if(istype(T.loc,/area/security/brig))
 		is_currently_brigged = 1
-		for(var/obj/item/weapon/card/id/card in current)
+		for(var/obj/item/card/id/card in current)
 			is_currently_brigged = 0
 			break // if they still have ID they're not brigged
 		for(var/obj/item/device/pda/P in current)
@@ -502,7 +508,9 @@
 		mind = new /datum/mind(key)
 		mind.original = src
 		SSticker.minds += mind
-	if(!mind.name)	mind.name = real_name
+	if(!mind.name)
+		mind.name = real_name
+
 	if (client)
 		if (client.prefs.signature)
 			mind.signature = client.prefs.signature
@@ -513,7 +521,8 @@
 //HUMAN
 /mob/living/carbon/human/mind_initialize()
 	..()
-	if(!mind.assigned_role)	mind.assigned_role = "Assistant"	//defualt
+	if(!mind.assigned_role)
+		mind.assigned_role = "Assistant"	//defualt
 
 //slime
 /mob/living/carbon/slime/mind_initialize()
@@ -578,6 +587,6 @@
 	..()
 	mind.assigned_role = "Familiar"
 
-/mob/living/simple_animal/mouse/familiar/familiar/mind_initialize()
+/mob/living/simple_animal/rat/familiar/familiar/mind_initialize()
 	..()
 	mind.assigned_role = "Familiar"
