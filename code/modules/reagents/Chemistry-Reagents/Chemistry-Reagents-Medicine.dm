@@ -1469,10 +1469,11 @@
 	if(alien == IS_DIONA)
 		return
 	if(dose < 1)	//not that effective after initial rush
-		M.add_chemical_effect(CE_PAINKILLER, min(15*volume, 25))
+		M.add_chemical_effect(CE_PAINKILLER, min(15*volume, 35))
+		M.add_chemical_effect(CE_PULSE, 1)
+	else
+		M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 15))
 		M.add_chemical_effect(CE_PULSE, 2)
-	M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 15))
-	M.add_chemical_effect(CE_PULSE, 1)
 	if(dose > 5)
 		M.make_jittery(5)
 	if(volume >= 5 && M.is_asystole())
