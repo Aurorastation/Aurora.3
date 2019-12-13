@@ -177,6 +177,14 @@ var/global/list/cloaking_devices = list()
 		var/datum/job/J = new T
 		joblist[J.title] = J
 
+
+	//Augments
+	paths = subtypesof(/datum/augment/legal)
+	for(var/path in paths)
+		var/datum/augment/legal/T = new path()
+		chargen_augments_list[T.name] = T.linkedaugment
+	sortTim(chargen_augments_list, /proc/cmp_text_asc)
+
 	//Languages and species.
 	paths = subtypesof(/datum/language)
 	for(var/T in paths)
