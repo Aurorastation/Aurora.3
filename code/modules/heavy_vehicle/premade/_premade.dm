@@ -141,6 +141,7 @@
 		var/bodytype = pick(typesof(/obj/item/mech_component/chassis)-/obj/item/mech_component/chassis)
 		body = new bodytype(src)
 		body.color = mech_colour ? mech_colour : pick(use_colours)
+	update_icon()
 	. = ..()
 
 /mob/living/heavy_vehicle/premade/random/normal
