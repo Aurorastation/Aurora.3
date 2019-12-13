@@ -5,10 +5,10 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 	var/name = "augment"
 	var/linkedaugment = null
 
-/datum/augment/brainaugment
+/datum/augment/legal/brainaugment
 
 	name = "Augmented Brain"
-	linkedaugment = /obj/item/organ/internal/augment/aci
+	linkedaugment = /obj/item/organ/internal/augment/neuralsleeve
 
 
 
@@ -77,66 +77,45 @@ var/list/augmentations = typesof(/datum/augment) - /datum/augment
 /////////////////
 /////////////////
 
-/obj/item/organ/internal/augment/aci
+/obj/item/organ/internal/augment/neuralsleeve
 	name = "Augmented Cranial Implant"
 	action_icon = "aci"
 	icon_state = "aci"
 	var/connected = FALSE
-	var/useraccount = null
+	install_locations = list(HEAD)
+	var/datum/dna2/record/buf = null
 
-/obj/item/organ/internal/augment/aci/proc/augmentbrain(var/mob/user)
+/obj/item/organ/internal/augment/neuralsleeve/proc/augmentbrain(var/mob/user)
 
 	var/mob/living/carbon/human/H = owner
-	var/obj/item/organ/IO = H.internal_organs_by_name["brain"]
-	IO.name = "Augmented Brain"
-	IO.icon_state = "brain-prosthetic"
-	H.add_language(LANGUAGE_ERDANICYBER)
+	if(!H)
+		return
+	else
+		var/obj/item/organ/IO = H.internal_organs_by_name[BP_BRAIN]
+		IO.name = "Augmented Brain"
+		IO.icon_state = "brain-prosthetic"
 
 
-/obj/item/organ/internal/augment/aci/Initialize()
+/obj/item/organ/internal/augment/neuralsleeve/Initialize()
 	augmentbrain()
 	robotize()
+	buf = new
+	buf.dna=new
 	. = ..()
 
 
-/obj/item/organ/internal/augment/aci/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/neuralsleeve/attack_self(var/mob/user)
 	. = ..()
 	var/mob/living/carbon/human/H = owner
-	var/userid = H.mind.holonetname
-	if(.)
-
-
-		var/list/acisettings = list("Toggle Connection", "Change ID","Insert ID","Shop For Augments", "Cancel")
-
-		var/acimode = input("Select A.C.I Operation.", "Hephaestus Industries ACI os.V335") as null|anything in acisettings
-
-		switch(acimode)
-
-			if("Toggle Connection")
-				if(!connected)
-					to_chat(H, "<span class='warning'>Disconnected from the HoloNet, goodbye [userid] </span>")
-					connected = TRUE
-					H.remove_language(LANGUAGE_ERDANICYBER)
-				if(connected)
-					to_chat(H, "<span class='warning'>Now connected to the HoloNet, welcome [userid] </span>")
-					connected = FALSE
-					H.add_language(LANGUAGE_ERDANICYBER)
-
-			if("Change ID")
-				if(connected == 0)
-					to_chat(H, "<span class='warning'>You must be connected to change your ID</span>")
-					return
-				if(connected == 1)
-					var/idinput = sanitize(input("Enter Username.", "Set Name") as text|null)
-					H.mind.holonetname = idinput
-					to_chat(H, "<span class='warning'>Your HoloChat name is now [idinput], restarting connection</span>")
-
-			if("Insert ID")
-				var/obj/item/card/I = user.get_active_hand()
-				if (istype(I, /obj/item/card/id))
-					useraccount += I.associated_account_number
-					to_chat(H, "<span class='warning'>Financial Info saved!</span>")
-
+	var/datum/dna2/record/databuff=new
+	if(!H)
+		return	
+	else
+		databuff.dna = H.dna.Clone()
+		if(ishuman(H))
+			databuff.dna.real_name=H.dna.real_name
+		to_chat(user, "<span class='notice'>[src] has recorded your current life state</span>")
+		buf = databuff
 
 /obj/item/organ/internal/augment/integratedtesla
 	name = "tesla unit"

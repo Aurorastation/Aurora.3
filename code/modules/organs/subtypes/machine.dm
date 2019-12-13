@@ -57,7 +57,7 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
 
-/obj/item/organ/cell
+/obj/item/organ/internal/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
@@ -67,24 +67,23 @@
 	vital = 1
 	var/emp_counter = 0
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/process()
+/obj/item/organ/internal/cell/process()
 	..()
 	if(emp_counter)
 		emp_counter--
 
-/obj/item/organ/cell/emp_act(severity)
+/obj/item/organ/internal/cell/emp_act(severity)
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
 		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
 
 
-
-/obj/item/organ/surge
+/obj/item/organ/internal/surge
 	name = "surge preventor"
 	desc = "A small device that give immunity to EMP for few pulses."
 	icon = 'icons/obj/robot_component.dmi'
@@ -95,19 +94,19 @@
 	var/surge_left = 0
 	var/broken = 0
 
-/obj/item/organ/surge/Initialize()
+/obj/item/organ/internal/surge/Initialize()
 	if(!surge_left && !broken)
 		surge_left = rand(2, 5)
 	robotize()
 	. = ..()
 
-/obj/item/organ/surge/advanced
+/obj/item/organ/internal/surge/advanced
 	name = "advanced surge preventor"
 	var/max_charges = 5
 	var/stage_ticker = 0
 	var/stage_interval = 250
 
-/obj/item/organ/surge/advanced/process()
+/obj/item/organ/internal/surge/advanced/process()
 	..()
 
 	if(!owner)
@@ -204,7 +203,7 @@
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/data
+/obj/item/organ/internal/data
 	name = "data core"
 	organ_tag = "data core"
 	parent_organ = BP_GROIN
@@ -213,14 +212,14 @@
 	vital = 0
 	emp_coeff = 0.1
 
-/obj/item/organ/data/Initialize()
+/obj/item/organ/internal/data/Initialize()
 	robotize()
 	. = ..()
 
 /obj/item/organ/diagnosticsunit
 	name = "diagnostics unit"
 	organ_tag = "diagnostics unit"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "diagnostics_unit"
 	action_button_name = "Use diagnostics unit"
@@ -281,36 +280,10 @@
 	robotize()
 	. = ..()
 
-/obj/item/organ/limbservo
-	name = "limbservo"
-	icon = 'icons/obj/robot_component.dmi'
-	icon_state = "servo"
-	vital = 0
-	var/servothreshhold = 0
-
-/obj/item/organ/limbservo/Initialize()
-	START_PROCESSING(SSfast_process, src)
-	robotize()
-	. = ..()
-
-/obj/item/organ/limbservo/proc/servo_check()
-	var/mob/living/carbon/human/H = owner
-	var/obj/item/organ/external/SO = parent_organ
-	if(!H) 
-		return		
-	if(SO.brute_dam >= 20 )
-		servothreshhold = 1
-	if(SO.brute_dam <= 19 )
-		servothreshhold = 0
-
-/obj/item/organ/limbservo/process()
-	servo_check()
-	. = ..()
-
 /obj/item/organ/coolantpump
 	name = "coolant pump"
 	organ_tag = "coolant pump"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "coolantpump"
 	vital = 0
@@ -419,7 +392,7 @@
 
 /obj/item/organ/coolantpump/proc/damage_pump()
 	var/mob/living/carbon/human/H = owner
-	var/obj/item/organ/external/UB = H.organs_by_name["chest"]
+	var/obj/item/organ/external/UB = H.organs_by_name[BP_CHEST]
 	if(!H) 
 		return
 	if(UB.brute_dam >= 20 )
@@ -446,7 +419,7 @@
 /obj/item/organ/coolantpump/removed(var/mob/living/carbon/human/target)
 	var/mob/living/carbon/human/H = target
 	to_chat(H, "<span class='warning'>Your entire body shuts down, leaving you lifeless.</span>")
-	H.Weaken(520)
+	H.Weaken(522220)
 
 
 /obj/item/organ/coolantpump/replaced(var/mob/living/carbon/human/target)
@@ -489,7 +462,7 @@
 /obj/item/organ/powercontrolunit
 	name = "central power calibration system"
 	organ_tag = "calibration system"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "navmesh"
 	vital = 0
@@ -603,7 +576,7 @@
 
 
 
-/obj/item/organ/cell/terminator
+/obj/item/organ/internal/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
 	icon = 'icons/obj/power.dmi'
@@ -613,7 +586,7 @@
 	vital = 1
 	emp_coeff = 0
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 

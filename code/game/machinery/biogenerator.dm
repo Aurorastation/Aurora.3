@@ -30,10 +30,10 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
-		"soylenviridians" = list(
-			name = "Soylent Viridians",
+		"soywafers" = list(
+			name = "Soy Wafers",
 			class = "Food",
-			object = /obj/item/reagent_containers/food/snacks/soylenviridians,
+			object = /obj/item/reagent_containers/food/snacks/soywafers,
 			cost = 150,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -159,9 +159,9 @@
 			emag = 0
 		),
 		"cash" = list(
-			name = "Cash Bag",
+			name = "Money Bag",
 			class = "Items",
-			object = /obj/item/storage/bag/cash,
+			object = /obj/item/storage/bag/money,
 			cost = 400,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -301,14 +301,6 @@
 			object = /obj/item/stack/material/animalhide/human,
 			cost = 50,
 			amount = list(1,5,10,25,50),
-			emag = 1
-		),
-		"soylentgreen" = list(
-			name = "Soylent Green",
-			class = "!@#$%^&*()",
-			object = /obj/item/reagent_containers/food/snacks/soylentgreen,
-			cost = 150,
-			amount = list(1,2,3,4,5),
 			emag = 1
 		),
 		"syndie" = list(

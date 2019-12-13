@@ -1,16 +1,10 @@
-/obj/item/organ/internal/heart/left
-	name = "heart"
-	icon_state = "vaurca_heart_l-on"
-	organ_tag = "left heart"
+/obj/item/organ/internal/heart/vaurca
+	name = "double heart system"
+	icon_state = "vaurca_heart_d-on"
+	organ_tag = BP_HEART
 	parent_organ = BP_CHEST
-	dead_icon = "vaurca_heart_l-off"
-
-/obj/item/organ/internal/heart/right
-	name = "heart"
-	icon_state = "vaurca_heart_r-on"
-	organ_tag = "right heart"
-	parent_organ = BP_CHEST
-	dead_icon = "vaurca_heart_r-off"
+	dead_icon = "vaurca_heart_d-off"
+	max_damage = 90 //two hearts = stronger hearts
 
 /obj/item/organ/internal/lungs/vaurca
 	icon_state = "lungs_vaurca"

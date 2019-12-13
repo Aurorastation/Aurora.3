@@ -309,6 +309,35 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "[M] <a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
 		out += HTML_RECT(pref.body_markings[M])
 		out += "<br>"
+	out += "<br><a href='?src=\ref[src];augments=1'>Augments +</a><br>"
+	for(var/name in pref.auglimb_data)
+		var/augorgan_name = null
+		switch(name)
+			if("l_arm")
+				augorgan_name = "left arm"
+			if("r_arm")
+				augorgan_name = "right arm"
+			if("l_leg")
+				augorgan_name = "left leg"
+			if("r_leg")
+				augorgan_name = "right leg"
+			if("l_foot")
+				augorgan_name = "left foot"
+			if("r_foot")
+				augorgan_name = "right foot"
+			if("l_hand")
+				augorgan_name = "left hand"
+			if("r_hand")
+				augorgan_name = "right hand"
+			if("groin")
+				augorgan_name = "lower body"
+			if("chest")
+				augorgan_name = "upper body"
+			if("head")
+				augorgan_name = "head"
+		out += "Augmented [augorgan_name] <a href='?src=\ref[src];reset_augments=[augorgan_name]'>-</a> "
+		out += "<br>"
+
 
 	. = out.Join()
 
@@ -494,6 +523,51 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(new_f_style && has_flag(mob_species, HAS_HAIR_COLOR) && CanUseTopic(user))
 			pref.f_style = new_f_style
 			return TOPIC_REFRESH
+
+	else if(href_list["augments"])
+		var/augmentpoints = 4
+		var/list/acceptable_augmentableorgan_input = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand", "Head")
+		var/augmentlimb_name = input(user, "Which limb do you want to change?") as null|anything in acceptable_augmentableorgan_input
+		if(!augmentlimb_name && !CanUseTopic(user)) 
+			return TOPIC_NOACTION
+
+		var/augmentlimb = null
+
+		switch(augmentlimb_name)
+			if("Left Leg")
+				augmentlimb = "l_leg"
+			if("Right Leg")
+				augmentlimb = "r_leg"
+			if("Left Arm")
+				augmentlimb = "l_arm"
+			if("Right Arm")
+				augmentlimb = "r_arm"
+			if("Left Foot")
+				augmentlimb = "l_foot"
+			if("Right Foot")
+				augmentlimb = "r_foot"
+			if("Left Hand")
+				augmentlimb = "l_hand"
+			if("Right Hand")
+				augmentlimb = "r_hand"
+			if("Lower Body")
+				augmentlimb = "groin"
+			if("Upper Body")
+				augmentlimb = "chest"
+			if("Head")
+				augmentlimb = "head"
+			else
+				to_chat(user, "<span class='notice'>Cancelled.</span>")
+				return TOPIC_NOACTION
+		if(augmentpoints == 0)
+			to_chat(user, "<span class='notice'>You cant select anymore augments.</span>")
+			return TOPIC_NOACTION
+
+		var/list/augments_setup = chargen_augments_list
+		var/augmentchoice = input(user, "Which augment/biomod do you wish to use for this limb?") as null|anything in augments_setup
+		pref.auglimb_data[augmentlimb] += augments_setup[augmentchoice]
+		--augmentpoints
+
 
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list

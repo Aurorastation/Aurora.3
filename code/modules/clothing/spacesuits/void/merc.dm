@@ -11,10 +11,10 @@
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 35, bio = 100, rad = 60)
 	siemens_coefficient = 0.35
 	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
-	camera_networks = list(NETWORK_MERCENARY)
-	light_overlay = "helmet_light_green" //todo: species-specific light overlays
+	light_overlay = "merc_voidsuit_lights"
+	camera = /obj/machinery/camera/network/mercenary
 	brightness_on = 6
-	light_color = "#3e7c3e"
+	light_color = "#ffffff"
 
 /obj/item/clothing/suit/space/void/merc
 	icon_state = "rig-syndie"

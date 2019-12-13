@@ -85,9 +85,9 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
-		BP_CELL    = /obj/item/organ/cell,
+		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
-		"surge"   = /obj/item/organ/surge/advanced
+		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/terminator, /datum/unarmed_attack/bite/strong)
@@ -134,7 +134,7 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
-		BP_CELL    = /obj/item/organ/cell,
+		BP_CELL    = /obj/item/organ/internal/cell,
 		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
 		"coolant pump" = /obj/item/organ/coolantpump/heavy,
@@ -229,14 +229,14 @@
 
 	has_organ = list(
 		BP_BRAIN = /obj/item/organ/internal/mmi_holder/posibrain/terminator,
-		"shielded cell" = /obj/item/organ/cell/terminator,
+		"shielded cell" = /obj/item/organ/internal/cell/terminator,
 		BP_OPTICS = /obj/item/organ/eyes/optical_sensor/terminator,
-		"data core" = /obj/item/organ/data,
+		"data core" = /obj/item/organ/internal/data,
+		"surge"   = /obj/item/organ/internal/surge/advanced,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,
 		"coolant pump" = /obj/item/organ/coolantpump,
 		"calibration system" = /obj/item/organ/powercontrolunit,
-		"tesla unit" = /obj/item/organ/internal/augment/integratedtesla,
-		"surge"   = /obj/item/organ/surge/advanced
+		"tesla unit" = /obj/item/organ/internal/augment/integratedtesla
 	)
 
 	has_limbs = list(
@@ -311,7 +311,7 @@
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
-		"cell"    = /obj/item/organ/cell,
+		"cell"    = /obj/item/organ/internal/cell,
 		"optics"  = /obj/item/organ/eyes/optical_sensor,
 		"ipc tag" = /obj/item/organ/internal/ipc_tag,
 		"diagnostics unit" = /obj/item/organ/diagnosticsunit,

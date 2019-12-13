@@ -164,6 +164,11 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 			loss = M.getToxLoss()
 		if(OXY)
 			loss = M.getOxyLoss()
+			if(istype(M,/mob/living/carbon/human))
+				var/mob/living/carbon/human/H = M
+				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name["lungs"]
+				if(L)
+					loss = L.oxygen_deprivation
 		if(CLONE)
 			loss = M.getCloneLoss()
 		if(HALLOSS)
@@ -172,7 +177,7 @@ proc/damage_check(var/mob/living/M, var/damage_type)
 	if(!loss && istype(M, /mob/living/carbon/human))          // Revert IPC's when?
 		var/mob/living/carbon/human/H = M                 // IPC's have robot limbs which don't report damage to getXXXLoss()
 		if(istype(H.species, /datum/species/machine))     // So we have ot hard code this check or create a different one for them.
-			return 100 - H.health                     // TODO: Find better way to do this then hardcoding this formula
+			return H.species.total_health - H.health                     // TODO: Find better way to do this then hardcoding this formula
 
 	return loss
 

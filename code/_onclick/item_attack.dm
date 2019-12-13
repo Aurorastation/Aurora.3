@@ -44,7 +44,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		if(do_surgery(src, user, I))
 			return TRUE
 		else
-			return I.attack(src, user, user.zone_sel.selecting)
+			return I.attack(src, user, user.zone_sel.selecting) //This is necessary to make things like health analyzers work. -mattatlas
 	if(operating == SURGERY_FAIL)
 		if(do_surgery(src, user, I, TRUE))
 			return TRUE

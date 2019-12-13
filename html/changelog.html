@@ -35,6 +35,179 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">10 December 2019</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Taking a drag of your cigarette now smokes it slightly faster. Good for finishing up a cig before going into medical.</li>
+				<li class="rscadd">Added a check to prevent spamming audio/message logs with taking a drag from a cigarette. You can still smoke it down by clicking fast, but it only displays the message/sound if it's been at least three seconds since the last one.</li>
+			</ul>
+			<h3 class="author">MattAtlas, MoondancerPony, Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="experiment">An entirely new medical system! Holy balls that's a lot of changes.</li>
+				<li class="experiment">Pain has been SUBSTANTIALLY changed. It now depends on total damage to all your limbs.</li>
+				<li class="rscadd">Traumas no longer happen due to oxyloss.</li>
+				<li class="tweak">Inaprovaline has been renamed to norepinephrine and viceversa.</li>
+				<li class="tweak">CPR has been fixed up a bit. It has a small chance to restart hearts and can work with or without mouth-to-mouth.</li>
+				<li class="rscadd">Humans no longer die when hitting 200 damage. Dionae, IPCs, grues and zombies are exceptions.</li>
+				<li class="rscadd">Humans now die when their brain dies. For the brain to die, it must not have oxygen for quite a while.</li>
+				<li class="rscadd">Suffocation damage is now a modifier to blood. If you don't have much oxygen, then you'll get the effects of low blood.</li>
+				<li class="rscadd">Toxins now directly target organs. They'll try to destroy the liver and kidneys first... then move onto other organs. Be careful.</li>
+				<li class="rscadd">All organs in the body now work towards making sure the brain lives. The liver filters toxins, the kidneys do the same, the lungs provide oxygen, the heart pumps blood and so on.</li>
+				<li class="rscadd">Humans now have two new stats: blood oxygenation and blood pressure, shown on sensors and scanners. Blood pressure depends on how well your heart is pumping your blood. Blood oxygenation depends on how well your blood is oxygenated.</li>
+				<li class="rscadd">Your heart can now stop when your pulse is too high. Your pulse depends on many factors - like pain or how much blood your brain wants. A heart in asystole cannot pump blood, meaning your brain will suffocate.</li>
+				<li class="rscadd">When your heart stops, you go into asystole, aka flatlining. This can be fixed with CPR. Make sure that you fix the causes first... or they'll just go into asystole again.</li>
+				<li class="rscadd">Norepinephrine stabilizes your heartrate. This is a VERY important fact, do NOT forget this. Norepinephrine will be your best tool!</li>
+				<li class="tweak">Tricordazine recipe is now 1u epinephrine 1u dylovene.</li>
+				<li class="tweak">Adrenaline has been added. Its recipe is 1u norepinephrine 1u hyperzine 1u dexalinplus.</li>
+				<li class="tweak">Bicaridine recipe is now 1u norepinephrine 1u carbon.</li>
+				<li class="tweak">Inaprovaline recipe is now 1u atropine 0.1u phoron 1u adrenaline.</li>
+				<li class="tweak">Paroxetine recipe is now 1u mindbreaker 1u acetone 1u norepinephrine.</li>
+				<li class="tweak">Nightlife recipe is now 1u methylphenidate 1u synaptizine 1u nitroglycerin.</li>
+				<li class="tweak">RMT recipe is now 1u potassium 1u norepinephrine.</li>
+				<li class="rscadd">Ondansetron, a chemical that prevents vomiting and nausea, is made with 1u antihistamine 1u synaptizine 1u water.</li>
+				<li class="rscadd">Dexalin and dexalin+ no longer straight up heal oxyloss. Instead, they now fool your brain into thinking that it has 50% oxygen and 80% oxygen respectively.</li>
+				<li class="rscadd">Alkysine now only heals the brain if it's properly oxygenated.</li>
+				<li class="rscadd">Added a stomach organ. This controls reagent ingestion and food ingestion.</li>
+				<li class="rscadd">Added a stomach pump mode to sleepers to pump INGESTED reagents out of people's stomach.</li>
+				<li class="tweak">Peridaxon now heals brain damage, if it's not damaged much at all.</li>
+				<li class="tweak">Dylovene no longer outright heals toxin damage. Instead, it removes toxin reagents from the blood.</li>
+				<li class="rscadd">New side effects to most healing chems. Be careful.</li>
+				<li class="rscadd">Deltamivir now inflicts a fever. Be careful, going overboard with the dosage can give you a pretty bad one. Try not to go over 20 units at once.</li>
+				<li class="rscadd">Bicaridine now gives you muscle spasms.</li>
+				<li class="rscadd">Kelotane makes you drop your held items. Dermaline does the same, as it is now a subtype.</li>
+				<li class="rscadd">Throwing beakers now shatters them. Be careful.</li>
+				<li class="rscdel">Numbers have been deleted from scanners. Mostly. Stop using terms like brute and burn damage, boys.</li>
+				<li class="rscadd">Taking a good chunk of damage at once now produces adrenaline. Acts like a painkiller and raises your pulse. Might also restart your heart.</li>
+				<li class="tweak">Soulstones work only when someone's in asystole.</li>
+				<li class="tweak">Changed how getting organ damage works. Lasers now deal organ damage.</li>
+				<li class="tweak">Most organs can now take more punishment.</li>
+				<li class="tweak">The head is now harder to hit.</li>
+				<li class="tweak">The organ damage dealt now depends on the size of the organ in the area you hit.</li>
+				<li class="tweak">Surgery pain is MUCH higher if you're awake.</li>
+				<li class="tweak">Self surgery works again.</li>
+				<li class="tweak">Using a scalpel on necrotic organs now fixes the necrosis. However, it'll also lower the organ's max damage as well.</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Circuitry goggles have a sprite again now.</li>
+			</ul>
+
+			<h2 class="date">09 December 2019</h2>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an issue where players could not select individual pieces of the target doll, nor upgrade their grab strength by clicking.</li>
+			</ul>
+			<h3 class="author">Kaedwuff updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removes Soylent Green from the game.</li>
+				<li class="tweak">Soylent Viridians has been changed to simply Soy Wafers.</li>
+			</ul>
+
+			<h2 class="date">08 December 2019</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">In order to facilitate holiday commercialism, you no longer need wirecutters in hand to wrap a gift. You also no longer need a table; the ground works just fine.</li>
+				<li class="tweak">Tidied up description text when examining a roll of wrapping paper.</li>
+				<li class="rscadd">If you are on harm intent and click yourself with a bottle, there is now a popup that asks you to confirm if you really intended to smash it over your face, instead of just doing it.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the mech rfd, and the extinguisher will now have a proper name.</li>
+			</ul>
+			<h3 class="author">Ferner, Leudoberct updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a new possible random dungeons, mapped by Leudoberct.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The safety timeperiod between entering cryo and being cryo'd has been changed from 10 minutes to 2 minutes, due to people not ghosting.</li>
+				<li class="rscadd">If you are in cryo for 5 minutes, you will be despawned even if you're still logged on.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">New sprites for money, lotto cards and chargecards.</li>
+			</ul>
+
+			<h2 class="date">07 December 2019</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Wallets can now hold rings.</li>
+				<li class="rscdel">Removes seasonal pumpkin spice lattes from the vendors, to return next year.</li>
+				<li class="bugfix">Crafted donut boxes can hold six donuts again.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Remapped the merchant shuttle and outpost.</li>
+				<li class="tweak">Merchant assistants can now be from a wider range of species.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Gave Admins a gigashatter proc, which will fracture every single bone in your body. Fear the wrath of the redname.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Ported BS12 fixes for visualnets.</li>
+				<li class="bugfix">Camera MIU and other non-AI eye mobs should no longer run into issues with obfuscation layers.</li>
+			</ul>
+			<h3 class="author">Leudoberct1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Removes the Ripley APLU construction guide in robotics due to being obsolete.</li>
+			</ul>
+			<h3 class="author">Naelynn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added bulk-buy function to the merchant. Less spamming click to buy things!</li>
+			</ul>
+			<h3 class="author">Nero-07 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the ability to force a holocall if you have a head id. Forced calls automatically go through and can only be ended by the sender stepping off the pad.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added Freelance mercenary sprites and a cycler in their base.</li>
+				<li class="rscadd">Added the Rhino hardsuit, the freelancer's own hardsuit with roughly merc hardsuit statistics with some extra modules and modified resists.</li>
+				<li class="tweak">Resprited all mercenary/syndicate gear, adopting a more rusty crimson color scheme over the former cartoonish neon red ones.</li>
+			</ul>
+
+			<h2 class="date">05 December 2019</h2>
+			<h3 class="author">Aboshehab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes a minor sprite issue with the black Idris Duster Coat.</li>
+				<li class="bugfix">Fixed duplicate logs from going up and down z-levels.</li>
+			</ul>
+			<h3 class="author">Geeves, Wezzy, BRAINOS updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Klaxan Kataphract Hopeful to the Kataphract response team.</li>
+				<li class="tweak">The Kataphracts now start with better and more stylized gear.</li>
+			</ul>
+			<h3 class="author">Kaedwuff updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Players will no longer eat mixed gemstone stacks when attempting to separate them. It was very unsanitary.</li>
+			</ul>
+			<h3 class="author">Nero-07 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed formatting and typo when examining mechas</li>
+			</ul>
+			<h3 class="author">ParadoxSpace & AmoryBlaine updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds some new Unathi horn styles.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">New bedsheet, lantern and penlight inhands.</li>
+				<li class="tweak">Extinguishing cigarettes in the ashtray should play the sound properly now.</li>
+				<li class="tweak">You can put cigarette butts in cigarette packets.</li>
+				<li class="tweak">Tweaks power drill sprites.</li>
+				<li class="tweak">Health analysers should show the proper inhands now.</li>
+				<li class="bugfix">Fixes some more drop sounds.</li>
+			</ul>
+
+			<h2 class="date">04 December 2019</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the rosary to the loadout options.</li>
+				<li class="tweak">The rosary no longer automatically spawns in holy books that have bible sprites.</li>
+			</ul>
+
 			<h2 class="date">03 December 2019</h2>
 			<h3 class="author">Aboshehab updated:</h3>
 			<ul class="changes bgimages16">
