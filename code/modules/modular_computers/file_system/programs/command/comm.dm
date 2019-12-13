@@ -135,7 +135,7 @@
 		if("sw_menu")
 			current_status = text2num(href_list["target"])
 		if("emergencymaint")
-			if(is_autenthicated(user) && !issilicon(usr))
+			if(is_autenthicated(user) && !issilicon(user))
 				if(maint_all_access)
 					revoke_maint_all_access()
 					feedback_inc("alert_comms_maintRevoke",1)
