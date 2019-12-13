@@ -86,6 +86,8 @@
 
 	var/atom/movable/applied_pressure //Pressure applied to wounds. It'll make them bleed less, generally.
 
+	var/image/hud_damage_image
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
