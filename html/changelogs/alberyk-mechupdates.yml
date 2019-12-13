@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Mech moving and turning sounds nows depends on their leg type."
+  - tweak: "Mech arms now overlay above their cockpit."

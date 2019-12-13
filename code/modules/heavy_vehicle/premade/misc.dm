@@ -18,3 +18,4 @@
 	turn_delay = 7
 	power_use = 7500
 	color = COLOR_WHITE
+	mech_step_sound = 'sound/mecha/tanktread.ogg'
