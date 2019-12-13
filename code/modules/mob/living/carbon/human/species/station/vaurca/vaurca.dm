@@ -41,6 +41,7 @@
 	breath_vol_mul = 1/6 // 0.5 liters * breath_vol_mul = breath volume
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
+	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
 	climb_coeff = 0.75

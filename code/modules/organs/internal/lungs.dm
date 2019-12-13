@@ -249,6 +249,13 @@
 	else
 		last_successful_breath = world.time
 		owner.oxygen_alert = 0
+		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
+			if(breathing || owner.shock_stage >= 10)
+				sound_to(owner, sound(species.breathing_sound,0,0,0,5))
+				breathing = 0
+			else
+				breathing = 1
+
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
