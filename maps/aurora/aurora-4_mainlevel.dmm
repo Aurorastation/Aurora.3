@@ -57534,24 +57534,8 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bWH" = (
-/obj/item/modular_computer/console/preset/supply,
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
-"bWI" = (
-/obj/item/modular_computer/console/preset/supply,
-/obj/effect/floor_decal/corner/brown{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled,
+/obj/structure/stairs/north,
+/turf/simulated/floor/tiled/ramp,
 /area/quartermaster/lobby)
 "bWJ" = (
 /obj/item/device/radio/intercom{
@@ -57745,11 +57729,14 @@
 /obj/machinery/atm{
 	pixel_y = 32
 	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bXi" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/ramp/bottom,
 /area/quartermaster/lobby)
 "bXj" = (
 /obj/structure/grille,
@@ -57894,10 +57881,6 @@
 /area/quartermaster/lobby)
 "bXz" = (
 /obj/effect/floor_decal/corner/brown,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bXA" = (
@@ -58337,9 +58320,6 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYu" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
 	dir = 4
@@ -58347,6 +58327,9 @@
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -58495,7 +58478,6 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bYJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -58505,18 +58487,16 @@
 	icon_state = "xmaslights";
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYK" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/item/device/radio/intercom{
-	pixel_y = -26
-	},
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -64876,6 +64856,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"esE" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/quartermaster/lobby)
 "eye" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -65483,14 +65471,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
-"gmX" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
 "goR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -99331,7 +99311,7 @@ bXg
 bXw
 bXN
 bXN
-bXN
+esE
 bYJ
 bWg
 bZm
@@ -100097,8 +100077,8 @@ bUT
 bVt
 bVU
 bWg
-bWI
-gmX
+bWH
+bXi
 bXz
 bXQ
 bYd
