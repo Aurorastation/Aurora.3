@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  -maptweak: "Adds a sulphuric acid dispenser to xenoarch, along with a table and a beaker of sulphuric acid. Moves the emergency locker that was there to another place in the lab."
-  -maptweak: "Changes the remote control setting of all the air alarms in the isolation chambers & harvesting room to on."
-  -maptweak: "Adds a door bolt button to the harvesting room."
+  - maptweak: "Adds a sulphuric acid dispenser to xenoarch, along with a table and a beaker of sulphuric acid. Moves the emergency locker that was there to another place in the lab."
+  - maptweak: "Changes the remote control setting of all the air alarms in the isolation chambers & harvesting room to on.
+  - maptweak: "Adds a door bolt button to the harvesting room."
