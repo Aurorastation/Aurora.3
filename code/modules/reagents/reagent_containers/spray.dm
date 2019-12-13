@@ -77,6 +77,8 @@
 	return
 
 /obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
+	if(istype(A, /obj) && A.loc == user)
+		return
 	if (A.density && proximity)
 		A.visible_message("[user] sprays [A] with [src].")
 		reagents.splash(A, amount_per_transfer_from_this)
@@ -166,12 +168,6 @@
 	safety = !safety
 	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-
-/obj/item/reagent_containers/spray/pepper/Spray_at(atom/A as mob|obj, mob/user)
-	if(safety)
-		to_chat(user, "<span class = 'warning'>The safety is on!</span>")
-		return
-	..()
 
 /obj/item/reagent_containers/spray/waterflower
 	name = "water flower"

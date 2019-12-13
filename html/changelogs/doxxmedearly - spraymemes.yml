@@ -1,0 +1,9 @@
+
+# Your name.  
+author: Doxxmedearly
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - bugfix: "You'll no longer spray yourself with bottles or pepperspray when placing it into your bag, jacket, webbing, or a container you're holding, even with the safety off."
