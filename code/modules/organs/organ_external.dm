@@ -250,6 +250,8 @@
 	brute *= brute_mod
 	burn *= burn_mod
 
+	var/laser = (damage_flags & DAM_LASER)
+
 	add_pain(0.6*burn + 0.4*brute)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
@@ -279,7 +281,10 @@
 			else
 				createwound(BRUISE, brute)
 		if(burn)
-			createwound(BURN, burn)
+			if(laser)
+				createwound(LASER, burn)
+			else
+				createwound(BURN, burn)
 	else
 		//If we can't inflict the full amount of damage, spread the damage in other ways
 		//How much damage can we actually cause?
@@ -464,7 +469,8 @@ This function completely restores a damaged organ to perfect condition.
 
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
-	if(damage == 0) return
+
+	if(damage <= 0) return
 
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
 	//Possibly trigger an internal wound, too.
@@ -477,6 +483,15 @@ This function completely restores a damaged organ to perfect condition.
 			internal_damage = TRUE
 		if(internal_damage)
 			owner.custom_pain("You feel something rip in your [name]!", 25)
+
+	//Burn damage can cause fluid loss due to blistering and cook-off
+	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+		var/fluid_loss_severity
+		switch(type)
+			if(BURN)  fluid_loss_severity = FLUIDLOSS_WIDE_BURN
+			if(LASER) fluid_loss_severity = FLUIDLOSS_CONC_BURN
+		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * SPECIES_BLOOD_DEFAULT * fluid_loss_severity
+		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
 	if(wounds.len > 0 && prob(max(50+(number_wounds-1)*10,90)))
