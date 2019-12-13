@@ -176,7 +176,7 @@
 	src.updateUsrDialog()
 	return
 
-/obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
+/obj/machinery/mineralconsole/processing_unit/proc/print_report(var/mob/living/user)
 	if(!inserted_id)
 		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
 		return
@@ -317,7 +317,11 @@
 	..()
 
 	if (!src.output || !src.input) return
-
+	
+	var/obj/machinery/mineralconsole/processing_unit/P = console
+	if(!istype(P))
+		return
+	
 	var/list/tick_alloys = list()
 
 	//Grab some more ore to process this tick.
@@ -371,10 +375,8 @@
 					else
 						var/total
 						for(var/needs_metal in A.requires)
-							if(istype(console, /obj/machinery/mineralconsole/processing_unit))
-								var/obj/machinery/mineralconsole/processing_unit/P = console
-								var/ore/Ore = ore_data[needs_metal]
-								P.points += Ore.worth
+							var/ore/Ore = ore_data[needs_metal]
+							P.points += Ore.worth
 							use_power(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
@@ -382,7 +384,7 @@
 							sheets += total-1
 
 						for(var/i=0,i<total,i++)
-							console.alloy_mats[A]++
+							P.alloy_mats[A]++
 							new A.product(output.loc)
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
@@ -396,13 +398,11 @@
 					continue
 
 				for(var/i=0,i<can_make,i+=2)
-					if(istype(console, /obj/machinery/mineralconsole/processing_unit))
-						var/obj/machinery/mineralconsole/processing_unit/P = console
-						P.points += O.worth*2
+					P.points += O.worth*2
 					use_power(100)
 					ores_stored[metal]-=2
 					sheets+=2
-					console.output_mats[M]++
+					P.output_mats[M]++
 					new M.stack_type(output.loc)
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
@@ -414,23 +414,19 @@
 					continue
 
 				for(var/i=0,i<can_make,i++)
-					if(istype(console, /obj/machinery/mineralconsole/processing_unit))
-						var/obj/machinery/mineralconsole/processing_unit/P = console
-						P.points += O.worth
+					P.points += O.worth
 					use_power(100)
 					ores_stored[metal]--
 					sheets++
-					console.output_mats[M]++
+					P.output_mats[M]++
 					new M.stack_type(output.loc)
 			else
-				if(istype(console, /obj/machinery/mineralconsole/processing_unit))
-					var/obj/machinery/mineralconsole/processing_unit/P = console
-					P.points -= O.worth*3 //reee wasting our materials!
+				P.points -= O.worth*3 //reee wasting our materials!
 				use_power(500)
 				ores_stored[metal]--
 				sheets++
-				console.input_mats[O]++
-				console.waste++
+				P.input_mats[O]++
+				P.waste++
 				new /obj/item/ore/slag(output.loc)
 		else
 			continue

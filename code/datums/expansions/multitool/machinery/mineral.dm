@@ -14,23 +14,12 @@
 		return MT_NOACTION
 
 	if(C.machine)
-		to_chat(user, span("notice", "You disconnect [C.machine] from [C]."))
+		to_chat(user, span("notice", "You [C.Unlink() ? "" : "failed to "] disconnect [C.machine] from [C]."))
 		C.Unlink()
 		return MT_REFRESH
 	if(MM.console)
 		to_chat(user, span("notice", "There is already a console connected to that machine!"))
 		return MT_NOACTION
 
-	var/is_connected = C.machine
-	if(!is_connected)
-		if(C.LinkTo(MM))
-			to_chat(user, span("notice", "You connect \the [MM] to \the [C]."))
-		else
-			to_chat(user, span("warning", "You failed to connect \the [MM] to \the [C]."))
-		return MT_REFRESH
-
-	if(C.Unlink())
-		to_chat(user, span("notice", "You disconnect \the [MM] from \the [C]."))
-	else
-		to_chat(user, span("notice", "You failed to disconnect \the [MM] from \the [C]."))
+	to_chat(user, span("notice", "You [C.LinkTo(MM) ? "" : "failed to " ]connect \the [MM] to \the [C]."))
 	return MT_REFRESH

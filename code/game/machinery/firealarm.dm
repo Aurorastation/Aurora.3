@@ -135,7 +135,7 @@
 
 				else if(W.iswrench())
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
-					new /obj/item/frame/fire_alarm(get_turf(user))
+					new /obj/item/frame/alarm/fire(get_turf(user))
 					playsound(src.loc, W.usesound, 50, 1)
 					qdel(src)
 		return

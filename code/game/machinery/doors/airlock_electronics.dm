@@ -66,10 +66,10 @@
 	if(istype(C,/obj/item/device/debugger))
 		switch(input(user, "Would you like to change the wireless ID or the ID tag?", "Airlock Selection") as null|anything in list("Wireless ID","ID Tag"))
 			if("Wireless ID")
-				var/newid = input(user, "Enter a new wireless ID.", "Airlock Wireless Control") as null|text
+				var/newid = sanitize(input(user, "Enter a new wireless ID.", "Airlock Wireless Control") as null|text)
 				wifi_id = newid
 			if("ID Tag")
-				var/newtag = input(user, "Enter a new airlock ID tag.", "Airlock Tag Control") as null|text
+				var/newtag = sanitize(input(user, "Enter a new airlock ID tag.", "Airlock Tag Control") as null|text)
 				id_tag = newtag
 		return
 	else

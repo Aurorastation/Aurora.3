@@ -13,11 +13,12 @@
 	var/_wifi_id
 	var/datum/wifi/sender/wifi_sender
 	var/obj/item/device/assembly/trigger
+	var/obj/item/frame/dismantle_result = /obj/item/frame/button
 
 /obj/machinery/button/Initialize()
 	. = ..()
-	pixel_x = -DIR2PIXEL_X(dir)
-	pixel_y = -DIR2PIXEL_Y(dir)
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 	update_icon()
 	if(_wifi_id && !wifi_sender)
 		wifi_sender = new/datum/wifi/sender/button(_wifi_id, src)
@@ -34,7 +35,7 @@
 
 /obj/machinery/button/dismantle()
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
-	new/obj/item/frame/button(loc)
+	new dismantle_result(loc)
 	qdel(src)
 	return 1
 
@@ -51,7 +52,7 @@
 		default_deconstruction_crowbar(user, I)
 		return
 	if(istype(I, /obj/item/device/debugger) && panel_open)
-		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
+		var/newid = sanitize(input(user, "Enter a new wireless ID.", "Button Radio") as null|text)
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
 		_wifi_id = newid
@@ -159,17 +160,12 @@
 //-------------------------------
 /obj/machinery/button/mass_driver
 	name = "mass driver button"
+	dismantle_result = /obj/item/frame/button/mass_driver
 
 /obj/machinery/button/mass_driver/Initialize()
 	. = ..()
 	if(_wifi_id)
 		wifi_sender = new/datum/wifi/sender/mass_driver(_wifi_id, src)
-
-/obj/machinery/button/mass_driver/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
-	new/obj/item/frame/button/mass_driver(loc)
-	qdel(src)
-	return 1
 
 /obj/machinery/button/mass_driver/activate(mob/living/user)
 	if(active || !istype(wifi_sender))
@@ -187,7 +183,7 @@
 	update_icon()
 
 /obj/machinery/button/mass_driver/attackby(obj/item/I, mob/user)
-	if(isscrewdriver(I))
+	if(I.isscrewdriver())
 		default_deconstruction_screwdriver(user, I)
 		return
 	if(I.iscrowbar())
@@ -199,7 +195,7 @@
 		default_deconstruction_crowbar(user, I)
 		return
 	if(istype(I,/obj/item/device/debugger) && panel_open)
-		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
+		var/newid = sanitize(input(user, "Enter a new wireless ID.", "Button Radio") as null|text)
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
 		_wifi_id = newid
@@ -230,6 +226,7 @@
 /obj/machinery/button/toggle/door
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl0"
+	dismantle_result = /obj/item/frame/button/door
 
 	var/_door_functions = 1
 /*	Bitflag, 	1 = open
@@ -248,12 +245,6 @@
 	if(_wifi_id)
 		wifi_sender = new/datum/wifi/sender/door(_wifi_id, src)
 	. = ..()
-
-/obj/machinery/button/toggle/door/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
-	new/obj/item/frame/button/door(loc)
-	qdel(src)
-	return 1
 
 /obj/machinery/button/toggle/door/activate(mob/living/user)
 	if(operating || !istype(wifi_sender))
@@ -303,7 +294,7 @@
 		default_deconstruction_crowbar(user, I)
 		return
 	if(istype(I,/obj/item/device/debugger) && panel_open)
-		var/newid = input(user, "Enter a new wireless ID.", "Button Radio") as null|text
+		var/newid = sanitize(input(user, "Enter a new wireless ID.", "Button Radio") as null|text)
 		if(wifi_sender)
 			QDEL_NULL(wifi_sender)
 		_wifi_id = newid

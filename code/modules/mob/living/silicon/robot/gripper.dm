@@ -25,7 +25,7 @@
 		/obj/item/device/assembly,//Primarily for making improved cameras, but opens many possibilities
 		/obj/item/computer_hardware,
 		/obj/item/conveyor_construct,//for when people need to rebuild Cargo
-		/obj/item/conveyor_switch_construct//ditto
+		/obj/item/conveyor_switch_construct,//ditto
 		/obj/item/pipe
 		)
 

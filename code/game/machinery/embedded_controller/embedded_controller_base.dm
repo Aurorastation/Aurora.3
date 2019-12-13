@@ -88,7 +88,7 @@ obj/machinery/embedded_controller/radio/Destroy()
 		to_chat(user, span("notice", "You unscrew \the [src] from the wall."))
 		dismantle()
 	else if(istype(C,/obj/item/device/debugger))
-		var/newtag = input(user, "Enter a new controller ID tag.", "Controller Tag Control") as null|text
+		var/newtag = sanitize(input(user, "Enter a new controller ID tag.", "Controller Tag Control") as null|text)
 		id_tag = newtag
 		update_tags()
 		return
@@ -108,9 +108,16 @@ obj/machinery/embedded_controller/radio/Destroy()
 	tag_shuttle_mech_sensor = "[id_tag]_shuttle_mech"
 	sync_program()
 
+/obj/machinery/embedded_controller/radio/attackby(obj/item/I, mob/user)
+	if(I.isscrewdriver())
+		to_chat(user, span("notice", "You remove \the [src] from the wall."))
+		dismantle()
+		return
+	. = ..()
+
 /obj/machinery/embedded_controller/radio/dismantle()
 	playsound(loc, 'sound/items/Screwdriver.ogg', 50, 1)
-	var/obj/item/frame/controller/radio/controller = new/obj/item/frame/controller(loc)
+	var/obj/item/frame/controller/radio/controller = new/obj/item/frame/controller/radio(loc)
 	controller.build_machine_type = src.type
 	controller.id_tag = src.id_tag
 	qdel(src)

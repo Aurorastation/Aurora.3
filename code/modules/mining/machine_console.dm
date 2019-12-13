@@ -14,7 +14,7 @@
 	. = ..()
 
 /obj/machinery/mineralconsole/proc/LinkTo(obj/machinery/mineral/M)
-	if(!M || !istype(M))
+	if(!istype(M))
 		return
 	Unlink()
 	machine = M

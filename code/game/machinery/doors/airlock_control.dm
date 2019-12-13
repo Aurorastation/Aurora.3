@@ -233,7 +233,7 @@
 
 /obj/machinery/airlock_sensor/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/device/debugger))
-		var/newtag = input(user, "Enter a new sensor ID tag.", "Sensor Tag Control") as null|text
+		var/newtag = sanitize(input(user, "Enter a new sensor ID tag.", "Sensor Tag Control") as null|text)
 		id_tag = newtag
 		return
 
@@ -272,7 +272,7 @@
 		attack_hand(user)
 		return
 	else if(istype(I,/obj/item/device/debugger))
-		var/newtag = input(user, "Enter the button's master ID tag.", "Access Button Tag Control") as null|text
+		var/newtag = sanitize(input(user, "Enter the button's master ID tag.", "Access Button Tag Control") as null|text)
 		master_tag = newtag
 		return
 	..()

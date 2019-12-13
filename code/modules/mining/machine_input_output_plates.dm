@@ -34,12 +34,26 @@
 	density = 0
 	anchored = 1.0
 	var/obj/machinery/mineral/linked = null
+	var/io
+
+/obj/machinery/hopper/Initialize()
+	. = ..()
+	if(linked || !io)
+		return
+	for (var/dir in cardinal)
+		var/obj/machinery/mineral/MM = locate(/obj/machinery/mineral/, get_step(src, dir))
+		if(MM && !MM["[io]"])
+			LinkTo(MM)
+			break
 
 /obj/machinery/hopper/proc/LinkTo(obj/machinery/mineral/MM)
 	linked = MM
 
 /obj/machinery/hopper/proc/Unlink()
+	if(linked && io)
+		linked["[io]"] = null
 	linked = null
+	return ..()
 
 /obj/machinery/hopper/dismantle()
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
@@ -62,46 +76,10 @@
 
 /obj/machinery/hopper/input
 	name = "input hopper"
-
-/obj/machinery/hopper/input/Unlink()
-	if(linked)
-		linked.input = null
-	return ..()
-
-/obj/machinery/hopper/input/Initialize()
-	..()
-	if(linked)
-		return
-	for (var/dir in cardinal)
-		var/obj/machinery/mineral/MM = locate(/obj/machinery/mineral/, get_step(src, dir))
-		if(MM && !MM.input)
-			LinkTo(MM)
-			break
-
-/obj/machinery/hopper/input/LinkTo(obj/machinery/mineral/MM)
-	MM.input = src
-	..()
+	io = "output"
 
 /**********************Output plates**************************/
 
 /obj/machinery/hopper/output
 	name = "output hopper"
-
-/obj/machinery/hopper/output/Unlink()
-	if(linked)
-		linked.output = null
-	return ..()
-
-/obj/machinery/hopper/output/Initialize()
-	..()
-	if(linked)
-		return
-	for (var/dir in cardinal)
-		var/obj/machinery/mineral/MM = locate(/obj/machinery/mineral/, get_step(src, dir))
-		if(MM && !MM.output)
-			LinkTo(MM)
-			break
-
-/obj/machinery/hopper/output/LinkTo(obj/machinery/mineral/MM)
-	MM.output = src
-	..()
+	io = "output"

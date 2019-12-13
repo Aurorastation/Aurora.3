@@ -297,6 +297,8 @@
 	var/atom/A = get_pin_data_as_type(IC_INPUT, 1, /atom)
 	if(A)
 		result = "\ref[A]"
+	set_pin_data(IC_OUTPUT, 1, result)
+	push_data()
 
 /obj/item/integrated_circuit/converter/stringlength
 	name = "len circuit"

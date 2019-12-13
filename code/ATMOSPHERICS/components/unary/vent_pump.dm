@@ -368,7 +368,7 @@
 			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 			return 1
 	else if(istype(W,/obj/item/device/debugger))
-		var/newtag = input(user, "Enter a new vent ID tag.", "Vent Tag Control") as null|text
+		var/newtag = sanitize(input(user, "Enter a new vent ID tag.", "Vent Tag Control") as null|text)
 		id_tag = newtag
 		return
 	else

@@ -31,9 +31,6 @@
 	ap.tag_shuttle_mech_sensor = tag_shuttle_mech_sensor? tag_shuttle_mech_sensor : "[id_tag]_shuttle_mech"
 	ap.memory["secure"] = tag_secure
 
-/obj/machinery/embedded_controller/radio/airlock/attackby(obj/item/C, mob/user)
-	. = ..()
-
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
