@@ -4,4 +4,5 @@ delete-after: True
 
 changes: 
   - rscadd: "Mech moving and turning sounds nows depends on their leg type."
+  - rscadd: "Ported the pod mech chassis from baystation."
   - tweak: "Mech arms now overlay above their cockpit."
