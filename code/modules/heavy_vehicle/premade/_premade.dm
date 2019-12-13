@@ -21,8 +21,8 @@
 		body.prebuild()
 	if(!material)
 		material = get_material_by_name("steel")
+	update_icon()
 	. = ..()
-
 	spawn_mech_equipment()
 
 /mob/living/heavy_vehicle/premade/proc/spawn_mech_equipment()
