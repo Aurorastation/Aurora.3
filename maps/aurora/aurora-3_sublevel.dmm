@@ -27655,7 +27655,7 @@
 /turf/simulated/floor/carpet,
 /area/medical/patient_wing_library)
 "drg" = (
-/obj/item/frame/fire_alarm,
+/obj/item/frame/alarm/fire,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)
@@ -28194,7 +28194,7 @@
 	},
 /area/mine/unexplored)
 "ech" = (
-/obj/item/frame/air_alarm,
+/obj/item/frame/alarm/air,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/mine/unexplored)

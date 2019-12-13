@@ -42,7 +42,7 @@
 		return
 	for (var/dir in cardinal)
 		var/obj/machinery/mineral/MM = locate(/obj/machinery/mineral/, get_step(src, dir))
-		if(MM && !MM["[io]"])
+		if(MM && (io in MM.vars) && !MM.vars[io])
 			LinkTo(MM)
 			break
 
@@ -50,8 +50,8 @@
 	linked = MM
 
 /obj/machinery/hopper/proc/Unlink()
-	if(linked && io)
-		linked["[io]"] = null
+	if(linked && io && io in linked.vars)
+		linked.vars[io] = null
 	linked = null
 	return ..()
 
