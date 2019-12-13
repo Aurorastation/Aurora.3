@@ -336,28 +336,7 @@
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
 
-		var/brain_result
-		if(occupant.should_have_organ(BP_BRAIN))
-			var/obj/item/organ/internal/brain/brain = occupant.internal_organs_by_name[BP_BRAIN]
-			if(!brain || occupant.stat == DEAD || (occupant.status_flags & FAKEDEATH))
-				brain_result = 0
-			else if(occupant.stat != DEAD)
-				brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
-		else
-			brain_result = -1
-
-		switch(brain_result)
-			if(0)
-				brain_result = "<span class='bad'>none, patient is braindead</span>"
-			if(-1)
-				brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
-			else
-				if(brain_result <= 50)
-					brain_result = "<span class='bad'>[brain_result]%</span>"
-				else if(brain_result <= 80)
-					brain_result = "<span class='average'>[brain_result]%</span>"
-				else
-					brain_result = "[brain_result]%"
+		var/brain_result = occupant.get_brain_status()
 
 		var/pulse_result
 		if(occupant.should_have_organ(BP_HEART))
@@ -518,6 +497,9 @@
 		if(O.rejecting)
 			wounds += "Shows symptoms of organ rejection."
 
+		if(O.get_scarring_level() > 0.01)
+			wounds += "[O.get_scarring_results()]."
+
 		data["hasWounds"] = length(wounds) ? 1 : 0
 		data["wounds"] = wounds
 		organs += list(data)
@@ -556,28 +538,7 @@
 	if (!occupant || !istype(occupant, /mob/living/carbon/human))
 		return
 	var/mob/living/carbon/human/H = occupant
-	var/brain_result
-	if(H.should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
-		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH))
-			brain_result = 0
-		else if(H.stat != DEAD)
-			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
-	else
-		brain_result = -1
-
-	switch(brain_result)
-		if(0)
-			brain_result = "<span class='bad'>none, patient is braindead</span>"
-		if(-1)
-			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
-		else
-			if(brain_result <= 50)
-				brain_result = "<span class='bad'>[brain_result]%</span>"
-			else if(brain_result <= 80)
-				brain_result = "<span class='average'>[brain_result]%</span>"
-			else
-				brain_result = "[brain_result]%"
+	var/brain_result = H.get_brain_status()
 
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
@@ -727,6 +688,8 @@
 			infection += "(being rejected)"
 
 		var/necrotic = ""
+		if(i.get_scarring_level() > 0.01)
+			necrotic += ", [i.get_scarring_results()]"
 		if(i.status & ORGAN_DEAD)
 			necrotic = ", <font color='red'>necrotic and decaying</font>"
 
