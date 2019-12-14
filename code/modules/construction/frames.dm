@@ -16,9 +16,9 @@
 ** FRAME BASE PROCS
 */
 
-/obj/item/frame/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/frame/attackby(obj/item/W, mob/user)
 	if (W.iswrench())
-		new refund_type( get_turf(src.loc), refund_amt)
+		new refund_type(get_turf(src.loc), refund_amt)
 		qdel(src)
 		return
 	..()
