@@ -140,8 +140,7 @@
 	)
 
 /obj/item/storage/box/syndie_kit/special_pens
-	name = "special pens kit"
-	desc = "Comes in with 4 different colored pens. Red pen - poison pen, blue pen - pacifier pen, green pen - healing pen, yellow pen - hyperzine pen."
+	name = "box (P)"
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
