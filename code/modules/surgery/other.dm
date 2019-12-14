@@ -21,7 +21,7 @@
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected) 
+	if(!affected)
 		return
 
 	return affected.open >= 2 && (affected.status & ORGAN_ARTERY_CUT)
@@ -40,7 +40,7 @@
 
 	affected.status &= ~ORGAN_ARTERY_CUT
 	affected.update_damages()
-	if(ishuman(user) && prob(40)) 
+	if(ishuman(user) && prob(40))
 		user:bloody_hands(target, 0)
 
 /datum/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -103,8 +103,6 @@
 	user.visible_message("<span class='notice'>[user] has cut away necrotic tissue from [target]'s [organ_to_fix.name] with \the [tool].</span>", \
 		"<span class='notice'>You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool].</span>")
 	organ_to_fix.status &= ~ORGAN_DEAD
-	if(organ_to_fix.max_damage > 15)
-		organ_to_fix.max_damage -= rand(1, 10) //remove some max damage, since we cut away the organ
 
 /datum/surgery_step/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
