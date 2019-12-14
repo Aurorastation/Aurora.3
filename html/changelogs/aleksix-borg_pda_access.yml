@@ -1,6 +1,0 @@
-author: aleksix
-
-delete-after: True
-
-changes: 
-  - refactor: "Borgs ID access code has been refactored to the normal ID access code. Now they properly check for access in PDAs, hands and such."
