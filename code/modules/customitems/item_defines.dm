@@ -3179,3 +3179,40 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "djikstra_blade"
 	item_state = "djikstra_blade"
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/fluff/naali_blanket //Fuzzy Pink Blanket - Naali'Xiiux Qu-Uish - shestrying
+	name = "fuzzy pink blanket"
+	desc = "A rather large, pink, fluffy blanket. It feels quite heavy, and smells slightly of saltwater."
+	icon = 'icons/obj/custom_items/naali_blanket.dmi'
+	icon_state = "naali_blanket"
+	item_state = "naali_blanket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/fluff/oscar_helmet //Necropolis Specialist Helmet -  Oscar Easter - slymantis84
+	name = "necropolis specialist helmet"
+	desc = "A modified EPMC specialist helmet, with a built-in visor and HUD to access electronics and receive tactical information. It doesn't appear to serve many purposes in Biesel"
+	icon = 'icons/obj/custom_items/oscar_helmet.dmi'
+	icon_state = "oscar_helmet"
+	item_state = "oscar_helmet"
+	contained_sprite = TRUE
+	var/online = FALSE
+
+/obj/item/clothing/head/helmet/fluff/oscar_helmet/attack_self(mob/user)
+	online= !online
+	if(online)
+		to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
+	else
+		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+
+	update_icon()
+	user.update_inv_head()
+
+/obj/item/clothing/head/helmet/fluff/oscar_helmet/update_icon()
+	if(online)
+		icon_state = "oscar_helmet_active"
+		item_state = "oscar_helmet_active"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)

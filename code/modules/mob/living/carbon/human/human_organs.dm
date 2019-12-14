@@ -206,3 +206,28 @@
 		if(!istype(heart) || !heart.is_working())
 			return TRUE
 	return FALSE
+
+/mob/living/carbon/human/proc/get_brain_status()
+	var/brain_result
+	if(should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+		if(!brain || stat == DEAD || (status_flags & FAKEDEATH))
+			brain_result = 0
+		else if(stat != DEAD)
+			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
+	else
+		brain_result = -1
+
+	switch(brain_result)
+		if(0)
+			brain_result = "<span class='bad'>none, patient is braindead</span>"
+		if(-1)
+			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
+		else
+			if(brain_result <= 50)
+				brain_result = "<span class='bad'>[brain_result]%</span>"
+			else if(brain_result <= 80)
+				brain_result = "<span class='average'>[brain_result]%</span>"
+			else
+				brain_result = "[brain_result]%"
+	return brain_result
