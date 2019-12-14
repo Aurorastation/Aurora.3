@@ -26,6 +26,7 @@
 
 /datum/uplink_item/item/stealthy_weapons/pens
 	name = "Pen-jector Kit"
+	desc = "Comes in with 4 different colored pens. Red pen - poison pen, blue pen - pacifier pen, green pen - healing pen, yellow pen - hyperzine pen."
 	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/special_pens
 
