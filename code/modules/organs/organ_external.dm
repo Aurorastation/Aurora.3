@@ -283,10 +283,7 @@
 			else
 				createwound(BRUISE, brute)
 		if(burn)
-			if(laser)
-				createwound(LASER, burn)
-			else
-				createwound(BURN, burn)
+			createwound(BURN, burn)
 	else
 		//If we can't inflict the full amount of damage, spread the damage in other ways
 		//How much damage can we actually cause?
@@ -310,7 +307,10 @@
 
 			if(burn > 0 && can_inflict)
 				//Inflict all burn damage we can
-				createwound(BURN, min(burn,can_inflict))
+				if(laser)
+					createwound(LASER, min(burn, can_inflict))
+				else
+					createwound(BURN, min(burn,can_inflict))
 				//How much burn damage is left to inflict
 				spillover += max(0, burn - can_inflict)
 
@@ -492,7 +492,7 @@ This function completely restores a damaged organ to perfect condition.
 		switch(type)
 			if(BURN)  fluid_loss_severity = FLUIDLOSS_WIDE_BURN
 			if(LASER) fluid_loss_severity = FLUIDLOSS_CONC_BURN
-		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * DEFAULT_BLOOD_SPECIES * fluid_loss_severity
+		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
 		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
