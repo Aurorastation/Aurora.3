@@ -63,6 +63,15 @@
 	icon_state = "summerwear"
 	item_state = "summerwear"
 
+/obj/item/clothing/under/mechanic
+	name = "machinist uniform"
+	desc = "A simple and robust overall used by Adhomian urban workers."
+	icon_state = "mechanic"
+	item_state = "mechanic"
+	description_fluff = "The quality of life for an urban dweller in Nal'tor, or any other major city, can vary considerably according to the Tajara's occupation, education and standing \
+	with the Party. The average worker that labours in the industrial suburbs, can expect an honest living to be made, and a modest lifestyle to be led. The majority of the city labourers \
+	work in government run factories and spaceports, with stable but strict work hours and schedule the Hadii regime boasts of its fairness to the worker."
+
 /obj/item/clothing/under/dress/tajaran
 	name = "fancy adhomian dress"
 	desc = "Created for the rich and party-loving circles of Adhomai, this dress is fashioned from smooth silk and is see through at parts. This one is white."

@@ -317,6 +317,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent("tobacco",5)
 	reagents.add_reagent("nicotine",10)
 
+/obj/item/clothing/mask/smokable/cigarette/pra
+	icon_state = "cigpraoff"
+	icon_on = "cigpraon"
+	icon_off = "cigpraoff"
+
+/obj/item/clothing/mask/smokable/cigarette/pra/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobacco",5)
+	reagents.add_reagent("nicotine",5)
 
 ////////////
 // CIGARS //

@@ -22,10 +22,14 @@
 	display_name = "cigar case"
 	path = /obj/item/storage/fancy/cigar
 
-/datum/gear/cigarette
+/datum/gear/
 	display_name = "cigarette packet"
 	path = /obj/item/storage/fancy/cigarettes
 
 /datum/gear/dromedaryco
 	display_name = "dromedaryco cigarette packet"
 	path = /obj/item/storage/fancy/cigarettes/dromedaryco
+
+/datum/gear/pracigarette
+	display_name = "working tajara cigarette packet"
+	path = /obj/item/storage/fancy/cigarettes/pra

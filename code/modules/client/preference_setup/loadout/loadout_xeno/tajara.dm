@@ -1,6 +1,6 @@
 /datum/gear/gloves/tajara
 	display_name = "tajara gloves selection"
-	description = "A selection of tajaran colored gloves."
+	description = "A selection of tajaran gloves."
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -16,6 +16,7 @@
 	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
 	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
 	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
+	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/suit/tajara_coat
@@ -74,6 +75,7 @@
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
 	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
+	uniform["machinist uniform"] = /obj/item/clothing/under/mechanic
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
@@ -171,3 +173,10 @@
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
+/datum/gear/gloves/shumalia_belt
+	display_name = "hammer buckle belt"
+	description = "A leather belt adorned by a hammer shaped, worn by priesthood and worshippers of Shumaila."
+	path = /obj/item/storage/belt/shumaila_buckle
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear - Tajara"
