@@ -21726,9 +21726,6 @@
 "aZe" = (
 /obj/machinery/light/small,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -23816,6 +23813,15 @@
 	dir = 5
 	},
 /area/centcom/spawning)
+"fPC" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "grimy"
+	},
+/area/centcom/shared_dream)
 "fPQ" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
@@ -30496,6 +30502,16 @@
 "sBS" = (
 /turf/space/transit/east/shuttlespace_ew2,
 /area/shuttle/distress/transit)
+"sCr" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/landmark{
+	name = "skrell_entry"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/shared_dream)
 "sDs" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/ashtray/bronze,
@@ -64046,7 +64062,7 @@ iAP
 aul
 aEh
 aXB
-aXH
+sCr
 aZc
 aYA
 aYA
@@ -64564,7 +64580,7 @@ aXH
 aYj
 aYj
 aYj
-qoi
+fKI
 aul
 iAP
 ykk
@@ -65078,7 +65094,7 @@ aXI
 aYj
 aYj
 aYj
-qoi
+fKI
 awd
 iAP
 iAP
@@ -65332,7 +65348,7 @@ auk
 aXx
 aXy
 aXJ
-fKI
+qoi
 xLL
 qoi
 aZe
@@ -65586,7 +65602,7 @@ iAP
 iAP
 iAP
 xwV
-aXy
+fPC
 aXy
 aXJ
 qoi
