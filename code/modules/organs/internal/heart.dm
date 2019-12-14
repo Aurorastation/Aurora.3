@@ -119,7 +119,7 @@
 		var/blood_volume = round(owner.vessel.get_reagent_amount("blood"))
 
 		//Blood regeneration if there is some space
-		if(blood_volume < DEFAULT_BLOOD_SPECIES && blood_volume)
+		if(blood_volume < species.blood_volume && blood_volume)
 			var/datum/reagent/blood/B = locate() in owner.vessel.reagent_list //Grab some blood
 			if(B) // Make sure there's some blood at all
 				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
