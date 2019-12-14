@@ -657,7 +657,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Mechanical")
 				pref.organ_data[organ] = "mechanical"
 			if("Removed")
-				if(organ == BP_HEART)
+				if((organ in list(BP_HEART, BP_LIVER)) || (organ == BP_KIDNEYS && pref.organ_data[BP_RKIDNEYS] == "removed") || (organ == BP_RKIDNEYS && pref.organ_data[BP_KIDNEYS]))
 					to_chat(user, "<span class='notice'>You cannot start without a heart.</span>")
 					return
 				pref.organ_data[organ] = "removed"
