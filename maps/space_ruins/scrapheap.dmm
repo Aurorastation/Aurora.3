@@ -1938,7 +1938,7 @@
 /turf/simulated/floor/bluegrid,
 /area/derelict/ship)
 "fC" = (
-/obj/machinery/gibber/autogibber,
+/obj/machinery/gibber,
 /turf/simulated/floor/tiled/freezer,
 /area/derelict/ship)
 "fD" = (
@@ -7933,7 +7933,7 @@
 	},
 /area/derelict)
 "xd" = (
-/obj/machinery/mineral/rigpress,
+/obj/machinery/rigpress,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
@@ -11383,9 +11383,9 @@
 /area/derelict/arrival)
 "GD" = (
 /obj/machinery/mech_recharger,
-/mob/living/heavy_vehicle/premade/ripley,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "GE" = (
