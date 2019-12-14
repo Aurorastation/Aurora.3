@@ -48,7 +48,7 @@
 	..()
 	if(istype(I, /obj/item/hemostat))
 		if(src.organ_tag == BP_KIDNEYS)
-			to_chat(usr, "You reattach the kidneys for placement on the right side.")
+			to_chat(usr, "You prepare the kidney for placement on the right side.")
 			organ_tag = BP_RKIDNEYS
 			name = "right kidney"
 		else if(organ_tag == BP_RKIDNEYS)
