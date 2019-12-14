@@ -6,6 +6,7 @@
 			log_admin("[key_name(usr)] has left build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 0
 			M.client.show_popup_menus = 1
+			M.verbs -= /verb/load_template
 			for(var/obj/effect/bmode/buildholder/H)
 				if(H.cl == M.client)
 					qdel(H)
@@ -13,7 +14,7 @@
 			log_admin("[key_name(usr)] has entered build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 1
 			M.client.show_popup_menus = 0
-
+			M.verbs += /verb/load_template
 			var/obj/effect/bmode/buildholder/H = new/obj/effect/bmode/buildholder()
 			var/obj/effect/bmode/builddir/A = new/obj/effect/bmode/builddir(H)
 			A.master = H
@@ -297,3 +298,32 @@
 				if(holder.throw_atom)
 					holder.throw_atom.throw_at(object, 10, 1)
 					log_admin("[key_name(usr)] threw [holder.throw_atom] at [object]",admin_key=key_name(usr))
+
+/verb/load_template()
+	set name = "Load Template"
+	set category = "Special Verbs"
+	if(!usr)
+		return
+	var/list/templates
+	try
+		templates = json_decode(return_file_text("config/templates_list.json"))
+	catch(var/exception/ej)
+		log_debug("Warning: Could not load templates confing, as templates_list.json is missing - [ej]")
+		return
+
+	if(!templates)
+		return
+
+	var/turf/T = get_turf(usr)
+	var/name = input(usr, "Which template would you like to load?", "Load template", null) as null|anything in templates
+	
+	if (!name || !T)
+		return
+
+	var/dmm_suite/maploader = new
+	if (!maploader)
+		log_debug("Error, was unable to load maploader in proc load_template!")
+		return
+
+	var/base_dir = "maps/templates/"
+	maploader.load_map(file(base_dir + name), T.x, T.y, T.z)
