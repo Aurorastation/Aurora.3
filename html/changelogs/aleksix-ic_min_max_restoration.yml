@@ -1,6 +1,0 @@
-author: aleksix
-
-delete-after: True
-
-changes: 
-  - rscadd: "Re-introduced the min/max circuits for integrated circuitry"
