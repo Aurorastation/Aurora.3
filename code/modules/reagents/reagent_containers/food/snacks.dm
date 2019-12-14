@@ -80,7 +80,6 @@
 
 		var/m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		var/amount_eaten = m_bitesize
-		SA.scan_interval = SA.min_scan_interval//Feeding an animal will make it suddenly care about food
 		m_bitesize = min(m_bitesize, reagents.total_volume)
 
 		if (!SA.can_eat() || ((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
@@ -101,10 +100,15 @@
 					to_chat(target,span("notice","\The [user] feeds you a tiny bit of \the [src]. <b>You feel pretty full!</b>"))
 			return 1
 	else
+		var/fullness = 0
+		if(!istype(user, /mob/living/carbon))
+			fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
+		else
+			var/mob/living/carbon/eater = user
+			fullness = eater.get_fullness()
+		fullness += (user.overeatduration/600)*0.5
 
-		var/expected_fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
-		expected_fullness += (user.overeatduration/600)*0.5
-		var/is_full = (expected_fullness >= 1)
+		var/is_full = (fullness >= user.max_nutrition)
 
 		if(user == target)
 			if(!user.can_eat(src))
@@ -114,15 +118,15 @@
 
 			if(is_full)
 				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
-			else if(expected_fullness <= CREW_NUTRITION_VERYHUNGRY)
+			else if(fullness <= CREW_NUTRITION_VERYHUNGRY)
 				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
-			else if(expected_fullness <= CREW_NUTRITION_HUNGRY)
+			else if(fullness <= CREW_NUTRITION_HUNGRY)
 				feedback_message = "You hungrily begin to eat \the [src]."
-			else if(expected_fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
+			else if(fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
 				feedback_message = "You take a bite of \the [src]."
-			else if(expected_fullness <= CREW_NUTRITION_FULL)
+			else if(fullness <= CREW_NUTRITION_FULL)
 				feedback_message = "You take a bite of \the [src]."
-			else if(expected_fullness <= CREW_NUTRITION_OVEREATEN)
+			else if(fullness <= CREW_NUTRITION_OVEREATEN)
 				feedback_message = "You unwillingly chew a bit of \the [src]."
 
 

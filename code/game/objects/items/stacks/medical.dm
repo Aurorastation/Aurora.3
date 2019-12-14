@@ -51,7 +51,7 @@ Contains:
 		H.UpdateDamageIcon()
 
 	else
-		if (!M.bruteloss && !M.fireloss)
+		if (!M.getBruteLoss() && !M.getFireLoss())
 			to_chat(user, "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>")
 			return 1
 

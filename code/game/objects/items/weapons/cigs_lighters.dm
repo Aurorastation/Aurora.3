@@ -100,6 +100,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
 	var/burn_rate = 0
+	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
@@ -253,8 +254,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(blocked)
 			to_chat(H, "<span class='warning'>\The [blocked] is in the way!</span>")
 			return 1
-		H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
-		playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
+		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
+			last_drag = world.time
+			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
+			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
+		reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 		return 1
 	return ..()
 

@@ -14395,7 +14395,7 @@
 /area/shuttle/escape/centcom)
 "aIh" = (
 /obj/machinery/optable,
-/obj/item/organ/stack,
+/obj/item/organ/internal/stack,
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/machinery/light/small{
 	dir = 1
