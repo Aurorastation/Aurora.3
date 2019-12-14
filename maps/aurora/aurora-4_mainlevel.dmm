@@ -54980,12 +54980,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/library)
-"bRu" = (
-/obj/machinery/computer/guestpass{
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "bRv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/blast/shutters{
@@ -57727,11 +57721,7 @@
 "bXh" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atm{
-	pixel_y = 32
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
@@ -57881,6 +57871,12 @@
 /area/quartermaster/lobby)
 "bXz" = (
 /obj/effect/floor_decal/corner/brown,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bXA" = (
@@ -58498,6 +58494,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bYL" = (
@@ -58751,10 +58748,12 @@
 /area/quartermaster/lobby)
 "bZo" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm{
-	pixel_y = 22
-	},
 /obj/effect/large_stock_marker,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 25;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bZp" = (
@@ -100591,7 +100590,7 @@ bLw
 ygu
 ygu
 bWh
-bRu
+bLw
 bNw
 bXB
 bXS
