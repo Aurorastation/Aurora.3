@@ -6,8 +6,6 @@
 		stat = CONSCIOUS
 		return
 
-	update_health_display()
-
 	health = maxHealth - getBrainLoss()
 
 	//TODO: fix husking
