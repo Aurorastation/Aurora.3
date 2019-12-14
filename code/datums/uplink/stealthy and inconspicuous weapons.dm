@@ -25,7 +25,7 @@
 	path = /obj/item/cartridge/syndicate
 
 /datum/uplink_item/item/stealthy_weapons/pens
-	name = "Special Pens Kit"
+	name = "Pen-jector Kit"
 	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/special_pens
 
