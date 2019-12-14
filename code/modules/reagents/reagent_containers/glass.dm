@@ -104,7 +104,7 @@
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list("glass" = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
-	fragile = 2
+	fragile = 4
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -160,7 +160,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
-	fragile = 4 
+	fragile = 2 
 
 /obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
@@ -211,7 +211,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
-	fragile = 1
+	fragile = 5
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 /obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
