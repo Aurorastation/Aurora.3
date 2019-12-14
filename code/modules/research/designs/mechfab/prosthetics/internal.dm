@@ -24,6 +24,11 @@
 	id = "robotic_kidneys"
 	build_path = /obj/item/organ/internal/kidneys
 
+/datum/design/item/mechfab/prosthetic/internal/kidneys
+	name = "Prosthetic Right Kidneys"
+	id = "robotic_rkidneys"
+	build_path = /obj/item/organ/internal/kidneys/right
+
 /datum/design/item/mechfab/prosthetic/internal/eyes
 	name = "Prosthetic Eyes"
 	id = "robotic_eyes"

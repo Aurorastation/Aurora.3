@@ -176,6 +176,7 @@
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_RKIDNEYS =  /obj/item/organ/internal/kidneys/right,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_APPENDIX = /obj/item/organ/internal/appendix,

@@ -74,7 +74,8 @@
 #define BP_LUNGS    "lungs"
 #define BP_BRAIN    "brain"
 #define BP_LIVER    "liver"
-#define BP_KIDNEYS  "kidneys"
+#define BP_KIDNEYS  "left kidney"
+#define BP_RKIDNEYS  "right kidney"
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
