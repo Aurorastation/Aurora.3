@@ -326,4 +326,4 @@
 		return
 
 	var/base_dir = "maps/templates/"
-	maploader.load_map(file(base_dir + name), T.x, T.y, T.z)
+	maploader.load_map(file(base_dir + name), T.x, T.y, T.z, no_changeturf = TRUE)
