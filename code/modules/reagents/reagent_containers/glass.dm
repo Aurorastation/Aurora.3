@@ -54,13 +54,20 @@
 
 /obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if(speed > fragile && !no_shatter)
+	if(no_shatter)
+		return
+	if(speed > fragile)
 		shatter()
+		return
+	if  (speed <= fragile)
+		if (prob(50))
+			shatter()
 
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message("\The [src] shatters with a resounding crash!", "\The [src] breaks.")
+	playsound(src, "shatter", 40, 1)
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)
 
@@ -97,7 +104,7 @@
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list("glass" = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
-	fragile = 4
+	fragile = 1
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -153,7 +160,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
-	fragile = 6 // a bit sturdier
+	fragile = 2 
 
 /obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
@@ -179,6 +186,7 @@
 	amount_per_transfer_from_this = 10
 	flags = OPENCONTAINER | NOREACT
 	fragile = 0
+	no_shatter = TRUE
 
 /obj/item/reagent_containers/glass/beaker/bluespace
 	name = "bluespace beaker"
@@ -191,6 +199,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
 	flags = OPENCONTAINER
 	fragile = 0
+	no_shatter = TRUE
 
 /obj/item/reagent_containers/glass/beaker/vial
 	name = "vial"
@@ -281,6 +290,7 @@ obj/item/reagent_containers/glass/bucket/wood
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	center_of_mass = list("x" = 16,"y" = 8)
+	no_shatter = TRUE
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	carving_weapon = /obj/item/material/hatchet
