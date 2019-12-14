@@ -57,5 +57,5 @@
 			name = "left kidney"
 /obj/item/organ/internal/kidneys/right
 	name = "right kidney"
-	robotic_name = "prosthetic right kidneys"
+	robotic_name = "prosthetic right kidney"
 	organ_tag = BP_RKIDNEYS
