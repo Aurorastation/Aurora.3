@@ -313,7 +313,7 @@ proc/check_panel(mob/M)
 					if(weapon_name)
 						my_target << sound(pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
 						my_target.show_message("<span class='danger'>[my_target] has been attacked with [weapon_name] by [src.name] </span>", 1)
-						my_target.halloss += 8
+						my_target.adjustHalLoss(10)
 						if(prob(20)) my_target.eye_blurry += 3
 						if(prob(33))
 							if(!locate(/obj/effect/overlay) in my_target.loc)
@@ -321,7 +321,7 @@ proc/check_panel(mob/M)
 					else
 						my_target << sound(pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
 						my_target.show_message("<span class='danger'>[src.name] has punched [my_target]!</span>", 1)
-						my_target.halloss += 4
+						my_target.adjustHalLoss(10)
 						if(prob(33))
 							if(!locate(/obj/effect/overlay) in my_target.loc)
 								fake_blood(my_target)

@@ -6,6 +6,11 @@
 	parent_organ = BP_GROIN
 	robotic_name = "prosthetic kidneys"
 	robotic_sprite = "kidneys-prosthetic"
+	min_bruised_damage = 25
+	min_broken_damage = 45
+	max_damage = 70
+	relative_size = 10
+	toxin_type = CE_NEPHROTOXIC
 
 /obj/item/organ/internal/kidneys/process()
 
@@ -23,3 +28,18 @@
 			owner.adjustToxLoss(0.1 * PROCESS_ACCURACY)
 		else if(is_broken())
 			owner.adjustToxLoss(0.3 * PROCESS_ACCURACY)
+
+	if(is_bruised())
+		if(prob(5) && reagents.get_reagent_amount("potassium") < 5)
+			reagents.add_reagent("potassium", REM*5)
+	if(is_broken())
+		if(owner.reagents.get_reagent_amount("potassium") < 15)
+			owner.reagents.add_reagent("potassium", REM*2)
+
+	//If your kidneys aren't working, your body's going to have a hard time cleaning your blood.
+	if(!owner.chem_effects[CE_ANTITOXIN])
+		if(prob(33))
+			if(is_broken())
+				owner.adjustToxLoss(0.5)
+			if(status & ORGAN_DEAD)
+				owner.adjustToxLoss(1)
