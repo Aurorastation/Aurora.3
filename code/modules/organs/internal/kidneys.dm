@@ -53,7 +53,7 @@
 			name = "right kidney"
 		else if(organ_tag == BP_RKIDNEYS)
 			organ_tag = BP_KIDNEYS
-			to_chat(usr, "You reattach the kidneys for placement on the left side.")
+			to_chat(usr, "You prepare the kidney for placement on the left side.")
 			name = "left kidney"
 /obj/item/organ/internal/kidneys/right
 	name = "right kidney"
