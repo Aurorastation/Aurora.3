@@ -9588,6 +9588,7 @@
 	pixel_x = 38;
 	req_access = list(20)
 	},
+/obj/item/card/id/captains_spare,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "atu" = (

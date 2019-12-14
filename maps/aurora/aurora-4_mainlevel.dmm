@@ -16249,7 +16249,6 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/item/card/id/captains_spare,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
