@@ -40,5 +40,5 @@
 	remote_network = "prisonmechs"
 
 /mob/living/heavy_vehicle/premade/miner/remote_prison/Initialize()
-	..()
+	. = ..()
 	become_remote()

@@ -2,6 +2,7 @@
 
 /datum/controller/subsystem/virtualreality
 	name = "Virtual Reality"
+	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	// MISC
@@ -131,19 +132,14 @@
 	robot["Return"] = null
 
 	for(var/mob/living/R in robots[network])
-		world << "[R.name]"
 		var/turf/T = get_turf(R)
 		if(!T)
-			world << "Turf not found, continuing"
 			continue
 		if(isNotStationLevel(T.z))
-			world << "Not on station Z, continuing"
 			continue
 		if(R.client || R.ckey)
-			world << "Has client or ckey, continuing"
 			continue
 		if(R.stat == DEAD)
-			world << "Dead, continuing"
 			continue
 		robot[R.name] = R
 

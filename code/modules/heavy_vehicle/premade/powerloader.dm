@@ -187,5 +187,5 @@
 	remote_network = "prisonmechs"
 
 /mob/living/heavy_vehicle/premade/ripley/remote_prison/Initialize()
-	..()
+	. = ..()
 	become_remote()
