@@ -16,7 +16,7 @@
 	)
 	primitive_form = "Stok"
 	darksight = 3
-	gluttonous = 1
+	gluttonous = TRUE
 	slowdown = 0.5
 	brute_mod = 0.8
 	grab_mod = 0.75
