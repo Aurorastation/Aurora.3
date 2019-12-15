@@ -19,13 +19,13 @@
 	id = "robotic_lungs"
 	build_path = /obj/item/organ/internal/lungs
 
-/datum/design/item/mechfab/prosthetic/internal/kidneys
-	name = "Prosthetic Kidneys"
+/datum/design/item/mechfab/prosthetic/internal/lkidney
+	name = "Prosthetic Left Kidney"
 	id = "robotic_kidneys"
-	build_path = /obj/item/organ/internal/kidneys
+	build_path = /obj/item/organ/internal/kidneys/left
 
-/datum/design/item/mechfab/prosthetic/internal/kidneys
-	name = "Prosthetic Right Kidneys"
+/datum/design/item/mechfab/prosthetic/internal/rkidney
+	name = "Prosthetic Right Kidney"
 	id = "robotic_rkidneys"
 	build_path = /obj/item/organ/internal/kidneys/right
 

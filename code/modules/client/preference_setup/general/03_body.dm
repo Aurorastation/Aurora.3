@@ -238,9 +238,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = "eyes"
 				if(BP_APPENDIX)
 					organ_name = "appendix"
-				if(BP_KIDNEYS)
+				if(BP_LKIDNEY)
 					organ_name = "left kidneys"
-				if(BP_RKIDNEYS)
+				if(BP_RKIDNEY)
 					organ_name = "right kidneys"
 				if(BP_LIVER)
 					organ_name = "liver"
@@ -628,7 +628,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH
 
 	else if(href_list["organs"])
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list(BP_HEART, BP_EYES, BP_APPENDIX, BP_KIDNEYS, BP_LIVER, BP_RKIDNEYS)
+		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list(BP_HEART, BP_EYES, BP_APPENDIX, BP_LKIDNEY, BP_LIVER, BP_RKIDNEY)
 		if(!organ_name) return
 
 		var/organ = null
@@ -639,10 +639,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				organ = BP_EYES
 			if(BP_APPENDIX)
 				organ = BP_APPENDIX
-			if(BP_KIDNEYS)
-				organ = BP_KIDNEYS
-			if(BP_RKIDNEYS)
-				organ = BP_RKIDNEYS
+			if(BP_LKIDNEY)
+				organ = BP_LKIDNEY
+			if(BP_RKIDNEY)
+				organ = BP_RKIDNEY
 			if(BP_LIVER)
 				organ = BP_LIVER
 
@@ -657,7 +657,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Mechanical")
 				pref.organ_data[organ] = "mechanical"
 			if("Removed")
-				if((organ in list(BP_HEART, BP_LIVER)) || (organ == BP_KIDNEYS && pref.organ_data[BP_RKIDNEYS] == "removed") || (organ == BP_RKIDNEYS && pref.organ_data[BP_KIDNEYS]))
+				if((organ in list(BP_HEART, BP_LIVER)) || (organ == BP_LKIDNEY && pref.organ_data[BP_RKIDNEY] == "removed") || (organ == BP_RKIDNEY && pref.organ_data[BP_LKIDNEY]))
 					to_chat(user, "<span class='notice'>You cannot start without a heart.</span>")
 					return
 				pref.organ_data[organ] = "removed"

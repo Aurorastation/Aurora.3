@@ -1,10 +1,10 @@
 /obj/item/organ/internal/kidneys
-	name = "left kidney"
+	name = "kidney"
 	icon_state = "kidneys"
 	gender = PLURAL
-	organ_tag = BP_KIDNEYS
+	organ_tag = BP_LKIDNEY
 	parent_organ = BP_GROIN
-	robotic_name = "prosthetic left kidneys"
+	robotic_name = "prosthetic kidneys"
 	robotic_sprite = "kidneys-prosthetic"
 	min_bruised_damage = 25
 	min_broken_damage = 45
@@ -47,15 +47,20 @@
 /obj/item/organ/internal/kidneys/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/hemostat))
-		if(src.organ_tag == BP_KIDNEYS)
+		if(src.organ_tag == BP_LKIDNEY)
 			to_chat(usr, "You prepare the kidney for placement on the right side.")
-			organ_tag = BP_RKIDNEYS
+			organ_tag = BP_RKIDNEY
 			name = "right kidney"
-		else if(organ_tag == BP_RKIDNEYS)
-			organ_tag = BP_KIDNEYS
+		else if(organ_tag == BP_RKIDNEY)
+			organ_tag = BP_LKIDNEY
 			to_chat(usr, "You prepare the kidney for placement on the left side.")
 			name = "left kidney"
+
+/obj/item/organ/internal/kidneys/left
+	name = "left kidney"
+	organ_tag = BP_LKIDNEY
+	robotic_name = "prosthetic left kidneys"
 /obj/item/organ/internal/kidneys/right
 	name = "right kidney"
 	robotic_name = "prosthetic right kidney"
-	organ_tag = BP_RKIDNEYS
+	organ_tag = BP_RKIDNEY
