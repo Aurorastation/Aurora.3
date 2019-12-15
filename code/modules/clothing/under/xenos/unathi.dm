@@ -61,9 +61,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!istype(user, /mob/living))
-		return
-	if(user.stat)
+	if(use_check_and_message(user))
 		return
 	if(has_down_and_sleeves == FALSE)
 		to_chat(user, span("notice", "You cannot roll down the [src]!"))
@@ -89,9 +87,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!istype(user, /mob/living))
-		return
-	if(user.stat)
+	if(use_check_and_message(user))
 		return
 	if(has_down_and_sleeves == FALSE)
 		to_chat(user, span("notice", "You cannot roll up your [src]'s sleeves!"))
