@@ -494,24 +494,20 @@
 			var/obj/item/organ/external/r_foot = get_organ("r_foot")
 
 			if(prob(50) && l_foot)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s left ankle bends unnaturally!"),
-				span("danger", "Grueling pain shoots through your mind as your left ankle dislocates under the fall!"))
+				fall_message("left ankle", "bends unnaturally")
 				l_foot.dislocate(TRUE)
 			else if(r_foot)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s right ankle bends unnaturally!"),
-				span("danger", "Grueling pain shoots through your mind as your right ankle dislocates under the fall!"))
+				fall_message("right ankle", "bends unnaturally")
 				r_foot.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_leg = get_organ("l_leg")
 			var/obj/item/organ/external/r_leg = get_organ("r_leg")
 
 			if(prob(50) && l_leg)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s left knee caves in!"),
-				span("danger", "Grueling pain shoots through your mind as your left knee dislocates under the fall!"))
+				fall_message("left knee", "caves in")
 				l_leg.dislocate(TRUE)
 			else if(r_leg)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s right knee caves in!"),
-				span("danger", "Grueling pain shoots through your mind as your right knee dislocates under the fall!"))
+				fall_message("right knee", "caves in")
 				l_leg.dislocate(TRUE)
 
 
@@ -541,24 +537,20 @@
 			var/obj/item/organ/external/r_hand = get_organ("r_hand")
 
 			if(prob(50) && l_hand)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s left wrist bends unnaturally!"),
-				span("danger", "Grueling pain shoots through your mind as your left wrist dislocates under the fall!"))
+				fall_message("left wrist", "bends unnaturally")
 				l_hand.dislocate(TRUE)
 			else if(r_hand)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s right wrist bends unnaturally!"),
-				span("danger", "Grueling pain shoots through your mind as your right wrist dislocates under the fall!"))
+				fall_message("right wrist", "bends unnaturally")
 				r_hand.dislocate(TRUE)
 		else if(prob(15))
 			var/obj/item/organ/external/l_arm = get_organ("l_arm")
 			var/obj/item/organ/external/r_arm = get_organ("r_arm")
 
 			if(prob(50) && l_arm)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s left elbow caves in!"),
-				span("danger", "Grueling pain shoots through your mind as your left elbow dislocates under the fall!"))
+				fall_message("left elbow", "caves in")
 				l_arm.dislocate(TRUE)
 			else if(r_arm)
-				visible_message(span("warning", "There's a sickening popping noise as [src]'s right elbow caves in!"),
-				span("danger", "Grueling pain shoots through your mind as your right elbow dislocates under the fall!"))
+				fall_message("right elbow", "caves in")
 				r_arm.dislocate(TRUE)
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
@@ -568,8 +560,7 @@
 
 		var/obj/item/organ/external/head = get_organ("head")
 		if(prob(20) && head)
-			visible_message(span("warning", "There's a sickening popping noise as [src]'s jaw cracks loose!"),
-			span("danger", "Grueling pain shoots through your mind as your jaw dislocates under the fall!"))
+			fall_message("jaw", "cracks loose")
 			head.dislocate(TRUE)
 
 	else
@@ -604,6 +595,10 @@
 	addtimer(CALLBACK(src, .proc/post_fall_death_check), 2 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
 
 	return TRUE
+
+/mob/living/carbon/human/proc/fall_message(var/location, var/descriptor)
+	visible_message(span("warning", "There's a sickening popping noise as [src]'s [location] [descriptor]!"),
+		span("danger", "Grueling pain shoots through your mind as your [location] [descriptor]!"))
 
 /mob/living/carbon/human/proc/post_fall_death_check()
 	if (stat == DEAD)
