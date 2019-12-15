@@ -328,7 +328,6 @@
 		/obj/item/tank/jetpack,
 		/obj/item/toy/plushie/drone,
 		/obj/item/toy/plushie/ivancarp,
-		/obj/item/grenade/spawnergrenade/vaurca,
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
