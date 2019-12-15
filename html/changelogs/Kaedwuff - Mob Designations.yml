@@ -39,6 +39,6 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "Generic mobs are no longer designated via numbers, and instead have randomized descriptors."
-  - rscadd: "Players who spawn as mice or drones can add their own single word descriptors. Admins will see what you are doing, so don't abuse this."
+  - rscadd: "Players who spawn as mice or drones can add their own single word descriptors and creature type. Admins will see what you are doing, so don't abuse this."
   - rscadd: "People who are unfortunate enough to be turned into slimes can also pick a name, with somewhat more freedom in choices."
   - rscadd: "You can now label monkies again with a hand labeler. Additionally, science has been issued several more hand labelers for experiment labelling use."
