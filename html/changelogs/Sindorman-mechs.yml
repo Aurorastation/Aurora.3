@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "Mechs no longer runtime during destroy call."
   - bugfix: "Turrets and NPCS no longer target empty mechs."
-  - bugfix: "Mechs now use their armor and values for it. Before it would ignore them entirely and deal 100% damage."
+  - bugfix: "Mechs no longer runtime during armor check. Mechs now use their armor and values for it. Before it would ignore them entirely and deal 100% damage."
