@@ -69,7 +69,7 @@
 #define BP_IS_ROBOTIC(org)  (org.status & ORGAN_ROBOT)
 
 //Generic organs
-#define BP_MOUTH    BP_MOUTH
+#define BP_MOUTH    "mouth"
 #define BP_EYES     "eyes"
 #define BP_HEART    "heart"
 #define BP_LUNGS    "lungs"

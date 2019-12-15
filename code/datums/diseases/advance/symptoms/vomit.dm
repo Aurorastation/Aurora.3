@@ -41,7 +41,7 @@ Bonus
 
 	return
 
-/datum/symptom/vomit/proc/Vomit(var/mob/living/carbon/M)
+/datum/symptom/vomit/proc/Vomit(var/mob/living/carbon/human/M)
 	M.vomit()//This function is in mob_helpers
 /*
 //////////////////////////////////////

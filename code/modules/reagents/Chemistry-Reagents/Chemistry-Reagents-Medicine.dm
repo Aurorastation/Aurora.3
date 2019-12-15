@@ -655,7 +655,7 @@
 /datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
-/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
+/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
 	if(prob(dose))
@@ -1180,7 +1180,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	M.drowsyness = 0
 
-/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale)
 	. = ..()
 	M.adjustOxyLoss(1 * removed * scale)
 	M.Weaken(10 * removed * scale)
@@ -1421,7 +1421,7 @@
 			M.add_chemical_effect(CE_CARDIOTOXIC, -removed * nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_HEPATOTOXIC, 1)

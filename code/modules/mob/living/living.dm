@@ -807,7 +807,7 @@ default behaviour is:
 	else
 		for(var/mob/M in contents)
 			qdel(M)
-	QDEL_NULL(ingested)
+	QDEL_NULL(reagents)
 
 	return ..()
 
@@ -816,3 +816,31 @@ default behaviour is:
 
 /mob/living/proc/get_digestion_product()
 	return null
+
+
+/proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
+	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
+	var/test_types = test.find_type()
+	. = (eat_types & test_types) == test_types
+ 
+#define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
+/mob/living/proc/calculate_composition()
+	if (!composition_reagent)//if no reagent has been set, then we'll set one
+		var/type = find_type(src)
+		if (type & TYPE_SYNTHETIC)
+			src.composition_reagent = "iron"
+		else
+			src.composition_reagent = "protein"
+
+	//if the mob is a simple animal with a defined meat quantity
+	if (istype(src, /mob/living/simple_animal))
+		var/mob/living/simple_animal/SA = src
+		if (SA.meat_amount)
+			src.composition_reagent_quantity = SA.meat_amount*2*PPM
+
+		//The quantity of protein is based on the meat_amount, but multiplied by 2
+
+	var/size_reagent = (src.mob_size * src.mob_size) * 3//The quantity of protein is set to 3x mob size squared
+	if (size_reagent > src.composition_reagent_quantity)//We take the larger of the two
+		src.composition_reagent_quantity = size_reagent
+#undef PPM

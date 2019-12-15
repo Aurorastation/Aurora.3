@@ -965,7 +965,7 @@
 
 	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 
-/mob/living/carbon/human/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
+/mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 
 	set waitfor = 0
 
