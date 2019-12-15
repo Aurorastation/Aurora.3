@@ -50,7 +50,7 @@
 		if("almanq")
 			desc += " This one has the picture of Rikdar Al'Manq."
 			description_fluff = "Rikdar was born on 2429 the noble Njarir'Akhran Bayan line in Nal'Tor. However, his parents were disappeared by Republic secret police in one of the \
-			frequent purges of Njarir’Akhran and he was put into state-run foster care. He has raised in the House Of Young Patriots orphanage until he was adopted at 14 to Hharar \
+			frequent purges of Njarir'Akhran and he was put into state-run foster care. He has raised in the House Of Young Patriots orphanage until he was adopted at 14 to Hharar \
 			parents and took their last name of Al'Manq. Rikdar graduated university on at 20 years old in 2450 with a Bachelors of Arts. Having already received several high-profile \
 			commissions, including the then-President Al'Mari Hadii, whose portrait was done a week before his death. Rikdar remains extremely popular on Adhomai. The People's Republic \
 			remains a quiet supporter of his work, and state officials pay him handsome commissions for their portraits to be done."
@@ -65,11 +65,11 @@
 
 		if("andrey")
 			desc += " This one has the picture of Andrey Borisov."
-			description_fluff = "Born in 2416 to aline of M’sai warriors, Andrey was not even two years old before humanity stumbled across Adhomai and lit the flame that ignited the \
-			First Revolution. As the newly founded People’s Republic began the arduous transition from a movement to a government, Andrey’s connections with the upper echelon of \
-			PRA politicians bore fruit. He was taken on as a member of an officer’s general staff, headquartered in Nal’Tor. His position put him in contact with the elite, however, \
+			description_fluff = "Born in 2416 to aline of M'sai warriors, Andrey was not even two years old before humanity stumbled across Adhomai and lit the flame that ignited the \
+			First Revolution. As the newly founded People's Republic began the arduous transition from a movement to a government, Andrey's connections with the upper echelon of \
+			PRA politicians bore fruit. He was taken on as a member of an officer's general staff, headquartered in Nal'Tor. His position put him in contact with the elite, however, \
 			and many found him charming and personable. His ascension from lowly	secretary to the major news anchor was one that involved plenty of political maneuvering, money - \
-			and, rumored by some, violence - but ultimately Andrey had proved his loyalty to the political elite of the People’s Republic and he was rewarded with the honor of being their mouthpiece"
+			and, rumored by some, violence - but ultimately Andrey had proved his loyalty to the political elite of the People's Republic and he was rewarded with the honor of being their mouthpiece"
 
 		if("paratrooper")
 			desc += " This one has the picture of a republican guard."
