@@ -163,7 +163,6 @@
 
 	// Build icon.
 	update_icon()
-	body.armor = body.mech_armor.armor
 
 /mob/living/heavy_vehicle/return_air()
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
