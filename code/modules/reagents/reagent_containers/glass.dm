@@ -60,7 +60,7 @@
 		shatter()
 		return
 	if(speed < hardness)
-		if (prob(25 * (speed)))
+		if(prob(25 * (speed)))
 			shatter()
 
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
