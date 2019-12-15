@@ -45,7 +45,7 @@
 /obj/machinery/atmospherics/unary/engine
 	name = "engine nozzle"
 	desc = "Simple thermal nozzle, uses heated gast to propell the ship."
-	icon = 'icons/obj/ship_engine.dmi'
+	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "nozzle"
 	var/on = 1
 	var/thrust_limit = 1	//Value between 1 and 0 to limit the resulting thrust
@@ -88,12 +88,17 @@
 	icon_state = "exhaust"
 	anchored = 1
 
-	New(var/turf/nloc, var/ndir, var/temp)
+	New(var/turf/nloc, var/ndir, var/temp, var/time)
 		set_dir(ndir)
 		..(nloc)
 
 		if(nloc)
-			nloc.hotspot_expose(temp,125)
+			nloc.hotspot_expose(temp, 125)
 
-		spawn(20)
-			loc = null
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, src), time)
+
+/obj/effect/engine_exhaust/blue
+	icon_state = "exhaust_blue"
+
+/obj/effect/engine_exhaust/pulse
+	icon_state = "pulse"

@@ -7,6 +7,51 @@
 	density = 1
 	gender = PLURAL
 
+/turf/unsimulated/mineral/asteroid
+	name = "rock"
+	icon = 'icons/turf/map_placeholders.dmi'
+	icon_state = "rock"
+	desc = "It's a greyish rock. Exciting."
+	opacity = 1
+	var/icon/actual_icon = 'icons/turf/smooth/rock_wall.dmi'
+	layer = 2.01
+	var/list/asteroid_can_smooth_with = list(
+		/turf/unsimulated/mineral,
+		/turf/unsimulated/mineral/asteroid
+	)
+	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
+
+/turf/unsimulated/mineral/asteroid/Initialize(mapload)
+	if (initialized)
+		crash_with("Warning: [src]([type]) initialized multiple times!")
+
+	if (icon != actual_icon)
+		icon = actual_icon
+
+	initialized = TRUE
+
+	turfs += src
+
+	if(dynamic_lighting)
+		luminosity = 0
+	else
+		luminosity = 1
+
+	has_opaque_atom = TRUE
+
+	if (smooth)
+		canSmoothWith = asteroid_can_smooth_with
+		pixel_x = -4
+		pixel_y = -4
+		queue_smooth(src)
+
+	if (!mapload)
+		queue_smooth_neighbors(src)
+
+	return INITIALIZE_HINT_NORMAL
+
+
 // This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 var/list/mineral_can_smooth_with = list(
 	/turf/simulated/mineral,

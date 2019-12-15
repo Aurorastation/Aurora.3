@@ -744,3 +744,27 @@
 	new /obj/item/organ/external/hand/right/autakh/tool/mining(src)
 	new /obj/item/organ/external/hand/right/autakh/medical(src)
 	new /obj/item/organ/external/hand/right/autakh/security(src)
+
+/obj/structure/closet/crate/einstein
+	name = "Einstein Engines crate"
+	desc = "A metal crate carrying the symbol and colors of Einstein Engines, famous producer of advanced spaceship components."
+	icon_state = "EEcrate"
+	icon_opened = "EEcrateopen"
+	icon_closed = "EEcrate"
+	layer = 2.99
+
+/obj/structure/closet/crate/einstein/booster/fill()
+		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
+		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
+		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
+		new /obj/item/weapon/storage/toolbox/einstein/booster(src)
+
+/obj/structure/closet/crate/military
+	name = "military crate"
+	desc = "A heavy crate made out of steel intended for military purposes."
+	icon_state = "militarycrate"
+	icon_opened = "militarycrateopen"
+	icon_closed = "militarycrate"
+	layer = 2.99
+
+

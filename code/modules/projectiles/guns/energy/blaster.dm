@@ -1,6 +1,6 @@
 /obj/item/gun/energy/blaster
 	name = "blaster pistol"
-	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
+	desc = "An energy pistol converted to fire off energy bolts rather than lasers beams."
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -10,14 +10,14 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 6
+	max_shots = 8
 
 	burst_delay = 2
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
+		list(mode_name="semiauto", burst=1,	fire_delay=0,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster),
+		list(mode_name="2-round bursts", burst=2,	fire_delay=null,	move_delay=2,	burst_accuracy=list(1,0,0),	dispersion=list(0, 10, 15),	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster)
 		)
 
 /obj/item/gun/energy/blaster/mounted/mech
@@ -65,7 +65,7 @@
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
-	max_shots = 12
+	max_shots = 14
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
@@ -87,6 +87,11 @@
 	w_class = 4
 	accuracy = -3
 	scoped_accuracy = 4
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=25,	fire_delay_wielded = 10,	move_delay=null,	burst_accuracy=null,	dispersion=null,	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster),
+		list(mode_name="2-round bursts", burst=2, fire_delay=25,	fire_delay_wielded = 10,	move_delay=2,	burst_accuracy=list(1,0,0),	dispersion=list(0, 10, 15),	charge_cost = 200,	projectile_type=/obj/item/projectile/energy/blaster)
+		)
 
 	fire_delay_wielded = 10
 	accuracy_wielded = 1

@@ -1,5 +1,19 @@
 /datum/shuttle/ferry/escape_pod
+	var/capacity = 2
+	var/first_try = TRUE
+	location = 0
+	warmup_time = 0
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
+	var/list/destinations[5]
+	var/mode = 2
+	var/mode_change = TRUE
+
+/datum/shuttle/ferry/escape_pod/init_shuttle(var/list/settings)
+	..()
+	destinations[1] = settings[13]
+	destinations[2] = settings[14]
+	destinations[3] = settings[15]
+	destinations[4] = settings[16]
 
 /datum/shuttle/ferry/escape_pod/init_docking_controllers()
 	..()
@@ -29,6 +43,43 @@
 /datum/shuttle/ferry/escape_pod/can_cancel()
 	return 0
 
+/datum/shuttle/ferry/escape_pod/proc/check_capacity()
+	var/area/A = get_area(docking_controller.master)
+	var/num_mobs = 0
+	if(A)
+		for(var/mob/living/carbon in A.contents)
+			num_mobs++
+		if((num_mobs > capacity) && first_try) // Each passenger over capacity increases chances to crash by 50%
+			first_try = FALSE
+			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, escape pod is over capacity! The designated capacity is [capacity]. Forcing to launch may result into crashing of the pod!\"</span>")
+			return FALSE
+		else if(!first_try && prob((num_mobs - capacity) * 50))
+			undock()
+			docking_controller.master.visible_message("\bold [docking_controller.master]\ states \"<span class='warning'>Warning, loosing altitude. Brace for impact!\"</span>")
+			crash_shuttle()
+			return FALSE
+	return TRUE
+
+/datum/shuttle/ferry/escape_pod/launch(var/user)
+	if(!can_launch() || !check_capacity() || !check_engines())
+		return
+	in_use = user	//obtain an exclusive lock on the shuttle
+
+	process_state = WAIT_LAUNCH
+	undock()
+
+/datum/shuttle/ferry/escape_pod/crash_shuttle()
+	var/distance = pick(list(10, 15, 18, 20, 22, 25, 35))
+	destinations[4] = new destinations[4]
+	for(var/turf/T in area_station)
+		var/turf/T_n = get_turf(locate(T.x, T.y + distance, T.z))
+		if(T_n)
+			destinations[4].contents += T_n
+	play_sound_shuttle(sound_crash, destinations[4])
+	sleep(70) // Has to be 4 seconds less than how long is crash sound. Change if the sound is changed.
+	move(area_current, destinations[4])
+	explosion(pick(destinations[4].contents), 1, 0, 1, 1, 0) // explosion inside of the shuttle, as in we damaged it
+	process_state = IDLE_STATE
 
 //This controller goes on the escape pod itself
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod
@@ -43,9 +94,16 @@
 		"override_enabled" = docking_program.override_enabled,
 		"door_state" = 	docking_program.memory["door_status"]["state"],
 		"door_lock" = 	docking_program.memory["door_status"]["lock"],
-		"can_force" = pod.can_force() || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
-		"is_armed" = pod.arming_controller.armed
+		"mode" = pod.mode,
+		"emagged" = emagged,
+		"can_force" = pod.can_force() || emagged || (emergency_shuttle.departed && pod.can_launch()),	//allow players to manually launch ahead of time if the shuttle leaves
+		"is_armed" = pod.arming_controller.armed,
+		"choose_destination" = pod.mode_change
 	)
+	// Making sure that we cannot eject once we are already ejected
+	if(data["docking_status"] == "undocked")
+		data["can_force"] = FALSE
+		data["choose_destination"] = FALSE
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 
@@ -59,17 +117,33 @@
 	if(..())
 		return 1
 
-	if("manual_arm")
+	if(href_list["command"] == "manual_arm")
 		pod.arming_controller.arm()
-	if("force_launch")
-		if (pod.can_force())
-			pod.force_launch(src)
+	else if(href_list["command"] == "force_launch")
+		if (pod.can_force() || emagged)
+			pod.check_capacity()
+			pod.force_launch(src, emagged)
 		else if (emergency_shuttle.departed && pod.can_launch())	//allow players to manually launch ahead of time if the shuttle leaves
 			pod.launch(src)
-
+	else if(href_list["destination"])
+		var/m = text2num(href_list["destination"])
+		if(!m)
+			return
+		switch(m)
+			if(1)
+				pod.area_offsite = locate(pod.destinations[1])
+			if(2)
+				pod.area_offsite = locate(pod.destinations[2])
+			if(3)
+				pod.area_offsite = locate(pod.destinations[3])
+		pod.mode = m
 	return 0
 
-
+/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/emag_act(var/remaining_charges, var/mob/user)
+	emagged = TRUE
+	to_chat(user, span("notice", "You short circuit the control. Unlocking new destination!"))
+	warn_ai("Warning: malware detected in one of the escape pods controllers!")
+	return TRUE
 
 //This controller is for the escape pod berth (station side)
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth

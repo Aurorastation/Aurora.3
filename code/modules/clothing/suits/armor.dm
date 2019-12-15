@@ -463,6 +463,26 @@
 	item_state = "mercwebvest"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 
+/obj/item/clothing/suit/storage/vest/merc/specialist
+	name = "specialist heavy armor vest"
+	icon_state = "specialist_heavy"
+	item_state = "specialist_heavy"
+
+/obj/item/clothing/suit/storage/vest/merc/specialist/Initialize()
+	. = ..()
+	pockets.storage_slots = 2
+
+/obj/item/clothing/suit/storage/vest/merc/specialist/light
+	name = "specialist armor vest"
+	desc = "A high-quality armor vest in a fetching tan. It is surprisingly flexible and light, even with the added webbing and armor plating. This one has additional pockets, but less armor plating."
+	icon_state = "specialist_light"
+	item_state = "specialist_light"
+	armor = list(melee = 40, bullet = 40, laser = 40, energy = 25, bomb = 25, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/storage/vest/merc/specialist/light/Initialize()
+	. = ..()
+	pockets.storage_slots = 5
+
 //ert related armor
 
 /obj/item/clothing/suit/storage/vest/heavy/ert
@@ -572,6 +592,23 @@
 /obj/item/clothing/suit/storage/vest/legion/legate/Initialize()
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
+	pockets.storage_slots = 4
+	pockets.max_w_class = 2
+	pockets.max_storage_space = 8
+
+/obj/item/clothing/suit/storage/vest/legion/commander
+	name = "foreign legion commander coat"
+	desc = "A luxurious coat made out of sturdy synthetic fabrics and reinforced with lightweight alloys. Only worn by some of the highest decorated officers of the TCFL."
+	icon_state = "legion_coat"
+	item_state = "legion_coat"
+	cold_protection = 0
+	min_cold_protection_temperature = 0
+	heat_protection = 0
+	max_heat_protection_temperature = 0
+
+/obj/item/clothing/suit/storage/vest/legion/commander/Initialize()
+	. = ..()
+	pockets = new/obj/item/weapon/storage/internal(src)
 	pockets.storage_slots = 4
 	pockets.max_w_class = 2
 	pockets.max_storage_space = 8

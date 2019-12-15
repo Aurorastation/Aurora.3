@@ -93,6 +93,17 @@
 	applies_material_colour = 0
 	slot_flags = SLOT_BELT
 
+/obj/item/weapon/material/knife/dagger
+	name = "dagger"
+	desc = "A long sharp knife of classical design."
+	force_divisor = 0.4
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "dagger"
+	item_state = "dagger"
+	w_class = 3
+	applies_material_colour = 0
+	slot_flags = SLOT_BELT
+
 //Butterfly knives stab your eyes out too!
 
 /obj/item/material/knife/butterfly

@@ -100,11 +100,11 @@
 #define SHUTTLE_INTRANSIT 2
 
 // Ferry shuttle processing status.
-#define IDLE_STATE   0
-#define WAIT_LAUNCH  1
-#define FORCE_LAUNCH 2
-#define WAIT_ARRIVE  3
-#define WAIT_FINISH  4
+#define IDLE_STATE    0
+#define WAIT_LAUNCH   1
+#define FORCE_LAUNCH  2
+#define WAIT_ARRIVE   3
+#define WAIT_FINISH   4
 
 // Setting this much higher than 1024 could allow spammers to DOS the server easily.
 #define MAX_MESSAGE_LEN       1024

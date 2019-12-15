@@ -79,6 +79,15 @@
 /obj/item/clothing/head/culthood/alt
 	icon_state = "cult_hoodalt"
 
+/obj/item/clothing/head/culthood/white
+	name = "white hood"
+	icon_state = "white_hood"
+	flags_inv = BLOCKHEADHAIR
+	body_parts_covered = null
+	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
+	cold_protection = null
+	siemens_coefficient = 0.3
+
 /obj/item/clothing/suit/cultrobes
 	name = "ragged robes"
 	desc = "A ragged, dusty set of robes."
@@ -104,6 +113,15 @@
 	item_state = "magusred"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDEJUMPSUIT
+
+/obj/item/clothing/suit/cultrobes/white
+	name = "armored robes"
+	desc = "Some sturdy looking armored white robes."
+	icon_state = "white_robes"
+	item_state = "white_robes"
+	allowed = list(/obj/item/weapon/gun,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight,/obj/item/weapon/material/knife)
+	armor = list(melee = 60, bullet = 50, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
+	siemens_coefficient = 0.3
 
 /obj/item/clothing/head/helmet/space/cult
 	name = "eldritch helmet"

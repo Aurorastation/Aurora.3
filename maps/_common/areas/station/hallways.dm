@@ -41,6 +41,13 @@
 	no_light_control = 1
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
+/area/hallway/secondary/exit/pods
+	name = "\improper Surface Lvl. Emergency Services Dock"
+
+/area/hallway/secondary/locker_room
+	name = "\improper Surface Lvl. Locker Room"
+	icon_state = "locker"
+
 /area/hallway/secondary/construction
 	name = "\improper Construction Area"
 	icon_state = "construction"

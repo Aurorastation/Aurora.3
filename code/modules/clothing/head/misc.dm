@@ -685,3 +685,4 @@
 	item_state = "helmet_tac_sol"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	contained_sprite = 1
+>>>>>>> master

@@ -30,6 +30,9 @@
 	var/light_disabled = 0
 	var/alarm_on = 0
 	var/busy = 0
+	var/report_alarm = 1
+	var/ai_visible = 1
+
 
 	var/on_open_network = 0
 
@@ -297,6 +300,8 @@
 		icon_state = initial(icon_state)
 
 /obj/machinery/camera/proc/triggerCameraAlarm(var/duration = 0)
+	if(report_alarm != 1)
+		return
 	alarm_on = 1
 	camera_alarm.triggerAlarm(loc, src, duration)
 

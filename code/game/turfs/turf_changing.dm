@@ -53,7 +53,7 @@
 	// So we call destroy.
 	qdel(src)
 
-	var/turf/simulated/W = new N(src)
+	var/turf/simulated/W = new N(src) 
 
 #ifndef AO_USE_LIGHTING_OPACITY
 	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
@@ -171,6 +171,18 @@
 
 	other.update_icon()
 
+/turf/simulated/shuttle/copy_turf(turf/simulated/shuttle/other, ignore_air = FALSE)
+	. = ..()
+
+	other.name = name
+	other.layer = layer
+	other.roof_flags = roof_flags
+	other.destructible = destructible
+	other.damage = damage
+	other.material = material
+	other.reinf_material = reinf_material
+	other.roof_type = roof_type
+	other.baseturf = baseturf
 /turf/simulated/wall/copy_turf(turf/simulated/wall/other, ignore_air = FALSE)
 	.=..()
 	other.damage = damage

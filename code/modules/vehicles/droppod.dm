@@ -30,6 +30,11 @@
 	desc = "A big metal pod painted in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "legion_pod"
 
+/obj/vehicle/droppod/legion
+	name = "legion drop pod"
+	desc = "A big metal pod. Painted in the colors of the Tau Ceti Foreign Legion."
+	icon_state = "legion_pod"
+
 /obj/vehicle/droppod/Initialize()
 	. = ..()
 
@@ -72,6 +77,15 @@
 		return
 	unload(usr)
 
+/obj/vehicle/droppod/verb/eject()
+	set src in oview(1)
+	set category = "Vehicle"
+	set name = "Open Pod"
+
+	if(!usr.canmove || usr.stat || usr.restrained())
+		return
+	unload(usr)
+
 /obj/vehicle/droppod/load(var/mob/C) // this won't call the parent proc due to the differences and the fact it doesn't use load. Also only mobs can be loaded.
 	if(!ismob(C))
 		return 0
@@ -88,7 +102,6 @@
 
 	C.set_dir(dir)
 	C.anchored = 1
-
 	user_buckle_mob(C, C)
 	icon_state = initial(icon_state)
 	return 1
@@ -119,7 +132,6 @@
 
 	if(!isturf(dest))
 		return 0
-
 	for(var/a in contents)
 		if(isliving(a))
 			var/mob/living/L = a
@@ -138,6 +150,9 @@
 	passenger = null
 	icon_state = "[initial(icon_state)]_open"
 	return 1
+
+/obj/vehicle/droppod/MouseDrop_T(over_object, src_location, over_location)
+	return
 
 /obj/vehicle/droppod/attack_hand(mob/user as mob)
 	..()

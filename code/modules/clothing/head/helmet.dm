@@ -116,6 +116,10 @@
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
+/obj/item/clothing/head/helmet/merc/specialist
+	name = "specialist helmet"
+	icon_state = "specialist_helm"
+
 /obj/item/clothing/head/helmet/swat
 	name = "\improper SWAT helmet"
 	desc = "They're often used by highly trained Swat Members."
@@ -318,6 +322,14 @@
 		to_chat(user, "You flip up the pilot visor.")
 	update_clothing_icon()
 	user.update_action_buttons()
+
+/obj/item/clothing/head/helmet/legion/pilot
+	name = "foreign legion flight helmet"
+	desc = "A standard foreign legion helmet with an aged pilot visor attached instead of a faceplate. The visor feeds its wearer in-flight information via a heads-up display."
+	icon_state = "legion_pilot"
+	body_parts_covered = null
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
 
 /obj/item/clothing/head/helmet/tajara
 	name = "amohdan swordsmen helmet"

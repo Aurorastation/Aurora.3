@@ -28,6 +28,17 @@
 /obj/item/clothing/shoes/swat/ert
 	species_restricted = null
 
+/obj/item/clothing/shoes/swat/specialist
+	name = "\improper specialist boots"
+	desc = "Generic military boots, comes in many shapes and sizes."
+	icon_state = "specialist"
+	species_restricted = null
+
+/obj/item/clothing/shoes/swat/specialist_alt
+	name = "\improper specialist leg guards"
+	icon_state = "specialist_alt"
+	species_restricted = null
+
 /obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."

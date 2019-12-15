@@ -1,4 +1,5 @@
 /datum/shuttle/ferry/emergency
+	crash_offset = list(-10, 5)
 	//pass
 
 /datum/shuttle/ferry/emergency/arrived()

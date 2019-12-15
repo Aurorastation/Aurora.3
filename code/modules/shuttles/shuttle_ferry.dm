@@ -9,17 +9,32 @@
 
 	var/area_transition
 	var/move_time = 0		//the time spent in the transition area
-	var/transit_direction = null	//needed for area/move_contents_to() to properly handle shuttle corners - not exactly sure how it works.
 
-	var/area_station
-	var/area_offsite
+	var/area/area_station
+	var/area/area_offsite
 	//TODO: change location to a string and use a mapping for area and dock targets.
 	var/dock_target_station
 	var/dock_target_offsite
 
 	var/last_dock_attempt_time = 0
 
-/datum/shuttle/ferry/short_jump(var/area/origin,var/area/destination)
+/datum/shuttle/ferry/init_shuttle(var/list/settings)
+	location = settings[1]
+	warmup_time = settings[2]
+	area_offsite = settings[3]
+	area_station = settings[4]
+	area_transition = settings[5]
+	transit_direction = settings[6]
+	move_time = settings[7]
+	area_current = settings[8]
+	area_crash = settings[9]
+	docking_controller_tag = settings[10]
+	dock_target_station = settings[11]
+	dock_target_offsite = settings[12]
+	
+	scan_shuttle()
+
+/datum/shuttle/ferry/short_jump(var/area/origin, var/area/destination)
 	if(isnull(location))
 		return
 
@@ -29,7 +44,7 @@
 		origin = get_location_area(location)
 
 	direction = !location
-	..(origin, destination)
+	..(origin, destination, exterior_walls_and_engines)
 
 /datum/shuttle/ferry/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(isnull(location))
@@ -41,14 +56,21 @@
 		departing = get_location_area(location)
 
 	direction = !location
-	..(departing, destination, interim, travel_time, direction)
+	..(departing, destination, interim, travel_time, direction, exterior_walls_and_engines)
 
-/datum/shuttle/ferry/move(var/area/origin,var/area/destination)
-	..(origin, destination)
+/datum/shuttle/ferry/move(var/area/origin, var/area/destination)
+	..(origin, destination, exterior_walls_and_engines)
 
 	if (destination == area_station) location = 0
 	if (destination == area_offsite) location = 1
 	//if this is a long_jump retain the location we were last at until we get to the new one
+	for(var/v in exterior_walls_and_engines)
+		var/list/l = v
+		var/turf/P_T = get_turf(locate(l[1], l[2], l[3]))
+		if(!istype(P_T, /turf/simulated/shuttle/floor/plating))
+			continue
+		for(var/obj/structure/shuttle/engine/propulsion/P in P_T.contents)
+			P.update_damage()
 
 /datum/shuttle/ferry/dock()
 	..()
@@ -105,17 +127,16 @@
 		dock_target = dock_target_offsite
 	return dock_target
 
-
 /datum/shuttle/ferry/proc/launch(var/user)
-	if (!can_launch()) return
+	if (!can_launch() || !check_engines()) return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
 	process_state = WAIT_LAUNCH
 	undock()
 
-/datum/shuttle/ferry/proc/force_launch(var/user)
-	if (!can_force()) return
+/datum/shuttle/ferry/proc/force_launch(var/user, var/emagged = FALSE)
+	if ((!can_force() && !emagged) || !check_engines()) return
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
@@ -164,3 +185,6 @@
 /datum/shuttle/ferry/proc/arrived()
 	return	//do nothing for now
 
+/datum/shuttle/ferry/crash_shuttle()
+	..()
+	process_state = IDLE_STATE

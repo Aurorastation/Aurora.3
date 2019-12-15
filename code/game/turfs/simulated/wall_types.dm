@@ -78,3 +78,14 @@
 
 /turf/simulated/wall/wood/Initialize(mapload)
 	. = ..(mapload,"wood")
+
+//Destructible shuttle walls
+
+/turf/simulated/wall/voxshuttle
+	roof_type = /turf/simulated/shuttle/roof/destructible/black
+
+/turf/simulated/wall/voxshuttle/Initialize(mapload)
+	. = ..(mapload,"voxalloy")
+
+/turf/simulated/wall/voxshuttle/attackby()
+	return

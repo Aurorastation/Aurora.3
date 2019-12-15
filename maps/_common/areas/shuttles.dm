@@ -67,6 +67,9 @@
 	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
+/area/shuttle/escape/crashed
+	name = "\improper Emergency Shuttle Crashed"
+
 /area/shuttle/escape_pod1
 	name = "\improper Escape Pod One"
 	flags = RAD_SHIELDED | SPAWN_ROOF
@@ -76,10 +79,21 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod1/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod1/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod1/centcom/space
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod1/centcom/antag
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod1/transit
 	icon_state = "shuttle"
@@ -95,10 +109,21 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod2/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod2/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod2/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod2/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod2/transit
 	icon_state = "shuttle"
@@ -114,17 +139,57 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod3/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod3/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod3/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod3/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod3/transit
 	icon_state = "shuttle"
 	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
-/area/shuttle/escape_pod5 //Pod 4 was lost to meteors
+/area/shuttle/escape_pod4
+	name = "\improper Escape Pod Four"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+
+/area/shuttle/escape_pod4/station
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod4/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod4/centcom
+	icon_state = "shuttle"
+	base_turf = /turf/unsimulated/floor
+	centcomm_area = 1
+
+/area/shuttle/escape_pod4/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod4/centcom/space
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod4/transit
+	icon_state = "shuttle"
+	centcomm_area = 1
+
+/area/shuttle/escape_pod5
 	name = "\improper Escape Pod Five"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
@@ -133,14 +198,54 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/escape_pod5/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
 /area/shuttle/escape_pod5/centcom
 	icon_state = "shuttle"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
+
+/area/shuttle/escape_pod5/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod5/centcom/space
+	base_turf = /turf/space
 
 /area/shuttle/escape_pod5/transit
 	icon_state = "shuttle"
 	base_turf = /turf/space/transit/north
+	centcomm_area = 1
+
+/area/shuttle/escape_pod6
+	name = "\improper Escape Pod Six"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+
+/area/shuttle/escape_pod6/station
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod6/crashed
+	icon_state = "shuttle2"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/escape_pod6/centcom
+	icon_state = "shuttle"
+	base_turf = /turf/unsimulated/floor
+	centcomm_area = 1
+
+/area/shuttle/escape_pod6/centcom/antag
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod6/centcom/space
+	base_turf = /turf/space
+
+/area/shuttle/escape_pod6/transit
+	icon_state = "shuttle"
 	centcomm_area = 1
 
 /area/shuttle/mining
@@ -166,6 +271,9 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/transport1/crashed
+	name = "\improper Crashed Transport Shuttle"
+
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
@@ -177,6 +285,9 @@
 	icon_state = "shuttlered2"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
+
+/area/shuttle/specops/crashed
+	name = "\improper Crashed Special Ops Shuttle"
 
 /area/shuttle/syndicate_elite
 	name = "\improper Merc Elite Shuttle"
@@ -206,6 +317,9 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
 
+/area/shuttle/administration/crashed
+	name = "\improper Crashed Administration Shuttle"
+
 /area/shuttle/research
 	name = "\improper Research Shuttle"
 
@@ -224,11 +338,19 @@
 	station_area = 0
 	base_turf = /turf/simulated/floor/reinforced
 
+/area/shuttle/research/crashed
+	name = "\improper Crashed Research Shuttle"
+
 /area/shuttle/legion
-	name = "\improper Foreign Legion Shuttle"
+	name = "\improper Foreign Legion Dropship"
 	flags = RAD_SHIELDED | SPAWN_ROOF
-	base_turf = /turf/simulated/floor/tiled/dark
 	icon_state = "shuttlegrn"
+	requires_power = 0
+	no_light_control = 1
+	centcomm_area = 1
+
+/area/shuttle/legion/centcom
+	base_turf = /turf/unsimulated/floor
 	centcomm_area = 1
 
 /area/shuttle/legion/centcom
@@ -284,3 +406,6 @@
 	name = "\improper Merchant Docking Port"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
+
+/area/shuttle/legion/crashed
+	name = "\improper Crashed Foreign Legion Dropship"

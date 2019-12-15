@@ -45,6 +45,10 @@
 		return
 	if (ismob(target) || istype(target, /turf/unsimulated) || isopenturf(target) || istype(target, /obj/item/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return
+	if(istype(target, /turf/simulated/shuttle))
+		var/turf/simulated/shuttle/s = target
+		if(!s.destructible)
+			return
 	to_chat(user, "Planting explosives...")
 	user.do_attack_animation(target)
 

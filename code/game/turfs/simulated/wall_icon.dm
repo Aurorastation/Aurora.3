@@ -52,7 +52,6 @@
 	damage_image = null
 
 	var/list/overlays_to_add = list()
-
 	if (!density)	// We're a fake and we're open.
 		clear_smooth_overlays()
 		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
@@ -122,3 +121,40 @@
 	CALCULATE_NEIGHBORS(src, ., W, istype(W) && (W.smooth || !W.density) && W.material && W.material.icon_base == our_icon_base)
 
 	cached_adjacency = .
+
+/turf/simulated/shuttle/wall/update_icon()
+	..()
+
+	if(!damage_overlays[1]) //list hasn't been populated
+		generate_overlays()
+
+	if (damage_image)
+		cut_overlay(damage_image, TRUE)
+
+	calculate_adjacencies()
+
+	damage_image = null
+	var/list/overlays_to_add = list()
+	if(damage != 0)
+		var/integrity = material.integrity
+		if(reinf_material)
+			integrity += reinf_material.integrity
+
+		var/overlay = round(damage / integrity * damage_overlays.len) + 1
+		if(overlay > damage_overlays.len)
+			overlay = damage_overlays.len
+
+		damage_image = damage_overlays[overlay]
+		overlays_to_add += damage_image
+
+	add_overlay(overlays_to_add, TRUE)
+	queue_smooth(src)
+
+/turf/simulated/shuttle/wall/proc/generate_overlays()
+	var/alpha_inc = 256 / damage_overlays.len
+
+	for(var/i = 1; i <= damage_overlays.len; i++)
+		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
+		img.blend_mode = BLEND_MULTIPLY
+		img.alpha = (i * alpha_inc) - 1
+		damage_overlays[i] = img

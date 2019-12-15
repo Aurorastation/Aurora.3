@@ -47,6 +47,20 @@
 /area/centcom/holding
 	name = "\improper Holding Facility"
 
+/area/centcom/extraction_shuttle
+	name = "\improper Escape Pods Retrival Shuttle"
+
+/area/centcom/legion_base
+	name = "\improper BLV The Tower, Deck 1"
+	icon_state = "centcom"
+	requires_power = 0
+	no_light_control = 1
+	base_turf = /turf/simulated/shuttle/floor
+	centcomm_area = 1
+
+/area/centcom/legion_base/hangar5
+	name = "\improper BLV The Tower, Hangar 5"
+
 /area/centcom/checkpoint/fore
 	name = "\improper Fore Checkpoint"
 
@@ -85,7 +99,25 @@
 /area/syndicate_mothership/raider_base
 	name = "\improper Pirate Hideout"
 	icon_state = "syndie-control"
-	dynamic_lighting = 1
+
+/area/antagonist_base
+	name = "\improper Syndicate High Command"
+	icon_state = "syndie-comm"
+	requires_power = 0
+	no_light_control = 1
+	centcomm_area = 1
+
+/area/antagonist_base/raider
+	name = "\improper Raider Hideout"
+	icon_state = "raid_base"
+
+/area/antagonist_base/mercenary
+	name = "\improper Mercenary Barracks"
+	icon_state = "merc_base"
+
+/area/antagonist_base/ninja
+	name = "\improper Ninja Preparation"
+	icon_state = "ninja_base"
 
 //THUNDERDOME
 
@@ -178,6 +210,9 @@
 	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
+/area/syndicate_station/crashed
+	name = "\improper Crashed Mercinary Shuttle"
+
 /area/wizard_station
 	name = "\improper Wizard's Den"
 	icon_state = "yellow"
@@ -212,7 +247,7 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/skipjack_station/above
-	name = "\improper Above the Station"
+	name = "\improper Telecomms Roof"
 	icon_state = "northwest"
 
 /area/skipjack_station/under
@@ -223,6 +258,13 @@
 	name = "\improper Caverns"
 	icon_state = "southeast"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
+
+/area/skipjack_station/above2
+	name = "\improper Pool Roof"
+	icon_state = "northeast"
+
+/area/skipjack_station/crashed
+	name = "\improper Crashed Skipjack"
 
 //DJSTATION
 
@@ -261,6 +303,10 @@
 	requires_power = 0
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	no_light_control = 1
+
+/area/merchant_ship/crashed
+	name = "\improper Crashed Merchant Ship"
+	flags = SPAWN_ROOF
 
 /area/merchant_ship/start
 	name = "\improper Merchant Ship Docked"
