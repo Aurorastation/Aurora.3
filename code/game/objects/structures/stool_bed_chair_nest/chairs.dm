@@ -8,7 +8,7 @@
 	buckle_lying = 0 //force people to sit up in chairs when buckled
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
-/obj/structure/bed/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
@@ -130,7 +130,7 @@
 /obj/structure/bed/chair/office/update_icon()
 	return
 
-/obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/office/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
@@ -189,16 +189,18 @@
 	icon_state = "bridge"
 	anchored = 1
 
-/obj/structure/bed/chair/office/bridge/generic
-	name = "bridge chair"
-	icon_state = "bridge_generic"
-	can_dismantle = FALSE
-
 /obj/structure/bed/chair/office/bridge/legion
 	name = "legion pilot seat"
-	desc = "A worn pilot seat. An insignia representing the Tau Ceti Foreign Legion has been plastered to the back of it."
-	icon_state = "legion_shuttle"
-	can_dismantle = FALSE
+	desc = "A comfortable seat for a pilot."
+	icon_state = "bridge_legion"
+
+/obj/structure/bed/chair/office/bridge/generic
+	icon_state = "bridge_generic"
+
+/obj/structure/bed/chair/office/bridge/pilot
+	name = "pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "pilot"
 
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()
@@ -215,7 +217,7 @@
 /obj/structure/bed/chair/wood/update_icon()
 	return
 
-/obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()

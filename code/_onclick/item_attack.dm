@@ -1,20 +1,14 @@
 /*
 === Item Click Call Sequences ===
 These are the default click code call sequences used when clicking on stuff with an item.
-
 Atoms:
-
 mob/ClickOn() calls the item's resolve_attackby() proc.
 item/resolve_attackby() calls the target atom's attackby() proc.
-
 Mobs:
-
 mob/living/attackby() after checking for surgery, calls the item's attack() proc.
 item/attack() generates attack logs, sets click cooldown and calls the mob's attacked_with_item() proc. If you override this, consider whether you need to set a click cooldown, play attack animations, and generate logs yourself.
 mob/attacked_with_item() should then do mob-type specific stuff (like determining hit/miss, handling shields, etc) and then possibly call the item's apply_hit_effect() proc to actually apply the effects of being hit.
-
 Item Hit Effects:
-
 item/apply_hit_effect() can be overriden to do whatever you want. However "standard" physical damage based weapons should make use of the target mob's hit_with_weapon() proc to
 avoid code duplication. This includes items that may sometimes act as a standard weapon in addition to having other effects (e.g. stunbatons on harm intent).
 */
@@ -28,13 +22,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return
 
 //I would prefer to rename this to attack(), but that would involve touching hundreds of files.
-/obj/item/proc/resolve_attackby(atom/A, mob/user)
+/obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	pre_attack(A, user)
 	add_fingerprint(user)
-	return A.attackby(src, user)
+	return A.attackby(src, user, click_parameters)
 
 // No comment
-/atom/proc/attackby(obj/item/W, mob/user)
+/atom/proc/attackby(obj/item/W, mob/user, var/click_parameters)
 	return
 
 /atom/movable/attackby(obj/item/W, mob/user)
@@ -43,10 +37,21 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 /mob/living/attackby(obj/item/I, mob/user)
 	if(!ismob(user))
-		return 0
-	if(can_operate(src) && do_surgery(src,user,I)) //Surgery
-		return 1
-	return I.attack(src, user, user.zone_sel.selecting)
+		return FALSE
+
+	var/operating = can_operate(src)
+	if(operating == SURGERY_SUCCESS)
+		if(do_surgery(src, user, I))
+			return TRUE
+		else
+			return I.attack(src, user, user.zone_sel.selecting)
+	if(operating == SURGERY_FAIL)
+		if(do_surgery(src, user, I, TRUE))
+			return TRUE
+		else
+			return I.attack(src, user, user.zone_sel.selecting)
+	else
+		return I.attack(src, user, user.zone_sel.selecting)
 
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
@@ -54,7 +59,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return
 
 //I would prefer to rename this attack_as_weapon(), but that would involve touching hundreds of files.
-/obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = "chest")
+/obj/item/proc/attack(mob/living/M, mob/living/user, var/target_zone = BP_CHEST)
 
 	if(!force || (flags & NOBLUDGEON))
 		return 0
@@ -93,10 +98,6 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		power *= 2
 	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
-		if(X.gloves && istype(X.gloves,/obj/item/clothing/gloves/force))
-			var/obj/item/clothing/gloves/force/G = X.gloves
-			power *= G.amplification
-
 		if(ishuman(target))
 			if(X.martial_art && X.martial_art.weapon_affinity && istype(src, X.martial_art.weapon_affinity))
 				perform_technique(target, X, hit_zone)

@@ -247,7 +247,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		if ((z_transfer & UP) && HasAbove(epicenter.z))
 			var/datum/explosiondata/data = new
 			data.epicenter = GetAbove(epicenter)
-			data.rec_pow = power * config.iterative_explosives_z_multiplier
+			data.rec_pow = (power * config.iterative_explosives_z_multiplier) - config.iterative_explosives_z_subtraction
 			data.z_transfer = UP
 			data.spreading = TRUE
 			queue(data)
@@ -255,7 +255,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 		if ((z_transfer & DOWN) && HasBelow(epicenter.z))
 			var/datum/explosiondata/data = new
 			data.epicenter = GetBelow(epicenter)
-			data.rec_pow = power * config.iterative_explosives_z_multiplier
+			data.rec_pow = (power * config.iterative_explosives_z_multiplier) - config.iterative_explosives_z_subtraction
 			data.z_transfer = DOWN
 			data.spreading = TRUE
 			queue(data)

@@ -24,22 +24,13 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/swat/ert
+	species_restricted = null
+
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
 	item_state = "black_leather_gloves"
-	species_restricted = null
-
-/obj/item/clothing/gloves/swat/specialist
-	name = "\improper specialist gloves"
-	icon_state = "black_leather"
-	item_state = "specialist"
-	species_restricted = null
-
-/obj/item/clothing/gloves/swat/specialist_alt
-	name = "\improper specialist armguards"
-	icon_state = "specialist_alt"
-	item_state = "specialist_alt"
 	species_restricted = null
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
@@ -49,6 +40,20 @@
 	item_state = "swat_gl"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/ring/ninja
+	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
+	name = "black slipgloves"
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "s-ninja"
+	item_state = "s-ninja"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	undergloves = 1
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
@@ -109,6 +114,7 @@
 	gender = NEUTER
 	body_parts_covered = null
 	fingerprint_chance = 100
+	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/verb/checktime()
@@ -137,12 +143,28 @@
 	else
 		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
 
+/obj/item/clothing/gloves/watch/verb/swapwrists()
+	set category = "Object"
+	set name = "Flip watch wrist"
+	set src in usr
+
+	if (usr.stat || usr.restrained())
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		src.item_state = "[item_state]_alt"
+	else
+		src.item_state = initial(item_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
+	update_clothing_icon()
+
 /obj/item/clothing/gloves/watch/examine(mob/user)
 	..()
 	if (get_dist(src, user) <= 1)
 		checktime()
 
-/obj/item/clothing/gloves/watch/attackby(obj/item/weapon/W, mob/user)
+/obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
 			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
@@ -280,6 +302,7 @@
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
 	drop_sound = 'sound/items/drop/metalboots.ogg'
+	gender = NEUTER
 
 /obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
 	if(!proximity)
@@ -319,3 +342,77 @@
 	desc = "Thick arm warmers and mittens that reach past the elbow."
 	icon_state = "starmittens"
 	item_state = "starmittens"
+
+/obj/item/clothing/gloves/ballistic
+	name = "ballistic gauntlet"
+	desc = "A metal gauntlet armed with a wrist-mounted shotgun."
+	icon_state = "ballisticfist"
+	item_state = "ballisticfist"
+	siemens_coefficient = 1
+	fingerprint_chance = 50
+	siemens_coefficient = 1
+	clipped = 1
+	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	drop_sound = 'sound/items/drop/metalboots.ogg'
+	gender = NEUTER
+	var/obj/item/gun/projectile/mounted
+	var/gun_type = /obj/item/gun/projectile/shotgun/doublebarrel/pellet
+
+/obj/item/clothing/gloves/ballistic/Initialize()
+	. = ..()
+	if(!mounted)
+		var/obj/item/gun/projectile/new_gun = new gun_type (src)
+		mounted = new_gun
+		mounted.name = "wrist-mounted [initial(new_gun.name)]"
+
+/obj/item/clothing/gloves/ballistic/Destroy()
+	if(mounted)
+		QDEL_NULL(mounted)
+	return ..()
+
+/obj/item/clothing/gloves/ballistic/Touch(atom/A, mob/living/user, proximity)
+	if(!proximity)
+		return
+
+	if(!isliving(A))
+		return
+
+	var/mob/living/L = A
+
+	if(user.a_intent == I_HURT)
+		if(mounted)
+			spark(user, 3, alldirs)
+			mounted.Fire(L, user)
+
+/obj/item/clothing/gloves/ballistic/attackby(obj/item/W, mob/user)
+	..()
+	if(mounted)
+		mounted.load_ammo(W, user)
+		return
+
+/obj/item/clothing/gloves/ballistic/verb/unload_shells()
+	set name = "Unload Ballistic Gauntlet "
+	set desc = "Unload the shells from the gauntlet's mounted gun."
+	set category = "Object"
+	set src in usr
+
+	if(usr.stat || usr.restrained() || usr.incapacitated())
+		return
+
+	if(mounted)
+		mounted.unload_ammo(usr)
+
+/obj/item/clothing/gloves/ballistic/attack_self(mob/user as mob)
+	unload_shells()
+
+/obj/item/clothing/gloves/ballistic/double
+	name = "ballistic gauntlets"
+	icon_state = "dual-ballisticfist"
+	item_state = "dual-ballisticfist"
+	fingerprint_chance = 0
+	gender = PLURAL
+
+/obj/item/clothing/gloves/ballistic/double/Initialize()
+	. = ..()
+	if(mounted)
+		mounted.switch_firemodes()

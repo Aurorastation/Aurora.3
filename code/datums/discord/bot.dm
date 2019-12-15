@@ -464,6 +464,21 @@ var/datum/discord_bot/discord_bot = null
 		invite_url = "https://discord.gg/[get_req[1]["code"]]"
 		return invite_url
 
+/proc/discord_escape(var/input, var/remove_everyone = TRUE, var/remove_mentions = FALSE)
+	. = replace_characters(input, list("`" = "\\`", "*" = "\\*", "_" = "\\_", "~" = "\\~"))
+
+	if(remove_everyone)
+		var/regex/evReg = regex("@everyone", "gi")
+		. = evReg.Replace(., "@ everyone")
+		var/regex/hereReg = regex("@here", "gi")
+		. = hereReg.Replace(., "@ here")
+
+	if(remove_mentions)
+		var/regex/menReg = regex("<@\[\\d]+>", "g")
+		. = menReg.Replace(., "\[mention]")
+		var/regex/roleReg = regex("<@&\[\\d]+>", "g")
+		. = roleReg.Replace(., "\[role mention]")
+
 #undef CHAN_ADMIN
 #undef CHAN_CCIAA
 #undef CHAN_ANNOUNCE

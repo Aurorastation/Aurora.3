@@ -471,7 +471,6 @@
 	SearchVar(newscaster_standard_feeds)
 	SearchVar(announced_news_types)
 	SearchVar(send_emergency_team)
-	SearchVar(ert_base_chance)
 	SearchVar(can_call_ert)
 	SearchVar(shatter_sound)
 	SearchVar(explosion_sound)
@@ -871,5 +870,6 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
+	SearchVar(global_player_panel)
 
 #endif

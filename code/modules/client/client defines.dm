@@ -57,6 +57,7 @@
 	var/need_saves_migrated = "Requires database"	//Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
 	var/account_age = -1							// Age on the BYOND account in days.
 	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
+	var/unacked_warning_count = 0
 
 	preload_rsc = 1
 

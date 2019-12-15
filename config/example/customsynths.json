@@ -1,0 +1,12 @@
+{
+    "synths": {
+        "Synth name here": {
+            "ckey": "ckey",
+			"synthicon": "synth icon name",
+			"aiholoicon": "ai holo icon name",
+			"aichassisicon": "ai chassis icon name",
+			"paiicon": "pai icon name"
+
+		}
+    }
+}

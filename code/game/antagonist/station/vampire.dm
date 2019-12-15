@@ -19,6 +19,7 @@ var/datum/antagonist/vampire/vamp = null
 		"Zeng-Hu Mobility Frame",
 		"Bishop Accessory Frame"
 	)
+	required_age = 10
 
 	welcome_text = "You are a Vampire! Use the \"<b>Vampire Help</b>\" command to learn about the backstory and mechanics! Stay away from the Chaplain, and use the darkness to your advantage."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE

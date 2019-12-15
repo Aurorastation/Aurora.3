@@ -1,3 +1,6 @@
+#define DO_BOOT 1
+#define DO_BUCKLE 2
+
 //These lists are populated in /datum/shuttle_controller/New()
 //Shuttle controller is instantiated in master_controller.dm.
 
@@ -111,6 +114,8 @@
 	if (moving_status == SHUTTLE_IDLE)
 		return	//someone cancelled the launch
 
+	callHook("shuttle_moved", list(origin,destination))
+
 	moving_status = SHUTTLE_INTRANSIT //shouldn't matter but just to be safe
 	play_sound_shuttle(sound_landing, origin, 25)
 	play_sound_shuttle(sound_landing, destination, 20)
@@ -129,6 +134,8 @@
 	sleep(max(70, warmup_time*10))
 	if (moving_status == SHUTTLE_IDLE)
 		return	//someone cancelled the launch
+
+	callHook("shuttle_moved", list(departing,destination))
 
 	arrive_time = world.time + travel_time*10
 	moving_status = SHUTTLE_INTRANSIT
@@ -208,20 +215,25 @@
 	var/range = rand(1, 4)
 	var/speed = rand(1, 4)
 	for(var/mob/M in destination)
-		if(M.client)
-			spawn(0)
-				if(M.buckled)
-					to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
-					shake_camera(M, 3, 1)
-				else
-					to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
-					shake_camera(M, 10, 1)
-					sleep(1)
+		var/effect = FALSE
 
-		if(istype(M, /mob/living/carbon))
-			if(!M.buckled)
-				M.Weaken(3)
-				M.throw_at(get_step(get_turf(locate(M.loc.x + rand(-3, 3), M.loc.y + rand(-3, 3), M.loc.z)), get_turf(M)), range, speed, M)
+		if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			if(istype(H.shoes, /obj/item/clothing/shoes/magboots))
+				var/obj/item/clothing/shoes/magboots/boots = H.shoes
+				if(boots.magpulse)
+					effect = DO_BOOT
+		if(!effect)
+			if(M.buckled)
+				effect = DO_BUCKLE
+
+		if(effect == DO_BOOT)
+			magboot_effect(M)
+		else if(effect == DO_BUCKLE)
+			buckled_effect(M)
+		else // If they have neither of the former, then it'll always be loose (at the time of writing this, oh god)
+			loose_effect(M)
+
 	area_current = destination
 
 /datum/shuttle/proc/move_shuttle_contents_to(area/A, area/B)
@@ -284,6 +296,19 @@
 		TT.update_above()
 
 	center = list((max_x + min_x) / 2, (max_y + min_y) / 2)
+
+/datum/shuttle/proc/magboot_effect(mob/M)
+	to_chat(M, span("warning","You manage to maintain your footing with the magboots!"))
+	shake_camera(M, 5, 1)
+
+/datum/shuttle/proc/buckled_effect(mob/M)
+	to_chat(M, span("warning","Sudden acceleration presses you into your chair!"))
+	shake_camera(M, 3, 1)
+
+/datum/shuttle/proc/loose_effect(mob/M)
+	to_chat(M, span("warning","You lose your footing as the floor lurches beneath you!"))
+	shake_camera(M, 10, 1)
+	M.throw_at(get_step(get_turf(locate(M.loc.x + rand(-3, 3), M.loc.y + rand(-3, 3), M.loc.z)), get_turf(M)), range, speed, M)
 
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
@@ -412,3 +437,6 @@
 	O.sight &= ~(SEE_MOBS|SEE_OBJS)
 	O.S = src
 	O.mainbody = WEAKREF(user)
+
+#undef DO_BOOT
+#undef DO_BUCKLE

@@ -6,7 +6,7 @@
 	worn_state = "syndicate"
 	has_sensor = 0
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/syndicate/combat
 	name = "combat turtleneck"
@@ -29,14 +29,9 @@
 	item_state = "fulltracksuit"
 	contained_sprite = 1
 
-/obj/item/clothing/under/syndicate/specialist
-	name = "specialist uniform"
-	desc = "This is a uniform intended to be used by some kind of specialist."
-	icon_state = "specialist"
-	item_state = "bl_suit"
-	worn_state = "specialist"
-
-/obj/item/clothing/under/syndicate/specialist/turtleneck
-	name = "specialist turtleneck"
-	icon_state = "specialist_alt"
-	worn_state = "specialist_alt"
+/obj/item/clothing/under/syndicate/ninja
+	name = "slipsuit"
+	desc = "A sleek, form-fitting undersuit designed to retain the wearer's mobility. It almost feels like you're wearing nothing at all."
+	icon_state = "ninja"
+	item_state = "ninja"
+	worn_state = "ninja"

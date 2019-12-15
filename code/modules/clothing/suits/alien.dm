@@ -25,19 +25,6 @@
 
 //Taj clothing.
 
-/obj/item/clothing/suit/tajaran/furs
-	name = "heavy furs"
-	desc = "A traditional Zhan-Khazan garment."
-	icon_state = "zhan_furs"
-	item_state = "zhan_furs"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
-
-/obj/item/clothing/head/tajaran/scarf
-	name = "headscarf"
-	desc = "A scarf of coarse fabric. Seems to have ear-holes."
-	icon_state = "zhan_scarf"
-	body_parts_covered = HEAD|FACE
-
 /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	name = "people's republic medical coat"
 	desc = "A sterile insulated coat made of leather stitched over fur."
@@ -87,7 +74,7 @@
 
 /obj/item/clothing/suit/storage/tajaran/messa
 	name = "sun sister robe"
-	desc = "A robe worn by the female priests of the S'rand'Marr religion"
+	desc = "A robe worn by the female priests of the S'rand'Marr religion."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "messarobes"
 	item_state = "messarobes"
@@ -96,6 +83,20 @@
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
+
+/obj/item/clothing/suit/storage/tajaran/matake
+	name = "Mata'ke priest mantle"
+	desc = "A mantle worn by the priests of Mata'ke."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "matakecoat"
+	item_state = "matakecoat"
+	contained_sprite = TRUE
+	description_fluff = "The priesthood of Mata'ke is comprised of only men and strangely enough, hunters. Like their patron, all priests of Mata'ke must prove themselves capable, \
+	practical, strong and masters of Adhomai wilderness. Every clan and temple of Mata'ke has a different way of testing its applicants and these tests are always kept as a strict \
+	secret, the only thing known is that the majority of applicants never return. After they're accepted, priests of Mata'ke dress in furs and carry silver \
+	weapons, usually daggers for ease of transport and to simulate Mata'ke's sword. There is a remarkably low amount of Njarir'Akhran in the Mata'ke priesthood."
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 
 /obj/item/clothing/suit/storage/hooded/tajaran
 	name = "gruff cloak"
@@ -120,39 +121,11 @@
 	item_state = "priestrobe"
 	contained_sprite = TRUE
 	flags_inv = 0
+	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
 	description_fluff = "The official religious body of the S'rendarr & Messa religion  is reffered to as \"Parivara\" or roughly translated \"Family\". This branch is further split into \
 	the female Sun Sisters and male Priest's of S'rendarr. Currently their main role is to act as mediator and to remain out of political matters, there is however a certain unspoken \
 	agitation about the religion of Mata'ke and S'rrendars position within that pantheon. Further the Parivara has called multiple summits over the courses of war, which usually result \
 	in temporary cease-fires from all sides."
-
-/obj/item/clothing/head/tajaran
-	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
-	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
-	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
-	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
-	and colorful dress wearing \"Flapper\" variety of clothing."
-
-/obj/item/clothing/head/tajaran/circlet
-	name = "golden dress circlet"
-	desc = "A golden circlet with a pearl in the middle of it."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "taj_circlet"
-	item_state = "taj_circlet"
-	contained_sprite = TRUE
-
-/obj/item/clothing/head/tajaran/circlet/silver
-	name = "silver dress circlet"
-	desc = "A silver circlet with a pearl in the middle of it."
-	icon_state = "taj_circlet_s"
-	item_state = "taj_circlet_s"
-
-/obj/item/clothing/head/tajaran/fur
-	name = "adhomian fur hat"
-	icon = 'icons/obj/tajara_items.dmi'
-	desc = "A typical tajaran hat, made with the fur of some adhomian animal."
-	icon_state = "fur_hat"
-	item_state = "fur_hat"
-	contained_sprite = TRUE
 
 /obj/item/clothing/mask/tajara
 	name = "sun sister veil"
@@ -216,3 +189,13 @@
 	icon_state = "vacmantle"
 	item_state = "vacmantle"
 	body_parts_covered = UPPER_TORSO
+
+/obj/item/clothing/suit/vaurca/breeder
+	name = "zo'ra representative clothes"
+	desc = "A large piece of clothing used by Zo'ra representatives."
+	icon = 'icons/mob/species/breeder/inventory.dmi'
+	item_state = "representative_clothes"
+	icon_state = "representative_clothes"
+	contained_sprite = FALSE
+	species_restricted = list("Vaurca Breeder")
+	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi')

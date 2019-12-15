@@ -73,6 +73,9 @@
 /turf/simulated/wall/titanium/Initialize(mapload)
 	. = ..(mapload,"titanium")
 
+/turf/simulated/wall/titanium_reinforced/Initialize(mapload)
+	. = ..(mapload,"titanium", "titanium")
+
 /turf/simulated/wall/wood/Initialize(mapload)
 	. = ..(mapload,"wood")
 

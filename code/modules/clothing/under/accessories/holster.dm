@@ -6,6 +6,7 @@
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
+	flippable = 1
 
 /obj/item/clothing/accessory/holster/proc/holster(var/obj/item/I, var/mob/living/user)
 	if(holstered && istype(user))
@@ -132,8 +133,7 @@
 /obj/item/clothing/accessory/holster/waist
 	name = "waist holster"
 	desc = "A handgun holster, made of expensive leather. Can possibly be concealed under a shirt, albeit a little archaic."
-	icon_state = "holster"
-	overlay_state = "holster_low"
+	icon_state = "holster_low"
 
 /obj/item/clothing/accessory/holster/hip
 	name = "hip holster"

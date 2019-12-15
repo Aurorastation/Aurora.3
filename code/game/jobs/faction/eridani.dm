@@ -52,27 +52,27 @@
 /datum/outfit/job/officer/eridani
 	name = "Security Officer - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/warden/eridani
 	name = "Warden - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/forensics/eridani
 	name = "Forensic Technician - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/paramedic/eridani
 	name = "Paramedic - Eridani"
-	uniform = /obj/item/clothing/under/rank/security/eridani/alt
-	id = /obj/item/weapon/card/id/eridani
+	uniform = /obj/item/clothing/under/rank/eridani_medic
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/representative/eridani
-	name = "Corporate Liaison - Eridani"
+	name = "Eridani Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani

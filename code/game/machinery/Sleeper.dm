@@ -7,7 +7,7 @@
 	anchored = 1
 	var/mob/living/carbon/human/occupant = null
 	var/list/available_chemicals = list("inaprovaline" = "Inaprovaline", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "anti_toxin" = "Dylovene", "dexalin" = "Dexalin")
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
@@ -16,11 +16,11 @@
 	idle_power_usage = 15
 	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
 	component_types = list(
-			/obj/item/weapon/circuitboard/sleeper,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module = 2,
-			/obj/item/weapon/stock_parts/console_screen,
-			/obj/item/weapon/reagent_containers/glass/beaker/large
+			/obj/item/circuitboard/sleeper,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/stock_parts/console_screen,
+			/obj/item/reagent_containers/glass/beaker/large
 		)
 /obj/machinery/sleeper/Initialize()
 	. = ..()
@@ -55,15 +55,16 @@
 	var/scan_rating = 0
 	var/cap_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
 		else if(iscapacitor(P))
 			cap_rating += P.rating
 
-	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
+	beaker = locate(/obj/item/reagent_containers/glass/beaker) in component_parts
 
 	active_power_usage = 200 - (cap_rating + scan_rating)*2
+
 
 /obj/machinery/sleeper/attack_hand(var/mob/user)
 	if(..())
@@ -96,9 +97,9 @@
 			if(DEAD)
 				data["stat"] = "<font color='red'>Dead</font>"
 		data["health"] = occupant.health
-		if(iscarbon(occupant))
-			var/mob/living/carbon/C = occupant
-			data["pulse"] = C.get_pulse(GETPULSE_TOOL)
+		if(ishuman(occupant))
+			var/mob/living/carbon/human/H = occupant
+			data["pulse"] = H.get_pulse(GETPULSE_TOOL)
 		data["brute"] = occupant.getBruteLoss()
 		data["burn"] = occupant.getFireLoss()
 		data["oxy"] = occupant.getOxyLoss()
@@ -148,7 +149,7 @@
 
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
 	add_fingerprint(user)
-	if(istype(I, /obj/item/weapon/reagent_containers/glass))
+	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
 			user.drop_from_inventory(I,src)
@@ -156,9 +157,9 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
 		return
-	else if(istype(I, /obj/item/weapon/grab))
+	else if(istype(I, /obj/item/grab))
 
-		var/obj/item/weapon/grab/G = I
+		var/obj/item/grab/G = I
 		var/mob/living/L = G.affecting
 
 		if(!istype(L))

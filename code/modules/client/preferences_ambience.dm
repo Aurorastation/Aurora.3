@@ -3,7 +3,8 @@
 //	/client/proc/Toggle_footsteps,
 	/client/proc/Toggle_asfx_vote,
 	/client/proc/toggle_vox_voice,
-	/client/proc/Toggle_dropsounds
+	/client/proc/Toggle_dropsounds,
+	/client/proc/Toggle_arcadesounds
 )
 
 /client/verb/asf_toggle()
@@ -74,3 +75,15 @@
 		to_chat(src, "You will now hear dropping and throwing sounds.")
 	else
 		to_chat(src, "<font color='red'>You will no longer hear dropping and throwing sounds.</font>")
+
+/client/proc/Toggle_arcadesounds()
+	set name = "Toggle Arcade SFX"
+	set category = "SoundFx Prefs"
+	set desc = "Toggles hearing noises made by arcades."
+
+	prefs.asfx_togs ^= ASFX_ARCADE
+	prefs.save_preferences()
+	if(prefs.asfx_togs & ASFX_ARCADE)
+		to_chat(src, "You will now hear arcade sounds.")
+	else
+		to_chat(src, "<font color='red'>You will no longer hear arcade sounds.</font>")

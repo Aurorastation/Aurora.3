@@ -67,6 +67,17 @@
 /area/centcom/checkpoint/aft
 	name = "\improper Aft Checkpoint"
 
+/area/centcom/legion
+	name = "\improper BLV The Tower - Deck 1"
+	icon_state = "blvtower"
+
+/area/centcom/legion/hangar5
+	name = "\improper BLV The Tower - Hangar 5"
+	icon_state = "blvhangar5"
+
+/area/centcom/distress_prep
+	name = "\improper Distress Team Preparation"
+
 //SYNDICATES
 
 /area/syndicate_mothership
@@ -196,6 +207,7 @@
 /area/syndicate_station/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/syndicate_station/crashed
@@ -225,6 +237,7 @@
 /area/skipjack_station/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
 	centcomm_area = 1
 
 /area/skipjack_station/surface

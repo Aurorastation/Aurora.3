@@ -280,23 +280,15 @@ var/list/gamemode_cache = list()
 
 	var/iterative_explosives_z_threshold = 10
 	var/iterative_explosives_z_multiplier = 0.75
+	var/iterative_explosives_z_subtraction = 2
 
 	var/ticket_reminder_period = 0
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
 	var/docs_load_docs_from
+	var/load_customsynths_from
 	var/docs_image_host
-
-	var/ert_base_chance = 10
-	var/ert_green_inc = 1
-	var/ert_yellow_inc = 1
-	var/ert_blue_inc = 2
-	var/ert_red_inc = 3
-	var/ert_delta_inc = 10
-	var/ert_scaling_factor = 1
-	var/ert_scaling_factor_antag = 1
-	var/ert_scaling_factor_dead = 2
 
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
@@ -833,7 +825,6 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
-
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
@@ -886,6 +877,9 @@ var/list/gamemode_cache = list()
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
 
+				if ("explosion_z_sub")
+					iterative_explosives_z_subtraction = text2num(value)
+
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
 
@@ -899,27 +893,10 @@ var/list/gamemode_cache = list()
 
 				if ("docs_load_docs_from")
 					docs_load_docs_from = value
+				if ("load_customsynths_from")
+					load_customsynths_from = value
 				if ("docs_image_host")
 					docs_image_host = value
-
-				if ("ert_base_chance")
-					ert_base_chance = text2num(value)
-				if ("ert_green_inc")
-					ert_green_inc = text2num(value)
-				if ("ert_yellow_inc")
-					ert_yellow_inc = text2num(value)
-				if ("ert_blue_inc")
-					ert_blue_inc = text2num(value)
-				if ("ert_red_inc")
-					ert_red_inc = text2num(value)
-				if ("ert_delta_inc")
-					ert_delta_inc = text2num(value)
-				if ("ert_scaling_factor")
-					ert_scaling_factor = text2num(value)
-				if ("ert_scaling_factor_antag")
-					ert_scaling_factor_antag = text2num(value)
-				if ("ert_scaling_factor_dead")
-					ert_scaling_factor_dead = text2num(value)
 
 				if ("ntsl_hostname")
 					ntsl_hostname = value

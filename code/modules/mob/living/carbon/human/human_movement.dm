@@ -19,14 +19,24 @@
 	if (can_feel_pain())
 		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
 
-	if(wear_suit)
-		tally += wear_suit.slowdown
+	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
+		tally += I.slowdown
 
 	if(species)
 		tally += species.get_species_tally(src)
 
+	if (nutrition < (max_nutrition * 0.4))
+		tally++
+		if (nutrition < (max_nutrition * 0.1))
+			tally++
+
+	if (hydration < (max_hydration * 0.4))
+		tally++
+		if (hydration < (max_hydration * 0.1))
+			tally++
+
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
-		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
+		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4
@@ -38,7 +48,7 @@
 		if(shoes)
 			tally += shoes.slowdown
 
-		for(var/organ_name in list("l_foot","r_foot","l_leg","r_leg"))
+		for(var/organ_name in list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4
@@ -75,8 +85,6 @@
 
 	tally += config.human_delay
 
-	tally *= 2/(get_hydration_mul(0.75,1) + get_nutrition_mul(0.75,1))
-
 	tally = round(tally,1)
 
 	return tally
@@ -87,7 +95,7 @@
 	if(restrained())	return 0
 
 	//Do we have a working jetpack?
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if(thrust)
 		if(((!check_drift) || (check_drift && thrust.stabilization_on)) && (!lying) && (thrust.allow_thrust(0.01, src)))

@@ -132,7 +132,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need one metal sheet to finish the light tile!</span>")
 
-	else if(istype(O, /obj/item/weapon/wirecutters))
+	else if(O.iswirecutter())
 		user.drop_from_inventory(O,get_turf(src))
 		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)

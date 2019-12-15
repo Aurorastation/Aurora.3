@@ -17,7 +17,11 @@
 	// If the gloves do anything, have them return 1 to stop
 	// normal attack_hand() here.
 	var/obj/item/clothing/gloves/G = gloves // not typecast specifically enough in defines
+	var/obj/item/clothing/glasses/GS = glasses
 	if(istype(G) && G.Touch(A,src,1))
+		return
+	
+	else if(istype(GS) && GS.Look(A,src,1)) // for goggles
 		return
 
 	A.attack_hand(src)
@@ -29,12 +33,16 @@
 	return
 
 /mob/living/carbon/human/RangedAttack(var/atom/A)
-	if(!gloves && !mutations.len) return
-	var/obj/item/clothing/gloves/G = gloves
+	if(!(gloves || mutations.len || glasses)) return
+	var/obj/item/clothing/gloves/GV = gloves
+	var/obj/item/clothing/glasses/GS = glasses
 	if((LASER in mutations) && a_intent == I_HURT)
 		LaserEyes(A) // moved into a proc below
-
-	else if(istype(G) && G.Touch(A,src,0)) // for magic gloves
+	
+	else if(istype(GS) && GS.Look(A,src,0)) // for goggles
+		return
+	
+	else if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
 		return
 
 	else if(TK in mutations)

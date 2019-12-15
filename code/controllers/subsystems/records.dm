@@ -15,6 +15,15 @@
 	var/manifest_json
 	var/list/manifest
 
+	var/list/citizenships = list()
+	var/list/religions = list()
+
+/datum/controller/subsystem/records/Initialize()
+	..()
+
+	InitializeCitizenships()
+	InitializeReligions()
+
 /datum/controller/subsystem/records/New()
 	records = list()
 	records_locked = list()
@@ -77,7 +86,9 @@
 	qdel(record)
 
 /datum/controller/subsystem/records/proc/remove_record_by_field(var/field, var/value, var/record_type = RECORD_GENERAL)
-	remove_record(find_record(field, value, record_type))
+	. = find_record(field, value, record_type)
+	if(.)
+		remove_record(.)
 
 /datum/controller/subsystem/records/proc/find_record(var/field, var/value, var/record_type = RECORD_GENERAL)
 	if(excluded_fields[field])
@@ -187,10 +198,10 @@
 		var/rank = sanitize(t.rank)
 		var/real_rank = make_list_rank(t.real_rank)
 
-		var/isactive = t.phisical_status
+		var/isactive = t.physical_status
 		var/department = 0
 		var/depthead = 0            // Department Heads will be placed at the top of their lists.
-		
+
 		for(var/positionType in positions)
 			var/typesPositions = positions[positionType]
 			if(real_rank in typesPositions)
@@ -236,3 +247,27 @@
 
 /proc/generate_record_id()
 	return add_zero(num2hex(rand(1, 65535)), 4)
+
+
+/datum/controller/subsystem/records/proc/InitializeCitizenships()
+	for (var/type in subtypesof(/datum/citizenship))
+		var/datum/citizenship/citizenship = new type()
+
+		citizenships[citizenship.name] = citizenship
+
+	if (!citizenships.len)
+		crash_with("No citizenships located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/InitializeReligions()
+	for (var/type in subtypesof(/datum/religion))
+		var/datum/religion/religion = new type()
+
+		religions[religion.name] = religion
+
+	if (!religions.len)
+		crash_with("No citizenships located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
+	var/datum/religion/religion = SSrecords.religions[target_religion]
+	if(religion)
+		return religion.get_records_name()

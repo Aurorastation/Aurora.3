@@ -84,13 +84,7 @@ proc/get_radio_key_from_channel(var/channel)
 		if(dongle.translate_binary) return 1
 
 /mob/living/proc/get_stuttered_message(message)
-	return stutter(message)
-
-/mob/living/carbon/get_stuttered_message(message)
-	if (shock_stage >= 30)
-		return stutter(message)
-	else
-		return NewStutter(message)
+	return stutter(message, stuttering)
 
 /mob/living/proc/get_default_language()
 	return default_language
@@ -161,11 +155,11 @@ proc/get_radio_key_from_channel(var/channel)
 
 	var/message_mode = parse_message_mode(message, "headset")
 
-	message = process_chat_markup(message, list("~", "_"))
+	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
 
-	switch(copytext(message,1,2))
-		if("*") return emote(copytext(message,2))
-		if("^") return custom_emote(1, copytext(message,2))
+	if(emote.Find(message))
+		if(emote.group[1] == "*") return emote(copytext(message, 2))
+		if(emote.group[1] == "^") return custom_emote(1, copytext(message,2))
 
 	//parse the radio code and consume it
 	if (message_mode)
@@ -176,9 +170,9 @@ proc/get_radio_key_from_channel(var/channel)
 
 	message = trim_left(message)
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE,)
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
+	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
 		message += "."
 
 	//parse the language code and consume it
@@ -213,6 +207,8 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(!message || message == "")
 		return 0
+
+	message = process_chat_markup(message, list("~", "_"))
 
 	//handle nonverbal and sign languages here
 	if (speaking)

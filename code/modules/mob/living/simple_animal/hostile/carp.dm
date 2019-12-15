@@ -10,7 +10,7 @@
 	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -73,7 +73,7 @@
 	if(istype(target_mob, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = target_mob
 		e.Stress(rand(1,2))
-		visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
+		visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
 		src.do_attack_animation(e)
 		return e
 
@@ -83,7 +83,7 @@
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
 			if(e)
 				e.Stress(rand(1,2))
-				visible_message("<span class='danger'>\the [src] has attacked [e]!</span>")
+				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
 				src.do_attack_animation(e)
 				target_mob = e
 				stance = HOSTILE_STANCE_ATTACKING

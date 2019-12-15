@@ -109,6 +109,8 @@
 		damage_overlays[i] = img
 
 /turf/simulated/wall/calculate_adjacencies()
+	if(use_standard_smoothing)
+		return ..()
 	. = 0
 	if (!loc || !material)
 		return

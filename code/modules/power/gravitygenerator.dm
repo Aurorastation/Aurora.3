@@ -202,11 +202,11 @@
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(I.isscrewdriver())
 				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
-				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+				playsound(src.loc, I.usesound, 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
-				var/obj/item/weapon/weldingtool/WT = I
+				var/obj/item/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -224,7 +224,7 @@
 		if(GRAV_NEEDS_WRENCH)
 			if(I.iswrench())
 				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, I.usesound, 75, 1)
 				set_fix()
 		else
 			..()
@@ -461,15 +461,22 @@
 	else
 		return AREA_STATION
 
-/obj/machinery/gravity_generator/main/proc/throw_up_and_down()
+/obj/machinery/gravity_generator/main/proc/throw_up_and_down(var/area/Area)
+	if(!Area)
+		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(span("danger", "Warning! Station Gravity Generator malfunction detected. Brace for dangerous gravity change!"))
+	to_world(span("danger", "Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
 	sleep(50)
 	set_state(FALSE)
 	sleep(30)
 	set_state(TRUE)
 	for(var/mob/living/M in mob_list)
 		var/turf/their_turf = get_turf(M)
-		if(their_turf && (their_turf.loc in localareas))
+		if(their_turf?.loc ==  Area)
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
+				if(istype(boots))
+					continue
 			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)

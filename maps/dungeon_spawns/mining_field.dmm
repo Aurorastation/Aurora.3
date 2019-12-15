@@ -13,11 +13,11 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "e" = (
-/obj/item/weapon/ore/phoron,
+/obj/item/ore/phoron,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "f" = (
-/obj/item/weapon/ore,
+/obj/item/ore,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "g" = (
@@ -32,7 +32,7 @@
 /area/mine/unexplored)
 "i" = (
 /obj/structure/table/rack,
-/obj/item/weapon/pickaxe/jackhammer,
+/obj/item/pickaxe/jackhammer,
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "j" = (
@@ -65,7 +65,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "p" = (
-/obj/item/weapon/ore/iron,
+/obj/item/ore/iron,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "q" = (
@@ -80,7 +80,7 @@
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "t" = (
-/obj/item/weapon/ore/hydrogen,
+/obj/item/ore/hydrogen,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "u" = (
@@ -89,7 +89,7 @@
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "v" = (
-/obj/mecha/working/ripley/mining,
+/mob/living/heavy_vehicle/premade/ripley,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
@@ -100,14 +100,14 @@
 /area/mine/unexplored)
 "x" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/ore/diamond,
-/obj/item/weapon/ore/diamond,
-/obj/item/weapon/ore/diamond,
-/obj/item/weapon/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
+/obj/item/ore/diamond,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "y" = (
-/obj/item/weapon/ore/uranium,
+/obj/item/ore/uranium,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "z" = (
@@ -123,16 +123,16 @@
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "C" = (
-/obj/item/weapon/ore/osmium,
+/obj/item/ore/osmium,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "D" = (
-/obj/item/weapon/storage/bag/ore,
+/obj/item/storage/bag/ore,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "E" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/ore/strangerock,
+/obj/item/ore/strangerock,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 

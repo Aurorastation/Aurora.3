@@ -44,7 +44,7 @@
 
 /mob/living/carbon/human/proc/topup_nymphs()
 	var/added = 0
-	var/list/exclude = list("groin", "l_hand", "r_hand", "l_foot", "r_foot") // becase these are supposed to be whole as their join parts
+	var/list/exclude = list(BP_GROIN, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT) // becase these are supposed to be whole as their join parts
 	for(var/thing in organs_by_name)
 		if(thing in exclude)
 			continue
@@ -230,7 +230,7 @@
 		to_chat(src, span("warning", "You lack energy to perform this action!"))
 		return
 	// Choose our limb to detach
-	var/list/exclude = organs_by_name - list("groin", "chest", "l_arm", "r_arm", "l_leg", "r_leg")
+	var/list/exclude = organs_by_name - list(BP_GROIN, BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in exclude
 	if(!choice)
 		return
@@ -246,7 +246,7 @@
 	stump.update_damages()
 	O.post_droplimb(src)
 	// If we got parent organ - drop it too
-	if(O.parent_organ && O.parent_organ != "chest")
+	if(O.parent_organ && O.parent_organ != BP_CHEST)
 		var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
 		var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
 		parent.removed(null, TRUE)
@@ -275,6 +275,7 @@
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
 	M.detached = TRUE
 	M.update_verbs(TRUE)
+	M.languages = languages.Copy()
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ
@@ -314,7 +315,7 @@
 	sleep(20)
 	var/list/nymphos = list()
 
-	var/list/organ_removal_priorities = list("l_arm","r_arm","l_leg","r_leg")
+	var/list/organ_removal_priorities = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG)
 	for(var/organ_name in organ_removal_priorities)
 		var/obj/item/organ/external/O = organs_by_name[organ_name]
 		if(!O || O.is_stump())

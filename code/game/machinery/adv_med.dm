@@ -26,6 +26,12 @@
 	icon_state = "body_scanner"
 	density = 1
 	anchored = 1
+	component_types = list(
+			/obj/item/circuitboard/bodyscanner,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/device/healthanalyzer
+		)
 
 	use_power = 1
 	idle_power_usage = 60
@@ -86,10 +92,6 @@
 	src.occupant = usr
 	update_use_power(2)
 	update_icon()
-	for(var/obj/O in src)
-		//O = null
-		qdel(O)
-		//Foreach goto(124)
 	src.add_fingerprint(usr)
 	return
 
@@ -98,9 +100,6 @@
 		return
 
 	last_occupant_name = src.occupant.name
-	for(var/obj/O in src)
-		O.forceMove(src.loc)
-		//Foreach goto(30)
 	if (src.occupant.client)
 		src.occupant.client.eye = src.occupant.client.mob
 		src.occupant.client.perspective = MOB_PERSPECTIVE
@@ -110,8 +109,8 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/weapon/grab/G, mob/user)
-	if ((!( istype(G, /obj/item/weapon/grab) ) || !( isliving(G.affecting) )))
+/obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
+	if ((!( istype(G, /obj/item/grab) ) || !( isliving(G.affecting) )))
 		return
 	if (src.occupant)
 		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
@@ -138,8 +137,6 @@
 		src.occupant = M
 		update_use_power(2)
 		update_icon()
-		for(var/obj/O in src)
-			O.forceMove(loc)
 		//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
@@ -182,9 +179,6 @@
 		update_use_power(2)
 		update_icon()
 		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
-		for(var/obj/Obj in src)
-			Obj.forceMove(src.loc)
-			//Foreach goto(154)
 	src.add_fingerprint(user)
 	//G = null
 	return
@@ -245,7 +239,7 @@
 
 /obj/machinery/body_scanconsole
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/weapon/implant/chem, /obj/item/weapon/implant/death_alarm, /obj/item/weapon/implant/loyalty, /obj/item/weapon/implant/tracking)
+	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/loyalty, /obj/item/implant/tracking)
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	name = "Body Scanner Console"
@@ -254,11 +248,19 @@
 	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
+	component_types = list(
+			/obj/item/circuitboard/bodyscannerconsole,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/stock_parts/console_screen
+		)
+
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
+
+
 
 /obj/machinery/body_scanconsole/power_change()
 	..()
@@ -302,6 +304,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/body_scanconsole/attack_hand(user as mob)
+
 	if(..())
 		return
 
@@ -312,7 +315,8 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if (href_list["print"])
-		var/obj/item/weapon/paper/R = new(src.loc)
+		var/obj/item/paper/R = new(src.loc)
+		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([src.connected.occupant])", format_occupant_data(src.connected.get_occupant_data()))
 
 		print(R, "[src] beeps, printing [R.name] after a moment.")
@@ -400,13 +404,13 @@
 				data["burnDmg"] = O.damage
 				data["bruteDmg"] = 0
 
-		if (istype(O, /obj/item/organ/lungs) && H.is_lung_ruptured())
+		if (istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
 			if (O.is_broken())
 				wounds += get_broken_lung_desc()
 			else
 				wounds += get_collapsed_lung_desc()
 
-		if (istype(O, /obj/item/organ/brain) && H.has_brain_worms())
+		if (istype(O, /obj/item/organ/internal/brain) && H.has_brain_worms())
 			wounds += "Has an abnormal growth."
 
 		if (istype(O, H.species.vision_organ))
@@ -435,23 +439,19 @@
 		data["name"] = O.name
 
 		var/list/wounds = list()
-		var/num_IB = 0
-		for (var/datum/wound/W in O.wounds)
-			if (W.internal)
-				num_IB++
-
-		if (num_IB)
-			if (num_IB > 1)
-				wounds += "Shows signs of severe internal bleeding."
-			else
-				wounds += "Shows signs of internal bleeding."
 
 		if (O.status & ORGAN_ROBOT)
 			wounds += "Appears to be composed of inorganic material."
+		if (O.status & ORGAN_ARTERY_CUT)
+			wounds += "Severed [O.artery_name]."
+		if (O.status & ORGAN_TENDON_CUT)
+			wounds += "Severed [O.tendon_name]."
 		if (O.status & ORGAN_SPLINTED)
 			wounds += "Splinted."
 		if (O.status & ORGAN_BLEEDING)
 			wounds += "Bleeding."
+		if(O.is_dislocated())
+			wounds += "Dislocated."
 		if (O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]."
 		if (O.open)
@@ -600,25 +600,30 @@
 		var/robot = ""
 		var/splint = ""
 		var/internal_bleeding = ""
+		var/severed_tendon = ""
 		var/lung_ruptured = ""
+		var/dislocated = ""
 
 		dat += "<tr>"
 
-		for(var/datum/wound/W in e.wounds) if(W.internal)
-			internal_bleeding = "<br>Internal bleeding"
-			break
+		if(e.status & ORGAN_ARTERY_CUT)
+			internal_bleeding = "Arterial bleeding."
+		if(e.status & ORGAN_TENDON_CUT)
+			severed_tendon = "Severed tendon."
 		if(istype(e, /obj/item/organ/external/chest) && occ["lung_ruptured"])
-			lung_ruptured = "Lung ruptured:"
+			lung_ruptured = "Lung ruptured."
 		if(e.status & ORGAN_SPLINTED)
-			splint = "Splinted:"
+			splint = "Splinted."
+		if(e.is_dislocated())
+			dislocated = "Dislocated."
 		if(e.status & ORGAN_BLEEDING)
-			bled = "Bleeding:"
+			bled = "Bleeding."
 		if(e.status & ORGAN_BROKEN)
-			AN = "[e.broken_description]:"
+			AN = "[e.broken_description]."
 		if(e.status & ORGAN_ROBOT)
-			robot = "Prosthetic:"
+			robot = "Prosthetic."
 		if(e.open)
-			open = "Open:"
+			open = "Open."
 
 		var/infection = "[get_infection_level(e.germ_level)] infection"
 		if (infection == "")
@@ -639,7 +644,7 @@
 		if(!AN && !open && !infected & !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[e.brute_dam]</td><td>[robot][bled][AN][splint][open][infected][imp][internal_bleeding][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[e.brute_dam]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"

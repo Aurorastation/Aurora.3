@@ -51,7 +51,7 @@
 	if(possible_origins && possible_origins.len)
 		origin = pick(possible_origins)
 
-	for(var/i in 3 to 6)
+	for(var/i in 5 to 8)
 		add_to_pool(trading_items, possible_trading_items, force = 1)
 		add_to_pool(wanted_items, possible_wanted_items, force = 1)
 
@@ -99,7 +99,7 @@
 	if(possible.len)
 		var/picked = pick(possible)
 		var/atom/A = picked
-		if(initial(A.name) in list("object", "item","weapon", "structure", "machinery", "Mecha", "organ", "snack")) //weed out a few of the common bad types. Reason we don't check types specifically is that (hopefully) further bad subtypes don't set their name up and are similar.
+		if(initial(A.name) in list("object", "item","weapon", "structure", "machinery", "exosuit", "organ", "snack")) //weed out a few of the common bad types. Reason we don't check types specifically is that (hopefully) further bad subtypes don't set their name up and are similar.
 			return
 		return picked
 
@@ -122,7 +122,7 @@
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
-		value = round(rand(90,110)/100 * value) //For some reason rand doesn't like decimals.
+		value = round(rand(80,100)/100 * value) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
 	return trading_items[trading_items[trading_num]]
 
@@ -153,7 +153,7 @@
 			else if(is_type_in_list(offer,blacklisted_trade_items))
 				return 0
 
-		if(istype(offer,/obj/item/weapon/spacecash))
+		if(istype(offer,/obj/item/spacecash))
 			if(!(trade_flags & TRADER_MONEY))
 				return TRADER_NO_MONEY
 		else
@@ -213,9 +213,6 @@
 			if(istype(offer,/mob))
 				var/text = mob_transfer_message
 				to_chat(offer, replacetext(text, "ORIGIN", origin))
-			if(istype(offer, /obj/mecha))
-				var/obj/mecha/M = offer
-				M.wreckage = null //So they don't ruin the illusion
 			qdel(offer)
 
 	var/type = trading_items[num]

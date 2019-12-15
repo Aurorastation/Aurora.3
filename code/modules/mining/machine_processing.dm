@@ -13,7 +13,13 @@
 	var/obj/machinery/mineral/processing_unit/machine = null
 	var/show_all_ores = 0
 	var/points = 0
-	var/obj/item/weapon/card/id/inserted_id
+	var/obj/item/card/id/inserted_id
+
+	var/ore/list/input_mats = list()
+	var/material/list/output_mats = list()
+	var/datum/alloy/list/alloy_mats = list()
+	var/waste = 0
+	var/idx = 0
 
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
@@ -35,8 +41,8 @@
 	interact(user)
 
 /obj/machinery/mineral/processing_unit_console/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/C = user.get_active_hand()
+	if(istype(I,/obj/item/card/id))
+		var/obj/item/card/id/C = user.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
 			user.drop_from_inventory(C,src)
 			inserted_id = C
@@ -65,6 +71,7 @@
 	if(istype(inserted_id))
 		dat += "You have [inserted_id.mining_points] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
 		dat += "<A href='?src=\ref[src];choice=claim'>Claim points.</A><br>"
+		dat += "<A href='?src=\ref[src];choice=print_report'>Print yield declaration.</A><br>"
 	else
 		dat += "No ID inserted.  <A href='?src=\ref[src];choice=insert'>Insert ID.</A><br>"
 
@@ -121,8 +128,14 @@
 						to_chat(usr, "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>")
 				else
 					to_chat(usr, "<span class='warning'>Required access not found.</span>")
+			if(href_list["choice"] == "print_report")
+				if(access_mining_station in inserted_id.access)
+					print_report(usr)
+				else
+					to_chat(usr, "<span class='warning'>Required access not found.</span>")
+
 		else if(href_list["choice"] == "insert")
-			var/obj/item/weapon/card/id/I = usr.get_active_hand()
+			var/obj/item/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
@@ -156,6 +169,100 @@
 	src.updateUsrDialog()
 	return
 
+/obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
+	if(!inserted_id)
+		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
+		return
+	if(!input_mats.len && !output_mats.len && !alloy_mats)
+		to_chat(user, span("warning", "There is no data to print."))
+		return
+	if(printing)
+		return
+
+	printing = TRUE
+
+	var/obj/item/paper/P = new /obj/item/paper(user.loc)
+	var/date_string = worlddate2text()
+	idx++
+
+	var/form_title = "Form 0600 - Mining Yield Declaration"
+	var/dat = "<small><center><b>NanoTrasen Inc.<br>"
+	dat += "Civilian Branch of Operation</b><br><br>"
+
+	dat += "Form 0600<br> Mining Yield Declaration</center><hr>"
+	dat += "Facility: NSS Aurora<br>"
+	dat += "Date: [date_string]<br>"
+	dat += "Index: [idx]<br><br>"
+
+	dat += "Miner(s): <span class=\"paper_field\"></span><br>"
+	dat += "Ore Yields: <br>"
+
+	dat += "<table>"
+
+	for(var/material/OM in output_mats)
+		if(output_mats[OM] > 1)
+			dat += "<tr><td><b><small>[output_mats[OM]]</b></small></td><td><small>[OM.display_name] [OM.sheet_plural_name]</small></td></tr>"
+		else
+			dat += "<tr><td><b><small>[output_mats[OM]]</b></small></td><td><small>[OM.display_name] [OM.sheet_singular_name]</small></td></tr>"
+
+		CHECK_TICK
+
+	for(var/datum/alloy/AM in alloy_mats)
+		if(alloy_mats[AM] > 1)
+			dat += "<tr><td><b><small>[alloy_mats[AM]]</b></td><td><small>[AM.metaltag] sheets</small></td></tr>"
+		else
+			dat += "<tr><td><b><small>[alloy_mats[AM]]</b></td><td><small>[AM.metaltag] sheet</small></td></tr>"
+
+		CHECK_TICK
+
+	dat += "</table><br>"
+
+	if(waste > 0)
+		dat += "Waste detected: "
+		dat += "[waste] unit(s) of material were wasted due to operator error. This includes: <br>"
+		dat += "<table>"
+		for(var/ore/IM in input_mats)
+			if(input_mats[IM] > 1)
+				dat += "<tr><td><b><small>[input_mats[IM]]</small></b></td><td><small>[IM.display_name]</small></td></tr>"
+			else
+				dat += "<tr><td><b><small>[input_mats[IM]]</small></b></td><td><small>[IM.display_name]</small></td></tr>"
+
+			CHECK_TICK
+
+		dat += "</table><br>"
+
+	dat += "Additional Notes: <span class=\"paper_field\"></span><br><br>"
+
+	dat += "Quartermaster's / Head of Personnel's / Captain's Stamp: </small>"
+
+	P.set_content(form_title, dat)
+
+	//stamp the paper
+	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	stampoverlay.icon_state = "paper_stamp-cent"
+	if(!P.stamped)
+		P.stamped = new
+	P.offset_x += 0
+	P.offset_y += 0
+	P.ico += "paper_stamp-cent"
+	P.stamped += /obj/item/stamp
+	P.add_overlay(stampoverlay)
+	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
+
+	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
+	user.visible_message("\The [src] spits out a piece of paper.")
+
+	// reset
+	output_mats = list()
+	input_mats = list()
+	waste = 0
+
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
+		user.put_in_hands(P)
+
+	printing = FALSE
+	return
+
 /**********************Mineral processing unit**************************/
 
 
@@ -179,11 +286,11 @@
 	active_power_usage = 150
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/refiner,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/micro_laser = 2,
-			/obj/item/weapon/stock_parts/matter_bin
+			/obj/item/circuitboard/refiner,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module,
+			/obj/item/stock_parts/micro_laser = 2,
+			/obj/item/stock_parts/matter_bin
 		)
 
 /obj/machinery/mineral/processing_unit/Initialize()
@@ -216,7 +323,7 @@
 
 	//Grab some more ore to process this tick.
 	for(var/i = 0,i<sheets_per_tick,i++)
-		var/obj/item/weapon/ore/O = locate() in input.loc
+		var/obj/item/ore/O = locate() in input.loc
 		if(!O) break
 		if(!isnull(ores_stored[O.material]))
 			ores_stored[O.material]++
@@ -275,6 +382,7 @@
 							sheets += total-1
 
 						for(var/i=0,i<total,i++)
+							console.alloy_mats[A]++
 							new A.product(output.loc)
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
@@ -293,6 +401,7 @@
 					use_power(100)
 					ores_stored[metal]-=2
 					sheets+=2
+					console.output_mats[M]++
 					new M.stack_type(output.loc)
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
@@ -309,6 +418,7 @@
 					use_power(100)
 					ores_stored[metal]--
 					sheets++
+					console.output_mats[M]++
 					new M.stack_type(output.loc)
 			else
 				if(console)
@@ -316,13 +426,15 @@
 				use_power(500)
 				ores_stored[metal]--
 				sheets++
-				new /obj/item/weapon/ore/slag(output.loc)
+				console.input_mats[O]++
+				console.waste++
+				new /obj/item/ore/slag(output.loc)
 		else
 			continue
 
 	console.updateUsrDialog()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/mineral/processing_unit/attackby(obj/item/W as obj, mob/user as mob)
 	if(default_deconstruction_screwdriver(user, W))
 		return
 	else if(default_part_replacement(user, W))
@@ -334,7 +446,7 @@
 	var/cap_rating = 0
 	var/laser_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
 		else if(iscapacitor(P))

@@ -176,3 +176,22 @@
 	shuttle.init_shuttle(settings)
 	shuttles["Research"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
+
+	// Distress Team Shuttle
+
+	var/datum/shuttle/ferry/multidock/distress = new()
+	distress.location = 1
+	distress.warmup_time = 10
+	distress.area_offsite = locate(/area/shuttle/distress/centcom)
+	distress.area_station = locate(/area/shuttle/distress/station)
+	distress.area_transition = locate(/area/shuttle/distress/transit)
+	distress.transit_direction = EAST
+	distress.move_time = 45
+	distress.docking_controller_tag = "distress_shuttle_aft"
+	distress.docking_controller_tag_station = "distress_shuttle_fore"
+	distress.docking_controller_tag_offsite = "distress_shuttle_aft"
+	distress.dock_target_station = "distress_shuttle_dock"
+	distress.dock_target_offsite = "distress_shuttle_origin"
+
+	shuttles["Distress"] = distress
+	START_PROCESSING(shuttle_controller, distress)

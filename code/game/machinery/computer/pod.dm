@@ -5,7 +5,7 @@
 	desc = "A control console for launching pods. Some people prefer firing Mechas."
 	icon_screen = "command"
 	light_color = "#00b000"
-	circuit = /obj/item/weapon/circuitboard/pod
+	circuit = /obj/item/circuitboard/pod
 	var/id = 1.0
 	var/obj/machinery/mass_driver/connected = null
 	var/timing = 0.0
@@ -137,9 +137,9 @@
 
 
 /obj/machinery/computer/pod/old
-	icon_state = "oldcomp"
-
-	icon_screen = "library"
+	icon = 'icons/obj/library.dmi'
+	icon_state = "computer"
+	icon_screen = null
 	name = "DoorMex Control Computer"
 	title = "Door Controls"
 

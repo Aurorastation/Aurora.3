@@ -108,6 +108,10 @@ VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
 Asks all uis to call `object`'s `vueui_data_change` proc to make all uis up tp date. Should be used when bigger change was done or action done change that would affect global data.
 ### `SSvueui.get_open_uis(object)`
 Gets a list of all open uis for specified object. This allows to interact with individual uis.
+### `SSvueui.close_uis(obj)`
+Closes all open uis for specified object.
+### `SSvueui.get_open_ui(user, obj)`
+Gets a singular open UI for specified user and obj combination.
 ### `ui.activeui`
 Determines currently active view component for this ui datum. Should be combines with `check_for_change()` or `push_change()`.
 
@@ -128,6 +132,8 @@ Removes asset from future use in ui. But client-side asset index isn't updated i
 Pushes data change to client. This also pushes changes to metadata, what includes: title, world time, ui status, active ui component, client-side asset index.
 ### `ui.check_for_change(forcedPush)`
 Checks with `object.vueui_data_change` if data has changed, if so, then change is pushed. If forcedPush is true, then it pushes change anyways.
+### `ui.resize(width, height)`
+Resizes open UI to specified dimensions. Usefully when UI content changes size dramatically. Should be avoided in regular use.
 ### `ui.update_status()`
 This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
 ### `href_list["vueui"]`
@@ -185,9 +191,13 @@ Example:
 ```
 Parameters:
  - `$slot` - Contents of button.
- - `params` - key value pairs to send to `Topic` of object.
+ - `params` - key value pairs to send to `Topic` of object. Can contain objects or arrays (DM keyed lists and lists respectively).
+ - `unsafe-params` - Used to execute a generic `Topic()` call to the game. Requires that you specify the `src` object as a valid reference, otherwise it will not function. **Should not generally be used**, primary use-case is backwards compatibility with older APIs that are spread out over multiple objects.
  - `icon` - icon that should be used in that button. For available icons look at `\vueui\styles\icons.scss`
  - `push-state` - Boolean determining if current ui state should be pushed on button click. This often results in `vueui_data_change` call right before `Topic` call.
+
+Events:
+ - `click` - Fires when button is clicked.
 
 ### VuiProgress `<vui-progress>`
 Simple progress bar for representing progress of a process or indicate status.
@@ -235,6 +245,20 @@ Example:
 ```
 Parameters:
  - `label` - Label to display next to contents.
+
+### VuiTooltip `<vui-tooltip>`
+Helper to getting nice tooltips when you hover over text. Works with buttons.
+
+Example:
+```Vue
+<vui-tooltip label="VUI">VueUi UI element<vui-tooltip>
+<vui-tooltip><template v-slot:label>ADV</template>Advanced use of tooltips</vui-tooltip>
+```
+Parameters:
+ - `$slot` - Contents of tooltip
+ - `$slot:label` - Actual content that is always shown. If slot is set, `label` parameter is ignored.
+ - `label` - Actual text that is always shown
+
 ### VuiInputNumeric `<vui-input-numeric>`
 Numeric input helper to help inputting large and small numbers.
 
@@ -250,6 +274,7 @@ Parameters:
  - `push-state` - Boolean determining if current ui state should be pushed on input change.
  - `width` - Determines width of input text field.
  - `decimal-places` - How many decimal places are allowed.
+
 Events:
  - `input` - Fires when value changes. Value is number currently entered.
 
@@ -263,5 +288,8 @@ Example:
 Parameters:
  - `input` - Initial array with elements to search.
  - `keys` - Array of strings listing keys to be searched.
+ - `include-score` - Includes internal search score in the results. `{item: x, score: (0 to 1)}`. 0 - means perfect match.
+ - `threshold` - Determines maximum score at witch results are cut off.
+
 Events:
  - `input` - Fires when search text changes. Event value is new sorted array.

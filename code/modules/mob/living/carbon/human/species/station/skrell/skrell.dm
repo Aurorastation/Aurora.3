@@ -21,7 +21,6 @@
 
 	num_alternate_languages = 3
 	language = LANGUAGE_SKRELLIAN
-	secondary_langs = list(LANGUAGE_SIIK_TAU)
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
@@ -32,13 +31,13 @@
 	flags = NO_SLIP
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/skrell,
-		"lungs" =    /obj/item/organ/lungs/skrell,
-		"liver" =    /obj/item/organ/liver/skrell,
-		"kidneys" =  /obj/item/organ/kidneys/skrell,
-		"brain" =    /obj/item/organ/brain/skrell,
+		BP_HEART =    /obj/item/organ/internal/heart/skrell,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
+		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
 		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes/skrell
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
 	flesh_color = "#8CD7A3"
@@ -58,6 +57,11 @@
 	)
 
 	default_h_style = "Skrell Short Tentacles"
+
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
+
+	zombie_type = "Skrell Zombie"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE
