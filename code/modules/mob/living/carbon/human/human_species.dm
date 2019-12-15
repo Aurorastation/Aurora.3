@@ -113,6 +113,35 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/unbranded_frame/Initialize(mapload)
 	. = ..(mapload, "Unbranded Frame")
 
+/mob/living/carbon/human/unbranded_frame/remote/Initialize(mapload)
+	. = ..(mapload, "Unbranded Frame")
+
+	real_name = "Remote Robot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+	remote_network = "remoterobots"
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/unbranded_frame/remote_bunker/Initialize(mapload)
+	. = ..(mapload, "Unbranded Frame")
+
+	real_name = "Remote Robot [pick("Greaves", "Chamberlain", "Slater")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+
+	remote_network = "bunkerrobots"
+	SSvirtualreality.add_robot(src, remote_network)
+
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, "Military Frame")
 	add_language(LANGUAGE_SOL_COMMON, 1)

@@ -173,22 +173,19 @@
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_WEAPONS)
 
 /mob/living/heavy_vehicle/premade/ripley/remote
-	remote = TRUE
-	force_locked = TRUE
+	name = "remote power loader"
 	dummy_colour = "#ffc44f"
+	remote_network = "remotemechs"
 
 /mob/living/heavy_vehicle/premade/ripley/remote/Initialize()
-	network = remotemechs
-	..()
-	hardpoints_locked = TRUE
+	. = ..()
+	become_remote()
 
 /mob/living/heavy_vehicle/premade/ripley/remote_prison
 	name = "penal power loader"
-	remote = TRUE
-	force_locked = TRUE
-	dummy_colour = "#ffc44f"
+	dummy_colour = "#302e2b"
+	remote_network = "prisonmechs"
 
 /mob/living/heavy_vehicle/premade/ripley/remote_prison/Initialize()
-	network = prisonmechs
 	..()
-	hardpoints_locked = TRUE
+	become_remote()

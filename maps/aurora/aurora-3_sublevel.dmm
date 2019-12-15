@@ -72,6 +72,11 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos)
+"aao" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/backpack/satchel,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "aap" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -697,6 +702,11 @@
 "abJ" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/engineering/power)
+"abK" = (
+/obj/structure/bed,
+/mob/living/carbon/human/unbranded_frame/remote_bunker,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "abL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -916,6 +926,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acg" = (
+/obj/machinery/door/airlock/highsecurity{
+	id_tag = null;
+	name = "Remote Station";
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "ach" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -924,6 +942,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aci" = (
+/obj/structure/table/reinforced,
+/obj/machinery/button/remote/airlock{
+	id = "bunker1";
+	name = "Bunker Exterior Access Bolts";
+	pixel_x = 26;
+	req_access = list(20);
+	specialfunctions = 4
+	},
+/obj/item/storage/toolbox/emergency,
+/obj/item/bodybag,
+/obj/item/ladder_mobile,
+/obj/machinery/computer/security/telescreen{
+	name = "Access Monitor";
+	network = list("Bunker");
+	pixel_x = 0;
+	pixel_y = 30
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "acj" = (
 /obj/machinery/ringer{
 	department = "Engineering";
@@ -951,6 +989,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acl" = (
+/obj/structure/table/reinforced,
+/obj/item/stack/nanopaste,
+/obj/item/storage/toolbox/emergency,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "acm" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
@@ -982,6 +1026,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"aco" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/head/helmet,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "acp" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1100,6 +1149,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acG" = (
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "acH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -1151,6 +1207,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"acN" = (
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "acO" = (
 /obj/machinery/light{
 	dir = 4;
@@ -1158,6 +1218,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"acP" = (
+/obj/structure/bed/chair/remote/robot/bunker{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/bridge/aibunker)
 "acQ" = (
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
@@ -9471,31 +9538,6 @@
 /area/bridge/aibunker)
 "atb" = (
 /obj/item/modular_computer/console/preset/engineering,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
-"atc" = (
-/obj/structure/bed/chair,
-/obj/machinery/computer/security/telescreen{
-	name = "Access Monitor";
-	network = list("Bunker");
-	pixel_x = 0;
-	pixel_y = 30
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/bridge/aibunker)
-"atd" = (
-/obj/structure/table/reinforced,
-/obj/machinery/button/remote/airlock{
-	id = "bunker1";
-	name = "Bunker Exterior Access Bolts";
-	pixel_x = 26;
-	req_access = list(20);
-	specialfunctions = 4
-	},
-/obj/item/storage/toolbox/emergency,
-/obj/item/bodybag,
-/obj/item/ladder_mobile,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "ati" = (
@@ -89821,10 +89863,10 @@ alY
 alY
 alY
 arZ
-ale
-ale
-ale
-ale
+asR
+asR
+asR
+asR
 asR
 asR
 ata
@@ -90078,10 +90120,10 @@ alY
 alY
 alY
 arZ
-ale
-ale
-ale
-ale
+asR
+asR
+asR
+asR
 asR
 asR
 atb
@@ -90335,13 +90377,13 @@ alY
 alY
 alY
 arZ
-ale
-ale
-ale
-ale
 asR
-asR
-atc
+aao
+acG
+ato
+ato
+acg
+atn
 ato
 atn
 atQ
@@ -90592,13 +90634,13 @@ alY
 alY
 alY
 arZ
-ale
-ale
-ale
-ale
+asR
+acl
+ato
+acN
 asR
 asR
-atd
+aci
 atp
 aty
 atR
@@ -90849,10 +90891,10 @@ alY
 alY
 alY
 arZ
-ale
-ale
-ale
-ale
+asR
+aco
+abK
+acP
 asR
 asR
 asR
@@ -91106,10 +91148,10 @@ alY
 alY
 alY
 arZ
-ale
-ale
-ale
-ale
+asR
+asR
+asR
+asR
 asR
 asR
 asR
@@ -91363,11 +91405,11 @@ alY
 alY
 arx
 ary
-ale
-ale
-ale
-ale
-ale
+asR
+asR
+asR
+asR
+asR
 ale
 ale
 ale

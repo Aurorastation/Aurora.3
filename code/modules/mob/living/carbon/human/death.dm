@@ -29,7 +29,8 @@
 		return
 
 	// Come out of VR right before you die, how depressing - geeves
-	if(vr_mob)
+	// Also come out of VR if your VR body dies
+	if(vr_mob || old_mob)
 		body_return()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -76,6 +77,12 @@
 
 	. = ..(gibbed,species.death_message, species.death_message_range)
 	handle_hud_list()
+
+/mob/living/carbon/human/unbranded_frame/death()
+	if(remote_network)
+		SSvirtualreality.remove_robot(src, remote_network)
+	remote_network = null
+	..()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
 	if(HUSK in mutations)	return

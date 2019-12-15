@@ -30,7 +30,6 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
-	var/list/network // If it's remote, to which network does it connect?
 	var/mob/living/carbon/human/unbranded_frame/dummy // The remote controlled dummy
 	var/dummy_colour
 
@@ -80,8 +79,8 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	if(remote)
-		network.Remove(src)
+	if(remote_network)
+		SSvirtualreality.remove_mech(src, remote_network)
 
 	for(var/thing in hud_elements)
 		qdel(thing)
@@ -169,28 +168,6 @@
 	if(head && head.radio)
 		radio = new(src)
 
-	// Remote Controlled shenanigans
-	if(remote && network)
-		name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
-		network += src
-
-		if(hatch_closed)
-			hatch_closed = FALSE
-
-		dummy = new /mob/living/carbon/human/unbranded_frame(get_turf(src))
-		dummy.real_name = "Remote Pilot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
-		dummy.name = dummy.real_name
-		dummy.dna.real_name = dummy.real_name
-		if(dummy.mind)
-			dummy.mind.name = dummy.real_name
-		if(dummy_colour)
-			dummy.color = dummy_colour
-		enter(dummy, TRUE)
-
-		if(!hatch_closed)
-			hatch_closed = TRUE
-		hatch_locked = TRUE
-
 	// Create HUD.
 	instantiate_hud()
 
@@ -237,3 +214,35 @@
 
 /obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
 	. = ..()
+
+/mob/living/heavy_vehicle/proc/become_remote()
+	for(var/mob/user in pilots)
+		eject(user, FALSE)
+
+	remote = TRUE
+	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
+	if(remote_network)
+		SSvirtualreality.add_mech(src, remote_network)
+	else
+		remote_network = "remotemechs"
+		SSvirtualreality.add_mech(src, remote_network)
+
+	if(hatch_closed)
+		hatch_closed = FALSE
+
+	dummy = new /mob/living/carbon/human/unbranded_frame(get_turf(src))
+	dummy.species.passive_temp_gain = 0
+	dummy.real_name = "Remote Pilot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
+	dummy.name = dummy.real_name
+	dummy.dna.real_name = dummy.real_name
+	if(dummy.mind)
+		dummy.mind.name = dummy.real_name
+	if(dummy_colour)
+		dummy.color = dummy_colour
+	enter(dummy, TRUE)
+
+	if(!hatch_closed)
+		hatch_closed = TRUE
+	hatch_locked = TRUE
+	hardpoints_locked = TRUE
+	force_locked = TRUE

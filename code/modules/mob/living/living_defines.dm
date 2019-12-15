@@ -8,6 +8,9 @@
 
 	var/hud_updateflag = 0
 
+	// Virtual Reality
+	var/remote_network // The network this mob is attached to, used in virtual reality and remote control things
+
 	var/hallucination = 0 //Directly affects how long a mob will hallucinate for
 	var/list/atom/hallucinations = list() //A list of hallucinated people that try to attack the mob. See /obj/effect/fake_attacker in hallucinations.dm
 

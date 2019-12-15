@@ -16,7 +16,6 @@
 /obj/structure/bed/chair/remote/user_unbuckle_mob(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.vr_mob)
-			H.body_return()
+		H.body_return()
 	cut_overlays()
 	..()
