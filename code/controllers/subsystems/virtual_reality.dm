@@ -5,10 +5,6 @@
 	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
 
-	// MISC
-	var/list/miscnetworks = list("misc")
-	var/list/misc = list()
-
 	// MECHA
 	var/list/mechnetworks = list("remotemechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
 	var/list/mechs = list() // A list of lists, containing the mechs and their networks
@@ -21,19 +17,11 @@
 	NEW_SS_GLOBAL(SSvirtualreality)
 
 /datum/controller/subsystem/virtualreality/Initialize()
-	for(var/network in miscnetworks)
-		misc[network] = list()
 	for(var/network in mechnetworks)
 		mechs[network] = list()
 	for(var/network in robotnetworks)
 		robots[network] = list()
 
-
-/datum/controller/subsystem/virtualreality/proc/add_misc(var/M, var/network)
-	misc[network] += M
-
-/datum/controller/subsystem/virtualreality/proc/remove_misc(var/M, var/network)
-	misc[network].Remove(M)
 
 /datum/controller/subsystem/virtualreality/proc/add_mech(var/mob/living/heavy_vehicle/mech, var/network)
 	mechs[network] += mech
