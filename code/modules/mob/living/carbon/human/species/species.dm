@@ -60,7 +60,7 @@
 	var/name_language = "Ceti Basic"	    // The language to use when determining names for this species, or null to use the first name/last name generator
 
 	// Combat vars.
-	var/total_health = 100                   // Point at which the mob will enter crit.
+	var/total_health = 200                   // Point at which the mob will enter crit.
 	var/list/unarmed_types = list(           // Possible unarmed attacks that the mob will use in combat,
 		/datum/unarmed_attack,
 		/datum/unarmed_attack/bite
@@ -76,6 +76,7 @@
 	var/grab_mod =      1                    // How easy it is to grab the species. Higher is harder to grab.
 	var/metabolism_mod = 1					 // Reagent metabolism modifier
 	var/bleed_mod = 1						 // How fast this species bleeds.
+	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
 
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
@@ -136,6 +137,7 @@
 	// HUD data vars.
 	var/datum/hud_data/hud
 	var/hud_type
+	var/health_hud_intensity = 1
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
@@ -160,8 +162,8 @@
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
 	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
-	var/gluttonous                // Can eat some mobs. Boolean.
-	var/mouth_size                // How big the mob's mouth is. Limits how large a mob this species can swallow. Only relevant if gluttonous is TRUE.
+	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
+	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
 	var/allowed_eat_types = TYPE_ORGANIC
 	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
 	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
@@ -175,8 +177,9 @@
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
-		"appendix" = /obj/item/organ/appendix,
+		BP_APPENDIX = /obj/item/organ/internal/appendix,
 		BP_EYES =     /obj/item/organ/internal/eyes
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
@@ -387,7 +390,6 @@
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
-	H.mouth_size = mouth_size || 2
 	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
@@ -514,10 +516,10 @@
 
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
-	if((H.halloss >= 10) && prob(H.halloss*2))
+	if((H.getHalLoss() >= 10) && prob(H.getHalLoss() *2))
 		H.flash_pain()
 
-	if ((H.halloss + H.oxyloss) >= (exhaust_threshold * 0.8))
+	if ((H.getHalLoss() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
@@ -567,3 +569,9 @@
 
 /datum/species/proc/get_cloning_variant()
 	return name
+
+/datum/species/proc/handle_death_check(var/mob/living/carbon/human/H)
+	return FALSE
+
+/datum/species/proc/get_digestion_product()
+	return /datum/reagent/nutriment

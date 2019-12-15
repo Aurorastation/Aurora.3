@@ -464,7 +464,7 @@ other types of metals and chemistry for reagents).
 /datum/design/item/implanter
 	name = "implanter"
 	desc = "A specialized syringe for inserting implants to subjects."
-	req_tech = list(TECH_ILLEGAL = 2, TECH_BIO = 5)
+	req_tech = list(TECH_BIO = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
 	build_path = /obj/item/implanter
 	sort_string = "VCBAC"

@@ -19072,9 +19072,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
-"DV" = (
-/turf/unsimulated/floor/asteroid/ash,
-/area/merchant_ship/docked)
 "DW" = (
 /turf/simulated/wall,
 /area/quartermaster/loading)
@@ -28322,6 +28319,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"Rf" = (
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/merchant/station)
 "Rg" = (
 /obj/machinery/porta_turret{
 	dir = 6
@@ -67715,13 +67715,13 @@ aa
 aa
 aa
 aa
-aw
+aa
 aa
 EM
 Fk
 EM
 aa
-aw
+aa
 aa
 aa
 aa
@@ -67968,18 +67968,28 @@ JZ
 JZ
 KR
 JH
+<<<<<<< HEAD
 aw
 aa
 aw
 aw
+=======
+aa
+>>>>>>> master
 aw
 aw
-DV
-DV
-DV
 aw
 aw
 aw
+<<<<<<< HEAD
+=======
+Rf
+Rf
+Rf
+aw
+aw
+aw
+>>>>>>> master
 aw
 aa
 aa
@@ -68233,6 +68243,7 @@ Km
 JZ
 KV
 aw
+<<<<<<< HEAD
 aa
 aw
 DV
@@ -68244,9 +68255,20 @@ DV
 DV
 DV
 DV
+=======
 aw
-aa
-aa
+>>>>>>> master
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+aw
 aa
 aa
 aa
@@ -68511,6 +68533,7 @@ KO
 JZ
 KW
 aw
+<<<<<<< HEAD
 aw
 aw
 DV
@@ -68522,6 +68545,19 @@ DV
 DV
 DV
 DV
+=======
+aa
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -68780,6 +68816,7 @@ KO
 JZ
 KW
 aw
+<<<<<<< HEAD
 =======
 Ka
 Kj
@@ -68800,6 +68837,19 @@ DV
 DV
 DV
 DV
+=======
+aa
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -69052,6 +69102,7 @@ KW
 aw
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -69061,6 +69112,17 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -69313,6 +69375,7 @@ aw
 aa
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -69320,6 +69383,15 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -69582,6 +69654,7 @@ KW
 aw
 >>>>>>> master
 aw
+<<<<<<< HEAD
 aa
 aw
 aw
@@ -69592,6 +69665,18 @@ DV
 DV
 DV
 DV
+=======
+aw
+aw
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -69858,6 +69943,7 @@ JZ
 JZ
 KS
 JH
+<<<<<<< HEAD
 =======
 Kn
 Kk
@@ -69878,6 +69964,19 @@ DV
 DV
 DV
 DV
+=======
+aa
+aw
+aw
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -70144,6 +70243,7 @@ KY
 aw
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -70153,6 +70253,18 @@ DV
 DV
 DV
 DV
+=======
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -70411,6 +70523,7 @@ KS
 JH
 >>>>>>> master
 aw
+<<<<<<< HEAD
 aa
 aw
 DV
@@ -70422,6 +70535,19 @@ DV
 DV
 DV
 DV
+=======
+aw
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -70667,6 +70793,7 @@ aw
 aw
 aa
 aa
+<<<<<<< HEAD
 aw
 aa
 aw
@@ -70679,6 +70806,20 @@ DV
 DV
 DV
 DV
+=======
+aa
+aa
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -70928,6 +71069,7 @@ aa
 aa
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -70935,6 +71077,15 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -71210,6 +71361,7 @@ aa
 aa
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -71217,6 +71369,15 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -71483,6 +71644,7 @@ aa
 aa
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -71490,6 +71652,15 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -71770,6 +71941,7 @@ aa
 aa
 aa
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -71779,6 +71951,17 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -72035,6 +72218,7 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 aa
 aw
 DV
@@ -72046,6 +72230,18 @@ DV
 DV
 DV
 DV
+=======
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -72294,6 +72490,7 @@ aa
 aa
 aa
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -72303,6 +72500,17 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -72564,6 +72772,7 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 aa
 aa
 aa
@@ -72577,6 +72786,18 @@ DV
 DV
 DV
 DV
+=======
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -72840,6 +73061,7 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 aa
 aw
 DV
@@ -72849,6 +73071,17 @@ DV
 DV
 DV
 DV
+=======
+aw
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aw
 aa
@@ -73115,6 +73348,7 @@ aa
 aa
 aa
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -73122,6 +73356,15 @@ DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -73392,6 +73635,7 @@ aa
 aa
 aw
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
@@ -73401,6 +73645,15 @@ aw
 aw
 aa
 aa
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+aw
+aw
+>>>>>>> master
 aa
 aa
 aa
@@ -73673,13 +73926,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+aw
 aa
 aw
 DV
@@ -73939,11 +74192,19 @@ aa
 aa
 aa
 aw
+<<<<<<< HEAD
 DV
 DV
 DV
 DV
 DV
+=======
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -74188,6 +74449,7 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 aa
 aa
 aa
@@ -74201,6 +74463,14 @@ DV
 DV
 DV
 DV
+=======
+aw
+Rf
+Rf
+Rf
+Rf
+Rf
+>>>>>>> master
 aw
 aa
 aa
@@ -74445,6 +74715,7 @@ aa
 aa
 aa
 aa
+<<<<<<< HEAD
 aa
 aa
 aa
@@ -74452,6 +74723,8 @@ aa
 aa
 aa
 aa
+=======
+>>>>>>> master
 aw
 aw
 aw

@@ -676,17 +676,13 @@
 		"trashcart" = "trashcartopen",
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
-		"medicalcrate" = "medicalcrateopen"
+		"medicalcrate" = "medicalcrateopen",
+		"tcflcrate" = "tcflcrateopen"
 	)
 
 
-/obj/structure/closet/crate/loot/Initialize(mapload, var/_rarity, var/_quantity)
+/obj/structure/closet/crate/loot/Initialize(mapload)
 	. = ..()
-
-	if(_rarity)
-		rarity = _rarity
-	if(_quantity)
-		quantity = _quantity
 
 	spawntypes = list(
 		"1" = STOCK_RARE_PROB * rarity,

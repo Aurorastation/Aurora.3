@@ -83,7 +83,7 @@
 
 	shuttle = new()
 	settings = list(
-					1, 10, locate(/area/merchant_ship/start), locate(/area/merchant_ship/docked), null, EAST, 0,
+					1, 10, locate(/area/merchant_ship/start), locate(/area/merchant_ship/docked), locate(/area/shuttle/merchant/transit), EAST, 0,
 					locate(/area/merchant_ship/start),	/area/merchant_ship/crashed, "merchant_shuttle",
 					"merchant_shuttle_dock", "merchant_station"
 	)
