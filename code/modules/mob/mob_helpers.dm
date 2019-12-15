@@ -248,7 +248,7 @@ var/list/global/organ_rel_size = list(
 	switch(zone)
 		if(BP_EYES)
 			zone = BP_HEAD
-		if("mouth")
+		if(BP_MOUTH)
 			zone = BP_HEAD
 	return zone
 

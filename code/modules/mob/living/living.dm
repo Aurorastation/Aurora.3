@@ -370,7 +370,7 @@ default behaviour is:
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
 	var/t = shooter:zone_sel.selecting
-	if ((t in list( BP_EYES, "mouth" )))
+	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t)
 	return def_zone
@@ -801,9 +801,12 @@ default behaviour is:
 	return 1
 
 /mob/living/Destroy()
-	for (var/thing in stomach_contents)
-		qdel(thing)
-	stomach_contents = null
+	if(loc)
+		for(var/mob/M in contents)
+			M.dropInto(loc)
+	else
+		for(var/mob/M in contents)
+			qdel(M)
 	QDEL_NULL(ingested)
 
 	return ..()

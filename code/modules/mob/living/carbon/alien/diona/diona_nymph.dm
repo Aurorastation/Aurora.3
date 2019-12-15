@@ -47,6 +47,11 @@
 	var/echo = 0 //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
 
+	var/datum/reagents/metabolism/ingested
+
+/mob/living/carbon/alien/diona/get_ingested_reagents()
+	return ingested
+
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
 		for(var/mob/living/carbon/alien/diona/D in birds_of_feather)

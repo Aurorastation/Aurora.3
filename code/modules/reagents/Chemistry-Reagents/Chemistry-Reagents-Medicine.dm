@@ -518,7 +518,7 @@
 		for(var/datum/reagent/R in ingested.reagent_list)
 			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
-				M.ingested.remove_reagent(R.id, amount)
+				ingested.remove_reagent(R.id, amount)
 				P -= amount
 				if (P <= 0)
 					return

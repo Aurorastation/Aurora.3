@@ -60,6 +60,10 @@
 
 	var/core_removal_stage = 0 //For removing cores.
 	var/toxloss = 0
+	var/datum/reagents/metabolism/ingested
+
+/mob/living/carbon/slime/get_ingested_reagents()
+	return ingested
 
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
