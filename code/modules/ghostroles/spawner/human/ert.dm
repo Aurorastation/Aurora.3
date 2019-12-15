@@ -194,6 +194,7 @@
 	outfit = /datum/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "
 	uses_species_whitelist = TRUE // Kataphract K'lax would be more difficult
+	req_species_whitelist = "Vaurca"
 	possible_species = list("Vaurca Warrior")
 	extra_languages = list(LANGUAGE_VAURCA)
 
