@@ -37,7 +37,6 @@
 	var/failed_last_breath = 0 //This is used to determine if the mob failed a breath. If they did fail a brath, they will attempt to breathe each tick, otherwise just once per 4 ticks.
 	var/possession_candidate // Can be possessed by ghosts if unplayed.
 
-	var/list/stomach_contents	//This is moved here from carbon defines
 	var/composition_reagent
 	var/composition_reagent_quantity
 	var/mouth_size = 2//how large of a creature it can swallow at once, and how big of a bite it can take out of larger things

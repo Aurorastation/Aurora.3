@@ -1791,6 +1791,11 @@
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.pulse : PULSE_NONE
 
+/mob/living/carbon/human/move_to_stomach(atom/movable/victim)
+	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+	if(istype(stomach))
+		victim.forceMove(stomach)
+
 /mob/living/carbon/human/need_breathe()
 	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return 1

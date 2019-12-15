@@ -55,8 +55,6 @@
 	heat_level_3 = 1100 //Default 1000
 
 	inherent_verbs = list(
-		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/tongue_flick
 	)
 

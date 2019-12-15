@@ -168,7 +168,8 @@
 
 	has_organ = list(
 		"zombie" =    /obj/item/organ/internal/parasite/zombie,
-		BP_BRAIN =    /obj/item/organ/internal/brain
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 	virus_immune = 1
@@ -195,7 +196,7 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/proc/devour)
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
 
@@ -270,17 +271,11 @@
 	/mob/living/carbon/human/proc/commune,
 	/mob/living/carbon/human/proc/sonar_ping,
 	/mob/living/carbon/human/proc/darkness_eyes,
-	/mob/living/proc/devour
 	)
 
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
 
 	remains_type = /obj/effect/decal/remains/xeno
-
-	has_organ = list(
-		"zombie" =    /obj/item/organ/internal/parasite/zombie,
-		/obj/item/organ/internal/brain/skrell
-		)
 
 	default_h_style = "Skrell Short Tentacles"

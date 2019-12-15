@@ -147,12 +147,7 @@
 
 /obj/item/grab/proc/devour(mob/target, mob/user)
 	var/mob/living/carbon/human/H = user
-	var/can_eat
-	if(istype(H) && H.species.gluttonous)
-		can_eat = 1
-
-	if(can_eat)
-		H.attempt_devour(target, H.eat_types, H.mouth_size)
+	H.devour(target)
 
 
 /obj/item/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)

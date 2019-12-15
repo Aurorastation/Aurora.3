@@ -257,7 +257,6 @@
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/grow)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/merge)
 		verbs.Remove(/mob/living/carbon/proc/absorb_nymph)
-		verbs.Remove(/mob/living/proc/devour)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/sample)
 	else
 		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs) && !detached)
@@ -268,9 +267,6 @@
 
 		if (!(/mob/living/carbon/alien/diona/proc/grow in verbs))
 			verbs.Add(/mob/living/carbon/alien/diona/proc/grow)
-
-		if (!(/mob/living/proc/devour in verbs))
-			verbs.Add(/mob/living/proc/devour)
 
 		if (!(/mob/living/proc/ventcrawl in verbs))
 			verbs.Add(/mob/living/proc/ventcrawl)
