@@ -18,6 +18,8 @@
 	outfit = /datum/outfit/job/representative
 	alt_titles = list("Consular Officer")
 
+	allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+
 /datum/job/representative/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	if(H.mind?.role_alt_title == "Consular Officer" || alt_title == "Consular Officer")
 		var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]

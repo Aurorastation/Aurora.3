@@ -27,6 +27,8 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
+allowed_species = list("Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Diona", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer

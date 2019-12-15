@@ -25,6 +25,8 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/rd
 
+allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+
 /datum/outfit/job/rd
 	name = "Research Director"
 	jobtype = /datum/job/rd

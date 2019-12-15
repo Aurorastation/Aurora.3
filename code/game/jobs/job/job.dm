@@ -30,6 +30,7 @@
 
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
+	var/list/allowed_species = null		  // A list of species that can be this job, usually used for head of staff, this uses species names
 
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)

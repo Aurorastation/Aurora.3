@@ -22,6 +22,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
+	allowed_species = list("Human", "Skrell")
+
 /datum/outfit/job/captain
 	name = "Captain"
 	jobtype = /datum/job/captain
@@ -45,6 +47,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	satchel = /obj/item/storage/backpack/satchel_cap
 	dufflebag = /obj/item/storage/backpack/duffel/cap
 	messengerbag = /obj/item/storage/backpack/messenger/com
+
+	allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 
 /datum/outfit/job/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

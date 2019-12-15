@@ -26,6 +26,8 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
+allowed_species = list("Human", "Skrell", "Unathi", "M'sai Tajara", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+
 /datum/outfit/job/hos
 	name = "Head of Security"
 	jobtype = /datum/job/hos
