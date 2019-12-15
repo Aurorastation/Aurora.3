@@ -59,7 +59,7 @@
 	if(speed >= hardness)
 		shatter()
 		return
-	if  (speed < hardness)
+	if(speed < hardness)
 		if (prob(25 * (speed)))
 			shatter()
 
