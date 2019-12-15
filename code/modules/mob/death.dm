@@ -78,7 +78,9 @@
 	drop_l_hand()
 
 	if(healths)
-		healths.icon_state = "health7"
+		healths.overlays.Cut() // This is specific to humans but the relevant code is here; shouldn't mess with other mobs.
+		if("health7" in icon_states(healths.icon))
+			healths.icon_state = "health7"
 
 	timeofdeath = world.time
 	if (isanimal(src))

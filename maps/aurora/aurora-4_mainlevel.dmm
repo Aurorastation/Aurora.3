@@ -32100,6 +32100,10 @@
 	icon_state = "corner_white_full";
 	dir = 4
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bdx" = (
@@ -35733,6 +35737,8 @@
 	c_tag = "Medical - CMO's Office"
 	},
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjq" = (
@@ -47706,6 +47712,8 @@
 	icon_state = "xmaslights";
 	dir = 4
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
 "bCw" = (
@@ -51487,6 +51495,14 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/storage/box/gloves{
+	pixel_x = 2;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "bJz" = (
@@ -72610,8 +72626,6 @@
 /obj/structure/closet/chefcloset{
 	desc = "It's a storage unit for foodservice equipment."
 	},
-/obj/item/clothing/gloves/latex/unathi,
-/obj/item/clothing/gloves/latex/tajara,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /obj/item/device/nanoquikpay{
@@ -72620,6 +72634,10 @@
 /obj/item/device/destTagger,
 /obj/item/stack/packageWrap,
 /obj/item/hand_labeler,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "yfI" = (

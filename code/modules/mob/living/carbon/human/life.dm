@@ -878,10 +878,9 @@
 	if(!..())
 		return
 
-	if(stat == UNCONSCIOUS)
-		//Critical damage passage overlay
-		if(health < maxHealth/2)
-			var/ovr = "passage0"
+	if(stat != DEAD)
+		if(stat == UNCONSCIOUS && health < maxHealth/2)
+			var/ovr
 			switch(health - maxHealth/2)
 				if(-20 to -10)
 					ovr = "passage1"
@@ -908,22 +907,9 @@
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-	else
-		//Oxygen damage overlay
-		update_oxy_overlay()
-
-		// Vampire frenzy overlay.
-		if (mind.vampire)
-			if (mind.vampire.status & VAMP_FRENZIED)
-				if (!last_frenzy_state)
-					damageoverlay.add_overlay("frenzyoverlay")
-					last_frenzy_state = TRUE
-			else if (last_frenzy_state)
-				damageoverlay.cut_overlay("frenzyoverlay")
-				last_frenzy_state = FALSE
-		else if (last_frenzy_state)
-			damageoverlay.cut_overlay("frenzyoverlay")
-			last_frenzy_state = FALSE
+			else
+				//Oxygen damage overlay
+				update_oxy_overlay()
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
@@ -948,11 +934,43 @@
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-		else if (last_brute_overlay)
-			damageoverlay.cut_overlay(last_brute_overlay)
-			last_brute_overlay = null
 
-		update_health_display()
+		if(healths)
+			healths.overlays.Cut()
+			if (chem_effects[CE_PAINKILLER] > 100)
+				healths.icon_state = "health_numb"
+			else
+				// Generate a by-limb health display.
+				healths.icon_state = "blank"
+
+				var/no_damage = 1
+				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
+				if(can_feel_pain())
+					trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
+				// Collect and apply the images all at once to avoid appearance churn.
+				var/list/health_images = list()
+				for(var/obj/item/organ/external/E in organs)
+					if(no_damage && (E.brute_dam || E.burn_dam))
+						no_damage = 0
+					health_images += E.get_damage_hud_image()
+
+				// Apply a fire overlay if we're burning.
+				if(on_fire)
+					health_images += image('icons/mob/screen1_health.dmi',"burning")
+
+				// Show a general pain/crit indicator if needed.
+				if(is_asystole())
+					health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
+				else if(trauma_val)
+					if(can_feel_pain())
+						if(trauma_val > 0.7)
+							health_images += image('icons/mob/screen1_health.dmi',"softcrit")
+						if(trauma_val >= 1)
+							health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
+				else if(no_damage)
+					health_images += image('icons/mob/screen1_health.dmi',"fullhealth")
+
+				healths.overlays += health_images
 
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
@@ -1386,42 +1404,6 @@
 			adjustHydrationLoss(stamina_recovery*0.32)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
-
-/mob/living/carbon/human/proc/update_health_display()
-	if(!healths)
-		return
-
-	var/new_state
-	if (stat == DEAD)
-		new_state = "health7"
-	else if (analgesic > 100)
-		new_state = "health_numb"
-	else
-		switch(hal_screwyhud)
-			if(1)
-				new_state = "health6"
-			if(2)
-				new_state = "health7"
-			else
-				//switch(health - halloss)
-				switch(health - get_shock())
-					if(100 to INFINITY)
-						new_state = "health0"
-					if(80 to 100)
-						new_state = "health1"
-					if(60 to 80)
-						new_state = "health2"
-					if(40 to 60)
-						new_state = "health3"
-					if(20 to 40)
-						new_state = "health4"
-					if(0 to 20)
-						new_state = "health5"
-					else
-						new_state = "health6"
-
-	if (healths.icon_state != new_state)
-		healths.icon_state = new_state
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy
