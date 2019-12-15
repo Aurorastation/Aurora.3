@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Sinta Tunics can now be rolled down."
+  - tweak: "Tweaked unathi clothing colours to be properly recolourable."
