@@ -79,6 +79,7 @@
 	breach_detection = 0;
 	name = "Harvesting Room";
 	pixel_y = 24;
+	rcon_setting = 3;
 	remote_control = 1;
 	report_danger_level = 0;
 	req_one_access = list(7,47,24,11)
@@ -737,6 +738,7 @@
 	icon_state = "alarm0";
 	name = "Isolation C";
 	pixel_y = -22;
+	rcon_setting = 3;
 	remote_control = 1;
 	report_danger_level = 0;
 	req_one_access = list(7,47,24,11)
@@ -981,6 +983,7 @@
 	icon_state = "alarm0";
 	name = "Isolation B";
 	pixel_y = -22;
+	rcon_setting = 3;
 	remote_control = 1;
 	report_danger_level = 0;
 	req_one_access = list(7,47,24,11)
@@ -1014,6 +1017,7 @@
 	icon_state = "alarm0";
 	name = "Isolation A";
 	pixel_y = -22;
+	rcon_setting = 3;
 	remote_control = 1;
 	report_danger_level = 0;
 	req_one_access = list(7,47,24,11)
