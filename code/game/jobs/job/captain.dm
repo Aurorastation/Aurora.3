@@ -22,7 +22,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
-	blacklisted_species = list("Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/captain
 	name = "Captain"
