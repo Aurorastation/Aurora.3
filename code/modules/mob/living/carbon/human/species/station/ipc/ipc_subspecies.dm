@@ -451,7 +451,6 @@
 
 	bald = 1
 	grab_mod = 1.1 //pity points - geeves
-	resist_mod = 3
 
 	appearance_flags = HAS_EYE_COLOR
 	spawn_flags = IS_RESTRICTED
