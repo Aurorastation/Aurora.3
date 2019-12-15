@@ -341,7 +341,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/validator_living(var/mob/living/L, var/atom/current)
 	if(ismech(L))
 		var/mob/living/heavy_vehicle/M = L
-		if(!M.pilots || !M.pilots.len)
+		if(!M.pilots?.len)
 			return FALSE
 
 	if((L.faction == src.faction) && !attack_same)

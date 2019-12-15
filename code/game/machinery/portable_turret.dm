@@ -580,7 +580,7 @@
 
 	if(ismech(L))
 		var/mob/living/heavy_vehicle/M = L
-		if(!M.pilots || !M.pilots.len)
+		if(!M.pilots?.len)
 			return TURRET_NOT_TARGET
 
 	return TURRET_PRIORITY_TARGET	//if the perp has passed all previous tests, congrats, it is now a "shoot-me!" nominee
