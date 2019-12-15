@@ -26,7 +26,7 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
-	allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"

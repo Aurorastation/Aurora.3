@@ -22,7 +22,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
-	allowed_species = list("Human", "Skrell")
+	blacklisted_species = list("Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/captain
 	name = "Captain"
@@ -95,7 +95,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			            access_chapel_office, access_library, access_research, access_mining, access_mining_station, access_janitor,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
 
-	allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/hop
 	name = "Head of Personnel"

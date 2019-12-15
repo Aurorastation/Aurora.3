@@ -26,7 +26,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
-	allowed_species = list("Human", "Skrell", "Unathi", "M'sai Tajara", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	blacklisted_species = list("Off-Worlder Human", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Hephaestus G2 Industrial Frame", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/hos
 	name = "Head of Security"

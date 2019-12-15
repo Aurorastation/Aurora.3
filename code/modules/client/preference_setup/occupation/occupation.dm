@@ -179,9 +179,9 @@
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
-		else if(job.allowed_species) // check for restricted species
+		else if(job.blacklisted_species) // check for restricted species
 			var/datum/species/S = all_species[pref.species]
-			if(!(S.name in job.allowed_species))
+			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
 		else if (ban_reason == "AGE WHITELISTED")

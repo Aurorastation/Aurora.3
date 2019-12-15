@@ -27,7 +27,7 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
-	allowed_species = list("Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Diona", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	blacklisted_species = list("Off-Worlder Human", "M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
