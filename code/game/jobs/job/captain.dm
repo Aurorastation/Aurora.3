@@ -48,8 +48,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	dufflebag = /obj/item/storage/backpack/duffel/cap
 	messengerbag = /obj/item/storage/backpack/messenger/com
 
-	allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
-
 /datum/outfit/job/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H && H.w_uniform)
@@ -96,6 +94,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics,
 			            access_chapel_office, access_library, access_research, access_mining, access_mining_station, access_janitor,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
+
+	allowed_species = list("Human", "Off-Worlder Human", "Skrell", "Unathi", "Tajara", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 
 /datum/outfit/job/hop
 	name = "Head of Personnel"
