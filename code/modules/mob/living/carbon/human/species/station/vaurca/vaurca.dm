@@ -34,7 +34,7 @@
 	bleed_mod = 2.2
 
 	grab_mod = 1.1
-	resist_mod = 3
+	resist_mod = 1.75
 
 	warning_low_pressure = 50
 	hazard_low_pressure = 0

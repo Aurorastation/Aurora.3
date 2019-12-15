@@ -22,7 +22,7 @@
 	brute_mod = 0.8
 	fall_mod = 1.2
 	grab_mod = 1.25 // Huge, usually have horns
-	resist_mod = 6 // Arguably our strongest organic species
+	resist_mod = 2.5 // Arguably our strongest organic species
 
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE

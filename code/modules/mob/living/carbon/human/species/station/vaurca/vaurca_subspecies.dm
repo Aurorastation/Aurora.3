@@ -14,7 +14,7 @@
 	radiation_mod = 0.5
 
 	grab_mod = 1.25
-	resist_mod = 4
+	resist_mod = 1.75
 
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
