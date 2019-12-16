@@ -1,0 +1,6 @@
+author: Ferner
+delete-after: True
+changes: 
+  - maptweak: "Added a public stairwell at the aft of the facility, connecting the main and surface levels."
+  - maptweak: "Tweaked parts of maintenance."
+  - maptweak: "Added a scanner bed to the ft's autopsy lab, added an additional cyborg analyzer to robotics. Security's and the captain's bathrooms can now be locked."

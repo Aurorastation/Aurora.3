@@ -6902,6 +6902,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "oF" = (
@@ -10646,7 +10647,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
+	req_access = null;
+	req_one_access = list(12,50)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11484,6 +11486,12 @@
 /obj/machinery/door/window/northright,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
+"Nx" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_cargo)
 "Ny" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -11826,6 +11834,12 @@
 	dir = 4;
 	pixel_y = 0
 	},
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	icon_state = "body_scannerconsole";
+	layer = 3.01;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -12029,8 +12043,9 @@
 /turf/simulated/open,
 /area/medical/virology)
 "QH" = (
-/obj/structure/closet{
-	name = "Evidence Closet"
+/obj/machinery/bodyscanner{
+	icon_state = "body_scanner";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
@@ -13110,6 +13125,10 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25
+	},
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface - Access Stairwell";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
@@ -40569,7 +40588,7 @@ Hb
 qi
 qi
 qi
-EL
+qi
 Ue
 WJ
 EL
@@ -40826,7 +40845,7 @@ Me
 yZ
 SW
 SW
-EL
+qi
 PZ
 rr
 EL
@@ -41083,8 +41102,8 @@ pB
 Me
 SW
 MH
-EL
-Lk
+qi
+Nx
 qY
 EL
 aa
@@ -41324,12 +41343,12 @@ qc
 ab
 mo
 mo
-KR
-KR
-KR
-KR
-KR
-KR
+qi
+qi
+qi
+qi
+qi
+qi
 vh
 MC
 WF
@@ -41340,7 +41359,7 @@ qi
 qi
 qi
 qi
-EL
+qi
 Lk
 WJ
 EL
@@ -41843,7 +41862,7 @@ CX
 wE
 wX
 CO
-KR
+qi
 FD
 xG
 oB
@@ -42100,7 +42119,7 @@ LB
 PP
 xJ
 KR
-KR
+qi
 tW
 Bf
 Hb
