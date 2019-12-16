@@ -331,14 +331,6 @@
 
 		job.equip(H)
 
-		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
-
-		if(H.max_nutrition > 0)
-			H.nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * H.max_nutrition * 0.01
-
-		if(H.max_hydration > 0)
-			H.hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * H.max_hydration * 0.01
-
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
