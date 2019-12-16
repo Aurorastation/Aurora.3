@@ -1,5 +1,5 @@
 /datum/game_mode/threesome
-	name = "Threesome (Merc+Raiders+Ninjas)"
+	name = "Threesome (merc+heist+ninjas)"
 	config_tag = "threesome"
 	round_description = "A group of mercenaries, a gaggle of raiders, and a set of ninjas have their eyes set on the NSS Aurora."
 	extended_round_description = "Nanotrasen has been playing with fire, maybe a big visit will teach them a lesson."
