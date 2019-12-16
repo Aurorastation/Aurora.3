@@ -464,3 +464,7 @@ This function restores all organs.
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.6
 	return max(0,traumatic_shock)
+
+/mob/living/carbon/human/remove_blood_simple(var/blood)
+	if(should_have_organ(BP_HEART))
+		vessel.remove_reagent("blood", blood)

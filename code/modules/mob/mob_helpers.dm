@@ -1270,3 +1270,6 @@ proc/is_blind(A)
 	result[2] = ainvis
 
 	return result
+
+/mob/proc/remove_blood_simple(var/blood)
+	return
