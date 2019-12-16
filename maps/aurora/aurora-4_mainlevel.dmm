@@ -6436,10 +6436,13 @@
 /area/security/nuke_storage)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Ion Rifle)";
+	name = "Weaponry (Service Rifle)";
 	req_access = list(3)
 	},
-/obj/item/gun/energy/rifle/ionrifle,
+/obj/item/ammo_magazine/mk43,
+/obj/item/ammo_magazine/mk43/rubber,
+/obj/item/ammo_magazine/mk43,
+/obj/item/gun/projectile/automatic/rifle/mk43,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "amR" = (

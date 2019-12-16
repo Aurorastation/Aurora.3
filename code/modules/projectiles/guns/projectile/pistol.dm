@@ -199,7 +199,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
-	var/can_silence = TRUE
+	can_silence = TRUE
 
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"

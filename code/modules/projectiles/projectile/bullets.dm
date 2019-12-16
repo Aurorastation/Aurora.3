@@ -187,6 +187,17 @@
 /obj/item/projectile/bullet/rifle/a762
 	damage = 25
 
+/obj/item/projectile/bullet/rifle/mk43
+	damage = 18
+
+/obj/item/projectile/bullet/rifle/mk43/rubber
+	name = "rubber bullet"
+	check_armour = "melee"
+	damage = 6
+	agony = 50
+	embed = 0
+	sharp = 0
+
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 

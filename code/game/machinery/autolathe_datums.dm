@@ -451,6 +451,18 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
+
+/datum/autolathe/recipe/magazine_5mm
+	name = "ammunition (5mm)"
+	path = /obj/item/ammo_magazine/mk43
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_5mmr
+	name = "ammunition (5mm Rubber)"
+	path = /obj/item/ammo_magazine/mk43/rubber
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/shotgun
 	name = "ammunition (slug, shotgun)"
 	path = /obj/item/ammo_casing/shotgun
