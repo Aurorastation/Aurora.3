@@ -6441,7 +6441,7 @@
 	},
 /obj/item/ammo_magazine/mk43,
 /obj/item/ammo_magazine/mk43/rubber,
-/obj/item/gun/projectile/automatic/rifle/mk43,
+/obj/item/gun/projectile/automatic/rifle/z8/mk43,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "amR" = (
