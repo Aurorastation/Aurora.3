@@ -290,13 +290,15 @@
 		Move(target_loc, direction)
 	else
 		get_cell().use(legs.power_use * CELLRATE)
-		playsound(src.loc,mech_turn_sound,40,1)
+		if(legs && legs.mech_turn_sound)
+			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
 		set_dir(direction)
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
-		playsound(src.loc,mech_step_sound,40,1)
+		if(legs && legs.mech_step_sound)
+			playsound(src.loc,legs.mech_step_sound,40,1)
 		get_cell().use(legs.power_use * CELLRATE)
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
