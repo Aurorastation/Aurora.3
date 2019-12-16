@@ -5,7 +5,7 @@
 #define TOX       "tox"
 #define OXY       "oxy"
 #define CLONE     "clone"
-#define PAIN     "pain"
+#define PAIN      "pain"
 
 #define CUT       "cut"
 #define BRUISE    "bruise"
