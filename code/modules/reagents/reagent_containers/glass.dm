@@ -15,7 +15,7 @@
 	accuracy = 0.1
 	w_class = 2
 	flags = OPENCONTAINER
-	var/fragile = 1 // most glassware is super fragile
+	var/hardness = 1 
 	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
@@ -54,13 +54,20 @@
 
 /obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if(speed > fragile && !no_shatter)
+	if(no_shatter)
+		return
+	if(speed >= hardness)
 		shatter()
+		return
+	if(speed < hardness)
+		if(prob(25 * (speed)))
+			shatter()
 
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message("\The [src] shatters with a resounding crash!", "\The [src] breaks.")
+	playsound(src, "shatter", 40, 1)
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)
 
@@ -78,7 +85,7 @@
 			update_name_label()
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
-	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile))
+	if(!(W.flags & NOBLUDGEON) && hardness && (W.force < hardness))
 		shatter()
 		return
 
@@ -97,7 +104,7 @@
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list("glass" = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
-	fragile = 4
+	hardness = 3
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -153,7 +160,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
-	fragile = 6 // a bit sturdier
+	hardness = 4 
 
 /obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
@@ -178,7 +185,8 @@
 	volume = 60
 	amount_per_transfer_from_this = 10
 	flags = OPENCONTAINER | NOREACT
-	fragile = 0
+	hardness = 0
+	no_shatter = TRUE
 
 /obj/item/reagent_containers/glass/beaker/bluespace
 	name = "bluespace beaker"
@@ -190,7 +198,8 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
 	flags = OPENCONTAINER
-	fragile = 0
+	hardness = 0
+	no_shatter = TRUE
 
 /obj/item/reagent_containers/glass/beaker/vial
 	name = "vial"
@@ -202,7 +211,7 @@
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
-	fragile = 1
+	hardness = 2
 
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 /obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
@@ -235,7 +244,7 @@
 	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 	no_shatter = TRUE
-	fragile = 0
+	hardness = 0
 
 /obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
 	if(isprox(D))
@@ -281,6 +290,7 @@ obj/item/reagent_containers/glass/bucket/wood
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
 	center_of_mass = list("x" = 16,"y" = 8)
+	no_shatter = TRUE
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	carving_weapon = /obj/item/material/hatchet
