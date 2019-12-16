@@ -456,3 +456,4 @@
 	return
 
 #undef LIGHT_POWER_CALC
+#undef SPACED_DAMAGE_FACTOR
