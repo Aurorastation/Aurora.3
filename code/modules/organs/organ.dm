@@ -419,3 +419,7 @@
 	user.put_in_active_hand(O)
 	qdel(src)
 	target.attackby(O, user)
+
+//used by stethoscope
+/obj/item/organ/proc/listen()
+	return
