@@ -13406,9 +13406,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"yb" = (
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/unexplored)
 "yc" = (
 /obj/structure/sign/double/map/right{
 	pixel_y = 30
@@ -16687,11 +16684,6 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/ramp{
@@ -16747,13 +16739,10 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "DY" = (
-/obj/machinery/door/airlock/multi_tile/glass,
-/obj/machinery/door/firedoor/multi_tile,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Surface Access Stairwell"
 	},
+/obj/machinery/door/firedoor/multi_tile,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -16986,8 +16975,25 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Et" = (
+/obj/structure/sign/christmas/lights{
+	icon_state = "xmaslights";
+	dir = 4
+	},
+/obj/structure/sign/directions/all{
+	dir = 8;
+	icon_state = "direction_all";
+	pixel_x = 0;
+	pixel_y = 36
+	},
+/obj/structure/sign/directions/evac{
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/stairs)
 "Ev" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/sign/christmas/lights{
@@ -17306,11 +17312,6 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -17957,6 +17958,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "FZ" = (
@@ -19520,11 +19522,6 @@
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -21115,6 +21112,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled,
 /area/maintenance/store)
 "Lx" = (
@@ -21936,11 +21934,13 @@
 	frequency = 1700;
 	id_tag = "c_maint_surface_pump"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/directions/tcom{
+	dir = 8;
+	icon_state = "direction_tcom";
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/store)
 "MY" = (
@@ -22148,16 +22148,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Nu" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "Nv" = (
@@ -22656,17 +22647,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
-"Os" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -24;
-	req_one_access = list(24,11,55)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/stairs)
 "Ot" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -23927,11 +23907,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
 "QU" = (
-/obj/machinery/firealarm/north,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
@@ -24352,15 +24329,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "RL" = (
-/obj/machinery/status_display{
-	pixel_y = 32
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "RM" = (
@@ -24800,6 +24772,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
+"SI" = (
+/obj/machinery/door/firedoor,
+/obj/structure/sign/directions/evac{
+	dir = 1;
+	icon_state = "direction_evac";
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/aft)
 "SJ" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -25195,11 +25177,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "Tu" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -26502,11 +26479,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
 "VY" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -27025,6 +26997,10 @@
 "Xb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -24;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
@@ -54949,9 +54925,9 @@ vo
 md
 YW
 YW
-DV
-yb
-yb
+YW
+YW
+YW
 ag
 DW
 Eo
@@ -55206,9 +55182,9 @@ Ob
 zj
 ag
 ag
-yb
-yb
-yb
+YW
+YW
+YW
 ag
 DW
 Ep
@@ -56235,7 +56211,7 @@ AZ
 Ob
 LL
 QU
-Os
+uC
 LL
 LL
 LL
@@ -56748,7 +56724,7 @@ Ht
 AZ
 Ob
 LL
-mZ
+Et
 mZ
 DN
 DS
@@ -57775,7 +57751,7 @@ Cp
 hq
 JT
 Cp
-BE
+SI
 hq
 CX
 ZB

@@ -180,9 +180,8 @@
 				var/cargo_destination_list = list(
 					/area/quartermaster/loading = 4,
 					/area/quartermaster/qm = 1,
-					/area/janitor/surface = 1,
 					/area/storage/tools = 1,
-					/area/sconference_room = 1
+					/area/sconference_room = 2
 					)
 				A = pickweight(cargo_destination_list)
 			if("tcoms")
