@@ -1,5 +1,5 @@
 @echo off
 set MAPROOT=../../maps/
 set TGM=1
-py mapmerge.py
+python mapmerge.py
 pause
