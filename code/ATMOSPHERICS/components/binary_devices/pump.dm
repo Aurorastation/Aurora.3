@@ -31,7 +31,7 @@ Thus, the two variables affect pump operation are set in New():
 	var/max_pressure_setting = 15000	//kPa
 
 	var/frequency = 0
-	var/id = null
+	id = null
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/binary/pump/Initialize()

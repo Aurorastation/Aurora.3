@@ -16,7 +16,7 @@
 	var/reversed		// se to 1 if the belt is reversed
 
 	var/list/affecting	// the list of all items that will be moved this ptick
-	var/id = ""			// the control ID	- must match controller ID
+	id = ""			// the control ID	- must match controller ID
 
 	var/listener/antenna
 
@@ -196,7 +196,7 @@
 	var/last_pos = -1			// last direction setting
 	var/operated = 1			// true if just operated
 
-	var/id = "" 				// must match conveyor IDs to control them
+	id = "" 				// must match conveyor IDs to control them
 
 	anchored = 1
 

@@ -21,7 +21,7 @@
 	var/flowing = 0	//for icons - becomes zero if the valve closes itself due to regulation mode
 
 	var/frequency = 0
-	var/id = null
+	id = null
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/binary/passive_gate/Initialize()

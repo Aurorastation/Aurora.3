@@ -5,7 +5,7 @@
 	desc = "A wall-mounted flashbulb device."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
-	var/id = null
+	id = null
 	var/range = 2 //this is roughly the size of brig cell
 	var/disable = 0
 	var/last_flash = 0 //Don't want it getting spammed like regular flashes

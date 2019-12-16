@@ -130,6 +130,8 @@ Class Procs:
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
+	var/listener/button_sig_listener
+	var/id = 1.0
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -150,6 +152,11 @@ Class Procs:
 			RefreshParts()
 
 	add_machine(src)
+	create_listener()
+
+/obj/machinery/proc/create_listener()
+	if(id)
+		button_sig_listener = new("machinebtn_[id]", src)
 
 /obj/machinery/Destroy()
 	remove_machine(src, TRUE)
@@ -159,6 +166,8 @@ Class Procs:
 				qdel(A)
 			else // Otherwise we assume they were dropped to the ground during deconstruction, and were not removed from the component_parts list by deconstruction code.
 				component_parts -= A
+	if(button_sig_listener)
+		QDEL_NULL(button_sig_listener)
 
 	return ..()
 

@@ -3,7 +3,7 @@
 	desc = "It's useful for igniting flammable items."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "igniter1"
-	var/id = null
+	id = null
 	var/on = 0
 	anchored = 1
 	use_power = 1
@@ -61,7 +61,7 @@
 	desc = "A wall-mounted ignition device."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "migniter"
-	var/id = null
+	id = null
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"

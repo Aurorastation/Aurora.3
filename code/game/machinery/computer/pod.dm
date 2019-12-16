@@ -6,7 +6,7 @@
 	icon_screen = "command"
 	light_color = "#00b000"
 	circuit = /obj/item/circuitboard/pod
-	var/id = 1.0
+	id = 1.0
 	var/obj/machinery/mass_driver/connected = null
 	var/timing = 0.0
 	var/time = 30.0

@@ -33,7 +33,7 @@
 	var/output_pressure_max = DEFAULT_PRESSURE_DELTA
 
 	var/frequency = 0
-	var/id = null
+	id = null
 	var/datum/radio_frequency/radio_connection
 
 	var/pressure_checks = PRESSURE_CHECK_EXTERNAL

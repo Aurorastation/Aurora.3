@@ -7,7 +7,7 @@
 
 	req_access = list() //what access it needs to link your pda
 
-	var/id = null
+	id = null
 	var/list/obj/item/device/pda/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
 	var/listener/ringers
 	var/on = TRUE
@@ -112,7 +112,7 @@
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "ringer"
 	anchored = TRUE
-	var/id = ""
+	id = ""
 
 /obj/machinery/ringer_button/Initialize(mapload, newid)
 	. = ..()

@@ -7,7 +7,7 @@
 	light_color = LIGHT_COLOR_ORANGE
 	req_access = list(access_armory)
 	circuit = /obj/item/circuitboard/prisoner
-	var/id = 0.0
+	id = 0.0
 	var/temp = null
 	var/status = 0
 	var/timeleft = 60

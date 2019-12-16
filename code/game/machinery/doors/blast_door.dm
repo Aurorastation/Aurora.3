@@ -24,7 +24,6 @@
 	var/close_sound = 'sound/machines/blastdoorclose.ogg'
 	var/damage = BLAST_DOOR_CRUSH_DAMAGE
 	closed_layer = 3.4 // Above airlocks when closed
-	var/id = 1.0
 	dir = 1
 	explosion_resistance = 25
 

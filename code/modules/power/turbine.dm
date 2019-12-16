@@ -36,7 +36,7 @@
 	density = 1
 	var/obj/machinery/compressor/compressor
 	var/list/obj/machinery/door/blast/doors
-	var/id = 0
+	id = 0
 	var/door_status = 0
 
 // the inlet stage of the gas turbine electricity generator

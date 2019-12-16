@@ -155,7 +155,7 @@
 	active_power_usage = 100000	//100 kW ~ 135 HP
 
 	var/global/gid = 1
-	var/id = 0
+	id = 0
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/Initialize()
 	. = ..()

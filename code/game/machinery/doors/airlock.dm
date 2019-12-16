@@ -1397,6 +1397,10 @@ About the new airlock wires panel:
 				src.closeOther = A
 				break
 
+/obj/machinery/door/airlock/create_listener()
+	if(id_tag)
+		button_sig_listener = new("machinebtn_[id_tag]", src)
+
 /obj/machinery/door/airlock/Destroy()
 	qdel(wires)
 	wires = null
