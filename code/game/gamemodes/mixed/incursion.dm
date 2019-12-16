@@ -1,5 +1,5 @@
 /datum/game_mode/incursion
-	name = "Incursion (Merc+Ninjas)"
+	name = "Incursion (merc+ninjas)"
 	config_tag = "incursion"
 	round_description = "A group of mercenaries and a set of ninjas have their eyes set on the NSS Aurora."
 	extended_round_description = "Nanotrasen has been playing with fire, maybe a little visit will teach them a lesson."
