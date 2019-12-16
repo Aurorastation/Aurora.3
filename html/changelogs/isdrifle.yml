@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Added a energy pistol locker."
-  - rscdel: "Removes the ion rifle and shotguns from the armory."
+  - rscdel: "Removes the ion rifle, shotguns, lethal .45 from the armory."

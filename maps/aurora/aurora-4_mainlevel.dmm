@@ -7615,6 +7615,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
+"aph" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition (45. less-than-lethal)"
+	},
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "api" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -8975,36 +8986,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"arE" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (.45 lethal)"
-	},
-/obj/effect/decal/warning_stripes,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"arF" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (45. less-than-lethal)"
-	},
-/obj/effect/decal/warning_stripes,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"arG" = (
-/obj/effect/decal/warning_stripes,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "arH" = (
@@ -65095,6 +65076,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"fMZ" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Energy Pistol)";
+	req_access = list(3)
+	},
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "fQV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/blue,
@@ -65182,16 +65173,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
-"gbK" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Energy Pistol)";
-	req_access = list(3)
-	},
-/obj/item/gun/energy/pistol,
-/obj/item/gun/energy/pistol,
-/obj/item/gun/energy/pistol,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
 "gbQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
@@ -99030,7 +99011,7 @@ amO
 anW
 apg
 aqu
-arE
+amO
 asP
 amO
 amO
@@ -99287,7 +99268,7 @@ amO
 amO
 amO
 aqq
-arF
+amO
 asP
 auy
 amO
@@ -99544,7 +99525,7 @@ amO
 amO
 amO
 aqv
-arG
+auz
 asQ
 auz
 awe
@@ -99796,10 +99777,10 @@ afo
 aab
 ajR
 ajR
-gbK
+fMZ
 alK
 anX
-amO
+aph
 anU
 arH
 asR
