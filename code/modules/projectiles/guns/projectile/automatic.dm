@@ -242,6 +242,48 @@
 	else
 		to_chat(user, "\The [launcher] is empty.")
 
+/obj/item/gun/projectile/automatic/rifle/z8/mk43
+	name = "Mark 43 service rifle"
+	desc = "A semi-automatic rifle chambered in 5mm caseless, it holds 10 rounds per magazine."
+	icon_state = "mk43"
+	w_class = 3
+	slot_flags = SLOT_BACK
+	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
+	caliber = "5mm"
+	recoil = 2
+	handle_casings = DELETE_CASINGS
+	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+	max_shells = 12
+	ammo_type = /obj/item/ammo_casing/mk43
+	magazine_type = /obj/item/ammo_magazine/mk43
+	allowed_magazines = list(/obj/item/ammo_magazine/mk43,/obj/item/ammo_magazine/mk43/rubber)
+	accuracy = 2
+	recoil_wielded = 1
+	accuracy_wielded = 3
+	multi_aim = 0
+
+
+
+/obj/item/gun/projectile/automatic/rifle/z8/mk43/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set popup_menu = 1
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
+/obj/item/gun/projectile/automatic/rifle/z8/mk43/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "mk43" : "mk43-empty"
+	if(wielded)
+		item_state = "z8carbine-wielded"
+	else
+		item_state = "z8carbine"
+	update_held_icon()
+
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the receiver"
