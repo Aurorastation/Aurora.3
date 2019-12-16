@@ -6434,14 +6434,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"amQ" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Ion Rifle)";
-	req_access = list(3)
-	},
-/obj/item/gun/energy/rifle/ionrifle,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
 "amR" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall,
@@ -7621,15 +7613,6 @@
 /area/security/armoury)
 "apg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury)
-"aph" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Shotgun)";
-	req_access = list(3)
-	},
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "api" = (
@@ -9020,24 +9003,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "arG" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (shotgun less-than-lethal)"
-	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/flashshells{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/storage/box/beanbags{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/beanbags{
-	pixel_x = -4;
-	pixel_y = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "arH" = (
@@ -65215,6 +65182,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage_hard)
+"gbK" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Energy Pistol)";
+	req_access = list(3)
+	},
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/obj/item/gun/energy/pistol,
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury)
 "gbQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
@@ -99819,10 +99796,10 @@ afo
 aab
 ajR
 ajR
+gbK
 alK
-amQ
 anX
-aph
+amO
 anU
 arH
 asR
