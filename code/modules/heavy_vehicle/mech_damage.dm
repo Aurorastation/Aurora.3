@@ -7,7 +7,7 @@
 		if(effect > 0 && effecttype == IRRADIATE)
 			var/mob/living/pilot = pick(pilots)
 			return pilot.apply_effect(effect, effecttype, blocked)
-	if(effecttype in list(AGONY, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN))
+	if(effecttype in list(PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN))
 		. = ..()
 
 /mob/living/heavy_vehicle/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone)

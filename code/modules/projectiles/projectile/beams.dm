@@ -169,8 +169,10 @@
 	icon_state = "stun"
 	nodamage = 1
 	taser_effect = 1
+	sharp = 0
+	eyeblur = 1
 	agony = 40
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -190,7 +192,7 @@
 	name = "electrical arc"
 	icon_state = "stun"
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -377,7 +379,7 @@
 	name = "energy net projection"
 	icon_state = "xray"
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
