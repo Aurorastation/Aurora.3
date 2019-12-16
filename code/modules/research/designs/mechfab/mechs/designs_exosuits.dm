@@ -221,6 +221,13 @@
 	build_path = /obj/item/mech_component/propulsion/tracks
 	req_tech = list(TECH_MATERIAL = 4)
 
+/datum/design/item/mechfab/exosuit/sphere_body
+	name = "spherical chassis"
+	id = "sphere_body"
+	build_path = /obj/item/mech_component/chassis/pod
+	time = 50
+	materials = list(MATERIAL_STEEL = 18000)
+
 /datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"
 	id = "hydraulic_clamp"
