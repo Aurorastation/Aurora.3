@@ -28,7 +28,7 @@
 	bloodstr.clear_reagents()
 	touching.clear_reagents()
 	var/datum/reagents/R = get_ingested_reagents()
-	if(istype(R)) 
+	if(istype(R))
 		R.clear_reagents()
 	breathing.clear_reagents()
 	..()
@@ -212,11 +212,6 @@
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
 				var/burndamage = org.burn_dam
-				if(getHalLoss() > 0)
-					if(prob(30))
-						brutedamage += getHalLoss()
-					if(prob(30))
-						burndamage += getHalLoss()
 				switch(brutedamage)
 					if(1 to 20)
 						status += "bruised"
