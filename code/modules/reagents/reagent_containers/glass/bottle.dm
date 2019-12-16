@@ -11,7 +11,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
 	volume = 60
-	fragile = 4
+	hardness = 3
 	var/list/reagents_to_add
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
