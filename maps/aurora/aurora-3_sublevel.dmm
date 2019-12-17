@@ -5731,8 +5731,7 @@
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 5;
-	pixel_y = 0;
-	step_x = 0
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
