@@ -5,6 +5,7 @@
 	edge = 1
 	maintain_cost = 1
 	icon_state = "psiblade_short"
+	hitsound = 'sound/weapons/psisword.ogg'
 
 /obj/item/psychic_power/psiblade/master
 	force = 20

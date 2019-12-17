@@ -84,6 +84,7 @@
 
 	// Your head asplode.
 	owner.adjustBrainLoss(value)
+	owner.adjustHalLoss(value * 25) //Ouch.
 	if(ishuman(owner))
 		var/mob/living/carbon/human/pop = owner
 		if(pop.should_have_organ(BP_BRAIN))
