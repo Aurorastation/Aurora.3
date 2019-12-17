@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "The e-pistol now has seven shots, up from five."
+  - tweak: "The lethal e-pistol now does 35 damage, up from 30."
