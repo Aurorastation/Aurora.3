@@ -15,7 +15,7 @@
 		(SIGNAL SOURCE TRIANGULATED ADJACENT LOCAL SITE): All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
-		"Cuchulain Sensor Array Automated Message" \
+		"*°?^ Sensor Array Automated Message" \
 		)
 
 /datum/event/minispasm/start()
@@ -63,5 +63,5 @@
 /datum/event/minispasm/end()
 	priority_announcement.Announce( \
 		"PRIORITY ALERT: SIGNAL BROADCAST HAS CEASED. Personnel are cleared to resume use of non-hardened radio transmission equipment. Have a nice day.", \
-		"Cuchulain Sensor Array Automated Message" \
+		"°*?!^ Sensor Array Automated Message" \
 		)
