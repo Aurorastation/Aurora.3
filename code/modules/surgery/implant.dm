@@ -195,7 +195,7 @@
 				var/mob/living/simple_animal/borer/worm = obj
 				if(worm.controlling)
 					target.release_control()
-				worm.detatch()
+				worm.detach()
 				worm.leave_host()
 			else
 				obj.forceMove(get_turf(target))
