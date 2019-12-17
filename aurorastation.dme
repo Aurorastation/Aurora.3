@@ -1500,7 +1500,7 @@
 #include "code\modules\heavy_vehicle\mech_wreckage.dm"
 #include "code\modules\heavy_vehicle\mecha.dm"
 #include "code\modules\heavy_vehicle\components\_components.dm"
-#include "code\modules\heavy_vehicle\components\armour.dm"
+#include "code\modules\heavy_vehicle\components\armor.dm"
 #include "code\modules\heavy_vehicle\components\arms.dm"
 #include "code\modules\heavy_vehicle\components\body.dm"
 #include "code\modules\heavy_vehicle\components\frame.dm"
