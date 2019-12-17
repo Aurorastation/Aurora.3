@@ -11500,22 +11500,12 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
 "atf" = (
-/obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
 	dir = 10
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "atg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -11634,18 +11624,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "atq" = (
-/obj/machinery/portable_atmospherics/powered/pump,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/structure/closet/hydrant{
+	pixel_x = -30
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
 	},
-/obj/machinery/door/window{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/valve,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "atr" = (
@@ -11781,14 +11767,12 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "atD" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/atmospherics/binary/pump{
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/atmospherics/valve,
+/turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "atE" = (
 /obj/structure/window/reinforced{
@@ -11963,31 +11947,45 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "atS" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"atT" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/powered/pump,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"atU" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/machinery/atmospherics/binary/pump,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"atT" = (
-/obj/structure/closet/hydrant{
-	pixel_x = -30
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
-"atU" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "atX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -60808,9 +60806,9 @@ tNl
 amn
 amm
 amp
-atD
-atT
 atf
+atq
+atS
 wbr
 aHI
 gfL
@@ -61065,9 +61063,9 @@ ayW
 ayW
 asf
 aqG
-atS
 atU
-atq
+atD
+atT
 wbr
 rfa
 rfa
