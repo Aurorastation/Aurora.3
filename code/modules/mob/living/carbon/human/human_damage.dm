@@ -204,7 +204,7 @@
 	var/list/pick_organs = shuffle(internal_organs.Copy())
 
 	// Prioritize damaging our filtration organs first.
-	var/obj/item/organ/internal/kidneys/kidneys = internal_organs_by_name[BP_KIDNEYS]
+	var/obj/item/organ/internal/kidneys/kidneys = internal_organs_by_name[pick(BP_LKIDNEY,BP_RKIDNEY)]
 	if(kidneys)
 		pick_organs -= kidneys
 		pick_organs.Insert(1, kidneys)

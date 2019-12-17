@@ -60,7 +60,7 @@
 		BP_HEART =    /obj/item/organ/internal/heart/vox,
 		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
 		BP_LIVER =    /obj/item/organ/internal/liver/vox,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
+		BP_LKIDNEY =  /obj/item/organ/internal/kidneys/vox,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,
