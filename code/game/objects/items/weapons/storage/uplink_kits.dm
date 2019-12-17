@@ -11,7 +11,10 @@
 
 			if("stealth")
 				new /obj/item/gun/energy/crossbow(src)
-				new /obj/item/pen/reagent/paralysis(src)
+				new /obj/item/pen/reagent/healing(src)
+				new /obj/item/pen/reagent/pacifier(src)
+				new /obj/item/pen/reagent/hyperzine(src)
+				new /obj/item/pen/reagent/poison(src)
 				new /obj/item/device/chameleon(src)
 				return
 
@@ -134,6 +137,16 @@
 		/obj/item/device/destTagger = 1,
 		/obj/item/stack/packageWrap = 1,
 		/obj/item/hand_labeler = 1
+	)
+
+/obj/item/storage/box/syndie_kit/special_pens
+	name = "box (P)"
+	starts_with = list(
+		/obj/item/pen/reagent/healing = 1,
+		/obj/item/pen/reagent/pacifier = 1,
+		/obj/item/pen/reagent/hyperzine = 1,
+		/obj/item/pen/reagent/poison = 1
+
 	)
 
 /obj/item/storage/box/syndie_kit/spy
