@@ -35,8 +35,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
-					/obj/item/pen/reagent/paralysis,
+					/obj/item/storage/box/syndie_kit/special_pens,
 					/obj/item/grenade/chem_grenade/incendiary)
+
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
