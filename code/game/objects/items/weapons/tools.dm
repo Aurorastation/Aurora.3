@@ -370,7 +370,7 @@
 						return
 					log_and_message_admins("triggered a fuel tank explosion", user)
 					to_chat(user, span("alert", "That was stupid of you."))
-					tank.ex_act(3.0)
+					tank.ex_act(1.0)
 					return
 				else
 					tank.armed = 0

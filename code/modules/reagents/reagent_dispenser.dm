@@ -196,7 +196,15 @@
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
 		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
-			ex_act(2.0)
+			if(is_leaking)
+				if(prob(45))
+					ex_act(1.0)
+				else
+					return
+			else if(prob(35))
+				ex_act(1.0)
+			else
+				is_leaking = TRUE
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
 
@@ -204,24 +212,24 @@
 		return
 
 	if (reagents.total_volume > 500)
-		explosion(src.loc,1,2,4)
+		explosion(src.loc,1,1,2)
 	else if (reagents.total_volume > 100)
-		explosion(src.loc,0,1,3)
+		explosion(src.loc,0,1,2)
 	else if (reagents.total_volume > 50)
-		explosion(src.loc,-1,1,2)
+		explosion(src.loc,-1,0,1)
 
 	..()
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
 	if (is_leaking)
-		ex_act(2.0)
+		ex_act(1.0)
 	else if (temperature > T0C+500)
-		ex_act(2.0)
+		ex_act(1.0)
 	return ..()
 
 /obj/structure/reagent_dispensers/fueltank/tesla_act()
 	..()
-	ex_act(2.0)
+	ex_act(1.0)
 
 //Wall Dispensers
 
