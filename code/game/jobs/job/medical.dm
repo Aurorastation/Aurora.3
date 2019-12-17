@@ -226,6 +226,8 @@
 	outfit = /datum/outfit/job/paramedic
 	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
 
+	blacklisted_species = list("Diona")
+
 /datum/outfit/job/paramedic
 	name = "Paramedic"
 	base_name = "Paramedic"
