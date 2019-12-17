@@ -70,7 +70,7 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "silver" = 1000)
 
 /datum/design/item/mechfab/exosuit/combat_armour
-	name = "Combat exosuit armour"
+	name = "combat exosuit armor"
 	id = "mech_armour_combat"
 	build_path = /obj/item/robot_parts/robot_component/armor/combat
 	time = 50
