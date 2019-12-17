@@ -44367,15 +44367,15 @@
 /turf/simulated/wall,
 /area/medical/cryo)
 "bDU" = (
-/obj/structure/closet/wardrobe/medic_white,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay Cloning"
 	},
+/obj/structure/mopbucket,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bDV" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bDW" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
@@ -44385,7 +44385,7 @@
 	pixel_y = 20
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bDX" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -45267,11 +45267,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bFG" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bFH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -46212,7 +46212,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bHf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -46225,7 +46225,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bHg" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8
@@ -46237,7 +46237,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bHh" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -47081,17 +47081,13 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
-"bID" = (
-/obj/structure/bed/chair/office/dark,
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bIE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bIF" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -48043,7 +48039,6 @@
 /turf/simulated/floor/tiled,
 /area/medical/cryo)
 "bKe" = (
-/obj/machinery/clonepod,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -48053,20 +48048,22 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/item/mop,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bKf" = (
-/obj/machinery/computer/cloning,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/machinery/firealarm/south,
+/obj/structure/table/rack,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bKg" = (
-/obj/machinery/dna_scannernew,
 /obj/machinery/light_switch{
 	dir = 2;
 	name = "light switch ";
@@ -48077,8 +48074,11 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/structure/table/rack,
+/obj/item/caution,
+/obj/item/caution,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bKi" = (
 /obj/item/device/radio/intercom{
 	broadcasting = 1;
@@ -48842,7 +48842,7 @@
 /area/medical/medbay2)
 "bLJ" = (
 /turf/simulated/wall,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bLM" = (
 /turf/simulated/floor/reinforced,
 /area/medical/psych)
@@ -52967,12 +52967,6 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/cloning{
-	pixel_x = 0
-	},
-/obj/item/circuitboard/clonescanner,
-/obj/item/circuitboard/clonepod,
-/obj/item/circuitboard/scan_consolenew,
 /obj/item/circuitboard/med_data{
 	pixel_x = 3;
 	pixel_y = -3
@@ -77816,8 +77810,7 @@
 	tag_airpump = "escape_dock_center_pump";
 	tag_chamber_sensor = "escape_dock_center_sensor";
 	tag_exterior_door = "escape_dock_center_outer";
-	tag_interior_door = "escape_dock_center_inner";
-	
+	tag_interior_door = "escape_dock_center_inner"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -78004,8 +77997,7 @@
 	tag_airpump = "escape_dock_north_pump";
 	tag_chamber_sensor = "escape_dock_north_sensor";
 	tag_exterior_door = "escape_dock_north_outer";
-	tag_interior_door = "escape_dock_north_inner";
-	
+	tag_interior_door = "escape_dock_north_inner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -78221,8 +78213,7 @@
 	tag_airpump = "escape_dock_south_pump";
 	tag_chamber_sensor = "escape_dock_south_sensor";
 	tag_exterior_door = "escape_dock_south_outer";
-	tag_interior_door = "escape_dock_south_inner";
-	
+	tag_interior_door = "escape_dock_south_inner"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -119874,7 +119865,7 @@ bCA
 bDV
 bDV
 bHf
-bID
+bDV
 bKf
 bLJ
 fuv

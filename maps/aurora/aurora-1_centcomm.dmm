@@ -14505,14 +14505,6 @@
 	icon_state = "asteroid"
 	},
 /area/syndicate_mothership/raider_base)
-"aIW" = (
-/obj/item/tape/engineering{
-	icon_state = "engineering_v"
-	},
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership/raider_base)
 "aIX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
@@ -24314,8 +24306,8 @@
 	},
 /area/centcom/living)
 "fPX" = (
-/obj/structure/mirror/merchant{
-	pixel_y = 28
+/obj/structure/mirror{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -30216,13 +30208,8 @@
 	},
 /area/centcom/legion)
 "sof" = (
-/obj/structure/closet/wardrobe{
-	name = "vox apparel"
-	},
-/obj/item/clothing/under/vox/vox_robes,
-/obj/item/clothing/under/vox/vox_casual,
-/obj/random/voidsuit/vox,
-/obj/random/voidsuit/vox,
+/obj/structure/closet/gmcloset,
+/obj/random/backpack,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "spZ" = (
@@ -33020,11 +33007,8 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
 "xsW" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
-/obj/item/tank/nitrogen,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
+/obj/structure/table/wood,
+/obj/random/plushie,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "xtd" = (
@@ -36455,8 +36439,8 @@ aHj
 aGR
 aGg
 aFT
-aIW
-aIW
+aFT
+aFT
 aGz
 aGz
 aGz
@@ -36713,8 +36697,8 @@ aGh
 aGh
 aGg
 aGh
-aGh
 aFT
+aGz
 dzI
 dzI
 dzI
@@ -36971,7 +36955,7 @@ aGh
 aGh
 aGg
 aFT
-aFT
+aGz
 dzI
 aaM
 ald

@@ -5105,6 +5105,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/spray/luminol,
 /obj/machinery/light,
+/obj/item/storage/fancy/csi_markers,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
@@ -8516,7 +8517,7 @@
 "At" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille/broken,
-/obj/item/frame/alarm/air,
+/obj/item/frame/air_alarm,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
 "Av" = (
@@ -12769,7 +12770,7 @@
 /area/medical/virology)
 "YZ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/frame/alarm/fire,
+/obj/item/frame/fire_alarm,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site/zone_2)
 "Zd" = (
@@ -12850,6 +12851,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/item/storage/fancy/csi_markers,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "ZE" = (
