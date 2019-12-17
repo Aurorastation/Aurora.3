@@ -29,6 +29,9 @@
 /atom/proc/attack_hand(mob/user as mob)
 	return
 
+/mob/proc/attack_empty_hand(var/bp_hand)
+	return
+
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	return
 

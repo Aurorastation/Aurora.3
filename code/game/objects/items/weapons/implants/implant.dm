@@ -58,6 +58,13 @@
 	implants -= src
 	return ..()
 
+/obj/item/implant/proc/removed()
+	imp_in = null
+	if(part)
+		part.implants -= src
+		part = null
+	implanted = 0
+
 /obj/item/implant/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/implanter))
 		var/obj/item/implanter/implanter = I

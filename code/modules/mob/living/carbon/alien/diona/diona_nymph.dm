@@ -34,7 +34,6 @@
 	var/list/language_progress
 	var/obj/item/clothing/head/hat
 	var/datum/reagents/vessel
-	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 	var/energy_duration = 144                 // The time in seconds that this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 144              // How long this diona can stay on its feet and keep moving in darkness after energy is gone.
 	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies

@@ -409,7 +409,7 @@
 	break_stuff_probability = 100//Constantly smashing everything nearby
 	speak_chance = 15
 	var/idletime
-	var/focus_time//How long we've focused on this target
+	var/focus_time //How long we've focused on this target
 	var/teleport_delay = 60
 	var/tactical_delay = 3//Procs between shortrange teleports
 	var/datum/effect_system/sparks/spark_system
