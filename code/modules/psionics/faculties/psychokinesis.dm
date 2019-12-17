@@ -78,6 +78,8 @@
 				tk.sparkle()
 				user.visible_message("<span class='notice'>\The [user] reaches out.</span>")
 				return tk
+			else
+				to_world("Not bruh")
 		else if(istype(target, /obj/structure))
 			user.visible_message("<span class='notice'>\The [user] makes a strange gesture.</span>")
 			var/obj/O = target
@@ -89,4 +91,6 @@
 					var/obj/machinery/machine = target
 					machine.attack_hand(user)
 					return TRUE
+	else
+		to_world("bruh")
 	return FALSE
