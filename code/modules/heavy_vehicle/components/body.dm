@@ -22,7 +22,7 @@
 /obj/item/mech_component/chassis/update_components()
 	diagnostics = locate() in src
 	cell =        locate() in src
-	mech_armor =      locate() in src
+	mech_armor =  locate() in src
 	air_supply =  locate() in src
 
 /obj/item/mech_component/chassis/New()

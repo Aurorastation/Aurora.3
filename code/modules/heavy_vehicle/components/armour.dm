@@ -4,18 +4,18 @@
 	. = ..()*/
 
 /obj/item/robot_parts/robot_component/armor
-	name = "exosuit armour plating"
+	name = "exosuit armor plating"
 	armor = list(melee = 75, bullet = 33, laser = 50, energy = 10, bomb = 25, bio = 100, rad = 0)
 	origin_tech = list(TECH_MATERIAL = 1)
 
 /obj/item/robot_parts/robot_component/armor/radproof
-	name = "radiation-proof armour plating"
+	name = "radiation-proof armor plating"
 	desc = "A fully enclosed radiation hardened shell designed to protect the pilot from radiation."
 	armor = list(melee = 75, bullet = 33, laser = 50, energy = 25, bomb = 25, bio = 100, rad = 100)
 	origin_tech = list(TECH_MATERIAL = 3)
 
 /obj/item/robot_parts/robot_component/armor/em
-	name = "EM-shielded armour plating"
+	name = "EM-shielded armor plating"
 	desc = "A shielded plating that sorrounds the eletronics and protects them from electromagnetic radiation."
 	armor = list(melee = 65, bullet = 20, laser = 25, energy = 100, bomb = 10, bio = 100, rad = 60)
 	origin_tech = list(TECH_MATERIAL = 3)
