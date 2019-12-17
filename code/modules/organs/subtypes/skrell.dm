@@ -7,8 +7,6 @@
 
 /obj/item/organ/internal/kidneys/skrell
 	icon_state = "kidney_skrell"
-/obj/item/organ/internal/kidneys/skrell/right
-	icon_state = "kidney_skrell"
 
 /obj/item/organ/internal/eyes/skrell
 	icon_state = "eyes_skrell"

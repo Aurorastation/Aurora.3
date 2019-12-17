@@ -236,14 +236,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = "heart"
 				if(BP_EYES)
 					organ_name = "eyes"
-				if(BP_APPENDIX)
-					organ_name = "appendix"
-				if(BP_LKIDNEY)
-					organ_name = "left kidneys"
-				if(BP_RKIDNEY)
-					organ_name = "right kidneys"
-				if(BP_LIVER)
-					organ_name = "liver"
 
 			if(status == "cyborg")
 				++ind
@@ -278,9 +270,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 						out += "\tRetinal overlayed [organ_name]"
 					else
 						out += "\tMechanically assisted [organ_name]"
-			else if(status == "removed")
-				out += "\tRemoved [organ_name]"
-				out += "<br>"
 	if(!ind)
 		out += "\[...\]<br><br>"
 	else
@@ -628,7 +617,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH
 
 	else if(href_list["organs"])
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list(BP_HEART, BP_EYES, BP_APPENDIX, BP_LKIDNEY, BP_LIVER, BP_RKIDNEY)
+		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list(BP_HEART, BP_EYES)
 		if(!organ_name) return
 
 		var/organ = null
@@ -637,16 +626,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				organ = BP_HEART
 			if(BP_EYES)
 				organ = BP_EYES
-			if(BP_APPENDIX)
-				organ = BP_APPENDIX
-			if(BP_LKIDNEY)
-				organ = BP_LKIDNEY
-			if(BP_RKIDNEY)
-				organ = BP_RKIDNEY
-			if(BP_LIVER)
-				organ = BP_LIVER
 
-		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical", "Removed")
+		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
 		if(!new_state) return
 
 		switch(new_state)
@@ -656,11 +637,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				pref.organ_data[organ] = "assisted"
 			if("Mechanical")
 				pref.organ_data[organ] = "mechanical"
-			if("Removed")
-				if((organ in list(BP_HEART, BP_LIVER)) || (organ == BP_LKIDNEY && pref.organ_data[BP_RKIDNEY] == "removed") || (organ == BP_RKIDNEY && pref.organ_data[BP_LKIDNEY]))
-					to_chat(user, "<span class='notice'>You cannot start without a [organ].</span>")
-					return
-				pref.organ_data[organ] = "removed"
 		return TOPIC_REFRESH
 
 	else if(href_list["reset_organs"])
