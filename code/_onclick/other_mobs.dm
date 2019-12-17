@@ -48,9 +48,6 @@
 	else if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
 		return
 
-	else if(TK in mutations)
-		A.attack_tk(src)
-
 /mob/living/RestrainedClickOn(var/atom/A)
 	return
 

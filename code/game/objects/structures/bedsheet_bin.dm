@@ -433,7 +433,7 @@ LINEN BINS
 
 	add_fingerprint(user)
 
-/obj/structure/bedsheetbin/attack_tk(mob/user as mob)
+/obj/structure/bedsheetbin/do_simple_ranged_interaction(var/mob/user)
 	if(amount >= 1)
 		amount--
 

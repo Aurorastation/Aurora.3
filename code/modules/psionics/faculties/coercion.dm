@@ -162,7 +162,7 @@
 		to_chat(target, "<span class='danger'>Your defenses have eroded away and \the [user] has made you their mindslave.</span>")
 		return TRUE
 
-/*/datum/psionic_power/coercion/assay
+/datum/psionic_power/coercion/assay
 	name =            "Assay"
 	cost =            15
 	cooldown =        100
@@ -184,7 +184,7 @@
 		to_chat(user, span("notice", "You retreat from \the [target], holding your new knowledge close."))
 		to_chat(target, span("danger", "Your mental complexus is laid bare to judgement of \the [user]."))
 		target.show_psi_assay(user)
-		return TRUE*/ //TODOMATT
+		return TRUE
 
 /datum/psionic_power/coercion/focus
 	name =          "Focus"

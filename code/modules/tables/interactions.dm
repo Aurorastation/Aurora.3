@@ -236,6 +236,6 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 #undef CELLS
 #undef CELLSIZE
 
-/obj/structure/table/attack_tk() // no telehulk sorry
+/obj/structure/table/do_simple_ranged_interaction(var/mob/user)
 	return
 

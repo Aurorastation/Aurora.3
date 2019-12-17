@@ -65,7 +65,7 @@
 
 	return
 
-/obj/structure/filingcabinet/attack_tk(mob/user)
+/obj/structure/filingcabinet/do_simple_ranged_interaction(var/mob/user)
 	if(anchored)
 		attack_self_tk(user)
 	else
@@ -138,7 +138,7 @@ Important Notes:<BR>
 	populate()
 	..()
 
-/obj/structure/filingcabinet/security/attack_tk()
+/obj/structure/filingcabinet/security/do_simple_ranged_interaction(var/mob/user)
 	populate()
 	..()
 
@@ -185,6 +185,6 @@ Important Notes:<BR>
 	populate()
 	..()
 
-/obj/structure/filingcabinet/medical/attack_tk()
+/obj/structure/filingcabinet/medical/do_simple_ranged_interaction(var/mob/user)
 	populate()
 	..()

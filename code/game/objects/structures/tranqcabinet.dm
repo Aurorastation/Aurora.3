@@ -42,7 +42,7 @@
 		opened = !opened
 	update_icon()
 
-/obj/structure/tranqcabinet/attack_tk(mob/user)
+/obj/structure/tranqcabinet/do_simple_ranged_interaction(var/mob/user)
 	if(has_tranq)
 		has_tranq.forceMove(loc)
 		to_chat(user, "<span class='notice'>You telekinetically remove [has_tranq] from [src].</span>")

@@ -58,10 +58,6 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.psi.set_cooldown(5)
 
-	if(target.do_psionics_check(5, user))
-		to_chat(user, span("warning", "Your telekinetic power skates over \the [target] but cannot get a grip..."))
-		return
-
 	var/distance = get_dist(get_turf(user), get_turf(focus ? focus : target))
 	if(distance > user.psi.get_rank(PSI_PSYCHOKINESIS))
 		to_chat(user, span("warning", "Your telekinetic power won't reach that far."))

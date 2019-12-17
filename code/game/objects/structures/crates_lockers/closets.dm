@@ -224,8 +224,6 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(istype(W,/obj/item/tk_grab))
-			return 0
 		if(W.iswelder())
 			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())

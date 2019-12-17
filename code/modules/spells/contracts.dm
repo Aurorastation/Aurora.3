@@ -81,19 +81,6 @@
 		return 1
 	return 0
 
-/obj/item/contract/wizard/tk
-	name = "telekinesis contract"
-	desc = "This contract makes your mind buzz. It promises to give you the ability to move things with your mind. At a price."
-	color = "#990033"
-
-/obj/item/contract/wizard/tk/contract_effect(mob/user as mob)
-	..()
-	if(!(TK in user.mutations))
-		user.mutations.Add(TK)
-		to_chat(user, "<span class='notice'>You feel your mind expanding!</span>")
-		return 1
-	return 0
-
 /obj/item/contract/boon
 	name = "boon contract"
 	desc = "this contract grants you a boon for signing it."

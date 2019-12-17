@@ -23,12 +23,10 @@
 		SK.master = E
 		qdel(src)
 
-/obj/structure/bed/chair/attack_tk(mob/user as mob)
-	if(buckled_mob)
-		..()
-	else
-		rotate()
-	return
+/obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
+	if(!buckled_mob && user)
+		rotate(user)
+	return TRUE
 
 /obj/structure/bed/chair/post_buckle_mob()
 	update_icon()

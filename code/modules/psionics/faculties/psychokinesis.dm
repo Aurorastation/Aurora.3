@@ -47,7 +47,7 @@
 	if(.)
 		return new /obj/item/psychic_power/tinker(user)
 
-/*/datum/psionic_power/psychokinesis/telekinesis
+/datum/psionic_power/psychokinesis/telekinesis
 	name =            "Telekinesis"
 	cost =            5
 	cooldown =        10
@@ -90,4 +90,3 @@
 					machine.attack_hand(user)
 					return TRUE
 	return FALSE
-*/ //TODOMATT
