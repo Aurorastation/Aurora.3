@@ -328,6 +328,12 @@
 		if(!A.CanPass(src, dest))
 			return FALSE
 
+	// Hover thrusters
+	if(legs)
+		if(istype(legs, /obj/item/mech_component/propulsion/hover) && legs.motivator.is_functional())
+			get_cell().use((legs.power_use * CELLRATE) / 2)
+			return FALSE
+
 	// True otherwise.
 	return TRUE
 
