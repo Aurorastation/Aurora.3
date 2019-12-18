@@ -12,8 +12,6 @@
 		return FALSE
 
 	. = ..()
-	if(. && target.deflect_psionic_attack(user))
-		return FALSE
 
 /datum/psionic_power/coercion/blindstrike
 	name =           "Blindstrike"
