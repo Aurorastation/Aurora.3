@@ -2879,47 +2879,16 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list("Diona")
 
-
-// Branded IPC markings - disabled for now, some layering issues.
-/*
-	bishop
+	bishop_lights
+		name = "Lights Colour"
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
-		icon_state = "face_lights"
+		icon_state = "bishop_lights"
 		icon_blend_mode = ICON_MULTIPLY
-		name = "Face Color"
-		body_parts = list(BP_HEAD)
-		species_allowed = list("Bishop Accessory Frame")
 		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+		species_allowed = list("Bishop Accessory Frame")
 
-		monoeye
-			name = "Eye"
-			icon_state = "monoeye"
-
-		plating
-			name = "Plating (Full)"
-			icon_state = "plating"
-			body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
-
-			l_arm
-				name = "Plating (Left arm)"
-				body_parts = list(BP_L_ARM)
-
-			r_arm
-				name = "Plating (Right arm)"
-				body_parts = list(BP_R_ARM)
-
-			l_leg
-				name = "Plating (Left leg)"
-				body_parts = list(BP_L_LEG)
-
-			r_leg
-				name = "Plating (Right leg)"
-				body_parts = list(BP_R_LEG)
-
-			chest
-				name = "Plating (Chest)"
-				body_parts = list(BP_CHEST)
-
+/*
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
 		icon_state = "outer"

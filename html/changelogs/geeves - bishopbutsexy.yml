@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "The Bishop frame has been resprited."
+  - rscadd: "The Bishop frame now has body markings called Bishop Lights, which is used to change the lights of the Bishop."
