@@ -2783,7 +2783,10 @@
 /area/security/forensics_office)
 "fU" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
-/obj/machinery/dnaforensics,
+/obj/machinery/dnaforensics{
+	pixel_y = 1
+	},
+/obj/structure/table/glass,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "fV" = (
@@ -3482,7 +3485,10 @@
 "gW" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
-/obj/machinery/microscope,
+/obj/machinery/microscope{
+	pixel_x = 5;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "gX" = (
