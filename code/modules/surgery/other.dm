@@ -213,7 +213,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>" , \
 		"<span class='warning'>Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>")
-	target.apply_damage(15, HALLOSS)
+	target.apply_damage(15, PAIN)
 
 /datum/surgery_step/hardsuit
 	allowed_tools = list(
