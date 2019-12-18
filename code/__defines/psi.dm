@@ -1,9 +1,3 @@
-#define PSI_IMPLANT_AUTOMATIC  "Security Level Derived"
-#define PSI_IMPLANT_SHOCK      "Issue Neural Shock"
-#define PSI_IMPLANT_WARN       "Issue Reprimand"
-#define PSI_IMPLANT_LOG        "Log Incident"
-#define PSI_IMPLANT_DISABLED   "Disabled"
-
 #define PSI_COERCION           "coercion"
 #define PSI_PSYCHOKINESIS      "psychokinesis"
 #define PSI_REDACTION          "redaction"
