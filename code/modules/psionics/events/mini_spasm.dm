@@ -14,7 +14,7 @@
 
 /datum/event/minispasm/announce()
 	command_announcement.Announce( \
-		"PRIORITY ALERT: SIGMA-[rand(50,80)] PSIONIC SIGNAL ORIONSPUR TRAMISSION DETECTED (97% MATCH, NONVARIANT) \
+		"PRIORITY ALERT: SIGMA-[rand(50,80)] NONSTANDARD PSIONIC SIGNAL-WAVE TRAMISSION DETECTED (97% MATCH, NONVARIANT) \
 		(SIGNAL SOURCE TRIANGULATED TO DISTANT SITE): All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
@@ -36,6 +36,7 @@
 	set waitfor = 0
 
 	if(victim.psi)
+		playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 		to_chat(victim, span("danger", "A hauntingly familiar sound hisses from \icon[source] \the [source], and your vision flickers!"))
 		victim.psi.backblast(rand(5,15))
 		victim.Paralyse(5)
