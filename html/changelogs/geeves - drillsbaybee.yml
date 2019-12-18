@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added indicators to a drill's health in the hardpoint display and drill examine."
