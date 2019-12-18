@@ -138,7 +138,7 @@
 	for (var/i = 0 to num_bites_needed)
 		if(do_mob(src, victim, bite_delay*10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 			face_atom(victim)
-			victim.apply_damage(victim_maxhealth*PEPB,HALLOSS)
+			victim.apply_damage(victim_maxhealth*PEPB,PAIN)
 			victim.apply_damage(victim_maxhealth*PEPB*5,CLONE)
 			var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
 			if(S)

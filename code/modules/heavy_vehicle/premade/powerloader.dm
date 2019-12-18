@@ -16,7 +16,7 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#ffdc37"
 
-	body.armour = new /obj/item/robot_parts/robot_component/armour(src)
+	body.armor = new /obj/item/robot_parts/robot_component/armour(src)
 
 	. = ..()
 
@@ -65,7 +65,7 @@
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()
-	armour = new /obj/item/robot_parts/robot_component/armour(src)
+	armor = new /obj/item/robot_parts/robot_component/armour(src)
 
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
@@ -149,7 +149,7 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#849bc1"
 
-		body.armour = new /obj/item/robot_parts/robot_component/armour/combat(src)
+		body.mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
 
 	. = ..()
 
