@@ -1,6 +1,7 @@
 /mob/living/heavy_vehicle/premade/heavy
 	name = "Heavy exosuit"
 	desc = "A heavily armored combat exosuit."
+	icon_state = "durand"
 
 /mob/living/heavy_vehicle/premade/heavy/Initialize()
 	if(!arms)
@@ -67,7 +68,7 @@
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
 
 /obj/item/mech_component/chassis/superheavy
 	name = "reinforced exosuit chassis"
@@ -83,11 +84,12 @@
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
 	cell = new /obj/item/cell/super(src)
-	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
 
 /mob/living/heavy_vehicle/premade/superheavy
 	name = "Marauder"
 	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations."
+	icon_state = "darkgygax"
 
 /mob/living/heavy_vehicle/premade/superheavy/Initialize()
 	if(!arms)

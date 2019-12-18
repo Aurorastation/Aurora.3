@@ -41,12 +41,12 @@
 	grab_mod = 1.1
 
 	has_organ = list(
-		"nutrient channel"   = /obj/item/organ/diona/nutrients,
-		"neural strata"      = /obj/item/organ/diona/strata,
-		"response node"      = /obj/item/organ/diona/node,
-		"gas bladder"        = /obj/item/organ/diona/bladder,
-		"polyp segment"      = /obj/item/organ/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/diona/ligament
+		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
+		"neural strata"      = /obj/item/organ/internal/diona/strata,
+		"response node"      = /obj/item/organ/internal/diona/node,
+		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
+		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
+		"anchoring ligament" = /obj/item/organ/internal/diona/ligament
 	)
 
 	has_limbs = list(
@@ -163,3 +163,8 @@
 	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[3] = O.is_stump()
 	return current_flags
+
+/datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE

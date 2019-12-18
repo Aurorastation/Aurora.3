@@ -6,6 +6,7 @@
 	damage_type = BURN
 	check_armour = "laser"
 	eyeblur = 4
+	damage_flags = DAM_LASER
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
@@ -25,7 +26,16 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
+	damage = 35
+
+/obj/item/projectile/beam/pistol/hegemony
+	icon_state = "hegemony"
 	damage = 30
+	armor_penetration = 5
+ 
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
 	damage = 35

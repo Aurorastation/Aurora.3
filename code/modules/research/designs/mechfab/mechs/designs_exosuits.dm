@@ -56,7 +56,7 @@
 /datum/design/item/mechfab/exosuit/radproof_armour
 	name = "radiation-proof exosuit armour"
 	id = "mech_armour_radproof"
-	build_path = /obj/item/robot_parts/robot_component/armour/radproof
+	build_path = /obj/item/robot_parts/robot_component/armor/radproof
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500)
@@ -64,15 +64,15 @@
 /datum/design/item/mechfab/exosuit/em_armour
 	name = "EM-shielded exosuit armour"
 	id = "mech_armour_em"
-	build_path = /obj/item/robot_parts/robot_component/armour/em
+	build_path = /obj/item/robot_parts/robot_component/armor/em
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "silver" = 1000)
 
 /datum/design/item/mechfab/exosuit/combat_armour
-	name = "Combat exosuit armour"
+	name = "combat exosuit armor"
 	id = "mech_armour_combat"
-	build_path = /obj/item/robot_parts/robot_component/armour/combat
+	build_path = /obj/item/robot_parts/robot_component/armor/combat
 	time = 50
 	req_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "diamond" = 5000)
@@ -221,6 +221,13 @@
 	build_path = /obj/item/mech_component/propulsion/tracks
 	req_tech = list(TECH_MATERIAL = 4)
 
+/datum/design/item/mechfab/exosuit/sphere_body
+	name = "spherical chassis"
+	id = "sphere_body"
+	build_path = /obj/item/mech_component/chassis/pod
+	time = 50
+	materials = list(MATERIAL_STEEL = 18000)
+
 /datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"
 	id = "hydraulic_clamp"
@@ -278,7 +285,7 @@
 	time = 90
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, "phoron" = 25000, "steel" = 15000, "gold" = 15000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
-	build_path = /obj/item/mecha_equipment/mounted_system/rcd
+	build_path = /obj/item/mecha_equipment/mounted_system/rfd
 
 /datum/design/item/mechfab/exosuit/floodlight
 	name = "floodlight"

@@ -1726,7 +1726,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/firealarm/north,
 /obj/structure/table/wood,
-/obj/item/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Training Division 3";
 	dir = 8
@@ -5141,6 +5141,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/spray/luminol,
 /obj/machinery/light,
+/obj/item/storage/fancy/csi_markers,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
@@ -11135,6 +11136,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/item/storage/fancy/csi_markers,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "NQ" = (

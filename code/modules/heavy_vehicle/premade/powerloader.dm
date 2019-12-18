@@ -16,7 +16,7 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#ffdc37"
 
-	body.armour = new /obj/item/robot_parts/robot_component/armour(src)
+	body.armor = new /obj/item/robot_parts/robot_component/armour(src)
 
 	. = ..()
 
@@ -65,7 +65,7 @@
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()
-	armour = new /obj/item/robot_parts/robot_component/armour(src)
+	armor = new /obj/item/robot_parts/robot_component/armour(src)
 
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
@@ -87,16 +87,19 @@
 /mob/living/heavy_vehicle/premade/ripley/flames_red
 	name = "APLU \"Firestarter\""
 	desc = "An ancient but well-liked cargo handling exosuit. This one has cool red flames."
+	icon_state = "ripley_flames_red"
 	decal = "flames_red"
 
 /mob/living/heavy_vehicle/premade/ripley/flames_blue
 	name = "APLU \"Burning Chrome\""
 	desc = "An ancient but well-liked cargo handling exosuit. This one has cool blue flames."
+	icon_state = "ripley_flames_blue"
 	decal = "flames_blue"
 
 /mob/living/heavy_vehicle/premade/firefighter
 	name = "firefighting exosuit"
 	desc = "A mix and match of industrial parts designed to withstand fires."
+	icon_state = "firefighter"
 
 /mob/living/heavy_vehicle/premade/firefighter/Initialize()
 	if(!arms)
@@ -129,6 +132,8 @@
 /mob/living/heavy_vehicle/premade/combatripley
 	name = "combat APLU \"Ripley\""
 	desc = "A large APLU unit fitted with specialized composite armor and fancy, though old targeting systems."
+	icon_state = "combatripley"
+	decal = "ripley_legion"
 
 /mob/living/heavy_vehicle/premade/combatripley/Initialize()
 	if(!arms)
@@ -144,15 +149,16 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#849bc1"
 
-		body.armour = new /obj/item/robot_parts/robot_component/armour/combat(src)
+		body.mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
 
 	. = ..()
 
 /mob/living/heavy_vehicle/premade/combatripley/spawn_mech_equipment()
 	..()
-	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/taser/laser(src), HARDPOINT_RIGHT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/grenadeflash(src), HARDPOINT_RIGHT_SHOULDER)
+	install_system(new /obj/item/mecha_equipment/mounted_system/blaster(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/gauss(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/flarelauncher(src), HARDPOINT_RIGHT_SHOULDER)
+	install_system(new /obj/item/mecha_equipment/mounted_system/grenadesmoke(src), HARDPOINT_LEFT_SHOULDER)
 
 /obj/item/mech_component/sensors/combatripley
 	name = "exosuit sensors"

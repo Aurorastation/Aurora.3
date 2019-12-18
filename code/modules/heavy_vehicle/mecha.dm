@@ -7,6 +7,7 @@
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
+	var/decal
 
 	var/emp_damage = 0
 
@@ -17,8 +18,6 @@
 	var/obj/item/device/radio/exosuit/radio
 
 	var/wreckage_path = /obj/structure/mech_wreckage
-	var/mech_turn_sound = 'sound/mecha/mechturn.ogg'
-	var/mech_step_sound = 'sound/mecha/mechstep.ogg'
 
 	// Access updating/container.
 	var/obj/item/card/id/access_card
@@ -73,13 +72,11 @@
 		pilot.forceMove(get_turf(src))
 	pilots = null
 
-	for(var/thing in hud_elements)
-		qdel(thing)
-	hud_elements.Cut()
+	QDEL_NULL_LIST(hud_elements)
 
-	for(var/hardpoint in hardpoints)
-		qdel(hardpoints[hardpoint])
-	hardpoints.Cut()
+	hardpoint_hud_elements = null
+
+	hardpoints = null
 
 	QDEL_NULL(access_card)
 	QDEL_NULL(arms)
@@ -87,13 +84,7 @@
 	QDEL_NULL(head)
 	QDEL_NULL(body)
 
-	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
-		H.owner = null
-		H.holding = null
-		qdel(H)
-	hardpoint_hud_elements.Cut()
-	..()
+	. = ..()
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
 	return 1
@@ -109,9 +100,9 @@
 		to_chat(user, "It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			to_chat(user, "- [hardpoint]: [istype(I) ? "\the [I]" : "nothing"].")
+			to_chat(user, "- [hardpoint]: [istype(I) ? "[I]" : "nothing"].")
 	else
-		to_chat(user, "It no visible hardpoints:")
+		to_chat(user, "It has no visible hardpoints.")
 
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)

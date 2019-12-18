@@ -59,6 +59,7 @@
 	var/list/slime_mutation[4]
 
 	var/core_removal_stage = 0 //For removing cores.
+	var/toxloss = 0
 
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
@@ -121,6 +122,15 @@
 
 /mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
 	..()
+
+/mob/living/carbon/slime/getToxLoss()
+	return toxloss
+
+/mob/living/carbon/slime/adjustToxLoss(var/amount)
+	toxloss = Clamp(toxloss + amount, 0, maxHealth)
+
+/mob/living/carbon/slime/setToxLoss(var/amount)
+	adjustToxLoss(amount-getToxLoss())
 
 /mob/living/carbon/slime/movement_delay()
 	if (bodytemperature >= 330.23) // 135 F

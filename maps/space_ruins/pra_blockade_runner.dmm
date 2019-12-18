@@ -564,7 +564,9 @@
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
-/obj/machinery/light/small,
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "bG" = (
@@ -1102,8 +1104,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dB" = (
-/obj/machinery/power/smes,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dC" = (
@@ -1155,15 +1157,6 @@
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"dL" = (
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/terminal{
-	icon_state = "term";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dM" = (
@@ -32617,7 +32610,7 @@ ae
 ak
 ae
 dB
-dL
+dw
 dw
 ee
 en
