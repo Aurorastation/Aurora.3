@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Added indicators to a drill's health in the hardpoint display and drill examine."
+  - rscadd: "Clicking on a mech drill with a drillhead now attaches it, or replaces the previous drillhead."
