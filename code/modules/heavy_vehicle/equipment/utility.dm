@@ -259,21 +259,6 @@
 		return "Integrity: [round(drill_head.get_durability_percentage())]%"
 	return
 
-/obj/item/mecha_equipment/drill/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/material/drill_head))
-		var/obj/item/material/drill_head/DH = W
-		if(!user.unEquip(DH))
-			return
-		if(drill_head)
-			visible_message(span("notice", "\The [user] detaches the [drill_head] mounted on the [src]."))
-			drill_head.forceMove(get_turf(src))
-		DH.forceMove(src)
-		drill_head = DH
-		to_chat(user, span("notice", "You install \the [drill_head] in \the [src]."))
-		visible_message(span("notice", "\The [user] mounts the [drill_head] on the [src]."))
-		return
-	. = ..()
-
 /obj/item/mecha_equipment/drill/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
