@@ -217,6 +217,20 @@
 	desc = "A 5.56mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
 
+
+/obj/item/ammo_casing/mk43
+	desc = "A 5.43mm round."
+	caliber = "5.43mm"
+	projectile_type = /obj/item/projectile/bullet/rifle/mk43
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+
+/obj/item/ammo_casing/mk43/rubber
+	caliber = "5.43mm R"
+	projectile_type = /obj/item/projectile/bullet/rifle/mk43/rubber
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
 	desc = "A high explosive designed to be fired from a launcher."

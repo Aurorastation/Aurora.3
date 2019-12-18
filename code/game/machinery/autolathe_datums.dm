@@ -290,6 +290,17 @@
 	path = /obj/item/ammo_magazine/c38/rubber
 	category = "Arms and Ammunition"
 
+/datum/autolathe/recipe/magazine_543
+	name = "ammunition (5.43mm)"
+	path = /obj/item/ammo_magazine/mk43
+	hidden = 1
+	category = "Arms and Ammunition"
+
+/datum/autolathe/recipe/magazine_5mmr
+	name = "ammunition (5.43mm Rubber)"
+	path = /obj/item/ammo_magazine/mk43/rubber
+	category = "Arms and Ammunition"
+
 /datum/autolathe/recipe/consolescreen
 	name = "console screen"
 	path = /obj/item/stock_parts/console_screen
