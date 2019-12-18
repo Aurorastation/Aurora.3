@@ -16,7 +16,7 @@
 	var/list/pilot_positions
 	var/pilot_coverage = 100
 	var/transparent_cabin = FALSE
-	var/hide_pilot = FALSE
+	var/hide_pilot = TRUE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/chassis/update_components()
