@@ -22,11 +22,6 @@
 
 	return def_zone
 
-/mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
-	if(body.armour)
-		return isnull(body.armour.armor[type]) ? 0 : body.armour.armor[type]
-	return 0
-
 /mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
 		var/mob/living/pilot = pick(pilots)
@@ -34,8 +29,8 @@
 	. = ..()
 
 /mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
-	if(body && body.armour)
-		return isnull(body.armour.armor[type]) ? 0 : body.armour.armor[type]
+	if(body && body.mech_armor)
+		return isnull(body.mech_armor.armor[type]) ? 0 : body.mech_armor.armor[type]
 	return 0
 
 /mob/living/heavy_vehicle/updatehealth()
@@ -73,9 +68,9 @@
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage, target)
+			adjustBruteLoss(damage * BLOCKED_MULT(blocked), target)
 		if(BURN)
-			adjustFireLoss(damage, target)
+			adjustFireLoss(damage * BLOCKED_MULT(blocked), target)
 
 	if((damagetype == BRUTE || damagetype == BURN) && prob(25+(damage*2)))
 		spark(src, 3)
