@@ -178,6 +178,7 @@
 
 /obj/item/storage/fancy/tray
 	name = "surgery tray"
+	desc = "A tray of surgical tools."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "surgerytray"
 	use_sound = null

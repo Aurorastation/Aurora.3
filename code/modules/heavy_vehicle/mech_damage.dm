@@ -7,7 +7,7 @@
 		if(effect > 0 && effecttype == IRRADIATE)
 			var/mob/living/pilot = pick(pilots)
 			return pilot.apply_effect(effect, effecttype, blocked)
-	if(effecttype in list(AGONY, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN))
+	if(effecttype in list(PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN))
 		. = ..()
 
 /mob/living/heavy_vehicle/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone)
@@ -29,8 +29,8 @@
 	. = ..()
 
 /mob/living/heavy_vehicle/getarmor(var/def_zone, var/type)
-	if(body && body.armour)
-		return isnull(body.armour.armor[type]) ? 0 : body.armour.armor[type]
+	if(body && body.mech_armor)
+		return isnull(body.mech_armor.armor[type]) ? 0 : body.mech_armor.armor[type]
 	return 0
 
 /mob/living/heavy_vehicle/updatehealth()
@@ -60,7 +60,7 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/sharp = 0, var/edge = 0)
+/mob/living/heavy_vehicle/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/sharp = 0, var/edge = 0, var/damage_flags)
 	if(!damage)
 		return 0
 
@@ -68,9 +68,9 @@
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage, target)
+			adjustBruteLoss(damage * BLOCKED_MULT(blocked), target)
 		if(BURN)
-			adjustFireLoss(damage, target)
+			adjustFireLoss(damage * BLOCKED_MULT(blocked), target)
 
 	if((damagetype == BRUTE || damagetype == BURN) && prob(25+(damage*2)))
 		spark(src, 3)

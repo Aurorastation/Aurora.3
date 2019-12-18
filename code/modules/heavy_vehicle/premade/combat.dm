@@ -1,6 +1,7 @@
 /mob/living/heavy_vehicle/premade/combat
 	name = "combat exosuit"
 	desc = "A sleek, modern combat exosuit."
+	icon_state = "durand"
 
 /mob/living/heavy_vehicle/premade/combat/Initialize()
 	if(!arms)
@@ -65,7 +66,7 @@
 
 /obj/item/mech_component/chassis/combat/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
 
 /obj/item/mech_component/chassis/combat/Initialize()
 	pilot_positions = list(

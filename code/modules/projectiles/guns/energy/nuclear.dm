@@ -125,7 +125,7 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 5
+	max_shots = 7
 	fire_delay = 4
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam/pistol
@@ -141,4 +141,27 @@
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg')
+		)
+
+/obj/item/gun/energy/pistol/hegemony
+	name = "hegemony energy pistol"
+	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite"
+	icon_state = "hegemony_pistol"
+	item_state = "hegemony_pistol"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 10
+	fire_delay = 3
+	can_turret = FALSE
+	secondary_projectile_type = /obj/item/projectile/beam/pistol/hegemony
+	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	can_switch_modes = TRUE
+ 
+	projectile_type = /obj/item/projectile/beam/stun
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	modifystate = "hegemony_pistol"
+ 
+	firemodes = list(
+		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/Laser.ogg')
 		)

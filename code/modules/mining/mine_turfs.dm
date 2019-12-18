@@ -424,10 +424,12 @@ var/list/mineral_can_smooth_with = list(
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
+	if(prob(5))
+		findgem()
+
 	//Add some rubble,  you did just clear out a big chunk of rock.
-
 	ChangeTurf(mined_turf)
-
+	
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)

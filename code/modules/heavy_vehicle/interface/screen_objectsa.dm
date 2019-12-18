@@ -33,6 +33,11 @@
 	maptext_y = 3
 	maptext_width = 72
 
+/obj/screen/movable/mecha/hardpoint/Destroy()
+	owner = null
+	holding = null
+	. = ..()
+
 /obj/screen/movable/mecha/hardpoint/MouseDrop()
 	..()
 	if(holding) holding.screen_loc = screen_loc

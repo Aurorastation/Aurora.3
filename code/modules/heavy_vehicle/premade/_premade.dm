@@ -1,9 +1,12 @@
 /mob/living/heavy_vehicle/premade
 	name = "impossible mech"
 	desc = "It seems to be saying 'please let me die'."
-	var/decal
+	icon = 'icons/mecha/mecha.dmi'
+	icon_state = "ripley"
 
 /mob/living/heavy_vehicle/premade/Initialize()
+	icon = null
+	icon_state = null
 	if(arms)
 		arms.decal = decal
 		arms.prebuild()
@@ -18,8 +21,8 @@
 		body.prebuild()
 	if(!material)
 		material = get_material_by_name("steel")
+	update_icon()
 	. = ..()
-
 	spawn_mech_equipment()
 
 /mob/living/heavy_vehicle/premade/proc/spawn_mech_equipment()
@@ -138,6 +141,7 @@
 		var/bodytype = pick(typesof(/obj/item/mech_component/chassis)-/obj/item/mech_component/chassis)
 		body = new bodytype(src)
 		body.color = mech_colour ? mech_colour : pick(use_colours)
+	update_icon()
 	. = ..()
 
 /mob/living/heavy_vehicle/premade/random/normal

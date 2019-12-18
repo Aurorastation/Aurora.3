@@ -168,7 +168,7 @@
 /obj/item/projectile/beam/hivebot
 	name = "electrical discharge"
 	damage = 10
-	damage_type = HALLOSS
+	damage_type = PAIN
 	taser_effect = 1
 	agony = 40
 	armor_penetration = 40

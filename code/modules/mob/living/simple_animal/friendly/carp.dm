@@ -34,10 +34,16 @@
 	minbodytemp = 0
 
 	mob_size = 4
-	metabolic_factor = 0 // NEVER EAT HA HA HA - geeves
+	max_nutrition = 40
+	metabolic_factor = 0.2
+	bite_factor = 0.6 //Carp got big bites
+
+	stomach_size_mult = 3 //They're just baby
 
 	density = TRUE
 	pass_flags = PASSTABLE
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 	possession_candidate = TRUE
 

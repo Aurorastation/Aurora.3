@@ -2,6 +2,7 @@
 /mob/living/simple_animal/cat
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "cat2"
 	item_state = "cat2"
 	icon_living = "cat2"
@@ -32,6 +33,7 @@
 	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
+	canbrush = TRUE
 	possession_candidate = 1
 	emote_sounds = list('sound/effects/creatures/cat_meow.ogg', 'sound/effects/creatures/cat_meow2.ogg')
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
@@ -44,7 +46,6 @@
 			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first rat, reducing exploits
 				rattarget = snack
 				movement_target = snack
-				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
@@ -102,9 +103,6 @@
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one rat per proc
-
-/mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
 
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands

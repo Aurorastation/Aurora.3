@@ -37,10 +37,21 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 /mob/living/attackby(obj/item/I, mob/user)
 	if(!ismob(user))
-		return 0
-	if(can_operate(src) && do_surgery(src,user,I)) //Surgery
-		return 1
-	return I.attack(src, user, user.zone_sel.selecting)
+		return FALSE
+
+	var/operating = can_operate(src)
+	if(operating == SURGERY_SUCCESS)
+		if(do_surgery(src, user, I))
+			return TRUE
+		else
+			return I.attack(src, user, user.zone_sel.selecting) //This is necessary to make things like health analyzers work. -mattatlas
+	if(operating == SURGERY_FAIL)
+		if(do_surgery(src, user, I, TRUE))
+			return TRUE
+		else
+			return I.attack(src, user, user.zone_sel.selecting)
+	else
+		return I.attack(src, user, user.zone_sel.selecting)
 
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
