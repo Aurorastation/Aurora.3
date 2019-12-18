@@ -10,10 +10,6 @@
 
 /obj/screen/psi/hub/New(var/mob/living/_owner)
 	on_cooldown = image(icon, "cooldown")
-	components = list(
-		new /obj/screen/psi/armour(_owner),
-		new /obj/screen/psi/toggle_psi_menu(_owner, src)
-		)
 	..()
 	START_PROCESSING(SSprocessing, src)
 
