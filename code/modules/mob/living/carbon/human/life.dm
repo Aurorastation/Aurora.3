@@ -896,10 +896,10 @@
 				if(85 to INFINITY)
 					ovr = "brutedamageoverlay6"
 
-			if (last_brute_overlay != ovr)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				damageoverlay.add_overlay(ovr)
-				last_brute_overlay = ovr
+		if(last_brute_overlay != ovr)
+			damageoverlay.cut_overlay(last_brute_overlay)
+			damageoverlay.add_overlay(ovr)
+			last_brute_overlay = ovr
 
 		if(healths)
 			healths.overlays.Cut()
