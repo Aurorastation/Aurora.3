@@ -544,7 +544,7 @@ emp_act
 		return
 	user.put_in_active_hand(G)
 	G.synch()
-	LAssailant = user
+	LAssailant = WEAKREF(user)
 
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
