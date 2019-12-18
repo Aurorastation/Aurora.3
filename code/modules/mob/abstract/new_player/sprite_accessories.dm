@@ -2888,6 +2888,16 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
 		species_allowed = list("Bishop Accessory Frame")
 
+		bishop_mask
+			name = "Face Mask"
+			icon_state = "bishop_mask"
+			do_colouration = FALSE
+			body_parts = list(BP_HEAD)
+
+			bishop_triangular_mask
+				name = "Triangular Face Mask"
+				icon_state = "bishop_triangular_mask"
+
 /*
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
