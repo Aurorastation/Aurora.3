@@ -2200,7 +2200,6 @@
 #include "code\modules\psionics\complexus\complexus_latency.dm"
 #include "code\modules\psionics\complexus\complexus_power_cache.dm"
 #include "code\modules\psionics\complexus\complexus_process.dm"
-#include "code\modules\psionics\complexus\complexus_topic.dm"
 #include "code\modules\psionics\equipment\cerebro_enhancers.dm"
 #include "code\modules\psionics\equipment\psipower.dm"
 #include "code\modules\psionics\equipment\psipower_blade.dm"

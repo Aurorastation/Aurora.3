@@ -98,8 +98,8 @@ proc/admin_notice(var/message, var/rights)
 	if(isliving(M))
 		var/mob/living/psyker = M
 		if(psyker.psi)
-			body += "<a href='?src=\ref[psyker.psi];remove_psionics=1'>Remove psionics.</a><br/><br/>"
-			body += "<a href='?src=\ref[psyker.psi];trigger_psi_latencies=1'>Trigger latencies.</a><br/>"
+			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
+			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
 		body += "<table width = '100%'>"
 		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
 			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
