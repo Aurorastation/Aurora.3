@@ -26,7 +26,7 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
-	damage = 30
+	damage = 35
 
 /obj/item/projectile/beam/pistol/hegemony
 	icon_state = "hegemony"
