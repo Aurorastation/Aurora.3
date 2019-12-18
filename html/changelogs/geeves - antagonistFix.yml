@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Players with accounts too young to be antagonists now properly cannot select those roles. No more empty gamemodes."
