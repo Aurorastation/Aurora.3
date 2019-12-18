@@ -52,11 +52,6 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
-	inherent_verbs = list(
-	/mob/living/carbon/human/proc/commune,
-	/mob/living/carbon/human/proc/sonar_ping,
-	)
-
 	default_h_style = "Skrell Short Tentacles"
 
 	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
@@ -67,7 +62,7 @@
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	if(!H.psi)
 		H.psi = new(H)
-		H.set_psi_rank(PSI_COERCION, 1)
+		H.set_psi_rank(PSI_COERCION, 2)
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

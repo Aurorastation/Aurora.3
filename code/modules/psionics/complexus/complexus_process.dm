@@ -36,11 +36,9 @@
 			if(!ui)
 				ui = new(owner)
 				if(owner.client)
-					owner.client.screen += ui.components
 					owner.client.screen += ui
 			else
 				if(owner.client)
-					owner.client.screen |= ui.components
 					owner.client.screen |= ui
 			if(!suppressed && owner.client)
 				for(var/thing in SSpsi.all_aura_images)

@@ -2218,7 +2218,6 @@
 #include "code\modules\psionics\faculties\redaction.dm"
 #include "code\modules\psionics\interface\ui.dm"
 #include "code\modules\psionics\interface\ui_hub.dm"
-#include "code\modules\psionics\interface\ui_toggles.dm"
 #include "code\modules\psionics\mob\mob.dm"
 #include "code\modules\psionics\mob\mob_assay.dm"
 #include "code\modules\psionics\mob\mob_interactions.dm"

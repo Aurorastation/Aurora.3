@@ -44,8 +44,8 @@
 
 /datum/psionic_power/coercion/mindread
 	name =            "Read Mind"
-	cost =            6
-	cooldown =        80
+	cost =            25
+	cooldown =        250 //It should take a WHILE to be able to use this again.
 	use_melee =       TRUE
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Target the head on disarm intent at melee range to attempt to read a victim's surface thoughts."
@@ -154,7 +154,7 @@
 			return TRUE
 		to_chat(user, "<span class='danger'>You sear through \the [target]'s neurons, reshaping as you see fit and leaving them subservient to your will!</span>")
 		to_chat(target, "<span class='danger'>Your defenses have eroded away and \the [user] has made you their mindslave.</span>")
-		thralls.add_antagonist(targer)
+		thralls.add_antagonist(target)
 		return TRUE
 
 /datum/psionic_power/coercion/assay

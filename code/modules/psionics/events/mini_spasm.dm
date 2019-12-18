@@ -6,16 +6,19 @@
 		"Something is eating your thoughts!",
 		"You can feel your brain being rewritten!",
 		"Something is crawling over your frontal lobe!",
-		"<b>THE SIGNAL THE SIGNAL THE SIGNAL THE SIGNAL THE</b>"
+		"<b>THE SIGNAL THE SIGNAL THE SIGNAL THE SIGNAL THE</b>",
+		"Something is drilling through your skull!",
+		"Your head feels like it's going to implode!",
+		"Thousands of ants are tunneling in your head!"
 		)
 
 /datum/event/minispasm/announce()
 	command_announcement.Announce( \
-		"PRIORITY ALERT: SIGMA-[rand(50,80)] PSIONIC SIGNAL LOCAL TRAMISSION DETECTED (97% MATCH, NONVARIANT) \
-		(SIGNAL SOURCE TRIANGULATED ADJACENT LOCAL SITE): All personnel are advised to avoid \
+		"PRIORITY ALERT: SIGMA-[rand(50,80)] PSIONIC SIGNAL ORIONSPUR TRAMISSION DETECTED (97% MATCH, NONVARIANT) \
+		(SIGNAL SOURCE TRIANGULATED TO DISTANT SITE): All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
-		"*°?^ Sensor Array Automated Message", new_sound = 'sound/misc/announcements/security_level_old.ogg')
+		"Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/security_level_old.ogg')
 
 /datum/event/minispasm/start()
 	var/list/victims = list()
@@ -31,14 +34,6 @@
 
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
-
-	if(iscarbon(victim))
-		var/list/disabilities = list(NEARSIGHTED, EPILEPSY)
-		for(var/disability in disabilities)
-			if(victim.disabilities & disability)
-				disabilities -= disability
-		if(disabilities.len)
-			victim.disabilities |= pick(disabilities)
 
 	if(victim.psi)
 		to_chat(victim, span("danger", "A hauntingly familiar sound hisses from \icon[source] \the [source], and your vision flickers!"))
@@ -62,4 +57,4 @@
 /datum/event/minispasm/end()
 	command_announcement.Announce( \
 		"PRIORITY ALERT: SIGNAL BROADCAST HAS CEASED. Personnel are cleared to resume use of non-hardened radio transmission equipment. Have a nice day.", \
-		"°*?!^ Sensor Array Automated Message", new_sound = 'sound/misc/announcements/nightlight_old.ogg')
+		"Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/nightlight_old.ogg')
