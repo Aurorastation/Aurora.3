@@ -117,7 +117,7 @@
 			real_damage += G.punch_force
 			hit_dam_type = G.punch_damtype
 			if(A.pulling_punches)
-				hit_dam_type = AGONY
+				hit_dam_type = PAIN
 
 			if(G.sharp)
 				is_sharp = 1

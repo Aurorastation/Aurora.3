@@ -455,7 +455,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	if(O.force > resistance)
 		var/damage = O.force
-		if (O.damtype == HALLOSS)
+		if (O.damtype == PAIN)
 			damage = 0
 		if(supernatural && istype(O,/obj/item/nullrod))
 			damage *= 2
