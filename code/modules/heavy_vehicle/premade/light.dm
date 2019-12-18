@@ -76,7 +76,7 @@
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/radproof(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/radproof(src)
 
 /obj/item/mech_component/chassis/light/Initialize()
 	pilot_positions = list(
