@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed mecha hoverpod chassis using the wrong material."
-  - bugfix: "Fixed click and dragging causing weird behavior with drop pods."
