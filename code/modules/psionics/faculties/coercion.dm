@@ -185,7 +185,7 @@
 	cost =          10
 	cooldown =      80
 	use_grab =     TRUE
-	min_rank =      PSI_RANK_OPERANT
+	min_rank =      PSI_RANK_MASTER
 	use_description = "Grab a patient, target the mouth, then use the grab on them while on disarm intent, in order to cure ailments of the mind."
 
 /datum/psionic_power/coercion/focus/invoke(var/mob/living/user, var/mob/living/target)
