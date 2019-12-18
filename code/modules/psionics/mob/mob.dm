@@ -18,12 +18,3 @@
 	var/current_rank = psi.get_rank(faculty)
 	if(current_rank != rank && (!take_larger || current_rank < rank))
 		psi.set_rank(faculty, rank, defer_update, temporary)
-
-/mob/living/proc/deflect_psionic_attack(var/attacker)
-	var/blocked = 100 / rand(1,2) //TODOMATT
-	if(prob(blocked))
-		if(attacker)
-			to_chat(attacker, span("warning", "Your mental attack is deflected by \the [src]'s defenses!"))
-			to_chat(src, span("danger", "\The [attacker] strikes out with a mental attack, but you deflect it!"))
-		return TRUE
-	return FALSE

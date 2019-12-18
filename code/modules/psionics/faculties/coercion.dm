@@ -34,10 +34,6 @@
 		for(var/mob/living/M in orange(user, user.psi.get_rank(PSI_COERCION)))
 			if(M == user)
 				continue
-			var/blocked = 100 * rand(0.2, 0.3) //TODOMATT
-			if(prob(blocked))
-				to_chat(M, span("danger", "A psionic onslaught strikes your mind, but you withstand it!"))
-				continue
 			if(prob(60) && iscarbon(M))
 				var/mob/living/carbon/C = M
 				if(C.can_feel_pain())
@@ -142,7 +138,7 @@
 	use_description = "Grab a victim, target the eyes, then use the grab on them while on disarm intent, in order to convert them into a loyal mind-slave. The process takes some time, and failure is punished harshly."
 
 /datum/psionic_power/coercion/mindslave/invoke(var/mob/living/user, var/mob/living/target)
-	if(!istype(target) || user.zone_sel.selecting != BP_EYES) //TODOMATT: Thralls
+	if(!istype(target) || user.zone_sel.selecting != BP_EYES)
 		return FALSE
 	. = ..()
 	if(.)
