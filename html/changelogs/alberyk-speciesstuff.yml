@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Species job restrictions are now enforced in the occupation panel."
