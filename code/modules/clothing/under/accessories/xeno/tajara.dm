@@ -122,7 +122,7 @@
 	overlay_state = "pin-ala"
 	description_fluff = "The government of the DPRA seeks to dismantle the ethnic caste system present intajaran society. Instead of creating policies and using the force of the state \
 	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the tajara species. Local autonomy and regional \
-	cultures are protected by the authorities. Traditional zhan communities, rock nomads and amohdan lodges are allowed to thrive in the territories of the Democratic People’s Republic. \
+	cultures are protected by the authorities. Traditional zhan communities, rock nomads and amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
 	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
