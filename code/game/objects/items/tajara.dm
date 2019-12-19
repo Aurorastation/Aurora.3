@@ -19,7 +19,7 @@
 
 	switch(figure)
 
-		if("haddi")
+		if("hadii")
 			desc += " This one has the picture of President Njadrasanukii Hadii."
 			description_fluff = "Njadrasanukii Hadii was born in 2402 to the noble Njarir'Akhran Hadii line. He got involved with the military at an early age, becoming a cadet for the \
 			Royal Navy at 16. During the revolution, he briefly fought for the loyalists but was recalled to the Hadii Citadel to help defend his family's ancestral home. Following the \
