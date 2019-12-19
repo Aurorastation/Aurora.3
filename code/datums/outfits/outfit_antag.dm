@@ -35,8 +35,9 @@
 
 	var/obj/item/device/radio/uplink/U = H.r_store
 	if(istype(U))
-		U.hidden_uplink.uplink_owner = "[H.key]"
+		U.hidden_uplink.uplink_owner = H.mind
 		U.hidden_uplink.uses = uplink_uses
+		U.hidden_uplink.nanoui_menu = 1
 
 /datum/outfit/admin/syndicate/get_id_access()
 	return get_syndicate_access(id_access)
