@@ -72,7 +72,6 @@
 	uniform = /obj/item/clothing/under/tajaran/consular/dpra
 	head = /obj/item/clothing/head/tajaran/consular/dpra
 	backpack_contents = list(
-		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/storage/field_ration = 1
 	)
