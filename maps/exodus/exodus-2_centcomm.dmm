@@ -9189,7 +9189,7 @@
 /area/shuttle/escape/centcom)
 "aBk" = (
 /obj/machinery/optable,
-/obj/item/organ/stack,
+/obj/item/organ/internal/stack,
 /obj/effect/decal/cleanable/blood/xeno,
 /turf/unsimulated/floor{
 	icon_state = "asteroid"

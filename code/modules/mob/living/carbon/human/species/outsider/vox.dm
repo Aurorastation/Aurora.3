@@ -61,9 +61,10 @@
 		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
 		BP_LIVER =    /obj/item/organ/internal/liver/vox,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,
-		"stack" =    /obj/item/organ/stack/vox
+		"stack" =    /obj/item/organ/internal/stack/vox
 		)
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -86,68 +87,6 @@
 /datum/species/vox/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
-
-/datum/species/vox/get_station_variant()
-	return "Vox Pariah"
-
-// Joining as a station vox will give you this template, hence IS_RESTRICTED flag.
-/datum/species/vox/pariah
-	name = "Vox Pariah"
-	rarity_value = 0.1
-	speech_chance = 60        // No volume control.
-	siemens_coefficient = 0.5 // Ragged scaleless patches.
-
-	total_health = 80
-
-	fall_mod = 0.8
-
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws, /datum/unarmed_attack/bite)
-
-	// Pariahs have no stack.
-	has_organ = list(
-		BP_HEART =    /obj/item/organ/internal/heart/vox,
-		BP_LUNGS =    /obj/item/organ/internal/lungs/vox,
-		BP_LIVER =    /obj/item/organ/internal/liver/vox,
-		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/vox,
-		BP_BRAIN =    /obj/item/organ/pariah_brain,
-		BP_EYES =     /obj/item/organ/internal/eyes
-		)
-	spawn_flags = IS_RESTRICTED
-
-	stamina	=	60
-	sprint_speed_factor = 2
-	stamina_recovery = 0.5
-	sprint_cost_factor = 0.5
-
-// No combat skills for you.
-/datum/species/vox/pariah/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
-	return 0
-
-// Pariahs are really gross.
-/datum/species/vox/pariah/handle_environment_special(var/mob/living/carbon/human/H)
-	if(prob(5))
-		var/datum/gas_mixture/vox = H.loc.return_air()
-		var/stink_range = rand(3,5)
-		for(var/mob/living/M in range(H,stink_range))
-			if(M.stat || M == H || issilicon(M) || isbrain(M))
-				continue
-			var/datum/gas_mixture/mob_air = M.loc.return_air()
-			if(!vox || !mob_air || vox != mob_air)
-				continue
-			var/mob/living/carbon/human/target = M
-			if(istype(target))
-				if(target.internal)
-					continue
-				if(target.head && (target.head.body_parts_covered & FACE) && (target.head.flags & AIRTIGHT))
-					continue
-				if(target.wear_mask && (target.wear_mask.body_parts_covered & FACE) && (target.wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
-					continue
-				if(target.species.flags & NO_BREATHE)
-					continue
-			to_chat(M, "<span class='danger'>A terrible stench emanates from \the [H].</span>")
-
-/datum/species/vox/pariah/get_bodytype()
-	return "Vox"
 
 /datum/species/vox/armalis
 	name = "Vox Armalis"

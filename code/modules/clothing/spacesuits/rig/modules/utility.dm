@@ -176,9 +176,9 @@
 		list("dexalin plus",  "dexalinp",             0, 80),
 		list("antibiotics",   "thetamycin",          0, 80),
 		list("antivirals",    "deltamivir",           0, 80),
-		list("antitoxins",    "anti_toxin",           0, 80),
+		list("antitoxins",    "dylovene",           0, 80),
 		list("nutrients",     "glucose",              0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("saline",        "saline", 0, 80),
 		list("hyronalin",     "hyronalin",            0, 80),
 		list("radium",        "radium",               0, 80)
 		)
@@ -197,9 +197,9 @@
 		list("dexalin plus",  "dexalinp",      0, 20),
 		list("antibiotics",   "thetamycin",   0, 20),
 		list("antivirals",    "deltamivir",     0, 20),
-		list("antitoxins",    "anti_toxin",    0, 20),
+		list("antitoxins",    "dylovene",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("saline",        "saline", 0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -299,7 +299,7 @@
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
 		list("nutrients",     "glucose",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80)
+		list("saline",        "saline", 0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -316,9 +316,9 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("phoron",     "phoron",     0, 60),
-		list("kois",     "k'ois paste",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80)
+		list("phoron",        "phoron",     0, 60),
+		list("kois",          "k'ois paste",     0, 80),
+		list("saline",        "saline", 0, 80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -334,7 +334,7 @@
 
 	charges = list(
 		list("dexalin",   "dexalin",   0, 5),
-		list("inaprovaline",     "inaprovaline",     0, 5)
+		list("norepinephrine",     "norepinephrine",     0, 5)
 		)
 
 	interface_name = "chem dispenser"
@@ -364,7 +364,7 @@
 		list("tricordrazine",	"tricordrazine", 0, 40),
 		list("tramadol",	"tramadol",      0, 40),
 		list("dexalin",		"dexalin",      0, 40),
-		list("inaprovaline",	"inaprovaline",     0, 40)
+		list("norepinephrine",	"norepinephrine",     0, 40)
 		)
 
 /obj/item/rig_module/voice

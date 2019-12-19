@@ -27,6 +27,10 @@
 
 /* Internal procs */
 
+/datum/reagents/proc/apply_force(var/force) // applies force to the reagents inside it
+	for (var/datum/reagent/A in reagent_list)
+		A.apply_force(force)
+
 /datum/reagents/proc/get_free_space() // Returns free space.
 	return maximum_volume - total_volume
 
@@ -444,7 +448,7 @@
 			var/datum/reagents/R = C.reagents
 			return trans_to_holder(R, amount, multiplier, copy)
 		if(type == CHEM_INGEST)
-			var/datum/reagents/R = C.ingested
+			var/datum/reagents/R = C.get_ingested_reagents()
 			return C.ingest(src, R, amount, multiplier, copy)
 		if(type == CHEM_TOUCH)
 			var/datum/reagents/R = C.touching

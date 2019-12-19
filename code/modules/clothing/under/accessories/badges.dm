@@ -111,8 +111,6 @@
 	overlay_state = "holobadge"
 	var/emagged //Emagging removes Sec check.
 
-	drop_sound = 'sound/items/drop/rubber.ogg'
-
 /obj/item/clothing/accessory/badge/holo/cord
 	icon_state = "holobadge-cord"
 	overlay_state = null

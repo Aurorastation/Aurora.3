@@ -383,6 +383,19 @@
 		var/mob/living/silicon/robot/target = B
 		target.malfAImodule = 1
 	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
+	sleep(300) //Allows the AI to reset its borgs into combat units
+	to_chat(user, "Bypassing crisis module safeties.")
+	command_announcement.Announce("Brute force attack located in NTNet emergency crisis operations.", "Network Monitoring")
+	sleep(600)
+	command_announcement.Announce("Crisis operations bypassed. Firewall breached. NTNet compr0m1s3d#-.", "Network Monitoring")
+	if(user.is_dead()) // check if the AI is still alive
+		user.synthetic_takeover = 0
+		return
+	for(var/C in get_linked_cyborgs(src))
+		var/mob/living/silicon/robot/target = C
+		target.crisis = 1
+		to_chat(target, "<span class='warning'>Crisis mode is now active. Combat module available.</span>")
+	to_chat(user, "The crisis operation module is now hacked. Your connected units can now load the crisis module if a module reset is completed.")
 	sleep(300)
 	to_chat(user, "Synthetic takeover complete!")
 	user.synthetic_takeover = 2

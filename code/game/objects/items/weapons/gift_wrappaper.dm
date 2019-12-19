@@ -273,7 +273,6 @@
 		/obj/item/contraband/poster,
 		/obj/item/clothing/head/hardhat/red/atmos,
 		/mob/living/bot/cleanbot,
-		/obj/item/vaurca/box,
 		/obj/item/device/binoculars,
 		/obj/item/device/camera,
 		/obj/item/device/gps,
@@ -281,7 +280,6 @@
 		/obj/random/loot,
 		/obj/random/contraband,
 		/obj/item/autochisel,
-		/obj/item/melee/vaurca/rock,
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
@@ -328,7 +326,6 @@
 		/obj/item/tank/jetpack,
 		/obj/item/toy/plushie/drone,
 		/obj/item/toy/plushie/ivancarp,
-		/obj/item/grenade/spawnergrenade/vaurca,
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
 		/obj/item/ore/coal,
@@ -336,8 +333,6 @@
 		/mob/living/simple_animal/crab,
 		/mob/living/simple_animal/parrot,
 		/mob/living/simple_animal/hostile/commanded/dog/pug,
-		/obj/item/clothing/suit/space/void/vaurca,
-		/obj/item/clothing/head/helmet/space/void/vaurca,
 		/obj/item/target/alien)
 
 	var/atom/movable/I = new gift_type(get_turf(user))

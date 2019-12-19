@@ -51,6 +51,10 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 
+/datum/gear/cape/New()
+    ..()
+    gear_tweaks += gear_tweak_free_color_choice
+
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
 	description = "A selection of vaurca colored hive cloaks."

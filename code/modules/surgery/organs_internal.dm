@@ -37,23 +37,22 @@
 	return ..() && is_organ_damaged
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!hasorgans(target))
+		return
+
 	var/tool_name = "\the [tool]"
 	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		tool_name = "regenerative membrane"
 	else if(istype(tool, /obj/item/stack/medical/bruise_pack))
 		tool_name = "the bandaid"
-
-	if(!hasorgans(target))
-		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
-			if(I.robotic < 2)
-				user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
-				"You start treating damage to [target]'s [I.name] with [tool_name]." )
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
+			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 
-	target.custom_pain("The pain in your [affected.name] is living hell!",1)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
 
 /datum/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -67,16 +66,14 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I && I.damage > 0)
-			if(I.robotic < 2)
-				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
-					"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
-				var/organ_damage = I.damage
-				I.heal_damage(organ_damage)
-				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-				if(sponge && istype(I, sponge))
-					target.cure_all_traumas(cure_type = CURE_SURGERY)
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+			user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
+				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>" )
+			I.surgical_fix(user)
+			var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
+			if(sponge && istype(I, sponge))
+				target.cure_all_traumas(cure_type = CURE_SURGERY)
 
 /datum/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!hasorgans(target))
@@ -100,6 +97,7 @@
 			I.take_damage(dam_amt,0)
 
 /datum/surgery_step/internal/detach_organ
+	priority = 1
 	allowed_tools = list(
 	/obj/item/scalpel = 100,
 	/obj/item/material/knife = 75,
@@ -139,7 +137,7 @@
 
 	user.visible_message("[user] starts to separate [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start to separate [target]'s [target.op_stage.current_organ] with \the [tool]." )
-	target.custom_pain("The pain in your [affected.name] is living hell!",1)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
 
 /datum/surgery_step/internal/detach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -189,7 +187,7 @@
 /datum/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start removing [target]'s [target.op_stage.current_organ] with \the [tool].")
-	target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!",1)
+	target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!", 75)
 	..()
 
 /datum/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -275,7 +273,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
 		"You start transplanting \the [tool] into [target]'s [affected.name].")
-	target.custom_pain("Someone's rooting around in your [affected.name]!",1)
+	target.custom_pain("Someone's rooting around in your [affected.name]!", 75)
 	..()
 
 /datum/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -326,7 +324,7 @@
 /datum/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool].")
-	target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!",1)
+	target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!", 75)
 	..()
 
 /datum/surgery_step/internal/attach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -372,7 +370,7 @@
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
 	user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
 		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
-	target.custom_pain("Someone's scraping away at your [B]!",1)
+	target.custom_pain("Someone's scraping away at your [B]!", 75)
 	..()
 
 /datum/surgery_step/internal/lobotomize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
