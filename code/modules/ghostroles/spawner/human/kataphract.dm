@@ -25,7 +25,7 @@
 	name = "Kataphract-Hopeful Klaxan"
 	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi."
 	max_count = 1
-	uses_species_whitelist = FALSE
+	uses_species_whitelist = TRUE
 	req_species_whitelist = "Vaurca"
 
 	spawnpoints = list("kataphract_klax")
@@ -39,6 +39,8 @@
 	name = "Kataphract Knight"
 	desc = "Display honour in everything you do. Be an excellent person. Be a co-leader of the Kataphract Chapter, along with the other knight."
 	max_count = 2
+	uses_species_whitelist = TRUE
+	req_species_whitelist = "Unathi"
 
 	spawnpoints = list("kataphract_knight")
 
