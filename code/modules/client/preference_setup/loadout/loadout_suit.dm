@@ -28,6 +28,8 @@
 	jackets["flight jacket, white"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white
 	jackets["military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	jackets["military jacket, tan"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
+	jackets["old military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
+	jackets["old military jacket, badge"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red
 	jackets["flannel jacket, blue"] = /obj/item/clothing/suit/storage/toggle/flannel/blue

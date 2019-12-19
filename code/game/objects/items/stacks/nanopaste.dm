@@ -89,7 +89,7 @@
 		return 0
 
 	if (isipc(M))
-		var/obj/item/organ/surge/s = M.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = M.internal_organs_by_name["surge"]
 		if(isnull(s))
 			user.visible_message(
 			"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
@@ -99,7 +99,7 @@
 			if (!do_mob(user, M, 2))
 				return 0
 
-			s = new /obj/item/organ/surge()
+			s = new /obj/item/organ/internal/surge()
 			M.internal_organs += s
 			M.internal_organs_by_name["surge"] = s
 			user.visible_message(

@@ -74,7 +74,7 @@
 	var/armorpercent = 0
 	var/wasblocked = 0
 	var/shoulddisarm = 0
-	var/damagetype = HALLOSS
+	var/damagetype = PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
 	if(targetIsHuman && targetashuman == user)

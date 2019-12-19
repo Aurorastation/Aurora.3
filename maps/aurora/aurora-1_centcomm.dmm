@@ -6377,13 +6377,8 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "apu" = (
-/obj/structure/closet/wardrobe{
-	name = "vox apparel"
-	},
-/obj/item/clothing/under/vox/vox_robes,
-/obj/item/clothing/under/vox/vox_casual,
-/obj/random/voidsuit/vox,
-/obj/random/voidsuit/vox,
+/obj/structure/closet/gmcloset,
+/obj/random/backpack,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "apv" = (
@@ -13436,7 +13431,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/reagent_containers/food/snacks/soylenviridians,
+/obj/item/reagent_containers/food/snacks/soywafers,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -14395,7 +14390,7 @@
 /area/shuttle/escape/centcom)
 "aIh" = (
 /obj/machinery/optable,
-/obj/item/organ/stack,
+/obj/item/organ/internal/stack,
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/machinery/light/small{
 	dir = 1
@@ -14721,14 +14716,6 @@
 /obj/item/clothing/gloves/yellow/vox,
 /obj/item/clothing/suit/space/vox/stealth,
 /obj/item/clothing/head/helmet/space/vox/stealth,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership/raider_base)
-"aIW" = (
-/obj/item/tape/engineering{
-	icon_state = "engineering_v"
-	},
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
@@ -30002,8 +29989,8 @@
 	},
 /area/centcom/legion)
 "rqm" = (
-/obj/structure/mirror/merchant{
-	pixel_y = 28
+/obj/structure/mirror{
+	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
@@ -31342,11 +31329,8 @@
 	},
 /area/centcom/legion)
 "ueV" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
-/obj/item/tank/nitrogen,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
+/obj/structure/table/wood,
+/obj/random/plushie,
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "ugy" = (
@@ -36455,8 +36439,8 @@ aHj
 aGR
 aGg
 aFT
-aIW
-aIW
+aFT
+aFT
 aGz
 aGz
 aGz
@@ -36713,8 +36697,8 @@ aGh
 aGh
 aGg
 aGh
-aGh
 aFT
+aGz
 ahV
 ahV
 ahV
@@ -36971,7 +36955,7 @@ aGh
 aGh
 aGg
 aFT
-aFT
+aGz
 ahV
 aaM
 ald

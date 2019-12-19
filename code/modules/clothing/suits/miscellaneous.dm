@@ -331,6 +331,16 @@
 	icon_open = "mtan_open"
 	icon_closed = "mtan"
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
+	name = "old military jacket"
+	desc = "A canvas jacket styled after classical earth military garb. Feels sturdy, yet comfortable."
+	icon_state = "mold"
+	item_state = "mold"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
+	icon_state = "mold_alt"
+	item_state = "mold_alt"	
+
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"

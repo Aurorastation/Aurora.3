@@ -105,7 +105,7 @@
 	name = "Appendix"
 	description = "Chef Gibb of %BOSSNAME wants to prepare a traditional Unathi meal using a very special delicacy: an appendix. If you ship one, he'll pay."
 	reward = 3000
-	wanted_types = list(/obj/item/organ/appendix)
+	wanted_types = list(/obj/item/organ/internal/appendix)
 
 /datum/bounty/item/assistant/shard
 	name = "Shards"

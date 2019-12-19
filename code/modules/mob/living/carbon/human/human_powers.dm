@@ -154,11 +154,6 @@ mob/living/carbon/human/proc/change_monitor()
 
 	T.Weaken(3)
 
-	// Pariahs are not good at leaping. This is snowflakey, pls fix.
-	if(species.name == "Vox Pariah")
-		src.Weaken(5)
-		return TRUE
-
 	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
