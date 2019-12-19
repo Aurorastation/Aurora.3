@@ -880,8 +880,8 @@
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
+		var/ovr
 		if(hurtdamage)
-			var/ovr
 			switch(hurtdamage)
 				if(10 to 25)
 					ovr = "brutedamageoverlay1"

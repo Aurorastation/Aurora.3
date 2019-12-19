@@ -211,3 +211,119 @@
 			var/mob/living/carbon/M = target
 			M.hallucination = max(M.hallucination, 10)
 		return TRUE
+
+/datum/psionic_power/coercion/commune
+	name =           "Commune"
+	cost =           10
+	cooldown =       80
+	use_melee =      TRUE
+	use_ranged =     TRUE
+	min_rank =       PSI_RANK_OPERANT
+	use_description = "Target the mouth and click on a creature on disarm intent to psionically send them a message."
+
+/datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
+	if(user.zone_sel.selecting != "mouth")
+		return FALSE
+	. = ..()
+	if(.)
+		user.visible_message("<i><span class='notice'>[user] touches their fingers to their temple.</span></i>")
+		var/text = input("What would you like to say?", "Speak to creature", null, null)
+		text = sanitize(text)
+
+		if(!text)
+			return
+
+		if(target.stat == DEAD)
+			to_chat(user,"<span class='cult'>Not even a psion of your level can speak to the dead.</span>")
+			return
+
+		if (target.isSynthetic())
+			to_chat(user,"<span class='warning'>This can only be used on living organisms.</span>")
+			return
+
+		if (target.is_diona())
+			to_chat(user,"<span class='alium'>The creature's mind is incompatible, formless.</span>")
+			return
+
+		if (isvaurca(target))
+			to_chat (user, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
+			return
+
+		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+
+		for (var/mob/M in player_list)
+			if (istype(M, /mob/abstract/new_player))
+				continue
+			else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
+				to_chat(M,"<span class='notice'>[user] psionically says to [target]:</span> [text]")
+
+		var/mob/living/carbon/human/H = target
+		if (target.can_commune())
+			to_chat(H,"<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
+		else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
+			to_chat(H,"<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")
+		else
+			to_chat(H,"<b>You feel something crawl behind your eyes, hearing:</b> [text]")
+			if(istype(H))
+				if (H.can_commune())
+					return
+				if(prob(10) && !(H.species.flags & NO_BLOOD))
+					to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
+					H.drip(3)
+				else if(prob(25) && (H.can_feel_pain()))
+					to_chat(H,"<span class='warning'>Your head hurts...</span>")
+				else if(prob(50))
+					to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
+
+/datum/psionic_power/coercion/psiping
+	name =           "Psi-ping"
+	cost =           30
+	cooldown =       250
+	min_rank =       PSI_RANK_OPERANT
+	use_description = "Activate an empty hand on disarm intent to detect nearby psionic signatures."
+
+/datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
+	if((target && user != target))
+		return FALSE
+	. = ..()
+	if(.)
+		to_chat(user, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
+		var/list/dirs = list()
+		for(var/mob/living/L in range(20))
+			var/turf/T = get_turf(L)
+			if(!T || L == user || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
+				continue
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = user)
+			ping_image.plane = LIGHTING_LAYER+1
+			ping_image.layer = LIGHTING_LAYER+1
+			ping_image.pixel_x = (T.x - user.x) * WORLD_ICON_SIZE
+			ping_image.pixel_y = (T.y - user.y) * WORLD_ICON_SIZE
+			user << ping_image
+			addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
+			var/direction = num2text(get_dir(user, L))
+			var/dist
+			if(text2num(direction))
+				switch(get_dist(user, L) / user.client.view)
+					if(0 to 0.2)
+						dist = "very close"
+					if(0.2 to 0.4)
+						dist = "close"
+					if(0.4 to 0.6)
+						dist = "a little ways away"
+					if(0.6 to 0.8)
+						dist = "farther away"
+					else
+						dist = "far away"
+			else
+				dist = "on top of you"
+			LAZYINITLIST(dirs[direction])
+			dirs[direction][dist] += 1
+		for(var/d in dirs)
+			var/list/feedback = list()
+			for(var/dst in dirs[d])
+				feedback += "[dirs[d][dst]] psionic signature\s [dst],"
+			if(feedback.len > 1)
+				feedback[feedback.len - 1] += " and"
+			to_chat(user, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
+		if(!length(dirs))
+			to_chat(user, span("notice", "You detect no psionic signatures but your own."))
