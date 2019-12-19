@@ -262,9 +262,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(blocked)
 			to_chat(H, span("warning", "\The [blocked] is in the way!"))
 			return 1
-		H.visible_message(span("warning", "[H.name] takes a drag of their [name]."))
-		playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
-		return 1
+		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
+			last_drag = world.time
+			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
+			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
+			reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
+			return 1
 	return ..()
 
 /obj/item/clothing/mask/smokable/cigarette/afterattack(obj/item/reagent_containers/glass/glass, mob/user as mob, proximity)
