@@ -1296,13 +1296,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/bed/chair/comfy/beige,
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "cH" = (
 /obj/structure/sign/flag/hegemony/left{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "cI" = (
 /obj/structure/sign/flag/hegemony/right{
@@ -1341,31 +1342,17 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "cO" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10;
-	icon_state = "wall3"
+/obj/structure/table/rack,
+/obj/item/storage/secure/briefcase/money{
+	name = "Secure Briefcase";
+	req_one_access = "112"
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 4
+/obj/item/storage/secure/briefcase/money{
+	name = "Secure Briefcase";
+	req_one_access = "112"
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/office)
 "cP" = (
 /turf/simulated/wall,
 /area/kataphract_chapter/sparring_chamber)
@@ -1381,8 +1368,12 @@
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "cT" = (
-/obj/structure/table/wood,
-/obj/structure/table/wood,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/bed/chair/wood{
+	dir = 1
+	},
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "cU" = (
@@ -1396,16 +1387,10 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "cW" = (
-/obj/machinery/button/remote/airlock{
-	id = "katavault";
-	name = "Door Bolt Control";
-	pixel_x = 25;
-	pixel_y = 0;
-	req_access = null;
-	specialfunctions = 4
-	},
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/office)
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/commissary)
 "cX" = (
 /obj/machinery/light{
 	dir = 8
@@ -1599,29 +1584,42 @@
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "du" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/carpet,
 /area/kataphract_chapter/office)
 "dv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/office)
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/commissary)
 "dw" = (
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 10;
 	icon_state = "wall3"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+/obj/effect/floor_decal/corner/red{
+	dir = 4
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/office)
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "dx" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/wood,
@@ -1827,13 +1825,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "dR" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/armor/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/gloves/yellow/specialu,
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/commissary)
+/turf/simulated/wall/shuttle/dark/corner{
+	dir = 10;
+	icon_state = "wall3"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/office)
 "dS" = (
 /obj/structure/closet,
 /obj/item/clothing/suit/armor/unathi/klax,
@@ -1861,6 +1863,43 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "dV" = (
+/obj/structure/closet,
+/obj/item/clothing/head/helmet/space/void/kataphract,
+/obj/item/clothing/head/helmet/space/void/kataphract,
+/obj/item/clothing/head/helmet/space/void/kataphract,
+/obj/item/clothing/head/helmet/space/void/kataphract,
+/obj/item/clothing/suit/space/void/kataphract,
+/obj/item/clothing/suit/space/void/kataphract,
+/obj/item/clothing/suit/space/void/kataphract,
+/obj/item/clothing/suit/space/void/kataphract,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/commissary)
+"dW" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/carpet,
+/area/kataphract_chapter/office)
+"dX" = (
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/carpet,
+/area/kataphract_chapter/office)
+"dY" = (
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 10;
 	icon_state = "wall3"
@@ -1887,24 +1926,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"dW" = (
-/obj/machinery/firealarm/west,
-/turf/simulated/floor/carpet,
-/area/kataphract_chapter/office)
-"dX" = (
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "south bump";
-	pixel_y = -24
+"dZ" = (
+/obj/structure/bed/chair/comfy/beige{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -24;
+	req_one_access = list(24,11,55)
 	},
-/obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
-"dY" = (
+"ea" = (
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 10;
 	icon_state = "wall3"
@@ -1932,27 +1965,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"dZ" = (
-/obj/structure/bed/chair/comfy/beige{
-	dir = 8
-	},
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -24;
-	req_one_access = list(24,11,55)
-	},
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/office)
-"ea" = (
-/obj/structure/table/rack,
-/obj/item/storage/secure/briefcase/money{
-	name = "Secure Briefcase"
-	},
-/obj/item/storage/secure/briefcase/money{
-	name = "Secure Briefcase"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/office)
 "eb" = (
 /obj/structure/table/rack,
 /obj/random/highvalue,
@@ -2257,22 +2269,36 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/commissary)
 "eJ" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/armor/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/shoes/caligae/armor,
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/commissary)
+/turf/simulated/wall/shuttle/dark/corner{
+	dir = 10;
+	icon_state = "wall3"
+	},
+/obj/machinery/door/airlock{
+	name = "Chapter Toilets";
+	req_one_access = "112"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/kataphract_chapter/toilets)
 "eK" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/armor/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/shoes/caligae/armor,
+/turf/simulated/wall/shuttle/dark/corner{
+	dir = 10;
+	icon_state = "wall3"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/commissary)
+/area/kataphract_chapter/sparring_chamber)
 "eL" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
@@ -2455,20 +2481,13 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
-/obj/machinery/door/airlock{
-	name = "Chapter Toilets";
-	req_one_access = "112"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/freezer,
-/area/kataphract_chapter/toilets)
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/commissary)
 "eX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
@@ -2484,13 +2503,20 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
+/obj/machinery/door/airlock/silver{
+	id_tag = "kataofficedoor";
+	name = "Knight's office";
+	req_one_access = "112"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/sparring_chamber)
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/office)
 "eZ" = (
 /obj/machinery/door/window{
 	dir = 8;
@@ -2612,13 +2638,30 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/commissary)
+/area/kataphract_chapter/main_ring)
 "fl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 4
@@ -2790,24 +2833,16 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "fw" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10;
-	icon_state = "wall3"
-	},
-/obj/machinery/door/airlock/silver{
-	id_tag = "kataofficedoor";
-	name = "Guildmaster's Office";
-	req_one_access = "112"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/office)
+/obj/structure/closet,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/gloves/yellow/specialu,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/commissary)
 "fx" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2934,34 +2969,15 @@
 /turf/simulated/wall,
 /area/kataphract_chapter/dorms)
 "fL" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10;
-	icon_state = "wall3"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/obj/structure/closet,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/shoes/caligae/armor,
+/obj/item/clothing/suit/armor/unathi,
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/commissary)
 "fM" = (
 /obj/machinery/door/airlock{
 	name = "Chapter Dormitory";
@@ -3038,16 +3054,13 @@
 /turf/simulated/wall,
 /area/kataphract_chapter/cafeteria)
 "fX" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10;
-	icon_state = "wall3"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/button/remote/airlock{
+	id = "katavault";
+	name = "Door Bolt Control";
+	pixel_x = 0;
+	pixel_y = 25;
+	req_access = null;
+	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3125,33 +3138,12 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3258,17 +3250,36 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	icon_state = "map_scrubber_on";
+/obj/effect/floor_decal/corner/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/kataphract_chapter/sparring_chamber)
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "gt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -3476,35 +3487,17 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	icon_state = "map_scrubber_on";
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/sparring_chamber)
 "gS" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/red{
@@ -3739,12 +3732,16 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3936,19 +3933,31 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
-/obj/machinery/door/airlock{
-	name = "Chapter Dormitory";
-	req_one_access = "112"
+/obj/effect/floor_decal/corner/red{
+	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/dorms)
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "hZ" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/yellow{
@@ -4094,6 +4103,24 @@
 	dir = 10;
 	icon_state = "wall3"
 	},
+/obj/machinery/door/airlock{
+	name = "Chapter Dormitory";
+	req_one_access = "112"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
+"ip" = (
+/turf/simulated/wall/shuttle/dark/corner{
+	dir = 10;
+	icon_state = "wall3"
+	},
 /obj/machinery/door/airlock/glass{
 	name = "Chapter Cafeteria";
 	req_one_access = "112"
@@ -4108,33 +4135,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
-"ip" = (
-/turf/simulated/wall/shuttle/dark/corner{
-	dir = 10;
-	icon_state = "wall3"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "iq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4328,10 +4328,10 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -5445,6 +5445,33 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kE" = (
+/turf/simulated/wall/shuttle/dark/corner{
+	dir = 10;
+	icon_state = "wall3"
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"kF" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -5455,46 +5482,27 @@
 	name = "Suit Storage";
 	req_one_access = "112"
 	},
-/obj/item/clothing/suit/space/void/kataphract,
-/obj/item/clothing/head/helmet/space/void/kataphract,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/engineering)
-"kF" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced,
-/obj/machinery/door/window{
-	dir = 1;
-	name = "Suit Storage";
-	req_one_access = "112"
-	},
-/obj/item/clothing/suit/space/void/kataphract,
-/obj/item/clothing/head/helmet/space/void/kataphract,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/magboots,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kG" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
 /obj/machinery/door/window{
 	dir = 1;
 	name = "Suit Storage";
 	req_one_access = "112"
 	},
-/obj/item/clothing/suit/space/void/kataphract,
-/obj/item/clothing/head/helmet/space/void/kataphract,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/shoes/magboots,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kH" = (
@@ -5768,9 +5776,24 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lo" = (
-/obj/structure/closet,
-/turf/simulated/floor/wood,
-/area/kataphract_chapter/trading_area)
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Suit Storage";
+	req_one_access = "112"
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/shoes/magboots,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/engineering)
 "lp" = (
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -6474,6 +6497,18 @@
 	dir = 1
 	},
 /obj/machinery/merchant_pad,
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/trading_area)
+"mP" = (
+/obj/structure/closet,
+/obj/item/storage/secure/briefcase/money{
+	name = "Secure Briefcase";
+	req_one_access = "112"
+	},
+/obj/item/storage/secure/briefcase/money{
+	name = "Secure Briefcase";
+	req_one_access = "112"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "mQ" = (
@@ -32332,11 +32367,11 @@ cz
 cy
 cZ
 dA
-eW
+eJ
 ce
 eT
 ce
-hY
+io
 gd
 gE
 he
@@ -34385,17 +34420,17 @@ ab
 cg
 co
 cC
-cO
+dw
 cC
-dV
+dY
 cC
-fL
-gh
-hv
+fk
+gs
+hY
 cC
-ip
+iH
 cC
-cO
+dw
 cC
 ht
 fI
@@ -35177,7 +35212,7 @@ iD
 iY
 jy
 kh
-kE
+kF
 ia
 ks
 kt
@@ -35416,9 +35451,9 @@ cf
 cP
 dg
 dI
-eY
-eY
-gs
+eK
+eK
+gR
 fA
 ek
 ek
@@ -35434,7 +35469,7 @@ iE
 iZ
 jz
 ki
-kF
+kG
 ia
 ks
 kt
@@ -35691,7 +35726,7 @@ iF
 ja
 jA
 kj
-kG
+lo
 ia
 ks
 ks
@@ -37472,7 +37507,7 @@ cf
 cQ
 dn
 dN
-fk
+eW
 eG
 fd
 fD
@@ -38524,7 +38559,7 @@ cm
 cm
 kv
 la
-lo
+mP
 lp
 ly
 lY
@@ -38755,10 +38790,10 @@ cf
 cp
 cf
 cR
+cW
+dV
 dq
-dR
-dq
-eJ
+fw
 fh
 fF
 fU
@@ -39012,10 +39047,10 @@ cf
 cp
 cf
 cR
-dq
+dv
 dS
 dq
-eK
+fL
 fi
 fG
 fV
@@ -40039,17 +40074,17 @@ ab
 cg
 ct
 cC
-cO
+dw
 cC
-dY
-cC
-cC
-gR
+ea
 cC
 cC
-iH
+hv
 cC
-cO
+cC
+kE
+cC
+dw
 cC
 hw
 fI
@@ -41067,7 +41102,7 @@ aa
 jg
 cu
 cF
-cT
+cE
 dt
 ds
 er
@@ -41324,8 +41359,8 @@ aa
 jg
 cu
 cG
-cU
-du
+cE
+cT
 ds
 es
 cf
@@ -41581,8 +41616,8 @@ aa
 jg
 cu
 cH
-cJ
-dv
+cU
+du
 dX
 cu
 cg
@@ -41839,13 +41874,13 @@ jg
 cu
 cI
 cV
-dw
+dR
 et
-fw
-fX
+eY
+gh
 fn
-fX
-io
+gh
+ip
 gy
 gW
 hj
@@ -42095,7 +42130,7 @@ aa
 jg
 cu
 cJ
-cW
+cJ
 dx
 dZ
 cu
@@ -42351,7 +42386,7 @@ aa
 aa
 jg
 cv
-cK
+cv
 cv
 cv
 cv
@@ -42608,11 +42643,11 @@ aa
 aa
 jg
 cv
-cL
+cO
 cX
 cL
-ea
-cv
+cL
+cK
 ch
 fp
 cD
@@ -42865,12 +42900,12 @@ aa
 aa
 jg
 cv
-cL
-cL
-cL
 eb
+cL
+cL
+cL
 cv
-cf
+fX
 fq
 cf
 fW
