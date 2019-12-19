@@ -374,6 +374,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
+	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 60
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana/Initialize()
@@ -389,6 +390,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigar2off"
 	icon_on = "cigar2on"
 	icon_off = "cigar2off"
+	type_butt = /obj/item/trash/cigbutt/cigarbutt/alt
 	chem_volume = 120
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba/Initialize()
@@ -419,6 +421,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A manky old cigar butt."
 	icon_state = "cigarbutt"
 
+/obj/item/trash/cigbutt/cigarbutt/alt
+	icon_state = "cigarbutt2"
+
 /obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	user.update_inv_wear_mask(0)
@@ -429,7 +434,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "sausage"
 	desc = "A piece of mixed, long meat, with a smoky scent."
 	icon_state = "sausageoff"
-	item_state = "cigaroff"
+	item_state = "sausageoff"
 	icon_on = "sausageon"
 	type_butt = /obj/item/trash/cigbutt/sausagebutt
 	chem_volume = 6

@@ -252,7 +252,7 @@
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
-	storage_slots = 7
+	storage_slots = 8
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
 	icon_type = "cigar"
 

@@ -82,6 +82,7 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilters_generic"
 	item_state = "cigpacket"
+	w_class = 2
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
 
