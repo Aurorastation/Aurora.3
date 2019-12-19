@@ -37,9 +37,6 @@
 	//Check if we're on fire
 	handle_fire()
 
-	//stuff in the stomach
-	handle_stomach()
-
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
@@ -77,10 +74,6 @@
 
 /mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 	return
-
-// Defined in devour.dm
-// /mob/living/proc/handle_stomach()
-// 	return
 
 /mob/living/proc/update_pulling()
 	if(pulling)

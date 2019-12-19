@@ -170,7 +170,7 @@
 	last_hit_zone = target_zone
 
 	switch(target_zone)
-		if("mouth")
+		if(BP_MOUTH)
 			if(announce)
 				user.visible_message("<span class='warning'>\The [user] covers [target]'s face!</span>")
 			if(target.silent < 3)

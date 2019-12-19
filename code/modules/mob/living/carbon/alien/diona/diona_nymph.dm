@@ -46,6 +46,11 @@
 	var/echo = 0 //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
 
+	var/datum/reagents/metabolism/ingested
+
+/mob/living/carbon/alien/diona/get_ingested_reagents()
+	return ingested
+
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
 		for(var/mob/living/carbon/alien/diona/D in birds_of_feather)
@@ -256,7 +261,6 @@
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/grow)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/merge)
 		verbs.Remove(/mob/living/carbon/proc/absorb_nymph)
-		verbs.Remove(/mob/living/proc/devour)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/sample)
 	else
 		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs) && !detached)
@@ -267,9 +271,6 @@
 
 		if (!(/mob/living/carbon/alien/diona/proc/grow in verbs))
 			verbs.Add(/mob/living/carbon/alien/diona/proc/grow)
-
-		if (!(/mob/living/proc/devour in verbs))
-			verbs.Add(/mob/living/proc/devour)
 
 		if (!(/mob/living/proc/ventcrawl in verbs))
 			verbs.Add(/mob/living/proc/ventcrawl)
