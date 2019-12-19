@@ -148,3 +148,21 @@
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+
+/obj/item/clothing/under/tajaran/consular
+	name = "people's republic consular uniform"
+	desc = "An olive uniform used by the diplomatic service of the People's Republic of Adhomai."
+	icon_state = "pra_consular"
+	item_state = "pra_consular"
+
+/obj/item/clothing/under/tajaran/consular/dpra
+	name = "democratic people's republic consular uniform"
+	desc = "A grey uniform used by the diplomatic service of the Democratic People's Republic of Adhomai."
+	icon_state = "dpra_consular"
+	item_state = "dpra_consular"
+
+/obj/item/clothing/under/tajaran/consular/nka
+	name = "royal consular uniform"
+	desc = "A blue uniform used by the diplomatic service of the New Kingdom of Adhomai."
+	icon_state = "nka_consular"
+	item_state = "nka_consular"

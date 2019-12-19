@@ -85,3 +85,56 @@
 	contained_sprite = TRUE
 	description_fluff = "Tajara under the worship of Ma'ta'ke have a less celebratory and less ritualistic wedding ceremony, instead having a simple meeting between families with a \
 	clergyman to proclaim the lovers \"Zrrazhil Ekrratul\" (Continuation of the families), named for the simple notion of propagating the blood of the families involved."
+
+/obj/item/clothing/accessory/badge/hadii_card
+	name = "honorary party member card"
+	desc = "A card denoting a honorary member of the Hadiist party."
+	icon_state = "hadii-id"
+	overlay_state = "hadii-id"
+	slot_flags = SLOT_TIE
+	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
+	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
+	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
+	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
+	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	w_class = 1
+
+	drop_sound = 'sound/items/drop/card.ogg'
+
+/obj/item/clothing/accessory/hadii_pin
+	name = "hadiist party pin"
+	desc = "A small, red flag pin worn by members of the Hadiist party."
+	icon_state = "hadii-pin"
+	item_state = "hadii-pin"
+	overlay_state = "hadii-pin"
+	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
+	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
+	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
+	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+
+/obj/item/clothing/accessory/dpra_pin
+	name = "almariist pin"
+	desc = "A small, black flag pin worn by government officials of the Democratic People's Republic of Adhomai."
+	icon_state = "pin-ala"
+	item_state = "pin-ala"
+	overlay_state = "pin-ala"
+	description_fluff = "The government of the DPRA seeks to dismantle the ethnic caste system present intajaran society. Instead of creating policies and using the force of the state \
+	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the tajara species. Local autonomy and regional \
+	cultures are protected by the authorities. Traditional zhan communities, rock nomads and amohdan lodges are allowed to thrive in the territories of the Democratic People’s Republic. \
+	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+
+/obj/item/clothing/accessory/nka_pin
+	name = "diplomatic service order"
+	desc = "A medal issued to the diplomats and consular officers under the service of the New Kingdom of Adhomai."
+	icon_state = "pin-nka"
+	item_state = "pin-nka"
+	overlay_state = "pin-nka"
+	description_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the tajaran caste system, those divisions are seen as a natural \
+	part of the adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each tajara will attempt to stay in \
+	their customary roles related to their ethnicity."
+	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'

@@ -710,19 +710,6 @@
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
 
-/obj/item/clothing/accessory/hadii_pin
-	name = "hadiist party pin"
-	desc = "A small, red flag pin worn by members of the Hadiist party."
-	icon_state = "hadii-pin"
-	item_state = "hadii-pin"
-	overlay_state = "hadii-pin"
-	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
-	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
-	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
-	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	flippable = 1
-	drop_sound = 'sound/items/drop/ring.ogg'
-
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."

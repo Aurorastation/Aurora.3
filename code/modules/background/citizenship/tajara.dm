@@ -28,8 +28,8 @@
 /datum/outfit/job/representative/consular/pra
 	name = "PRA Consular Officer"
 
-	uniform = /obj/item/clothing/under/suit_jacket/checkered
-	head = /obj/item/clothing/head/fedora
+	uniform = /obj/item/clothing/under/tajaran/consular
+	head = /obj/item/clothing/head/tajaran/consular
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_card = 1,
 		/obj/item/storage/box/hadii_manifesto = 1,
@@ -66,13 +66,13 @@
 /datum/outfit/job/representative/consular/dpra
 	name = "DPRA Consular Officer"
 
-	uniform = /obj/item/clothing/under/suit_jacket/checkered
-	head = /obj/item/clothing/head/fedora
+	uniform = /obj/item/clothing/under/tajaran/consular/dpra
+	head = /obj/item/clothing/head/tajaran/consular/dpra
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1
 	)
-	accessory = /obj/item/clothing/accessory/hadii_pin
+	accessory = /obj/item/clothing/accessory/dpra_pin
 
 /datum/citizenship/nka
 	name = CITIZENSHIP_NKA
@@ -104,10 +104,10 @@
 /datum/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
 
-	uniform = /obj/item/clothing/under/suit_jacket/checkered
-	head = /obj/item/clothing/head/fedora
+	uniform = /obj/item/clothing/under/tajaran/consular/nka
+	head = /obj/item/clothing/head/tajaran/consular/nka
 	backpack_contents = list(
 		/obj/item/folder/blue/nka = 1,
 		/obj/item/gun/projectile/revolver/adhomian = 1
 	)
-	accessory = /obj/item/clothing/accessory/hadii_pin
+	accessory = /obj/item/clothing/accessory/nka_pin

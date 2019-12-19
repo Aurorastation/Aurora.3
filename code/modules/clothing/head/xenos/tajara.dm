@@ -64,6 +64,23 @@
 	icon_state = "nkahat"
 	item_state = "nkahat"
 
+/obj/item/clothing/head/tajaran/consular
+	name = "consular service cap"
+	desc = "A service cap worn by the diplomatic service of the People's Republic of Adhomai."
+	icon_state = "pra_consularhat"
+	item_state = "pra_consularhat"
+
+/obj/item/clothing/head/tajaran/consular/dpra
+	desc = "A service cap worn by the diplomatic service of the Democratic People's Republic of Adhomai."
+	icon_state = "dpra_consularhat"
+	item_state = "dpra_consularhat"
+
+/obj/item/clothing/head/tajaran/consular/nka
+	name = "royal consular hat"
+	desc = "A fancy hat worn by the diplomatic service of the New Kingdom of Adhomai."
+	icon_state = "nka_consularhat"
+	item_state = "nka_consularhat"
+
 /obj/item/clothing/head/helmet/tajara
 	name = "amohdan swordsmen helmet"
 	desc = "A helmet used by the traditional warriors of Amohda."
