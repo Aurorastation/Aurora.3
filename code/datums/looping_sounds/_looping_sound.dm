@@ -15,6 +15,8 @@
 	direct			(bool)					If true plays directly to provided atoms instead of from them
 */
 
+#define TIMER_LOOP				(1<<5)
+
 /datum/looping_sound
 	var/list/atom/output_atoms
 	var/mid_sounds

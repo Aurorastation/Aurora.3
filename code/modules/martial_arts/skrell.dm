@@ -1,4 +1,5 @@
 #define PAINFUL_PALM "DDH"
+#define SKRELL_LEG_SWEEP "DHD"
 #define DISLOCATING_STRIKE "HDDD"
 
 /datum/martial_art/karak_virul
@@ -6,15 +7,15 @@
 	help_verb = /datum/martial_art/karak_virul/proc/karak_virul_help
 
 /datum/martial_art/karak_virul/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	if(findtext(streak,PAINFUL_PALM))
+	if(findtext(streak, PAINFUL_PALM))
 		streak = ""
 		painful_palm(A,D)
 		return 1
-	if(findtext(streak,LEG_SWEEP))
+	if(findtext(streak, SKRELL_LEG_SWEEP))
 		streak = ""
 		leg_sweep(A,D)
 		return 1
-	if(findtext(streak,DISLOCATING_STRIKE))
+	if(findtext(streak, DISLOCATING_STRIKE))
 		streak = ""
 		dislocating_strike(A,D)
 		return 1
