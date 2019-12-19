@@ -36,7 +36,6 @@
 	artery_name = "iliac artery"
 	dislocated = -1
 	gendered_icon = 1
-	maim_bonus = 0.25
 
 /obj/item/organ/external/arm
 	limb_name = "l_arm"
@@ -95,7 +94,7 @@
 	limb_name = "l_foot"
 	name = "left foot"
 	icon_name = "l_foot"
-	max_damage = 30
+	max_damage = 35
 	min_broken_damage = 15
 	w_class = 2
 	body_part = FOOT_LEFT
@@ -125,7 +124,7 @@
 	limb_name = "l_hand"
 	name = "left hand"
 	icon_name = "l_hand"
-	max_damage = 30
+	max_damage = 35
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
@@ -170,7 +169,6 @@
 	gendered_icon = 1
 	encased = "skull"
 	var/can_intake_reagents = 1
-	maim_bonus = 0.33
 
 /obj/item/organ/external/head/removed()
 	if(owner)

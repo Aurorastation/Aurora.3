@@ -378,39 +378,31 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if(!cannot_amputate && config.limbs_can_break && (brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
+		if(!cannot_amputate && config.limbs_can_break)
 
-			var/brute_armor_value = 0
-			var/burn_armor_value = 0
-			var/edge_eligible = 0
-			var/maim_bonus = 0
+			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
 
-			var/mob/living/carbon/human/H
-			if(istype(owner,/mob/living/carbon/human))
-				H = owner
-				brute_armor_value = H.getarmor_organ(src, "melee")
-				burn_armor_value = H.getarmor_organ(src, "burn")
+				var/edge_eligible = 0
+				var/maim_bonus = 0
 
-			if(istype(used_weapon,/obj/item))
-				var/obj/item/W = used_weapon
-				if(isprojectile(W))
-					var/obj/item/projectile/P = W
-					brute_armor_value = H.getarmor_organ(src, "bullet")
-					maim_bonus += P.maim_rate
-				else if(W.w_class >= w_class && edge)
+				if(istype(used_weapon,/obj/item))
+					var/obj/item/W = used_weapon
+					if(isprojectile(W))
+						var/obj/item/projectile/P = W
+						maim_bonus += P.maim_rate
+					else if(W.w_class >= w_class && edge)
+						edge_eligible = 1
+				else if(edge)
 					edge_eligible = 1
-			else if(edge)
-				edge_eligible = 1
 
-			if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_EDGE)
-			else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && burn >= burn_armor_value)
-				droplimb(0, DROPLIMB_BURN)
-			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_BLUNT)
-			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_EDGE)
-
+				if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+					droplimb(0, DROPLIMB_EDGE)
+				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+					droplimb(0, DROPLIMB_BURN)
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+					droplimb(0, DROPLIMB_BLUNT)
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
+					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)
 	if(status & ORGAN_ROBOT && !robo_repair)
