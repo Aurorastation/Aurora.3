@@ -334,8 +334,8 @@ var/list/global/organ_rel_size = list(
 
 proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -1230,3 +1230,6 @@ proc/is_blind(A)
 	result[2] = ainvis
 
 	return result
+
+/mob/proc/remove_blood_simple(var/blood)
+	return

@@ -164,20 +164,20 @@
 			visible_message("<span class='notice'>[assailant] tried to grab [target] but they have no hair!</span>")
 		if(1)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname] before releasing their grip!</span>")
-			target.apply_damage(5, HALLOSS)
+			target.apply_damage(5, PAIN)
 		if(2)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
-			target.apply_damage(5, HALLOSS)
+			target.apply_damage(5, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(3)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
-			target.apply_damage(10, HALLOSS)
+			target.apply_damage(10, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(4)
 			visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!</span>")
-			target.apply_damage(15, HALLOSS)
+			target.apply_damage(15, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(5)
@@ -186,7 +186,7 @@
 				src.state = GRAB_PASSIVE
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(10, HALLOSS)
+				target.apply_damage(10, PAIN)
 				src.state = GRAB_AGGRESSIVE
 
 		if(6)
@@ -196,5 +196,5 @@
 				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(15, HALLOSS)
+				target.apply_damage(15, PAIN)
 				src.state = GRAB_AGGRESSIVE

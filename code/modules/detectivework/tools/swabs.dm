@@ -5,6 +5,7 @@
 	var/gsr = 0
 	var/list/dna
 	var/used
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/forensics/swab/proc/is_used()
 	return used

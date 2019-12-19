@@ -18,8 +18,6 @@
 	var/obj/item/device/radio/exosuit/radio
 
 	var/wreckage_path = /obj/structure/mech_wreckage
-	var/mech_turn_sound = 'sound/mecha/mechturn.ogg'
-	var/mech_step_sound = 'sound/mecha/mechstep.ogg'
 
 	// Access updating/container.
 	var/obj/item/card/id/access_card
@@ -74,13 +72,11 @@
 		pilot.forceMove(get_turf(src))
 	pilots = null
 
-	for(var/thing in hud_elements)
-		qdel(thing)
-	hud_elements.Cut()
+	QDEL_NULL_LIST(hud_elements)
 
-	for(var/hardpoint in hardpoints)
-		qdel(hardpoints[hardpoint])
-	hardpoints.Cut()
+	hardpoint_hud_elements = null
+
+	hardpoints = null
 
 	QDEL_NULL(access_card)
 	QDEL_NULL(arms)
@@ -88,13 +84,7 @@
 	QDEL_NULL(head)
 	QDEL_NULL(body)
 
-	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
-		H.owner = null
-		H.holding = null
-		qdel(H)
-	hardpoint_hud_elements.Cut()
-	..()
+	. = ..()
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
 	return 1

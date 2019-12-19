@@ -398,7 +398,7 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(damagetype != BRUTE && damagetype != BURN)
-		if(!stat && damagetype == HALLOSS && (can_feel_pain()))
+		if(!stat && damagetype == PAIN && (can_feel_pain()))
 			if ((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 
@@ -464,3 +464,7 @@ This function restores all organs.
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.6
 	return max(0,traumatic_shock)
+
+/mob/living/carbon/human/remove_blood_simple(var/blood)
+	if(should_have_organ(BP_HEART))
+		vessel.remove_reagent("blood", blood)

@@ -28,7 +28,7 @@
 	bloodstr.clear_reagents()
 	touching.clear_reagents()
 	var/datum/reagents/R = get_ingested_reagents()
-	if(istype(R)) 
+	if(istype(R))
 		R.clear_reagents()
 	breathing.clear_reagents()
 	..()
@@ -205,11 +205,6 @@
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
 				var/burndamage = org.burn_dam
-				if(getHalLoss() > 0)
-					if(prob(30))
-						brutedamage += getHalLoss()
-					if(prob(30))
-						burndamage += getHalLoss()
 				switch(brutedamage)
 					if(1 to 20)
 						status += "bruised"
@@ -239,9 +234,9 @@
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(status.len)
-					src.show_message("My [org.name] is <span class='warning'> [english_list(status)].</span>",1)
+					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
 				else
-					src.show_message("My [org.name] is <span class='notice'> OK.</span>",1)
+					src.show_message("My [org.name] is <span class='notice'>OK.</span>",1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
