@@ -207,7 +207,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/get_brain_status(var/span = TRUE)
+/mob/living/carbon/human/proc/get_brain_status()
 	var/brain_result
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
@@ -218,25 +218,16 @@
 	else
 		brain_result = -1
 
-	if(span)
-		switch(brain_result)
+	switch(brain_result)
 		if(0)
-			brain_result = "none, patient is braindead"
+			brain_result = "<span class='bad'>none, patient is braindead</span>"
 		if(-1)
-			brain_result = "ERROR - Nonstandard biology"
+			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
 		else
-			brain_result = "[brain_result]%"
-	else
-		switch(brain_result)
-			if(0)
-				brain_result = "<span class='bad'>none, patient is braindead</span>"
-			if(-1)
-				brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
+			if(brain_result <= 50)
+				brain_result = "<span class='bad'>[brain_result]%</span>"
+			else if(brain_result <= 80)
+				brain_result = "<span class='average'>[brain_result]%</span>"
 			else
-				if(brain_result <= 50)
-					brain_result = "<span class='bad'>[brain_result]%</span>"
-				else if(brain_result <= 80)
-					brain_result = "<span class='average'>[brain_result]%</span>"
-				else
-					brain_result = "[brain_result]%"
+				brain_result = "[brain_result]%"
 	return brain_result
