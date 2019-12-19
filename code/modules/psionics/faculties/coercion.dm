@@ -279,8 +279,9 @@
 	name =           "Psi-ping"
 	cost =           30
 	cooldown =       250
+	use_melee =      TRUE
 	min_rank =       PSI_RANK_OPERANT
-	use_description = "Activate an empty hand on disarm intent to detect nearby psionic signatures."
+	use_description = "Click on yourself with an empty hand on disarm intent to detect nearby psionic signatures."
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target))
@@ -288,6 +289,8 @@
 	. = ..()
 	if(.)
 		to_chat(user, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
+		if(!do_after(user, 3 SECONDS))
+			return
 		var/list/dirs = list()
 		for(var/mob/living/L in range(20))
 			var/turf/T = get_turf(L)
