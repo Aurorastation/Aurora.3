@@ -28,6 +28,7 @@
 /datum/outfit/job/representative/consular/pra
 	name = "PRA Consular Officer"
 
+	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular
 	head = /obj/item/clothing/head/tajaran/consular
 	backpack_contents = list(
@@ -66,6 +67,7 @@
 /datum/outfit/job/representative/consular/dpra
 	name = "DPRA Consular Officer"
 
+	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular/dpra
 	head = /obj/item/clothing/head/tajaran/consular/dpra
 	backpack_contents = list(
@@ -104,6 +106,7 @@
 /datum/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
 
+	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular/nka
 	head = /obj/item/clothing/head/tajaran/consular/nka
 	backpack_contents = list(
