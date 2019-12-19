@@ -195,15 +195,15 @@
 	base_turf = /turf/space
 
 /area/kataphract_chapter/bridge
-	name = "\improper Chapter Bridge"
+	name = "\improper Kataphract Chapter - Bridge"
 	icon_state = "bridge"
 
 /area/kataphract_chapter/sparring_chamber
-	name = "\improper Chapter Sparring Chamber"
+	name = "\improper Kataphract Chapter - Sparring Chamber"
 	icon_state = "security"
 
 /area/kataphract_chapter/commissary
-	name = "\improper Chapter Commissary"
+	name = "\improper Kataphract Chapter - Commissary"
 	icon_state = "Warden"
 
 /area/kataphract_chapter/main_ring
@@ -211,23 +211,23 @@
 	icon_state = "yellow"
 
 /area/kataphract_chapter/dorms
-	name = "\improper Chapter Dorms"
+	name = "\improper Kataphract Chapter - Dorms"
 	icon_state = "Sleep"
 
 /area/kataphract_chapter/toilets
-	name = "\improper Chapter Toilets"
+	name = "\improper Kataphract Chapter - Toilets"
 	icon_state = "toilet"
 
 /area/kataphract_chapter/office
-	name = "\improper Guildmasters Office"
+	name = "\improper Kataphract Chapter - Knight's Office"
 	icon_state = "law"
 
 /area/kataphract_chapter/cafeteria
-	name = "\improper Chapter Cafeteria"
+	name = "\improper Kataphract Chapter - Cafeteria"
 	icon_state = "kitchen"
 
 /area/kataphract_chapter/engineering
-	name = "\improper Chapter Engineering"
+	name = "\improper Kataphract Chapter - Engineering"
 	icon_state = "engineering_workshop"
 
 /area/kataphract_chapter/port_solars
@@ -243,7 +243,7 @@
 	icon_state = "quartoffice"
 
 /area/kataphract_chapter/warehouse
-	name = "\improper Chapter Warehouse"
+	name = "\improper Kataphract Chapter - Warehouse"
 	icon_state = "quartstorage"
 
 /area/kataphract_chapter/hangar
