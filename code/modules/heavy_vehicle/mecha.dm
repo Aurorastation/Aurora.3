@@ -96,10 +96,10 @@
 	to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
 		if(length(pilots) == 0)
-			to_chat(user, "It is being piloted by nobody.")
+			to_chat(user, "It has no pilot.")
 		else
 			for(var/pilot in pilots)
-				if(istype(pilot, /mob/))
+				if(istype(pilot, /mob))
 					var/mob/M = pilot
 					to_chat(user, "It is being piloted by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>.")
 				else
