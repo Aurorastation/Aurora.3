@@ -226,6 +226,34 @@
 	name = "\improper Chapter Cafeteria"
 	icon_state = "kitchen"
 
+/area/kataphract_chapter/engineering
+	name = "\improper Chapter Engineering"
+	icon_state = "engineering_workshop"
+
+/area/kataphract_chapter/port_solars
+	name = "\improper Kataphract Chapter - Port Solars"
+	icon_state = "panelsA"
+
+/area/kataphract_chapter/starboard_solars
+	name = "\improper Kataphract Chapter - Starboard Solars"
+	icon_state = "panelsA"
+
+/area/kataphract_chapter/trading_area
+	name = "\improper Kataphract Chapter - Trading Area"
+	icon_state = "quartoffice"
+
+/area/kataphract_chapter/warehouse
+	name = "\improper Chapter Warehouse"
+	icon_state = "quartstorage"
+
+/area/kataphract_chapter/hangar
+	name = "\improper Kataphract Chapter - Hangar"
+	icon_state = "green"
+
+/area/kataphract_chapter/hull
+	name = "\improper Kataphract Chapter - Hull"
+	icon_state = "blue"
+
 /area/skipjack_station
 	name = "\improper Skipjack"
 	icon_state = "yellow"
