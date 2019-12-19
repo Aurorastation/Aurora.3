@@ -542,7 +542,7 @@
 
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
-		"brain_activity" = brain_result,
+		"brain_activity" = H.brain_result,
 		"virus_present" = H.virus2.len,
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
