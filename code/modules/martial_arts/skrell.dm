@@ -1,5 +1,4 @@
 #define PAINFUL_PALM "DDH"
-#define LEG_SWEEP "DHD"
 #define DISLOCATING_STRIKE "HDDD"
 
 /datum/martial_art/karak_virul

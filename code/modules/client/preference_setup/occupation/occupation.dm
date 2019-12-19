@@ -1,7 +1,3 @@
-//used for pref.alternate_option
-#define BE_ASSISTANT 0
-#define RETURN_TO_LOBBY 1
-
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
 	sort_order = 1
