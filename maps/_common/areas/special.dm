@@ -186,6 +186,46 @@
 	no_light_control = 1
 	centcomm_area = 1
 
+/area/kataphract_chapter
+	name = "\improper Kataphract Chapter"
+	icon_state = "yellow"
+	requires_power = 1
+	dynamic_lighting = 1
+	no_light_control = 0
+	base_turf = /turf/space
+
+/area/kataphract_chapter/bridge
+	name = "\improper Chapter Bridge"
+	icon_state = "bridge"
+
+/area/kataphract_chapter/sparring_chamber
+	name = "\improper Chapter Sparring Chamber"
+	icon_state = "security"
+
+/area/kataphract_chapter/commissary
+	name = "\improper Chapter Commissary"
+	icon_state = "Warden"
+
+/area/kataphract_chapter/main_ring
+	name = "\improper Kataphract Chapter - Main Ring"
+	icon_state = "yellow"
+
+/area/kataphract_chapter/dorms
+	name = "\improper Chapter Dorms"
+	icon_state = "Sleep"
+
+/area/kataphract_chapter/toilets
+	name = "\improper Chapter Toilets"
+	icon_state = "toilet"
+
+/area/kataphract_chapter/office
+	name = "\improper Guildmasters Office"
+	icon_state = "law"
+
+/area/kataphract_chapter/cafeteria
+	name = "\improper Chapter Cafeteria"
+	icon_state = "kitchen"
+
 /area/skipjack_station
 	name = "\improper Skipjack"
 	icon_state = "yellow"
