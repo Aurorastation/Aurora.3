@@ -5775,16 +5775,7 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lq" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	is_critical = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/machinery/light{
-	dir = 1
-	},
+/obj/item/modular_computer/console/preset/merchant,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
 "lr" = (
@@ -6471,6 +6462,20 @@
 /obj/effect/engine_exhaust,
 /turf/space,
 /area/kataphract_chapter/hull)
+"mO" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	is_critical = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/merchant_pad,
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/trading_area)
 "mQ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
@@ -38776,7 +38781,7 @@ jg
 cm
 kv
 la
-lp
+lq
 lu
 lQ
 lZ
@@ -39033,7 +39038,7 @@ jg
 cm
 kv
 la
-lq
+mO
 lp
 lR
 ma
