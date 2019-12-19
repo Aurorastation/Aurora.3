@@ -446,7 +446,7 @@
 
 /obj/item/storage/belt/shumaila_buckle
 	name = "hammer buckle belt"
-	desc = "A leather belt adorned by a hammer shaped, worn by priesthood and worshippers of Shumaila."
+	desc = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "hammerbelt"
 	item_state = "hammerbelt"
