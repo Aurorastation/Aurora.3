@@ -27,7 +27,7 @@
 	exosuit_desc_string = "super-heavy reinforced manipulators"
 	icon_state = "heavy_arms"
 	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
-	melee_damage = 25
+	melee_damage = 35
 	action_delay = 15
 	max_damage = 90
 	power_use = 7500

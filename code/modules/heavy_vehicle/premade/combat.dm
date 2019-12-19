@@ -28,7 +28,7 @@
 	name = "combat arms"
 	exosuit_desc_string = "flexible, advanced manipulators"
 	icon_state = "combat_arms"
-	melee_damage = 5
+	melee_damage = 30
 	action_delay = 10
 	power_use = 5000
 
