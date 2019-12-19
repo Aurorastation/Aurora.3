@@ -14,12 +14,10 @@
 		build_click(src, client.buildmode, params, A)
 		return
 
-	if(control_disabled || stat) return
+	if(control_disabled || stat)
+		return
 
-	if(ismob(A))
-		ai_actual_track(A)
-	else
-		A.move_camera_by_click()
+	A.move_camera_by_click()
 
 
 /mob/living/silicon/ai/ClickOn(var/atom/A, params)

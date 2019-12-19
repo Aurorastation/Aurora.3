@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "The AI can no longer track people at all. Nor jump to their position when they say something."
+  - tweak: "Tweaked how jobnames appear to AI to be a bit better."

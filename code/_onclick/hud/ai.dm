@@ -4,7 +4,6 @@
 	adding = list(
 		new /obj/screen/ai/core,
 		new /obj/screen/ai/camera_list,
-		new /obj/screen/ai/camera_track,
 		new /obj/screen/ai/camera_light,
 		new /obj/screen/ai/crew_monitoring,
 		new /obj/screen/ai/crew_manifest,

@@ -131,8 +131,6 @@
 	if(hard_to_hear)
 		speaker_name = "unknown"
 
-	var/changed_voice
-
 	if(istype(src, /mob/living/silicon/ai) && !hard_to_hear)
 		var/jobname // the mob's "job"
 		var/mob/living/carbon/human/impersonating //The crew member being impersonated, if any.
@@ -141,7 +139,6 @@
 			var/mob/living/carbon/human/H = speaker
 
 			if(H.wear_mask && istype(H.wear_mask,/obj/item/clothing/mask/gas/voice))
-				changed_voice = 1
 				var/list/impersonated = new()
 				var/mob/living/carbon/human/I = impersonated[speaker_name]
 
@@ -163,23 +160,17 @@
 				jobname = H.get_assignment()
 
 		else if (iscarbon(speaker)) // Nonhuman carbon mob
-			jobname = "No id"
+			jobname = "No ID"
 		else if (isAI(speaker))
 			jobname = "AI"
 		else if (isrobot(speaker))
-			jobname = "Cyborg"
+			jobname = "Stationbound"
 		else if (istype(speaker, /mob/living/silicon/pai))
 			jobname = "Personal AI"
 		else
 			jobname = "Unknown"
 
-		if(changed_voice)
-			if(impersonating)
-				track = "<a href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[impersonating]'>[speaker_name] ([jobname])</a>"
-			else
-				track = "[speaker_name] ([jobname])"
-		else
-			track = "<a href='byond://?src=\ref[src];trackname=[html_encode(speaker_name)];track=\ref[speaker]'>[speaker_name] ([jobname])</a>"
+		track = "[speaker_name] ([jobname])"
 
 	if(istype(src, /mob/abstract/observer))
 		if(speaker != null)
