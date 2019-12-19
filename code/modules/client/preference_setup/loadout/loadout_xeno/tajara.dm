@@ -176,7 +176,7 @@
 
 /datum/gear/gloves/shumalia_belt
 	display_name = "hammer buckle belt"
-	description = "A leather belt adorned by a hammer shaped, worn by priesthood and worshippers of Shumaila."
+	description = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
 	path = /obj/item/storage/belt/shumaila_buckle
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"

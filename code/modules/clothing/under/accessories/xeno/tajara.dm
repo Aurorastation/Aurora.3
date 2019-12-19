@@ -5,11 +5,11 @@
 	icon_state = "furscarf_brown"
 	item_state = "furscarf_brown"
 	contained_sprite = TRUE
-	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old. Furs, linen, hemp, silk and other such fabrics were traded for \
+	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
-	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
-	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
-	and colorful dress wearing \"Flapper\" variety of clothing."
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effectove and cheap \
+	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	and colorful dress wearing \"Flapper\" variety of clothing.""
 
 /obj/item/clothing/accessory/tajaran/lbrown
 	desc = "A furred scarf, a common tajaran vanity item, this one is light brown."
@@ -108,9 +108,9 @@
 	item_state = "hadii-pin"
 	overlay_state = "hadii-pin"
 	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
-	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
+	They follow Hadiism as their main ideology, with the objective of securing the Tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
-	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
+	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
 
@@ -120,9 +120,9 @@
 	icon_state = "pin-ala"
 	item_state = "pin-ala"
 	overlay_state = "pin-ala"
-	description_fluff = "The government of the DPRA seeks to dismantle the ethnic caste system present intajaran society. Instead of creating policies and using the force of the state \
-	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the tajara species. Local autonomy and regional \
-	cultures are protected by the authorities. Traditional zhan communities, rock nomads and amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
+	description_fluff = "The government of the DPRA seeks to dismantle the ethnic caste system present in Tajaran society. Instead of creating policies and using the force of the state \
+	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the Tajara species. Local autonomy and regional \
+	cultures are protected by the authorities. Traditional Zhan communities, rock nomads and Amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
 	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -133,8 +133,8 @@
 	icon_state = "pin-nka"
 	item_state = "pin-nka"
 	overlay_state = "pin-nka"
-	description_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the tajaran caste system, those divisions are seen as a natural \
-	part of the adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each tajara will attempt to stay in \
+	description_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
+	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
 	their customary roles related to their ethnicity."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
