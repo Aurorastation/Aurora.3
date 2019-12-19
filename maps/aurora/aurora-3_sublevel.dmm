@@ -11083,11 +11083,11 @@
 /area/outpost/research/hallway)
 "awZ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
-/obj/item/clothing/gloves/latex,
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_storage)
 "axa" = (
@@ -11703,7 +11703,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/storage/belt/archaeology,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/gloves/latex,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /turf/simulated/floor/tiled/dark,
@@ -11907,7 +11907,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/storage/belt/archaeology,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/gloves/latex,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /turf/simulated/floor/tiled/dark,
@@ -12262,7 +12262,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/storage/belt/archaeology,
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/gloves/latex,
+/obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/head/helmet/space/void/sci,
 /turf/simulated/floor/tiled/dark,
@@ -15605,11 +15605,11 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
-/obj/item/clothing/gloves/latex,
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "aFP" = (
@@ -21716,6 +21716,8 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSM" = (
@@ -22304,6 +22306,8 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aUE" = (
@@ -30823,6 +30827,8 @@
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/storage/box/samplebags,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "jQd" = (
@@ -32142,6 +32148,8 @@
 	c_tag = "Research Sublevel - EVA Preparation";
 	dir = 4
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "nsu" = (
@@ -33685,6 +33693,8 @@
 	pixel_x = 0;
 	pixel_y = -26
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "qNL" = (
@@ -35136,11 +35146,11 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
-/obj/item/clothing/gloves/latex,
 /obj/item/clothing/glasses/science,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "tUS" = (
@@ -78781,7 +78791,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aba
 aba
 aba
 aba

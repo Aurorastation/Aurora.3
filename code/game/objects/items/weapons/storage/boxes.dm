@@ -152,8 +152,8 @@
 /obj/item/storage/box/gloves
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
-	icon_state = "latex"
-	starts_with = list(/obj/item/clothing/gloves/latex = 4, /obj/item/clothing/gloves/latex/nitrile = 3)
+	icon_state = "nitrile"
+	starts_with = list(/obj/item/clothing/gloves/latex = 2, /obj/item/clothing/gloves/latex/nitrile = 5)
 
 /obj/item/storage/box/masks
 	name = "box of sterile masks"

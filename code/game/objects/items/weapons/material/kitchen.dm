@@ -35,8 +35,8 @@
 			return eyestab(M,user)
 		else
 			return ..()
-	var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
-	if (reagents.total_volume > 0)
+	var/fullness = M.get_fullness()
+	if(reagents.total_volume > 0)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return

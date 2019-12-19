@@ -1111,7 +1111,7 @@
 	name = "kudzu"
 	seed_name = "kudzu"
 	display_name = "kudzu vines"
-	chems = list("nutriment" = list(1,50), "anti_toxin" = list(1,25))
+	chems = list("nutriment" = list(1,50), "dylovene" = list(1,25))
 
 /datum/seed/kudzu/setup_traits()
 	..()

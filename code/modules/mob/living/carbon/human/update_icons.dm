@@ -431,7 +431,7 @@ There are several things that need to be remembered:
 				standing.underlays	+= "telekinesishead[fat]_s"
 				add_image = 1
 			*/
-			if(LASER)
+			if(LASER_EYES)
 				standing.overlays += "lasereyes_s"
 				add_image = 1
 	if(add_image)

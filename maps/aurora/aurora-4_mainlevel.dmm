@@ -32100,6 +32100,10 @@
 	icon_state = "corner_white_full";
 	dir = 4
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "bdx" = (
@@ -35733,6 +35737,8 @@
 	c_tag = "Medical - CMO's Office"
 	},
 /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bjq" = (
@@ -43138,7 +43144,7 @@
 /obj/structure/window/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "buz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -43151,11 +43157,11 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "buA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
-	name = "Cloning Laboratory";
+	name = "Custodial Closet";
 	req_access = list(66)
 	},
 /obj/structure/cable/green{
@@ -43167,7 +43173,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "buB" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -43184,58 +43190,32 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/medical/genetics_cloning)
-"buC" = (
-/turf/simulated/wall,
-/area/medical/temp_morgue)
+/area/medical/custodial_closet)
 "buD" = (
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
+/obj/structure/table/rack{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/light_switch{
-	pixel_x = 0;
-	pixel_y = 24
-	},
+/obj/random/loot,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
-"buE" = (
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "buF" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 2
+/obj/structure/closet{
+	name = "Evidence Closet"
 	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "buG" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 2
-	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "buH" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
@@ -43727,108 +43707,36 @@
 "bvC" = (
 /turf/simulated/open,
 /area/turbolift/medical_station)
-"bvD" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/bodybags,
-/obj/item/storage/box/bodybags,
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = -25
-	},
-/obj/item/reagent_containers/spray/cleaner,
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
 "bvE" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bvF" = (
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bvG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/sign/m,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bvH" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/medical{
-	name = "Temporary Morgue";
-	req_access = list(6)
-	},
-/obj/structure/plasticflaps/airtight,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
+/turf/simulated/wall,
+/area/medical/custodial_closet)
 "bvI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -43836,29 +43744,8 @@
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
-"bvJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "bvK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 2;
 	icon_state = "pipe-c"
@@ -43867,7 +43754,7 @@
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "bvL" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -44300,7 +44187,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bwA" = (
-/obj/structure/closet/wardrobe/white,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -44312,19 +44198,15 @@
 	dir = 4;
 	icon_state = "camera"
 	},
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bwB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bwC" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -44336,24 +44218,16 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bwD" = (
-/obj/machinery/hologram/holopad,
 /obj/machinery/firealarm/east,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bwE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -44362,7 +44236,7 @@
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "bwF" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -45341,13 +45215,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bxY" = (
-/obj/machinery/dna_scannernew,
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 9
-	},
+/obj/structure/mopbucket,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bxZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -45356,21 +45226,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
-"bya" = (
-/obj/machinery/computer/records/medical,
-/obj/machinery/light_switch{
-	pixel_x = 24;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "byb" = (
-/obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/morgue{
 	icon_state = "morgue1";
 	dir = 1
@@ -45379,22 +45236,7 @@
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
-"byc" = (
-/obj/machinery/alarm/cold{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "bye" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -46030,33 +45872,36 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bzp" = (
-/obj/machinery/computer/cloning,
-/obj/machinery/light{
-	dir = 8
+/obj/structure/table/rack{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 9
+/obj/item/caution{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/caution{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/caution{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 2;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
-"bzq" = (
-/obj/structure/bed/chair/office/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bzr" = (
-/obj/structure/closet,
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 6
+/obj/structure/closet{
+	name = "Evidence Closet"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bzs" = (
 /turf/simulated/wall,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bzt" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Lift Lobby";
@@ -46633,15 +46478,14 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "bAr" = (
-/obj/machinery/clonepod,
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 9
+/obj/item/mop,
+/obj/structure/table/rack{
+	dir = 1
 	},
+/obj/item/wrench,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bAs" = (
-/obj/structure/bed/roller,
 /obj/machinery/power/apc{
 	dir = 2;
 	name = "south bump";
@@ -46653,7 +46497,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bAt" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -46664,18 +46508,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
-"bAu" = (
-/obj/structure/closet,
-/obj/machinery/newscaster{
-	pixel_y = -30
-	},
-/obj/effect/floor_decal/corner/grey{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/genetics_cloning)
+/area/medical/custodial_closet)
 "bAv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -47706,6 +47539,8 @@
 	icon_state = "xmaslights";
 	dir = 4
 	},
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
 "bCw" = (
@@ -51487,6 +51322,14 @@
 	dir = 8
 	},
 /obj/structure/closet/secure_closet/scientist,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/storage/box/gloves{
+	pixel_x = 2;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "bJz" = (
@@ -66143,7 +65986,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "hND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
@@ -67401,21 +67244,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"lCm" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Temporary Morgue";
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/morgue{
-	icon_state = "morgue1";
-	dir = 2
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
 "lCV" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -68251,7 +68079,7 @@
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "nFQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -71889,7 +71717,7 @@
 	name = "cooled dark floor";
 	temperature = 278
 	},
-/area/medical/temp_morgue)
+/area/maintenance/medbay)
 "wra" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -72217,15 +72045,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"xhC" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/medical/temp_morgue)
 "xjD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -72595,8 +72414,6 @@
 /obj/structure/closet/chefcloset{
 	desc = "It's a storage unit for foodservice equipment."
 	},
-/obj/item/clothing/gloves/latex/unathi,
-/obj/item/clothing/gloves/latex/tajara,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /obj/item/device/nanoquikpay{
@@ -72605,6 +72422,10 @@
 /obj/item/device/destTagger,
 /obj/item/stack/packageWrap,
 /obj/item/hand_labeler,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "yfI" = (
@@ -113148,7 +112969,7 @@ brc
 bsf
 btu
 buy
-bvD
+bvE
 bwA
 bxY
 bzp
@@ -113408,7 +113229,7 @@ buz
 bvE
 bwB
 bvE
-bzq
+bvE
 bAs
 bzs
 bCi
@@ -113921,9 +113742,9 @@ fLv
 buB
 bvG
 bwD
-bya
+bvE
 bzr
-bAu
+bzr
 bzs
 mCf
 wIa
@@ -114175,10 +113996,10 @@ bhZ
 bng
 bsi
 bng
-buC
+bzs
 bvH
-buC
-buC
+bzs
+bzs
 bzs
 bzs
 bzs
@@ -114436,7 +114257,7 @@ buD
 bvI
 nEX
 byb
-buC
+blN
 bAv
 uni
 nQp
@@ -114689,11 +114510,11 @@ bpY
 brf
 bsk
 bng
-lCm
-bvJ
-buE
-byc
-buC
+buD
+bvI
+buG
+buG
+blN
 sby
 esz
 bCj
@@ -114950,7 +114771,7 @@ buF
 bvK
 bwE
 byb
-buC
+blN
 kYi
 nIc
 nIc
@@ -115205,9 +115026,9 @@ bsm
 bng
 buG
 wpl
-xhC
-byb
-buC
+bvI
+buG
+blN
 hPn
 sTA
 sTA
@@ -115460,11 +115281,11 @@ bng
 bng
 bng
 bng
-buC
-buC
+blN
+blN
 hLN
-buC
-buC
+blN
+blN
 bHF
 blN
 blN
