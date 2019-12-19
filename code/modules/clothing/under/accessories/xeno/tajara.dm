@@ -9,7 +9,7 @@
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
 	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effectove and cheap \
 	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
-	and colorful dress wearing \"Flapper\" variety of clothing.""
+	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/accessory/tajaran/lbrown
 	desc = "A furred scarf, a common tajaran vanity item, this one is light brown."

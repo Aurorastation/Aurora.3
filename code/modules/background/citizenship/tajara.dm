@@ -34,7 +34,8 @@
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_card = 1,
 		/obj/item/storage/box/hadii_manifesto = 1,
-		/obj/item/gun/projectile/pistol/adhomai = 1
+		/obj/item/gun/projectile/pistol/adhomai = 1,
+		/obj/item/storage/field_ration = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
 
@@ -72,7 +73,8 @@
 	head = /obj/item/clothing/head/tajaran/consular/dpra
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_manifesto = 1,
-		/obj/item/gun/projectile/pistol/adhomai = 1
+		/obj/item/gun/projectile/pistol/adhomai = 1,
+		/obj/item/storage/field_ration = 1
 	)
 	accessory = /obj/item/clothing/accessory/dpra_pin
 
@@ -111,6 +113,7 @@
 	head = /obj/item/clothing/head/tajaran/consular/nka
 	backpack_contents = list(
 		/obj/item/folder/blue/nka = 1,
-		/obj/item/gun/projectile/revolver/adhomian = 1
+		/obj/item/gun/projectile/revolver/adhomian = 1,
+		/obj/item/storage/field_ration/nka = 1
 	)
 	accessory = /obj/item/clothing/accessory/nka_pin
