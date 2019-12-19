@@ -61,7 +61,7 @@
 	special_role = "Kataphract Quartermaster"
 
 /datum/ghostspawner/human/kataphract/trader
-	short_name = "kataphract_quart"
+	short_name = "kataphract_trad"
 	name = "Kataphract Trader"
 	desc = "Display honour in everything you do. Be an excellent person. Buy and sell items on the market, ensure the Quartermaster has stock. Conduct trade with any visitors."
 	max_count = 1
