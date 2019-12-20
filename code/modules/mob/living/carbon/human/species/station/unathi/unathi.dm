@@ -16,7 +16,7 @@
 	)
 	primitive_form = "Stok"
 	darksight = 3
-	gluttonous = 1
+	gluttonous = 2
 	slowdown = 0.5
 	brute_mod = 0.8
 	grab_mod = 0.75
@@ -55,8 +55,6 @@
 	heat_level_3 = 1100 //Default 1000
 
 	inherent_verbs = list(
-		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/tongue_flick
 	)
 

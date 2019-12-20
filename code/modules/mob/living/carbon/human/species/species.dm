@@ -574,4 +574,4 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /datum/reagent/nutriment
+	return "nutriment"
