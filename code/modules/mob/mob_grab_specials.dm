@@ -54,7 +54,7 @@
 	var/armor = target.run_armor_check(target, "melee")
 	if(armor < 100)
 		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
-		affecting.adjustHalLoss(Clamp(0, 60-affecting.halloss, 30)) //up to 60 halloss
+		affecting.adjustHalLoss(Clamp(0, 60-affecting.getHalLoss(), 30)) //up to 60 halloss
 
 /obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
@@ -147,12 +147,7 @@
 
 /obj/item/grab/proc/devour(mob/target, mob/user)
 	var/mob/living/carbon/human/H = user
-	var/can_eat
-	if(istype(H) && H.species.gluttonous)
-		can_eat = 1
-
-	if(can_eat)
-		H.attempt_devour(target, H.eat_types, H.mouth_size)
+	H.devour(target)
 
 
 /obj/item/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
@@ -169,20 +164,20 @@
 			visible_message("<span class='notice'>[assailant] tried to grab [target] but they have no hair!</span>")
 		if(1)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname] before releasing their grip!</span>")
-			target.apply_damage(5, HALLOSS)
+			target.apply_damage(5, PAIN)
 		if(2)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
-			target.apply_damage(5, HALLOSS)
+			target.apply_damage(5, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(3)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
-			target.apply_damage(10, HALLOSS)
+			target.apply_damage(10, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(4)
 			visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!</span>")
-			target.apply_damage(15, HALLOSS)
+			target.apply_damage(15, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(5)
@@ -191,7 +186,7 @@
 				src.state = GRAB_PASSIVE
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(10, HALLOSS)
+				target.apply_damage(10, PAIN)
 				src.state = GRAB_AGGRESSIVE
 
 		if(6)
@@ -201,5 +196,5 @@
 				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(15, HALLOSS)
+				target.apply_damage(15, PAIN)
 				src.state = GRAB_AGGRESSIVE

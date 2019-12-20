@@ -2,8 +2,8 @@
 
 proc/Intoxicated(phrase)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -48,7 +48,7 @@ proc/stutter(phrase, str = 1)
 		if(!R.Find(word))
 			continue
 
-		if (lentext(word) > 1)
+		if (length(word) > 1)
 			if((prob(20) && str > 1) || (prob(30) && str > 4)) // stutter word instead
 				var/stuttered = R.group[2] + R.group[3]
 				if(upper.Find(stuttered) && !upper.Find(stuttered, 2)) // if they're screaming (all caps) or saying something like 'AI', keep the letter capitalized - else don't
@@ -56,7 +56,7 @@ proc/stutter(phrase, str = 1)
 				word = R.Replace(word, "$1$2$3-[stuttered]$4")
 			else if(prob(25) && str > 1) // prolong word
 				var/prolonged = ""
-				var/prolong_amt = min(lentext(word), 5)
+				var/prolong_amt = min(length(word), 5)
 				prolong_amt = rand(1, prolong_amt)
 				for(var/j = 0, j < prolong_amt, j++)
 					prolonged += R.group[2]

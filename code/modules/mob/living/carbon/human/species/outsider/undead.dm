@@ -9,6 +9,8 @@
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
+	total_health = 85 //gotta get headshots to kill them, so they're frail
+
 	default_language = "Ceti Basic"
 	language = "Cult"
 	name_language = "Cult"
@@ -80,6 +82,11 @@
 
 	hud_type = /datum/hud_data/construct
 
+/datum/species/skeleton/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
+
 /mob/living/carbon/human/apparition/Initialize(mapload)
 	. = ..(mapload, "Apparition")
 
@@ -129,6 +136,11 @@
 	new /obj/effect/decal/cleanable/ash(H.loc)
 	qdel(H)
 
+/datum/species/apparition/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
+
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
 	. = ..(mapload, "Zombie")
@@ -161,7 +173,8 @@
 
 	has_organ = list(
 		"zombie" =    /obj/item/organ/internal/parasite/zombie,
-		BP_BRAIN =    /obj/item/organ/internal/brain
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
 
 	virus_immune = 1
@@ -188,11 +201,11 @@
 	sprint_speed_factor = 0.3
 	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
-	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes, /mob/living/proc/devour)
+	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
 
 	allowed_eat_types = TYPE_ORGANIC | TYPE_HUMANOID
 
-	gluttonous = TRUE
+	gluttonous = 1
 
 /datum/species/zombie/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(CLUMSY)
@@ -263,17 +276,11 @@
 	/mob/living/carbon/human/proc/commune,
 	/mob/living/carbon/human/proc/sonar_ping,
 	/mob/living/carbon/human/proc/darkness_eyes,
-	/mob/living/proc/devour
 	)
 
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
 
 	remains_type = /obj/effect/decal/remains/xeno
-
-	has_organ = list(
-		"zombie" =    /obj/item/organ/internal/parasite/zombie,
-		/obj/item/organ/internal/brain/skrell
-		)
 
 	default_h_style = "Skrell Short Tentacles"

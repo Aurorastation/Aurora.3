@@ -167,31 +167,58 @@
 	icon_state = "s-ninja"
 	item_state = "s-ninja"
 	flags_inv = HIDEFACE
-	body_parts_covered = 0
-	var/mob/abstract/eye/aiEye/eye
+	body_parts_covered = FACE|EYES
+	action_button_name = "Toggle MIU"
+	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
+	var/active = FALSE
+	var/mob/abstract/eye/cameranet/eye
 
 /obj/item/clothing/mask/ai/Initialize()
-	. = ..()
 	eye = new(src)
+	eye.name_suffix = "camera MIU"
+	. = ..()
 
-/obj/item/clothing/mask/ai/equipped(var/mob/user, var/slot)
-	..(user, slot)
-	if(slot == slot_wear_mask)
-		eye.owner = user
-		user.eyeobj = eye
+/obj/item/clothing/mask/ai/Destroy()
+	if(eye)
+		if(active)
+			disengage_mask(eye.owner)
+		qdel(eye)
+		eye = null
 
-		for(var/datum/chunk/c in eye.visibleChunks)
-			c.remove(eye)
-		eye.setLoc(user)
-
-/obj/item/clothing/mask/ai/dropped(var/mob/user)
 	..()
-	if(eye.owner == user)
-		for(var/datum/chunk/c in eye.visibleChunks)
-			c.remove(eye)
 
-		eye.owner.eyeobj = null
-		eye.owner = null
+/obj/item/clothing/mask/ai/attack_self(mob/user)
+	if(user.incapacitated())
+		return
+	active = !active
+	to_chat(user, span("notice", "You [active ? "" : "dis"]engage \the [src]."))
+	if(active)
+		engage_mask(user)
+	else
+		disengage_mask(user)
+
+/obj/item/clothing/mask/ai/equipped(mob/user, slot)
+	..(user, slot)
+	engage_mask(user)
+
+/obj/item/clothing/mask/ai/dropped(mob/user)
+	..()
+	disengage_mask(user)
+
+/obj/item/clothing/mask/ai/proc/engage_mask(mob/user)
+	if(!active)
+		return
+	if(user.get_equipped_item(slot_wear_mask) != src)
+		return
+	
+	eye.possess(user)
+	to_chat(eye.owner, span("notice", "You feel disoriented for a moment as your mind connects to the camera network."))
+
+/obj/item/clothing/mask/ai/proc/disengage_mask(mob/user)
+	if(user == eye.owner)
+		to_chat(eye.owner, span("notice", "You feel disoriented for a moment as your mind disconnects from the camera network."))
+		eye.release(eye.owner)
+		eye.forceMove(src)
 
 /obj/item/clothing/mask/offworlder
 	name = "pioneer's scarf"

@@ -1506,7 +1506,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "er" = (
-/obj/item/robot_parts/robot_component/armour/combat,
+/obj/item/robot_parts/robot_component/armor/combat,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2800,7 +2800,7 @@
 "ir" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/organ/stack/vox,
+/obj/item/organ/internal/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -3357,7 +3357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kd" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ke" = (
@@ -7139,7 +7139,7 @@
 	},
 /area/derelict)
 "vo" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"

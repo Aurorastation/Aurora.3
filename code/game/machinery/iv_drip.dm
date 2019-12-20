@@ -114,10 +114,6 @@
 				if(prob(5)) visible_message("\The [src] pings.")
 				return
 
-			// If the human is losing too much blood, beep.
-			if(T.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
-				visible_message("<span class='warning'>\The [src] beeps loudly.</span>")
-
 			var/datum/reagent/B = T.take_blood(beaker,amount)
 
 			if (B)

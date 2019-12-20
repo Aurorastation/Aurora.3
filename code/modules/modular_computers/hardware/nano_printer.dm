@@ -29,7 +29,7 @@
 		P.color = paper_color
 
 	stored_paper--
-	return 1
+	return P
 
 /obj/item/computer_hardware/nano_printer/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/paper))

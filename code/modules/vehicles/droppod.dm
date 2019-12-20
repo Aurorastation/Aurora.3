@@ -30,8 +30,8 @@
 	desc = "A big metal pod painted in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "legion_pod"
 
-/obj/vehicle/droppod/Initialize()
-	. = ..()
+/obj/vehicle/droppod/MouseDrop(atom/over_object)
+	return
 
 /obj/vehicle/droppod/emag_act()
 	return
