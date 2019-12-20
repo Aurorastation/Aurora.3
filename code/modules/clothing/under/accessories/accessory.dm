@@ -211,7 +211,7 @@
 								sound += " and [pick("wheezing","gurgling")] sounds"
 							else
 								sound += " and healthy respiration"
-						if(BP_EYES,"mouth")
+						if(BP_EYES,BP_MOUTH)
 							sound_strength = "cannot hear"
 							sound = "anything"
 						else

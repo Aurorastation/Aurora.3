@@ -97,10 +97,10 @@
 	id = "camera"
 	build_path = /obj/item/robot_parts/robot_component/camera
 
-/datum/design/item/mechfab/robot/component/armour
-	name = "Armour plating"
-	id = "armour"
-	build_path = /obj/item/robot_parts/robot_component/armour
+/datum/design/item/mechfab/robot/component/armor
+	name = "Armor plating"
+	id = "armor"
+	build_path = /obj/item/robot_parts/robot_component/armor
 
 /datum/design/item/mechfab/robot/component/surge
 	name = "Heavy surge prevention module"
