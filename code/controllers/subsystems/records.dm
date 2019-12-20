@@ -156,7 +156,7 @@
 		else
 			isactive[M.real_name] = 0
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "bot" = "Silicon", "misc" = "Miscellaneous")
+	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "bot" = "Synthetic Sub-Manifest", "misc" = "Miscellaneous")
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
@@ -169,8 +169,8 @@
 	dat = replacetext(dat, "\t", "")
 	return dat
 
-/datum/controller/subsystem/records/proc/get_manifest_json()
-	if(manifest.len)
+/datum/controller/subsystem/records/proc/get_manifest_json(var/forced)
+	if(manifest.len && !forced)
 		return manifest_json
 	manifest = list(
 		"heads" = list(),
@@ -214,6 +214,21 @@
 
 		if(!department && !(name in manifest["heads"]))
 			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
+
+	for(var/mob/living/silicon/S in player_list)
+		if(istype(S, /mob/living/silicon/robot/syndicate))
+			continue
+		if(istype(S, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = S
+			var/selected_module = "default module"
+			if(R.module)
+				selected_module = R.module.name
+			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
+		if(istype(S, /mob/living/silicon/ai))
+			var/mob/living/silicon/ai/A = S
+			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online")
+			if(manifest["bot"].len != 1)
+				manifest["bot"].Swap(1, manifest["bot"].len)
 
 	manifest_json = json_encode(manifest)
 	return manifest_json

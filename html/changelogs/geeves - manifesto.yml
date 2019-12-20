@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Stationbounds have been added to the Crew Manifest in a Sub-manifest catagory. They are not crew."
