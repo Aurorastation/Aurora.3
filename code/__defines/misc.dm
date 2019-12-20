@@ -273,7 +273,15 @@
 
 // Used for creating soft references to objects. A manner of storing an item reference
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
+#if DM_VERSION < 513
+
 #define SOFTREF(A) "\ref[A]"
+
+#else
+
+#define SOFTREF(A) ref(A)
+
+#endif
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new(D))) : null)

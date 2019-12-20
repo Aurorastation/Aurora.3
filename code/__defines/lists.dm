@@ -12,7 +12,10 @@
 #define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
 
 // Shims for some list procs in lists.dm.
-#define islist(L) istype(L,/list)
 #define isemptylist(L) (!LAZYLEN(L))
 #define safepick(L) LAZYPICK(L,null)
 #define listgetindex(L,I) LAZYACCESS(L,I)
+
+#if DM_VERSION < 513
+#define islist(L) istype(L,/list)
+#endif

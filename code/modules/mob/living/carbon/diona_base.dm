@@ -164,7 +164,7 @@ var/list/diona_banned_languages = list(
 	//Next up, damage healing. Diona are only vulnerable to four of the six damage types
 	//Oxyloss doesn't apply because they don't breathe, and are thus immune to aquiring it in any way
 	//Brain damage is irrelevant because they have no brain.
-	if (health < 100)
+	if (health < (species ? species.total_health : 200))
 		CL = getBruteLoss()
 
 		if (CL > 0)

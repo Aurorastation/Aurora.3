@@ -3357,7 +3357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kd" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ke" = (
@@ -7139,7 +7139,7 @@
 	},
 /area/derelict)
 "vo" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"

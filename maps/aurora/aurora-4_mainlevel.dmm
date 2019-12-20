@@ -36558,16 +36558,16 @@
 /area/janitor)
 "bkE" = (
 /obj/structure/table/rack,
-/obj/item/caution{
+/obj/item/clothing/suit/caution{
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/obj/item/caution{
+/obj/item/clothing/suit/caution{
 	pixel_x = 2;
 	pixel_y = -2
 	},
-/obj/item/caution,
-/obj/item/caution{
+/obj/item/clothing/suit/caution,
+/obj/item/clothing/suit/caution{
 	pixel_x = -2;
 	pixel_y = 2
 	},
@@ -45875,15 +45875,15 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/caution{
+/obj/item/clothing/suit/caution{
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/caution{
+/obj/item/clothing/suit/caution{
 	pixel_x = -2;
 	pixel_y = 2
 	},
-/obj/item/caution{
+/obj/item/clothing/suit/caution{
 	pixel_x = -2;
 	pixel_y = 2
 	},

@@ -11243,7 +11243,7 @@
 	},
 /area/centcom/control)
 "aBe" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
