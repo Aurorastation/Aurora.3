@@ -216,7 +216,7 @@
 			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
 
 	for(var/mob/living/silicon/S in player_list)
-		if(istype(S, /mob/living/silicon/robot/syndicate))
+		if(istype(S, /mob/living/silicon/robot/syndicate) || istype(S, /mob/living/silicon/robot/bluespace))
 			continue
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
