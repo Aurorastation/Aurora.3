@@ -24,7 +24,7 @@
 	name = "overmask"
 	desc = "A large breath mask with cushioning."
 	icon_state = "breathcover"
-	item_state = "muzzle"
+	item_state = "cloth"
 
 /obj/item/clothing/mask/breath/offworlder/jagmask
 	name = "jagmask"

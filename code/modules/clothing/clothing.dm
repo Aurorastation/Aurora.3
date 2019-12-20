@@ -533,6 +533,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
 		)
 	slot_flags = SLOT_MASK
+	drop_sound = 'sound/items/drop/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
