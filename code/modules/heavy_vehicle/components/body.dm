@@ -2,6 +2,8 @@
 	name = "body"
 	icon_state = "loader_body"
 	gender = NEUTER
+	pixel_y = -8
+	center_of_mass = list("x"=24, "y"=20)
 
 	var/mech_health = 300
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
