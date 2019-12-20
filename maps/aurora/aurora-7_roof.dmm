@@ -746,7 +746,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/material/ashtray/plastic,
-/obj/item/cigbutt/cigarbutt,
+/obj/item/trash/cigbutt/cigarbutt,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},

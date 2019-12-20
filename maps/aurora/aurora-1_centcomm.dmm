@@ -5386,7 +5386,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/syndicate_station/start)
 "anu" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/shuttle/black,
 /area/syndicate_station/start)
 "anv" = (
@@ -14754,7 +14754,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aJb" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -22959,8 +22959,8 @@
 "dIB" = (
 /obj/structure/table/standard,
 /obj/item/trash/plate,
-/obj/item/cigbutt,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/storage/box/matches{
 	pixel_y = 12
 	},
@@ -23856,7 +23856,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/deck/cards,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -24239,7 +24239,7 @@
 "gpl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	icon_state = "wood-broken5"
 	},
@@ -25247,8 +25247,8 @@
 /area/template_noop)
 "ihn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/cigbutt,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -30581,7 +30581,7 @@
 "sDs" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/ashtray/bronze,
-/obj/item/cigbutt/cigarbutt,
+/obj/item/trash/cigbutt/cigarbutt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -31008,8 +31008,8 @@
 /area/centcom/legion)
 "tqh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/item/cigbutt,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -31293,7 +31293,7 @@
 /area/centcom/distress_prep)
 "tYp" = (
 /obj/structure/table/wood,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/reagent_containers/food/snacks/donerkebab{
 	pixel_x = 6;
 	pixel_y = 4
@@ -31631,7 +31631,7 @@
 "uXC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

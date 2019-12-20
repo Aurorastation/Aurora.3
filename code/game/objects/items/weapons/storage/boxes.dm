@@ -118,7 +118,7 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1, 
+	starts_with = list(/obj/item/clothing/mask/breath = 1,
 					   /obj/item/tank/emergency_oxygen = 1,
 					   /obj/item/device/flashlight/flare = 1
 						)
@@ -476,6 +476,7 @@
 			W.lit = 1
 			W.damtype = "burn"
 			W.icon_state = "match_lit"
+			W.item_state = "match_lit"
 			START_PROCESSING(SSprocessing, W)
 		else
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
