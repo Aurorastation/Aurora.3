@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/yellow/specialt
 	name = "tajaran electrical gloves"
-	desc = "These gloves will protect the wearer from electric shock. Made special for Tajaran use."
+	desc = "These gloves will protect the wearer from electric shock. Made specially for use by Tajara."
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/black/tajara
