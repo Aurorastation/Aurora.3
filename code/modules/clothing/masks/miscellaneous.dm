@@ -88,6 +88,7 @@
 	name = "snorkel"
 	desc = "For the Swimming Savant."
 	icon_state = "snorkel"
+	item_state = "snorkel"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
 
@@ -204,6 +205,6 @@
 	name = "starveil"
 	desc = "A thin holographic veil meant to cover the face, intended to block out light."
 	icon_state = "starveil"
-	item_state = "starveil"
+	item_state = "muzzle"
 	down_body_parts_covered = null
 	adjustable = TRUE

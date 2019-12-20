@@ -528,6 +528,10 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_masks.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
+		)
 	slot_flags = SLOT_MASK
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
