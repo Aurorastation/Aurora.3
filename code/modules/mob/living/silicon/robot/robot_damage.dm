@@ -91,7 +91,7 @@
 			to_chat(src, "<span class='warning'>Your shield absorbs some of the impact!</span>")
 
 	if(!emp)
-		var/datum/robot_component/armour/A = get_armour()
+		var/datum/robot_component/armor/A = get_armour()
 		if(A)
 			A.take_damage(brute,burn,sharp,edge)
 			return
@@ -136,7 +136,7 @@
 			burn -= absorb_burn
 			to_chat(src, "<span class='warning'>Your shield absorbs some of the impact!</span>")
 
-	var/datum/robot_component/armour/A = get_armour()
+	var/datum/robot_component/armor/A = get_armour()
 	if(A)
 		A.take_damage(brute,burn,sharp)
 		return

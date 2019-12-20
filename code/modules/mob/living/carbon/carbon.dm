@@ -53,7 +53,7 @@
 		src.help_up_offer = 0
 
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
-	if((user in src.stomach_contents) && istype(user))
+	if((user in contents) && istype(user))
 		if(user.last_special <= world.time)
 			user.last_special = world.time + 50
 			src.visible_message(span("danger", "You hear something rumbling inside [src]'s stomach..."))
@@ -73,19 +73,12 @@
 				playsound(user.loc, 'sound/effects/attackblob.ogg', 50, 1)
 
 				if(prob(src.getBruteLoss() - 50))
-					for(var/atom/movable/A in stomach_contents)
-						A.forceMove(loc)
-						LAZYREMOVE(stomach_contents, A)
 					src.gib()
 
 /mob/living/carbon/gib()
-	for(var/mob/M in src)
-		if(M in src.stomach_contents)
-			LAZYREMOVE(src.stomach_contents, M)
-		M.forceMove(src.loc)
-		for(var/mob/N in viewers(src, null))
-			if(N.client)
-				N.show_message(text(span("danger", "[M] bursts out of [src]!")), 2)
+	for(var/mob/M in contents)
+		M.dropInto(loc)
+		visible_message("<span class='danger'>\The [M] bursts out of \the [src]!</span>")
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
