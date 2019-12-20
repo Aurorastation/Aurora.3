@@ -22,7 +22,7 @@
 	display_name = "cigar case"
 	path = /obj/item/storage/fancy/cigar
 
-/datum/gear/
+/datum/gear/cigarette
 	display_name = "cigarette packet"
 	path = /obj/item/storage/fancy/cigarettes
 
