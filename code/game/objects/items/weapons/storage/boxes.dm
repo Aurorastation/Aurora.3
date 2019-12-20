@@ -156,10 +156,10 @@
 	starts_with = list(/obj/item/clothing/gloves/latex = 4, /obj/item/clothing/gloves/latex/nitrile = 3)
 
 /obj/item/storage/box/masks
-	name = "box of sterile masks"
-	desc = "This box contains masks of sterility."
+	name = "box of surgical masks"
+	desc = "This box contains masks of surgicality."
 	icon_state = "sterile"
-	starts_with = list(/obj/item/clothing/mask/surgical = 7)
+	starts_with = list(/obj/item/clothing/mask/surgical = 4, /obj/item/clothing/mask/surgical/w = 3)
 
 /obj/item/storage/box/syringes
 	name = "box of syringes"

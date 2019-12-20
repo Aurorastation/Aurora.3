@@ -42,6 +42,11 @@
 	down_body_parts_covered = null
 	adjustable = TRUE
 
+/obj/item/clothing/mask/surgical/w
+	desc = "A surgical mask designed to help prevent the spread of diseases. This one's in white."
+	icon_state = "surgicalw"
+	item_state = "surgicalw"
+
 /obj/item/clothing/mask/cloth
 	name = "cloth mask"
 	desc = "A colorable cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
