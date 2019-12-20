@@ -41,7 +41,7 @@
 	var/force_down //determines if the affecting mob will be pinned to the ground
 	var/dancing //determines if assailant and affecting keep looking at each other. Basically a wrestling position
 
-	layer = 21
+	layer = SCREEN_LAYER
 	abstract = 1
 	item_state = "nothing"
 	w_class = 5.0
@@ -170,7 +170,7 @@
 	last_hit_zone = target_zone
 
 	switch(target_zone)
-		if("mouth")
+		if(BP_MOUTH)
 			if(announce)
 				user.visible_message("<span class='warning'>\The [user] covers [target]'s face!</span>")
 			if(target.silent < 3)

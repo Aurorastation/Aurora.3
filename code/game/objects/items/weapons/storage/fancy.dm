@@ -67,6 +67,7 @@
 
 /obj/item/storage/fancy/donut/empty
 	starts_with = null
+	max_storage_space = 12
 
 
 /*
@@ -187,7 +188,7 @@
 	if(!istype(M, /mob))
 		return
 
-	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
+	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
 			to_chat(user, "<span class ='notice'>The [W] is blocking the cigarettes.</span>")
@@ -271,7 +272,7 @@
 	if(!istype(M, /mob))
 		return
 
-	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
+	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/cigar/W = new /obj/item/clothing/mask/smokable/cigarette/cigar(user)
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)

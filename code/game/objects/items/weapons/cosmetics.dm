@@ -148,7 +148,7 @@
 
 				return TRUE
 
-	else if(target_zone == "mouth")
+	else if(target_zone == BP_MOUTH)
 
 		if(H.head && (H.head.body_parts_covered & FACE))
 			to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")

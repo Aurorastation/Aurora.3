@@ -236,6 +236,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					organ_name = "heart"
 				if(BP_EYES)
 					organ_name = "eyes"
+				if(BP_LUNGS)
+					organ_name = "lungs"
+				if(BP_LIVER)
+					organ_name = "liver"
+				if(BP_KIDNEYS)
+					organ_name = "kidneys"
 
 			if(status == "cyborg")
 				++ind
@@ -617,15 +623,21 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH
 
 	else if(href_list["organs"])
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list(BP_HEART, BP_EYES)
+		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes", "Lungs", "Liver", "Kidneys")
 		if(!organ_name) return
 
 		var/organ = null
 		switch(organ_name)
-			if(BP_HEART)
+			if("Heart")
 				organ = BP_HEART
-			if(BP_EYES)
+			if("Eyes")
 				organ = BP_EYES
+			if("Lungs")
+				organ = BP_LUNGS
+			if("Liver")
+				organ = BP_LIVER
+			if("Kidneys")
+				organ = BP_KIDNEYS
 
 		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
 		if(!new_state) return

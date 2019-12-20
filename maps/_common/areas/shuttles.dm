@@ -264,3 +264,23 @@
 	base_turf = /turf/space/transit/east
 	icon_state = "shuttle"
 	centcomm_area = 1
+
+/area/shuttle/merchant
+	name = "\improper Merchant Ship"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/space
+	icon_state = "yellow"
+	sound_env = LARGE_ENCLOSED
+
+/area/shuttle/merchant/start
+	centcomm_area = 1
+
+/area/shuttle/merchant/transit
+	name = "\improper Hyperspace"
+	centcomm_area = 1
+	base_turf = /turf/space/transit/east
+
+/area/shuttle/merchant/station
+	name = "\improper Merchant Docking Port"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1

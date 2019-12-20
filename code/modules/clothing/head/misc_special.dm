@@ -5,7 +5,8 @@
  *		Ushanka
  *		Pumpkin head
  *		Kitty ears
- *
+ *		Chicken mask
+ *		Warning cone
  */
 
 /*
@@ -259,9 +260,33 @@
 	else if (icon_override)
 		icon_override = null
 
+/*
+ * Chicken mask
+ */
+
 /obj/item/clothing/head/richard
 	name = "chicken mask"
 	desc = "You can hear the distant sounds of rhythmic electronica."
 	icon_state = "richard"
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHAIR
+
+/*
+ * Warning cone
+ */
+
+/obj/item/clothing/head/cone
+	name = "warning cone"
+	desc = "This cone is trying to warn you of something!"
+	description_info = "It looks like you can wear it in your head slot."
+	icon_state = "cone"
+	item_state = "cone"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	force = 1
+	throwforce = 3
+	throw_speed = 2
+	throw_range = 5
+	w_class = 2
+	body_parts_covered = HEAD
+	attack_verb = list("warned", "cautioned", "smashed")
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)

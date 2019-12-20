@@ -45,13 +45,13 @@ Contains:
 				return 1
 
 		if(affecting.status & ORGAN_ASSISTED)
-			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb..</span>")
+			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb.</span>")
 			return 1
 
 		H.UpdateDamageIcon()
 
 	else
-		if (!M.bruteloss && !M.fireloss)
+		if (!M.getBruteLoss() && !M.getFireLoss())
 			to_chat(user, "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>")
 			return 1
 
