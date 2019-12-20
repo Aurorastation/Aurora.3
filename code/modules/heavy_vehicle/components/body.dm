@@ -98,7 +98,7 @@
 			to_chat(user, "<span class='warning'>\The [src] already has a cell installed.</span>")
 			return
 		if(install_component(thing,user)) cell = thing
-	else if(istype(thing, /obj/item/robot_parts/robot_component/armor))
+	else if(istype(thing, /obj/item/robot_parts/robot_component/armor/mech))
 		if(mech_armor)
 			to_chat(user, "<span class='warning'>\The [src] already has mech_armor installed.</span>")
 			return
