@@ -95,7 +95,7 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			rep_objectives = pick("Collect evidence of NanoTrasen being unfair or oppressive against Tajaran employees, to be used as leverage in future diplomatic talks",
-							"Convince [rand(1,3)] republican citizen to adopt New Kingdom's citizenship")
+							"Convince [rand(1,3)] republican citizen(s) to adopt New Kingdom's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			rep_objectives = pick("Convince [rand(1,3)] foreign citizens to sign the imperial volunteer Alam'ardii corps pledge")
