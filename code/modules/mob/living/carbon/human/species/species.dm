@@ -516,10 +516,10 @@
 
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
-	if((H.getHalLoss() >= 10) && prob(H.getHalLoss() *2))
+	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
 		H.flash_pain()
 
-	if ((H.getHalLoss() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
+	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
@@ -574,4 +574,4 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /datum/reagent/nutriment
+	return "nutriment"

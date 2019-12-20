@@ -10340,7 +10340,7 @@
 	},
 /area/centcom/specops)
 "aFa" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -12220,7 +12220,7 @@
 	},
 /area/wizard_station)
 "aLa" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
