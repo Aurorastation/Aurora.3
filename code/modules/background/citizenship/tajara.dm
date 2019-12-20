@@ -98,7 +98,7 @@
 							"Convince [rand(1,3)] republican citizen(s) to adopt New Kingdom's citizenship")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
-			rep_objectives = pick("Convince [rand(1,3)] foreign citizens to sign the imperial volunteer Alam'ardii corps pledge")
+			rep_objectives = pick("Convince [rand(1,3)] foreign citizen(s) to sign the imperial volunteer Alam'ardii corps pledge")
 		else
 			rep_objectives = pick("Have [rand(2,5)] NKA citizens to write down their grievances with the company, and present the report to station command")
 
