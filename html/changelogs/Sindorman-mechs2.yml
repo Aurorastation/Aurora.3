@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - sounadd: "Added sounds to mech's punch. They are different for each mech arms type and volume depends on damage of arms."
+  - soundadd: "Added sounds to mech's punch. They are different for each mech arms type and volume depends on damage of arms."
   - tweak: "Ripley's arms damage was increased to 40 damage."
