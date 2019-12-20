@@ -24,6 +24,8 @@
 		src.input.Unlink()
 	if(src.output)
 		src.output.Unlink()
+	if(src.console)
+		src.console.Unlink()
 	return ..()
 
 /**********************Input and output plates**************************/

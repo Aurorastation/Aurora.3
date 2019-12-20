@@ -37422,7 +37422,7 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bmg" = (
-/obj/machinery/mineral/rigpress,
+/obj/machinery/rigpress,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bmh" = (
@@ -61965,7 +61965,7 @@
 	icon_state = "loadingarea";
 	dir = 8
 	},
-/obj/machinery/mineral/stacking_unit_console{
+/obj/machinery/mineralconsole/stacking_unit{
 	pixel_y = 32
 	},
 /obj/machinery/light{
@@ -61982,7 +61982,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -61996,7 +61996,7 @@
 	dir = 8;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfa" = (
@@ -62142,7 +62142,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfq" = (
-/obj/machinery/mineral/stacking_unit_console{
+/obj/machinery/mineralconsole/stacking_unit{
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -62154,7 +62154,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfr" = (
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/conveyor{
 	dir = 9;
 	icon_state = "conveyor0";
@@ -62168,7 +62168,7 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cft" = (
@@ -62427,7 +62427,7 @@
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/mining_equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfU" = (
@@ -62435,7 +62435,7 @@
 	icon_state = "corner_white_full";
 	dir = 1
 	},
-/obj/machinery/mineral/equipment_vendor,
+/obj/machinery/mining_equipment_vendor,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cfV" = (
@@ -62452,7 +62452,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "cfW" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_internal"
@@ -62579,7 +62579,7 @@
 	dir = 1;
 	id = "mining_internal"
 	},
-/obj/machinery/mineral/output,
+/obj/machinery/hopper/output,
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/simulated/floor/plating,
@@ -62901,7 +62901,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgN" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/machinery/mineralconsole/processing_unit{
 	pixel_y = 32
 	},
 /obj/machinery/conveyor_switch/oneway{
@@ -62915,7 +62915,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgO" = (
-/obj/machinery/mineral/input,
+/obj/machinery/hopper/input,
 /obj/effect/floor_decal/industrial/loading{
 	icon_state = "loadingarea";
 	dir = 1
@@ -62924,7 +62924,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "cgP" = (
-/obj/machinery/mineral/processing_unit_console{
+/obj/machinery/mineralconsole/processing_unit{
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -63229,7 +63229,7 @@
 	c_tag = "Mining - Suit Storage";
 	dir = 4
 	},
-/obj/machinery/mineral/rigpress,
+/obj/machinery/rigpress,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "chp" = (
