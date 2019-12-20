@@ -1,6 +1,6 @@
 /obj/item/frame/button
 	name = "button frame"
-	build_machine_type = /obj/machinery/button/
+	build_machine_type = /obj/machinery/button
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "doorctrl-open"
 	reverse = 1
