@@ -649,7 +649,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit && M.IgniteMob())
 		M.visible_message(span("danger","\The [user] ignites \the [M] with \the [src]!"))
 
-	if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == "mouth" && lit)
+	if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == BP_MOUTH && lit)
 		var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
 		if(M == user)
 			cig.attackby(src, user)
