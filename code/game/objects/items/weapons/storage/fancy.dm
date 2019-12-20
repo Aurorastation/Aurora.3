@@ -243,7 +243,7 @@
 	icon_state = "prapacket"
 	item_state = "prapacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/pra
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/cigbutt, /obj/item/tajcard)
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
 	storage_slots = 7
 
 /obj/item/storage/fancy/cigarettes/pra/fill()
