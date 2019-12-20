@@ -151,7 +151,7 @@
 
 /obj/item/clothing/suit/armor/cuirass
 	name = "cuirass"
-	desc = "A reinforced cuirass used by the forces of the new Kingdom of Adhomai.."
+	desc = "A reinforced cuirass used by the forces of the new Kingdom of Adhomai."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "cuirass"
 	item_state = "cuirass"
