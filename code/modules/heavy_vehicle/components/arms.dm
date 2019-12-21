@@ -5,7 +5,7 @@
 	has_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	power_use = 50
 
-	var/melee_damage = 15
+	var/melee_damage = 20
 	var/action_delay = 15
 	var/obj/item/robot_parts/robot_component/actuator/motivator
 

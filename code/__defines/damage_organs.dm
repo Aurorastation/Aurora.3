@@ -5,7 +5,7 @@
 #define TOX       "tox"
 #define OXY       "oxy"
 #define CLONE     "clone"
-#define HALLOSS   "halloss"
+#define PAIN      "pain"
 
 #define CUT       "cut"
 #define BRUISE    "bruise"
@@ -19,7 +19,6 @@
 #define WEAKEN    "weaken"
 #define PARALYZE  "paralize"
 #define IRRADIATE "irradiate"
-#define AGONY     "agony"     // Added in PAIN!
 #define SLUR      "slur"
 #define STUTTER   "stutter"
 #define EYE_BLUR  "eye_blur"
