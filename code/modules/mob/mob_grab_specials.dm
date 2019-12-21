@@ -1,5 +1,5 @@
 
-/obj/item/weapon/grab/proc/inspect_organ(mob/living/carbon/human/H, mob/user, var/target_zone)
+/obj/item/grab/proc/inspect_organ(mob/living/carbon/human/H, mob/user, var/target_zone)
 
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
@@ -41,7 +41,7 @@
 		if(!bad)
 			to_chat(user, "<span class='notice'>[H]'s skin is normal.</span>")
 
-/obj/item/weapon/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+/obj/item/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -54,13 +54,13 @@
 	var/armor = target.run_armor_check(target, "melee")
 	if(armor < 100)
 		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
-		affecting.adjustHalLoss(Clamp(0, 60-affecting.halloss, 30)) //up to 60 halloss
+		affecting.adjustHalLoss(Clamp(0, 60-affecting.getHalLoss(), 30)) //up to 60 halloss
 
-/obj/item/weapon/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
 		return
 
-	var/datum/unarmed_attack/attack = attacker.get_unarmed_attack(target, "eyes")
+	var/datum/unarmed_attack/attack = attacker.get_unarmed_attack(target, BP_EYES)
 
 	if(!attack)
 		return
@@ -82,7 +82,7 @@
 
 	attack.handle_eye_attack(attacker, target)
 
-/obj/item/weapon/grab/proc/headbut(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
+/obj/item/grab/proc/headbut(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
 	if(!istype(attacker))
 		return
 	if(target.lying)
@@ -100,11 +100,11 @@
 	if(istype(hat))
 		damage += hat.force * 3
 
-	var/armor = target.run_armor_check("head", "melee")
-	target.apply_damage(damage, BRUTE, "head", armor)
-	attacker.apply_damage(10, BRUTE, "head", attacker.run_armor_check("head", "melee"))
+	var/armor = target.run_armor_check(BP_HEAD, "melee")
+	target.apply_damage(damage, BRUTE, BP_HEAD, armor)
+	attacker.apply_damage(10, BRUTE, BP_HEAD, attacker.run_armor_check(BP_HEAD, "melee"))
 
-	if(armor < 25 && target.headcheck("head") && prob(damage))
+	if(armor < 25 && target.headcheck(BP_HEAD) && prob(damage))
 		target.apply_effect(20, PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
 
@@ -116,7 +116,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
+/obj/item/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
 	if(state < GRAB_NECK)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -124,7 +124,7 @@
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		return
 
-/obj/item/weapon/grab/proc/pin_down(mob/target, mob/attacker)
+/obj/item/grab/proc/pin_down(mob/target, mob/attacker)
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
@@ -137,7 +137,7 @@
 		attacker.visible_message("<span class='danger'>[attacker] forces [target] to the ground!</span>")
 		apply_pinning(target, attacker)
 
-/obj/item/weapon/grab/proc/apply_pinning(mob/target, mob/attacker)
+/obj/item/grab/proc/apply_pinning(mob/target, mob/attacker)
 	force_down = 1
 	target.Weaken(3)
 	target.lying = 1
@@ -145,17 +145,12 @@
 	attacker.set_dir(EAST) //face the victim
 	target.set_dir(SOUTH) //face up
 
-/obj/item/weapon/grab/proc/devour(mob/target, mob/user)
+/obj/item/grab/proc/devour(mob/target, mob/user)
 	var/mob/living/carbon/human/H = user
-	var/can_eat
-	if(istype(H) && H.species.gluttonous)
-		can_eat = 1
-
-	if(can_eat)
-		H.attempt_devour(target, H.eat_types, H.mouth_size)
+	H.devour(target)
 
 
-/obj/item/weapon/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
+/obj/item/grab/proc/hair_pull(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 
 
 	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[target.h_style]
@@ -169,20 +164,20 @@
 			visible_message("<span class='notice'>[assailant] tried to grab [target] but they have no hair!</span>")
 		if(1)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname] before releasing their grip!</span>")
-			target.apply_damage(5, HALLOSS)
+			target.apply_damage(5, PAIN)
 		if(2)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
-			target.apply_damage(5, HALLOSS)
+			target.apply_damage(5, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(3)
 			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
-			target.apply_damage(10, HALLOSS)
+			target.apply_damage(10, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(4)
 			visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!</span>")
-			target.apply_damage(15, HALLOSS)
+			target.apply_damage(15, PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(5)
@@ -191,7 +186,7 @@
 				src.state = GRAB_PASSIVE
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(10, HALLOSS)
+				target.apply_damage(10, PAIN)
 				src.state = GRAB_AGGRESSIVE
 
 		if(6)
@@ -201,5 +196,5 @@
 				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
 				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
-				target.apply_damage(15, HALLOSS)
+				target.apply_damage(15, PAIN)
 				src.state = GRAB_AGGRESSIVE

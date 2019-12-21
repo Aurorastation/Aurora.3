@@ -41,7 +41,7 @@ calculate text size per text.
 					tastes[taste_desc] += taste_amount
 				else
 					tastes[taste_desc] = taste_amount
-				if(!(R.default_temperature in (T0C + 15 to T0C + 25)))
+				if(R.default_temperature >= (T0C + 15) && R.default_temperature <= (T0C + 25))
 					lukewarm = 1
 
 		//deal with percentages
@@ -89,3 +89,6 @@ calculate text size per text.
 			temp_text = "lethally hot"
 
 	return "[temp_text][temp_text ? " " : ""][english_list(out, "something indescribable")]."
+
+/mob/living/carbon/proc/get_fullness()
+	return nutrition + (reagents.get_reagent_amount("nutriment") * 25)

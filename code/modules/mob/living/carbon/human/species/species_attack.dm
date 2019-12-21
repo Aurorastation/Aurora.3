@@ -38,13 +38,13 @@
 		return 0
 
 	switch(zone)
-		if("head", "mouth", "eyes")
+		if(BP_HEAD, BP_MOUTH, BP_EYES)
 			// ----- HEAD ----- //
 			switch(attack_damage)
 				if(1 to 2)
 					user.visible_message("<span class='danger'>[user] scratched [target] across \his cheek!</span>")
 				if(3 to 4)
-					user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target]'s [pick("head", "neck")]!</span>") //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
+					user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target]'s [pick(BP_HEAD, "neck")]!</span>") //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
 				if(5)
 					user.visible_message(pick(
 						"<span class='danger'>[user] rakes \his [pick(attack_noun)] across [target]'s face!</span>",

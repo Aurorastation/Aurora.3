@@ -224,7 +224,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
-	/client/proc/disconnect_ntsl
+	/client/proc/disconnect_ntsl,
+	/turf/proc/view_chunk,
+	/turf/proc/update_chunk
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -936,10 +938,10 @@ var/list/admin_verbs_cciaa = list(
 		M.g_skin = hex2num(copytext(new_skin, 4, 6))
 		M.b_skin = hex2num(copytext(new_skin, 6, 8))
 
-	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
+	var/new_tone = input("Please select skin tone level: 30-220. Higher is darker.", "Character Generation")  as text
 
 	if (new_tone)
-		M.s_tone = max(min(round(text2num(new_tone)), 220), 1)
+		M.s_tone = max(min(round(text2num(new_tone)), 220), 30)
 		M.s_tone =  -M.s_tone + 35
 
 	// hair

@@ -52,10 +52,10 @@
 	var/process_lock = 0 //If the call to process is locked because it is still running
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/crusher,
-		/obj/item/weapon/stock_parts/matter_bin = 4,
-		/obj/item/weapon/stock_parts/manipulator = 3,
-		/obj/item/weapon/reagent_containers/glass/beaker = 3
+		/obj/item/circuitboard/crusher,
+		/obj/item/stock_parts/matter_bin = 4,
+		/obj/item/stock_parts/manipulator = 3,
+		/obj/item/reagent_containers/glass/beaker = 3
 	)
 
 /obj/machinery/crusher_base/Initialize()
@@ -90,7 +90,7 @@
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, BRUTE, user.get_active_hand())
-		M.apply_damage(45, HALLOSS)
+		M.apply_damage(45, PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
 		return
@@ -114,7 +114,7 @@
 			return
 	..()
 
-/obj/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
+/obj/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/crowbar/C)
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it

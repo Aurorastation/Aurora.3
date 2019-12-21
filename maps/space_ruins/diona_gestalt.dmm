@@ -13,7 +13,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "af" = (
-/obj/item/weapon/gun/energy/mindflayer,
+/obj/item/gun/energy/mindflayer,
 /turf/simulated/floor/diona,
 /area/derelict)
 "ag" = (
@@ -29,7 +29,6 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "aj" = (
-/obj/effect/decal/mecha_wreckage/hermes,
 /turf/simulated/floor/diona,
 /area/derelict)
 "ak" = (
@@ -41,7 +40,7 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "am" = (
-/obj/item/weapon/storage/toolbox/lunchbox/nymph,
+/obj/item/storage/toolbox/lunchbox/nymph,
 /turf/simulated/floor/diona,
 /area/derelict)
 "an" = (
@@ -66,31 +65,26 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "as" = (
-/obj/item/mecha_parts/part/phazon_head,
 /turf/simulated/floor/diona,
 /area/derelict)
 "at" = (
-/turf/simulated/shuttle/wall/dark,
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
+	},
 /area/derelict)
 "au" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/diona,
 /area/derelict)
-"av" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict)
 "aw" = (
 /obj/random/junk,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "ax" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -99,76 +93,69 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "az" = (
-/obj/item/weapon/trap/animal/large,
+/obj/item/trap/animal/large,
 /turf/simulated/floor/diona,
 /area/derelict)
 "aA" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aB" = (
 /obj/effect/decal/cleanable/flour,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aC" = (
 /obj/structure/table/steel,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
-"aD" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/derelict)
 "aE" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/structure/noose,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aF" = (
 /obj/structure/table/steel,
 /obj/random/loot,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aG" = (
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aH" = (
 /obj/structure/computerframe,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aI" = (
 /obj/structure/table/steel,
-/obj/item/weapon/gun/energy/retro,
-/turf/simulated/shuttle/floor{
+/obj/item/gun/energy/retro,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aJ" = (
-/obj/item/weapon/storage/box/flashshells,
+/obj/item/storage/box/flashshells,
 /turf/simulated/floor/diona,
 /area/derelict)
 "aK" = (
 /obj/effect/decal/cleanable/greenglow,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -176,13 +163,13 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aM" = (
 /obj/random/coin,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -192,7 +179,7 @@
 	pixel_y = 8
 	},
 /obj/structure/closet/crate/loot,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -201,13 +188,13 @@
 	icon_state = "bridge";
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aP" = (
 /obj/effect/decal/cleanable/vomit,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -217,7 +204,7 @@
 	pixel_y = 8
 	},
 /obj/structure/table/steel,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -225,7 +212,7 @@
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -243,7 +230,7 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -261,7 +248,7 @@
 	brightness_power = 1;
 	brightness_range = 5
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -272,13 +259,13 @@
 	brightness_range = 5
 	},
 /obj/random/contraband,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aX" = (
 /obj/effect/decal/cleanable/mucus,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -287,13 +274,13 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "aZ" = (
 /obj/structure/bed/chair/office/bridge,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -304,7 +291,7 @@
 	},
 /obj/structure/table/steel,
 /obj/random/backpack,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -317,22 +304,20 @@
 /turf/simulated/floor/diona,
 /area/derelict)
 "bd" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 4;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
 	},
 /area/derelict)
 "be" = (
-/turf/space,
-/turf/simulated/shuttle/wall/dark{
-	dir = 5;
-	icon_state = "diagonalWall3"
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 10
 	},
 /area/derelict)
 "bf" = (
 /obj/effect/decal/remains,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -341,13 +326,13 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "bh" = (
-/obj/item/weapon/stool/padded,
-/turf/simulated/shuttle/floor{
+/obj/item/stool/padded,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
@@ -362,12 +347,12 @@
 "bk" = (
 /obj/structure/table/steel,
 /obj/random/junk,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
 /area/derelict)
 "bl" = (
-/obj/item/weapon/vampiric,
+/obj/item/vampiric,
 /turf/simulated/floor/diona,
 /area/derelict)
 "bm" = (
@@ -384,6 +369,18 @@
 "bp" = (
 /obj/item/toy/plushie/squid,
 /turf/simulated/floor/diona,
+/area/derelict)
+"so" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"vl" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"yy" = (
+/turf/simulated/wall/shuttle/dark,
 /area/derelict)
 
 (1,1,1) = {"
@@ -52934,7 +52931,7 @@ ag
 ax
 bm
 bm
-at
+so
 bm
 bm
 bm
@@ -53187,11 +53184,11 @@ bm
 bm
 bm
 bm
-at
+so
 ax
 ax
 bm
-at
+so
 bm
 ab
 bm
@@ -53444,11 +53441,11 @@ bm
 bm
 ag
 bm
-at
+so
 aK
 ax
 bm
-at
+so
 bm
 ab
 bm
@@ -53701,11 +53698,11 @@ ab
 ab
 ab
 ab
-at
+so
 aL
 ax
 aV
-at
+so
 ab
 ab
 ab
@@ -53958,11 +53955,11 @@ aa
 aa
 aa
 ab
-at
+so
 ax
 aw
 ax
-at
+so
 ab
 aa
 aa
@@ -54214,12 +54211,12 @@ aa
 aa
 aa
 aa
-av
 at
+so
 ax
 ax
 ax
-at
+so
 be
 aa
 aa
@@ -54469,16 +54466,16 @@ aa
 aa
 aa
 aa
-av
 at
-at
-at
+so
+so
+so
 aL
 ax
 aW
-at
-at
-at
+so
+so
+so
 be
 aa
 ab
@@ -54726,18 +54723,18 @@ aa
 aa
 aa
 at
-at
-at
+so
+so
 aE
-at
-at
+so
+so
 aG
-at
-at
+so
+so
 ax
-at
-at
-at
+so
+so
+be
 ab
 aa
 aa
@@ -54982,19 +54979,19 @@ aa
 aa
 aa
 aa
-at
+so
 aw
 aA
 ax
-at
+so
 aM
 ax
 aX
-at
+so
 ax
 bg
 bk
-at
+so
 aa
 aa
 aa
@@ -55239,7 +55236,7 @@ aa
 aa
 aa
 aa
-at
+so
 ax
 aB
 ax
@@ -55251,7 +55248,7 @@ aG
 ax
 bh
 aC
-at
+so
 aa
 aa
 aa
@@ -55496,19 +55493,19 @@ aa
 aa
 aa
 aa
-at
+so
 ax
 ax
 aC
-at
+yy
 ax
 ax
 ax
-at
+so
 ax
 ax
 ax
-at
+so
 aa
 aa
 aa
@@ -55753,19 +55750,19 @@ aa
 aa
 aa
 aa
-at
+so
 ax
 aC
 aF
-at
+yy
 aN
 ax
 aY
-at
+so
 bf
 ax
 aK
-at
+so
 aa
 aa
 aa
@@ -56010,19 +56007,19 @@ aa
 aa
 aa
 aa
-at
-at
-at
-at
-at
-at
+vl
+so
+so
+so
+so
+so
 aG
-at
-at
-at
-at
-at
-at
+so
+so
+so
+so
+so
+bd
 aa
 aa
 aa
@@ -56269,14 +56266,14 @@ aa
 aa
 aa
 aa
-aD
-at
+vl
+so
 aH
 aO
 ax
 aZ
 aH
-at
+so
 bd
 aa
 aa
@@ -56527,13 +56524,13 @@ aa
 aa
 aa
 aa
-at
+so
 aI
 aP
 aw
 ax
 aF
-at
+so
 aa
 aa
 aa
@@ -56784,13 +56781,13 @@ aa
 aa
 aa
 aa
-at
-at
+so
+so
 aQ
 aR
 ba
-at
-at
+so
+so
 aa
 aa
 aa
@@ -57041,12 +57038,12 @@ aa
 aa
 aa
 aa
-aD
-at
-at
+vl
+so
+so
 aH
-at
-at
+so
+so
 bd
 aa
 aa
@@ -57299,10 +57296,10 @@ aa
 aa
 aa
 aa
-aD
-at
+vl
+so
 aS
-at
+so
 bd
 aa
 aa

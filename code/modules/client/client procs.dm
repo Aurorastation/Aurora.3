@@ -263,7 +263,9 @@
 			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
-	spam_alert = max(0, spam_alert - 1)
+	else
+		spam_alert = max(0, spam_alert - 1)
+
 	return FALSE
 
 /client/proc/automute_by_duplicate(message, mute_type)
@@ -378,6 +380,10 @@
 	if(SStheming)
 		SStheming.apply_theme_from_perfs(src)
 
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
+		server_greeting.display_to_client(src)
+
 /client/proc/InitClient()
 	if(initialized)
 		return
@@ -434,14 +440,12 @@
 
 	send_resources()
 
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1))
-		server_greeting.display_to_client(src)
-
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
 
 	check_ip_intel()
+
+	fetch_unacked_warning_count()
 
 	initialized = TRUE
 

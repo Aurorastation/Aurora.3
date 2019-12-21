@@ -18,21 +18,21 @@
 	'sound/effects/creatures/rat_squeaks_2.ogg',
 	'sound/effects/creatures/rat_squeaks_3.ogg',
 	'sound/effects/creatures/rat_squeaks_4.ogg')
-	var/last_softsqueak = null//Used to prevent the same soft squeak twice in a row
-	var/squeals = 5//Spam control.
-	var/maxSqueals = 2//SPAM PROTECTION
-	var/last_squealgain = 0// #TODO-FUTURE: Remove from life() once something else is created
+	var/last_softsqueak = null //Used to prevent the same soft squeak twice in a row
+	var/squeals = 5 //Spam control.
+	var/maxSqueals = 2 //SPAM PROTECTION
+	var/last_squealgain = 0 // #TODO-FUTURE: Remove from life() once something else is created
 	var/squeakcooldown = 0
 	pass_flags = PASSTABLE
 	speak_chance = 3
 	turns_per_move = 5
 	see_in_dark = 6
-	maxHealth = 10
-	health = 10
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/rat
-	response_help  = "pets"
+	maxHealth = 5
+	health = 5
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/rat
+	response_help = "pets"
 	response_disarm = "gently pushes aside"
-	response_harm   = "stomps on"
+	response_harm = "stomps on"
 	density = 0
 	meat_amount = 2 // Rats are a bit bigger, so a bit more meat for dreg-feeding.
 	var/body_color //brown, gray, white, american irish, hooded leave blank for random
@@ -43,13 +43,13 @@
 	maxbodytemp = 323	//Above 50 Degrees Celcius
 	universal_speak = 0
 	universal_understand = 1
-	holder_type = /obj/item/weapon/holder/rat
+	holder_type = /obj/item/holder/rat
 	digest_factor = 0.05
 	min_scan_interval = 2
 	max_scan_interval = 20
 	seek_speed = 1
 	max_nutrition = 17
-
+	canbrush = TRUE
 	can_pull_size = 1
 	can_pull_mobs = MOB_PULL_NONE
 
@@ -119,15 +119,15 @@
 	icon_rest = "rat_[body_color]_sleep"
 	icon_dead = "rat_[body_color]_dead"
 	if (body_color == "brown")
-		holder_type = /obj/item/weapon/holder/rat/brown
+		holder_type = /obj/item/holder/rat/brown
 	if (body_color == "gray")
-		holder_type = /obj/item/weapon/holder/rat/gray
+		holder_type = /obj/item/holder/rat/gray
 	if (body_color == "white")
-		holder_type = /obj/item/weapon/holder/rat/white
+		holder_type = /obj/item/holder/rat/white
 	if (body_color == "hooded")
-		holder_type = /obj/item/weapon/holder/rat/hooded
+		holder_type = /obj/item/holder/rat/hooded
 	if (body_color == "irish")
-		holder_type = /obj/item/weapon/holder/rat/irish
+		holder_type = /obj/item/holder/rat/irish
 
 
 	SSmob.all_rats += src
@@ -135,9 +135,6 @@
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
 
-/mob/living/simple_animal/rat/beg(var/atom/thing, var/atom/holder)
-	squeak_soft(0)
-	visible_emote("squeaks timidly, sniffs the air and gazes longingly up at \the [thing.name].",0)
 
 /mob/living/simple_animal/rat/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
@@ -287,31 +284,31 @@
 	body_color = "white"
 	icon_state = "rat_white"
 	icon_rest = "rat_white_sleep"
-	holder_type = /obj/item/weapon/holder/rat/white
+	holder_type = /obj/item/holder/rat/white
 
 /mob/living/simple_animal/rat/gray
 	body_color = "gray"
 	icon_state = "rat_gray"
 	icon_rest = "rat_gray_sleep"
-	holder_type = /obj/item/weapon/holder/rat/gray
+	holder_type = /obj/item/holder/rat/gray
 
 /mob/living/simple_animal/rat/brown
 	body_color = "brown"
 	icon_state = "rat_brown"
 	icon_rest = "rat_brown_sleep"
-	holder_type = /obj/item/weapon/holder/rat/brown
+	holder_type = /obj/item/holder/rat/brown
 
 /mob/living/simple_animal/rat/hooded
 	body_color = "hooded"
 	icon_state = "rat_hooded"
 	icon_rest = "rat_brown_sleep"
-	holder_type = /obj/item/weapon/holder/rat/hooded
+	holder_type = /obj/item/holder/rat/hooded
 
 /mob/living/simple_animal/rat/irish
 	body_color = "irish"
 	icon_state = "rat_irish"
 	icon_rest = "rat_irish_sleep"
-	holder_type = /obj/item/weapon/holder/rat/irish
+	holder_type = /obj/item/holder/rat/irish
 
 /mob/living/simple_animal/rat/brown/Tom
 	name = "Tom"

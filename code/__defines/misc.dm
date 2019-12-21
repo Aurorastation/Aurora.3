@@ -1,20 +1,5 @@
 #define DEBUG
 
-//These get to go at the top, because they're special
-//You can use these defines to get the typepath of the currently running proc/verb (yes procs + verbs are objects)
-/* eg:
-/mob/living/carbon/human/death()
-	world << THIS_PROC_TYPE_STR //You can only output the string versions
-Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a string with () (eg: the _WITH_ARGS defines) to make it look nicer)
-*/
-#define THIS_PROC_TYPE .....
-#define THIS_PROC_TYPE_STR "[THIS_PROC_TYPE]" //Because you can only obtain a string of THIS_PROC_TYPE using "[]", and it's nice to just +/+= strings
-#define THIS_PROC_TYPE_STR_WITH_ARGS "[THIS_PROC_TYPE]([args.Join(",")])"
-#define THIS_PROC_TYPE_WEIRD ...... //This one is WEIRD, in some cases (When used in certain defines? (eg: ASSERT)) THIS_PROC_TYPE will fail to work, but THIS_PROC_TYPE_WEIRD will work instead
-#define THIS_PROC_TYPE_WEIRD_STR "[THIS_PROC_TYPE_WEIRD]" //Included for completeness
-#define THIS_PROC_TYPE_WEIRD_STR_WITH_ARGS "[THIS_PROC_TYPE_WEIRD]([args.Join(",")])" //Ditto
-
-
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
 #define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
@@ -49,7 +34,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define AGE_MIN 17
 #define AGE_MAX 85
 
-#define MAX_GEAR_COST 10 // Used in chargen for accessory loadout limit.
+#define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
@@ -89,7 +74,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
-#define      HEALTH_HUD 1 // A simple line rounding the mob's number health.
+#define      HEALTH_HUD 1 // A simple line reading the pulse.
 #define      STATUS_HUD 2 // Alive, dead, diseased, etc.
 #define          ID_HUD 3 // The job asigned to your ID.
 #define      WANTED_HUD 4 // Wanted, released, paroled, security status.
@@ -99,41 +84,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define SPECIALROLE_HUD 8 // AntagHUD image.
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
-
-//some colors
-#define COLOR_WHITE            "#ffffff"
-#define COLOR_SILVER           "#c0c0c0"
-#define COLOR_GRAY             "#808080"
-#define COLOR_BLACK            "#000000"
-#define COLOR_RED              "#ff0000"
-#define COLOR_RED_LIGHT        "#ff3333"
-#define COLOR_MAROON           "#800000"
-#define COLOR_YELLOW           "#ffff00"
-#define COLOR_OLIVE            "#808000"
-#define COLOR_LIME             "#00ff00"
-#define COLOR_GREEN            "#008000"
-#define COLOR_CYAN             "#00ffff"
-#define COLOR_TEAL             "#008080"
-#define COLOR_BLUE             "#0000ff"
-#define COLOR_BLUE_LIGHT       "#33ccff"
-#define COLOR_NAVY             "#000080"
-#define COLOR_PINK             "#ff00ff"
-#define COLOR_PURPLE           "#800080"
-#define COLOR_ORANGE           "#ff9900"
-#define COLOR_LUMINOL          "#66ffff"
-#define COLOR_BEIGE            "#ceb689"
-#define COLOR_BLUE_GRAY        "#6a97b0"
-#define COLOR_BROWN            "#b19664"
-#define COLOR_DARK_BROWN       "#917448"
-#define COLOR_DARK_ORANGE      "#b95a00"
-#define COLOR_GREEN_GRAY       "#8daf6a"
-#define COLOR_RED_GRAY         "#aa5f61"
-#define COLOR_PALE_BLUE_GRAY   "#8bbbd5"
-#define COLOR_PALE_GREEN_GRAY  "#aed18b"
-#define COLOR_PALE_RED_GRAY    "#cc9090"
-#define COLOR_PALE_PURPLE_GRAY "#bda2ba"
-#define COLOR_PURPLE_GRAY      "#a2819e"
-#define COLOR_SUN              "#ec8b2f"
 
 //	Shuttles.
 
@@ -300,11 +250,6 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
-// These defines write to log_debug, prefixing the path to the current proc.
-//  When using them, try PROCLOG first. If it does not compile, try PROCLOG_WEIRD.
-#define PROCLOG(thing) log_debug("[THIS_PROC_TYPE]: [thing]")
-#define PROCLOG_WEIRD(thing) log_debug("[THIS_PROC_TYPE_WEIRD]: [thing]")
-
 //Recipe type defines. Used to determine what machine makes them
 #define MICROWAVE			0x1
 #define FRYER				0x2
@@ -328,7 +273,15 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 // Used for creating soft references to objects. A manner of storing an item reference
 // as text so you don't necessarily fuck with an object's ability to be garbage collected.
+#if DM_VERSION < 513
+
 #define SOFTREF(A) "\ref[A]"
+
+#else
+
+#define SOFTREF(A) ref(A)
+
+#endif
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new(D))) : null)
@@ -366,6 +319,15 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 #define isStationLevel(Z) ((Z) in current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
+
+#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
+
+#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isNotAdminLevel(Z) !isAdminLevel(Z)
+
+#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Affects the chance that armour will block an attack. Should be between 0 and 1.
 //If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.

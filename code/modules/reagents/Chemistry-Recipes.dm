@@ -138,17 +138,17 @@
 
 /* Common reactions */
 
-/datum/chemical_reaction/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	result = "inaprovaline"
+/datum/chemical_reaction/norepinephrine
+	name = "Norepinephrine"
+	id = "norepinephrine"
+	result = "norepinephrine"
 	required_reagents = list("acetone" = 1, "carbon" = 1, "sugar" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/dylovene
 	name = "Dylovene"
-	id = "anti_toxin"
-	result = "anti_toxin"
+	id = "dylovene"
+	result = "dylovene"
 	required_reagents = list("silicon" = 1, "potassium" = 1, "ammonia" = 1)
 	result_amount = 3
 
@@ -156,7 +156,7 @@
 	name = "Tramadol"
 	id = "tramadol"
 	result = "tramadol"
-	required_reagents = list("inaprovaline" = 1, "ethanol" = 1, "acetone" = 1)
+	required_reagents = list("norepinephrine" = 1, "ethanol" = 1, "acetone" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/paracetamol
@@ -178,7 +178,7 @@
 	name = "Sterilizine"
 	id = "sterilizine"
 	result = "sterilizine"
-	required_reagents = list("ethanol" = 1, "anti_toxin" = 1, "hclacid" = 1)
+	required_reagents = list("ethanol" = 1, "dylovene" = 1, "hclacid" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/silicate
@@ -234,7 +234,7 @@
 	name = "Hyronalin"
 	id = "hyronalin"
 	result = "hyronalin"
-	required_reagents = list("radium" = 1, "anti_toxin" = 1)
+	required_reagents = list("radium" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/arithrazine
@@ -293,14 +293,14 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = "tricordrazine"
-	required_reagents = list("inaprovaline" = 1, "anti_toxin" = 1)
+	required_reagents = list("norepinephrine" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/alkysine
 	name = "Alkysine"
 	id = "alkysine"
 	result = "alkysine"
-	required_reagents = list("hclacid" = 1, "ammonia" = 1, "anti_toxin" = 1)
+	required_reagents = list("hclacid" = 1, "ammonia" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/dexalin
@@ -330,8 +330,8 @@
 	name = "Bicaridine"
 	id = "bicaridine"
 	result = "bicaridine"
-	required_reagents = list("inaprovaline" = 1, "carbon" = 1)
-	inhibitors = list("sugar" = 1) // Messes up with inaprovaline
+	required_reagents = list("norepinephrine" = 1, "carbon" = 1)
+	inhibitors = list("sugar" = 1) // Messes with norepinephrine
 	result_amount = 2
 
 /datum/chemical_reaction/hyperzine
@@ -374,41 +374,50 @@
 	name = "Thetamycin"
 	id = "thetamycin"
 	result = "thetamycin"
-	required_reagents = list("cryptobiolin" = 1, "anti_toxin" = 1)
+	required_reagents = list("cryptobiolin" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/antihistamine
 	name = "Diphenhydramine"
 	id = "diphenhydramine"
 	result = "diphenhydramine"
-	required_reagents = list("cryptobiolin" = 1, "inaprovaline" = 1)
+	required_reagents = list("cryptobiolin" = 1, "norepinephrine" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/ondansetron
+	name = "Ondansetron"
+	id = "ondansetron"
+	result = "ondansetron"
+	required_reagents = list("diphenhydramine" = 1, "synaptizine" = 1, "water" = 3)
+	catalysts = list("tungsten" = 5)
+	result_amount = 3
 
 /datum/chemical_reaction/imidazoline
 	name = "imidazoline"
 	id = "imidazoline"
 	result = "imidazoline"
-	required_reagents = list("carbon" = 1, "hydrazine" = 1, "anti_toxin" = 1)
+	required_reagents = list("carbon" = 1, "hydrazine" = 1, "dylovene" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/ethylredoxrazine
 	name = "Ethylredoxrazine"
 	id = "ethylredoxrazine"
 	result = "ethylredoxrazine"
-	required_reagents = list("acetone" = 1, "anti_toxin" = 1, "carbon" = 1)
+	required_reagents = list("acetone" = 1, "dylovene" = 1, "carbon" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/ipecac
 	name = "Ipecac"
 	id = "ipecac"
 	result = "ipecac"
-	required_reagents = list("hydrazine" = 1, "anti_toxin" = 1, "ethanol" = 1)
+	required_reagents = list("hydrazine" = 1, "dylovene" = 1, "ethanol" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/adipemcina
 	name = "Adipemcina"
 	id = "adipemcina"
 	result = "adipemcina"
-	required_reagents = list("lithium" = 1, "anti_toxin" = 1, "potassium" = 1)
+	required_reagents = list("lithium" = 1, "dylovene" = 1, "potassium" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/soporific
@@ -447,11 +456,18 @@
 	required_reagents = list("carpotoxin" = 5, "stoxin" = 5, "copper" = 5)
 	result_amount = 2
 
+/datum/chemical_reaction/dextrotoxin
+	name = "Dextrotoxin"
+	id = "dextrotoxin"
+	result = "dextrotoxin"
+	required_reagents = list("carpotoxin" = 3, "stoxin" = 10, "phoron" = 5)
+	result_amount = 5
+
 /datum/chemical_reaction/mindbreaker
 	name = "Mindbreaker Toxin"
 	id = "mindbreaker"
 	result = "mindbreaker"
-	required_reagents = list("silicon" = 1, "hydrazine" = 1, "anti_toxin" = 1)
+	required_reagents = list("silicon" = 1, "hydrazine" = 1, "dylovene" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/lipozine
@@ -600,11 +616,11 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/potassium_hydrophoro
-	name = "Potassium Hydrophoride"
-	id = "potassium_hydrophoro"
-	result = "potassium_hydrophoro"
-	required_reagents = list("phoron" = 0.1, "water" = 1, "potassium_chloride" = 0.2)
+/datum/chemical_reaction/saline
+	name = "Saline"
+	id = "saline"
+	result = "saline"
+	required_reagents = list("sugar" = 0.4, "water" = 1, "sodiumchloride" = 0.9)
 	result_amount = 1
 
 /datum/chemical_reaction/mannitol
@@ -614,13 +630,6 @@
 	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
 	result_amount = 1
 
-/datum/chemical_reaction/omnizine
-	name = "Omnizine"
-	id = "omnizine"
-	result = "omnizine"
-	required_reagents = list("tricordrazine" = 1, "sugar" = 1, "carbon" = 1 )
-	result_amount = 3
-
 /datum/chemical_reaction/atropine
 	name = "Atropine"
 	id = "atropine"
@@ -628,11 +637,11 @@
 	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
 	result_amount = 2
 
-/datum/chemical_reaction/epinephrine
-	name = "Epinephrine"
-	id = "epinephrine"
-	result = "epinephrine"
-	required_reagents = list("atropine" = 1, "phoron" = 0.1, "inaprovaline" = 1 )
+/datum/chemical_reaction/inaprovaline
+	name = "Inaprovaline"
+	id = "inaprovaline"
+	result = "inaprovaline"
+	required_reagents = list("atropine" = 1, "phoron" = 0.1, "adrenaline" = 1 )
 	result_amount = 2
 
 /datum/chemical_reaction/coughsyrup
@@ -658,11 +667,17 @@
 	required_reagents = list("mindbreaker" = 1, "carbon" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/adrenaline
+	name = "Adrenaline"
+	result = "adrenaline"
+	required_reagents = list("norepinephrine" = 1, "hyperzine" = 1, "dexalinp" = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/paroxetine
 	name = "Paroxetine"
 	id = "paroxetine"
 	result = "paroxetine"
-	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "inaprovaline" = 1)
+	required_reagents = list("mindbreaker" = 1, "acetone" = 1, "norepinephrine" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/fluvoxamine
@@ -770,9 +785,9 @@
 	name = "Nightlife"
 	id = "night_juice"
 	result = "night_juice"
-	required_reagents = list("methylphenidate" = 1, "epinephrine" = 1, "synaptizine" = 1)
-	required_temperatures_min = list("methylphenidate" = T0C+300, "epinephrine" = T0C+300, "synaptizine" = T0C+300)
-	result_amount = 1 // doesn't make a lot
+	required_reagents = list("methylphenidate" = 1, "synaptizine" = 1, "nitroglycerin" = 1)
+	required_temperatures_min = list("methylphenidate" = T0C+200, "synaptizine" = T0C+200, "nitroglycerin" = T0C+200)
+	result_amount = 3
 
 /* Solidification */
 
@@ -870,20 +885,6 @@
 	result = "nitroglycerin"
 	required_reagents = list("glycerol" = 1, "pacid" = 1, "sacid" = 1)
 	result_amount = 2
-	log_is_important = 1
-
-/datum/chemical_reaction/nitroglycerin/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/datum/effect/effect/system/reagents_explosion/e = new()
-	e.set_up(round (created_volume/2, 1), holder.my_atom, 0, 0)
-	if(isliving(holder.my_atom))
-		e.amount *= 0.5
-		var/mob/living/L = holder.my_atom
-		if(L.stat!=DEAD)
-			e.amount *= 0.5
-	e.start()
-
-	holder.clear_reagents()
-	return
 
 /datum/chemical_reaction/napalm
 	name = "Napalm"
@@ -1276,7 +1277,7 @@
 
 /datum/chemical_reaction/slime/monkey/on_reaction(var/datum/reagents/holder)
 	for(var/i = 1, i <= 3, i++)
-		var /obj/item/weapon/reagent_containers/food/snacks/monkeycube/M = new /obj/item/weapon/reagent_containers/food/snacks/monkeycube
+		var /obj/item/reagent_containers/food/snacks/monkeycube/M = new /obj/item/reagent_containers/food/snacks/monkeycube
 		M.forceMove(get_turf(holder.my_atom))
 	..()
 
@@ -1350,7 +1351,11 @@
 		/mob/living/simple_animal/hostile/greatwormking,
 		/mob/living/simple_animal/hostile/krampus,
 		/mob/living/simple_animal/hostile/gift,
-		/mob/living/simple_animal/hostile/hivebotbeacon
+		/mob/living/simple_animal/hostile/hivebotbeacon,
+		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
+		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
+		/mob/living/simple_animal/hostile/republicon,
+		/mob/living/simple_animal/hostile/republicon/ranged
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
@@ -1379,7 +1384,41 @@
 	required = /obj/item/slime_extract/silver
 
 /datum/chemical_reaction/slime/bork/on_reaction(var/datum/reagents/holder)
-	var/list/borks = typesof(/obj/item/weapon/reagent_containers/food/snacks) - /obj/item/weapon/reagent_containers/food/snacks
+	var/list/blocked = list(
+	/obj/item/reagent_containers/food/snacks,
+	/obj/item/reagent_containers/food/snacks/meat/undead,
+	/obj/item/reagent_containers/food/snacks/meatbreadslice,
+	/obj/item/reagent_containers/food/snacks/xenomeatbreadslice,
+	/obj/item/reagent_containers/food/snacks/bananabreadslice,
+	/obj/item/reagent_containers/food/snacks/tofubreadslice,
+	/obj/item/reagent_containers/food/snacks/cakeslice/carrot,
+	/obj/item/reagent_containers/food/snacks/cakeslice/brain,
+	/obj/item/reagent_containers/food/snacks/cakeslice/cheese,
+	/obj/item/reagent_containers/food/snacks/cakeslice/plain,
+	/obj/item/reagent_containers/food/snacks/cakeslice/orange,
+	/obj/item/reagent_containers/food/snacks/cakeslice/lime,
+	/obj/item/reagent_containers/food/snacks/cakeslice/lemon,
+	/obj/item/reagent_containers/food/snacks/cakeslice/chocolate,
+	/obj/item/reagent_containers/food/snacks/cheesewedge,
+	/obj/item/reagent_containers/food/snacks/cakeslice/birthday,
+	/obj/item/reagent_containers/food/snacks/sliceable/bread,
+	/obj/item/reagent_containers/food/snacks/breadslice,
+	/obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread,
+	/obj/item/reagent_containers/food/snacks/creamcheesebreadslice,
+	/obj/item/reagent_containers/food/snacks/watermelonslice,
+	/obj/item/reagent_containers/food/snacks/cakeslice/apple,
+	/obj/item/reagent_containers/food/snacks/pumpkinpieslice,
+	/obj/item/reagent_containers/food/snacks/keylimepieslice,
+	/obj/item/reagent_containers/food/snacks/quicheslice,
+	/obj/item/reagent_containers/food/snacks/browniesslice,
+	/obj/item/reagent_containers/food/snacks/cosmicbrowniesslice,
+	/obj/item/reagent_containers/food/snacks/margheritaslice,
+	/obj/item/reagent_containers/food/snacks/meatpizzaslice,
+	/obj/item/reagent_containers/food/snacks/mushroompizzaslice,
+	/obj/item/reagent_containers/food/snacks/vegetablepizzaslice,
+	/obj/item/reagent_containers/food/snacks/pineappleslice
+	)
+	var/list/borks = typesof(/obj/item/reagent_containers/food/snacks) - blocked
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
 	for(var/mob/living/carbon/human/M in viewers(get_turf(holder.my_atom), null))
 		if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
@@ -1471,7 +1510,7 @@
 	required = /obj/item/slime_extract/yellow
 
 /datum/chemical_reaction/slime/cell/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/obj/item/weapon/cell/slime/P = new /obj/item/weapon/cell/slime
+	var/obj/item/cell/slime/P = new /obj/item/cell/slime
 	P.forceMove(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/slime/glow
@@ -1499,7 +1538,7 @@
 
 /datum/chemical_reaction/slime/psteroid/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	var/obj/item/weapon/slimesteroid/P = new /obj/item/weapon/slimesteroid
+	var/obj/item/slimesteroid/P = new /obj/item/slimesteroid
 	P.forceMove(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/slime/jam
@@ -1559,7 +1598,7 @@
 
 /datum/chemical_reaction/slime/ppotion/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/weapon/slimepotion/P = new /obj/item/weapon/slimepotion
+	var/obj/item/slimepotion/P = new /obj/item/slimepotion
 	P.forceMove(get_turf(holder.my_atom))
 
 //Black
@@ -1597,7 +1636,7 @@
 
 /datum/chemical_reaction/slime/potion2/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/weapon/slimepotion2/P = new /obj/item/weapon/slimepotion2
+	var/obj/item/slimepotion2/P = new /obj/item/slimepotion2
 	P.forceMove(get_turf(holder.my_atom))
 
 //Adamantine
@@ -1622,14 +1661,14 @@
 	var/strength = 3
 
 /datum/chemical_reaction/soap_key/can_happen(var/datum/reagents/holder)
-	if(holder.my_atom && istype(holder.my_atom, /obj/item/weapon/soap))
+	if(holder.my_atom && istype(holder.my_atom, /obj/item/soap))
 		return ..()
 	return 0
 
 /datum/chemical_reaction/soap_key/on_reaction(var/datum/reagents/holder)
-	var/obj/item/weapon/soap/S = holder.my_atom
+	var/obj/item/soap/S = holder.my_atom
 	if(S.key_data)
-		var/obj/item/weapon/key/soap/key = new(get_turf(holder.my_atom), S.key_data)
+		var/obj/item/key/soap/key = new(get_turf(holder.my_atom), S.key_data)
 		key.uses = strength
 	..()
 
@@ -1650,7 +1689,7 @@
 /datum/chemical_reaction/tofu/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/tofu(location)
+		new /obj/item/reagent_containers/food/snacks/tofu(location)
 	return
 
 /datum/chemical_reaction/chocolate_bar
@@ -1663,7 +1702,7 @@
 /datum/chemical_reaction/chocolate_bar/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(location)
+		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
 	return
 
 /datum/chemical_reaction/chocolate_bar2
@@ -1676,7 +1715,7 @@
 /datum/chemical_reaction/chocolate_bar2/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/chocolatebar(location)
+		new /obj/item/reagent_containers/food/snacks/chocolatebar(location)
 	return
 
 /datum/chemical_reaction/hot_coco
@@ -1725,7 +1764,7 @@
 /datum/chemical_reaction/cheesewheel/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesewheel(location)
+		new /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 	return
 
 /datum/chemical_reaction/meatball
@@ -1738,7 +1777,7 @@
 /datum/chemical_reaction/meatball/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/rawmeatball(location)
+		new /obj/item/reagent_containers/food/snacks/rawmeatball(location)
 	return
 
 /datum/chemical_reaction/dough
@@ -1752,7 +1791,7 @@
 /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/dough(location)
+		new /obj/item/reagent_containers/food/snacks/dough(location)
 	return
 
 /datum/chemical_reaction/syntiflesh
@@ -1765,7 +1804,7 @@
 /datum/chemical_reaction/syntiflesh/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh(location)
+		new /obj/item/reagent_containers/food/snacks/meat/syntiflesh(location)
 	return
 
 /datum/chemical_reaction/hot_ramen
@@ -1813,7 +1852,7 @@
 /datum/chemical_reaction/butter/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/weapon/reagent_containers/food/snacks/spreads/butter(location)
+		new /obj/item/reagent_containers/food/snacks/spreads/butter(location)
 	return
 
 /*
@@ -3110,6 +3149,223 @@
 	required_reagents = list("virusfood" = 3, "wulumunusha" = 1, "whitewine" = 2)
 	result_amount = 6
 
+//Tea and cider
+//=======================
+
+/datum/chemical_reaction/drink/cidercheap
+	name = "Apple Cider Juice"
+	id = "cidercheap"
+	result = "cidercheap"
+	required_reagents = list("applejuice" = 2, "sugar" = 1, "spacespice" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/cinnamonapplewhiskey
+	name = "Cinnamon Apple Whiskey"
+	id = "cinnamonapplewhiskey"
+	result = "cinnamonapplewhiskey"
+	required_reagents = list("ciderhot" = 3, "fireball" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/drink/chailatte
+	name = "Chai Latte"
+	id = "chailatte"
+	result = "chailatte"
+	required_reagents = list("chaitea" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/chailatte/soy
+	required_reagents = list("chaitea" = 1, "soymilk" = 1)
+
+/datum/chemical_reaction/drink/coco_chaitea
+	name = "Chocolate Chai"
+	id = "coco_chaitea"
+	result = "coco_chaitea"
+	required_reagents = list("chaitea" = 2, "coco" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/coco_chailatte
+	name = "Chocolate Chai Latte"
+	id = "coco_chailatte"
+	result = "coco_chailatte"
+	required_reagents = list("coco_chaitea" = 1, "milk" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/coco_chailatte/soy
+	required_reagents = list("coco_chaitea" = 1, "soymilk" = 1)
+
+/datum/chemical_reaction/drink/cofftea
+	name = "Cofftea"
+	id = "cofftea"
+	result = "cofftea"
+	required_reagents = list("tea" = 1, "coffee" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/bureacratea
+	name = "Bureacratea"
+	id = "bureacratea"
+	result = "bureacratea"
+	required_reagents = list("tea" = 1, "espresso" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/desert_tea
+	name = "Desert Blossom Tea"
+	id = "desert_tea"
+	result = "desert_tea"
+	required_reagents = list("greentea" = 2, "xuizijuice" = 1, "sugar" = 1)
+	result_amount = 4
+
+/datum/chemical_reaction/drink/halfandhalf
+	name = "Half and Half"
+	id = "halfandhalf"
+	result = "halfandhalf"
+	required_reagents = list("icetea" = 1, "lemonade" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/heretic_tea
+	name = "Heretics Tea"
+	id = "heretic_tea"
+	result = "heretic_tea"
+	required_reagents = list("icetea" = 3, "blood" = 1, "spacemountainwind" = 1, "dr_gibb" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/kira_tea
+	name = "Kira tea"
+	id = "kira_tea"
+	result = "kira_tea"
+	required_reagents = list("icetea" = 1, "kiraspecial" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/librarian_special
+	name = "Librarian Special"
+	id = "librarian_special"
+	result = "librarian_special"
+	required_reagents = list("tea" = 2, "nothing" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/mars_tea
+	name = "Martian Tea"
+	id = "mars_tea"
+	result = "mars_tea"
+	required_reagents = list("tea" = 4, "blackpepper" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/mars_tea/green
+	required_reagents = list("greentea" = 4, "blackpepper" = 1)
+
+/datum/chemical_reaction/drink/mendell_tea
+	name = "Mendell Afternoon Tea"
+	id = "mendell_tea"
+	result = "mendell_tea"
+	required_reagents = list("greentea" = 4, "mintsyrup" = 1, "lemonjuice" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/berry_tea
+	name = "Mixed Berry Tea"
+	id = "berry_tea"
+	result = "berry_tea"
+	required_reagents = list("tea" = 2, "berryjuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/berry_tea/green
+	required_reagents = list("greentea" = 2, "berryjuice" = 1)
+
+/datum/chemical_reaction/drink/pomegranate_icetea
+	name = "Pomegranate Iced Tea"
+	id = "pomegranate_icetea"
+	result = "pomegranate_icetea"
+	required_reagents = list("icetea" = 1, "grenadine" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/potatea
+	name = "Potatea"
+	id = "potatea"
+	result = "potatea"
+	required_reagents = list("tea" = 2, "potato" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/securitea
+	name = "Securitea"
+	id = "securitea"
+	result = "securitea"
+	required_reagents = list("tea" = 2, "crayon_dust" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/securitea/red
+	required_reagents = list("tea" = 2, "crayon_dust_red" = 1)
+/datum/chemical_reaction/drink/securitea/orange
+	required_reagents = list("tea" = 2, "crayon_dust_orange" = 1)
+/datum/chemical_reaction/drink/securitea/yellow
+	required_reagents = list("tea" = 2, "crayon_dust_yellow" = 1)
+/datum/chemical_reaction/drink/securitea/green
+	required_reagents = list("tea" = 2, "crayon_dust_green" = 1)
+/datum/chemical_reaction/drink/securitea/blue
+	required_reagents = list("tea" = 2, "crayon_dust_blue" = 1)
+/datum/chemical_reaction/drink/securitea/purple
+	required_reagents = list("tea" = 2, "crayon_dust_purple" = 1)
+/datum/chemical_reaction/drink/securitea/grey
+	required_reagents = list("tea" = 2, "crayon_dust_grey" = 1)
+/datum/chemical_reaction/drink/securitea/brown
+	required_reagents = list("tea" = 2, "crayon_dust_brown" = 1)
+
+/datum/chemical_reaction/drink/sleepytime_tea
+	name = "Sleepytime Tea"
+	id = "sleepytime_tea"
+	result = "sleepytime_tea"
+	required_reagents = list("tea" = 5, "stoxin" = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/sleepytime_tea/green
+	required_reagents = list("greentea" = 5, "stoxin" = 1)
+
+/datum/chemical_reaction/drink/hakhma_tea
+	name = "Spiced Hakhma Tea"
+	id = "hakhma_tea"
+	result = "hakhma_tea"
+	required_reagents = list("tea" = 2, "beetle_milk" = 2, "spacespice" = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/sweet_tea
+	name = "Sweet Tea"
+	id = "sweet_tea"
+	result = "sweet_tea"
+	required_reagents = list("icetea" = 1, "sugar" = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/drink/teathpaste
+	name = "Teathpaste"
+	id = "teathpaste"
+	result = "teathpaste"
+	required_reagents = list("tea" = 2, "toothpaste" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/thewake
+	name = "The Wake"
+	id = "thewake"
+	result = "thewake"
+	required_reagents = list("dynjuice" = 1, "orangejuice" = 1, "tea" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/tomatea
+	name = "Tomatea"
+	id = "tomatea"
+	result = "tomatea"
+	required_reagents = list("tea" = 2, "tomatojuice" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/trizkizki_tea
+	name = "Trizkizki Tea"
+	id = "trizkizki_tea"
+	result = "trizkizki_tea"
+	required_reagents = list("greentea" = 1, "sarezhiwine" = 1, "grenadine" = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/tropical_icetea
+	name = "Tropical Iced Tea"
+	id = "tropical_icetea"
+	result = "tropical_icetea"
+	required_reagents = list("icetea" = 3, "limejuice" = 1, "orangejuice" = 1, "watermelonjuice" = 1)
+	result_amount = 6
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
@@ -3319,4 +3575,4 @@
 	id = "rmt"
 	result = "rmt"
 	result_amount = 1
-	required_reagents = list("potassium" = 1, "inaprovaline" = 1)
+	required_reagents = list("potassium" = 1, "norepinephrine" = 1)

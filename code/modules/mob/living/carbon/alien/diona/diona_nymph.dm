@@ -20,8 +20,8 @@
 	death_msg = "expires with a pitiful chirrup..."
 	universal_understand = 0
 	universal_speak = 0
-	holder_type = /obj/item/weapon/holder/diona
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/dionanymph
+	holder_type = /obj/item/holder/diona
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
 	maxHealth = 85
 	pass_flags = PASSTABLE
@@ -46,6 +46,11 @@
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
 	var/echo = 0 //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
+
+	var/datum/reagents/metabolism/ingested
+
+/mob/living/carbon/alien/diona/get_ingested_reagents()
+	return ingested
 
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
@@ -257,7 +262,6 @@
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/grow)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/merge)
 		verbs.Remove(/mob/living/carbon/proc/absorb_nymph)
-		verbs.Remove(/mob/living/proc/devour)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/sample)
 	else
 		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs) && !detached)
@@ -268,9 +272,6 @@
 
 		if (!(/mob/living/carbon/alien/diona/proc/grow in verbs))
 			verbs.Add(/mob/living/carbon/alien/diona/proc/grow)
-
-		if (!(/mob/living/proc/devour in verbs))
-			verbs.Add(/mob/living/proc/devour)
 
 		if (!(/mob/living/proc/ventcrawl in verbs))
 			verbs.Add(/mob/living/proc/ventcrawl)
@@ -312,7 +313,7 @@
 			silent = 0
 			return 1
 
-		if (halloss > 50)
+		if(getHalLoss() > 50)
 			paralysis = 8
 
 

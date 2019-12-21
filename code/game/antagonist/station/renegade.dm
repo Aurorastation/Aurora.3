@@ -15,24 +15,24 @@ var/datum/antagonist/renegade/renegades
 	initial_spawn_target = 6
 
 	var/list/spawn_guns = list(
-		/obj/item/weapon/gun/energy/gun,
-		/obj/item/weapon/gun/energy/retro,
-		/obj/item/weapon/gun/energy/xray,
-		/obj/item/weapon/gun/projectile/revolver,
-		/obj/item/weapon/gun/projectile/revolver/deckard,
-		/obj/item/weapon/gun/projectile/revolver/detective,
-		/obj/item/weapon/gun/projectile/revolver/derringer,
-		/obj/item/weapon/gun/projectile/automatic/c20r,
-		/obj/item/weapon/gun/projectile/deagle,
-		/obj/item/weapon/gun/projectile/pistol,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/weapon/gun/projectile/shotgun/pump/rifle/obrez,
-		/obj/item/weapon/gun/projectile/automatic,
-		/obj/item/weapon/gun/projectile/automatic/c20r,
-		/obj/item/weapon/gun/projectile/automatic/tommygun,
-		/obj/item/weapon/gun/projectile/automatic/mini_uzi,
-		/obj/item/weapon/gun/energy/crossbow,
-		/obj/item/weapon/gun/projectile/tanto
+		/obj/item/gun/energy/gun,
+		/obj/item/gun/energy/retro,
+		/obj/item/gun/energy/xray,
+		/obj/item/gun/projectile/revolver,
+		/obj/item/gun/projectile/revolver/deckard,
+		/obj/item/gun/projectile/revolver/detective,
+		/obj/item/gun/projectile/revolver/derringer,
+		/obj/item/gun/projectile/automatic/c20r,
+		/obj/item/gun/projectile/deagle,
+		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
+		/obj/item/gun/projectile/automatic,
+		/obj/item/gun/projectile/automatic/c20r,
+		/obj/item/gun/projectile/automatic/tommygun,
+		/obj/item/gun/projectile/automatic/mini_uzi,
+		/obj/item/gun/energy/crossbow,
+		/obj/item/gun/projectile/tanto
 		)
 
 /datum/antagonist/renegade/New()

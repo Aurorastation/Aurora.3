@@ -67,7 +67,7 @@
 	construction_cost = list("glass"=2250,DEFAULT_WALL_MATERIAL=55000,"silver"=5250,"diamond"=3750)
 	construction_time = 350
 
-	device_type = /obj/item/weapon/pickaxe/diamonddrill
+	device_type = /obj/item/pickaxe/diamonddrill
 
 	category = MODULE_UTILITY
 
@@ -81,7 +81,7 @@
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
 
-	device_type = /obj/item/weapon/pickaxe/drill
+	device_type = /obj/item/pickaxe/drill
 
 	category = MODULE_UTILITY
 
@@ -107,7 +107,7 @@
 	engage_string = "Begin Scan"
 	usable = 1
 	selectable = 0
-	device_type = /obj/item/weapon/mining_scanner
+	device_type = /obj/item/mining_scanner
 
 	category = MODULE_UTILITY
 
@@ -122,7 +122,7 @@
 	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,"silver"=10000,"gold"=10000)
 	construction_time = 1000
 
-	device_type = /obj/item/weapon/rfd/construction/mounted
+	device_type = /obj/item/rfd/construction/mounted
 
 	category = MODULE_UTILITY
 
@@ -176,9 +176,9 @@
 		list("dexalin plus",  "dexalinp",             0, 80),
 		list("antibiotics",   "thetamycin",          0, 80),
 		list("antivirals",    "deltamivir",           0, 80),
-		list("antitoxins",    "anti_toxin",           0, 80),
+		list("antitoxins",    "dylovene",           0, 80),
 		list("nutrients",     "glucose",              0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("saline",        "saline", 0, 80),
 		list("hyronalin",     "hyronalin",            0, 80),
 		list("radium",        "radium",               0, 80)
 		)
@@ -197,9 +197,9 @@
 		list("dexalin plus",  "dexalinp",      0, 20),
 		list("antibiotics",   "thetamycin",   0, 20),
 		list("antivirals",    "deltamivir",     0, 20),
-		list("antitoxins",    "anti_toxin",    0, 20),
+		list("antitoxins",    "dylovene",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("saline",        "saline", 0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -299,7 +299,7 @@
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
 		list("nutrients",     "glucose",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80)
+		list("saline",        "saline", 0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -316,9 +316,9 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("phoron",     "phoron",     0, 60),
-		list("kois",     "k'ois paste",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80)
+		list("phoron",        "phoron",     0, 60),
+		list("kois",          "k'ois paste",     0, 80),
+		list("saline",        "saline", 0, 80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -334,7 +334,7 @@
 
 	charges = list(
 		list("dexalin",   "dexalin",   0, 5),
-		list("inaprovaline",     "inaprovaline",     0, 5)
+		list("norepinephrine",     "norepinephrine",     0, 5)
 		)
 
 	interface_name = "chem dispenser"
@@ -364,7 +364,7 @@
 		list("tricordrazine",	"tricordrazine", 0, 40),
 		list("tramadol",	"tramadol",      0, 40),
 		list("dexalin",		"dexalin",      0, 40),
-		list("inaprovaline",	"inaprovaline",     0, 40)
+		list("norepinephrine",	"norepinephrine",     0, 40)
 		)
 
 /obj/item/rig_module/voice
@@ -443,9 +443,9 @@
 	deactivate_string = "Deactivate Thrusters"
 
 	interface_name = "maneuvering jets"
-	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
+	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
 
-	var/obj/item/weapon/tank/jetpack/rig/jets
+	var/obj/item/tank/jetpack/rig/jets
 
 	category = MODULE_GENERAL
 
@@ -505,7 +505,7 @@
 	engage_string = "Dispense"
 	usable = 1
 	selectable = 0
-	device_type = /obj/item/weapon/paper_bin
+	device_type = /obj/item/paper_bin
 
 	category = MODULE_GENERAL
 
@@ -526,7 +526,7 @@
 	interface_desc = "Signatures with style(tm)."
 	engage_string = "Change color"
 	usable = 1
-	device_type = /obj/item/weapon/pen/multi
+	device_type = /obj/item/pen/multi
 
 	category = MODULE_GENERAL
 
@@ -545,8 +545,8 @@
 
 /obj/item/rig_module/device/stamp/New()
 	..()
-	iastamp = new /obj/item/weapon/stamp/internalaffairs(src)
-	deniedstamp = new /obj/item/weapon/stamp/denied(src)
+	iastamp = new /obj/item/stamp/internalaffairs(src)
+	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
 
 /obj/item/rig_module/device/stamp/engage(atom/target)
@@ -569,7 +569,7 @@
 	interface_name = "mounted matter decompiler"
 	interface_desc = "Eats trash like no one's business."
 
-	device_type = /obj/item/weapon/matter_decompiler
+	device_type = /obj/item/matter_decompiler
 
 	category = MODULE_GENERAL
 
@@ -776,7 +776,7 @@
 	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
 	var/turf/T = get_turf(holder.wearer)
 	if(istype(T, /turf/simulated))
-		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
+		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall))
 			T.ChangeTurf(T.baseturf)
 		else
 			T.ChangeTurf(/turf/space)

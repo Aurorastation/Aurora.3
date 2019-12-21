@@ -9,7 +9,6 @@ var/datum/antagonist/vampire/vamp = null
 	restricted_jobs = list("AI", "Cyborg", "Chaplain", "Head of Security", "Captain", "Internal Affairs Agent")
 
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
-	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 40, "Detective" = 50, "Forensic Technician" = 50, "Head of Personnel" = 25, "Chief Engineer" = 25, "Research Director" = 25, "Chief Medical Officer" = 25) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
 	restricted_species = list(
 		"Baseline Frame",
 		"Shell Frame",
@@ -20,6 +19,7 @@ var/datum/antagonist/vampire/vamp = null
 		"Zeng-Hu Mobility Frame",
 		"Bishop Accessory Frame"
 	)
+	required_age = 10
 
 	welcome_text = "You are a Vampire! Use the \"<b>Vampire Help</b>\" command to learn about the backstory and mechanics! Stay away from the Chaplain, and use the darkness to your advantage."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
