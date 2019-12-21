@@ -252,8 +252,8 @@
 
 
 /obj/item/gun/projectile/automatic/rifle/mk43
-	name = "Mark 43 service rifle"
-	desc = "A semi-automatic rifle chambered in a slimmed down 5.56 varient, used for internal operations involving less penetration"
+	name = "service rifle"
+	desc = "A semi-automatic rifle chambered in a slimmed down 5.56 variant, used for internal operations in areas where heavier calibers are not needed."
 	icon_state = "mk43"
 	item_state = "mk43"
 	w_class = 3
