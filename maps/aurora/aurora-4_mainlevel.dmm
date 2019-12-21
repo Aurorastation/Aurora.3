@@ -69113,9 +69113,9 @@
 /obj/structure/table/wood,
 /obj/random/loot,
 /obj/item/material/ashtray/bronze,
-/obj/item/cigbutt,
-/obj/item/cigbutt,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "prY" = (

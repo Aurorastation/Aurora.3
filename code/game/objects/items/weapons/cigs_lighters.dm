@@ -345,6 +345,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent("tobaccobad",10)
 	reagents.add_reagent("nicotine",5)
 
+/obj/item/clothing/mask/smokable/cigarette/pra
+
+/obj/item/clothing/mask/smokable/cigarette/pra/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("tobacco",5)
+	reagents.add_reagent("nicotine",5)
+
 ////////////
 // CIGARS //
 ////////////
@@ -426,7 +434,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigarbutt"
 
 /obj/item/trash/cigbutt/cigarbutt/alt
-	icon_state = "cigarbutt2"
+	icon_state = "cigar2butt"
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/W as obj, mob/user as mob)
 	..()
