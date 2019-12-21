@@ -804,3 +804,4 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/core
 	name = "Core R&D Console"
 	id = 1
+	req_access = list(access_tox) //so scientists and lab assistants can use it
