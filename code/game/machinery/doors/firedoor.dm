@@ -526,4 +526,5 @@
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
 	dir = EAST
+
 	enable_smart_generation = FALSE
