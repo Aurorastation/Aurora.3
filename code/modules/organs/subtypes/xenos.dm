@@ -37,21 +37,22 @@
 
 //vox organs
 
-/obj/item/organ/heart/vox
+/obj/item/organ/internal/heart/vox
 	icon_state = "vox_heart"
 	dead_icon = "vox_heart"
 
-/obj/item/organ/lungs/vox
+/obj/item/organ/internal/lungs/vox
 	name = "air capillary sack"
 	icon_state = "vox_lung"
 
-/obj/item/organ/kidneys/vox
+/obj/item/organ/internal/kidneys/vox
 	name = "filtration bladder"
 	icon_state = "lungs"
 	color = "#99ccff"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 
-/obj/item/organ/liver/vox
+/obj/item/organ/internal/liver/vox
 	name = "waste tract"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	color = "#0033cc"
+	tolerance = 20

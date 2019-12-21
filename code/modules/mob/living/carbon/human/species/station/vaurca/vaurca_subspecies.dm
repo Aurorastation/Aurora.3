@@ -50,8 +50,6 @@
 	slowdown = 2
 	eyes = "breeder_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_icons = 'icons/mob/human_face/eyes48x48.dmi'
-	brute_mod = 0.1 //note to self: remove is_synthetic checks for brmod and burnmod
-	burn_mod = 0.8 //2x was a bit too much. we'll see how this goes.
 	grab_mod = 4
 	toxins_mod = 1 //they're not used to all our weird human bacteria.
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -75,10 +73,10 @@
 	flags = NO_SCAN | NO_SLIP
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/bugbite,
-		/mob/living/carbon/human/proc/devour_head,
-		/mob/living/carbon/human/proc/hivenet
+		/mob/living/carbon/human/proc/bugbite
 		)
+
+	default_h_style = "Bald"
 
 /datum/species/bug/type_c/handle_post_spawn(var/mob/living/carbon/human/H)
 	..()
@@ -144,16 +142,18 @@
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs/vaurca,
-		"right heart"         = /obj/item/organ/heart/right,
-		"left heart"          = /obj/item/organ/heart/left,
+		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
+		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
 		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
-		"mechanical liver"    = /obj/item/organ/liver/vaurca/robo,
-		"mechanical kidneys"  = /obj/item/organ/kidneys/vaurca/robo,
-		"brain"               = /obj/item/organ/brain/vaurca,
-		"eyes"                = /obj/item/organ/eyes/vaurca,
+		"mechanical liver"    = /obj/item/organ/internal/liver/vaurca/robo,
+		"mechanical kidneys"  = /obj/item/organ/internal/kidneys/vaurca/robo,
+		BP_STOMACH            = /obj/item/organ/internal/stomach,
+		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
+
+	default_h_style = "Bald"
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations.Add(HULK)

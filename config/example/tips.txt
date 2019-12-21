@@ -171,5 +171,5 @@ As a Vampire, if you start going hungry for blood don't expect to stay hidden fo
 You can use . (period) instead of : to speak into a radio.
 The radio key .i will allow you to speak into a nearby intercom, .r will speak into a radio in your right hand, and .l will speak into your left. The microphone does not need to be enabled for this to work.
 Your ID card's access determines what departmental channels you can set intercoms to.
-You can fax papers between request consoles by attacking the console with a paper. Make sure the paper tray is closed first!
+You can fax papers between requests consoles by attacking the console with a paper. Make sure the paper tray is closed first!
 No wall or window is 100% impervious to heat.

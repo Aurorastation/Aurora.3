@@ -17,8 +17,8 @@
 	you cannot abide. That being said you're here to make a profit and stuffing
 	someone in a cell is a waste of human resources - think of the money lost in
 	time! Abhorrent! The best thing to do is fine perpetrators and set them back
-	to work. Remember your fine quota still applies, you don't want to miss out on
-	your bonus because you didn't hit target after all, it is a substantial bonus.</li>
+	to work. Remember, your fine quota still applies, you don't want to miss out on
+	your bonus because you didn't hit target. After all, it is a substantial bonus.</li>
 	</ul></p>"}
 	title_suffix = "EPMC"
 
@@ -35,41 +35,44 @@
 		/datum/species/skrell,
 		/datum/species/tajaran,
 		/datum/species/unathi,
-		/datum/species/bug
+		/datum/species/bug,
+		/datum/species/machine
 	)
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/eridani,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
+		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
 		"Paramedic" = /datum/outfit/job/paramedic/eridani,
+		"Emergency Medical Technician" = /datum/outfit/job/paramedic/eridani,
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
 	)
 
 /datum/outfit/job/officer/eridani
 	name = "Security Officer - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/warden/eridani
 	name = "Warden - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/forensics/eridani
 	name = "Forensic Technician - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/paramedic/eridani
 	name = "Paramedic - Eridani"
-	uniform = /obj/item/clothing/under/rank/security/eridani/alt
-	id = /obj/item/weapon/card/id/eridani
+	uniform = /obj/item/clothing/under/rank/eridani_medic
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/representative/eridani
-	name = "Corporate Liaison - Eridani"
+	name = "Eridani Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/security/eridani/alt
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/eridani
+	id = /obj/item/card/id/eridani

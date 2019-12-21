@@ -11,7 +11,7 @@
 #define FAT             6
 #define HUSK            7
 #define NOCLONE         8
-#define LASER           9  // Harm intent - click anywhere to shoot lasers from eyes.
+#define LASER_EYES           9  // Harm intent - click anywhere to shoot lasers from eyes.
 #define HEAL            10 // Healing people with hands.
 
 #define SKELETON      29

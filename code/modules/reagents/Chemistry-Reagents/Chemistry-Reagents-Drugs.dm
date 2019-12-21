@@ -14,6 +14,7 @@
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_PULSE, -1)
 
 	var/power = (dose + volume)/2 //Larger the dose and volume, the more affected you are by the chemical.
 
@@ -36,14 +37,7 @@
 			step(M, pick(cardinal))
 
 	if(prob(3))
-		var/list/current_emotes = list("smile" = 0, "giggle" = 5, "moan" = 10, "yawn" = 15, "laugh" = 20, "drool" = 20, "twitch" = 20)
-		var/list/usable_emotes
-		for(var/key in current_emotes)
-			var/value = current_emotes[key]
-			if(value >= power)
-				usable_emotes += key
-
-		M.emote(pick(usable_emotes))
+		M.emote(pick("smile","giggle","moan","yawn","laugh","drool","twitch"))
 
 /datum/reagent/space_drugs/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
 	. = ..()
@@ -99,7 +93,7 @@
 /datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.jitteriness = max(M.jitteriness - 5, 0)
 	if(prob(80))
-		M.adjustBrainLoss(3 * removed)
+		M.add_chemical_effect(CE_NEUROTOXIC, 3*removed)
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 	if(prob(10))
@@ -212,7 +206,7 @@
 		M.make_jittery(special_counter)
 		if(prob(special_counter))
 			M.emote("twitch")
-		var/obj/item/organ/H = M.internal_organs_by_name["heart"]
+		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
 		H.take_damage(special_counter * removed * 0.025)
 
 /datum/reagent/guwan_painkillers
@@ -279,7 +273,7 @@
 	metabolism = REM // twice as fast as space drugs
 	overdose = 10
 	strength = 1.5 // makes up for it with slight suffocation damage
-	
+
 	glass_name = "glass of purple drank"
 	glass_desc = "Bottoms up."
 
@@ -289,13 +283,14 @@
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
-	M.adjustOxyLoss(0.5 * removed) // poor man's lexorin
-	if(M.losebreath < 15)
+		to_chat(M, span("warning", pick("You feel great!", "You don't have a care in the world.", "You couldn't care less about anything.", "You feel so relaxed...")))
+	M.adjustOxyLoss(0.01 * removed)
+	if(M.losebreath < 5)
 		M.losebreath++
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
-/datum/reagent/toxin/krok/
+/datum/reagent/toxin/krok
 	name = "Krok Juice"
 	id = "krok"
 	description = "An Eridanian variant of krokodil, known for causing prosthetic malfunctions."
@@ -321,6 +316,18 @@
 				H.drop_r_hand()
 	if(robo)
 		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to tramadol
-	var/obj/item/organ/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || "eyes"]
+	var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || BP_EYES]
 	if(eyes.status & ORGAN_ROBOT)
 		M.hallucination = max(M.hallucination, 40)
+
+/datum/reagent/wulumunusha
+	name = "Wulumunusha Extract"
+	id = "wulumunusha"
+	description = "The extract of the wulumunusha fruit, it can cause hallucionations and muteness."
+	color = "#61E2EC"
+	taste_description = "sourness"
+	fallback_specific_heat = 1
+
+/datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.druggy = max(M.druggy, 100)
+	M.silent = max(M.silent, 5)

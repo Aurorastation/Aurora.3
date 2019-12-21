@@ -321,7 +321,6 @@
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)
-	SearchVar(cultnet)
 	SearchVar(rune_list)
 	SearchVar(escape_list)
 	SearchVar(endgame_exits)
@@ -471,7 +470,6 @@
 	SearchVar(newscaster_standard_feeds)
 	SearchVar(announced_news_types)
 	SearchVar(send_emergency_team)
-	SearchVar(ert_base_chance)
 	SearchVar(can_call_ert)
 	SearchVar(shatter_sound)
 	SearchVar(explosion_sound)
@@ -791,10 +789,6 @@
 	SearchVar(ntnet_card_uid)
 	SearchVar(ntnet_global)
 	SearchVar(ntnrc_uid)
-	SearchVar(BLOOD_VOLUME_SAFE)
-	SearchVar(BLOOD_VOLUME_OKAY)
-	SearchVar(BLOOD_VOLUME_BAD)
-	SearchVar(BLOOD_VOLUME_SURVIVE)
 	SearchVar(all_robolimbs)
 	SearchVar(chargen_robolimbs)
 	SearchVar(basic_robolimb)
@@ -871,5 +865,6 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
+	SearchVar(global_player_panel)
 
 #endif

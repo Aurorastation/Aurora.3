@@ -90,11 +90,11 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		to_chat(user, "This spell circle reads: <i>[word1] [word2] [word3]</i>.")
 
 /obj/effect/rune/attackby(I as obj, user as mob)
-	if(istype(I, /obj/item/weapon/book/tome) && iscultist(user))
+	if(istype(I, /obj/item/book/tome) && iscultist(user))
 		to_chat(user, "<span class='notice'>You retrace your steps, carefully undoing the lines of the rune.</span>")
 		qdel(src)
 		return
-	else if(istype(I, /obj/item/weapon/nullrod))
+	else if(istype(I, /obj/item/nullrod))
 		to_chat(user, "<span class='notice'>You disrupt the vile magic with the deadening field of \the [I]!</span>")
 		qdel(src)
 		return
@@ -176,9 +176,9 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 /obj/effect/rune/proc/check_icon()
 	icon = get_uristrune_cult(word1, word2, word3)
 
-/obj/item/weapon/book/tome
+/obj/item/book/tome
 	name = "arcane tome"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state ="tome"
 	throw_speed = 1
 	throw_range = 5
@@ -238,11 +238,11 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				<h3>Summon new tome</h3>
 				Invoking this rune summons a new arcane tome.
 				<h3>Convert a person</h3>
-				This rune opens target's mind to the realm of Nar-Sie, which usually results in this person joining the cult. However, some people (mostly the ones who posess high authority) have strong enough will to stay true to their old ideals. <br>
+				This rune opens target's mind to the realm of Nar-Sie, which usually results in this person joining the cult. However, some people (mostly the ones who possess high authority) have strong enough will to stay true to their old ideals. <br>
 				<h3>Summon Nar-Sie</h3>
 				The ultimate rune. It summons the Avatar of Nar-Sie himself, tearing a huge hole in reality and consuming everything around it. Summoning it is the final goal of any cult.<br>
 				<h3>Disable Technology</h3>
-				Invoking this rune creates a strong electromagnetic pulse in a small radius, making it basically analogic to an EMP grenade. You can imbue this rune into a talisman, making it a decent defensive item.<br>
+				Invoking this rune creates a strong electromagnetic pulse in a small radius, making it basically analogous to an EMP grenade. You can imbue this rune into a talisman, making it a decent defensive item.<br>
 				<h3>Drain Blood</h3>
 				This rune instantly heals you of some brute damage at the expense of a person placed on top of the rune. Whenever you invoke a drain rune, ALL drain runes on the station are activated, draining blood from anyone located on top of those runes. This includes yourself, though the blood you drain from yourself just comes back to you. This might help you identify this rune when studying words. One drain gives up to 25HP per each victim, but you can repeat it if you need more. Draining only works on living people, so you might need to recharge your "Battery" once its empty. Drinking too much blood at once might cause blood hunger.<br>
 				<h3>Raise Dead</h3>
@@ -254,15 +254,15 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				<h3>Leave your body</h3>
 				This rune gently rips your soul out of your body, leaving it intact. You can observe the surroundings as a ghost as well as communicate with other ghosts. Your body takes damage while you are there, so ensure your journey is not too long, or you might never come back.<br>
 				<h3>Manifest a ghost</h3>
-				Unlike the Raise Dead rune, this rune does not require any special preparations or vessels. Instead of using full lifeforce of a sacrifice, it will drain YOUR lifeforce. Stand on the rune and invoke it. If theres a ghost standing over the rune, it will materialise, and will live as long as you dont move off the rune or die. You can put a paper with a name on the rune to make the new body look like that person.<br>
+				Unlike the Raise Dead rune, this rune does not require any special preparations or vessels. Instead of using full lifeforce of a sacrifice, it will drain YOUR lifeforce. Stand on the rune and invoke it. If there's a ghost standing over the rune, it will materialise, and will live as long as you don't move off the rune or die. You can put a paper with a name on the rune to make the new body look like that person.<br>
 				<h3>Imbue a talisman</h3>
-				This rune allows you to imbue the magic of some runes into paper talismans. Create an imbue rune, then an appropriate rune beside it. Put an empty piece of paper on the imbue rune and invoke it. You will now have a one-use talisman with the power of the target rune. Using a talisman drains some health, so be careful with it. You can imbue a talisman with power of the following runes: summon tome, reveal, conceal, teleport, tisable technology, communicate, deafen, blind and stun.<br>
+				This rune allows you to imbue the magic of some runes into paper talismans. Create an imbue rune, then an appropriate rune beside it. Put an empty piece of paper on the imbue rune and invoke it. You will now have a one-use talisman with the power of the target rune. Using a talisman drains some health, so be careful with it. You can imbue a talisman with power of the following runes: summon tome, reveal, conceal, teleport, disable technology, communicate, deafen, blind and stun.<br>
 				<h3>Sacrifice</h3>
 				Sacrifice rune allows you to sacrifice a living thing or a body to the Geometer of Blood. Monkeys and dead humans are the most basic sacrifices, they might or might not be enough to gain His favor. A living human is what a real sacrifice should be, however, you will need 3 people chanting the invocation to sacrifice a living person.
 				<h3>Create a wall</h3>
 				Invoking this rune solidifies the air above it, creating an an invisible wall. To remove the wall, simply invoke the rune again.
 				<h3>Summon cultist</h3>
-				This rune allows you to summon a fellow cultist to your location. The target cultist must be unhandcuffed ant not buckled to anything. You also need to have 3 people chanting at the rune to succesfully invoke it. Invoking it takes heavy strain on the bodies of all chanting cultists.<br>
+				This rune allows you to summon a fellow cultist to your location. The target cultist must be unhandcuffed and not buckled to anything. You also need to have 3 people chanting at the rune to successfully invoke it. Invoking it takes heavy strain on the bodies of all chanting cultists.<br>
 				<h3>Free a cultist</h3>
 				This rune unhandcuffs and unbuckles any cultist of your choice, no matter where he is. You need to have 3 people invoking the rune for it to work. Invoking it takes heavy strain on the bodies of all chanting cultists.<br>
 				<h3>Deafen</h3>
@@ -270,21 +270,21 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 				<h3>Blind</h3>
 				This rune temporarily blinds all non-cultists around you. Very robust. Use together with the deafen rune to leave your enemies completely helpless.<br>
 				<h3>Blood boil</h3>
-				This rune boils the blood all non-cultists in visible range. The damage is enough to instantly critically hurt any person. You need 3 cultists invoking the rune for it to work. This rune is unreliable and may cause unpredicted effect when invoked. It also drains significant amount of your health when succesfully invoked.<br>
+				This rune boils the blood all non-cultists in visible range. The damage is enough to instantly critically hurt any person. You need 3 cultists invoking the rune for it to work. This rune is unreliable and may cause unpredicted effect when invoked. It also drains significant amount of your health when successfully invoked.<br>
 				<h3>Communicate</h3>
 				Invoking this rune allows you to relay a message to all cultists on the station and nearby space objects.
 				<h3>Stun</h3>
-				Unlike other runes, this ons is supposed to be used in talisman form. When invoked directly, it simply releases some dark energy, briefly stunning everyone around. When imbued into a talisman, you can force all of its energy into one person, stunning him so hard he cant even speak. However, effect wears off rather fast.<br>
+				When invoked directly as a rune, it releases some dark energy, briefly stunning everyone around. When imbued into a talisman, you can force some dark energy into a person, causing their eyes to flash, and their words to falter, keeping them quiet. However, the effect wears off rather fast.<br>
 				<h3>Equip Armor</h3>
 				When this rune is invoked, either from a rune or a talisman, it will equip the user with the armor of the followers of Nar-Sie. To use this rune to its fullest extent, make sure you are not wearing any form of headgear, armor, gloves or shoes, and make sure you are not holding anything in your hands.<br>
 				<h3>See Invisible</h3>
-				When invoked when standing on it, this rune allows the user to see the the world beyond as long as he does not move.<br>
+				When invoked when standing on it, this rune allows the user to see the world beyond as long as he does not move.<br>
 				</body>
 				</html>
 				"}
 
 
-/obj/item/weapon/book/tome/Initialize()
+/obj/item/book/tome/Initialize()
 	. = ..()
 	if(!cultwords["travel"])
 		runerandom()
@@ -293,7 +293,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 
 
 
-/obj/item/weapon/book/tome/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/book/tome/attack(mob/living/M as mob, mob/living/user as mob)
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
@@ -320,7 +320,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 	to_chat(M, "<span class='danger'>You feel searing heat inside!</span>")
 
 
-/obj/item/weapon/book/tome/attack_self(mob/living/user as mob)
+/obj/item/book/tome/attack_self(mob/living/user as mob)
 
 	if(!user.canmove || user.stat || user.restrained())
 		return
@@ -343,10 +343,6 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			to_chat(user, "<span class='warning'>You are unable to write a rune here.</span>")
 			return
 
-		if(locate(/obj/effect/rune) in user.loc)
-			to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
-			return
-
 		if (C>=26 + runedec + cult.current_antagonists.len) //including the useless rune at the secret room, shouldn't count against the limit of 25 runes - Urist
 			alert("The cloth of reality can't take that much of a strain. Remove some runes first!")
 			return
@@ -360,6 +356,11 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 						return
 					user << browse("[tomedat]", "window=Arcane Tome")
 					return
+		//only check if they want to scribe a rune, so they can still read if standing on a rune
+		if(locate(/obj/effect/rune) in user.loc)
+			to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
+			return
+
 		if(isipc(user))
 			to_chat(user, "<span class='notice'>You cannot draw runes, as you have no blood.</span>")
 			return
@@ -406,7 +407,7 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			scribewords += entry
 
 		var/chosen_rune = null
-
+		var/list/required = null
 		if(user)
 			chosen_rune = input ("Choose a rune to scribe.") in scribewords
 			if (!chosen_rune)
@@ -414,10 +415,9 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 			if (chosen_rune == "none")
 				to_chat(user, "<span class='notice'>You decide against scribing a rune, perhaps you should take this time to study your notes.</span>")
 				return
-			if (chosen_rune == "teleport")
-				dictionary[chosen_rune] += input ("Choose a destination word") in english
-			if (chosen_rune == "teleport other")
-				dictionary[chosen_rune] += input ("Choose a destination word") in english
+			required = dictionary[chosen_rune].Copy()
+			if(chosen_rune == "teleport" || chosen_rune == "teleport other")
+				required += input ("Choose a destination word") in english
 
 		if(user.get_active_hand() != src)
 			return
@@ -428,13 +428,20 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
-			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].")
+			
 			if(user.get_active_hand() != src)
 				return
+			
+			//prevents using multiple dialogs to layer runes. 
+			if(locate(/obj/effect/rune) in user.loc) //This is check is done twice. once when choosing to scribe a rune, once here
+				to_chat(user,  "<span class='warning'>There is already a rune in this location.</span>")
+				return
+
+			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
+
 			var/mob/living/carbon/human/H = user
 			var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
 			to_chat(user, "<span class='notice'>You finish drawing the arcane markings of the Geometer.</span>")
-			var/list/required = dictionary[chosen_rune]
 			R.word1 = english[required[1]]
 			R.word2 = english[required[2]]
 			R.word3 = english[required[3]]
@@ -446,17 +453,17 @@ var/global/list/rnwords = list("ire","ego","nahlizet","certum","veri","jatkaa","
 		to_chat(user, "<span class='notice'>The book seems full of illegible scribbles.</span>")
 		return
 
-/obj/item/weapon/book/tome/examine(mob/user)
+/obj/item/book/tome/examine(mob/user)
 	..(user)
 	if(!iscultist(user))
 		desc = "An old, dusty tome with frayed edges and a sinister looking cover."
 	else
 		desc = "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
 
-/obj/item/weapon/book/tome/cultify()
+/obj/item/book/tome/cultify()
 	return
 
-/obj/item/weapon/book/tome/imbued //admin tome, spawns working runes without waiting
+/obj/item/book/tome/imbued //admin tome, spawns working runes without waiting
 	w_class = 2.0
 	var/cultistsonly = 1
 	attack_self(mob/user as mob)

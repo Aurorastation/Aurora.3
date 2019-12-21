@@ -18,6 +18,8 @@
 	var/material/reinf_material
 	var/last_state
 	var/construction_stage
+	var/use_standard_smoothing
+	var/use_set_icon_state
 
 	var/tmp/list/image/reinforcement_images
 	var/tmp/image/damage_image
@@ -35,7 +37,8 @@
 
 /turf/simulated/wall/Initialize(mapload, var/materialtype, var/rmaterialtype)
 	. = ..()
-	icon_state = "blank"
+	if(!use_set_icon_state)
+		icon_state = "blank"
 	if(!materialtype)
 		materialtype = DEFAULT_WALL_MATERIAL
 	material = get_material_by_name(materialtype)

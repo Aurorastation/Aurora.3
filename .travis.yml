@@ -6,7 +6,7 @@ env:
     BYOND_MAJOR="512"
     BYOND_MINOR="1467"
     MACRO_COUNT=77
-    FLYWAY_BUILD="5.1.4"
+    FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
     RUST_G_VERSION="0.4.1"
   matrix:

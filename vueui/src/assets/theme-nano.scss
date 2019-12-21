@@ -132,8 +132,10 @@
     
     .uiTitleWrapper {
         background: url(resources/theme-nano/uiTitleBackground.png) repeat center;
-        color: #E9C183;
         box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.5);
+        .uiTitleText {
+            color: #E9C183;
+        }
     }
 
     .uiTitleFluff {
@@ -186,6 +188,13 @@
         vertical-align: top;
         margin: 0 2px 2px 0;
     }
+
+    .tooltip {
+        &.content {
+            background: #272727;
+            border: 1px solid darkgrey;
+        }
+    }
 }
 
 .theme-nano-light {
@@ -198,7 +207,9 @@
     }
     .uiTitleWrapper {
         background: url(resources/theme-nano/uiTitleBackground-light.png) repeat center;
-        color: #4C401C
+        .uiTitleText {
+            color: #4C401C;
+        }
     }
     .uiTitleFluff {
         background: url(resources/theme-nano/uiTitleFluff-light.png) 50% 50% no-repeat;
@@ -273,6 +284,13 @@
             &:hover {
                 background: #fcff5f;;
             }
+        }
+    }
+    .tooltip {
+        &.content {
+            color: black;
+            background: #c9c9c9;
+            border: 1px solid darkgrey;
         }
     }
 }

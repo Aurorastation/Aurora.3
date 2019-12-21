@@ -22,6 +22,14 @@ export default {
         return [];
       }
     },
+    includeScore: {
+      type: Boolean,
+      default: false
+    },
+    threshold: {
+      type: Number,
+      default: 0.6
+    },
     input: {
       type: Array,
       default() {
@@ -39,6 +47,12 @@ export default {
     keys() {
       this.fuse = null;
     },
+    includeScore() {
+      this.fuse = null;
+    },
+    threshold() {
+      this.fuse = null;
+    },
     input() {
       this.onFieldUpdate(this.searchValue)
     },
@@ -51,7 +65,11 @@ export default {
       this.initFuse();
       var searchResult = this.fuse.search(value)
       if(searchResult.length == 0) {
-        searchResult = this.input;
+        if(this.includeScore) {
+          searchResult = this.input.map(x => ({item: x, score: 0}))
+        } else {
+          searchResult = this.input;
+        }
       }
       this.$emit('input', searchResult)
     },
@@ -63,7 +81,9 @@ export default {
       var options = {
         shouldSort: true,
         findAllMatches: true,
-        keys: this.keys
+        keys: this.keys,
+        includeScore: this.includeScore,
+        threshold: this.threshold
       };
       this.fuse = new Fuse(this.input, options);
     }
