@@ -18,7 +18,6 @@
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
 	verbs += /mob/living/carbon/human/proc/pause_regen_process
-	verbs += /mob/living/proc/devour
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
