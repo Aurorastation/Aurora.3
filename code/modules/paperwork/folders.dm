@@ -114,3 +114,11 @@
 		attack_self(usr)
 		update_icon()
 	return
+
+/obj/item/folder/blue/nka/Initialize()
+	. = ..()
+	new /obj/item/paper/nka_pledge(src)
+	new /obj/item/paper/nka_pledge(src)
+	new /obj/item/paper/nka_pledge(src)
+	new /obj/item/paper/nka_pledge(src)
+	new /obj/item/paper/nka_pledge(src)
