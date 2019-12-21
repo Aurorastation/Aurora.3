@@ -71,7 +71,7 @@
 			if(!reagents.total_volume)
 				to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message("<span class='warning'>[user] is trying to brush \the [target]'s teeth \the [src]!</span>")
 					playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)

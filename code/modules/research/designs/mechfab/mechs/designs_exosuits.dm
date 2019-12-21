@@ -49,14 +49,14 @@
 /datum/design/item/mechfab/exosuit/basic_armour
 	name = "basic exosuit armour"
 	id = "mech_armour_basic"
-	build_path = /obj/item/robot_parts/robot_component/armour
+	build_path = /obj/item/robot_parts/robot_component/armor/mech
 	time = 30
 	materials = list(DEFAULT_WALL_MATERIAL = 7500)
 
 /datum/design/item/mechfab/exosuit/radproof_armour
 	name = "radiation-proof exosuit armour"
 	id = "mech_armour_radproof"
-	build_path = /obj/item/robot_parts/robot_component/armour/radproof
+	build_path = /obj/item/robot_parts/robot_component/armor/mech/radproof
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500)
@@ -64,15 +64,15 @@
 /datum/design/item/mechfab/exosuit/em_armour
 	name = "EM-shielded exosuit armour"
 	id = "mech_armour_em"
-	build_path = /obj/item/robot_parts/robot_component/armour/em
+	build_path = /obj/item/robot_parts/robot_component/armor/mech/em
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "silver" = 1000)
 
 /datum/design/item/mechfab/exosuit/combat_armour
-	name = "Combat exosuit armour"
+	name = "combat exosuit armor"
 	id = "mech_armour_combat"
-	build_path = /obj/item/robot_parts/robot_component/armour/combat
+	build_path = /obj/item/robot_parts/robot_component/armor/mech/combat
 	time = 50
 	req_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "diamond" = 5000)
@@ -226,7 +226,7 @@
 	id = "sphere_body"
 	build_path = /obj/item/mech_component/chassis/pod
 	time = 50
-	materials = list(MATERIAL_STEEL = 18000)
+	materials = list(DEFAULT_WALL_MATERIAL = 18000)
 
 /datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"

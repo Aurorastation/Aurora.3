@@ -8,7 +8,7 @@ var/global/datum/repository/crew/crew_repository = new()
 /datum/repository/crew/New()
 	cache_data = list()
 	..()
-			
+
 /datum/repository/crew/proc/health_data(var/z_level)
 	var/list/crewmembers = list()
 	if(!z_level)
@@ -37,11 +37,14 @@ var/global/datum/repository/crew/crew_repository = new()
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")
 				crewmemberData["rank"] = H.get_authentification_rank(if_no_id="Unknown", if_no_job="No Job")
 				crewmemberData["assignment"] = H.get_assignment(if_no_id="Unknown", if_no_job="No Job")
-				
+
 				if(C.sensor_mode >= SUIT_SENSOR_BINARY)
 					crewmemberData["dead"] = H.stat > UNCONSCIOUS
 
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
+					crewmemberData["pulse"] = "N/A"
+					crewmemberData["pulse_span"] = "neutral"
+					crewmemberData["true_pulse"] = -1
 					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
 						var/obj/item/organ/internal/heart/O = H.internal_organs_by_name[BP_HEART]
 						if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
@@ -110,5 +113,5 @@ var/global/datum/repository/crew/crew_repository = new()
 			if (C.has_sensor)
 				tracked |= C
 	return tracked
-	
+
 #undef ZERO_WIDTH_SPACE

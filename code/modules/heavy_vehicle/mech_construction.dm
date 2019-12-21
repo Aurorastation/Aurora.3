@@ -39,7 +39,8 @@
 			target = hardpoint
 			break
 
-	hardpoints[target] = null
+	if(target)
+		hardpoints[target] = null
 
 	if(target == selected_hardpoint)
 		clear_selected_hardpoint()
