@@ -1,4 +1,405 @@
+/*
+ *	Everything derived from the common cardboard box.
+ *	Basically everything except the original is a kit (starts full).
+ *
+ *	Contains:
+ *		Empty box, starter boxes (survival/engineer),
+ *		Latex glove and sterile mask boxes,
+ *		Syringe, beaker, dna injector boxes,
+ *		Blanks, flashbangs, and EMP grenade boxes,
+ *		Tracking and chemical implant boxes,
+ *		Prescription glasses and drinking glass boxes,
+ *		Condiment bottle and silly cup boxes,
+ *		Donkpocket and monkeycube boxes,
+ *		ID and security PDA cart boxes,
+ *		Handcuff, mousetrap, and pillbottle boxes,
+ *		Snap-pops and matchboxes,
+ *		Replacement light boxes.
+ *		Kitchen utensil box
+ * 		Random preserved snack box
+ *		For syndicate call-ins see uplink_kits.dm
+ *		Firing pin boxes - Testing and Normal. one for sec, one for science.
+ */
 
+/obj/item/storage/box
+	name = "box"
+	desc = "It's just an ordinary box."
+	icon_state = "box"
+	item_state = "syringe_kit"
+	center_of_mass = list("x" = 13,"y" = 10)
+	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/maxHealth = 20	//health is already defined
+	use_sound = 'sound/items/storage/box.ogg'
+	drop_sound = 'sound/items/drop/box.ogg'
+	var/chewable = TRUE
+
+/obj/item/storage/box/Initialize()
+	. = ..()
+	health = maxHealth
+
+/obj/item/storage/box/proc/damage(var/severity)
+	health -= severity
+	check_health()
+
+/obj/item/storage/box/proc/check_health()
+	if (health <= 0)
+		qdel(src)
+
+/obj/item/storage/box/attack_generic(var/mob/user)
+	if(!chewable)
+		return
+	if (istype(user, /mob/living))
+		var/mob/living/L = user
+
+		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
+			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
+				to_chat(user, span("warning", "There's no food in that box!"))
+				return
+			var/damage
+			if (!L.mob_size)
+				damage = 3//A safety incase i forgot to set a mob_size on something
+			else
+				damage = L.mob_size//he bigger you are, the faster it tears
+
+			if (!damage || damage <= 0)
+				return
+
+			user.do_attack_animation(src)
+			if ((health-damage) <= 0)
+				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				spill()
+			else
+				animate_shake()
+				var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
+				playsound(loc, toplay, 30, 1)
+			damage(damage)
+	..()
+
+/obj/item/storage/box/examine(var/mob/user)
+	..()
+	if (health < maxHealth)
+		if (health >= (maxHealth * 0.5))
+			to_chat(user, span("warning", "It is slightly torn."))
+		else
+			to_chat(user, span("danger", "It is full of tears and holes."))
+
+// BubbleWrap - A box can be folded up to make card
+/obj/item/storage/box/attack_self(mob/user as mob)
+	if(..()) return
+
+	//try to fold it.
+	if ( contents.len )
+		return
+
+	if ( !ispath(src.foldable) )
+		return
+	var/found = 0
+	// Close any open UI windows first
+	for(var/mob/M in range(1))
+		if (M.s_active == src)
+			src.close(M)
+		if ( M == user )
+			found = 1
+	if ( !found )	// User is too far away
+		return
+	// Now make the cardboard
+	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
+	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
+	new src.foldable(get_turf(src))
+	qdel(src)
+
+/obj/item/storage/backpack/attackby(obj/item/W as obj, mob/user as mob)
+	if (src.use_sound)
+		playsound(src.loc, src.use_sound, 50, 1, -5)
+	..()
+
+/obj/item/storage/box/survival
+	name = "emergency survival box"
+	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
+	icon_state = "e_box"
+	autodrobe_no_remove = 1
+	starts_with = list(/obj/item/clothing/mask/breath = 1,
+					   /obj/item/tank/emergency_oxygen = 1,
+					   /obj/item/device/flashlight/flare = 1
+						)
+
+/obj/item/storage/box/survival/fill()
+	..()
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
+
+/obj/item/storage/box/vox
+	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_nitrogen = 1)
+
+/obj/item/storage/box/engineer
+	autodrobe_no_remove = 1
+	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_oxygen/engi = 1)
+
+/obj/item/storage/box/engineer/fill()
+	..()
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
+
+/obj/item/storage/box/vaurca
+	autodrobe_no_remove = 1
+	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/reagent_containers/inhaler/phoron_special = 1)
+
+/obj/item/storage/box/vaurca/fill()
+	..()
+	for(var/obj/item/thing in contents)
+		thing.autodrobe_no_remove = 1
+
+/obj/item/storage/box/gloves
+	name = "box of sterile gloves"
+	desc = "Contains sterile gloves."
+	icon_state = "nitrile"
+	starts_with = list(/obj/item/clothing/gloves/latex = 2, /obj/item/clothing/gloves/latex/nitrile = 5)
+
+/obj/item/storage/box/masks
+	name = "box of surgical masks"
+	desc = "This box contains masks of surgicality."
+	icon_state = "sterile"
+	starts_with = list(/obj/item/clothing/mask/surgical = 4, /obj/item/clothing/mask/surgical/w = 3)
+
+/obj/item/storage/box/syringes
+	name = "box of syringes"
+	desc = "A box full of syringes."
+	icon_state = "syringe"
+	starts_with = list(/obj/item/reagent_containers/syringe = 20)
+
+/obj/item/storage/box/syringegun
+	name = "box of syringe gun cartridges"
+	desc = "A box full of compressed gas cartridges."
+	icon_state = "syringe"
+	starts_with = list(/obj/item/syringe_cartridge = 7)
+
+/obj/item/storage/box/beakers
+	name = "box of beakers"
+	icon_state = "beaker"
+	starts_with = list(/obj/item/reagent_containers/glass/beaker = 7)
+
+/obj/item/storage/box/injectors
+	name = "box of DNA injectors"
+	desc = "This box contains injectors it seems."
+	starts_with = list(/obj/item/dnainjector/h2m = 3, /obj/item/dnainjector/m2h = 3)
+
+/obj/item/storage/box/blanks
+	name = "box of blank shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
+	icon_state = "blankshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/blank = 8)
+
+/obj/item/storage/box/beanbags
+	name = "box of beanbag shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "beanshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/beanbag = 8)
+
+/obj/item/storage/box/shotgunammo
+	name = "box of shotgun slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "lethalslug_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun = 8)
+
+/obj/item/storage/box/shotgunshells
+	name = "box of shotgun shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "lethalshell_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/pellet = 8)
+
+/obj/item/storage/box/flashshells
+	name = "box of illumination shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "illumshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/flash = 8)
+
+/obj/item/storage/box/stunshells
+	name = "box of stun shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "stunshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/stunshell = 8)
+
+/obj/item/storage/box/practiceshells
+	name = "box of practice shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "blankshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/practice = 8)
+
+/obj/item/storage/box/haywireshells
+	name = "box of haywire shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "empshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/emp = 8)
+
+/obj/item/storage/box/incendiaryshells
+	name = "box of incendiary shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "incendiaryshot_box"
+	starts_with = list(/obj/item/ammo_casing/shotgun/incendiary = 8)
+
+/obj/item/storage/box/sniperammo
+	name = "box of 14.5mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	starts_with = list(/obj/item/ammo_casing/a145 = 7)
+
+/obj/item/storage/box/ammo10mm
+	name = "box of 10mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	starts_with = list(/obj/item/ammo_casing/c10mm = 10)
+
+/obj/item/storage/box/flashbangs
+	name = "box of flashbangs"
+	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/flashbang = 7)
+
+/obj/item/storage/box/firingpins
+	name = "box of firing pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
+	starts_with = list(/obj/item/device/firing_pin = 7)
+
+/obj/item/storage/box/testpins
+	name = "box of firing pins"
+	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
+	starts_with = list(/obj/item/device/firing_pin/test_range = 7)
+
+/obj/item/storage/box/loyaltypins
+	name = "box of firing pins"
+	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
+	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
+
+/obj/item/storage/box/loyaltypins/fill()
+	..()
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+	new /obj/item/device/firing_pin/implant/loyalty(src)
+
+/obj/item/storage/box/firingpinsRD
+	name = "box of assorted firing pins"
+	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
+	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
+
+/obj/item/storage/box/teargas
+	name = "box of pepperspray grenades"
+	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/chem_grenade/teargas = 6)
+
+/obj/item/storage/box/smokebombs
+	name = "box of smoke grenades"
+	desc = "A box full of smoke grenades, used by special law enforcement teams and military organisations. Provides cover, confusion, and distraction."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/smokebomb = 7)
+
+/obj/item/storage/box/emps
+	name = "box of emp grenades"
+	desc = "A box containing 5 military grade EMP grenades.<br> WARNING: Do not use near unshielded electronics or biomechanical augmentations, death or permanent paralysis may occur."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/empgrenade = 5)
+
+/obj/item/storage/box/smokes
+	name = "box of smoke bombs"
+	desc = "A box containing 5 smoke bombs."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/smokebomb = 5)
+
+/obj/item/storage/box/anti_photons
+	name = "box of anti-photon grenades"
+	desc = "A box containing 5 experimental photon disruption grenades."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/anti_photon = 5)
+
+/obj/item/storage/box/frags
+	name = "box of frag grenades"
+	desc = "A box containing 5 military grade fragmentation grenades.<br> WARNING: Live explosives. Misuse may result in serious injury or death."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/frag = 5)
+
+/obj/item/storage/box/trackimp
+	name = "boxed tracking implant kit"
+	desc = "Box full of scum-bag tracking utensils."
+	icon_state = "implant"
+	starts_with = list(/obj/item/implantcase/tracking = 4, /obj/item/implanter = 1, /obj/item/implantpad = 1, /obj/item/locator = 1)
+
+
+/obj/item/storage/box/chemimp
+	name = "boxed chemical implant kit"
+	desc = "Box of stuff used to implant chemicals."
+	icon_state = "implant"
+	starts_with = list(/obj/item/implantcase/chem = 4, /obj/item/implanter = 1, /obj/item/implantpad = 1)
+
+/obj/item/storage/box/chemimp/fill()
+	..()
+	new /obj/item/implantcase/chem(src)
+	new /obj/item/implantcase/chem(src)
+	new /obj/item/implantcase/chem(src)
+	new /obj/item/implantcase/chem(src)
+	new /obj/item/implantcase/chem(src)
+	new /obj/item/implanter(src)
+	new /obj/item/implantpad(src)
+
+/obj/item/storage/box/rxglasses
+	name = "box of prescription glasses"
+	desc = "This box contains nerd glasses."
+	icon_state = "glasses"
+	starts_with = list(/obj/item/clothing/glasses/regular = 7)
+
+/obj/item/storage/box/drinkingglasses
+	name = "box of drinking glasses"
+	desc = "It has a picture of drinking glasses on it."
+	starts_with = list(/obj/item/reagent_containers/food/drinks/drinkingglass = 6)
+
+/obj/item/storage/box/cdeathalarm_kit
+	name = "death alarm kit"
+	desc = "Box of stuff used to implant death alarms."
+	icon_state = "implant"
+	item_state = "syringe_kit"
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
+
+/obj/item/storage/box/condimentbottles
+	name = "box of condiment bottles"
+	desc = "It has a large ketchup smear on it."
+	starts_with = list(/obj/item/reagent_containers/food/condiment = 6)
+
+/obj/item/storage/box/cups
+	name = "box of paper cups"
+	desc = "It has pictures of paper cups on the front."
+	starts_with = list(/obj/item/reagent_containers/food/drinks/sillycup = 7)
+
+/obj/item/storage/box/donkpockets
+	name = "box of donk-pockets"
+	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
+	icon_state = "donk_kit"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
+
+/obj/item/storage/box/sinpockets
+	name = "box of sin-pockets"
+	desc = "<B>Instructions:</B> <I>Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes.</I>"
+	icon_state = "donk_kit"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
+
+/obj/item/storage/box/monkeycubes
+	name = "monkey cube box"
+	desc = "Drymate brand monkey cubes. Just add water!"
+	icon = 'icons/obj/food.dmi'
+	icon_state = "monkeycubebox"
+	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
+
+
+/obj/item/storage/box/monkeycubes/farwacubes
+	name = "farwa cube box"
+	desc = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube = 5)
+
+/obj/item/storage/box/monkeycubes/stokcubes
+	name = "stok cube box"
+	desc = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube = 5)
+
+/obj/item/storage/box/monkeycubes/neaeracubes
+	name = "neaera cube box"
 	desc = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube = 5)
 
