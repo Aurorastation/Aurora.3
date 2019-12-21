@@ -22,6 +22,8 @@
 
 #define ishuman(A) istype(A, /mob/living/carbon/human)
 
+#define ismech(A) istype(A, /mob/living/heavy_vehicle)
+
 #define isliving(A) istype(A, /mob/living)
 
 #define israt(A) istype(A, /mob/living/simple_animal/rat)

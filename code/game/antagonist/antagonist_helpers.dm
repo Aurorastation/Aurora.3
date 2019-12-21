@@ -3,6 +3,8 @@
 		return 0
 	if(jobban_isbanned(player.current, bantype))
 		return 0
+	if(required_age && required_age > player.current.client.player_age)
+		return FALSE
 	if(!ignore_role)
 		if(player.assigned_role in restricted_jobs)
 			return 0

@@ -5,6 +5,7 @@
 	var/gsr = 0
 	var/list/dna
 	var/used
+	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/forensics/swab/proc/is_used()
 	return used
@@ -32,7 +33,7 @@
 		user.visible_message("<span class='danger'>\The [user] tries to take a swab sample from \the [H], but they move away.</span>")
 		return
 
-	if(target_zone == "mouth")
+	if(target_zone == BP_MOUTH)
 		if(!H.organs_by_name[BP_HEAD])
 			to_chat(user, "<span class='warning'>They don't have a head.</span>")
 			return

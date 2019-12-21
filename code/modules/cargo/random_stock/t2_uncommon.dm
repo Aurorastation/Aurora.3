@@ -74,7 +74,7 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
 	var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve",\
-							 "sglue", "black_matter", "lightning", "trioxin", "phoron_salt", "nanites")
+							 "sglue", "black_matter", "lightning", "trioxin", "phoron_salt", "nanites", "nitroglycerin")
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 6))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
