@@ -1506,7 +1506,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "er" = (
-/obj/item/robot_parts/robot_component/armor/combat,
+/obj/item/robot_parts/robot_component/armor/mech/combat,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
