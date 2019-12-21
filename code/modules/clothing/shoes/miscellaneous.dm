@@ -184,7 +184,7 @@
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
-	icon_state = "thongsandal"
+	item_state = "thongsandal"
 	slowdown = 0
 	force = 2
 	sharp = TRUE
