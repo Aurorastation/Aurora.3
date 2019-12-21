@@ -13,7 +13,7 @@
 
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
-	icon_state = "mime"
+	icon_state = "white"
 
 /obj/item/clothing/shoes/swat
 	name = "\improper SWAT shoes"
@@ -46,7 +46,7 @@
 /obj/item/clothing/shoes/sandal
 	desc = "A pair of rather plain, wooden sandals."
 	name = "sandals"
-	icon_state = "wizard"
+	icon_state = "sandals"
 	species_restricted = null
 	body_parts_covered = 0
 
@@ -125,9 +125,17 @@
 	silent = 1
 
 /obj/item/clothing/shoes/laceup
-	name = "laceup shoes"
+	name = "black oxford shoes"
 	desc = "The height of fashion, and they're pre-polished!"
-	icon_state = "laceups"
+	icon_state = "oxford_black"
+
+/obj/item/clothing/shoes/laceup/grey
+	name = "grey oxford shoes"
+	icon_state = "oxford_grey"
+
+/obj/item/clothing/shoes/laceup/brown
+	name = "brown oxford shoes"
+	icon_state = "oxford_brown"
 
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
@@ -138,22 +146,13 @@
 
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
-	desc = "A roll of treated canvas used for wrapping clawed feet."
+	desc = "A roll of treated cloth used for wrapping clawed feet."
 	icon_state = "clothwrap"
 	item_state = "clothwrap"
 	w_class = 2
 	species_restricted = null
 	silent = 1
 	drop_sound = 'sound/items/drop/clothing.ogg'
-
-/obj/item/clothing/shoes/winter_old
-	name = "winter boots"
-	desc = "Boots lined with 'synthetic' animal fur."
-	icon_state = "winterboots_old"
-	cold_protection = FEET|LEGS
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = FEET|LEGS
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
@@ -201,11 +200,17 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
 
+/obj/item/clothing/shoes/winter/toeless
+	name = "toe-less winter boots"
+	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
+	icon_state = "winterboots_toeless"
+	item_state = "winterboots_toeless"
+
 /obj/item/clothing/shoes/black_boots
 	name = "black boots"
 	desc = "A pair of tough looking black boots."
-	icon_state = "blackboots"
-	item_state = "blackboots"
+	icon_state = "jackboots"
+	item_state = "jackboots"
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	can_hold_knife = 1
 

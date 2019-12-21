@@ -5,19 +5,26 @@
 		regenerate_icons()
 
 /mob/living/carbon/var/list/internal_organs = list()
+/mob/living/carbon/var/shock_stage = 0
 /mob/living/carbon/human/var/list/organs = list()
 /mob/living/carbon/human/var/list/organs_by_name = list() // map organ names to organs
 /mob/living/carbon/human/var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
+
+/mob/living/carbon/human/proc/recheck_bad_external_organs()
+	var/damage_this_tick = getToxLoss()
+	for(var/obj/item/organ/external/O in organs)
+		damage_this_tick += O.burn_dam + O.brute_dam
+
+	if(damage_this_tick > last_dam)
+		. = TRUE
+	last_dam = damage_this_tick
 
 // Takes care of organ related updates, such as broken and missing limbs
 /mob/living/carbon/human/proc/handle_organs()
 
 	number_wounds = 0
-	var/force_process = 0
-	var/damage_this_tick = getBruteLoss() + getFireLoss() + getToxLoss()
-	if(damage_this_tick > last_dam)
-		force_process = 1
-	last_dam = damage_this_tick
+	var/force_process = recheck_bad_external_organs()
+
 	if(force_process)
 		bad_external_organs.Cut()
 		for(var/obj/item/organ/external/Ex in organs)
@@ -50,9 +57,9 @@
 
 			if (!lying && !buckled && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
-				if (E.is_broken() && E.internal_organs && E.internal_organs.len && prob(15))
+				if (prob(10) && !stat && can_feel_pain() && E.is_broken() && E.internal_organs.len)
 					var/obj/item/organ/I = pick(E.internal_organs)
-					custom_pain("You feel broken bones moving in your [E.name]!", 1)
+					custom_pain("Pain jolts through your broken [E.name]!", 50)
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
@@ -146,6 +153,19 @@
 
 			var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
+		
+		else if(!(E.status & ORGAN_ROBOT) && CE_DROPITEM in chem_effects && prob(chem_effects[CE_DROPITEM]))
+			to_chat(src, span("warning", "Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
+			emote("me", 1, "drops what they were holding in their [E.name]!")
+			switch(E.body_part)
+				if(HAND_LEFT, ARM_LEFT)
+					if(!l_hand)
+						continue
+					drop_from_inventory(l_hand)
+				if(HAND_RIGHT, ARM_RIGHT)
+					if(!r_hand)
+						continue
+					drop_from_inventory(r_hand)
 
 		else if(E.is_malfunctioning())
 			switch(E.body_part)
@@ -177,3 +197,37 @@
 /mob/living/carbon/human/proc/get_blood_alcohol()
 	return round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
 
+/mob/living/proc/is_asystole()
+	return FALSE
+
+/mob/living/carbon/human/is_asystole()
+	if(species.has_organ[BP_HEART] && !isSynthetic())
+		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
+		if(!istype(heart) || !heart.is_working())
+			return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/get_brain_status()
+	var/brain_result
+	if(should_have_organ(BP_BRAIN))
+		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+		if(!brain || stat == DEAD || (status_flags & FAKEDEATH))
+			brain_result = 0
+		else if(stat != DEAD)
+			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
+	else
+		brain_result = -1
+
+	switch(brain_result)
+		if(0)
+			brain_result = "<span class='bad'>none, patient is braindead</span>"
+		if(-1)
+			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
+		else
+			if(brain_result <= 50)
+				brain_result = "<span class='bad'>[brain_result]%</span>"
+			else if(brain_result <= 80)
+				brain_result = "<span class='average'>[brain_result]%</span>"
+			else
+				brain_result = "[brain_result]%"
+	return brain_result

@@ -111,10 +111,6 @@
 	name = T_BOARD("prisoner management console")
 	build_path = /obj/machinery/computer/prisoner
 
-/obj/item/circuitboard/mecha_control
-	name = T_BOARD("exosuit control console")
-	build_path = /obj/machinery/computer/mecha
-
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
 	build_path = /obj/machinery/computer/rdservercontrol
@@ -128,11 +124,6 @@
 	name = T_BOARD("patient monitoring console")
 	build_path = /obj/machinery/computer/operating
 	origin_tech = list(TECH_DATA = 2, TECH_BIO = 2)
-
-/obj/item/circuitboard/advoperating
-	name = T_BOARD("life support table console")
-	build_path = /obj/machinery/computer/operating/advanced
-	origin_tech = list(TECH_DATA = 4, TECH_BIO = 4)
 
 /obj/item/circuitboard/curefab
 	name = T_BOARD("cure fabricator")

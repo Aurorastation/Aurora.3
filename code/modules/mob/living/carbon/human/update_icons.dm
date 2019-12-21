@@ -28,7 +28,7 @@ Also like bay, we use transforms to handle lying states instead of a separate se
 
 There are several things that need to be remembered:
 
->	Whenever we do something that should cause an overlay to update (which doesn't use standard procs
+>	Whenever we do something that should cause an overlay to update (which doesn't use standard procs)
 	( i.e. you do something like l_hand = /obj/item/something new(src) )
 	You will need to call the relevant update_inv_* proc:
 		update_inv_head()
@@ -431,7 +431,7 @@ There are several things that need to be remembered:
 				standing.underlays	+= "telekinesishead[fat]_s"
 				add_image = 1
 			*/
-			if(LASER)
+			if(LASER_EYES)
 				standing.overlays += "lasereyes_s"
 				add_image = 1
 	if(add_image)
@@ -1302,13 +1302,38 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
 	overlays_raw[SURGERY_LAYER] = null
-	var/list/ovr
-	for(var/obj/item/organ/external/E in organs)
-		if(E.open)
-			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer" = -SURGERY_LAYER)
-			LAZYADD(ovr, I)
 
-	overlays_raw[SURGERY_LAYER] = ovr
+	var/image/total = new
+	for(var/obj/item/organ/external/E in organs)
+		if(E.status & ORGAN_ROBOT || E.is_stump())
+			continue
+		if(!E.open)
+			continue
+
+		var/surgery_icon = E.owner.species.get_surgery_overlay_icon(src)
+		if(!surgery_icon)
+			continue
+
+		var/list/surgery_states = icon_states(surgery_icon)
+		var/base_state = "[E.icon_name][E.open]"
+		var/overlay_state = "[base_state]-flesh"
+		var/list/overlays_to_add
+
+		if(overlay_state in surgery_states)
+			var/image/flesh = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
+			flesh.color = E.owner.species.flesh_color
+			LAZYADD(overlays_to_add, flesh)
+		overlay_state = "[base_state]-blood"
+		if(overlay_state in surgery_states)
+			var/image/blood = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
+			blood.color = E.owner.species.blood_color
+			LAZYADD(overlays_to_add, blood)
+		overlay_state = "[base_state]-bones"
+		if(overlay_state in surgery_states)
+			LAZYADD(overlays_to_add, image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER))
+		total.overlays |= overlays_to_add
+
+	overlays_raw[SURGERY_LAYER] = total
 
 	if(update_icons)
 		update_icons()

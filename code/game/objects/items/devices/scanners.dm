@@ -11,7 +11,7 @@ BREATH ANALYZER
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
 	icon_state = "health"
-	item_state = "analyzer"
+	item_state = "healthanalyzer"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -23,210 +23,263 @@ BREATH ANALYZER
 	var/mode = 1
 
 /obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
-	health_scan_mob(M, user, FALSE)
+	health_scan_mob(M, user, mode)
 	src.add_fingerprint(user)
 	return
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
-	health_scan_mob(user, user, FALSE)
+	health_scan_mob(user, user, mode)
 	src.add_fingerprint(user)
 	return
 
-/proc/calcDamage(var/DMGValue)
-	switch(DMGValue)
-		if (0 to 1)
-			return "Healthy"
-		if (1 to 10)
-			return "Negligible"
-		if (10 to 25)
-			return "Minor"
-		if (25 to 50)
-			return "Moderate"
-		if (50 to 75)
-			return "Major"
-		if (75 to 200)
-			return "Critical"
-		if (200 to INFINITY)
-			return "Fatal"
+/proc/get_wound_severity(var/damage_ratio) //Used for ratios.
+	var/degree = "none"
 
-/proc/health_scan_mob(var/mob/living/M, var/mob/living/user, var/adv, var/visible_msg, var/ignore_clumsiness, var/show_limb_damage = TRUE)
+	switch(damage_ratio)
+		if(0.05 to 0.1)
+			degree = "minor"
+		if(0.1 to 0.25)
+			degree = "moderate"
+		if(0.25 to 0.5)
+			degree = "significant"
+		if(0.5 to 0.75)
+			degree = "severe"
+		if(0.75 to 1)
+			degree = "extreme"
+	return degree
+
+/proc/get_severity(amount, var/tag = FALSE)
+	if(!amount)
+		return "none"
+	. = "minor"
+	if(amount > 50)
+		if(tag)
+			. = "<span class='bad'>severe</span>"
+		else
+			. = "severe"
+	else if(amount > 25)
+		if(tag)
+			. = "<span class='bad'>significant</span>"
+		else
+			. = "significant"
+	else if(amount > 10)
+		if(tag)
+			. = "<span class='average'>moderate</span>"
+		else
+			. = "moderate"
+
+/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE)
 	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-		user.visible_message("<span class='warning'>\The [user] has analyzed the floor's vitals!</span>", "<span class='warning'>You try to analyze the floor's vitals!</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-		user.show_message("<span class='notice'>Analyzing Results for The floor:</span>", 1)
-		user.show_message("Overall Status: Healthy</span>", 1)
-		user.show_message("<span class='notice'>    Damage Specifics: 0-0-0-0</span>", 1)
-		user.show_message("<span class='notice'>Key: Suffocation/Toxin/Burns/Brute</span>", 1)
-		user.show_message("<span class='notice'>Body Temperature: ???</span>", 1)
+		user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+		to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
+		to_chat(user, "Overall Status: Healthy</span>")
 		return
-	if (!usr.IsAdvancedToolUser())
+
+	if(!usr.IsAdvancedToolUser())
 		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
-	user.visible_message("<span class='notice'>[user] has analyzed [M]'s vitals.</span>","<span class='notice'>You have analyzed [M]'s vitals.</span>")
 
-	if (!istype(M,/mob/living/carbon/human) || M.isSynthetic())
-		//these sensors are designed for organic life
-		user.show_message("<span class='notice'>Analyzing Results for ERROR:\n\t Overall Status: ERROR</span>")
-		user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
-		user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>?</font> - <font color='green'>?</font> - <font color='#FFA500'>?</font> - <font color='red'>?</font></span>")
-		user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
-		user.show_message("<span class='warning'>Warning: Blood Level ERROR: --% --cl.</span> <span class='notice'>Type: ERROR</span>")
-		user.show_message("<span class='notice'>Subject's pulse: <font color='red'>-- bpm.</font></span>")
+	user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+
+	if(!istype(M, /mob/living/carbon/human))
+		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
 		return
 
-	var/fake_oxy = max(rand(1,40), M.getOxyLoss(), (300 - (M.getToxLoss() + M.getFireLoss() + M.getBruteLoss())))
-	
-	var/OX = 0
-	var/TX = 0
-	var/BU = 0
-	var/BR = 0
-	
-	if (adv == TRUE)
-		OX = M.getOxyLoss()
-		TX = M.getToxLoss()
-		BU = M.getFireLoss()
-		BR = M.getBruteLoss()
-	else
-		OX = calcDamage(M.getOxyLoss())
-		TX = calcDamage(M.getToxLoss())
-		BU = calcDamage(M.getFireLoss())
-		BR = calcDamage(M.getBruteLoss())
-	
-	if(M.status_flags & FAKEDEATH)
-		if (adv == TRUE)
-			OX = fake_oxy
+	var/mob/living/carbon/human/H = M
+
+	if(H.isSynthetic() && !H.isFBP())
+		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		return
+
+	. = list()
+	var/header = list()
+	var/b
+	var/endb
+	var/dat = list()
+
+	header += "<style> .scan_notice{color: #5f94af;}</style>"
+	header += "<style> .scan_warning{color: #ff0000; font-style: italic;}</style>"
+	header += "<style> .scan_danger{color: #ff0000; font-weight: bold;}</style>"
+	header += "<style> .scan_red{color:red}</style>"
+	header += "<style> .scan_green{color:green}</style>"
+	header += "<style> .scan_blue{color: #5f94af}</style>"
+	header += "<style> .scan_orange{color:#ffa500}</style>"
+	b		= "<b>"
+	endb	= "</b>"
+
+	. += "[b]Scan results for \the [H]:[endb]"
+
+	// Brain activity.
+	var/brain_result = H.get_brain_status()
+	dat += "Brain activity: [brain_result]."
+
+	if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
+		dat += "<span class='scan_warning'>[b]Time of Death:[endb] [time2text(worldtime2text(H.timeofdeath), "hh:mm")]</span>"
+
+	// Pulse rate.
+	var/pulse_result = "normal"
+	if(H.should_have_organ(BP_HEART))
+		if(H.status_flags & FAKEDEATH)
+			pulse_result = 0
 		else
-			OX = calcDamage(fake_oxy)
-		user.show_message("<span class='notice'>Analyzing Results for [M]:</span>")
-		user.show_message("<span class='notice'>	Overall Status: Dead</span>")
-		user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
-		user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
-		user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
+			pulse_result = H.get_pulse(GETPULSE_TOOL)
+		pulse_result = "[pulse_result]bpm"
+		if(H.pulse() == PULSE_NONE)
+			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
+		else if(H.pulse() < PULSE_NORM)
+			pulse_result = "<span class='scan_notice'>[pulse_result]</span>"
+		else if(H.pulse() > PULSE_NORM)
+			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
-		user.show_message("<span class='notice'>Analyzing Results for [M]:\n\t Overall Status: [M.stat > 1 ? "Dead" : "[M.health - M.halloss]% healthy"]</span>")
-		user.show_message("<span class='notice'>    Key: <font color='blue'>Suffocation</font>/<font color='green'>Toxin</font>/<font color='#FFA500'>Burns</font>/<font color='red'>Brute</font></span>", 1)
-		user.show_message("<span class='notice'>    Damage Specifics: <font color='blue'>[OX]</font> - <font color='green'>[TX]</font> - <font color='#FFA500'>[BU]</font> - <font color='red'>[BR]</font></span>")
-		user.show_message("<span class='notice'>Body Temperature: [M.bodytemperature-T0C]&deg;C ([M.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
-	if(M.tod && (M.status_flags & FAKEDEATH))
-		user.show_message("<span class='notice'>Time of Death: [M.tod]</span>")
-	else if(M.timeofdeath > 0 && M.stat == DEAD)
-		user.show_message("<span class='notice'>Time of Death: [worldtime2text(M.timeofdeath)]</span>")
-	if(istype(M, /mob/living/carbon/human) && show_limb_damage)
-		var/mob/living/carbon/human/H = M
+		if(H.isFBP())
+			pulse_result = "[rand(70, 85)]bpm"
+		else
+			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
+	dat += "Pulse rate: [pulse_result]."
+
+	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
+	if(H.should_have_organ(BP_HEART))
+		if(H.get_blood_volume() <= 70)
+			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
+		var/oxygenation_string = "[H.get_blood_oxygenation()]% blood oxygenation"
+		switch(H.get_blood_oxygenation())
+			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
+			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)
+				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]</span>"
+			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
+				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
+		dat += "[b]Blood pressure:[endb] [H.get_blood_pressure()] ([oxygenation_string])"
+	else
+		if(H.isFBP())
+			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
+		else
+			dat += "[b]Blood pressure:[endb] N/A"
+
+	// Body temperature.
+	dat += "Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)"
+
+	// Traumatic shock.
+	if(H.is_asystole())
+		dat += "<span class='scan_danger'>Patient is suffering from cardiovascular shock. Administer CPR immediately.</span>"
+	else if(H.shock_stage > 80)
+		dat += "<span class='scan_warning'>Patient is at serious risk of going into shock. Pain relief recommended.</span>"
+
+	if(H.getOxyLoss() > 50)
+		dat += "<span class='scan_blue'>[b]Severe oxygen deprivation detected.[endb]</span>"
+	if(H.getToxLoss() > 50)
+		dat += "<span class='scan_green'>[b]Major systemic organ failure detected.[endb]</span>"
+	if(H.getFireLoss() > 50)
+		dat += "<span class='scan_orange'>[b]Severe burn damage detected.[endb]</span>"
+	if(H.getBruteLoss() > 50)
+		dat += "<span class='scan_red'>[b]Severe anatomical damage detected.[endb]</span>"
+
+	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
-		user.show_message("<span class='notice'>Localized Damage, Brute/Burn:</span>",1)
-		if(length(damaged)>0)
-			if (adv == TRUE)
-				for(var/obj/item/organ/external/org in damaged)
-					user.show_message(text("<span class='notice'>     [][]: [][] - []</span>",
-					capitalize(org.name),
-					(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
-					(org.brute_dam > 0) ? "<font color='red'>[org.brute_dam]</font>" : "<font color='red'>0</font>",
-					(org.status & ORGAN_BLEEDING)?"<span class='danger'> \[Bleeding\]</span>":"",
-					(org.burn_dam > 0) ? "<font color='#FFA500'>[org.burn_dam]</font>" : "<font color='#FFA500'>0</font>"),1)
-			else
-				for(var/obj/item/organ/external/org in damaged)
-					user.show_message(text("<span class='notice'>     [][]: [][] - []</span>",
-					capitalize(org.name),
-					(org.status & ORGAN_ROBOT) ? "(Cybernetic)" : "",
-					(org.brute_dam > 0) ? "<font color='red'>[calcDamage(org.brute_dam)]</font>" : "<font color='red'>Healthy</font>",
-					(org.status & ORGAN_BLEEDING)?"<span class='danger'> \[Bleeding\]</span>":"",
-					(org.burn_dam > 0) ? "<font color='#FFA500'>[calcDamage(org.burn_dam)]</font>" : "<font color='#FFA500'>Healthy</font>"),1)
+		if(damaged.len)
+			for(var/obj/item/organ/external/org in damaged)
+				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
+				if(org.brute_dam > 0)
+					limb_result = "[limb_result] \[<font color = 'red'><b>[get_severity(org.brute_dam, TRUE)] physical trauma</b></font>\]"
+				if(org.burn_dam > 0)
+					limb_result = "[limb_result] \[<font color = '#ffa500'><b>[get_severity(org.burn_dam, TRUE)] burns</b></font>\]"
+				if(org.status & ORGAN_BLEEDING)
+					limb_result = "[limb_result] \[<span class='scan_danger'>bleeding</span>\]"
+				dat += limb_result
 		else
-			user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
-	if(istype(M, /mob/living/carbon))
-		var/mob/living/carbon/C = M
-		if(C.reagents.total_volume)
-			var/unknown = 0
-			var/reagentdata[0]
-			for(var/A in C.reagents.reagent_list)
-				var/datum/reagent/R = A
-				if(R.scannable)
-					reagentdata["[R.id]"] = "<span class='notice'>    [round(C.reagents.get_reagent_amount(R.id), 1)]u [R.name]</span>"
-				else
-					unknown++
-			if(reagentdata.len)
-				user.show_message("<span class='notice'>Beneficial reagents detected in subject's blood:</span>")
-				for(var/d in reagentdata)
-					user.show_message(reagentdata[d])
-			if(unknown)
-				user.show_message("<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>")
-		if(C.ingested && C.ingested.total_volume)
-			var/unknown = 0
-			for(var/datum/reagent/R in C.ingested.reagent_list)
-				if(R.scannable)
-					to_chat(user, "<span class='notice'>[R.name] found in subject's stomach.</span>")
-				else
-					++unknown
-			if(unknown)
-				to_chat(user, "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>")
-		if(C.virus2.len)
-			for (var/ID in C.virus2)
-				var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
-				if(istype(V))
-					user.show_message("<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>")
-					
-	if(M.nutrition / M.max_nutrition <= CREW_NUTRITION_VERYHUNGRY)
-		user.show_message("<span class='warning'>Subject malnourished. Food intake recommended.</span>")
-	if(M.hydration / M.max_hydration <= CREW_HYDRATION_VERYTHIRSTY)
-		user.show_message("<span class='warning'>Subject dehydrated. Fluid intake recommended.</span>")
-	
-	if (M.getCloneLoss())
-		user.show_message("<span class='warning'>Subject appears to have been imperfectly cloned.</span>")
-	for(var/datum/disease/D in M.viruses)
-		if(!D.hidden[SCANNER])
-			user.show_message(text("<span class='danger'>Warning: [D.form] Detected</span><span class='warning'>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</span>"))
+			dat += "No detectable limb injuries."
 
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		if (H.getBrainLoss() >= config.default_brain_health || !H.has_brain())
-			user.show_message("<span class='warning'>Subject is brain dead.</span>")
-		else if (H.getBrainLoss() >= 120)
-			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
-		else if (H.getBrainLoss() >= 45)
-			to_chat(user, "\t<span class='alert'>Brain damage detected.</span>")
-		else if(LAZYLEN(H.get_traumas()))
-			to_chat(user, "\t<span class='alert'>Severe brain damage detected. Subject likely to have mental traumas.</span>")
-		for(var/name in H.organs_by_name)
-			var/obj/item/organ/external/e = H.organs_by_name[name]
-			if(!e)
-				continue
-			var/limb = e.name
-			if(e.status & ORGAN_BROKEN)
-				if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && (!(e.status & ORGAN_SPLINTED)))
-					to_chat(user, "<span class='warning'>Unsecured fracture in subject [limb]. Splinting recommended for transport.</span>")
-			if(e.has_infected_wound())
-				to_chat(user, "<span class='warning'>Infected wound detected in subject [limb]. Disinfection recommended.</span>")
+	for(var/name in H.organs_by_name)
+		var/obj/item/organ/external/e = H.organs_by_name[name]
+		if(!e)
+			continue
+		var/limb = e.name
+		if(e.status & ORGAN_BROKEN)
+			if(((e.name == BP_L_ARM) || (e.name == BP_R_ARM) || (e.name == BP_L_LEG) || (e.name == BP_R_LEG)) && !(e.status & ORGAN_SPLINTED))
+				dat += "<span class='scan_warning'>Unsecured fracture in subject [limb]. Splinting recommended for transport.</span>"
 
-		for(var/name in H.organs_by_name)
-			var/obj/item/organ/external/e = H.organs_by_name[name]
-			if(e && e.status & ORGAN_BROKEN)
-				user.show_message(text("<span class='warning'>Bone fractures detected. Advanced scanner required for location.</span>"), 1)
-				break
-		var/found_arterial = FALSE
-		var/found_tendon = FALSE
-		for(var/obj/item/organ/external/e in H.organs)
-			if(e)
-				if(!found_arterial && (e.status & ORGAN_ARTERY_CUT))
-					user.show_message(text("<span class='warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"))
-					found_arterial = TRUE
-				if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
-					user.show_message(text("<span class='warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"))
-					found_tendon = TRUE
-			if(found_arterial && found_tendon)
-				break
-		if(M:vessel)
-			var/blood_volume = round(M:vessel.get_reagent_amount("blood"))
-			var/blood_percent = blood_volume / 560
-			var/blood_type = M.dna.b_type
-			blood_percent *= 100
-			if(blood_volume <= 500 && blood_volume > 336)
-				user.show_message("<span class='danger'>Warning: Blood Level LOW: [blood_percent]% [blood_volume]cl.</span> <span class='notice'>Type: [blood_type]</span>")
-			else if(blood_volume <= 336)
-				user.show_message("<span class='danger'><i>Warning: Blood Level CRITICAL: [blood_percent]% [blood_volume]cl.</i></span> <span class='notice'>Type: [blood_type]</span>")
+	for(var/name in H.organs_by_name)
+		var/obj/item/organ/external/e = H.organs_by_name[name]
+		if(e && e.status & ORGAN_BROKEN)
+			dat += "<span class='scan_warning'>Bone fractures detected. Advanced scanner required for location.</span>"
+			break
+
+	var/found_bleed
+	var/found_tendon
+	var/found_disloc
+	for(var/obj/item/organ/external/e in H.organs)
+		if(e)
+			if(!found_disloc && e.dislocated == 2)
+				dat += "<span class='scan_warning'>Dislocation detected. Advanced scanner required for location.</span>"
+				found_disloc = TRUE
+			if(!found_bleed && (e.status & ORGAN_ARTERY_CUT))
+				dat += "<span class='scan_warning'>Arterial bleeding detected. Advanced scanner required for location.</span>"
+				found_bleed = TRUE
+			if(!found_tendon && (e.status & ORGAN_TENDON_CUT))
+				dat += "<span class='scan_warning'>Tendon or ligament damage detected. Advanced scanner required for location.</span>"
+				found_tendon = TRUE
+		if(found_disloc && found_bleed && found_tendon)
+			break
+
+	. += dat
+	dat = list()
+
+	// Reagent data.
+	. += "[b]Reagent scan:[endb]"
+
+	var/print_reagent_default_message = TRUE
+
+	if(H.reagents.total_volume)
+		var/unknown = 0
+		var/reagentdata[0]
+		for(var/A in H.reagents.reagent_list)
+			var/datum/reagent/R = A
+			if(R.scannable)
+				print_reagent_default_message = FALSE
+				reagentdata["[R.id]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.id), 1)]u [R.name]</span>"
 			else
-				user.show_message("<span class='notice'>Blood Level Normal: [blood_percent]% [blood_volume]cl. Type: [blood_type]</span>")
-		user.show_message("<span class='notice'>Subject's pulse: <font color='[H.pulse == PULSE_THREADY || H.pulse == PULSE_NONE ? "red" : "blue"]'>[H.get_pulse(GETPULSE_TOOL)] bpm.</font></span>")
-		
+				unknown++
+		if(reagentdata.len)
+			print_reagent_default_message = FALSE
+			dat += "<span class='notice'>Beneficial reagents detected in subject's blood:</span>"
+			for(var/d in reagentdata)
+				dat += reagentdata[d]
+		if(unknown)
+			print_reagent_default_message = FALSE
+			dat += "<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
+
+	var/datum/reagents/ingested = H.get_ingested_reagents()
+	if(ingested && ingested.total_volume)
+		var/unknown = 0
+		for(var/datum/reagent/R in ingested.reagent_list)
+			if(R.scannable)
+				print_reagent_default_message = FALSE
+				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
+			else
+				++unknown
+		if(unknown)
+			print_reagent_default_message = FALSE
+			dat +=  "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+
+	if(print_reagent_default_message)
+		dat += "No results."
+
+	if(H.virus2.len)
+		for (var/ID in H.virus2)
+			var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
+			if(istype(V))
+				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
+
+	. += dat
+
+	header = jointext(header, null)
+	. = jointext(.,"<br>")
+	. = jointext(list(header,.),null)
+
+	to_chat(user, "<hr>")
+	to_chat(user, .)
+	to_chat(user, "<hr>")
+
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
 	set category = "Object"
@@ -237,23 +290,6 @@ BREATH ANALYZER
 		to_chat(usr, "The scanner now shows specific limb damage.")
 	else
 		to_chat(usr, "The scanner no longer shows limb damage.")
-		
-/obj/item/device/healthanalyzer/adv
-	name = "advanced health analyzer"
-	desc = "An advanced hand-held body scanner able to accurately distinguish vital signs of the subject. Now in gold!"
-	icon_state = "advhealth"
-	matter = list(DEFAULT_WALL_MATERIAL = 250)
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
-	
-/obj/item/device/healthanalyzer/adv/attack(mob/living/M as mob, mob/living/user as mob)
-	health_scan_mob(M, user, TRUE)
-	src.add_fingerprint(user)
-	return
-	
-/obj/item/device/healthanalyzer/adv/attack_self(mob/user)
-	health_scan_mob(user, user, TRUE)
-	src.add_fingerprint(user)
-	return
 
 /obj/item/device/analyzer
 	name = "analyzer"
@@ -527,7 +563,7 @@ BREATH ANALYZER
 		if(50 to INFINITY)
 			to_chat(user,"<font color='blue'><b>Severe oxygen deprivation detected.</b></font>")
 
-	var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
+	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
 			to_chat(user,"<font color='red'><b>Ruptured lung detected.</b></font>")

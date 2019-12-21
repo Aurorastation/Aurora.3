@@ -39,17 +39,17 @@
 	origin_tech = list(TECH_DATA = 5, TECH_COMBAT = 4)
 
 /obj/item/circuitboard/rig_assembly/combat/hazard
-	name = "hazard rig central circuit board"
+	name = "hazard hardsuit central circuit board"
 
 /obj/item/circuitboard/rig_assembly/combat/targeting/hazard
-	name = "hazard rig control and targeting board"
+	name = "hazard hardsuit control and targeting board"
 
 /obj/item/circuitboard/rig_assembly/combat/combat
-	name = "combat rig central circuit board"
+	name = "combat hardsuit central circuit board"
 	origin_tech = list(TECH_DATA = 7)
 
 /obj/item/circuitboard/rig_assembly/combat/targeting/combat
-	name = "combat rig control and targeting board"
+	name = "combat hardsuit control and targeting board"
 	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 6)
 
 //////////////////////
@@ -63,16 +63,16 @@
 	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
 
 /obj/item/circuitboard/rig_assembly/illegal/hacker
-	name = "cybersuit rig central circuit board"
+	name = "cybersuit hardsuit central circuit board"
 
 /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker
-	name = "cybersuit rig control and targeting board"
+	name = "cybersuit hardsuit control and targeting board"
 
 /obj/item/circuitboard/rig_assembly/illegal/stealth
-	name = "stealth rig central circuit board"
+	name = "stealth hardsuit central circuit board"
 	origin_tech = list(TECH_DATA = 7, TECH_ILLEGAL = 6)
 
 /obj/item/circuitboard/rig_assembly/illegal/targeting/stealth
-	name = "stealth rig control and targeting board"
+	name = "stealth hardsuit control and targeting board"
 	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 6, TECH_ILLEGAL = 6)
 

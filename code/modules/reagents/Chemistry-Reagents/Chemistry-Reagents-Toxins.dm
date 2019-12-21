@@ -7,15 +7,31 @@
 	reagent_state = LIQUID
 	color = "#CF3600"
 	metabolism = REM * 0.1 // 0.02 by default. They last a while and slowly kill you.
-	var/strength = 4 // How much damage it deals per unit
 	taste_description = "bitterness"
 	taste_mult = 1.2
 	fallback_specific_heat = 0.75
 
+	var/target_organ // needs to be null by default
+	var/strength = 4 // How much damage it deals per unit
+
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(strength)
-		M.add_chemical_effect(CE_TOXIN, 1)
-		M.adjustToxLoss(strength * removed)
+	if(strength && alien != IS_DIONA)
+		var/dam = (strength * removed)
+		M.add_chemical_effect(CE_TOXIN, dam)
+		if(target_organ && ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+			if(I)
+				var/can_damage = I.max_damage - I.damage
+				if(can_damage > 0)
+					if(dam > can_damage)
+						I.take_internal_damage(can_damage, silent=TRUE)
+						dam -= can_damage
+					else
+						I.take_internal_damage(dam, silent=TRUE)
+						dam = 0
+		if(dam)
+			M.adjustToxLoss(target_organ ? (dam * 0.75) : dam)
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
@@ -43,6 +59,7 @@
 	color = "#003333"
 	strength = 10
 	taste_description = "fish"
+	target_organ = BP_BRAIN
 
 /datum/reagent/toxin/carpotoxin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien && alien == IS_UNATHI)
@@ -59,7 +76,6 @@
 	taste_description = "stinging needles"
 
 /datum/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_TOXIN, 1)
 	M.adjustHalLoss(removed*15)
 
 /datum/reagent/toxin/phoron
@@ -140,7 +156,7 @@
 /datum/reagent/toxin/cardox
 	name = "Cardox"
 	id = "cardox"
-	description = "Cardox is an mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
+	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
 	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
@@ -154,20 +170,29 @@
 
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.add_chemical_effect(CE_TOXIN, 1)
-		M.adjustToxLoss(removed * strength*2)
+		M.add_chemical_effect(CE_TOXIN, removed * strength * 2)
 	else
-		M.adjustToxLoss(removed * strength)
+		M.add_chemical_effect(CE_TOXIN, removed * strength)
 
 /datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
 	holder.remove_reagent(conflicting.id, amount)
 
 /datum/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
-
 	if(amount >= 1)
 		for(var/mob/living/carbon/slime/M in T)
 			M.adjustToxLoss(amount*10)
+	if(amount >= 10)
+		for(var/obj/item/reagent_containers/food/snacks/grown/K in T)
+			if((K.plantname == "koisspore" || K.plantname == "blackkois") || (K.name == "kois" || K.name == "black kois"))
+				qdel(K)
+		for(var/obj/machinery/portable_atmospherics/hydroponics/H in T)
+			if(((H.name == "kois" || H.name == "black kois") || H.seed == /datum/seed/koisspore) && !(H.closed_system))
+				H.health = 0 // kill this boi - geeves
+				H.force_update = TRUE // and quick
+				H.process()
+				if(istype(H, /obj/machinery/portable_atmospherics/hydroponics/soil/invisible))
+					qdel(H)
 
 	var/datum/gas_mixture/environment = T.return_air()
 	environment.adjust_gas("phoron",-amount*10)
@@ -182,6 +207,7 @@
 	metabolism = REM * 2
 	taste_description = "bitter almonds"
 	taste_mult = 1.5
+	target_organ = BP_HEART
 
 /datum/reagent/toxin/cyanide/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
@@ -205,6 +231,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
 			H.losebreath = max(10, H.losebreath - 10)
@@ -226,6 +253,7 @@
 	var/mob/living/carbon/human/H = M
 	if(!istype(H) || (H.species.flags & NO_BLOOD))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	if(H.stat != 1)
 		if(H.losebreath >= 10)
 			H.losebreath = max(10, M.losebreath-10)
@@ -241,12 +269,14 @@
 	metabolism = REM
 	strength = 3
 	taste_description = "death"
+	target_organ = BP_BRAIN
 
 /datum/reagent/toxin/zombiepowder/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
+	M.add_chemical_effect(CE_NOPULSE, 1)
 	M.status_flags |= FAKEDEATH
 	M.adjustOxyLoss(3 * removed)
 	M.Weaken(10)
@@ -436,8 +466,7 @@
 		return
 	if(prob(10))
 		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
-		M.add_chemical_effect(CE_TOXIN, 10)
-		M.adjustToxLoss(rand(100, 300) * removed)
+		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
 
@@ -455,8 +484,9 @@
 
 /datum/reagent/soporific/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
-	if(istype(H) && (H.species.flags & NO_BLOOD))
+	if((istype(H) && (H.species.flags & NO_BLOOD)) || alien == IS_DIONA)
 		return
+	M.add_chemical_effect(CE_PULSE, -2)
 	if(dose < 1)
 		if(dose == metabolism * 2 || prob(5))
 			M.emote("yawn")
@@ -495,8 +525,7 @@
 		M.sleeping = max(M.sleeping, 30)
 
 	if(dose > 1)
-		M.add_chemical_effect(CE_TOXIN, 2)
-		M.adjustToxLoss(removed)
+		M.add_chemical_effect(CE_TOXIN, removed)
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
@@ -646,7 +675,7 @@
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(20))
-		M.adjustBrainLoss(5)
+		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/toxin/berserk/Destroy()
 	QDEL_NULL(modifier)
@@ -713,3 +742,33 @@
 			H.change_skin_color(r, g, b)
 			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+
+
+			
+/datum/reagent/toxin/dextrotoxin
+	name = "Dextrotoxin"
+	id = "dextrotoxin"
+	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
+	reagent_state = LIQUID
+	color = "#002067"
+	metabolism = REM * 0.2
+	strength = 0
+	taste_description = "danger"
+
+/datum/reagent/toxin/dextrotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(istype(H) && (H.species.flags & NO_SCAN))
+		return
+	if (!(CE_UNDEXTROUS in M.chem_effects))
+		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		M.confused = max(M.confused, 250)
+	M.add_chemical_effect(CE_UNDEXTROUS, 1)
+	if(dose > 0.2)	
+		M.Weaken(10)
+
+/datum/reagent/toxin/dextrotoxin/Destroy()
+	if(holder && holder.my_atom && ismob(holder.my_atom))
+		var/mob/M = holder.my_atom
+		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))
+	return ..()

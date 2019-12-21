@@ -67,13 +67,16 @@
 
 	default_h_style = "Tajaran Ears"
 
-	allowed_citizenships = list(CITIZENSHIP_PRA, CITIZENSHIP_BIESEL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	allowed_citizenships = list(CITIZENSHIP_PRA, CITIZENSHIP_DPRA, CITIZENSHIP_NKA)
+	default_citizenship = CITIZENSHIP_PRA
 	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 
 	zombie_type = "Tajara Zombie"
 
-/datum/species/tajaran/before_equip(var/mob/living/carbon/human/H)
+/datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
+	if(H.shoes)
+		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1

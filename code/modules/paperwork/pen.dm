@@ -60,6 +60,16 @@
 	icon_state = "pen_red"
 	colour = "red"
 
+/obj/item/pen/yellow
+	desc = "An instrument for writing or drawing with ink. Favored by artists who like to draw using bright colors."
+	icon_state = "pen_yellow"
+	colour = "yellow"
+
+/obj/item/pen/green
+	desc = "An instrument for writing or drawing with ink. This one is in green. Favored by students who like to have their notes extra organized with colors."
+	icon_state = "pen_green"
+	colour = "green"
+
 /obj/item/pen/invisible
 	desc = "An instrument for writing or drawing with ink. This one has invisible ink."
 	icon_state = "pen"
@@ -69,7 +79,7 @@
 	desc = "An instrument for writing or drawing with ink. This one comes with with multiple colors! Push down all three simultaneously to rule the universe."
 	icon_state = "pen_multi"
 	var/selectedColor = 1
-	var/colors = list("black","blue","red")
+	var/colors = list("black", "blue", "red", "green", "yellow")
 
 /obj/item/pen/multi/attack_self(mob/user)
 	if(++selectedColor > 3)
@@ -107,9 +117,13 @@
 	icon_state = "pen_fountain"
 	throwforce = 1 //pointy
 	colour = "#1c1713" //dark ashy brownish
+	var/cursive = TRUE
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
-	return
+	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
+	to_chat(user, span("notice", "You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+	cursive = !cursive
+
 /*
  * PDA Fountain Pens
  */
@@ -143,10 +157,13 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	var/list/pen_reagents = list()
 
 /obj/item/pen/reagent/New()
 	..()
 	create_reagents(30)
+	for (var/i in pen_reagents)
+		reagents.add_reagent(i, pen_reagents[i])
 
 /obj/item/pen/reagent/attack(mob/living/M as mob, mob/user as mob)
 
@@ -168,10 +185,7 @@
 /obj/item/pen/reagent/sleepy
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-
-/obj/item/pen/reagent/sleepy/New()
-	..()
-	reagents.add_reagent("chloralhydrate", 22)	//Used to be 100 sleep toxin//30 Chloral seems to be fatal, reducing it to 22./N
+	pen_reagents = list("chloralhydrate" = 22)
 
 
 /*
@@ -179,11 +193,31 @@
  */
 /obj/item/pen/reagent/paralysis
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	pen_reagents = list("dextrotoxin" = 10)
 
-/obj/item/pen/reagent/paralysis/New()
-	..()
-	reagents.add_reagent("zombiepowder", 10)
-	reagents.add_reagent("cryptobiolin", 15)
+/obj/item/pen/reagent/healing
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	pen_reagents = list("tricordrazine" = 10, "dermaline" = 5, "bicaridine" = 5)
+	icon_state = "pen_green"
+	colour = "green"
+
+/obj/item/pen/reagent/pacifier
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	pen_reagents = list("wulumunusha" = 2, "paxazide" = 15, "cryptobiolin" = 10)
+	icon_state = "pen_blue"
+	colour = "blue"
+
+/obj/item/pen/reagent/hyperzine
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	pen_reagents = list("hyperzine" = 10)
+	icon_state = "pen_yellow"
+	colour = "yellow"
+
+/obj/item/pen/reagent/poison
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	pen_reagents = list("cyanide" = 1, "lexorin" = 20)
+	icon_state = "pen_red"
+	colour = "red"
 
 /*
  * Chameleon pen

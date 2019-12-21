@@ -45,7 +45,7 @@
 	return ..()
 
 /mob/living/carbon/brain/update_canmove()
-	if(in_contents_of(/obj/mecha) || istype(loc, /obj/item/device/mmi))
+	if(istype(loc, /obj/item/device/mmi))
 		canmove = 1
 		use_me = 1
 	else

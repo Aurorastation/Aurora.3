@@ -37,9 +37,6 @@
 	//Check if we're on fire
 	handle_fire()
 
-	//stuff in the stomach
-	handle_stomach()
-
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
@@ -77,10 +74,6 @@
 
 /mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 	return
-
-// Defined in devour.dm
-// /mob/living/proc/handle_stomach()
-// 	return
 
 /mob/living/proc/update_pulling()
 	if(pulling)
@@ -173,7 +166,7 @@
 		reset_view(null)
 
 /mob/living/proc/update_sight()
-	if(stat == DEAD)
+	if(stat == DEAD || eyeobj)
 		update_dead_sight()
 	else
 		sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -183,6 +176,9 @@
 		if (!stop_sight_update) //If true, it won't reset the mob vision flags to the initial ones
 			see_in_dark = initial(see_in_dark)
 			see_invisible = initial(see_invisible)
+		var/list/vision = get_accumulated_vision_handlers()
+		sight|= vision[1]
+		see_invisible = (max(vision[2], see_invisible))
 
 /mob/living/proc/update_dead_sight()
 	sight |= SEE_TURFS

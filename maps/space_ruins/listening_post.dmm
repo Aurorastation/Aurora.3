@@ -67,7 +67,7 @@
 "ao" = (
 /obj/random/prebuilt_ka,
 /obj/structure/table/rack,
-/obj/item/mecha_parts/mecha_equipment/teleporter,
+/obj/item/mecha_equipment/catapult,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ap" = (
@@ -79,7 +79,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "ar" = (
-/obj/mecha/working/ripley/mining,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "as" = (
@@ -180,7 +180,7 @@
 	},
 /area/derelict/ship)
 "aN" = (
-/obj/item/organ/stack/vox,
+/obj/item/organ/internal/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -195,7 +195,7 @@
 /area/derelict/ship)
 "aP" = (
 /obj/structure/alien/weeds,
-/obj/item/mecha_parts/part/phazon_torso,
+/obj/item/mech_component/chassis/combat,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -292,7 +292,6 @@
 	},
 /area/derelict/ship)
 "bt" = (
-/obj/effect/decal/mecha_wreckage/hoverpod,
 /turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bu" = (

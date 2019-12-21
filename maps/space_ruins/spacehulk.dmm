@@ -2101,7 +2101,7 @@
 /area/derelict)
 "fj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/mecha/working/ripley/firefighter,
+/mob/living/heavy_vehicle/premade/ripley/flames_red,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "fk" = (
@@ -2262,7 +2262,7 @@
 /turf/simulated/floor,
 /area/derelict)
 "fK" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
@@ -3626,7 +3626,7 @@
 /area/derelict)
 "jL" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/medical/odysseus/loaded,
+/mob/living/heavy_vehicle/premade/light,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jM" = (
@@ -3669,7 +3669,6 @@
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jR" = (
-/obj/effect/decal/mecha_wreckage/durand,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict)
@@ -4107,7 +4106,6 @@
 /area/derelict)
 "kP" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/mecha/working/hoverpod/shuttlepod,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
@@ -4563,7 +4561,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict)
 "nJ" = (
-/obj/mecha/working/ripley/mining,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/derelict)
 "nK" = (
@@ -5071,7 +5069,6 @@
 /turf/simulated/floor,
 /area/derelict)
 "pg" = (
-/obj/effect/decal/mecha_wreckage/gygax,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict)

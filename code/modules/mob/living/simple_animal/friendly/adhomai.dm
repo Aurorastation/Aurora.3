@@ -1,6 +1,7 @@
 /mob/living/simple_animal/ice_tunneler
 	name = "ice tunneler"
 	desc = "An egg producing beast from Adhomai. It is known for burrowing in ice and snow."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "tunneler"
 	icon_living = "tunneler"
 	icon_dead = "tunneler_dead"
@@ -11,6 +12,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 2
 	hunger_enabled = FALSE
+	canbrush = TRUE
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -44,6 +46,7 @@
 /mob/living/simple_animal/fatshouter
 	name = "fatshouter"
 	desc = "An adhomian animal known for its production of milk and wool."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "fatshouter"
 	icon_living = "fatshouter"
 	icon_dead = "fatshouter_dead"
@@ -60,11 +63,9 @@
 	attacktext = "kicked"
 	health = 200
 	maxHealth = 200
-
-	autoseek_food = 0
-	beg_for_food = 0
 	mob_size = 15
 
+	canbrush = TRUE
 	has_udder = TRUE
 	milk_type = "fatshouter_milk"
 
@@ -75,6 +76,7 @@
 /mob/living/simple_animal/hostile/retaliate/rafama
 	name = "steed of Mata'ke"
 	desc = "An animal native to Adhomai, known for its agressive behavior and mighty tusks."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "rafama"
 	icon_living = "rafama"
 	icon_dead = "rafama_dead"

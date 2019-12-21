@@ -7,9 +7,9 @@
 	icon_state = "recharger0"
 	anchored = 1
 	use_power = 1
-	idle_power_usage = 4
-	active_power_usage = 30 KILOWATTS
-	var/charging_efficiency = 0.85
+	idle_power_usage = 6
+	active_power_usage = 45 KILOWATTS
+	var/charging_efficiency = 1.3
 	//Entropy. The charge put into the cell is multiplied by this
 	var/obj/item/charging
 
@@ -158,7 +158,7 @@
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger0"
-	active_power_usage = 50 KILOWATTS	//50 kW , It's more specialized than the standalone recharger (guns and batons only) so make it more powerful
+	active_power_usage = 75 KILOWATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton
@@ -167,4 +167,4 @@
 	icon_state_charging = "wrecharger1"
 	icon_state_idle = "wrecharger0"
 	portable = 0
-	charging_efficiency = 0.8
+	charging_efficiency = 1.3

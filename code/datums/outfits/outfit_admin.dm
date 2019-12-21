@@ -89,8 +89,9 @@
 							/obj/item/personal_inhaler/combat = 1,
 							/obj/item/reagent_containers/personal_inhaler_cartridge/large = 2,
 							/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-							/obj/item/reagent_containers/glass/bottle/epinephrine = 1,
-							/obj/item/reagent_containers/glass/bottle/spaceacillin = 1,
+							/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+							/obj/item/reagent_containers/glass/bottle/deltamivir = 1,
+							/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 
 						)
 	accessory_contents = list(/obj/item/gun/energy/pulse/pistol = 1)
@@ -231,27 +232,30 @@
 		/obj/item/implant/loyalty
 	)
 
-/datum/outfit/admin/nt/tcfl_commander
-	name = "TCFL Commander"
+/datum/outfit/admin/nt/tcfl_legate
+	name = "TCFL Legate"
 
-	uniform = /obj/item/clothing/under/legion
-	shoes = /obj/item/clothing/shoes/jackboots
+	uniform = /obj/item/clothing/under/legion/legate
+	suit = /obj/item/clothing/suit/storage/vest/legion/legate
+	gloves = /obj/item/clothing/gloves/swat/tactical
+	shoes = /obj/item/clothing/shoes/swat/ert
 	l_ear = /obj/item/device/radio/headset/legion
-	head = /obj/item/clothing/head/legion_beret
+	head = /obj/item/clothing/head/legion/legate
+	glasses = /obj/item/clothing/glasses/sunglasses/aviator
+	id = /obj/item/card/id/distress/legion
 	belt = /obj/item/storage/belt/security/tactical
+	r_pocket = /obj/item/clothing/mask/gas/tactical
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/projectile/revolver/mateba = 1)
+	back = null
 
-	backpack_contents = list(
-		/obj/item/gun/projectile/revolver = 1,
-		/obj/item/clothing/accessory/holster/hip = 1,
-		/obj/item/clothing/accessory/legion = 1,
-		/obj/item/storage/box/flashbangs = 1
-	)
+	backpack_contents = null
 
 	belt_contents = list(
-		/obj/item/melee/baton/loaded = 1,
-		/obj/item/handcuffs = 2,
-		/obj/item/ammo_magazine/a357 = 2,
-		/obj/item/device/flash = 1
+		/obj/item/melee/energy/sword/knife = 1,
+		/obj/item/handcuffs/ziptie = 2,
+		/obj/item/ammo_magazine/a454 = 2,
+		/obj/item/shield/energy/legion = 1
 	)
 
 /datum/outfit/admin/nt/cciaa

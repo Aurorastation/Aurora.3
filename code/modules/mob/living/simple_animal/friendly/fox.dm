@@ -3,6 +3,7 @@
 	name = "fox"
 	real_name = "fox"
 	desc = "It's a fox. I wonder what it says?"
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"
@@ -19,7 +20,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
 	mob_size = 4
-	max_nutrition = 90
+	max_nutrition = 80
 	holder_type = /obj/item/holder/fox
 	emote_sounds = list()
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)

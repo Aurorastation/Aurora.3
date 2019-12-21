@@ -1349,7 +1349,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dP" = (
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1363,10 +1362,6 @@
 	icon_state = "warnplate";
 	dir = 8
 	},
-/area/derelict/ship)
-"dR" = (
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "dS" = (
 /obj/structure/window/phoronreinforced{
@@ -1502,17 +1497,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "ep" = (
-/obj/item/mecha_parts/mecha_equipment/tool/passenger,
-/obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp,
+/obj/item/mecha_equipment/clamp,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eq" = (
-/obj/item/mecha_parts/chassis/gygax,
+/obj/item/mech_component/chassis/combat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "er" = (
-/obj/item/mecha_parts/part/gygax_armour,
+/obj/item/robot_parts/robot_component/armor/mech/combat,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1538,7 +1532,7 @@
 	dir = 9
 	},
 /obj/machinery/mech_recharger,
-/obj/mecha/medical/odysseus,
+/mob/living/heavy_vehicle/premade/light,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "ew" = (
@@ -1723,17 +1717,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"eT" = (
-/obj/effect/decal/mecha_wreckage/gygax/dark,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "eU" = (
 /obj/machinery/mecha_part_fabricator,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "eV" = (
-/obj/item/mecha_parts/mecha_equipment/tool/rfd_c,
+/obj/item/mecha_equipment/mounted_system/rfd,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -1770,12 +1760,8 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/bluegrid,
 /area/derelict/ship)
-"fc" = (
-/obj/item/mecha_parts/part/gygax_torso,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "fd" = (
-/obj/item/mecha_parts/part/gygax_right_arm,
+/obj/item/mech_component/sensors/combat,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fe" = (
@@ -1891,18 +1877,8 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "fp" = (
-/obj/item/mecha_parts/mecha_equipment/weapon/energy/taser,
+/obj/item/mecha_equipment/mounted_system/taser,
 /obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"fq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/mecha_wreckage/marauder,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"fr" = (
-/obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_tracking,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fs" = (
@@ -1940,9 +1916,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "fx" = (
-/obj/item/mecha_parts/mecha_tracking,
 /obj/structure/table/reinforced,
-/obj/item/mecha_parts/mecha_tracking,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2785,11 +2759,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/derelict/ship)
-"ij" = (
-/obj/effect/decal/mecha_wreckage/seraph,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "ik" = (
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/dirt,
@@ -2831,7 +2800,7 @@
 "ir" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/organ/stack/vox,
+/obj/item/organ/internal/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -3012,7 +2981,7 @@
 /area/derelict/ship)
 "iR" = (
 /obj/effect/floor_decal/industrial/outline,
-/obj/mecha/working/ripley,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "iS" = (
@@ -3249,11 +3218,6 @@
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"jF" = (
-/obj/effect/floor_decal/industrial/outline,
-/obj/effect/decal/mecha_wreckage/seraph,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "jG" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -3337,11 +3301,6 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
-"jR" = (
-/obj/effect/floor_decal/industrial/outline,
-/obj/effect/decal/mecha_wreckage/ripley,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
 "jS" = (
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/dark,
@@ -3398,7 +3357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "kd" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /turf/simulated/floor,
 /area/derelict/ship)
 "ke" = (
@@ -3806,12 +3765,6 @@
 /obj/effect/decal/remains/robot,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/item/clothing/gloves/yellow/vox,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/ship)
-"ls" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/mecha_wreckage/seraph,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -6391,17 +6344,6 @@
 	icon_state = "floor7"
 	},
 /area/derelict)
-"tj" = (
-/obj/effect/decal/mecha_wreckage/hoverpod,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle{
-	icon_state = "floor4"
-	},
-/area/derelict)
 "tk" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
@@ -6504,14 +6446,6 @@
 	},
 /area/derelict)
 "tz" = (
-/obj/machinery/mech_recharger,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/shuttle{
-	icon_state = "floor4"
-	},
-/area/derelict)
-"tA" = (
-/obj/effect/decal/mecha_wreckage/mauler,
 /obj/machinery/mech_recharger,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
@@ -7205,7 +7139,7 @@
 	},
 /area/derelict)
 "vo" = (
-/obj/item/caution,
+/obj/item/clothing/suit/caution,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
@@ -8000,12 +7934,6 @@
 /area/derelict)
 "xd" = (
 /obj/machinery/mineral/rigpress,
-/turf/simulated/floor/shuttle{
-	icon_state = "floor7"
-	},
-/area/derelict)
-"xe" = (
-/obj/machinery/floodlight,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
@@ -10609,7 +10537,6 @@
 /area/derelict/arrival)
 "Ep" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/effect/decal/mecha_wreckage/ripley,
 /turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "Eq" = (
@@ -10873,11 +10800,6 @@
 "EY" = (
 /obj/machinery/newscaster,
 /turf/simulated/wall/r_wall,
-/area/derelict/arrival)
-"EZ" = (
-/obj/effect/decal/mecha_wreckage/odysseus,
-/obj/effect/floor_decal/industrial/hatch,
-/turf/simulated/floor/tiled,
 /area/derelict/arrival)
 "Fa" = (
 /obj/effect/floor_decal/industrial/hatch,
@@ -11461,7 +11383,7 @@
 /area/derelict/arrival)
 "GD" = (
 /obj/machinery/mech_recharger,
-/obj/mecha/working/ripley/combat,
+/mob/living/heavy_vehicle/premade/ripley,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -11469,7 +11391,6 @@
 "GE" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/obj/item/mecha_parts/mecha_equipment/armor_booster/antiproj_armor_booster,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -11647,7 +11568,6 @@
 "Hk" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/obj/item/mecha_parts/mecha_equipment/teleporter,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Hl" = (
@@ -11675,14 +11595,7 @@
 "Hp" = (
 /obj/structure/table/steel,
 /obj/random/tech_supply,
-/obj/item/mecha_parts/mecha_tracking,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/derelict/arrival)
-"Hq" = (
-/obj/structure/table/rack,
-/obj/random/toolbox,
-/obj/item/mecha_parts/mecha_equipment/repair_droid,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "Hr" = (
@@ -14217,7 +14130,7 @@
 /area/derelict/ship)
 "Pa" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/mecha/working/hermes,
+/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "Pb" = (
@@ -44107,7 +44020,7 @@ Ef
 Ej
 EC
 Ef
-EZ
+Ep
 Eo
 Ef
 CI
@@ -45662,7 +45575,7 @@ GF
 GT
 Hc
 Hk
-Hq
+Hk
 Ch
 Ch
 Ch
@@ -51629,7 +51542,7 @@ ad
 ad
 dL
 eo
-eT
+aw
 aw
 aw
 nZ
@@ -52915,7 +52828,7 @@ ad
 aR
 aw
 ax
-fq
+ax
 aR
 aw
 bL
@@ -53490,7 +53403,7 @@ sz
 sz
 sQ
 gg
-tj
+sN
 tz
 sO
 sV
@@ -54005,7 +53918,7 @@ sz
 sQ
 gg
 sN
-tA
+tz
 tT
 sO
 eX
@@ -54281,7 +54194,7 @@ tw
 tw
 rs
 eX
-xe
+te
 tw
 rs
 tw
@@ -54456,7 +54369,7 @@ SV
 ad
 aw
 eq
-fc
+eq
 ax
 ax
 aw
@@ -54968,7 +54881,7 @@ ad
 ad
 ad
 ad
-dR
+dP
 eo
 ax
 ax
@@ -55225,10 +55138,10 @@ aD
 aD
 aD
 ad
-dR
+dP
 ax
 ax
-fr
+aR
 aw
 aw
 ad
@@ -55484,7 +55397,7 @@ aF
 bb
 aw
 ax
-dR
+dP
 aR
 fw
 ad
@@ -55762,7 +55675,7 @@ jd
 jx
 jd
 jd
-jF
+iT
 jd
 jd
 jE
@@ -56025,7 +55938,7 @@ iT
 jM
 iT
 iT
-jR
+iT
 gQ
 hX
 hX
@@ -63212,9 +63125,9 @@ gi
 nb
 gm
 ad
-dR
-dR
-dR
+dP
+dP
+dP
 zh
 ad
 hE
@@ -68279,7 +68192,7 @@ am
 ad
 eP
 ax
-ij
+ax
 ax
 bC
 lQ
@@ -69823,7 +69736,7 @@ eP
 if
 hK
 ax
-ls
+bC
 lQ
 at
 ap

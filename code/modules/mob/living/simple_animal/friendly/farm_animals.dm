@@ -2,6 +2,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat
 	name = "goat"
 	desc = "Not known for their pleasant disposition."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
@@ -24,13 +25,11 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 5
 	udder = null
+	canbrush = TRUE
 	emote_sounds = list('sound/effects/creatures/goat.ogg')
 	has_udder = TRUE
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
-
-/mob/living/simple_animal/hostile/retaliate/goat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("butts insistently at [holder]'s legs and reaches towards their [thing].",0)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Life()
 	. = ..()
@@ -75,12 +74,13 @@
 /mob/living/simple_animal/cow
 	name = "cow"
 	desc = "Known for their milk, just don't tip them over."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "cow"
 	icon_living = "cow"
 	icon_dead = "cow_dead"
 	icon_gib = "cow_gib"
 	speak = list("moo?","moo","MOOOOOO")
-	speak_emote = list("moos","moos hauntingly")
+	speak_emote = list("moos")
 	emote_hear = list("brays")
 	emote_see = list("shakes its head")
 	speak_chance = 1
@@ -93,10 +93,9 @@
 	response_harm   = "kicks"
 	attacktext = "kicked"
 	health = 250
-	autoseek_food = 0
-	beg_for_food = 0
 	mob_size = 20//based on mass of holstein fresian dairy cattle, what the sprite is based on
 	emote_sounds = list('sound/effects/creatures/cow.ogg')
+	canbrush = TRUE
 	has_udder = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 8)
 
@@ -119,6 +118,7 @@
 /mob/living/simple_animal/chick
 	name = "\improper chick"
 	desc = "Adorable! They make such a racket though."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "chick"
 	icon_living = "chick"
 	icon_dead = "chick_dead"
@@ -139,10 +139,9 @@
 	var/amount_grown = 0
 	pass_flags = PASSTABLE | PASSGRILLE
 	holder_type = /obj/item/holder/chick
-	autoseek_food = 0
-	beg_for_food = 0
 	density = 0
 	mob_size = 0.75//just a rough estimate, the real value should be way lower
+	canbrush = TRUE
 	hunger_enabled = FALSE
 	emote_sounds = list('sound/effects/creatures/chick.ogg')
 
@@ -168,6 +167,7 @@
 /mob/living/simple_animal/chicken
 	name = "\improper chicken"
 	desc = "Hopefully the eggs are good this season."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "chicken"
 	icon_living = "chicken"
 	icon_dead = "chicken_dead"
@@ -191,6 +191,7 @@
 	density = 0
 	mob_size = 2
 	hunger_enabled = FALSE
+	canbrush = TRUE
 
 	var/static/chicken_count = 0
 	emote_sounds = list('sound/effects/creatures/chicken.ogg', 'sound/effects/creatures/chicken_bwak.ogg')

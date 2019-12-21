@@ -114,41 +114,44 @@ var/datum/controller/subsystem/cargo/SScargo
 		reset_cargo()
 
 		//Load the categories
-		var/DBQuery/category_query = dbcon.NewQuery("SELECT name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
+		var/DBQuery/category_query = dbcon.NewQuery("SELECT id, name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
 			CHECK_TICK
+			var/category_id = category_query.item[1]
 			try
 				add_category(
-					category_query.item[1],
 					category_query.item[2],
 					category_query.item[3],
 					category_query.item[4],
-					text2num(category_query.item[5]))
+					category_query.item[5],
+					text2num(category_query.item[6]))
 			catch(var/exception/ec)
-				log_debug("SScargo: Error when loading category: [ec]")
+				log_debug("SScargo: Error when loading category [category_id] from sql: [ec]")
 		//Load the suppliers
-		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
+		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
 			CHECK_TICK
+			var/supplier_id = supplier_query.item[1]
 			try
 				add_supplier(
-					supplier_query.item[1],
 					supplier_query.item[2],
 					supplier_query.item[3],
 					supplier_query.item[4],
 					supplier_query.item[5],
 					supplier_query.item[6],
 					supplier_query.item[7],
-					supplier_query.item[8])
+					supplier_query.item[8],
+					supplier_query.item[9])
 			catch(var/exception/es)
-				log_debug("SScargo: Error when loading supplier: [es]")
+				log_debug("SScargo: Error when loading supplier [supplier_id] from sql: [es]")
 		//Load the items
 		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
+			var/item_id = item_query.item[1]
 			try
 				add_item(
 					item_query.item[1],
@@ -163,7 +166,7 @@ var/datum/controller/subsystem/cargo/SScargo
 					item_query.item[10],
 					item_query.item[11])
 			catch(var/exception/ei)
-				log_debug("SScargo: Error when loading item from sql: [ei]")
+				log_debug("SScargo: Error when loading item [item_id] from sql: [ei]")
 
 //Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()
@@ -583,7 +586,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		for(var/atom/movable/AM in shuttle_area)
 			if(bounty_ship_item_and_contents(AM, dry_run = FALSE))
 				matched_bounty = TRUE
-			if(!AM.anchored || istype(AM, /obj/mecha))
+			if(!AM.anchored)
 				sold_atoms += export_item_and_contents(AM, FALSE, FALSE, dry_run = FALSE)
 
 	if(sold_atoms)

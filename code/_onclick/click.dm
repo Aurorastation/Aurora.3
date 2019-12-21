@@ -24,6 +24,28 @@
 	if(src)
 		usr.DblClickOn(src, params)
 
+/atom/proc/allow_click_through(var/atom/A, var/params, var/mob/user)
+	return FALSE
+
+/turf/allow_click_through(var/atom/A, var/params, var/mob/user)
+	return TRUE
+
+/atom/proc/RelayMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
+	return FALSE
+
+/mob/proc/OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	if(istype(loc, /atom))
+		var/atom/A = loc
+		if(A.RelayMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params, src))
+			return
+
+	if(over_object)
+		if(!incapacitated())
+			var/obj/item/gun/gun = get_active_hand()
+			if(istype(gun))
+				set_dir(get_dir(src, over_object))
+				gun.Fire(get_turf(over_object), src, params, (get_dist(over_object, src) <= 1), FALSE)
+
 /*
 	Standard mob ClickOn()
 	Handles exceptions: Buildmode, middle click, modified clicks, mech actions
@@ -43,6 +65,10 @@
 		return
 
 	next_click = world.time + 1
+
+	if(istype(loc, /mob/living/heavy_vehicle) && !(A in src.contents))
+		var/mob/living/heavy_vehicle/M = loc
+		return M.ClickOn(A, params, src)
 
 	if(client && client.buildmode)
 		build_click(src, client.buildmode, params, A)
@@ -72,12 +98,6 @@
 
 	if(!canClick()) // in the year 2000...
 		return
-
-	if(istype(loc, /obj/mecha))
-		if(!locate(/turf) in list(A, A.loc)) // Prevents inventory from being drilled
-			return
-		var/obj/mecha/M = loc
-		return M.click_action(A, src, params)
 
 	if(restrained())
 		setClickCooldown(10)
@@ -189,7 +209,7 @@
 */
 /mob/proc/RangedAttack(var/atom/A, var/params)
 	if(!mutations.len) return
-	if((LASER in mutations) && a_intent == I_HURT)
+	if((LASER_EYES in mutations) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 	else if(TK in mutations)
 		switch(get_dist(src,A))

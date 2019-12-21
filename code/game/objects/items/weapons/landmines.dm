@@ -64,10 +64,6 @@
 					"<span class='danger'>You hear a mechanical click!</span>"
 					)
 				trigger(L)
-
-		if(istype(AM, /obj/mecha) || istype(AM, /obj/vehicle))
-			visible_message("<span class='danger'>\The [AM] triggers \the [src].</span>")
-			trigger()
 	..()
 
 /obj/item/landmine/attack_hand(mob/user as mob)
