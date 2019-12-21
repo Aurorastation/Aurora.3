@@ -3,7 +3,8 @@
 	// Text shown when becoming this antagonist.
 	var/list/restricted_jobs =     list()   // Jobs that cannot be this antagonist (depending on config)
 	var/list/protected_jobs =      list()   // As above.
-	var/list/restricted_species =   list()   // species that cannot be this antag - Ryan784
+	var/list/restricted_species =   list()  // species that cannot be this antag - Ryan784
+	var/required_age = null                 // how old should player clients be before being allowed to play this antag
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
@@ -69,7 +70,7 @@
 
 	// ID card stuff.
 	var/default_access = list()
-	var/id_type = /obj/item/weapon/card/id
+	var/id_type = /obj/item/card/id
 
 
 /datum/antagonist/New()
@@ -105,12 +106,14 @@
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
 		else if(player.special_role)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
-		else if (player in pending_antagonists)
+		else if(player in pending_antagonists)
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They have already been selected for this role!")
 		else if(!can_become_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
 			log_debug("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
+		else if(establish_db_connection(dbcon) && required_age && required_age > player.current.client?.player_age)
+			log_debug("[key_name(player)] is not eligible to become a [role_text]: Their playtime age is too low!")
 		else
 			candidates += player
 

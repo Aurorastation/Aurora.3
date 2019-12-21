@@ -59,6 +59,11 @@
 	var/list/slime_mutation[4]
 
 	var/core_removal_stage = 0 //For removing cores.
+	var/toxloss = 0
+	var/datum/reagents/metabolism/ingested
+
+/mob/living/carbon/slime/get_ingested_reagents()
+	return ingested
 
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
@@ -76,6 +81,60 @@
 	var/sanitizedcolour = replacetext(colour, " ", "")
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
 	regenerate_icons()
+
+/mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
+	..()
+
+/mob/living/carbon/slime/metal/Initialize(mapload, colour = "metal")
+	..()
+
+/mob/living/carbon/slime/orange/Initialize(mapload, colour = "orange")
+	..()
+
+/mob/living/carbon/slime/blue/Initialize(mapload, colour = "blue")
+	..()
+
+/mob/living/carbon/slime/dark_blue/Initialize(mapload, colour = "dark blue")
+	..()
+
+/mob/living/carbon/slime/dark_purple/Initialize(mapload, colour = "dark purple")
+	..()
+
+/mob/living/carbon/slime/yellow/Initialize(mapload, colour = "yellow")
+	..()
+
+/mob/living/carbon/slime/silver/Initialize(mapload, colour = "silver")
+	..()
+
+/mob/living/carbon/slime/pink/Initialize(mapload, colour = "pink")
+	..()
+
+/mob/living/carbon/slime/red/Initialize(mapload, colour = "red")
+	..()
+
+/mob/living/carbon/slime/gold/Initialize(mapload, colour = "gold")
+	..()
+
+/mob/living/carbon/slime/green/Initialize(mapload, colour = "green")
+	..()
+
+/mob/living/carbon/slime/oil/Initialize(mapload, colour = "oil")
+	..()
+
+/mob/living/carbon/slime/adamantine/Initialize(mapload, colour = "adamantine")
+	..()
+
+/mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
+	..()
+
+/mob/living/carbon/slime/getToxLoss()
+	return toxloss
+
+/mob/living/carbon/slime/adjustToxLoss(var/amount)
+	toxloss = Clamp(toxloss + amount, 0, maxHealth)
+
+/mob/living/carbon/slime/setToxLoss(var/amount)
+	adjustToxLoss(amount-getToxLoss())
 
 /mob/living/carbon/slime/movement_delay()
 	if (bodytemperature >= 330.23) // 135 F
@@ -269,7 +328,7 @@
 		if (I_GRAB)
 			if (M == src || anchored)
 				return
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
 			M.put_in_active_hand(G)
 

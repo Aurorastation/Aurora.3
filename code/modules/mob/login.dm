@@ -42,6 +42,8 @@
 	disconnect_time = null
 	..()
 
+	player_age = client.player_age
+
 	if(loc && !isturf(loc))
 		client.eye = loc
 		client.perspective = EYE_PERSPECTIVE
@@ -49,9 +51,11 @@
 		client.eye = src
 		client.perspective = MOB_PERSPECTIVE
 
+	if(eyeobj)
+		eyeobj.possess(src)
+
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
-	testing("mob_login - end")

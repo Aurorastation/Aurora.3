@@ -33,6 +33,10 @@ BLIND     // can't see anything
 	species_restricted = list("exclude","Vaurca Breeder")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
+// Called in mob/RangedAttack() and mob/UnarmedAttack.
+/obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
+	return 0 // return 1 to cancel attack_hand/RangedAttack()
+
 /obj/item/clothing/glasses/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -170,12 +174,49 @@ BLIND     // can't see anything
 	attack_self(usr)
 
 
-/obj/item/clothing/glasses/goggles
-	name = "goggles"
-	desc = "A simple pair of plain goggles."
+/obj/item/clothing/glasses/safety
+	name = "safety glasses"
+	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
 	icon_state = "plaingoggles"
 	item_flags = AIRTIGHT
 	unacidable = 1
+
+/obj/item/clothing/glasses/safety/goggles
+	name = "safety goggles"
+	desc = "A simple pair of safety goggles. It's general chemistry all over again."
+	icon_state = "goggles_standard"
+	item_state = "goggles_standard"
+	off_state = "goggles_standard"
+	action_button_name = "Flip Goggles"
+	var/up = 0
+
+/obj/item/clothing/glasses/safety/goggles/attack_self()
+	toggle()
+
+/obj/item/clothing/glasses/safety/goggles/verb/toggle()
+	set category = "Object"
+	set name = "Adjust goggles"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+	if(src.up)
+		src.up = !src.up
+		flags_inv |= HIDEEYES
+		body_parts_covered |= EYES
+		item_state = initial(item_state)
+		icon_state = initial(item_state)
+		to_chat(usr, span("notice", "You flip \the [src] down to protect your eyes."))
+	else
+		src.up = !src.up
+		flags_inv &= ~HIDEEYES
+		body_parts_covered &= ~EYES
+		item_state = "[initial(item_state)]_up"
+		icon_state = "[initial(icon_state)]_up"
+		to_chat(usr, span("notice", "You push \the [src] up out of your face."))
+	update_clothing_icon()
+	update_icon()
+	usr.update_action_buttons()
 
 /obj/item/clothing/glasses/eyepatch
 	name = "eyepatch"
@@ -246,11 +287,12 @@ BLIND     // can't see anything
 	prescription = 1
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/regular/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/clothing/glasses/hud/health))
 		user.drop_item()
 		qdel(W)
 		to_chat(user, "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>")
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/health/prescription(T)
 		qdel(src)
@@ -258,6 +300,7 @@ BLIND     // can't see anything
 		user.drop_item()
 		qdel(W)
 		to_chat(user, "<span class='notice'>You attach a set of security HUDs to your glasses.</span>")
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/security/prescription(T)
 		qdel(src)

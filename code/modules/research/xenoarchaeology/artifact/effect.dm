@@ -24,7 +24,7 @@
 /datum/artifact_effect/New(var/atom/location)
 	..()
 	holder = location
-	effect = rand(0,MAX_EFFECT)
+	effect = rand(2,MAX_EFFECT)
 	trigger = rand(0,MAX_TRIGGER)
 
 	//this will be replaced by the excavation code later, but it's here just in case
@@ -88,8 +88,8 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 		return 1
 
 	//anomaly suits give best protection, but excavation suits are almost as good
-	if(istype(H.back,/obj/item/weapon/rig/hazmat))
-		var/obj/item/weapon/rig/hazmat/rig = H.back
+	if(istype(H.back,/obj/item/rig/hazmat))
+		var/obj/item/rig/hazmat/rig = H.back
 		if(rig.suit_is_deployed() && !rig.offline)
 			return 0 //<- Maximum level of protection achieved.
 

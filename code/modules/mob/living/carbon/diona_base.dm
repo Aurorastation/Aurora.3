@@ -73,7 +73,7 @@ var/list/diona_banned_languages = list(
 		apply_radiation(-2)
 		DS.stored_energy += 2
 
-	
+
 	apply_radiation(-0.5) //Radiation is gradually wasted if its not used for something
 	if(total_radiation < 0)
 		total_radiation = null
@@ -90,7 +90,7 @@ var/list/diona_banned_languages = list(
 	if (DS.nutrient_organ)
 		if (DS.nutrient_organ.is_broken())
 			return 0
-	
+
 	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
 		consume_nutrition_from_air = !consume_nutrition_from_air
@@ -164,7 +164,7 @@ var/list/diona_banned_languages = list(
 	//Next up, damage healing. Diona are only vulnerable to four of the six damage types
 	//Oxyloss doesn't apply because they don't breathe, and are thus immune to aquiring it in any way
 	//Brain damage is irrelevant because they have no brain.
-	if (health < 100)
+	if (health < (species ? species.total_health : 200))
 		CL = getBruteLoss()
 
 		if (CL > 0)
@@ -324,13 +324,13 @@ var/list/diona_banned_languages = list(
 				return
 			DS.regen_limb_progress = 0
 			diona_regen_progress(DS)
-			
+
 			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
 				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
 
 			DS.regening_organ = TRUE
 			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process!</span>")
-			
+
 			var/list/special_case = list(
 										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
 										/obj/item/organ/external/arm/right/diona = /obj/item/organ/external/hand/right/diona,
@@ -352,7 +352,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_organ)
 			path = species.has_organ[i]
 			var/organ_exists = 0
-			for (var/obj/item/organ/diona/B in internal_organs)
+			for (var/obj/item/organ/internal/diona/B in internal_organs)
 				if (B.type == path)
 					organ_exists = 1
 					break
@@ -645,8 +645,8 @@ var/list/diona_banned_languages = list(
 	var/restrictedlight_factor = 0.8 //A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
 
-	var/obj/item/organ/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
-	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
+	var/obj/item/organ/internal/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
+	var/obj/item/organ/internal/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
@@ -660,9 +660,6 @@ var/list/diona_banned_languages = list(
 	nutrient_organ = null
 	return ..()
 
-#undef FLASHLIGHT_STRENGTH
-#undef PDALIGHT_STRENGTH
-#undef DIONA_MAX_LIGHT
 #undef TEMP_REGEN_STOP
 #undef TEMP_REGEN_NORMAL
 #undef TEMP_INCREASE_REGEN_DOUBLE

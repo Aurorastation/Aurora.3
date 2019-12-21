@@ -489,6 +489,56 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
+/obj/item/stack/cable_coil/attack(mob/living/carbon/M as mob, mob/user as mob)
+	if(..())
+		return 1
+
+	if(amount <= 10)
+		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
+		return
+	
+	if (ishuman(M))
+		var/mob/living/carbon/human/H = M
+
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+
+		if(affecting.open == 0 && !(affecting.status & ORGAN_ROBOT))
+
+			if(affecting.is_bandaged())
+				to_chat(user, "<span class='warning'>The cuts on [M]'s [affecting.name] have already been closed.</span>")
+				return 1
+			else
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				for(var/datum/wound/W in affecting.wounds)
+
+					if(W.bandaged)
+						continue
+					if(W.current_stage <= W.max_bleeding_stage)
+						user.visible_message("<span class='notice'>\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]...</span>", \
+											  "<span class='notice'>You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while.</span>")
+						if(!do_mob(user, M, 200))
+							user.visible_message("<span class='danger'>[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!</span>", \
+													 "<span class='danger'><font size=2>The wound on your [affecting.name] is torn open!</font></span>")
+							M.apply_damage(rand(1,10), BRUTE)
+							break
+						user.visible_message("<span class='notice'>\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name].</span>", \
+													"<span class='notice'>You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].</span>" )
+						W.bandage("cable-stitched")
+						use(10)
+						H.apply_damage(25, PAIN)
+						if(prob(50))
+							var/obj/item/organ/external/O = H.get_organ(user.zone_sel.selecting)
+							to_chat(H, "<span class='danger'>Something burns in your [O.name]!</span>")
+							O.germ_level += rand(400, 600)
+					else
+						to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
+				affecting.update_damages()
+		else
+			if(can_operate(H))
+				if (do_surgery(H,user,src))
+					return
+	return
+
 /obj/item/stack/cable_coil/iscoil()
 	return TRUE
 
@@ -597,7 +647,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 14)
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
-		var/obj/item/weapon/handcuffs/cable/B = new /obj/item/weapon/handcuffs/cable(usr.loc)
+		var/obj/item/handcuffs/cable/B = new /obj/item/handcuffs/cable(usr.loc)
 		B.color = color
 		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
@@ -909,7 +959,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
 		if(!istype(usr.loc,/turf)) return
-		if(!(locate(/obj/item/weapon/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
+		if(!(locate(/obj/item/stool) in usr.loc) && !(locate(/obj/structure/bed) in usr.loc) && !(locate(/obj/structure/table) in usr.loc) && !(locate(/obj/structure/toilet) in usr.loc))
 			to_chat(usr, "<span class='warning'>You have to be standing on top of a chair/table/bed to make a noose!</span>")
 			return 0
 		if(src.amount <= 24)
@@ -1013,7 +1063,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!affecting)
 			to_chat(user, "<span class='danger'>They don't have a head.</span>")
 			return

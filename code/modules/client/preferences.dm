@@ -27,6 +27,7 @@ datum/preferences
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
+	var/skin_theme = "Light"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 
@@ -54,9 +55,9 @@ datum/preferences
 	var/b_facial = 0					//Face hair color
 	var/s_tone = 0						//Skin tone
 	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
-	var/r_skin = 0						//Skin color
-	var/g_skin = 0						//Skin color
-	var/b_skin = 0						//Skin color
+	var/r_skin = 37						//Skin color
+	var/g_skin = 3						//Skin color
+	var/b_skin = 2						//Skin color
 	var/eyes_colour = "#000000"			//Eye colour hex value, for SQL loading
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
@@ -94,7 +95,7 @@ datum/preferences
 	var/unsanitized_jobs = ""
 
 	//Keeps track of preferrence for not getting any wanted jobs
-	var/alternate_option = 2
+	var/alternate_option = RETURN_TO_LOBBY
 
 	var/used_skillpoints = 0
 	var/skill_specialization = null
@@ -129,6 +130,7 @@ datum/preferences
 	// SPAAAACE
 	var/parallax_speed = 2
 	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -224,7 +226,7 @@ datum/preferences
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
-	var/dat = "<html><body><center>"
+	var/dat = "<center>"
 
 	if(path)
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
@@ -240,9 +242,8 @@ datum/preferences
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-
-	dat += "</html></body>"
-	user << browse(dat, "window=preferences;size=800x800")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
@@ -314,9 +315,9 @@ datum/preferences
 		character.dna.real_name = character.real_name
 
 	character.flavor_texts["general"] = flavor_texts["general"]
-	character.flavor_texts["head"] = flavor_texts["head"]
+	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
 	character.flavor_texts["face"] = flavor_texts["face"]
-	character.flavor_texts["eyes"] = flavor_texts["eyes"]
+	character.flavor_texts[BP_EYES] = flavor_texts[BP_EYES]
 	character.flavor_texts["torso"] = flavor_texts["torso"]
 	character.flavor_texts["arms"] = flavor_texts["arms"]
 	character.flavor_texts["hands"] = flavor_texts["hands"]
@@ -359,7 +360,6 @@ datum/preferences
 	character.h_style = h_style
 	character.f_style = f_style
 
-	character.home_system = home_system
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
@@ -392,8 +392,7 @@ datum/preferences
 		character.update_icons()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
-	var/dat = "<body>"
-	dat += "<tt><center>"
+	var/dat = "<tt><center>"
 
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
@@ -427,12 +426,12 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
-	var/dat = "<body>"
-	dat += "<tt><center>"
+	var/dat = "<tt><center>"
 
 	var/savefile/S = new /savefile(path)
 	if(S)
@@ -448,7 +447,8 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	user << browse(dat, "window=saves;size=300x390")
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
 /datum/preferences/proc/close_load_dialog(mob/user)
 	user << browse(null, "window=saves")

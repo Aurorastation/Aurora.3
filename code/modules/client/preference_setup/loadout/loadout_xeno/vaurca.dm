@@ -28,7 +28,7 @@
 
 /datum/gear/mask/vaurca_expression/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/mask/vaurca_expression/skrell
 	display_name = "skrell expression mask"
@@ -42,14 +42,18 @@
 
 /datum/gear/head/shaper/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/cape
 	display_name = "tunnel cloak"
-	path = /obj/item/weapon/storage/backpack/cloak
+	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/cape/New()
+    ..()
+    gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"
@@ -76,7 +80,7 @@
 
 /datum/gear/uniform/vaurca/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/vaurca
 	display_name = "shaper robes"
@@ -88,7 +92,7 @@
 
 /datum/gear/suit/vaurca/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/shoes/vaurca
 	display_name = "vaurca shoes"
@@ -98,7 +102,7 @@
 
 /datum/gear/shoes/vaurca/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/vaurca_shroud
 	display_name = "vaurcan shroud"
@@ -127,4 +131,4 @@
 
 /datum/gear/suit/vaurca_mantle/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice

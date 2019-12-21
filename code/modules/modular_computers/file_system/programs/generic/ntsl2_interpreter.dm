@@ -30,7 +30,7 @@
 
 	if(href_list["PRG_execfile"])
 		. = 1
-		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/datum/computer_file/data/F = HDD.find_file_by_name(href_list["PRG_execfile"])
 		if(istype(F))
 			var/oldtext = html_decode(F.stored_data)
@@ -72,7 +72,7 @@
 	else
 		return
 
-	var/obj/item/weapon/computer_hardware/hard_drive/HDD
+	var/obj/item/computer_hardware/hard_drive/HDD
 
 	if(!PRG.computer || !PRG.computer.hard_drive)
 		data["error"] = "I/O ERROR: Unable to access hard drive."

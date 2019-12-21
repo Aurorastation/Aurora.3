@@ -95,7 +95,7 @@
 	if(!istype(user))
 		return 0
 
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(!I)
 		if(loud)
 			to_chat(user, "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>")
@@ -143,7 +143,7 @@
 	if(!istype(user))
 		return 0
 
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(!I)
 		if(loud)
 			to_chat(user, "<span class='danger'>\The [computer] flashes an \"RFID Error - Unable to scan ID\" warning.</span>")
@@ -174,7 +174,6 @@
 /datum/computer_file/program/proc/get_header_data()
 	if(computer)
 		return computer.get_header_data()
-	return list()
 
 // This is performed on program startup. May be overriden to add extra logic. Remember to include ..() call. Return 1 on success, 0 on failure.
 // When implementing new program based device, use this to run the program.

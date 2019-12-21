@@ -10,6 +10,8 @@
 	var/open
 	var/obj/item/held //Item inside locket.
 
+	drop_sound = 'sound/items/drop/ring.ogg'
+
 /obj/item/clothing/accessory/locket/attack_self(mob/user as mob)
 	if(!base_icon)
 		base_icon = icon_state
@@ -34,7 +36,7 @@
 		to_chat(user, "You have to open it first.")
 		return
 
-	if(istype(O,/obj/item/weapon/paper) || istype(O, /obj/item/weapon/photo))
+	if(istype(O,/obj/item/paper) || istype(O, /obj/item/photo))
 		if(held)
 			to_chat(usr, "\The [src] already has something inside it.")
 		else

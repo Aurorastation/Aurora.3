@@ -134,7 +134,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/client/proc/cure_traumas,
-	/client/proc/add_traumas
+	/client/proc/add_traumas,
+	/datum/admins/proc/ccannoucment
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -223,7 +224,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
-	/client/proc/disconnect_ntsl
+	/client/proc/disconnect_ntsl,
+	/turf/proc/view_chunk,
+	/turf/proc/update_chunk
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -315,7 +318,8 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/cure_traumas,
-	/client/proc/add_traumas
+	/client/proc/add_traumas,
+	/datum/admins/proc/ccannoucment
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -381,15 +385,12 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
-	/client/proc/spawn_duty_officer,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
-	/client/proc/returntobody,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists,
-	/client/proc/spawn_ert_commander
+	/client/proc/check_antagonists
 )
 
 /client/proc/add_admin_verbs()
@@ -937,10 +938,10 @@ var/list/admin_verbs_cciaa = list(
 		M.g_skin = hex2num(copytext(new_skin, 4, 6))
 		M.b_skin = hex2num(copytext(new_skin, 6, 8))
 
-	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
+	var/new_tone = input("Please select skin tone level: 30-220. Higher is darker.", "Character Generation")  as text
 
 	if (new_tone)
-		M.s_tone = max(min(round(text2num(new_tone)), 220), 1)
+		M.s_tone = max(min(round(text2num(new_tone)), 220), 30)
 		M.s_tone =  -M.s_tone + 35
 
 	// hair

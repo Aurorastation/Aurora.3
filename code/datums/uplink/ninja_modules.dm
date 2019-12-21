@@ -40,12 +40,6 @@
 	item_cost = 4
 	path = /obj/item/rig_module/fabricator
 
-/datum/uplink_item/item/ninja_modules/sink
-	name = "Power Sink"
-	desc = "A module that sucks power out of powered items and into the users suit."
-	item_cost = 4
-	path = /obj/item/rig_module/power_sink
-
 /datum/uplink_item/item/ninja_modules/emag_hand
 	name = "EMAG Hand Module"
 	desc = "A module that allows the user to apply an EMAG effect to the targeted item."

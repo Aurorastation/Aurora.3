@@ -1,7 +1,6 @@
 //used for pref.alternate_option
-#define GET_RANDOM_JOB 0
-#define BE_ASSISTANT 1
-#define RETURN_TO_LOBBY 2
+#define BE_ASSISTANT 0
+#define RETURN_TO_LOBBY 1
 
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
@@ -112,7 +111,7 @@
 					log_debug("LOADING: Bad job preference key: [preference].")
 					log_debug(e.desc)
 
-	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 2, initial(pref.alternate_option))
+	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
 	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
 	pref.job_civilian_med  = sanitize_integer(text2num(pref.job_civilian_med), 0, 65535, initial(pref.job_civilian_med))
 	pref.job_civilian_low  = sanitize_integer(text2num(pref.job_civilian_low), 0, 65535, initial(pref.job_civilian_low))
@@ -137,6 +136,9 @@
 		var/alt_title = pref.player_alt_titles[job.title]
 		if(alt_title && !(alt_title in job.alt_titles))
 			pref.player_alt_titles -= job.title
+		var/list/available = pref.GetValidTitles(job)
+		if(LAZYLEN(available) == 1)
+			SetPlayerAltTitle(job, LAZYACCESS(available, 1))
 
 	sanitize_faction()
 
@@ -166,35 +168,39 @@
 	for(var/datum/job/job in faction.get_occupations())
 		index += 1
 		if((index >= limit) || (job.title in splitJobs))
-			if((index < limit) && (lastJob != null))
-				//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
-				//the last job's selection color. Creating a rather nice effect.
-				for(var/i = 0, i < (limit - index), i += 1)
-					dat += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'><a>&nbsp</a></td><td><a>&nbsp</a></td></tr>"
 			dat += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 			index = 0
 
-		dat += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
+		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
+		var/dispRank = LAZYACCESS(pref.GetValidTitles(job), 1) || rank
 		var/ban_reason = jobban_isbanned(user, rank)
 		if(ban_reason == "WHITELISTED")
-			dat += "<del>[rank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
+			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
 			continue
+		else if(job.blacklisted_species) // check for restricted species
+			var/datum/species/S = all_species[pref.species]
+			if(S.name in job.blacklisted_species)
+				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
+				continue
 		else if (ban_reason == "AGE WHITELISTED")
 			var/available_in_days = player_old_enough_for_role(user.client, rank)
-			dat += "<del>[rank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
+			dat += "<del>[dispRank]</del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
+			continue
+		else if(!LAZYLEN(pref.GetValidTitles(job))) // we have no available jobs the character is old enough for
+			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.alt_ages[min(job.alt_ages)], job.minimum_character_age) : job.minimum_character_age]]</td></tr>"
 			continue
 		else if (ban_reason)
-			dat += "<del>[rank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
+			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
 			continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
-			dat += "<font color=orange>[rank]</font></td><td></td></tr>"
+			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
 			continue
 		if((rank in command_positions) || (rank == "AI"))//Bold head jobs
-			dat += "<b>[rank]</b>"
+			dat += "<b>[dispRank]</b>"
 		else
-			dat += "[rank]"
+			dat += "[dispRank]"
 
 		dat += "</td><td width='40%'>"
 
@@ -206,7 +212,7 @@
 			else
 				dat += " <font color=red>\[No]</font>"
 			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -218,8 +224,8 @@
 			dat += " <font color=orange>\[Low]</font>"
 		else
 			dat += " <font color=red>\[NEVER]</font>"
-		if(job.alt_titles)
-			dat += "</a></td></tr><tr bgcolor='[lastJob.selection_color]'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
+			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"
@@ -227,8 +233,6 @@
 	dat += "</center></table>"
 
 	switch(pref.alternate_option)
-		if(GET_RANDOM_JOB)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=green>Get random job if preferences unavailable</font></a></u></center><br>"
 		if(BE_ASSISTANT)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
@@ -239,26 +243,29 @@
 
 	. = dat.Join()
 
-/datum/category_item/player_setup_item/occupation/OnTopic(href, href_list, user)
+/datum/category_item/player_setup_item/occupation/OnTopic(href, href_list, mob/user)
 	if(href_list["reset_jobs"])
 		ResetJobs()
 		return TOPIC_REFRESH
 
 	else if(href_list["job_alternative"])
-		if(pref.alternate_option == GET_RANDOM_JOB || pref.alternate_option == BE_ASSISTANT)
-			pref.alternate_option += 1
+		if(pref.alternate_option == BE_ASSISTANT)
+			pref.alternate_option = RETURN_TO_LOBBY
 		else if(pref.alternate_option == RETURN_TO_LOBBY)
-			pref.alternate_option = 0
+			pref.alternate_option = BE_ASSISTANT
 		return TOPIC_REFRESH
 
 	else if(href_list["select_alt_title"])
 		var/datum/job/job = locate(href_list["select_alt_title"])
-		if (job)
-			var/choices = list(job.title) + job.alt_titles
-			var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
-			if(choice && CanUseTopic(user))
-				SetPlayerAltTitle(job, choice)
-				return TOPIC_REFRESH
+		if (!job)
+			return ..()
+		var/list/choices = pref.GetValidTitles(job)
+		if(!LAZYLEN(choices))
+			return ..()// should never happen
+		var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
+		if(choice && CanUseTopic(user))
+			SetPlayerAltTitle(job, choice)
+			return TOPIC_REFRESH
 
 	else if(href_list["set_job"])
 		if(SetJob(user, href_list["set_job"]))
@@ -427,6 +434,18 @@
 
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
 	return player_alt_titles[job.title] || job.title
+
+/datum/preferences/proc/GetValidTitles(datum/job/job)
+	if (!job)
+		return
+	var/choices = list(job.title) + job.alt_titles
+	if((global.all_species[src.species].spawn_flags & NO_AGE_MINIMUM))
+		return choices
+	for(var/t in choices)
+		if (src.age >= (LAZYACCESS(job.alt_ages, t) || job.minimum_character_age))
+			continue
+		choices -= t
+	return choices
 
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)	return 0

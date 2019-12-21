@@ -1,5 +1,5 @@
 /obj/item/device/floor_painter
-	name = "floor painter"
+	name = "paint gun"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "labeler1"
 	item_state = "flight"
@@ -28,6 +28,7 @@
 		"Psy" =               list("path" = /obj/effect/floor_decal/sign/p),
 		"remove all decals" = list("path" = /obj/effect/floor_decal/reset)
 		)
+
 	var/list/paint_dirs = list(
 		"north" =       NORTH,
 		"northwest" =   NORTHWEST,
@@ -40,8 +41,46 @@
 		"precise" = 0
 		)
 
+	var/list/preset_colors = list(
+		"beasty brown" =   COLOR_BEASTY_BROWN,
+		"blue" =           COLOR_BLUE_GRAY,
+		"civvie green" =   COLOR_CIVIE_GREEN,
+		"command blue" =   COLOR_COMMAND_BLUE,
+		"cyan" =           COLOR_CYAN,
+		"green" =          COLOR_GREEN,
+		"bottle green" =   COLOR_PALE_BTL_GREEN,
+		"dark red" =       COLOR_DARK_RED,
+		"orange" =         COLOR_ORANGE,
+		"pale orange" =    COLOR_PALE_ORANGE,
+		"red" =            COLOR_RED,
+		"sky blue" =       COLOR_DEEP_SKY_BLUE,
+		"titanium" =       COLOR_TITANIUM,
+		"aluminium"=       COLOR_ALUMINIUM,
+		"violet" =         COLOR_VIOLET,
+		"white" =          COLOR_WHITE,
+		"yellow" =         COLOR_AMBER,
+		"hull blue" =      COLOR_HULL,
+		"bulkhead black" = COLOR_WALL_GUNMETAL
+		)
+
 /obj/item/device/floor_painter/afterattack(var/atom/A, var/mob/user, proximity, params)
+
 	if(!proximity)
+		return
+
+	var/mob/living/heavy_vehicle/ES = A
+	if(istype(ES))
+		to_chat(user, "<span class='warning'>You can't paint an active exosuit. Dismantle it first.</span>")
+		return
+
+	var/obj/structure/heavy_vehicle_frame/EF = A
+	if(istype(EF))
+		EF.set_colour(paint_colour)
+		return
+
+	var/obj/item/mech_component/MC = A
+	if(istype(MC))
+		MC.set_colour(paint_colour)
 		return
 
 	var/turf/simulated/floor/F = A
@@ -99,6 +138,7 @@
 	if(decal_data["coloured"] && paint_colour)
 		painting_colour = paint_colour
 
+	playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 	new painting_decal(F, painting_dir, painting_colour)
 
 /obj/item/device/floor_painter/attack_self(var/mob/user)
@@ -110,26 +150,51 @@
 	else if(choice == "Colour")
 		choose_colour()
 
+/obj/item/device/floor_painter/attack_self(var/mob/user)
+	var/choice = input("What do you wish to change?") as null|anything in list("Decal","Direction", "Colour", "Preset Colour")
+	if(choice == "Decal")
+		choose_decal()
+	else if(choice == "Direction")
+		choose_direction()
+	else if(choice == "Colour")
+		choose_colour()
+	else if(choice == "Preset Colour")
+		choose_preset_colour()
+
 /obj/item/device/floor_painter/examine(mob/user)
-	..(user)
+	. = ..(user)
 	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
 
 /obj/item/device/floor_painter/verb/choose_colour()
 	set name = "Choose Colour"
-	set desc = "Choose a floor painter colour."
+	set desc = "Choose a paintgun colour."
 	set category = "Object"
 	set src in usr
 
 	if(usr.incapacitated())
 		return
-	var/new_colour = input(usr, "Choose a colour.", "Floor painter", paint_colour) as color|null
+	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as color|null
 	if(new_colour && new_colour != paint_colour)
 		paint_colour = new_colour
 		to_chat(usr, "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>")
 
+
+/obj/item/device/floor_painter/verb/choose_preset_colour()
+	set name = "Choose Preset Colour"
+	set desc = "Choose a paintgun colour."
+	set category = "Object"
+	set src in usr
+
+	if(usr.incapacitated())
+		return
+	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as color|anything in preset_colors
+	if(new_colour && new_colour != paint_colour)
+		paint_colour = preset_colors[new_colour]
+		to_chat(usr, "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>")
+
 /obj/item/device/floor_painter/verb/choose_decal()
 	set name = "Choose Decal"
-	set desc = "Choose a floor painter decal."
+	set desc = "Choose a paintgun decal."
 	set category = "Object"
 	set src in usr
 
@@ -143,7 +208,7 @@
 
 /obj/item/device/floor_painter/verb/choose_direction()
 	set name = "Choose Direction"
-	set desc = "Choose a floor painter direction."
+	set desc = "Choose a paintgun direction."
 	set category = "Object"
 	set src in usr
 

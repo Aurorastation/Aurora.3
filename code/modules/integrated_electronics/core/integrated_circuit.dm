@@ -211,14 +211,14 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				ea.interact(usr)
 
 	if(href_list["pin_name"])
-		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
+		if (!held_item.ismultitool() || !allow_multitool)
 			href_list["wire"] = 1
 		else
 			var/obj/item/device/multitool/M = held_item
 			M.wire(pin,usr)
 
 	if(href_list["pin_data"])
-		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
+		if (!held_item.ismultitool() || !allow_multitool)
 			href_list["wire"] = 1
 
 		else
@@ -226,7 +226,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
 
 	if(href_list["pin_unwire"])
-		if (!istype(held_item, /obj/item/device/multitool) || !allow_multitool)
+		if (!held_item.ismultitool() || !allow_multitool)
 			href_list["wire"] = 1
 		else
 			var/obj/item/device/multitool/M = held_item
@@ -333,17 +333,18 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		return TRUE // Battery has enough.
 	return FALSE // Not enough power.
 
-/obj/item/integrated_circuit/proc/check_then_do_work(ignore_power = FALSE)
+/obj/item/integrated_circuit/proc/check_then_do_work(ignore_power = FALSE, activator_id)
 	if(world.time < next_use) 	// All intergrated circuits have an internal cooldown, to protect from spam.
-		return
+		return 0
 	if(power_draw_per_use && !ignore_power)
 		if(!check_power())
 			power_fail()
-			return
+			return 0
 	next_use = world.time + cooldown_per_use
-	do_work()
+	do_work(activator_id)
+	return 1
 
-/obj/item/integrated_circuit/proc/do_work()
+/obj/item/integrated_circuit/proc/do_work(activator_id)
 	return
 
 /obj/item/integrated_circuit/proc/disconnect_all()
@@ -353,3 +354,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		O.disconnect()
 	for(var/datum/integrated_io/activate/A in activators)
 		A.disconnect()
+
+/obj/item/integrated_circuit/proc/attackby_react(var/atom/movable/A,mob/user)
+	return
+
+/obj/item/integrated_circuit/proc/on_anchored()
+	return
+
+/obj/item/integrated_circuit/proc/on_unanchored()
+	return

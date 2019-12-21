@@ -43,7 +43,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(istype(W, /obj/item/weapon/pen))
+	else if(W.ispen())
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -153,7 +153,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(istype(W, /obj/item/weapon/pen))
+	else if(W.ispen())
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -342,19 +342,19 @@
 	if(I.isscrewdriver())
 		if(c_mode==0)
 			c_mode=1
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "You remove the screws around the power connection.")
 			return
 		else if(c_mode==1)
 			c_mode=0
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
 	else if(I.iswelder() && c_mode==1)
-		var/obj/item/weapon/weldingtool/W = I
+		var/obj/item/weldingtool/W = I
 		if(W.remove_fuel(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
-			if(do_after(user,20))
+			if(do_after(user,20/W.toolspeed))
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				if(!src || !W.isOn()) return
 				to_chat(user, "You sliced the floorweld off the delivery chute.")

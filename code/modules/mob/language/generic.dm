@@ -3,7 +3,7 @@
 	name = "Noise"
 	desc = "Noises"
 	key = ""
-	flags = RESTRICTED|NONGLOBAL|INNATE|NO_TALK_MSG|NO_STUTTER
+	flags = RESTRICTED|NONGLOBAL|INNATE|NO_TALK_MSG|NO_STUTTER|TCOMSSIM
 
 /datum/language/noise/format_message(message, verb)
 	return "<span class='message'><span class='[colour]'>[message]</span></span>"
@@ -32,7 +32,6 @@
 	"ling", "lis", "lo", "lon", "long", "lu", "lud", "ma", "mal", "man", "me", "mego", "mero", "mi", "mia", "min", "mo", "moj", "mola", "mon", "mul", "ne", "ner", "ni", "nio", "no", "nu", "of", "oj", "om", "on", "ou", "pe", "pi", "plan", "pli", "po", "por", "post", "pre", "prin", "pru", "pu",
 	"pur", "qiu", "que", "ra", "ras", "re", "ri", "rig", "ril", "ro", "roj", "ron", "roso", "rou", "ru", "sa", "san", "sci", "sek", "shi", "shiia", "shiue", "shiwu", "shu", "shui", "si", "siaj", "sku", "so", "som", "sti", "str", "stre", "su", "suno", "ta", "tan", "tas", "te", "tel", "tem",
 	"the", "ti", "tian", "tita", "tiu", "to", "toj", "ton", "tran", "tre", "tri", "trin", "tro", "trus", "un", "undo", "uno ", "uz", "va", "var", "varm", "vas", "ve", "vek", "ven", "ves", "vi", "via", "vin", "vino", "vint", "vir", "von", "vu", "whe", "wu", "yong", "zem", "zo", "zoj", "zon")
-	partial_understanding = list(LANGUAGE_SIIK_TAU = 60)
 
 //TODO flag certain languages to use the mob-type specific say_quote and then get rid of these.
 /datum/language/common/get_spoken_verb(var/msg_end)

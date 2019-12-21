@@ -10,7 +10,7 @@
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = -1
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
+	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5
@@ -173,6 +173,8 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 2
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 /mob/living/simple_animal/tindalos
 	name = "tindalos"
@@ -184,3 +186,5 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 1.5
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag

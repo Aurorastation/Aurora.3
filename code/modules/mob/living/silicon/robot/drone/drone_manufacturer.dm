@@ -57,7 +57,7 @@
 /obj/machinery/drone_fabricator/examine(mob/user)
 	..(user)
 	if(produce_drones && drone_progress >= 100 && istype(user,/mob/abstract) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
-		to_chat(user, "<BR><B>A drone is prepared. Select 'Join As Drone' from the Ghost tab to spawn as a maintenance drone.</B>")
+		to_chat(user, "<BR><B>A drone is prepared. use 'Ghost Roles' from the Ghost tab to spawn as a maintenance drone.</B>")
 
 /obj/machinery/drone_fabricator/proc/create_drone(var/client/player)
 
@@ -84,47 +84,4 @@
 
 	drone_progress = 0
 
-/mob/abstract/observer/verb/join_as_drone()
-	set category = "Ghost"
-	set name = "Join As Drone"
-	set desc = "If there is a powered, enabled fabricator in the game world with a prepared chassis, join as a maintenance drone."
-	try_drone_spawn(src)
-
-/proc/try_drone_spawn(var/mob/user, var/obj/machinery/drone_fabricator/fabricator)
-
-	if(!ROUND_IS_STARTED)
-		to_chat(user, "<span class='danger'>The game hasn't started yet!</span>")
-		return
-
-	if(!(config.allow_drone_spawn))
-		to_chat(user, "<span class='danger'>That verb is not currently permitted.</span>")
-		return
-
-	if(jobban_isbanned(user,"Cyborg"))
-		to_chat(user, "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>")
-		return
-
-	if(!user.MayRespawn(1, MINISYNTH))
-		return
-
-	if(!fabricator)
-
-		var/list/all_fabricators = list()
-		for(var/obj/machinery/drone_fabricator/DF in SSmachinery.all_machines)
-			if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
-				continue
-			all_fabricators[DF.fabricator_tag] = DF
-
-		if(!all_fabricators.len)
-			to_chat(user, "<span class='danger'>There are no available drone spawn points, sorry.</span>")
-			return
-
-		var/choice = input(user,"Which fabricator do you wish to use?") as null|anything in all_fabricators
-		if(!choice || !all_fabricators[choice])
-			return
-		fabricator = all_fabricators[choice]
-
-	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
-		fabricator.create_drone(user.client)
-		return 1
-	return
+	return new_drone

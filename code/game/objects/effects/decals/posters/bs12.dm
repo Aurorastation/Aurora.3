@@ -328,3 +328,18 @@
 	icon_state = "bsposter66"
 	name = "BFG 9000"
 	desc = "A picture of a big freakin' gun."
+
+/datum/poster/bay_67
+	icon_state = "tcflposter"
+	name = "Tau Ceti Foreign Legion"
+	desc = "A TCFL recruitment poster."
+
+/datum/poster/bay_68
+	icon_state = "tcflposter2"
+	name = "Tau Ceti Foreign Legion"
+	desc = "A TCFL recruitment poster showcasing the benefits Synthetics gain when enlisting."
+
+/datum/poster/bay_69
+	icon_state = "grillposter"
+	name = "grill"
+	desc = "A poster of a smug looking tajaran grilling at a company get-together."
