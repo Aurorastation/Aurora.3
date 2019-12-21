@@ -185,13 +185,13 @@
 	penetrating = 1
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 25
-
-/obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
+/obj/item/projectile/bullet/rifle/a556
+	damage = 25
+
 /obj/item/projectile/bullet/rifle/mk43
-	damage = 18
+	damage = 20
 
 /obj/item/projectile/bullet/rifle/mk43/rubber
 	name = "rubber bullet"

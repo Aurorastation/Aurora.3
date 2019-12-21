@@ -207,21 +207,21 @@
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
-/obj/item/ammo_magazine/mk43
-	name = "magazine (5.43mm) "
+/obj/item/ammo_magazine/a556/mk43
+	name = "magazine (5.56mm) Ten Round "
 	icon_state = "mk43"
 	origin_tech = list(TECH_COMBAT = 4)
 	mag_type = MAGAZINE
-	caliber = "5mm"
+	caliber = "a556"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/mk43
+	ammo_type = /obj/item/ammo_casing/a556/mk43
 	max_ammo = 10
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/mk43/rubber
-	name = "magazine (5.43mm Rubber) "
+/obj/item/ammo_magazine/a556/mk43/rubber
+	name = "magazine (5.56mm Rubber) Ten Round "
 	origin_tech = list(TECH_COMBAT = 2)
-	ammo_type = /obj/item/ammo_casing/mk43/rubber
+	ammo_type = /obj/item/ammo_casing/a556/mk43rubber
 
 
 /obj/item/ammo_magazine/a50

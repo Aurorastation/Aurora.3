@@ -260,15 +260,15 @@
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
-	caliber = "5.43mm"
+	caliber = "a556"
 	recoil = 2
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	max_shells = 10
 	can_bayonet = TRUE
 	ammo_type = /obj/item/ammo_casing/mk43
-	magazine_type = /obj/item/ammo_magazine/mk43/rubber
-	allowed_magazines = list(/obj/item/ammo_magazine/mk43)
+	magazine_type = /obj/item/ammo_magazine/a556/mk43/rubber
+	allowed_magazines = list(/obj/item/ammo_magazine/a556/mk43)
 	accuracy = 2
 	recoil_wielded = 1
 	accuracy_wielded = 3

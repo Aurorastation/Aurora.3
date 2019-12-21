@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds the MK 43 ISD Service Rifle, chambered in a necked down 5.43 varient for indoor operations."
+  - rscadd: "Adds the MK 43 ISD Service Rifle, chambered in a necked down 5.56 varient for indoor operations."
+  - tweak: "Swaps the 7.62 and 556 values"

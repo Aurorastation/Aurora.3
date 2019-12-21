@@ -218,15 +218,13 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
 
 
-/obj/item/ammo_casing/mk43
-	desc = "A 5.43mm round."
-	caliber = "5.43mm"
+/obj/item/ammo_casing/a556/mk43
+	desc = "A 5.56mm round."
 	projectile_type = /obj/item/projectile/bullet/rifle/mk43
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 
-/obj/item/ammo_casing/mk43/rubber
-	caliber = "5.43mm R"
+/obj/item/ammo_casing/a556/mk43/rubber
 	projectile_type = /obj/item/projectile/bullet/rifle/mk43/rubber
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
