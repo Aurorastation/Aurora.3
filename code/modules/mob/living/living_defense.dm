@@ -24,7 +24,7 @@
 	var/effective_armor = (armor - armour_pen)/100
 	var/fullblock = (effective_armor*effective_armor) * ARMOR_BLOCK_CHANCE_MULT
 
-	if(fullblock >= 1 || prob(fullblock*100))
+	if(fullblock >= 1)
 		if(absorb_text)
 			show_message("<span class='warning'>[absorb_text]</span>")
 		else
@@ -62,10 +62,10 @@
 	return 0
 
 
-/mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
 	//Being hit while using a cloaking device
-	var/obj/item/weapon/cloaking_device/C = locate((/obj/item/weapon/cloaking_device) in src)
+	var/obj/item/cloaking_device/C = locate(/obj/item/cloaking_device) in src
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icons()
@@ -96,7 +96,7 @@
 		proj_edge = 0
 
 	if(!P.nodamage)
-		apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge)
+		apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags, used_weapon = "\the [P.shot_from] [P.name]")
 	P.on_hit(src, absorb, def_zone)
 	return absorb
 
@@ -111,7 +111,7 @@
 		apply_effect(EYE_BLUR, stun_amount)
 
 	if (agony_amount)
-		apply_damage(agony_amount, HALLOSS, def_zone, 0, used_weapon)
+		apply_damage(agony_amount, PAIN, def_zone, 0, used_weapon)
 		apply_effect(STUTTER, agony_amount/10)
 		apply_effect(EYE_BLUR, agony_amount/10)
 

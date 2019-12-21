@@ -47,6 +47,7 @@ var/datum/gear_tweak/color/gear_tweak_free_color_choice = new()
 	if(valid_colors && !(metadata in valid_colors))
 		return
 	I.color = metadata
+	I.update_icon()
 
 /*
 Path adjustment

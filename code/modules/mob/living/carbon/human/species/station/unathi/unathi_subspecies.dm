@@ -52,37 +52,37 @@
 	heat_level_3 = 1000 //Default 1000
 
 	inherent_verbs = list(
-		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/detach_limb,
 		/mob/living/carbon/human/proc/attach_limb,
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/tongue_flick
 	)
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart,
-		"lungs" =    /obj/item/organ/lungs,
-		"liver" =    /obj/item/organ/liver,
-		"kidneys" =  /obj/item/organ/kidneys/autakh,
-		"brain" =    /obj/item/organ/brain,
-		"eyes" =     /obj/item/organ/eyes/autakh,
-		"anchor" =   /obj/item/organ/anchor,
-		"haemodynamic" =   /obj/item/organ/haemodynamic,
-		"adrenal" =   /obj/item/organ/adrenal
+		BP_HEART =    /obj/item/organ/internal/heart,
+		BP_LUNGS =    /obj/item/organ/internal/lungs,
+		BP_LIVER =    /obj/item/organ/internal/liver,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/autakh,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_BRAIN =    /obj/item/organ/internal/brain,
+		BP_EYES =     /obj/item/organ/internal/eyes/autakh,
+		BP_ANCHOR =   /obj/item/organ/internal/anchor,
+		BP_HAEMO =   /obj/item/organ/internal/haemodynamic,
+		BP_ADRENAL =   /obj/item/organ/internal/adrenal
 		)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/autakh),
-		"groin" =  list("path" = /obj/item/organ/external/groin/autakh),
-		"head" =   list("path" = /obj/item/organ/external/head/autakh),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/autakh),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/autakh),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/autakh),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/autakh),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/autakh),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/autakh),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/autakh),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/autakh)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/autakh),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/autakh),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/autakh),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/autakh),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/autakh),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/autakh),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/autakh),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/autakh),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/autakh),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/autakh),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/autakh)
 		)
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -118,7 +118,7 @@
 	if (!istype(H))
 		return null
 
-	var/obj/item/organ/eyes/eyes = H.get_eyes()
+	var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
 	if (eyes)
 		var/eyegb = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
 		return eyegb

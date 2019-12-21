@@ -412,7 +412,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ba" = (
-/obj/item/weapon/weldingtool/experimental,
+/obj/item/weldingtool/experimental,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -456,7 +456,7 @@
 	},
 /obj/machinery/light,
 /obj/item/device/analyzer,
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -488,14 +488,14 @@
 /area/engineering/atmos)
 "bl" = (
 /obj/machinery/atmospherics/unary/vent_pump,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/wirecutters,
+/obj/item/screwdriver,
+/obj/item/wirecutters,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
 /obj/machinery/light,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /obj/item/device/lightreplacer,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
@@ -622,20 +622,20 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bF" = (
-/obj/item/weapon/card/id/captains_spare,
+/obj/item/card/id/captains_spare,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bG" = (
-/obj/item/weapon/storage/backpack/holding,
+/obj/item/storage/backpack/holding,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bH" = (
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd/construction,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd/construction,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -1049,7 +1049,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cG" = (
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -1076,7 +1076,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cI" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -1347,8 +1347,8 @@
 /area/storage/primary)
 "dA" = (
 /obj/machinery/light,
-/obj/item/weapon/material/twohanded/fireaxe,
-/obj/item/weapon/extinguisher,
+/obj/item/material/twohanded/fireaxe,
+/obj/item/extinguisher,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1358,8 +1358,8 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dC" = (
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/lights/tubes,
 /obj/machinery/light,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,

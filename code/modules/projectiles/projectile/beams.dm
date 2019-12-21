@@ -6,6 +6,7 @@
 	damage_type = BURN
 	check_armour = "laser"
 	eyeblur = 4
+	damage_flags = DAM_LASER
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
@@ -25,7 +26,16 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
+	damage = 35
+
+/obj/item/projectile/beam/pistol/hegemony
+	icon_state = "hegemony"
 	damage = 30
+	armor_penetration = 5
+ 
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
@@ -159,8 +169,10 @@
 	icon_state = "stun"
 	nodamage = 1
 	taser_effect = 1
+	sharp = 0
+	eyeblur = 1
 	agony = 40
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -177,10 +189,10 @@
 	impact_type = /obj/effect/projectile/impact/disabler
 
 /obj/item/projectile/beam/mousegun
-	name = "diffuse electrical arc"
+	name = "electrical arc"
 	icon_state = "stun"
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -191,37 +203,78 @@
 	..()
 
 /obj/item/projectile/beam/mousegun/proc/mousepulse(turf/epicenter, range, log=0)
-	if (!epicenter)
+	if(!epicenter)
 		return
 
-	if (!istype(epicenter, /turf))
+	if(!istype(epicenter, /turf))
 		epicenter = get_turf(epicenter.loc)
 
-	for (var/mob/living/M in range(range, epicenter))
+	for(var/mob/living/M in range(range, epicenter))
 		var/distance = get_dist(epicenter, M)
-		if (distance < 0)
+		if(distance < 0)
 			distance = 0
-		if (distance <= range)
-			if (M.mob_size <= 2 && (M.find_type() & TYPE_ORGANIC))
-				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
-				M.gib()
+		if(distance <= range)
+			if (M.mob_size <= 3 && (M.find_type() & TYPE_ORGANIC))
+				M.visible_message("<span class='danger'>\The [M] gets fried!</span>")
+				M.color = "#4d4d4d" //get fried
+				M.death()
 				spark(M, 3, alldirs)
-			else if (iscarbon(M) && M.contents.len)
-				for (var/obj/item/weapon/holder/H in M.contents)
-					if (!H.contained)
+			else if(iscarbon(M) && M.contents.len)
+				for(var/obj/item/holder/H in M.contents)
+					if(!H.contained)
 						continue
 
 					var/mob/living/A = H.contained
-					if (!istype(A))
+					if(!istype(A))
 						continue
 
-					if (A.mob_size <= 2 && (A.find_type() & TYPE_ORGANIC))
+					if(A.mob_size <= 3 && (A.find_type() & TYPE_ORGANIC))
+						H.release_mob()
+						A.visible_message("<span class='danger'>\The [A] gets fried!</span>")
+						A.color = "#4d4d4d" //get fried
+						A.death()
+
+			to_chat(M, 'sound/effects/basscannon.ogg')
+	return TRUE
+
+/obj/item/projectile/beam/mousegun/emag
+	name = "diffuse electrical arc"
+
+	taser_effect = 1
+	agony = 60
+
+/obj/item/projectile/beam/mousegun/emag/mousepulse(turf/epicenter, range, log=0)
+	if(!epicenter)
+		return
+
+	if(!istype(epicenter, /turf))
+		epicenter = get_turf(epicenter.loc)
+
+	for(var/mob/living/M in range(range, epicenter))
+		var/distance = get_dist(epicenter, M)
+		if(distance < 0)
+			distance = 0
+		if(distance <= range)
+			if(M.mob_size <= 4 && (M.find_type() & TYPE_ORGANIC))
+				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
+				M.gib()
+				spark(M, 3, alldirs)
+			else if(iscarbon(M) && M.contents.len)
+				for(var/obj/item/holder/H in M.contents)
+					if(!H.contained)
+						continue
+
+					var/mob/living/A = H.contained
+					if(!istype(A))
+						continue
+
+					if(A.mob_size <= 4 && (A.find_type() & TYPE_ORGANIC))
 						H.release_mob()
 						A.visible_message("<span class='danger'>[A] bursts like a balloon!</span>")
 						A.gib()
 
 			to_chat(M, 'sound/effects/basscannon.ogg')
-	return 1
+	return TRUE
 
 /obj/item/projectile/beam/shotgun
 	name = "diffuse laser"
@@ -326,7 +379,7 @@
 	name = "energy net projection"
 	icon_state = "xray"
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
@@ -337,7 +390,7 @@
 	..()
 
 /obj/item/projectile/beam/energy_net/proc/do_net(var/mob/M)
-	var/obj/item/weapon/energy_net/net = new (get_turf(M))
+	var/obj/item/energy_net/net = new (get_turf(M))
 	net.throw_impact(M)
 
 /obj/item/projectile/beam/tachyon

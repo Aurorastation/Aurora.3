@@ -1,4 +1,4 @@
-/obj/item/weapon/board
+/obj/item/board
 	name = "board"
 	desc = "A standard 16\" checkerboard. Well used."
 	icon = 'icons/obj/pieces.dmi'
@@ -9,20 +9,20 @@
 	var/board = list()
 	var/selected = -1
 
-/obj/item/weapon/board/MouseDrop(mob/user as mob)
+/obj/item/board/MouseDrop(mob/user as mob)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(usr))
 			forceMove(get_turf(usr))
 			usr.put_in_hands(src)
 
-/obj/item/weapon/board/examine(mob/user, var/distance = -1)
+/obj/item/board/examine(mob/user, var/distance = -1)
 	if(in_range(user,src))
 		user.set_machine(src)
 		interact(user)
 		return
 	..()
 
-/obj/item/weapon/board/attack_hand(mob/living/carbon/human/M as mob)
+/obj/item/board/attack_hand(mob/living/carbon/human/M as mob)
 	if(!isturf(loc)) //so if you want to play the game, you need to put it down somewhere
 		..()
 	if(M.machine == src)
@@ -30,10 +30,10 @@
 	else
 		src.examine(M)
 
-/obj/item/weapon/board/attack_self(mob/user)
+/obj/item/board/attack_self(mob/user)
 	var/choice = alert("Do you want to throw everything off the [src]?", null, "No", "Yes")
 	if(choice == "Yes")
-		for(var/obj/item/weapon/checker/c in src.contents)
+		for(var/obj/item/checker/c in src.contents)
 			c.forceMove(get_turf(src.loc))
 		num = 0
 		board_icons = list()
@@ -43,15 +43,15 @@
 		interact(user)
 	..()
 
-/obj/item/weapon/board/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/storage/box))
-		var/obj/item/weapon/storage/box/h = I
-		for(var/obj/item/weapon/checker/c in h.contents)
+/obj/item/board/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/storage/box))
+		var/obj/item/storage/box/h = I
+		for(var/obj/item/checker/c in h.contents)
 			addPiece(c,user)
 	else if(!addPiece(I,user))
 		..()
 
-/obj/item/weapon/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
+/obj/item/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
 	if(I.w_class != 1) //only small stuff
 		user.show_message("<span class='warning'>\The [I] is too big to be used as a board piece.</span>")
 		return 0
@@ -85,7 +85,7 @@
 	return 1
 
 
-/obj/item/weapon/board/interact(mob/user as mob)
+/obj/item/board/interact(mob/user as mob)
 	if(user.is_physically_disabled() || (!isAI(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
 		user << browse(null, "window=boardgame")
 		user.unset_machine()
@@ -126,7 +126,7 @@
 	user << browse(jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin)
 	onclose(usr, "boardgame")
 
-/obj/item/weapon/board/Topic(href, href_list)
+/obj/item/board/Topic(href, href_list)
 	if(!usr.Adjacent(src))
 		usr.unset_machine()
 		usr << browse(null, "window=boardgame")
@@ -187,7 +187,7 @@
 	src.updateDialog()
 
 //checkes
-/obj/item/weapon/checker
+/obj/item/checker
 	name = "checker"
 	desc = "It is plastic and shiny."
 	icon = 'icons/obj/pieces.dmi'
@@ -195,74 +195,74 @@
 	w_class = 1
 	var/piece_color ="black"
 
-/obj/item/weapon/checker/Initialize()
+/obj/item/checker/Initialize()
 	. = ..()
 	icon_state = "[name]_[piece_color]"
 	name = "[piece_color] [name]"
 
-/obj/item/weapon/checker/red
+/obj/item/checker/red
 	piece_color ="red"
 
-/obj/item/weapon/storage/box/checkers
+/obj/item/storage/box/checkers
 	name = "checkers box"
 	desc = "This box holds a nifty portion of checkers."
 	icon_state = "checkers"
 	max_storage_space = 24
 	w_class = 1
-	can_hold = list(/obj/item/weapon/checker)
+	can_hold = list(/obj/item/checker)
 
-/obj/item/weapon/storage/box/checkers/fill()
+/obj/item/storage/box/checkers/fill()
 	for(var/i = 0; i < 12; i++)
-		new /obj/item/weapon/checker(src)
-		new /obj/item/weapon/checker/red(src)
+		new /obj/item/checker(src)
+		new /obj/item/checker/red(src)
 
 //chess
 
 //Chess
 
-/obj/item/weapon/checker/pawn
+/obj/item/checker/pawn
 	name = "pawn"
 
-/obj/item/weapon/checker/pawn/red
+/obj/item/checker/pawn/red
 	piece_color ="red"
 
-/obj/item/weapon/checker/knight
+/obj/item/checker/knight
 	name = "knight"
 
-/obj/item/weapon/checker/knight/red
+/obj/item/checker/knight/red
 	piece_color ="red"
 
-/obj/item/weapon/checker/bishop
+/obj/item/checker/bishop
 	name = "bishop"
 
-/obj/item/weapon/checker/bishop/red
+/obj/item/checker/bishop/red
 	piece_color ="red"
 
-/obj/item/weapon/checker/rook
+/obj/item/checker/rook
 	name = "rook"
 
-/obj/item/weapon/checker/rook/red
+/obj/item/checker/rook/red
 	piece_color ="red"
 
-/obj/item/weapon/checker/queen
+/obj/item/checker/queen
 	name = "queen"
 
-/obj/item/weapon/checker/queen/red
+/obj/item/checker/queen/red
 	piece_color ="red"
 
-/obj/item/weapon/checker/king
+/obj/item/checker/king
 	name = "king"
 
-/obj/item/weapon/checker/king/red
+/obj/item/checker/king/red
 	piece_color ="red"
 
-/obj/item/weapon/checker/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/storage/box/chess))
-		var/obj/item/weapon/storage/box/chess/b = I
+/obj/item/checker/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/storage/box/chess))
+		var/obj/item/storage/box/chess/b = I
 		var/turf/T = get_turf(src)
 		if(T)
-			for(var/obj/item/weapon/checker/c in T.contents)
-				if(istype(I, /obj/item/weapon/storage/box/chess/red))
+			for(var/obj/item/checker/c in T.contents)
+				if(istype(I, /obj/item/storage/box/chess/red))
 					if(c.piece_color == "red")
 						c.forceMove(b)
 					else
@@ -273,65 +273,65 @@
 	else
 		..()
 
-/obj/item/weapon/storage/box/chess
+/obj/item/storage/box/chess
 	name = "black chess box"
 	desc = "This box holds all the pieces needed for the black side of the chess board."
 	icon_state = "chess_b"
 	max_storage_space = 24
 	w_class = 2
-	can_hold = list(/obj/item/weapon/checker)
+	can_hold = list(/obj/item/checker)
 
-/obj/item/weapon/storage/box/chess/fill()
+/obj/item/storage/box/chess/fill()
 	for(var/i = 0; i < 8; i++)
-		new /obj/item/weapon/checker/pawn(src)
-	new /obj/item/weapon/checker/knight (src)
-	new /obj/item/weapon/checker/knight (src)
-	new /obj/item/weapon/checker/bishop (src)
-	new /obj/item/weapon/checker/bishop (src)
-	new /obj/item/weapon/checker/rook (src)
-	new /obj/item/weapon/checker/rook (src)
-	new /obj/item/weapon/checker/queen (src)
-	new /obj/item/weapon/checker/king (src)
+		new /obj/item/checker/pawn(src)
+	new /obj/item/checker/knight (src)
+	new /obj/item/checker/knight (src)
+	new /obj/item/checker/bishop (src)
+	new /obj/item/checker/bishop (src)
+	new /obj/item/checker/rook (src)
+	new /obj/item/checker/rook (src)
+	new /obj/item/checker/queen (src)
+	new /obj/item/checker/king (src)
 
-/obj/item/weapon/storage/box/chess/red
+/obj/item/storage/box/chess/red
 	name = "red chess box"
 	desc = "This box holds all the pieces needed for the red side of the chess board."
 	icon_state = "chess_r"
 
-/obj/item/weapon/storage/box/chess/red/fill()
+/obj/item/storage/box/chess/red/fill()
 	for(var/i = 0; i < 8; i++)
-		new /obj/item/weapon/checker/pawn/red(src)
-	new /obj/item/weapon/checker/knight/red (src)
-	new /obj/item/weapon/checker/knight/red (src)
-	new /obj/item/weapon/checker/bishop/red (src)
-	new /obj/item/weapon/checker/bishop/red (src)
-	new /obj/item/weapon/checker/rook/red (src)
-	new /obj/item/weapon/checker/rook/red (src)
-	new /obj/item/weapon/checker/queen/red (src)
-	new /obj/item/weapon/checker/king/red (src)
+		new /obj/item/checker/pawn/red(src)
+	new /obj/item/checker/knight/red (src)
+	new /obj/item/checker/knight/red (src)
+	new /obj/item/checker/bishop/red (src)
+	new /obj/item/checker/bishop/red (src)
+	new /obj/item/checker/rook/red (src)
+	new /obj/item/checker/rook/red (src)
+	new /obj/item/checker/queen/red (src)
+	new /obj/item/checker/king/red (src)
 
 //game kits
-/obj/item/weapon/storage/box/checkers_kit
+/obj/item/storage/box/checkers_kit
 	name = "checkers game kit"
 	desc = "This box holds all the parts needed for a game of checkers."
 	icon_state = "largebox"
 	max_storage_space = 8
-	can_hold = list(/obj/item/weapon/board,
-					/obj/item/weapon/storage/box/checkers)
+	can_hold = list(/obj/item/board,
+					/obj/item/storage/box/checkers)
 
-/obj/item/weapon/storage/box/checkers_kit/fill()
-	new /obj/item/weapon/board (src)
-	new /obj/item/weapon/storage/box/checkers (src)
+/obj/item/storage/box/checkers_kit/fill()
+	new /obj/item/board (src)
+	new /obj/item/storage/box/checkers (src)
 
-/obj/item/weapon/storage/box/chess_kit
+/obj/item/storage/box/chess_kit
 	name = "chess game kit"
 	desc = "This box holds all the parts needed for a game of chess."
 	icon_state = "largebox"
 	max_storage_space = 8
-	can_hold = list(/obj/item/weapon/board,
-					/obj/item/weapon/storage/box/chess)
+	can_hold = list(/obj/item/board,
+					/obj/item/storage/box/chess)
 
-/obj/item/weapon/storage/box/chess_kit/fill()
-	new /obj/item/weapon/board (src)
-	new /obj/item/weapon/storage/box/chess (src)
-	new /obj/item/weapon/storage/box/chess/red (src)
+/obj/item/storage/box/chess_kit/fill()
+	new /obj/item/board (src)
+	new /obj/item/storage/box/chess (src)
+	new /obj/item/storage/box/chess/red (src)

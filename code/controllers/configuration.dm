@@ -124,7 +124,7 @@ var/list/gamemode_cache = list()
 	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
-	//so that it's similar to HALLOSS. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
+	//so that it's similar to PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
 
 	var/bones_can_break = 0
@@ -280,6 +280,7 @@ var/list/gamemode_cache = list()
 
 	var/iterative_explosives_z_threshold = 10
 	var/iterative_explosives_z_multiplier = 0.75
+	var/iterative_explosives_z_subtraction = 2
 
 	var/ticket_reminder_period = 0
 
@@ -288,16 +289,6 @@ var/list/gamemode_cache = list()
 	var/docs_load_docs_from
 	var/load_customsynths_from
 	var/docs_image_host
-
-	var/ert_base_chance = 10
-	var/ert_green_inc = 1
-	var/ert_yellow_inc = 1
-	var/ert_blue_inc = 2
-	var/ert_red_inc = 3
-	var/ert_delta_inc = 10
-	var/ert_scaling_factor = 1
-	var/ert_scaling_factor_antag = 1
-	var/ert_scaling_factor_dead = 2
 
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
@@ -886,6 +877,9 @@ var/list/gamemode_cache = list()
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
 
+				if ("explosion_z_sub")
+					iterative_explosives_z_subtraction = text2num(value)
+
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
 
@@ -903,25 +897,6 @@ var/list/gamemode_cache = list()
 					load_customsynths_from = value
 				if ("docs_image_host")
 					docs_image_host = value
-
-				if ("ert_base_chance")
-					ert_base_chance = text2num(value)
-				if ("ert_green_inc")
-					ert_green_inc = text2num(value)
-				if ("ert_yellow_inc")
-					ert_yellow_inc = text2num(value)
-				if ("ert_blue_inc")
-					ert_blue_inc = text2num(value)
-				if ("ert_red_inc")
-					ert_red_inc = text2num(value)
-				if ("ert_delta_inc")
-					ert_delta_inc = text2num(value)
-				if ("ert_scaling_factor")
-					ert_scaling_factor = text2num(value)
-				if ("ert_scaling_factor_antag")
-					ert_scaling_factor_antag = text2num(value)
-				if ("ert_scaling_factor_dead")
-					ert_scaling_factor_dead = text2num(value)
 
 				if ("ntsl_hostname")
 					ntsl_hostname = value

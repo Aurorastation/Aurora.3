@@ -331,14 +331,6 @@
 
 		job.equip(H)
 
-		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
-
-		if(H.max_nutrition > 0)
-			H.nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * H.max_nutrition * 0.01
-
-		if(H.max_hydration > 0)
-			H.hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * H.max_hydration * 0.01
-
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
@@ -387,8 +379,8 @@
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
-		var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		if(!l_foot || !r_foot)
 			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
 			H.buckled = W
@@ -531,8 +523,8 @@
 		EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H)) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
-		var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		if(!l_foot || !r_foot)
 			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
 			H.buckled = W
@@ -754,7 +746,12 @@
 			if(G.slot && !(G.slot in custom_equip_slots))
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
-				var/metadata = prefs.gear[G.display_name]
+				var/metadata
+				var/list/gear_test = prefs.gear[G.display_name]
+				if(gear_test?.len)
+					metadata = gear_test
+				else
+					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata)
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
@@ -787,7 +784,12 @@
 		if (G.slot in used_slots)
 			. += thing
 		else
-			var/metadata = prefs.gear[G.display_name]
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
+			else
+				metadata = list()
 			var/obj/item/CI = G.spawn_item(H, metadata)
 			if (H.equip_to_slot_or_del(CI, G.slot))
 				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
@@ -808,12 +810,17 @@
 	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
 		Debug("EIS/([H]): [items.len] items.")
-		var/obj/item/weapon/storage/B = locate() in H
+		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
 				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
 				var/datum/gear/G = gear_datums[thing]
-				var/metadata = prefs.gear[G.display_name]
+				var/metadata
+				var/list/gear_test = prefs.gear[G.display_name]
+				if(gear_test?.len)
+					metadata = gear_test
+				else
+					metadata = list()
 				G.spawn_item(B, metadata)
 				Debug("EIS/([H]): placed [thing] in [B].")
 

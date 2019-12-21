@@ -1,5 +1,5 @@
 /obj/machinery/optable
-	name = "Operating Table"
+	name = "operating table"
 	desc = "Used for advanced medical procedures."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
@@ -10,10 +10,10 @@
 	idle_power_usage = 1
 	active_power_usage = 5
 	component_types = list(
-			/obj/item/weapon/circuitboard/optable,
-			/obj/item/weapon/stock_parts/scanning_module = 1
+			/obj/item/circuitboard/optable,
+			/obj/item/stock_parts/scanning_module = 1
 		)
-	
+
 	var/mob/living/carbon/human/victim = null
 	var/strapped = 0.0
 	var/suppressing = FALSE
@@ -61,15 +61,15 @@
 		to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
 		return TRUE
 
-	if(user != victim && !suppressing) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
-		user.visible_message("<span class='warning'>\The [user] begins switching on \the [src]'s neural suppressor.</span>")
-		if(!do_after(user, 30, src) || !use_check_and_message(user))
-			return 
+	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
+		user.visible_message("<span class='warning'>\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor.</span>")
+		if(!do_after(user, 30, src))
+			return
 		if(!victim)
 			to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
 
-	suppressing = !suppressing
-	user.visible_message("<span class='notice'>\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor.</span>")
+		suppressing = !suppressing
+		user.visible_message("<span class='notice'>\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor.</span>")
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
@@ -82,7 +82,7 @@
 
 /obj/machinery/optable/MouseDrop_T(obj/O as obj, mob/user as mob)
 
-	if (!istype(O, /obj/item/weapon))
+	if (!istype(O, /obj/item))
 		return
 	user.drop_from_inventory(O,get_turf(src))
 	return
@@ -94,7 +94,7 @@
 		var/mob/living/carbon/human/H = locate() in loc
 		if(istype(H))
 			if(H.lying)
-				icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
+				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
@@ -120,7 +120,7 @@
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		src.victim = H
-		icon_state = H.pulse ? "[modify_state]-active" : "[modify_state]-idle"
+		icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 	else
 		icon_state = "[modify_state]-idle"
 
@@ -161,8 +161,8 @@
 	take_victim(usr,usr)
 
 /obj/machinery/optable/attackby(obj/item/W as obj, mob/living/carbon/user as mob)
-	if (istype(W, /obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = W
+	if (istype(W, /obj/item/grab))
+		var/obj/item/grab/G = W
 		if (src.victim)
 			to_chat(usr, "<span class='notice'><B>The table is already occupied!</B></span>")
 			return 0

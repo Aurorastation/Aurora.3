@@ -57,56 +57,56 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
 
-/obj/item/organ/cell
+/obj/item/organ/internal/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "cell"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	vital = 1
 	var/emp_counter = 0
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/process()
+/obj/item/organ/internal/cell/process()
 	..()
 	if(emp_counter)
 		emp_counter--
 
-/obj/item/organ/cell/emp_act(severity)
+/obj/item/organ/internal/cell/emp_act(severity)
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
 		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
 
 
-/obj/item/organ/surge
+/obj/item/organ/internal/surge
 	name = "surge preventor"
 	desc = "A small device that give immunity to EMP for few pulses."
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "surge_ipc"
 	organ_tag = "surge"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	vital = 0
 	var/surge_left = 0
 	var/broken = 0
 
-/obj/item/organ/surge/Initialize()
+/obj/item/organ/internal/surge/Initialize()
 	if(!surge_left && !broken)
 		surge_left = rand(2, 5)
 	robotize()
 	. = ..()
 
-/obj/item/organ/surge/advanced
+/obj/item/organ/internal/surge/advanced
 	name = "advanced surge preventor"
 	var/max_charges = 5
 	var/stage_ticker = 0
 	var/stage_interval = 250
 
-/obj/item/organ/surge/advanced/process()
+/obj/item/organ/internal/surge/advanced/process()
 	..()
 
 	if(!owner)
@@ -122,7 +122,7 @@
 		surge_left += 1
 		stage_interval += 250
 
-/obj/item/organ/eyes/optical_sensor
+/obj/item/organ/internal/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
 	organ_tag = "optics"
@@ -130,31 +130,31 @@
 	icon_state = "camera"
 	dead_icon = "camera_broken"
 
-/obj/item/organ/eyes/optical_sensor/Initialize()
+/obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/ipc_tag
+/obj/item/organ/internal/ipc_tag
 	name = "identification tag"
 	organ_tag = "ipc tag"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
 
-/obj/item/organ/ipc_tag/Initialize()
+/obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
 	. = ..()
 
 // Used for an MMI or posibrain being installed into a human.
-/obj/item/organ/mmi_holder
+/obj/item/organ/internal/mmi_holder
 	name = "brain"
-	organ_tag = "brain"
-	parent_organ = "head"
+	organ_tag = BP_BRAIN
+	parent_organ = BP_HEAD
 	vital = 1
 	var/obj/item/device/mmi/stored_mmi
 
-/obj/item/organ/mmi_holder/proc/update_from_mmi()
+/obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
 	if(!stored_mmi)
 		return
 	name = stored_mmi.name
@@ -162,7 +162,7 @@
 	icon = stored_mmi.icon
 	icon_state = stored_mmi.icon_state
 
-/obj/item/organ/mmi_holder/removed(var/mob/living/user)
+/obj/item/organ/internal/mmi_holder/removed(var/mob/living/user)
 
 	if(stored_mmi)
 		stored_mmi.forceMove(get_turf(src))
@@ -175,13 +175,13 @@
 		holder_mob.drop_from_inventory(src)
 	qdel(src)
 
-/obj/item/organ/mmi_holder/posibrain/Initialize()
+/obj/item/organ/internal/mmi_holder/posibrain/Initialize()
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
 	addtimer(CALLBACK(src, .proc/setup_brain), 1)
 
-/obj/item/organ/mmi_holder/posibrain/proc/setup_brain()
+/obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
 		stored_mmi.name = "positronic brain ([owner.name])"
 		stored_mmi.brainmob.real_name = owner.name
@@ -196,37 +196,37 @@
 //Terminator//
 //////////////
 
-/obj/item/organ/mmi_holder/posibrain/terminator
-	name = "brain"
-	organ_tag = "brain"
-	parent_organ = "chest"
+/obj/item/organ/internal/mmi_holder/posibrain/terminator
+	name = BP_BRAIN
+	organ_tag = BP_BRAIN
+	parent_organ = BP_CHEST
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/data
+/obj/item/organ/internal/data
 	name = "data core"
 	organ_tag = "data core"
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
 	vital = 0
 	emp_coeff = 0.1
 
-/obj/item/organ/data/Initialize()
+/obj/item/organ/internal/data/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/terminator
+/obj/item/organ/internal/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
 	organ_tag = "shielded cell"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 
@@ -237,7 +237,7 @@
 	emp_coeff = 0.5
 	robotize_type = PROSTHETIC_HK
 
-/obj/item/organ/eyes/optical_sensor/terminator
+/obj/item/organ/internal/eyes/optical_sensor/terminator
 	emp_coeff = 0.5
 
 /obj/item/organ/external/chest/terminator

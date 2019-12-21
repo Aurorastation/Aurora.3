@@ -92,6 +92,6 @@
 
 /datum/gear/offworlder_rig
 	display_name = "exo-stellar skeleton"
-	path = /obj/item/weapon/rig/light/offworlder
+	path = /obj/item/rig/light/offworlder
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"

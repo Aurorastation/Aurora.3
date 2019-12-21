@@ -7,7 +7,6 @@
 	restricted_jobs = list("AI", "Cyborg", "Head of Security", "Captain", "Internal Affairs Agent")
 
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
-	chance_restricted_jobs = list("Security Officer" = 50, "Security Cadet" = 75, "Warden" = 40, "Detective" = 50, "Forensic Technician" = 50, "Head of Personnel" = 25, "Chief Engineer" = 25, "Research Director" = 25, "Chief Medical Officer" = 25) //Second value is chance to be considered for antag. Unlisted roles here are 100 by default.
 	restricted_species = list(
 		"Baseline Frame",
 		"Shell Frame",
@@ -17,6 +16,7 @@
 		"Zeng-Hu Mobility Frame",
 		"Bishop Accessory Frame"
 	)
+	required_age = 10
 
 	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you perform a Full DNA Extraction them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE

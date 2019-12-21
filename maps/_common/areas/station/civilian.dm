@@ -202,6 +202,9 @@
 	icon_state = "janitor"
 	station_area = 1
 
+/area/janitor/stairs
+	name = "\improper Stairwell Custodial Closet"
+
 /area/hydroponics
 	name = "\improper Hydroponics"
 	icon_state = "hydro"
@@ -213,7 +216,7 @@
 	icon_state = "garden"
 
 /area/store
-	name = "\improper Station Store"
+	name = "\improper Surface - Commissary"
 	icon_state = "quartstorage"
 	station_area = 1
 
