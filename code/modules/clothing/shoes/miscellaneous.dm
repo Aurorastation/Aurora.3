@@ -20,7 +20,7 @@
 	name = "\improper SWAT shoes"
 	desc = "When you want to turn up the heat."
 	icon_state = "swat"
-	icon_state = "swat"
+	item_state = "swat"
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
@@ -34,7 +34,7 @@
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."
 	icon_state = "jungle"
-	icon_state = "jungle"
+	item_state = "jungle"
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
@@ -64,13 +64,13 @@
 	name = "flip flops"
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
-	icon_state = "thongsandal"
+	item_state = "thongsandal"
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"
 	icon_state = "clown"
-	item_state = "clown"
+	item_state = "clown_shoes"
 	slowdown = SHOES_SLOWDOWN+1
 	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
@@ -184,7 +184,7 @@
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
-	icon_state = "thongsandal"
+	item_state = "thongsandal"
 	slowdown = 0
 	force = 2
 	sharp = TRUE
