@@ -14,7 +14,7 @@
 
 /datum/event/minispasm/announce()
 	command_announcement.Announce( \
-		"PRIORITY ALERT: SIGMA-[rand(50,80)] NONSTANDARD PSIONIC SIGNAL-WAVE TRAMISSION DETECTED (97% MATCH, NONVARIANT) \
+		"PRIORITY ALERT: SIGMA-[rand(50,80)] NON-STANDARD PSIONIC SIGNAL-WAVE TRANSMISSION DETECTED - 97% MATCH, NON-VARIANT \
 		(SIGNAL SOURCE TRIANGULATED TO DISTANT SITE): All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
