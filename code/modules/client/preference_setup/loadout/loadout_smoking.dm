@@ -29,3 +29,7 @@
 /datum/gear/dromedaryco
 	display_name = "dromedaryco cigarette packet"
 	path = /obj/item/storage/fancy/cigarettes/dromedaryco
+
+/datum/gear/pracigarette
+	display_name = "working tajara cigarette packet"
+	path = /obj/item/storage/fancy/cigarettes/pra
