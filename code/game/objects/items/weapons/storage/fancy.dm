@@ -307,7 +307,7 @@
 
 /obj/item/storage/fancy/cigarettes/pra
 	name = "\improper Working Tajara cigarette packet"
-	desc = "A packet of six adhomian \"Working Tajara?\" cigarettes, imported straight from the People's Republic of Adhomai."
+	desc = "A packet of six adhomian \"Working Tajara\" cigarettes, imported straight from the People's Republic of Adhomai."
 	icon_state = "prapacket"
 	item_state = "prapacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/pra
