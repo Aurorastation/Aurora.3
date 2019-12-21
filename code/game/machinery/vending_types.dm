@@ -320,7 +320,7 @@
 		/obj/item/storage/fancy/cigarettes = 8,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 6,
 		/obj/item/storage/fancy/cigarettes/nicotine = 4,
-		/obj/item/storage/fancy/cigarettes/pra = 6
+		/obj/item/storage/fancy/cigarettes/pra = 6,
 		/obj/item/storage/chewables/rollable/bad = 8,
 		/obj/item/storage/chewables/rollable = 6,
 		/obj/item/storage/chewables/rollable/fine = 6,
