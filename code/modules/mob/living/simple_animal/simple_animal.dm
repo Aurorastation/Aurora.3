@@ -773,4 +773,4 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return /datum/reagent/nutriment
+	return "nutriment"
