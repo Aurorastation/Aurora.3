@@ -8,7 +8,7 @@
 	var/used = FALSE
 	var/ripped = FALSE
 	var/zipped = FALSE
-	var/obj/item/weapon/tank/internal_tank
+	var/obj/item/tank/internal_tank
 	var/syndie = FALSE
 
 /obj/item/airbubble/Destroy()
@@ -37,7 +37,7 @@
 	else
 		R = new /obj/structure/closet/airbubble(user.loc)
 	if(!used)
-		internal_tank = new /obj/item/weapon/tank/emergency_oxygen/engi(src)
+		internal_tank = new /obj/item/tank/emergency_oxygen/engi(src)
 		internal_tank.air_contents.adjust_gas("oxygen", (42*ONE_ATMOSPHERE)/(R_IDEAL_GAS_EQUATION*T20C))
 	R.internal_tank = internal_tank
 	if(!isnull(internal_tank))
@@ -73,11 +73,11 @@
 	var/use_internal_tank = TRUE
 	var/datum/gas_mixture/inside_air
 	var/internal_tank_valve = 45 // arbitrary for now
-	var/obj/item/weapon/tank/internal_tank
+	var/obj/item/tank/internal_tank
 	var/syndie = FALSE
 	var/last_shake = 0
 	var/cooling = FALSE
-	var/obj/item/weapon/cell/cell = null
+	var/obj/item/cell/cell = null
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
@@ -393,7 +393,7 @@
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(obj/W, mob/user as mob)
-	if(istype(W, /obj/item/weapon/tank))
+	if(istype(W, /obj/item/tank))
 		if(!isnull(use_internal_tank))
 			user.visible_message(
 			"<span class='warning'>[user] is attaching [W] to [src].</span>",
@@ -413,8 +413,8 @@
 		else
 			to_chat(user, "<span class='warning'>[src] already has a tank attached.</span>")
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)
 			return 0
 		if(istype(W,/obj/item/tk_grab))
@@ -422,7 +422,7 @@
 		if(!dropsafety(W))
 			return
 		user.drop_item()
-	else if(istype(W, /obj/item/weapon/handcuffs/cable))
+	else if(istype(W, /obj/item/handcuffs/cable))
 		if(zipped)
 			to_chat(user, "<span class='warning'>[src]'s zipper is already restrained.</span>")
 			return
@@ -460,9 +460,9 @@
 		"<span class='warning'>[src] zipper's cable restrains has been cut by [user].</span>",
 		"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
-		new/obj/item/weapon/handcuffs/cable(src.loc)
+		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
-	else if(istype(W, /obj/item/weapon/cell))
+	else if(istype(W, /obj/item/cell))
 		if(!isnull(cell))
 			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
 			attack_hand(user)

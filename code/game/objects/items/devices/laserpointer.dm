@@ -10,7 +10,7 @@
 	slot_flags = SLOT_BELT
 	w_class = 1
 	var/turf/pointer_loc
-	var/obj/item/weapon/stock_parts/micro_laser/diode //cant use the laser without it
+	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
 
 
 
@@ -34,7 +34,7 @@
 
 /obj/item/device/laser_pointer/upgraded/Initialize()
 	. = ..()
-	diode = new /obj/item/weapon/stock_parts/micro_laser/ultra
+	diode = new /obj/item/stock_parts/micro_laser/ultra
 
 
 
@@ -42,7 +42,7 @@
 	laser_act(M, user)
 
 /obj/item/device/laser_pointer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/weapon/stock_parts/micro_laser))
+	if(istype(W, /obj/item/stock_parts/micro_laser))
 		if(!diode)
 			user.drop_item()
 			W.forceMove(src)
@@ -94,7 +94,7 @@
 			outmsg = "<span class='notice'>You fail to hit the lens of [C] with [src].</span>"
 
 	if(iscarbon(target))
-		if(user.zone_sel.selecting == "eyes")
+		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
 			if(C.eyecheck() <= 0 && prob(30))
 				outmsg = "<span class='notice'>You blind [C] with [src]</span>"

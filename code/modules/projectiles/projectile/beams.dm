@@ -6,6 +6,7 @@
 	damage_type = BURN
 	check_armour = "laser"
 	eyeblur = 4
+	damage_flags = DAM_LASER
 	var/frequency = 1
 	hitscan = 1
 	invisibility = 101	//beam projectiles are invisible as they are rendered by the effect engine
@@ -25,7 +26,16 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
+	damage = 35
+
+/obj/item/projectile/beam/pistol/hegemony
+	icon_state = "hegemony"
 	damage = 30
+	armor_penetration = 5
+ 
+	muzzle_type = /obj/effect/projectile/muzzle/hegemony
+	tracer_type = /obj/effect/projectile/tracer/hegemony
+	impact_type = /obj/effect/projectile/impact/hegemony
 
 /obj/item/projectile/beam/midlaser
 	damage = 35
@@ -159,8 +169,10 @@
 	icon_state = "stun"
 	nodamage = 1
 	taser_effect = 1
+	sharp = 0
+	eyeblur = 1
 	agony = 40
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -180,7 +192,7 @@
 	name = "electrical arc"
 	icon_state = "stun"
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -208,7 +220,7 @@
 				M.death()
 				spark(M, 3, alldirs)
 			else if(iscarbon(M) && M.contents.len)
-				for(var/obj/item/weapon/holder/H in M.contents)
+				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
 						continue
 
@@ -248,7 +260,7 @@
 				M.gib()
 				spark(M, 3, alldirs)
 			else if(iscarbon(M) && M.contents.len)
-				for(var/obj/item/weapon/holder/H in M.contents)
+				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
 						continue
 
@@ -367,7 +379,7 @@
 	name = "energy net projection"
 	icon_state = "xray"
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 	muzzle_type = /obj/effect/projectile/muzzle/xray
 	tracer_type = /obj/effect/projectile/tracer/xray
@@ -378,7 +390,7 @@
 	..()
 
 /obj/item/projectile/beam/energy_net/proc/do_net(var/mob/M)
-	var/obj/item/weapon/energy_net/net = new (get_turf(M))
+	var/obj/item/energy_net/net = new (get_turf(M))
 	net.throw_impact(M)
 
 /obj/item/projectile/beam/tachyon

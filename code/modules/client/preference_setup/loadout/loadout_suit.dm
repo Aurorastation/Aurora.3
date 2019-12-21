@@ -19,6 +19,17 @@
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
+	jackets["biker jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/biker
+	jackets["designer leather jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer
+	jackets["designer leather jacket, black"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/black
+	jackets["designer leather jacket, red"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/designer/red
+	jackets["flight jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight
+	jackets["flight jacket, green"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green
+	jackets["flight jacket, white"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white
+	jackets["military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military
+	jackets["military jacket, tan"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
+	jackets["old military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
+	jackets["old military jacket, badge"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red
 	jackets["flannel jacket, blue"] = /obj/item/clothing/suit/storage/toggle/flannel/blue
@@ -223,19 +234,6 @@
 	coat["dominia cape"] = /obj/item/clothing/suit/storage/dominia
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
 	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
-	gear_tweaks += new/datum/gear_tweak/path(coat)
-
-/datum/gear/suit/military
-	display_name = "military jacket selection"
-	description = "A selection of military jackets, for the trained marksman in you."
-	path = /obj/item/clothing/suit/storage/miljacket
-
-/datum/gear/suit/military/New()
-	..()
-	var/coat = list()
-	coat["military jacket"] = /obj/item/clothing/suit/storage/miljacket
-	coat["military jacket, alternative"] = /obj/item/clothing/suit/storage/miljacket/alt
-	coat["military jacket, green"] = /obj/item/clothing/suit/storage/miljacket/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/legion_jacket

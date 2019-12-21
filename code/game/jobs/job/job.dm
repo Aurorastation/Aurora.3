@@ -30,6 +30,7 @@
 
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
+	var/list/blacklisted_species = null		  // A blacklist of species that can't be this job
 
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
@@ -89,7 +90,6 @@
 	if (!species_modifier)
 		var/datum/species/human_species = global.all_species["Human"]
 		species_modifier = human_species.economic_modifier
-		PROCLOG_WEIRD("species [H.species || "NULL"] did not have a set economic_modifier!")
 
 	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null)
@@ -169,7 +169,7 @@
 		if(10 to 14)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+			H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), slot_l_hand)
 		if(15 to INFINITY)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
@@ -190,23 +190,13 @@
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey
-	id = /obj/item/weapon/card/id
+	id = /obj/item/card/id
 	l_ear = /obj/item/device/radio/headset
-	back = /obj/item/weapon/storage/backpack
+	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
 	pda = /obj/item/device/pda
 
-	var/box = /obj/item/weapon/storage/box/survival
-
-/datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	if(back)
-		equip_item(H, back, slot_back)
-
-	if(istype(H.back,/obj/item/weapon/storage/backpack))
-		var/obj/item/weapon/storage/backpack/B = H.back
-		B.autodrobe_no_remove = TRUE
+	var/box = /obj/item/storage/box/survival
 
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip

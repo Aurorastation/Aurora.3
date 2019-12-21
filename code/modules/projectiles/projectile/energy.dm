@@ -43,10 +43,11 @@
 /obj/item/projectile/energy/electrode
 	name = "electrode"
 	icon_state = "spark"
-	nodamage = 1
+	damage = 2 //Flavor.
+	damage_type = BURN
 	taser_effect = 1
 	agony = 40
-	damage_type = HALLOSS
+	eyeblur = 1
 	//Damage will be handled on the MOB side, to prevent window shattering.
 
 /obj/item/projectile/energy/electrode/stunshot
@@ -132,7 +133,7 @@
 			if(M.stat == DEAD)
 				M.gib()
 			else
-				M.apply_damage(60, BRUTE, "head")
+				M.apply_damage(60, BRUTE, BP_HEAD)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 		else if(isturf(a) || isobj(a))
 			var/atom/A = a

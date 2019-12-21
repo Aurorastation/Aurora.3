@@ -30,9 +30,9 @@
 	uniform = /obj/item/clothing/under/lawyer/blue
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/ceti_visa = 1,
-		/obj/item/weapon/storage/box/tcfl_pamphlet = 1,
-		/obj/item/weapon/gun/energy/pistol = 1
+		/obj/item/storage/box/ceti_visa = 1,
+		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/gun/energy/pistol = 1
 	)
 
 
@@ -66,9 +66,9 @@
 
 	accessory = /obj/item/clothing/accessory/sol_pin
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/sol_visa = 1,
+		/obj/item/storage/box/sol_visa = 1,
 		/obj/item/device/camera = 1,
-		/obj/item/weapon/gun/projectile/pistol/sol = 1
+		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
 /datum/citizenship/sol_alliance/eridani
@@ -123,6 +123,6 @@
 	name = "Empire of Dominia Consular Officer"
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/dominia_honor = 1,
-		/obj/item/weapon/gun/energy/pistol = 1
+		/obj/item/storage/box/dominia_honor = 1,
+		/obj/item/gun/energy/pistol = 1
 	)

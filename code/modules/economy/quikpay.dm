@@ -23,7 +23,7 @@
 	print_reference()
 
 	//create a short manual as well
-	var/obj/item/weapon/paper/R = new(src.loc)
+	var/obj/item/paper/R = new(src.loc)
 	R.name = "Quik And Easy: How to make a transaction"
 
 	R.info += "<b>Quik-Pay setup:</b><br>"
@@ -45,12 +45,12 @@
 	R.offset_x += 0
 	R.offset_y += 0
 	R.ico += "paper_stamp-cent"
-	R.stamped += /obj/item/weapon/stamp
+	R.stamped += /obj/item/stamp
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
 
 /obj/item/device/nanoquikpay/AltClick(var/mob/user)
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(istype(I) && (access_heads in I.access))
 		editmode = 1
 		to_chat(user, span("notice", "Command access granted."))
@@ -58,7 +58,7 @@
 
 
 /obj/item/device/nanoquikpay/proc/print_reference()
-	var/obj/item/weapon/paper/R = new(src.loc)
+	var/obj/item/paper/R = new(src.loc)
 	var/pname = "Reference: [machine_id]"
 	var/info = "<b>[machine_id] reference</b><br><br>"
 	info += "Access code: [access_code]<br><br>"
@@ -70,7 +70,7 @@
 	stampoverlay.icon_state = "paper_stamp-cent"
 	if(!R.stamped)
 		R.stamped = new
-	R.stamped += /obj/item/weapon/stamp
+	R.stamped += /obj/item/stamp
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Head of Personnel's desk.</i>"
 	var/obj/item/smallDelivery/D = new(R.loc)
@@ -80,7 +80,7 @@
 
 
 /obj/item/device/nanoquikpay/proc/print_receipt()
-	var/obj/item/weapon/paper/R = new(usr.loc)
+	var/obj/item/paper/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 
@@ -89,14 +89,14 @@
 	stampoverlay.icon_state = "paper_stamp-cent"
 	if(!R.stamped)
 		R.stamped = new
-	R.stamped += /obj/item/weapon/stamp
+	R.stamped += /obj/item/stamp
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
 
 
 
 /obj/item/device/nanoquikpay/attackby(obj/O, mob/user)
-	var/obj/item/weapon/card/id/I = O.GetID()
+	var/obj/item/card/id/I = O.GetID()
 	if (!I) 
 		return
 	if (!istype(O))

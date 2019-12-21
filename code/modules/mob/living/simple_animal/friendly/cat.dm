@@ -2,6 +2,7 @@
 /mob/living/simple_animal/cat
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "cat2"
 	item_state = "cat2"
 	icon_living = "cat2"
@@ -15,7 +16,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -23,7 +24,7 @@
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
-	holder_type = /obj/item/weapon/holder/cat
+	holder_type = /obj/item/holder/cat
 	mob_size = 2.5
 	scan_range = 3//less aggressive about stealing food
 	metabolic_factor = 0.75
@@ -32,6 +33,7 @@
 	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
+	canbrush = TRUE
 	possession_candidate = 1
 	emote_sounds = list('sound/effects/creatures/cat_meow.ogg', 'sound/effects/creatures/cat_meow2.ogg')
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
@@ -44,7 +46,6 @@
 			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first rat, reducing exploits
 				rattarget = snack
 				movement_target = snack
-				foodtarget = 0	//chasing mice takes precedence over eating food
 				if(prob(15))
 					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
 
@@ -102,9 +103,6 @@
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one rat per proc
-
-/mob/living/simple_animal/cat/beg(var/atom/thing, var/atom/holder)
-	visible_emote("licks [get_pronoun(POSESSIVE_ADJECTIVE)] lips and hungrily glares at [holder]'s [thing.name]",0)
 
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
@@ -247,7 +245,7 @@
 	icon_rest = "cat_rest"
 	can_nap = 1
 	befriend_job = "Chief Medical Officer"
-	holder_type = /obj/item/weapon/holder/cat/black
+	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
@@ -262,7 +260,7 @@
 	icon_dead = "kitten_dead"
 	can_nap = 0 //No resting sprite
 	gender = NEUTER
-	holder_type = /obj/item/weapon/holder/cat/kitten
+	holder_type = /obj/item/holder/cat/kitten
 
 /mob/living/simple_animal/cat/kitten/death()
 	.=..()
@@ -279,7 +277,7 @@
 	icon_rest = "cat3_rest"
 	can_nap = 1
 	var/friend_name = "Erstatz Vryroxes"
-	holder_type = /obj/item/weapon/holder/cat/black
+	holder_type = /obj/item/holder/cat/black
 
 /mob/living/simple_animal/cat/fluff/bones/death()
 	.=..()
@@ -297,4 +295,4 @@
 	icon_living = "penny"
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
-	holder_type = /obj/item/weapon/holder/cat/penny
+	holder_type = /obj/item/holder/cat/penny

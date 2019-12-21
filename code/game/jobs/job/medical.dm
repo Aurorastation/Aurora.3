@@ -26,6 +26,8 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
@@ -36,13 +38,13 @@
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/cmo
 	pda = /obj/item/device/pda/heads/cmo
-	id = /obj/item/weapon/card/id/silver
-	l_hand = /obj/item/weapon/storage/firstaid/adv
+	id = /obj/item/card/id/navy
+	l_hand = /obj/item/storage/firstaid/adv
 
-	backpack = /obj/item/weapon/storage/backpack/medic
-	satchel = /obj/item/weapon/storage/backpack/satchel_med
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel_med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/doctor
 	title = "Medical Doctor"
@@ -79,12 +81,13 @@
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
+	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
-	backpack = /obj/item/weapon/storage/backpack/medic
-	satchel = /obj/item/weapon/storage/backpack/satchel_med
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel_med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/outfit/job/doctor/emergency_physician
 	name = "Emergency Physician"
@@ -92,7 +95,7 @@
 
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	mask = /obj/item/clothing/mask/surgical
-	l_hand = /obj/item/weapon/storage/firstaid/adv
+	l_hand = /obj/item/storage/firstaid/adv
 
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
@@ -143,11 +146,12 @@
 	shoes = /obj/item/clothing/shoes/chemist
 	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
+	id = /obj/item/card/id/white
 
-	backpack = /obj/item/weapon/storage/backpack/pharmacy
-	satchel = /obj/item/weapon/storage/backpack/satchel_pharm
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/pharm
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/pharm
+	backpack = /obj/item/storage/backpack/pharmacy
+	satchel = /obj/item/storage/backpack/satchel_pharm
+	dufflebag = /obj/item/storage/backpack/duffel/pharm
+	messengerbag = /obj/item/storage/backpack/messenger/pharm
 
 /datum/outfit/job/pharmacist/biochemist
 	name = "Biochemist"
@@ -157,10 +161,10 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
 	shoes = /obj/item/clothing/shoes/biochem
 
-	backpack = /obj/item/weapon/storage/backpack/virology
-	satchel = /obj/item/weapon/storage/backpack/satchel_vir
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/vir
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/viro
+	backpack = /obj/item/storage/backpack/virology
+	satchel = /obj/item/storage/backpack/satchel_vir
+	dufflebag = /obj/item/storage/backpack/duffel/vir
+	messengerbag = /obj/item/storage/backpack/messenger/viro
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -191,7 +195,8 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/chemist
+	pda =  /obj/item/device/pda/psych
+	id = /obj/item/card/id/white
 
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
@@ -221,6 +226,8 @@
 	outfit = /datum/outfit/job/paramedic
 	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
 
+	blacklisted_species = list("Diona")
+
 /datum/outfit/job/paramedic
 	name = "Paramedic"
 	base_name = "Paramedic"
@@ -230,16 +237,17 @@
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_med
-	l_hand = /obj/item/weapon/storage/firstaid/adv
-	r_hand = /obj/item/weapon/reagent_containers/hypospray
-	belt = /obj/item/weapon/storage/belt/medical/emt
-	pda =  /obj/item/device/pda/medical
+	l_hand = /obj/item/storage/firstaid/adv
+	r_hand = /obj/item/reagent_containers/hypospray
+	belt = /obj/item/storage/belt/medical/emt
+	pda =  /obj/item/device/pda/paramedic
+	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/emt
 
-	backpack = /obj/item/weapon/storage/backpack/medic
-	satchel = /obj/item/weapon/storage/backpack/satchel_med
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel_med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/outfit/job/paramedic/emt
 	name = "Emergency Medical Technician"
@@ -271,7 +279,7 @@
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
 
-	backpack = /obj/item/weapon/storage/backpack/medic
-	satchel = /obj/item/weapon/storage/backpack/satchel_med
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/med
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/med
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel_med
+	dufflebag = /obj/item/storage/backpack/duffel/med
+	messengerbag = /obj/item/storage/backpack/messenger/med

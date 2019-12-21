@@ -78,7 +78,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "am" = (
-/obj/item/weapon/bedsheet/captain,
+/obj/item/bedsheet/captain,
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -88,7 +88,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "ao" = (
-/obj/item/weapon/card/emag_broken,
+/obj/item/card/emag_broken,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "ap" = (
@@ -176,7 +176,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "aF" = (
-/obj/item/weapon/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -197,7 +197,7 @@
 /turf/unsimulated/floor/asteroid/ash,
 /area/template_noop)
 "aJ" = (
-/obj/item/weapon/gun/energy/stunrevolver,
+/obj/item/gun/energy/stunrevolver,
 /turf/template_noop,
 /area/template_noop)
 "aK" = (
@@ -244,7 +244,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/northwest)
 "aP" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/template_noop,
 /area/template_noop)
 "aQ" = (
@@ -321,7 +321,7 @@
 /turf/simulated/wall,
 /area/derelict/hallway/northeast)
 "bc" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
@@ -364,8 +364,8 @@
 /area/derelict/hallway/northeast)
 "bl" = (
 /obj/structure/bed,
-/obj/item/weapon/material/shard,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/material/shard,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "bm" = (
@@ -410,7 +410,7 @@
 /area/template_noop)
 "bu" = (
 /obj/structure/grille/broken,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -469,7 +469,7 @@
 /turf/template_noop,
 /area/template_noop)
 "bF" = (
-/obj/item/weapon/melee/baton,
+/obj/item/melee/baton,
 /turf/template_noop,
 /area/template_noop)
 "bG" = (
@@ -514,7 +514,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "bP" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -611,7 +611,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cf" = (
-/obj/item/weapon/gun/energy/laser/practice{
+/obj/item/gun/energy/laser/practice{
 	desc = "This laser gun has been modified in some way.";
 	name = "modified laser gun"
 	},
@@ -654,7 +654,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
 "cn" = (
-/obj/item/weapon/gun/projectile/sec/flash{
+/obj/item/gun/projectile/sec/flash{
 	jam_chance = 50
 	},
 /turf/simulated/floor/tiled/airless,
@@ -734,11 +734,11 @@
 /obj/structure/closet/crate{
 	name = "Camera Assembly Crate"
 	},
-/obj/item/weapon/camera_assembly,
-/obj/item/weapon/camera_assembly,
-/obj/item/weapon/camera_assembly,
-/obj/item/weapon/camera_assembly,
-/obj/item/weapon/camera_assembly,
+/obj/item/camera_assembly,
+/obj/item/camera_assembly,
+/obj/item/camera_assembly,
+/obj/item/camera_assembly,
+/obj/item/camera_assembly,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "cB" = (
@@ -754,7 +754,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "cE" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -776,7 +776,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/hallway/northeast)
 "cJ" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -801,7 +801,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "cN" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "cO" = (
@@ -812,7 +812,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/hallway/northeast)
 "cP" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -830,7 +830,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "cS" = (
-/obj/item/weapon/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
 /turf/template_noop,
 /area/template_noop)
 "cT" = (
@@ -844,7 +844,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/northwest)
 "cV" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "cW" = (
@@ -886,11 +886,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "dd" = (
-/obj/item/weapon/gun/energy/laser/practice,
+/obj/item/gun/energy/laser/practice,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "de" = (
-/obj/item/weapon/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -907,7 +907,7 @@
 /area/derelict/hallway/northwest)
 "dg" = (
 /obj/structure/lattice,
-/obj/item/weapon/circuitboard/aiupload,
+/obj/item/circuitboard/aiupload,
 /turf/template_noop,
 /area/template_noop)
 "dh" = (
@@ -935,7 +935,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "dm" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1039,7 +1039,7 @@
 /turf/template_noop,
 /area/template_noop)
 "dy" = (
-/obj/item/weapon/folder/blue,
+/obj/item/folder/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1057,8 +1057,8 @@
 /area/template_noop)
 "dB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1071,14 +1071,14 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "dE" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "dF" = (
-/obj/item/weapon/folder/red,
+/obj/item/folder/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -1102,8 +1102,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "dJ" = (
-/obj/item/weapon/folder/blue,
-/obj/item/weapon/stool,
+/obj/item/folder/blue,
+/obj/item/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1126,7 +1126,7 @@
 /area/derelict/hallway/northeast)
 "dM" = (
 /obj/structure/grille/broken,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
@@ -1159,12 +1159,12 @@
 /turf/simulated/wall,
 /area/derelict/hallway/northeast)
 "dR" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "dS" = (
-/obj/item/weapon/material/shard,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard,
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -1186,7 +1186,7 @@
 /turf/template_noop,
 /area/template_noop)
 "dW" = (
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "dX" = (
@@ -1206,18 +1206,18 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "ea" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eb" = (
 /obj/structure/table,
-/obj/item/weapon/folder/blue,
+/obj/item/folder/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "ec" = (
-/obj/item/weapon/folder/red,
+/obj/item/folder/red,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "ed" = (
@@ -1225,7 +1225,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "ee" = (
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "ef" = (
@@ -1249,7 +1249,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "ej" = (
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "ek" = (
@@ -1260,7 +1260,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "el" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "em" = (
@@ -1271,7 +1271,7 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/item/weapon/broken_bottle,
+/obj/item/broken_bottle,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eo" = (
@@ -1281,7 +1281,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "ep" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/airless,
@@ -1291,7 +1291,7 @@
 /turf/template_noop,
 /area/template_noop)
 "er" = (
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/template_noop,
 /area/template_noop)
 "es" = (
@@ -1331,7 +1331,7 @@
 /area/derelict/hallway/northeast)
 "ex" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1385,7 +1385,7 @@
 /turf/simulated/floor/carpet,
 /area/derelict/hallway/northeast)
 "eH" = (
-/obj/item/weapon/book/manual/nuclear,
+/obj/item/book/manual/nuclear,
 /turf/template_noop,
 /area/template_noop)
 "eI" = (
@@ -1437,7 +1437,7 @@
 /area/derelict/hallway/northeast)
 "eO" = (
 /obj/structure/table/standard,
-/obj/item/weapon/book/manual/wiki/security_space_law,
+/obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eP" = (
@@ -1447,7 +1447,7 @@
 /area/derelict/hallway/northeast)
 "eQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/evidence,
+/obj/item/storage/box/evidence,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1465,13 +1465,13 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "eS" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "eT" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1540,7 +1540,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fa" = (
-/obj/item/weapon/moneybag,
+/obj/item/storage/bag/money,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "fb" = (
@@ -1555,14 +1555,14 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "fd" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "fe" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/mime,
+/obj/item/bedsheet/mime,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "ff" = (
@@ -1596,7 +1596,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "fj" = (
-/obj/item/weapon/stool{
+/obj/item/stool{
 	pixel_y = 8
 	},
 /turf/simulated/floor/airless,
@@ -1622,7 +1622,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fm" = (
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
@@ -1653,7 +1653,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "fq" = (
-/obj/item/weapon/bikehorn/rubberducky,
+/obj/item/bikehorn/rubberducky,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -1669,7 +1669,7 @@
 /area/derelict/hallway/northeast)
 "fs" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/blue,
+/obj/item/folder/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1703,7 +1703,7 @@
 /area/template_noop)
 "fx" = (
 /obj/item/stack/material/cyborg/wood,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1727,7 +1727,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fB" = (
-/obj/item/weapon/moneybag,
+/obj/item/storage/bag/money,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "fC" = (
@@ -1799,7 +1799,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "fL" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1908,7 +1908,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -1938,7 +1938,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/derelict/hallway/northwest)
 "ge" = (
-/obj/item/weapon/stool{
+/obj/item/stool{
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1947,12 +1947,12 @@
 /turf/simulated/floor/tiled/steel,
 /area/derelict/hallway/northwest)
 "gf" = (
-/obj/item/weapon/storage/belt/champion,
+/obj/item/storage/belt/champion,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gh" = (
@@ -1976,12 +1976,12 @@
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "gl" = (
-/obj/item/weapon/gun/energy/taser,
+/obj/item/gun/energy/taser,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "gm" = (
 /obj/structure/table,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1993,7 +1993,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "go" = (
-/obj/item/weapon/melee/baton/loaded,
+/obj/item/melee/baton/loaded,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -2029,7 +2029,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gs" = (
-/obj/item/weapon/moneybag,
+/obj/item/storage/bag/money,
 /turf/template_noop,
 /area/template_noop)
 "gt" = (
@@ -2099,7 +2099,7 @@
 /turf/template_noop,
 /area/template_noop)
 "gE" = (
-/obj/item/weapon/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs,
 /turf/template_noop,
 /area/template_noop)
 "gF" = (
@@ -2107,7 +2107,7 @@
 /turf/template_noop,
 /area/template_noop)
 "gG" = (
-/obj/item/weapon/stool{
+/obj/item/stool{
 	pixel_y = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2169,13 +2169,13 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
 /area/derelict/hallway/northeast)
 "gQ" = (
-/obj/item/weapon/book/manual/chef_recipes,
+/obj/item/book/manual/chef_recipes,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "gR" = (
@@ -2204,7 +2204,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/derelict/hallway/northwest)
 "gV" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -2276,11 +2276,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "he" = (
-/obj/item/weapon/book/manual/atmospipes,
+/obj/item/book/manual/atmospipes,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "hf" = (
-/obj/item/weapon/book/manual/barman_recipes,
+/obj/item/book/manual/barman_recipes,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "hg" = (
@@ -2303,7 +2303,7 @@
 /area/derelict/hallway/northwest)
 "hi" = (
 /obj/structure/grille/broken,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/template_noop,
 /area/template_noop)
 "hj" = (
@@ -2347,7 +2347,7 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/weapon/bananapeel,
+/obj/item/bananapeel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -2377,7 +2377,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "hv" = (
-/obj/item/weapon/book/manual/evaguide,
+/obj/item/book/manual/evaguide,
 /turf/template_noop,
 /area/template_noop)
 "hw" = (
@@ -2394,21 +2394,21 @@
 /turf/simulated/wall/r_wall,
 /area/derelict/hallway/northeast)
 "hz" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "hA" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "hB" = (
-/obj/item/weapon/book/tome,
+/obj/item/book/tome,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "hC" = (
@@ -2471,14 +2471,14 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "hN" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "hO" = (
-/obj/item/weapon/book/manual/medical_cloning,
+/obj/item/book/manual/medical_cloning,
 /turf/template_noop,
 /area/template_noop)
 "hP" = (
@@ -2512,7 +2512,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
 "hV" = (
-/obj/item/weapon/handcuffs,
+/obj/item/handcuffs,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "hW" = (
@@ -2604,7 +2604,7 @@
 /area/derelict/hallway/southeast)
 "io" = (
 /obj/structure/lattice,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/template_noop,
 /area/template_noop)
 "ip" = (
@@ -2633,8 +2633,8 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/weapon/module/power_control,
-/obj/item/weapon/cell{
+/obj/item/module/power_control,
+/obj/item/cell{
 	maxcharge = 2000
 	},
 /turf/simulated/floor/airless,
@@ -2762,7 +2762,7 @@
 /area/derelict/hallway/southwest)
 "iQ" = (
 /obj/structure/lattice,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -2808,7 +2808,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southwest)
 "iW" = (
-/obj/item/weapon/banhammer,
+/obj/item/banhammer,
 /turf/template_noop,
 /area/derelict/hallway/southwest)
 "iX" = (
@@ -2884,7 +2884,7 @@
 /area/derelict/hallway/southeast)
 "jk" = (
 /obj/structure/lattice,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/template_noop,
 /area/template_noop)
 "jl" = (
@@ -2907,9 +2907,9 @@
 /area/derelict/hallway/southeast)
 "jp" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen/blue,
-/obj/item/weapon/pen/red,
+/obj/item/paper_bin,
+/obj/item/pen/blue,
+/obj/item/pen/red,
 /obj/item/device/camera{
 	name = "Autopsy Camera";
 	pixel_x = -2;
@@ -2934,7 +2934,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
 "jt" = (
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /turf/template_noop,
 /area/template_noop)
 "ju" = (
@@ -2961,7 +2961,7 @@
 	},
 /obj/item/device/mmi,
 /obj/structure/table/standard,
-/obj/item/weapon/bonesetter,
+/obj/item/bonesetter,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jx" = (
@@ -2976,7 +2976,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jz" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3023,7 +3023,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "jG" = (
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
@@ -3096,7 +3096,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jR" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
 "jS" = (
@@ -3112,12 +3112,12 @@
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "jU" = (
-/obj/item/weapon/storage/belt,
+/obj/item/storage/belt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jV" = (
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "jW" = (
@@ -3152,7 +3152,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "kb" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/template_noop,
 /area/template_noop)
 "kc" = (
@@ -3163,8 +3163,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "kd" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen{
+/obj/item/folder/yellow,
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -3196,7 +3196,7 @@
 /area/derelict/hallway/southwest)
 "kg" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "kh" = (
@@ -3206,9 +3206,9 @@
 /area/derelict/hallway/southeast)
 "ki" = (
 /obj/structure/table/standard,
-/obj/item/weapon/scalpel,
+/obj/item/scalpel,
 /obj/item/device/mass_spectrometer,
-/obj/item/weapon/autopsy_scanner,
+/obj/item/autopsy_scanner,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
 "kj" = (
@@ -3266,13 +3266,13 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "ks" = (
-/obj/item/weapon/gun/energy/temperature,
+/obj/item/gun/energy/temperature,
 /turf/template_noop,
 /area/template_noop)
 "kt" = (
 /obj/structure/table/standard,
 /obj/item/clothing/head/soft,
-/obj/item/weapon/stamp{
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -3282,12 +3282,12 @@
 /area/derelict/hallway/southwest)
 "ku" = (
 /obj/structure/table/standard,
-/obj/item/weapon/hand_labeler,
-/obj/item/weapon/stamp{
+/obj/item/hand_labeler,
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/hand_labeler,
+/obj/item/hand_labeler,
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
 /area/derelict/hallway/southwest)
@@ -3328,13 +3328,13 @@
 /area/derelict/hallway/southwest)
 "kC" = (
 /obj/structure/table/wood,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "kD" = (
-/obj/item/weapon/reagent_containers/glass/beaker/vial/random/toxin,
-/obj/item/weapon/material/shard,
+/obj/item/reagent_containers/glass/beaker/vial/random/toxin,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "kE" = (
@@ -3355,9 +3355,9 @@
 /area/derelict/hallway/southeast)
 "kG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/gloves,
-/obj/item/weapon/storage/box/masks,
-/obj/item/weapon/storage/box/bodybags,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/hallway/southeast)
 "kH" = (
@@ -3458,7 +3458,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "kY" = (
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -3483,11 +3483,11 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "lc" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/template_noop,
 /area/template_noop)
 "ld" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -3495,7 +3495,7 @@
 /turf/template_noop,
 /area/template_noop)
 "le" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -3644,12 +3644,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "lx" = (
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "ly" = (
 /obj/item/stack/material/cyborg/wood,
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
@@ -3701,7 +3701,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "lG" = (
-/obj/item/weapon/cell/super,
+/obj/item/cell/super,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "lH" = (
@@ -3736,11 +3736,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lM" = (
-/obj/item/weapon/stamp{
+/obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/stamp/denied{
+/obj/item/stamp/denied{
 	pixel_x = 4;
 	pixel_y = -2
 	},
@@ -3748,12 +3748,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "lN" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen/red{
+/obj/item/clipboard,
+/obj/item/pen/red{
 	pixel_x = 2;
 	pixel_y = 6
 	},
@@ -3793,12 +3793,12 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "lS" = (
-/obj/item/weapon/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "lT" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/airless,
@@ -3825,12 +3825,12 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "lY" = (
-/obj/item/weapon/gun/energy/mindflayer,
+/obj/item/gun/energy/mindflayer,
 /obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "lZ" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/grille/broken,
 /turf/template_noop,
 /area/template_noop)
@@ -3909,7 +3909,7 @@
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southwest)
 "mk" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/structure/grille,
@@ -3929,7 +3929,7 @@
 /turf/simulated/wall,
 /area/derelict/hallway/southeast)
 "mn" = (
-/obj/item/weapon/hemostat,
+/obj/item/hemostat,
 /turf/template_noop,
 /area/template_noop)
 "mo" = (
@@ -4331,7 +4331,7 @@
 /area/derelict/hallway/southeast)
 "ns" = (
 /obj/item/device/flashlight/pen,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/white,
@@ -4350,7 +4350,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "nv" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4418,10 +4418,10 @@
 	opened = 1
 	},
 /obj/effect/decal/cleanable/greenglow,
-/obj/item/weapon/reagent_containers/food/snacks/xemeatpie,
-/obj/item/weapon/reagent_containers/food/snacks/burger/xeno,
-/obj/item/weapon/reagent_containers/food/snacks/xenomeat,
-/obj/item/weapon/reagent_containers/food/snacks/xenomeatbreadslice,
+/obj/item/reagent_containers/food/snacks/xemeatpie,
+/obj/item/reagent_containers/food/snacks/burger/xeno,
+/obj/item/reagent_containers/food/snacks/xenomeat,
+/obj/item/reagent_containers/food/snacks/xenomeatbreadslice,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -4438,7 +4438,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "nH" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -4494,7 +4494,7 @@
 /area/derelict/hallway/southwest)
 "nQ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/dnainjector/h2m,
+/obj/item/dnainjector/h2m,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -4506,7 +4506,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
@@ -4516,7 +4516,7 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
-/obj/item/weapon/storage/belt/utility,
+/obj/item/storage/belt/utility,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "nT" = (
@@ -4552,10 +4552,10 @@
 /area/derelict/hallway/southwest)
 "nX" = (
 /obj/structure/lattice,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/template_noop,
 /area/template_noop)
 "nY" = (
@@ -4575,24 +4575,24 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "od" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "oe" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "of" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "og" = (
 /obj/structure/lattice,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
@@ -4632,18 +4632,18 @@
 /area/template_noop)
 "ol" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen,
+/obj/item/folder/yellow,
+/obj/item/pen,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "om" = (
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/weapon/pickaxe{
+/obj/item/pickaxe{
 	pixel_x = 5
 	},
-/obj/item/weapon/shovel{
+/obj/item/shovel{
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/airless,
@@ -4659,7 +4659,7 @@
 /turf/template_noop,
 /area/derelict/hallway/southwest)
 "oo" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -4673,12 +4673,12 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "op" = (
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/pen{
+/obj/item/folder/yellow,
+/obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/weapon/pen/red{
+/obj/item/pen/red{
 	pixel_x = 2;
 	pixel_y = 6
 	},
@@ -4690,8 +4690,8 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "oq" = (
-/obj/item/weapon/clipboard,
-/obj/item/weapon/stamp{
+/obj/item/clipboard,
+/obj/item/stamp{
 	name = "Quartermaster's stamp";
 	pixel_x = 0;
 	pixel_y = 0
@@ -4714,7 +4714,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "ot" = (
-/obj/item/weapon/mop,
+/obj/item/mop,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -4729,8 +4729,8 @@
 /turf/simulated/wall,
 /area/derelict/hallway/southeast)
 "ow" = (
-/obj/item/weapon/dnainjector/runfast,
-/obj/item/weapon/storage/box/bodybags,
+/obj/item/dnainjector/runfast,
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "ox" = (
@@ -4841,12 +4841,12 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "oL" = (
-/obj/item/weapon/mop,
+/obj/item/mop,
 /turf/simulated/floor/tiled/airless,
 /area/template_noop)
 "oM" = (
 /obj/structure/lattice,
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /turf/template_noop,
 /area/template_noop)
 "oN" = (
@@ -4866,8 +4866,8 @@
 /area/derelict/hallway/southeast)
 "oQ" = (
 /obj/structure/lattice,
-/obj/item/weapon/dnainjector/regenerate,
-/obj/item/weapon/material/shard{
+/obj/item/dnainjector/regenerate,
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
@@ -4925,11 +4925,11 @@
 /area/derelict/hallway/southwest)
 "oZ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/coin/silver{
+/obj/item/coin/silver{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/weapon/coin/silver,
+/obj/item/coin/silver,
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
@@ -4938,12 +4938,12 @@
 /area/derelict/hallway/southwest)
 "pa" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cartridge/quartermaster{
+/obj/item/cartridge/quartermaster{
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/weapon/cartridge/quartermaster,
-/obj/item/weapon/cartridge/quartermaster{
+/obj/item/cartridge/quartermaster,
+/obj/item/cartridge/quartermaster{
 	pixel_x = -4;
 	pixel_y = 7
 	},
@@ -4955,7 +4955,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southwest)
 "pb" = (
-/obj/item/weapon/storage/box/cups,
+/obj/item/storage/box/cups,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "pc" = (
@@ -4973,11 +4973,11 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "pf" = (
-/obj/item/weapon/cane,
+/obj/item/cane,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "pg" = (
-/obj/item/weapon/cane,
+/obj/item/cane,
 /turf/template_noop,
 /area/template_noop)
 "ph" = (
@@ -5046,7 +5046,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southeast)
 "pq" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/structure/grille,
@@ -5108,9 +5108,9 @@
 /turf/simulated/floor/tiled,
 /area/derelict/hallway/southeast)
 "pA" = (
-/obj/item/weapon/ore/silver,
-/obj/item/weapon/ore/silver,
-/obj/item/weapon/ore/iron,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/iron,
 /obj/structure/closet/crate,
 /turf/template_noop,
 /area/template_noop)
@@ -5139,7 +5139,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "pE" = (
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /turf/template_noop,
 /area/template_noop)
 "pF" = (
@@ -5160,12 +5160,12 @@
 /area/derelict/hallway/southeast)
 "pI" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cane,
+/obj/item/cane,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "pJ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cane/concealed,
+/obj/item/cane/concealed,
 /obj/item/clothing/glasses/regular,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -5182,13 +5182,13 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "pL" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "pM" = (
-/obj/item/weapon/surgicaldrill,
+/obj/item/surgicaldrill,
 /turf/template_noop,
 /area/template_noop)
 "pN" = (
@@ -5206,7 +5206,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "pQ" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronmedium"
 	},
 /turf/template_noop,
@@ -5262,16 +5262,16 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "pV" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronlarge"
 	},
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "pW" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronmedium"
 	},
 /turf/template_noop,
@@ -5318,7 +5318,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "qd" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5340,7 +5340,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "qg" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
 /turf/simulated/floor/tiled/white,
@@ -5350,7 +5350,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "qi" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
 /obj/structure/window/phoronreinforced{
@@ -5364,7 +5364,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qj" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
@@ -5384,7 +5384,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "qm" = (
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /turf/template_noop,
 /area/template_noop)
 "qn" = (
@@ -5425,7 +5425,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "qt" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronlarge"
 	},
 /turf/template_noop,
@@ -5465,7 +5465,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "qB" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -5586,7 +5586,7 @@
 /area/derelict/hallway/southeast)
 "qU" = (
 /obj/structure/table/rack,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/machinery/light{
@@ -5671,7 +5671,7 @@
 /area/template_noop)
 "ri" = (
 /obj/structure/table/rack,
-/obj/item/weapon/flamethrower/full,
+/obj/item/flamethrower/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
@@ -5710,7 +5710,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "rq" = (
-/obj/item/weapon/material/shard/phoron{
+/obj/item/material/shard/phoron{
 	icon_state = "phoronsmall"
 	},
 /turf/template_noop,
@@ -5758,7 +5758,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "rw" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5781,9 +5781,9 @@
 	dir = 1
 	},
 /obj/item/clothing/suit/fire/firefighter,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/item/clothing/mask/gas,
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
@@ -5815,7 +5815,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "rF" = (
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
@@ -5835,7 +5835,7 @@
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "rI" = (
-/obj/item/weapon/stool,
+/obj/item/stool,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "rJ" = (
@@ -5951,7 +5951,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "rV" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/machinery/conveyor{
@@ -6095,7 +6095,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/template_noop,
 /area/derelict/hallway/southeast)
 "sl" = (
@@ -6110,7 +6110,7 @@
 /area/derelict/hallway/southeast)
 "sm" = (
 /obj/structure/table/standard,
-/obj/item/weapon/gun/launcher/syringe/rapid,
+/obj/item/gun/launcher/syringe/rapid,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
@@ -6121,13 +6121,13 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "so" = (
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "sp" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
+/obj/item/paper_bin,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "sq" = (
@@ -6149,7 +6149,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "st" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6167,13 +6167,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "sv" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "sw" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6221,7 +6221,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "sC" = (
-/obj/item/weapon/clipboard,
+/obj/item/clipboard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -6278,7 +6278,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sL" = (
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -6348,7 +6348,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sW" = (
-/obj/item/weapon/reagent_containers/food/snacks/cakeslice/birthday,
+/obj/item/reagent_containers/food/snacks/cakeslice/birthday,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
@@ -6387,7 +6387,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
 "tb" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/airless,
@@ -6414,9 +6414,9 @@
 /area/derelict/hallway/southeast)
 "tf" = (
 /obj/structure/table/standard,
-/obj/item/weapon/clipboard,
-/obj/item/weapon/pen,
-/obj/item/weapon/paper_bin,
+/obj/item/clipboard,
+/obj/item/pen,
+/obj/item/paper_bin,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -6431,7 +6431,7 @@
 	dir = 4
 	},
 /obj/structure/grille,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ti" = (
@@ -6451,7 +6451,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "tk" = (
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /turf/template_noop,
 /area/template_noop)
 "tl" = (
@@ -6481,7 +6481,7 @@
 /area/derelict/hallway/southeast)
 "tp" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -6538,7 +6538,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -6551,7 +6551,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "ty" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/item/stack/rods,
@@ -6560,7 +6560,7 @@
 /area/derelict/hallway/southeast)
 "tz" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
 /turf/template_noop,
 /area/template_noop)
 "tA" = (
@@ -6631,7 +6631,7 @@
 /area/derelict/hallway/southeast)
 "tH" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
@@ -6640,7 +6640,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southeast)
 "tI" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/machinery/light{
@@ -6829,7 +6829,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "uf" = (
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -6873,7 +6873,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/template_noop,
@@ -6912,7 +6912,7 @@
 /area/derelict/hallway/southeast)
 "uo" = (
 /obj/structure/table/standard,
-/obj/item/weapon/scalpel,
+/obj/item/scalpel,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "up" = (
@@ -6989,7 +6989,7 @@
 /area/derelict/hallway/southwest)
 "ux" = (
 /obj/structure/lattice,
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /turf/template_noop,
 /area/template_noop)
 "uy" = (
@@ -7000,7 +7000,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -7208,7 +7208,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uU" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -7245,7 +7245,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uX" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "uY" = (
@@ -7272,7 +7272,7 @@
 /area/derelict/hallway/southwest)
 "vb" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/syringes,
+/obj/item/storage/box/syringes,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -7281,7 +7281,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/beakers,
+/obj/item/storage/box/beakers,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vd" = (
@@ -7300,7 +7300,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/item/stack/rods,
@@ -7313,7 +7313,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7405,7 +7405,7 @@
 /area/derelict/hallway/southwest)
 "vt" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/vials,
+/obj/item/storage/fancy/vials,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -7438,21 +7438,21 @@
 /area/derelict/hallway/southeast)
 "vx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/virusdish/random,
+/obj/item/virusdish/random,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vy" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
+/obj/item/reagent_containers/syringe/antiviral,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
 "vz" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -7477,7 +7477,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "vD" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7506,7 +7506,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "vI" = (
@@ -7668,7 +7668,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "wl" = (
-/obj/item/weapon/stool/padded{
+/obj/item/stool/padded{
 	desc = "Apply butt. This particular stool looks tattered and old. Perhaps there have been budget cuts?";
 	name = "Tattered Stool"
 	},
@@ -7721,7 +7721,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/template_noop,
@@ -7739,7 +7739,7 @@
 /area/derelict/hallway/southeast)
 "ww" = (
 /obj/structure/lattice,
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /turf/template_noop,
 /area/template_noop)
 "wx" = (
@@ -7771,7 +7771,7 @@
 /area/derelict/hallway/northwest)
 "wC" = (
 /obj/structure/table/wood,
-/obj/item/weapon/gun/projectile/pistol{
+/obj/item/gun/projectile/pistol{
 	jam_chance = 50
 	},
 /turf/simulated/floor/wood,
@@ -7791,7 +7791,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "wG" = (
-/obj/item/weapon/gun/projectile/revolver/capgun{
+/obj/item/gun/projectile/revolver/capgun{
 	desc = "The classic Necropolis Industries .357 revolver, for when you only want to shoot once.";
 	name = "revolver"
 	},
@@ -7859,7 +7859,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "wT" = (
-/obj/item/weapon/gun/projectile/shotgun/improvised,
+/obj/item/gun/projectile/shotgun/improvised,
 /turf/simulated/floor/wood,
 /area/template_noop)
 "wU" = (

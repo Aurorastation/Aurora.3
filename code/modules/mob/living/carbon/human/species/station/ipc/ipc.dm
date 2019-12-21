@@ -19,8 +19,8 @@
 	light_power = 0.5
 	meat_type = /obj/item/stack/material/steel
 	unarmed_types = list(
-		/datum/unarmed_attack/punch, 
-		/datum/unarmed_attack/stomp, 
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick)
 	rarity_value = 2
 
@@ -75,26 +75,26 @@
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
-		"brain"   = /obj/item/organ/mmi_holder/posibrain,
-		"cell"    = /obj/item/organ/cell,
-		"optics"  = /obj/item/organ/eyes/optical_sensor,
-		"ipc tag" = /obj/item/organ/ipc_tag
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
+		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
-	vision_organ = "optics"
+	vision_organ = BP_OPTICS
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/ipc),
-		"groin" =  list("path" = /obj/item/organ/external/groin/ipc),
-		"head" =   list("path" = /obj/item/organ/external/head/ipc),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/ipc),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/ipc),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/ipc),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/ipc),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/ipc),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/ipc),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/ipc),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/ipc)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/ipc),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/ipc),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/ipc),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/ipc),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/ipc),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/ipc),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/ipc),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/ipc),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/ipc)
 	)
 
 
@@ -108,6 +108,7 @@
 	max_hydration_factor = -1
 
 	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ERIDANI)
+	default_citizenship = CITIZENSHIP_NONE
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
@@ -148,7 +149,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 
 	if (establish_db_connection(dbcon))
 
-		var/obj/item/organ/ipc_tag/tag = new_machine.internal_organs_by_name["ipc tag"]
+		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 
 		var/status = TRUE
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
@@ -162,7 +163,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			log_query.Execute(query_details)
 
 		if (!status)
-			new_machine.internal_organs_by_name -= "ipc tag"
+			new_machine.internal_organs_by_name -= BP_IPCTAG
 			new_machine.internal_organs -= tag
 			qdel(tag)
 
@@ -173,7 +174,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (establish_db_connection(dbcon))
 		var/status = FALSE
 		var/sql_status = FALSE
-		if (target.internal_organs_by_name["ipc tag"])
+		if (target.internal_organs_by_name[BP_IPCTAG])
 			status = TRUE
 
 		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
@@ -292,9 +293,13 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("waiting IPC screen")
 			return "#FFFFFF"
 
-
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
 	if (neuter_ipc)
 		H.gender = NEUTER
+
+/datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE

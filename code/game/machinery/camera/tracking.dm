@@ -12,8 +12,6 @@
 	if(src.stat == 2)
 		return
 
-	cameranet.process_sort()
-
 	var/list/T = list()
 	for (var/obj/machinery/camera/C in cameranet.cameras)
 		var/list/tempnetwork = C.network&src.network
@@ -208,14 +206,14 @@
 mob/living/proc/near_camera()
 	if (!isturf(loc))
 		return 0
-	else if(!cameranet.checkVis(src))
+	else if(!cameranet.is_visible(src))
 		return 0
 	return 1
 
 /mob/living/proc/tracking_status()
 	// Easy checks first.
 	// Don't detect mobs on Centcom. Since the wizard den is on Centcomm, we only need this.
-	var/obj/item/weapon/card/id/id = GetIdCard()
+	var/obj/item/card/id/id = GetIdCard()
 	if(id && id.prevent_tracking())
 		return TRACKING_TERMINATE
 	if(InvalidPlayerTurf(get_turf(src)))

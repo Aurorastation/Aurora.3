@@ -46,10 +46,14 @@
 
 /datum/gear/cape
 	display_name = "tunnel cloak"
-	path = /obj/item/weapon/storage/backpack/cloak
+	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
+
+/datum/gear/cape/New()
+    ..()
+    gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/vaurca_robe
 	display_name = "hive cloak"

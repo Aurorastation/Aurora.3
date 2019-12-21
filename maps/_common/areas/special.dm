@@ -54,7 +54,12 @@
 	name = "\improper Aft Checkpoint"
 
 /area/centcom/legion
-	name = "\improper Tau Ceti Foreign Legion Base"
+	name = "\improper BLV The Tower - Deck 1"
+	icon_state = "blvtower"
+
+/area/centcom/legion/hangar5
+	name = "\improper BLV The Tower - Hangar 5"
+	icon_state = "blvhangar5"
 
 /area/centcom/distress_prep
 	name = "\improper Distress Team Preparation"
@@ -241,6 +246,10 @@
 	no_light_control = 1
 	centcomm_area = 1
 
+/area/merchant_station/warehouse
+	name = "\improper Merchant Warehouse"
+	icon_state = "merchant_ware"
+
 /area/merchant_station/transit
 	name = "\improper Hyperspace"
 	icon_state = "shuttle"
@@ -275,12 +284,38 @@
 
 //dungeon areas
 
-/area/crashed_ship
+/area/dungeon/crashed_ship
 	name = "\improper Derelict Ship"
 	icon_state = "yellow"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
-/area/tomb
+/area/dungeon/tomb
 	name = "\improper Burial Chamber"
 	icon_state = "yellow"
 	flags = SPAWN_ROOF
+
+/area/dungeon/syndie_listening_post
+	name = "\improper Abandoned Listening Post"
+	icon_state = "red"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1
+
+/area/dungeon/anomaly_outpost
+	name = "\improper Xenoarchaeological Outpost"
+	icon_state = "anomaly"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1
+
+/area/dungeon/sol_outpost
+	name = "\improper Solarian Outpost"
+	icon_state = "red"
+	flags = SPAWN_ROOF
+	requires_power = 0
+	no_light_control = 1
+
+/area/dungeon/crashed_satellite
+	name = "\improper Communications Satellite"
+	icon_state = "tcomsatcham"
+	no_light_control = 1

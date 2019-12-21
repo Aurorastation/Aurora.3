@@ -106,6 +106,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			if (config.sql_saves && !client.prefs.current_character)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
+			if(client.unacked_warning_count > 0)
+				alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+				return
 
 			ready = text2num(href_list["ready"])
 		else
@@ -172,11 +175,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!check_rights(R_ADMIN, 0))
 			var/datum/species/S = all_species[client.prefs.species]
 			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
+				to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				to_chat(src, alert("Your current species, [client.prefs.species], is not available for play on the station."))
+				to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
 				return 0
 
 		LateChoices()
@@ -193,13 +196,17 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
 			return
 
+		if(client.unacked_warning_count > 0)
+			alert(usr, "You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			return
+
 		var/datum/species/S = all_species[client.prefs.species]
 		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-			to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
+			to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			to_chat(src, alert("Your current species, [client.prefs.species], is not available for play on the station."))
+			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -279,6 +286,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (jobban_isbanned(src,rank))
 		return FALSE
 
+	if(job.blacklisted_species) // check for restricted species
+		var/datum/species/S = all_species[client.prefs.species]
+		if(S.name in job.blacklisted_species)
+			return FALSE
+
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
@@ -299,10 +311,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
 	if(config.sql_saves && !client.prefs.current_character)
-		alert(src, "You have not saved your character yet. Please do so before attempting to join.")
+		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(src, alert("[rank] is not available. Please try another."))
+		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
 		return 0
 
 	spawning = 1

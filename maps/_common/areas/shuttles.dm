@@ -224,18 +224,26 @@
 	station_area = 0
 	base_turf = /turf/simulated/floor/reinforced
 
-/area/shuttle/legion/centcom
+/area/shuttle/legion
 	name = "\improper Foreign Legion Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
 	base_turf = /turf/simulated/floor/tiled/dark
 	icon_state = "shuttlegrn"
 	centcomm_area = 1
 
+/area/shuttle/legion/centcom
+	base_turf = /turf/unsimulated/floor
+
 /area/shuttle/legion/station
-	name = "\improper Foreign Legion Landing"
+	name = "\improper Surface Escape Pods - Docking Port"
 	icon_state = "shuttlegrn2"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 	station_area = 1
+
+/area/shuttle/legion/transit
+	name = "\improper Hyperspace"
+	icon_state = "shuttle"
+	base_turf = /turf/space/transit/east
 
 /area/shuttle/distress/centcom
 	name = "\improper Unidentified Shuttle"
@@ -256,3 +264,23 @@
 	base_turf = /turf/space/transit/east
 	icon_state = "shuttle"
 	centcomm_area = 1
+
+/area/shuttle/merchant
+	name = "\improper Merchant Ship"
+	flags = RAD_SHIELDED | SPAWN_ROOF
+	base_turf = /turf/space
+	icon_state = "yellow"
+	sound_env = LARGE_ENCLOSED
+
+/area/shuttle/merchant/start
+	centcomm_area = 1
+
+/area/shuttle/merchant/transit
+	name = "\improper Hyperspace"
+	centcomm_area = 1
+	base_turf = /turf/space/transit/east
+
+/area/shuttle/merchant/station
+	name = "\improper Merchant Docking Port"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1

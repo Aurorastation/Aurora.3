@@ -41,7 +41,7 @@ Protectiveness | Armor %
 /obj/item/clothing/suit/armor/material/makeshift/glass
 	default_material = "glass"
 
-/obj/item/weapon/material/armor_plating
+/obj/item/material/armor_plating
 	name = "armor plating"
 	desc = "A sheet designed to protect something."
 	icon = 'icons/obj/clothing/material_armor.dmi'
@@ -51,7 +51,7 @@ Protectiveness | Armor %
 	thrown_force_divisor = 0.2
 	var/wired = FALSE
 
-/obj/item/weapon/material/armor_plating/attackby(var/obj/O, mob/user)
+/obj/item/material/armor_plating/attackby(var/obj/O, mob/user)
 	if(istype(O, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/S = O
 		if(wired)
@@ -65,8 +65,8 @@ Protectiveness | Armor %
 		else
 			to_chat(user, "<span class='notice'>You need more wire for that.</span>")
 			return
-	if(istype(O, /obj/item/weapon/material/armor_plating))
-		var/obj/item/weapon/material/armor_plating/second_plate = O
+	if(istype(O, /obj/item/material/armor_plating))
+		var/obj/item/material/armor_plating/second_plate = O
 		if(!wired && !second_plate.wired)
 			to_chat(user, "<span class='warning'>You need something to hold the two pieces of plating together.</span>")
 			return

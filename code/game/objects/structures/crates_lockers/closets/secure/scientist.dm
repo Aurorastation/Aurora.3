@@ -8,15 +8,14 @@
 	icon_broken = "secureresbroken"
 	icon_off = "secureresoff"
 
-	fill()
-		new /obj/item/clothing/under/rank/scientist(src)
-		//new /obj/item/clothing/suit/labcoat/science(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-		new /obj/item/clothing/shoes/science(src)
-//		new /obj/item/weapon/cartridge/signal/science(src)
-		new /obj/item/device/radio/headset/headset_sci(src)
-		new /obj/item/weapon/tank/air(src)
-		new /obj/item/clothing/mask/gas(src)
+/obj/structure/closet/secure_closet/scientist/fill()
+	new /obj/item/clothing/under/rank/scientist(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/device/radio/headset/headset_sci(src)
+	new /obj/item/device/radio/headset/headset_sci/alt(src)
+	new /obj/item/tank/air(src)
+	new /obj/item/clothing/mask/gas(src)
 
 
 /obj/structure/closet/secure_closet/RD
@@ -29,23 +28,24 @@
 	icon_broken = "rdsecurebroken"
 	icon_off = "rdsecureoff"
 
-	fill()
-		new /obj/item/clothing/suit/bio_suit/scientist(src)
-		new /obj/item/clothing/head/bio_hood/scientist(src)
-		new /obj/item/clothing/under/rank/research_director(src)
-		new /obj/item/clothing/under/rank/research_director/rdalt(src)
-		new /obj/item/clothing/under/rank/research_director/dress_rd(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-		new /obj/item/weapon/cartridge/rd(src)
-		new /obj/item/clothing/shoes/science(src)
-		new /obj/item/clothing/shoes/leather(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/device/radio/headset/heads/rd(src)
-		new /obj/item/weapon/tank/air(src)
-		new /obj/item/clothing/mask/gas(src)
-		new /obj/item/device/flash(src)
-		new /obj/item/weapon/storage/box/firingpinsRD(src)
-		new /obj/item/device/pin_extractor(src)
+/obj/structure/closet/secure_closet/RD/fill()
+	new /obj/item/clothing/suit/bio_suit/scientist(src)
+	new /obj/item/clothing/head/bio_hood/scientist(src)
+	new /obj/item/clothing/under/rank/research_director(src)
+	new /obj/item/clothing/under/rank/research_director/rdalt(src)
+	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/cartridge/rd(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/laceup/brown(src)
+	new /obj/item/clothing/gloves/latex/nitrile(src)
+	new /obj/item/device/radio/headset/heads/rd(src)
+	new /obj/item/device/radio/headset/heads/rd/alt(src)
+	new /obj/item/tank/air(src)
+	new /obj/item/clothing/mask/gas(src)
+	new /obj/item/device/flash(src)
+	new /obj/item/storage/box/firingpinsRD(src)
+	new /obj/item/device/pin_extractor(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
@@ -57,12 +57,13 @@
 	icon_broken = "rdsecurebroken"
 	icon_off = "rdsecureoff"
 
-	fill()
-		new /obj/item/clothing/under/rank/research_director(src)
-		new /obj/item/clothing/under/rank/research_director/rdalt(src)
-		new /obj/item/clothing/under/rank/research_director/dress_rd(src)
-		new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-		new /obj/item/clothing/shoes/science(src)
-		new /obj/item/clothing/shoes/leather(src)
-		new /obj/item/clothing/gloves/latex(src)
-		new /obj/item/device/radio/headset/heads/rd(src)
+/obj/structure/closet/secure_closet/RD2/fill()
+	new /obj/item/clothing/under/rank/research_director(src)
+	new /obj/item/clothing/under/rank/research_director/rdalt(src)
+	new /obj/item/clothing/under/rank/research_director/dress_rd(src)
+	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
+	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/laceup/brown(src)
+	new /obj/item/clothing/gloves/latex/nitrile(src)
+	new /obj/item/device/radio/headset/heads/rd(src)
+	new /obj/item/device/radio/headset/heads/rd/alt(src)

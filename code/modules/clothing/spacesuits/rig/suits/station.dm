@@ -1,25 +1,25 @@
 /obj/item/clothing/head/helmet/space/rig/industrial
-	camera_networks = list(NETWORK_MINE)
+	camera = /obj/machinery/camera/network/mining
 
 /obj/item/clothing/head/helmet/space/rig/ce
-	camera_networks = list(NETWORK_ENGINEERING)
+	camera = /obj/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/eva
 	light_overlay = "helmet_light_dual"
-	camera_networks = list(NETWORK_ENGINEERING)
+	camera = /obj/machinery/camera/network/engineering
 
 /obj/item/clothing/head/helmet/space/rig/hazmat
 	light_overlay = "hardhat_light"
-	camera_networks = list(NETWORK_RESEARCH)
+	camera = /obj/machinery/camera/network/research
 
 /obj/item/clothing/head/helmet/space/rig/medical
-	camera_networks = list(NETWORK_MEDICAL)
+	camera = /obj/machinery/camera/network/medbay
 
 /obj/item/clothing/head/helmet/space/rig/hazard
 	light_overlay = "helmet_light_dual"
-	camera_networks = list(NETWORK_SECURITY)
+	camera = /obj/machinery/camera/network/security
 
-/obj/item/weapon/rig/internalaffairs
+/obj/item/rig/internalaffairs
 	name = "augmented tie"
 	suit_type = "augmented suit"
 	desc = "Prepare for paperwork."
@@ -30,7 +30,7 @@
 	offline_slowdown = 0
 	offline_vision_restriction = TINT_HEAVY
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/briefcase,/obj/item/weapon/storage/secure/briefcase)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/briefcase,/obj/item/storage/secure/briefcase)
 
 	req_access = list()
 	req_one_access = list()
@@ -41,7 +41,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-/obj/item/weapon/rig/internalaffairs/equipped
+/obj/item/rig/internalaffairs/equipped
 
 	req_access = list(access_lawyer)
 
@@ -57,7 +57,7 @@
 	helm_type = null
 	boot_type = null
 
-/obj/item/weapon/rig/industrial
+/obj/item/rig/industrial
 	name = "industrial suit control module"
 	suit_type = "industrial hardsuit"
 	desc = "A heavy, powerful hardsuit used by construction crews and mining corporations."
@@ -71,14 +71,14 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/weapon/pickaxe, /obj/item/weapon/gun/custom_ka, /obj/item/weapon/gun/energy/vaurca/thermaldrill)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
-/obj/item/weapon/rig/industrial/equipped
+/obj/item/rig/industrial/equipped
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted/plasmacutter,
@@ -89,11 +89,11 @@
 		/obj/item/rig_module/actuators
 		)
 
-/obj/item/weapon/rig/industrial/syndicate
+/obj/item/rig/industrial/syndicate
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig
 
-/obj/item/weapon/rig/eva
+/obj/item/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
 	desc = "A light hardsuit for repairs and maintenance to the outside of habitats and vessels."
@@ -106,14 +106,14 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/toolbox,/obj/item/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
-/obj/item/weapon/rig/eva/equipped
+/obj/item/rig/eva/equipped
 
 	req_access = list(access_engine_equip)
 
@@ -127,7 +127,7 @@
 /obj/item/clothing/gloves/rig/eva
 	siemens_coefficient = 0
 
-/obj/item/weapon/rig/ce
+/obj/item/rig/ce
 
 	name = "advanced voidsuit control module"
 	suit_type = "advanced voidsuit"
@@ -137,19 +137,19 @@
 	slowdown = 0
 	offline_slowdown = 3
 	offline_vision_restriction = 0
-	max_heat_protection_temperature = 7500
+	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE / 1.5 // Good against fires, but not as good as a proper firesuit / atmos voidsuit
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/weapon/pickaxe, /obj/item/weapon/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
-/obj/item/weapon/rig/ce/equipped
+/obj/item/rig/ce/equipped
 
 	req_access = list(access_ce)
 
@@ -165,7 +165,7 @@
 /obj/item/clothing/gloves/rig/ce
 	siemens_coefficient = 0
 
-/obj/item/weapon/rig/hazmat
+/obj/item/rig/hazmat
 
 	name = "AMI control module"
 	suit_type = "hazmat hardsuit"
@@ -178,14 +178,14 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/weapon/storage/box/excavation,/obj/item/weapon/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/weapon/pickaxe/hand,/obj/item/weapon/storage/bag/fossils, /obj/item/device/breath_analyzer)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/storage/box/excavation,/obj/item/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/pickaxe/hand,/obj/item/storage/bag/fossils,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
 
-/obj/item/weapon/rig/hazmat/equipped
+/obj/item/rig/hazmat/equipped
 
 	req_access = list(access_rd)
 
@@ -195,7 +195,7 @@
 		/obj/item/rig_module/device/anomaly_scanner
 		)
 
-/obj/item/weapon/rig/medical
+/obj/item/rig/medical
 	name = "rescue suit control module"
 	suit_type = "rescue hardsuit"
 	desc = "A durable suit designed for medical rescue in high risk areas."
@@ -208,14 +208,14 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/medical
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller, /obj/item/device/breath_analyzer )
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/firstaid,/obj/item/device/healthanalyzer,/obj/item/stack/medical,/obj/item/roller,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_MEDICAL
 
-/obj/item/weapon/rig/medical/equipped
+/obj/item/rig/medical/equipped
 
 	req_access = list(access_paramedic)
 
@@ -227,7 +227,7 @@
 		/obj/item/rig_module/actuators
 		)
 
-/obj/item/weapon/rig/hazard
+/obj/item/rig/hazard
 	name = "hazard hardsuit control module"
 	suit_type = "hazard hardsuit"
 	desc = "A security hardsuit designed for prolonged EVA in dangerous environments."
@@ -238,14 +238,14 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard
 
-	allowed = list(/obj/item/weapon/gun,/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/melee/baton)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-/obj/item/weapon/rig/hazard/equipped
+/obj/item/rig/hazard/equipped
 
 	req_access = list(access_brig)
 
@@ -256,14 +256,14 @@
 		/obj/item/rig_module/mounted/taser
 		)
 
-/obj/item/weapon/rig/hazard/equipped/pirate
+/obj/item/rig/hazard/equipped/pirate
 	req_access = list(access_syndicate)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate
-	camera_networks = list()
+	camera = /obj/machinery/camera/network/mercenary
 
-/obj/item/weapon/rig/diving
+/obj/item/rig/diving
 	name = "diving suit control module"
 	suit_type = "diving suit"
 	desc = "A heavy hardsuit designated for operations under the water, you are not sure what it is doing here however."
@@ -273,7 +273,7 @@
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/storage/toolbox,/obj/item/weapon/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/weapon/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/toolbox,/obj/item/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction)
 
 	req_access = list()
 	req_one_access = list()

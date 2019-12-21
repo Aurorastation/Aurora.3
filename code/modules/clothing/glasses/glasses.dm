@@ -287,11 +287,12 @@ BLIND     // can't see anything
 	prescription = 1
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/regular/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/clothing/glasses/hud/health))
 		user.drop_item()
 		qdel(W)
 		to_chat(user, "<span class='notice'>You attach a set of medical HUDs to your glasses.</span>")
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/health/prescription(T)
 		qdel(src)
@@ -299,6 +300,7 @@ BLIND     // can't see anything
 		user.drop_item()
 		qdel(W)
 		to_chat(user, "<span class='notice'>You attach a set of security HUDs to your glasses.</span>")
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/security/prescription(T)
 		qdel(src)
