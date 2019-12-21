@@ -6,8 +6,16 @@
 	sort_category = "Shoes and Footwear"
 
 /datum/gear/shoes/workboots
-	display_name = "workboots"
+	display_name = "workboots selection"
 	path = /obj/item/clothing/shoes/workboots
+
+/datum/gear/shoes/workboots/New()
+	..()
+	var/shoes = list()
+	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots
+	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
+	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
+	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/winterboots
 	display_name = "winter boots"
@@ -37,12 +45,16 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/dress
-	display_name = "shoes, dress"
+	display_name = "oxford shoe selection"
 	path = /obj/item/clothing/shoes/laceup
 
-/datum/gear/shoes/leather
-	display_name = "shoes, leather"
-	path = /obj/item/clothing/shoes/leather
+/datum/gear/shoes/dress/New()
+	..()
+	var/shoes = list()
+	shoes["black oxford shoes"] = /obj/item/clothing/shoes/laceup
+	shoes["grey oxford shoes"] = /obj/item/clothing/shoes/laceup/grey
+	shoes["brown oxford shoes"] = /obj/item/clothing/shoes/laceup/brown
+	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/flats
 	display_name = "flats selection"
