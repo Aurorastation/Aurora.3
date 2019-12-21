@@ -38,7 +38,7 @@
 		return 0
 
 	switch(zone)
-		if(BP_HEAD, "mouth", BP_EYES)
+		if(BP_HEAD, BP_MOUTH, BP_EYES)
 			// ----- HEAD ----- //
 			switch(attack_damage)
 				if(1 to 2)

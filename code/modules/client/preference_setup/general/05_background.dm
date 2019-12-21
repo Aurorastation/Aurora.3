@@ -75,15 +75,14 @@
 	)
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
+	var/datum/species/S = all_species[pref.species]
 	if(!pref.citizenship)
-		pref.citizenship	= CITIZENSHIP_BIESEL
+		pref.citizenship	= S.default_citizenship
 	if(!pref.religion)
 		pref.religion		= RELIGION_NONE
 
-	var/datum/species/S = all_species[pref.species]
-
 	if(!(pref.citizenship in S.allowed_citizenships))
-		pref.citizenship	= CITIZENSHIP_BIESEL
+		pref.citizenship	= S.default_citizenship
 
 	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
