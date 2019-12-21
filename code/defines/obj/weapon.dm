@@ -74,7 +74,7 @@
 	var/armorpercent = 0
 	var/wasblocked = 0
 	var/shoulddisarm = 0
-	var/damagetype = HALLOSS
+	var/damagetype = PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
 	if(targetIsHuman && targetashuman == user)
@@ -96,7 +96,7 @@
 			class = "notice"
 			punct = "."
 			soundname = 0
-			if (target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == "mouth")
+			if (target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == BP_MOUTH)
 				verbtouse = pick("tapped")
 			else
 				verbtouse = pick("tapped","poked","prodded","touched")
@@ -317,50 +317,6 @@
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-
-/obj/item/caution
-	desc = "Caution! Wet Floor!"
-	name = "wet floor sign"
-	icon = 'icons/obj/janitor.dmi'
-	icon_state = "caution"
-	force = 1.0
-	throwforce = 3.0
-	throw_speed = 1
-	throw_range = 5
-	w_class = 2.0
-	attack_verb = list("warned", "cautioned", "smashed")
-	drop_sound = 'sound/items/drop/shoes.ogg'
-
-/obj/item/caution/attack_self(mob/user as mob)
-    if(src.icon_state == "caution")
-        src.icon_state = "caution_blinking"
-        to_chat(user, "You turn the sign on.")
-    else
-        src.icon_state = "caution"
-        to_chat(user, "You turn the sign off.")
-
-/obj/item/caution/AltClick()
-	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
-	if(src.icon_state == "caution")
-		src.icon_state = "caution_blinking"
-		to_chat(usr, "You turn the sign on.")
-	else
-		src.icon_state = "caution"
-		to_chat(usr, "You turn the sign off.")
-
-/obj/item/caution/cone
-	desc = "This cone is trying to warn you of something!"
-	name = "warning cone"
-	icon_state = "cone"
-	item_state = "cone"
-	contained_sprite = 1
-	slot_flags = SLOT_HEAD
-
-/obj/item/caution/cone/attack_self(mob/user as mob)
-	return
-
-/obj/item/caution/cone/AltClick()
-	return
 
 /*/obj/item/syndicate_uplink
 	name = "station bounced radio"

@@ -533,9 +533,9 @@ STOCK_ITEM_COMMON(cane, 2)
 
 STOCK_ITEM_COMMON(warning, 2.2)
 	if (prob(50))
-		new /obj/item/caution(L)
+		new /obj/item/clothing/suit/caution(L)
 	else
-		new /obj/item/caution/cone(L)
+		new /obj/item/clothing/head/cone(L)
 
 STOCK_ITEM_COMMON(gasmask, 2)
 	var/list/masks = list(
