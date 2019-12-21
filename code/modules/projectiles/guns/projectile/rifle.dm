@@ -266,7 +266,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	max_shells = 10
 	can_bayonet = TRUE
-	ammo_type = /obj/item/ammo_casing/mk43
+	ammo_type = /obj/item/ammo_casing/a556/mk43
 	magazine_type = /obj/item/ammo_magazine/a556/mk43/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/mk43)
 	accuracy = 2

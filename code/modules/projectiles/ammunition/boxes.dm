@@ -221,7 +221,7 @@
 /obj/item/ammo_magazine/a556/mk43/rubber
 	name = "magazine (5.56mm Rubber) Ten Round "
 	origin_tech = list(TECH_COMBAT = 2)
-	ammo_type = /obj/item/ammo_casing/a556/mk43rubber
+	ammo_type = /obj/item/ammo_casing/a556/mk43/rubber
 
 
 /obj/item/ammo_magazine/a50
