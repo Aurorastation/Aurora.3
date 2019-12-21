@@ -83,7 +83,10 @@
 	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
+	else
+		return
 
 	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)

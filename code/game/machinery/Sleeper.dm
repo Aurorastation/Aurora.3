@@ -158,7 +158,8 @@
 	return attack_hand(user)
 
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
-	add_fingerprint(user)
+	if(!istype(I, /obj/item/forensics))
+		add_fingerprint(user)
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
