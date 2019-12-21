@@ -11974,6 +11974,44 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"atU" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill{
+	pixel_y = 5
+	},
+/obj/item/pickaxe/drill{
+	pixel_y = -5
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"atV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/structure/table/steel,
+/obj/item/stack/flag/purple,
+/obj/item/stack/flag/purple,
+/obj/item/storage/box/excavation,
+/obj/item/wrench,
+/obj/item/device/measuring_tape,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/tiled,
+/area/rnd/eva)
+"atW" = (
+/obj/structure/table/steel,
+/obj/item/stack/flag/green,
+/obj/item/stack/flag/green,
+/obj/item/storage/box/excavation,
+/obj/item/wrench,
+/obj/item/device/measuring_tape,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/tiled,
+/area/rnd/eva)
 "atX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -13336,22 +13374,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical_sublevel)
-"axO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/obj/structure/table/steel,
-/obj/item/stack/flag/purple,
-/obj/item/stack/flag/purple,
-/obj/item/storage/box/excavation,
-/obj/item/pickaxe,
-/obj/item/wrench,
-/obj/item/device/measuring_tape,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
-/turf/simulated/floor/tiled,
-/area/rnd/eva)
 "axP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28972,20 +28994,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"dpL" = (
-/obj/structure/table/rack,
-/obj/item/pickaxe{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/pickaxe{
-	pixel_x = -2;
-	pixel_y = -5
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "dqy" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/lime{
@@ -32649,16 +32657,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"mio" = (
-/obj/structure/table/steel,
-/obj/item/stack/flag/green,
-/obj/item/stack/flag/green,
-/obj/item/storage/box/excavation,
-/obj/item/pickaxe,
-/obj/item/wrench,
-/obj/item/device/measuring_tape,
-/turf/simulated/floor/tiled,
-/area/rnd/eva)
 "mjH" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -57952,7 +57950,7 @@ aba
 aba
 eCz
 ebn
-dpL
+atU
 jbg
 boe
 aba
@@ -58984,8 +58982,8 @@ awl
 jlY
 avJ
 jMR
-axO
-mio
+atV
+atW
 jOy
 nqY
 qNw
