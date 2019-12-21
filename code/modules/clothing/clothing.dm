@@ -10,7 +10,7 @@
 	var/list/accessories
 	var/list/valid_accessory_slots
 	var/list/restricted_accessory_slots
-
+	var/list/starting_accessories
 	/*
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
@@ -34,6 +34,10 @@
 		material_key = default_material
 	if(material_key) // May still be null if a material was not specified as a default.
 		set_material(material_key)
+	if(starting_accessories)
+		for(var/T in starting_accessories)
+			var/obj/item/clothing/accessory/tie = new T(src)
+			src.attach_accessory(null, tie)
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
