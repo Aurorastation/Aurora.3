@@ -29,6 +29,7 @@
 		recipes += new/datum/stack_recipe("[display_name] knife", /obj/item/material/kitchen/utensil/knife/plastic, 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] blade", /obj/item/material/butterflyblade, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] spearhead", /obj/item/material/spearhead, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
+		recipes += new/datum/stack_recipe("[display_name] drill_head", /obj/item/material/drill_head, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 	if(name == "sandstone")
 		recipes += new/datum/stack_recipe("planting bed", /obj/machinery/portable_atmospherics/hydroponics/soil, 3, time = 10, one_per_turf = 1, on_floor = 1)
 
@@ -139,7 +140,7 @@
 /material/cardboard/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("box", /obj/item/storage/box)
-	recipes += new/datum/stack_recipe("donut box", /obj/item/storage/box/donut/empty)
+	recipes += new/datum/stack_recipe("donut box", /obj/item/storage/fancy/donut/empty)
 	recipes += new/datum/stack_recipe("egg box", /obj/item/storage/fancy/egg_box)
 	recipes += new/datum/stack_recipe("light tubes box", /obj/item/storage/box/lights/tubes)
 	recipes += new/datum/stack_recipe("light bulbs box", /obj/item/storage/box/lights/bulbs)
@@ -153,6 +154,19 @@
 		new/datum/stack_recipe("red folder", /obj/item/folder/red), \
 		new/datum/stack_recipe("white folder", /obj/item/folder/white), \
 		new/datum/stack_recipe("yellow folder", /obj/item/folder/yellow), \
+		))
+
+/material/cloth/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe_list("curtains list",list( \
+		new /datum/stack_recipe("white curtain", /obj/structure/curtain, 2, time = 10), \
+		new /datum/stack_recipe("bed curtain", /obj/structure/curtain/open/bed, 2, time = 10), \
+		new /datum/stack_recipe("black curtain", /obj/structure/curtain/black, 2, time = 10), \
+		new /datum/stack_recipe("shower curtain", /obj/structure/curtain/open/shower, 2, time = 10), \
+		new /datum/stack_recipe("orange shower curtain", /obj/structure/curtain/open/shower/engineering, 2, time = 10), \
+		new /datum/stack_recipe("red shower curtain", /obj/structure/curtain/open/shower/security, 2, time = 10), \
+		new /datum/stack_recipe("privacy curtain", /obj/structure/curtain/open/privacy, 2, time = 10), \
+
 		))
 
 /material/hide/xeno/generate_recipes()

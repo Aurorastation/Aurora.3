@@ -43,7 +43,8 @@
 	friendly = "pinches"
 	attacktext = "pinched"
 	resistance = 9
-
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 /mob/living/simple_animal/familiar/pike
 	name = "space pike"
@@ -64,7 +65,8 @@
 	maxHealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
@@ -119,6 +121,7 @@
 /mob/living/simple_animal/familiar/goat
 	name = "goat"
 	desc = "A sprightly looking goat."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
@@ -133,6 +136,7 @@
 	mob_size = 4.5 //weight based on Chanthangi goats
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
+	canbrush = TRUE
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
@@ -155,6 +159,7 @@
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"
 	desc = "A pitch black cat. Said to be especially unlucky."
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
@@ -165,7 +170,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
-	holder_type = /obj/item/holder/cat
+	holder_type = /obj/item/holder/cat/black/familiar
 	mob_size = MOB_SMALL
 
 	health = 45
@@ -176,6 +181,7 @@
 	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+	canbrush = TRUE
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)

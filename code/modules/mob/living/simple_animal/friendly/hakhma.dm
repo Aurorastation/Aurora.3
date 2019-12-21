@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hakhma
 	name = "hakhma"
 	desc = "An oversized insect breed by Scarab colony ships, known for their milk."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "hakhma"
 	icon_living = "hakhma"
 	icon_dead = "hakhma_dead"
@@ -17,9 +18,9 @@
 	attacktext = "kicked"
 	health = 250
 	maxHealth = 250
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
-	autoseek_food = FALSE
-	beg_for_food = FALSE
 	mob_size = 15
 
 	has_udder = TRUE

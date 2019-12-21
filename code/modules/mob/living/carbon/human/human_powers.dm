@@ -154,11 +154,6 @@ mob/living/carbon/human/proc/change_monitor()
 
 	T.Weaken(3)
 
-	// Pariahs are not good at leaping. This is snowflakey, pls fix.
-	if(species.name == "Vox Pariah")
-		src.Weaken(5)
-		return TRUE
-
 	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
@@ -233,8 +228,8 @@ mob/living/carbon/human/proc/change_monitor()
 	set name = "Commune with creature"
 	set desc = "Send a telepathic message to a recipient."
 
-	var/obj/item/organ/external/rhand = src.get_organ("r_hand")
-	var/obj/item/organ/external/lhand = src.get_organ("l_hand")
+	var/obj/item/organ/external/rhand = src.get_organ(BP_R_HAND)
+	var/obj/item/organ/external/lhand = src.get_organ(BP_L_HAND)
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
 		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
 		return
@@ -318,20 +313,6 @@ mob/living/carbon/human/proc/change_monitor()
 				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
-
-
-/mob/living/carbon/human/proc/regurgitate()
-	set name = "Regurgitate"
-	set desc = "Empties the contents of your stomach"
-	set category = "Abilities"
-
-	if(LAZYLEN(stomach_contents))
-		for(var/mob/M in src)
-			if(M in stomach_contents)
-				LAZYREMOVE(stomach_contents, M)
-				M.forceMove(loc)
-		src.visible_message(span("danger", "\The [src] hurls out the contents of their stomach!"))
-	return
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
 	set name = "Psychic Whisper"
@@ -475,11 +456,11 @@ mob/living/carbon/human/proc/change_monitor()
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
 
-		if(!H.species.has_limbs["head"])
+		if(!H.species.has_limbs[BP_HEAD])
 			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
 			return
 
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!istype(affecting) || affecting.is_stump())
 			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
 			return
@@ -918,7 +899,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
 		return
 
-	var/obj/item/organ/brain/golem/O = src.get_active_hand()
+	var/obj/item/organ/internal/brain/golem/O = src.get_active_hand()
 
 	if(istype(O))
 
@@ -1127,7 +1108,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/tongue_flick()
 	set name = "Tongue-flick"
 	set desc = "Flick out your tongue to sense the gas in the room."
-	set category = "IC"
+	set category = "Abilities"
 
 	if(stat == DEAD)
 		return

@@ -76,8 +76,8 @@
 	if(src.attached)
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			var/obj/item/organ/external/affecting = src.attached:get_organ(pick("r_arm", "l_arm"))
-			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>")
+			var/obj/item/organ/external/affecting = src.attached:get_organ(pick(BP_R_ARM, BP_L_ARM))
+			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
 			affecting.take_damage(brute = 5, sharp = 1)
 			src.attached = null
 			src.update_icon()
@@ -113,10 +113,6 @@
 			if(amount == 0)
 				if(prob(5)) visible_message("\The [src] pings.")
 				return
-
-			// If the human is losing too much blood, beep.
-			if(T.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
-				visible_message("<span class='warning'>\The [src] beeps loudly.</span>")
 
 			var/datum/reagent/B = T.take_blood(beaker,amount)
 

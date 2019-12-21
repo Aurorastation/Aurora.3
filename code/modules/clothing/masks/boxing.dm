@@ -29,16 +29,19 @@
 	name = "white balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	icon_state = "swatclava"
+	item_state = "swatclava"
 
 /obj/item/clothing/mask/balaclava/military
 	name = "green balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	icon_state = "milclava"
+	item_state = "milclava"
 
 /obj/item/clothing/mask/balaclava/iacmask
 	name = "IAC balaclava"
 	desc = "Designed to keep the user warm and sterile in hostile enviroments."
 	icon_state = "iacmask"
+	item_state = "iacmask"
 	germ_level = 0
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
@@ -50,7 +53,7 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE
 	w_class = 2
-	siemens_coefficient = 0.9 
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/mask/luchador/tecnicos
 	name = "tecnicos mask"

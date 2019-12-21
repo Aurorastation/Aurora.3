@@ -9,7 +9,7 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = 20.0
+	layer = SCREEN_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	appearance_flags = NO_CLIENT_COLOR
@@ -82,15 +82,13 @@
 
 /obj/screen/storage
 	name = "storage"
-	layer = 19
+	layer = SCREEN_LAYER
 	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
@@ -102,7 +100,7 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/selecting = "chest"
+	var/selecting = BP_CHEST
 
 /obj/screen/zone_sel/Click(location, control,params)
 	var/list/PL = params2list(params)
@@ -114,52 +112,52 @@
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					selecting = "r_foot"
+					selecting = BP_R_FOOT
 				if(17 to 22)
-					selecting = "l_foot"
+					selecting = BP_L_FOOT
 				else
 					return 1
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					selecting = "r_leg"
+					selecting = BP_R_LEG
 				if(17 to 22)
-					selecting = "l_leg"
+					selecting = BP_L_LEG
 				else
 					return 1
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = "r_hand"
+					selecting = BP_R_HAND
 				if(12 to 20)
-					selecting = "groin"
+					selecting = BP_GROIN
 				if(21 to 24)
-					selecting = "l_hand"
+					selecting = BP_L_HAND
 				else
 					return 1
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = "r_arm"
+					selecting = BP_R_ARM
 				if(12 to 20)
-					selecting = "chest"
+					selecting = BP_CHEST
 				if(21 to 24)
-					selecting = "l_arm"
+					selecting = BP_L_ARM
 				else
 					return 1
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = "head"
+				selecting = BP_HEAD
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							selecting = "mouth"
+							selecting = BP_MOUTH
 					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = "eyes"
+							selecting = BP_EYES
 					if(25 to 27)
 						if(icon_x in 15 to 17)
-							selecting = "eyes"
+							selecting = BP_EYES
 
 	if(old_selecting != selecting)
 		update_icon()
@@ -189,8 +187,6 @@
 			usr.hud_used.hidden_inventory_update()
 
 		if("equip")
-			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-				return 1
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
@@ -276,14 +272,12 @@
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
 		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return 1
 	switch(name)
-		if("r_hand")
+		if(BP_R_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if("l_hand")
+		if(BP_L_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
@@ -300,7 +294,7 @@
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
-	layer = 20
+	layer = SCREEN_LAYER
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)

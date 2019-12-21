@@ -119,7 +119,7 @@
 			buckled.user_unbuckle_mob(src)
 
 		if(violent_removal)
-			var/obj/item/organ/external/E = H.get_organ(pick("l_arm","r_arm"))
+			var/obj/item/organ/external/E = H.get_organ(pick(BP_L_ARM,BP_R_ARM))
 			var/dislocate_message = ""
 			if(E && !E.is_dislocated())
 				E.dislocate(1)

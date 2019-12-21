@@ -92,7 +92,7 @@
 					var/obj/item/projectile/P = damage_source
 
 					var/reflectchance = base_reflectchance - round(damage/3)
-					if(!(def_zone in list("chest", "groin","head")))
+					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(P.starting && prob(reflectchance))
 						visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
@@ -112,7 +112,7 @@
 
 				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
-					if(!(def_zone in list("chest", "groin","head")))
+					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(prob(reflectchance))
 						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
@@ -269,6 +269,25 @@
 /obj/item/melee/energy/sword/pirate/generic
 	desc = "An energy with a curved output, useful for defense and intimidation."
 	active_force = 20 // 20 damage per hit, seems more balanced for what it can do
+
+/obj/item/melee/energy/sword/hegemony
+	name = "hegemony energy blade"
+	desc = "A righteous hardlight blade to strike down the dishonourable."
+	slot_flags = SLOT_BELT
+	item_state = "kataphract-esword0"
+	icon_state = "kataphract-esword0"
+ 
+/obj/item/melee/energy/sword/hegemony/activate(mob/living/user)
+	..()
+	item_state = "kataphract-esword1"
+	icon_state = "kataphract-esword1"
+	to_chat(user, span("notice", "\The [src] is now energised."))
+ 
+/obj/item/melee/energy/sword/hegemony/deactivate(mob/living/user)
+	..()
+	item_state = initial(item_state)
+	icon_state = initial(icon_state)
+	to_chat(user, span("notice", "\The [src] is de-energised."))
 
 /obj/item/melee/energy/sword/knife
 	name = "energy utility knife"

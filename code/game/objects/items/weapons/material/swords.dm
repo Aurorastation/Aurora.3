@@ -38,21 +38,21 @@
 
 	user.do_attack_animation(target)
 
-	if(target_zone == "head" || target_zone == "eyes" || target_zone == "mouth")
+	if(target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == BP_MOUTH)
 		if(prob(70 - armor_reduction))
 			target.eye_blurry += 5
 			target.confused += 10
 			return TRUE
 
-	if(target_zone == "r_arm" || target_zone == "l_arm" || target_zone == "r_hand" || target_zone == "l_hand")
+	if(target_zone == BP_R_ARM || target_zone == BP_L_ARM || target_zone == BP_R_HAND || target_zone == BP_L_HAND)
 		if(prob(80 - armor_reduction))
-			if(target_zone == "r_arm" || target_zone == "r_hand")
+			if(target_zone == BP_R_ARM || target_zone == BP_R_HAND)
 				target.drop_r_hand()
 			else
 				target.drop_l_hand()
 			return TRUE
 
-	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == "r_leg" || target_zone == "l_leg")
+	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 		if(prob(60 - armor_reduction))
 			target.Weaken(5)
 			return TRUE

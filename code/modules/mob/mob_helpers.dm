@@ -16,6 +16,9 @@
 			return 0
 	return 1
 
+/mob/living/carbon/human/proc/isFBP()
+	return species && (species.appearance_flags & HAS_FBP)
+
 /mob/living/bot/isSynthetic()
 	return 1
 
@@ -100,8 +103,6 @@
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
 			if ("Vox")
-				return 1
-			if ("Vox Pariah")
 				return 1
 			if ("Vox Armalis")
 				return 1
@@ -213,42 +214,42 @@ proc/getsensorlevel(A)
 
 //The base miss chance for the different defence zones
 var/list/global/base_miss_chance = list(
-	"head" = 40,
-	"chest" = 10,
-	"groin" = 20,
-	"l_leg" = 20,
-	"r_leg" = 20,
-	"l_arm" = 20,
-	"r_arm" = 20,
-	"l_hand" = 50,
-	"r_hand" = 50,
-	"l_foot" = 50,
-	"r_foot" = 50
+	BP_HEAD = 85,
+	BP_CHEST = 10,
+	BP_GROIN = 20,
+	BP_L_LEG = 20,
+	BP_R_LEG = 20,
+	BP_L_ARM = 30,
+	BP_R_ARM = 30,
+	BP_L_HAND = 50,
+	BP_R_HAND = 50,
+	BP_L_FOOT = 50,
+	BP_R_FOOT = 50
 )
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
 //Also used to weight the protection value that armour provides for covering that body part when calculating protection from full-body effects.
 var/list/global/organ_rel_size = list(
-	"head" = 25,
-	"chest" = 70,
-	"groin" = 30,
-	"l_leg" = 25,
-	"r_leg" = 25,
-	"l_arm" = 25,
-	"r_arm" = 25,
-	"l_hand" = 10,
-	"r_hand" = 10,
-	"l_foot" = 10,
-	"r_foot" = 10
+	BP_HEAD = 25,
+	BP_CHEST = 70,
+	BP_GROIN = 30,
+	BP_L_LEG = 25,
+	BP_R_LEG = 25,
+	BP_L_ARM = 25,
+	BP_R_ARM = 25,
+	BP_L_HAND = 10,
+	BP_R_HAND = 10,
+	BP_L_FOOT = 10,
+	BP_R_FOOT = 10
 )
 
 /proc/check_zone(zone)
-	if(!zone)	return "chest"
+	if(!zone)	return BP_CHEST
 	switch(zone)
-		if("eyes")
-			zone = "head"
-		if("mouth")
-			zone = "head"
+		if(BP_EYES)
+			zone = BP_HEAD
+		if(BP_MOUTH)
+			zone = BP_HEAD
 	return zone
 
 // Returns zone with a certain probability. If the probability fails, or no zone is specified, then a random body part is chosen.
@@ -263,17 +264,17 @@ var/list/global/organ_rel_size = list(
 	var/ran_zone = zone
 	while (ran_zone == zone)
 		ran_zone = pick (
-			organ_rel_size["head"]; "head",
-			organ_rel_size["chest"]; "chest",
-			organ_rel_size["groin"]; "groin",
-			organ_rel_size["l_arm"]; "l_arm",
-			organ_rel_size["r_arm"]; "r_arm",
-			organ_rel_size["l_leg"]; "l_leg",
-			organ_rel_size["r_leg"]; "r_leg",
-			organ_rel_size["l_hand"]; "l_hand",
-			organ_rel_size["r_hand"]; "r_hand",
-			organ_rel_size["l_foot"]; "l_foot",
-			organ_rel_size["r_foot"]; "r_foot"
+			organ_rel_size[BP_HEAD]; BP_HEAD,
+			organ_rel_size[BP_CHEST]; BP_CHEST,
+			organ_rel_size[BP_GROIN]; BP_GROIN,
+			organ_rel_size[BP_L_ARM]; BP_L_ARM,
+			organ_rel_size[BP_R_ARM]; BP_R_ARM,
+			organ_rel_size[BP_L_LEG]; BP_L_LEG,
+			organ_rel_size[BP_R_LEG]; BP_R_LEG,
+			organ_rel_size[BP_L_HAND]; BP_L_HAND,
+			organ_rel_size[BP_R_HAND]; BP_R_HAND,
+			organ_rel_size[BP_L_FOOT]; BP_L_FOOT,
+			organ_rel_size[BP_R_FOOT]; BP_R_FOOT
 		)
 
 	return ran_zone
@@ -333,8 +334,8 @@ var/list/global/organ_rel_size = list(
 
 proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -709,54 +710,7 @@ proc/is_blind(A)
 			return 0
 	return 1
 
-/mob/living/carbon/proc/vomit()
-	var/canVomit = FALSE
-
-	var/mob/living/carbon/human/H
-	if (istype(src, /mob/living/carbon/human))
-		H = src
-		if (H.ingested.total_volume > 0)
-			canVomit = TRUE
-
-	if (nutrition > 0)
-		canVomit = TRUE
-
-	if(canVomit)
-		Stun(4)
-		var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
-		var/obj/vomitReceptacle
-		for(var/obj/vessel in view(1, src))
-			if (!is_type_in_typecache(vessel, vomitCandidate))
-				continue
-			if(!vessel.Adjacent(src))
-				continue
-			vomitReceptacle = vessel
-			break
-
-		if(vomitReceptacle)
-			src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
-			playsound(vomitReceptacle, 'sound/effects/splat.ogg', 50, 1)
-		else
-			src.visible_message("<span class='warning'>[src] vomits!</span>","<span class='warning'>You vomit!</span>")
-			playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-
-		var/turf/location = loc
-		if(!vomitReceptacle)
-			if (istype(location, /turf/simulated))
-				location.add_vomit_floor(src, 1)
-		adjustNutritionLoss(60)
-		adjustHydrationLoss(30)
-		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
-			intoxication *= 0.9
-
-		if (istype(src, /mob/living/carbon/human))
-			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
-	else if (prob(50))
-		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
-		Weaken(4)
-
 /mob/living/carbon/human/proc/delayed_vomit()
-
 	if(!check_has_mouth())
 		return
 	if(stat == DEAD)
@@ -767,7 +721,7 @@ proc/is_blind(A)
 		spawn(150)	//15 seconds until second warning
 			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
 			spawn(100)	//and you have 10 more for mad dash to the bucket
-				vomit()//Vomit function is in mob helpers
+				empty_stomach()
 				spawn(350)	//wait 35 seconds before next volley
 					lastpuke = 0
 
@@ -1263,3 +1217,19 @@ proc/is_blind(A)
 	hydration = max(0,min(max_hydration,hydration - amount))
 
 	return TRUE
+
+/mob/proc/get_accumulated_vision_handlers()
+	var/result[2]
+	var/asight = 0
+	var/ainvis = 0
+	for(var/atom/vision_handler in additional_vision_handlers)
+		//Grab their flags
+		asight |= vision_handler.additional_sight_flags()
+		ainvis = max(ainvis, vision_handler.additional_see_invisible())
+	result[1] = asight
+	result[2] = ainvis
+
+	return result
+
+/mob/proc/remove_blood_simple(var/blood)
+	return

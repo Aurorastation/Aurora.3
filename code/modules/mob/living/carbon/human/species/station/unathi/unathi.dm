@@ -16,7 +16,7 @@
 	)
 	primitive_form = "Stok"
 	darksight = 3
-	gluttonous = 1
+	gluttonous = 2
 	slowdown = 0.5
 	brute_mod = 0.8
 	grab_mod = 0.75
@@ -55,8 +55,6 @@
 	heat_level_3 = 1100 //Default 1000
 
 	inherent_verbs = list(
-		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/tongue_flick
 	)
 
@@ -87,11 +85,14 @@
 
 	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
 	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
+	default_citizenship = CITIZENSHIP_IZWESKI
 
 	zombie_type = "Unathi Zombie"
 
-/datum/species/unathi/before_equip(var/mob/living/carbon/human/H)
+/datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
+	if(H.shoes)
+		return
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1

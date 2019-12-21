@@ -126,15 +126,15 @@
 
 	if(user.a_intent == I_GRAB && ishuman(user) && ishuman(target)) // we could add other things here eventually. trepanation maybe
 		var/mob/living/carbon/human/H = target
-		if (check_zone(user.zone_sel.selecting) == "chest") // impromptu needle thoracostomy, re-inflate a collapsed lung
-			var/P = (user == target) ? "their" : (target + "\'s")
-			var/SM = (user == target) ? "your" : (target + "\'s")
+		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
+			var/P = (user == target) ? "their" : (target.name + "\'s")
+			var/SM = (user == target) ? "your" : (target.name + "\'s")
 			user.visible_message(span("danger", "[user] aims \the [src] between [P] ribs!"), span("danger", "You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
 			user.visible_message(span("warning", "[user] jabs \the [src] between [P] ribs with \the [src]!"), span("warning", "You jab \the [src] between [SM] ribs!"))
 			if(H.is_lung_ruptured())
-				var/obj/item/organ/lungs/L = H.internal_organs_by_name["lungs"]
+				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
 				if(!L.rescued)
 					L.rescued = TRUE
 				else
@@ -388,35 +388,47 @@
 	visible_name = "a giant syringe"
 	time = 300
 
-	afterattack(obj/target, mob/user, flag)
-		if(mode == SYRINGE_DRAW && ismob(target)) // No drawing 50 units of blood at once
-			to_chat(user, "<span class='notice'>This needle isn't designed for drawing blood.</span>")
-			return
-		if(user.a_intent == "hurt" && ismob(target)) // No instant injecting
-			to_chat(user, "<span class='notice'>This syringe is too big to stab someone with it.</span>")
-		..()
+/obj/item/reagent_containers/syringe/ld50_syringe/afterattack(obj/target, mob/user, flag)
+	if(mode == SYRINGE_DRAW && ismob(target)) // No drawing 50 units of blood at once
+		to_chat(user, "<span class='notice'>This needle isn't designed for drawing blood.</span>")
+		return
+	if(user.a_intent == "hurt" && ismob(target)) // No instant injecting
+		to_chat(user, "<span class='notice'>This syringe is too big to stab someone with it.</span>")
+	..()
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
+/obj/item/reagent_containers/syringe/norepinephrine
+	name = "Syringe (norepinephrine)"
+	desc = "Contains norepinephrine - used to stabilize patients."
+	
+/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+	. = ..()
+	reagents.add_reagent("norepinephrine", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
+
 /obj/item/reagent_containers/syringe/inaprovaline
 	name = "Syringe (inaprovaline)"
 	desc = "Contains inaprovaline - used to stabilize patients."
-	Initialize()
-		. = ..()
-		reagents.add_reagent("inaprovaline", 15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	
+/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+	. = ..()
+	reagents.add_reagent("inaprovaline", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
-/obj/item/reagent_containers/syringe/antitoxin
-	name = "Syringe (anti-toxin)"
+/obj/item/reagent_containers/syringe/dylovene
+	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	Initialize()
-		. = ..()
-		reagents.add_reagent("anti_toxin", 15)
-		mode = SYRINGE_INJECT
-		update_icon()
+	
+/obj/item/reagent_containers/syringe/dylovene/Initialize()
+	. = ..()
+	reagents.add_reagent("dylovene", 15)
+	mode = SYRINGE_INJECT
+	update_icon()
 
 /obj/item/reagent_containers/syringe/antiviral
 	name = "Syringe (deltamivir)"

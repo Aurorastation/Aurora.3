@@ -67,29 +67,29 @@
 
 //internal organs
 
-/obj/item/organ/kidneys/autakh
+/obj/item/organ/internal/kidneys/autakh
 	name = "toxin screen"
 	icon_state = "screen"
 	robotic = 1
 	robotic_name = null
 	robotic_sprite = null
 
-/obj/item/organ/kidneys/autakh/Initialize()
+/obj/item/organ/internal/kidneys/autakh/Initialize()
 	mechassist()
 	. = ..()
 
-/obj/item/organ/anchor
+/obj/item/organ/internal/anchor
 	name = "soul anchor"
 	icon_state = "anchor"
 	organ_tag = "anchor"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	robotic = 2
 
-/obj/item/organ/anchor/Initialize()
+/obj/item/organ/internal/anchor/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/eyes/autakh
+/obj/item/organ/internal/eyes/autakh
 	name = "bionic eyeballs"
 	icon_state = "mk1eyes"
 	singular_name = "bionic eye"
@@ -106,18 +106,18 @@
 	var/selected_hud = "Disabled"
 	var/disabled = FALSE
 
-/obj/item/organ/eyes/autakh/Initialize()
+/obj/item/organ/internal/eyes/autakh/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/eyes/autakh/refresh_action_button()
+/obj/item/organ/internal/eyes/autakh/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "mk1eyes"
 		if(action.button)
 			action.button.UpdateIcon()
 
-/obj/item/organ/eyes/autakh/attack_self(var/mob/user)
+/obj/item/organ/internal/eyes/autakh/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
@@ -140,7 +140,7 @@
 
 		selected_hud = choice
 
-/obj/item/organ/eyes/autakh/process()
+/obj/item/organ/internal/eyes/autakh/process()
 	..()
 
 	if(!owner)
@@ -160,7 +160,7 @@
 			if(allowed(owner))
 				process_med_hud(owner, 1)
 
-/obj/item/organ/eyes/autakh/flash_act()
+/obj/item/organ/internal/eyes/autakh/flash_act()
 	if(owner)
 		to_chat(owner, "<span class='notice'>Your [singular_name]'s retinal overlays are overloaded by the strong light!</span>")
 		owner.eye_blind = 5
@@ -171,13 +171,13 @@
 	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
 	return
 
-/obj/item/organ/eyes/autakh/emp_act(severity)
+/obj/item/organ/internal/eyes/autakh/emp_act(severity)
 	..()
 	disabled = TRUE
 	selected_hud = "Disabled"
 	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
 
-/obj/item/organ/eyes/autakh/proc/rearm()
+/obj/item/organ/internal/eyes/autakh/proc/rearm()
 	if(!disabled)
 		return
 	disabled = FALSE
@@ -185,26 +185,26 @@
 	if(owner)
 		to_chat(owner, "<span class='notice'>\The [singular_name]'s retinal overlays clicks and shifts!</span>")
 
-/obj/item/organ/adrenal
+/obj/item/organ/internal/adrenal
 	name = "adrenal management system"
 	icon_state = "ams"
 	organ_tag = "adrenal"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	robotic = 2
 	action_button_name = "Activate Adrenal Management System"
 
-/obj/item/organ/adrenal/Initialize()
+/obj/item/organ/internal/adrenal/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/adrenal/refresh_action_button()
+/obj/item/organ/internal/adrenal/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "ams"
 		if(action.button)
 			action.button.UpdateIcon()
 
-/obj/item/organ/adrenal/attack_self(var/mob/user)
+/obj/item/organ/internal/adrenal/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
@@ -231,32 +231,32 @@
 
 			owner.vessel.remove_reagent("blood",rand(15,30))
 			owner.reagents.add_reagent("paracetamol", 5)
-			owner.reagents.add_reagent("inaprovaline", 5)
+			owner.reagents.add_reagent("norepinephrine", 5)
 
-/obj/item/organ/haemodynamic
+/obj/item/organ/internal/haemodynamic
 	name = "haemodynamic control system"
 	icon_state = "stabilizer"
 	organ_tag = "haemodynamic"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	robotic = 1
 	action_button_name = "Activate Haemodynamic Control System"
 
-/obj/item/organ/haemodynamic/Initialize()
+/obj/item/organ/internal/haemodynamic/Initialize()
 	mechassist()
 	. = ..()
 
-/obj/item/organ/haemodynamic/Initialize()
+/obj/item/organ/internal/haemodynamic/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/haemodynamic/refresh_action_button()
+/obj/item/organ/internal/haemodynamic/refresh_action_button()
 	. = ..()
 	if(.)
 		action.button_icon_state = "stabilizer"
 		if(action.button)
 			action.button.UpdateIcon()
 
-/obj/item/organ/haemodynamic/attack_self(var/mob/user)
+/obj/item/organ/internal/haemodynamic/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)

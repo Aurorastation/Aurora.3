@@ -229,20 +229,6 @@
 	taste_description = "salty metalic miner tears"
 	fallback_specific_heat = 0.2971
 
-/datum/reagent/adrenaline
-	name = "Adrenaline"
-	id = "adrenaline"
-	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
-	reagent_state = LIQUID
-	color = "#C8A5DC"
-	taste_description = "bitterness"
-	fallback_specific_heat = 0.75
-
-/datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.SetParalysis(0)
-	M.SetWeakened(0)
-	M.adjustToxLoss(rand(3)*removed)
-
 /datum/reagent/water/holywater
 	name = "Holy Water"
 	id = "holywater"
@@ -383,14 +369,6 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
-/datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	M.adjustToxLoss(2 * removed)
-
-/datum/reagent/space_cleaner/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(prob(10))
-		to_chat(M, span("danger","Your insides are burning!"))
-	M.adjustToxLoss(3 * removed)
-
 /datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
@@ -435,6 +413,44 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "oil"
+
+/datum/reagent/nitroglycerin/proc/explode()
+	var/datum/effect/effect/system/reagents_explosion/e = new()
+	e.set_up(round (src.volume/2, 1), holder.my_atom, 0, 0)
+	if(isliving(holder.my_atom))
+		e.amount *= 0.5
+		var/mob/living/L = holder.my_atom
+		if(L.stat!=DEAD)
+			e.amount *= 0.5
+	e.start()
+	holder.clear_reagents()
+
+/datum/reagent/nitroglycerin/add_thermal_energy(var/added_energy)
+	. = ..()
+	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
+		explode()
+
+/datum/reagent/nitroglycerin/apply_force(var/force)
+	..()
+	if(prob(force * 6))
+		explode()
+
+/datum/reagent/nitroglycerin/touch_turf(var/turf/T)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/touch_obj(var/obj/O)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/touch_mob(var/mob/M)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(!istype(H) || alien == IS_DIONA)
+		return
+	H.add_chemical_effect(CE_PULSE, 2)
 
 /datum/reagent/coolant
 	name = "Coolant"
@@ -533,8 +549,8 @@
 	stored_value = metabolism
 
 /datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
+	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
 		stored_value += removed
 		if(stored_value >= 5)
 			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -817,7 +833,7 @@
 	if(!istype(H))
 		return
 
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
 

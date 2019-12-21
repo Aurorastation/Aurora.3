@@ -35,8 +35,8 @@
 		else
 			return 3
 
-	var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
-	var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+	var/obj/item/organ/external/l_leg = H.get_organ(BP_L_LEG)
+	var/obj/item/organ/external/r_leg = H.get_organ(BP_R_LEG)
 
 	if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 		return
@@ -46,9 +46,11 @@
 		if(locate(/obj/item/clothing/accessory/offworlder/bracer) in suit.accessories)
 			return 0
 
-	for (var/datum/reagent/R in H.ingested.reagent_list)
-		if(R.id == "rmt")
-			return 0
+	var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
+	if(S)
+		for(var/datum/reagent/R in S.ingested.reagent_list)
+			if(R.id == "rmt")
+				return 0
 
 	return 4
 
@@ -61,8 +63,8 @@
 		if(A && !A.has_gravity())
 			return
 
-		var/obj/item/organ/external/l_leg = H.get_organ("l_leg")
-		var/obj/item/organ/external/r_leg = H.get_organ("r_leg")
+		var/obj/item/organ/external/l_leg = H.get_organ(BP_L_LEG)
+		var/obj/item/organ/external/r_leg = H.get_organ(BP_R_LEG)
 
 		if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 			return
@@ -77,10 +79,11 @@
 			if(locate(/obj/item/clothing/accessory/offworlder/bracer) in uniform.accessories)
 				return
 
-
-		for (var/datum/reagent/R in H.ingested.reagent_list)
-			if(R.id == "rmt")
-				return
+		var/obj/item/organ/internal/stomach/S = H.internal_organs_by_name[BP_STOMACH]
+		if(S)
+			for(var/datum/reagent/R in S.ingested.reagent_list)
+				if(R.id == "rmt")
+					return
 
 		var/pain_message = pick("You feel sluggish as if something is weighing you down.",
 								"Your legs feel harder to move.",

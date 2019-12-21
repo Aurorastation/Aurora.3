@@ -1,27 +1,21 @@
-/obj/item/organ/heart/left
-	name = "heart"
-	icon_state = "vaurca_heart_l-on"
-	organ_tag = "left heart"
-	parent_organ = "chest"
-	dead_icon = "vaurca_heart_l-off"
+/obj/item/organ/internal/heart/vaurca
+	name = "double heart system"
+	icon_state = "vaurca_heart_d-on"
+	organ_tag = BP_HEART
+	parent_organ = BP_CHEST
+	dead_icon = "vaurca_heart_d-off"
+	max_damage = 90 //two hearts = stronger hearts
 
-/obj/item/organ/heart/right
-	name = "heart"
-	icon_state = "vaurca_heart_r-on"
-	organ_tag = "right heart"
-	parent_organ = "chest"
-	dead_icon = "vaurca_heart_r-off"
-
-/obj/item/organ/lungs/vaurca
+/obj/item/organ/internal/lungs/vaurca
 	icon_state = "lungs_vaurca"
 
-/obj/item/organ/kidneys/vaurca
+/obj/item/organ/internal/kidneys/vaurca
 	icon_state = "kidney_vaurca"
 
-/obj/item/organ/eyes/vaurca
+/obj/item/organ/internal/eyes/vaurca
 	icon_state = "eyes_vaurca"
 
-/obj/item/organ/eyes/vaurca/flash_act()
+/obj/item/organ/internal/eyes/vaurca/flash_act()
 	if(!owner)
 		return
 
@@ -41,14 +35,14 @@
 		owner.disabilities |= NEARSIGHTED
 		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
 
-/obj/item/organ/kidneys/vaurca/robo
+/obj/item/organ/internal/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
 	organ_tag = "mechanical kidneys"
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
 
-/obj/item/organ/liver/vaurca/robo
+/obj/item/organ/internal/liver/vaurca/robo
 	icon_state = "liver_vaurca"
 	organ_tag = "mechanical liver"
 	robotic = 2
@@ -56,24 +50,24 @@
 	robotic_sprite = null
 	tolerance = 20
 
-/obj/item/organ/liver/vaurca
+/obj/item/organ/internal/liver/vaurca
 	icon_state = "liver_vaurca"
 	tolerance = 20
 
-/obj/item/organ/brain/vaurca
+/obj/item/organ/internal/brain/vaurca
 	icon_state = "brain_vaurca"
 
 /obj/item/organ/vaurca/reservoir
 	name = "phoron reservoir"
 	organ_tag = "phoron reservoir"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	icon_state = "phoron_reservoir"
 	robotic = 1
 
 /obj/item/organ/vaurca/filtrationbit
 	name = "filtration bit"
 	organ_tag = "filtration bit"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon_state = "filter"
 	robotic = 2
 
@@ -81,7 +75,7 @@
 	name = "neural socket"
 	organ_tag = "neural socket"
 	icon_state = "neural_socket"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	robotic = 2
 
 obj/item/organ/vaurca/neuralsocket/process()
@@ -110,7 +104,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/vaurca/preserve
 	name = "phoron reserve tank"
 	organ_tag = "phoron reserve tank"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
 	robotic = 1
 	var/datum/gas_mixture/air_contents = null

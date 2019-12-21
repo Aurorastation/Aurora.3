@@ -31,18 +31,23 @@ Bonus
 /datum/symptom/vomit/Activate(var/datum/disease/advance/A)
 	..()
 	if(prob(SYMPTOM_ACTIVATION_PROB / 2))
-		var/mob/living/carbon/M = A.affected_mob
+		var/mob/living/carbon/human/M = A.affected_mob
+		if(!istype(M))
+			return
 		switch(A.stage)
 			if(1, 2, 3, 4)
 				var/message = pick("You feel nauseous.", "You feel like you're going to throw up!")
 				to_chat(M, "<span class='notice'>[message]</span>")
 			else
-				Vomit(M)
+				vomit(M)
 
 	return
 
-/datum/symptom/vomit/proc/Vomit(var/mob/living/carbon/M)
-	M.vomit()//This function is in mob_helpers
+/datum/symptom/vomit/proc/vomit(var/mob/living/carbon/human/M)
+	if(!istype(M))
+		return
+	M.vomit()
+
 /*
 //////////////////////////////////////
 
@@ -72,7 +77,7 @@ Bonus
 	transmittable = 1
 	level = 4
 
-/datum/symptom/vomit/blood/Vomit(var/mob/living/M)
+/datum/symptom/vomit/blood/vomit(var/mob/living/carbon/human/M)
 
 	M.Stun(1)
 	M.visible_message("<B>[M]</B> vomits on the floor!")

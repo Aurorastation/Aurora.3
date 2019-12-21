@@ -1,6 +1,6 @@
 /obj/item/clothing/head/helmet/space/rig/ert
 	light_overlay = "helmet_light_dual"
-	camera_networks = list(NETWORK_ERT)
+	camera = /obj/machinery/camera/network/ert
 
 /obj/item/rig/ert
 	name = "ERT-C hardsuit control module"

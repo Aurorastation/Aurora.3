@@ -152,9 +152,9 @@
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/tramadol = 2,
-		/obj/item/reagent_containers/syringe/antitoxin = 2,
+		/obj/item/reagent_containers/syringe/dylovene = 2,
 		/obj/item/reagent_containers/syringe/antiviral = 1,
-		/obj/item/reagent_containers/syringe/inaprovaline = 2,
+		/obj/item/reagent_containers/syringe/norepinephrine = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -411,6 +411,7 @@
 /obj/random/voidsuit
 	name = "random voidsuit"
 	var/damaged = 0
+	var/for_vox = FALSE
 	var/list/suitmap = list(
 		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
 		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering,
@@ -419,7 +420,13 @@
 		/obj/item/clothing/suit/space/void/security = /obj/item/clothing/head/helmet/space/void/security,
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos,
 		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
-		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain
+		/obj/item/clothing/suit/space/void/captain = /obj/item/clothing/head/helmet/space/void/captain,
+		/obj/item/clothing/suit/space/void/cruiser = /obj/item/clothing/head/helmet/space/void/cruiser,
+		/obj/item/clothing/suit/space/void/frontier = /obj/item/clothing/head/helmet/space/void/frontier,
+		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -429,7 +436,13 @@
 		/obj/item/clothing/suit/space/void/security = 1,
 		/obj/item/clothing/suit/space/void/atmos = 1.5,
 		/obj/item/clothing/suit/space/void/merc = 0.5,
-		/obj/item/clothing/suit/space/void/captain = 0.3
+		/obj/item/clothing/suit/space/void/captain = 0.3,
+		/obj/item/clothing/suit/space/void/cruiser = 0.5,
+		/obj/item/clothing/suit/space/void/frontier = 1,
+		/obj/item/clothing/suit/space/void/hos = 0.3,
+		/obj/item/clothing/suit/space/void/lancer = 0.3,
+		/obj/item/clothing/suit/space/void/sci = 2,
+		/obj/item/clothing/suit/space/void/sol = 0.5
 	)
 	has_postspawn = TRUE
 
@@ -437,15 +450,35 @@
 	damaged = _damaged
 	. = ..(mapload)
 
-/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/void/suit)
+/obj/random/voidsuit/post_spawn(obj/item/clothing/suit/space/suit)
 	var/helmet = suitmap[suit.type]
 	if (helmet)
 		new helmet(loc)
 	else
 		log_debug("random_obj (voidsuit): Type [suit.type] was unable to spawn a matching helmet!")
-	new /obj/item/clothing/shoes/magboots(loc)
+	if(!for_vox)
+		new /obj/item/clothing/shoes/magboots(loc)
+	else
+		new /obj/item/clothing/shoes/magboots/vox(loc)
+		new /obj/item/clothing/gloves/yellow/vox(loc)
 	if (damaged && prob(60))
 		suit.create_breaches(pick(BRUTE, BURN), rand(1, 5))
+
+/obj/random/voidsuit/vox
+	name = "random vox voidsuit"
+	for_vox = TRUE
+	suitmap = list(
+		/obj/item/clothing/suit/space/vox/carapace = /obj/item/clothing/head/helmet/space/vox/carapace,
+		/obj/item/clothing/suit/space/vox/medic = /obj/item/clothing/head/helmet/space/vox/medic,
+		/obj/item/clothing/suit/space/vox/pressure = /obj/item/clothing/head/helmet/space/vox/pressure,
+		/obj/item/clothing/suit/space/vox/stealth = /obj/item/clothing/head/helmet/space/vox/stealth
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/vox/carapace = 1,
+		/obj/item/clothing/suit/space/vox/medic = 1,
+		/obj/item/clothing/suit/space/vox/pressure = 1,
+		/obj/item/clothing/suit/space/vox/stealth = 1
+	)
 
 /obj/random/vendor
 	name = "random vendor"
@@ -754,7 +787,6 @@
 		/obj/item/device/floor_painter = 0.6,
 		/obj/item/device/gps/engineering = 0.6,
 		/obj/item/device/kinetic_analyzer = 0.1,
-		/obj/item/device/kit/paint/ripley/random = 0.1,
 		/obj/item/device/laser_pointer/purple = 0.1,
 		/obj/item/device/light_meter = 0.1,
 		/obj/item/device/magnetic_lock/engineering = 0.3,
@@ -769,7 +801,7 @@
 		/obj/item/seeds/random = 0.25,
 		/obj/item/stack/material/bronze{amount=10},
 		/obj/item/banhammer = 0.05,
-		/obj/item/caution/cone = 0.7,
+		/obj/item/clothing/head/cone = 0.7,
 		/obj/item/contraband/poster = 1.3,
 		/obj/item/extinguisher = 1.3,
 		/obj/item/extinguisher/mini = 0.9,
@@ -1399,4 +1431,51 @@
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
 		/obj/structure/largecrate/animal/hakhma = 0.5
+	)
+
+/obj/random/random_flag
+	name = "random flag"
+	desc = "Contains a random boxed flag or banner."
+	icon = 'icons/obj/decals.dmi'
+	icon_state = "flag_boxed"
+	spawnlist = list(
+		/obj/item/flag/biesel,
+		/obj/item/flag/biesel/l,
+		/obj/item/flag/dominia,
+		/obj/item/flag/dominia/l,
+		/obj/item/flag/dpra,
+		/obj/item/flag/dpra/l,
+		/obj/item/flag/elyra,
+		/obj/item/flag/elyra/l,
+		/obj/item/flag/eridani,
+		/obj/item/flag/eridani/l,
+		/obj/item/flag/hegemony,
+		/obj/item/flag/hegemony/l,
+		/obj/item/flag/heph,
+		/obj/item/flag/heph/l,
+		/obj/item/flag/jargon,
+		/obj/item/flag/jargon/l,
+		/obj/item/flag/nanotrasen,
+		/obj/item/flag/nanotrasen/l,
+		/obj/item/flag/nka,
+		/obj/item/flag/nka/l,
+		/obj/item/flag/pra,
+		/obj/item/flag/pra/l,
+		/obj/item/flag/sol,
+		/obj/item/flag/sol/l,
+		/obj/item/flag/vaurca,
+		/obj/item/flag/vaurca/l,
+		/obj/item/flag/zenghu,
+		/obj/item/flag/zenghu/l
+	)
+
+/obj/random/gift
+	name = "random gift"
+	desc = "Contains a randomly sized gift."
+	icon = 'icons/obj/items.dmi'
+	icon_state = "gift1"
+	spawnlist = list(
+		/obj/item/xmasgift/small = 0.5,
+		/obj/item/xmasgift/medium =  0.3,
+		/obj/item/xmasgift/large = 0.2
 	)

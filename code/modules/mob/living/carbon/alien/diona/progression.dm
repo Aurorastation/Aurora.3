@@ -2,7 +2,7 @@
 
 	//Whitelist requirement for evolution experimentally removed
 	if(!is_alien_whitelisted(src, "Diona") && config.usealienwhitelist)
-		to_chat(src, alert("You are currently not whitelisted to play as a full diona."))
+		to_chat(src, "<span class='warning'>You are currently not whitelisted to play as a full diona.</span>")
 		return null
 
 	var/response = alert(src, "A worker gestalt is a large, slow, and durable humanoid form. You will lose the ability to ventcrawl and devour animals, but you will gain hand-like tendrils and the ability to wear things.You have enough biomass, are you certain you're ready to form a new gestalt?","Confirm Gestalt","Growth!","Patience...")
@@ -85,7 +85,7 @@
 	src.gestalt = adult
 
 	//What do you call a person with no arms or no legs?
-	var/list/organ_removal_priorities = list("l_arm","r_arm","l_leg","r_leg")
+	var/list/organ_removal_priorities = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG)
 	var/limbs_to_remove = (6 - limbs_can_grow)
 	for(var/organ_name in organ_removal_priorities)
 		if(limbs_to_remove <= 0)

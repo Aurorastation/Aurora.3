@@ -92,20 +92,20 @@
 	name = "Heart"
 	description = "Commander Johnson is in critical condition after suffering a heart attack. Doctors say he needs a new heart fast. Ship one, pronto!"
 	reward = 3000
-	wanted_types = list(/obj/item/organ/heart)
+	wanted_types = list(/obj/item/organ/internal/heart)
 
 /datum/bounty/item/assistant/lung
 	name = "Lungs"
 	description = "A recent explosion at %BOSSNAME has left multiple staff with punctured lungs. Ship spare lungs to be rewarded."
 	reward = 3000
 	required_count = 1
-	wanted_types = list(/obj/item/organ/lungs)
+	wanted_types = list(/obj/item/organ/internal/lungs)
 
 /datum/bounty/item/assistant/appendix
 	name = "Appendix"
 	description = "Chef Gibb of %BOSSNAME wants to prepare a traditional Unathi meal using a very special delicacy: an appendix. If you ship one, he'll pay."
 	reward = 3000
-	wanted_types = list(/obj/item/organ/appendix)
+	wanted_types = list(/obj/item/organ/internal/appendix)
 
 /datum/bounty/item/assistant/shard
 	name = "Shards"

@@ -60,12 +60,12 @@ emp_act
 	agony_amount *= siemens_coeff
 
 	switch (def_zone)
-		if("head")
+		if(BP_HEAD)
 			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
 			confused = min(max(confused, 2 * (agony_amount/40)), 8)
-		if("l_hand", "r_hand")
+		if(BP_L_HAND, BP_R_HAND)
 			var/c_hand
-			if (def_zone == "l_hand")
+			if (def_zone == BP_L_HAND)
 				c_hand = l_hand
 			else
 				c_hand = r_hand
@@ -167,7 +167,7 @@ emp_act
 
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src))
-		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = src.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 1)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -272,7 +272,7 @@ emp_act
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(hit_appends)	//forcesay checks stat already
 
-	if((I.damtype == BRUTE || I.damtype == HALLOSS) && prob(25 + (effective_force * 2)))
+	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
@@ -300,7 +300,7 @@ emp_act
 					H.bloody_hands(src)
 
 			switch(hit_zone)
-				if("head")
+				if(BP_HEAD)
 					if(wear_mask)
 						wear_mask.add_blood(src)
 						update_inv_wear_mask(0)
@@ -310,7 +310,7 @@ emp_act
 					if(glasses && prob(33))
 						glasses.add_blood(src)
 						update_inv_glasses(0)
-				if("chest")
+				if(BP_CHEST)
 					bloody_body(src)
 
 	return 1
@@ -357,7 +357,7 @@ emp_act
 			var/mob/living/L = O.thrower
 			zone = check_zone(L.zone_sel.selecting)
 		else
-			zone = ran_zone("chest",75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
@@ -487,7 +487,7 @@ emp_act
 	var/perm = 0
 
 	var/list/perm_by_part = list(
-		"head" = THERMAL_PROTECTION_HEAD,
+		BP_HEAD = THERMAL_PROTECTION_HEAD,
 		"upper_torso" = THERMAL_PROTECTION_UPPER_TORSO,
 		"lower_torso" = THERMAL_PROTECTION_LOWER_TORSO,
 		"legs" = THERMAL_PROTECTION_LEG_LEFT + THERMAL_PROTECTION_LEG_RIGHT,
@@ -500,7 +500,7 @@ emp_act
 		if(C.permeability_coefficient == 1 || !C.body_parts_covered)
 			continue
 		if(C.body_parts_covered & HEAD)
-			perm_by_part["head"] *= C.permeability_coefficient
+			perm_by_part[BP_HEAD] *= C.permeability_coefficient
 		if(C.body_parts_covered & UPPER_TORSO)
 			perm_by_part["upper_torso"] *= C.permeability_coefficient
 		if(C.body_parts_covered & LOWER_TORSO)

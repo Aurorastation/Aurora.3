@@ -19,7 +19,7 @@
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
-		if(target_zone != "eyes" && target_zone != "head")
+		if(target_zone != BP_EYES && target_zone != BP_HEAD)
 			return ..()
 		if((user.is_clumsy()) && prob(50))
 			M = user
@@ -44,13 +44,12 @@
 			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
 		else
 			break
-		H.apply_damage(30, HALLOSS)
+		H.apply_damage(30, PAIN)
 		if(prob(25))
 			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
 			if(affecting)
 				to_chat(H, "<span class='danger'><font size=2>You feel something rip open in your [affecting.name]!</span></font>")
-				var/datum/wound/internal_bleeding/I = new(15)
-				affecting.wounds += I
+				affecting.sever_artery()
 		if(H.can_feel_pain())
 			H.emote("scream")
 
@@ -141,8 +140,9 @@
 	active = !active
 	if(active)
 		to_chat(user, "<span class='notice'>You flip out \the [src].</span>")
-		playsound(user, 'sound/weapons/flipblade.ogg', 15, 1)
+		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
 	else
 		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
+		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
 	update_force()
 	add_fingerprint(user)

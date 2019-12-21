@@ -210,32 +210,38 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/status = pref.organ_data[name]
 			var/organ_name = null
 			switch(name)
-				if("l_arm")
+				if(BP_L_ARM)
 					organ_name = "left arm"
-				if("r_arm")
+				if(BP_R_ARM)
 					organ_name = "right arm"
-				if("l_leg")
+				if(BP_L_LEG)
 					organ_name = "left leg"
-				if("r_leg")
+				if(BP_R_LEG)
 					organ_name = "right leg"
-				if("l_foot")
+				if(BP_L_FOOT)
 					organ_name = "left foot"
-				if("r_foot")
+				if(BP_R_FOOT)
 					organ_name = "right foot"
-				if("l_hand")
+				if(BP_L_HAND)
 					organ_name = "left hand"
-				if("r_hand")
+				if(BP_R_HAND)
 					organ_name = "right hand"
-				if("groin")
+				if(BP_GROIN)
 					organ_name = "lower body"
-				if("chest")
+				if(BP_CHEST)
 					organ_name = "upper body"
-				if("head")
+				if(BP_HEAD)
 					organ_name = "head"
-				if("heart")
+				if(BP_HEART)
 					organ_name = "heart"
-				if("eyes")
+				if(BP_EYES)
 					organ_name = "eyes"
+				if(BP_LUNGS)
+					organ_name = "lungs"
+				if(BP_LIVER)
+					organ_name = "liver"
+				if(BP_KIDNEYS)
+					organ_name = "kidneys"
 
 			if(status == "cyborg")
 				++ind
@@ -262,11 +268,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(ind > 1)
 					out += ", "
 				switch(organ_name)
-					if("heart")
+					if(BP_HEART)
 						out += "\tPacemaker-assisted [organ_name]"
 					if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
 						out += "\tSurgically altered [organ_name]"
-					if("eyes")
+					if(BP_EYES)
 						out += "\tRetinal overlayed [organ_name]"
 					else
 						out += "\tMechanically assisted [organ_name]"
@@ -538,37 +544,37 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/third_limb = null  // if you try to unchange the hand, the arm should also change
 		switch(limb_name)
 			if("Left Leg")
-				limb = "l_leg"
-				second_limb = "l_foot"
+				limb = BP_L_LEG
+				second_limb = BP_L_FOOT
 			if("Right Leg")
-				limb = "r_leg"
-				second_limb = "r_foot"
+				limb = BP_R_LEG
+				second_limb = BP_R_FOOT
 			if("Left Arm")
-				limb = "l_arm"
-				second_limb = "l_hand"
+				limb = BP_L_ARM
+				second_limb = BP_L_HAND
 			if("Right Arm")
-				limb = "r_arm"
-				second_limb = "r_hand"
+				limb = BP_R_ARM
+				second_limb = BP_R_HAND
 			if("Left Foot")
-				limb = "l_foot"
-				third_limb = "l_leg"
+				limb = BP_L_FOOT
+				third_limb = BP_L_LEG
 			if("Right Foot")
-				limb = "r_foot"
-				third_limb = "r_leg"
+				limb = BP_R_FOOT
+				third_limb = BP_R_LEG
 			if("Left Hand")
-				limb = "l_hand"
-				third_limb = "l_arm"
+				limb = BP_L_HAND
+				third_limb = BP_L_ARM
 			if("Right Hand")
-				limb = "r_hand"
-				third_limb = "r_arm"
+				limb = BP_R_HAND
+				third_limb = BP_R_ARM
 			if("Lower Body")
-				limb = "groin"
+				limb = BP_GROIN
 				carries_organs = 1
 			if("Upper Body")
-				limb = "chest"
+				limb = BP_CHEST
 				carries_organs = 1
-			if("Head")
-				limb = "head"
+			if(BP_HEAD)
+				limb = BP_HEAD
 				carries_organs = 1
 			else
 				to_chat(user, "<span class='notice'>Cancelled.</span>")
@@ -617,15 +623,21 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH
 
 	else if(href_list["organs"])
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes")
+		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes", "Lungs", "Liver", "Kidneys")
 		if(!organ_name) return
 
 		var/organ = null
 		switch(organ_name)
 			if("Heart")
-				organ = "heart"
+				organ = BP_HEART
 			if("Eyes")
-				organ = "eyes"
+				organ = BP_EYES
+			if("Lungs")
+				organ = BP_LUNGS
+			if("Liver")
+				organ = BP_LIVER
+			if("Kidneys")
+				organ = BP_KIDNEYS
 
 		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
 		if(!new_state) return

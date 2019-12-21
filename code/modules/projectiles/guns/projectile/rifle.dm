@@ -225,7 +225,6 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
 	icon_state = "gauss_thumper"
 	caliber = "gauss"
-	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/railgun.ogg'
 	load_method = MAGAZINE
@@ -250,3 +249,19 @@
 
 	update_held_icon()
 	return
+
+/obj/item/gun/energy/gauss/mounted/mech
+	name = "heavy gauss cannon"
+	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
+	icon = 'icons/obj/gun.dmi'
+	icon_state = "gauss_thumper"
+	fire_sound = 'sound/weapons/railgun.ogg'
+	fire_delay = 30
+	charge_meter = 0
+	max_shots = 3
+	charge_cost = 500
+	projectile_type = /obj/item/projectile/bullet/gauss/highex
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 12
+	needspin = FALSE

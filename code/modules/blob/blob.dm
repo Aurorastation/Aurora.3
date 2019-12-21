@@ -115,10 +115,6 @@
 		else
 			src.take_damage(rand(1, 10) / fire_resist)
 
-	for(var/obj/mecha/M in range(src,"3x3"))
-		M.visible_message("<span class='danger'>The blob attacks \the [M]!</span>")
-		M.take_damage(rand(20,40))
-
 	hangry -= 1
 	if(hangry < 0)
 		hangry = 0

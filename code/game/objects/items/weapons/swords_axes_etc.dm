@@ -24,7 +24,7 @@
 		user.Weaken(3 * force)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			H.apply_damage(2*force, BRUTE, "head")
+			H.apply_damage(2*force, BRUTE, BP_HEAD)
 		else
 			user.take_organ_damage(2*force)
 		return
@@ -50,7 +50,7 @@
 		"<span class='warning'>You extend the baton.</span>",\
 		"You hear an ominous click.")
 		icon_state = "telebaton_1"
-		item_state = "nullrod"
+		item_state = "telebaton_1"
 		w_class = 3
 		force = 15//quite robust
 		attack_verb = list("smacked", "struck", "slapped")
@@ -91,7 +91,7 @@
 			user.Weaken(3 * force)
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
-				H.apply_damage(2*force, BRUTE, "head")
+				H.apply_damage(2*force, BRUTE, BP_HEAD)
 			else
 				user.take_organ_damage(2*force)
 			return
@@ -101,7 +101,7 @@
 					var/mob/living/carbon/human/T = target
 					var/armor = T.run_armor_check(target_zone,"melee")
 
-					T.apply_damage(40, HALLOSS, target_zone, armor)
+					T.apply_damage(40, PAIN, target_zone, armor)
 		return
 	else
 		return ..()

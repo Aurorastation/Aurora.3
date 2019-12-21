@@ -30,21 +30,21 @@
 		visible_message("<span class='danger'>SPLAT!</span>")
 		M.splat()
 	else
-		var/zone = "chest"
+		var/zone = BP_CHEST
 		if(ishuman(target) && target.mob_size)
 			var/mob/living/carbon/human/H = target
 			switch(type)
 				if("feet")
-					zone = pick("l_foot", "r_foot")
+					zone = pick(BP_L_FOOT, BP_R_FOOT)
 					if(!H.shoes)
-						H.apply_effect(400/(target.mob_size*(target.mob_size*0.25)), AGONY)//Halloss instead of instant knockdown
+						H.apply_effect(400/(target.mob_size*(target.mob_size*0.25)), PAIN)//Halloss instead of instant knockdown
 						//Mainly for the benefit of giant monsters like vaurca breeders
-				if("l_hand", "r_hand")
+				if(BP_L_HAND, BP_R_HAND)
 					zone = type
 					if(!H.gloves)
-						H.apply_effect(250/(target.mob_size*(target.mob_size*0.25)), AGONY)
+						H.apply_effect(250/(target.mob_size*(target.mob_size*0.25)), PAIN)
 		if (!(types & TYPE_SYNTHETIC))
-			target.apply_damage(rand(6,14), AGONY, def_zone = zone, used_weapon = src)
+			target.apply_damage(rand(6,14), PAIN, def_zone = zone, used_weapon = src)
 			target.apply_damage(rand(1,3), BRUTE, def_zone = zone, used_weapon = src)
 
 	playsound(target.loc, 'sound/effects/snap.ogg', 50, 1)
@@ -59,9 +59,9 @@
 		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
 		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-			var/which_hand = "l_hand"
+			var/which_hand = BP_L_HAND
 			if(!user.hand)
-				which_hand = "r_hand"
+				which_hand = BP_R_HAND
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
@@ -75,9 +75,9 @@
 /obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
 	if(armed)
 		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-			var/which_hand = "l_hand"
+			var/which_hand = BP_L_HAND
 			if(!user.hand)
-				which_hand = "r_hand"
+				which_hand = BP_R_HAND
 			triggered(user, which_hand)
 			user.visible_message("<span class='warning'>[user] accidentally sets off [src], breaking their fingers.</span>", \
 								 "<span class='warning'>You accidentally trigger [src]!</span>")
@@ -102,7 +102,7 @@
 	if(armed)
 		finder.visible_message("<span class='warning'>[finder] accidentally sets off [src], breaking their fingers.</span>", \
 							   "<span class='warning'>You accidentally trigger [src]!</span>")
-		triggered(finder, finder.hand ? "l_hand" : "r_hand")
+		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
 		return 1	//end the search!
 	return 0
 

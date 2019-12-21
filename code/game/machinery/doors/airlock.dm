@@ -463,7 +463,7 @@ About the new airlock wires panel:
 				return
 		else if(user.hallucination > 50 && prob(10) && src.operating == 0 && !user.is_diona() && !user.isSynthetic())
 			to_chat(user, "<span class='danger'>You feel a powerful shock course through your body!</span>")
-			user.halloss += 10
+			user.adjustHalLoss(10)
 			user.stunned += 10
 			return
 	..(user)
@@ -788,7 +788,7 @@ About the new airlock wires panel:
 				playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 				if(!istype(H.head, /obj/item/clothing/head/helmet))
 					user.visible_message("<span class='warning'>[user] headbutts the airlock.</span>")
-					var/obj/item/organ/external/affecting = H.get_organ("head")
+					var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 					H.Stun(8)
 					H.Weaken(5)
 					if(affecting.take_damage(10, 0))

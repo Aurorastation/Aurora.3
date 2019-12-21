@@ -25,6 +25,7 @@
 	can_be_placed_into = null
 	flags = OPENCONTAINER | NOBLUDGEON
 	unacidable = 0
+	no_shatter = TRUE
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
@@ -128,8 +129,6 @@
 			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 			if(LAZYLEN(affecting.wounds))
 				for (var/datum/wound/W in affecting.wounds)
-					if (W.internal)
-						continue
 					if(W.bandaged || W.clamped)
 						continue
 					to_chat(user, span("notice", "You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
@@ -153,7 +152,7 @@
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					break // we can only do one at a time
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
 						span("danger","\The [user] smothers [target] with [src]!"),

@@ -35,6 +35,7 @@
 	var/const/deffont = "Verdana"
 	var/const/signfont = "Times New Roman"
 	var/const/crayonfont = "Comic Sans MS"
+	var/const/fountainfont = "Segoe Script"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 
@@ -79,9 +80,9 @@
 	if(icon_state == "paper_talisman")
 		return
 	else if (info && length(trim(info)))
-		icon_state = "paper_words"
+		icon_state = "[initial(icon_state)]_words"
 	else
-		icon_state = "paper"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -171,12 +172,12 @@
 	show_content(user)
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
-	if(target_zone == "eyes")
+	if(target_zone == BP_EYES)
 		user.visible_message("<span class='notice'>You show the paper to [M]. </span>", \
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
 		M.examinate(src)
 
-	else if(target_zone == "mouth") // lipstick wiping
+	else if(target_zone == BP_MOUTH) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -263,7 +264,7 @@
 
 	return signfont
 
-/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon)
+/obj/item/paper/proc/parsepencode(t, obj/item/pen/P, mob/user, iscrayon, isfountain)
 
 	t = replacetext(t, "\[sign\]", "<font face=\"[get_signfont(P, user)]\">[get_signature(P, user)]</font>")
 
@@ -289,6 +290,8 @@
 
 	if(iscrayon)
 		t = "<font face=\"[crayonfont]\" color=[P ? P.colour : "black"]><b>[t]</b></font>"
+	else if(isfountain)
+		t = "<font face=\"[fountainfont]\" color=[P ? P.colour : "black"]><i>[t]</i></font>"
 	else
 		t = "<font face=\"[deffont]\" color=[P ? P.colour : "black"]>[t]</font>"
 
@@ -362,7 +365,8 @@
 
 		var/obj/item/i = usr.get_active_hand() // Check to see if he still got that darn pen, also check if he's using a crayon or pen.
 		var/obj/item/clipboard/c
-		var/iscrayon = 0
+		var/iscrayon = FALSE
+		var/isfountain = FALSE
 		if(!i.ispen())
 			if(usr.back && istype(usr.back,/obj/item/rig))
 				var/obj/item/rig/r = usr.back
@@ -381,8 +385,14 @@
 				return
 
 		if(istype(i, /obj/item/pen/crayon))
-			iscrayon = 1
+			iscrayon = TRUE
 
+		if(istype(i, /obj/item/pen/fountain))
+			var/obj/item/pen/fountain/f = i
+			if(f.cursive)
+				isfountain = TRUE
+			else
+				isfountain = FALSE
 
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
 		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
@@ -390,7 +400,7 @@
 
 		var/last_fields_value = fields
 
-		t = parsepencode(t, i, usr, iscrayon) // Encode everything from pencode to html
+		t = parsepencode(t, i, usr, iscrayon, isfountain) // Encode everything from pencode to html
 
 
 		if(fields > 50)//large amount of fields creates a heavy load on the server, see updateinfolinks() and addtofield()
@@ -450,13 +460,13 @@
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = 20
+				B.layer = SCREEN_LAYER+0.01
 				h_user.l_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.r_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = 20
+				B.layer = SCREEN_LAYER+0.01
 				h_user.r_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.head == src)
@@ -584,3 +594,9 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/sentencing/update_icon()
 	return
+
+/obj/item/paper/nka_pledge
+	name = "imperial volunteer Alam'ardii corps pledge"
+
+/obj/item/paper/nka_pledge/New()
+	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"

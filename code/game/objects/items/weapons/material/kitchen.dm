@@ -5,6 +5,7 @@
  * Utensils
  */
 /obj/item/material/kitchen/utensil
+	drop_sound = 'sound/items/drop/knife.ogg'
 	w_class = 1
 	thrown_force_divisor = 1
 	origin_tech = list(TECH_MATERIAL = 1)
@@ -28,14 +29,14 @@
 		return ..()
 
 	if(user.a_intent != I_HELP)
-		if(target_zone == "head" || target_zone == "eyes")
+		if(target_zone == BP_HEAD || target_zone == BP_EYES)
 			if((user.is_clumsy()) && prob(50))
 				M = user
 			return eyestab(M,user)
 		else
 			return ..()
-	var/fullness = M.nutrition + (M.reagents.get_reagent_amount("nutriment") * 25)
-	if (reagents.total_volume > 0)
+	var/fullness = M.get_fullness()
+	if(reagents.total_volume > 0)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return

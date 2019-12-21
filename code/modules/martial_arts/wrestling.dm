@@ -49,7 +49,7 @@
 	D.visible_message("<span class='danger'>[A] holds [D] down!</span>")
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(40, HALLOSS, affecting, armor_block)
+	D.apply_damage(40, PAIN, affecting, armor_block)
 	return 1
 
 /datum/martial_art/wrestling/proc/wrestling_help()

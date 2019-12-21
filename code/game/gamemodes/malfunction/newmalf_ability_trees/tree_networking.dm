@@ -185,7 +185,7 @@
 	if(!ability_prechecks(user, price))
 		return
 
-	var/alert_target = input("Select new alert level:") in list("green", "blue", "red", "delta", "CANCEL")
+	var/alert_target = input("Select new alert level:") in list("green", "blue", "red", "yellow", "CANCEL")
 	if(!alert_target || !ability_pay(user, price) || alert_target == "CANCEL")
 		to_chat(user, "Hack Aborted")
 		return
@@ -224,8 +224,8 @@
 			continue
 		remaining_apcs += A
 
-	var/duration = (remaining_apcs.len * 100)		// Calculates duration for announcing system
-	if(duration > 3000)								// Two types of announcements. Short hacks trigger immediate warnings. Long hacks are more "progressive".
+	var/duration = (remaining_apcs.len * 50)		// Calculates duration for announcing system
+	if(duration > 1500)								// Two types of announcements. Short hacks trigger immediate warnings. Long hacks are more "progressive".
 		spawn(0)
 			sleep(duration/5)
 			if(!user || user.stat == DEAD)
@@ -249,9 +249,9 @@
 	to_chat(user, "## ESTIMATED DURATION: [round((duration+300)/600)] MINUTES")
 	user.hacking = 1
 	user.system_override = 1
-	// Now actually begin the hack. Each APC takes 10 seconds.
+	// Now actually begin the hack. Each APC takes 5 seconds.
 	for(var/obj/machinery/power/apc/A in shuffle(remaining_apcs))
-		sleep(100)
+		sleep(50)
 		if(!user || user.stat == DEAD)
 			return
 		if(!A || !istype(A) || A.aidisabled)

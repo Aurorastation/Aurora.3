@@ -510,8 +510,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				for(var/datum/wound/W in affecting.wounds)
-					if(W.internal)
-						continue
+
 					if(W.bandaged)
 						continue
 					if(W.current_stage <= W.max_bleeding_stage)
@@ -526,7 +525,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 													"<span class='notice'>You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].</span>" )
 						W.bandage("cable-stitched")
 						use(10)
-						H.apply_damage(25, HALLOSS)
+						H.apply_damage(25, PAIN)
 						if(prob(50))
 							var/obj/item/organ/external/O = H.get_organ(user.zone_sel.selecting)
 							to_chat(H, "<span class='danger'>Something burns in your [O.name]!</span>")
@@ -1064,7 +1063,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ("head")
+		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!affecting)
 			to_chat(user, "<span class='danger'>They don't have a head.</span>")
 			return

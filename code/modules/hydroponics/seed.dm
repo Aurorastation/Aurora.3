@@ -116,7 +116,7 @@
 		return
 
 
-	if(!target_limb) target_limb = pick("l_foot","r_foot","l_leg","r_leg","l_hand","r_hand","l_arm", "r_arm","head","chest","groin")
+	if(!target_limb) target_limb = pick(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM, BP_R_ARM,BP_HEAD,BP_CHEST,BP_GROIN)
 	var/obj/item/organ/external/affecting = target.get_organ(target_limb)
 	var/damage = 0
 
@@ -397,7 +397,7 @@
 			"plasticide",
 			"mutationtoxin",
 			"amutationtoxin",
-			"inaprovaline",
+			"norepinephrine",
 			"space_drugs",
 			"paroxetine",
 			"mercury",
