@@ -72,7 +72,7 @@
 		if(1)
 			visible_message("<span class='notice'>[src] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
 		if(2)
-			priority_announcement.Announce("Warning, a company asset has been removed from it's assigned storage case at [case_area.name]. Company assets require command approval to remove from protected cases.", new_sound = 'sound/ai/caseseclevel1.ogg')
+			priority_announcement.Announce("Warning, a company asset has been removed from it's storage case. Company assets require command approval to remove from protected cases.", new_sound = 'sound/ai/caseseclevel1.ogg')
 		if(3)
 			set_security_level(SEC_LEVEL_BLUE)
 			priority_announcement.Announce("Warning, a company asset has been removed from the storage case in the [case_area.name]. A blue alert level has been enacted to allow security to recover the asset. All crew are advised to not impede security's inquiry into the assets whereabouts.", new_sound = 'sound/ai/caseseclevel2.ogg')
