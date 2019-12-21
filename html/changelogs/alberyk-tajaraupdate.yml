@@ -1,0 +1,10 @@
+author: Alberyk, Coalf, Kyres, Menown, Memescopemcgee and Suethecake
+
+delete-after: True
+
+changes: 
+  - tweak: "Changed Tajara citizenship options to better represent the lore."
+  - rscadd: "Added more loadout options to the Tajara Xenogear selection."
+  - rscadd: "Added Adhomian cigarettes."
+  - rscdel: "Tajara can no longer be Necropolis contractors."
+
