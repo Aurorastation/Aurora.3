@@ -346,12 +346,11 @@
 		/obj/item/storage/fancy/cigar = 5
 	)
 	prices = list(
-		/obj/item/storage/fancy/cigarettes = 200,
 		/obj/item/storage/fancy/cigarettes/rugged = 200,
-		/obj/item/storage/fancy/cigarettes/pra = 230,
 		/obj/item/storage/fancy/cigarettes = 245,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 270,
 		/obj/item/storage/fancy/cigarettes/nicotine = 325,
+		/obj/item/storage/fancy/cigarettes/pra = 230,
 		/obj/item/storage/chewables/rollable/bad = 40,
 		/obj/item/storage/chewables/rollable = 50,
 		/obj/item/storage/chewables/rollable/fine = 60,
