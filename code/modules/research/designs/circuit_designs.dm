@@ -73,38 +73,11 @@
 	build_path = /obj/item/circuitboard/operating
 	sort_string = "FACAA"
 
-/datum/design/circuit/operatingadv
-	name = "life support console"
-	id = "operatingadv"
-	build_path = /obj/item/circuitboard/advoperating
-	sort_string = "FACAB"
-
 /datum/design/circuit/pandemic
 	name = "PanD.E.M.I.C. 2200"
 	id = "pandemic"
 	build_path = /obj/item/circuitboard/pandemic
 	sort_string = "FAEAA"
-
-/datum/design/circuit/clonecontrol
-	name = "cloning control console"
-	id = "clonecontrol"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/circuitboard/cloning
-	sort_string = "FAGAC"
-
-/datum/design/circuit/clonepod
-	name = "clone pod"
-	id = "clonepod"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/circuitboard/clonepod
-	sort_string = "FAGAE"
-
-/datum/design/circuit/clonescanner
-	name = "cloning scanner"
-	id = "clonescanner"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/circuitboard/clonescanner
-	sort_string = "FAGAG"
 
 /datum/design/circuit/crewconsole
 	name = "crew monitoring console"
@@ -126,13 +99,6 @@
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/robotics
 	sort_string = "HAAAB"
-
-/datum/design/circuit/mechacontrol
-	name = "exosuit control console"
-	id = "mechacontrol"
-	req_tech = list(TECH_DATA = 3)
-	build_path = /obj/item/circuitboard/mecha_control
-	sort_string = "HAAAC"
 
 /datum/design/circuit/rdconsole
 	name = "R&D control console"
@@ -280,15 +246,6 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/optable
 	sort_string = "HACAH"
-
-
-/datum/design/circuit/optable
-	name = "advanced operation table scanning board"
-	id = "advoptable_board"
-	req_tech = list(TECH_BIO = 4, TECH_ENGINEERING = 5)
-	build_path = /obj/item/circuitboard/optableadv
-	sort_string = "HACAI"
-
 
 /datum/design/circuit/smartfridge
 	name = "smart fridge board"
@@ -472,116 +429,6 @@
 	build_path = /obj/item/circuitboard/skills
 	sort_string = "LAAAC"
 
-/datum/design/circuit/mecha
-	req_tech = list(TECH_DATA = 3)
-
-/datum/design/circuit/mecha/AssembleDesignName()
-	name = "Exosuit module circuit design ([name])"
-/datum/design/circuit/mecha/AssembleDesignDesc()
-	desc = "Allows for the construction of \a [name] module."
-
-
-/datum/design/circuit/mecha/hermes_main
-	name = "Hermes central control"
-	id = "hermes_main"
-	build_path = /obj/item/circuitboard/mecha/hermes/main
-	sort_string = "MAAAB"
-
-/datum/design/circuit/mecha/hermes_peri
-	name = "Hermes peripherals control"
-	id = "hermes_peri"
-	build_path = /obj/item/circuitboard/mecha/hermes/peripherals
-	sort_string = "MAAAC"
-
-/datum/design/circuit/mecha/ripley_main
-	name = "APLU 'Ripley' central control"
-	id = "ripley_main"
-	build_path = /obj/item/circuitboard/mecha/ripley/main
-	sort_string = "NAAAA"
-
-/datum/design/circuit/mecha/ripley_peri
-	name = "APLU 'Ripley' peripherals control"
-	id = "ripley_peri"
-	build_path = /obj/item/circuitboard/mecha/ripley/peripherals
-	sort_string = "NAAAB"
-
-/datum/design/circuit/mecha/odysseus_main
-	name = "'Odysseus' central control"
-	id = "odysseus_main"
-	req_tech = list(TECH_DATA = 3,TECH_BIO = 2)
-	build_path = /obj/item/circuitboard/mecha/odysseus/main
-	sort_string = "NAABA"
-
-/datum/design/circuit/mecha/odysseus_peri
-	name = "'Odysseus' peripherals control"
-	id = "odysseus_peri"
-	req_tech = list(TECH_DATA = 3,TECH_BIO = 2)
-	build_path = /obj/item/circuitboard/mecha/odysseus/peripherals
-	sort_string = "NAABB"
-
-/datum/design/circuit/mecha/gygax_main
-	name = "'Gygax' central control"
-	id = "gygax_main"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/circuitboard/mecha/gygax/main
-	sort_string = "NAACA"
-
-/datum/design/circuit/mecha/gygax_peri
-	name = "'Gygax' peripherals control"
-	id = "gygax_peri"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/circuitboard/mecha/gygax/peripherals
-	sort_string = "NAACB"
-
-/datum/design/circuit/mecha/gygax_targ
-	name = "'Gygax' weapon control and targeting"
-	id = "gygax_targ"
-	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 2)
-	build_path = /obj/item/circuitboard/mecha/gygax/targeting
-	sort_string = "NAACC"
-
-/datum/design/circuit/mecha/durand_main
-	name = "'Durand' central control"
-	id = "durand_main"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/circuitboard/mecha/durand/main
-	sort_string = "NAADA"
-
-/datum/design/circuit/mecha/durand_peri
-	name = "'Durand' peripherals control"
-	id = "durand_peri"
-	req_tech = list(TECH_DATA = 4)
-	build_path = /obj/item/circuitboard/mecha/durand/peripherals
-	sort_string = "NAADB"
-
-/datum/design/circuit/mecha/durand_targ
-	name = "'Durand' weapon control and targeting"
-	id = "durand_targ"
-	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 2)
-	build_path = /obj/item/circuitboard/mecha/durand/targeting
-	sort_string = "NAADC"
-
-/datum/design/circuit/mecha/phazon_main
-	name = "'Phazon' central control"
-	id = "phazon_main"
-	req_tech = list(TECH_DATA = 6, TECH_BLUESPACE = 6)
-	build_path = /obj/item/circuitboard/mecha/phazon/main
-	sort_string = "NAAEA"
-
-/datum/design/circuit/mecha/phazon_peri
-	name = "'Phazon' peripherals control"
-	id = "phazon_peri"
-	req_tech = list(TECH_DATA = 6, TECH_BLUESPACE = 6)
-	build_path = /obj/item/circuitboard/mecha/phazon/peripherals
-	sort_string = "NAAEB"
-
-/datum/design/circuit/mecha/phazon_targ
-	name = "'Phazon' weapon control and targeting"
-	id = "phazon_targ"
-	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 6, TECH_BLUESPACE = 6)
-	build_path = /obj/item/circuitboard/mecha/phazon/targeting
-	sort_string = "NAAEC"
-
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
 	materials = list("glass" = 2000, "gold" = 1000)
@@ -690,42 +537,42 @@
 	sort_string = "WAAAJ"
 
 /datum/design/circuit/hazard
-	name = "hazard rig central circuit board"
+	name = "hazard hardsuit central circuit board"
 	id = "hazard_rig"
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/hazard
 	sort_string = "WAAAK"
 
 /datum/design/circuit/hazard_target
-	name = "hazard rig control and targeting board"
+	name = "hazard hardsuit control and targeting board"
 	id = "hazard_rig_target"
 	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/hazard
 	sort_string = "WAAAL"
 
 /datum/design/circuit/combat
-	name = "combat rig central circuit board"
+	name = "combat hardsuit central circuit board"
 	id = "combat_rig"
 	req_tech = list(TECH_DATA = 6)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/combat
 	sort_string = "WAAAM"
 
 /datum/design/circuit/combat_target
-	name = "combat rig control and targeting board"
+	name = "combat hardsuit control and targeting board"
 	id = "combat_rig_target"
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 5)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/combat
 	sort_string = "WAAAN"
 
 /datum/design/circuit/hacker
-	name = "cybersuit rig central circuit board"
+	name = "cybersuit hardsuit central circuit board"
 	id = "hacker_rig"
 	req_tech = list(TECH_DATA = 6, TECH_ILLEGAL = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/hacker
 	sort_string = "WAAAO"
 
 /datum/design/circuit/hacker_target
-	name = "cybersuit rig control and targeting board"
+	name = "cybersuit hardsuit control and targeting board"
 	id = "hacker_rig_target"
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker

@@ -30,7 +30,6 @@
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
-	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/validator_mecha)
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
 	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
 
@@ -169,10 +168,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		var/mob/living/L = target_mob
 		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
 		return L
-	if(istype(target_mob, /obj/mecha))
-		var/obj/mecha/M = target_mob
-		M.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
-		return M
 	if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
@@ -195,11 +190,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
 	var/list/L = view(src, dist)
-
-	for (var/obj/mecha/M in mechas_list)
-		if (M.z == src.z && get_dist(src, M) <= dist)
-			L += M
-
 	return L
 
 /mob/living/simple_animal/hostile/death()
@@ -349,6 +339,11 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 //////////////////////////////
 
 /mob/living/simple_animal/hostile/proc/validator_living(var/mob/living/L, var/atom/current)
+	if(ismech(L))
+		var/mob/living/heavy_vehicle/M = L
+		if(!M.pilots?.len)
+			return FALSE
+
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
 	if(L in friends)
@@ -361,14 +356,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		if(L.health < current_health)
 			return TRUE
 	return FALSE
-
-/mob/living/simple_animal/hostile/proc/validator_mecha(var/obj/mecha/M, var/atom/current)
-	if(isliving(current)) // We prefer mobs over anything else
-		return FALSE
-	if (M.occupant)
-		return TRUE
-	else
-		return FALSE
 
 /mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else

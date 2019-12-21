@@ -41,12 +41,6 @@
 	reward = 10000
 	wanted_types = list(/obj/item/reagent_containers/glass/beaker/noreact)
 
-/datum/bounty/item/science/mech_diamond_drill
-	name = "Mech Diamond Mining Drill"
-	description = "%BOSSNAME is willing to pay three months salary in exchange for one mech diamond mining drill."
-	reward = 15000
-	wanted_types = list(/obj/item/mecha_parts/mecha_equipment/tool/drill/diamonddrill)
-
 /datum/bounty/item/science/advanced_egun
 	name = "Advanced Energy Gun"
 	description = "With the price of rechargers on the rise, upper management is interested in purchasing guns that are self-powered. If you ship one, they'll pay."

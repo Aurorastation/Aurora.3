@@ -37,7 +37,7 @@
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(25, HALLOSS, affecting, armor_block)
+	D.apply_damage(25, PAIN, affecting, armor_block)
 	return 1
 
 /datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

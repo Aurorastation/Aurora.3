@@ -306,6 +306,16 @@
 	icon_open = "wflight_open"
 	icon_closed = "wflight"
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	name = "tcfl flight jacket"
+	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
+	icon_state = "lflight"
+	item_state = "lflight"
+	icon_open = "lflight_open"
+	icon_closed = "lflight"
+	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
+	siemens_coefficient = 0.35
+
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	name = "military jacket"
 	desc = "A military-styled jacket made from thick, distressed canvas. Popular among Martian punks. Patches not included."
@@ -320,6 +330,16 @@
 	item_state = "mtan"
 	icon_open = "mtan_open"
 	icon_closed = "mtan"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
+	name = "old military jacket"
+	desc = "A canvas jacket styled after classical earth military garb. Feels sturdy, yet comfortable."
+	icon_state = "mold"
+	item_state = "mold"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
+	icon_state = "mold_alt"
+	item_state = "mold_alt"	
 
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
@@ -626,3 +646,39 @@
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/caution
+	name = "wet floor sign"
+	desc = "Caution! Wet Floor!"
+	description_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
+	description_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "caution"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	force = 1
+	throwforce = 3
+	throw_speed = 2
+	throw_range = 5
+	w_class = 2
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	attack_verb = list("warned", "cautioned", "smashed")
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/suit/caution/attack_self()
+	toggle()
+
+/obj/item/clothing/suit/caution/AltClick()
+	toggle()
+
+/obj/item/clothing/suit/caution/proc/toggle()
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
+	else if(src.icon_state == "caution")
+		src.icon_state = "caution_blinking"
+		src.item_state = "caution_blinking"
+		usr.show_message("You turn the wet floor sign on.")
+		playsound(src.loc, 'sound/items/flashlight.ogg', 75, 1)
+	else
+		src.icon_state = "caution"
+		src.item_state = "caution"
+		usr.show_message("You turn the wet floor sign off.")
+	update_clothing_icon()

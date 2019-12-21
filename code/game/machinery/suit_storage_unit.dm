@@ -712,6 +712,22 @@
 	species = list("Human","Tajara","Skrell","Unathi", "Machine")
 	can_repair = 1
 
+/obj/machinery/suit_cycler/science
+	name = "Research suit cycler"
+	model_text = "Research"
+	req_access = list(access_research)
+	departments = list("Research")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
+/obj/machinery/suit_cycler/freelancer
+	name = "Freelancers suit cycler"
+	model_text = "Freelancers"
+	req_access = list(access_distress)
+	departments = list("Freelancers")
+	species = list("Human","Tajara","Skrell","Unathi", "Machine")
+	can_repair = 1
+
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
 
@@ -1118,6 +1134,25 @@
 				suit.name = "blood-red voidsuit"
 				suit.item_state = "syndie_voidsuit"
 				suit.icon_state = "rig-syndie"
+		if("Research")
+			if(helmet)
+				helmet.name = "research voidsuit helmet"
+				helmet.icon_state = "rig0-sci"
+				helmet.item_state = "research_voidsuit_helmet"
+			if(suit)
+				suit.name = "research voidsuit"
+				suit.item_state = "research_voidsuit"
+				suit.icon_state = "rig-sci"
+
+		if("Freelancers")
+			if(helmet)
+				helmet.name = "freelancer voidsuit helmet"
+				helmet.icon_state = "rig0-freelancer"
+				helmet.item_state = "rig0-freelancer"
+			if(suit)
+				suit.name = "freelancer voidsuit"
+				suit.item_state = "freelancer"
+				suit.icon_state = "freelancer"
 
 	if(helmet) helmet.name = "refitted [helmet.name]"
 	if(suit) suit.name = "refitted [suit.name]"

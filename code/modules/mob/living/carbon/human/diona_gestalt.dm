@@ -18,7 +18,6 @@
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
 	verbs += /mob/living/carbon/human/proc/pause_regen_process
-	verbs += /mob/living/proc/devour
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -153,9 +152,9 @@
 	DS.dionatype = 2//Gestalt
 
 	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/diona/node))
+		if (istype(organ, /obj/item/organ/internal/diona/node))
 			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/diona/nutrients))
+		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
 			DS.nutrient_organ = organ
 
 //This proc can be called if some dionastats information needs to be refreshed or re-found
@@ -165,9 +164,9 @@
 	DS.nutrient_organ = null
 
 	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/diona/node))
+		if (istype(organ, /obj/item/organ/internal/diona/node))
 			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/diona/nutrients))
+		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
 			DS.nutrient_organ = organ
 
 //Splitting functions

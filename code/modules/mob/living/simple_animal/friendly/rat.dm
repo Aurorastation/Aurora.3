@@ -49,7 +49,7 @@
 	max_scan_interval = 20
 	seek_speed = 1
 	max_nutrition = 17
-
+	canbrush = TRUE
 	can_pull_size = 1
 	can_pull_mobs = MOB_PULL_NONE
 
@@ -135,9 +135,6 @@
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
 
-/mob/living/simple_animal/rat/beg(var/atom/thing, var/atom/holder)
-	squeak_soft(0)
-	visible_emote("squeaks timidly, sniffs the air and gazes longingly up at \the [thing.name].",0)
 
 /mob/living/simple_animal/rat/attack_hand(mob/living/carbon/human/M as mob)
 	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click

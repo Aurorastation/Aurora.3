@@ -27,6 +27,8 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
+	blacklisted_species = list("Off-Worlder Human", "M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer
@@ -133,7 +135,7 @@
 	jobtype = /datum/job/atmos
 
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
-	belt = /obj/item/storage/belt/utility/atmostech
+	belt = /obj/item/storage/belt/utility
 	pda = /obj/item/device/pda/atmos
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots

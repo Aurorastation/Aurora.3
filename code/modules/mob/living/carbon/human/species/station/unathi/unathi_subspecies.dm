@@ -52,8 +52,6 @@
 	heat_level_3 = 1000 //Default 1000
 
 	inherent_verbs = list(
-		/mob/living/proc/devour,
-		/mob/living/carbon/human/proc/regurgitate,
 		/mob/living/carbon/human/proc/detach_limb,
 		/mob/living/carbon/human/proc/attach_limb,
 		/mob/living/carbon/human/proc/self_diagnostics,
@@ -65,6 +63,7 @@
 		BP_LUNGS =    /obj/item/organ/internal/lungs,
 		BP_LIVER =    /obj/item/organ/internal/liver,
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/autakh,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes/autakh,
 		BP_ANCHOR =   /obj/item/organ/internal/anchor,

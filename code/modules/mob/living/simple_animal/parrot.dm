@@ -28,7 +28,7 @@
 /mob/living/simple_animal/parrot
 	name = "\improper Parrot"
 	desc = "The parrot squaks, \"It's a Parrot! BAWWK!\""
-	icon = 'icons/mob/npc/animal.dmi'
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
@@ -49,6 +49,7 @@
 	response_harm   = "swats"
 	stop_automated_movement = 1
 	universal_speak = 1
+	canbrush = TRUE
 
 	flying = TRUE
 

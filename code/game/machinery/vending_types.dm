@@ -151,8 +151,7 @@
 		/obj/item/reagent_containers/food/drinks/chaitea = 25,
 		/obj/item/reagent_containers/food/drinks/hotcider = 25,
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 25,
-		/obj/item/reagent_containers/food/snacks/donut/normal = 20,
-		/obj/item/reagent_containers/food/drinks/pslatte = 10
+		/obj/item/reagent_containers/food/snacks/donut/normal = 20
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/ice = 10,
@@ -165,8 +164,7 @@
 		/obj/item/reagent_containers/food/drinks/chaitea = 25,
 		/obj/item/reagent_containers/food/drinks/hotcider = 28,
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 22,
-		/obj/item/reagent_containers/food/snacks/donut/normal = 6,
-		/obj/item/reagent_containers/food/drinks/pslatte = 25
+		/obj/item/reagent_containers/food/snacks/donut/normal = 6
 	)
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/teapot/ = 5
@@ -318,23 +316,54 @@
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
-		/obj/item/storage/fancy/cigarettes = 10,
+		/obj/item/storage/fancy/cigarettes/rugged = 2,
+		/obj/item/storage/fancy/cigarettes = 3,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 2,
+		/obj/item/storage/fancy/cigarettes/nicotine = 2,
+		/obj/item/storage/fancy/cigarettes/pra = 2,
+		/obj/item/storage/chewables/rollable/bad = 2,
+		/obj/item/storage/chewables/rollable = 2,
+		/obj/item/storage/chewables/rollable/fine = 2,
+		/obj/item/storage/chewables/rollable/nico = 2,
+		/obj/item/storage/chewables/tobacco/bad = 2,
+		/obj/item/storage/chewables/tobacco = 2,
+		/obj/item/storage/chewables/tobacco/fine = 2,
+		/obj/item/storage/fancy/chewables/tobacco/nico = 2,
+		/obj/item/storage/cigfilters = 5,
+		/obj/item/storage/fancy/cigpaper = 3,
+		/obj/item/storage/fancy/cigpaper/fine = 2,
 		/obj/item/storage/box/matches = 10,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/spacecash/ewallet/lotto = 30
 	)
 	contraband = list(
 		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 5
+		/obj/item/storage/fancy/cigarettes/acmeco = 5,
+		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,
 		/obj/item/storage/fancy/cigar = 5
 	)
 	prices = list(
-		/obj/item/storage/fancy/cigarettes = 200,
+		/obj/item/storage/fancy/cigarettes/rugged = 200,
+		/obj/item/storage/fancy/cigarettes = 245,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 270,
+		/obj/item/storage/fancy/cigarettes/nicotine = 325,
+		/obj/item/storage/fancy/cigarettes/pra = 230,
+		/obj/item/storage/chewables/rollable/bad = 40,
+		/obj/item/storage/chewables/rollable = 50,
+		/obj/item/storage/chewables/rollable/fine = 60,
+		/obj/item/storage/chewables/rollable/nico = 90,
+		/obj/item/storage/chewables/tobacco/bad = 60,
+		/obj/item/storage/chewables/tobacco = 90,
+		/obj/item/storage/chewables/tobacco/fine = 120,
+		/obj/item/storage/fancy/chewables/tobacco/nico = 150,
 		/obj/item/storage/box/matches = 12,
 		/obj/item/flame/lighter/random = 12,
+		/obj/item/storage/cigfilters = 20,
+		/obj/item/storage/fancy/cigpaper = 32,
+		/obj/item/storage/fancy/cigpaper/fine = 48,
 		/obj/item/spacecash/ewallet/lotto = 200
 	)
 
@@ -348,7 +377,7 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
+		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
 		/obj/item/reagent_containers/glass/bottle/stoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
@@ -371,7 +400,7 @@
 		/obj/item/reagent_containers/pill/stox = 4
 	)
 	premium = list(
-		/obj/item/reagent_containers/glass/bottle/epinephrine = 2
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 2
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
@@ -415,12 +444,12 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
-		/obj/item/reagent_containers/syringe/antitoxin = 4,
+		/obj/item/reagent_containers/syringe/dylovene = 4,
 		/obj/item/reagent_containers/syringe/antiviral = 4,
 		/obj/item/reagent_containers/pill/tox = 1
 	)
@@ -439,8 +468,8 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
-		/obj/item/reagent_containers/syringe/antitoxin = 3,
+		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 5,
+		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
 		/obj/item/device/healthanalyzer = 3
@@ -471,14 +500,14 @@
 		/obj/item/device/holowarrant = 5
 	)
 	premium = list(
-		/obj/item/storage/box/donut = 2
+		/obj/item/storage/fancy/donut = 2
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/storage/box/donut,
+		/obj/item/storage/fancy/donut,
 		/obj/item/storage/box/evidence,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper

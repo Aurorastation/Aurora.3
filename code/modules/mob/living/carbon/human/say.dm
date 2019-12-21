@@ -147,16 +147,6 @@
 		if(parent[3])
 			speech_problem_flag = 1
 
-		var/braindam = getBrainLoss()
-		if(braindam >= 60)
-			speech_problem_flag = 1
-			if(prob(braindam/4))
-				message = get_stuttered_message(message)
-				verb = pick("stammers", "stutters")
-			if(prob(braindam))
-				message = uppertext(message)
-				verb = "yells loudly"
-
 	var/list/returns[4]
 	returns[1] = message
 	returns[2] = verb
@@ -167,57 +157,58 @@
 	return returns
 
 /mob/living/carbon/human/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
-	switch(message_mode)
-		if("intercom")
-			if(!src.restrained())
-				for(var/obj/item/device/radio/intercom/I in view(1))
-					I.talk_into(src, message, null, verb, speaking)
-					I.add_fingerprint(src)
-					used_radios += I
-		if("headset")
-			if(l_ear && istype(l_ear,/obj/item/device/radio))
-				var/obj/item/device/radio/R = l_ear
-				R.talk_into(src,message,null,verb,speaking)
-				used_radios += l_ear
-			else if(r_ear && istype(r_ear,/obj/item/device/radio))
-				var/obj/item/device/radio/R = r_ear
-				R.talk_into(src,message,null,verb,speaking)
-				used_radios += r_ear
-		if("right ear")
-			var/obj/item/device/radio/R
-			var/has_radio = 0
-			if(r_ear && istype(r_ear,/obj/item/device/radio))
-				R = r_ear
-				has_radio = 1
-			if(r_hand && istype(r_hand, /obj/item/device/radio))
-				R = r_hand
-				has_radio = 1
-			if(has_radio)
-				R.talk_into(src,message,null,verb,speaking)
-				used_radios += R
-		if("left ear")
-			var/obj/item/device/radio/R
-			var/has_radio = 0
-			if(l_ear && istype(l_ear,/obj/item/device/radio))
-				R = l_ear
-				has_radio = 1
-			if(l_hand && istype(l_hand,/obj/item/device/radio))
-				R = l_hand
-				has_radio = 1
-			if(has_radio)
-				R.talk_into(src,message,null,verb,speaking)
-				used_radios += R
-		if("whisper")
-			whisper_say(message, speaking, alt_name)
-			return 1
-		else
-			if(message_mode)
+	if(!restrained())
+		switch(message_mode)
+			if("intercom")
+				if(!src.restrained())
+					for(var/obj/item/device/radio/intercom/I in view(1))
+						I.talk_into(src, message, null, verb, speaking)
+						I.add_fingerprint(src)
+						used_radios += I
+			if("headset")
 				if(l_ear && istype(l_ear,/obj/item/device/radio))
-					l_ear.talk_into(src,message, message_mode, verb, speaking)
+					var/obj/item/device/radio/R = l_ear
+					R.talk_into(src,message,null,verb,speaking)
 					used_radios += l_ear
 				else if(r_ear && istype(r_ear,/obj/item/device/radio))
-					r_ear.talk_into(src,message, message_mode, verb, speaking)
+					var/obj/item/device/radio/R = r_ear
+					R.talk_into(src,message,null,verb,speaking)
 					used_radios += r_ear
+			if("right ear")
+				var/obj/item/device/radio/R
+				var/has_radio = 0
+				if(r_ear && istype(r_ear,/obj/item/device/radio))
+					R = r_ear
+					has_radio = 1
+				if(r_hand && istype(r_hand, /obj/item/device/radio))
+					R = r_hand
+					has_radio = 1
+				if(has_radio)
+					R.talk_into(src,message,null,verb,speaking)
+					used_radios += R
+			if("left ear")
+				var/obj/item/device/radio/R
+				var/has_radio = 0
+				if(l_ear && istype(l_ear,/obj/item/device/radio))
+					R = l_ear
+					has_radio = 1
+				if(l_hand && istype(l_hand,/obj/item/device/radio))
+					R = l_hand
+					has_radio = 1
+				if(has_radio)
+					R.talk_into(src,message,null,verb,speaking)
+					used_radios += R
+			if("whisper")
+				whisper_say(message, speaking, alt_name)
+				return 1
+			else
+				if(message_mode)
+					if(l_ear && istype(l_ear,/obj/item/device/radio))
+						l_ear.talk_into(src,message, message_mode, verb, speaking)
+						used_radios += l_ear
+					else if(r_ear && istype(r_ear,/obj/item/device/radio))
+						r_ear.talk_into(src,message, message_mode, verb, speaking)
+						used_radios += r_ear
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()

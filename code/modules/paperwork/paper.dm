@@ -80,9 +80,9 @@
 	if(icon_state == "paper_talisman")
 		return
 	else if (info && length(trim(info)))
-		icon_state = "paper_words"
+		icon_state = "[initial(icon_state)]_words"
 	else
-		icon_state = "paper"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -177,7 +177,7 @@
 			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
 		M.examinate(src)
 
-	else if(target_zone == "mouth") // lipstick wiping
+	else if(target_zone == BP_MOUTH) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -388,7 +388,11 @@
 			iscrayon = TRUE
 
 		if(istype(i, /obj/item/pen/fountain))
-			isfountain = TRUE
+			var/obj/item/pen/fountain/f = i
+			if(f.cursive)
+				isfountain = TRUE
+			else
+				isfountain = FALSE
 
 		// if paper is not in usr, then it must be near them, or in a clipboard or folder, which must be in or near usr
 		if(src.loc != usr && !src.Adjacent(usr) && !((istype(src.loc, /obj/item/clipboard) || istype(src.loc, /obj/item/folder)) && (src.loc.loc == usr || src.loc.Adjacent(usr)) ) )
@@ -456,13 +460,13 @@
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = 20
+				B.layer = SCREEN_LAYER+0.01
 				h_user.l_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.r_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = 20
+				B.layer = SCREEN_LAYER+0.01
 				h_user.r_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.head == src)
@@ -590,3 +594,9 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/sentencing/update_icon()
 	return
+
+/obj/item/paper/nka_pledge
+	name = "imperial volunteer Alam'ardii corps pledge"
+
+/obj/item/paper/nka_pledge/New()
+	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"
