@@ -53,6 +53,16 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	else
 		return I.attack(src, user, user.zone_sel.selecting)
 
+/mob/living/carbon/human/attackby(obj/item/I, mob/user)
+	if(user == src && zone_sel.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
+		var/obj/item/blocked = src.check_mouth_coverage()
+		if(blocked)
+			to_chat(user, span("warning", "\The [blocked] is in the way!"))
+			return TRUE
+		if(devour(I))
+			return TRUE
+	return ..()
+
 // Proximity_flag is 1 if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
 /obj/item/proc/afterattack(atom/target, mob/user, proximity_flag, click_parameters)

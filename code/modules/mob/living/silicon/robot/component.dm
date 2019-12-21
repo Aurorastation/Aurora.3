@@ -77,9 +77,9 @@
 // ARMOUR
 // Protects the cyborg from damage. Usually first module to be hit
 // No power usage
-/datum/robot_component/armour
+/datum/robot_component/armor
 	name = "armour plating"
-	external_type = /obj/item/robot_parts/robot_component/armour
+	external_type = /obj/item/robot_parts/robot_component/armor
 	max_damage = 60
 
 // JETPACK
@@ -232,7 +232,7 @@
 	components["diagnosis unit"] = new/datum/robot_component/diagnosis_unit(src)
 	components["camera"] = new/datum/robot_component/camera(src)
 	components["comms"] = new/datum/robot_component/binary_communication(src)
-	components["armour"] = new/datum/robot_component/armour(src)
+	components["armour"] = new/datum/robot_component/armor(src)
 	components["jetpack"] = new/datum/robot_component/jetpack(src)
 	components["surge"] = new/datum/robot_component/surge(src)
 	jetpackComponent = components["jetpack"]
@@ -297,8 +297,8 @@
 	icon_state = "motor"
 	icon_state_broken = "motor_broken"
 
-/obj/item/robot_parts/robot_component/armour
-	name = "armour plating"
+/obj/item/robot_parts/robot_component/armor
+	name = "armor plating"
 	icon_state = "armor"
 	icon_state_broken = "armor_broken"
 
