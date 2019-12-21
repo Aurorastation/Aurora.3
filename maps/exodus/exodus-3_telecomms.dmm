@@ -1171,7 +1171,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "dE" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
