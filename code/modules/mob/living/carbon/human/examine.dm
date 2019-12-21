@@ -59,7 +59,7 @@
 		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>"
 	msg += "!\n"
 
-	if (species && species.has_organ[BP_IPCTAG] && internal_organs_by_name[BP_IPCTAG])
+	if (should_have_organ(BP_IPCTAG) && internal_organs_by_name[BP_IPCTAG])
 		msg += "[T.He] [T.is] wearing a tag designating them as Integrated Positronic Chassis <b>[src.real_name]</b>.\n"
 
 	//uniform
@@ -366,7 +366,7 @@
 
 	msg += "*---------*</span>"
 	if (pose)
-		if( findtext(pose,".",lentext(pose)) == 0 && findtext(pose,"!",lentext(pose)) == 0 && findtext(pose,"?",lentext(pose)) == 0 )
+		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "\n[T.He] [pose]"
 

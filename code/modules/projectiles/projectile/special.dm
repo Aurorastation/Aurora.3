@@ -222,7 +222,7 @@
 	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
 	embed = 0 // nope
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/cannon
@@ -246,7 +246,7 @@
 	damage = 0
 	check_armour = "energy"
 	embed = 0
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 /obj/item/projectile/magic/fireball
 	name = "fireball"

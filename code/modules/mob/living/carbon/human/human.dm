@@ -27,6 +27,12 @@
 		if(mind)
 			mind.name = real_name
 
+	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
+	if(max_nutrition > 0)
+		nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * max_nutrition * 0.01
+	if(max_hydration > 0)
+		hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * max_hydration * 0.01
+
 	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
 	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
 	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudunknown")
@@ -959,7 +965,7 @@
 
 	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 
-/mob/living/carbon/human/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
+/mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 
 	set waitfor = 0
 
@@ -1703,32 +1709,32 @@
 /mob/living/carbon/human/proc/get_traumas()
 	. = list()
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && species && species.has_organ[BP_BRAIN] && !isipc(src))
+	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.traumas
 
 /mob/living/carbon/human/proc/has_trauma_type(brain_trauma_type, consider_permanent = FALSE)
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && species && species.has_organ[BP_BRAIN] && !isipc(src))
+	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.has_trauma_type(brain_trauma_type, consider_permanent)
 
 /mob/living/carbon/human/proc/gain_trauma(datum/brain_trauma/trauma, permanent = FALSE, list/arguments)
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && species && species.has_organ[BP_BRAIN] && !isipc(src))
+	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.gain_trauma(trauma, permanent, arguments)
 
 /mob/living/carbon/human/proc/gain_trauma_type(brain_trauma_type = /datum/brain_trauma, permanent = FALSE)
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && species && species.has_organ[BP_BRAIN] && !isipc(src))
+	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.gain_trauma_type(brain_trauma_type, permanent)
 
 /mob/living/carbon/human/proc/cure_trauma_type(brain_trauma_type, cure_permanent = FALSE)
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && species && species.has_organ[BP_BRAIN] && !isipc(src))
+	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.cure_trauma_type(brain_trauma_type, cure_permanent)
 
 /mob/living/carbon/human/proc/cure_all_traumas(cure_permanent = FALSE, cure_type = "")
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
-	if(B && species && species.has_organ[BP_BRAIN] && !isipc(src))
+	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.cure_all_traumas(cure_permanent, cure_type)
 
 /mob/living/carbon/human/get_metabolism(metabolism)
@@ -1784,6 +1790,11 @@
 /mob/living/carbon/human/proc/pulse()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.pulse : PULSE_NONE
+
+/mob/living/carbon/human/move_to_stomach(atom/movable/victim)
+	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
+	if(istype(stomach))
+		victim.forceMove(stomach)
 
 /mob/living/carbon/human/need_breathe()
 	if(!(mNobreath in mutations) && species.breathing_organ && species.has_organ[species.breathing_organ])
