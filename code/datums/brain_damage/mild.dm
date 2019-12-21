@@ -120,8 +120,10 @@
 	if(prob(25))
 		switch(rand(1,9))
 			if(1)
-				to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
-				owner.vomit()
+				if(ishuman(owner))
+					var/mob/living/carbon/human/H = owner
+					to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
+					H.vomit()
 			if(2,3)
 				to_chat(owner, "<span class='notice'>You feel light-headed.</span>")
 				owner.dizziness = max(owner.slurring, 10)

@@ -6345,7 +6345,7 @@
 /area/turret_protected/ai)
 "aol" = (
 /obj/machinery/hologram/holopad,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},

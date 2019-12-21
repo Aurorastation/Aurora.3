@@ -538,11 +538,10 @@
 	if (!occupant || !istype(occupant, /mob/living/carbon/human))
 		return
 	var/mob/living/carbon/human/H = occupant
-	var/brain_result = H.get_brain_status()
 
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
-		"brain_activity" = brain_result,
+		"brain_activity" = H.get_brain_status(),
 		"virus_present" = H.virus2.len,
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
@@ -577,7 +576,7 @@
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
 	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
-	dat += text("Brain Activity: []<br>", occ["brain_result"])
+	dat += text("Brain Activity: []<br>", occ["brain_activity"])
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
