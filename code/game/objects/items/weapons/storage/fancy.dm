@@ -151,11 +151,16 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "cigarette packet"
-	desc = "The most popular brand of Space Cigarettes, sponsors of the Space Olympics."
+	name = "Trans-Stellar Duty Free cigarette packet"
+	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
+	icon_type = "cigarette"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
@@ -163,8 +168,7 @@
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/cigbutt)
-	icon_type = "cigarette"
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
 
 /obj/item/storage/fancy/cigarettes/Initialize()
 	flags |= NOREACT
@@ -188,7 +192,7 @@
 	if(!istype(M, /mob))
 		return
 
-	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
+	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
 			to_chat(user, "<span class ='notice'>The [W] is blocking the cigarettes.</span>")
@@ -213,21 +217,21 @@
 // get it? A - AcmeCo, B - Blank, C - Cigar, D - DromedaryCo. How convenient is that? - Wezzy
 
 /obj/item/storage/fancy/cigarettes/acmeco
-	name = "\improper AcmeCo packet"
+	name = "\improper AcmeCo cigarette packet"
 	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
 	icon_state = "Apacket"
-	item_state = "Apacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	item_state = "Apacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
 
 /obj/item/storage/fancy/cigarettes/blank
-	name = "\improper blank packet"
+	name = "\improper blank cigarette packet"
 	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
 	icon_state = "Bpacket"
-	item_state = "Bpacket" //Doesn't have an inhand state, but neither does dromedary, so, ya know..
+	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
 
 /obj/item/storage/fancy/cigarettes/dromedaryco
-	name = "\improper DromedaryCo packet"
+	name = "\improper DromedaryCo cigarette packet"
 	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
 	icon_state = "Dpacket"
 	item_state = "Dpacket"
@@ -239,12 +243,16 @@
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigs_lighters.dmi'
-	drop_sound = 'sound/items/drop/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	use_sound = 'sound/items/storage/briefcase.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
-	storage_slots = 7
+	storage_slots = 8
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
 	icon_type = "cigar"
 
@@ -272,7 +280,7 @@
 	if(!istype(M, /mob))
 		return
 
-	if(M == user && target_zone == "mouth" && contents.len > 0 && !user.wear_mask)
+	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/cigar/W = new /obj/item/clothing/mask/smokable/cigarette/cigar(user)
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
@@ -282,6 +290,20 @@
 		update_icon()
 	else
 		..()
+
+/obj/item/storage/fancy/cigarettes/nicotine
+	name = "\improper Nico-Tine cigarette packet"
+	desc = "A packet of six Nico-Tine cigarettes. Allegedly advertised as the most enviromentally friendly cigarettes in the market. It doesn't specify how, but it definitely isn't your body."
+	icon_state = "Epacket"
+	item_state = "Epacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/nicotine
+
+/obj/item/storage/fancy/cigarettes/rugged
+	name = "\improper Lucky Strike cigarette packet"
+	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, it's original purpose long forgotten."
+	icon_state = "Fpacket"
+	item_state = "Fpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
 
 /*
  * Vial Box

@@ -139,7 +139,6 @@
 	damage = 5
 	agony = 40
 	embed = 0
-	sharp = 0
 
 /* shotgun projectiles */
 
@@ -305,7 +304,7 @@
 
 /obj/item/projectile/bullet/pistol/cap
 	name = "cap"
-	damage_type = HALLOSS
+	damage_type = PAIN
 	damage = 0
 	nodamage = 1
 	embed = 0

@@ -202,8 +202,8 @@
 	icon_state = "janitor"
 	station_area = 1
 
-/area/janitor/surface
-	name = "\improper Surface - Custodial Closet"
+/area/janitor/stairs
+	name = "\improper Stairwell Custodial Closet"
 
 /area/hydroponics
 	name = "\improper Hydroponics"
