@@ -91,4 +91,4 @@ calculate text size per text.
 	return "[temp_text][temp_text ? " " : ""][english_list(out, "something indescribable")]."
 
 /mob/living/carbon/proc/get_fullness()
-	return nutrition + (reagents.get_reagent_amount(/datum/reagent/nutriment) * 25)
+	return nutrition + (reagents.get_reagent_amount("nutriment") * 25)

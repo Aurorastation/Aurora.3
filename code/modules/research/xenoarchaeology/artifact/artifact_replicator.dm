@@ -45,8 +45,8 @@
 	/obj/item/bikehorn,\
 	/obj/item/bonesetter,\
 	/obj/item/material/hatchet/butch,\
-	/obj/item/caution,\
-	/obj/item/caution/cone,\
+	/obj/item/clothing/suit/caution,\
+	/obj/item/clothing/head/cone,\
 	/obj/item/crowbar,\
 	/obj/item/clipboard,\
 	/obj/item/cell,\
