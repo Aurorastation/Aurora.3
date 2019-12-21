@@ -1693,7 +1693,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -3281,7 +3281,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_port)
 "agd" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -5152,7 +5152,7 @@
 /obj/effect/decal/cleanable/blood/oil/streak{
 	amount = 0
 	},
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/security_port)
 "ajC" = (
@@ -10948,7 +10948,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "atD" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -17386,7 +17386,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/library)
 "aGe" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/machinery/power/apc{
@@ -17793,7 +17793,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/fore)
 "aGV" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -18045,7 +18045,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -32327,7 +32327,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "bib" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -35796,7 +35796,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bnZ" = (
@@ -35857,7 +35857,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
 "bog" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
 "boh" = (
@@ -36607,12 +36607,12 @@
 	pixel_x = -26;
 	pixel_y = -6
 	},
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/item/stool/padded,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "bpR" = (
-/obj/item/cigbutt{
+/obj/item/trash/cigbutt{
 	pixel_x = -10;
 	pixel_y = -10
 	},
@@ -37679,7 +37679,7 @@
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/ash,
-/obj/item/cigbutt/cigarbutt,
+/obj/item/trash/cigbutt/cigarbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "brJ" = (
@@ -38688,7 +38688,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "btr" = (
-/obj/item/cigbutt{
+/obj/item/trash/cigbutt{
 	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
@@ -51259,7 +51259,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/miningdock)
 "bPn" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "bPo" = (
@@ -51710,7 +51710,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/misc_lab)
 "bQh" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
 "bQi" = (
@@ -57735,7 +57735,7 @@
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
 "caS" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -68220,7 +68220,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
