@@ -454,7 +454,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	create_characters() //Create player characters and transfer them
 	collect_minds()
 	equip_characters()
-	data_core.manifest()
+	SSrecords.build_records()
 
 	Master.RoundStart()
 	real_round_start_time = REALTIMEOFDAY
@@ -502,7 +502,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	cinematic = new /obj/screen{
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
-		layer = 20;
+		layer = CINEMA_LAYER;
 		mouse_opacity = 0;
 		screen_loc = "1,0"
 	}

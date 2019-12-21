@@ -14,7 +14,7 @@
 		..()
 
 /datum/design/item/weapon/gun/Fabricate()
-	var/obj/item/weapon/gun/C = ..()
+	var/obj/item/gun/C = ..()
 	if (SSATOMS_IS_PROBABLY_DONE)
 		qdel(C.pin)
 	else
@@ -25,7 +25,7 @@
 	id = "flora_gun"
 	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 500, "uranium" = 500)
-	build_path = /obj/item/weapon/gun/energy/floragun
+	build_path = /obj/item/gun/energy/floragun
 	sort_string = "TBAAA"
 
 /datum/design/item/weapon/stunshell
@@ -41,14 +41,14 @@
 	id = "chemsprayer"
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_BIO = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000)
-	build_path = /obj/item/weapon/reagent_containers/spray/chemsprayer
+	build_path = /obj/item/reagent_containers/spray/chemsprayer
 	sort_string = "TABAA"
 
 /datum/design/item/weapon/rapidsyringe
 	id = "rapidsyringe"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_BIO = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 1000)
-	build_path = /obj/item/weapon/gun/launcher/syringe/rapid
+	build_path = /obj/item/gun/launcher/syringe/rapid
 	sort_string = "TABAB"
 
 /datum/design/item/weapon/temp_gun
@@ -56,14 +56,14 @@
 	id = "temp_gun"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 4, TECH_POWER = 3, TECH_MAGNET = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 500, "silver" = 3000)
-	build_path = /obj/item/weapon/gun/energy/temperature
+	build_path = /obj/item/gun/energy/temperature
 	sort_string = "TABAC"
 
 /datum/design/item/weapon/large_grenade
 	id = "large_Grenade"
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
-	build_path = /obj/item/weapon/grenade/chem_grenade/large
+	build_path = /obj/item/grenade/chem_grenade/large
 	sort_string = "TACAA"
 
 /datum/design/item/weapon/eglaive
@@ -72,7 +72,7 @@
 	desc = "A Li'idra designed hardlight glaive reverse-engineered from schematics found amongst raider wreckages."
 	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4,TECH_POWER = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 18750, "phoron" = 3000, "silver" = 7500)
-	build_path = /obj/item/weapon/melee/energy/glaive
+	build_path = /obj/item/melee/energy/glaive
 	sort_string = "TVAAA"
 
 /datum/design/item/forcegloves
@@ -93,7 +93,7 @@
  	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_ILLEGAL = 4)
  	build_type = PROTOLATHE
  	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 3000, "phoron" = 1000)
- 	build_path = /obj/item/weapon/shield/energy
+ 	build_path = /obj/item/shield/energy
  	category = "Weapons"
  	sort_string = "TVHAA"
 
@@ -101,7 +101,7 @@
 	id = "beegun"
 	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 4, TECH_POWER = 4, TECH_COMBAT = 6, TECH_MAGNET = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 2000, "silver" = 500, "diamond" = 3000)
-	build_path = /obj/item/weapon/gun/energy/beegun
+	build_path = /obj/item/gun/energy/beegun
 	sort_string = "TVMAA"
 
 ///MODULAR WEAPON COMPONENTS
@@ -418,35 +418,35 @@
 	id = "ka_frame01"
 	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
-	build_path = /obj/item/weapon/gun/custom_ka/frame01
+	build_path = /obj/item/gun/custom_ka/frame01
 	sort_string = "TZZFA"
 
 /datum/design/item/weapon/ka_frame02
 	id = "ka_frame02"
 	req_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
-	build_path = /obj/item/weapon/gun/custom_ka/frame02
+	build_path = /obj/item/gun/custom_ka/frame02
 	sort_string = "TZZFB"
 
 /datum/design/item/weapon/ka_frame03
 	id = "ka_frame03"
 	req_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "silver" = 2000)
-	build_path = /obj/item/weapon/gun/custom_ka/frame03
+	build_path = /obj/item/gun/custom_ka/frame03
 	sort_string = "TZZFC"
 
 /datum/design/item/weapon/ka_frame04
 	id = "ka_frame04"
 	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, "silver" = 2000, "diamond" = 1000)
-	build_path = /obj/item/weapon/gun/custom_ka/frame04
+	build_path = /obj/item/gun/custom_ka/frame04
 	sort_string = "TZZFD"
 
 /datum/design/item/weapon/ka_frame05
 	id = "ka_frame05"
 	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, "silver" = 4000, "diamond" = 2000)
-	build_path = /obj/item/weapon/gun/custom_ka/frame05
+	build_path = /obj/item/gun/custom_ka/frame05
 	sort_string = "TZZFE"
 
 //Cells

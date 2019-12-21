@@ -13,11 +13,11 @@
 /obj/item/clothing/shoes/
 	var/track_blood = 0
 
-/obj/item/weapon/reagent_containers/glass/rag
+/obj/item/reagent_containers/glass/rag
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
 	w_class = 1
-	icon = 'icons/obj/toy.dmi'
+	icon = 'icons/obj/janitor.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5)
@@ -25,20 +25,23 @@
 	can_be_placed_into = null
 	flags = OPENCONTAINER | NOBLUDGEON
 	unacidable = 0
+	no_shatter = TRUE
 
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
+	var/cleantime = 30
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
-/obj/item/weapon/reagent_containers/glass/rag/Initialize()
+/obj/item/reagent_containers/glass/rag/Initialize()
 	. = ..()
 	update_name()
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/Destroy()
+/obj/item/reagent_containers/glass/rag/Destroy()
 	STOP_PROCESSING(SSprocessing, src) //so we don't continue turning to ash while gc'd
 	return ..()
 
-/obj/item/weapon/reagent_containers/glass/rag/attack_self(mob/user as mob)
+/obj/item/reagent_containers/glass/rag/attack_self(mob/user as mob)
 	if(on_fire)
 		user.visible_message("<span class='warning'>\The [user] stamps out [src].</span>", "<span class='warning'>You stamp out [src].</span>")
 		user.unEquip(src)
@@ -46,9 +49,9 @@
 	else
 		remove_contents(user)
 
-/obj/item/weapon/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && istype(W, /obj/item/weapon/flame))
-		var/obj/item/weapon/flame/F = W
+/obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
+	if(!on_fire && istype(W, /obj/item/flame))
+		var/obj/item/flame/F = W
 		if(F.lit)
 			ignite()
 			if(on_fire)
@@ -58,8 +61,9 @@
 
 	. = ..()
 	update_name()
+	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/proc/update_name()
+/obj/item/reagent_containers/glass/rag/proc/update_name()
 	if(on_fire)
 		name = "burning [initial(name)]"
 	else if(reagents.total_volume)
@@ -67,17 +71,23 @@
 	else
 		name = "dry [initial(name)]"
 
-/obj/item/weapon/reagent_containers/glass/rag/update_icon()
+/obj/item/reagent_containers/glass/rag/update_icon()
 	if(on_fire)
-		icon_state = "raglit"
+		icon_state = "[initial(icon_state)]_lit"
+	else if(reagents.total_volume)
+		icon_state = "[initial(icon_state)]_wet"
 	else
-		icon_state = "rag"
+		icon_state = "[initial(icon_state)]"
 
-	var/obj/item/weapon/reagent_containers/food/drinks/bottle/B = loc
+	var/obj/item/reagent_containers/food/drinks/bottle/B = loc
 	if(istype(B))
 		B.update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/proc/remove_contents(mob/user, atom/trans_dest = null)
+/obj/item/reagent_containers/glass/rag/on_reagent_change()
+	update_name()
+	update_icon()
+
+/obj/item/reagent_containers/glass/rag/proc/remove_contents(mob/user, atom/trans_dest = null)
 	if(!trans_dest && !user.loc)
 		return
 
@@ -92,49 +102,80 @@
 				reagents.splash(user.loc, reagents.total_volume)
 			user.visible_message("<span class='danger'>\The [user] wrings out [src] over [target_text].</span>", "<span class='notice'>You finish to wringing out [src].</span>")
 			update_name()
+			update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
+/obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
 		user.visible_message("\The [user] starts to wipe down [A] with [src]!")
+		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
-		if(do_after(user,30))
+		update_icon()
+		if(do_after(user,cleantime))
 			user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
 
-/obj/item/weapon/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
+/obj/item/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))
 		var/mob/living/M = target
 		if(on_fire)
 			user.visible_message("<span class='danger'>\The [user] hits [target] with [src]!</span>",)
 			user.do_attack_animation(src)
 			M.IgniteMob()
-		else if(reagents.total_volume)
-			if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
-				user.do_attack_animation(src)
-				user.visible_message(
-					"<span class='danger'>\The [user] smothers [target] with [src]!</span>",
-					"<span class='warning'>You smother [target] with [src]!</span>",
-					"You hear some struggling and muffled cries of surprise"
-					)
+		else if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
+			if(LAZYLEN(affecting.wounds))
+				for (var/datum/wound/W in affecting.wounds)
+					if(W.bandaged || W.clamped)
+						continue
+					to_chat(user, span("notice", "You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
+					if(!do_mob(user, M, W.damage/10)) // takes twice as long as a normal bandage
+						to_chat(user, span("notice","You must stand still to bandage wounds."))
+						break
+					for(var/datum/reagent/R in reagents.reagent_list)
+						var/strength = R.germ_adjust * R.volume/4
+						if(istype(R, /datum/reagent/alcohol))
+							var/datum/reagent/alcohol/A = R
+							strength = strength * (A.strength/100)
+						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
+						if (W.germ_level <= 0)
+							W.disinfected = 1//The wound becomes disinfected if fully cleaned
+							break
+					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
+					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
+					user.visible_message(span("notice", "\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."), \
+					                     span("notice", "You bandage \a [W.desc] on [M]'s [affecting.name] with a rag, tying it in place."))
+					W.bandage()
+					qdel(src) // the rag is used up, it'll be all bloody and useless after
+					break // we can only do one at a time
+			else if(reagents.total_volume)
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+					user.do_attack_animation(src)
+					user.visible_message(
+						span("danger","\The [user] smothers [target] with [src]!"),
+						span("warning","You smother [target] with [src]!"),
+						"You hear some struggling and muffled cries of surprise."
+						)
 
-				//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
-				//^HA HA HA
-				reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
-				update_name()
-			else
-				wipe_down(target, user)
-		return
+					//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
+					//^HA HA HA
+					reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
+					update_name()
+					update_icon()
+				else
+					wipe_down(target, user)
+			return
 
 	return ..()
 
-/obj/item/weapon/reagent_containers/glass/rag/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
+/obj/item/reagent_containers/glass/rag/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
 	if(!proximity)
 		return
 
-	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/weapon/reagent_containers/glass))
+	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
 		if(!reagents.get_free_space())
 			to_chat(user, "<span class='warning'>\The [src] is already soaked.</span>")
 			return
@@ -143,6 +184,7 @@
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 			user.visible_message("<span class='notice'>\The [user] soaks [src] using [A].</span>", "<span class='notice'>You soak [src] using [A].</span>")
 			update_name()
+			update_icon()
 		return
 
 	if(!on_fire && istype(A) && (src in user))
@@ -152,7 +194,7 @@
 			wipe_down(A, user)
 		return
 
-/obj/item/weapon/reagent_containers/glass/rag/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/reagent_containers/glass/rag/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if(exposed_temperature >= 50 + T0C)
 		ignite()
 	if(exposed_temperature >= 900 + T0C)
@@ -161,11 +203,11 @@
 
 //rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
 //maybe generalize flammable reagents someday
-/obj/item/weapon/reagent_containers/glass/rag/proc/can_ignite()
+/obj/item/reagent_containers/glass/rag/proc/can_ignite()
 	var/fuel = reagents.get_reagent_amount("fuel")
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
-/obj/item/weapon/reagent_containers/glass/rag/proc/ignite()
+/obj/item/reagent_containers/glass/rag/proc/ignite()
 	if(on_fire)
 		return
 	if(!can_ignite())
@@ -186,7 +228,7 @@
 	update_name()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/proc/extinguish()
+/obj/item/reagent_containers/glass/rag/proc/extinguish()
 	STOP_PROCESSING(SSprocessing, src)
 	set_light(0)
 	on_fire = 0
@@ -200,7 +242,7 @@
 	update_name()
 	update_icon()
 
-/obj/item/weapon/reagent_containers/glass/rag/process()
+/obj/item/reagent_containers/glass/rag/process()
 	if(!can_ignite())
 		visible_message("<span class='warning'>\The [src] burns out.</span>")
 		extinguish()
@@ -221,4 +263,17 @@
 
 	reagents.remove_reagent("fuel", reagents.maximum_volume/25)
 	update_name()
+	update_icon()
 	burn_time--
+
+/obj/item/reagent_containers/glass/rag/advanced
+	name = "microfiber cloth"
+	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
+	w_class = 1
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "advrag"
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5)
+	volume = 10
+	cleantime = 15
+

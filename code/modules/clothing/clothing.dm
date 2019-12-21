@@ -10,7 +10,7 @@
 	var/list/accessories
 	var/list/valid_accessory_slots
 	var/list/restricted_accessory_slots
-
+	var/list/starting_accessories
 	/*
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
@@ -34,6 +34,10 @@
 		material_key = default_material
 	if(material_key) // May still be null if a material was not specified as a default.
 		set_material(material_key)
+	if(starting_accessories)
+		for(var/T in starting_accessories)
+			var/obj/item/clothing/accessory/tie = new T(src)
+			src.attach_accessory(null, tie)
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -179,7 +183,7 @@
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
-			var/obj/item/weapon/material/shard/S = material.place_shard(T)
+			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
 	playsound(src.loc, "shatter", 70, 1)
@@ -194,7 +198,7 @@
 			var/obj/item/projectile/P = damage_source
 
 			var/reflectchance = 40 - round(damage/3)
-			if(!(def_zone in list("chest", "groin")))
+			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
 				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
@@ -316,7 +320,7 @@
 	icon = 'icons/obj/clothing/gloves.dmi'
 	siemens_coefficient = 0.75
 	var/wired = 0
-	var/obj/item/weapon/cell/cell = 0
+	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
@@ -351,9 +355,9 @@
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
 
-/obj/item/clothing/gloves/attackby(obj/item/weapon/W, mob/user)
+/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/weapon/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
 		if (clipped)
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()
@@ -528,7 +532,12 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_masks.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
+		)
 	slot_flags = SLOT_MASK
+	drop_sound = 'sound/items/drop/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
@@ -562,6 +571,8 @@
 	return
 
 /obj/item/clothing/mask/proc/adjust_mask(mob/user)
+	set name = "Adjust Mask"
+	set category = "Object"
 	if(!adjustable)
 		return
 	if(use_check_and_message(user))
@@ -575,8 +586,7 @@
 		icon_state = "[icon_state]down"
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
-		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
-
+		user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -584,9 +594,8 @@
 		item_state = initial(icon_state)
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
-		to_chat(user, "You pull [src] up to cover your face.")
-		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
-
+		user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+	usr.update_action_buttons()
 	update_clothing_icon()
 
 /obj/item/clothing/mask/attack_self(mob/user)
@@ -607,6 +616,8 @@
 
 	var/can_hold_knife
 	var/obj/item/holding
+
+	var/shoes_under_pants = 0
 
 	permeability_coefficient = 0.50
 	slowdown = SHOES_SLOWDOWN
@@ -646,7 +657,7 @@
 
 
 /obj/item/clothing/shoes/attackby(var/obj/item/I, var/mob/user)
-	if(can_hold_knife && is_type_in_list(I, list(/obj/item/weapon/material/shard, /obj/item/weapon/material/kitchen/utensil, /obj/item/weapon/material/knife)))
+	if(can_hold_knife && is_type_in_list(I, list(/obj/item/material/shard, /obj/item/material/kitchen/utensil, /obj/item/material/knife)))
 		if(holding)
 			to_chat(user, "<span class='warning'>\The [src] is already holding \a [holding].</span>")
 			return
@@ -658,6 +669,25 @@
 		update_icon()
 	else
 		return ..()
+
+/obj/item/clothing/shoes/verb/toggle_layer()
+	set name = "Switch Shoe Layer"
+	set category = "Object"
+
+	if(shoes_under_pants == -1)
+		usr << "<span class='notice'>\The [src] cannot be worn above your suit!</span>"
+		return
+	shoes_under_pants = !shoes_under_pants
+	update_icon()
+
+/obj/item/clothing/shoes/update_icon()
+	overlays.Cut()
+	if(holding)
+		overlays += image(icon, "[icon_state]_knife")
+	if(ismob(usr))
+		var/mob/M = usr
+		M.update_inv_shoes()
+	return ..()
 
 /obj/item/clothing/shoes/update_icon()
 	cut_overlays()
@@ -680,7 +710,7 @@
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen)
+	allowed = list(/obj/item/tank/emergency_oxygen)
 	armor = null
 	slot_flags = SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"
@@ -692,7 +722,7 @@
 		"Vox" = 'icons/mob/species/vox/suit.dmi'
 		)
 
-	valid_accessory_slots = list("over")
+	valid_accessory_slots = list("armband","decor", "over")
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
@@ -732,7 +762,7 @@
 	//Also used by rolling/unrolling.
 	var/worn_state = null
 	valid_accessory_slots = list("utility","armband","decor", "over")
-	restricted_accessory_slots = list("utility", "armband")
+	restricted_accessory_slots = list("utility")
 
 
 /obj/item/clothing/under/attack_hand(var/mob/user)

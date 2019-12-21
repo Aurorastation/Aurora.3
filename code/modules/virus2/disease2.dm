@@ -79,8 +79,8 @@
 		if(prob(1))
 			majormutate()
 
-	//Space antibiotics stop disease completely
-	if(mob.reagents.has_reagent("spaceacillin"))
+	//Space antivirals stop disease completely
+	if(CE_ANTIVIRAL in mob.chem_effects)
 		if(stage == 1 && prob(20))
 			src.cure(mob)
 		return
@@ -112,9 +112,7 @@
 		for(var/mob/living/carbon/M in oview(1,mob))
 			if(airborne_can_reach(get_turf(mob), get_turf(M)))
 				infect_virus2(M,src)
-
-	//fever
-	mob.bodytemperature = max(mob.bodytemperature, min(310+5*min(stage,max_stage) ,mob.bodytemperature+5*min(stage,max_stage)))
+	mob.add_chemical_effect(CE_FEVER, (stage + (clicks/max(stage * 100,200)))*14/max_stage)
 	clicks+=speed
 
 /datum/disease2/disease/proc/cure(var/mob/living/carbon/mob)
@@ -189,13 +187,11 @@
 	return res
 
 
-var/global/list/virusDB = list()
-
 /datum/disease2/disease/proc/name()
 	.= "stamm #[add_zero("[uniqueID]", 4)]"
-	if ("[uniqueID]" in virusDB)
-		var/datum/data/record/V = virusDB["[uniqueID]"]
-		.= V.fields["name"]
+	var/datum/record/virus/V = SSrecords.find_record("id", "[uniqueID]", RECORD_VIRUS)
+	if(istype(V))
+		.= V.name
 
 /datum/disease2/disease/proc/get_basic_info()
 	var/t = ""
@@ -222,15 +218,15 @@ var/global/list/virusDB = list()
 	return r
 
 /datum/disease2/disease/proc/addToDB()
-	if ("[uniqueID]" in virusDB)
+	if (SSrecords.find_record("id", "[uniqueID]", RECORD_VIRUS))
 		return 0
-	var/datum/data/record/v = new()
-	v.fields["id"] = uniqueID
-	v.fields["name"] = name()
-	v.fields["description"] = get_info()
-	v.fields["antigen"] = antigens2string(antigen)
-	v.fields["spread type"] = spreadtype
-	virusDB["[uniqueID]"] = v
+	var/datum/record/virus/v = new()
+	v.id = uniqueID
+	v.name = name()
+	v.description = get_info()
+	v.antigen = antigens2string(antigen)
+	v.spread_type = spreadtype
+	SSrecords.add_record(v)
 	return 1
 
 proc/virus2_lesser_infection()

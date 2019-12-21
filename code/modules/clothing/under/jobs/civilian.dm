@@ -7,14 +7,12 @@
 	item_state = "ba_suit"
 	worn_state = "ba_suit"
 
-
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
 	name = "captain's jumpsuit"
 	icon_state = "captain"
 	item_state = "b_suit"
 	worn_state = "captain"
-
 
 /obj/item/clothing/under/rank/cargo
 	name = "quartermaster's jumpsuit"
@@ -23,15 +21,18 @@
 	item_state = "lb_suit"
 	worn_state = "qm"
 
-
 /obj/item/clothing/under/rank/cargotech
 	name = "cargo technician's jumpsuit"
-	desc = "Shooooorts! They're comfy and easy to wear!"
+	desc = "The future of cargo tech apparel: long, stuffy slacks. We never said it was a bright future."
 	icon_state = "cargotech"
 	item_state = "lb_suit"
 	worn_state = "cargo"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
+/obj/item/clothing/under/rank/cargotech/alt
+	desc = "Shooooorts! They're comfy and easy to wear!"
+	icon_state = "cargotech_alt"
+	worn_state = "cargo_alt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/rank/chaplain
 	desc = "It's a black jumpsuit, often worn by religious folk."
@@ -40,7 +41,6 @@
 	item_state = "bl_suit"
 	worn_state = "chapblack"
 
-
 /obj/item/clothing/under/rank/chef
 	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
 	name = "chef's uniform"
@@ -48,14 +48,12 @@
 	item_state = "w_suit"
 	worn_state = "chef"
 
-
 /obj/item/clothing/under/rank/clown
 	name = "clown suit"
 	desc = "<i>'HONK!'</i>"
 	icon_state = "clown"
 	item_state = "clown"
 	worn_state = "clown"
-
 
 /obj/item/clothing/under/rank/head_of_personnel
 	desc = "It's a jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
@@ -71,7 +69,6 @@
 	item_state = "b_suit"
 	worn_state = "hopwhimsy"
 
-
 /obj/item/clothing/under/rank/hydroponics
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
 	name = "botanist's jumpsuit"
@@ -80,14 +77,12 @@
 	worn_state = "hydroponics"
 	permeability_coefficient = 0.50
 
-
-/obj/item/clothing/under/rank/internalaffairs
-	desc = "The plain, professional attire of an Internal Affairs Agent. The collar is <i>immaculately</i> starched."
-	name = "internal affairs uniform"
+/obj/item/clothing/under/rank/liaison
+	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
+	name = "corporate liaison uniform"
 	icon_state = "internalaffairs"
 	item_state = "ba_suit"
 	worn_state = "internalaffairs"
-
 
 /obj/item/clothing/under/rank/janitor
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
@@ -97,11 +92,9 @@
 	item_state = "janitor"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
-
 /obj/item/clothing/under/lawyer
 	desc = "Slick threads."
 	name = "lawyer suit"
-
 
 /obj/item/clothing/under/lawyer/black
 	name = "black lawyer suit"
@@ -109,13 +102,11 @@
 	item_state = "lawyer_black"
 	worn_state = "lawyer_black"
 
-
 /obj/item/clothing/under/lawyer/female
 	name = "black lawyer suit"
 	icon_state = "black_suit_fem"
 	item_state = "lawyer_black"
 	worn_state = "black_suit_fem"
-
 
 /obj/item/clothing/under/lawyer/red
 	name = "red Lawyer suit"
@@ -123,13 +114,11 @@
 	item_state = "lawyer_red"
 	worn_state = "lawyer_red"
 
-
 /obj/item/clothing/under/lawyer/blue
 	name = "blue Lawyer suit"
 	icon_state = "lawyer_blue"
 	item_state = "lawyer_blue"
 	worn_state = "lawyer_blue"
-
 
 /obj/item/clothing/under/lawyer/bluesuit
 	name = "blue suit"
@@ -137,7 +126,6 @@
 	icon_state = "bluesuit"
 	item_state = "ba_suit"
 	worn_state = "bluesuit"
-
 
 /obj/item/clothing/under/lawyer/purpsuit
 	name = "purple suit"
@@ -151,7 +139,6 @@
 	icon_state = "oldman"
 	item_state = "johnny"
 	worn_state = "oldman"
-
 
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
@@ -168,17 +155,29 @@
 	worn_state = "mime"
 
 /obj/item/clothing/under/rank/miner
-	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
+	desc = "It's a snappy miner's jumpsuit, sans overalls and caked with dirt."
 	name = "shaft miner's jumpsuit"
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
 
 /obj/item/clothing/under/rank/hephaestus
-	name = "Hephaestus Industries uniform"
-	desc = "A uniform worn by Hephaestus Industries employees and contractors."
-	icon_state = "heph"
-	worn_state = "heph"
+	name = "Hephaestus Industries engineer uniform"
+	desc = "A uniform worn by Hephaestus Industries engineers."
+	icon_state = "heph_engineer"
+	worn_state = "heph_engineer"
+
+/obj/item/clothing/under/rank/hephaestus/tech
+	name = "Hephaestus Industries technician uniform"
+	desc = "A uniform worn by Hephaestus Industries technicians."
+	icon_state = "heph_technician"
+	worn_state = "heph_technician"
+
+/obj/item/clothing/under/rank/hephaestus/research
+	name = "Hephaestus Industries research uniform"
+	desc = "A uniform worn by Hephaestus Industries researchers."
+	icon_state = "heph_research"
+	worn_state = "heph_research"
 
 /obj/item/clothing/under/rank/necropolis
 	name = "Necropolis Industries uniform"
@@ -186,11 +185,29 @@
 	icon_state = "necro"
 	worn_state = "necro"
 
+/obj/item/clothing/under/rank/necropolis/research
+	name = "Necropolis Industries research uniform"
+	desc = "A uniform worn by Necropolis Industries researchers."
+	icon_state = "necro_research"
+	worn_state = "necro_research"
+
+/obj/item/clothing/under/rank/necropolis/research/alt
+	icon_state = "necro_research_alt"
+	worn_state = "necro_research_alt"
+
 /obj/item/clothing/under/rank/idris
 	name = "Idris Incorporated uniform"
 	desc = "A uniform worn by Idris Incorporated employees and contractors."
-	icon_state = "idris"
-	worn_state = "idris"
+	icon_state = "idris_service"
+	worn_state = "idris_service"
+
+/obj/item/clothing/under/rank/idris/service
+	name = "Idris Incorporated service uniform"
+	desc = "A uniform worn by Idris Incorporated service personnel."
+
+/obj/item/clothing/under/rank/idris/service/alt
+	icon_state = "idris_service_alt"
+	worn_state = "idris_service_alt"
 
 /obj/item/clothing/under/rank/einstein_engines
 	name = "Einstein Engines uniform"
@@ -200,6 +217,22 @@
 
 /obj/item/clothing/under/rank/zeng
 	name = "Zeng-Hu uniform"
-	desc = "A uniform worn by Zeng-Hu employees and contractors."
-	icon_state = "zhu"
-	worn_state = "zhu"
+	desc = "A uniform worn by Zeng-Hu medical doctors and researchers."
+	icon_state = "zeng_research"
+	worn_state = "zeng_research"
+
+/obj/item/clothing/under/rank/zeng/alt
+	icon_state = "zeng_research_alt"
+	worn_state = "zeng_research_alt"
+
+/obj/item/clothing/under/rank/zeng/civilian
+	name = "Zeng-Hu civilian uniform"
+	desc = "A uniform worn by Zeng-Hu employees."
+	icon_state = "zeng_service"
+	worn_state = "zeng_service"
+
+/obj/item/clothing/under/rank/eridani_medic
+	name = "Eridani PMC medic uniform"
+	desc = "A uniform worn by Eridani PMC paramedics."
+	icon_state = "eridani_medic"
+	worn_state = "eridani_medic"

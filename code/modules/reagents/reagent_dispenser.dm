@@ -39,7 +39,7 @@
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
 
-	var/obj/item/weapon/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
 
 		var/atype
@@ -152,7 +152,7 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
@@ -192,10 +192,10 @@
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
 		if(istype(Proj.firer))
-			message_admins("[key_name_admin(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).")
+			log_and_message_admins("shot a welding tank", Proj.firer)
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
 
-		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
+		if(!istype(Proj ,/obj/item/projectile/beam/lastertag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
 			ex_act(2.0)
 
 /obj/structure/reagent_dispensers/fueltank/ex_act(var/severity = 3.0)
@@ -281,10 +281,10 @@
 	. = ..()
 	reagents.add_reagent("water",capacity)
 
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
 		src.add_fingerprint(user)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		if(do_after(user, 20))
 			if(!src) return
 			switch (anchored)
@@ -300,25 +300,50 @@
 
 //Beer Kegs
 
-/obj/structure/reagent_dispensers/beerkeg
-	name = "beer keg"
-	desc = "A beer keg"
+/obj/structure/reagent_dispensers/keg
+	name = "keg"
+	desc = "An empty keg."
 	icon_state = "beertankTEMP"
 	amount_per_transfer_from_this = 10
+	var/reagentid = "beer"
+	var/filled = FALSE
 
-/obj/structure/reagent_dispensers/beerkeg/Initialize()
+/obj/structure/reagent_dispensers/keg/Initialize()
 	. = ..()
-	reagents.add_reagent("beer",capacity)
+	if(filled)
+		reagents.add_reagent(src.reagentid,capacity)
 
-/obj/structure/reagent_dispensers/xuizikeg
+/obj/structure/reagent_dispensers/keg/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = W
+		if(!R.can_use(3)) // like a tripod
+			to_chat(user, span("notice", "You need three rods to make a still!"))
+			return
+		if(do_after(user, 20))
+			if (QDELETED(src))
+				return
+			R.use(3)
+			new /obj/structure/distillery(src.loc)
+			if(reagents)
+				to_chat(user, span("notice", "As you prop the still up on the rods, the reagents inside are spilled. However, you successfully make the still."))
+				reagents.trans_to_turf(get_turf(src), reagents.total_volume)
+			else
+				to_chat(user, span("notice", "You successfully build a still."))
+			qdel(src)
+		return
+	. = ..()
+
+/obj/structure/reagent_dispensers/keg/beerkeg
+	name = "beer keg"
+	desc = "A beer keg"
+	filled = TRUE
+
+/obj/structure/reagent_dispensers/keg/xuizikeg
 	name = "xuizi juice keg"
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
-	amount_per_transfer_from_this = 10
-
-/obj/structure/reagent_dispensers/xuizikeg/Initialize()
-	. = ..()
-	reagents.add_reagent("xuizijuice",capacity)
+	reagentid = "xuizijuice"
+	filled = TRUE
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
@@ -350,7 +375,7 @@
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		if (Proj.damage_type != HALLOSS)
+		if (Proj.damage_type != PAIN)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)

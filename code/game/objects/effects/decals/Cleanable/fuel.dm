@@ -9,8 +9,7 @@
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)
 	. = ..()
 	if(!nologs && !mapload)
-		message_admins("Liquid fuel has spilled in [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
-		log_game("Liquid fuel has spilled in [loc.loc.name] ([loc.x],[loc.y],[loc.z])")
+		log_and_message_admins("spilled liquid fuel", user = usr, location = get_turf(src))
 	src.amount = amt
 
 	var/has_spread = 0

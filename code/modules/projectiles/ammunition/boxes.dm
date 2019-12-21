@@ -301,7 +301,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/tommymag
-	name = "tommygun magazine (.45)"
+	name = "magazine (.45)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -313,7 +313,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/tommydrum
-	name = "tommygun drum magazine (.45)"
+	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
@@ -336,7 +336,6 @@
 
 /obj/item/ammo_magazine/d762
 	name = "magazine (7.62mm)"
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "SVD"
 	mag_type = MAGAZINE
 	caliber = "a762"
@@ -379,7 +378,6 @@
 
 /obj/item/ammo_magazine/assault_shotgun
 	name = "magazine (slug)"
-	icon = 'icons/obj/dragunov.dmi'
 	icon_state = "csmb"
 	caliber = "shotgun"
 	mag_type = MAGAZINE
@@ -442,3 +440,13 @@
 	caliber = "plasma bolt"
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	max_ammo = 30
+
+/obj/item/ammo_magazine/nuke
+	name = "nuclear launcher cartridge"
+	icon_state = "nukemag"
+	w_class = 3
+	mag_type = MAGAZINE
+	caliber = "nuke"
+	ammo_type = /obj/item/ammo_casing/nuke
+	max_ammo = 2
+	multiple_sprites = 1

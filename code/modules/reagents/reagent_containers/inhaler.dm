@@ -1,11 +1,12 @@
 //Inhalers
 //Just like hypopsray code
-/obj/item/weapon/reagent_containers/inhaler
+/obj/item/reagent_containers/inhaler
 	name = "autoinhaler"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "autoinjector"
 	icon_state = "inhaler1"
+	center_of_mass = list("x" = 16,"y" = 11)
 	var/empty_state = "inhaler0"
 	unacidable = 1
 	amount_per_transfer_from_this = 5
@@ -16,13 +17,14 @@
 	slot_flags = SLOT_BELT
 	center_of_mass = null
 	var/used = FALSE
+	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
 
-/obj/item/weapon/reagent_containers/inhaler/Initialize()
+/obj/item/reagent_containers/inhaler/Initialize()
 	. =..()
 	icon_state = empty_state
 	update_icon()
 
-/obj/item/weapon/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
+/obj/item/reagent_containers/inhaler/afterattack(var/mob/living/carbon/human/H, var/mob/user, var/proximity)
 
 	if (!istype(H))
 		return ..()
@@ -85,13 +87,13 @@
 
 	return TRUE
 
-/obj/item/weapon/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
 	. = ..()
 
-/obj/item/weapon/reagent_containers/inhaler/attack_self(mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
@@ -103,20 +105,28 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/weapon/reagent_containers/inhaler/update_icon()
+/obj/item/reagent_containers/inhaler/attackby(obj/item/W, mob/user)
+	if(W.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
+		flags |= OPENCONTAINER
+		update_icon()
+		return
+	. = ..()
+
+/obj/item/reagent_containers/inhaler/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)
 	else
 		icon_state = empty_state
 
-/obj/item/weapon/reagent_containers/inhaler/examine(mob/user)
+/obj/item/reagent_containers/inhaler/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
 		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
 		to_chat(user, "<span class='notice'>It is spent.</span>")
 
-/obj/item/weapon/reagent_containers/inhaler/dexalin
+/obj/item/reagent_containers/inhaler/dexalin
 	name = "autoinhaler (dexalin)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains dexalin."
 
@@ -126,7 +136,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/peridaxon
+/obj/item/reagent_containers/inhaler/peridaxon
 	name = "autoinhaler (peridaxon)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains peridaxon."
 
@@ -136,7 +146,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/hyperzine
+/obj/item/reagent_containers/inhaler/hyperzine
 	name = "autoinhaler (hyperzine)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains hyperzine."
 
@@ -146,7 +156,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/phoron
+/obj/item/reagent_containers/inhaler/phoron
 	name = "autoinhaler (phoron)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains phoron."
 
@@ -156,7 +166,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/phoron_special
+/obj/item/reagent_containers/inhaler/phoron_special
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
 	icon_state = "anthaler1"
@@ -168,7 +178,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/soporific
+/obj/item/reagent_containers/inhaler/soporific
 	name = "autoinhaler (soporific)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
 	icon_state = "so_inhaler1"
@@ -181,7 +191,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/space_drugs
+/obj/item/reagent_containers/inhaler/space_drugs
 	name = "autoinhaler (space drugs)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains space drugs."
 
@@ -191,7 +201,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/ammonia
+/obj/item/reagent_containers/inhaler/ammonia
 	name = "autoinhaler (ammonia)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains ammonia."
 
@@ -201,7 +211,7 @@
 		update_icon()
 		return
 
-/obj/item/weapon/reagent_containers/inhaler/pulmodeiectionem
+/obj/item/reagent_containers/inhaler/pulmodeiectionem
 	name = "autoinhaler (pulmodeiectionem)"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
 

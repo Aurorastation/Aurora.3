@@ -36,7 +36,7 @@
 	animate_tail_stop()
 
 	//Handle brain slugs.
-	var/obj/item/organ/external/head = get_organ("head")
+	var/obj/item/organ/external/head = get_organ(BP_HEAD)
 	var/mob/living/simple_animal/borer/B
 
 	if (head)
@@ -57,8 +57,10 @@
 
 	callHook("death", list(src, gibbed))
 
-	if(!gibbed && species.death_sound)
-		playsound(loc, species.death_sound, 80, 1, 1)
+	if(!gibbed)
+		handle_organs()
+		if(species.death_sound)
+			playsound(loc, species.death_sound, 80, 1, 1)
 
 	if(SSticker.mode)
 		sql_report_death(src)
@@ -67,7 +69,7 @@
 	if(wearing_rig)
 		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
 
-	. = ..(gibbed,species.death_message)
+	. = ..(gibbed,species.death_message, species.death_message_range)
 	handle_hud_list()
 
 /mob/living/carbon/human/proc/ChangeToHusk()

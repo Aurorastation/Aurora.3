@@ -74,23 +74,6 @@
 		M.Animalize()
 
 
-/client/proc/cmd_admin_alienize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make Alien"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(ishuman(M))
-		log_admin("[key_name(src)] has alienized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
-		spawn(10)
-			M:Alienize()
-			feedback_add_details("admin_verb","MKAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		log_admin("[key_name(usr)] made [key_name(M)] into an alien.",admin_key=key_name(usr),ckey=key_name(M))
-		message_admins("<span class='notice'>[key_name_admin(usr)] made [key_name(M)] into an alien.</span>", 1)
-	else
-		alert("Invalid mob")
-
 /client/proc/cmd_admin_slimeize(var/mob/M in mob_list)
 	set category = "Fun"
 	set name = "Make slime"
@@ -169,7 +152,7 @@
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
 				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground.")
-				new /obj/item/weapon/book/tome(M.loc)
+				new /obj/item/book/tome(M.loc)
 			else
 				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie.")
 			var/glimpse=pick("1","2","3","4","5","6","7","8")
@@ -240,14 +223,14 @@
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		if (H.wear_id)
-			var/obj/item/weapon/card/id/id = H.wear_id
+			var/obj/item/card/id/id = H.wear_id
 			if(istype(H.wear_id, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = H.wear_id
 				id = pda.id
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
-			var/obj/item/weapon/card/id/id = new/obj/item/weapon/card/id(M);
+			var/obj/item/card/id/id = new/obj/item/card/id(M);
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 			id.registered_name = H.real_name
@@ -354,7 +337,7 @@
 	for(var/areatype in areas_without_air_alarm)
 		to_world("* [areatype]")
 
-	to_world("<b>AREAS WITHOUT A REQUEST CONSOLE:</b>")
+	to_world("<b>AREAS WITHOUT A REQUESTS CONSOLE:</b>")
 	for(var/areatype in areas_without_RC)
 		to_world("* [areatype]")
 
@@ -409,10 +392,10 @@
 		return
 
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	
+
 	if(dostrip)
 		for (var/obj/item/I in M)
-			if (istype(I, /obj/item/weapon/implant))
+			if (istype(I, /obj/item/implant))
 				continue
 			M.drop_from_inventory(I)
 			if(I.loc != M)
@@ -421,7 +404,7 @@
 	switch(dresscode)
 		if("strip")
 			//do nothing
-		
+
 		if("as job...")
 			var/datum/job/jobdatum
 			var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
@@ -430,7 +413,7 @@
 				dresscode = "[jobdatum.title]"
 				M.job = jobdatum.title
 				jobdatum.equip(M)
-		
+
 		if("emergency response team")
 			ert.equip(M)
 
@@ -484,7 +467,7 @@
 	for(var/obj/machinery/power/rad_collector/Rad in world)
 		if(Rad.anchored)
 			if(!Rad.P)
-				var/obj/item/weapon/tank/phoron/Phoron = new/obj/item/weapon/tank/phoron(Rad)
+				var/obj/item/tank/phoron/Phoron = new/obj/item/tank/phoron(Rad)
 				Phoron.air_contents.gas["phoron"] = 70
 				Rad.drainratio = 0
 				Rad.P = Phoron

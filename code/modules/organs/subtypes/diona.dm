@@ -49,7 +49,7 @@
 	min_broken_damage = 50
 	w_class = 4
 	body_part = LOWER_TORSO
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -63,7 +63,7 @@
 	min_broken_damage = 20
 	w_class = 3
 	body_part = ARM_LEFT
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	can_grasp = 1
 	cannot_break = 1
 	dislocated = -1
@@ -89,7 +89,7 @@
 	w_class = 3
 	body_part = LEG_LEFT
 	icon_position = LEFT
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	can_stand = 1
 	cannot_break = 1
 	dislocated = -1
@@ -116,7 +116,7 @@
 	w_class = 2
 	body_part = FOOT_LEFT
 	icon_position = LEFT
-	parent_organ = "l_leg"
+	parent_organ = BP_L_LEG
 	can_stand = 1
 	cannot_break = 1
 	dislocated = -1
@@ -129,7 +129,7 @@
 	icon_name = "r_foot"
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
-	parent_organ = "r_leg"
+	parent_organ = BP_R_LEG
 	joint = "right ankle"
 	amputation_point = "right ankle"
 	cannot_break = 1
@@ -145,7 +145,7 @@
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
-	parent_organ = "l_arm"
+	parent_organ = BP_L_ARM
 	can_grasp = 1
 	cannot_break = 1
 	dislocated = -1
@@ -157,7 +157,7 @@
 	limb_name = "r_hand"
 	icon_name = "r_hand"
 	body_part = HAND_RIGHT
-	parent_organ = "r_arm"
+	parent_organ = BP_R_ARM
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
@@ -166,49 +166,49 @@
 /obj/item/organ/external/head/diona
 	limb_name = "head"
 	icon_name = "head"
-	name = "head"
+	name = BP_HEAD
 	max_damage = 50
 	min_broken_damage = 25
 	w_class = 3
 	body_part = HEAD
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	cannot_break = 1
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
 	vital = FALSE // Lore team requested this, not vital organ. We can still live without it.
 
-/obj/item/organ/diona/process()
+/obj/item/organ/internal/diona/process()
 	return
 
-/obj/item/organ/diona/strata
+/obj/item/organ/internal/diona/strata
 	name = "neural strata"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	organ_tag = "neural strata"
 
 
-/obj/item/organ/diona/bladder
+/obj/item/organ/internal/diona/bladder
 	name = "gas bladder"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	organ_tag = "gas bladder"
 
-/obj/item/organ/diona/polyp
+/obj/item/organ/internal/diona/polyp
 	name = "polyp segment"
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	organ_tag = "polyp segment"
 
-/obj/item/organ/diona/ligament
+/obj/item/organ/internal/diona/ligament
 	name = "anchoring ligament"
-	parent_organ = "groin"
+	parent_organ = BP_GROIN
 	organ_tag = "anchoring ligament"
 
-/obj/item/organ/diona
+/obj/item/organ/internal/diona
 	name = "diona nymph"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "nymph"
 	organ_tag = "special" // Turns into a nymph instantly, no transplanting possible.
 
-/obj/item/organ/diona/removed(var/mob/living/user)
+/obj/item/organ/internal/diona/removed(var/mob/living/user)
 	var/mob/living/carbon/human/H = owner
 	..()
 	if(!istype(H) || !H.organs || !H.organs.len)
@@ -221,22 +221,22 @@
 
 // These are different to the standard diona organs as they have a purpose in other
 // species (absorbing radiation and light respectively)
-/obj/item/organ/diona/nutrients
+/obj/item/organ/internal/diona/nutrients
 	name = "nutrient channel"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	organ_tag = "nutrient channel"
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
 
-/obj/item/organ/diona/nutrients/removed()
+/obj/item/organ/internal/diona/nutrients/removed()
 	return
 
-/obj/item/organ/diona/node
+/obj/item/organ/internal/diona/node
 	name = "response node"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	organ_tag = "response node"
 	icon = 'icons/mob/npc/alien.dmi'
 	icon_state = "claw"
 
-/obj/item/organ/diona/node/removed()
+/obj/item/organ/internal/diona/node/removed()
 	return

@@ -7,6 +7,7 @@
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
+	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -40,26 +41,26 @@
 	grab_mod = 1.1
 
 	has_organ = list(
-		"nutrient channel"   = /obj/item/organ/diona/nutrients,
-		"neural strata"      = /obj/item/organ/diona/strata,
-		"response node"      = /obj/item/organ/diona/node,
-		"gas bladder"        = /obj/item/organ/diona/bladder,
-		"polyp segment"      = /obj/item/organ/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/diona/ligament
+		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
+		"neural strata"      = /obj/item/organ/internal/diona/strata,
+		"response node"      = /obj/item/organ/internal/diona/node,
+		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
+		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
+		"anchoring ligament" = /obj/item/organ/internal/diona/ligament
 	)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
-		"groin" =  list("path" = /obj/item/organ/external/groin/diona),
-		"head" =   list("path" = /obj/item/organ/external/head/diona),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/diona),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/diona),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/diona),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/diona),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/diona),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/diona),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/diona),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/diona),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/diona),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/diona),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/diona),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/diona),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/diona),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/diona),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/diona),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/diona)
 		)
 
 	warning_low_pressure = 50
@@ -69,15 +70,15 @@
 	cold_level_2 = 223
 	cold_level_3 = 173
 
-	heat_level_1 = 420 //Default 360 - Higher is better
-	heat_level_2 = 480 //Default 400
-	heat_level_3 = 1100 //Default 1000
+	heat_level_1 = 800 //Default 360 - Higher is better
+	heat_level_2 = 850 //Default 400
+	heat_level_3 = 1500 //Default 1000
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY
-	appearance_flags = 0
-	spawn_flags = CAN_JOIN | IS_WHITELISTED
+	appearance_flags = HAS_HAIR_COLOR
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES | NO_TENDONS
+	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
@@ -88,9 +89,12 @@
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
-	vision_organ = "head"
+	vision_organ = BP_HEAD
 
 	max_hydration_factor = -1
+
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
+	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
@@ -100,7 +104,7 @@
 
 	var/remainder = cost * H.sprint_cost_factor
 
-	if (H.total_radiation)
+	if (H.total_radiation && !DS.regening_organ)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
 			H.apply_radiation(cost*(-0.5))
 			return 1
@@ -131,7 +135,7 @@
 	return H.organs_by_name[vision_organ]
 
 /datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/weapon/storage/backpack))
+	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
 	else
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
@@ -150,12 +154,17 @@
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.
-	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[4] = O.is_stump() ? 3 : world.view
 	return current_flags
 
 /datum/species/diona/handle_speech_sound(mob/living/carbon/human/H, list/current_flags)
 	current_flags = ..()
-	var/obj/item/organ/external/O = H.organs_by_name["head"]
+	var/obj/item/organ/external/O = H.organs_by_name[BP_HEAD]
 	current_flags[3] = O.is_stump()
 	return current_flags
+
+/datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE

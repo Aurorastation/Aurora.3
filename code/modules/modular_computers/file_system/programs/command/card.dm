@@ -22,7 +22,7 @@
 
 	data["src"] = "\ref[src]"
 	data["station_name"] = station_name()
-	data["manifest"] = data_core ? data_core.get_manifest(0) : null
+	data["manifest"] = SSrecords.get_manifest()
 	data["assignments"] = show_assignments
 	if(program && program.computer)
 		data["have_id_slot"] = !!program.computer.card_slot
@@ -38,7 +38,7 @@
 	data["centcom_access"] = is_centcom
 
 	if(program && program.computer && program.computer.card_slot)
-		var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card
+		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
 		data["has_id"] = !!id_card
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
 		data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
@@ -58,7 +58,7 @@
 	data["regions"] = get_accesses()
 
 	if(program.computer.card_slot.stored_card)
-		var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card
+		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
 		if(is_centcom)
 			var/list/all_centcom_access = list()
 			for(var/access in get_all_centcom_access())
@@ -91,7 +91,7 @@
 		ui.open()
 
 /datum/nano_module/program/card_mod/proc/format_jobs(list/jobs)
-	var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card
+	var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
 	var/list/formatted = list()
 	for(var/job in jobs)
 		formatted.Add(list(list(
@@ -110,8 +110,8 @@
 		return 1
 
 	var/mob/user = usr
-	var/obj/item/weapon/card/id/user_id_card = user.GetIdCard()
-	var/obj/item/weapon/card/id/id_card = computer.card_slot.stored_card
+	var/obj/item/card/id/user_id_card = user.GetIdCard()
+	var/obj/item/card/id/id_card = computer.card_slot.stored_card
 	var/datum/nano_module/program/card_mod/module = NM
 	switch(href_list["action"])
 		if("switchm")
@@ -151,7 +151,7 @@
 				else
 					var/contents = {"<h4>Crew Manifest</h4>
 									<br>
-									[data_core ? data_core.get_manifest(0) : ""]
+									[SSrecords.get_manifest(1)]
 									"}
 					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
 						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
@@ -161,7 +161,18 @@
 		if("eject")
 			if(computer && computer.card_slot)
 				if(id_card)
-					data_core.manifest_modify(id_card.registered_name, id_card.assignment)
+					var/datum/record/general/R = SSrecords.find_record("name", id_card.registered_name)
+					if(istype(R))
+						var/real_title = id_card.assignment
+						for(var/datum/job/J in get_job_datums())
+							if(!J)
+								continue
+							var/list/alttitles = get_alternate_titles(J.title)
+							if(id_card.assignment in alttitles)
+								real_title = J.title
+								break
+						R.rank = id_card.assignment
+						R.real_rank = real_title
 				computer.proc_eject_id(user)
 		if("suspend")
 			if(computer && can_run(user, 1))
@@ -224,8 +235,8 @@
 	SSnanoui.update_uis(NM)
 	return 1
 
-/datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/weapon/card/id/id_card)
+/datum/computer_file/program/card_mod/proc/remove_nt_access(var/obj/item/card/id/id_card)
 	id_card.access -= get_access_ids(ACCESS_TYPE_STATION|ACCESS_TYPE_CENTCOM)
 
-/datum/computer_file/program/card_mod/proc/apply_access(var/obj/item/weapon/card/id/id_card, var/list/accesses)
+/datum/computer_file/program/card_mod/proc/apply_access(var/obj/item/card/id/id_card, var/list/accesses)
 	id_card.access |= accesses

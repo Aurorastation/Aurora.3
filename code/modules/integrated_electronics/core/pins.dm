@@ -111,7 +111,7 @@ list[](
 	push_data()
 
 /datum/integrated_io/proc/write_data_to_pin(var/new_data)
-	if(isnull(new_data) || isnum(new_data) || istext(new_data) || isweakref(new_data)) // Anything else is a type we don't want.
+	if(isnull(new_data) || isnum(new_data) || istext(new_data) || isweakref(new_data) || islist(new_data)) // Anything else is a type we don't want.
 		data = new_data
 		holder.on_data_written()
 
@@ -121,7 +121,7 @@ list[](
 
 /datum/integrated_io/activate/push_data()
 	for(var/datum/integrated_io/io in linked)
-		io.holder.check_then_do_work()
+		io.holder.check_then_do_work(FALSE)
 
 /datum/integrated_io/proc/pull_data()
 	for(var/datum/integrated_io/io in linked)

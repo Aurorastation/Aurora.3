@@ -76,6 +76,7 @@
 	data["boss_short"] = current_map.boss_short
 	data["current_security_level"] = security_level
 	data["current_security_level_title"] = num2seclevel(security_level)
+	data["current_maint_all_access"] = maint_all_access
 
 	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
 	data["def_SEC_LEVEL_YELLOW"] = SEC_LEVEL_YELLOW
@@ -133,10 +134,20 @@
 	switch(href_list["action"])
 		if("sw_menu")
 			current_status = text2num(href_list["target"])
+		if("emergencymaint")
+			if(is_autenthicated(user) && !issilicon(user))
+				if(maint_all_access)
+					revoke_maint_all_access()
+					feedback_inc("alert_comms_maintRevoke",1)
+					log_and_message_admins("disabled emergency maintenance access")
+				else
+					make_maint_all_access()
+					feedback_inc("alert_comms_maintGrant",1)
+					log_and_message_admins("enabled emergency maintenance access")
 		if("announce")
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 				if(user)
-					var/obj/item/weapon/card/id/id_card = user.GetIdCard()
+					var/obj/item/card/id/id_card = user.GetIdCard()
 					crew_announcement.announcer = GetNameAndAssignmentFromId(id_card)
 				else
 					crew_announcement.announcer = "Unknown"
@@ -297,7 +308,7 @@ var/last_message_id = 0
 		if(computer && computer.working && !!computer.nano_printer)
 			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
 			if(C && C.intercept)
-				computer.nano_printer.print_text(message_text, message_title)
+				computer.nano_printer.print_text(message_text, message_title, "#deebff")
 
 
 /datum/comm_message_listener
@@ -368,10 +379,6 @@ Command action procs
 		to_chat(user, "<span class='notice'>Cannot establish a bluespace connection.</span>")
 		return 0
 
-	if(deathsquad.deployed)
-		to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
-		return 0
-
 	if(emergency_shuttle.deny_shuttle)
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
@@ -414,10 +421,6 @@ Command action procs
 	if(!force)
 		if(emergency_shuttle.deny_shuttle)
 			to_chat(user, "[current_map.boss_short] does not currently have a shuttle available in your sector. Please try again later.")
-			return
-
-		if(deathsquad.deployed == 1)
-			to_chat(user, "[current_map.boss_short] will not allow the shuttle to be called. Consider all contracts terminated.")
 			return
 
 		if(world.time < 54000) // 30 minute grace period to let the game get going

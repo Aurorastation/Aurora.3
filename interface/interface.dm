@@ -1,15 +1,20 @@
 //Please use mob or src (not usr) in these procs. This way they can be called in the same fashion as procs.
-/client/verb/wiki()
+/client/verb/wiki(var/sub_page = null as null|text)
 	set name = "wiki"
 	set desc = "Visit the wiki."
 	set hidden = 1
-	if( config.wikiurl )
+
+	if(config.wikiurl)
 		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
 			return
-		send_link(src, config.wikiurl)
+
+		var/to_open = config.wikiurl
+		if (sub_page)
+			to_open += sub_page
+
+		send_link(src, to_open)
 	else
 		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
-	return
 
 /client/verb/forum()
 	set name = "forum"
@@ -40,7 +45,8 @@
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
-	src << browse(file(RULES_FILE), "window=rules;size=640x500")
+	send_theme_resources(src)
+	src << browse(enable_ui_theme(src, file2text(RULES_FILE)), "window=rules;size=640x500")
 #undef RULES_FILE
 
 /client/verb/hotkeys_help()

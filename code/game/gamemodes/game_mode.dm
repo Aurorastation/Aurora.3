@@ -246,6 +246,7 @@ var/global/list/additional_antag_types = list()
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
+		feedback_set_details("master_mode","[master_mode]")
 		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
 	return 1
@@ -531,25 +532,29 @@ var/global/list/additional_antag_types = list()
 		for(var/mob/living/carbon/human/M in suspects)
 			if(player_is_antag(M.mind, only_offstation_roles = 1))
 				continue
-			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)]."
+			intercepttext += "<br>     + [pick(business_jargon)] indicate that [M.mind.assigned_role] [M.name] [pick(mean_words)].<br>"
 		intercepttext += "Cent. Com recommends coordinating with human resources to resolve any issues with employment.<br>"
 
 	if(repeat_offenders)
 		intercepttext += "<br><B>The personnel listed below possess three or more offenses listed on record:</B>"
 		for(var/mob/living/carbon/human/M in repeat_offenders)
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses."
+			if(player_is_antag(M.mind, only_offstation_roles = 1))
+				continue
+			intercepttext += "<br>     + [M.mind.assigned_role] [M.name], [M.incidents.len] offenses.<br>"
 		intercepttext += "Cent. Com recommends coordinating with internal security to monitor and rehabilitate these personnel.<br>"
 
 	if(loyalists)
 		intercepttext += "<br><B>The personnel listed below have been indicated as particularly loyal to NanoTrasen:</B>"
 		for(var/mob/living/carbon/human/M in loyalists)
-			intercepttext += "<br>     + [M.mind.assigned_role] [M.name]."
+			if(player_is_antag(M.mind, only_offstation_roles = 1))
+				continue
+			intercepttext += "<br>     + [M.mind.assigned_role] [M.name].<br>"
 		intercepttext += "Cent. Com recommends coordinating with human resources to reward and further motivate these personnel for their loyalty.<br>"
 
 	if(evil_department)
 		intercepttext += "<br>[pick(business_jargon)] indicate that a majority of the [evil_department] department [pick(mean_words)]. This department has been marked at-risk and Cent. Com. recommends immediate action before the situation worsens.<br>"
 	if(total_crew)
-		intercepttext += "<br>Data collected and analyzed by A.L.I.C.E. indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
+		intercepttext += "<br>Data collected and analyzed by Bubble indicate that [round((loyal_crew/total_crew)*100)]% of the current crew detail are supportive of NanoTrasen actions. Cent. Com. implores the current Head of Staff detail to increase this percentage.<br>"
 
 	intercepttext += "<hr> </font>Respectfully,<br><i>Quix Repi'Weish</i>, Chief Personnel Director<br>"
 	intercepttext += "<center><img src = barcode[rand(0, 3)].png></center>"

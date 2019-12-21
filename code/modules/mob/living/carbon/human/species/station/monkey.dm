@@ -20,13 +20,16 @@
 
 	gibbed_anim = "gibbed-m"
 	dusted_anim = "dust-m"
+
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
+	death_message_range = 7
+
 	tail = "chimptail"
 
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
 	inherent_verbs = list(/mob/living/proc/ventcrawl)
 	hud_type = /datum/hud_data/monkey
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
 
 	rarity_value = 0.1
 	total_health = 75
@@ -43,7 +46,7 @@
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
 	pass_flags = PASSTABLE
-	holder_type = /obj/item/weapon/holder/monkey
+	holder_type = /obj/item/holder/monkey
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
@@ -69,7 +72,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	tail = "farwatail"
-	holder_type = /obj/item/weapon/holder/monkey/farwa
+	holder_type = /obj/item/holder/monkey/farwa
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
@@ -98,7 +101,7 @@
 	blood_color = "#1D2CBF"
 	reagent_tag = IS_SKRELL
 	tail = null
-	holder_type = /obj/item/weapon/holder/monkey/neaera
+	holder_type = /obj/item/holder/monkey/neaera
 	fall_mod = 0.25
 
 /datum/species/monkey/unathi
@@ -115,7 +118,7 @@
 	flesh_color = "#34AF10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
-	holder_type = /obj/item/weapon/holder/monkey/stok
+	holder_type = /obj/item/holder/monkey/stok
 	fall_mod = 0.75
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -124,7 +127,7 @@
 	name = "V'krexi"
 	short_name = "kre"
 	name_plural = "V'krexi"
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	holder_type = null//No icons for held Vkrexi yet
 	icobase = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
@@ -139,9 +142,6 @@
 	blood_color = "#E6E600"
 	flesh_color = "#E6E600"
 	//base_color = "#E6E600"
-	breath_type = "oxygen"
-	poison_type = ""
-	exhale_type = "phoron"
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	siemens_coefficient = 0.2

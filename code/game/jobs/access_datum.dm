@@ -240,8 +240,8 @@
 /var/const/access_lawyer = 38
 /datum/access/lawyer
 	id = access_lawyer
-	desc = "Internal Affairs"
-	region = ACCESS_REGION_COMMAND
+	desc = "Representative"
+	region = ACCESS_TYPE_CENTCOM
 
 /var/const/access_virology = 39
 /datum/access/virology
@@ -341,7 +341,7 @@
 	desc = "Head of Security"
 	region = ACCESS_REGION_SECURITY
 
-/var/const/access_RC_announce = 59 //Request console announcements
+/var/const/access_RC_announce = 59 //Requests console announcements
 /datum/access/RC_announce
 	id = access_RC_announce
 	desc = "RC Announcements"
@@ -482,6 +482,12 @@ var/const/access_journalist = 70//journalist's office access
 	desc = "Tau Ceti Foreign Legion Access"
 	access_type = ACCESS_TYPE_CENTCOM
 
+var/const/access_distress = 112
+/datum/access/distress
+	id = access_distress
+	desc = "General ERT Base Access"
+	access_type = ACCESS_TYPE_CENTCOM
+
 /***************
 * Antag access *
 ***************/
@@ -508,3 +514,9 @@ var/const/access_journalist = 70//journalist's office access
 /datum/access/crate_cash
 	id = access_crate_cash
 	access_type = ACCESS_TYPE_NONE
+
+/var/const/access_none = -1
+/datum/access/none
+	id = access_none
+	access_type = ACCESS_TYPE_NONE
+

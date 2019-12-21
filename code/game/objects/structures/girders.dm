@@ -56,31 +56,31 @@
 /obj/structure/girder/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench() && state == 0)
 		if(anchored && !reinf_material)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
-			if(do_after(user,40))
+			if(do_after(user,40/W.toolspeed))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
 				dismantle()
 		else if(!anchored)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now securing the girder...</span>")
-			if(do_after(user, 40))
+			if(do_after(user, 40/W.toolspeed))
 				to_chat(user, "<span class='notice'>You secured the girder!</span>")
 				reset_girder()
 
-	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30))
+		if(do_after(user,30/W.toolspeed))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/energy))
-		var/obj/item/weapon/melee/energy/WT = W
+	else if(istype(W, /obj/item/melee/energy))
+		var/obj/item/melee/energy/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,30))
+			if(do_after(user,30/W.toolspeed))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 				dismantle()
@@ -88,18 +88,18 @@
 			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
 			return
 
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/melee/energy/blade))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30))
+		if(do_after(user,30/W.toolspeed))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/chainsword))
-		var/obj/item/weapon/melee/chainsword/WT = W
+	else if(istype(W, /obj/item/melee/chainsword))
+		var/obj/item/melee/chainsword/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,60))
+			if(do_after(user,60/W.toolspeed))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 				dismantle()
@@ -107,37 +107,44 @@
 			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
 			return
 
-	else if(istype(W, /obj/item/weapon/pickaxe/diamonddrill))
+	else if(istype(W, /obj/item/pickaxe/diamonddrill))
 		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
 		dismantle()
 
+	else if(istype(W, /obj/item/melee/arm_blade/))
+		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+		if(do_after(user,150))
+			if(!src)
+				return
+			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+			dismantle()
+
 	else if(W.isscrewdriver())
 		if(state == 2)
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now unsecuring support struts...</span>")
-			if(do_after(user,40))
+			if(do_after(user,40/W.toolspeed))
 				if(!src) return
 				to_chat(user, "<span class='notice'>You unsecured the support struts!</span>")
 				state = 1
 		else if(anchored && !reinf_material)
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+			playsound(src.loc, W.usesound, 100, 1)
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
 
 	else if(W.iswirecutter() && state == 1)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
-		if(do_after(user,40))
+		if(do_after(user,40/W.toolspeed))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You removed the support struts!</span>")
-			reinf_material.place_dismantled_product(get_turf(src))
 			reinf_material = null
 			reset_girder()
 
 	else if(W.iscrowbar() && state == 0 && anchored)
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
-		if(do_after(user, 40))
+		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You dislodged the girder!</span>")
 			icon_state = "displaced"
@@ -273,45 +280,45 @@
 
 /obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
-		if(do_after(user,40))
+		if(do_after(user,40/W.toolspeed))
 			to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
 			dismantle()
 
-	else if(istype(W, /obj/item/weapon/gun/energy/plasmacutter))
+	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30))
+		if(do_after(user,30/W.toolspeed))
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/pickaxe/diamonddrill))
+	else if(istype(W, /obj/item/pickaxe/diamonddrill))
 		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
 		new /obj/effect/decal/remains/human(get_turf(src))
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/energy))
-		var/obj/item/weapon/melee/energy/WT = W
+	else if(istype(W, /obj/item/melee/energy))
+		var/obj/item/melee/energy/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,30))
+			if(do_after(user,30/W.toolspeed))
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 		else
 			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
 			return
 
-	else if(istype(W, /obj/item/weapon/melee/energy/blade))
+	else if(istype(W, /obj/item/melee/energy/blade))
 		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-		if(do_after(user,30))
+		if(do_after(user,30/W.toolspeed))
 			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 		dismantle()
 
-	else if(istype(W, /obj/item/weapon/melee/chainsword))
-		var/obj/item/weapon/melee/chainsword/WT = W
+	else if(istype(W, /obj/item/melee/chainsword))
+		var/obj/item/melee/chainsword/WT = W
 		if(WT.active)
 			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
-			if(do_after(user,60))
+			if(do_after(user,60/W.toolspeed))
 				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
 			dismantle()
 		else

@@ -141,7 +141,7 @@
 
 /datum/gear/uniform/customdress/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
@@ -152,22 +152,6 @@
 	display_name = "uniform, HR director (HoP)"
 	path = /obj/item/clothing/under/dress/dress_hr
 	allowed_roles = list("Head of Personnel")
-
-/datum/gear/uniform/security_contractors
-	display_name = "security contractor uniform selection"
-	description = "A selection of security contractor uniforms."
-	path = /obj/item/clothing/under/rank/security/necropolis
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
-
-/datum/gear/uniform/security_contractors/New()
-	..()
-	var/uniform = list()
-	uniform["Necropolis Industries security uniform"] = /obj/item/clothing/under/rank/security/necropolis
-	uniform["Idris Incorporated security uniform"] = /obj/item/clothing/under/rank/security/idris
-	uniform["Idris Incorporated security uniform, alternative"] = /obj/item/clothing/under/rank/security/idris/alt
-	uniform["Eridani PMC uniform"] = /obj/item/clothing/under/rank/security/eridani
-	uniform["Eridani PMC uniform, alternative"] = /obj/item/clothing/under/rank/security/eridani/alt
-	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -193,6 +177,7 @@
 	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
 	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
+	pants["designer jeans"] = /obj/item/clothing/under/pants/designer
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
 	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
@@ -237,7 +222,7 @@
 
 /datum/gear/uniform/miscellaneous/kimono/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"
@@ -277,3 +262,18 @@
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
 	allowed_roles = list("Head of Security")
+
+/datum/gear/uniform/circuitry
+	display_name = "jumpsuit, circuitry (empty)"
+	path = /obj/item/clothing/under/circuitry
+
+/datum/gear/uniform/science_alt
+	display_name = "scientist, alt"
+	path = /obj/item/clothing/under/rank/scientist/science_alt
+	allowed_roles = list("Scientist", "Xenobiologist")
+
+/datum/gear/uniform/cargo_alt
+	display_name = "cargo technician, shorts"
+	description = "For those that value leg-room."
+	path = /obj/item/clothing/under/rank/cargotech/alt
+	allowed_roles = list("Cargo Technician")

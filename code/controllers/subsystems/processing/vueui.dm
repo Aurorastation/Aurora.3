@@ -6,35 +6,11 @@ Byond Vue UI framework's management subsystem
 /datum/controller/subsystem/processing/vueui
 	name = "VueUI"
 	flags = 0
-	priority = SS_PRIORITY_NANOUI
 	init_order = SS_INIT_MISC_FIRST
+	priority = SS_PRIORITY_NANOUI
 	stat_tag = "O"
 
 	var/list/open_uis
-
-	var/list/available_html_themes = list(
-		"Nano" = list(
-			"name" = "Nano Dark",
-			"class" = "theme-nano",
-			"type" = THEME_TYPE_DARK
-		),
-		"Nano Light" = list(
-			"name" = "Nano Light",
-			"class" = "theme-nano-light",
-			"type" = THEME_TYPE_LIGHT
-		),
-		"Basic" = list(
-			"name" = "Basic Light",
-			"class" = "theme-basic",
-			"type" = THEME_TYPE_LIGHT
-		),
-		"Basic Dark" = list(
-			"name" = "Basic Dark",
-			"class" = "theme-basic-dark",
-			"type" = THEME_TYPE_DARK
-		)
-	)
-
 	var/list/var_monitor_map
 
 /datum/controller/subsystem/processing/vueui/New()
@@ -46,7 +22,6 @@ Byond Vue UI framework's management subsystem
 	for (var/path in subtypesof(/datum/vueui_var_monitor))
 		var/datum/vueui_var_monitor/VM = new path()
 		var_monitor_map[VM.subject_type] = VM
-
 	..()
 
 /**
@@ -109,7 +84,7 @@ Byond Vue UI framework's management subsystem
   */
 /datum/controller/subsystem/processing/vueui/proc/check_uis_for_change(var/src_object)
 	for (var/datum/vueui/ui in get_open_uis(src_object))
-		ui.check_for_change()
+		ui.update_status(TRUE, TRUE)
 
 /**
   * Initiates check for data change of specified object
@@ -203,43 +178,26 @@ Byond Vue UI framework's management subsystem
   * @param new_activeui - Vue component name to be used in ui with new object
   * @param new_data - initial data for this transfered ui
   *
-  * @return 0 if failed, 1 if success
+  * @return list of transfered uis
   */
-/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/new_data = null)
+/datum/controller/subsystem/processing/vueui/proc/transfer_uis(var/old_object, var/new_object, var/new_activeui = null, var/nwidth = 0, var/nheight = 0, var/new_title = null, var/new_data = null)
 	var/old_object_key = SOFTREF(old_object)
 	var/new_object_key = SOFTREF(new_object)
+	. = list()
 	LAZYINITLIST(open_uis[new_object_key])
 
 	for(var/datum/vueui/ui in open_uis[old_object_key])
 		ui.object = new_object
-		if(new_activeui) ui.activeui = new_activeui
+		if(new_activeui) {ui.activeui = new_activeui}
+		if(new_title) {ui.title = new_title}
 		ui.data = new_data
 		open_uis[old_object_key] -= ui
 		LAZYADD(open_uis[new_object_key], ui)
-		ui.check_for_change()
+		ui.resize(nwidth, nheight)
+		ui.update_status(1)
+		. += ui
 
 	if (!LAZYLEN(open_uis[old_object_key]))
 		open_uis -= old_object_key
-
-/datum/controller/subsystem/processing/vueui/proc/get_html_theme_header()
-	return {"<meta http-equiv="X-UA-Compatible" content="IE=edge"><link rel="stylesheet" type="text/css" href="vueui.css">"}
-
-/datum/controller/subsystem/processing/vueui/proc/get_html_theme_class(var/mob/user)
-	if(user.client)
-		var/style = user.client.prefs.html_UI_style
-		if(!(style in available_html_themes))
-			style = "Nano"
-		var/list/theme = available_html_themes[style]
-		var/class = ""
-		class += "[theme["class"]]"
-		if(theme["type"] == THEME_TYPE_DARK)
-			class += " dark-theme"
-		return class
-	return ""
-
-/datum/controller/subsystem/processing/vueui/proc/send_theme_resources(var/mob/user)
-	if(user.client)
-		var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui_theming)
-		assets.send(user.client)
 
 #undef NULL_OR_EQUAL

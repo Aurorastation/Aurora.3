@@ -9,17 +9,25 @@
 	desc = "A corporate security badge, made from gold and set on false leather."
 	icon_state = "badge"
 	item_state = "marshalbadge"
+	overlay_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_TIE
 
 	var/stored_name
 	var/badge_string = "Corporate Security"
+	var/v_flippable = 1
+
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/badge/press
 	name = "corporate press pass"
 	desc = "A corporate reporter's pass, emblazoned with the NanoTrasen logo."
 	icon_state = "pressbadge"
 	item_state = "pbadge"
+	overlay_state = "pbadge"
 	badge_string = "Corporate Reporter"
+	w_class = 1
+
+	drop_sound = 'sound/items/drop/rubber.ogg'
 
 /obj/item/clothing/accessory/badge/press/independent
 	name = "press pass"
@@ -27,14 +35,22 @@
 	icon_state = "pressbadge-i"
 	badge_string = "Freelance Journalist"
 
+/obj/item/clothing/accessory/badge/press/plastic
+	name = "plastic press pass"
+	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
+	icon_state = "pbadge"
+	badge_string = "Sicurity Journelist"
+	w_class = 2
+
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
 	icon_state = "badge_round"
+	overlay_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
 	stored_name = new_name
-	name = "[initial(name)] ([stored_name])"
+	name = "[name] ([stored_name])"
 
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
@@ -44,14 +60,47 @@
 		return
 
 	if(isliving(user))
-		if(stored_name)
-			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
+		if(badge_string)
+			if(stored_name)
+				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
 		else
-			user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
+			if(stored_name)
+				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name].</span>")
+			else
+				user.visible_message("<span class='notice'>[user] displays their [src.name].</span>","<span class='notice'>You display your [src.name].</span>")
 
 /obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))
 		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting [src] into their face insistently.</span>","<span class='danger'>You invade [M]'s personal space, thrusting [src] into their face insistently.</span>")
+
+/obj/item/clothing/accessory/badge/verb/flip_side()
+	set category = "Object"
+	set name = "Flip badge"
+	set src in usr
+
+	if (use_check_and_message(usr))
+		return
+	if (!v_flippable)
+		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
+		return
+
+	src.flipped = !src.flipped
+	if(src.flipped)
+		if(!overlay_state)
+			src.icon_state = "[icon_state]_flip"
+		else
+			src.overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			src.icon_state = initial(icon_state)
+		else
+			src.overlay_state = initial(overlay_state)
+	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
+	update_clothing_icon()
+	src.inv_overlay = null
+	src.mob_overlay = null
 
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
@@ -59,11 +108,15 @@
 	desc = "This glowing blue badge marks the holder as a member of corporate security."
 	icon_state = "holobadge"
 	item_state = "holobadge"
+	overlay_state = "holobadge"
 	var/emagged //Emagging removes Sec check.
 
 /obj/item/clothing/accessory/badge/holo/cord
 	icon_state = "holobadge-cord"
+	overlay_state = null
 	slot_flags = SLOT_MASK | SLOT_TIE
+
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
@@ -81,11 +134,11 @@
 		return 1
 
 /obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/weapon/card/id) || istype(O, /obj/item/device/pda))
+	if(istype(O, /obj/item/card/id) || istype(O, /obj/item/device/pda))
 
-		var/obj/item/weapon/card/id/id_card = null
+		var/obj/item/card/id/id_card = null
 
-		if(istype(O, /obj/item/weapon/card/id))
+		if(istype(O, /obj/item/card/id))
 			id_card = O
 		else
 			var/obj/item/device/pda/pda = O
@@ -99,24 +152,11 @@
 		return
 	..()
 
-/obj/item/weapon/storage/box/holobadge
-	name = "holobadge box"
-	desc = "A box claiming to contain holobadges."
-	New()
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		new /obj/item/clothing/accessory/badge/holo/cord(src)
-		..()
-		return
-
-
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
 	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
 	icon_state = "silverbadge"
+	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 
@@ -124,82 +164,67 @@
 	name = "commander's badge"
 	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
 	icon_state = "goldbadge"
+	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
 
-
-//Contractor IDs
-
-/obj/item/clothing/accessory/badge/contractor
-	name = "Necropolis Industries ID"
-	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
-	icon_state = "necro_card"
-	item_state = "necro_card"
-	icon_override = 'icons/mob/ties.dmi'
-	badge_string = "Necropolis Industries"	//Will be the contractor's 'position.'
+/obj/item/clothing/accessory/badge/sol_visa
+	name = "\improper ASSN visa recommendation slip"
+	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
+	icon_state = "sol-visa"
+	overlay_state = "sol-visa"
 	slot_flags = SLOT_TIE
-	slot = "over"
+	badge_string = "Priority ASSN Visa Applicant"
 
-/obj/item/clothing/accessory/badge/contractor/attack_self(mob/user as mob)
-	if(!isliving(user))
-		return
-	if(!stored_name)
-		set_name(user.real_name)
-		to_chat(user, "You inspect your [src]. Everything seems to be in order and you give it a quick cleaning with your hand.")
-		return
-	user.visible_message("<span class='notice'>[user] displays their [src].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src].\nIt reads: [stored_name], [badge_string].</span>")
+	drop_sound = 'sound/items/drop/card.ogg'
 
-/obj/item/clothing/accessory/badge/contractor/necrosec
-	name = "Necropolis Industries Security ID"
-	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
-	icon_state = "necrosec_card"
-	item_state = "necrosec_card"
-	badge_string = "Necropolis Industries Security"
+/obj/item/clothing/accessory/badge/tcfl_papers
+	name = "\improper TCFL enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
+	icon_state = "tc-visa"
+	overlay_state = "tc-visa"
+	slot_flags = SLOT_TIE
+	badge_string = "Tau Ceti Foreign Legion Recruit"
 
-/obj/item/clothing/accessory/badge/contractor/einstein
-	name = "Einstein Engines ID"
-	desc = "A stylized plastic card, belonging to one of the many specialists at EE.."
-	icon_state = "einstein_card"
-	item_state = "einstein_card"
-	badge_string = "Einstein Engines"
+	drop_sound = 'sound/items/drop/card.ogg'
 
-/obj/item/clothing/accessory/badge/contractor/hephaestus
-	name = "Hephaestus Industries ID"
-	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
-	icon_state = "heph_card"
-	item_state = "heph_card"
-	badge_string = "Hephaestus Industries"
+/obj/item/clothing/accessory/badge/sheriff
+	name = "sheriff badge"
+	desc = "A star-shaped brass badge denoting who the law is around these parts."
+	icon_state = "sheriff"
+	overlay_state = "sheriff"
+	badge_string = "County Sheriff"
 
-/obj/item/clothing/accessory/badge/contractor/zenghu
-	name = "Zeng-Hu Pharmaceuticals ID"
-	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
-	icon_state = "zhu_card"
-	item_state = "zhu_card"
-	badge_string = "Zeng-Hu Pharmaceuticals"
+/obj/item/clothing/accessory/badge/marshal
+	name = "marshal badge"
+	desc = "A hefty gold-plated badge which tells you who's in charge."
+	icon_state = "marshalbadge"
+	badge_string = "Federal Marshal"
 
-/obj/item/clothing/accessory/badge/contractor/eridani
-	name = "Eridani Corporate Federation ID"
-	desc = "A high-tech holobadge, designed to project information about an Eridanian Private Military Contractor."
-	icon_state = "erisec_card"
-	item_state = "erisec_card"
-	badge_string = "Eridani Corporate Federation"
+/obj/item/clothing/accessory/badge/dia
+	name = "\improper DIA badge"
+	desc = "This badge marks the holder of an investigative agent."
+	icon_state = "diabadge"
+	overlay_state = "diabadge"
+	badge_string = "Corporate Investigator"
 
-/obj/item/clothing/accessory/badge/contractor/idris
-	name = "Idris Incorporated ID"
-	desc = "A high-tech holocard, designed to project information about a civilian worker at Idris."
-	icon_state = "idris_card"
-	item_state = "idris_card"
-	badge_string = "Idris Incorporated"
+/obj/item/clothing/accessory/badge/idbadge
+	name = "\improper ID badge"
+	desc = "A descriptive identification badge with the holder's credentials."
+	icon_state = "solbadge"
+	overlay_state = "solbadge"
+	badge_string = null
+	w_class = 1
 
-/obj/item/clothing/accessory/badge/contractor/idrissec
-	name = "Idris Security ID"
-	desc = "A high-tech holobadge, designed to project information about Security personnel at Idris."
-	icon_state = "idrissec_card"
-	item_state = "idrissec_card"
-	badge_string = "Idris Security"
+/obj/item/clothing/accessory/badge/idbadge/nt
+	name = "\improper NT ID badge"
+	desc = "A descriptive identification badge with the holder's credentials. This one has red marks with the NanoTrasen logo on it."
+	icon_state = "ntbadge"
+	overlay_state = "ntbadge"
+	badge_string = null
 
-/obj/item/clothing/accessory/badge/contractor/iru
-	name = "Idris Reclamation Unit ID"
-	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris."
-	icon_state = "iru_card"
-	item_state = "iru_card"
-	badge_string = "Idris Reclamation Unit"
+/obj/item/clothing/accessory/badge/idbadge/intel
+	name = "electronic ID badge"
+	desc = "A descriptive identification badge with the holder's credentials displayed with a harsh digital glow."
+	icon_state = "intelbadge"
+	overlay_state = "intelbadge"
+	badge_string = null

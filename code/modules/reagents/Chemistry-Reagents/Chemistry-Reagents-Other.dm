@@ -14,41 +14,49 @@
 	name = "Red crayon dust"
 	id = "crayon_dust_red"
 	color = "#FE191A"
+	taste_description = "chalky strawberry wax"
 
 /datum/reagent/crayon_dust/orange
 	name = "Orange crayon dust"
 	id = "crayon_dust_orange"
 	color = "#FFBE4F"
+	taste_description = "chalky orange peels"
 
 /datum/reagent/crayon_dust/yellow
 	name = "Yellow crayon dust"
 	id = "crayon_dust_yellow"
 	color = "#FDFE7D"
+	taste_description = "chalky lemon rinds"
 
 /datum/reagent/crayon_dust/green
 	name = "Green crayon dust"
 	id = "crayon_dust_green"
 	color = "#18A31A"
+	taste_description = "chalky lime rinds"
 
 /datum/reagent/crayon_dust/blue
 	name = "Blue crayon dust"
 	id = "crayon_dust_blue"
 	color = "#247CFF"
+	taste_description = "chalky blueberry skins"
 
 /datum/reagent/crayon_dust/purple
 	name = "Purple crayon dust"
 	id = "crayon_dust_purple"
 	color = "#CC0099"
+	taste_description = "chalky grape skins"
 
 /datum/reagent/crayon_dust/grey //Mime
 	name = "Grey crayon dust"
 	id = "crayon_dust_grey"
 	color = "#808080"
+	taste_description = "chalky crushed dreams"
 
 /datum/reagent/crayon_dust/brown //Rainbow
 	name = "Brown crayon dust"
 	id = "crayon_dust_brown"
 	color = "#846F35"
+	taste_description = "raw, powerful creativity"
 
 /datum/reagent/paint
 	name = "Paint"
@@ -67,10 +75,10 @@
 
 /datum/reagent/paint/touch_obj(var/obj/O)
 	//special checks for special items
-	if(istype(O, /obj/item/weapon/reagent_containers))
+	if(istype(O, /obj/item/reagent_containers))
 		return
-	else if(istype(O, /obj/item/weapon/light))
-		var/obj/item/weapon/light/L = O
+	else if(istype(O, /obj/item/light))
+		var/obj/item/light/L = O
 		L.brightness_color = color
 		L.update()
 	else if(istype(O, /obj/machinery/light))
@@ -221,20 +229,6 @@
 	taste_description = "salty metalic miner tears"
 	fallback_specific_heat = 0.2971
 
-/datum/reagent/adrenaline
-	name = "Adrenaline"
-	id = "adrenaline"
-	description = "Adrenaline is a hormone used as a drug to treat cardiac arrest and other cardiac dysrhythmias resulting in diminished or absent cardiac output."
-	reagent_state = LIQUID
-	color = "#C8A5DC"
-	taste_description = "bitterness"
-	fallback_specific_heat = 0.75
-
-/datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.SetParalysis(0)
-	M.SetWeakened(0)
-	M.adjustToxLoss(rand(3)*removed)
-
 /datum/reagent/water/holywater
 	name = "Holy Water"
 	id = "holywater"
@@ -325,6 +319,7 @@
 	color = "#A5F0EE"
 	touch_met = REM * 10
 	taste_description = "sourness"
+	germ_adjust = 10
 
 /datum/reagent/space_cleaner/touch_obj(var/obj/O)
 	O.clean_blood()
@@ -374,9 +369,6 @@
 		if(dose == removed)
 			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
-/datum/reagent/space_cleaner/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed)
-	M.adjustToxLoss(2 * removed)
-
 /datum/reagent/lube
 	name = "Space Lube"
 	id = "lube"
@@ -421,6 +413,44 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "oil"
+
+/datum/reagent/nitroglycerin/proc/explode()
+	var/datum/effect/effect/system/reagents_explosion/e = new()
+	e.set_up(round (src.volume/2, 1), holder.my_atom, 0, 0)
+	if(isliving(holder.my_atom))
+		e.amount *= 0.5
+		var/mob/living/L = holder.my_atom
+		if(L.stat!=DEAD)
+			e.amount *= 0.5
+	e.start()
+	holder.clear_reagents()
+
+/datum/reagent/nitroglycerin/add_thermal_energy(var/added_energy)
+	. = ..()
+	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
+		explode()
+
+/datum/reagent/nitroglycerin/apply_force(var/force)
+	..()
+	if(prob(force * 6))
+		explode()
+
+/datum/reagent/nitroglycerin/touch_turf(var/turf/T)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/touch_obj(var/obj/O)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/touch_mob(var/mob/M)
+	. = ..()
+	explode()
+
+/datum/reagent/nitroglycerin/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(!istype(H) || alien == IS_DIONA)
+		return
+	H.add_chemical_effect(CE_PULSE, 2)
 
 /datum/reagent/coolant
 	name = "Coolant"
@@ -519,8 +549,8 @@
 	stored_value = metabolism
 
 /datum/reagent/plexium/affect_blood(var/mob/living/carbon/human/H, var/alien, var/removed)
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
-	if(B && H.species && H.species.has_organ["brain"] && !isipc(H))
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
+	if(B && H.species && H.species.has_organ[BP_BRAIN] && !isipc(H))
 		stored_value += removed
 		if(stored_value >= 5)
 			if(prob(50) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -682,7 +712,7 @@
 	P.name = "wormhole"
 	var/list/pick_turfs = list()
 	for(var/turf/simulated/floor/exit in turfs)
-		if(exit.z in current_map.station_levels)
+		if(isStationLevel(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
@@ -728,7 +758,7 @@
 	fallback_specific_heat = 1.25
 
 /datum/reagent/sglue/touch_obj(var/obj/O)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
@@ -745,7 +775,7 @@
 	fallback_specific_heat = 1.75
 
 /datum/reagent/usolve/touch_obj(var/obj/O)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
@@ -762,7 +792,7 @@
 	fallback_specific_heat = 0.75
 
 /datum/reagent/shapesand/touch_obj(var/obj/O)
-	if((istype(O, /obj/item) && !istype(O, /obj/item/weapon/reagent_containers)) && (volume > 10*O.w_class))
+	if((istype(O, /obj/item) && !istype(O, /obj/item/reagent_containers)) && (volume > 10*O.w_class))
 		var/obj/item/shapesand/mimic = new /obj/item/shapesand(O.loc)
 		mimic.name = O.name
 		mimic.desc = O.desc
@@ -785,7 +815,7 @@
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
 	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
-	new /obj/item/weapon/ore/glass(get_turf(src))
+	new /obj/item/ore/glass(get_turf(src))
 	qdel(src)
 	return
 
@@ -803,7 +833,7 @@
 	if(!istype(H))
 		return
 
-	var/obj/item/organ/brain/B = H.internal_organs_by_name["brain"]
+	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	if(!H.has_trauma_type(/datum/brain_trauma/special/love))
 		B.gain_trauma(/datum/brain_trauma/special/love,FALSE)
 
@@ -820,7 +850,3 @@
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
-
-/datum/reagent/bottle_lightning/touch_turf(var/turf/T)
-	if(volume >= 5)
-		tesla_zap(T, 6, 1500)

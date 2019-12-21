@@ -16,7 +16,7 @@
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
 	desc = "A wall mounted locker with emergency supplies."
-	var/list/spawnitems = list(/obj/item/weapon/tank/emergency_oxygen,/obj/item/clothing/mask/breath)
+	var/list/spawnitems = list(/obj/item/tank/emergency_oxygen,/obj/item/clothing/mask/breath)
 	var/amount = 2 // spawns each items X times.
 	icon_state = "emerg"
 
@@ -24,7 +24,7 @@
 	attack_hand(user)
 	return
 
-/obj/structure/closet/walllocker/emerglocker/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/walllocker/emerglocker/attackby(obj/item/W as obj, mob/user as mob)
 	return
 
 /obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user as mob)

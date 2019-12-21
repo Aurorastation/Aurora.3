@@ -1,7 +1,7 @@
 // Attempts to install the hardware into appropriate slot.
-/obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0)
+/obj/item/modular_computer/proc/try_install_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = 0)
 	// "USB" flash drive.
-	if(istype(H, /obj/item/weapon/computer_hardware/hard_drive/portable))
+	if(istype(H, /obj/item/computer_hardware/hard_drive/portable))
 		if(enrolled == 1 && !computer_emagged)
 			to_chat(user, "The client management software on this computer rejects \the [portable_drive].")
 			return
@@ -10,49 +10,49 @@
 			return
 		found = 1
 		portable_drive = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/hard_drive))
+	else if(istype(H, /obj/item/computer_hardware/hard_drive))
 		if(hard_drive)
 			to_chat(user, "This computer's hard drive slot is already occupied by \the [hard_drive].")
 			return
 		found = 1
 		hard_drive = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/network_card))
+	else if(istype(H, /obj/item/computer_hardware/network_card))
 		if(network_card)
 			to_chat(user, "This computer's network card slot is already occupied by \the [network_card].")
 			return
 		found = 1
 		network_card = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/nano_printer))
+	else if(istype(H, /obj/item/computer_hardware/nano_printer))
 		if(nano_printer)
 			to_chat(user, "This computer's nano printer slot is already occupied by \the [nano_printer].")
 			return
 		found = 1
 		nano_printer = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/card_slot))
+	else if(istype(H, /obj/item/computer_hardware/card_slot))
 		if(card_slot)
 			to_chat(user, "This computer's card slot is already occupied by \the [card_slot].")
 			return
 		found = 1
 		card_slot = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/battery_module))
+	else if(istype(H, /obj/item/computer_hardware/battery_module))
 		if(battery_module)
 			to_chat(user, "This computer's battery slot is already occupied by \the [battery_module].")
 			return
 		found = 1
 		battery_module = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/processor_unit))
+	else if(istype(H, /obj/item/computer_hardware/processor_unit))
 		if(processor_unit)
 			to_chat(user, "This computer's processor slot is already occupied by \the [processor_unit].")
 			return
 		found = 1
 		processor_unit = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/ai_slot))
+	else if(istype(H, /obj/item/computer_hardware/ai_slot))
 		if(ai_slot)
 			to_chat(user, "This computer's intellicard slot is already occupied by \the [ai_slot].")
 			return
 		found = 1
 		ai_slot = H
-	else if(istype(H, /obj/item/weapon/computer_hardware/tesla_link))
+	else if(istype(H, /obj/item/computer_hardware/tesla_link))
 		if(tesla_link)
 			to_chat(user, "This computer's tesla link slot is already occupied by \the [tesla_link].")
 			return
@@ -65,7 +65,7 @@
 		update_icon()
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
-/obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/weapon/computer_hardware/H, var/found = 0, var/critical = 0)
+/obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = 0, var/critical = 0)
 	if(portable_drive == H)
 		portable_drive = null
 		found = 1

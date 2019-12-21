@@ -1,6 +1,6 @@
 //CCIAA's PDA.
 /obj/item/device/pda/central
-	default_cartridge = /obj/item/weapon/cartridge/captain
+	default_cartridge = /obj/item/cartridge/captain
 	icon_state = "pda-h"
 	detonate = 0
 
@@ -143,7 +143,7 @@
 	sLogFile << "Recorder stopped: [get_time()]"
 	sLogFile << "--------------------------------"
 
-	var/obj/item/weapon/paper/P = get_last_transcript()
+	var/obj/item/paper/P = get_last_transcript()
 	P.forceMove(get_turf(src.loc))
 
 	//If we have sql ccia logs enabled, then persist it here
@@ -218,7 +218,7 @@
 
 		dat += "[line]<br>\n"
 
-	var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
+	var/obj/item/paper/P = new /obj/item/paper(src)
 	var/pname = "[firstLine]"
 	var/info = "[dat]"
 	P.set_content_unsafe(pname, info)
@@ -238,7 +238,7 @@
 		return
 
 	message_admins("[key_name_admin(usr)] accessed file: [last_file_loc]")
-	var/obj/item/weapon/paper/P = get_last_transcript()
+	var/obj/item/paper/P = get_last_transcript()
 	P.forceMove(get_turf(src.loc))
 	return
 
@@ -258,12 +258,12 @@
 	if(!paused)
 		sLogFile << "--------------------------------"
 		sLogFile << "Recorder paused at: [get_time()]"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = TRUE
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
+		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
 		paused = FALSE
 	return
 
@@ -334,3 +334,14 @@
 /obj/item/device/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
 	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Supply" = 0, "Service" = 0)
+
+/obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
+	name = "central command internal affairs jacket"
+
+/obj/item/storage/lockbox/cciaa
+	req_access = list(access_cent_captain)
+	name = "CCIA agent briefcase"
+	desc = "A smart looking briefcase with a NT logo on the side"
+	storage_slots = 8
+	max_storage_space = 16
+

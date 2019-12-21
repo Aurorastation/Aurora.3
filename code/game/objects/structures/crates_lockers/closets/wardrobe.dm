@@ -35,7 +35,7 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots/unathi(src)
+	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return
 
@@ -89,15 +89,15 @@
 	new /obj/item/clothing/head/chaplain_hood(src)
 	new /obj/item/clothing/suit/holidaypriest(src)
 	new /obj/item/clothing/under/wedding/bride_white(src)
-	new /obj/item/weapon/storage/backpack/cultpack (src)
-	new /obj/item/weapon/storage/fancy/candle_box(src)
-	new /obj/item/weapon/storage/fancy/candle_box(src)
-	new /obj/item/weapon/deck/tarot(src)
+	new /obj/item/storage/backpack/cultpack (src)
+	new /obj/item/storage/fancy/candle_box(src)
+	new /obj/item/storage/fancy/candle_box(src)
+	new /obj/item/deck/tarot(src)
 	new /obj/item/device/radio/headset/headset_service(src)
-	new /obj/item/weapon/spirit_board(src)
-	new /obj/item/weapon/mesmetron(src)
+	new /obj/item/spirit_board(src)
+	new /obj/item/mesmetron(src)
 	new /obj/item/toy/plushie/therapy(src)
-	new /obj/item/weapon/book/manual/psych(src)
+	new /obj/item/book/manual/psych(src)
 	return
 
 
@@ -180,6 +180,9 @@
 	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/head/hardhat/red(src)
 	new /obj/item/clothing/head/hardhat/red(src)
+	new /obj/item/clothing/head/hardhat/dblue(src)
+	new /obj/item/clothing/head/hardhat/dblue(src)
+	new /obj/item/clothing/head/hardhat/dblue(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
@@ -197,6 +200,8 @@
 	new /obj/item/clothing/under/rank/engineer(src)
 	new /obj/item/clothing/under/rank/engineer(src)
 	new /obj/item/clothing/under/rank/engineer(src)
+	new /obj/item/clothing/under/rank/engineer/apprentice(src)
+	new /obj/item/clothing/under/rank/engineer/apprentice(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/orange(src)
@@ -324,8 +329,8 @@
 	..()
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/under/rank/virologist(src)
-	new /obj/item/clothing/shoes/chemist(src)
-	new /obj/item/clothing/shoes/chemist(src)
+	new /obj/item/clothing/shoes/biochem(src)
+	new /obj/item/clothing/shoes/biochem(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/biochemist(src)
 	new /obj/item/clothing/mask/surgical(src)
@@ -394,7 +399,6 @@
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/purple(src)
 	new /obj/item/clothing/shoes/red(src)
-	new /obj/item/clothing/shoes/leather(src)
 	return
 
 /obj/structure/closet/wardrobe/tactical
@@ -410,7 +414,7 @@
 	new /obj/item/clothing/head/helmet/tactical(src)
 	new /obj/item/clothing/mask/balaclava/tactical(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
-	new /obj/item/weapon/storage/belt/security/tactical(src)
+	new /obj/item/storage/belt/security/tactical(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/gloves/black(src)
 	return

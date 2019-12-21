@@ -26,7 +26,10 @@ export default {
   isUpdating: false,
   lastUpdateTime: null,
   getStatePushString () {
-    return "vueuistateupdate=" + encodeURIComponent(JSON.stringify(this.state))
+    return "vueuistateupdate=" + encodeURIComponent(this.getStatePushDataString())
+  },
+  getStatePushDataString () {
+    return JSON.stringify(this.state)
   },
   pushState() {
     if (this.isUpdating || (Date.now() - this.lastUpdateTime) < 100 ) {

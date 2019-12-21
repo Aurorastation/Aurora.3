@@ -17,7 +17,7 @@
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
 	verbs += /mob/living/carbon/human/proc/diona_detach_nymph
-	verbs += /mob/living/proc/devour
+	verbs += /mob/living/carbon/human/proc/pause_regen_process
 
 	spawn(10)
 	//This is delayed after a gestalt is spawned, to allow nymphs to be added to it before extras are created
@@ -43,7 +43,7 @@
 
 /mob/living/carbon/human/proc/topup_nymphs()
 	var/added = 0
-	var/list/exclude = list("groin", "l_hand", "r_hand", "l_foot", "r_foot") // becase these are supposed to be whole as their join parts
+	var/list/exclude = list(BP_GROIN, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT) // becase these are supposed to be whole as their join parts
 	for(var/thing in organs_by_name)
 		if(thing in exclude)
 			continue
@@ -152,9 +152,9 @@
 	DS.dionatype = 2//Gestalt
 
 	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/diona/node))
+		if (istype(organ, /obj/item/organ/internal/diona/node))
 			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/diona/nutrients))
+		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
 			DS.nutrient_organ = organ
 
 //This proc can be called if some dionastats information needs to be refreshed or re-found
@@ -164,9 +164,9 @@
 	DS.nutrient_organ = null
 
 	for (var/organ in internal_organs)
-		if (istype(organ, /obj/item/organ/diona/node))
+		if (istype(organ, /obj/item/organ/internal/diona/node))
 			DS.light_organ = organ
-		if (istype(organ, /obj/item/organ/diona/nutrients))
+		if (istype(organ, /obj/item/organ/internal/diona/nutrients))
 			DS.nutrient_organ = organ
 
 //Splitting functions
@@ -208,6 +208,15 @@
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
 
+/mob/living/carbon/human/proc/pause_regen_process()
+	set name = "Halt metabolism"
+	set desc = "Allows you to pause any regeneration process."
+	set category = "Abilities"
+
+	if(DS)
+		DS.pause_regen = !DS.pause_regen
+		to_chat(usr, span("notice", "You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
+
 /mob/living/carbon/human/proc/diona_detach_nymph()
 	set name = "Detach nymph"
 	set desc = "Allows you to detach specific nymph, and control it."
@@ -220,7 +229,7 @@
 		to_chat(src, span("warning", "You lack energy to perform this action!"))
 		return
 	// Choose our limb to detach
-	var/list/exclude = organs_by_name - list("groin", "chest", "l_arm", "r_arm", "l_leg", "r_leg")
+	var/list/exclude = organs_by_name - list(BP_GROIN, BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	var/choice =  input(src, "Choose a limb to detach?", "Limb detach") as null|anything in exclude
 	if(!choice)
 		return
@@ -236,7 +245,7 @@
 	stump.update_damages()
 	O.post_droplimb(src)
 	// If we got parent organ - drop it too
-	if(O.parent_organ && O.parent_organ != "chest")
+	if(O.parent_organ && O.parent_organ != BP_CHEST)
 		var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
 		var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
 		parent.removed(null, TRUE)
@@ -263,13 +272,14 @@
 	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
 	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 	verbs += /mob/living/carbon/human/proc/switch_to_nymph
-	M.update_verbs(TRUE)
 	M.detached = TRUE
+	M.update_verbs(TRUE)
+	M.languages = languages.Copy()
 
 	update_dionastats() //Re-find the organs in case they were lost or regained
 	nutrition -= REGROW_FOOD_REQ
 	DS.stored_energy -= REGROW_ENERGY_REQ
-	diona_handle_regeneration(DS, TRUE)
+	diona_handle_regeneration(DS)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
 /mob/living/carbon/human/proc/switch_to_nymph()
@@ -304,7 +314,7 @@
 	sleep(20)
 	var/list/nymphos = list()
 
-	var/list/organ_removal_priorities = list("l_arm","r_arm","l_leg","r_leg")
+	var/list/organ_removal_priorities = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG)
 	for(var/organ_name in organ_removal_priorities)
 		var/obj/item/organ/external/O = organs_by_name[organ_name]
 		if(!O || O.is_stump())

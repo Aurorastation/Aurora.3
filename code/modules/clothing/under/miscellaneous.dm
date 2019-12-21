@@ -704,6 +704,23 @@
 	worn_state = "taucetilegion"
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/under/legion/sentinel
+	name = "Tau Ceti Foreign Legion sentinel uniform."
+	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
+	worn_state = "taucetilegion_sentinel"
+
+/obj/item/clothing/under/legion/legate
+	name = "Legate uniform"
+	desc = "A stark red uniform worn by senior officers of the Tau Ceti Foreign Legion."
+	icon_state = "taucetilegion_legate"
+	worn_state = "taucetilegion_legate"
+
+/obj/item/clothing/under/legion/pilot
+	name = "Tau Ceti Foreign Legion flightsuit"
+	desc = "The uniform worn by Tau Ceti Foreign Legion pilots."
+	icon_state = "taucetilegion_pilot"
+	worn_state = "taucetilegion_pilot"
+
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
@@ -727,3 +744,29 @@
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/lance
+	name = "ceres lance fatigues"
+	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
+	icon_state = "lance_fatigues"
+	item_state = "lance_fatigues"
+	worn_state = "lance_fatigues"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/under/dress/lance_dress
+	name = "lance dress uniform"
+	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest. This one seems tailored  to take on a more feminine look, with a long skirt."
+	icon_state = "lance_dress_f"
+	item_state = "lance_dress_f"
+	worn_state = "lance_dress_f"
+
+
+/obj/item/clothing/under/dress/lance_dress/male
+	name = "lance dress uniform"
+	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
+	icon_state = "lance_dress_m"
+	item_state = "lance_dress_m"
+	worn_state = "lance_dress_m"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS

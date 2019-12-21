@@ -12,7 +12,7 @@
 /proc/is_on_same_plane_or_station(var/z1, var/z2)
 	if(z1 == z2)
 		return 1
-	if((z1 in current_map.station_levels) &&	(z2 in current_map.station_levels))
+	if(isStationLevel(z1) && isStationLevel(z2))
 		return 1
 	return 0
 
@@ -59,15 +59,6 @@
 	source.luminosity = lum
 
 	return heard
-
-/proc/isPlayerLevel(var/level)
-	return level in current_map.player_levels
-
-/proc/isAdminLevel(var/level)
-	return level in current_map.admin_levels
-
-/proc/isNotAdminLevel(var/level)
-	return !isAdminLevel(level)
 
 /proc/circlerange(center=usr,radius=3)
 
@@ -350,18 +341,6 @@ proc/isInSight(var/atom/A, var/atom/B)
 	return candidates
 
 // Same as above but for alien candidates.
-
-/proc/get_alien_candidates()
-	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
-	var/i = 0
-	while(candidates.len <= 0 && i < 5)
-		for(var/mob/abstract/observer/G in player_list)
-			if(MODE_XENOMORPH in G.client.prefs.be_special_role)
-				if(((G.client.inactivity/10)/60) <= ALIEN_SELECT_AFK_BUFFER + i) // the most active players are more likely to become an alien
-					if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
-						candidates += G.key
-		i++
-	return candidates
 
 /proc/ScreenText(obj/O, maptext="", screen_loc="CENTER-7,CENTER-7", maptext_height=480, maptext_width=480)
 	if(!isobj(O))	O = new /obj/screen/text()

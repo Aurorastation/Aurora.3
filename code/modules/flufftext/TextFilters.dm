@@ -2,8 +2,8 @@
 
 proc/Intoxicated(phrase)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -23,41 +23,60 @@ proc/Intoxicated(phrase)
 		newphrase+="[newletter]";counter-=1
 	return newphrase
 
-proc/NewStutter(phrase,stunned)
-	phrase = html_decode(phrase)
+proc/stutter(phrase, str = 1)
+	if(str < 1)
+		return phrase
+	else
+		str = Ceiling(str/5)
 
 	var/list/split_phrase = text2list(phrase," ") //Split it up into words.
-
 	var/list/unstuttered_words = split_phrase.Copy()
-	var/i = rand(1,3)
-	if(stunned) i = split_phrase.len
-	for(,i > 0,i--) //Pick a few words to stutter on.
 
+	var/max_stutter = min(str, split_phrase.len)
+	var/stutters = rand(max(max_stutter - 3, 1), max_stutter)
+
+	for(var/i = 0, i < stutters, i++)
 		if (!unstuttered_words.len)
 			break
+
 		var/word = pick(unstuttered_words)
 		unstuttered_words -= word //Remove from unstuttered words so we don't stutter it again.
 		var/index = split_phrase.Find(word) //Find the word in the split phrase so we can replace it.
+		var/regex/R = regex("^(\\W*)((?:\[Tt\]|\[Cc\]|\[Ss\])\[Hh\]|\\w)(\\w*)(\\W*)$")
+		var/regex/upper = regex("\[A-Z\]")
 
-		//Search for dipthongs (two letters that make one sound.)
-		var/first_sound = copytext(word,1,3)
-		var/first_letter = copytext(word,1,2)
-		if(lowertext(first_sound) in list("ch","th","sh"))
-			first_letter = first_sound
+		if(!R.Find(word))
+			continue
 
-		//Repeat the first letter to create a stutter.
-		var/rnum = rand(1,3)
-		switch(rnum)
-			if(1)
-				word = "[first_letter]-[word]"
-			if(2)
-				word = "[first_letter]-[first_letter]-[word]"
-			if(3)
-				word = "[first_letter]-[word]"
+		if (length(word) > 1)
+			if((prob(20) && str > 1) || (prob(30) && str > 4)) // stutter word instead
+				var/stuttered = R.group[2] + R.group[3]
+				if(upper.Find(stuttered) && !upper.Find(stuttered, 2)) // if they're screaming (all caps) or saying something like 'AI', keep the letter capitalized - else don't
+					stuttered = lowertext(stuttered)
+				word = R.Replace(word, "$1$2$3-[stuttered]$4")
+			else if(prob(25) && str > 1) // prolong word
+				var/prolonged = ""
+				var/prolong_amt = min(length(word), 5)
+				prolong_amt = rand(1, prolong_amt)
+				for(var/j = 0, j < prolong_amt, j++)
+					prolonged += R.group[2]
+				if(!upper.Find(R.group[3]))
+					prolonged = lowertext(prolonged)
+				word = R.Replace(word, "$1$2[prolonged]$3$4")
+			else
+				if(prob(5 * str)) // harder stutter if stronger
+					word = R.Replace(word, "$1$2-$2-$2-$2$3$4")
+				else if(prob(10 * str))
+					word = R.Replace(word, "$1$2-$2-$2$3$4")
+				else // normal stutter
+					word = R.Replace(word, "$1$2-$2$3$4")
+
+		if(prob(3 * str) && index != unstuttered_words.len - 1) // stammer / pause - don't pause at the end of sentences!
+			word = R.Replace(word, "$0 ...")
 
 		split_phrase[index] = word
 
-	return sanitize(jointext(split_phrase," "))
+	return jointext(split_phrase, " ")
 
 proc/Stagger(mob/M,d) //Technically not a filter, but it relates to drunkenness.
 	step(M, pick(d,turn(d,90),turn(d,-90)))
@@ -66,9 +85,8 @@ proc/Ellipsis(original_msg, chance = 50)
 	if(chance <= 0) return "..."
 	if(chance >= 100) return original_msg
 
-	var/list
-		words = text2list(original_msg," ")
-		new_words = list()
+	var/list/words = text2list(original_msg," ")
+	var/list/new_words = list()
 
 	var/new_msg = ""
 
