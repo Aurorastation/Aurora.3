@@ -578,6 +578,11 @@
 	if(L.lying)		//if the perp is lying down, it's still a target but a less-important target
 		return lethal ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
 
+	if(ismech(L))
+		var/mob/living/heavy_vehicle/M = L
+		if(!M.pilots?.len)
+			return TURRET_NOT_TARGET
+
 	return TURRET_PRIORITY_TARGET	//if the perp has passed all previous tests, congrats, it is now a "shoot-me!" nominee
 
 /obj/machinery/porta_turret/proc/assess_perp(var/mob/living/carbon/human/H)

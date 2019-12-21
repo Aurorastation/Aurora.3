@@ -44,7 +44,7 @@
 			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
 		else
 			break
-		H.apply_damage(30, HALLOSS)
+		H.apply_damage(30, PAIN)
 		if(prob(25))
 			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
 			if(affecting)

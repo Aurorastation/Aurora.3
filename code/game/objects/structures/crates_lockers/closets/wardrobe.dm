@@ -35,7 +35,7 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-	new /obj/item/clothing/shoes/jackboots/unathi(src)
+	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return
 
@@ -399,7 +399,6 @@
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/purple(src)
 	new /obj/item/clothing/shoes/red(src)
-	new /obj/item/clothing/shoes/leather(src)
 	return
 
 /obj/structure/closet/wardrobe/tactical

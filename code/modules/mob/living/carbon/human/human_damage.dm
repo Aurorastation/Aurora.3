@@ -6,8 +6,6 @@
 		stat = CONSCIOUS
 		return
 
-	update_health_display()
-
 	health = maxHealth - getBrainLoss()
 
 	//TODO: fix husking
@@ -386,7 +384,7 @@ This function restores all organs.
 
 /mob/living/carbon/human/proc/get_organ(var/zone)
 	if(!zone)	zone = BP_CHEST
-	if (zone in list( BP_EYES, "mouth" ))
+	if (zone in list( BP_EYES, BP_MOUTH ))
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
@@ -400,7 +398,7 @@ This function restores all organs.
 
 	//Handle other types of damage
 	if(damagetype != BRUTE && damagetype != BURN)
-		if(!stat && damagetype == HALLOSS && (can_feel_pain()))
+		if(!stat && damagetype == PAIN && (can_feel_pain()))
 			if ((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 
@@ -466,3 +464,7 @@ This function restores all organs.
 	if(stat == UNCONSCIOUS)
 		traumatic_shock *= 0.6
 	return max(0,traumatic_shock)
+
+/mob/living/carbon/human/remove_blood_simple(var/blood)
+	if(should_have_organ(BP_HEART))
+		vessel.remove_reagent("blood", blood)

@@ -44,8 +44,23 @@
 	if((status & ORGAN_DEAD) && dead_icon)
 		icon_state = dead_icon
 
-/obj/item/organ/internal/proc/surgical_fix() //to be used for scarring -mattatlas
+/obj/item/organ/internal/proc/surgical_fix(mob/user)
+	if(damage > min_broken_damage)
+		var/scarring = damage/max_damage
+		scarring = 1 - 0.3 * scarring ** 2 // Between ~15 and 30 percent loss
+		var/new_max_dam = Floor(scarring * max_damage)
+		if(new_max_dam < max_damage)
+			to_chat(user, "<span class='warning'>Not every part of [src] could be saved, some dead tissue had to be removed, making it more suspectable to damage in the future.</span>")
+			set_max_damage(new_max_dam)
 	heal_damage(damage)
+
+/obj/item/organ/internal/proc/get_scarring_level()
+	. = (initial(max_damage) - max_damage)/initial(max_damage)
+
+/obj/item/organ/internal/proc/get_scarring_results()
+	var/scar_level = get_scarring_level()
+	if(scar_level > 0.01)
+		. += "[get_wound_severity(get_scarring_level())] scarring"
 
 /obj/item/organ/internal/is_usable()
 	return ..() && !is_broken()

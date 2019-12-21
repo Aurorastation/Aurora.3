@@ -222,40 +222,6 @@
 		speech_problem_flag = 1
 		if (prob(10))
 			stuttering = max(10, stuttering)
-	// No. -- cib
-	/*if (getBrainLoss() >= 60 && stat != 2)
-		if (prob(3))
-			switch(pick(1,2,3))
-				if(1)
-					say(pick("IM A PONY NEEEEEEIIIIIIIIIGH", "without oxigen blob don't evoluate?", "CAPTAINS A COMDOM", "[pick("", "that meatball traitor")] [pick("joerge", "george", "gorge", "gdoruge")] [pick("mellens", "melons", "mwrlins")] is grifing me HAL;P!!!", "can u give me [pick("telikesis","halk","eppilapse")]?", "THe saiyans screwed", "Bi is THE BEST OF BOTH WORLDS>", "I WANNA PET TEH monkeyS", "stop grifing me!!!!", "SOTP IT#"))
-				if(2)
-					say(pick("FUS RO DAH","fucking 4rries!", "stat me", ">my face", "roll it easy!", "waaaaaagh!!!", "red wonz go fasta", "FOR TEH EMPRAH", "lol2cat", "dem dwarfs man, dem dwarfs", "SPESS MAHREENS", "hwee did eet fhor khayosss", "lifelike texture ;_;", "luv can bloooom", "PACKETS!!!"))
-				if(3)
-					emote("drool")
-	*/
-
-	if(stat != DEAD)
-		var/rn = rand(0, 200)
-		var/bloss = getBrainLoss()
-		if(bloss >= 5)
-			if(0 <= rn && rn <= 3)
-				custom_pain("Your head feels numb and painful.")
-		if(bloss >= 15)
-			if(4 <= rn && rn <= 6) if(eye_blurry <= 0)
-				to_chat(src, "<span class='warning'>It becomes hard to see for some reason.</span>")
-				eye_blurry = 10
-		if(bloss >= 35)
-			if(7 <= rn && rn <= 9) if(get_active_hand())
-				to_chat(src, "<span class='danger'>Your hand won't respond properly, you drop what you're holding!</span>")
-				drop_item()
-		if(bloss >= 45)
-			if(10 <= rn && rn <= 12)
-				if(prob(50))
-					to_chat(src, "<span class='danger'>You suddenly black out!</span>")
-					Paralyse(10)
-				else if(!lying)
-					to_chat(src, "<span class='danger'>Your legs won't respond properly, you fall down!</span>")
-					Weaken(10)
 
 /mob/living/carbon/human/proc/handle_stasis_bag()
 	// Handle side effects from stasis bag
@@ -878,10 +844,9 @@
 	if(!..())
 		return
 
-	if(stat == UNCONSCIOUS)
-		//Critical damage passage overlay
-		if(health < maxHealth/2)
-			var/ovr = "passage0"
+	if(stat != DEAD)
+		if(stat == UNCONSCIOUS && health < maxHealth/2)
+			var/ovr
 			switch(health - maxHealth/2)
 				if(-20 to -10)
 					ovr = "passage1"
@@ -908,22 +873,9 @@
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-	else
-		//Oxygen damage overlay
-		update_oxy_overlay()
-
-		// Vampire frenzy overlay.
-		if (mind.vampire)
-			if (mind.vampire.status & VAMP_FRENZIED)
-				if (!last_frenzy_state)
-					damageoverlay.add_overlay("frenzyoverlay")
-					last_frenzy_state = TRUE
-			else if (last_frenzy_state)
-				damageoverlay.cut_overlay("frenzyoverlay")
-				last_frenzy_state = FALSE
-		else if (last_frenzy_state)
-			damageoverlay.cut_overlay("frenzyoverlay")
-			last_frenzy_state = FALSE
+			else
+				//Oxygen damage overlay
+				update_oxy_overlay()
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
@@ -948,11 +900,43 @@
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-		else if (last_brute_overlay)
-			damageoverlay.cut_overlay(last_brute_overlay)
-			last_brute_overlay = null
 
-		update_health_display()
+		if(healths)
+			healths.overlays.Cut()
+			if (chem_effects[CE_PAINKILLER] > 100)
+				healths.icon_state = "health_numb"
+			else
+				// Generate a by-limb health display.
+				healths.icon_state = "blank"
+
+				var/no_damage = 1
+				var/trauma_val = 0 // Used in calculating softcrit/hardcrit indicators.
+				if(can_feel_pain())
+					trauma_val = max(shock_stage,get_shock())/(species.total_health-100)
+				// Collect and apply the images all at once to avoid appearance churn.
+				var/list/health_images = list()
+				for(var/obj/item/organ/external/E in organs)
+					if(no_damage && (E.brute_dam || E.burn_dam))
+						no_damage = 0
+					health_images += E.get_damage_hud_image()
+
+				// Apply a fire overlay if we're burning.
+				if(on_fire)
+					health_images += image('icons/mob/screen1_health.dmi',"burning")
+
+				// Show a general pain/crit indicator if needed.
+				if(is_asystole())
+					health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
+				else if(trauma_val)
+					if(can_feel_pain())
+						if(trauma_val > 0.7)
+							health_images += image('icons/mob/screen1_health.dmi',"softcrit")
+						if(trauma_val >= 1)
+							health_images += image('icons/mob/screen1_health.dmi',"hardcrit")
+				else if(no_damage)
+					health_images += image('icons/mob/screen1_health.dmi',"fullhealth")
+
+				healths.overlays += health_images
 
 		//Update hunger and thirst UI less often, its not important
 		if((life_tick % 3 == 0))
@@ -1170,6 +1154,8 @@
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
+		else if(isFBP(src))
+			holder.icon_state = "2"
 		else
 			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder
@@ -1362,7 +1348,7 @@
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	if (failed_last_breath || (getOxyLoss() + getHalLoss()) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain()
 		return
 
@@ -1379,49 +1365,13 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((getHalLoss()) / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((get_shock()) / exhaust_threshold), 1))
 		if (regen > 0)
 			stamina = min(max_stamina, stamina+regen)
 			adjustNutritionLoss(stamina_recovery*0.09)
 			adjustHydrationLoss(stamina_recovery*0.32)
 			if (client)
 				hud_used.move_intent.update_move_icon(src)
-
-/mob/living/carbon/human/proc/update_health_display()
-	if(!healths)
-		return
-
-	var/new_state
-	if (stat == DEAD)
-		new_state = "health7"
-	else if (analgesic > 100)
-		new_state = "health_numb"
-	else
-		switch(hal_screwyhud)
-			if(1)
-				new_state = "health6"
-			if(2)
-				new_state = "health7"
-			else
-				//switch(health - halloss)
-				switch(health - get_shock())
-					if(100 to INFINITY)
-						new_state = "health0"
-					if(80 to 100)
-						new_state = "health1"
-					if(60 to 80)
-						new_state = "health2"
-					if(40 to 60)
-						new_state = "health3"
-					if(20 to 40)
-						new_state = "health4"
-					if(0 to 20)
-						new_state = "health5"
-					else
-						new_state = "health6"
-
-	if (healths.icon_state != new_state)
-		healths.icon_state = new_state
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy

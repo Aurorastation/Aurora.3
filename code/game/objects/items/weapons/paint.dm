@@ -19,7 +19,7 @@
 
 /obj/item/reagent_containers/glass/paint/Initialize()
 	. = ..()
-	if(paint_type && lentext(paint_type) > 0)
+	if(paint_type && length(paint_type) > 0)
 		name = paint_type + " " + name
 	reagents.add_reagent("water", volume*3/5)
 	reagents.add_reagent("plasticide", volume/5)

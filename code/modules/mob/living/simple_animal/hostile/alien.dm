@@ -173,6 +173,8 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 2
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 /mob/living/simple_animal/tindalos
 	name = "tindalos"
@@ -184,3 +186,5 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 1.5
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag

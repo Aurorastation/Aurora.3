@@ -58,7 +58,7 @@
 		)
 
 
-/obj/item/storage/belt/utility/full/
+/obj/item/storage/belt/utility/full
 	starts_with = list(
 		/obj/item/screwdriver = 1,
 		/obj/item/wrench = 1,
@@ -70,7 +70,7 @@
 	)
 
 
-/obj/item/storage/belt/utility/atmostech/
+/obj/item/storage/belt/utility/atmostech
 	starts_with = list(
 		/obj/item/screwdriver = 1,
 		/obj/item/wrench = 1,
@@ -443,3 +443,17 @@
  	name = "yellow fannypack"
  	icon_state = "fannypack_yellow"
  	item_state = "fannypack_yellow"
+
+/obj/item/storage/belt/shumaila_buckle
+	name = "hammer buckle belt"
+	desc = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "hammerbelt"
+	item_state = "hammerbelt"
+	contained_sprite = TRUE
+	storage_slots = 1
+	max_w_class = 2
+	description_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
+	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
+	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."
