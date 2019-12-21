@@ -559,9 +559,11 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
+#if DM_VERSION < 513
 proc/arctan(x)
 	var/y=arcsin(x/sqrt(1+x*x))
 	return y
+#endif
 
 //returns random gauss number
 proc/GaussRand(var/sigma)
@@ -900,19 +902,24 @@ proc/is_hot(obj/item/W as obj)
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
-	if(M.lying)
-		if(locate(/obj/machinery/optable, M.loc))
+	var/located = FALSE
+	if(locate(/obj/machinery/optable, M.loc))
+		located = TRUE
+		surgery_attempt = SURGERY_SUCCESS
+	else if(locate(/obj/structure/bed/roller, M.loc))
+		located = TRUE
+		if(prob(80))
 			surgery_attempt = SURGERY_SUCCESS
-		else if(locate(/obj/structure/bed/roller, M.loc))
-			if(prob(80))
-				surgery_attempt = SURGERY_SUCCESS
-			else
-				surgery_attempt = SURGERY_FAIL
-		else if(locate(/obj/structure/table, M.loc))
-			if(prob(66))
-				surgery_attempt = SURGERY_SUCCESS
-			else
-				surgery_attempt = SURGERY_FAIL
+		else
+			surgery_attempt = SURGERY_FAIL
+	else if(locate(/obj/structure/table, M.loc))
+		located = TRUE
+		if(prob(66))
+			surgery_attempt = SURGERY_SUCCESS
+		else
+			surgery_attempt = SURGERY_FAIL
+	if(!M.lying && surgery_attempt != SURGERY_SUCCESS && located)
+		surgery_attempt = SURGERY_IGNORE //hit yourself if you're not lying
 	return surgery_attempt
 
 /proc/reverse_direction(var/dir)

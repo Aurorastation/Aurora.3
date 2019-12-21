@@ -9,21 +9,6 @@ var/global/datum/repository/crew/crew_repository = new()
 	cache_data = list()
 	..()
 
-/datum/repository/crew/proc/calcDamage_Inaccurate(var/DMGValue) //overrides global proc: this displays healthy even when damaged up to 10 points
-	switch(DMGValue)
-		if (0 to 10)
-			return ZERO_WIDTH_SPACE + "Healthy"
-		if (10 to 25)
-			return ZERO_WIDTH_SPACE + "Minor"
-		if (25 to 50)
-			return ZERO_WIDTH_SPACE + "Moderate"
-		if (50 to 75)
-			return ZERO_WIDTH_SPACE + "Major"
-		if (75 to 200)
-			return ZERO_WIDTH_SPACE + "Critical"
-		if (200 to INFINITY)
-			return ZERO_WIDTH_SPACE + "Fatal"
-			
 /datum/repository/crew/proc/health_data(var/z_level)
 	var/list/crewmembers = list()
 	if(!z_level)
@@ -46,21 +31,64 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(H.w_uniform != C)
 					continue
 
-				var/list/crewmemberData = list("dead"=0, "oxy"=ZERO_WIDTH_SPACE+"Healthy", "tox"=ZERO_WIDTH_SPACE+"Healthy", "fire"=ZERO_WIDTH_SPACE+"Healthy", "brute"=ZERO_WIDTH_SPACE+"Healthy", "area"="", "x"=-1, "y"=-1, "z"=-1, "level"="", "ref" = "\ref[H]")
+				var/list/crewmemberData = list("dead"=0, "area"="", "x"=-1, "y"=-1, "z"=-1, "level"="", "ref" = "\ref[H]")
 
 				crewmemberData["sensor_type"] = C.sensor_mode
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")
 				crewmemberData["rank"] = H.get_authentification_rank(if_no_id="Unknown", if_no_job="No Job")
 				crewmemberData["assignment"] = H.get_assignment(if_no_id="Unknown", if_no_job="No Job")
-				
+
 				if(C.sensor_mode >= SUIT_SENSOR_BINARY)
 					crewmemberData["dead"] = H.stat > UNCONSCIOUS
 
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
-					crewmemberData["oxy"] = calcDamage_Inaccurate(H.getOxyLoss())
-					crewmemberData["tox"] = calcDamage_Inaccurate(H.getToxLoss())
-					crewmemberData["fire"] = calcDamage_Inaccurate(H.getFireLoss())
-					crewmemberData["brute"] = calcDamage_Inaccurate(H.getBruteLoss())
+					crewmemberData["pulse"] = "N/A"
+					crewmemberData["pulse_span"] = "neutral"
+					crewmemberData["true_pulse"] = -1
+					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
+						var/obj/item/organ/internal/heart/O = H.internal_organs_by_name[BP_HEART]
+						if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
+							crewmemberData["true_pulse"] = H.pulse()
+							crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
+							switch(crewmemberData["true_pulse"])
+								if(PULSE_NONE)
+									crewmemberData["pulse_span"] = "bad"
+								if(PULSE_SLOW)
+									crewmemberData["pulse_span"] = "average"
+								if(PULSE_NORM)
+									crewmemberData["pulse_span"] = "good"
+								if(PULSE_FAST)
+									crewmemberData["pulse_span"] = "highlight"
+								if(PULSE_2FAST)
+									crewmemberData["pulse_span"] = "average"
+								if(PULSE_THREADY)
+									crewmemberData["pulse_span"] = "bad"
+
+					crewmemberData["pressure"] = "N/A"
+					crewmemberData["true_oxygenation"] = -1
+					crewmemberData["oxygenation"] = ""
+					crewmemberData["oxygenation_span"] = ""
+					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
+						crewmemberData["pressure"] = H.get_blood_pressure()
+						crewmemberData["true_oxygenation"] = H.get_blood_oxygenation()
+						switch (crewmemberData["true_oxygenation"])
+							if(105 to INFINITY)
+								crewmemberData["oxygenation"] = "increased"
+								crewmemberData["oxygenation_span"] = "highlight"
+							if(BLOOD_VOLUME_SAFE to 105)
+								crewmemberData["oxygenation"] = "normal"
+								crewmemberData["oxygenation_span"] = "good"
+							if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+								crewmemberData["oxygenation"] = "low"
+								crewmemberData["oxygenation_span"] = "average"
+							if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+								crewmemberData["oxygenation"] = "very low"
+								crewmemberData["oxygenation_span"] = "bad"
+							if(-(INFINITY) to BLOOD_VOLUME_BAD)
+								crewmemberData["oxygenation"] = "extremely low"
+								crewmemberData["oxygenation_span"] = "bad"
+
+					crewmemberData["bodytemp"] = H.bodytemperature - T0C
 
 				if(C.sensor_mode >= SUIT_SENSOR_TRACKING)
 					var/area/A = get_area(H)
@@ -85,5 +113,5 @@ var/global/datum/repository/crew/crew_repository = new()
 			if (C.has_sensor)
 				tracked |= C
 	return tracked
-	
+
 #undef ZERO_WIDTH_SPACE

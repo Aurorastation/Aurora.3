@@ -34,7 +34,7 @@
 
 /obj/screen/ai
 	icon = 'icons/mob/screen/ai.dmi'
-	layer = 21
+	layer = SCREEN_LAYER
 
 /obj/screen/ai/core
 	name = "AI Core"

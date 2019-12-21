@@ -5,17 +5,20 @@
 #define TOX       "tox"
 #define OXY       "oxy"
 #define CLONE     "clone"
-#define HALLOSS   "halloss"
+#define PAIN      "pain"
 
 #define CUT       "cut"
 #define BRUISE    "bruise"
 #define PIERCE    "pierce"
+#define LASER     "laser"
+
+#define DAM_LASER  1
+#define DAM_BULLET 2
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
 #define PARALYZE  "paralize"
 #define IRRADIATE "irradiate"
-#define AGONY     "agony"     // Added in PAIN!
 #define SLUR      "slur"
 #define STUTTER   "stutter"
 #define EYE_BLUR  "eye_blur"
@@ -54,3 +57,16 @@
 #define INFECTION_LEVEL_ONE   100
 #define INFECTION_LEVEL_TWO   500
 #define INFECTION_LEVEL_THREE 1000
+
+//Blood levels. These are percentages based on the species blood_volume far.
+#define BLOOD_VOLUME_SAFE    85
+#define BLOOD_VOLUME_OKAY    70
+#define BLOOD_VOLUME_BAD     60
+#define BLOOD_VOLUME_SURVIVE 30
+
+// These control the amount of blood lost from burns. The loss is calculated so
+// that dealing just enough burn damage to kill the player will cause the given
+// proportion of their max blood volume to be lost
+// (e.g. 0.6 == 60% lost if 200 burn damage is taken).
+#define FLUIDLOSS_WIDE_BURN 0.6 //for burns from heat applied over a wider area, like from fire
+#define FLUIDLOSS_CONC_BURN 0.4 //for concentrated burns, like from lasers

@@ -35,7 +35,7 @@
 /datum/surgery_step/robotics/unscrew_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == 0 && target_zone != "mouth"
+		return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 /datum/surgery_step/robotics/unscrew_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -99,7 +99,7 @@
 /datum/surgery_step/robotics/close_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open && target_zone != "mouth"
+		return affected && affected.open && target_zone != BP_MOUTH
 
 /datum/surgery_step/robotics/close_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -135,7 +135,7 @@
 			var/obj/item/weldingtool/welder = tool
 			if(!welder.isOn() || !welder.remove_fuel(1,user))
 				return 0
-		return affected && affected.open == 3 && affected.brute_dam > 0 && target_zone != "mouth"
+		return affected && affected.open == 3 && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
 /datum/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -167,7 +167,7 @@
 	if(..())
 		var/obj/item/stack/cable_coil/C = tool
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		var/limb_can_operate = (affected && affected.open == 3 && affected.burn_dam > 0 && target_zone != "mouth")
+		var/limb_can_operate = (affected && affected.open == 3 && affected.burn_dam > 0 && target_zone != BP_MOUTH)
 		if(limb_can_operate)
 			if(istype(C))
 				if(!C.get_amount() >= 3)
@@ -229,7 +229,7 @@
 				user.visible_message("[user] starts mending the damage to [target]'s [I.name]'s mechanisms.", \
 					"You start mending the damage to [target]'s [I.name]'s mechanisms." )
 
-	target.custom_pain("The pain in your [affected.name] is living hell!",1)
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
 
 /datum/surgery_step/robotics/fix_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

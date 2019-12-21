@@ -51,7 +51,7 @@
 	// Reagent information for process(), consider moving this to a controller along
 	// with cycle information under 'mechanical concerns' at some point.
 	var/global/list/toxic_reagents = list(
-		"anti_toxin" =		-2,
+		"dylovene" =		-2,
 		"toxin" =			2,
 		"hydrazine" =		2.5,
 		"acetone" =			1,

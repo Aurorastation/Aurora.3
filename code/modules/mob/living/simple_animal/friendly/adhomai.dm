@@ -12,6 +12,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 2
 	hunger_enabled = FALSE
+	canbrush = TRUE
 	var/eggsleft = 0
 
 /mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
@@ -62,11 +63,9 @@
 	attacktext = "kicked"
 	health = 200
 	maxHealth = 200
-
-	autoseek_food = 0
-	beg_for_food = 0
 	mob_size = 15
 
+	canbrush = TRUE
 	has_udder = TRUE
 	milk_type = "fatshouter_milk"
 

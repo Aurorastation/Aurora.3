@@ -164,7 +164,7 @@ var/list/diona_banned_languages = list(
 	//Next up, damage healing. Diona are only vulnerable to four of the six damage types
 	//Oxyloss doesn't apply because they don't breathe, and are thus immune to aquiring it in any way
 	//Brain damage is irrelevant because they have no brain.
-	if (health < 100)
+	if (health < (species ? species.total_health : 200))
 		CL = getBruteLoss()
 
 		if (CL > 0)
@@ -352,7 +352,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_organ)
 			path = species.has_organ[i]
 			var/organ_exists = 0
-			for (var/obj/item/organ/diona/B in internal_organs)
+			for (var/obj/item/organ/internal/diona/B in internal_organs)
 				if (B.type == path)
 					organ_exists = 1
 					break
@@ -645,8 +645,8 @@ var/list/diona_banned_languages = list(
 	var/restrictedlight_factor = 0.8 //A value between 0 and 1 that determines how much we nerf the strength of certain worn lights
 		//1 means flashlights work normally., 0 means they do nothing
 
-	var/obj/item/organ/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
-	var/obj/item/organ/diona/nutrients/nutrient_organ = null //Organ
+	var/obj/item/organ/internal/diona/node/light_organ = null //The organ this gestalt uses to receive light. This is left null for nymphs
+	var/obj/item/organ/internal/diona/nutrients/nutrient_organ = null //Organ
 	var/LMS = 1 //Lightmessage state. Switching between states gives the user a message
 	var/dionatype //1 = nymph, 2 = worker gestalt
 	var/datum/weakref/nym
