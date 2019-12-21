@@ -152,7 +152,7 @@
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					break // we can only do one at a time
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == "mouth" && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
 						span("danger","\The [user] smothers [target] with [src]!"),

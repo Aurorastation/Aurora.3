@@ -55,7 +55,7 @@
 		/obj/item/clothing/under/blazer
 		)
 	shoes = list(
-		/obj/item/clothing/shoes/leather,
+		/obj/item/clothing/shoes/laceup/brown,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/shoes/workboots,
 		/obj/item/clothing/shoes/black,
