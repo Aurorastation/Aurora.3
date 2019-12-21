@@ -70,7 +70,7 @@
 /obj/item/clothing/head/helmet/space/psi_amp/proc/deintegrate()
 
 	set name = "Remove Psi-Amp"
-	set desc = "Enhance your brainpower."
+	set desc = "Removes your psi-amp."
 	set category = "Abilities"
 	set src in usr
 
