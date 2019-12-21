@@ -20,7 +20,7 @@
 	var/sight_mode = 0
 	var/custom_name = ""
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
-	var/crisis //Admin-settable for combat module use.
+	var/crisis = 0 //Admin-settable for combat module use.
 	var/crisis_override = 0
 	var/malfAImodule = 0
 	var/integrated_light_power = 4
@@ -293,7 +293,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
+	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA || crisis == 1) //no fun allowed anymore.
 		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
@@ -393,7 +393,7 @@
 	return dat
 
 /mob/living/silicon/robot/proc/toggle_overclock()
-	set category = "Robot Commands"
+	set category = "Syndicate"
 	set name = "Toggle Overclock"
 	set desc = "Enable an overclocking of your systems, greatly increasing the power available to your modules."
 
@@ -1038,7 +1038,7 @@
 
 
 /mob/living/silicon/robot/proc/ResetSecurityCodes()
-	set category = "Robot Commands"
+	set category = "Syndicate"
 	set name = "Reset Identity Codes"
 	set desc = "Scrambles your security and identification codes and resets your current buffers.  Unlocks you and but permenantly severs you from your AI and the robotics console and will deactivate your camera system."
 

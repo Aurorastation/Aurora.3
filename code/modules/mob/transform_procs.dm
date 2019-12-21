@@ -168,10 +168,9 @@
 	O.cell.maxcharge = 7500
 	O.cell.charge = 7500
 
-
 	O.gender = gender
 	O.invisibility = 0
-
+	
 	if(mind)		//TODO
 		mind.transfer_to(O)
 		if(O.mind.assigned_role == "Cyborg")

@@ -27,7 +27,7 @@
 	exosuit_desc_string = "super-heavy reinforced manipulators"
 	icon_state = "heavy_arms"
 	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
-	melee_damage = 25
+	melee_damage = 50
 	action_delay = 15
 	max_damage = 90
 	power_use = 7500
@@ -68,7 +68,7 @@
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 /obj/item/mech_component/chassis/superheavy
 	name = "reinforced exosuit chassis"
@@ -84,7 +84,7 @@
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
 	cell = new /obj/item/cell/super(src)
-	armor = new /obj/item/robot_parts/robot_component/armour/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 /mob/living/heavy_vehicle/premade/superheavy
 	name = "Marauder"

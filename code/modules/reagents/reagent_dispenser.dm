@@ -375,7 +375,7 @@
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		if (Proj.damage_type != HALLOSS)
+		if (Proj.damage_type != PAIN)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)

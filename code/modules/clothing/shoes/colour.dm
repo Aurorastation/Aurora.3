@@ -87,12 +87,6 @@
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 
-/obj/item/clothing/shoes/leather
-	name = "leather shoes"
-	desc = "A sturdy pair of leather shoes."
-	icon_state = "leather"
-	drop_sound = 'sound/items/drop/leather.ogg'
-
 /obj/item/clothing/shoes/rainbow
 	name = "rainbow shoes"
 	desc = "A pair of overly colorful shoes."
@@ -103,6 +97,33 @@
 	desc = "A pair of easily noticed, reflective orange shoes."
 	icon_state = "orange"
 	var/obj/item/handcuffs/chained = null
+
+/obj/item/clothing/shoes/orange/proc/attach_cuffs(var/obj/item/handcuffs/cuffs, mob/user)
+	if (src.chained) return
+
+	user.drop_from_inventory(cuffs,src)
+	src.chained = cuffs
+	src.slowdown = 15
+	src.icon_state = "orange1"
+
+/obj/item/clothing/shoes/orange/proc/remove_cuffs(mob/user as mob)
+	if (!src.chained) return
+
+	user.put_in_hands(src.chained)
+	src.chained.add_fingerprint(user)
+
+	src.slowdown = initial(slowdown)
+	src.icon_state = "orange"
+	src.chained = null
+
+/obj/item/clothing/shoes/orange/attack_self(mob/user as mob)
+	..()
+	remove_cuffs(user)
+
+/obj/item/clothing/shoes/orange/attackby(H as obj, mob/user as mob)
+	..()
+	if (istype(H, /obj/item/handcuffs))
+		attach_cuffs(H, user)
 
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
@@ -143,33 +164,6 @@
 	name = "white dress flats"
 	icon_state = "dressflatswhite"
 	item_state = "dressflatswhite"
-
-/obj/item/clothing/shoes/orange/proc/attach_cuffs(var/obj/item/handcuffs/cuffs, mob/user as mob)
-	if (src.chained) return
-
-	user.drop_from_inventory(cuffs,src)
-	src.chained = cuffs
-	src.slowdown = 15
-	src.icon_state = "orange1"
-
-/obj/item/clothing/shoes/orange/proc/remove_cuffs(mob/user as mob)
-	if (!src.chained) return
-
-	user.put_in_hands(src.chained)
-	src.chained.add_fingerprint(user)
-
-	src.slowdown = initial(slowdown)
-	src.icon_state = "orange"
-	src.chained = null
-
-/obj/item/clothing/shoes/orange/attack_self(mob/user as mob)
-	..()
-	remove_cuffs(user)
-
-/obj/item/clothing/shoes/orange/attackby(H as obj, mob/user as mob)
-	..()
-	if (istype(H, /obj/item/handcuffs))
-		attach_cuffs(H, user)
 
 /obj/item/clothing/shoes/hitops
 	name = "white high-tops"
