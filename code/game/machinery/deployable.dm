@@ -142,7 +142,7 @@ for reference:
 	else
 		return 0
 
-/obj/structure/barricade/steel/Initialize(var/newloc)
+/obj/structure/barricade/steel/New(var/newloc)
 	.=..(newloc,"steel")
 
 //Actual Deployable machinery stuff
