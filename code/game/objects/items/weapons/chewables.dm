@@ -23,7 +23,9 @@
 /obj/item/clothing/mask/chewable/update_icon()
 	cut_overlays()
 	if(wrapped)
-		add_overlay("[initial(icon_state)]_wrapper")
+		var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_wrapper")
+		base_overlay.appearance_flags = RESET_COLOR
+		add_overlay(base_overlay)
 
 obj/item/clothing/mask/chewable/Initialize()
 	. = ..()
@@ -178,7 +180,15 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/trash/lollibutt
 	name = "popsicle stick"
 	desc = "A popsicle stick devoid of pop."
-	icon_state = "pop-stick"
+	icon_state = "lollipop_stick"
+
+/obj/item/clothing/mask/chewable/candy/lolli/update_icon()
+	cut_overlays()
+	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_stick")
+	base_overlay.appearance_flags = RESET_COLOR
+	add_overlay(base_overlay)
+	if(wrapped)
+		add_overlay("[initial(icon_state)]_wrapper")
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()

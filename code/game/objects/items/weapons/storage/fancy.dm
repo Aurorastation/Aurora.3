@@ -237,6 +237,19 @@
 	item_state = "Dpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
+/obj/item/storage/fancy/cigarettes/pra
+	name = "\improper Working Tajara packet"
+	desc = "A packet of six adhomian \"Working Tajara?\" cigarettes, imported straight from the People's Republic of Adhomai."
+	icon_state = "prapacket"
+	item_state = "prapacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/pra
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
+	storage_slots = 7
+
+/obj/item/storage/fancy/cigarettes/pra/fill()
+	..()
+	new /obj/item/tajcard(src)
+
 /obj/item/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
