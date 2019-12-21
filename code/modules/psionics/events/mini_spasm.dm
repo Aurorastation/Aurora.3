@@ -15,7 +15,7 @@
 /datum/event/minispasm/announce()
 	command_announcement.Announce( \
 		"PRIORITY ALERT: SIGMA-[rand(50,80)] NON-STANDARD PSIONIC SIGNAL-WAVE TRANSMISSION DETECTED - 97% MATCH, NON-VARIANT \
-		(SIGNAL SOURCE TRIANGULATED TO DISTANT SITE): All personnel are advised to avoid \
+		SIGNAL SOURCE TRIANGULATED TO DISTANT SITE: All personnel are advised to avoid \
 		exposure to active audio transmission equipment including radio headsets and intercoms \
 		for the duration of the signal broadcast.", \
 		"Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/security_level_old.ogg')
