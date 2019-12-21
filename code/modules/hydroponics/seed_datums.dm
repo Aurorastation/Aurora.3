@@ -1111,7 +1111,7 @@
 	name = "kudzu"
 	seed_name = "kudzu"
 	display_name = "kudzu vines"
-	chems = list("nutriment" = list(1,50), "anti_toxin" = list(1,25))
+	chems = list("nutriment" = list(1,50), "dylovene" = list(1,25))
 
 /datum/seed/kudzu/setup_traits()
 	..()
@@ -1232,10 +1232,10 @@
 	name = "tobacco"
 	seed_name = "tobacco"
 	display_name = "tobacco leaves"
-	mutants = list("finetobacco")
-	chems = list("tobacco" = list(1,10), "nicotine" = list(1,3))
+	mutants = list("finetobacco", "puretobacco", "badtobacco")
+	chems = list("tobacco" = list(1,10))
 
-/datum/seed/tobacco/setup_traits()
+/datum/seed/tobacco/New()
 	..()
 	set_trait(TRAIT_MATURATION,6)
 	set_trait(TRAIT_PRODUCTION,6)
@@ -1253,14 +1253,35 @@
 	name = "finetobacco"
 	seed_name = "fine tobacco"
 	display_name = "fine tobacco leaves"
-	chems = list("tobaccorich" = list(1,10), "nicotine" = list(3,5))
+	chems = list("tobaccofine" = list(1,10))
 
-/datum/seed/tobacco/finetobacco/setup_traits()
+/datum/seed/tobacco/finetobacco/New()
 	..()
 	set_trait(TRAIT_YIELD,4)
 	set_trait(TRAIT_PRODUCT_COLOUR,"#33571b")
 	set_trait(TRAIT_PLANT_COLOUR,"#33571b")
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.20)
+
+/datum/seed/tobacco/puretobacco //provides the pure nicotine reagent
+	name = "puretobacco"
+	seed_name = "succulent tobacco"
+	display_name = "succulent tobacco leaves"
+	chems = list("nicotine" = list(1,10))
+
+/datum/seed/tobacco/puretobacco/New()
+	..()
+	set_trait(TRAIT_YIELD,3)
+	set_trait(TRAIT_JUICY,1)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#b7c61a")
+	set_trait(TRAIT_PLANT_COLOUR,"#b7c61a")
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.30)
+
+/datum/seed/tobacco/bad
+	name = "badtobacco"
+	seed_name = "low-grade tobacco"
+	display_name = "low-grade tobacco leaves"
+	mutants = list("tobacco")
+	chems = list("tobaccobad" = list(1,10))
 
 /datum/seed/peppercorn
 	name = "peppercorn"

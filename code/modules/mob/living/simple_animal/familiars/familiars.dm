@@ -43,7 +43,8 @@
 	friendly = "pinches"
 	attacktext = "pinched"
 	resistance = 9
-
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 /mob/living/simple_animal/familiar/pike
 	name = "space pike"
@@ -64,7 +65,8 @@
 	maxHealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
@@ -134,6 +136,7 @@
 	mob_size = 4.5 //weight based on Chanthangi goats
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
+	canbrush = TRUE
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
@@ -178,6 +181,7 @@
 	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+	canbrush = TRUE
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)

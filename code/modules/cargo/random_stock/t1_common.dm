@@ -347,7 +347,7 @@ STOCK_ITEM_COMMON(pills, 1.2)
 		/obj/item/storage/pill_bottle/dexalin_plus, \
 		/obj/item/storage/pill_bottle/dermaline, \
 		/obj/item/storage/pill_bottle/dylovene, \
-		/obj/item/storage/pill_bottle/inaprovaline, \
+		/obj/item/storage/pill_bottle/norepinephrine, \
 		/obj/item/storage/pill_bottle/kelotane, \
 		/obj/item/storage/pill_bottle/antihistamine, \
 		/obj/item/storage/pill_bottle/tramadol, \
@@ -533,9 +533,9 @@ STOCK_ITEM_COMMON(cane, 2)
 
 STOCK_ITEM_COMMON(warning, 2.2)
 	if (prob(50))
-		new /obj/item/caution(L)
+		new /obj/item/clothing/suit/caution(L)
 	else
-		new /obj/item/caution/cone(L)
+		new /obj/item/clothing/head/cone(L)
 
 STOCK_ITEM_COMMON(gasmask, 2)
 	var/list/masks = list(

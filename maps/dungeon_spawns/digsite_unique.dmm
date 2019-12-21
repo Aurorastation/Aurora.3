@@ -26,6 +26,14 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
+"af" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1353;
+	id_tag = "digsite_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
 "ag" = (
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
@@ -132,6 +140,23 @@
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
+"aw" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1353;
+	id_tag = "digsite_airlock";
+	pixel_y = -25;
+	tag_airpump = "digsite_vent";
+	tag_chamber_sensor = "digsite_sensor";
+	tag_exterior_door = "digsite_exterior";
+	tag_interior_door = "digsite_interior"
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1353;
+	id_tag = "digsite_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
 "ax" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/airless/ceiling,
@@ -226,14 +251,6 @@
 "aM" = (
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
-"aN" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4;
-	frequency = 1379;
-	id_tag = "airlock_vent"
-	},
-/turf/simulated/floor,
-/area/dungeon/anomaly_outpost)
 "aO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1353;
@@ -292,23 +309,6 @@
 	},
 /obj/machinery/light{
 	status = 2
-	},
-/turf/simulated/floor,
-/area/dungeon/anomaly_outpost)
-"aV" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1353;
-	id_tag = "digsite_airlock";
-	pixel_y = -25;
-	tag_airpump = "digsite_vent";
-	tag_chamber_sensor = "digsite_sensor";
-	tag_exterior_door = "digsite_exterior";
-	tag_interior_door = "digsite_interior"
-	},
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 4;
-	frequency = 1353;
-	id_tag = "airlock_vent"
 	},
 /turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
@@ -1071,8 +1071,8 @@ ab
 ab
 ab
 aC
-aN
-aV
+af
+aw
 az
 aD
 aD

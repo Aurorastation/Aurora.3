@@ -36,7 +36,7 @@
 	if(!(gloves || mutations.len || glasses)) return
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
-	if((LASER in mutations) && a_intent == I_HURT)
+	if((LASER_EYES in mutations) && a_intent == I_HURT)
 		LaserEyes(A) // moved into a proc below
 	
 	else if(istype(GS) && GS.Look(A,src,0)) // for goggles
