@@ -62,7 +62,7 @@
 	return 0
 
 
-/mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
 
 	//Being hit while using a cloaking device
 	var/obj/item/cloaking_device/C = locate(/obj/item/cloaking_device) in src
@@ -96,7 +96,7 @@
 		proj_edge = 0
 
 	if(!P.nodamage)
-		apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags)
+		apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags, used_weapon = "\the [P.shot_from] [P.name]")
 	P.on_hit(src, absorb, def_zone)
 	return absorb
 
