@@ -63,7 +63,7 @@
 	icon_state = "summerwear"
 	item_state = "summerwear"
 
-/obj/item/clothing/under/mechanic
+/obj/item/clothing/under/tajaran/mechanic
 	name = "machinist uniform"
 	desc = "A simple and robust overall used by Adhomian urban workers."
 	icon_state = "mechanic"
