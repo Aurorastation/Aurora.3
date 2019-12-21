@@ -1540,7 +1540,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fa" = (
-/obj/item/moneybag,
+/obj/item/storage/bag/money,
 /turf/simulated/floor/airless,
 /area/template_noop)
 "fb" = (
@@ -1727,7 +1727,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
 "fB" = (
-/obj/item/moneybag,
+/obj/item/storage/bag/money,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "fC" = (
@@ -2029,7 +2029,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
 "gs" = (
-/obj/item/moneybag,
+/obj/item/storage/bag/money,
 /turf/template_noop,
 /area/template_noop)
 "gt" = (
@@ -3152,7 +3152,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "kb" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/template_noop,
 /area/template_noop)
 "kc" = (

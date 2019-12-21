@@ -57,7 +57,7 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
 
-/obj/item/organ/cell
+/obj/item/organ/internal/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
@@ -67,23 +67,23 @@
 	vital = 1
 	var/emp_counter = 0
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/process()
+/obj/item/organ/internal/cell/process()
 	..()
 	if(emp_counter)
 		emp_counter--
 
-/obj/item/organ/cell/emp_act(severity)
+/obj/item/organ/internal/cell/emp_act(severity)
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
 		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
 
 
-/obj/item/organ/surge
+/obj/item/organ/internal/surge
 	name = "surge preventor"
 	desc = "A small device that give immunity to EMP for few pulses."
 	icon = 'icons/obj/robot_component.dmi'
@@ -94,19 +94,19 @@
 	var/surge_left = 0
 	var/broken = 0
 
-/obj/item/organ/surge/Initialize()
+/obj/item/organ/internal/surge/Initialize()
 	if(!surge_left && !broken)
 		surge_left = rand(2, 5)
 	robotize()
 	. = ..()
 
-/obj/item/organ/surge/advanced
+/obj/item/organ/internal/surge/advanced
 	name = "advanced surge preventor"
 	var/max_charges = 5
 	var/stage_ticker = 0
 	var/stage_interval = 250
 
-/obj/item/organ/surge/advanced/process()
+/obj/item/organ/internal/surge/advanced/process()
 	..()
 
 	if(!owner)
@@ -203,7 +203,7 @@
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/data
+/obj/item/organ/internal/data
 	name = "data core"
 	organ_tag = "data core"
 	parent_organ = BP_GROIN
@@ -212,11 +212,11 @@
 	vital = 0
 	emp_coeff = 0.1
 
-/obj/item/organ/data/Initialize()
+/obj/item/organ/internal/data/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/cell/terminator
+/obj/item/organ/internal/cell/terminator
 	name = "shielded microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
 	icon = 'icons/obj/power.dmi'
@@ -226,7 +226,7 @@
 	vital = 1
 	emp_coeff = 0.1
 
-/obj/item/organ/cell/Initialize()
+/obj/item/organ/internal/cell/Initialize()
 	robotize()
 	. = ..()
 

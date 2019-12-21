@@ -118,7 +118,7 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1, 
+	starts_with = list(/obj/item/clothing/mask/breath = 1,
 					   /obj/item/tank/emergency_oxygen = 1,
 					   /obj/item/device/flashlight/flare = 1
 						)
@@ -152,14 +152,14 @@
 /obj/item/storage/box/gloves
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
-	icon_state = "latex"
-	starts_with = list(/obj/item/clothing/gloves/latex = 4, /obj/item/clothing/gloves/latex/nitrile = 3)
+	icon_state = "nitrile"
+	starts_with = list(/obj/item/clothing/gloves/latex = 2, /obj/item/clothing/gloves/latex/nitrile = 5)
 
 /obj/item/storage/box/masks
-	name = "box of sterile masks"
-	desc = "This box contains masks of sterility."
+	name = "box of surgical masks"
+	desc = "This box contains masks of surgicality."
 	icon_state = "sterile"
-	starts_with = list(/obj/item/clothing/mask/surgical = 7)
+	starts_with = list(/obj/item/clothing/mask/surgical = 4, /obj/item/clothing/mask/surgical/w = 3)
 
 /obj/item/storage/box/syringes
 	name = "box of syringes"
@@ -476,6 +476,7 @@
 			W.lit = 1
 			W.damtype = "burn"
 			W.icon_state = "match_lit"
+			W.item_state = "match_lit"
 			START_PROCESSING(SSprocessing, W)
 		else
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)

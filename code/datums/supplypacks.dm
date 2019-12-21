@@ -35,8 +35,9 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
 					/obj/item/grenade/smokebomb,
-					/obj/item/pen/reagent/paralysis,
+					/obj/item/storage/box/syndie_kit/special_pens,
 					/obj/item/grenade/chem_grenade/incendiary)
+
 	cost = 20
 	containertype = /obj/structure/closet/crate
 	containername = "crate"
@@ -430,7 +431,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 					/obj/item/storage/firstaid/o2,
 					/obj/item/storage/firstaid/adv,
 					/obj/item/reagent_containers/glass/bottle/antitoxin,
-					/obj/item/reagent_containers/glass/bottle/inaprovaline,
+					/obj/item/reagent_containers/glass/bottle/norepinephrine,
 					/obj/item/reagent_containers/glass/bottle/stoxin,
 					/obj/item/storage/box/syringes,
 					/obj/item/storage/box/autoinjectors)
@@ -1327,11 +1328,11 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 /datum/supply_packs/alienmedicalgloves
 	name = "Non-Human Sterile Glove Kit"
 	contains = list(/obj/item/clothing/gloves/latex/unathi,
-					/obj/item/clothing/gloves/latex/unathi,
-					/obj/item/clothing/gloves/latex/unathi,
+					/obj/item/clothing/gloves/latex/nitrile/unathi,
+					/obj/item/clothing/gloves/latex/nitrile/unathi,
 					/obj/item/clothing/gloves/latex/tajara,
-					/obj/item/clothing/gloves/latex/tajara,
-					/obj/item/clothing/gloves/latex/tajara)
+					/obj/item/clothing/gloves/latex/nitrile/tajara,
+					/obj/item/clothing/gloves/latex/nitrile/tajara)
 	cost = 25
 	containertype = /obj/structure/closet/crate
 	containername = "speciality sterile gloves kit"

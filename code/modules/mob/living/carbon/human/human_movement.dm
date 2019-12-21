@@ -16,8 +16,8 @@
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if (can_feel_pain())
-		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
+	if(can_feel_pain())
+		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
 		tally += I.slowdown
@@ -59,6 +59,9 @@
 
 	if (can_feel_pain())
 		if(shock_stage >= 10) tally += 3
+
+	if(is_asystole())
+		tally += 10  //heart attacks are kinda distracting
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 

@@ -23,7 +23,9 @@
 /obj/item/clothing/mask/chewable/update_icon()
 	cut_overlays()
 	if(wrapped)
-		add_overlay("[initial(icon_state)]_wrapper")
+		var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_wrapper")
+		base_overlay.appearance_flags = RESET_COLOR
+		add_overlay(base_overlay)
 
 obj/item/clothing/mask/chewable/Initialize()
 	. = ..()
@@ -33,6 +35,7 @@ obj/item/clothing/mask/chewable/Initialize()
 		reagents.add_reagent(R, filling[R])
 	if(wrapped)
 		slot_flags = null
+		update_icon()
 
 /obj/item/clothing/mask/chewable/equipped(var/mob/living/user, var/slot)
 	..()
@@ -97,27 +100,28 @@ obj/item/clothing/mask/chewable/Destroy()
 				to_chat(M, span("notice", "You spit out the [name]."))
 		qdel(src)
 
-/obj/item/clothing/mask/chewable/tobacco/lenni
+/obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
-	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
-	filling = list("nicotine" = 2)
+	desc = "A chewy wad of cheap tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
+	filling = list("tobaccobad" = 2)
 
-/obj/item/clothing/mask/chewable/tobacco/redlady
+/obj/item/clothing/mask/chewable/tobacco/generic
+	name = "chewing tobacco"
+	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
+	filling = list("tobacco" = 2)
+
+/obj/item/clothing/mask/chewable/tobacco/fine
 	name = "chewing tobacco"
 	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	filling = list("nicotine" = 2)
+	filling = list("tobaccofine" = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
 	name = "nicotine gum"
 	desc = "A chewy wad of synthetic rubber, laced with nicotine. Possibly the least disgusting method of nicotine delivery."
+	filling = list("nicotine" = 2)
 	icon_state = "nic_gum"
 	type_butt = /obj/item/trash/spitgum
 	wrapped = TRUE
-
-/obj/item/clothing/mask/chewable/tobacco/nico/Initialize()
-	. = ..()
-	reagents.add_reagent("nicotine", 2)
-	color = reagents.get_color()
 
 /obj/item/clothing/mask/chewable/candy
 	name = "wad"
@@ -176,7 +180,15 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/trash/lollibutt
 	name = "popsicle stick"
 	desc = "A popsicle stick devoid of pop."
-	icon_state = "pop-stick"
+	icon_state = "lollipop_stick"
+
+/obj/item/clothing/mask/chewable/candy/lolli/update_icon()
+	cut_overlays()
+	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_stick")
+	base_overlay.appearance_flags = RESET_COLOR
+	add_overlay(base_overlay)
+	if(wrapped)
+		add_overlay("[initial(icon_state)]_wrapper")
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()
@@ -209,7 +221,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
 				"dylovene",
-				"inaprovaline"))
+				"norepinephrine"))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."

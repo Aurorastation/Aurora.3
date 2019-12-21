@@ -154,11 +154,6 @@ mob/living/carbon/human/proc/change_monitor()
 
 	T.Weaken(3)
 
-	// Pariahs are not good at leaping. This is snowflakey, pls fix.
-	if(species.name == "Vox Pariah")
-		src.Weaken(5)
-		return TRUE
-
 	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
@@ -318,20 +313,6 @@ mob/living/carbon/human/proc/change_monitor()
 				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
-
-
-/mob/living/carbon/human/proc/regurgitate()
-	set name = "Regurgitate"
-	set desc = "Empties the contents of your stomach"
-	set category = "Abilities"
-
-	if(LAZYLEN(stomach_contents))
-		for(var/mob/M in src)
-			if(M in stomach_contents)
-				LAZYREMOVE(stomach_contents, M)
-				M.forceMove(loc)
-		src.visible_message(span("danger", "\The [src] hurls out the contents of their stomach!"))
-	return
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
 	set name = "Psychic Whisper"

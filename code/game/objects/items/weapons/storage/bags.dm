@@ -302,15 +302,26 @@
 //           Cash Bag
 // -----------------------------
 
-/obj/item/storage/bag/cash
-	name = "cash bag"
+/obj/item/storage/bag/money
 	icon = 'icons/obj/storage.dmi'
-	icon_state = "cashbag"
-	desc = "A bag for carrying lots of cash. It's got a big dollar sign printed on the front."
+	name = "money bag"
+	desc = "A bag for carrying lots of money. It's got a big dollar sign printed on the front."
+	icon_state = "moneybag"
+	flags = CONDUCT
 	max_storage_space = 100
-	max_w_class = 3
-	w_class = 2
+	w_class = 4
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
+
+/obj/item/storage/bag/money/vault
+
+/obj/item/storage/bag/money/vault/New()
+	..()
+	new /obj/item/coin/silver(src)
+	new /obj/item/coin/silver(src)
+	new /obj/item/coin/silver(src)
+	new /obj/item/coin/silver(src)
+	new /obj/item/coin/gold(src)
+	new /obj/item/coin/gold(src)
 
 // -----------------------------
 //           Book bag

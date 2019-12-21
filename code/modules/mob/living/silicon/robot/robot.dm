@@ -20,7 +20,7 @@
 	var/sight_mode = 0
 	var/custom_name = ""
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
-	var/crisis //Admin-settable for combat module use.
+	var/crisis = 0 //Admin-settable for combat module use.
 	var/crisis_override = 0
 	var/malfAImodule = 0
 	var/integrated_light_power = 4
@@ -127,7 +127,7 @@
 
 	robot_modules_background = new()
 	robot_modules_background.icon_state = "block"
-	robot_modules_background.layer = 19 //Objects that appear on screen are on layer 20, UI should be just below it.
+	robot_modules_background.layer = SCREEN_LAYER //Objects that appear on screen are on layer 20, UI should be just below it.
 	ident = rand(1, 999)
 	module_sprites["Basic"] = "robot"
 	icontype = "Basic"
@@ -167,15 +167,15 @@
 
 	add_robot_verbs()
 
-	hud_list[HEALTH_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudhealth100")
-	hud_list[LIFE_HUD]        = image('icons/mob/hud.dmi', src, "hudhealth100")
-	hud_list[ID_HUD]          = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = image('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[LIFE_HUD]        = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealth100")
+	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
 /mob/living/silicon/robot/proc/recalculate_synth_capacities()
 	if(!module || !module.synths)
@@ -293,7 +293,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
+	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA || crisis == 1) //no fun allowed anymore.
 		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
@@ -393,7 +393,7 @@
 	return dat
 
 /mob/living/silicon/robot/proc/toggle_overclock()
-	set category = "Robot Commands"
+	set category = "Syndicate"
 	set name = "Toggle Overclock"
 	set desc = "Enable an overclocking of your systems, greatly increasing the power available to your modules."
 
@@ -791,18 +791,19 @@
 	return ..(user,Floor(damage/2),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
-	//check if it doesn't require any access at all
+	// Check if the borg doesn't require any access at all
 	if(check_access(null))
 		return 1
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		//if they are holding or wearing a card that has access, that works
-		if(check_access(H.get_active_hand()) || check_access(H.wear_id))
-			return 1
-	else if(istype(M, /mob/living/silicon/robot))
+	// Borgs should be handled a bit differently, since their IDs are not really IDs
+	if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
 		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
 			return 1
+	else if(istype(M, /mob/living))
+		var/id = M.GetIdCard()
+		// Check if the ID card the user has (if any) has access
+		if(id)
+			return check_access(id)
 	return 0
 
 /mob/living/silicon/robot/proc/check_access(obj/item/card/id/I)
@@ -917,19 +918,19 @@
 			return 1
 		if(!module_state_1)
 			module_state_1 = O
-			O.layer = 20
+			O.layer = SCREEN_LAYER
 			contents += O
 			if(istype(module_state_1,/obj/item/borg/sight))
 				sight_mode |= module_state_1:sight_mode
 		else if(!module_state_2)
 			module_state_2 = O
-			O.layer = 20
+			O.layer = SCREEN_LAYER
 			contents += O
 			if(istype(module_state_2,/obj/item/borg/sight))
 				sight_mode |= module_state_2:sight_mode
 		else if(!module_state_3)
 			module_state_3 = O
-			O.layer = 20
+			O.layer = SCREEN_LAYER
 			contents += O
 			if(istype(module_state_3,/obj/item/borg/sight))
 				sight_mode |= module_state_3:sight_mode
@@ -1037,7 +1038,7 @@
 
 
 /mob/living/silicon/robot/proc/ResetSecurityCodes()
-	set category = "Robot Commands"
+	set category = "Syndicate"
 	set name = "Reset Identity Codes"
 	set desc = "Scrambles your security and identification codes and resets your current buffers.  Unlocks you and but permenantly severs you from your AI and the robotics console and will deactivate your camera system."
 
