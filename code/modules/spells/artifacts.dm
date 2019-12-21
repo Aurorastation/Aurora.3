@@ -216,7 +216,7 @@
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
-		if(target_zone == "mouth")
+		if(target_zone == BP_MOUTH)
 			var/voice =  sanitize(input(user, "What would you like the victim to say", "Poppet", null)  as text)
 			H.say(voice)
 			log_and_message_admins("forced [H] to say [voice] with a poppet", user)
