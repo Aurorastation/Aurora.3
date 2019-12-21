@@ -3152,7 +3152,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southwest)
 "kb" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/template_noop,
 /area/template_noop)
 "kc" = (

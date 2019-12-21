@@ -206,7 +206,7 @@
 			to_chat(user, "<span class='warning'>There is no metal to secure inside \the [src].</span>")
 			return
 		if(is_reinforced == FRAME_REINFORCED_WELDED)
-			to_chat(user, "<span class='warning'>\The [src]'s internal reinforcment has been welded in.</span>")
+			to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has been welded in.</span>")
 			return
 		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement in \the [src].")
 		playsound(user.loc, 'sound/items/Ratchet.ogg', 100, 1)
