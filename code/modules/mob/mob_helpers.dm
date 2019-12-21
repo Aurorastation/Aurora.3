@@ -248,7 +248,7 @@ var/list/global/organ_rel_size = list(
 	switch(zone)
 		if(BP_EYES)
 			zone = BP_HEAD
-		if("mouth")
+		if(BP_MOUTH)
 			zone = BP_HEAD
 	return zone
 
@@ -334,8 +334,8 @@ var/list/global/organ_rel_size = list(
 
 proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
-	var/leng=lentext(phrase)
-	var/counter=lentext(phrase)
+	var/leng=length(phrase)
+	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
 	while(counter>=1)
@@ -709,46 +709,6 @@ proc/is_blind(A)
 			to_chat(user, "You must unbuckle the subject first")
 			return 0
 	return 1
-
-/mob/living/carbon/proc/vomit()
-	var/canVomit = FALSE
-
-	if(nutrition > 0)
-		canVomit = TRUE
-
-	if(canVomit)
-		Stun(4)
-		var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
-		var/obj/vomitReceptacle
-		for(var/obj/vessel in view(1, src))
-			if (!is_type_in_typecache(vessel, vomitCandidate))
-				continue
-			if(!vessel.Adjacent(src))
-				continue
-			vomitReceptacle = vessel
-			break
-
-		if(vomitReceptacle)
-			src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
-			playsound(vomitReceptacle, 'sound/effects/splat.ogg', 50, 1)
-		else
-			src.visible_message("<span class='warning'>[src] vomits!</span>","<span class='warning'>You vomit!</span>")
-			playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-
-		var/turf/location = loc
-		if(!vomitReceptacle)
-			if (istype(location, /turf/simulated))
-				location.add_vomit_floor(src, 1)
-		adjustNutritionLoss(60)
-		adjustHydrationLoss(30)
-		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
-			intoxication *= 0.9
-
-		if (istype(src, /mob/living/carbon/human))
-			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
-	else if (prob(50))
-		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
-		Weaken(4)
 
 /mob/living/carbon/human/proc/delayed_vomit()
 	if(!check_has_mouth())
@@ -1270,3 +1230,6 @@ proc/is_blind(A)
 	result[2] = ainvis
 
 	return result
+
+/mob/proc/remove_blood_simple(var/blood)
+	return

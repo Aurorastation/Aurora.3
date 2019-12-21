@@ -108,7 +108,7 @@
 		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
 			if(prob(10))
 				M.apply_damage(30, BRUTE, BP_HEAD)
-				M.apply_damage(45, HALLOSS)
+				M.apply_damage(45, PAIN)
 				M.visible_message("<span class='danger'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
 				M.say("*scream")
 

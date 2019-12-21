@@ -77,7 +77,6 @@
 	if(holding) //It'd be strange for this to be called with this var unset
 		destroyed_event.unregister(holding, src, .proc/forget_holding)
 		holding = null
-		qdel(src)
 
 /obj/item/mecha_equipment/mounted_system/Initialize()
 	. = ..()

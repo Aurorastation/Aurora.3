@@ -35,7 +35,7 @@
 /datum/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == 0 && target_zone != "mouth"
+		return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_with_laser/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -55,7 +55,7 @@
 	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 
 	target.apply_damage(1, BRUTE, target_zone, 0)
-	affected.clamp()
+	affected.clamp_organ()
 	spread_germs_to_organ(affected, user)
 
 /datum/surgery_step/generic/cut_with_laser/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -76,7 +76,7 @@
 /datum/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == 0 && target_zone != "mouth"
+		return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/incision_manager/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -95,7 +95,7 @@
 		affected.status |= ORGAN_BLEEDING
 
 	target.apply_damage(1, BRUTE, target_zone, 0)
-	affected.clamp()
+	affected.clamp_organ()
 	affected.open = 2
 
 /datum/surgery_step/generic/incision_manager/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -121,7 +121,7 @@
 	else
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != "mouth"
+			return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 
 /datum/surgery_step/generic/cut_open/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -164,7 +164,7 @@
 	else
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != "mouth"
+			return affected && affected.open == 0 && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_open_vaurca/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -216,7 +216,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='notice'>[user] clamps bleeders in [target]'s [affected.name] with \the [tool].</span>",	\
 		"<span class='notice'>You clamp bleeders in [target]'s [affected.name] with \the [tool].</span>")
-	affected.clamp()
+	affected.clamp_organ()
 	spread_germs_to_organ(affected, user)
 	playsound(target.loc, 'sound/items/Welder.ogg', 15, 1)
 
@@ -295,7 +295,7 @@
 /datum/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open && target_zone != "mouth"
+		return affected && affected.open && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
