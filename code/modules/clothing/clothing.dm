@@ -528,7 +528,12 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_masks.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
+		)
 	slot_flags = SLOT_MASK
+	drop_sound = 'sound/items/drop/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
@@ -577,8 +582,7 @@
 		icon_state = "[icon_state]down"
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
-		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
-
+		user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -586,9 +590,8 @@
 		item_state = initial(icon_state)
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
-		to_chat(user, "You pull [src] up to cover your face.")
-		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
-
+		user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+	usr.update_action_buttons()
 	update_clothing_icon()
 
 /obj/item/clothing/mask/attack_self(mob/user)

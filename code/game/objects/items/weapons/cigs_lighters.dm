@@ -426,7 +426,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigarbutt"
 
 /obj/item/trash/cigbutt/cigarbutt/alt
-	icon_state = "cigarbutt2"
+	icon_state = "cigar2butt"
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/W as obj, mob/user as mob)
 	..()
