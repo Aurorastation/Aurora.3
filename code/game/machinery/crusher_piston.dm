@@ -90,7 +90,7 @@
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, BRUTE, user.get_active_hand())
-		M.apply_damage(45, HALLOSS)
+		M.apply_damage(45, PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
 		return

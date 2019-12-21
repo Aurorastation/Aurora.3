@@ -217,10 +217,19 @@
 	if(href_list["shipment_print"])
 		var/datum/cargo_shipment/cs = SScargo.get_shipment_by_id(text2num(href_list["shipment_print"]))
 		if(cs && cs.completed && console && console.nano_printer)
-			if(!console.nano_printer.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]"))
+			var/obj/item/paper/P = console.nano_printer.print_text(cs.get_invoice(),"Shipment Invoice #[cs.shipment_num]")
+			if(!P)
 				to_chat(usr,"<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 				return
 			else
+				//stamp the paper
+				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+				stampoverlay.icon_state = "paper_stamp-cent"
+				if(!P.stamped)
+					P.stamped = new
+				P.stamped += /obj/item/stamp
+				P.add_overlay(stampoverlay)
+				P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
 				console.visible_message("<span class='notice'>\The [console] prints out paper.</span>")
 	if(href_list["bounty_print"])
 		if(console && console.nano_printer)

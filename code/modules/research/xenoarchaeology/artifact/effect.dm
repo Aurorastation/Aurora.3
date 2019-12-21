@@ -24,7 +24,7 @@
 /datum/artifact_effect/New(var/atom/location)
 	..()
 	holder = location
-	effect = rand(0,MAX_EFFECT)
+	effect = rand(2,MAX_EFFECT)
 	trigger = rand(0,MAX_TRIGGER)
 
 	//this will be replaced by the excavation code later, but it's here just in case
