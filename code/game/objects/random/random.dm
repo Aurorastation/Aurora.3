@@ -152,9 +152,9 @@
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/tramadol = 2,
-		/obj/item/reagent_containers/syringe/antitoxin = 2,
+		/obj/item/reagent_containers/syringe/dylovene = 2,
 		/obj/item/reagent_containers/syringe/antiviral = 1,
-		/obj/item/reagent_containers/syringe/inaprovaline = 2,
+		/obj/item/reagent_containers/syringe/norepinephrine = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -801,7 +801,7 @@
 		/obj/item/seeds/random = 0.25,
 		/obj/item/stack/material/bronze{amount=10},
 		/obj/item/banhammer = 0.05,
-		/obj/item/caution/cone = 0.7,
+		/obj/item/clothing/head/cone = 0.7,
 		/obj/item/contraband/poster = 1.3,
 		/obj/item/extinguisher = 1.3,
 		/obj/item/extinguisher/mini = 0.9,

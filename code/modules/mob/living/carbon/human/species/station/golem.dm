@@ -98,6 +98,11 @@
 		new H.species.meat_type(H.loc, rand(3,8))
 		qdel(H)
 
+/datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
+
 /datum/species/golem/iron
 	name = "Iron Golem"
 	name_plural = "iron golems"
@@ -661,7 +666,7 @@
 		glassify(H)
 		return
 
-	if(H.getFireLoss() >= (H.health - config.health_threshold_crit))	//if the sand golem suffered enough burn damage it turns into a glass one
+	if(H.getFireLoss() >= (H.health - H.maxHealth))	//if the sand golem suffered enough burn damage it turns into a glass one
 		glassify(H)
 		return
 

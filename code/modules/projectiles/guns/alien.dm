@@ -9,6 +9,7 @@
 	var/max_spikes = 3
 	var/spikes = 3
 	release_force = 30
+	slot_flags = SLOT_BELT|SLOT_BACK
 	icon = 'icons/obj/gun.dmi'
 	icon_state = "spikethrower3"
 	item_state = "spikethrower"

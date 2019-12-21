@@ -33,7 +33,7 @@
 /datum/export/precious/gemstone/medruby
 	cost = 250
 	unit_name = "medium ruby"
-	export_types = list(/obj/item/precious/gemstone/ruby/med/med)
+	export_types = list(/obj/item/precious/gemstone/ruby/med)
 
 /datum/export/precious/gemstone/medsapphire
 	cost = 250

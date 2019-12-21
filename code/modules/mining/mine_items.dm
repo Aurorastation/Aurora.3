@@ -735,7 +735,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 /**********************Lazarus Injector**********************/
 
@@ -1298,8 +1298,8 @@ var/list/total_extraction_beacons = list()
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
-					if(!isipc(L))
-						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+					if(!isipc(L) && ishuman(L))
+						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 		addtimer(CALLBACK(src, .proc/drill, location), 2)
 
