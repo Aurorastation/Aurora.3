@@ -87,8 +87,28 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			stat("Players: [totalPlayers]", "Players Ready: [totalPlayersReady]")
 			totalPlayers = 0
 			totalPlayersReady = 0
-			for(var/mob/abstract/new_player/player in player_list)
-				stat("[player.key]", (player.ready)?("(Playing)"):(null))
+
+			//Determine high job and display it next to "ready"
+			var/highjob
+			for(var/mob/abstract/new_player/player in player_list) //for every player on the server
+				for(var/datum/job/job in SSjobs.occupations) //for every job available
+					var/job_flag
+					switch(job.department_flag)
+						if(CIVILIAN)
+							job_flag = player.client.prefs.job_civilian_high
+						if(MEDSCI)
+							job_flag = player.client.prefs.job_medsci_high
+						if(ENGSEC)
+							job_flag = player.client.prefs.job_engsec_high
+					if(job.flag == job_flag) //Checks if that job is the players high choice
+						highjob = job.title
+						break
+					if(player.client.prefs.job_civilian_low & ASSISTANT) // Need to do a separate check for assistant or it will show as blank
+						highjob = "Assistant"
+						break
+				if(!highjob) //If you have no high preference, you get "No preference"
+					highjob = "No preference"
+				stat("[player.key]", (player.ready)?("(Playing as [highjob])"):(null))
 				totalPlayers++
 				if(player.ready)
 					totalPlayersReady++
