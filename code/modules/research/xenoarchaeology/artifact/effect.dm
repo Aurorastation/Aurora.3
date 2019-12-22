@@ -24,7 +24,7 @@
 /datum/artifact_effect/New(var/atom/location)
 	..()
 	holder = location
-	effect = rand(0,MAX_EFFECT)
+	effect = rand(2,MAX_EFFECT)
 	trigger = rand(0,MAX_TRIGGER)
 
 	//this will be replaced by the excavation code later, but it's here just in case
@@ -106,7 +106,7 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 		protected += 0.2
 
 	//latex gloves and science goggles also give a bit of bonus protection
-	if(istype(H.gloves,/obj/item/clothing/gloves/latex))
+	if(istype(H.gloves,/obj/item/clothing/gloves/latex/nitrile))
 		protected += 0.1
 	/*
 	If you have Anomaly Suit, Anomaly Hood, Latex Gloves AND Science Goggles, you will have

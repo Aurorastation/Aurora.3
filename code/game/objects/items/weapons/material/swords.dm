@@ -38,7 +38,7 @@
 
 	user.do_attack_animation(target)
 
-	if(target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == "mouth")
+	if(target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == BP_MOUTH)
 		if(prob(70 - armor_reduction))
 			target.eye_blurry += 5
 			target.confused += 10

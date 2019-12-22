@@ -29,7 +29,7 @@
 	name = "light arms"
 	exosuit_desc_string = "lightweight, segmented manipulators"
 	icon_state = "light_arms"
-	melee_damage = 5
+	melee_damage = 15
 	action_delay = 15
 	max_damage = 40
 	power_use = 3000
@@ -66,7 +66,6 @@
 	pilot_coverage = 100
 	transparent_cabin =  TRUE
 	hatch_descriptor = "canopy"
-	hide_pilot = TRUE //Sprite too small, legs clip through, so for now hide pilot
 	exosuit_desc_string = "an open and light chassis"
 	icon_state = "light_body"
 	max_damage = 50
@@ -76,7 +75,7 @@
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/radproof(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/radproof(src)
 
 /obj/item/mech_component/chassis/light/Initialize()
 	pilot_positions = list(
