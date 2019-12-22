@@ -3006,7 +3006,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
 	name = "long trenchcoat"
 	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
-	symbol on the back, similar to the Frontier Alliance flag."
+	symbol on the back, similar to the Coalition of Colonies flag."
 	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
 	icon_state = "takahashi_coat"
 	item_state = "takahashi_coat"
