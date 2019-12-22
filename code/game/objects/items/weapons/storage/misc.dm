@@ -82,9 +82,15 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilters_generic"
 	item_state = "cigpacket"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	w_class = 2
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/storage/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"
