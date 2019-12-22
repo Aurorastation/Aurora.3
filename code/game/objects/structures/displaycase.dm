@@ -7,7 +7,7 @@
 	anchored = 1
 	unacidable = 1
 	var/health = 30
-	var/occupied = TRUE
+	var/maxhealth = 30
 	var/destroyed = FALSE
 	var/item_x_offset = 0
 	var/item_y_offset = 1
@@ -42,7 +42,6 @@
 			if (displayed_item)
 				displayed_item.forceMove(src.loc)
 				displayed_item = null
-				occupied = FALSE
 			qdel(src)
 		if (2)
 			if (prob(50))
@@ -91,7 +90,7 @@
 
 /obj/structure/displaycase/update_icon()
 	underlays.Cut()
-	if(occupied)
+	if(displayed_item)
 		var/image/I
 		I = image(displayed_item.icon, displayed_item.icon_state)
 		I.pixel_x = item_x_offset
@@ -109,10 +108,28 @@
 /obj/structure/displaycase/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/card/id))
 		var/obj/item/card/id/C = W
-		if(src.access_needed in C.access)
+		if(src.access_needed in C.access && !destroyed)
 			open_close(user)
 			update_icon()
-	else
+	if(istype(W,/obj/item))
+		if(open && !displayed_item && !destroyed)
+			user.drop_from_inventory(W,src)
+			W.forceMove(src)
+			displayed_item = W
+			update_icon()
+	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
+		var/obj/item/stack/G = W
+		if(health >= maxhealth && !destroyed)
+			to_chat(user, "<span class='notice'>The case cannot be repaired further!.</span>")
+			return
+		if(health <= maxhealth && !destroyed)
+			if(G.use(2))
+				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+				to_chat(user, "<span class='notice'>You places the glass on the [src].</span>")
+				health = max(health+(maxhealth/5), maxhealth)
+			else
+				to_chat(user, "<span class='warning'>You need 2 sheets of glass to repair this!.</span>")
+	else if(user.a_intent == I_HURT)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		src.health -= W.force
 		src.healthcheck()
@@ -124,7 +141,6 @@
 		to_chat(user, "<span class='notice'>You remove the [displayed_item.name].</span>")
 		displayed_item.forceMove(src.loc)
 		displayed_item = null
-		src.occupied = FALSE
 		src.add_fingerprint(user)
 		update_icon()
 		if(alarm)
