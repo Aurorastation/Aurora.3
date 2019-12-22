@@ -61,9 +61,7 @@
 	zombie_type = "Skrell Zombie"
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
-	if(!H.psi)
-		H.psi = new(H)
-		H.set_psi_rank(PSI_COERCION, 2)
+	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

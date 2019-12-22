@@ -35,10 +35,10 @@
 					use_rating = "[effective_rating]-Epsilon"
 					rating_descriptor = "This indicates the presence of minor latent psi potential with little or no operant capabilities."
 				if(2)
-					use_rating = "[effective_rating]-Gamma"
+					use_rating = "[effective_rating]-Delta"
 					rating_descriptor = "This indicates the presence of minor psi capabilities of the Operant rank or higher."
 				if(3)
-					use_rating = "<font color = '#F4F441'>[effective_rating]-Delta</font>"
+					use_rating = "<font color = '#F4F441'>[effective_rating]-Gamma</font>"
 					rating_descriptor = "This indicates the presence of psi capabilities of the Master rank or higher."
 				if(4)
 					use_rating = "<font color = '#F4BC42'>[effective_rating]-Beta</font>"
