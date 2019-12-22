@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed heads and groins being nearly impossible to dismember."
+  - tweak: "Hands and feet can take more punishment before being dismembered."
