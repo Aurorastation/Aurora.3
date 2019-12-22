@@ -11,7 +11,7 @@
 /*
  * DATA CARDS - Used for the teleporter
  */
-/obj/item/weapon/card
+/obj/item/card
 	name = "card"
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
@@ -21,7 +21,7 @@
 	var/list/files = list(  )
 	drop_sound = 'sound/items/drop/card.ogg'
 
-/obj/item/weapon/card/data
+/obj/item/card/data
 	name = "data disk"
 	desc = "A disk of data."
 	icon_state = "data"
@@ -31,7 +31,7 @@
 	item_state = "card-id"
 	overlay_state = "data"
 
-/obj/item/weapon/card/data/verb/label(t as text)
+/obj/item/card/data/verb/label(t as text)
 	set name = "Label Disk"
 	set category = "Object"
 	set src in usr
@@ -43,7 +43,7 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/item/weapon/card/data/clown
+/obj/item/card/data/clown
 	name = "\proper the coordinates to clown planet"
 	icon_state = "data"
 	item_state = "card-id"
@@ -56,15 +56,7 @@
 /*
  * ID CARDS
  */
-
-/obj/item/weapon/card/emag_broken
-	desc = "It's a card with a magnetic strip attached to some circuitry. It looks too busted to be used for anything but salvage."
-	name = "broken cryptographic sequencer"
-	icon_state = "emag"
-	item_state = "card-id"
-	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
-
-/obj/item/weapon/card/emag
+/obj/item/card/emag
 	desc = "It's a card with a magnetic strip attached to some circuitry."
 	name = "cryptographic sequencer"
 	icon_state = "emag"
@@ -72,8 +64,15 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	var/uses = 10
 
+/obj/item/card/emag_broken
+	desc = "It's a card with a magnetic strip attached to some circuitry. It looks too busted to be used for anything but salvage."
+	name = "broken cryptographic sequencer"
+	icon_state = "emag_broken"
+	item_state = "card-id"
+	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+
 var/const/NO_EMAG_ACT = -50
-/obj/item/weapon/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
+/obj/item/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	var/used_uses = A.emag_act(uses, user, src)
 	if(used_uses == NO_EMAG_ACT)
 		return ..(A, user, click_parameters)
@@ -85,14 +84,14 @@ var/const/NO_EMAG_ACT = -50
 
 	if(uses<1)
 		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
-		var/obj/item/weapon/card/emag_broken/junk = new(user.loc)
+		var/obj/item/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
 		user.drop_from_inventory(src,get_turf(junk))
 		qdel(src)
 
 	return 1
 
-/obj/item/weapon/card/id
+/obj/item/card/id
 	name = "identification card"
 	desc = "A card used to provide ID and determine access across the station."
 	icon_state = "id"
@@ -123,18 +122,18 @@ var/const/NO_EMAG_ACT = -50
 	var/rank = null			//actual job
 	var/dorm = 0			// determines if this ID has claimed a dorm already
 
-/obj/item/weapon/card/id/Destroy()
+/obj/item/card/id/Destroy()
 	mob = null
 	return ..()
 
-/obj/item/weapon/card/id/examine(mob/user)
+/obj/item/card/id/examine(mob/user)
 	if (..(user, 1))
 		show(user)
 
-/obj/item/weapon/card/id/proc/prevent_tracking()
+/obj/item/card/id/proc/prevent_tracking()
 	return 0
 
-/obj/item/weapon/card/id/proc/show(mob/user as mob)
+/obj/item/card/id/proc/show(mob/user as mob)
 	if(front && side)
 		to_chat(user, browse_rsc(front, "front.png"))
 		to_chat(user, browse_rsc(side, "side.png"))
@@ -144,16 +143,16 @@ var/const/NO_EMAG_ACT = -50
 	popup.open()
 	return
 
-/obj/item/weapon/card/id/proc/update_name()
+/obj/item/card/id/proc/update_name()
 	name = "[src.registered_name]'s ID Card ([src.assignment])"
 
-/obj/item/weapon/card/id/proc/set_id_photo(var/mob/M)
+/obj/item/card/id/proc/set_id_photo(var/mob/M)
 	front = getFlatIcon(M, SOUTH, always_use_defdir = 1)
 	front.Scale(128, 128)
 	side = getFlatIcon(M, WEST, always_use_defdir = 1)
 	side.Scale(128, 128)
 
-/mob/proc/set_id_info(var/obj/item/weapon/card/id/id_card)
+/mob/proc/set_id_info(var/obj/item/card/id/id_card)
 	id_card.age = 0
 	id_card.registered_name		= real_name
 	id_card.sex 				= capitalize(gender)
@@ -165,14 +164,14 @@ var/const/NO_EMAG_ACT = -50
 		id_card.fingerprint_hash= md5(dna.uni_identity)
 	id_card.update_name()
 
-/mob/living/carbon/human/set_id_info(var/obj/item/weapon/card/id/id_card)
+/mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	..()
 	id_card.age 				= age
 	id_card.citizenship			= citizenship
 	id_card.religion 			= SSrecords.get_religion_record_name(religion)
 	id_card.mob					= src
 
-/obj/item/weapon/card/id/proc/dat()
+/obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
 	dat += text("Name: []</A><BR>", registered_name)
 	dat += text("Sex: []</A><BR>\n", sex)
@@ -190,7 +189,7 @@ var/const/NO_EMAG_ACT = -50
 	dat += "</tr></table>"
 	return dat
 
-/obj/item/weapon/card/id/attack_self(mob/user as mob)
+/obj/item/card/id/attack_self(mob/user as mob)
 	if (dna_hash == "\[UNSET\]" && ishuman(user))
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")
@@ -206,7 +205,7 @@ var/const/NO_EMAG_ACT = -50
 				citizenship = H.citizenship
 				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
-				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
+				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
 				return
 
 	for(var/mob/O in viewers(user, null))
@@ -215,9 +214,9 @@ var/const/NO_EMAG_ACT = -50
 	src.add_fingerprint(user)
 	return
 
-/obj/item/weapon/card/id/attack(var/mob/living/M, var/mob/user, proximity)
+/obj/item/card/id/attack(var/mob/living/M, var/mob/user, proximity)
 
-	if(user.zone_sel.selecting == "r_hand" || user.zone_sel.selecting == "l_hand")
+	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
 
 		if(!ishuman(M))
 			return ..()
@@ -241,11 +240,11 @@ var/const/NO_EMAG_ACT = -50
 					return 1
 
 				var/has_hand
-				var/obj/item/organ/external/O = H.organs_by_name["r_hand"]
+				var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
 				if(istype(O) && !O.is_stump())
 					has_hand = 1
 				else
-					O = H.organs_by_name["l_hand"]
+					O = H.organs_by_name[BP_L_HAND]
 					if(istype(O) && !O.is_stump())
 						has_hand = 1
 				if(!has_hand)
@@ -264,13 +263,13 @@ var/const/NO_EMAG_ACT = -50
 				return 1
 	return ..()
 
-/obj/item/weapon/card/id/GetAccess()
+/obj/item/card/id/GetAccess()
 	return access
 
-/obj/item/weapon/card/id/GetID()
+/obj/item/card/id/GetID()
 	return src
 
-/obj/item/weapon/card/id/verb/read()
+/obj/item/card/id/verb/read()
 	set name = "Read ID Card"
 	set category = "Object"
 	set src in usr
@@ -286,12 +285,12 @@ var/const/NO_EMAG_ACT = -50
 		to_chat(usr, "A ticker indicates the card has [mining_points] ore redemption points available.")
 	return
 
-/obj/item/weapon/card/id/proc/mob_icon_update()
+/obj/item/card/id/proc/mob_icon_update()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_wear_id()
 
-/obj/item/weapon/card/id/verb/flip_side()
+/obj/item/card/id/verb/flip_side()
 	set name = "Flip ID card"
 	set category = "Object"
 	set src in usr
@@ -306,7 +305,7 @@ var/const/NO_EMAG_ACT = -50
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
 	mob_icon_update()
 
-/obj/item/weapon/card/id/verb/toggle_icon_layer()
+/obj/item/card/id/verb/toggle_icon_layer()
 	set name = "Switch ID Layer"
 	set category = "Object"
 	set src in usr
@@ -319,28 +318,59 @@ var/const/NO_EMAG_ACT = -50
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
 
-/obj/item/weapon/card/id/silver
-	name = "identification card"
-	desc = "A silver card which shows honour and dedication."
+/obj/item/card/id/silver
 	icon_state = "silver"
 	item_state = "silver_id"
 	overlay_state = "silver"
 
-/obj/item/weapon/card/id/gold
-	name = "identification card"
+/obj/item/card/id/white
+	icon_state = "white"
+	item_state = "white_id"
+	overlay_state = "white"
+
+/obj/item/card/id/navy
+	desc = "A navy card which shows honour and dedication."
+	icon_state = "navy"
+	item_state = "navy_id"
+	overlay_state = "navy"
+
+/obj/item/card/id/gold
 	desc = "A golden card which shows power and might."
 	icon_state = "gold"
 	item_state = "gold_id"
 	overlay_state = "gold"
 
-/obj/item/weapon/card/id/syndicate_command
+/obj/item/card/id/syndicate_command
 	name = "syndicate ID card"
 	desc = "An ID straight from the Syndicate."
+	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
 	access = list(access_syndicate, access_external_airlocks)
 
-/obj/item/weapon/card/id/captains_spare
+/obj/item/card/id/syndicate_ert
+	name = "\improper Syndicate Commando ID"
+	assignment = "Commando"
+	icon_state = "centcom"
+
+/obj/item/card/id/syndicate_ert/New()
+	access = get_all_accesses()
+	..()
+
+/obj/item/card/id/syndicate/raider
+	name = "passport"
+	assignment = "Visitor"
+
+/obj/item/card/id/highlander
+	name = "\improper Highlander ID"
+	assignment = "Highlander"
+	icon_state = "centcom"
+
+/obj/item/card/id/highlander/New()
+	access = get_all_station_access() | get_all_centcom_access()
+	..()
+
+/obj/item/card/id/captains_spare
 	name = "captain's spare ID"
 	desc = "The spare ID of the High Lord himself."
 	icon_state = "gold"
@@ -349,40 +379,40 @@ var/const/NO_EMAG_ACT = -50
 	registered_name = "Captain"
 	assignment = "Captain"
 
-/obj/item/weapon/card/id/captains_spare/New()
+/obj/item/card/id/captains_spare/New()
 	access = get_all_station_access()
 	..()
 
-/obj/item/weapon/card/id/merchant
+/obj/item/card/id/merchant
 	name = "merchant pass"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	desc = "An identification card issued to NanoTrasen sanctioned merchants, indicating their right to sell and buy goods."
 	access = list(access_merchant)
 
-/obj/item/weapon/card/id/synthetic
+/obj/item/card/id/synthetic
 	name = "\improper Synthetic ID"
 	desc = "Access module for NanoTrasen Synthetics"
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Synthetic"
 
-/obj/item/weapon/card/id/synthetic/New()
+/obj/item/card/id/synthetic/New()
 	access = get_all_station_access() + access_synth
 	..()
 
-/obj/item/weapon/card/id/minedrone
+/obj/item/card/id/minedrone
 	name = "\improper Minedrone ID"
 	desc = "Access module for NanoTrasen Minedrones"
 	icon_state = "id-robot"
 	item_state = "tdgreen"
 	assignment = "Minedrone"
 
-/obj/item/weapon/card/id/minedrone/New()
+/obj/item/card/id/minedrone/New()
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	..()
 
-/obj/item/weapon/card/id/centcom
+/obj/item/card/id/centcom
 	name = "\improper CentCom. ID"
 	desc = "An ID straight from Cent. Com."
 	icon_state = "centcom"
@@ -390,38 +420,54 @@ var/const/NO_EMAG_ACT = -50
 	registered_name = "Central Command"
 	assignment = "General"
 
-/obj/item/weapon/card/id/centcom/New()
+/obj/item/card/id/centcom/New()
 	access = get_all_centcom_access()
 	..()
 
-/obj/item/weapon/card/id/ert
+/obj/item/card/id/ert
 	name = "\improper Nanotrasen Emergency Response Team ID"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
 
-/obj/item/weapon/card/id/ert/New()
+/obj/item/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
 	..()
 
-/obj/item/weapon/card/id/distress
+/obj/item/card/id/asset_protection
+	name = "\improper Nanotrasen Asset Protection ID"
+	icon_state = "centcom"
+	overlay_state = "centcom"
+	assignment = "Asset Protection"
+
+/obj/item/card/id/asset_protection/New()
+	access = get_all_accesses()
+	..()
+
+/obj/item/card/id/distress
 	name = "\improper Freelancer Mercenary ID"
 	icon_state = "centcom"
 	assignment = "Freelancer Mercenary"
 
-/obj/item/weapon/card/id/distress/New()
+/obj/item/card/id/distress/New()
 	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
 	..()
 
-/obj/item/weapon/card/id/distress/legion
+/obj/item/card/id/distress/kataphract
+	name = "\improper Kataphract ID"
+	icon_state = "centcom"
+	assignment = "Kataphract"
+
+/obj/item/card/id/distress/legion
 	name = "\improper Tau Ceti Foreign Legion ID"
 	assignment = "Tau Ceti Foreign Legion Volunteer"
+	icon_state = "legion"
 
-/obj/item/weapon/card/id/distress/legion/New()
+/obj/item/card/id/distress/legion/New()
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 	..()
 
-/obj/item/weapon/card/id/all_access
+/obj/item/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."
 	icon_state = "data"
@@ -430,58 +476,58 @@ var/const/NO_EMAG_ACT = -50
 	registered_name = "Administrator"
 	assignment = "Administrator"
 
-/obj/item/weapon/card/id/all_access/New()
+/obj/item/card/id/all_access/New()
 	access = get_access_ids()
 	..()
 
 // Contractor cards
 
-/obj/item/weapon/card/id/idris
+/obj/item/card/id/idris
 	name = "\improper Idris Incorporated identification card"
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
 	overlay_state = "idris_card"
 
-/obj/item/weapon/card/id/idris/sec
+/obj/item/card/id/idris/sec
 	icon_state = "idrissec_card"
 	overlay_state = "idrissec_card"
 
-/obj/item/weapon/card/id/iru
+/obj/item/card/id/iru
 	name = "\improper IRU identification card"
 	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris Incorporated."
 	icon_state = "iru_card"
 	overlay_state = "iru_card"
 
-/obj/item/weapon/card/id/eridani
+/obj/item/card/id/eridani
 	name = "\improper Eridani identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	icon_state = "erisec_card"
 	overlay_state = "erisec_card"
 
-/obj/item/weapon/card/id/zeng_hu
+/obj/item/card/id/zeng_hu
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
 	overlay_state = "zhu_card"
 
-/obj/item/weapon/card/id/hephaestus
+/obj/item/card/id/hephaestus
 	name = "\improper Hephaestus Industries identification card"
 	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
 	icon_state = "heph_card"
 	overlay_state = "heph_card"
 
-/obj/item/weapon/card/id/necropolis
+/obj/item/card/id/necropolis
 	name = "\improper Necropolis Incorporated identification card"
 	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
 	icon_state = "necro_card"
 	overlay_state = "necro_card"
 
-/obj/item/weapon/card/id/necropolis/sec
+/obj/item/card/id/necropolis/sec
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
 	overlay_state = "necrosec_card"
 
-/obj/item/weapon/card/id/einstein
+/obj/item/card/id/einstein
 	name = "\improper Einstein Engines identification card"
 	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
 	icon_state = "einstein_card"

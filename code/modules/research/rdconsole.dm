@@ -32,10 +32,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
-	circuit = /obj/item/weapon/circuitboard/rdconsole
+	circuit = /obj/item/circuitboard/rdconsole
 	var/datum/research/files							//Stores all the collected research data.
-	var/obj/item/weapon/disk/tech_disk/t_disk = null	//Stores the technology disk.
-	var/obj/item/weapon/disk/design_disk/d_disk = null	//Stores the design disk.
+	var/obj/item/disk/tech_disk/t_disk = null	//Stores the technology disk.
+	var/obj/item/disk/design_disk/d_disk = null	//Stores the design disk.
 
 	var/obj/machinery/r_n_d/destructive_analyzer/linked_destroy = null	//Linked Destructive Analyzer
 	var/obj/machinery/r_n_d/protolathe/linked_lathe = null				//Linked Protolathe
@@ -88,6 +88,29 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				D.linked_console = src
 	return
 
+/obj/machinery/computer/rdconsole/proc/SyncTechs()
+	if(src)
+		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
+			var/server_processed = 0
+			if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
+				for(var/datum/tech/T in files.known_tech)
+					S.files.AddTech2Known(T)
+				for(var/datum/design/D in files.known_designs)
+					S.files.AddDesign2Known(D)
+				S.files.RefreshResearch()
+				server_processed = 1
+			if((id in S.id_with_download) && !istype(S, /obj/machinery/r_n_d/server/centcom))
+				for(var/datum/tech/T in S.files.known_tech)
+					files.AddTech2Known(T)
+				for(var/datum/design/D in S.files.known_designs)
+					files.AddDesign2Known(D)
+				files.RefreshResearch()
+				server_processed = 1
+			if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
+				S.produce_heat()
+		screen = 1.6
+		updateUsrDialog()
+
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
 		for(var/datum/tech/T in files.known_tech)
@@ -104,6 +127,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			S.setup()
 			break
 	SyncRDevices()
+	addtimer(CALLBACK(src, .proc/SyncTechs), 30)
 
 /obj/machinery/computer/rdconsole/Destroy()
 	if(linked_destroy != null)
@@ -114,16 +138,16 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_imprinter.linked_console = null
 	return ..()
 
-/obj/machinery/computer/rdconsole/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/machinery/computer/rdconsole/attackby(var/obj/item/D as obj, var/mob/user as mob)
 	//Loading a disk into it.
-	if(istype(D, /obj/item/weapon/disk))
+	if(istype(D, /obj/item/disk))
 		if(t_disk || d_disk)
 			to_chat(user, "A disk is already loaded into the machine.")
 			return
 
-		if(istype(D, /obj/item/weapon/disk/tech_disk))
+		if(istype(D, /obj/item/disk/tech_disk))
 			t_disk = D
-		else if (istype(D, /obj/item/weapon/disk/design_disk))
+		else if (istype(D, /obj/item/disk/design_disk))
 			d_disk = D
 		else
 			to_chat(user, "<span class='notice'>Machine cannot accept disks in that format.</span>")
@@ -275,28 +299,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			to_chat(usr, "<span class='notice'>You must connect to the network first.</span>")
 		else
 			griefProtection() //Putting this here because I dont trust the sync process
-			spawn(30)
-				if(src)
-					for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
-						var/server_processed = 0
-						if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
-							for(var/datum/tech/T in files.known_tech)
-								S.files.AddTech2Known(T)
-							for(var/datum/design/D in files.known_designs)
-								S.files.AddDesign2Known(D)
-							S.files.RefreshResearch()
-							server_processed = 1
-						if((id in S.id_with_download) && !istype(S, /obj/machinery/r_n_d/server/centcom))
-							for(var/datum/tech/T in S.files.known_tech)
-								files.AddTech2Known(T)
-							for(var/datum/design/D in S.files.known_designs)
-								files.AddDesign2Known(D)
-							files.RefreshResearch()
-							server_processed = 1
-						if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
-							S.produce_heat()
-					screen = 1.6
-					updateUsrDialog()
+			addtimer(CALLBACK(src, .proc/SyncTechs), 30)
 
 	else if(href_list["togglesync"]) //Prevents the console from being synced by other consoles. Can still send data.
 		sync = !sync
@@ -401,10 +404,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if (href_list["print"]) //Print research information
 		screen = 0.5
 		spawn(20)
-			var/obj/item/weapon/paper/PR = new/obj/item/weapon/paper
+			var/obj/item/paper/PR = new/obj/item/paper
 			var/pname = "list of researched technologies"
 			var/info = "<center><b>[station_name()] Science Laboratories</b>"
-			info += "<h2>[ (text2num(href_list["print"]) == 2) ? "Detailed" : ] Research Progress Report</h2>"
+			info += "<h2>[ (text2num(href_list["print"]) == 2) ? "Detailed" : null] Research Progress Report</h2>"
 			info += "<i>report prepared at [worldtime2text()] station time</i></center><br>"
 			if(text2num(href_list["print"]) == 2)
 				info += GetResearchListInfo()

@@ -127,7 +127,7 @@
 		set_death_time(CREW, world.time)
 
 /mob/abstract/observer/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/weapon/book/tome))
+	if(istype(W,/obj/item/book/tome))
 		var/mob/abstract/observer/M = src
 		M.manifest(user)
 
@@ -143,11 +143,7 @@ Works together with spawning an observer, noted above.
 	if(!loc) return
 	if(!client) return 0
 
-
-	if(client.images.len)
-		for(var/image/hud in client.images)
-			if(copytext(hud.icon_state,1,4) == "hud")
-				client.images.Remove(hud)
+	handle_hud_glasses()
 
 	if(antagHUD)
 		var/list/target_list = list()

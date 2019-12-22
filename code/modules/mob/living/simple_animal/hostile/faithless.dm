@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/faithless
 	name = "Faithless"
 	desc = "The Wish Granter's faith in humanity, incarnate"
+	icon = 'icons/mob/npc/human.dmi'
 	icon_state = "faithless"
 	icon_living = "faithless"
 	icon_dead = "faithless_dead"

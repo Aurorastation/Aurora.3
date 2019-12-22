@@ -8,6 +8,7 @@
 	var/failchance = 5
 	var/obj/target = null
 	var/creator = null
+	var/precision = 1
 	anchored = 1.0
 
 /obj/effect/portal/CollidedWith(mob/M as mob|obj)
@@ -22,18 +23,18 @@
 	set waitfor = FALSE
 	src.teleport(user)
 
-/obj/effect/portal/New(loc, turf/target, creator=null, lifespan=300)
+/obj/effect/portal/New(loc, turf/target, creator=null, lifespan=300, precise = 1)
 	..()
 	src.target = target
 	src.creator = creator
 
 	if(lifespan > 0)
 		QDEL_IN(src, lifespan)
+	
+	precision = precise
 
 /obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
-		return
-	if (M.anchored&&istype(M, /obj/mecha))
 		return
 	if (icon_state == "portal1")
 		return
@@ -45,4 +46,4 @@
 			src.icon_state = "portal1"
 			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
 		else
-			do_teleport(M, target, 1) ///You will appear adjacent to the beacon
+			do_teleport(M, target, precision)

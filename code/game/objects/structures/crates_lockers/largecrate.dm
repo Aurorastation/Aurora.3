@@ -9,7 +9,7 @@
 	to_chat(user, "<span class='notice'>You need a crowbar to pry this open!</span>")
 	return
 
-/obj/structure/largecrate/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/largecrate/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iscrowbar())
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
@@ -32,17 +32,6 @@
 	name = "\improper Hoverpod assembly crate"
 	desc = "It comes in a box for the fabricator's sake. Where does the wood come from? ... And why is it lighter?"
 	icon_state = "mulecrate"
-
-/obj/structure/largecrate/hoverpod/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(W.iscrowbar())
-		var/obj/item/mecha_parts/mecha_equipment/ME
-		var/obj/mecha/working/hoverpod/H = new (loc)
-
-		ME = new /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
-		ME.attach(H)
-		ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
-		ME.attach(H)
-	..()
 
 /obj/structure/largecrate/animal
 	icon_state = "mulecrate"
@@ -97,3 +86,7 @@
 
 /obj/structure/largecrate/animal/adhomai/rafama
 	held_type = /mob/living/simple_animal/hostile/retaliate/rafama
+
+/obj/structure/largecrate/animal/hakhma
+	name = "hakhma crate"
+	held_type = /mob/living/simple_animal/hakhma

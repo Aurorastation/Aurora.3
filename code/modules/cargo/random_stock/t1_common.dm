@@ -2,7 +2,7 @@
 
 STOCK_ITEM_COMMON(toolbox, 4)
 	if (prob(5))
-		new /obj/item/weapon/storage/toolbox/syndicate(L)
+		new /obj/item/storage/toolbox/syndicate(L)
 	else
 		new /obj/random/toolbox(L)
 
@@ -39,8 +39,8 @@ STOCK_ITEM_COMMON(lightreplacer, 1)
 		LR = new /obj/item/device/lightreplacer(L)
 	LR.uses = 0
 
-	new /obj/item/weapon/storage/box/lights/mixed(L)
-	new /obj/item/weapon/storage/box/lights/mixed(L)
+	new /obj/item/storage/box/lights/mixed(L)
+	new /obj/item/storage/box/lights/mixed(L)
 
 //A bundle of bodybags or stasis bags
 STOCK_ITEM_COMMON(bodybag, 2.2)
@@ -50,7 +50,7 @@ STOCK_ITEM_COMMON(bodybag, 2.2)
 		new /obj/item/bodybag/cryobag(L)
 		new /obj/item/bodybag/cryobag(L)
 	else
-		new /obj/item/weapon/storage/box/bodybags(L)
+		new /obj/item/storage/box/bodybags(L)
 
 STOCK_ITEM_COMMON(lamp, 2.4)
 	for (var/i in 1 to rand(1, 3))
@@ -63,26 +63,26 @@ STOCK_ITEM_COMMON(lamp, 2.4)
 		P.queue_icon_update()
 
 STOCK_ITEM_COMMON(mousetrap, 2)
-	new /obj/item/weapon/storage/box/mousetraps(L)
+	new /obj/item/storage/box/mousetraps(L)
 
 STOCK_ITEM_COMMON(sterile, 2)
-	new /obj/item/weapon/storage/box/gloves(L)
-	new /obj/item/weapon/storage/box/masks(L)
+	new /obj/item/storage/box/gloves(L)
+	new /obj/item/storage/box/masks(L)
 
 STOCK_ITEM_COMMON(light, 1.8)
-	new /obj/item/weapon/storage/box/lights/mixed(L)
+	new /obj/item/storage/box/lights/mixed(L)
 	if (prob(50))
-		new /obj/item/weapon/storage/box/lights/mixed(L)
+		new /obj/item/storage/box/lights/mixed(L)
 	if (prob(25))
-		new /obj/item/weapon/storage/box/lights/coloredmixed(L)
+		new /obj/item/storage/box/lights/coloredmixed(L)
 	if (prob(15))
 		var/type = pick( \
-			/obj/item/weapon/storage/box/lights/colored/red, \
-			/obj/item/weapon/storage/box/lights/colored/green, \
-			/obj/item/weapon/storage/box/lights/colored/blue, \
-			/obj/item/weapon/storage/box/lights/colored/cyan, \
-			/obj/item/weapon/storage/box/lights/colored/yellow, \
-			/obj/item/weapon/storage/box/lights/colored/magenta \
+			/obj/item/storage/box/lights/colored/red, \
+			/obj/item/storage/box/lights/colored/green, \
+			/obj/item/storage/box/lights/colored/blue, \
+			/obj/item/storage/box/lights/colored/cyan, \
+			/obj/item/storage/box/lights/colored/yellow, \
+			/obj/item/storage/box/lights/colored/magenta \
 		)
 		new type(L)
 
@@ -90,13 +90,13 @@ STOCK_ITEM_COMMON(aid, 4)
 	new /obj/random/firstaid(L)
 
 STOCK_ITEM_COMMON(flame, 2)
-	new /obj/item/weapon/storage/box/matches(L)
-	new /obj/item/weapon/flame/lighter/random(L)
-	new /obj/item/weapon/storage/fancy/candle_box(L)
-	new /obj/item/weapon/storage/fancy/candle_box(L)
+	new /obj/item/storage/box/matches(L)
+	new /obj/item/flame/lighter/random(L)
+	new /obj/item/storage/fancy/candle_box(L)
+	new /obj/item/storage/fancy/candle_box(L)
 
 STOCK_ITEM_COMMON(crayons, 1.5)
-	new /obj/item/weapon/storage/fancy/crayons(L)
+	new /obj/item/storage/fancy/crayons(L)
 
 STOCK_ITEM_COMMON(figure, 1)
 
@@ -113,52 +113,52 @@ STOCK_ITEM_COMMON(tech, 5)
 	new /obj/random/tech_supply(L)
 
 STOCK_ITEM_COMMON(smokes, 2)
-	new /obj/item/weapon/flame/lighter/random(L)
+	new /obj/item/flame/lighter/random(L)
 	if (prob(20))
-		new /obj/item/weapon/storage/fancy/cigar(L)
-		new /obj/item/weapon/storage/fancy/cigar(L)
+		new /obj/item/storage/fancy/cigar(L)
+		new /obj/item/storage/fancy/cigar(L)
 	else
-		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
-		new /obj/item/weapon/storage/fancy/cigarettes/blank(L)
+		new /obj/item/storage/fancy/cigarettes/blank(L)
+		new /obj/item/storage/fancy/cigarettes/blank(L)
 		if (prob(50))
-			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
-			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
-			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
-			new /obj/item/weapon/storage/fancy/cigarettes/dromedaryco(L)
+			new /obj/item/storage/fancy/cigarettes/dromedaryco(L)
+			new /obj/item/storage/fancy/cigarettes/dromedaryco(L)
+			new /obj/item/storage/fancy/cigarettes/dromedaryco(L)
+			new /obj/item/storage/fancy/cigarettes/dromedaryco(L)
 		else
-			new /obj/item/weapon/storage/fancy/cigarettes(L)
-			new /obj/item/weapon/storage/fancy/cigarettes(L)
-			new /obj/item/weapon/storage/fancy/cigarettes(L)
-			new /obj/item/weapon/storage/fancy/cigarettes(L)
+			new /obj/item/storage/fancy/cigarettes(L)
+			new /obj/item/storage/fancy/cigarettes(L)
+			new /obj/item/storage/fancy/cigarettes(L)
+			new /obj/item/storage/fancy/cigarettes(L)
 
 	if (prob(30))
 		new /obj/item/clothing/mask/smokable/pipe(L)
 
 STOCK_ITEM_COMMON(vials, 2)
 	if (prob(20))
-		new /obj/item/weapon/storage/lockbox/vials(L)
+		new /obj/item/storage/lockbox/vials(L)
 	else
-		new /obj/item/weapon/storage/fancy/vials(L)
+		new /obj/item/storage/fancy/vials(L)
 
 STOCK_ITEM_COMMON(smallcell, 4)
 	for (var/i in 1 to rand(1, 4))
 		var/type = pick( \
-			/obj/item/weapon/cell, \
-			/obj/item/weapon/cell/device, \
-			/obj/item/weapon/cell/apc, \
-			/obj/item/weapon/cell/high \
+			/obj/item/cell, \
+			/obj/item/cell/device, \
+			/obj/item/cell/apc, \
+			/obj/item/cell/high \
 		)
 		new type(L)
 
 //Spawns a random circuitboard
 //Allboards being a global list might be faster, but it didnt seem worth the extra memory
 STOCK_ITEM_COMMON(circuitboard, 2)
-	var/list/allboards = subtypesof(/obj/item/weapon/circuitboard)
+	var/list/allboards = subtypesof(/obj/item/circuitboard)
 	var/list/exclusion = list(
-		/obj/item/weapon/circuitboard/unary_atmos,
-		/obj/item/weapon/circuitboard/telecomms
+		/obj/item/circuitboard/unary_atmos,
+		/obj/item/circuitboard/telecomms
 	)
-	exclusion += typesof(/obj/item/weapon/circuitboard/mecha)
+	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
 	var/type = pick(allboards)
@@ -183,10 +183,10 @@ STOCK_ITEM_COMMON(weldgear, 2)
 	if (prob(50))
 		new /obj/item/clothing/head/welding(L)
 	if (prob(50))
-		new /obj/item/weapon/weldpack(L)
+		new /obj/item/weldpack(L)
 
 STOCK_ITEM_COMMON(inflatable, 3)
-	new /obj/item/weapon/storage/briefcase/inflatable(L)
+	new /obj/item/storage/briefcase/inflatable(L)
 
 STOCK_ITEM_COMMON(wheelchair, 1)
 	//Wheelchair is not dense so it doesnt NEED a clear tile, but it looks a little silly to
@@ -208,21 +208,21 @@ STOCK_ITEM_COMMON(meson, 1.5)
 		new /obj/item/clothing/glasses/meson(L)
 
 STOCK_ITEM_COMMON(trap, 2)
-	new /obj/item/weapon/trap(L)
+	new /obj/item/trap(L)
 	if (prob(50))
-		new /obj/item/weapon/trap(L)
+		new /obj/item/trap(L)
 
 STOCK_ITEM_COMMON(trays, 1.8)
 	for (var/i in 1 to rand(1, 7))
-		new /obj/item/weapon/tray(L)
+		new /obj/item/tray(L)
 
 STOCK_ITEM_COMMON(utensil, 2)
-	new /obj/item/weapon/storage/box/kitchen(L)
+	new /obj/item/storage/box/kitchen(L)
 
 STOCK_ITEM_COMMON(metalfoam, 1.5)
-	new /obj/item/weapon/grenade/chem_grenade/metalfoam(L)
-	new /obj/item/weapon/grenade/chem_grenade/metalfoam(L)
-	new /obj/item/weapon/grenade/chem_grenade/metalfoam(L)
+	new /obj/item/grenade/chem_grenade/metalfoam(L)
+	new /obj/item/grenade/chem_grenade/metalfoam(L)
+	new /obj/item/grenade/chem_grenade/metalfoam(L)
 
 STOCK_ITEM_COMMON(nanopaste, 2)
 	new /obj/item/stack/nanopaste(L)
@@ -263,13 +263,13 @@ STOCK_ITEM_COMMON(scanners, 3.2)
 		/obj/item/device/mass_spectrometer = 0.5,
 		/obj/item/device/mass_spectrometer/adv = 0.5,
 		/obj/item/device/slime_scanner = 1,
-		/obj/item/weapon/autopsy_scanner = 1,
+		/obj/item/autopsy_scanner = 1,
 		/obj/item/device/robotanalyzer = 4,
-		/obj/item/weapon/mining_scanner = 1,
+		/obj/item/mining_scanner = 1,
 		/obj/item/device/ano_scanner = 1,
 		/obj/item/device/reagent_scanner = 2,
 		/obj/item/device/reagent_scanner/adv = 2,
-		/obj/item/weapon/barcodescanner = 1,
+		/obj/item/barcodescanner = 1,
 		/obj/item/device/depth_scanner = 1,
 		/obj/item/device/antibody_scanner = 0.5
 	)
@@ -292,22 +292,22 @@ STOCK_ITEM_COMMON(maglock, 2)
 		new /obj/item/device/magnetic_lock/security(L)
 
 STOCK_ITEM_COMMON(luminol, 2)
-	new /obj/item/weapon/reagent_containers/spray/luminol(L)
+	new /obj/item/reagent_containers/spray/luminol(L)
 
 STOCK_ITEM_COMMON(cleaning, 3.5)
 	if (prob(80))
-		new /obj/item/weapon/reagent_containers/glass/rag(L)
+		new /obj/item/reagent_containers/glass/rag(L)
 	if (prob(80))
 		var/list/soaps = list(
-			/obj/item/weapon/soap,
-			/obj/item/weapon/soap/nanotrasen,
-			/obj/item/weapon/soap/deluxe,
-			/obj/item/weapon/soap/syndie
+			/obj/item/soap,
+			/obj/item/soap/nanotrasen,
+			/obj/item/soap/deluxe,
+			/obj/item/soap/syndie
 		)
 		var/soaptype = pick(soaps)
 		new soaptype(L)
 	if (prob(80))
-		new /obj/item/weapon/mop(L)
+		new /obj/item/mop(L)
 
 STOCK_ITEM_COMMON(bsdm, 2)
 	if (prob(50))
@@ -330,7 +330,7 @@ STOCK_ITEM_COMMON(rollerbed, 2.2)
 	new /obj/item/roller(L)
 
 STOCK_ITEM_COMMON(smokebombs, 1.1)
-	new /obj/item/weapon/storage/box/smokebombs(L)
+	new /obj/item/storage/box/smokebombs(L)
 
 STOCK_ITEM_COMMON(jar, 2)
 	new /obj/item/glass_jar(L)
@@ -339,28 +339,28 @@ STOCK_ITEM_COMMON(uvlight, 1.2)
 	new /obj/item/device/uv_light(L)
 
 STOCK_ITEM_COMMON(glasses, 1.2)
-	new /obj/item/weapon/storage/box/rxglasses(L)
+	new /obj/item/storage/box/rxglasses(L)
 
 STOCK_ITEM_COMMON(pills, 1.2)
 	var/list/options = pick( \
-		/obj/item/weapon/storage/pill_bottle/bicaridine, \
-		/obj/item/weapon/storage/pill_bottle/dexalin_plus, \
-		/obj/item/weapon/storage/pill_bottle/dermaline, \
-		/obj/item/weapon/storage/pill_bottle/dylovene, \
-		/obj/item/weapon/storage/pill_bottle/inaprovaline, \
-		/obj/item/weapon/storage/pill_bottle/kelotane, \
-		/obj/item/weapon/storage/pill_bottle/antihistamine, \
-		/obj/item/weapon/storage/pill_bottle/tramadol, \
-		/obj/item/weapon/storage/pill_bottle/paracetamol \
+		/obj/item/storage/pill_bottle/bicaridine, \
+		/obj/item/storage/pill_bottle/dexalin_plus, \
+		/obj/item/storage/pill_bottle/dermaline, \
+		/obj/item/storage/pill_bottle/dylovene, \
+		/obj/item/storage/pill_bottle/norepinephrine, \
+		/obj/item/storage/pill_bottle/kelotane, \
+		/obj/item/storage/pill_bottle/antihistamine, \
+		/obj/item/storage/pill_bottle/tramadol, \
+		/obj/item/storage/pill_bottle/paracetamol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)
 
 STOCK_ITEM_COMMON(cosmetic, 2.2)
 	if (prob(50))
-		new /obj/item/weapon/lipstick/random(L)
+		new /obj/item/lipstick/random(L)
 	else
-		new /obj/item/weapon/haircomb(L)
+		new /obj/item/haircomb(L)
 
 STOCK_ITEM_COMMON(suitcooler, 1.2)
 	new /obj/item/device/suit_cooling_unit(L)
@@ -388,8 +388,8 @@ STOCK_ITEM_COMMON(booze, 3.7)
 		else
 			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
 	else
-		var/list/drinks = typesof(/obj/item/weapon/reagent_containers/food/drinks/bottle)
-		drinks -= /obj/item/weapon/reagent_containers/food/drinks/bottle
+		var/list/drinks = typesof(/obj/item/reagent_containers/food/drinks/bottle)
+		drinks -= /obj/item/reagent_containers/food/drinks/bottle
 
 		for (var/i in 1 to rand(1, 3))
 			var/type = pick(drinks)
@@ -406,13 +406,13 @@ STOCK_ITEM_COMMON(plant, 3.5)
 
 STOCK_ITEM_COMMON(bag, 3.5)
 	var/type = pick( \
-		/obj/item/weapon/storage/bag/trash, \
-		/obj/item/weapon/storage/bag/plasticbag, \
-		/obj/item/weapon/storage/bag/ore, \
-		/obj/item/weapon/storage/bag/plants, \
-		/obj/item/weapon/storage/bag/sheetsnatcher, \
-		/obj/item/weapon/storage/bag/cash, \
-		/obj/item/weapon/storage/bag/books \
+		/obj/item/storage/bag/trash, \
+		/obj/item/storage/bag/plasticbag, \
+		/obj/item/storage/bag/ore, \
+		/obj/item/storage/bag/plants, \
+		/obj/item/storage/bag/sheetsnatcher, \
+		/obj/item/storage/bag/money, \
+		/obj/item/storage/bag/books \
 	)
 	new type(L)
 	if (prob(30))
@@ -421,8 +421,8 @@ STOCK_ITEM_COMMON(bag, 3.5)
 STOCK_ITEM_COMMON(extinguish, 2.2)
 	for (var/i in 1 to rand(1, 3))
 		var/type = pick( \
-			/obj/item/weapon/extinguisher, \
-			/obj/item/weapon/extinguisher/mini \
+			/obj/item/extinguisher, \
+			/obj/item/extinguisher/mini \
 		)
 		new type(L)
 
@@ -456,20 +456,20 @@ STOCK_ITEM_COMMON(snacks, 4)
 			L = get_turf(pick(CS.tables))
 
 	var/list/snacks = list(
-		/obj/item/weapon/storage/box/donkpockets = 10,
-		/obj/item/weapon/storage/box/sinpockets = 5,
-		/obj/item/weapon/storage/box/snack = 10,
-		/obj/item/weapon/storage/box/produce = 8,
-		/obj/item/weapon/storage/field_ration = 3,
-		/obj/item/weapon/storage/field_ration/nka = 1
+		/obj/item/storage/box/donkpockets = 10,
+		/obj/item/storage/box/sinpockets = 5,
+		/obj/item/storage/box/snack = 10,
+		/obj/item/storage/box/produce = 8,
+		/obj/item/storage/field_ration = 3,
+		/obj/item/storage/field_ration/nka = 1
 	)
 
 	var/type = pickweight(snacks)
 	new type(L)
 
 STOCK_ITEM_COMMON(oxytank, 2.5)
-	new /obj/item/weapon/tank/oxygen(L)
-	new /obj/item/weapon/tank/oxygen(L)
+	new /obj/item/tank/oxygen(L)
+	new /obj/item/tank/oxygen(L)
 
 STOCK_ITEM_COMMON(signs, 4)
 	var/list/allsigns = subtypesof(/obj/structure/sign)
@@ -486,37 +486,37 @@ STOCK_ITEM_COMMON(signs, 4)
 			S.unfasten()
 
 STOCK_ITEM_COMMON(posters, 3)
-	new /obj/item/weapon/contraband/poster(L)
+	new /obj/item/contraband/poster(L)
 	if (prob(50))
-		new /obj/item/weapon/contraband/poster(L)
+		new /obj/item/contraband/poster(L)
 	if (prob(50))
-		new /obj/item/weapon/contraband/poster(L)
+		new /obj/item/contraband/poster(L)
 
 STOCK_ITEM_COMMON(parts, 6)
 	var/list/parts = list(
-		/obj/item/weapon/stock_parts/console_screen = 3, //Low ranking parts, common
-		/obj/item/weapon/stock_parts/capacitor = 3,
-		/obj/item/weapon/stock_parts/scanning_module = 3,
-		/obj/item/weapon/stock_parts/manipulator = 3,
-		/obj/item/weapon/stock_parts/micro_laser = 3,
-		/obj/item/weapon/stock_parts/matter_bin = 3,
-		/obj/item/weapon/stock_parts/capacitor/adv = 1, //Improved parts, less common
-		/obj/item/weapon/stock_parts/scanning_module/adv = 1,
-		/obj/item/weapon/stock_parts/manipulator/nano = 1,
-		/obj/item/weapon/stock_parts/micro_laser/high = 1,
-		/obj/item/weapon/stock_parts/matter_bin/adv = 1,
-		/obj/item/weapon/stock_parts/capacitor/super = 0.3, //Top level parts, rare
-		/obj/item/weapon/stock_parts/scanning_module/phasic = 0.3,
-		/obj/item/weapon/stock_parts/manipulator/pico = 0.3,
-		/obj/item/weapon/stock_parts/micro_laser/ultra = 0.3,
-		/obj/item/weapon/stock_parts/matter_bin/super = 0.3,
-		/obj/item/weapon/stock_parts/subspace/ansible = 0.5, //Telecomms parts, useless novelties and red herrings.
-		/obj/item/weapon/stock_parts/subspace/filter = 0.5,
-		/obj/item/weapon/stock_parts/subspace/amplifier = 0.5,
-		/obj/item/weapon/stock_parts/subspace/treatment = 0.5,
-		/obj/item/weapon/stock_parts/subspace/analyzer = 0.5,
-		/obj/item/weapon/stock_parts/subspace/crystal = 0.5,
-		/obj/item/weapon/stock_parts/subspace/transmitter = 0.5
+		/obj/item/stock_parts/console_screen = 3, //Low ranking parts, common
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 3,
+		/obj/item/stock_parts/manipulator = 3,
+		/obj/item/stock_parts/micro_laser = 3,
+		/obj/item/stock_parts/matter_bin = 3,
+		/obj/item/stock_parts/capacitor/adv = 1, //Improved parts, less common
+		/obj/item/stock_parts/scanning_module/adv = 1,
+		/obj/item/stock_parts/manipulator/nano = 1,
+		/obj/item/stock_parts/micro_laser/high = 1,
+		/obj/item/stock_parts/matter_bin/adv = 1,
+		/obj/item/stock_parts/capacitor/super = 0.3, //Top level parts, rare
+		/obj/item/stock_parts/scanning_module/phasic = 0.3,
+		/obj/item/stock_parts/manipulator/pico = 0.3,
+		/obj/item/stock_parts/micro_laser/ultra = 0.3,
+		/obj/item/stock_parts/matter_bin/super = 0.3,
+		/obj/item/stock_parts/subspace/ansible = 0.5, //Telecomms parts, useless novelties and red herrings.
+		/obj/item/stock_parts/subspace/filter = 0.5,
+		/obj/item/stock_parts/subspace/amplifier = 0.5,
+		/obj/item/stock_parts/subspace/treatment = 0.5,
+		/obj/item/stock_parts/subspace/analyzer = 0.5,
+		/obj/item/stock_parts/subspace/crystal = 0.5,
+		/obj/item/stock_parts/subspace/transmitter = 0.5
 	)
 
 	for (var/i in 1 to rand(2, 5))
@@ -525,17 +525,17 @@ STOCK_ITEM_COMMON(parts, 6)
 
 STOCK_ITEM_COMMON(cane, 2)
 	if (prob(5))
-		new /obj/item/weapon/cane/concealed(L)
+		new /obj/item/cane/concealed(L)
 	else if (prob(20))
-		new /obj/item/weapon/staff/broom(L)
+		new /obj/item/staff/broom(L)
 	else
-		new /obj/item/weapon/cane(L)
+		new /obj/item/cane(L)
 
 STOCK_ITEM_COMMON(warning, 2.2)
 	if (prob(50))
-		new /obj/item/weapon/caution(L)
+		new /obj/item/clothing/suit/caution(L)
 	else
-		new /obj/item/weapon/caution/cone(L)
+		new /obj/item/clothing/head/cone(L)
 
 STOCK_ITEM_COMMON(gasmask, 2)
 	var/list/masks = list(
@@ -555,25 +555,25 @@ STOCK_ITEM_COMMON(gasmask, 2)
 	new type(L)
 
 STOCK_ITEM_COMMON(cleanernades, 1.5)
-	new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
-	new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
+	new /obj/item/grenade/chem_grenade/cleaner(L)
+	new /obj/item/grenade/chem_grenade/cleaner(L)
 	if (prob(50))
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(L)
+		new /obj/item/grenade/chem_grenade/cleaner(L)
+		new /obj/item/grenade/chem_grenade/cleaner(L)
 
 STOCK_ITEM_COMMON(mining, 2)
 	if (prob(50))
-		new /obj/item/weapon/shovel(L)
+		new /obj/item/shovel(L)
 	if (prob(50))
-		new /obj/item/weapon/pickaxe(L)
+		new /obj/item/pickaxe(L)
 	if (prob(50))
 		new /obj/item/clothing/glasses/material(L)
 	if (prob(50))
 		new /obj/item/device/flashlight/lantern(L)
 	if (prob(50))
-		new /obj/item/weapon/mining_scanner(L)
+		new /obj/item/mining_scanner(L)
 	if (prob(25))
-		new /obj/item/weapon/storage/box/excavation(L)
+		new /obj/item/storage/box/excavation(L)
 
 STOCK_ITEM_COMMON(paicard, 2)
 	new /obj/item/device/paicard(L)

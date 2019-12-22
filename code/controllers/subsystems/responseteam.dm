@@ -8,6 +8,7 @@
 	var/send_emergency_team = FALSE
 	var/can_call_ert = TRUE
 
+	var/list/datum/responseteam/all_ert_teams = list()
 	var/list/datum/responseteam/available_teams = list()
 	var/datum/responseteam/picked_team
 	var/list/datum/ghostspawner/human/ert/sent_teams = list()
@@ -25,7 +26,9 @@
 	for(var/team in all_teams)
 		CHECK_TICK
 		var/datum/responseteam/ert = new team
-		available_teams += ert
+		if(!ert.admin)
+			available_teams += ert
+		all_ert_teams += ert
 
 /datum/controller/subsystem/responseteam/stat_entry()
 	var/out = "CC:[can_call_ert]"
@@ -54,7 +57,7 @@
 		return
 	if(send_emergency_team)
 		return
-	
+
 	ert_count++
 	feedback_inc("responseteam_count")
 
@@ -101,13 +104,16 @@
 	var/datum/wifi/sender/door/wifi_sender = new("tcfl_shuttle_lockdown", src)
 	wifi_sender.activate("close")
 
+	var/datum/wifi/sender/door/wifi_sender_blast = new("tcfl_shuttle_release", src)
+	wifi_sender_blast.activate("open")
+
 /client/proc/response_team()
 	set name = "Dispatch Emergency Response Team"
 	set category = "Special Verbs"
 	set desc = "Send an emergency response team to the station"
 
 	if(!holder)
-		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>") 
+		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
 		return
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
@@ -123,7 +129,7 @@
 				return
 
 	var/list/plaintext_teams = list("Random")
-	for(var/datum/responseteam/A in SSresponseteam.available_teams)
+	for(var/datum/responseteam/A in SSresponseteam.all_ert_teams)
 		plaintext_teams += A.name
 
 	var/choice = input("Select the response team type","Response team selection") as null|anything in plaintext_teams

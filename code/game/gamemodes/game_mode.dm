@@ -218,10 +218,6 @@ var/global/list/additional_antag_types = list()
 		antag.update_initial_spawn_target()
 		antag.build_candidate_list() //compile a list of all eligible candidates
 
-		//can't find enough antags? check again but don't apply the antag chance restrictions per job
-		if(antag.candidates.len < required_enemies)
-			antag.build_candidate_list(FALSE, FALSE, FALSE)
-
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
 		if(antag.flags & ANTAG_OVERRIDE_JOB)
 			antag.attempt_spawn() //select antags to be spawned

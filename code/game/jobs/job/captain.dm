@@ -22,6 +22,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
+	blacklisted_species = list("Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
+
 /datum/outfit/job/captain
 	name = "Captain"
 	jobtype = /datum/job/captain
@@ -31,20 +33,20 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	head = /obj/item/clothing/head/caphat
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
-	id = /obj/item/weapon/card/id/gold
+	id = /obj/item/card/id/gold
 	pda = /obj/item/device/pda/captain
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/ids = 1
+		/obj/item/storage/box/ids = 1
 	)
 
 	implants = list(
-		/obj/item/weapon/implant/loyalty
+		/obj/item/implant/loyalty
 	)
 
-	backpack = /obj/item/weapon/storage/backpack/captain
-	satchel = /obj/item/weapon/storage/backpack/satchel_cap
-	dufflebag = /obj/item/weapon/storage/backpack/duffel/cap
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/com
+	backpack = /obj/item/storage/backpack/captain
+	satchel = /obj/item/storage/backpack/satchel_cap
+	dufflebag = /obj/item/storage/backpack/duffel/cap
+	messengerbag = /obj/item/storage/backpack/messenger/com
 
 /datum/outfit/job/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -93,6 +95,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			            access_chapel_office, access_library, access_research, access_mining, access_mining_station, access_janitor,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
 
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Vaurca Worker", "Vaurca Warrior")
+
 /datum/outfit/job/hop
 	name = "Head of Personnel"
 	jobtype = /datum/job/hop
@@ -100,10 +104,10 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/hop
-	id = /obj/item/weapon/card/id/silver
+	id = /obj/item/card/id/navy
 	pda = /obj/item/device/pda/heads/hop
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/ids = 1
+		/obj/item/storage/box/ids = 1
 	)
 
-	messengerbag = /obj/item/weapon/storage/backpack/messenger/com
+	messengerbag = /obj/item/storage/backpack/messenger/com

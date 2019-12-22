@@ -209,8 +209,8 @@
 	..()
 	icon_state = "firstbush_[rand(1, 4)]"
 
-/obj/structure/flora/ausbushes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W,/obj/item/weapon/material/scythe/sickle))
+/obj/structure/flora/ausbushes/attackby(var/obj/item/W as obj, var/mob/user as mob)
+	if(istype(W,/obj/item/material/scythe/sickle))
 		if(prob(50))
 			new /obj/item/stack/material/wood(get_turf(src), 2)
 		if(prob(40))

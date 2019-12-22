@@ -5,7 +5,7 @@
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
 
-	station_levels = list(3, 4, 5, 6, 7)
+	station_levels = list(2, 3, 4, 5, 6, 7)
 	admin_levels = list(1)
 	contact_levels = list(3, 4, 5, 6)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)

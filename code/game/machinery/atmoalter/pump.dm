@@ -24,7 +24,7 @@
 
 /obj/machinery/portable_atmospherics/powered/pump/Initialize()
 	. = ..()
-	cell = new/obj/item/weapon/cell/apc(src)
+	cell = new/obj/item/cell/apc(src)
 
 	var/list/air_mix = StandardAirMix()
 	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])

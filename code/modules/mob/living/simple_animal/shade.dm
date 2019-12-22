@@ -29,7 +29,7 @@
 	status_flags = CANPUSH
 	hunger_enabled = 0
 	appearance_flags = NO_CLIENT_COLOR
-	var/obj/item/residue = /obj/item/weapon/ectoplasm
+	var/obj/item/residue = /obj/item/ectoplasm
 
 /mob/living/simple_animal/shade/cultify()
 	return
@@ -83,7 +83,7 @@
 	mob_size = 0
 	density = 0
 	speed = 1
-	residue = /obj/item/weapon/ectoplasm/bs
+	residue = /obj/item/ectoplasm/bs
 	var/last_message_heard
 	var/message_countdown = 300
 	var/heard_dying_message = 0
@@ -268,31 +268,6 @@
 
 	message_countdown = max(0, message_countdown - 20)
 
-/mob/living/simple_animal/shade/bluespace/verb/mass_warp()
-	set category = "Bluespace Echo"
-	set name = "Warp Vortex"
-	set desc = "Teleport items wildly."
-
-	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
-		return
-
-	if(message_countdown < 200)
-		to_chat(src, "<span class='warning'>You are too faded to warp an item through bluespace.</span>")
-		return
-
-	var/list/liable_turfs = list()
-
-	for(var/turf/T in view(4, src))
-		liable_turfs += T
-
-	if(liable_turfs.len)
-		visible_message("<span class ='danger'>\The [src] pulses violently!</span>")
-		for(var/atom/movable/M in view(7, src))
-			if(!M.anchored)
-				do_teleport(M, pick(liable_turfs))
-				message_countdown = max(0, message_countdown - 20)
-
 /mob/living/simple_animal/shade/bluespace/verb/lifeline()
 	set category = "Bluespace Echo"
 	set name = "Lifeline"
@@ -371,14 +346,14 @@
 
 	message_countdown = min(message_countdown, 100)
 
-/obj/item/weapon/ectoplasm/bs
+/obj/item/ectoplasm/bs
 	name = "bluespace residue"
 	desc = "spoopy"
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "blectoplasm"
 
-/obj/item/weapon/ectoplasm/bs/Initialize()
+/obj/item/ectoplasm/bs/Initialize()
 	. = ..()
 	create_reagents(8)
 	reagents.add_reagent("bluespace_dust", 8)

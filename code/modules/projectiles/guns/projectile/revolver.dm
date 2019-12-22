@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/projectile/revolver
+/obj/item/gun/projectile/revolver
 	name = "revolver"
 	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
 	icon_state = "revolver"
@@ -12,7 +12,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
-/obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
+/obj/item/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
@@ -24,17 +24,17 @@
 	if(rand(1,max_shells) > loaded.len)
 		chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/weapon/gun/projectile/revolver/consume_next_projectile()
+/obj/item/gun/projectile/revolver/consume_next_projectile()
 	if(chamber_offset)
 		chamber_offset--
 		return
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/load_ammo(var/obj/item/A, mob/user)
 	chamber_offset = 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/mateba
+/obj/item/gun/projectile/revolver/mateba
 	name = "mateba"
 	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon_state = "mateba"
@@ -45,7 +45,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_mateba.ogg'
 	ammo_type = /obj/item/ammo_casing/a454
 
-/obj/item/weapon/gun/projectile/revolver/detective
+/obj/item/gun/projectile/revolver/detective
 	name = "revolver"
 	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
 	icon_state = "detective"
@@ -56,7 +56,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 
-/obj/item/weapon/gun/projectile/revolver/detective/verb/rename_gun()
+/obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Click to rename your gun. If you're the detective."
@@ -75,7 +75,7 @@
 		return 1
 
 // Blade Runner pistol.
-/obj/item/weapon/gun/projectile/revolver/deckard
+/obj/item/gun/projectile/revolver/deckard
 	name = "\improper Deckard .44"
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	max_shells = 6
@@ -85,22 +85,22 @@
 	ammo_type = /obj/item/ammo_casing/c38
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
-/obj/item/weapon/gun/projectile/revolver/deckard/update_icon()
+/obj/item/gun/projectile/revolver/deckard/update_icon()
 	..()
 	if(loaded.len)
 		icon_state = "deckard-loaded"
 	else
 		icon_state = "deckard-empty"
 
-/obj/item/weapon/gun/projectile/revolver/deckard/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/deckard/load_ammo(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reload",src)
 	..()
 
-/obj/item/weapon/gun/projectile/revolver/deckard/emp
+/obj/item/gun/projectile/revolver/deckard/emp
 	ammo_type = /obj/item/ammo_casing/c38/emp
 
-/obj/item/weapon/gun/projectile/revolver/derringer
+/obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
 	icon_state = "derringer"
@@ -113,7 +113,7 @@
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
 
-/obj/item/weapon/gun/projectile/revolver/capgun
+/obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
 	desc = "Looks almost like the real thing! Ages 8 and up."
 	icon_state = "capgun"
@@ -125,7 +125,7 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	needspin = FALSE
 
-/obj/item/weapon/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
+/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
 	if(!W.iswirecutter() || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
@@ -134,7 +134,7 @@
 	desc += " Someone snipped off the barrel's toy mark. How dastardly."
 	return 1
 
-/obj/item/weapon/gun/projectile/revolver/lemat
+/obj/item/gun/projectile/revolver/lemat
 	name = "grapeshot revolver"
 	desc = "A six shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
 	icon_state = "lemat"
@@ -153,12 +153,12 @@
 	var/list/tertiary_loaded = list()
 
 
-/obj/item/weapon/gun/projectile/revolver/lemat/Initialize()
+/obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
-/obj/item/weapon/gun/projectile/revolver/lemat/verb/swap_firingmode()
+/obj/item/gun/projectile/revolver/lemat/verb/swap_firingmode()
 	set name = "Swap Firing Mode"
 	set category = "Object"
 	set desc = "Click to swap from one method of firing to another."
@@ -202,7 +202,7 @@
 
 		flipped_firing = 0
 
-/obj/item/weapon/gun/projectile/revolver/lemat/spin_cylinder()
+/obj/item/gun/projectile/revolver/lemat/spin_cylinder()
 	set name = "Spin cylinder"
 	set desc = "Fun when you're bored out of your skull."
 	set category = "Object"
@@ -216,7 +216,7 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/weapon/gun/projectile/revolver/lemat/examine(mob/user)
+/obj/item/gun/projectile/revolver/lemat/examine(mob/user)
 	..()
 	if(secondary_loaded)
 		var/to_print
@@ -226,7 +226,7 @@
 	else
 		to_chat(user, "\The [src] has a secondary barrel that is empty.")
 
-/obj/item/weapon/gun/projectile/revolver/adhomian
+/obj/item/gun/projectile/revolver/adhomian
 	name = "adhomian service revolver"
 	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
 	icon_state = "adhomian_revolver"

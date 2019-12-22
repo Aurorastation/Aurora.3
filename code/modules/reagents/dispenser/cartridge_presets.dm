@@ -1,4 +1,4 @@
-/obj/item/weapon/reagent_containers/chem_disp_cartridge
+/obj/item/reagent_containers/chem_disp_cartridge
 	small
 		volume = CARTRIDGE_VOLUME_SMALL
 
@@ -63,6 +63,7 @@
 	lime		spawn_reagent = "limejuice"
 	watermelon	spawn_reagent = "watermelonjuice"
 	apple   	spawn_reagent = "applejuice"
+	banana  	spawn_reagent = "banana"
 
 	// Bar, coffee and tea
 	coffee		spawn_reagent = "coffee"
@@ -76,6 +77,7 @@
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"
+	norepi		spawn_reagent = "norepinephrine"
 	ryetalyn	spawn_reagent = "ryetalyn"
 	paracetamol	spawn_reagent = "paracetamol"
 	tramadol	spawn_reagent = "tramadol"
@@ -88,7 +90,7 @@
 	dexalin/small	volume = CARTRIDGE_VOLUME_SMALL // For the medicine cartridge crate, so it's not too easy to get large amounts of dexalin
 	dexalin_p	spawn_reagent = "dexalinp"
 	tricord		spawn_reagent = "tricordrazine"
-	dylovene	spawn_reagent = "anti_toxin"
+	dylovene	spawn_reagent = "dylovene"
 	synaptizine	spawn_reagent = "synaptizine"
 	hyronalin	spawn_reagent = "hyronalin"
 	arithrazine	spawn_reagent = "arithrazine"

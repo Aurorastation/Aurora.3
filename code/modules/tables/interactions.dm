@@ -127,7 +127,7 @@
 
 /obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
 
-	if ((!( istype(O, /obj/item/weapon) ) || user.get_active_hand() != O))
+	if ((!( istype(O, /obj/item) ) || user.get_active_hand() != O))
 		return ..()
 	if(isrobot(user))
 		return
@@ -140,8 +140,8 @@
 	if (!W) return
 
 	// Handle harm intent grabbing/tabling.
-	if(istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = W
 		if (istype(G.affecting, /mob/living))
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
@@ -152,10 +152,10 @@
 				return
 			if (G.state < GRAB_AGGRESSIVE)
 				if(user.a_intent == I_HURT)
-					var/blocked = M.run_armor_check("head", "melee")
+					var/blocked = M.run_armor_check(BP_HEAD, "melee")
 					if (prob(30 * BLOCKED_MULT(blocked)))
 						M.Weaken(5)
-					M.apply_damage(8, BRUTE, "head", blocked)
+					M.apply_damage(8, BRUTE, BP_HEAD, blocked)
 					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
@@ -163,12 +163,12 @@
 						playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
 					var/list/L = take_damage(rand(1,5))
 					// Shards. Extra damage, plus potentially the fact YOU LITERALLY HAVE A PIECE OF GLASS/METAL/WHATEVER IN YOUR FACE
-					for(var/obj/item/weapon/material/shard/S in L)
+					for(var/obj/item/material/shard/S in L)
 						if(prob(50))
 							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
 							                   "<span class='danger'>\The [S] slices your face messily!</span>")
-							M.apply_damage(10, BRUTE, "head", blocked)
-							M.standard_weapon_hit_effects(S, G.assailant, 10, blocked, "head")
+							M.apply_damage(10, BRUTE, BP_HEAD, blocked)
+							M.standard_weapon_hit_effects(S, G.assailant, 10, blocked, BP_HEAD)
 				else
 					to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
 					return
@@ -182,7 +182,7 @@
 	if(!dropsafety(W))
 		return
 
-	if(istype(W, /obj/item/weapon/melee/energy/blade))
+	if(istype(W, /obj/item/melee/energy/blade))
 		W:spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, "sparks", 50, 1)

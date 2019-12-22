@@ -6,7 +6,7 @@
 	layer = MOB_LAYER
 	universal_speak = 1
 	density = 0
-	var/obj/item/weapon/card/id/botcard = null
+	var/obj/item/card/id/botcard = null
 	var/list/botcard_access = list()
 	var/on = 1
 	var/open = 0
@@ -23,7 +23,7 @@
 	. = ..()
 	update_icons()
 
-	botcard = new /obj/item/weapon/card/id(src)
+	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()
 
 	access_scanner = new /obj(src)
@@ -50,10 +50,6 @@
 		stat = CONSCIOUS
 	else
 		health = maxHealth - getFireLoss() - getBruteLoss()
-	oxyloss = 0
-	toxloss = 0
-	cloneloss = 0
-	halloss = 0
 
 /mob/living/bot/death()
 	explode()

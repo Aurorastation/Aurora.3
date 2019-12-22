@@ -3,6 +3,8 @@
 		return 0
 	if(jobban_isbanned(player.current, bantype))
 		return 0
+	if(required_age && required_age > player.current.client.player_age)
+		return FALSE
 	if(!ignore_role)
 		if(player.assigned_role in restricted_jobs)
 			return 0
@@ -11,12 +13,6 @@
 		if(player.current.client.prefs && player.current.client.prefs.species in restricted_species)
 			return 0
 	return 1
-
-/datum/antagonist/proc/can_become_antag_chance(var/datum/mind/player)
-	if(!isnull(chance_restricted_jobs[player.assigned_role]))
-		return prob(chance_restricted_jobs[player.assigned_role])
-	else
-		return 1
 
 /datum/antagonist/proc/antags_are_dead()
 	for(var/datum/mind/antag in current_antagonists)

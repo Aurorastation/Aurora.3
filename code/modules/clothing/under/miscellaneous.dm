@@ -704,6 +704,23 @@
 	worn_state = "taucetilegion"
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/under/legion/sentinel
+	name = "Tau Ceti Foreign Legion sentinel uniform."
+	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
+	worn_state = "taucetilegion_sentinel"
+
+/obj/item/clothing/under/legion/legate
+	name = "Legate uniform"
+	desc = "A stark red uniform worn by senior officers of the Tau Ceti Foreign Legion."
+	icon_state = "taucetilegion_legate"
+	worn_state = "taucetilegion_legate"
+
+/obj/item/clothing/under/legion/pilot
+	name = "Tau Ceti Foreign Legion flightsuit"
+	desc = "The uniform worn by Tau Ceti Foreign Legion pilots."
+	icon_state = "taucetilegion_pilot"
+	worn_state = "taucetilegion_pilot"
+
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
@@ -744,7 +761,7 @@
 	icon_state = "lance_dress_f"
 	item_state = "lance_dress_f"
 	worn_state = "lance_dress_f"
-	
+
 
 /obj/item/clothing/under/dress/lance_dress/male
 	name = "lance dress uniform"

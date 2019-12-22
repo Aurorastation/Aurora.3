@@ -11,7 +11,7 @@
 #define FAT             6
 #define HUSK            7
 #define NOCLONE         8
-#define LASER           9  // Harm intent - click anywhere to shoot lasers from eyes.
+#define LASER_EYES           9  // Harm intent - click anywhere to shoot lasers from eyes.
 #define HEAL            10 // Healing people with hands.
 
 #define SKELETON      29
@@ -35,7 +35,7 @@
 #define EPILEPSY    2
 #define COUGHING    4
 #define TOURETTES   8
-#define STUTTER     16
+#define STUTTERING     16
 #define DUMB            32
 #define MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
 #define PACIFIST        128

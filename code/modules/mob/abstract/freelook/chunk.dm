@@ -8,120 +8,51 @@
 /datum/obfuscation
 	var/icon = 'icons/effects/cameravis.dmi'
 	var/icon_state = "black"
+	var/list/obfuscation_images = list()
+	var/static/icon/obfuscation_underlay
+	// There is an exploit were clients can memory-edit their local version of the static images, allowing them to see everything. This is a minor attempt to make that more difficult.
+
+/datum/obfuscation/Destroy()
+	obfuscation_images.Cut()
+	. = ..()
+
+/datum/obfuscation/proc/has_obfuscation(var/turf/T)
+	return !isnull(obfuscation_images[T])
+
+/datum/obfuscation/proc/get_obfuscation(var/turf/T)
+	var/image/obfuscation = obfuscation_images[T]
+	if(!obfuscation)
+		obfuscation = image(icon, T, icon_state)
+		obfuscation.layer = OBFUSCATION_LAYER
+		if(!obfuscation_underlay)
+			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
+			var/turf/floor = /turf/simulated/floor/tiled
+			obfuscation_underlay = icon(initial(floor.icon), initial(floor.icon_state))
+			obfuscation_underlay.Blend(rgb(rand(0,255),rand(0,255),rand(0,255)))
+		obfuscation.underlays += obfuscation_underlay
+		obfuscation_images[T] = obfuscation
+	return obfuscation
 
 /datum/chunk
+	var/datum/visualnet/visualnet
 	var/list/obscuredTurfs = list()
 	var/list/visibleTurfs = list()
 	var/list/obscured = list()
 	var/list/turfs = list()
 	var/list/seenby = list()
-	var/visible = 0
-	var/changed = 0
-	var/updating = 0
+	var/list/sources = list()
+	var/dirty = FALSE
+	var/updating = FALSE
 	var/x = 0
 	var/y = 0
 	var/z = 0
 	var/datum/obfuscation/obfuscation = new()
 
-// Add an eye to the chunk, then update if changed.
-
-/datum/chunk/proc/add(mob/abstract/eye/eye)
-	if(!eye.owner)
-		return
-	eye.visibleChunks += src
-	if(eye.owner.client)
-		eye.owner.client.images += obscured
-	visible++
-	seenby += eye
-	if(changed && !updating)
-		update()
-
-// Remove an eye from the chunk, then update if changed.
-
-/datum/chunk/proc/remove(mob/abstract/eye/eye)
-	if(!eye.owner)
-		return
-	eye.visibleChunks -= src
-	if(eye.owner.client)
-		eye.owner.client.images -= obscured
-	seenby -= eye
-	if(visible > 0)
-		visible--
-
-// Called when a chunk has changed. I.E: A wall was deleted.
-
-/datum/chunk/proc/visibilityChanged(turf/loc)
-	if(!visibleTurfs[loc])
-		return
-	hasChanged()
-
-// Updates the chunk, makes sure that it doesn't update too much. If the chunk isn't being watched it will
-// instead be flagged to update the next time an AI Eye moves near it.
-
-/datum/chunk/proc/hasChanged(var/update_now = 0)
-	if(visible || update_now)
-		if(!updating)
-			updating = 1
-			addtimer(CALLBACK(src, .proc/doUpdate), UPDATE_BUFFER)
-	else
-		changed = 1
-
-/datum/chunk/proc/doUpdate()
-	update()
-	updating = 0
-
-// The actual updating.
-
-/datum/chunk/proc/update()
-	set waitfor = FALSE
-
-	var/list/newVisibleTurfs = new()
-	acquireVisibleTurfs(newVisibleTurfs)
-
-	// Removes turf that isn't in turfs.
-	newVisibleTurfs &= turfs
-
-	var/list/visAdded = newVisibleTurfs - visibleTurfs
-	var/list/visRemoved = visibleTurfs - newVisibleTurfs
-
-	visibleTurfs = newVisibleTurfs
-	obscuredTurfs = turfs - newVisibleTurfs
-
-	for(var/turf in visAdded)
-		var/turf/t = turf
-		if(LAZYACCESS(t.obfuscations, obfuscation.type))
-			obscured -= t.obfuscations[obfuscation.type]
-			for(var/eye in seenby)
-				var/mob/abstract/eye/m = eye
-				if(!m || !m.owner)
-					continue
-				if(m.owner.client)
-					m.owner.client.images -= t.obfuscations[obfuscation.type]
-
-	for(var/turf in visRemoved)
-		var/turf/t = turf
-		if(obscuredTurfs[t])
-			if(!LAZYACCESS(t.obfuscations, obfuscation.type))
-				LAZYINITLIST(t.obfuscations)
-				var/image/obfuscation_static = image(obfuscation.icon, t, obfuscation.icon_state, OBFUSCATION_LAYER)
-				obfuscation_static.plane = 0
-				t.obfuscations[obfuscation.type] = obfuscation_static
-
-			obscured += LAZYACCESS(t.obfuscations, obfuscation.type)
-			for(var/eye in seenby)
-				var/mob/abstract/eye/m = eye
-				if(!m || !m.owner)
-					seenby -= m
-					continue
-				if(m.owner.client)
-					m.owner.client.images += LAZYACCESS(t.obfuscations, obfuscation.type)
-
-/datum/chunk/proc/acquireVisibleTurfs(var/list/visible)
-
 // Create a new camera chunk, since the chunks are made as they are needed.
 
-/datum/chunk/New(loc, x, y, z)
-
+/datum/chunk/New(var/datum/visualnet/visualnet, x, y, z)
+	..()
+	src.visualnet = visualnet
 	// 0xf = 15
 	x &= ~0xf
 	y &= ~0xf
@@ -136,7 +67,8 @@
 		if(t.x >= x && t.y >= y && t.x < x + 16 && t.y < y + 16)
 			turfs[t] = t
 
-	acquireVisibleTurfs(visibleTurfs)
+	add_sources(visualnet.sources)
+	acquire_visible_turfs(visibleTurfs)
 
 	// Removes turf that isn't in turfs.
 	visibleTurfs &= turfs
@@ -145,12 +77,116 @@
 
 	for(var/turf in obscuredTurfs)
 		var/turf/t = turf
-		if(!LAZYACCESS(t.obfuscations, obfuscation.type))
-			LAZYINITLIST(t.obfuscations)
-			var/image/obfuscation_static = image(obfuscation.icon, t, obfuscation.icon_state, OBFUSCATION_LAYER)
-			obfuscation_static.plane = 0
-			t.obfuscations[obfuscation.type] = obfuscation_static
+		obscured += obfuscation.get_obfuscation(t)
 
-		obscured += LAZYACCESS(t.obfuscations, obfuscation.type)
+
+/datum/chunk/Destroy()
+	visualnet = null
+	. = ..()
+
+/datum/chunk/proc/add_sources(var/list/sources)
+	var/turf/center = locate(x + 8, y + 8, z)
+	for(var/entry in sources)
+		var/atom/A = entry
+		if(get_dist(get_turf(A), center) > 16)
+			continue
+		add_source(A)
+
+// The visualnet checks if a source already exists or not, as appropriate, before calling add/remove_source on the chunk
+/datum/chunk/proc/add_source(var/atom/source)
+	if(source in sources)
+		return FALSE
+	sources += source
+	visibility_changed()
+	return TRUE
+
+/datum/chunk/proc/remove_source(var/atom/source)
+	if(sources.Remove(source))
+		visibility_changed()
+		return TRUE
+	return FALSE
+
+// Visualnet adds and removes eyes.
+
+/datum/chunk/proc/add_eye(mob/abstract/eye/eye)
+	seenby += eye
+	eye.visibleChunks += src
+	if(eye.owner && eye.owner.client)
+		eye.owner.client.images += obscured
+
+/datum/chunk/proc/remove_eye(mob/abstract/eye/eye)
+	seenby -= eye
+	eye.visibleChunks -= src
+	if(eye.owner && eye.owner.client)
+		eye.owner.client.images -= obscured
+
+// Updates the chunk, makes sure that it doesn't update too much. If the chunk isn't being watched it will
+// instead be flagged to update the next time an AI Eye moves near it.
+
+/datum/chunk/proc/visibility_changed(var/update_now = FALSE)
+	if(update_now)
+		update(TRUE)
+		return
+
+	if(updating)
+		return
+
+	if(seenby.len)
+		updating = TRUE
+		addtimer(CALLBACK(src, .proc/update), UPDATE_BUFFER)
+	else
+		dirty = TRUE
+
+// The actual updating.
+
+/datum/chunk/proc/update(var/forced = FALSE)
+	if(!updating && !forced)
+		return
+
+	var/list/newVisibleTurfs = new()
+	acquire_visible_turfs(newVisibleTurfs)
+
+	// Removes turf that isn't in turfs.
+	newVisibleTurfs &= turfs
+
+	var/list/visAdded = newVisibleTurfs - visibleTurfs
+	var/list/visRemoved = visibleTurfs - newVisibleTurfs
+
+	visibleTurfs = newVisibleTurfs
+	obscuredTurfs = turfs - newVisibleTurfs
+
+	for(var/turf in visAdded)
+		var/turf/t = turf
+		if(obfuscation.has_obfuscation(t))
+			var/image/obfuscation_image = obfuscation.get_obfuscation(t)
+			obscured -= obfuscation_image
+			for(var/eye in seenby)
+				var/mob/abstract/eye/m = eye
+				if (m && m.owner && m.owner.client)
+					m.owner.client.images -= obfuscation_image
+
+	for(var/turf in visRemoved)
+		var/turf/t = turf
+		if(obscuredTurfs[t])
+			var/image/obfuscation_image = obfuscation.get_obfuscation(t)
+			obscured += obfuscation_image
+
+			for(var/eye in seenby)
+				var/mob/abstract/eye/m = eye
+				if (m && m.owner && m.owner.client)
+					m.owner.client.images += obfuscation_image
+	
+	dirty = FALSE
+	updating = FALSE
+
+/datum/chunk/proc/acquire_visible_turfs(var/list/visible)
+	return
+
+/proc/seen_turfs_in_range(var/source, var/range)
+	var/turf/pos = get_turf(source)
+	if(pos)
+		. = hear(range, pos)
+	else
+		. = list()
 
 #undef UPDATE_BUFFER

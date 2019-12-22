@@ -20,8 +20,8 @@
 #define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
 #define CRITICAL_TEMPERATURE 5000	//K
 #define CHARGING_FACTOR 0.05
-#define DAMAGE_RATE_LIMIT 3			//damage rate cap at power = 300, scales linearly with power
-
+#define DAMAGE_RATE_LIMIT 2			//damage rate cap at power = 300, scales linearly with power
+#define SPACED_DAMAGE_FACTOR 0.5	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
 
 //These would be what you would get at point blank, decreases with distance
 #define DETONATION_RADS 200
@@ -226,7 +226,7 @@
 		removed = env.remove(gasefficency * env.total_moles)	//Remove gas from surrounding area
 
 	if(!env || !removed || !removed.total_moles)
-		damage += max((power - 15*POWER_FACTOR)/10, 0)
+		damage += max((SPACED_DAMAGE_FACTOR*(power - 15*POWER_FACTOR))/10, 0)
 	else if (grav_pulling) //If supermatter is detonating, remove all air from the zone
 		env.remove(env.total_moles)
 	else
@@ -366,7 +366,7 @@
 	return
 */
 
-/obj/machinery/power/supermatter/attackby(obj/item/weapon/W as obj, mob/living/user as mob)
+/obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
@@ -400,8 +400,8 @@
 		user.dust()
 		power += 200
 	else
-		if (istype(user, /obj/item/weapon/holder))
-			var/obj/item/weapon/holder/H = user
+		if (istype(user, /obj/item/holder))
+			var/obj/item/holder/H = user
 			Consume(H.contained)//If its a holder, eat the thing inside
 			qdel(H)
 			return
@@ -456,3 +456,4 @@
 	return
 
 #undef LIGHT_POWER_CALC
+#undef SPACED_DAMAGE_FACTOR

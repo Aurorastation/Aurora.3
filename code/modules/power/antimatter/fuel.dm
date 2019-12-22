@@ -1,4 +1,4 @@
-/obj/item/weapon/fuel
+/obj/item/fuel
 	name = "nagnetic storage ring"
 	desc = "A magnetic storage ring."
 	icon = 'icons/obj/tools.dmi'
@@ -10,39 +10,39 @@
 	var/s_time = 1.0
 	var/content = null
 
-/obj/item/weapon/fuel/H
+/obj/item/fuel/H
 	name = "hydrogen storage ring"
 	content = "Hydrogen"
 	fuel = 1e-12		//pico-kilogram
 
-/obj/item/weapon/fuel/antiH
+/obj/item/fuel/antiH
 	name = "anti-hydrogen storage ring"
 	content = "Anti-Hydrogen"
 	fuel = 1e-12		//pico-kilogram
 
-/obj/item/weapon/fuel/attackby(obj/item/weapon/fuel/F, mob/user)
+/obj/item/fuel/attackby(obj/item/fuel/F, mob/user)
 	..()
-	if(istype(src, /obj/item/weapon/fuel/antiH))
-		if(istype(F, /obj/item/weapon/fuel/antiH))
+	if(istype(src, /obj/item/fuel/antiH))
+		if(istype(F, /obj/item/fuel/antiH))
 			src.fuel += F.fuel
 			F.fuel = 0
 			to_chat(user, "You add the anti-Hydrogen to the storage ring. It now contains [src.fuel]kg.")
-		if(istype(F, /obj/item/weapon/fuel/H))
+		if(istype(F, /obj/item/fuel/H))
 			src.fuel += F.fuel
 			qdel(F)
 			F = null
 			src:annihilation(src.fuel)
-	if(istype(src, /obj/item/weapon/fuel/H))
-		if(istype(F, /obj/item/weapon/fuel/H))
+	if(istype(src, /obj/item/fuel/H))
+		if(istype(F, /obj/item/fuel/H))
 			src.fuel += F.fuel
 			F.fuel = 0
 			to_chat(user, "You add the Hydrogen to the storage ring. It now contains [src.fuel]kg")
-		if(istype(F, /obj/item/weapon/fuel/antiH))
+		if(istype(F, /obj/item/fuel/antiH))
 			src.fuel += F.fuel
 			qdel(src)
 			F:annihilation(F.fuel)
 
-/obj/item/weapon/fuel/antiH/proc/annihilation(var/mass)
+/obj/item/fuel/antiH/proc/annihilation(var/mass)
 
 
 	var/strength = convert2energy(mass)
@@ -69,11 +69,11 @@
 	return
 
 
-/obj/item/weapon/fuel/examine()
+/obj/item/fuel/examine()
 	..()
 	to_chat(user, "<span class='info'>A magnetic storage ring containing [fuel]kg of [content ? content : "nothing"].</span>")
 
-/obj/item/weapon/fuel/proc/injest(mob/M as mob)
+/obj/item/fuel/proc/injest(mob/M as mob)
 	switch(content)
 		if("Anti-Hydrogen")
 			to_chat(mob, span("notice", "That was not a very bright idea."))
@@ -83,7 +83,7 @@
 	qdel(src)
 	return
 
-/obj/item/weapon/fuel/attack(mob/M as mob, mob/user as mob)
+/obj/item/fuel/attack(mob/M as mob, mob/user as mob)
 	if (user != M)
 		//If you come from the distant future and happen to find this unincluded and derelict file, you may be wondering what this is. In truth, it's better that you don't know.
 		var/obj/effect/equip_e/human/O = new /obj/effect/equip_e/human(  )
