@@ -35,7 +35,7 @@
 #define EPILEPSY    2
 #define COUGHING    4
 #define TOURETTES   8
-#define STUTTER     16
+#define STUTTERING     16
 #define DUMB            32
 #define MONKEYLIKE      64 //sets IsAdvancedToolUser to FALSE
 #define PACIFIST        128
