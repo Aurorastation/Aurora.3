@@ -1,5 +1,0 @@
-author: Ferner, Kyres1
-delete-after: True
-changes: 
-  - imageadd: "Replaced mech sprites with brand new ones by Kyres1."
-  - bugfix: "Fixed an issue wherein built mechs didn't layer their parts properly."
