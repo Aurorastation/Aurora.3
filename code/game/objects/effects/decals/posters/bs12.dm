@@ -289,11 +289,6 @@
 	name = "space bear information poster"
 	desc = "This poster displays a picture of a legendary space bear."
 
-/datum/poster/bay_59
-	icon_state = "bsposter59"
-	name = "ATLAS poster"
-	desc = "ATLAS: For all of Humanity."
-
 /datum/poster/bay_60
 	icon_state = "bsposter60"
 	name = "N.S.S. Aurora"

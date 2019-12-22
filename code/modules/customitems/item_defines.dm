@@ -221,15 +221,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	species_restricted = list("Unathi")
 	contained_sprite = TRUE
 
-
-/obj/item/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron
-	name = "ATLAS poster"
-
-/obj/item/contraband/poster/fluff/conservan_poster/New()
-	..()
-	serial_number = 59
-
-
 /obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
@@ -461,16 +452,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sayyidah_dress"
 	item_state = "sayyidah_dress"
 	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris
-	name = "atlas overcoat"
-	desc = "A classy black militaristic uniform, which is adorned with a sash and an eagle."
-	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
-	icon_state = "vittorio_jacket"
-	item_state = "vittorio_jacket"
-	contained_sprite = TRUE
-
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
 	name = "\improper CERN labcoat"
