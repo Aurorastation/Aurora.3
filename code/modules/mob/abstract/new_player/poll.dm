@@ -25,7 +25,6 @@
 			pollid = select_query.item[1]
 			pollquestion = select_query.item[2]
 			output += "<tr><td><a href=\"byond://?src=\ref[src];pollid=[pollid]\"><b>[pollquestion]</b></a></td></tr>"
-			i++
 
 		output += "</table>"
 		send_theme_resources(src)
