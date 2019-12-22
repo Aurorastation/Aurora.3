@@ -57,7 +57,6 @@
 	fire_resist = T0C+5200
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-
 /obj/item/clothing/suit/johnny_coat
 	name = "johnny~~ coat"
 	desc = "Johnny~~"
@@ -332,7 +331,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	icon_state = "mold_alt"
-	item_state = "mold_alt"	
+	item_state = "mold_alt"
 
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
