@@ -111,8 +111,6 @@
 		new/datum/stack_recipe("airlock access button frame", /obj/item/frame/button/access, 2), \
 		new/datum/stack_recipe("airlock sensor frame", /obj/item/frame/sensor, 2)
 		))
-	recipes += new/datum/stack_recipe("shield fittings", /obj/item/material/shieldbits, 10, time = 25)
-	recipes += new/datum/stack_recipe("large trap foundation", /obj/item/large_trap_foundation, 4, time = 40)
 
 /material/plasteel/generate_recipes()
 	..()

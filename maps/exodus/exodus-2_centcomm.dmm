@@ -5232,7 +5232,7 @@
 	},
 /area/syndicate_station/start)
 "aoo" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor7"
 	},
@@ -9489,7 +9489,7 @@
 	name = "\improper Raider Base"
 	})
 "aBW" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

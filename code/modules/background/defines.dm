@@ -11,6 +11,8 @@
 #define CITIZENSHIP_JARGON "Jargon Federation"
 
 #define CITIZENSHIP_PRA "People's Republic of Adhomai"
+#define CITIZENSHIP_DPRA "Democratic People's Republic of Adhomai"
+#define CITIZENSHIP_NKA "New Kingdom of Adhomai"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 
