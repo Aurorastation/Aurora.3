@@ -448,10 +448,15 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-		if( !(COLD_RESISTANCE in mutations))
-			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
-			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
-				adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
+		if(!(COLD_RESISTANCE in mutations))
+			var/list/obj/item/organ/external/organs = get_damageable_organs()
+			for(var/obj/item/organ/external/O in organs)
+				if(QDELETED(O))
+					continue
+				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+			if(getOxyLoss() < 55)
+				adjustOxyLoss(4)
 			pressure_alert = -2
 		else
 			pressure_alert = -1
