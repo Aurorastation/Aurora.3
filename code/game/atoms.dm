@@ -154,6 +154,10 @@
 	return distance == -1 || (get_dist(src, user) <= distance)
 
 /atom/Topic(href,href_list[])
+	. = ..()
+	if (.)
+		return
+
 	switch(href_list["examine"])
 		if("fluff")
 			usr.client.statpanel = "Examine"
