@@ -16,6 +16,8 @@
 	max_damage = 70
 	relative_size = 60
 
+	var/breathing = 0
+
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 	var/oxygen_deprivation = 0
 	var/last_successful_breath
@@ -249,6 +251,13 @@
 	else
 		last_successful_breath = world.time
 		owner.oxygen_alert = 0
+		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
+			if(breathing || owner.shock_stage >= 10)
+				sound_to(owner, sound(species.breathing_sound,0,0,0,5))
+				breathing = 0
+			else
+				breathing = 1
+
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
