@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixed tcfl volunteers spawning without a rank prefix in their name."
