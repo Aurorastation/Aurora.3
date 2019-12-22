@@ -118,7 +118,7 @@
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/ntnetmonitor(),
 		new/datum/computer_file/program/aidiag(),
-		new/datum/computer_file/program/exosuit_monitor(),
+		//new/datum/computer_file/program/exosuit_monitor(),
 		new/datum/computer_file/program/comm(1),
 		new/datum/computer_file/program/records/employment()
 	)

@@ -632,6 +632,7 @@
 #include "code\game\machinery\computer\pod.dm"
 #include "code\game\machinery\computer\prisoner.dm"
 #include "code\game\machinery\computer\RCON_Console.dm"
+#include "code\game\machinery\computer\records.dm"
 #include "code\game\machinery\computer\robot.dm"
 #include "code\game\machinery\computer\sentencing.dm"
 #include "code\game\machinery\computer\shuttle.dm"

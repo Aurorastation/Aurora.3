@@ -5,12 +5,12 @@
 
 /obj/item/modular_computer/laptop/preset/install_default_hardware()
 	..()
-	processor_unit = new/obj/item/weapon/computer_hardware/processor_unit(src)
-	hard_drive = new/obj/item/weapon/computer_hardware/hard_drive(src)
-	network_card = new/obj/item/weapon/computer_hardware/network_card(src)
-	battery_module = new/obj/item/weapon/computer_hardware/battery_module(src)
+	processor_unit = new/obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new/obj/item/computer_hardware/hard_drive(src)
+	network_card = new/obj/item/computer_hardware/network_card(src)
+	battery_module = new/obj/item/computer_hardware/battery_module(src)
 	battery_module.charge_to_full()
-	nano_printer = new/obj/item/weapon/computer_hardware/nano_printer(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
 
@@ -50,7 +50,7 @@
 
 /obj/item/modular_computer/laptop/preset/research/install_default_hardware()
 	..()
-	ai_slot = new/obj/item/weapon/computer_hardware/ai_slot(src)
+	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
 
 /obj/item/modular_computer/laptop/preset/research/rd/
 	name = "research director's laptop"
