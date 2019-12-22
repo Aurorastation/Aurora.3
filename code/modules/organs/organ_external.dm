@@ -1264,6 +1264,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 					flavor_text += "a ton of [wound]\s"
 		return english_list(flavor_text)
 
+/obj/item/organ/external/listen()
+	var/list/sounds = list()
+	for(var/obj/item/organ/internal/I in internal_organs)
+		var/gutsound = I.listen()
+		if(gutsound)
+			sounds += gutsound
+	if(!sounds.len)
+		if(owner.pulse())
+			sounds += "faint pulse"
+	return sounds
+
 /obj/item/organ/external/proc/sever_artery()
 	if((status & ORGAN_ROBOT) || (status & ORGAN_ARTERY_CUT) || !species || species.flags & NO_BLOOD || species.flags & NO_ARTERIES)
 		return FALSE
