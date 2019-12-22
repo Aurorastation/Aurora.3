@@ -172,3 +172,4 @@
 			return TOPIC_REFRESH
 
 	return ..()
+

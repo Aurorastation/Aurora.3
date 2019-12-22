@@ -1,6 +1,5 @@
 var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
 
-
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
 	sort_order = 3
@@ -753,3 +752,4 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
 		pref.rlimb_data -= null*/
+
