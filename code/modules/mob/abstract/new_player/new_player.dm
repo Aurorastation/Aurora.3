@@ -89,8 +89,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			totalPlayersReady = 0
 
 			//Determine high job and display it next to "ready"
-			var/highjob
 			for(var/mob/abstract/new_player/player in player_list) //for every player on the server
+				var/highjob
 				for(var/datum/job/job in SSjobs.occupations) //for every job available
 					var/job_flag
 					switch(job.department_flag)
