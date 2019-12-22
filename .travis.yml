@@ -74,7 +74,7 @@ jobs:
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/install-spaceman-dmm.sh
-        - ./scripts/install-spaceman-dmm.sh
+        - ./scripts/install-spaceman-dmm.sh dreamchecker
         - chmod +x ./scripts/rust_g.sh
         - ./scripts/rust_g.sh
       script:
