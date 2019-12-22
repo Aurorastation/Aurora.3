@@ -3930,20 +3930,12 @@
 	},
 /area/maintenance/substation/engineering_sublevel)
 "ahX" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/greengrid,
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ahY" = (
 /turf/simulated/floor/plating,
@@ -11990,6 +11982,18 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"atV" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/turf/simulated/floor/greengrid,
 /area/rnd/xenoarch_atrium)
 "atX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -62085,8 +62089,8 @@ awN
 akl
 ash
 alp
-ahX
-azR
+alq
+atV
 azR
 azR
 azR
@@ -62342,7 +62346,7 @@ asr
 aqH
 aiL
 alQ
-alq
+ahX
 azR
 azR
 azR
