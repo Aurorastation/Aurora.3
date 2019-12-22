@@ -39,3 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - maptweak: "Fixes a disconnected vent in the Xenoarch atrium, fixes an issue with the anomaly scanner in the pit, adds a bookcase."
+  - tweak: "Fixes the protection check in effect.dm to recognise nitrile gloves."
