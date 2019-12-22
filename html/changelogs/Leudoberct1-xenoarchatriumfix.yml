@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - maptweak: "Fixes a disconnected vent in the Xenoarch atrium"
+  - maptweak: "Fixes a disconnected vent in the Xenoarch atrium, fixes an issue with the anomaly scanner in the pit, adds a bookcase."
