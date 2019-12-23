@@ -119,6 +119,8 @@
 // On-click handling. Turns on the computer if it's off and opens the GUI.
 /obj/item/modular_computer/attack_self(mob/user)
 	if(enabled && screen_on)
+		if(active_uplink_check(user))
+			return
 		ui_interact(user)
 	else if(!enabled && screen_on)
 		turn_on(user)

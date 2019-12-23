@@ -192,11 +192,12 @@
 	display_name = "Syndicate Commander"
 	description = "Preset for the Syndicate Commander's Console."
 	available = 0
-/datum/modular_computer_app_presets/merc/return_install_programs()
+/datum/modular_computer_app_presets/syndicate/commander/return_install_programs()
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/ntnetdownload(),
-		new/datum/computer_file/program/syndicam()
+		new/datum/computer_file/program/syndicam(),
+		new/datum/computer_file/program/uplink()
 	)
 	return _prg_list
 

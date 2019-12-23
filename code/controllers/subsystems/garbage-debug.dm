@@ -321,7 +321,7 @@
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)
-	// SearchVar(syndnet)
+	SearchVar(syndnet)
 	SearchVar(rune_list)
 	SearchVar(escape_list)
 	SearchVar(endgame_exits)

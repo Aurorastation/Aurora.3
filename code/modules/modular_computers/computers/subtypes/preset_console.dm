@@ -104,11 +104,13 @@
 	computer_emagged = TRUE
 	enrolled = 2
 
-/obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
+/obj/item/modular_computer/console/preset/syndicate/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
 	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
+	hidden_uplink = new(src)
+	hidden_uplink.uses = DEFAULT_TELECRYSTAL_AMOUNT * 2
 
 // Mercenary
 /obj/item/modular_computer/console/preset/mercenary/

@@ -67,9 +67,9 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	..()
 	nanoui_data = list()
 	update_nano_data()
-	if(uplink_owner.special_role == "Syndicate Commander")
+	if(uplink_owner && uplink_owner.special_role == "Syndicate Commander")
 		uplink_type = "Commander"
-	else if(uplink_owner.current.faction == "syndicate")
+	else if(uplink_owner && uplink_owner.current.faction == "syndicate")
 		uplink_type = "Operative"
 	else
 		uplink_type = "Unknown"
@@ -112,7 +112,13 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)	// No auto-refresh
-		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = inventory_state)
+		var/sel_state
+		if(istype(loc, /obj/item/modular_computer))
+			sel_state = default_state
+		else
+			sel_state = inventory_state
+
+		ui = new(user, src, ui_key, "uplink.tmpl", title, 450, 600, state = sel_state)
 		ui.set_initial_data(data)
 		ui.open()
 

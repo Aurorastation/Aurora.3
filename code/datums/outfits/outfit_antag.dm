@@ -108,7 +108,7 @@
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
-	uplink_uses = DEFAULT_TELECRYSTAL_AMOUNT * 2
+	uplink_uses = 10
 
 	id_access = "Syndicate Commander"
 

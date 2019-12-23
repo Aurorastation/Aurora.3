@@ -90,7 +90,7 @@ var/datum/antagonist/commander/commander
 				freq += 1
 		freq = freqlist[rand(1, freqlist.len)]
 		var/obj/item/device/uplink/hidden/T = new(R, commander_mob.mind)
-		T.uses = DEFAULT_TELECRYSTAL_AMOUNT * 2
+		T.uses = 10
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
 		to_chat(commander_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
@@ -100,7 +100,7 @@ var/datum/antagonist/commander/commander
 		// generate a passcode if the uplink is hidden in a PDA
 		var/pda_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
 		var/obj/item/device/uplink/hidden/T = new(R, commander_mob.mind)
-		T.uses = DEFAULT_TELECRYSTAL_AMOUNT * 2
+		T.uses = 10
 		R.hidden_uplink = T
 		var/obj/item/device/pda/P = R
 		P.lock_code = pda_pass

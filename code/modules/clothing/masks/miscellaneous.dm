@@ -171,7 +171,7 @@
 	action_button_name = "Toggle MIU"
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
 	var/active = FALSE
-	var/mob/abstract/eye/cameranet/eye
+	var/mob/abstract/eye/syndnet/eye
 
 /obj/item/clothing/mask/ai/Initialize()
 	eye = new(src)
