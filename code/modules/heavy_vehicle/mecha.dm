@@ -7,6 +7,7 @@
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
+	mob_push_flags = ALLMOBS
 	var/decal
 
 	var/emp_damage = 0

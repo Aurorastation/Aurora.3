@@ -817,12 +817,16 @@ default behaviour is:
 /mob/living/proc/get_digestion_product()
 	return null
 
-
 /proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
 	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
 	var/test_types = test.find_type()
 	. = (eat_types & test_types) == test_types
- 
+
+/mob/living/Crossed(var/atom/movable/AM)
+	if(istype(AM, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/MB = AM
+		MB.trample(src)
+
 #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 /mob/living/proc/calculate_composition()
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
