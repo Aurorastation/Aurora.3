@@ -42,7 +42,8 @@
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
-	program_icon_state = "medcomp"
+	program_icon_state = "medical_record"
+	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/records/security
 	filename = "secrec"
@@ -57,7 +58,7 @@
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
 	default_screen = "security"
-	program_icon_state = "security"
+	program_icon_state = "security_record"
 	color = LIGHT_COLOR_RED
 
 /datum/computer_file/program/records/employment
@@ -72,7 +73,8 @@
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
-	color = LIGHT_COLOR_GREEN
+	program_icon_state = "employment_record"
+	color = LIGHT_COLOR_BLUE
 
 /datum/computer_file/program/records/New()
 	. = ..()
