@@ -20,7 +20,7 @@
 	var/model
 	var/damage_state = "00"
 
-	//Damage variables
+	//Damage variables.
 	var/brute_mod = 1
 	var/brute_dam = 0                  // Actual current brute damage.
 	var/brute_ratio = 0                // Ratio of current brute damage to max damage.
@@ -34,6 +34,9 @@
 	var/pain = 0                       // How much the limb hurts.
 	var/pain_disability_threshold      // Point at which a limb becomes unusable due to pain.
 
+	//Organ behaviour.
+	var/limb_behaviour = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK
+
 	var/max_size = 0
 	var/icon/mob_icon
 	var/gendered_icon = 0
@@ -41,8 +44,6 @@
 
 	var/limb_name
 	var/disfigured = 0
-	var/cannot_amputate
-	var/cannot_break
 
 	var/s_tone
 	var/skin_color
@@ -64,7 +65,6 @@
 	var/cavity = 0
 	var/sabotaged = 0 // If a prosthetic limb is emagged, it will detonate when it fails.
 	var/encased       // Needs to be opened with a saw to access the organs.
-	var/has_tendon = FALSE   //Does this limb have a tendon?
 	var/joint = "joint"   // Descriptive string used in dislocation.
 	var/artery_name = "artery"   //Name of the artery. Cartoid, etc.
 	var/tendon_name = "tendon"   //Name of the limb's tendon. Achilles heel, etc.
@@ -72,13 +72,10 @@
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
 
 	var/wound_update_accuracy = 1 	// how often wounds should be updated, a higher number means less often
-	var/can_grasp //It would be more appropriate if these two were named "affects_grasp" and "affects_stand" at this point
-	var/can_stand
 	var/body_hair
 	var/painted = 0
 
 	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
-	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
 
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
