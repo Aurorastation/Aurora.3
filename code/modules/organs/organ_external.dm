@@ -35,7 +35,7 @@
 	var/pain_disability_threshold      // Point at which a limb becomes unusable due to pain.
 
 	//Organ behaviour.
-	var/limb_behaviour = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK
+	var/limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
 
 	var/max_size = 0
 	var/icon/mob_icon
@@ -207,7 +207,7 @@
 		sync_colour_to_human(owner)
 
 	if ((status & ORGAN_PLANT))
-		cannot_break = 1
+		limb_flags &= ~ORGAN_CAN_BREAK
 
 	get_icon()
 
@@ -375,7 +375,7 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if(!cannot_amputate && config.limbs_can_break)
+		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
 
 			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
 
@@ -832,7 +832,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //Handles dismemberment
 /obj/item/organ/external/proc/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
 
-	if(cannot_amputate || !owner)
+	if(!(limb_flags & ORGAN_CAN_AMPUTATE) || !owner)
 		return
 
 	switch(disintegrate)
@@ -998,7 +998,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/fracture()
 	if(status & ORGAN_ROBOT)
 		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if((status & ORGAN_BROKEN) || cannot_break)
+	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
 		return
 
 	if(owner)
@@ -1053,7 +1053,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_mod = R.burn_mod
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
-	cannot_break = 1
+	limb_flags &= ~ORGAN_CAN_BREAK
 	get_icon()
 	unmutate()
 	for (var/obj/item/organ/external/T in children)
@@ -1062,7 +1062,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/mechassist()
 	..()
-	cannot_break = 0
+	limb_flags &= ~ORGAN_CAN_BREAK
 
 /obj/item/organ/external/proc/robotize_advanced()
 	status |= ORGAN_ADV_ROBOT
@@ -1272,7 +1272,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return TRUE
 
 /obj/item/organ/external/proc/sever_tendon()
-	if(!has_tendon || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT) || species.flags & NO_TENDONS)
+	if(!(limb_flags & ORGAN_HAS_TENDON) || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT))
 		return FALSE
 	else
 		status |= ORGAN_TENDON_CUT
