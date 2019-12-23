@@ -484,5 +484,9 @@
 		else
 			var/mob/living/L = H
 			src.visible_message("<span class='danger'>\The [src] runs over \the [L]!</span>")
+			if(isanimal(L))
+				if(issmall(L) && (L.stat == DEAD))
+					L.gib()
+					return TRUE
 			L.apply_damage(legs.trample_damage, BRUTE)
 			return TRUE
