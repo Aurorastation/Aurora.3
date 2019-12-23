@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Mechs will now trample, dealing brute damaged based on their leg types, mobs that they run over."
+  - rscadd: "Mechs can now push most mobs."
