@@ -1,6 +1,6 @@
 /obj/item/mech_component/propulsion
 	name = "legs"
-	pixel_y = 12
+	center_of_mass = list("x"=24, "y"=4)
 	icon_state = "loader_legs"
 	power_use = 75
 	var/move_delay = 5

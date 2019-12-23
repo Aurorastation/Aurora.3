@@ -22,16 +22,19 @@
 
 // Engineering
 /obj/item/modular_computer/console/preset/engineering/
+	name = "engineering console"
 	_app_preset_name = "engineering"
 	enrolled = 1
 
 // Medical
 /obj/item/modular_computer/console/preset/medical/
+	name = "medical console"
 	_app_preset_name = "medical"
 	enrolled = 1
 
 // Research
 /obj/item/modular_computer/console/preset/research/
+	name = "research console"
 	_app_preset_name = "research"
 	enrolled = 1
 
@@ -41,6 +44,7 @@
 
 // Command
 /obj/item/modular_computer/console/preset/command/
+	name = "command console"
 	_app_preset_name = "command"
 	enrolled = 1
 
@@ -52,6 +56,7 @@
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/captain/
+	name = "captain's console"
 	_app_preset_name = "captain"
 	enrolled = 1
 
@@ -64,16 +69,29 @@
 
 // Security
 /obj/item/modular_computer/console/preset/security/
+	name = "security console"
 	_app_preset_name = "security"
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/security/investigations
+	name = "investigations console"
+	_app_preset_name = "security_inv"
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/security/hos
+	name = "head of security's console"
+	_app_preset_name = "security_head"
 	enrolled = 1
 
 // Civilian
 /obj/item/modular_computer/console/preset/civilian/
+	name = "civilian console"
 	_app_preset_name = "civilian"
 	enrolled = 1
 
 // Supply
 /obj/item/modular_computer/console/preset/supply/
+	name = "supply console"
 	_app_preset_name = "supply"
 	enrolled = 1
 
