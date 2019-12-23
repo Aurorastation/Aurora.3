@@ -95,7 +95,7 @@
 	dress["red noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
-	dress["adhomian summmer dress"] = /obj/item/clothing/under/dress/tajaran/summer
+	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/accessory/tajara
