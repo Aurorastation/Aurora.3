@@ -467,7 +467,7 @@
 /mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
 	if(!LAZYLEN(pilots))
 		return
-	if(isliving(H))
+	if(!isliving(H))
 		return
 
 	if(legs)
