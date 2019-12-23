@@ -41,7 +41,7 @@
 	move_delay = 5
 	max_damage = 90
 	power_use = 5000
-	trample_damage = 25
+	trample_damage = 45
 
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"
