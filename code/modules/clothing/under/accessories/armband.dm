@@ -18,7 +18,7 @@
 /obj/item/clothing/accessory/armband/science
 	name = "science armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
-	icon_state = "rnd"
+	icon_state = "sci"
 
 /obj/item/clothing/accessory/armband/hydro
 	name = "hydroponics armband"
