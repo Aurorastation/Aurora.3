@@ -44,7 +44,7 @@
 /obj/item/clothing/shoes/white
 	name = "white shoes"
 	desc = "A pair of classy white shoes."
-	icon_state = "mime"
+	icon_state = "white"
 
 /obj/item/clothing/shoes/medical
 	name = "doctor shoes"
