@@ -1062,7 +1062,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/mechassist()
 	..()
-	limb_flags &= ~ORGAN_CAN_BREAK
+	limb_flags |= ORGAN_CAN_BREAK
 
 /obj/item/organ/external/proc/robotize_advanced()
 	status |= ORGAN_ADV_ROBOT
