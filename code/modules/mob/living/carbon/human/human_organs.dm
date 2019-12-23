@@ -137,7 +137,7 @@
 		return
 
 	for (var/obj/item/organ/external/E in organs)
-		if(!E || (E.limb_flags & ORGAN_CAN_GRASP) || (E.status & ORGAN_SPLINTED))
+		if(!E || !(E.limb_flags & ORGAN_CAN_GRASP) || (E.status & ORGAN_SPLINTED))
 			continue
 
 		if(E.is_broken() || E.is_dislocated())

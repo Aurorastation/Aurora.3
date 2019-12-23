@@ -63,7 +63,7 @@
 	w_class = 3
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
-	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE
+	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
@@ -73,7 +73,7 @@
 	limb_name = "r_arm"
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
-	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE
+	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
@@ -88,7 +88,7 @@
 	body_part = LEG_LEFT
 	icon_position = LEFT
 	parent_organ = BP_GROIN
-	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE
+	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_STAND
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
@@ -99,7 +99,7 @@
 	icon_name = "r_leg"
 	body_part = LEG_RIGHT
 	icon_position = RIGHT
-	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE
+	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_STAND
 	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
