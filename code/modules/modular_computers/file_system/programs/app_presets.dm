@@ -188,8 +188,7 @@
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/comm(),
 		new/datum/computer_file/program/digitalwarrant(),
-		new/datum/computer_file/program/records/security(),
-		new/datum/computer_file/program/records/employment()
+		new/datum/computer_file/program/records/security()
 	)
 	return _prg_list
 
