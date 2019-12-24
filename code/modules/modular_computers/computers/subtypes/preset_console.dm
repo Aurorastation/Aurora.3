@@ -15,6 +15,8 @@
 	tesla_link = new/obj/item/computer_hardware/tesla_link(src)
 	hard_drive = new/obj/item/computer_hardware/hard_drive/super(src)
 	network_card = new/obj/item/computer_hardware/network_card/wired(src)
+	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
+
 
 /obj/item/modular_computer/console/preset/install_default_programs()
 	..()
@@ -97,7 +99,6 @@
 
 /obj/item/modular_computer/console/preset/supply/install_default_hardware()
 	..()
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
@@ -106,7 +107,6 @@
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 25
 	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
@@ -125,7 +125,6 @@
 /obj/item/modular_computer/console/preset/mercenary/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 
@@ -137,7 +136,6 @@
 /obj/item/modular_computer/console/preset/merchant/install_default_hardware()
 	..()
 	ai_slot = new/obj/item/computer_hardware/ai_slot(src)
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 
