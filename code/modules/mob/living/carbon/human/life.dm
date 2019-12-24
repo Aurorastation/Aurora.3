@@ -827,8 +827,6 @@
 					sleeping += 1
 					Paralyse(5)
 
-		confused = max(0, confused - 1)
-
 		// If you're dirty, your gloves will become dirty, too.
 		if(gloves && germ_level > gloves.germ_level && prob(10))
 			gloves.germ_level += 1
