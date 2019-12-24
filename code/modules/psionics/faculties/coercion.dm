@@ -220,6 +220,7 @@
 	use_ranged =        TRUE
 	min_rank =          PSI_RANK_OPERANT
 	associated_intent = I_HELP
+	use_sound =         null
 	use_description =   "Target the groin and click on a creature on help intent to psionically send them a message."
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
@@ -284,6 +285,7 @@
 	use_manifest =      TRUE
 	associated_intent = I_HELP
 	min_rank =          PSI_RANK_OPERANT
+	use_sound =         null
 	use_description =   "Activate an empty hand on help intent to detect nearby psionic signatures."
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
