@@ -1,6 +1,6 @@
 /obj/machinery/transformer
 	name = "Automatic Robotic Factory 5000"
-	desc = "A large metalic machine with an entrance and an exit. A sign on the side reads, 'human go in, robot come out', human must be lying down and alive."
+	desc = "A large, complicated machine with thousands of moving parts and sharp instruments. There is an entrance and exit: large enough to fit someone inside"
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "separator-AO1"
 	layer = MOB_LAYER+1 // Overhead
@@ -53,13 +53,15 @@
 	if(canuse)
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 		use_power(6000) // Use a lot of power.
+		message_admins("[key_name(H)] has been borgified by the Autoborger 5000.")
 		visible_message("<span class='danger'>The machine makes a series of loud sounds as it starts to replace [H]'s organs and limbs with robotic parts!</span>")
 		to_chat(H, "<span class='danger'>You feel a horrible pain as the machine you entered starts to rip you apart and replace your limbs and organs!</span>")
-		H.Robotize()
 		to_chat(H, "<span class='danger'> You lose consciousness for a brief moment before waking up with a whole new body...</span>")
+		to_chat(H, "<span class='danger'>You are lobotomized by the machine. You do not remember your past identity or self.</span>")
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		canuse = FALSE
 		addtimer(CALLBACK(src, .proc/rearm), 120 SECONDS)
+		H.Robotize()
 	else
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 		visible_message("<span class='notice'>The machine displays an error message reading it is still making the required parts.</span>")

@@ -13491,7 +13491,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 "yV" = (
-/obj/item/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;

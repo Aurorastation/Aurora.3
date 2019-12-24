@@ -252,6 +252,8 @@
 	brute *= brute_mod
 	burn *= burn_mod
 
+	var/laser = (damage_flags & DAM_LASER)
+
 	add_pain(0.6*burn + 0.4*brute)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
@@ -305,7 +307,10 @@
 
 			if(burn > 0 && can_inflict)
 				//Inflict all burn damage we can
-				createwound(BURN, min(burn,can_inflict))
+				if(laser)
+					createwound(LASER, min(burn, can_inflict))
+				else
+					createwound(BURN, min(burn,can_inflict))
 				//How much burn damage is left to inflict
 				spillover += max(0, burn - can_inflict)
 
@@ -373,39 +378,31 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if(!cannot_amputate && config.limbs_can_break && (brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
+		if(!cannot_amputate && config.limbs_can_break)
 
-			var/brute_armor_value = 0
-			var/burn_armor_value = 0
-			var/edge_eligible = 0
-			var/maim_bonus = 0
+			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
 
-			var/mob/living/carbon/human/H
-			if(istype(owner,/mob/living/carbon/human))
-				H = owner
-				brute_armor_value = H.getarmor_organ(src, "melee")
-				burn_armor_value = H.getarmor_organ(src, "burn")
+				var/edge_eligible = 0
+				var/maim_bonus = 0
 
-			if(istype(used_weapon,/obj/item))
-				var/obj/item/W = used_weapon
-				if(isprojectile(W))
-					var/obj/item/projectile/P = W
-					brute_armor_value = H.getarmor_organ(src, "bullet")
-					maim_bonus += P.maim_rate
-				else if(W.w_class >= w_class && edge)
+				if(istype(used_weapon,/obj/item))
+					var/obj/item/W = used_weapon
+					if(isprojectile(W))
+						var/obj/item/projectile/P = W
+						maim_bonus += P.maim_rate
+					else if(W.w_class >= w_class && edge)
+						edge_eligible = 1
+				else if(edge)
 					edge_eligible = 1
-			else if(edge)
-				edge_eligible = 1
 
-			if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_EDGE)
-			else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && burn >= burn_armor_value)
-				droplimb(0, DROPLIMB_BURN)
-			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_BLUNT)
-			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_EDGE)
-
+				if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+					droplimb(0, DROPLIMB_EDGE)
+				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+					droplimb(0, DROPLIMB_BURN)
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+					droplimb(0, DROPLIMB_BLUNT)
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
+					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)
 	if(status & ORGAN_ROBOT && !robo_repair)
@@ -466,7 +463,8 @@ This function completely restores a damaged organ to perfect condition.
 
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
-	if(damage == 0) return
+
+	if(damage <= 0) return
 
 	//moved this before the open_wound check so that having many small wounds for example doesn't somehow protect you from taking internal damage (because of the return)
 	//Possibly trigger an internal wound, too.
@@ -479,6 +477,15 @@ This function completely restores a damaged organ to perfect condition.
 			internal_damage = TRUE
 		if(internal_damage)
 			owner.custom_pain("You feel something rip in your [name]!", 25)
+
+	//Burn damage can cause fluid loss due to blistering and cook-off
+	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+		var/fluid_loss_severity
+		switch(type)
+			if(BURN)  fluid_loss_severity = FLUIDLOSS_WIDE_BURN
+			if(LASER) fluid_loss_severity = FLUIDLOSS_CONC_BURN
+		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
+		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
 	if(wounds.len > 0 && prob(max(50+(number_wounds-1)*10,90)))
@@ -983,7 +990,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		W.germ_level = 0
 	return rval
 
-/obj/item/organ/external/proc/clamp()
+/obj/item/organ/external/proc/clamp_organ()
 	var/rval = 0
 	src.status &= ~ORGAN_BLEEDING
 	for(var/datum/wound/W in wounds)
@@ -1248,6 +1255,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if(6 to INFINITY)
 					flavor_text += "a ton of [wound]\s"
 		return english_list(flavor_text)
+
+/obj/item/organ/external/listen()
+	var/list/sounds = list()
+	for(var/obj/item/organ/internal/I in internal_organs)
+		var/gutsound = I.listen()
+		if(gutsound)
+			sounds += gutsound
+	if(!sounds.len)
+		if(owner.pulse())
+			sounds += "faint pulse"
+	return sounds
 
 /obj/item/organ/external/proc/sever_artery()
 	if((status & ORGAN_ROBOT) || (status & ORGAN_ARTERY_CUT) || !species || species.flags & NO_BLOOD || species.flags & NO_ARTERIES)

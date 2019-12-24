@@ -2,11 +2,13 @@
 	name = "body"
 	icon_state = "loader_body"
 	gender = NEUTER
+	pixel_y = -8
+	center_of_mass = list("x"=24, "y"=20)
 
 	var/mech_health = 300
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/cell/cell
-	var/obj/item/robot_parts/robot_component/armour/
+	var/obj/item/robot_parts/robot_component/armor/mech_armor
 	var/obj/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
 	var/pilot_offset_x = 0
@@ -16,13 +18,13 @@
 	var/list/pilot_positions
 	var/pilot_coverage = 100
 	var/transparent_cabin = FALSE
-	var/hide_pilot = FALSE
+	var/hide_pilot = TRUE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/chassis/update_components()
 	diagnostics = locate() in src
 	cell =        locate() in src
-	armour =      locate() in src
+	mech_armor =  locate() in src
 	air_supply =  locate() in src
 
 /obj/item/mech_component/chassis/New()
@@ -40,7 +42,7 @@
 /obj/item/mech_component/chassis/Destroy()
 	QDEL_NULL(cell)
 	QDEL_NULL(diagnostics)
-	QDEL_NULL(armour)
+	QDEL_NULL(mech_armor)
 	QDEL_NULL(air_supply)
 	. = ..()
 
@@ -49,7 +51,7 @@
 		to_chat(user, "<span class='warning'>It is missing a power cell.</span>")
 	if(!diagnostics)
 		to_chat(user, "<span class='warning'>It is missing a diagnostics unit.</span>")
-	if(!armour)
+	if(!mech_armor)
 		to_chat(user, "<span class='warning'>It is missing armor plating.</span>")
 
 /obj/item/mech_component/chassis/Initialize()
@@ -80,7 +82,7 @@
 		cockpit.react()
 
 /obj/item/mech_component/chassis/ready_to_install()
-	return (cell && diagnostics && armour)
+	return (cell && diagnostics && mech_armor)
 
 /obj/item/mech_component/chassis/prebuild()
 	diagnostics = new(src)
@@ -98,12 +100,12 @@
 			to_chat(user, "<span class='warning'>\The [src] already has a cell installed.</span>")
 			return
 		if(install_component(thing,user)) cell = thing
-	else if(istype(thing, /obj/item/robot_parts/robot_component/armour))
-		if(armour)
-			to_chat(user, "<span class='warning'>\The [src] already has armour installed.</span>")
+	else if(istype(thing, /obj/item/robot_parts/robot_component/armor/mech))
+		if(mech_armor)
+			to_chat(user, "<span class='warning'>\The [src] already has mech_armor installed.</span>")
 			return
 		if(install_component(thing, user))
-			armour = thing
+			mech_armor = thing
 	else
 		return ..()
 

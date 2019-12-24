@@ -170,7 +170,7 @@
 	last_hit_zone = target_zone
 
 	switch(target_zone)
-		if("mouth")
+		if(BP_MOUTH)
 			if(announce)
 				user.visible_message("<span class='warning'>\The [user] covers [target]'s face!</span>")
 			if(target.silent < 3)
@@ -314,6 +314,12 @@
 /obj/item/grab/attack(mob/M, mob/living/user, var/target_zone)
 	if(!affecting)
 		return
+
+	if(ishuman(user) && affecting == M)
+		var/mob/living/carbon/human/H = user
+		if(H.check_psi_grab(src))
+			return
+
 	if(world.time < (last_action + 20))
 		return
 

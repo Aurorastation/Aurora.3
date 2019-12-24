@@ -69,6 +69,7 @@
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
 	possible_species = list("Human", "Off-Worlder Human", "Tajara", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Aut'akh Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Diona")
+	mob_name_prefix = "Vol. "
 
 /datum/ghostspawner/human/ert/tcfl/specialist
 	name = "TCFL Legionnaire"
@@ -193,7 +194,7 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "
-	uses_species_whitelist = TRUE // Kataphract K'lax would be more difficult
+	req_species_whitelist = "Vaurca" // Kataphract K'lax would be more difficult
 	possible_species = list("Vaurca Warrior")
 	extra_languages = list(LANGUAGE_VAURCA)
 

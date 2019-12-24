@@ -149,6 +149,7 @@
 		return attack_self(user)
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
+		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
@@ -294,12 +295,14 @@
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
 		set_dir(direction)
+		update_icon()
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
 		get_cell().use(legs.power_use * CELLRATE)
+	update_icon()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
 	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))
@@ -320,18 +323,6 @@
 			return
 		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
 		return
-
-	else if(istype(thing, /obj/item/device/kit/paint))
-		user.visible_message("<span class='notice'>\The [user] opens \the [thing] and spends some quality time customising \the [src].</span>")
-		var/obj/item/device/kit/paint/P = thing
-		desc = P.new_desc
-		for(var/obj/item/mech_component/comp in list(arms, legs, head, body))
-			comp.decal = P.new_icon
-		if(P.new_icon_file)
-			icon = P.new_icon_file
-		queue_icon_update()
-		P.use(1, user)
-		return 1
 
 	else
 		if(user.a_intent != I_HURT)
