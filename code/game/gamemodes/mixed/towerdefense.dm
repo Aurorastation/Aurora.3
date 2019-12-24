@@ -1,6 +1,6 @@
-/datum/game_mode/threesome
-	name = "Threesome (merc+heist+ninjas)"
-	config_tag = "threesome"
+/datum/game_mode/towerdefense
+	name = "Tower Defense (merc+heist+ninjas)"
+	config_tag = "towerdefense"
 	round_description = "A group of mercenaries, a gaggle of raiders, and a set of ninjas have their eyes set on the NSS Aurora."
 	extended_round_description = "Nanotrasen has been playing with fire, maybe a big visit will teach them a lesson."
 	required_players = 30
