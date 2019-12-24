@@ -220,6 +220,7 @@
 	display_name = "Security - HoS"
 	description = "Contains the most common security programs and command software."
 	available = 0
+
 /datum/modular_computer_app_presets/security/hos/return_install_programs()
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
