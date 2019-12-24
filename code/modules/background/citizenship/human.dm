@@ -80,7 +80,7 @@
 
 /datum/citizenship/coalition
 	name = CITIZENSHIP_COALITION
-	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human coalition. These entities range \
+	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human frontier. These entities range \
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
