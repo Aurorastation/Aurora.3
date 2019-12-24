@@ -19,17 +19,26 @@
 /obj/item/modular_computer/console/preset/install_default_programs()
 	..()
 
-
 // Engineering
 /obj/item/modular_computer/console/preset/engineering/
 	name = "engineering console"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	enrolled = 1
 
+/obj/item/modular_computer/console/preset/engineering/ce
+	name = "engineering console"
+	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
+	enrolled = 1
+
 // Medical
 /obj/item/modular_computer/console/preset/medical/
 	name = "medical console"
 	_app_preset_type = /datum/modular_computer_app_presets/medical
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/medical/cmo
+	name = "medical console"
+	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
 	enrolled = 1
 
 // Research
@@ -55,17 +64,15 @@
 	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
-/obj/item/modular_computer/console/preset/captain/
+/obj/item/modular_computer/console/preset/command/captain
 	name = "captain's console"
 	_app_preset_type = /datum/modular_computer_app_presets/captain
 	enrolled = 1
 
-/obj/item/modular_computer/console/preset/captain/install_default_hardware()
-	..()
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 25
-	nano_printer.stored_paper = 20
-	card_slot = new/obj/item/computer_hardware/card_slot(src)
+/obj/item/modular_computer/console/preset/command/hop
+	name = "command console"
+	_app_preset_type = /datum/modular_computer_app_presets/command/hop
+	enrolled = 1
 
 // Security
 /obj/item/modular_computer/console/preset/security/

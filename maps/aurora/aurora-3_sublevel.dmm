@@ -29744,7 +29744,6 @@
 /area/mine/unexplored)
 "eCB" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/crew,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
@@ -30634,18 +30633,17 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_post2)
 "gut" = (
-/obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light_switch{
 	pixel_x = -22;
 	pixel_y = 8
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "gyi" = (
@@ -31460,8 +31458,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/item/device/radio{
 	anchored = 1;
 	broadcasting = 0;
@@ -31482,6 +31478,7 @@
 	name = "Quarantine Processing Shutters";
 	opacity = 0
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
 "iIQ" = (
@@ -31814,12 +31811,11 @@
 /area/medical/patient_wing_post2)
 "jkR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "jlY" = (
@@ -31953,8 +31949,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
 "jMg" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -31965,6 +31959,7 @@
 	pixel_x = 24;
 	req_one_access = list(24,11,55)
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
 "jMR" = (
@@ -82925,7 +82920,7 @@ aJA
 aKB
 gsX
 eCB
-oUd
+nTr
 nTr
 aRD
 aaa
