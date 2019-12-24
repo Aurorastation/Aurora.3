@@ -44,8 +44,7 @@
 	if(!eyeobj) return
 	if(!new_eye)
 		new_eye = src
-	qdel(eyeobj) // No AI, no Eye
-	eyeobj = null
+	QDEL_NULL(eyeobj)
 	if(client)
 		client.eye = new_eye
 
@@ -59,10 +58,6 @@
 /mob/living/silicon/ai/Initialize()
 	. = ..()
 	create_eyeobj()
-
-/mob/living/silicon/ai/Destroy()
-	destroy_eyeobj()
-	. = ..()
 
 /atom/proc/move_camera_by_click()
 	if(istype(usr, /mob/living/silicon/ai))
