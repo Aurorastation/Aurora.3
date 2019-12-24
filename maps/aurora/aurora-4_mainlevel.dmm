@@ -32718,17 +32718,9 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/secure_data{
-	pixel_x = -2;
-	pixel_y = 2
-	},
 /obj/item/circuitboard/security{
 	pixel_x = 1;
 	pixel_y = -1
-	},
-/obj/item/circuitboard/skills{
-	pixel_x = 4;
-	pixel_y = -3
 	},
 /turf/simulated/floor/plating,
 /area/storage/tech)
@@ -34380,14 +34372,6 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/circuitboard/crew{
-	pixel_x = -1;
-	pixel_y = 1
-	},
-/obj/item/circuitboard/crew{
-	pixel_x = -1;
-	pixel_y = 1
-	},
 /obj/item/circuitboard/arcade/battle,
 /obj/item/circuitboard/arcade/orion_trail,
 /turf/simulated/floor/plating,
@@ -34402,10 +34386,6 @@
 	},
 /obj/item/circuitboard/clonescanner,
 /obj/item/circuitboard/clonepod,
-/obj/item/circuitboard/med_data{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bhk" = (
@@ -46810,7 +46790,7 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/dark,
 /area/medical/emt)
 "bBc" = (

@@ -3778,7 +3778,7 @@
 	},
 /area/centcom/evac)
 "akS" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -14325,7 +14325,7 @@
 	},
 /area/centcom/control)
 "aPQ" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17758,12 +17758,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
-	},
-/area/centcom/control)
-"aXp" = (
-/obj/item/modular_computer/console/preset/medical,
-/turf/unsimulated/floor{
-	icon_state = "floor"
 	},
 /area/centcom/control)
 "aXq" = (
@@ -59028,7 +59022,7 @@ aXP
 aOK
 aPQ
 aUv
-aXp
+aPQ
 aZK
 aZp
 aZp

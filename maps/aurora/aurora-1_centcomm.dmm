@@ -6859,10 +6859,6 @@
 	icon_state = "floor6"
 	},
 /area/shuttle/administration/centcom)
-"arp" = (
-/obj/machinery/computer/crew,
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/administration/centcom)
 "arq" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -10307,12 +10303,6 @@
 /obj/item/storage/box/drinkingglasses,
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
-"azs" = (
-/obj/machinery/computer/crew,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/control)
 "azt" = (
 /turf/unsimulated/floor{
 	icon_state = "bluecorner";
@@ -65356,7 +65346,7 @@ aqC
 aqL
 aqT
 aqU
-arp
+aqL
 aqG
 aqG
 aqG
@@ -71554,7 +71544,7 @@ avh
 ayf
 ayw
 ayU
-azs
+aAd
 avh
 aAd
 aAq

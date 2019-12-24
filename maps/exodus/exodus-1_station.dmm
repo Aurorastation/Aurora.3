@@ -53650,10 +53650,6 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/med_data{
-	pixel_x = 3;
-	pixel_y = -3
-	},
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bTM" = (
@@ -53661,17 +53657,9 @@
 	dir = 8;
 	layer = 2.9
 	},
-/obj/item/circuitboard/secure_data{
-	pixel_x = -2;
-	pixel_y = 2
-	},
 /obj/item/circuitboard/security{
 	pixel_x = 1;
 	pixel_y = -1
-	},
-/obj/item/circuitboard/skills{
-	pixel_x = 4;
-	pixel_y = -3
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -77686,10 +77674,6 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/medical/psych)
-"dqT" = (
-/obj/item/modular_computer/console/preset/engineering/ce,
-/turf/simulated/floor/tiled,
-/area/crew_quarters/heads/chief)
 "dte" = (
 /obj/structure/safe/station,
 /turf/simulated/floor/tiled/dark,
@@ -79347,6 +79331,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
+"rru" = (
+/obj/item/modular_computer/console/preset/engineering/ce,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/heads/chief)
 "rry" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -107231,7 +107219,7 @@ bTK
 bUU
 bWs
 bNQ
-dqT
+rru
 caD
 cbY
 cdu
