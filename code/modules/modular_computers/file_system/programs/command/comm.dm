@@ -3,6 +3,7 @@
 #define STATE_VIEWMESSAGE	3
 #define STATE_STATUSDISPLAY	4
 #define STATE_ALERT_LEVEL	5
+
 /datum/computer_file/program/comm
 	filename = "comm"
 	filedesc = "Command and communications program."
@@ -446,3 +447,9 @@ Command action procs
 	message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the shuttle.", 1)
 
 	return
+
+#undef STATE_DEFAULT
+#undef STATE_MESSAGELIST
+#undef STATE_VIEWMESSAGE
+#undef STATE_STATUSDISPLAY
+#undef STATE_ALERT_LEVEL
