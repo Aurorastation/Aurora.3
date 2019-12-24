@@ -118,7 +118,7 @@ var/list/possible_cable_coil_colours = list(
 	alpha = invisibility ? 127 : 255
 
 //Telekinesis has no effect on a cable
-/obj/structure/cable/attack_tk(mob/user)
+/obj/structure/cable/do_simple_ranged_interaction(var/mob/user)
 	return
 
 // Items usable on a cable :

@@ -449,8 +449,6 @@
 
 		if(prot || (COLD_RESISTANCE in user.mutations))
 			to_chat(user, "You remove the light [fitting]")
-		else if(TK in user.mutations)
-			to_chat(user, "You telekinetically remove the light [fitting].")
 		else
 			to_chat(user, "You try to remove the light [fitting], but it's too hot and you don't want to burn your hand.")
 			return				// if burned, don't remove the light
@@ -481,7 +479,7 @@
 		stat |= MAINT
 		update()
 
-/obj/machinery/light/attack_tk(mob/user)
+/obj/machinery/light/do_simple_ranged_interaction(var/mob/user)
 	if(status == LIGHT_EMPTY)
 		to_chat(user, "There is no [fitting] in this light.")
 		return
