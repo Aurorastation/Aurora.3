@@ -80,7 +80,7 @@
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES | NO_TENDONS
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
-	character_color_presets = list("Default" = "#000000", "Warm" = "#92804B", "Cold" = "#1e1e29")
+	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
 	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
