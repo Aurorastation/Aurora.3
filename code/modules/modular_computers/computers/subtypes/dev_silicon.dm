@@ -16,6 +16,9 @@
 /obj/item/modular_computer/silicon/New(host)
 	computer_host = host
 	loc = host
+	verbs -= /obj/item/modular_computer/verb/eject_ai
+	verbs -= /obj/item/modular_computer/verb/eject_id
+	verbs -= /obj/item/modular_computer/verb/eject_usb
 	..()
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
@@ -25,3 +28,10 @@
 	else
 		return TRUE
 	. = ..()
+
+
+/obj/item/modular_computer/silicon/Click(location, control, params)
+	if (!istype(usr, /mob/living/silicon))
+		return
+	attack_self(usr)
+	

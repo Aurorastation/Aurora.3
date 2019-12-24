@@ -1,10 +1,7 @@
 /mob/living/silicon
 	var/register_alarms = 1
 	var/datum/nano_module/alarm_monitor/all/alarm_monitor
-	var/datum/nano_module/atmos_control/atmos_control
-	var/datum/nano_module/crew_monitor/crew_monitor
 	var/datum/nano_module/law_manager/law_manager
-	var/datum/nano_module/power_monitor/power_monitor
 	var/datum/nano_module/rcon/rcon
 	var/obj/item/modular_computer/silicon/computer
 
@@ -21,11 +18,7 @@
 /mob/living/silicon/ai
 	silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/subsystem_atmos_control,
-		/mob/living/silicon/proc/subsystem_crew_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
-		/mob/living/silicon/proc/subsystem_power_monitor,
-		/mob/living/silicon/proc/subsystem_rcon,
 		/mob/living/silicon/ai/proc/subsystem_ntnet_monitor,
 		/mob/living/silicon/proc/computer_interact
 	)
@@ -38,20 +31,11 @@
 	qdel(alarm_monitor)
 	alarm_monitor = null
 
-	qdel(atmos_control)
-	atmos_control = null
-
-	qdel(crew_monitor)
-	crew_monitor = null
-
 	qdel(law_manager)
 	law_manager = null
 
-	qdel(power_monitor)
-	power_monitor = null
-
-	qdel(rcon)
-	rcon = null
+	qdel(computer)
+	computer = null
 
 	return ..()
 
@@ -64,10 +48,7 @@
 /mob/living/silicon/proc/init_subsystems()
 	computer = new/obj/item/modular_computer/silicon/preset(src)
 	alarm_monitor 	= new(src)
-	atmos_control 	= new(src)
-	crew_monitor 	= new(src)
 	law_manager 	= new(src)
-	power_monitor	= new(src)
 	rcon 			= new(src)
 
 	if(!register_alarms)
@@ -99,24 +80,6 @@
 
 	alarm_monitor.ui_interact(usr, state = self_state)
 
-/********************
-*	Atmos Control	*
-********************/
-/mob/living/silicon/proc/subsystem_atmos_control()
-	set category = "Subystems"
-	set name = "Atmospherics Control"
-
-	atmos_control.ui_interact(usr, state = self_state)
-
-/********************
-*	Crew Monitor	*
-********************/
-/mob/living/silicon/proc/subsystem_crew_monitor()
-	set category = "Subystems"
-	set name = "Crew Monitor"
-
-	crew_monitor.ui_interact(usr, state = self_state)
-
 /****************
 *	Law Manager	*
 ****************/
@@ -134,21 +97,3 @@
 	set category = "Subystems"
 
 	ntnet_monitor.ui_interact(usr, state = conscious_state)
-
-/********************
-*	Power Monitor	*
-********************/
-/mob/living/silicon/proc/subsystem_power_monitor()
-	set category = "Subystems"
-	set name = "Power Monitor"
-
-	power_monitor.ui_interact(usr, state = self_state)
-
-/************
-*	RCON	*
-************/
-/mob/living/silicon/proc/subsystem_rcon()
-	set category = "Subystems"
-	set name = "RCON"
-
-	rcon.ui_interact(usr, state = self_state)
