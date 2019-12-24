@@ -31,7 +31,7 @@
 		else
 			idle_threads.Remove(P)
 
-	working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
+	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
@@ -125,7 +125,7 @@
 		else
 			to_chat(user, "You press the power button, but the computer fails to boot up, displaying variety of errors before shutting down again.")
 		return
-	if(processor_unit && (apc_power(0) || battery_power(0))) // Battery-run and charged or non-battery but powered by APC.
+	if(processor_unit && computer_use_power()) // Battery-run and charged or non-battery but powered by APC.
 		if(issynth)
 			to_chat(user, "You send an activation signal to \the [src], turning it on")
 		else
