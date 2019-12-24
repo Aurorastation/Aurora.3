@@ -14,11 +14,13 @@
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
 	path = /obj/item/storage/fancy/cigar
+	cost = 2
 
 /datum/gear/smoking/cigarettes
 	display_name = "cigarette packet selection"
 	description = "A selection of cigarette packets."
 	path = /obj/item/storage/fancy/cigarettes
+	cost = 2
 
 /datum/gear/smoking/cigarettes/New()
 	..()
@@ -34,6 +36,7 @@
 	display_name = "chewing tobacco selection"
 	description = "A selection of chewing tobacco."
 	path = /obj/item/storage/chewables/tobacco
+	cost = 2
 
 /datum/gear/smoking/chew/New()
 	..()
@@ -48,6 +51,7 @@
 	display_name = "tobacco leaf selection"
 	description = "A selection of tobacco leaves."
 	path = /obj/item/storage/chewables/rollable
+	cost = 2
 
 /datum/gear/smoking/leaves/New()
 	..()
