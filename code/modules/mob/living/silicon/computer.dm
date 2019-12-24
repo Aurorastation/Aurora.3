@@ -62,7 +62,7 @@
 	return ..()
 
 /mob/living/silicon/proc/init_subsystems()
-	computer = new(src)
+	computer = new/obj/item/modular_computer/silicon/preset(src)
 	alarm_monitor 	= new(src)
 	atmos_control 	= new(src)
 	crew_monitor 	= new(src)
@@ -88,7 +88,7 @@
 	set name = "Open computer interface"
 	set category = "Subystems"
 
-	computer.ui_interact(src)
+	computer.attack_self(src)
 
 /********************
 *	Alarm Monitor	*

@@ -15,6 +15,7 @@
 
 /obj/item/modular_computer/silicon/New(host)
 	computer_host = host
+	loc = host
 	..()
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)

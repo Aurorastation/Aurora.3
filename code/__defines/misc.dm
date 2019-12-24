@@ -177,6 +177,7 @@
 
 // Program bitflags
 #define PROGRAM_ALL 31
+#define PROGRAM_ALL_REGULAR 15
 #define PROGRAM_CONSOLE 1
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
