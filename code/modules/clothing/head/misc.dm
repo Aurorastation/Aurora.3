@@ -601,6 +601,12 @@
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
 
+/obj/item/clothing/head/antenna/sleek
+	name = "sleek antennae"
+	desc = "This double set of antennae look very sleek, typically used to hold excess wiring in a specific manner.."
+	icon_state = "sleek"
+	item_state = "sleek"
+
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
 	icon_state = "culthood"
