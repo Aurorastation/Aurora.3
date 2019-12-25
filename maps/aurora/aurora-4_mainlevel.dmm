@@ -58338,7 +58338,7 @@
 /obj/structure/disposalpipe/trunk,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "bYR" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -58348,7 +58348,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "bYS" = (
 /obj/machinery/conveyor{
 	dir = 9;
@@ -58361,7 +58361,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "bYT" = (
 /obj/machinery/newscaster{
 	pixel_x = -27;
@@ -58460,7 +58460,7 @@
 "bZh" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "bZi" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -58469,7 +58469,7 @@
 /obj/structure/plasticflaps,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "bZj" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -58986,7 +58986,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "cac" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -66078,7 +66078,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "hQD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -70704,7 +70704,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "tzU" = (
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
@@ -71485,7 +71485,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/quartermaster/lobby)
+/area/quartermaster/storage)
 "vaK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/pipe{
@@ -96974,10 +96974,10 @@ bXY
 bWz
 bWg
 tzT
-bWg
-bWg
+bZx
+bZx
 cab
-bWg
+bZx
 bWg
 cbq
 cbq
@@ -97231,7 +97231,7 @@ bWz
 bWz
 bWg
 bYR
-bWg
+bZx
 bZE
 cac
 cay

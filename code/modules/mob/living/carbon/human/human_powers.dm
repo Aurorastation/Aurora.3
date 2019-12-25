@@ -216,12 +216,10 @@ mob/living/carbon/human/proc/change_monitor()
 
 // Simple mobs cannot use Skrellepathy
 /mob/proc/can_commune()
-	return 0
+	return FALSE
 
 /mob/living/carbon/human/can_commune()
-	if(/mob/living/carbon/human/proc/commune in verbs)
-		return 1
-	return ..()
+	return species ? species.can_commune() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -309,7 +307,7 @@ mob/living/carbon/human/proc/change_monitor()
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 				H.drip(3)
-			else if(prob(25) && (can_feel_pain()))
+			else if(prob(25) && (H.can_feel_pain()))
 				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")

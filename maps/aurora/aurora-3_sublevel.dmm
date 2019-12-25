@@ -3930,20 +3930,12 @@
 	},
 /area/maintenance/substation/engineering_sublevel)
 "ahX" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/greengrid,
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ahY" = (
 /turf/simulated/floor/plating,
@@ -11973,6 +11965,35 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"atU" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"atV" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/turf/simulated/floor/greengrid,
 /area/rnd/xenoarch_atrium)
 "atX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -61047,7 +61068,7 @@ ayW
 ayW
 ayW
 ayW
-ayW
+atU
 aqG
 atf
 atq
@@ -62068,8 +62089,8 @@ awN
 akl
 ash
 alp
-ahX
-azR
+alq
+atV
 azR
 azR
 azR
@@ -62325,7 +62346,7 @@ asr
 aqH
 aiL
 alQ
-alq
+ahX
 azR
 azR
 azR

@@ -11725,6 +11725,25 @@
 "Ph" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering_ladder)
+"Pj" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "Pk" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -39805,7 +39824,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 ab
@@ -40062,7 +40081,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 mo
@@ -40319,7 +40338,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -40576,7 +40595,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -40833,7 +40852,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41090,7 +41109,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41347,7 +41366,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41604,7 +41623,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 mo
@@ -41861,7 +41880,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 ab
@@ -42118,7 +42137,7 @@ ab
 ab
 ab
 ab
-qc
+Pj
 UC
 ab
 mo
