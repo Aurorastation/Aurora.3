@@ -12029,6 +12029,24 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"atY" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -4;
+	pixel_y = -3
+	},
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "aub" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -37177,23 +37195,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_picnic)
-"wKw" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -4;
-	pixel_y = -3
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
 "wKL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -60520,7 +60521,7 @@ avO
 awp
 adY
 aff
-wKw
+atY
 awp
 avX
 avX
