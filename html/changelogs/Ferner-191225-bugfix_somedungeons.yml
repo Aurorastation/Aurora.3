@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixed some dungeons that were using indestructible rock instead of regular rock walls."
