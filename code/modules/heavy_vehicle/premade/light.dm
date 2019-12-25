@@ -34,6 +34,7 @@
 	max_damage = 40
 	power_use = 3000
 	desc = "As flexible as they are fragile, these Vey-Med manipulators can follow a pilot's movements in close to real time."
+	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
 
 /obj/item/mech_component/propulsion/light
 	name = "light legs"
@@ -66,7 +67,6 @@
 	pilot_coverage = 100
 	transparent_cabin =  TRUE
 	hatch_descriptor = "canopy"
-	hide_pilot = TRUE //Sprite too small, legs clip through, so for now hide pilot
 	exosuit_desc_string = "an open and light chassis"
 	icon_state = "light_body"
 	max_damage = 50

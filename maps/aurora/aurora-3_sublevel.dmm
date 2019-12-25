@@ -72,6 +72,14 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos)
+"aao" = (
+/obj/machinery/artifact_harvester,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid,
+/area/outpost/research/anomaly_harvest)
 "aap" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -697,6 +705,30 @@
 "abJ" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/engineering/power)
+"abK" = (
+/obj/structure/table/steel,
+/obj/machinery/alarm{
+	alarm_id = 1504;
+	breach_detection = 0;
+	name = "Harvesting Room";
+	pixel_y = 24;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Exotic Energies Harvesting";
+	network = list("Research Outpost","Anomaly Isolation")
+	},
+/obj/item/anodevice{
+	pixel_x = -4
+	},
+/obj/item/anodevice{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_harvest)
 "abL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -916,6 +948,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acg" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/item/anobattery{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/item/anobattery{
+	pixel_x = -5;
+	pixel_y = -5
+	},
+/obj/item/anobattery{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/anobattery{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_harvest)
 "ach" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -924,6 +979,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aci" = (
+/obj/machinery/artifact_harvester,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid,
+/area/outpost/research/anomaly_harvest)
 "acj" = (
 /obj/machinery/ringer{
 	department = "Engineering";
@@ -951,6 +1014,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acl" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "acm" = (
 /obj/machinery/power/smes/buildable{
 	charge = 2e+006;
@@ -982,6 +1053,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"aco" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "acp" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1100,6 +1177,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"acG" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "acH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -1151,6 +1236,18 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"acN" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8;
+	icon_state = "spline_plain"
+	},
+/turf/simulated/floor/bluegrid,
+/area/outpost/research/anomaly_harvest)
 "acO" = (
 /obj/machinery/light{
 	dir = 4;
@@ -1158,6 +1255,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"acP" = (
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_harvest)
 "acQ" = (
 /obj/structure/table/rack,
 /obj/item/hoist_kit,
@@ -1236,6 +1336,29 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"adc" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	dir = 10;
+	icon_state = "spline_plain"
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 5
+	},
+/turf/simulated/floor/bluegrid,
+/area/outpost/research/anomaly_harvest)
+"add" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/analysis)
 "ade" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1253,6 +1376,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"adg" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Spectrometry"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/analysis)
 "adh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1281,10 +1411,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"adj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/analysis)
 "adk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"adl" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/table/standard,
+/obj/item/stack/nanopaste{
+	pixel_y = 9
+	},
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/analysis)
 "adm" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -1297,6 +1444,41 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"adn" = (
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"ado" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "adp" = (
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos)
@@ -1490,6 +1672,176 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"adJ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/door/airlock/external{
+	id_tag = "harvd";
+	name = "Exotic Energies Harvesting";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/research/anomaly_harvest)
+"adK" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/research{
+	name = "Long-Term Artifact Storage";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/research/anomaly_storage)
+"adL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/research{
+	name = "Spectrometry";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/analysis)
+"adM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"adN" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/valve/digital/open{
+	dir = 1;
+	name = "Anomalous Storage"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"adO" = (
+/obj/item/clothing/under/medical_gown/white,
+/obj/item/clothing/under/medical_gown/white,
+/obj/item/clothing/shoes/white,
+/obj/item/clothing/shoes/white,
+/obj/structure/closet/crate/bin{
+	name = "Subject wear"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"adP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
+	icon_state = "radiation";
+	name = "RADIOACTIVE DURING OPERATION";
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"adQ" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"adR" = (
+/obj/structure/table/rack,
+/obj/item/storage/briefcase/inflatable,
+/obj/item/storage/briefcase/inflatable,
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"adS" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "iso_c";
+	name = "Isolation C Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/isolation_c)
+"adT" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/isolation_c)
+"adU" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/isolation_c)
+"adV" = (
+/obj/structure/bed,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/isolation_c)
 "adW" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1508,10 +1860,37 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"adY" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/box/samplebags,
+/obj/item/storage/box/gloves{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "adZ" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"aea" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "aeb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/stack/material/steel{
@@ -1689,6 +2068,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced/n20,
 /area/engineering/atmos)
+"aev" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "aew" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -1699,6 +2086,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aex" = (
+/obj/machinery/suspension_gen,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "aey" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -1772,6 +2163,33 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aeD" = (
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"aeE" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "iso_c";
+	name = "Isolation C Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_c)
+"aeF" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/isolation_c)
 "aeG" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -1983,6 +2401,37 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"afe" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/isolation_c)
+"aff" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
+"afg" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
+"afh" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "afi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
@@ -1998,6 +2447,29 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"afk" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
+"afl" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 3;
+	tag_north = 2;
+	tag_south = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "afm" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2226,6 +2698,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"afK" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	id_tag = "riso3";
+	name = "Isolation C";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_c)
 "afL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2287,6 +2775,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"afQ" = (
+/obj/machinery/power/emitter,
+/obj/machinery/light_switch{
+	pixel_x = 12;
+	pixel_y = -24
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
+"afR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
 "afS" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2314,6 +2820,73 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"afU" = (
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Supply Closet";
+	dir = 1
+	},
+/obj/machinery/washing_machine,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_storage)
+"afV" = (
+/obj/machinery/firealarm/west,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"afW" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"afX" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "iso_b";
+	name = "Isolation B Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_b)
+"afY" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
+"afZ" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "aga" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/engineering_welding,
@@ -2398,6 +2971,31 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"agm" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_b)
+"agn" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 9
+	},
+/turf/simulated/floor/bluegrid,
+/area/rnd/isolation_b)
+"ago" = (
+/obj/machinery/artifact_analyser,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/turf/simulated/floor/bluegrid,
+/area/rnd/isolation_b)
 "agp" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -2408,6 +3006,44 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"agq" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	id = "iso_b_purge";
+	is_critical = 1;
+	name = "Exterior Blast Door"
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_b)
+"agr" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"ags" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "agt" = (
 /obj/structure/table/rack,
 /obj/item/stack/cable_coil,
@@ -2492,6 +3128,51 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"agE" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"agF" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/computer/security/telescreen{
+	layer = 4;
+	name = "Anomaly Observation Screen";
+	network = list("Anomaly Isolation");
+	pixel_x = 0;
+	pixel_y = 26
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"agG" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/mauve,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "agH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/particle_accelerator/particle_emitter/left{
@@ -2499,6 +3180,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"agI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "iso_b";
+	name = "Isolation B Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_b)
 "agJ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2541,6 +3241,10 @@
 	icon_state = "plating"
 	},
 /area/engineering/storage_sublevel)
+"agN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_b)
 "agO" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -2644,6 +3348,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aha" = (
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_b)
 "ahb" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -2656,11 +3363,40 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"ahc" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_b)
 "ahd" = (
 /obj/machinery/particle_accelerator/control_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"ahe" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "ahf" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
@@ -2703,12 +3439,87 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"ahk" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"ahl" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/valve/digital/open{
+	dir = 4;
+	name = "Isolation B"
+	},
+/obj/machinery/button/remote/airlock{
+	id = "riso2";
+	name = "Door Bolt Control";
+	pixel_x = 25;
+	pixel_y = -22;
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "iso_b";
+	name = "Blast Door Control";
+	pixel_x = 25;
+	pixel_y = -30;
+	req_access = list(7)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "iso_b_purge";
+	name = "PURGE Atmosphere";
+	pixel_x = 25;
+	pixel_y = -38;
+	req_access = list(7)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "ahm" = (
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"ahn" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	id_tag = "riso2";
+	name = "Isolation B";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_b)
 "aho" = (
 /obj/machinery/door/firedoor{
 	dir = 4;
@@ -2840,6 +3651,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"ahG" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_b)
 "ahH" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -2918,6 +3741,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"ahM" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	alarm_id = 1502;
+	breach_detection = 0;
+	dir = 1;
+	icon_state = "alarm0";
+	name = "Isolation B";
+	pixel_y = -22;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_b)
 "ahN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -3081,6 +3929,14 @@
 	icon_state = "plating"
 	},
 /area/maintenance/substation/engineering_sublevel)
+"ahX" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "ahY" = (
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -3168,6 +4024,31 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aik" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Isolation B";
+	dir = 1;
+	network = list("Research Outpost","Anomaly Isolation")
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "anomaly apc";
+	pixel_y = -24;
+	req_access = null;
+	req_one_access = list(7,11)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_b)
 "ail" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -3431,6 +4312,19 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"aiJ" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "aiK" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -3439,6 +4333,60 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"aiL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"aiM" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"aiN" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "iso_a";
+	name = "Isolation A Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_a)
 "aiO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3457,6 +4405,17 @@
 /obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"aiP" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "aiQ" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/gravity_gen)
@@ -3525,6 +4484,25 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"aiV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "iso_a";
+	name = "Isolation A Blast Door";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_a)
 "aiW" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/yellow{
 	icon_state = "up";
@@ -3680,6 +4658,13 @@
 /obj/machinery/pipedispenser/disposal,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"ajo" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "ajp" = (
 /obj/machinery/light{
 	dir = 1;
@@ -3691,6 +4676,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"ajq" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	id_tag = "riso1";
+	name = "Isolation A";
+	req_access = list(65)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_a)
 "ajr" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -3707,6 +4708,17 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"ajt" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/sign/b,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "aju" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/junction{
@@ -3917,6 +4929,11 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"ajR" = (
+/obj/structure/window/reinforced,
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "ajS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/particle_accelerator/particle_emitter/right{
@@ -4058,6 +5075,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"akl" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "akm" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
@@ -4074,6 +5098,16 @@
 	},
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
+"ako" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "akp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4192,6 +5226,20 @@
 "akx" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engsublevel)
+"aky" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	icon_state = "intact";
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "akz" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -4199,6 +5247,23 @@
 	dir = 4
 	},
 /area/engineering/atmos)
+"akA" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "akB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4244,6 +5309,38 @@
 "akG" = (
 /turf/simulated/wall/r_wall,
 /area/mine/unexplored)
+"akH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"akI" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "akJ" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/light{
@@ -4253,6 +5350,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"akK" = (
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 8;
+	icon_state = "right";
+	name = "Canister Storage";
+	req_access = list(7)
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
 "akL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -4302,6 +5410,56 @@
 	icon_state = "plating"
 	},
 /area/engineering/gravity_gen)
+"akR" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
+"akS" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
+"akT" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"akU" = (
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 8;
+	icon_state = "left";
+	name = "Canister Storage";
+	req_access = list(7)
+	},
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
+"akV" = (
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
+"akW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	icon_state = "warningcorner_dust";
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "akX" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -4389,6 +5547,84 @@
 "ale" = (
 /turf/simulated/mineral,
 /area/mine/unexplored)
+"alf" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"alg" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"alh" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"ali" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"alj" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"alk" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"all" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/light/small{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/simulated/floor/reinforced,
+/area/rnd/xenoarch_atrium)
+"alm" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Xenobiology Cell Alpha";
+	dir = 8;
+	network = list("Research Outpost","Xenobiology")
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"aln" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "alo" = (
 /obj/structure/table/standard,
 /obj/structure/disposalpipe/segment,
@@ -4401,6 +5637,39 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
 /area/engineering/break_room)
+"alp" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"alq" = (
+/obj/machinery/artifact_analyser,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/greengrid,
+/area/rnd/xenoarch_atrium)
 "alr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -4446,6 +5715,18 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/engsublevel)
+"alw" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 5;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "alx" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner/yellow/full,
@@ -4593,6 +5874,36 @@
 	icon_state = "plating"
 	},
 /area/engineering/gravity_gen)
+"alP" = (
+/obj/machinery/light/spot/weak{
+	icon_state = "tube_empty";
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/rnd/eva)
+"alQ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "alR" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -4605,6 +5916,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"alS" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 1;
+	icon_state = "left";
+	name = "Suit Storage";
+	req_access = list(7)
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 2;
+	icon_state = "left";
+	name = "Suit Storage";
+	req_access = list(7)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "alT" = (
 /obj/machinery/light,
 /turf/simulated/floor{
@@ -4637,6 +5974,33 @@
 	icon_state = "plating"
 	},
 /area/turbolift/engineering_maintenance)
+"alX" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 2;
+	icon_state = "left";
+	name = "Suit Storage";
+	req_access = list(7)
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 1;
+	icon_state = "left";
+	name = "Suit Storage";
+	req_access = list(7)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "alY" = (
 /turf/simulated/wall/r_wall,
 /area/turret_protected/ai)
@@ -4843,6 +6207,26 @@
 	},
 /turf/simulated/open,
 /area/mine/unexplored)
+"amm" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"amn" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "amo" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -4857,6 +6241,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"amp" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "amq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5147,6 +6538,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenobiology)
+"amJ" = (
+/obj/machinery/artifact_analyser,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/turf/simulated/floor/bluegrid,
+/area/rnd/isolation_a)
+"amK" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular{
+	id = "iso_a_purge";
+	is_critical = 1;
+	name = "Exterior Blast Door"
+	},
+/turf/simulated/floor/plating,
+/area/rnd/isolation_a)
 "amL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -8403,6 +9818,49 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"aqG" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"aqH" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "aqI" = (
 /obj/machinery/message_server,
 /turf/simulated/floor/bluegrid,
@@ -8511,6 +9969,11 @@
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
+"aqR" = (
+/obj/structure/window/reinforced,
+/obj/machinery/chemical_dispenser/full,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
 "aqS" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Supermatter Cooling Access";
@@ -8846,6 +10309,28 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"ari" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/reinforced,
+/area/rnd/isolation_a)
 "ark" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -8858,6 +10343,120 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"arl" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/valve/digital/open{
+	dir = 4;
+	name = "Isolation A"
+	},
+/obj/machinery/button/remote/airlock{
+	id = "riso1";
+	name = "Door Bolt Control";
+	pixel_x = 25;
+	pixel_y = -22;
+	specialfunctions = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "iso_a";
+	name = "Blast Door Control";
+	pixel_x = 25;
+	pixel_y = -30;
+	req_access = list(7)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "iso_a_purge";
+	name = "PURGE Atmosphere";
+	pixel_x = 25;
+	pixel_y = -38;
+	req_access = list(7)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arm" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
+/obj/machinery/camera/network/research_outpost{
+	c_tag = "Research Sublevel - Isolation A";
+	dir = 1;
+	network = list("Research Outpost","Anomaly Isolation")
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "anomaly apc";
+	pixel_y = -24;
+	req_access = null;
+	req_one_access = list(7,11)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_a)
+"arn" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"aro" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arp" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "arq" = (
 /obj/machinery/shieldwallgen,
 /obj/structure/cable/cyan,
@@ -9086,6 +10685,172 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"arK" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arL" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/sign/a,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arM" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arO" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/meter,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arQ" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arR" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"arS" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "Biohazard";
+	name = "Biohazard Shutter";
+	opacity = 0
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/scisublevel)
+"arT" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/rnd/eva)
+"arU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "arV" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Upload Access";
@@ -9204,6 +10969,76 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"asf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"asg" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"ash" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"asi" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"asj" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"ask" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "asl" = (
 /obj/item/device/radio/intercom/locked{
 	frequency = 1343;
@@ -9244,6 +11079,82 @@
 /obj/structure/ladder,
 /turf/simulated/open,
 /area/maintenance/engsublevel)
+"asp" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"asq" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/rnd/isolation_b)
+"asr" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"ass" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/sign/c,
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"ast" = (
+/obj/machinery/power/emitter{
+	anchored = 1;
+	dir = 4;
+	state = 2
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"asu" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "asv" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -9275,6 +11186,19 @@
 	},
 /turf/simulated/wall,
 /area/mine/unexplored)
+"asz" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/floor_decal/industrial/warning/dust{
+	icon_state = "warning_dust";
+	dir = 1
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/rnd/isolation_a)
 "asA" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -9433,6 +11357,56 @@
 "asT" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/analysis)
+"asU" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	alarm_id = 1503;
+	breach_detection = 0;
+	dir = 1;
+	icon_state = "alarm0";
+	name = "Isolation C";
+	pixel_y = -22;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_c)
+"asV" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	alarm_id = 1501;
+	breach_detection = 0;
+	dir = 1;
+	icon_state = "alarm0";
+	name = "Isolation A";
+	pixel_y = -22;
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/isolation_a)
 "asW" = (
 /obj/machinery/power/port_gen/pacman,
 /obj/effect/decal/cleanable/dirt,
@@ -9498,6 +11472,71 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"ate" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	id = "harvd";
+	name = "Door Bolt Control";
+	pixel_x = 0;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
+"atf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"atg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"ath" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "ati" = (
 /obj/machinery/light/small,
 /turf/simulated/floor{
@@ -9590,6 +11629,51 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"atq" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"atr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"ats" = (
+/obj/machinery/door/window{
+	base_state = "left";
+	dir = 1;
+	icon_state = "left";
+	name = "Suit Storage";
+	req_access = list(7)
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/suit/bio_suit/anomaly,
+/obj/item/clothing/head/bio_hood/anomaly,
+/obj/machinery/door/window{
+	base_state = "right";
+	dir = 2;
+	icon_state = "left";
+	name = "Suit Storage";
+	req_access = list(7)
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"att" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/space_heater,
+/turf/simulated/floor/tiled,
+/area/rnd/xenoarch_atrium)
 "atu" = (
 /obj/turbolift_map_holder/aurora/aiaccess,
 /turf/simulated/floor{
@@ -9628,29 +11712,59 @@
 /obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"atA" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light/small{
-	dir = 1
+"atz" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/beakers,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
+"atA" = (
+/obj/structure/window/reinforced,
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_atrium)
+"atB" = (
+/obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
 	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/analysis)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
 "atC" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
+/obj/structure/closet/hydrant{
+	pixel_x = -30
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	icon_state = "spline_plain"
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 9
 	},
-/turf/simulated/floor/bluegrid,
-/area/outpost/research/anomaly_harvest)
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"atD" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
 "atE" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -9823,6 +11937,64 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
+"atS" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"atT" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating,
+/area/rnd/xenoarch_atrium)
+"atU" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"atV" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/turf/simulated/floor/greengrid,
+/area/rnd/xenoarch_atrium)
 "atX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -10025,13 +12197,6 @@
 /area/mine/unexplored)
 "auF" = (
 /obj/machinery/radiocarbon_spectrometer,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/analysis)
-"auG" = (
-/obj/structure/reagent_dispensers/coolanttank,
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Spectrometry"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/analysis)
 "auJ" = (
@@ -10315,61 +12480,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"avj" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/table/standard,
-/obj/item/stack/nanopaste{
-	pixel_y = 9
-	},
-/obj/item/stack/nanopaste,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/analysis)
-"avm" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
-"avo" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "iso_c";
-	name = "Isolation C Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "avs" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/structure/cable{
@@ -10621,85 +12731,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/analysis)
-"avT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/research{
-	name = "Spectrometry";
-	req_access = list(65)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/analysis)
-"avU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
-"avV" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 1;
-	name = "Anomalous Storage"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
-"avW" = (
-/obj/item/clothing/under/medical_gown/white,
-/obj/item/clothing/under/medical_gown/white,
-/obj/item/clothing/shoes/white,
-/obj/item/clothing/shoes/white,
-/obj/structure/closet/crate/bin{
-	name = "Subject wear"
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "avX" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenoarch_atrium)
 "avY" = (
 /turf/simulated/wall/r_wall,
-/area/rnd/isolation_c)
-"avZ" = (
-/turf/simulated/floor/tiled/dark,
 /area/rnd/isolation_c)
 "awb" = (
 /obj/structure/cable{
@@ -10871,37 +12907,9 @@
 "awp" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenoarch_storage)
-"awv" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
-	icon_state = "radiation";
-	name = "RADIOACTIVE DURING OPERATION";
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "aww" = (
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"awx" = (
-/obj/structure/table/rack,
-/obj/item/storage/briefcase/inflatable,
-/obj/item/storage/briefcase/inflatable,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
-"awy" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/isolation_c)
-"awz" = (
-/obj/structure/bed,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/isolation_c)
 "awA" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -10989,18 +12997,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
-"awJ" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"awL" = (
-/obj/machinery/atmospherics/portables_connector,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "awM" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
@@ -11062,18 +13058,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
-"awX" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
 "awY" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -11081,33 +13065,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"awZ" = (
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"axa" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"axb" = (
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
 "axc" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -11143,30 +13100,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/isolation_c)
-"axf" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	alarm_id = 1503;
-	breach_detection = 0;
-	dir = 1;
-	icon_state = "alarm0";
-	name = "Isolation C";
-	pixel_y = -22;
-	report_danger_level = 0;
-	req_one_access = list(7,47,24,11)
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -11320,46 +13253,6 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"axw" = (
-/obj/machinery/power/emitter,
-/obj/machinery/light_switch{
-	pixel_x = 12;
-	pixel_y = -24
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"axx" = (
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Supply Closet";
-	dir = 1
-	},
-/obj/machinery/washing_machine,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"axy" = (
-/obj/machinery/firealarm/west,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
-"axA" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/sign/c,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
-"axE" = (
-/obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
-/turf/simulated/floor/bluegrid,
-/area/rnd/isolation_b)
 "axG" = (
 /turf/simulated/wall,
 /area/medical/virologytesting)
@@ -11530,27 +13423,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"axY" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
-"axZ" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/reinforced,
-/area/rnd/isolation_b)
-"aya" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 9
-	},
-/turf/simulated/floor/bluegrid,
-/area/rnd/isolation_b)
 "ayb" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/isolation_b)
@@ -11708,75 +13580,6 @@
 /obj/item/clothing/head/helmet/space/void/sci,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/eva)
-"ayr" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/obj/structure/closet/emcloset,
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ays" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayt" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/machinery/computer/security/telescreen{
-	layer = 4;
-	name = "Anomaly Observation Screen";
-	network = list("Anomaly Isolation");
-	pixel_x = 0;
-	pixel_y = 26
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayu" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/reinforced,
-/area/rnd/isolation_b)
-"ayw" = (
-/turf/simulated/floor/reinforced,
-/area/rnd/isolation_b)
-"ayx" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/reinforced,
-/area/rnd/isolation_b)
 "ayy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/lime{
@@ -11932,75 +13735,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"ayT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/effect/floor_decal/corner/mauve,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayV" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "ayW" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12013,75 +13747,6 @@
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayX" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"ayY" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 4;
-	name = "Isolation B"
-	},
-/obj/machinery/button/remote/airlock{
-	id = "riso2";
-	name = "Door Bolt Control";
-	pixel_x = 25;
-	pixel_y = -22;
-	specialfunctions = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "iso_b";
-	name = "Blast Door Control";
-	pixel_x = 25;
-	pixel_y = -30;
-	req_access = list(7)
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "iso_b_purge";
-	name = "PURGE Atmosphere";
-	pixel_x = 25;
-	pixel_y = -38;
-	req_access = list(7)
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -12283,13 +13948,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"azt" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
 "azu" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -12311,21 +13969,6 @@
 /obj/machinery/recharger,
 /obj/item/melee/baton/loaded,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
-"azw" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Atrium 3";
-	dir = 8
-	},
-/obj/effect/floor_decal/sign/b,
-/turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "azx" = (
 /obj/effect/floor_decal/corner/lime{
@@ -12511,13 +14154,6 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
-"azU" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "azW" = (
 /obj/machinery/power/apc{
@@ -12780,45 +14416,6 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
-"aAD" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
-/turf/simulated/floor/greengrid,
-/area/rnd/xenoarch_atrium)
-"aAE" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"aAF" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "aAH" = (
 /obj/effect/floor_decal/corner/lime{
@@ -13106,17 +14703,6 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"aBg" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "aBh" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -13128,39 +14714,6 @@
 	icon_state = "rampbot";
 	dir = 8
 	},
-/area/rnd/xenoarch_atrium)
-"aBj" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 4;
-	name = "Isolation A"
-	},
-/obj/machinery/button/remote/airlock{
-	id = "riso1";
-	name = "Door Bolt Control";
-	pixel_x = 25;
-	pixel_y = -22;
-	specialfunctions = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "iso_a";
-	name = "Blast Door Control";
-	pixel_x = 25;
-	pixel_y = -30;
-	req_access = list(7)
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "iso_a_purge";
-	name = "PURGE Atmosphere";
-	pixel_x = 25;
-	pixel_y = -38;
-	req_access = list(7)
-	},
-/turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "aBk" = (
 /obj/machinery/door/firedoor,
@@ -13484,17 +15037,6 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"aBL" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/sign/a,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "aBM" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime/full{
@@ -13726,13 +15268,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"aCj" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "aCl" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -13753,21 +15288,6 @@
 	req_one_access = list(7,11,24,47)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
-"aCo" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
-"aCp" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "aCq" = (
 /obj/structure/cable/green{
@@ -14108,45 +15628,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"aCS" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"aCT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	icon_state = "map-scrubbers";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "aCU" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -14176,15 +15657,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
-"aCY" = (
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
@@ -14598,15 +16070,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
-"aDH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "aDI" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -14619,17 +16082,6 @@
 "aDJ" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
-"aDK" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/paper_bin,
-/obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "aDL" = (
@@ -14680,27 +16132,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
-"aDP" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/scisublevel)
 "aDR" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -14983,27 +16414,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"aEG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/mauve/full{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"aEH" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "aEI" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -15587,41 +16997,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
-"aFO" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 5
-	},
-/obj/machinery/door/window{
-	base_state = "left";
-	dir = 1;
-	icon_state = "right";
-	name = "Suit Storage";
-	req_access = list(7)
-	},
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
-"aFP" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "aFQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -21730,23 +23105,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
-"aSS" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	icon_state = "warningcorner_dust";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	icon_state = "warningcorner_dust";
-	dir = 1
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "aSY" = (
 /obj/machinery/papershredder,
 /obj/effect/floor_decal/corner/mauve{
@@ -24776,12 +26134,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/storage)
-"bes" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
 "bey" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -27609,27 +28961,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"dmE" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "dnb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -27808,22 +29139,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
-"dFG" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	id_tag = "riso3";
-	name = "Isolation C";
-	req_access = list(65)
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "dGd" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/structure/flora/grass/both,
@@ -28478,22 +29793,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"eHM" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	id = "iso_a_purge";
-	is_critical = 1;
-	name = "Exterior Blast Door"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/isolation_a)
 "eHN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -28574,10 +29873,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
-"eSS" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
 "eTB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -28713,22 +30008,6 @@
 /obj/item/stool/padded,
 /turf/simulated/floor/holofloor/desert,
 /area/medical/patient_wing_picnic)
-"fea" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	id_tag = "riso1";
-	name = "Isolation A";
-	req_access = list(65)
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "fez" = (
 /obj/random/junk,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -29065,10 +30344,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
-"fZS" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "gaJ" = (
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
@@ -29585,22 +30860,6 @@
 /obj/machinery/power/grounding_rod,
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
-"hfl" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	id = "iso_b_purge";
-	is_critical = 1;
-	name = "Exterior Blast Door"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/isolation_b)
 "hiB" = (
 /turf/simulated/wall,
 /area/medical/patient_d)
@@ -29685,17 +30944,6 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
-"hqB" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
 "hsj" = (
 /turf/simulated/wall,
 /area/engineering/bathroom)
@@ -29992,16 +31240,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/medical/patient_a)
-"ibB" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
 "ico" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -30139,17 +31377,6 @@
 /obj/machinery/power/emitter,
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
-"itz" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/atmospherics/omni/filter{
-	tag_east = 3;
-	tag_north = 2;
-	tag_south = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "iwx" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -30197,16 +31424,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"iyz" = (
-/obj/machinery/alarm{
-	pixel_y = 24
-	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "iAw" = (
 /obj/structure/table/rack,
 /obj/item/shovel{
@@ -30344,39 +31561,6 @@
 /obj/structure/bed/chair/comfy/brown,
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
-"iTE" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/box/samplebags,
-/obj/item/storage/box/gloves{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/machinery/alarm{
-	pixel_y = 24
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
-"iVB" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "iVV" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -30492,18 +31676,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
-"jfC" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
-/turf/simulated/floor/greengrid,
-/area/rnd/xenoarch_atrium)
 "jfT" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
@@ -30681,25 +31853,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
-"jvE" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "iso_a";
-	name = "Isolation A Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "jvK" = (
 /obj/structure/crematorium,
 /turf/simulated/floor/tiled/dark{
@@ -30888,19 +32041,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"jWE" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 1
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "jXe" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -31054,17 +32194,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
-"kyt" = (
-/obj/machinery/door/window{
-	base_state = "left";
-	dir = 8;
-	icon_state = "right";
-	name = "Canister Storage";
-	req_access = list(7)
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
 "kGt" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -31080,10 +32209,6 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"kHc" = (
-/obj/machinery/portable_atmospherics/canister/sleeping_agent,
-/turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
 "kIj" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/red/full{
@@ -31203,18 +32328,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
-"kYo" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/isolation_b)
 "laQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -31359,15 +32472,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
-"lrI" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "lsl" = (
 /obj/structure/cable{
 	d2 = 8;
@@ -31401,10 +32505,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"lyu" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/isolation_c)
 "lDM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/pink/full{
@@ -31426,18 +32526,6 @@
 "lFT" = (
 /turf/simulated/wall/r_wall,
 /area/medical/quarantineaccess)
-"lJl" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	dir = 10;
-	icon_state = "spline_plain"
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 5
-	},
-/turf/simulated/floor/bluegrid,
-/area/outpost/research/anomaly_harvest)
 "lLx" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -31793,16 +32881,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/quarantine)
-"mDB" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
 "mEM" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -31910,10 +32988,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/mine/unexplored)
-"mQS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/reinforced,
-/area/rnd/isolation_a)
 "mRK" = (
 /obj/structure/barricade,
 /obj/effect/decal/cleanable/cobweb2,
@@ -32209,14 +33283,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
-"nxs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/analysis)
 "nyX" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/window/reinforced{
@@ -32342,19 +33408,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
-"nCR" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	icon_state = "warning_dust";
-	dir = 8
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "nDG" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
@@ -32512,29 +33565,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"nSx" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/structure/table/steel,
-/obj/item/anobattery{
-	pixel_x = 5;
-	pixel_y = -5
-	},
-/obj/item/anobattery{
-	pixel_x = -5;
-	pixel_y = -5
-	},
-/obj/item/anobattery{
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/anobattery{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_harvest)
 "nTr" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
@@ -32567,10 +33597,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/scisublevel)
-"nWD" = (
-/obj/machinery/suspension_gen,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_storage)
 "nXh" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
@@ -32826,17 +33852,6 @@
 	icon_state = "plating"
 	},
 /area/engineering/storage_sublevel)
-"oSB" = (
-/obj/machinery/door/window{
-	base_state = "left";
-	dir = 8;
-	icon_state = "left";
-	name = "Canister Storage";
-	req_access = list(7)
-	},
-/obj/machinery/portable_atmospherics/canister/phoron,
-/turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
 "oSJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -32907,19 +33922,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
-"pcd" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/machinery/door/airlock/external{
-	name = "Exotic Energies Harvesting";
-	req_access = list(65)
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/research/anomaly_harvest)
 "pdV" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -32933,21 +33935,6 @@
 	temperature = 278
 	},
 /area/medical/quarantineautopsy)
-"pfl" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "pft" = (
 /obj/structure/grille,
 /obj/structure/window/phoronreinforced{
@@ -33105,49 +34092,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"pHJ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "iso_b";
-	name = "Isolation B Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
-"pIa" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	alarm_id = 1502;
-	breach_detection = 0;
-	dir = 1;
-	icon_state = "alarm0";
-	name = "Isolation B";
-	pixel_y = -22;
-	report_danger_level = 0;
-	req_one_access = list(7,47,24,11)
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/isolation_b)
 "pIl" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -33551,16 +34495,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"qDr" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "qDA" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -33700,23 +34634,6 @@
 "qNL" = (
 /turf/simulated/wall/r_wall,
 /area/medical/patient_wing_gym)
-"qOT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "qPS" = (
 /turf/simulated/wall/r_wall,
 /area/outpost/research/anomaly_harvest)
@@ -33740,22 +34657,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
-"qSo" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	id_tag = "riso2";
-	name = "Isolation B";
-	req_access = list(65)
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "qSH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
@@ -33876,13 +34777,6 @@
 "rfa" = (
 /turf/simulated/wall,
 /area/maintenance/scisublevel)
-"rgE" = (
-/obj/effect/floor_decal/corner/mauve/full,
-/obj/structure/closet/hydrant{
-	pixel_x = -30
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "rhI" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -33972,14 +34866,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
-"rst" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
 "rwo" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -34084,13 +34970,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"rDD" = (
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "rDK" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -34209,14 +35088,6 @@
 "rNu" = (
 /turf/simulated/wall/r_wall,
 /area/medical/virologytesting)
-"rNx" = (
-/obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 4
-	},
-/turf/simulated/floor/bluegrid,
-/area/outpost/research/anomaly_harvest)
 "rNO" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/structure/window/reinforced{
@@ -34555,10 +35426,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"sEn" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/isolation_c)
 "sFw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -34677,30 +35544,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"tap" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "tbe" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -34733,24 +35576,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
-"tbu" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Biohazard";
-	name = "Biohazard Shutter";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/scisublevel)
 "tbx" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -34930,19 +35755,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"ttF" = (
-/obj/machinery/power/emitter{
-	anchored = 1;
-	dir = 4;
-	state = 2
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "tvF" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/gloves/yellow,
@@ -35054,30 +35866,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_storage)
-"tNi" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	alarm_id = 1501;
-	breach_detection = 0;
-	dir = 1;
-	icon_state = "alarm0";
-	name = "Isolation A";
-	pixel_y = -22;
-	report_danger_level = 0;
-	req_one_access = list(7,47,24,11)
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/isolation_a)
 "tNl" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -35133,26 +35921,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
-"tTI" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/window{
-	base_state = "left";
-	dir = 1;
-	icon_state = "left";
-	name = "Suit Storage";
-	req_access = list(7)
-	},
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/gloves/latex/nitrile,
-/obj/item/clothing/suit/bio_suit/anomaly,
-/obj/item/clothing/head/bio_hood/anomaly,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
 "tUS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
@@ -35184,34 +35952,6 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
-"tWL" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/effect/floor_decal/corner/mauve/full,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
-"udb" = (
-/obj/structure/table/steel,
-/obj/machinery/alarm{
-	alarm_id = 1504;
-	breach_detection = 0;
-	name = "Harvesting Room";
-	pixel_y = 24;
-	report_danger_level = 0;
-	req_one_access = list(7,47,24,11)
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Exotic Energies Harvesting";
-	network = list("Research Outpost","Anomaly Isolation")
-	},
-/obj/item/anodevice{
-	pixel_x = -4
-	},
-/obj/item/anodevice{
-	pixel_x = 2;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_harvest)
 "udk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -35468,23 +36208,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/virologytesting)
-"uxW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/obj/effect/floor_decal/corner/mauve{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "uyg" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -35666,31 +36389,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantineaccess)
-"uUd" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 9
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Isolation A";
-	dir = 1;
-	network = list("Research Outpost","Anomaly Isolation")
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "anomaly apc";
-	pixel_y = -24;
-	req_access = null;
-	req_one_access = list(7,11)
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/isolation_a)
 "uXC" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -35704,20 +36402,6 @@
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"uXH" = (
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "uYK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
@@ -35899,14 +36583,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"vsp" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
-"vxa" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/reinforced,
-/area/rnd/xenoarch_atrium)
 "vyW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -36055,16 +36731,6 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/wood,
 /area/medical/patient_a)
-"vRz" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
 "vRZ" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -36072,14 +36738,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"vTt" = (
-/obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 8
-	},
-/turf/simulated/floor/bluegrid,
-/area/outpost/research/anomaly_harvest)
 "vUF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/grounding_rod,
@@ -36147,27 +36805,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_picnic)
-"vYk" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "iso_a";
-	name = "Isolation A Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "vZr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -36346,25 +36983,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
-"whg" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/research{
-	name = "Long-Term Artifact Storage";
-	req_access = list(65)
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "whA" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -36500,31 +37118,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"wCp" = (
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 9
-	},
-/obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Isolation B";
-	dir = 1;
-	network = list("Research Outpost","Anomaly Isolation")
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/power/apc{
-	dir = 2;
-	name = "anomaly apc";
-	pixel_y = -24;
-	req_access = null;
-	req_one_access = list(7,11)
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/isolation_b)
 "wCD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -36607,25 +37200,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_picnic)
-"wIF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "iso_c";
-	name = "Isolation C Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "wKw" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/monkeycubes{
@@ -36684,9 +37258,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
-"wNU" = (
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_harvest)
 "wQs" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -36749,14 +37320,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/quarantine)
-"wXy" = (
-/obj/machinery/artifact_analyser,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
-/turf/simulated/floor/bluegrid,
-/area/rnd/isolation_a)
 "wZc" = (
 /obj/machinery/firealarm/south,
 /obj/structure/cable{
@@ -36844,27 +37407,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
-"xjM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "iso_b";
-	name = "Isolation B Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/rnd/xenoarch_atrium)
 "xjT" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -36987,14 +37529,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"xuT" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 8
-	},
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
 "xxd" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -37403,20 +37937,6 @@
 /obj/structure/bed,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
-"ybR" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenoarch_atrium)
 "ycW" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
@@ -59501,13 +60021,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
 aba
 aba
 aba
 aba
 aba
-aqA
+alP
+arT
 avK
 awo
 cdr
@@ -59757,15 +60277,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 aba
 aba
 aba
 aba
-avc
-avJ
+aba
+aba
+awp
+awp
+awp
 awp
 awp
 awp
@@ -60013,10 +60533,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+aba
 aba
 aba
 aub
@@ -60024,10 +60541,13 @@ auD
 avg
 avO
 awp
-iTE
-awZ
+adY
+aff
 wKw
 awp
+avX
+avX
+avX
 avX
 avX
 avX
@@ -60035,8 +60555,8 @@ azM
 avX
 aBf
 aBI
-aBg
-aCS
+amm
+arU
 aDG
 avX
 avX
@@ -60270,9 +60790,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 aba
 aba
 aaa
@@ -60280,23 +60797,26 @@ asT
 asT
 asT
 asT
-asT
-ibB
-axa
-axw
 awp
-ayr
+aea
+afg
+afQ
+awp
+agr
+tNl
+tNl
+arp
 ayS
 azs
 azN
 aAA
 tNl
-tNl
-aCj
-qOT
-rDD
-rgE
-tTI
+amn
+amp
+asf
+atq
+atC
+atS
 wbr
 aHI
 gfL
@@ -60526,9 +61046,6 @@ aba
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 aba
 aba
 aba
@@ -60537,23 +61054,26 @@ asT
 auF
 auF
 auF
-asT
-awJ
-awX
-mDB
+awp
+aev
+afh
+afR
 giJ
-vRz
-ayT
+ags
+ahe
+aiM
+arN
+arO
 ayW
 ayW
 ayW
 ayW
-ayW
-ayW
-aCT
-aDH
-aEG
-aFO
+atU
+aqG
+atf
+atq
+atD
+atT
 wbr
 rfa
 rfa
@@ -60783,25 +61303,22 @@ aba
 aba
 aaa
 aaa
-aaa
-aba
-aba
 aba
 aba
 aaa
 aaa
 asT
-atA
-nxs
+add
+adj
 avR
-asT
-nWD
-axb
-axx
 awp
-ays
-ayV
-hqB
+aex
+afk
+afU
+awp
+agE
+ahk
+aiP
 azP
 aAB
 aBh
@@ -60809,8 +61326,11 @@ aBh
 aCl
 aCU
 aDI
-aEH
-aFP
+asg
+alS
+asp
+atg
+atr
 wbr
 gjp
 aEM
@@ -61040,32 +61560,32 @@ aba
 aba
 aaa
 aaa
-aba
-aba
-aba
 aaa
 aaa
 aaa
 aaa
 asT
-auG
-avj
+adg
+adl
 avS
-asT
 awp
 awp
 awp
 awp
-ayt
-ayU
-azt
+awp
+agF
+alp
+ajo
 azQ
 azR
 azR
-aBe
 azR
 azR
+olG
 aDJ
+asg
+ats
+ath
 aEI
 aFQ
 wbr
@@ -61298,31 +61818,31 @@ aba
 aaa
 aaa
 aaa
-aba
-aaa
-aaa
 qPS
 qPS
 qPS
 qPS
 qPS
 asT
-avT
-asT
-awL
-itz
-axy
-ttF
-qDr
-ayU
+adL
+avX
+aeD
+afl
+afV
+att
+ash
+alp
 azu
 azR
-jfC
 azR
 azR
+aBe
 azR
-olG
-aDJ
+azR
+atA
+asg
+alX
+ath
 ljr
 cOI
 wbr
@@ -61555,31 +62075,31 @@ aba
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 qPS
-rNx
-atC
+aao
+acN
 auf
 qPS
-iyz
-avU
-awv
+adn
+adM
+adP
 awM
 axc
-fZS
-lrI
-qDr
-ayU
-azv
-azS
-aAD
-aBi
-aBi
-aCn
-aCW
-aDK
+awN
+akl
+ash
+alp
+alq
+atV
+azR
+azR
+azR
+azR
+azR
+ajR
+asj
+ask
+atB
 aEJ
 aFR
 aGG
@@ -61812,29 +62332,29 @@ aba
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 qPS
-udb
-wNU
+abK
+acP
 cWg
-pcd
-avm
-avV
-uXH
+adJ
+ado
+adN
+adQ
 dwK
 axd
-iVB
-dmE
-tap
-ayX
-uxW
-uxW
-aAE
-pfl
-tWL
-aCo
+asr
+aqH
+aiL
+alQ
+ahX
+azR
+azR
+azR
+azR
+azR
+azR
+aqR
+alf
 aCX
 aDL
 aEK
@@ -62069,30 +62589,30 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 qPS
-nSx
-wNU
+acg
+acP
 rwo
 qPS
-ybR
-avW
-awx
+ate
+adO
+adR
 awN
 shZ
-axA
-axY
-ayu
-ayY
-azw
-azU
-aAF
-aBj
-aBL
-aCp
-aCY
+ass
+asu
+ako
+ari
+azv
+azS
+alw
+aBi
+aBi
+aCn
+aCW
+atz
+aEJ
+ali
 aDM
 aEL
 aFT
@@ -62326,30 +62846,30 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 qPS
-vTt
-lJl
+aci
+adc
 lRQ
-qPS
-whg
-avX
-avo
-wIF
-dFG
-avX
-xjM
-pHJ
-qSo
-avX
-vYk
-jvE
-fea
-avX
-kyt
-oSB
+awO
+adK
+avY
+adS
+aeE
+afK
+avY
+ast
+aky
+arn
+akH
+akH
+aro
+arK
+arM
+arP
+arQ
+arR
+alg
+alj
 wbr
 wbr
 wbr
@@ -62583,9 +63103,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
 awO
 awO
@@ -62593,20 +63110,23 @@ awO
 awO
 vrd
 avY
-awy
-lyu
+adT
+aeF
 axe
 avY
-axZ
-ayv
-kYo
-ayb
-fzF
-ted
-eSu
-jDy
-vsp
-kHc
+afW
+agG
+ahl
+ajt
+asi
+akT
+alm
+aln
+asi
+arl
+arL
+alh
+alk
 wbr
 aEM
 aFU
@@ -62840,30 +63360,30 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
-xuT
-xuT
+acl
+acl
 mGj
 xyq
 ccB
 avY
-avZ
-avZ
-axf
+adU
+adU
+asU
 avY
-aya
-ayw
-pIa
+afX
+agI
+ahn
 ayb
-ljj
-ovg
-tNi
+akK
+akU
 jDy
-vxa
-eSS
+aiN
+aiV
+ajq
+jDy
+avX
+avX
 wbr
 aEN
 wbr
@@ -63097,28 +63617,28 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
-bes
+aco
 owN
 uuc
 abx
 kQH
 avY
-awz
-sEn
+adV
+afe
 axg
 avY
-axE
-ayx
-wCp
+agm
+agN
+ahG
 ayb
-wXy
-mQS
-uUd
-xex
+akR
+akV
+jDy
+fzF
+ted
+eSu
+jDy
 xex
 xex
 xex
@@ -63354,12 +63874,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
-rst
-rst
+acG
+acG
 ydL
 abx
 tMU
@@ -63368,14 +63885,17 @@ vIg
 vIg
 vIg
 avY
-hfl
-hfl
-hfl
+agn
+aha
+ahM
 ayb
-eHM
-eHM
-eHM
-xex
+akS
+all
+jDy
+ljj
+ovg
+asV
+jDy
 aCq
 ffr
 aDN
@@ -63611,12 +64131,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
-xuT
-xuT
+acl
+acl
 mGj
 abx
 hzi
@@ -63624,15 +64141,18 @@ awO
 tEz
 tEz
 tEz
-jWE
-tEz
-tEz
-tEz
-jWE
-tEz
-tEz
-tEz
-xex
+ayb
+ago
+ahc
+aik
+ayb
+avX
+avX
+jDy
+amJ
+arj
+arm
+jDy
 aCr
 aCZ
 qZD
@@ -63868,11 +64388,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
-bes
+aco
 owN
 rze
 abx
@@ -63881,15 +64398,18 @@ awO
 tEz
 tEz
 tEz
-hyh
-tEz
-tEz
-tEz
-hyh
-tEz
-tEz
-tEz
-xex
+ayb
+agq
+agq
+agq
+ayb
+aba
+aba
+jDy
+amK
+amK
+amK
+jDy
 aCs
 aDa
 aDO
@@ -64125,12 +64645,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
-rst
-rst
+acG
+acG
 ydL
 mzx
 nAz
@@ -64138,11 +64655,14 @@ awO
 tEz
 tEz
 tEz
-hyh
+asq
 tEz
 tEz
 tEz
 hyh
+aba
+aba
+asz
 tEz
 tEz
 tEz
@@ -64382,9 +64902,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
 awO
 awO
@@ -64392,18 +64909,21 @@ awO
 pmm
 rWw
 awO
-nCR
-nCR
-nCR
-aSS
-nCR
-nCR
-nCR
-aSS
-nCR
-nCR
-nCR
-aDP
+aiJ
+aiJ
+aiJ
+afY
+tEz
+tEz
+tEz
+hyh
+aba
+aba
+hyh
+tEz
+tEz
+tEz
+wbr
 wCJ
 uyo
 baY
@@ -64642,9 +65162,6 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 awO
 awO
 awO
@@ -64652,15 +65169,18 @@ awO
 aba
 aba
 aba
+hyh
+tEz
+tEz
+tEz
+hyh
 aba
 aba
-aba
-aba
-aba
-aba
-aba
-aba
-tbu
+hyh
+tEz
+tEz
+tEz
+wbr
 whA
 hQd
 oFB
@@ -64903,21 +65423,21 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
 aba
 aba
 aba
+afZ
+aiJ
+aiJ
+akA
+akI
 aba
 aba
-aba
-aba
-aba
-aba
-aba
-aba
-tbu
+akW
+aiJ
+aiJ
+aiJ
+arS
 vVq
 baW
 baX
@@ -65160,9 +65680,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+aba
+aba
+aba
 aba
 aba
 aba

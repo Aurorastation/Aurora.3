@@ -67,7 +67,6 @@
 	QDEL_NULL(parent)
 	if(air_temporary)
 		loc.assume_air(air_temporary)
-		QDEL_NULL(air_temporary)
 
 	return ..()
 
@@ -233,11 +232,10 @@
 /obj/machinery/atmospherics/pipe/simple/Destroy()
 	if(node1)
 		node1.disconnect(src)
+		node1 = null
 	if(node2)
 		node2.disconnect(src)
-
-	node1 = null
-	node2 = null
+		node2 = null
 
 	return ..()
 
@@ -467,14 +465,13 @@
 /obj/machinery/atmospherics/pipe/manifold/Destroy()
 	if(node1)
 		node1.disconnect(src)
+		node1 = null
 	if(node2)
 		node2.disconnect(src)
+		node2 = null
 	if(node3)
 		node3.disconnect(src)
-
-	node1 = null
-	node2 = null
-	node3 = null
+		node3 = null
 
 	return ..()
 
@@ -712,17 +709,16 @@
 /obj/machinery/atmospherics/pipe/manifold4w/Destroy()
 	if(node1)
 		node1.disconnect(src)
+		node1 = null
 	if(node2)
 		node2.disconnect(src)
+		node2 = null
 	if(node3)
 		node3.disconnect(src)
+		node3 = null
 	if(node4)
 		node4.disconnect(src)
-
-	node1 = null
-	node2 = null
-	node3 = null
-	node4 = null
+		node4 = null
 
 	return ..()
 
