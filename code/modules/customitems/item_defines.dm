@@ -2019,7 +2019,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mar_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
+/obj/item/clothing/shoes/jackboots/toeless/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
 	name = "unathi purple boots"
 	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
