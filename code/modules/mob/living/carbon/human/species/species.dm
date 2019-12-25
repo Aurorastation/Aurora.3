@@ -576,3 +576,6 @@
 
 /datum/species/proc/get_digestion_product()
 	return "nutriment"
+
+/datum/species/proc/can_commune()
+	return FALSE

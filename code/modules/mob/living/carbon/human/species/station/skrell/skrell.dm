@@ -65,3 +65,6 @@
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE
+
+/datum/species/skrell/can_commune()
+	return TRUE
