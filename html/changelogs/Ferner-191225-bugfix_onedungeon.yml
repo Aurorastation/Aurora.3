@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixed the digsite dungeon's airlock air sensor having the wrong frequency."
