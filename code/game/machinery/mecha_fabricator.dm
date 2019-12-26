@@ -86,14 +86,7 @@
 		return
 	if(!allowed(user))
 		return
-	if(ishuman(user))
-		var/mob/living/carbon/human/M = user
-		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
-			if(prob(10))
-				M.apply_damage(30, BRUTE, "head")
-				M.apply_damage(45, PAIN)
-				M.visible_message("<span class='danger'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
-				M.say("*scream")
+	do_hair_pull(user)
 	ui_interact(user)
 
 /obj/machinery/mecha_part_fabricator/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
