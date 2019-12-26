@@ -212,3 +212,24 @@ datum/track/New(var/title_name, var/audio)
 	playing = 1
 	update_use_power(2)
 	update_icon()
+
+/obj/machinery/media/jukebox/phonograph
+	name = "phonograph"
+	desc = "Play that funky music..."
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "record"
+	state_base = "record"
+	anchored = 0
+	tracks = list(
+		new/datum/track("Boolean Sisters", 'sound/music/recordplayer/BooleanSisters.ogg'),
+		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),
+		new/datum/track("Jazz Instrumental", 'sound/music/recordplayer/JazzInstrumental.ogg'),
+		new/datum/track("Le Swing", 'sound/music/recordplayer/LeSwing.ogg'),
+		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg')
+	)
+
+/obj/machinery/media/jukebox/phonograph/update_icon()
+	cut_overlays()
+	icon_state = state_base
+	if(playing)
+		add_overlay("[state_base]-running")
