@@ -8,7 +8,7 @@
         <div class="header-item">Oxy</div>
         <div class="header-item">Temp</div>
         <div class="header-item">Location</div>
-        <div class="header-item"></div>
+        <div class="header-item"/>
       </div>
       <div class="sensor" v-for="sensor in crewmembers" :key="sensor.ref">
         <div class="item">{{ sensor.name }} ({{ sensor.ass }})</div>
