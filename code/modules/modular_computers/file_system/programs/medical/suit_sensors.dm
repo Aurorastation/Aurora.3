@@ -14,11 +14,12 @@
 /datum/computer_file/program/suit_sensors/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-medical-sensors", 600, 700, "Suit Sensors Monitoring")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-medical-sensors", 800, 600, "Suit Sensors Monitoring")
+		ui.auto_update_content = 1
 	ui.open()
 
 /datum/computer_file/program/suit_sensors/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-medical-sensors", 600, 700, "Suit Sensors Monitoring")
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-medical-sensors", 800, 600, "Suit Sensors Monitoring")
 	return TRUE
 
 
@@ -31,20 +32,19 @@
 	
 	var/datum/signal/signal
 	signal = telecomms_process_active()
-	// if(!data["pulse_levels"])
-	// 	data["pulse_levels"] = list("neutral", "bad", "average", "good", "highlight", "average", "bad")
-	// 	. = data
 
 	VUEUI_SET_CHECK(data["isAI"], isAI(user), ., data)
 	data["crewmembers"] = list()
 	if(signal.data["done"] == 1)
 		for(var/z_level in current_map.map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
+	
+	return data // This uni needs to constantly update
 
 
 /datum/computer_file/program/suit_sensors/Topic(href, href_list)
 	. = ..()
-	
+
 	if(href_list["track"])
 		if(isAI(usr))
 			var/mob/living/silicon/ai/AI = usr

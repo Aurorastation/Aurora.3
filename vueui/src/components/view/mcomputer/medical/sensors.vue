@@ -12,13 +12,16 @@
       </div>
       <div class="sensor" v-for="sensor in crewmembers" :key="sensor.ref">
         <div class="item">{{ sensor.name }} ({{ sensor.ass }})</div>
-        <div class="item center" :class="getPulseClass(sensor.tpulse)">{{ sensor.pulse }}</div>
-        <div class="item center">{{ sensor.pressure }}</div>
+        <template v-if="sensor.stype > 1">
+          <div class="item center" :class="getPulseClass(sensor.tpulse)">{{ sensor.pulse }}</div>
+          <div class="item center">{{ sensor.pressure }}</div>
+        </template>
+        <td colspan="2" class="center" v-else><span v-if="sensor.dead" class="bad">Dead</span><span v-else class="good">Alive</span></td>
         <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxiLabel(sensor.oxyg) }}</div>
-        <div class="item center">{{ roundTemp(sensor.bodytemp) }}</div>
+        <div class="item center"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
         <div class="item rigth" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
         <div class="item rigth" v-else>Not Available</div>
-        <div class="item rigth" v-if="isAI"><vui-button :params="{'Track': sensor.ref}">Track</vui-button></div>
+        <div class="item rigth" v-if="isAI"><vui-button :params="{'Track': sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
       </div>
     </div>
   </div>
