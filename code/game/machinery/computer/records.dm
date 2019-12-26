@@ -289,6 +289,8 @@
  * Listener for record changes
  */
 
+
+/*
 /listener/record/rconsole/on_delete(var/datum/record/r)
 	. = FALSE
 	var/obj/machinery/computer/records/t = target
@@ -306,4 +308,4 @@
 	var/obj/machinery/computer/records/t = target
 	if(istype(t) && !t.isEditing)
 		if(t.active == r || t.active_virus == r)
-			SSvueui.check_uis_for_change(t)
+			SSvueui.check_uis_for_change(t)*/

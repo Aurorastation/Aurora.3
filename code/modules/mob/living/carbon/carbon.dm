@@ -477,3 +477,5 @@
 /mob/living/carbon/proc/get_ingested_reagents()
 	return reagents
 
+/mob/living/carbon/proc/should_have_organ(var/organ_check)
+	return 0

@@ -57,14 +57,6 @@
 	fire_resist = T0C+5200
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-
-/obj/item/clothing/suit/greatcoat
-	name = "great coat"
-	desc = "A heavy great coat"
-	icon_state = "nazi"
-	item_state = "nazi"
-
-
 /obj/item/clothing/suit/johnny_coat
 	name = "johnny~~ coat"
 	desc = "Johnny~~"
@@ -339,7 +331,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	icon_state = "mold_alt"
-	item_state = "mold_alt"	
+	item_state = "mold_alt"
 
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
@@ -534,7 +526,7 @@
 
 /obj/item/clothing/suit/varsity
 	name = "black varsity jacket"
-	desc = "A favorite of jocks everywhere from Sol to the Frontier."
+	desc = "A favorite of jocks everywhere from Sol to the Coalition."
 	icon_state = "varsity"
 	item_state = "varsity"
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)

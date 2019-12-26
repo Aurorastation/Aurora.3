@@ -12584,8 +12584,8 @@
 /obj/item/clothing/shoes/footwraps,
 /obj/item/clothing/shoes/workboots/toeless,
 /obj/item/clothing/shoes/workboots/toeless,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 4
