@@ -104,10 +104,8 @@
 			"choices" = typechoices
 			)
 
-	var/headerdata = get_header_data(data["_PC"])
-	if(headerdata)
-		data["_PC"] = headerdata
-		. = data
+	// Gather data for computer header
+	VUEUI_MCOMP_HEADER(data)
 
 	if(!authenticated)
 		VUEUI_SET_CHECK(ui.activeui, "records-login", ., data)

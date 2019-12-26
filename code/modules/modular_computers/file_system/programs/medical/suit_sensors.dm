@@ -11,7 +11,43 @@
 	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE
 	color = LIGHT_COLOR_CYAN
 
+/datum/computer_file/program/suit_sensors/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-medical-sensors", 600, 700, "Suit Sensors Monitoring")
+	ui.open()
 
-/datum/computer_file/program/suit_sensors/ui_interact(mob/user, ui_key, datum/nanoui/ui, force_open)
+/datum/computer_file/program/suit_sensors/vueui_transfer(oldobj)
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-medical-sensors", 600, 700, "Suit Sensors Monitoring")
+	return TRUE
+
+
+/datum/computer_file/program/suit_sensors/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data || list()
+
+	// Gather data for computer header
+	VUEUI_MCOMP_HEADER(data)
+	
+	var/datum/signal/signal
+	signal = telecomms_process_active()
+	// if(!data["pulse_levels"])
+	// 	data["pulse_levels"] = list("neutral", "bad", "average", "good", "highlight", "average", "bad")
+	// 	. = data
+
+	VUEUI_SET_CHECK(data["isAI"], isAI(user), ., data)
+	data["crewmembers"] = list()
+	if(signal.data["done"] == 1)
+		for(var/z_level in current_map.map_levels)
+			data["crewmembers"] += crew_repository.health_data(z_level)
+
+
+/datum/computer_file/program/suit_sensors/Topic(href, href_list)
 	. = ..()
 	
+	if(href_list["track"])
+		if(isAI(usr))
+			var/mob/living/silicon/ai/AI = usr
+			var/mob/living/carbon/human/H = locate(href_list["track"]) in mob_list
+			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
+				AI.ai_actual_track(H)

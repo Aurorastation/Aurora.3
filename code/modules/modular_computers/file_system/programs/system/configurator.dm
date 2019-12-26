@@ -29,10 +29,7 @@
 	. = ..()
 	data = . || data || list()
 	// Gather data for computer header
-	var/headerdata = get_header_data(data["_PC"])
-	if(headerdata)
-		data["_PC"] = headerdata
-		. = data
+	VUEUI_MCOMP_HEADER(data)
 	
 	if(!computer)
 		return
