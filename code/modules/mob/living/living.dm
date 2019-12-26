@@ -826,6 +826,7 @@ default behaviour is:
 	if(istype(AM, /mob/living/heavy_vehicle))
 		var/mob/living/heavy_vehicle/MB = AM
 		MB.trample(src)
+	..()
 
 #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 /mob/living/proc/calculate_composition()
