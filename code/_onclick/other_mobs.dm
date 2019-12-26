@@ -29,24 +29,23 @@
 /atom/proc/attack_hand(mob/user as mob)
 	return
 
+/mob/proc/attack_empty_hand(var/bp_hand)
+	return
+
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	return
 
 /mob/living/carbon/human/RangedAttack(var/atom/A)
-	if(!(gloves || mutations.len || glasses)) return
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
-	if((LASER_EYES in mutations) && a_intent == I_HURT)
-		LaserEyes(A) // moved into a proc below
 	
-	else if(istype(GS) && GS.Look(A,src,0)) // for goggles
+	if(istype(GS) && GS.Look(A,src,0)) // for goggles
 		return
 	
-	else if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
+	if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
 		return
 
-	else if(TK in mutations)
-		A.attack_tk(src)
+	. = ..()
 
 /mob/living/RestrainedClickOn(var/atom/A)
 	return

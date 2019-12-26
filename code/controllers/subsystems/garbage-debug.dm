@@ -510,7 +510,7 @@
 	SearchVar(renegades)
 	SearchVar(revs)
 	SearchVar(malf)
-	SearchVar(vampire_thrall)
+	SearchVar(thralls)
 	SearchVar(traitors)
 	SearchVar(vamp)
 	SearchVar(forced_ambiance_list)
