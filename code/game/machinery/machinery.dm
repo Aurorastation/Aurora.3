@@ -420,9 +420,10 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
+/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H, var/do_damage = TRUE)
 	if(!ishuman(H))
 		return
+
 	if(isskrell(H)) //for whatever reason, skrell's tentacles have a really long length
 		return
 
@@ -436,7 +437,7 @@ Class Procs:
 
 	if(hair_style.length >= 4)
 		if(prob(25))
-			H.apply_damage(30, BRUTE, "head")
+			H.apply_damage(30, BRUTE, BP_HEAD)
 			H.visible_message("<span class='danger'>[H]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
 			if(H.can_feel_pain())
 				H.emote("scream")
