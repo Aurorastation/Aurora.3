@@ -1,0 +1,8 @@
+author: Skull132
+
+delete-after: True
+
+changes:
+  - maptweak: "All CMCs are replaced with medical preset computers."
+  - maptweak: "Replaced all records computers with modular computers. All heads of staff get their job specific version with employment records too."
+  - maptweak: "Gave all heads of staff a command laptop with employment records."
