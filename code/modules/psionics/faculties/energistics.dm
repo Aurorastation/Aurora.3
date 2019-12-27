@@ -4,10 +4,10 @@
 	associated_intent = I_HURT
 	armour_types = list("bomb", "laser", "energy")
 
-/datum/psionic_power/energistics
+/datum/special_power/psionic/energistics
 	faculty = PSI_ENERGISTICS
 
-/datum/psionic_power/energistics/disrupt
+/datum/special_power/psionic/energistics/disrupt
 	name =            "Disrupt"
 	cost =            10
 	cooldown =        100
@@ -15,7 +15,7 @@
 	min_rank =        PSI_RANK_MASTER
 	use_description = "Target the head, eyes or mouth while on harm intent to use a melee attack that causes a localized electromagnetic pulse."
 
-/datum/psionic_power/energistics/disrupt/invoke(var/mob/living/user, var/mob/living/target)
+/datum/special_power/psionic/energistics/disrupt/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_HEAD && user.zone_sel.selecting != BP_EYES && user.zone_sel.selecting != "mouth")
 		return FALSE
 	if(istype(target, /turf))
@@ -26,7 +26,7 @@
 		empulse(target, 0, 1)
 		return TRUE
 
-/datum/psionic_power/energistics/electrocute
+/datum/special_power/psionic/energistics/electrocute
 	name =            "Electrocute"
 	cost =            15
 	cooldown =        25
@@ -34,7 +34,7 @@
 	min_rank =        PSI_RANK_GRANDMASTER
 	use_description = "Target the chest or groin while on harm intent to use a melee attack that electrocutes a victim."
 
-/datum/psionic_power/energistics/electrocute/invoke(var/mob/living/user, var/mob/living/target)
+/datum/special_power/psionic/energistics/electrocute/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_CHEST && user.zone_sel.selecting != BP_GROIN)
 		return FALSE
 	if(istype(target, /turf))
@@ -51,7 +51,7 @@
 				charging_cell.give(rand(15,45))
 			return TRUE
 
-/datum/psionic_power/energistics/zorch
+/datum/special_power/psionic/energistics/zorch
 	name =             "Zorch"
 	cost =             20
 	cooldown =         20
@@ -59,7 +59,7 @@
 	min_rank =         PSI_RANK_MASTER
 	use_description = "Use this ranged laser attack while on harm intent. Your mastery of Energistics will determine how powerful the laser is. Be wary of overuse, and try not to fry your own brain."
 
-/datum/psionic_power/energistics/zorch/invoke(var/mob/living/user, var/mob/living/target)
+/datum/special_power/psionic/energistics/zorch/invoke(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	if(.)
 		user.visible_message("<span class='danger'>\The [user]'s eyes flare with light!</span>")
@@ -90,7 +90,7 @@
 			pew.launch_projectile(target)
 			return TRUE
 
-/datum/psionic_power/energistics/spark
+/datum/special_power/psionic/energistics/spark
 	name =            "Spark"
 	cost =            1
 	cooldown =        1
@@ -98,7 +98,7 @@
 	min_rank =        PSI_RANK_OPERANT
 	use_description = "Target a non-living target in melee range on harm intent to cause some sparks to appear. This can light fires."
 
-/datum/psionic_power/energistics/spark/invoke(var/mob/living/user, var/mob/living/target)
+/datum/special_power/psionic/energistics/spark/invoke(var/mob/living/user, var/mob/living/target)
 	if(isnull(target) || istype(target)) return FALSE
 	. = ..()
 	if(.)

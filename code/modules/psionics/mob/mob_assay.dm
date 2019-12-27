@@ -71,7 +71,7 @@
 				if(LAZYLEN(check_powers))
 					var/datum/psionic_faculty/faculty = SSpsi.get_faculty(faculty_id)
 					dat += "<tr><td colspan = 2>[use_He_has] access to the following psi-powers within the <b>[faculty.name] faculty</b>:</td></tr>"
-					for(var/datum/psionic_power/power in check_powers)
+					for(var/datum/special_power/psionic/power in check_powers)
 						dat += "<tr><td><b>[power.name]</b></td><td>[power.use_description]</td></tr>"
 			dat += "</table>"
 

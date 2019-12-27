@@ -31,9 +31,9 @@ var/global/list/psychic_ranks_to_strings = list("Latent", "Operant", "Masterclas
 		faculties_by_name[faculty.name] = faculty
 		faculties_by_intent[faculty.associated_intent] = faculty.id
 
-	var/list/powers = subtypesof(/datum/psionic_power)
+	var/list/powers = subtypesof(/datum/special_power/psionic)
 	for(var/ptype in powers)
-		var/datum/psionic_power/power = new ptype
+		var/datum/special_power/psionic/power = new ptype
 		if(power.faculty)
 			var/datum/psionic_faculty/faculty = get_faculty(power.faculty)
 			if(faculty)

@@ -71,7 +71,6 @@
 
 	var/speech_problem_flag = 0
 
-	var/miming = null //Toggle for the mime's abilities.
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 
 	var/last_dam = -1	//Used for determining if we need to process all organs or just some or even none.
@@ -110,5 +109,5 @@
 	var/stance_damage = 0 //Whether this mob's ability to stand has been affected
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
-
 	var/datum/martial_art/martial_art = null
+	var/datum/augments/augments
