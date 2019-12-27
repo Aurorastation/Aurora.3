@@ -420,7 +420,7 @@ Class Procs:
 	paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H, var/do_damage = TRUE)
+/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(!ishuman(H))
 		return
 
