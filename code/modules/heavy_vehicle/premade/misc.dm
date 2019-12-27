@@ -25,7 +25,6 @@
 	hatch_descriptor = "hatch"
 	pilot_coverage = 100
 	transparent_cabin = TRUE
-	hide_pilot = TRUE
 	exosuit_desc_string = "a spherical chassis"
 	icon_state = "pod_body"
 	max_damage = 70

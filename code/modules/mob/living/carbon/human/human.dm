@@ -1827,7 +1827,7 @@
 			return TRUE
 	return species.handle_death_check(src)
 
-/mob/living/carbon/human/proc/should_have_organ(var/organ_check)
+/mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
 /mob/living/carbon/human/proc/resuscitate()
@@ -1850,13 +1850,6 @@
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
 		reagents.add_reagent("adrenaline", amount)
-
-/mob/living/carbon/human/proc/seizure()
-	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(8,16))
-		make_jittery(rand(150,200))
-		adjustHalLoss(rand(50,60))
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)

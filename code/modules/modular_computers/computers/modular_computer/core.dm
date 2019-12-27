@@ -169,7 +169,7 @@
 		idle_threads.Remove(P)
 	if(loud)
 		visible_message("\The [src] shuts down.")
-	SSvueui.close_uis(active_program)
+	SSvueui.close_uis(src)
 	enabled = 0
 	update_icon()
 
