@@ -219,9 +219,8 @@
 	use_melee =         TRUE
 	use_ranged =        TRUE
 	min_rank =          PSI_RANK_OPERANT
-	associated_intent = I_HELP
 	use_sound =         null
-	use_description =   "Target the mouth and click on a creature on help intent to psionically send them a message."
+	use_description =   "Target the mouth and click on a creature on disarm intent to psionically send them a message."
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
 	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
@@ -283,10 +282,9 @@
 	cooldown =          30
 	use_melee =         TRUE
 	use_manifest =      TRUE
-	associated_intent = I_HELP
 	min_rank =          PSI_RANK_OPERANT
 	use_sound =         null
-	use_description =   "Activate an empty hand on help intent to detect nearby psionic signatures."
+	use_description =   "Activate an empty hand on disarm intent to detect nearby psionic signatures."
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target) && user.a_intent != I_HELP)
