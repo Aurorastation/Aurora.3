@@ -28,20 +28,14 @@
 	silicon_subsystems = list(/mob/living/silicon/proc/subsystem_law_manager)
 
 /mob/living/silicon/Destroy()
-	qdel(alarm_monitor)
-	alarm_monitor = null
-
-	qdel(law_manager)
-	law_manager = null
-
-	qdel(computer)
-	computer = null
+	QDEL_NULL(alarm_monitor)
+	QDEL_NULL(law_manager)
+	QDEL_NULL(computer)
 
 	return ..()
 
 /mob/living/silicon/ai/Destroy()
-	qdel(ntnet_monitor)
-	ntnet_monitor = null
+	QDEL_NULL(ntnet_monitor)
 
 	return ..()
 
@@ -66,7 +60,7 @@
 *	Computer	*
 *****************/
 /mob/living/silicon/proc/computer_interact()
-	set name = "Open computer interface"
+	set name = "Open Computer Interface"
 	set category = "Subystems"
 
 	computer.attack_self(src)

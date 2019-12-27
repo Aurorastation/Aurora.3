@@ -29,6 +29,9 @@
 		return TRUE
 	. = ..()
 
+/obj/item/modular_computer/silicon/Destroy()
+	computer_host = null
+	return ..()
 
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	if (!istype(usr, /mob/living/silicon))
