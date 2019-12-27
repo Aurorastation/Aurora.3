@@ -99,7 +99,7 @@ var/datum/controller/subsystem/theming/SStheming
 
 /proc/send_theme_resources(var/user)
 #ifdef UIDEBUG
-	log_debug("Sent serouces to [user].")
+	log_debug("Sent resources to [user].")
 	user << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
 	user << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
 	user << browse_rsc(file("vueui/dist/app.js.map"), "app.js.map")
