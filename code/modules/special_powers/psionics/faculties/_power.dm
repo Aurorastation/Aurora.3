@@ -1,7 +1,6 @@
 /datum/special_power/psionic
 	var/faculty          // Associated psi faculty.
 	var/min_rank         // Minimum psi rank to use this power.
-	var/cost             // Base psi stamina cost for using this power.
 	var/use_grab         // This power has a variant invoked via grab.
 	admin_log = TRUE // Whether or not using this power prints an admin attack log.
 	use_sound = 'sound/effects/psi/power_used.ogg'

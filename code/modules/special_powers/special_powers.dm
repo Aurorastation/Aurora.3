@@ -7,6 +7,7 @@
 	var/use_manifest      // This power manifests an item in the user's hands.
 	var/use_description   // A short description of how to use this power, shown via assay.
 	var/use_sound         // A sound effect to play when the power is used.
+	var/cost             // Base stamina or energy cost for using this power.
 
 /datum/special_power/proc/handle_post_power(var/mob/living/user, var/atom/target)
 	return FALSE
