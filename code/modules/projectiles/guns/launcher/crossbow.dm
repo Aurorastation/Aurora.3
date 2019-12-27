@@ -160,7 +160,7 @@
 
 	if(istype(W, /obj/item/cell))
 		if(!cell)
-			user.drop_from_inventory(cell,src)
+			user.drop_from_inventory(W, src)
 			cell = W
 			to_chat(user, "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>")
 			superheat_rod(user)
@@ -180,12 +180,16 @@
 		..()
 
 /obj/item/gun/launcher/crossbow/proc/superheat_rod(var/mob/user)
-	if(!user || !cell || !bolt) return
-	if(cell.charge < 500) return
-	if(bolt.throwforce >= 15) return
-	if(!istype(bolt,/obj/item/arrow/rod)) return
+	if(!user || !cell || !bolt)
+		return
+	if(cell.charge < 500)
+		return
+	if(bolt.throwforce >= 15)
+		return
+	if(!istype(bolt,/obj/item/arrow/rod))
+		return
 
-	to_chat(user, "<span class='notice'>[bolt] plinks and crackles as it begins to glow red-hot.</span>")
+	to_chat(user, "<span class='warning'>[bolt] plinks and crackles as it begins to glow red-hot.</span>")
 	bolt.throwforce = 15
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)

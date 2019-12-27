@@ -23057,8 +23057,8 @@
 /obj/item/clothing/shoes/swat,
 /obj/item/clothing/shoes/swat,
 /obj/item/clothing/shoes/swat,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
@@ -24523,7 +24523,7 @@
 /obj/item/clothing/shoes/workboots/toeless,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/shoes/laceup,
 /obj/item/rig/light/offworlder,
 /obj/item/clothing/accessory/offworlder/bracer,
@@ -25584,7 +25584,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/storage/backpack/satchel,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/flag/biesel/l{
 	pixel_y = 8

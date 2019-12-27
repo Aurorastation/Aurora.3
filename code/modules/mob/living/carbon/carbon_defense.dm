@@ -187,3 +187,23 @@
 	src.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
 	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(src)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(src) )
 	return 1
+
+/mob/living/carbon/Stun(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Weaken(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Paralyse(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Sleeping(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Resting(amount)
+	help_up_offer = 0
+	..()
