@@ -221,15 +221,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	species_restricted = list("Unathi")
 	contained_sprite = TRUE
 
-
-/obj/item/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron
-	name = "ATLAS poster"
-
-/obj/item/contraband/poster/fluff/conservan_poster/New()
-	..()
-	serial_number = 59
-
-
 /obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
@@ -461,16 +452,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sayyidah_dress"
 	item_state = "sayyidah_dress"
 	contained_sprite = TRUE
-
-
-/obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris
-	name = "atlas overcoat"
-	desc = "A classy black militaristic uniform, which is adorned with a sash and an eagle."
-	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
-	icon_state = "vittorio_jacket"
-	item_state = "vittorio_jacket"
-	contained_sprite = TRUE
-
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
 	name = "\improper CERN labcoat"
@@ -2019,7 +2000,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mar_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
+/obj/item/clothing/shoes/jackboots/toeless/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
 	name = "unathi purple boots"
 	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
@@ -3006,7 +2987,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
 	name = "long trenchcoat"
 	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
-	symbol on the back, similar to the Frontier Alliance flag."
+	symbol on the back, similar to the Coalition of Colonies flag."
 	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
 	icon_state = "takahashi_coat"
 	item_state = "takahashi_coat"

@@ -628,7 +628,6 @@ var/list/worths = list(
 					/obj/item/device/soulstone = 10000,
 					/obj/item/device/dociler = 450,
 					/obj/item/device/mmi = 1200,
-					/obj/item/device/kit/paint = 500,
 					/obj/item/device/kit = 100,
 					/obj/item/aicard = 6000,
 					/obj/item/device/chameleon = 4000,

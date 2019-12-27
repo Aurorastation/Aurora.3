@@ -268,11 +268,6 @@
 		do_animate("deny")
 		return
 
-/obj/machinery/door/attack_tk(mob/user as mob)
-	if(requiresID() && !allowed(null))
-		return
-	..()
-
 /obj/machinery/door/attackby(obj/item/I as obj, mob/user as mob)
 	src.add_fingerprint(user)
 
@@ -574,3 +569,11 @@
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
+
+/obj/machinery/door/do_simple_ranged_interaction(var/mob/user)
+	if(!requiresID() || allowed(null))
+		if(can_open())
+			open() //Whoever didn't write a toggle proc for airlocks, I hope you step on a lego.
+		else if(can_close())
+			close()
+	return TRUE
