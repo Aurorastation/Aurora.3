@@ -17,6 +17,16 @@
 	vessel.add_reagent("blood", species.blood_volume)
 	fixblood()
 
+/mob/living/carbon/human/proc/add_blood_simple(var/amount)
+	if(vessel)
+		var/vessel_blood = vessel.get_reagent_amount("blood")
+		if(vessel_blood == species.blood_volume)
+			return
+		if((vessel_blood + amount) > species.blood_volume)
+			amount = species.blood_volume - vessel_blood
+
+		vessel.add_reagent("blood", amount)
+
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)

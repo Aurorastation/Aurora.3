@@ -79,6 +79,10 @@
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
+//Unathi Organs
+#define BP_SUPHREANS   "suphreans"
+#define BP_THROKTIDS   "throktids"
+
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
 #define BP_HAEMO    "haemodynamic"

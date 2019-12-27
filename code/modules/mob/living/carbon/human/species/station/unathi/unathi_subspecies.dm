@@ -68,7 +68,9 @@
 		BP_EYES =     /obj/item/organ/internal/eyes/autakh,
 		BP_ANCHOR =   /obj/item/organ/internal/anchor,
 		BP_HAEMO =   /obj/item/organ/internal/haemodynamic,
-		BP_ADRENAL =   /obj/item/organ/internal/adrenal
+		BP_ADRENAL =   /obj/item/organ/internal/adrenal,
+		BP_SUPHREANS = /obj/item/organ/internal/suphreans,
+		BP_THROKTIDS = /obj/item/organ/internal/throktids
 		)
 
 	has_limbs = list(

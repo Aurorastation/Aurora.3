@@ -2075,6 +2075,7 @@
 #include "code\modules\organs\subtypes\parasite.dm"
 #include "code\modules\organs\subtypes\skrell.dm"
 #include "code\modules\organs\subtypes\standard.dm"
+#include "code\modules\organs\subtypes\unathi.dm"
 #include "code\modules\organs\subtypes\unbreakable.dm"
 #include "code\modules\organs\subtypes\vaurca.dm"
 #include "code\modules\organs\subtypes\xenos.dm"

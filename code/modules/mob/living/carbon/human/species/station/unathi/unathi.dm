@@ -37,6 +37,7 @@
 	breakcuffs = list(MALE)
 	mob_size = 10
 	climb_coeff = 1.35
+	blood_volume = DEFAULT_BLOOD_AMOUNT * 1.5
 
 	blurb = "A heavily reptillian species, Unathi (or 'Sinta as they call themselves) hail from the Uuosa-Eso \
 	system, which roughly translates to 'burning mother'. A relatively recent addition to the galactic stage, they \
@@ -58,6 +59,18 @@
 		/mob/living/carbon/human/proc/tongue_flick
 	)
 
+	has_organ = list(
+		BP_HEART =     /obj/item/organ/internal/heart,
+		BP_LUNGS =     /obj/item/organ/internal/lungs,
+		BP_LIVER =     /obj/item/organ/internal/liver,
+		BP_KIDNEYS =   /obj/item/organ/internal/kidneys,
+		BP_STOMACH =   /obj/item/organ/internal/stomach,
+		BP_BRAIN =     /obj/item/organ/internal/brain,
+		BP_APPENDIX =  /obj/item/organ/internal/appendix,
+		BP_EYES =      /obj/item/organ/internal/eyes,
+		BP_SUPHREANS = /obj/item/organ/internal/suphreans,
+		BP_THROKTIDS = /obj/item/organ/internal/throktids
+		)
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
