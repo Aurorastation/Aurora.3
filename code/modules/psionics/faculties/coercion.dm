@@ -221,10 +221,10 @@
 	min_rank =          PSI_RANK_OPERANT
 	associated_intent = I_HELP
 	use_sound =         null
-	use_description =   "Target the groin and click on a creature on help intent to psionically send them a message."
+	use_description =   "Target the mouth and click on a creature on help intent to psionically send them a message."
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
-	if((target == user) || user.zone_sel.selecting != BP_GROIN)
+	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
 		return FALSE
 	. = ..()
 	if(.)
