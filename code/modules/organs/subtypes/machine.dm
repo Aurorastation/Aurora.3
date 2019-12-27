@@ -132,7 +132,6 @@
 
 /obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()
-	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color
 	. = ..()
 
 /obj/item/organ/internal/ipc_tag

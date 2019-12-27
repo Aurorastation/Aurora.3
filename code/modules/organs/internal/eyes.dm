@@ -57,4 +57,5 @@
 		owner.eye_blind = 20
 
 /obj/item/organ/internal/eyes/robotize()
+	..()
 	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color

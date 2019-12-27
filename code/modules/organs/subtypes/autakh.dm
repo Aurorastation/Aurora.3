@@ -108,7 +108,6 @@
 
 /obj/item/organ/internal/eyes/autakh/Initialize()
 	robotize()
-	verbs |= /obj/item/organ/internal/eyes/proc/change_eye_color
 	. = ..()
 
 /obj/item/organ/internal/eyes/autakh/refresh_action_button()
