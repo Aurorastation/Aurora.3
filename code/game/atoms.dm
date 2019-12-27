@@ -146,8 +146,21 @@
 
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
+	if(description_fluff)
+		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+	if(description_antag && player_is_antag(user.mind))
+		to_chat(user, span("notice", "This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 
 	return distance == -1 || (get_dist(src, user) <= distance)
+
+/atom/Topic(href,href_list[])
+	. = ..()
+	if (.)
+		return
+
+	switch(href_list["examine"])
+		if("fluff")
+			usr.client.statpanel = "Examine"
 
 // called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled var set.
 // see code/modules/mob/mob_movement.dm for more.

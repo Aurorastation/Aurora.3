@@ -16,6 +16,11 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, "plastic" = 1000, "osmium" = 500)
 	dir = SOUTH
 
+/obj/item/mech_component/pickup(mob/user)
+	pixel_x = initial(pixel_x)
+	pixel_y = initial(pixel_y)
+	return
+
 /obj/item/mech_component/proc/set_colour(new_colour)
 	var/last_colour = color
 	color = new_colour
@@ -73,7 +78,6 @@
 	update_health()
 	if(total_damage == max_damage)
 		take_component_damage(0,amt)
-
 
 /obj/item/mech_component/proc/take_component_damage(var/brute, var/burn)
 	var/list/damageable_components = list()

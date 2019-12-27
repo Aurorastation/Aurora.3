@@ -11,6 +11,7 @@
 	var/list/viruses
 
 	var/list/excluded_fields
+	var/list/localized_fields
 
 	var/manifest_json
 	var/list/manifest
@@ -20,6 +21,8 @@
 
 /datum/controller/subsystem/records/Initialize()
 	..()
+	for(var/type in localized_fields)
+		localized_fields[type] = compute_localized_field(type)
 
 	InitializeCitizenships()
 	InitializeReligions()
@@ -30,6 +33,7 @@
 	warrants = list()
 	viruses = list()
 	excluded_fields = list()
+	localized_fields = list()
 	manifest = list()
 	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
@@ -37,6 +41,49 @@
 		excluded_fields[v] = v
 	excluded_fields["cmp_field"] = "cmp_field"
 	excluded_fields["excluded_fields"] = "excluded_fields"
+	excluded_fields["excluded_print_fields"] = "excluded_print_fields"
+	localized_fields[/datum/record] = list(
+		"id" = "Id",
+		"notes" = "Notes"
+	)
+	localized_fields[/datum/record/general] = list(
+		"_parent" = /datum/record,
+		"name" = "Name",
+		"rank" = "Rank",
+		"age" = "Age",
+		"sex" = "Sex",
+		"fingerprint" = "Fingerprint",
+		"physical_status" = "Physical Status",
+		"mental_status" = "Mental Status",
+		"species" = "Species",
+		"citizenship" = "Citizenship",
+		"employer" = "",
+		"religion" = "Religion",
+		"ccia_record" = "CCIA Notes",
+		"notes" = "Employment/skills summary",
+	)
+	localized_fields[/datum/record/medical] = list(
+		"_parent" = /datum/record,
+		"blood_type" = "Blood type",
+		"blood_dna" = "DNA",
+		"disabilities" = "Disabilities",
+		"allergies" = "Allergies",
+		"diseases" = "Diseases",
+		"comments" = "Comments"
+	)
+	localized_fields[/datum/record/security] = list(
+		"_parent" = /datum/record,
+		"criminal" = "Criminal Status",
+		"crimes" = "Crimes",
+		"incidents" = "Incidents",
+		"comments" = "Comments"
+	)
+	localized_fields[/datum/record/virus] = list(
+		"_parent" = /datum/record,
+		"description" = "Description",
+		"antigen" = "",
+		"spread_type" = "",
+	)
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -271,3 +318,20 @@
 	var/datum/religion/religion = SSrecords.religions[target_religion]
 	if(religion)
 		return religion.get_records_name()
+
+/datum/controller/subsystem/records/proc/compute_localized_field(var/type)
+	if(!localized_fields[type])
+		return
+	if(localized_fields[type]["_parent"])
+		. = compute_localized_field(localized_fields[type]["_parent"])
+	else
+		. = list()
+
+	for(var/field in localized_fields[type])
+		if(field == "_parent")
+			continue
+		var/value = localized_fields[type][field]
+		//if(istype(value))
+		//	.[field] = compute_localized_field(value)
+		//	continue
+		.[field] = value

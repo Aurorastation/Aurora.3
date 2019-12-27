@@ -6672,7 +6672,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal,
 /area/shuttle/administration/centcom)
 "aqH" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/administration/centcom)
 "aqI" = (
@@ -6691,7 +6691,7 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/administration/centcom)
 "aqL" = (
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/administration/centcom)
 "aqM" = (
@@ -6858,10 +6858,6 @@
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
-/area/shuttle/administration/centcom)
-"arp" = (
-/obj/machinery/computer/crew,
-/turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/administration/centcom)
 "arq" = (
 /obj/structure/bed/chair{
@@ -10307,12 +10303,6 @@
 /obj/item/storage/box/drinkingglasses,
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
-"azs" = (
-/obj/machinery/computer/crew,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/control)
 "azt" = (
 /turf/unsimulated/floor{
 	icon_state = "bluecorner";
@@ -10678,7 +10668,7 @@
 	},
 /area/centcom/control)
 "aAd" = (
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -10919,7 +10909,7 @@
 	},
 /area/centcom/control)
 "aAD" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -11813,11 +11803,11 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aCn" = (
-/obj/machinery/computer/records/security,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -12313,12 +12303,12 @@
 	},
 /area/centcom/holding)
 "aDz" = (
-/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
 	},
 /obj/structure/sign/christmas/lights,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -12385,11 +12375,6 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop";
-	pixel_x = 3;
-	pixel_y = 4
 	},
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
@@ -13069,7 +13054,6 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
 "aFn" = (
-/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -13116,7 +13100,7 @@
 	},
 /area/centcom/holding)
 "aFq" = (
-/obj/item/modular_computer/console/preset/captain,
+/obj/item/modular_computer/console/preset/command/captain,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
@@ -13138,7 +13122,6 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/escape/centcom)
 "aFt" = (
-/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -13190,10 +13173,6 @@
 	},
 /area/centcom/holding)
 "aFz" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
-	dir = 1
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -13329,10 +13308,6 @@
 	},
 /area/centcom/holding)
 "aFO" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
-	dir = 1
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -17582,6 +17557,10 @@
 /area/skipjack_station/start)
 "aPi" = (
 /obj/structure/window/reinforced,
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aPj" = (
@@ -18349,7 +18328,7 @@
 	},
 /area/centcom/spawning)
 "aQT" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20521,8 +20500,8 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aVZ" = (
-/obj/machinery/computer/records/security,
 /obj/structure/sign/christmas/lights,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -20715,11 +20694,11 @@
 	},
 /area/centcom/checkpoint/aft)
 "aWz" = (
-/obj/machinery/computer/records/security,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -23057,8 +23036,8 @@
 /obj/item/clothing/shoes/swat,
 /obj/item/clothing/shoes/swat,
 /obj/item/clothing/shoes/swat,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
 /obj/item/clothing/suit/storage/legion,
@@ -24523,7 +24502,7 @@
 /obj/item/clothing/shoes/workboots/toeless,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/shoes/laceup,
 /obj/item/rig/light/offworlder,
 /obj/item/clothing/accessory/offworlder/bracer,
@@ -25369,11 +25348,11 @@
 /area/centcom/legion/hangar5)
 "iIs" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
 	},
+/obj/item/modular_computer/laptop/preset/command,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -25584,7 +25563,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/storage/backpack/satchel,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/item/flag/biesel/l{
 	pixel_y = 8
@@ -65367,7 +65346,7 @@ aqC
 aqL
 aqT
 aqU
-arp
+aqL
 aqG
 aqG
 aqG
@@ -71565,7 +71544,7 @@ avh
 ayf
 ayw
 ayU
-azs
+aAd
 avh
 aAd
 aAq

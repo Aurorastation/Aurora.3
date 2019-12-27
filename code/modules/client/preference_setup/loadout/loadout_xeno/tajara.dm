@@ -75,7 +75,7 @@
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
 	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
-	uniform["machinist uniform"] = /obj/item/clothing/under/mechanic
+	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
@@ -95,7 +95,7 @@
 	dress["red noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
-	dress["adhomian summmer dress"] = /obj/item/clothing/under/dress/tajaran/summer
+	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/accessory/tajara

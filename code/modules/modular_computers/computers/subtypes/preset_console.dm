@@ -19,20 +19,32 @@
 /obj/item/modular_computer/console/preset/install_default_programs()
 	..()
 
-
 // Engineering
 /obj/item/modular_computer/console/preset/engineering/
-	_app_preset_name = "engineering"
+	name = "engineering console"
+	_app_preset_type = /datum/modular_computer_app_presets/engineering
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/engineering/ce
+	name = "engineering console"
+	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
 	enrolled = 1
 
 // Medical
 /obj/item/modular_computer/console/preset/medical/
-	_app_preset_name = "medical"
+	name = "medical console"
+	_app_preset_type = /datum/modular_computer_app_presets/medical
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/medical/cmo
+	name = "medical console"
+	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
 	enrolled = 1
 
 // Research
 /obj/item/modular_computer/console/preset/research/
-	_app_preset_name = "research"
+	name = "research console"
+	_app_preset_type = /datum/modular_computer_app_presets/research
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/research/install_default_hardware()
@@ -41,7 +53,8 @@
 
 // Command
 /obj/item/modular_computer/console/preset/command/
-	_app_preset_name = "command"
+	name = "command console"
+	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/command/install_default_hardware()
@@ -51,30 +64,42 @@
 	nano_printer.stored_paper = 20
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
-/obj/item/modular_computer/console/preset/captain/
-	_app_preset_name = "captain"
+/obj/item/modular_computer/console/preset/command/captain
+	name = "captain's console"
+	_app_preset_type = /datum/modular_computer_app_presets/captain
 	enrolled = 1
 
-/obj/item/modular_computer/console/preset/captain/install_default_hardware()
-	..()
-	nano_printer = new/obj/item/computer_hardware/nano_printer(src)
-	nano_printer.max_paper = 25
-	nano_printer.stored_paper = 20
-	card_slot = new/obj/item/computer_hardware/card_slot(src)
+/obj/item/modular_computer/console/preset/command/hop
+	name = "command console"
+	_app_preset_type = /datum/modular_computer_app_presets/command/hop
+	enrolled = 1
 
 // Security
 /obj/item/modular_computer/console/preset/security/
-	_app_preset_name = "security"
+	name = "security console"
+	_app_preset_type = /datum/modular_computer_app_presets/security
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/security/investigations
+	name = "investigations console"
+	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
+	enrolled = 1
+
+/obj/item/modular_computer/console/preset/security/hos
+	name = "head of security's console"
+	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	enrolled = 1
 
 // Civilian
 /obj/item/modular_computer/console/preset/civilian/
-	_app_preset_name = "civilian"
+	name = "civilian console"
+	_app_preset_type = /datum/modular_computer_app_presets/civilian
 	enrolled = 1
 
 // Supply
 /obj/item/modular_computer/console/preset/supply/
-	_app_preset_name = "supply"
+	name = "supply console"
+	_app_preset_type = /datum/modular_computer_app_presets/supply
 	enrolled = 1
 
 /obj/item/modular_computer/console/preset/supply/install_default_hardware()
@@ -94,13 +119,13 @@
 	card_slot = new/obj/item/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/console/preset/ert/
-	_app_preset_name = "ert"
+	_app_preset_type = /datum/modular_computer_app_presets/ert
 	enrolled = 2
 	computer_emagged = TRUE
 
 // Mercenary
 /obj/item/modular_computer/console/preset/mercenary/
-	_app_preset_name = "merc"
+	_app_preset_type = /datum/modular_computer_app_presets/merc
 	computer_emagged = TRUE
 	enrolled = 2
 
@@ -113,7 +138,7 @@
 
 // Merchant
 /obj/item/modular_computer/console/preset/merchant
-	_app_preset_name = "merchant"
+	_app_preset_type = /datum/modular_computer_app_presets/merchant
 	enrolled = 2
 
 /obj/item/modular_computer/console/preset/merchant/install_default_hardware()
@@ -125,5 +150,5 @@
 
 // AI
 /obj/item/modular_computer/console/preset/ai
-	_app_preset_name = "ai"
+	_app_preset_type = /datum/modular_computer_app_presets/ai
 	enrolled = 2
