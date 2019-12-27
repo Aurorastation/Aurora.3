@@ -52,18 +52,19 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
-	inherent_verbs = list(
-	/mob/living/carbon/human/proc/commune,
-	/mob/living/carbon/human/proc/sonar_ping,
-	)
-
 	default_h_style = "Skrell Short Tentacles"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 	default_citizenship = CITIZENSHIP_JARGON
 
 	zombie_type = "Skrell Zombie"
 
+/datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
+	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
+
 /datum/species/skrell/can_breathe_water()
+	return TRUE
+
+/datum/species/skrell/can_commune()
 	return TRUE
