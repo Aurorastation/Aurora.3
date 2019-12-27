@@ -16,7 +16,7 @@
 		body = new /obj/item/mech_component/chassis/combat(src)
 		body.color = "#ffdc37"
 
-	body.armor = new /obj/item/robot_parts/robot_component/armour(src)
+	body.armor = new /obj/item/robot_parts/robot_component/armor(src)
 
 	. = ..()
 
