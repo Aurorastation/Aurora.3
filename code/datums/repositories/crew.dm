@@ -32,16 +32,13 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(H.w_uniform != C)
 					continue
 
-				var/list/crewmemberData = list("dead"=null, "area"=null, "x"=null, "y"=null, "z"=null, "level"=null, "ref" = "\ref[H]")
+				var/list/crewmemberData = list("area"=null, "x"=null, "y"=null, "z"=null, "level"=null, "ref" = "\ref[H]")
 
 				crewmemberData["stype"] = C.sensor_mode
 				crewmemberData["name"] = H.get_authentification_name(if_no_id="Unknown")
 				crewmemberData["ass"] = H.get_assignment(if_no_id="Unknown", if_no_job="No Job")
 
 				if(C.sensor_mode >= SUIT_SENSOR_BINARY)
-					crewmemberData["dead"] = H.stat > UNCONSCIOUS
-
-				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
 					crewmemberData["pulse"] = "N/A"
 					crewmemberData["tpulse"] = -1
 					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
@@ -50,6 +47,7 @@ var/global/datum/repository/crew/crew_repository = new()
 							crewmemberData["tpulse"] = H.pulse()
 							crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
 
+				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
 					crewmemberData["pressure"] = "N/A"
 					crewmemberData["toxyg"] = -1
 					crewmemberData["oxyg"] = 0
