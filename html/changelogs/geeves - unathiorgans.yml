@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Unathi now have more blood in their body."
+  - rscadd: "Unathi now have two new organs, suphreans which regens blood and throktids which regens stamina."
