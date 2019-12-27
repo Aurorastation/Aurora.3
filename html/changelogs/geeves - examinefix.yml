@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixes suitstore being displayed twice in examine, fixes suit not being displayed."
