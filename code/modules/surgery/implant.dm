@@ -212,6 +212,6 @@
 	..()
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user] loses their grip and stabs [target] with \the [tool]!</span>", "<span class='warning'>You lose your grip on \the [tool] and stab [target]!</span>")
-	target.sever_artery()
+	affected.sever_artery()
 	target.apply_damage(25, BRUTE, target_zone)
 
