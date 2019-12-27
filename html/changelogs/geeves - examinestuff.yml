@@ -1,8 +1,0 @@
-author: Geeves and Mwahahahaha
-
-delete-after: True
-
-changes: 
-  - rscadd: "Items will now say whether they have extra examine info, and allow you to view them."
-  - rscadd: "You can now examine people that are in exosuits."
-  - rscadd: "You can now examine the stuff people are wearing and wielding by left clicking on the hyperlink on their examine."
