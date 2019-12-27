@@ -1,39 +1,26 @@
-/obj/screen/psi/hub
+/obj/screen/interface/hub/psi
 	name = "Psi"
-	icon_state = "psi_suppressed"
+	icon = 'icons/mob/screen/psi.dmi'
+	icon_state = "psi-suppressed"
 	screen_loc = "EAST-1:28,CENTER-3:11"
 	hidden = FALSE
 	maptext_x = 6
 	maptext_y = -8
-	var/image/on_cooldown
 
-/obj/screen/psi/hub/New(var/mob/living/_owner)
-	on_cooldown = image(icon, "cooldown")
+/obj/screen/interface/hub/psi/process()
 	..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/screen/psi/hub/update_icon()
-
-	if(!owner.psi)
-		return
-
-	icon_state = owner.psi.suppressed ? "psi_suppressed" : "psi_active"
-
-/obj/screen/psi/hub/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	owner = null
-	. = ..()
-
-/obj/screen/psi/hub/process()
-	if(!istype(owner))
-		qdel(src)
-		return
 	if(!owner.psi)
 		return
 	maptext = "[round((owner.psi.stamina/owner.psi.max_stamina)*100)]%"
 	update_icon()
 
-/obj/screen/psi/hub/Click(var/location, var/control, var/params)
+/obj/screen/interface/hub/psi/update_icon()
+	if(!owner.psi)
+		return
+
+	icon_state = owner.psi.suppressed ? "psi_suppressed" : "psi_active"
+
+/obj/screen/interface/hub/psi/Click(var/location, var/control, var/params)
 	var/list/click_params = params2list(params)
 	if(click_params["shift"])
 		owner.show_psi_assay(owner)
