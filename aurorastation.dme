@@ -2149,7 +2149,6 @@
 #include "code\modules\power\tesla\coil.dm"
 #include "code\modules\power\tesla\energy_ball.dm"
 #include "code\modules\power\tesla\generator.dm"
-#include "code\modules\powers\power.dm"
 #include "code\modules\projectiles\ammunition.dm"
 #include "code\modules\projectiles\gun.dm"
 #include "code\modules\projectiles\pins.dm"
