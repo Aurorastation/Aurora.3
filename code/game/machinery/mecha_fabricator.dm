@@ -217,7 +217,7 @@
 		if(hair_style.length < 4)
 			return
 
-		user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into the [src]!</span>")
+		user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into \the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into \the [src]!</span>")
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
