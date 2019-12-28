@@ -885,8 +885,8 @@
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
+		var/ovr
 		if(hurtdamage)
-			var/ovr
 			switch(hurtdamage)
 				if(10 to 25)
 					ovr = "brutedamageoverlay1"
@@ -901,10 +901,10 @@
 				if(85 to INFINITY)
 					ovr = "brutedamageoverlay6"
 
-			if (last_brute_overlay != ovr)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				damageoverlay.add_overlay(ovr)
-				last_brute_overlay = ovr
+		if(last_brute_overlay != ovr)
+			damageoverlay.cut_overlay(last_brute_overlay)
+			damageoverlay.add_overlay(ovr)
+			last_brute_overlay = ovr
 
 		if(healths)
 			healths.overlays.Cut()

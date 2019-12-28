@@ -1,4 +1,4 @@
-var/datum/antagonist/thrall/vampire_thrall = null
+var/datum/antagonist/thrall/thralls = null
 
 /datum/antagonist/thrall
 	id = MODE_THRALL
@@ -17,14 +17,14 @@ var/datum/antagonist/thrall/vampire_thrall = null
 		"Zeng-Hu Mobility Frame",
 		"Bishop Accessory Frame"
 	)
-	welcome_text = "You are a vampire's thrall: a pawn to be commanded by them at will."
+	welcome_text = "You are a vampire or psionic operant's thrall: a pawn to be commanded by them at will."
 	flags = 0
 	antaghud_indicator = "hudthrall"
 
 /datum/antagonist/thrall/New()
 	..()
 
-	vampire_thrall = src
+	thralls = src
 
 /datum/antagonist/thrall/update_antag_mob(var/datum/mind/player)
 	..()

@@ -7,8 +7,6 @@
 /mob/living/carbon/var/list/internal_organs = list()
 /mob/living/carbon/var/shock_stage = 0
 /mob/living/carbon/human/var/list/organs = list()
-/mob/living/carbon/human/var/list/organs_by_name = list() // map organ names to organs
-/mob/living/carbon/human/var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 
 /mob/living/carbon/human/proc/recheck_bad_external_organs()
 	var/damage_this_tick = getToxLoss()

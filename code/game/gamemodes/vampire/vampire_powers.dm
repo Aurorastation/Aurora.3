@@ -717,7 +717,7 @@
 		return
 
 	to_chat(T, "<span class='danger'>Your mind blanks as you finish feeding from [src]'s wrist.</span>")
-	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 1, 1)
+	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	T.mind.vampire.master = src
 	vampire.thralls += T
@@ -913,7 +913,7 @@
 				to_chat(src, "<span class='notice'>[denial_response]</span>")
 				return
 
-			vampire_thrall.remove_antagonist(T.mind, 0, 0)
+			thralls.remove_antagonist(T.mind, 0, 0)
 			qdel(draining_vamp)
 			draining_vamp = null
 		else

@@ -80,6 +80,8 @@
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
+	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
+
 	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
 
@@ -93,7 +95,7 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)

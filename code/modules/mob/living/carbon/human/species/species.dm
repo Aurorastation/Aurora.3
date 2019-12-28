@@ -212,7 +212,7 @@
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
 
-	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB)
 	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/zombie_type	//What zombie species they become
@@ -576,3 +576,6 @@
 
 /datum/species/proc/get_digestion_product()
 	return "nutriment"
+
+/datum/species/proc/can_commune()
+	return FALSE
