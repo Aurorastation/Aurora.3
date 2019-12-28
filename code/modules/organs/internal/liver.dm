@@ -51,7 +51,7 @@
 
 
 	//High toxins levels are super dangerous
-	if(owner.getToxLoss() >= 100 && !owner.chem_effects[CE_ANTITOXIN])
+	if(owner.getToxLoss() >= 60 && !owner.chem_effects[CE_ANTITOXIN])
 		//Healthy liver suffers on its own
 		if (src.damage < min_broken_damage)
 			src.damage += 0.2 * PROCESS_ACCURACY
