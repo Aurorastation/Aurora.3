@@ -215,7 +215,7 @@
 /datum/psionic_power/coercion/commune
 	name =              "Commune"
 	cost =              5
-	cooldown =          20
+	cooldown =          10
 	use_melee =         TRUE
 	use_ranged =        TRUE
 	min_rank =          PSI_RANK_OPERANT
