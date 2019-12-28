@@ -13,14 +13,16 @@
 	w_class = 3
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
 
-/obj/item/modular_computer/silicon/New(host)
-	computer_host = host
-	loc = host
+/obj/item/modular_computer/silicon/Initialize(mapload)
+	. = ..()
+	if(istype(loc, /mob/living/silicon))
+		computer_host = loc
+	else
+		return
 	// Let's remove integrated verbs for ejecting things.
 	verbs -= /obj/item/modular_computer/verb/eject_ai
 	verbs -= /obj/item/modular_computer/verb/eject_id
 	verbs -= /obj/item/modular_computer/verb/eject_usb
-	..()
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power
@@ -40,8 +42,7 @@
 	return ..()
 
 /obj/item/modular_computer/silicon/Click(location, control, params)
-	// Well, only borgs can use this computer.
-	if (!istype(usr, /mob/living/silicon))
-		return
-	attack_self(usr)
+	if (!istype(usr, /mob/living/silicon) && host == usr)
+		return attack_self(usr)
+	return ..()
 	
