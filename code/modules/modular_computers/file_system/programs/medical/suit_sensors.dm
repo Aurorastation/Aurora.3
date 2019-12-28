@@ -39,7 +39,7 @@
 		for(var/z_level in current_map.map_levels)
 			data["crewmembers"] += crew_repository.health_data(z_level)
 	
-	return data // This uni needs to constantly update
+	return data // This UI needs to constantly update
 
 
 /datum/computer_file/program/suit_sensors/Topic(href, href_list)
