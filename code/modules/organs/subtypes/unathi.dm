@@ -20,7 +20,7 @@
 	..()
 	if(!owner)
 		return
-	owner.add_blood_simple(BLOOD_REGEN_PER_SEC * ((world.time - last_process) / 10))
+	owner.add_blood_simple(BLOOD_REGEN_PER_SEC * (world.time - last_process))
 	last_process = world.time
 
 // Unathi Stamina Regeneration organ
