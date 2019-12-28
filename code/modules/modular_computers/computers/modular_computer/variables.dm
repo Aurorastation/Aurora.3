@@ -18,7 +18,7 @@
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
 	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
-	var/_app_preset_name = ""								// Used for specifying the software preset of the console
+	var/_app_preset_type = null								// Used for specifying the software preset of the console
 	var/ambience_last_played								// Last time sound was played
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)

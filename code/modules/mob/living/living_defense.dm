@@ -96,7 +96,7 @@
 		proj_edge = 0
 
 	if(!P.nodamage)
-		apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags, used_weapon = "\the [P.shot_from] [P.name]")
+		apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
 	P.on_hit(src, absorb, def_zone)
 	return absorb
 

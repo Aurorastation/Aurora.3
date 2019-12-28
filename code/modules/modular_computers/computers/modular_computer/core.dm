@@ -38,9 +38,9 @@
 		playsound(loc, "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
-/obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
+/obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
-		if(prs.name == app_preset_name)
+		if(prs.type == preset_type)
 			return prs.return_install_programs()
 
 // Used to perform preset-specific hardware changes.
@@ -50,7 +50,7 @@
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
 	if(enrolled)
-		var/programs = get_preset_programs(_app_preset_name)
+		var/programs = get_preset_programs(_app_preset_type)
 		for (var/datum/computer_file/program/prog in programs)
 			hard_drive.store_file(prog)
 
@@ -169,7 +169,7 @@
 		idle_threads.Remove(P)
 	if(loud)
 		visible_message("\The [src] shuts down.")
-	SSvueui.close_uis(active_program)
+	SSvueui.close_uis(src)
 	enabled = 0
 	update_icon()
 
