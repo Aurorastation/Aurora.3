@@ -93,7 +93,7 @@ BLIND     // can't see anything
 	name = "engineering aviators"
 	desc = "Modified aviator glasses with a toggled meson interface. Comes with bonus prescription overlay."
 	icon_state = "aviator_eng"
-	off_state = "aviator"
+	off_state = "aviator_eng_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
@@ -111,7 +111,7 @@ BLIND     // can't see anything
 	name = "medical HUD aviators"
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
 	icon_state = "aviator_med"
-	off_state = "aviator"
+	off_state = "aviator_med_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle Mode"
 	toggleable = 1
@@ -159,7 +159,7 @@ BLIND     // can't see anything
 	name = "aviators"
 	desc = "Modified aviator glasses with a toggled night vision interface. Comes with prescription overlay."
 	icon_state = "aviator_nv"
-	off_state = "aviator"
+	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle Mode"
 	toggleable = 1
@@ -266,7 +266,7 @@ BLIND     // can't see anything
 	name = "material aviators"
 	desc = "Modified aviator glasses with a toggled ability to make your head ache. Comes with bonus prescription interface."
 	icon_state = "aviator_mat"
-	off_state = "aviator"
+	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle Mode"
 	activation_sound = 'sound/effects/pop.ogg'
@@ -295,6 +295,7 @@ BLIND     // can't see anything
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/health/prescription(T)
+		user.put_in_hands(T)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
 		user.drop_item()
@@ -303,12 +304,13 @@ BLIND     // can't see anything
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/turf/T = get_turf(src)
 		new /obj/item/clothing/glasses/hud/security/prescription(T)
+		user.put_in_hands(T)
 		qdel(src)
 
 /obj/item/clothing/glasses/regular/scanners
 	name = "scanning goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
-	icon_state = "uzenwa_sissra_1"
+	icon_state = "scanning"
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "prescription glasses"
@@ -468,7 +470,7 @@ BLIND     // can't see anything
 	name = "HUD aviators"
 	desc = "Modified aviator glasses that can be switched between HUD and flash protection modes. Comes with bonus prescription overlay."
 	icon_state = "sec_hud"
-	off_state = "sec_flash"
+	off_state = "sec_hud_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle Mode"
 	var/on = TRUE
@@ -581,7 +583,7 @@ BLIND     // can't see anything
 	name = "aviators"
 	desc = "Modified aviator glasses with a toggled thermal-vision mode. Comes with bonus prescription overlay."
 	icon_state = "aviator_thr"
-	off_state = "aviator"
+	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'

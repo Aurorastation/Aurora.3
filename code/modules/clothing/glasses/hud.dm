@@ -35,6 +35,7 @@
 	var/turf/T = get_turf(src)
 	new /obj/item/clothing/glasses/hud/health(T)
 	new /obj/item/clothing/glasses/regular(T)
+	user.put_in_hands(T)
 	user.drop_item(src)
 	qdel(src)
 
@@ -58,6 +59,7 @@
 	var/turf/T = get_turf(src)
 	new /obj/item/clothing/glasses/hud/health(T)
 	new /obj/item/clothing/glasses/regular(T)
+	user.put_in_hands(T)
 	user.drop_item(src)
 	qdel(src)
 
