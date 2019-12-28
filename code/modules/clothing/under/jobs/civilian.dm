@@ -211,6 +211,7 @@
 
 /obj/item/clothing/under/rank/idris/robotics
 	name = "Idris Incorporated robotics uniform" 
+	desc = "A uniform worn by Idris Incorporated robotics personnel."
 	icon_state = "idris_robotics"
 	worn_state = "idris_robotics"
 
