@@ -209,6 +209,11 @@
 	icon_state = "idris_service_alt"
 	worn_state = "idris_service_alt"
 
+/obj/item/clothing/under/rank/idris/robotics
+	name = "Idris Incorporated robotics uniform" 
+	icon_state = "idris_robotics"
+	worn_state = "idris_robotics"
+
 /obj/item/clothing/under/rank/einstein_engines
 	name = "Einstein Engines uniform"
 	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."

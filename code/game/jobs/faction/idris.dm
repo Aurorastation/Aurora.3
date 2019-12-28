@@ -40,7 +40,8 @@
 		/datum/job/hydro,
 		/datum/job/cargo_tech,
 		/datum/job/qm,
-		/datum/job/representative
+		/datum/job/representative,
+		/datum/job/roboticist
 	)
 
 	allowed_species_types = list(
@@ -63,7 +64,10 @@
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
 		"Quartermaster" = /datum/outfit/job/qm/idris,
-		"Corporate Liaison" = /datum/outfit/job/representative/idris
+		"Corporate Liaison" = /datum/outfit/job/representative/idris,
+		"Roboticist" = /datum/outfit/job/roboticist/idris,
+		"Biomechanical Engineer" = /datum/outfit/job/roboticist/idris,
+		"Mechatronic Engineer" = /datum/outfit/job/roboticist/idris,
 	)
 
 /datum/outfit/job/officer/idris
@@ -106,11 +110,15 @@
 	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/card/id/idris
 
-
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null
 	implants = null
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/roboticist/idris
+	name = "Roboticist - Idris"
+	uniform = /obj/item/clothing/under/rank/idris/robotics
 	id = /obj/item/card/id/idris
