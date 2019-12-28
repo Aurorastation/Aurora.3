@@ -4,9 +4,9 @@
       <div class="header">
         <div class="header-item">Name</div>
         <div class="header-item">Pulse</div>
-        <div class="header-item">Pressure</div>
-        <div class="header-item">Oxy</div>
-        <div class="header-item">Temp</div>
+        <div class="header-item"><vui-tooltip label="BP">Blood pressure</vui-tooltip></div>
+        <div class="header-item"><vui-tooltip label="Oxy">Oxygenation</vui-tooltip></div>
+        <div class="header-item"><vui-tooltip label="Temp">Temperature</vui-tooltip></div>
         <div class="header-item">Location</div>
         <div class="header-item"/>
       </div>
@@ -16,11 +16,11 @@
         <template v-if="sensor.stype > 1">
           <div class="item center">{{ sensor.pressure }}</div>
         </template>
-        <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxiLabel(sensor.oxyg) }}</div>
+        <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
         <div class="item center"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
-        <div class="item rigth" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
-        <div class="item rigth" v-else>Not Available</div>
-        <div class="item rigth" v-if="isAI"><vui-button :params="{'Track': sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
+        <div class="item right" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
+        <div class="item right" v-else>Not Available</div>
+        <div class="item right" v-if="isAI"><vui-button :params="{'Track': sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
     roundTemp(t) {
       return Math.round(t * 10) / 10
     },
-    toOxiLabel(value) {
+    toOxyLabel(value) {
       switch (value) {
         case 5:
           return "increased"
@@ -112,7 +112,7 @@ export default {
   text-align: center;
 }
 
-.rigth {
+.right {
   text-align: right;
 }
 </style>
