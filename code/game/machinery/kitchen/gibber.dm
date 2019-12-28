@@ -103,15 +103,7 @@
 		qdel(W)
 		user.visible_message("<span class='danger'>\The [user] feeds \the [W] into \the [src], obliterating it.</span>")
 
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = user
-		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
-			if(prob(10))
-				M.apply_damage(30, BRUTE, BP_HEAD)
-				M.apply_damage(45, PAIN)
-				M.visible_message("<span class='danger'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
-				M.say("*scream")
-
+	do_hair_pull(user)
 
 /obj/machinery/gibber/MouseDrop_T(mob/target, mob/user)
 	if(user.stat || user.restrained())
