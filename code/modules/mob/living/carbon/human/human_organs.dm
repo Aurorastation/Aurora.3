@@ -135,7 +135,7 @@
 		return
 
 	for (var/obj/item/organ/external/E in organs)
-		if(!E || !E.can_grasp || (E.status & ORGAN_SPLINTED))
+		if(!E || !(E.limb_flags & ORGAN_CAN_GRASP) || (E.status & ORGAN_SPLINTED))
 			continue
 
 		if(E.is_broken() || E.is_dislocated())
@@ -151,7 +151,7 @@
 
 			var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
-		
+
 		else if(!(E.status & ORGAN_ROBOT) && CE_DROPITEM in chem_effects && prob(chem_effects[CE_DROPITEM]))
 			to_chat(src, span("warning", "Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
 			emote("me", 1, "drops what they were holding in their [E.name]!")
