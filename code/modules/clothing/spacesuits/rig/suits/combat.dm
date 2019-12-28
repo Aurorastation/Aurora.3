@@ -87,7 +87,9 @@
 		/obj/item/ammo_casing,
 		/obj/item/melee/baton,
 		/obj/item/melee/energy/sword,
-		/obj/item/handcuffs
+		/obj/item/handcuffs,
+		/obj/item/material/twohanded/fireaxe,
+		/obj/item/rfd/construction
 	)
 
 	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
@@ -105,7 +107,7 @@
 
 /obj/item/rig/gunslinger
 	name = "gunslinger hardsuit control module"
-	desc = "A favorite of Frontier rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
+	desc = "A favorite of Coalition rangers, the Gunslinger suit is a sturdy hardsuit meant to provide the user absolute situational awareness."
 	icon_state = "gunslinger"
 	suit_type = "gunslinger hardsuit"
 	armor = list(melee = 50, bullet = 60, laser = 40, energy = 30, bomb = 30, bio = 100, rad = 60)

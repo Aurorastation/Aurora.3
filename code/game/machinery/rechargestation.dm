@@ -6,13 +6,13 @@
 	density = 1
 	anchored = 1
 	use_power = 1
-	idle_power_usage = 50
+	idle_power_usage = 75
 	has_special_power_checks = TRUE
 	var/mob/occupant = null
 	var/obj/item/cell/cell = null
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
 	var/charging = 0
-	var/charging_efficiency = 0.85//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
+	var/charging_efficiency = 1.3//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
 	var/charging_power			// W. Power rating drawn from internal cell to recharge occupant's cell 60 kW unupgraded
 	var/restore_power_active	// W. Power drawn from APC to recharge internal cell when an occupant is charging. 40 kW if un-upgraded
 	var/restore_power_passive	// W. Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
@@ -153,7 +153,7 @@
 			man_rating += P.rating
 	cell = locate(/obj/item/cell) in component_parts
 
-	charging_efficiency = 0.85 + 0.015 * cap_rating
+	charging_efficiency = 1.3 + 0.030 * cap_rating
 	charging_power = 30000 + 12000 * cap_rating
 	restore_power_active = 10000 + 10000 * cap_rating
 	restore_power_passive = 5000 + 1000 * cap_rating

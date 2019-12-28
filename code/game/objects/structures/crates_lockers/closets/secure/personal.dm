@@ -9,7 +9,8 @@
 		new /obj/item/storage/backpack(src)
 	else
 		new /obj/item/storage/backpack/satchel_norm(src)
-	new /obj/item/device/radio/headset( src )
+	new /obj/item/device/radio/headset(src)
+	new /obj/item/device/radio/headset/alt(src)
 
 /obj/structure/closet/secure_closet/personal/patient
 	name = "patient's closet"
@@ -43,9 +44,9 @@
 			icon_state = icon_opened
 
 /obj/structure/closet/secure_closet/personal/cabinet/fill()
-	new /obj/item/storage/backpack/satchel/withwallet( src )
-	new /obj/item/device/radio/headset( src )
-
+	new /obj/item/storage/backpack/satchel/withwallet(src)
+	new /obj/item/device/radio/headset(src)
+	new /obj/item/device/radio/headset/alt(src)
 
 /obj/structure/closet/secure_closet/personal/attackby(obj/item/W as obj, mob/user as mob)
 	if (opened)

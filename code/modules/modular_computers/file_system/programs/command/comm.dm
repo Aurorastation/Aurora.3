@@ -3,6 +3,7 @@
 #define STATE_VIEWMESSAGE	3
 #define STATE_STATUSDISPLAY	4
 #define STATE_ALERT_LEVEL	5
+
 /datum/computer_file/program/comm
 	filename = "comm"
 	filedesc = "Command and communications program."
@@ -76,6 +77,7 @@
 	data["boss_short"] = current_map.boss_short
 	data["current_security_level"] = security_level
 	data["current_security_level_title"] = num2seclevel(security_level)
+	data["current_maint_all_access"] = maint_all_access
 
 	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
 	data["def_SEC_LEVEL_YELLOW"] = SEC_LEVEL_YELLOW
@@ -133,6 +135,16 @@
 	switch(href_list["action"])
 		if("sw_menu")
 			current_status = text2num(href_list["target"])
+		if("emergencymaint")
+			if(is_autenthicated(user) && !issilicon(user))
+				if(maint_all_access)
+					revoke_maint_all_access()
+					feedback_inc("alert_comms_maintRevoke",1)
+					log_and_message_admins("disabled emergency maintenance access")
+				else
+					make_maint_all_access()
+					feedback_inc("alert_comms_maintGrant",1)
+					log_and_message_admins("enabled emergency maintenance access")
 		if("announce")
 			if(is_autenthicated(user) && !issilicon(usr) && ntn_comm)
 				if(user)
@@ -435,3 +447,9 @@ Command action procs
 	message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the shuttle.", 1)
 
 	return
+
+#undef STATE_DEFAULT
+#undef STATE_MESSAGELIST
+#undef STATE_VIEWMESSAGE
+#undef STATE_STATUSDISPLAY
+#undef STATE_ALERT_LEVEL

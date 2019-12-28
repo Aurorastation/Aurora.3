@@ -40,8 +40,10 @@
 
 /obj/item/gun/projectile/sec
 	name = ".45 pistol"
-	desc = "A NanoTrasen designed sidearm, found pretty much everywhere humans are. Uses .45 rounds."
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
+	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
 	icon_state = "secguncomp"
+	item_state = "mk58standard"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
@@ -65,9 +67,11 @@
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/wood
-	desc = "A Nanotrasen designed sidearm, this one has a sweet wooden grip. Uses .45 rounds."
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
+	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a wooden grip. It uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
+	item_state = "mk58custom"
 
 /obj/item/gun/projectile/sec/wood/update_icon()
 	..()
@@ -137,7 +141,7 @@
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon_state = "deagle"
-	force = 14.0
+	force = 10
 	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
@@ -152,6 +156,11 @@
 		icon_state = "[initial(icon_state)]"
 	else
 		icon_state = "[initial(icon_state)]-e"
+
+/obj/item/gun/projectile/deagle/adhomai
+	name = "adhomian heavy pistol"
+	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
+	icon_state = "adhomian_heavy_pistol"
 
 /obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
@@ -316,7 +325,7 @@
 
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
-	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and political commissars."
+	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon_state = "adhomian_pistol"
 	item_state = "pistol"
 	can_silence = FALSE

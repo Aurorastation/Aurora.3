@@ -8,7 +8,7 @@
 	idle_power_usage = 5
 	active_power_usage = 90000	//90 kW. (this the power drawn when charging)
 	power_channel = EQUIP
-	var/charging_efficiency = 0.92
+	var/charging_efficiency = 1.38
 	var/obj/item/cell/charging = null
 	var/chargelevel = -1
 

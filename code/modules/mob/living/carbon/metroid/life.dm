@@ -99,9 +99,6 @@
 		death()
 		return
 
-	if (halloss)
-		halloss = 0
-
 	if(prob(30))
 		adjustOxyLoss(-1)
 		adjustToxLoss(-1)
@@ -218,7 +215,7 @@
 
 			for(var/mob/living/L in view(7,src))
 
-				if(isslime(L) || L.stat == DEAD) // Ignore other slimes and dead mobs
+				if(isslime(L) || L.stat == DEAD || L.is_asystole()) // Ignore other slimes and dead mobs
 					continue
 
 				if(isskrell(L)) // we do not attack skrell - lore reason.
@@ -299,7 +296,7 @@
 		return
 
 	if(Target) // We're chasing the target
-		if(Target.stat == DEAD)
+		if(Target.stat == DEAD || Target.is_asystole())
 			Target = null
 			AIproc = 0
 			return

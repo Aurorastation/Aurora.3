@@ -24,10 +24,14 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/swat/ert
+	species_restricted = null
+
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
 	item_state = "black_leather_gloves"
+	species_restricted = null
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
@@ -71,6 +75,20 @@
 	desc = "Sterile nitrile gloves."
 	icon_state = "nitrile"
 	item_state = "ngloves"
+
+/obj/item/clothing/gloves/latex/nitrile/unathi
+	name = "unathi nitrile gloves"
+	desc = "Sterile nitrile gloves. Designed for Unathi use."
+	icon_state = "nitrile"
+	item_state = "ngloves"
+	species_restricted = list("Unathi")
+
+/obj/item/clothing/gloves/latex/nitrile/tajara
+	name = "tajaran nitrile gloves"
+	desc = "Sterile nitrile gloves. Designed for Tajara use."
+	icon_state = "nitrile"
+	item_state = "ngloves"
+	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"

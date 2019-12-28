@@ -10,7 +10,7 @@
 #define STORAGE_SPACE_CAP 200
 
 /obj/storage_bullshit
-	layer = 19
+	layer = SCREEN_LAYER
 
 /obj/item/storage
 	name = "storage"
@@ -57,9 +57,6 @@
 		return
 
 	if (ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
-
-		if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech. why?
-			return
 
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
@@ -175,7 +172,7 @@
 	src.boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
 	for(var/obj/O in src.contents)
 		O.screen_loc = "[cx],[cy]"
-		O.layer = 20
+		O.layer = SCREEN_LAYER+0.01
 		cx++
 		if (cx > mx)
 			cx = tx
@@ -193,7 +190,7 @@
 		for(var/datum/numbered_display/ND in display_contents)
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = "<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>"
-			ND.sample_object.layer = 20
+			ND.sample_object.layer = SCREEN_LAYER+0.01
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -202,7 +199,7 @@
 		for(var/obj/O in contents)
 			O.screen_loc = "[cx]:16,[cy]:16"
 			O.maptext = ""
-			O.layer = 20
+			O.layer = SCREEN_LAYER+0.01
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -248,7 +245,7 @@
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
-		O.layer = 20
+		O.layer = SCREEN_LAYER+0.01
 
 	if (!defer_overlays)
 		storage_start.compile_overlays()
@@ -421,7 +418,7 @@
 		if(ismob(loc))
 			W.dropped(usr)
 		if(ismob(new_location))
-			W.layer = 20
+			W.layer = SCREEN_LAYER+0.01
 		else
 			W.layer = initial(W.layer)
 		W.forceMove(new_location)
@@ -452,7 +449,7 @@
 		if (ismob(loc))
 			W.dropped(user)
 		if (ismob(new_location))
-			W.layer = 20
+			W.layer = SCREEN_LAYER+0.01
 		else
 			W.layer = initial(W.layer)
 
@@ -629,7 +626,7 @@
 
 	closer = new /obj/screen/close{
 		icon_state = "x";
-		layer = 20
+		layer = SCREEN_LAYER
 	}
 	closer.master = src
 	orient2hud(null, mapload)

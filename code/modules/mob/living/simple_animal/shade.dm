@@ -268,31 +268,6 @@
 
 	message_countdown = max(0, message_countdown - 20)
 
-/mob/living/simple_animal/shade/bluespace/verb/mass_warp()
-	set category = "Bluespace Echo"
-	set name = "Warp Vortex"
-	set desc = "Teleport items wildly."
-
-	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
-		return
-
-	if(message_countdown < 200)
-		to_chat(src, "<span class='warning'>You are too faded to warp an item through bluespace.</span>")
-		return
-
-	var/list/liable_turfs = list()
-
-	for(var/turf/T in view(4, src))
-		liable_turfs += T
-
-	if(liable_turfs.len)
-		visible_message("<span class ='danger'>\The [src] pulses violently!</span>")
-		for(var/atom/movable/M in view(7, src))
-			if(!M.anchored)
-				do_teleport(M, pick(liable_turfs))
-				message_countdown = max(0, message_countdown - 20)
-
 /mob/living/simple_animal/shade/bluespace/verb/lifeline()
 	set category = "Bluespace Echo"
 	set name = "Lifeline"

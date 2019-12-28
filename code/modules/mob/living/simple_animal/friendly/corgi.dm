@@ -3,6 +3,7 @@
 	name = "corgi"
 	real_name = "corgi"
 	desc = "It's a corgi."
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "corgi"
 	icon_living = "corgi"
 	icon_dead = "corgi_dead"
@@ -19,11 +20,11 @@
 	response_harm   = "kicks"
 	see_in_dark = 5
 	mob_size = 3.5
-	max_nutrition = 80	//Dogs are insatiable eating monsters. This scales with their mob size too
-	stomach_size_mult = 30
+	max_nutrition = 70	//Dogs are insatiable eating monsters. This scales with their mob size too
+	stomach_size_mult = 8
 	seek_speed = 6
 	possession_candidate = 1
-
+	canbrush = TRUE
 	holder_type = /obj/item/holder/corgi
 
 	butchering_products = list(/obj/item/stack/material/animalhide/corgi = 3)
@@ -34,7 +35,7 @@
 
 /mob/living/simple_animal/corgi/Initialize()
 	. = ..()
-	nutrition = max_nutrition * 0.3	//Ian doesn't start with a full belly so will be hungry at roundstart
+	nutrition = max_nutrition * 0.8	//They can start a little hungry, but let's no go crazy
 
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian
@@ -60,9 +61,6 @@
 		set_dir(i)
 		sleep(1)
 
-/mob/living/simple_animal/corgi/beg(var/atom/thing, var/atom/holder)
-	visible_emote("stares at the [thing] that [holder] has with sad puppy eyes.",0)
-
 /obj/item/reagent_containers/food/snacks/meat/corgi
 	name = "Corgi meat"
 	desc = "Tastes like... well you know..."
@@ -76,7 +74,6 @@
 			)
 			scan_interval = max_scan_interval
 			movement_target = null
-			foodtarget = 0
 			stop_automated_movement = 0
 			turns_since_scan = 0
 

@@ -98,7 +98,8 @@
 	corpseidjob = "Operative"
 	corpseidaccess = "Syndicate"
 
-
+/obj/effect/landmark/mobcorpse/syndicatesoldier/unknown
+	name = "unknown operative"
 
 /obj/effect/landmark/mobcorpse/syndicatecommando
 	name = "Syndicate Commando"

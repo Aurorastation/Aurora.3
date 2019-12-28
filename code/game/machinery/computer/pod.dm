@@ -137,9 +137,9 @@
 
 
 /obj/machinery/computer/pod/old
-	icon_state = "oldcomp"
-
-	icon_screen = "library"
+	icon = 'icons/obj/library.dmi'
+	icon_state = "computer"
+	icon_screen = null
 	name = "DoorMex Control Computer"
 	title = "Door Controls"
 

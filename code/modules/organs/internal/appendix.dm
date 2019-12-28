@@ -1,10 +1,10 @@
-/obj/item/organ/appendix
+/obj/item/organ/internal/appendix
 	name = "appendix"
 	icon_state = "appendix"
 	parent_organ = BP_GROIN
 	organ_tag = "appendix"
 
-/obj/item/organ/appendix/removed()
+/obj/item/organ/internal/appendix/removed()
 	if(owner)
 		var/inflamed = 0
 		for(var/datum/disease/appendicitis/appendicitis in owner.viruses)

@@ -507,7 +507,7 @@ datum/objective/steal
 				return found_amount>=target_amount
 
 			if("50 coins (in bag)")
-				var/obj/item/moneybag/B = locate() in all_items
+				var/obj/item/storage/bag/money/B = locate() in all_items
 
 				if(B)
 					var/target = text2num(target_name)

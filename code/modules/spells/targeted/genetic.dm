@@ -73,7 +73,7 @@ code\game\dna\genes\goon_powers.dm
 	max_targets = 1
 	cast_sound = 'sound/magic/Mutate.ogg'
 
-	mutations = list(LASER, HULK)
+	mutations = list(LASER_EYES, HULK)
 	duration = 300
 
 	level_max = list(Sp_TOTAL = 1, Sp_SPEED = 1, Sp_POWER = 0)

@@ -206,12 +206,6 @@
 						nearest_downed_target = L
 						nearest_downed_dist = dist
 
-		else if(istype(A, /obj/mecha))
-			var/obj/mecha/M = A
-			if (M.occupant)
-				if (dist < nearest_dist)
-					nearest_target = M
-					nearest_dist = dist
 
 		if(istype(A, /obj/machinery/bot))
 			var/obj/machinery/bot/B = A
@@ -236,10 +230,6 @@
 	if (isliving(target_mob))
 		var/mob/living/L = target_mob
 		if((L.stat != DEAD))
-			return (0)
-	if (istype(target_mob,/obj/mecha))
-		var/obj/mecha/M = target_mob
-		if (M.occupant)
 			return (0)
 	if (istype(target_mob,/obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -419,7 +409,7 @@
 	break_stuff_probability = 100//Constantly smashing everything nearby
 	speak_chance = 15
 	var/idletime
-	var/focus_time//How long we've focused on this target
+	var/focus_time //How long we've focused on this target
 	var/teleport_delay = 60
 	var/tactical_delay = 3//Procs between shortrange teleports
 	var/datum/effect_system/sparks/spark_system

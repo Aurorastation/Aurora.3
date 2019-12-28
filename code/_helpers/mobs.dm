@@ -5,9 +5,6 @@
 	if(load && istype(load,/mob/living))
 		return load
 
-/obj/mecha/get_mob()
-	return occupant
-
 /obj/vehicle/train/get_mob()
 	return buckled_mob
 
@@ -165,10 +162,12 @@ Proc for attack log creation, because really why not
 
 //checks whether this item is a module of the robot it is located in.
 /proc/is_robot_module(var/obj/item/thing)
-	if (!thing || !istype(thing.loc, /mob/living/silicon/robot))
-		return 0
-	var/mob/living/silicon/robot/R = thing.loc
-	return (thing in R.module.modules)
+	if(!thing)
+		return FALSE
+	if(istype(thing.loc, /mob/living/heavy_vehicle))
+		return FALSE
+	if(!istype(thing.loc, /mob/living/silicon/robot))
+		return FALSE
 
 /proc/get_exposed_defense_zone(var/atom/movable/target)
 	var/obj/item/grab/G = locate() in target

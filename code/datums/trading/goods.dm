@@ -83,13 +83,6 @@
 		/obj/item/circuitboard/telecomms                  = TRADER_BLACKLIST,
 		/obj/item/circuitboard/unary_atmos                = TRADER_BLACKLIST,
 		/obj/item/circuitboard/arcade                     = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha                      = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha/odysseus             = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha/honker               = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha/durand               = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha/gygax                = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha/ripley               = TRADER_BLACKLIST,
-		/obj/item/circuitboard/mecha/phazon               = TRADER_BLACKLIST,
 		/obj/item/circuitboard/broken                     = TRADER_BLACKLIST,
 		/obj/item/storage/box/lights/colored              = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                               = TRADER_SUBTYPES_ONLY,
@@ -175,7 +168,7 @@
 		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/jackboots/unathi/fluff = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/shoes/jackboots/toeless/fluff = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
 	)
 
@@ -229,8 +222,6 @@ Sells devices, odds and ends, and medical stuff
 	possible_origins = list("Buy 'n Save", "Drug Carnival", "C&B", "Fentles", "Dr. Goods", "Beevees")
 	possible_trading_items = list(
 		/obj/item/device/flashlight                = TRADER_ALL,
-		/obj/item/device/kit/paint                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/device/kit/paint/ripley/fluff    = TRADER_BLACKLIST_ALL,
 		/obj/item/aicard                    = TRADER_THIS_TYPE,
 		/obj/item/device/binoculars                = TRADER_THIS_TYPE,
 		/obj/item/device/flash                     = TRADER_THIS_TYPE,
@@ -373,7 +364,7 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
-		/obj/mecha/working/ripley                        = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,
 		/obj/item/custom_ka_upgrade/upgrade_chips        = TRADER_SUBTYPES_ONLY,
 		/obj/item/custom_ka_upgrade/barrels              = TRADER_SUBTYPES_ONLY,
 		/obj/item/custom_ka_upgrade/cells                = TRADER_SUBTYPES_ONLY

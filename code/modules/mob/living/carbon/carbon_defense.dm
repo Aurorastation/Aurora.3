@@ -166,10 +166,10 @@
 	adjustOxyLoss(min(oxyloss, 100 - getOxyLoss())) //don't put them over 100 oxyloss
 
 	if(total_damage)
-		if(oxyloss >= 40)
-			user.visible_message("<span class='danger'>\The [user] slit [src]'s throat open with \the [W]!</span>")
+		if(getOxyLoss() >= 40)
+			user.visible_message("<span class='danger'>\The [user] slices [src]'s throat open with \the [W]!</span>")
 		else
-			user.visible_message("<span class='danger'>\The [user] cut [src]'s neck with \the [W]!</span>")
+			user.visible_message("<span class='danger'>\The [user] cuts [src]'s neck open with \the [W]!</span>")
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, 50, 1, -1)
@@ -187,3 +187,23 @@
 	src.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
 	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(src)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(src) )
 	return 1
+
+/mob/living/carbon/Stun(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Weaken(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Paralyse(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Sleeping(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Resting(amount)
+	help_up_offer = 0
+	..()

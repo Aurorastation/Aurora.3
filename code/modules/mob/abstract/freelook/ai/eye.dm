@@ -3,16 +3,27 @@
 // A mob that the AI controls to look around the station with.
 // It streams chunks as it moves around, which will show it what the AI can and cannot see.
 
+/mob/abstract/eye/cameranet
+	// Generic version of the AI eye without the AI-specific handling, for things like the Camera MIU mask.
+	name = "Inactive Camera Eye"
+	name_suffix = "Camera Eye"
+
+/mob/abstract/eye/cameranet/Initialize()
+	. = ..()
+	visualnet = cameranet
+
 /mob/abstract/eye/aiEye
 	name = "Inactive AI Eye"
+	name_suffix = "AI Eye"
 	icon_state = "AI-eye"
 
-/mob/abstract/eye/aiEye/New()
-	..()
+/mob/abstract/eye/aiEye/Initialize()
+	. = ..()
 	visualnet = cameranet
 
 /mob/abstract/eye/aiEye/setLoc(var/T, var/cancel_tracking = 1)
-	if(..())
+	. = ..()
+	if(. && isAI(owner))
 		var/mob/living/silicon/ai/ai = owner
 		if(cancel_tracking)
 			ai.ai_cancel_tracking()
@@ -33,7 +44,6 @@
 	if(!eyeobj) return
 	if(!new_eye)
 		new_eye = src
-	eyeobj.owner = null
 	qdel(eyeobj) // No AI, no Eye
 	eyeobj = null
 	if(client)
@@ -41,26 +51,18 @@
 
 /mob/living/silicon/ai/proc/create_eyeobj(var/newloc)
 	if(eyeobj) destroy_eyeobj()
-	if(!newloc) newloc = src.loc
+	if(!newloc) newloc = get_turf(src)
 	eyeobj = new /mob/abstract/eye/aiEye(newloc)
-	eyeobj.owner = src
-	eyeobj.name = "[src.name] (AI Eye)" // Give it a name
-	if(client) client.eye = eyeobj
-	SetName(src.name)
+	eyeobj.possess(src)
 
 // Intiliaze the eye by assigning it's "ai" variable to us. Then set it's loc to us.
 /mob/living/silicon/ai/Initialize()
 	. = ..()
 	create_eyeobj()
-	addtimer(CALLBACK(src, .proc/init_move_eyeobj), 5)
-
-/mob/living/silicon/ai/proc/init_move_eyeobj()
-	if (eyeobj)
-		eyeobj.forceMove(loc)
 
 /mob/living/silicon/ai/Destroy()
 	destroy_eyeobj()
-	return ..()
+	. = ..()
 
 /atom/proc/move_camera_by_click()
 	if(istype(usr, /mob/living/silicon/ai))
@@ -82,11 +84,7 @@
 	if(!src.eyeobj)
 		return
 
-	if(client && client.eye)
-		client.eye = src
-	for(var/datum/chunk/c in eyeobj.visibleChunks)
-		c.remove(eyeobj)
-	src.eyeobj.setLoc(src)
+	eyeobj.possess(src)
 
 /mob/living/silicon/ai/proc/toggle_acceleration()
 	set category = "AI Commands"

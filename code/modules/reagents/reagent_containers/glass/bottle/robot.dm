@@ -4,19 +4,20 @@
 	possible_transfer_amounts = list(5,10,15,25,30,50,100)
 	flags = OPENCONTAINER
 	volume = 60
+	fragile = 0 // do NOT shatter
 	var/reagent = ""
 
 
-/obj/item/reagent_containers/glass/bottle/robot/inaprovaline
-	name = "internal inaprovaline bottle"
-	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
+/obj/item/reagent_containers/glass/bottle/robot/norepinephrine
+	name = "internal norepinephrine bottle"
+	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-4"
-	reagent = "inaprovaline"
+	reagent = "norepinephrine"
 
 	New()
 		..()
-		reagents.add_reagent("inaprovaline", 60)
+		reagents.add_reagent("norepinephrine", 60)
 		update_icon()
 
 
@@ -25,10 +26,10 @@
 	desc = "A small bottle of Anti-toxins. Counters poisons, and repairs damage, a wonder drug."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-4"
-	reagent = "anti_toxin"
+	reagent = "dylovene"
 
 	New()
 		..()
-		reagents.add_reagent("anti_toxin", 60)
+		reagents.add_reagent("dylovene", 60)
 		update_icon()
 

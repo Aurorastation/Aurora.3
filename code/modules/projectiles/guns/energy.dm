@@ -85,6 +85,9 @@
 				var/obj/item/rig/suit = H.back
 				if(istype(suit))
 					return suit.cell
+	if(istype(loc, /obj/item/mecha_equipment))
+		return loc.get_cell()
+
 	return null
 
 /obj/item/gun/energy/examine(mob/user)

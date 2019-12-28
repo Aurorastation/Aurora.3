@@ -77,6 +77,7 @@
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"
+	norepi		spawn_reagent = "norepinephrine"
 	ryetalyn	spawn_reagent = "ryetalyn"
 	paracetamol	spawn_reagent = "paracetamol"
 	tramadol	spawn_reagent = "tramadol"
@@ -89,7 +90,7 @@
 	dexalin/small	volume = CARTRIDGE_VOLUME_SMALL // For the medicine cartridge crate, so it's not too easy to get large amounts of dexalin
 	dexalin_p	spawn_reagent = "dexalinp"
 	tricord		spawn_reagent = "tricordrazine"
-	dylovene	spawn_reagent = "anti_toxin"
+	dylovene	spawn_reagent = "dylovene"
 	synaptizine	spawn_reagent = "synaptizine"
 	hyronalin	spawn_reagent = "hyronalin"
 	arithrazine	spawn_reagent = "arithrazine"

@@ -320,8 +320,6 @@
 
 	if (!M)
 		return 0
-	if(istype(M.loc,/obj/mecha))
-		return 0	//feckin mechs are dumb
 	var/area/source_area
 	if(istype(power_source,/area))
 		source_area = power_source

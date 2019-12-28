@@ -6,6 +6,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
+	description_info = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
@@ -127,7 +128,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Engineering
  */
 
- /obj/item/device/pda/atmos
+/obj/item/device/pda/atmos
 	icon_state = "pda-atmo"
 	default_cartridge = /obj/item/cartridge/atmos
 	inserted_item = /obj/item/pen/silver
@@ -145,7 +146,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
  * Cargo
  */
 
- /obj/item/device/pda/cargo
+/obj/item/device/pda/cargo
 	icon_state = "pda-cargo"
 	default_cartridge = /obj/item/cartridge/quartermaster
 	inserted_item = /obj/item/pen/silver
@@ -1100,7 +1101,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 		if (USE_SUCCESS)
 			if (!inserted_item)
-				to_chat(user, "<span class='notice'>[src] does not have pen in it.</span>")
+				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
 				return
 
 			if (loc == user && !user.get_active_hand())
@@ -1410,65 +1411,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		to_chat(user, "<span class='notice'>Card scanned.</span>")
 	try_sort_pda_list()
 
-/obj/item/device/pda/attack(mob/living/C as mob, mob/living/user as mob)
-	if (istype(C, /mob/living/carbon))
-		switch(scanmode)
-			if(1)
-
-				for (var/mob/O in viewers(C, null))
-					O.show_message("<span class='warning'>\The [user] has analyzed [C]'s vitals!</span>", 1)
-
-				user.show_message("<span class='notice'>Analyzing Results for [C]:</span>")
-				user.show_message("<span class='notice'>    Overall Status: [C.stat > 1 ? "dead" : "[C.health - C.halloss]% healthy"]</span>", 1)
-				user.show_message(text("<span class='notice'>    Damage Specifics:</span> <span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>-<span class='[]'>[]</span>",
-						(C.getOxyLoss() > 50) ? "warning" : "", calcDamage(C.getOxyLoss()),
-						(C.getToxLoss() > 50) ? "warning" : "", calcDamage(C.getToxLoss()),
-						(C.getFireLoss() > 50) ? "warning" : "", calcDamage(C.getFireLoss()),
-						(C.getBruteLoss() > 50) ? "warning" : "", calcDamage(C.getBruteLoss())
-						), 1)
-				user.show_message("<span class='notice'>    Key: Suffocation/Toxin/Burns/Brute</span>", 1)
-				user.show_message("<span class='notice'>    Body Temperature: [C.bodytemperature-T0C]&deg;C ([C.bodytemperature*1.8-459.67]&deg;F)</span>", 1)
-				if(C.tod && (C.stat == DEAD || (C.status_flags & FAKEDEATH)))
-					user.show_message("<span class='notice'>    Time of Death: [C.tod]</span>")
-				if(istype(C, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = C
-					var/list/damaged = H.get_damaged_organs(1,1)
-					user.show_message("<span class='notice'>Localized Damage, Brute/Burn:</span>",1)
-					if(length(damaged)>0)
-						for(var/obj/item/organ/external/org in damaged)
-							user.show_message(text("<span class='notice'>     []: <span class='[]'>[]</span>-<span class='[]'>[]</span></span>",
-									capitalize(org.name), (org.brute_dam > 0) ? "warning" : "notice", calcDamage(org.brute_dam), (org.burn_dam > 0) ? "warning" : "notice", calcDamage(org.burn_dam)),1)
-					else
-						user.show_message("<span class='notice'>    Limbs are OK.</span>",1)
-
-				for(var/datum/disease/D in C.viruses)
-					if(!D.hidden[SCANNER])
-						user.show_message("<span class='warning'><b>Warning: [D.form] Detected</b>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</span>")
-
-			if(2)
-				if (!istype(C:dna, /datum/dna))
-					to_chat(user, "<span class='notice'>No fingerprints found on [C]</span>")
-				else
-					to_chat(user, text("<span class='notice'>\The [C]'s Fingerprints: [md5(C:dna.uni_identity)]</span>"))
-				if ( !(C:blood_DNA) )
-					to_chat(user, "<span class='notice'>No blood found on [C]</span>")
-					if(C:blood_DNA)
-						qdel(C:blood_DNA)
-				else
-					to_chat(user, "<span class='notice'>Blood found on [C]. Analysing...</span>")
-					spawn(15)
-						for(var/blood in C:blood_DNA)
-							to_chat(user, "<span class='notice'>Blood type: [C:blood_DNA[blood]]\nDNA: [blood]</span>")
-
-			if(4)
-				for (var/mob/O in viewers(C, null))
-					O.show_message("<span class='warning'>\The [user] has analyzed [C]'s radiation levels!</span>", 1)
-
-				user.show_message("<span class='notice'>Analyzing Results for [C]:</span>")
-				if(C.total_radiation)
-					user.show_message("<span class='notice'>Radiation Level: [C.total_radiation]</span>")
-				else
-					user.show_message("<span class='notice'>No radiation detected.</span>")
+/obj/item/device/pda/attack(mob/living/C, mob/living/user)
+	health_scan_mob(C, user, TRUE)
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return

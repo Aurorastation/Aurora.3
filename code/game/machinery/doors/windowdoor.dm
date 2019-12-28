@@ -64,12 +64,6 @@
 			if(density && src.check_access(bot.botcard))
 				open()
 				addtimer(CALLBACK(src, .proc/close), 50)
-		else if(istype(AM, /obj/mecha))
-			var/obj/mecha/mecha = AM
-			if(density)
-				if(mecha.occupant && src.allowed(mecha.occupant))
-					open()
-					addtimer(CALLBACK(src, .proc/close), 50)
 		return
 	if (!( ROUND_IS_STARTED ))
 		return

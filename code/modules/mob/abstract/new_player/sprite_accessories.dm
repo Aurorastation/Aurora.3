@@ -2117,6 +2117,36 @@ Follow by example and make good judgement based on length which list to include 
 			length = 0
 			chatname = "horns"
 
+		una_demonforward
+			name = "Unathi Forward Demon Horns"
+			icon_state = "unathi_demonforward"
+			length = 5
+			chatname = "horns"
+
+		una_bullhorns
+			name = "Unathi Bull Horns"
+			icon_state = "unathi_bullhorn"
+			length = 5
+			chatname = "horns"
+
+		una_longhorns
+			name = "Unathi Long Bull Horns"
+			icon_state = "unathi_longhorn"
+			length = 5
+			chatname = "horns"
+
+		una_faun
+			name = "Unathi Faun Horns"
+			icon_state = "unathi_faun"
+			length = 5
+			chatname = "horns"
+
+		una_double
+			name = "Unathi Double Horns"
+			icon_state = "unathi_dubhorns"
+			length = 5
+			chatname = "horns"
+
 //skrell tentacles
 
 	skr_tentacle_m
@@ -2515,6 +2545,26 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Swept-Forward Horns 2"
 			icon_state = "facial_swepthorn2"
 
+		una_demonforward
+			name = "Unathi Forward Demon Horns"
+			icon_state = "facial_demonforward"
+
+		una_bullhorns
+			name = "Unathi Bull Horns"
+			icon_state = "facial_bullhorn"
+
+		una_longhorns
+			name = "Unathi Long Bull Horns"
+			icon_state = "facial_longhorn"
+
+		una_faun
+			name = "Unathi Faun Horns"
+			icon_state = "facial_faun"
+
+		una_double
+			name = "Unathi Double Horns"
+			icon_state = "facial_dubhorns"
+
 //ipc screens
 
 	ipc_screen_blank
@@ -2829,47 +2879,26 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list("Diona")
 
-
-// Branded IPC markings - disabled for now, some layering issues.
-/*
-	bishop
+	bishop_lights
+		name = "Lights Colour"
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
-		icon_state = "face_lights"
+		icon_state = "bishop_lights"
 		icon_blend_mode = ICON_MULTIPLY
-		name = "Face Color"
-		body_parts = list(BP_HEAD)
-		species_allowed = list("Bishop Accessory Frame")
 		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+		species_allowed = list("Bishop Accessory Frame")
 
-		monoeye
-			name = "Eye"
-			icon_state = "monoeye"
+		bishop_mask
+			name = "Face Mask"
+			icon_state = "bishop_mask"
+			do_colouration = FALSE
+			body_parts = list(BP_HEAD)
 
-		plating
-			name = "Plating (Full)"
-			icon_state = "plating"
-			body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
+			bishop_triangular_mask
+				name = "Triangular Face Mask"
+				icon_state = "bishop_triangular_mask"
 
-			l_arm
-				name = "Plating (Left arm)"
-				body_parts = list(BP_L_ARM)
-
-			r_arm
-				name = "Plating (Right arm)"
-				body_parts = list(BP_R_ARM)
-
-			l_leg
-				name = "Plating (Left leg)"
-				body_parts = list(BP_L_LEG)
-
-			r_leg
-				name = "Plating (Right leg)"
-				body_parts = list(BP_R_LEG)
-
-			chest
-				name = "Plating (Chest)"
-				body_parts = list(BP_CHEST)
-
+/*
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
 		icon_state = "outer"

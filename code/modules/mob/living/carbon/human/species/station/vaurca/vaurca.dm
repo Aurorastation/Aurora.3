@@ -41,6 +41,7 @@
 	breath_vol_mul = 1/6 // 0.5 liters * breath_vol_mul = breath volume
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
+	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
 	climb_coeff = 0.75
@@ -86,14 +87,14 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		"neural socket"        = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit,
-		"right heart"         = /obj/item/organ/internal/heart/right,
-		"left heart"          = /obj/item/organ/internal/heart/left,
-		"phoron reserve tank" = /obj/item/organ/vaurca/preserve,
+		"filtration bit"       = /obj/item/organ/vaurca/filtrationbit,
+		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
+		"phoron reserve tank"  = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
+		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
 	)
@@ -118,16 +119,21 @@
 
 	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
+	default_citizenship = CITIZENSHIP_ZORA
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
-	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
-	if(H.equip_to_slot_or_del(S,slot_shoes))
-		S.autodrobe_no_remove = 1
 	var/obj/item/clothing/mask/breath/M = new /obj/item/clothing/mask/breath(H)
 	if(H.equip_to_slot_or_del(M, slot_wear_mask))
 		M.autodrobe_no_remove = 1
+
+/datum/species/bug/after_equip(var/mob/living/carbon/human/H)
+	if(H.shoes)
+		return
+	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
+	if(H.equip_to_slot_or_del(S,slot_shoes))
+		S.autodrobe_no_remove = 1
 
 /datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))

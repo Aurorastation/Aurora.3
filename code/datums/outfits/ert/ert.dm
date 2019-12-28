@@ -59,56 +59,100 @@
 
 //TCFL
 /datum/outfit/admin/ert/legion
-	name = "TCFL Responder"
+	name = "TCFL Volunteer"
 
+	head = /obj/item/clothing/head/legion
 	uniform = /obj/item/clothing/under/legion
 	l_ear = /obj/item/device/radio/headset/legion
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/swat
-	glasses =  /obj/item/clothing/glasses/sunglasses
+	shoes = /obj/item/clothing/shoes/swat/ert
+	gloves = /obj/item/clothing/gloves/swat/ert
+	glasses =  /obj/item/clothing/glasses/sunglasses/aviator
 	back = /obj/item/storage/backpack/legion
 	id = /obj/item/card/id/distress/legion
 
-	backpack_contents = list(
-		/obj/item/storage/belt/utility/full = 1
-	)
+	backpack_contents = null
 
 /datum/outfit/admin/ert/legion/get_id_access()
 	return get_distress_access()
 
 /datum/outfit/admin/ert/legion/specialist
-	name = "TCFL Medic"
+	name = "TCFL Legionnaire"
+	accessory = /obj/item/clothing/accessory/legion/specialist
 
-	l_hand = /obj/item/storage/firstaid/adv
-	r_hand = /obj/item/storage/firstaid/combat
-	belt = /obj/item/storage/belt/medical
+/datum/outfit/admin/ert/legion/leader
+	name = "TCFL Prefect"
+	accessory = /obj/item/clothing/accessory/legion
+
+/datum/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	.=..()
+	var/obj/item/card/id/distress/legion/I = H.wear_id
+	I.access += (access_cent_specops)
+
+/datum/outfit/admin/ert/legion/pilot
+	name = "TCFL Dropship Pilot"
+	uniform = /obj/item/clothing/under/legion/pilot
+	head = /obj/item/clothing/head/helmet/legion_pilot
+	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	gloves = null
+	back = null
+	belt = /obj/item/storage/belt/security/tactical
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/energy/blaster/revolver/pilot  = 1)
+
+/datum/outfit/admin/ert/legion/sentinel
+	name = "TCFL Sentinel"
+	head = /obj/item/clothing/head/legion/sentinel
+	uniform = /obj/item/clothing/under/legion/sentinel
+	suit = /obj/item/clothing/suit/storage/vest/legion
+	gloves = null
+	belt = /obj/item/storage/belt/security/tactical
+	suit_store = /obj/item/gun/energy/blaster/rifle
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/energy/blaster/revolver = 1)
+
+	backpack_contents = list(
+		/obj/item/gun/energy/blaster/carbine = 1,
+		/obj/item/handcuffs/ziptie = 3,
+		/obj/item/clothing/mask/gas/tactical = 1,
+		/obj/item/storage/firstaid/regular = 1,
+		/obj/item/clothing/gloves/swat/ert = 1
+	)
 
 	belt_contents = list(
-		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1,
-		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
+		/obj/item/melee/energy/sword/knife = 1,
+		/obj/item/shield/energy/legion = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/grenade/flashbang = 2,
+		/obj/item/melee/telebaton = 1
 	)
+
+/datum/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	.=..()
+	var/obj/item/card/id/distress/legion/I = H.wear_id
+	I.access += (access_cent_specops)
 
 //Mercenary
 /datum/outfit/admin/ert/mercenary
 	name = "Mercenary Freelancer"
 
 	uniform = /obj/item/clothing/under/syndicate
-	shoes = /obj/item/clothing/shoes/swat
-	gloves = /obj/item/clothing/gloves/yellow
+	shoes = /obj/item/clothing/shoes/swat/ert
+	gloves = /obj/item/clothing/gloves/swat/ert
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/storage/backpack/satchel_syndie
-	suit = /obj/item/clothing/suit/space/void/merc
-	head = /obj/item/clothing/head/helmet/space/void/merc
-	suit_store = /obj/item/tank/oxygen
+	back = /obj/item/storage/backpack/satchel_norm
+	l_hand = /obj/item/clothing/suit/space/void/freelancer
+	r_hand = /obj/item/clothing/head/helmet/space/void/freelancer
+	accessory = /obj/item/clothing/accessory/storage/black_vest
 	id = /obj/item/card/id/syndicate
 
 	l_ear = /obj/item/device/radio/headset/distress
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/c20r = 1,
-		/obj/item/storage/belt/utility/full = 1
+		/obj/item/storage/belt/utility/full = 1,
+		/obj/item/tank/oxygen = 1,
+		/obj/item/clothing/gloves/yellow = 1,
+		/obj/item/material/knife/trench = 1
 	)
 
 	belt_contents = list(
@@ -124,12 +168,14 @@
 	name = "Mercenary Freelancer Medic"
 
 	belt = /obj/item/storage/belt/medical
-	l_hand = /obj/item/storage/firstaid/adv
-	r_hand = /obj/item/storage/firstaid/combat
+	gloves = /obj/item/clothing/gloves/latex
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/automatic/c20r = 1,
-		/obj/item/ammo_magazine/a10mm = 2
+		/obj/item/ammo_magazine/a10mm = 2,
+		/obj/item/storage/firstaid/combat = 1,
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/tank/oxygen = 1
 	)
 
 	belt_contents = list(
@@ -142,6 +188,7 @@
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"
 	l_hand = /obj/item/gun/projectile/automatic/rifle/sts35
+	r_hand = null
 	back = /obj/item/rig/merc/distress
 	suit_store = null
 	suit = null

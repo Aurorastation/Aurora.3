@@ -60,15 +60,12 @@
 		if("Bible")
 			icon_state = "bible"
 			item_state = "bible"
-			new /obj/item/clothing/accessory/rosary(src)
 		if("White Bible")
 			icon_state = "white"
 			item_state = "white"
-			new /obj/item/clothing/accessory/rosary(src)
 		if("Melted Bible")
 			icon_state = "melted"
 			item_state = "melted"
-			new /obj/item/clothing/accessory/rosary(src)
 		if("Quran")
 			icon_state = "quran"
 			item_state = "quran"

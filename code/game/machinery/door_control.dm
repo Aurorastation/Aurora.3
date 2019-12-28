@@ -146,6 +146,14 @@
 					M.close()
 					return
 
+/obj/machinery/button/remote/blast_door/open_only/trigger()
+	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
+		if(M.id == src.id)
+			if(M.density)
+				spawn(0)
+					M.open()
+					return
+
 /*
 	Emitter remote control
 */

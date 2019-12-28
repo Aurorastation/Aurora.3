@@ -23,12 +23,10 @@
 		SK.master = E
 		qdel(src)
 
-/obj/structure/bed/chair/attack_tk(mob/user as mob)
-	if(buckled_mob)
-		..()
-	else
-		rotate()
-	return
+/obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
+	if(!buckled_mob && user)
+		rotate(user)
+	return TRUE
 
 /obj/structure/bed/chair/post_buckle_mob()
 	update_icon()
@@ -188,6 +186,19 @@
 	desc = "It exudes authority... and looks about as comfortable as a brick."
 	icon_state = "bridge"
 	anchored = 1
+
+/obj/structure/bed/chair/office/bridge/legion
+	name = "legion pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "bridge_legion"
+
+/obj/structure/bed/chair/office/bridge/generic
+	icon_state = "bridge_generic"
+
+/obj/structure/bed/chair/office/bridge/pilot
+	name = "pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "pilot"
 
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()
