@@ -3233,7 +3233,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 
 /obj/item/clothing/head/welding/fluff/ioraks_mask //Iorakian Welding Mask - Kuhserze Ioraks - geeves
-	name = "artificial chrysanthemum"
+	name = "iorakian welding mask"
 	desc = "A modified version of the standard issue NanoTrasen Engineering Corps welding mask, hand-painted into the colours of the Ioraks clan. Various alterations are clearly \
 	visible, including a darkened visor and refitted straps to keep the mask in place. On the inner side there is an ingraving of the Ioraks clan emblem, an open splayed hand with \
 	its palm facing the observer."
