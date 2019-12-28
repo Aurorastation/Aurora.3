@@ -12,7 +12,7 @@
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70
-	relative_size = 6
+	relative_size = 10
 	toxin_type = CE_HEPATOTOXIC
 	var/last_process
 
@@ -34,7 +34,7 @@
 	min_bruised_damage = 25
 	min_broken_damage = 45
 	max_damage = 70
-	relative_size = 6
+	relative_size = 10
 	toxin_type = CE_NEPHROTOXIC
 	var/last_process
 
