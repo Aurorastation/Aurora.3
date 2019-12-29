@@ -25,12 +25,17 @@
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_are_impermeable = TRUE
+
 	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
+
+	grab_mod = 1.1
+	resist_mod = 1.75
+
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2

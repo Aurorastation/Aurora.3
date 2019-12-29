@@ -1,12 +1,13 @@
 /obj/item/mech_component/propulsion/spider
 	name = "quadlegs"
 	exosuit_desc_string = "hydraulic quadlegs"
-	desc = "Xion Industrial's arachnid series boasts more leg per leg than the leading competitor."
+	desc = "Xion Manufacturing Group's arachnid series boasts more leg per leg than the leading competitor."
 	icon_state = "spiderlegs"
 	max_damage = 80
 	move_delay = 4
 	turn_delay = 1
 	power_use = 2500
+	trample_damage = 10
 
 /obj/item/mech_component/propulsion/tracks
 	name = "tracks"
@@ -19,3 +20,4 @@
 	power_use = 7500
 	color = COLOR_WHITE
 	mech_step_sound = 'sound/mecha/tanktread.ogg'
+	trample_damage = 25
