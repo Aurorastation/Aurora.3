@@ -321,7 +321,7 @@
 
 /mob/living/heavy_vehicle/can_ztravel(var/direction)
 	if(legs)
-		if(istype(legs, /obj/item/mech_component/propulsion/hover) && legs.motivator.is_functional())
+		if(legs.hover && legs.motivator.is_functional())
 			if(get_cell().charge < ((legs.power_use * CELLRATE) / 2))
 				return FALSE
 			return TRUE
@@ -347,7 +347,7 @@
 
 	// Hover thrusters
 	if(legs)
-		if(istype(legs, /obj/item/mech_component/propulsion/hover) && legs.motivator.is_functional())
+		if(legs.hover && legs.motivator.is_functional())
 			get_cell().use((legs.power_use * CELLRATE) / 2)
 			return FALSE
 

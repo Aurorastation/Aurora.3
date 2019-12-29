@@ -33,6 +33,8 @@
 	move_delay = 4
 	turn_delay = 2
 	power_use = 3000
+	trample_damage = 0
+	hover = TRUE
 
 /obj/item/mech_component/chassis/pod
 	name = "spherical exosuit chassis"

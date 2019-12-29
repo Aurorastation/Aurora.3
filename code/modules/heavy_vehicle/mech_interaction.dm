@@ -470,7 +470,7 @@
 	if(!isliving(H))
 		return
 
-	if(legs)
+	if(legs?.trample_damage)
 		if(ishuman(H))
 			var/mob/living/carbon/human/D = H
 			if(D.lying)
