@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed the syndie voidsuit having the wrong sprite for humans."
