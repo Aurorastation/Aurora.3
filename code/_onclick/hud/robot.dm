@@ -121,8 +121,8 @@ var/obj/screen/robot_inventory
 
 	// Computer device hud
 
-	mymob:computer.screen_loc = ui_oxygen
-	mymob:computer.layer = SCREEN_LAYER
+	mymob.computer.screen_loc = ui_oxygen
+	mymob.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons
@@ -138,13 +138,13 @@ var/obj/screen/robot_inventory
 		mymob.zone_sel,
 		mymob.hands,
 		mymob.healths,
-		mymob:cells,
+		mymob.cells,
 		mymob.pullin,
 		mymob.blind,
 		mymob.flash,
 		robot_inventory,
 		mymob.gun_setting_icon,
-		mymob:computer)
+		mymob.computer)
 	mymob.client.screen += src.adding + src.other
 
 	return
