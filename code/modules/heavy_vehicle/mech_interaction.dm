@@ -149,6 +149,7 @@
 		return attack_self(user)
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
+		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
@@ -322,18 +323,6 @@
 			return
 		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
 		return
-
-	else if(istype(thing, /obj/item/device/kit/paint))
-		user.visible_message("<span class='notice'>\The [user] opens \the [thing] and spends some quality time customising \the [src].</span>")
-		var/obj/item/device/kit/paint/P = thing
-		desc = P.new_desc
-		for(var/obj/item/mech_component/comp in list(arms, legs, head, body))
-			comp.decal = P.new_icon
-		if(P.new_icon_file)
-			icon = P.new_icon_file
-		queue_icon_update()
-		P.use(1, user)
-		return 1
 
 	else
 		if(user.a_intent != I_HURT)

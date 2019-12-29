@@ -9,11 +9,13 @@
 	deform = 'icons/mob/human_races/human/r_offworlder.dmi'
 	preview_icon = 'icons/mob/human_races/human/offworlder_preview.dmi'
 
-	flash_mod =     1.2
-	oxy_mod =       0.8
-	brute_mod =     1.2
-	toxins_mod =    1.2
+	flash_mod = 1.2
+	oxy_mod = 0.8
+	brute_mod = 1.2
+	toxins_mod = 1.2
 	bleed_mod = 0.5
+	grab_mod = 1.1
+	resist_mod = 0.75
 
 	warning_low_pressure = 30
 	hazard_low_pressure = 10
