@@ -3739,7 +3739,7 @@
 	},
 /area/centcom/evac)
 "akM" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor4"
@@ -3778,7 +3778,7 @@
 	},
 /area/centcom/evac)
 "akS" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor"
@@ -8525,7 +8525,6 @@
 	},
 /area/centcom/living)
 "azf" = (
-/obj/machinery/computer/records/medical,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -8536,7 +8535,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "azg" = (
-/obj/item/modular_computer/console/preset/captain,
+/obj/item/modular_computer/console/preset/command/captain,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -8647,10 +8646,6 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "azw" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
-	dir = 1
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 4
@@ -8663,20 +8658,6 @@
 /area/shuttle/escape/centcom)
 "azx" = (
 /turf/simulated/floor/shuttle,
-/area/shuttle/escape/centcom)
-"azy" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "azz" = (
 /turf/unsimulated/floor{
@@ -9058,6 +9039,10 @@
 /area/shuttle/escape/centcom)
 "aAG" = (
 /obj/structure/window/reinforced,
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
 "aAH" = (
@@ -13748,12 +13733,8 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop";
-	pixel_x = 3;
-	pixel_y = 4
-	},
 /obj/structure/window/reinforced,
+/obj/item/modular_computer/laptop/preset/command,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -14055,7 +14036,7 @@
 	},
 /area/centcom/holding)
 "aPi" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "red"
@@ -14344,7 +14325,7 @@
 	},
 /area/centcom/control)
 "aPQ" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/console/preset/medical,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -15721,11 +15702,11 @@
 	},
 /area/centcom/holding)
 "aSU" = (
-/obj/machinery/computer/records/security,
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Arrivals North";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -16180,14 +16161,8 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor,
 /area/centcom/control)
-"aTS" = (
-/obj/machinery/computer/security,
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/control)
 "aTT" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -17783,12 +17758,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
-	},
-/area/centcom/control)
-"aXp" = (
-/obj/machinery/computer/records/medical,
-/turf/unsimulated/floor{
-	icon_state = "floor"
 	},
 /area/centcom/control)
 "aXq" = (
@@ -19510,7 +19479,7 @@
 /area/tdome)
 "egp" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/employment,
+/obj/item/modular_computer/laptop/preset/command,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -19800,7 +19769,7 @@
 	},
 /area/centcom/legion)
 "fok" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -21317,7 +21286,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "lQh" = (
-/obj/machinery/computer/records/security,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -22702,7 +22670,7 @@
 	},
 /area/space)
 "tcD" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -58542,7 +58510,7 @@ aTH
 aPI
 aMn
 aSH
-aTS
+aTT
 aXP
 aRF
 aUv
@@ -59054,7 +59022,7 @@ aXP
 aOK
 aPQ
 aUv
-aXp
+aPQ
 aZK
 aZp
 aZp
@@ -64463,7 +64431,7 @@ aZW
 aTn
 azV
 lQh
-azy
+lQh
 xNc
 aDY
 oex

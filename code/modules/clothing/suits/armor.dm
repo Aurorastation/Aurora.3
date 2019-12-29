@@ -532,7 +532,7 @@
 	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
-  
+
 /obj/item/clothing/suit/storage/vest/legion
 	name = "foreign legion armored suit"
 	desc = "A set of cheap composite armor with elbow guards, shoulder and knee pads."

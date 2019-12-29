@@ -51,8 +51,6 @@
 				if (!(COLD_RESISTANCE in user.mutations))
 					user.mutations.Add(COLD_RESISTANCE)
 					to_chat(user, "<span class='notice'>Your body feels warm.</span>")
-				if (!(TK in user.mutations))
-					user.mutations.Add(TK)
 				if(!(HEAL in user.mutations))
 					user.mutations.Add(HEAL)
 				if (!(XRAY in user.mutations))

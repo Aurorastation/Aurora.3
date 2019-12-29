@@ -16,6 +16,8 @@
 	max_damage = 70
 	relative_size = 60
 
+	var/breathing = 0
+
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 	var/oxygen_deprivation = 0
 	var/last_successful_breath
@@ -42,7 +44,7 @@
 
 	if(!owner)
 		return
-	
+
 	if(germ_level > INFECTION_LEVEL_ONE)
 		if(prob(5))
 			owner.emote("cough")		//Respiratory tract infection
@@ -249,6 +251,13 @@
 	else
 		last_successful_breath = world.time
 		owner.oxygen_alert = 0
+		if(!BP_IS_ROBOTIC(src) && species.breathing_sound && is_below_sound_pressure(get_turf(owner)))
+			if(breathing || owner.shock_stage >= 10)
+				sound_to(owner, sound(species.breathing_sound,0,0,0,5))
+				breathing = 0
+			else
+				breathing = 1
+
 	return failed_breath
 
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
@@ -301,6 +310,32 @@
 		owner.species.get_environment_discomfort(src,"heat")
 	else if(breath.temperature <= owner.species.cold_discomfort_level)
 		owner.species.get_environment_discomfort(src,"cold")
+
+/obj/item/organ/internal/lungs/listen()
+	if(owner.failed_last_breath)
+		return "no respiration"
+
+	if(BP_IS_ROBOTIC(src))
+		if(is_bruised())
+			return "malfunctioning fans"
+		else
+			return "air flowing"
+
+	. = list()
+	if(is_bruised())
+		. += "[pick("wheezing", "gurgling")] sounds"
+
+	var/list/breathtype = list()
+	if(get_oxygen_deprivation() > 50)
+		breathtype += pick("straining","labored")
+	if(owner.shock_stage > 50)
+		breathtype += pick("shallow and rapid")
+	if(!breathtype.len)
+		breathtype += "healthy"
+
+	. += "[english_list(breathtype)] breathing"
+
+	return english_list(.)
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

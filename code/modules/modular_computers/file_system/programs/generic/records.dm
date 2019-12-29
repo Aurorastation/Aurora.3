@@ -1,6 +1,17 @@
-/obj/machinery/computer/records
-	name = "records console"
-	desc = "Used to view, edit and maintain records."
+/datum/computer_file/program/records
+	filename = "record"
+	filedesc = "Records"
+	extended_desc = "Used to view, edit and maintain records."
+
+	program_icon_state = "generic"
+	color = LIGHT_COLOR_BLUE
+	available_on_ntnet = 0
+	size = 6
+
+	requires_ntnet = 1
+	requires_ntnet_feature = NTNET_SYSTEMCONTROL
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/datum/record/general/active
@@ -9,6 +20,7 @@
 	var/isEditing = FALSE
 	var/authenticated = 0
 	var/default_screen = "general"
+	var/record_prefix = ""
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
@@ -17,77 +29,73 @@
 		)
 	)
 
-/obj/machinery/computer/records/medical
-	name = "medical records console"
-	desc = "Used to view, edit and maintain medical records."
+/datum/computer_file/program/records/medical
+	filename = "medrec"
+	filedesc = "Medical records"
+	extended_desc = "Used to view, edit and maintain medical records."
+	record_prefix = "Medical "
 
-	icon_screen = "medcomp"
-	light_color = "#315ab4"
-	req_one_access = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
-	circuit = /obj/item/circuitboard/med_data
+	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
+	required_access_download = access_heads
+	available_on_ntnet = 1
+
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
+	program_icon_state = "medical_record"
+	color = LIGHT_COLOR_CYAN
 
-/obj/machinery/computer/records/medical/laptop
-	name = "medical laptop"
-	desc = "A cheap laptop."
+/datum/computer_file/program/records/security
+	filename = "secrec"
+	filedesc = "Security records"
+	extended_desc = "Used to view, edit and maintain security records"
+	record_prefix = "Security "
 
-	icon_state = "medlaptop0"
-	icon_screen = "medlaptop"
-	is_holographic = FALSE
-	density = 0 // so you can walk through them. because, well, they're goddamn laptops.
+	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
+	required_access_download = access_heads
+	available_on_ntnet = 1
 
-/obj/machinery/computer/records/security
-	name = "security records console"
-	desc = "Used to view, edit and maintain security records"
-
-	icon_screen = "security"
-	light_color = LIGHT_COLOR_ORANGE
-	req_one_access = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
-	circuit = /obj/item/circuitboard/secure_data
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
 	default_screen = "security"
+	program_icon_state = "security_record"
+	color = LIGHT_COLOR_RED
 
-/obj/machinery/computer/records/security/detective
-	icon_state = "messyfiles"
-	icon_screen = null
-	light_range_on = 0
-	light_power_on = 0
+/datum/computer_file/program/records/employment
+	filename = "emprec"
+	filedesc = "Employment records"
+	extended_desc = "Used to view, edit and maintain employment records."
+	record_prefix = "Employment "
 
-/obj/machinery/computer/records/employment
-	name = "employment records console"
-	desc = "Used to view, edit and maintain employment records."
+	required_access_run = list(access_heads)
+	required_access_download = access_heads
+	available_on_ntnet = 1
 
-	icon_state = "medlaptop0"
-	icon_screen = "medlaptop"
-	light_color = "#00b000"
-	req_one_access = list(access_heads)
-	circuit = /obj/item/circuitboard/skills
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
+	program_icon_state = "employment_record"
+	color = LIGHT_COLOR_BLUE
 
-/obj/machinery/computer/records/New()
+/datum/computer_file/program/records/New()
 	. = ..()
 	listener = new(src)
 
-/obj/machinery/computer/records/ui_interact(mob/user as mob)
+/datum/computer_file/program/records/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "records-main", 450, 520, capitalize(src.name))
+		ui = new /datum/vueui/modularcomputer(user, src, "records-main", 450, 520, filedesc)
 		if(!authenticated)
 			ui.activeui = "records-login"
 	ui.open()
 
-/obj/machinery/computer/records/attack_ai(mob/user as mob)
-	return attack_hand(user)
+/datum/computer_file/program/records/vueui_transfer(oldobj)
+	var/ui_name = "records-main"
+	if(!authenticated)
+		ui_name = "records-login"
+	SSvueui.transfer_uis(oldobj, src, ui_name, 450, 520, filedesc)
+	return TRUE
 
-/obj/machinery/computer/records/attack_hand(mob/user)
-	user.set_machine(src)
-	ui_interact(user)
-
-/obj/machinery/computer/records/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+/datum/computer_file/program/records/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
 		. = data = list(
 			"activeview" = "list",
@@ -96,10 +104,17 @@
 			"choices" = typechoices
 			)
 
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
+
 	if(!authenticated)
 		VUEUI_SET_CHECK(ui.activeui, "records-login", ., data)
 	else
 		VUEUI_SET_CHECK(ui.activeui, "records-main", ., data)
+
+	VUEUI_SET_CHECK(data["canprint"], !!(computer?.nano_printer), ., data)
 
 	VUEUI_SET_CHECK(data["avaivabletypes"], records_type, ., data)
 	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
@@ -174,14 +189,15 @@
 		VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
 		VUEUI_SET_CHECK(data["active"], 0, ., data)
 
-/obj/machinery/computer/records/Topic(href, href_list)
+/datum/computer_file/program/records/Topic(href, href_list)
+	if(..())
+		return 1
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
 	if(href_list["login"])
-		var/obj/item/card/id/id = usr.GetIdCard()
-		if(id && check_access(id))
-			authenticated = id.registered_name
+		if(can_run(usr, TRUE))
+			authenticated = TRUE
 		else
 			to_chat(usr, "[src] beeps: Access Denied")
 		SSvueui.check_uis_for_change(src)
@@ -264,8 +280,23 @@
 			SSrecords.onModify(vars[key[1]])
 			isEditing = FALSE
 			. = TRUE
+	if(href_list["print"])
+		if(!(href_list["print"] in list("active", "active_virus")))
+			return
+		if(computer?.nano_printer && vars[href_list["print"]])
+			var/excluded = list()
+			if(href_list["print"] == "active")
+				if(!(records_type & RECORD_GENERAL))
+					excluded += active.advanced_fields
+				if(!(records_type & RECORD_SECURITY))
+					excluded += "security"
+				if(!(records_type & RECORD_MEDICAL))
+					excluded += "medical"
+			var/out = vars[href_list["print"]].Printify(excluded)
+			computer.nano_printer.print_text(out, "[record_prefix]Record ([vars[href_list["print"]].name])")
 
-/obj/machinery/computer/records/proc/canEdit(list/key)
+
+/datum/computer_file/program/records/proc/canEdit(list/key)
 	if(!(key[1] in list("active", "active_virus")))
 		return FALSE
 	if(vars[key[1]] == null)
@@ -291,7 +322,7 @@
 
 /listener/record/rconsole/on_delete(var/datum/record/r)
 	. = FALSE
-	var/obj/machinery/computer/records/t = target
+	var/datum/computer_file/program/records/t = target
 	if(istype(t) && !t.isEditing)
 		if(t.active == r)
 			t.active = null
@@ -303,7 +334,7 @@
 			SSvueui.check_uis_for_change(t)
 
 /listener/record/rconsole/on_modify(var/datum/record/r)
-	var/obj/machinery/computer/records/t = target
+	var/datum/computer_file/program/records/t = target
 	if(istype(t) && !t.isEditing)
 		if(t.active == r || t.active_virus == r)
 			SSvueui.check_uis_for_change(t)

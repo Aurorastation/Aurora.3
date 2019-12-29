@@ -7,6 +7,7 @@
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
+	mob_push_flags = ALLMOBS
 	var/decal
 
 	var/emp_damage = 0
@@ -93,9 +94,17 @@
 	if(!user || !user.client)
 		return
 	to_chat(user, "That's \a [src].")
-	user << desc
+	to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
-		to_chat(user, "It is being piloted by [english_list(pilots, nothing_text = "nobody")].")
+		if(length(pilots) == 0)
+			to_chat(user, "It has no pilot.")
+		else
+			for(var/pilot in pilots)
+				if(istype(pilot, /mob))
+					var/mob/M = pilot
+					to_chat(user, "It is being piloted by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>.")
+				else
+					to_chat(user, "It is being piloted by [pilot].")
 	if(hardpoints.len)
 		to_chat(user, "It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
@@ -118,6 +127,13 @@
 			if(4)
 				damage_string = "almost destroyed"
 		to_chat(user, "Its [thing.name] [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
+
+/mob/living/heavy_vehicle/Topic(href,href_list[])
+	if (href_list["examine"])
+		var/mob/M = locate(href_list["examine"])
+		if(!M)
+			return
+		usr.examinate(M, 1)
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
 	. = ..()

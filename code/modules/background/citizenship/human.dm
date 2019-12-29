@@ -78,9 +78,9 @@
 	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
 	workplace of various contractors on board NSS Aurora."
 
-/datum/citizenship/frontier
-	name = CITIZENSHIP_FRONTIER
-	description = "Rising from the former Coalition of Colonies, the Frontier Alliance is a loose confederation of united \"entities\" within the human frontier. These entities range \
+/datum/citizenship/coalition
+	name = CITIZENSHIP_COALITION
+	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human frontier. These entities range \
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"

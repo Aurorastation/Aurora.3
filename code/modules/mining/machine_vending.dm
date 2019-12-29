@@ -26,8 +26,6 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Deployable Ladder",			/obj/item/ladder_mobile,								5,					200),
 	new /datum/data/mining_equipment("Deployable Hoist Kit",		/obj/item/hoist_kit,										5,					200),
 	new /datum/data/mining_equipment("Material Scanners",			/obj/item/clothing/glasses/material,						15,					200),
-	new /datum/data/mining_equipment("Paint Kit, Red Flames",		/obj/item/device/kit/paint/powerloader/flames_red,					15,					200),
-	new /datum/data/mining_equipment("Paint Kit, Blue Flames",		/obj/item/device/kit/paint/powerloader/flames_blue,					15,					200),
 	new /datum/data/mining_equipment("Mining Drill",				/obj/item/pickaxe/drill,								10,					200),
 	new /datum/data/mining_equipment("Deep Ore Scanner",			/obj/item/mining_scanner,							10,					250),
 	new /datum/data/mining_equipment("Magboots",					/obj/item/clothing/shoes/magboots,							10,					300),
