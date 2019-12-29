@@ -30,7 +30,9 @@
 	exosuit_desc_string = "heavy-duty industrial lifters"
 	max_damage = 70
 	power_use = 2000
+	melee_damage = 40
 	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
+	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/ripley
 	name = "exosuit legs"

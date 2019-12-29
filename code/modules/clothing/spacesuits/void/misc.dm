@@ -23,8 +23,8 @@
 	species_restricted = list("Human")
 	refittable = FALSE
 
-/obj/item/clothing/head/helmet/space/void/frontier
-	name = "frontier vulture voidsuit helmet"
+/obj/item/clothing/head/helmet/space/void/coalition
+	name = "coalition vulture voidsuit helmet"
 	desc = "A helmet resembling an avian, built for the Human head. Heavy and plated with plasteel across its faces."
 	icon_state = "vulture"
 	item_state = "vulture"
@@ -35,9 +35,9 @@
 	brightness_on = 6
 	refittable = FALSE
 
-/obj/item/clothing/suit/space/void/frontier
-	name = "frontier vulture voidsuit"
-	desc = "An iconic Frontier Alliance standard-issue voidsuit, designed after the Interstellar War and seen in use to this day."
+/obj/item/clothing/suit/space/void/coalition
+	name = "coalition vulture voidsuit"
+	desc = "An iconic Coalition of Colonies standard-issue voidsuit, designed after the Interstellar War and seen in use to this day."
 	icon_state = "vulture"
 	item_state = "vulture"
 	slowdown = 3

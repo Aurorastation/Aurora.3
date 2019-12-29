@@ -25,6 +25,7 @@
 	if(damage > damage_malfunction)
 		text_to_print = stars(text_to_print, 100-malfunction_probability)
 	var/obj/item/paper/P = new /obj/item/paper(get_turf(holder2),text_to_print, paper_title)
+	P.info = text_to_print
 	if (paper_color)
 		P.color = paper_color
 

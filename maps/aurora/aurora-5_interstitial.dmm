@@ -2159,11 +2159,7 @@
 /turf/simulated/floor/plating,
 /area/security/detectives_office)
 "eD" = (
-/obj/machinery/computer/records/medical,
-/turf/simulated/floor/lino,
-/area/security/detectives_office)
-"eE" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "eF" = (
@@ -4174,7 +4170,6 @@
 /area/maintenance/interstitial_cargo)
 "im" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -4928,8 +4923,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jH" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/green/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -4937,6 +4930,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jI" = (
@@ -5087,12 +5081,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jT" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jU" = (
@@ -6028,7 +6021,11 @@
 	pixel_y = 32
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/records/medical/laptop,
+/obj/item/book/manual/psych,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lx" = (
@@ -6090,16 +6087,11 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lC" = (
-/obj/structure/table/wood,
-/obj/item/book/manual/psych,
-/obj/item/paper_bin{
-	pixel_x = 4;
-	pixel_y = 7
-	},
 /obj/machinery/light_switch{
 	pixel_x = 26;
 	pixel_y = -2
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lD" = (
@@ -7142,6 +7134,7 @@
 	c_tag = "Security - Forensics Autopsy Chamber";
 	dir = 1
 	},
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -7185,12 +7178,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "qu" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "qz" = (
@@ -11725,18 +11717,37 @@
 "Ph" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering_ladder)
+"Pj" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "Pk" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/security,
 /obj/machinery/requests_console{
 	department = "Forensic Technician";
 	departmentType = 5;
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Pm" = (
@@ -12748,7 +12759,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Uq" = (
@@ -39805,7 +39816,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 ab
@@ -40062,7 +40073,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 mo
@@ -40319,7 +40330,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -40576,7 +40587,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -40833,7 +40844,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41090,7 +41101,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41347,7 +41358,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41604,7 +41615,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 mo
@@ -41861,7 +41872,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 ab
@@ -42118,7 +42129,7 @@ ab
 ab
 ab
 ab
-qc
+Pj
 UC
 ab
 mo
@@ -48725,7 +48736,7 @@ dW
 eg
 ep
 ev
-eE
+fo
 eQ
 fb
 fl

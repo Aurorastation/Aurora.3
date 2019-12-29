@@ -144,9 +144,7 @@
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
-		/obj/item/pen/reagent/hyperzine = 1,
-		/obj/item/pen/reagent/poison = 1
-
+		/obj/item/pen/reagent/hyperzine = 1
 	)
 
 /obj/item/storage/box/syndie_kit/spy

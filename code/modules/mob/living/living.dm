@@ -489,6 +489,37 @@ default behaviour is:
 
 	return
 
+/mob/living/proc/basic_revival(var/repair_brain = TRUE)
+
+	if(repair_brain && getBrainLoss() > 50)
+		repair_brain = FALSE
+		setBrainLoss(50)
+
+	if(stat == DEAD)
+		switch_from_dead_to_living_mob_list()
+		timeofdeath = 0
+
+	stat = CONSCIOUS
+	regenerate_icons()
+
+	BITSET(hud_updateflag, HEALTH_HUD)
+	BITSET(hud_updateflag, STATUS_HUD)
+	BITSET(hud_updateflag, LIFE_HUD)
+
+	failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
+
+/mob/living/carbon/basic_revival(var/repair_brain = TRUE)
+	if(repair_brain && should_have_organ(BP_BRAIN))
+		repair_brain = FALSE
+		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+		if(brain.damage > (brain.max_damage/2))
+			brain.damage = (brain.max_damage/2)
+		if(brain.status & ORGAN_DEAD)
+			brain.status &= ~ORGAN_DEAD
+			START_PROCESSING(SSprocessing, brain)
+		brain.update_icon()
+	..(repair_brain)
+
 /mob/living/proc/UpdateDamageIcon()
 	return
 
@@ -844,3 +875,11 @@ default behaviour is:
 	if (size_reagent > src.composition_reagent_quantity)//We take the larger of the two
 		src.composition_reagent_quantity = size_reagent
 #undef PPM
+
+
+/mob/living/proc/seizure()
+	if(!paralysis && stat == CONSCIOUS)
+		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
+		Paralyse(rand(8,16))
+		make_jittery(rand(150,200))
+		adjustHalLoss(rand(50,60))
