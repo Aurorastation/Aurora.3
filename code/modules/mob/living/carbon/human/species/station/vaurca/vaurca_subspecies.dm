@@ -7,11 +7,15 @@
 	greater_form = "Vaurca Breeder"
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
+
 	brute_mod = 0.7
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+
 	grab_mod = 1.25
+	resist_mod = 1.75
+
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \

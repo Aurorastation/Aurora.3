@@ -45,10 +45,6 @@ Pipelines + Other Objects -> Pipe network
 	if (mapload)
 		return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/atmospherics/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL	// fuck it
-
 /obj/machinery/atmospherics/proc/atmos_init()
 
 // atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.

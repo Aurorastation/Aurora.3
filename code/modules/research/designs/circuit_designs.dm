@@ -43,23 +43,11 @@
 	build_path = /obj/item/circuitboard/security
 	sort_string = "DAAAA"
 
-/datum/design/circuit/secdata
-	name = "security records console"
-	id = "sec_data"
-	build_path = /obj/item/circuitboard/secure_data
-	sort_string = "DABAA"
-
 /datum/design/circuit/prisonmanage
 	name = "prisoner management console"
 	id = "prisonmanage"
 	build_path = /obj/item/circuitboard/prisoner
 	sort_string = "DACAA"
-
-/datum/design/circuit/med_data
-	name = "medical records console"
-	id = "med_data"
-	build_path = /obj/item/circuitboard/med_data
-	sort_string = "FAAAA"
 
 /datum/design/circuit/sentencing
 	name = "criminal sentencing console"
@@ -78,13 +66,6 @@
 	id = "pandemic"
 	build_path = /obj/item/circuitboard/pandemic
 	sort_string = "FAEAA"
-
-/datum/design/circuit/crewconsole
-	name = "crew monitoring console"
-	id = "crewconsole"
-	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 2, TECH_BIO = 2)
-	build_path = /obj/item/circuitboard/crew
-	sort_string = "FAGAI"
 
 /datum/design/circuit/teleconsole
 	name = "teleporter control console"
@@ -422,12 +403,6 @@
 	req_tech = list(TECH_DATA = 2)
 	build_path = /obj/item/circuitboard/biogenerator
 	sort_string = "KBAAA"
-
-/datum/design/circuit/emp_data
-	name = "employment records console"
-	id = "emp_data"
-	build_path = /obj/item/circuitboard/skills
-	sort_string = "LAAAC"
 
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)

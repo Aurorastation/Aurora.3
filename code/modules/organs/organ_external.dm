@@ -20,7 +20,7 @@
 	var/model
 	var/damage_state = "00"
 
-	//Damage variables
+	//Damage variables.
 	var/brute_mod = 1
 	var/brute_dam = 0                  // Actual current brute damage.
 	var/brute_ratio = 0                // Ratio of current brute damage to max damage.
@@ -34,6 +34,9 @@
 	var/pain = 0                       // How much the limb hurts.
 	var/pain_disability_threshold      // Point at which a limb becomes unusable due to pain.
 
+	//Organ behaviour.
+	var/limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM
+
 	var/max_size = 0
 	var/icon/mob_icon
 	var/gendered_icon = 0
@@ -41,8 +44,6 @@
 
 	var/limb_name
 	var/disfigured = 0
-	var/cannot_amputate
-	var/cannot_break
 
 	var/s_tone
 	var/skin_color
@@ -64,7 +65,6 @@
 	var/cavity = 0
 	var/sabotaged = 0 // If a prosthetic limb is emagged, it will detonate when it fails.
 	var/encased       // Needs to be opened with a saw to access the organs.
-	var/has_tendon = FALSE   //Does this limb have a tendon?
 	var/joint = "joint"   // Descriptive string used in dislocation.
 	var/artery_name = "artery"   //Name of the artery. Cartoid, etc.
 	var/tendon_name = "tendon"   //Name of the limb's tendon. Achilles heel, etc.
@@ -72,13 +72,10 @@
 	var/dislocated = 0    // If you target a joint, you can dislocate the limb, causing temporary damage to the organ.
 
 	var/wound_update_accuracy = 1 	// how often wounds should be updated, a higher number means less often
-	var/can_grasp //It would be more appropriate if these two were named "affects_grasp" and "affects_stand" at this point
-	var/can_stand
 	var/body_hair
 	var/painted = 0
 
 	var/maim_bonus = 0.75 //For special projectile gibbing calculation, dubbed "maiming"
-	var/can_be_maimed = TRUE //Can this limb be 'maimed'?
 
 	var/list/genetic_markings         // Markings (body_markings) to apply to the icon
 	var/list/temporary_markings	// Same as above, but not preserved when cloning
@@ -210,7 +207,7 @@
 		sync_colour_to_human(owner)
 
 	if ((status & ORGAN_PLANT))
-		cannot_break = 1
+		limb_flags &= ~ORGAN_CAN_BREAK
 
 	get_icon()
 
@@ -378,39 +375,31 @@
 /obj/item/organ/external/proc/handle_limb_gibbing(var/used_weapon,var/brute,var/burn)
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
-		if(!cannot_amputate && config.limbs_can_break && (brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
+		if((limb_flags & ORGAN_CAN_AMPUTATE) && config.limbs_can_break)
 
-			var/brute_armor_value = 0
-			var/burn_armor_value = 0
-			var/edge_eligible = 0
-			var/maim_bonus = 0
+			if((brute_dam + burn_dam) >= (max_damage * config.organ_health_multiplier))
 
-			var/mob/living/carbon/human/H
-			if(istype(owner,/mob/living/carbon/human))
-				H = owner
-				brute_armor_value = H.getarmor_organ(src, "melee")
-				burn_armor_value = H.getarmor_organ(src, "burn")
+				var/edge_eligible = 0
+				var/maim_bonus = 0
 
-			if(istype(used_weapon,/obj/item))
-				var/obj/item/W = used_weapon
-				if(isprojectile(W))
-					var/obj/item/projectile/P = W
-					brute_armor_value = H.getarmor_organ(src, "bullet")
-					maim_bonus += P.maim_rate
-				else if(W.w_class >= w_class && edge)
+				if(istype(used_weapon,/obj/item))
+					var/obj/item/W = used_weapon
+					if(isprojectile(W))
+						var/obj/item/projectile/P = W
+						maim_bonus += P.maim_rate
+					else if(W.w_class >= w_class && edge)
+						edge_eligible = 1
+				else if(edge)
 					edge_eligible = 1
-			else if(edge)
-				edge_eligible = 1
 
-			if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_EDGE)
-			else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && burn >= burn_armor_value)
-				droplimb(0, DROPLIMB_BURN)
-			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_BLUNT)
-			else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus) && brute >= brute_armor_value)
-				droplimb(0, DROPLIMB_EDGE)
-
+				if(edge_eligible && brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus))
+					droplimb(0, DROPLIMB_EDGE)
+				else if(burn >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+					droplimb(0, DROPLIMB_BURN)
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_DESTROY + maim_bonus))
+					droplimb(0, DROPLIMB_BLUNT)
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
+					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)
 	if(status & ORGAN_ROBOT && !robo_repair)
@@ -843,7 +832,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 //Handles dismemberment
 /obj/item/organ/external/proc/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
 
-	if(cannot_amputate || !owner)
+	if(!(limb_flags & ORGAN_CAN_AMPUTATE) || !owner)
 		return
 
 	switch(disintegrate)
@@ -1009,7 +998,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 /obj/item/organ/external/proc/fracture()
 	if(status & ORGAN_ROBOT)
 		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
-	if((status & ORGAN_BROKEN) || cannot_break)
+	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
 		return
 
 	if(owner)
@@ -1064,7 +1053,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			burn_mod = R.burn_mod
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
-	cannot_break = 1
+	limb_flags &= ~ORGAN_CAN_BREAK
 	get_icon()
 	unmutate()
 	for (var/obj/item/organ/external/T in children)
@@ -1073,7 +1062,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/mechassist()
 	..()
-	cannot_break = 0
+	limb_flags |= ORGAN_CAN_BREAK
 
 /obj/item/organ/external/proc/robotize_advanced()
 	status |= ORGAN_ADV_ROBOT
@@ -1264,6 +1253,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 					flavor_text += "a ton of [wound]\s"
 		return english_list(flavor_text)
 
+/obj/item/organ/external/listen()
+	var/list/sounds = list()
+	for(var/obj/item/organ/internal/I in internal_organs)
+		var/gutsound = I.listen()
+		if(gutsound)
+			sounds += gutsound
+	if(!sounds.len)
+		if(owner.pulse())
+			sounds += "faint pulse"
+	return sounds
+
 /obj/item/organ/external/proc/sever_artery()
 	if((status & ORGAN_ROBOT) || (status & ORGAN_ARTERY_CUT) || !species || species.flags & NO_BLOOD || species.flags & NO_ARTERIES)
 		return FALSE
@@ -1272,7 +1272,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return TRUE
 
 /obj/item/organ/external/proc/sever_tendon()
-	if(!has_tendon || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT) || species.flags & NO_TENDONS)
+	if(!(limb_flags & ORGAN_HAS_TENDON) || (status & ORGAN_ROBOT) || (status & ORGAN_TENDON_CUT))
 		return FALSE
 	else
 		status |= ORGAN_TENDON_CUT

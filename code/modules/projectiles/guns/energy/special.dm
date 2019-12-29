@@ -160,9 +160,7 @@
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
-	icon_state = "pestishock100"
-	item_state = "pestishock"
-	charge_meter = 0
+	icon_state = "pestishock"
 	w_class = 3
 	fire_sound = 'sound/weapons/taser2.ogg'
 	force = 5

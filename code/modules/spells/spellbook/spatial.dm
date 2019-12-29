@@ -22,7 +22,6 @@
 				/spell/targeted/subjugation = 					1,
 				/spell/aoe_turf/smoke = 				1,
 				/spell/aoe_turf/conjure/summon/bats = 			3,
-				/obj/item/contract/wizard/tk = 			5,
 				/obj/structure/closet/wizard/scrying = 			2,
 				/obj/item/storage/belt/wands/full = 		4,
 				/obj/item/teleportation_scroll = 		1,

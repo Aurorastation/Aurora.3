@@ -18,9 +18,12 @@
 	darksight = 3
 	gluttonous = 2
 	slowdown = 0.5
+
 	brute_mod = 0.8
-	grab_mod = 0.75
 	fall_mod = 1.2
+	grab_mod = 1.25 // Huge, usually have horns
+	resist_mod = 2.5 // Arguably our strongest organic species
+
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE
 	economic_modifier = 7
@@ -28,11 +31,14 @@
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
+
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
-	sprint_speed_factor = 3.2
 	stamina_recovery = 5
+
 	sprint_cost_factor = 1.45
+	sprint_speed_factor = 3.2
 	exhaust_threshold = 65
+
 	rarity_value = 3
 	breakcuffs = list(MALE)
 	mob_size = 10
@@ -83,7 +89,7 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
-	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
 	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
 	default_citizenship = CITIZENSHIP_IZWESKI
 
