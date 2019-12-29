@@ -1680,6 +1680,34 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/security)
+"adf" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/security/nuke_storage)
+"adg" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/security/nuke_storage)
 "adh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1714,6 +1742,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"adl" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/security/nuke_storage)
 "adm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -1726,6 +1766,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adn" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/security/nuke_storage)
 "ado" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
@@ -1819,6 +1872,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/brig)
+"adw" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/security/nuke_storage)
 "adx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/engineering{
@@ -1878,6 +1940,33 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adD" = (
+/obj/machinery/door/airlock/vault/bolted{
+	req_access = list(20)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/regular{
+	id = "vault_interior_blast";
+	name = "Vault Interior Blast Door"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"adE" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/security/nuke_storage)
 "adF" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -1886,10 +1975,56 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adG" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "vault_interior_blast";
+	name = "Vault Interior Blast Door";
+	pixel_y = 26;
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "adH" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"adI" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"adJ" = (
+/obj/machinery/porta_turret/stationary,
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "adK" = (
 /obj/structure/grille,
 /turf/simulated/floor/airless,
@@ -2148,6 +2283,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aec" = (
+/obj/machinery/porta_turret/stationary,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "aed" = (
 /obj/machinery/light_construct{
 	icon_state = "tube-construct-stage1";
@@ -2172,6 +2320,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
+"aeg" = (
+/obj/machinery/porta_turret/stationary,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
+"aeh" = (
+/obj/machinery/door/airlock/highsecurity{
+	id_tag = "bunker1";
+	name = "Vault Access";
+	req_access = list(19)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	id = "vault_exterior_blast";
+	name = "Vault Exterior Blast Door"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "aei" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/constructable_frame/temp_deco,
@@ -2182,6 +2358,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"aek" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	name = "\improper ONLY COMMAND STAFF";
+	pixel_y = 32
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "vault_blast_exterior";
+	name = "Vault Exterior Blast Door";
+	pixel_x = 28;
+	req_access = list(19)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/nuke_storage)
 "ael" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -5634,6 +5830,7 @@
 	dir = 8
 	},
 /obj/item/hand_tele,
+/obj/item/hand_tele,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alj" = (
@@ -5656,6 +5853,7 @@
 	dir = 4;
 	icon_state = "camera"
 	},
+/obj/random/rig_module,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "alk" = (
@@ -6145,6 +6343,7 @@
 	},
 /obj/random/vault_weapon,
 /obj/item/rig/unathi,
+/obj/random/vault_weapon,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "amh" = (
@@ -6164,6 +6363,10 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/random/vault_rig{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -6429,21 +6632,6 @@
 "amO" = (
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
-"amP" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "amQ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Weaponry (Ion Rifle)";
@@ -7061,6 +7249,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
+/obj/random/finances,
 /obj/random/finances,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
@@ -7855,6 +8044,7 @@
 	dir = 8
 	},
 /obj/random/finances,
+/obj/random/finances,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "apD" = (
@@ -8515,20 +8705,6 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/security/brig)
-"aqM" = (
-/obj/machinery/door/airlock/vault/bolted{
-	req_access = list(20)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "aqO" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -9347,14 +9523,6 @@
 "ase" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"asf" = (
-/obj/machinery/porta_turret/stationary,
-/obj/structure/sign/securearea{
-	pixel_y = 32
-	},
-/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "asg" = (
@@ -17046,17 +17214,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
-"aER" = (
-/obj/machinery/door/airlock/highsecurity{
-	id_tag = "bunker1";
-	name = "Vault Access";
-	req_access = list(19)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
 "aES" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -18361,20 +18518,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/security/nuke_storage)
-"aGQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/obj/structure/sign/securearea{
-	name = "\improper ONLY COMMAND STAFF";
-	pixel_y = 32
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aGR" = (
@@ -112265,7 +112408,7 @@ aiN
 aiN
 aiN
 aiN
-aiO
+aiN
 aiN
 aiN
 aiN
@@ -112522,7 +112665,7 @@ aiN
 aiN
 aiN
 aiN
-aiO
+adn
 aiN
 aiN
 aiN
@@ -112531,7 +112674,7 @@ aiN
 aiN
 aiN
 aiN
-aiO
+aiN
 aiN
 aiN
 aiN
@@ -112776,14 +112919,14 @@ adk
 nAn
 aiN
 aiN
-aiN
+adg
 aiO
 aiO
 aiO
 aiO
 aiO
 aiO
-aiN
+adw
 aiN
 aiO
 aiO
@@ -113043,11 +113186,11 @@ aiO
 aiO
 aiO
 aiO
-asf
+adI
 aoo
 ayx
 aoo
-avg
+aec
 aiO
 aiO
 aiO
@@ -113545,8 +113688,8 @@ saL
 tzU
 tzU
 nAn
-aiO
-aiO
+aiN
+adf
 aiO
 akj
 aoo
@@ -113554,7 +113697,7 @@ aoo
 ano
 aop
 rHX
-aqM
+adD
 noF
 ase
 ase
@@ -113563,7 +113706,7 @@ ayz
 ase
 ase
 ase
-aER
+aeh
 aGP
 ayB
 aKi
@@ -113812,7 +113955,7 @@ amf
 apB
 vjA
 aiO
-amP
+adG
 aoo
 aoo
 aoo
@@ -113821,7 +113964,7 @@ aoo
 aoo
 ayA
 aiO
-aGQ
+aek
 apD
 awK
 aLY
@@ -114071,11 +114214,11 @@ aiO
 aiO
 aiO
 aiO
-asf
+adJ
 aoo
 ayy
 aoo
-avg
+aeg
 aiO
 aiO
 aiO
@@ -114318,14 +114461,14 @@ qgC
 nAn
 aiN
 aiN
-aiN
+adl
 aiO
 aiO
 ciu
 aiO
 aiO
 aiO
-aiN
+adE
 aiN
 aiO
 aiO
@@ -114587,7 +114730,7 @@ aiN
 aiN
 aiN
 aiN
-aiO
+aiN
 aiN
 aiN
 aiN
