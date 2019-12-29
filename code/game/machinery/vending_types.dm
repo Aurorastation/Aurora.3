@@ -316,23 +316,54 @@
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
-		/obj/item/storage/fancy/cigarettes = 10,
+		/obj/item/storage/fancy/cigarettes/rugged = 6,
+		/obj/item/storage/fancy/cigarettes = 8,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 5,
+		/obj/item/storage/fancy/cigarettes/nicotine = 3,
+		/obj/item/storage/fancy/cigarettes/pra = 6,
+		/obj/item/storage/chewables/rollable/bad = 6,
+		/obj/item/storage/chewables/rollable = 8,
+		/obj/item/storage/chewables/rollable/fine = 5,
+		/obj/item/storage/chewables/rollable/nico = 3,
+		/obj/item/storage/chewables/tobacco/bad = 6,
+		/obj/item/storage/chewables/tobacco = 8,
+		/obj/item/storage/chewables/tobacco/fine = 5,
+		/obj/item/storage/fancy/chewables/tobacco/nico = 3,
+		/obj/item/storage/cigfilters = 6,
+		/obj/item/storage/fancy/cigpaper = 6,
+		/obj/item/storage/fancy/cigpaper/fine = 4,
 		/obj/item/storage/box/matches = 10,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/spacecash/ewallet/lotto = 30
 	)
 	contraband = list(
 		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 5
+		/obj/item/storage/fancy/cigarettes/acmeco = 5,
+		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,
 		/obj/item/storage/fancy/cigar = 5
 	)
 	prices = list(
-		/obj/item/storage/fancy/cigarettes = 200,
+		/obj/item/storage/fancy/cigarettes/rugged = 67,
+		/obj/item/storage/fancy/cigarettes = 76,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 82,
+		/obj/item/storage/fancy/cigarettes/nicotine = 89,
+		/obj/item/storage/fancy/cigarettes/pra = 79,
+		/obj/item/storage/chewables/rollable/bad = 56,
+		/obj/item/storage/chewables/rollable = 63,
+		/obj/item/storage/chewables/rollable/fine = 69,
+		/obj/item/storage/chewables/rollable/nico = 86,
+		/obj/item/storage/chewables/tobacco/bad = 55,
+		/obj/item/storage/chewables/tobacco = 74,
+		/obj/item/storage/chewables/tobacco/fine = 86,
+		/obj/item/storage/fancy/chewables/tobacco/nico = 91,
 		/obj/item/storage/box/matches = 12,
 		/obj/item/flame/lighter/random = 12,
+		/obj/item/storage/cigfilters = 28,
+		/obj/item/storage/fancy/cigpaper = 35,
+		/obj/item/storage/fancy/cigpaper/fine = 42,
 		/obj/item/spacecash/ewallet/lotto = 200
 	)
 

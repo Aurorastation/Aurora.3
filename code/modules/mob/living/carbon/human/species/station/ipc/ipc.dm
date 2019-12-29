@@ -19,8 +19,8 @@
 	light_power = 0.5
 	meat_type = /obj/item/stack/material/steel
 	unarmed_types = list(
-		/datum/unarmed_attack/punch, 
-		/datum/unarmed_attack/stomp, 
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick)
 	rarity_value = 2
 
@@ -38,6 +38,10 @@
 
 	brute_mod = 1.0
 	burn_mod = 1.2
+
+	grab_mod = 1.1 // Smooth, no real edges to grab onto
+	resist_mod = 2 // Robotic strength
+
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 
 	death_message = "gives one shrill beep before falling lifeless."
@@ -107,7 +111,8 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
+	default_citizenship = CITIZENSHIP_NONE
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15

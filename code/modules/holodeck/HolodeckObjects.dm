@@ -159,7 +159,7 @@
 	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, HALLOSS)
+			grab_smash_attack(G, PAIN)
 			return
 
 	if(W.flags & NOBLUDGEON) return
@@ -239,7 +239,7 @@
 	return
 
 /obj/item/holo
-	damtype = HALLOSS
+	damtype = PAIN
 	no_attack_log = 1
 
 /obj/item/holo/esword

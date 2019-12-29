@@ -16,7 +16,7 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#ffdc37"
 
-	body.armor = new /obj/item/robot_parts/robot_component/armour(src)
+	body.armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
 	. = ..()
 
@@ -30,7 +30,9 @@
 	exosuit_desc_string = "heavy-duty industrial lifters"
 	max_damage = 70
 	power_use = 2000
+	melee_damage = 40
 	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
+	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/ripley
 	name = "exosuit legs"
@@ -65,7 +67,7 @@
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armour(src)
+	armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
@@ -149,7 +151,7 @@
 		body = new /obj/item/mech_component/chassis/ripley(src)
 		body.color = "#849bc1"
 
-		body.mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
+		body.mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 	. = ..()
 

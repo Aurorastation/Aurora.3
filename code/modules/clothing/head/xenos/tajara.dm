@@ -3,8 +3,8 @@
 	contained_sprite = TRUE
 	description_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
-	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters usually shatter against how effective and cheap it is to \
-	make the human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
+	suspenders, overalls are now the fashion of every Tajara from Nal'Tor to Kaltir. The protests of \"Old fashion\" supporters can't stand against how undeniably effective and cheap \
+	to produce Human clothes are. There are a few notable branches, the long-coat and fedora \"gangster style\". Leather jacket wearing \"Greaser\" or the popular amongst females, short \
 	and colorful dress wearing \"Flapper\" variety of clothing."
 
 /obj/item/clothing/head/tajaran/circlet
@@ -43,3 +43,68 @@
 	description_fluff = "Party Commissars are high ranking members of the Party of the Free Tajara under the Leadership of Hadii attached to army units, who ensures that soldiers and \
 	their commanders follow the principles of Hadiism. Their duties are not only limited to enforcing the republican ideals among the troops and reporting possible subversive elements, \
 	they are expected to display bravery in combat and lead by example."
+
+/obj/item/clothing/head/tajaran/raskara
+	name = "raskariim mask"
+	desc = "A face concealing mask worn by the members of the cult of Raskara."
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	body_parts_covered = HEAD|FACE|EYES
+	species_restricted = list("Tajara")
+	icon_state = "raskara_mask"
+	item_state = "raskara_mask"
+
+/obj/item/clothing/head/tajaran/pra_beret
+	name = "republican army beret"
+	desc = "A green beret issued to republican soldiers."
+	icon_state = "praberet"
+	item_state = "praberet"
+
+/obj/item/clothing/head/tajaran/pra_beret
+	name = "service cap"
+	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
+	icon_state = "nkahat"
+	item_state = "nkahat"
+
+/obj/item/clothing/head/tajaran/consular
+	name = "consular service cap"
+	desc = "A service cap worn by the diplomatic service of the People's Republic of Adhomai."
+	icon_state = "pra_consularhat"
+	item_state = "pra_consularhat"
+
+/obj/item/clothing/head/tajaran/consular/dpra
+	desc = "A service cap worn by the diplomatic service of the Democratic People's Republic of Adhomai."
+	icon_state = "dpra_consularhat"
+	item_state = "dpra_consularhat"
+
+/obj/item/clothing/head/tajaran/consular/nka
+	name = "royal consular hat"
+	desc = "A fancy hat worn by the diplomatic service of the New Kingdom of Adhomai."
+	icon_state = "nka_consularhat"
+	item_state = "nka_consularhat"
+
+/obj/item/clothing/head/helmet/tajara
+	name = "amohdan swordsmen helmet"
+	desc = "A helmet used by the traditional warriors of Amohda."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "amohdan_helmet"
+	item_state = "amohdan_helmet"
+	contained_sprite = TRUE
+	body_parts_covered = HEAD|FACE|EYES
+	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
+	species_restricted = list("Tajara")
+	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
+	allow_hair_covering = FALSE
+	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
+	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
+	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+	siemens_coefficient = 0.35
+
+/obj/item/clothing/head/helmet/kettle
+	name = "kettle helmet"
+	desc = "A kettle helmet used by the forces of the new Kingdom of Adhomai."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "kettle"
+	item_state = "kettle"
+	contained_sprite = TRUE
+	armor = list(melee = 50, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)

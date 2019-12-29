@@ -74,6 +74,7 @@
 	var/flash_mod =     1                    // Stun from blindness modifier.
 	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/grab_mod =      1                    // How easy it is to grab the species. Higher is harder to grab.
+	var/resist_mod =    1                    // How easy it is for the species to resist out of a grab.
 	var/metabolism_mod = 1					 // Reagent metabolism modifier
 	var/bleed_mod = 1						 // How fast this species bleeds.
 	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
@@ -118,6 +119,7 @@
 	var/warning_low_pressure = WARNING_LOW_PRESSURE   // Low pressure warning.
 	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
 	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
+	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
 	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature.
 	                                                  // (also affects temperature processing)
 
@@ -211,9 +213,9 @@
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
 
-	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB)
-
+	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 
@@ -516,10 +518,10 @@
 
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
-	if((H.getHalLoss() >= 10) && prob(H.getHalLoss() *2))
+	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
 		H.flash_pain()
 
-	if ((H.getHalLoss() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
+	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
@@ -574,4 +576,7 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return /datum/reagent/nutriment
+	return "nutriment"
+
+/datum/species/proc/can_commune()
+	return FALSE

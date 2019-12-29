@@ -35,7 +35,6 @@
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["ATLAS armband"] = /obj/item/clothing/accessory/armband/atlas
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
@@ -47,10 +46,14 @@
 /datum/gear/accessory/holster/New()
 	..()
 	var/holsters = list()
-	holsters["holster, armpit"] = /obj/item/clothing/accessory/holster/armpit
-	holsters["holster, hip"] = /obj/item/clothing/accessory/holster/hip
-	holsters["holster, waist"] = /obj/item/clothing/accessory/holster/waist
-	holsters["holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
+	holsters["black holster, armpit"] = /obj/item/clothing/accessory/holster/armpit
+	holsters["black holster, hip"] = /obj/item/clothing/accessory/holster/hip
+	holsters["black holster, waist"] = /obj/item/clothing/accessory/holster/waist
+	holsters["black holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
+	holsters["brown holster, armpit"] = /obj/item/clothing/accessory/holster/armpit
+	holsters["brown holster, hip"] = /obj/item/clothing/accessory/holster/hip
+	holsters["brown holster, waist"] = /obj/item/clothing/accessory/holster/waist
+	holsters["brown holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie
@@ -60,17 +63,18 @@
 /datum/gear/accessory/tie/New()
 	..()
 	var/ties = list()
-	ties["blue tie"] = /obj/item/clothing/accessory/blue
 	ties["red tie"] = /obj/item/clothing/accessory/red
-	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
-	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
-	ties["blue long tie"] = /obj/item/clothing/accessory/tie/blue_long
 	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
-	ties["red long tie"] = /obj/item/clothing/accessory/tie/red_long
-	ties["black tie"] = /obj/item/clothing/accessory/tie/black
-	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
+	ties["orange tie"] = /obj/item/clothing/accessory/tie/orange
 	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
+	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
+	ties["green tie"] = /obj/item/clothing/accessory/tie/green
+	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
+	ties["blue tie"] = /obj/item/clothing/accessory/blue
+	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
 	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
+	ties["purple tie"] = /obj/item/clothing/accessory/tie/purple
+	ties["black tie"] = /obj/item/clothing/accessory/tie/black
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 

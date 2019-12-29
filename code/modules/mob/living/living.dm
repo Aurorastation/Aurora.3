@@ -370,7 +370,7 @@ default behaviour is:
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
 	var/t = shooter:zone_sel.selecting
-	if ((t in list( BP_EYES, "mouth" )))
+	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t)
 	return def_zone
@@ -488,6 +488,37 @@ default behaviour is:
 	failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
 	return
+
+/mob/living/proc/basic_revival(var/repair_brain = TRUE)
+
+	if(repair_brain && getBrainLoss() > 50)
+		repair_brain = FALSE
+		setBrainLoss(50)
+
+	if(stat == DEAD)
+		switch_from_dead_to_living_mob_list()
+		timeofdeath = 0
+
+	stat = CONSCIOUS
+	regenerate_icons()
+
+	BITSET(hud_updateflag, HEALTH_HUD)
+	BITSET(hud_updateflag, STATUS_HUD)
+	BITSET(hud_updateflag, LIFE_HUD)
+
+	failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
+
+/mob/living/carbon/basic_revival(var/repair_brain = TRUE)
+	if(repair_brain && should_have_organ(BP_BRAIN))
+		repair_brain = FALSE
+		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
+		if(brain.damage > (brain.max_damage/2))
+			brain.damage = (brain.max_damage/2)
+		if(brain.status & ORGAN_DEAD)
+			brain.status &= ~ORGAN_DEAD
+			START_PROCESSING(SSprocessing, brain)
+		brain.update_icon()
+	..(repair_brain)
 
 /mob/living/proc/UpdateDamageIcon()
 	return
@@ -666,7 +697,7 @@ default behaviour is:
 /mob/living/var/last_resist
 
 /mob/living/proc/resist_grab()
-	if (last_resist + 4 > world.time)
+	if(last_resist + 8 > world.time)
 		return
 	last_resist = world.time
 	if(stunned > 10)
@@ -677,23 +708,39 @@ default behaviour is:
 		requests.Remove(O)
 		qdel(O)
 		resisting++
+	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
+		var/resist_chance
+		var/resist_msg
 		switch(G.state)
 			if(GRAB_PASSIVE)
-				qdel(G)
+				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
+					resist_chance = 30 * resist_power
+				else
+					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
+				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
-				if(incapacitated(INCAPACITATION_KNOCKDOWN)? prob(15) : prob(60))
-					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s grip!</span>")
-					qdel(G)
+				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
+					resist_chance = 15 * resist_power
+				else
+					resist_chance = 50 * resist_power
+				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
-				if (((world.time - G.assailant.l_move_time < 30 || !stunned) && prob(15)) || prob(3))
-					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s headlock!</span>")
-					qdel(G)
+				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
+					resist_chance = 15 * resist_power
+				else
+					resist_chance = 3 * resist_power
+				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+			
+		if(prob(resist_chance))
+			visible_message(resist_msg)
+			qdel(G)
+
 	if(resisting)
-		visible_message("<span class='danger'>[src] resists!</span>")
-		setClickCooldown(20)
+		visible_message(span("warning", "[src] resists!"))
+		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -801,10 +848,13 @@ default behaviour is:
 	return 1
 
 /mob/living/Destroy()
-	for (var/thing in stomach_contents)
-		qdel(thing)
-	stomach_contents = null
-	QDEL_NULL(ingested)
+	if(loc)
+		for(var/mob/M in contents)
+			M.dropInto(loc)
+	else
+		for(var/mob/M in contents)
+			qdel(M)
+	QDEL_NULL(reagents)
 
 	return ..()
 
@@ -813,3 +863,41 @@ default behaviour is:
 
 /mob/living/proc/get_digestion_product()
 	return null
+
+
+/proc/is_valid_for_devour(var/mob/living/test, var/eat_types)
+	//eat_types must contain all types that the mob has. For example we need both humanoid and synthetic to eat an IPC.
+	var/test_types = test.find_type()
+	. = (eat_types & test_types) == test_types
+ 
+#define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
+/mob/living/proc/calculate_composition()
+	if (!composition_reagent)//if no reagent has been set, then we'll set one
+		var/type = find_type(src)
+		if (type & TYPE_SYNTHETIC)
+			src.composition_reagent = "iron"
+		else
+			src.composition_reagent = "protein"
+
+	//if the mob is a simple animal with a defined meat quantity
+	if (istype(src, /mob/living/simple_animal))
+		var/mob/living/simple_animal/SA = src
+		if (SA.meat_amount)
+			src.composition_reagent_quantity = SA.meat_amount*2*PPM
+
+		//The quantity of protein is based on the meat_amount, but multiplied by 2
+
+	var/size_reagent = (src.mob_size * src.mob_size) * 3//The quantity of protein is set to 3x mob size squared
+	if (size_reagent > src.composition_reagent_quantity)//We take the larger of the two
+		src.composition_reagent_quantity = size_reagent
+#undef PPM
+
+/mob/living/proc/get_resist_power()
+	return 1
+
+/mob/living/proc/seizure()
+	if(!paralysis && stat == CONSCIOUS)
+		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
+		Paralyse(rand(8,16))
+		make_jittery(rand(150,200))
+		adjustHalLoss(rand(50,60))

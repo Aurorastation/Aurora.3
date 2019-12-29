@@ -108,50 +108,54 @@
 		return
 	..()
 
-/obj/item/clothing/accessory/blue
-	name = "blue tie"
-	icon_state = "bluetie"
-
 /obj/item/clothing/accessory/red
 	name = "red tie"
 	icon_state = "redtie"
+
+/obj/item/clothing/accessory/tie/red_clip
+	name = "red tie with a clip"
+	icon_state = "redcliptie"
+
+/obj/item/clothing/accessory/tie/orange
+	name = "orange tie"
+	icon_state = "orangetie"
+
+/obj/item/clothing/accessory/tie/yellow
+	name = "yellow tie"
+	icon_state = "yellowtie"
 
 /obj/item/clothing/accessory/horrible
 	name = "horrible tie"
 	desc = "A neosilk clip-on tie. This one is disgusting."
 	icon_state = "horribletie"
 
-/obj/item/clothing/accessory/tie/blue_clip
-	name = "blue tie with a clip"
-	icon_state = "bluecliptie"
-
-/obj/item/clothing/accessory/tie/blue_long
-	name = "blue long tie"
-	icon_state = "bluelongtie"
-
-/obj/item/clothing/accessory/tie/red_clip
-	name = "red tie with a clip"
-	icon_state = "redcliptie"
-
-/obj/item/clothing/accessory/tie/red_long
-	name = "red long tie"
-	icon_state = "redlongtie"
-
-/obj/item/clothing/accessory/tie/black
-	name = "black tie"
-	icon_state = "blacktie"
+/obj/item/clothing/accessory/tie/green
+	name = "green tie"
+	icon_state = "greentie"
 
 /obj/item/clothing/accessory/tie/darkgreen
 	name = "dark green tie"
 	icon_state = "dgreentie"
 
-/obj/item/clothing/accessory/tie/yellow
-	name = "yellow tie"
-	icon_state = "yellowtie"
+/obj/item/clothing/accessory/blue
+	name = "blue tie"
+	icon_state = "bluetie"
+
+/obj/item/clothing/accessory/tie/blue_clip
+	name = "blue tie with a clip"
+	icon_state = "bluecliptie"
 
 /obj/item/clothing/accessory/tie/navy
 	name = "navy tie"
 	icon_state = "navytie"
+
+/obj/item/clothing/accessory/tie/purple
+	name = "purple tie"
+	icon_state = "purpletie"
+
+/obj/item/clothing/accessory/tie/black
+	name = "black tie"
+	icon_state = "blacktie"
 
 /obj/item/clothing/accessory/tie/white
 	name = "white tie"
@@ -168,54 +172,13 @@
 	icon_state = "stethoscope"
 	flippable = 1
 
-/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user, var/target_zone)
+/obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
-			var/body_part = parse_zone(target_zone)
-			if(body_part)
-				var/their = "their"
-				switch(M.gender)
-					if(MALE)	their = "his"
-					if(FEMALE)	their = "her"
-
-				var/sound = "heartbeat"
-				var/sound_strength = "cannot hear"
-				var/heartbeat = 0
-				if(M.species && M.species.has_organ[BP_HEART])
-					var/obj/item/organ/internal/heart/heart = M.internal_organs_by_name[BP_HEART]
-					if(heart && !heart.robotic)
-						heartbeat = 1
-				if(M.stat == DEAD || (M.status_flags&FAKEDEATH))
-					sound_strength = "cannot hear"
-					sound = "anything"
-				else
-					switch(body_part)
-						if(BP_CHEST)
-							sound_strength = "hear"
-							sound = "no heartbeat"
-							if(heartbeat)
-								var/obj/item/organ/internal/heart/heart = M.internal_organs_by_name[BP_HEART]
-								if(heart.is_bruised() || M.getOxyLoss() > 50)
-									sound = "[pick("odd noises in","weak")] heartbeat"
-								else
-									sound = "healthy heartbeat"
-
-							var/obj/item/organ/internal/heart/L = M.internal_organs_by_name[BP_LUNGS]
-							if(!L || M.losebreath)
-								sound += " and no respiration"
-							else if(M.is_lung_ruptured() || M.getOxyLoss() > 50)
-								sound += " and [pick("wheezing","gurgling")] sounds"
-							else
-								sound += " and healthy respiration"
-						if(BP_EYES,"mouth")
-							sound_strength = "cannot hear"
-							sound = "anything"
-						else
-							if(heartbeat)
-								sound_strength = "hear a weak"
-								sound = "pulse"
-
-				user.visible_message("[user] places [src] against [M]'s [body_part] and listens attentively.", "You place [src] against [their] [body_part]. You [sound_strength] [sound].")
+			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
+			if(organ)
+				user.visible_message(span("notice", "[user] places [src] against [M]'s [organ.name] and listens attentively."), 
+									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
 
@@ -680,12 +643,7 @@
 	desc = "A lightweight polymer frame meant to brace and hold someone's legs upright comfortably."
 	icon_state = "legbrace"
 	item_state = "legbrace"
-
-/obj/item/clothing/accessory/offworlder/bracer/neckbrace
-	name = "neckbrace"
-	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
-	icon_state = "neckbrace"
-	item_state = "neckbrace"
+	drop_sound = 'sound/items/drop/gun.ogg'
 
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 	name = "neckbrace"
@@ -700,6 +658,7 @@
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
 	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
@@ -708,18 +667,7 @@
 	item_state = "sol-pin"
 	overlay_state = "sol-pin"
 	flippable = 1
-
-/obj/item/clothing/accessory/hadii_pin
-	name = "hadiist party pin"
-	desc = "A small, red flag pin worn by members of the Hadiist party."
-	icon_state = "hadii-pin"
-	item_state = "hadii-pin"
-	overlay_state = "hadii-pin"
-	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
-	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
-	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
-	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	flippable = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
 
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
@@ -727,6 +675,7 @@
 	icon_state = "tags"
 	item_state = "tags"
 	overlay_state = "tags"
+	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
@@ -734,6 +683,7 @@
 	icon_state = "patch"
 	overlay_state = "patch"
 	flippable = 1
+	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/accessory/sleevepatch/necro
 	name = "\improper Necropolis Industries sleeve patch"

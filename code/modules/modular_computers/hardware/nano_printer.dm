@@ -25,11 +25,12 @@
 	if(damage > damage_malfunction)
 		text_to_print = stars(text_to_print, 100-malfunction_probability)
 	var/obj/item/paper/P = new /obj/item/paper(get_turf(holder2),text_to_print, paper_title)
+	P.info = text_to_print
 	if (paper_color)
 		P.color = paper_color
 
 	stored_paper--
-	return 1
+	return P
 
 /obj/item/computer_hardware/nano_printer/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/paper))

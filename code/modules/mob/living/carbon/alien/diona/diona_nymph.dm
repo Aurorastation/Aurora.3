@@ -34,7 +34,6 @@
 	var/list/language_progress
 	var/obj/item/clothing/head/hat
 	var/datum/reagents/vessel
-	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 	var/energy_duration = 144                 // The time in seconds that this diona can exist in total darkness before its energy runs out
 	var/dark_consciousness = 144              // How long this diona can stay on its feet and keep moving in darkness after energy is gone.
 	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies
@@ -46,6 +45,11 @@
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
 	var/echo = 0 //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
+
+	var/datum/reagents/metabolism/ingested
+
+/mob/living/carbon/alien/diona/get_ingested_reagents()
+	return ingested
 
 /mob/living/carbon/alien/diona/proc/cleanupTransfer()
 	if(!kept_clean)
@@ -257,7 +261,6 @@
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/grow)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/merge)
 		verbs.Remove(/mob/living/carbon/proc/absorb_nymph)
-		verbs.Remove(/mob/living/proc/devour)
 		verbs.Remove(/mob/living/carbon/alien/diona/proc/sample)
 	else
 		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs) && !detached)
@@ -268,9 +271,6 @@
 
 		if (!(/mob/living/carbon/alien/diona/proc/grow in verbs))
 			verbs.Add(/mob/living/carbon/alien/diona/proc/grow)
-
-		if (!(/mob/living/proc/devour in verbs))
-			verbs.Add(/mob/living/proc/devour)
 
 		if (!(/mob/living/proc/ventcrawl in verbs))
 			verbs.Add(/mob/living/proc/ventcrawl)

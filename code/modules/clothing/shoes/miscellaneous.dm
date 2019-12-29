@@ -13,12 +13,14 @@
 
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
-	icon_state = "mime"
+	icon_state = "white"
+	item_state = "white"
 
 /obj/item/clothing/shoes/swat
 	name = "\improper SWAT shoes"
 	desc = "When you want to turn up the heat."
 	icon_state = "swat"
+	item_state = "swat"
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
@@ -32,6 +34,7 @@
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."
 	icon_state = "jungle"
+	item_state = "jungle"
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
@@ -46,7 +49,7 @@
 /obj/item/clothing/shoes/sandal
 	desc = "A pair of rather plain, wooden sandals."
 	name = "sandals"
-	icon_state = "wizard"
+	icon_state = "sandals"
 	species_restricted = null
 	body_parts_covered = 0
 
@@ -54,12 +57,14 @@
 	desc = "A pair of magic, black shoes."
 	name = "magic shoes"
 	icon_state = "black"
+	item_state = "black"
 	body_parts_covered = FEET
 
 /obj/item/clothing/shoes/sandal/flipflop
 	name = "flip flops"
 	desc = "A pair of foam flip flops. For those not afraid to show a little ankle."
 	icon_state = "thongsandal"
+	item_state = "thongsandal"
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
@@ -103,6 +108,7 @@
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"
 	icon_state = "boots"
+	item_state = "jackboots"
 
 /obj/item/clothing/shoes/slippers
 	name = "bunny slippers"
@@ -125,14 +131,26 @@
 	silent = 1
 
 /obj/item/clothing/shoes/laceup
-	name = "laceup shoes"
+	name = "black oxford shoes"
 	desc = "The height of fashion, and they're pre-polished!"
-	icon_state = "laceups"
+	icon_state = "oxford_black"
+	item_state = "oxford_black"
+
+/obj/item/clothing/shoes/laceup/grey
+	name = "grey oxford shoes"
+	icon_state = "oxford_grey"
+	item_state = "oxford_grey"
+
+/obj/item/clothing/shoes/laceup/brown
+	name = "brown oxford shoes"
+	icon_state = "oxford_brown"
+	item_state = "oxford_brown"
 
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
 	name = "swimming fins"
 	icon_state = "flippers"
+	item_state = "flippers"
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
 
@@ -140,20 +158,11 @@
 	name = "cloth footwraps"
 	desc = "A roll of treated cloth used for wrapping clawed feet."
 	icon_state = "clothwrap"
-	item_state = "clothwrap"
+	item_state = "white"
 	w_class = 2
 	species_restricted = null
 	silent = 1
 	drop_sound = 'sound/items/drop/clothing.ogg'
-
-/obj/item/clothing/shoes/winter_old
-	name = "winter boots"
-	desc = "Boots lined with 'synthetic' animal fur."
-	icon_state = "winterboots_old"
-	cold_protection = FEET|LEGS
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = FEET|LEGS
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
@@ -175,6 +184,7 @@
 	name = "high heels"
 	desc = "A pair of high-heeled shoes. Fancy!"
 	icon_state = "heels"
+	item_state = "thongsandal"
 	slowdown = 0
 	force = 2
 	sharp = TRUE
@@ -201,11 +211,16 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
 
+/obj/item/clothing/shoes/winter/toeless
+	name = "toe-less winter boots"
+	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
+	icon_state = "winterboots_toeless"
+
 /obj/item/clothing/shoes/black_boots
 	name = "black boots"
 	desc = "A pair of tough looking black boots."
-	icon_state = "blackboots"
-	item_state = "blackboots"
+	icon_state = "jackboots"
+	item_state = "jackboots"
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	can_hold_knife = 1
 
@@ -227,19 +242,16 @@
 	name = "white caligae"
 	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has white socks."
 	icon_state = "whitecaligae"
-	item_state = "whitecaligae"
 
 /obj/item/clothing/shoes/caligae/grey
 	name = "grey caligae"
 	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has grey socks."
 	icon_state = "greycaligae"
-	item_state = "greycaligae"
 
 /obj/item/clothing/shoes/caligae/black
 	name = "black caligae"
 	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection. This one has black socks."
 	icon_state = "blackcaligae"
-	item_state = "blackcaligae"
 
 /obj/item/clothing/shoes/caligae/armor
 	name = "leather caligae"
