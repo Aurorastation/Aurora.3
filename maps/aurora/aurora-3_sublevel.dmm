@@ -3930,20 +3930,12 @@
 	},
 /area/maintenance/substation/engineering_sublevel)
 "ahX" = (
-/obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain{
-	icon_state = "spline_plain";
-	dir = 6
-	},
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/simulated/floor/greengrid,
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "ahY" = (
 /turf/simulated/floor/plating,
@@ -11974,6 +11966,47 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"atU" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenoarch_atrium)
+"atV" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain{
+	icon_state = "spline_plain";
+	dir = 6
+	},
+/turf/simulated/floor/greengrid,
+/area/rnd/xenoarch_atrium)
+"atW" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill{
+	pixel_y = -5
+	},
+/obj/item/pickaxe/drill{
+	pixel_y = 5
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "atX" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -11989,6 +12022,32 @@
 	tag_interior_door = "research_inner"
 	},
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/rnd/eva)
+"atY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/structure/table/steel,
+/obj/item/stack/flag/purple,
+/obj/item/stack/flag/purple,
+/obj/item/storage/box/excavation,
+/obj/item/wrench,
+/obj/item/device/measuring_tape,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit/improved,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/tiled,
+/area/rnd/eva)
+"atZ" = (
+/obj/structure/table/steel,
+/obj/item/stack/flag/green,
+/obj/item/stack/flag/green,
+/obj/item/storage/box/excavation,
+/obj/item/wrench,
+/obj/item/device/measuring_tape,
+/obj/item/pickaxe/drill,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "aub" = (
@@ -13336,22 +13395,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical_sublevel)
-"axO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/obj/structure/table/steel,
-/obj/item/stack/flag/purple,
-/obj/item/stack/flag/purple,
-/obj/item/storage/box/excavation,
-/obj/item/pickaxe,
-/obj/item/wrench,
-/obj/item/device/measuring_tape,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
-/turf/simulated/floor/tiled,
-/area/rnd/eva)
 "axP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -28972,20 +29015,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"dpL" = (
-/obj/structure/table/rack,
-/obj/item/pickaxe{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/pickaxe{
-	pixel_x = -2;
-	pixel_y = -5
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "dqy" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/lime{
@@ -29723,7 +29752,6 @@
 /area/mine/unexplored)
 "eCB" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/machinery/computer/crew,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
@@ -30613,18 +30641,17 @@
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_post2)
 "gut" = (
-/obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/computer/records/medical/laptop,
 /obj/machinery/light_switch{
 	pixel_x = -22;
 	pixel_y = 8
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
 "gyi" = (
@@ -31439,8 +31466,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/item/device/radio{
 	anchored = 1;
 	broadcasting = 0;
@@ -31461,6 +31486,7 @@
 	name = "Quarantine Processing Shutters";
 	opacity = 0
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
 "iIQ" = (
@@ -31793,12 +31819,11 @@
 /area/medical/patient_wing_post2)
 "jkR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 1
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled,
 /area/medical/patient_wing_post2)
 "jlY" = (
@@ -31932,8 +31957,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
 "jMg" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/lime/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -31944,6 +31967,7 @@
 	pixel_x = 24;
 	req_one_access = list(24,11,55)
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
 "jMR" = (
@@ -32649,16 +32673,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
-"mio" = (
-/obj/structure/table/steel,
-/obj/item/stack/flag/green,
-/obj/item/stack/flag/green,
-/obj/item/storage/box/excavation,
-/obj/item/pickaxe,
-/obj/item/wrench,
-/obj/item/device/measuring_tape,
-/turf/simulated/floor/tiled,
-/area/rnd/eva)
 "mjH" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -57952,7 +57966,7 @@ aba
 aba
 eCz
 ebn
-dpL
+atW
 jbg
 boe
 aba
@@ -58984,8 +58998,8 @@ awl
 jlY
 avJ
 jMR
-axO
-mio
+atY
+atZ
 jOy
 nqY
 qNw
@@ -61047,7 +61061,7 @@ ayW
 ayW
 ayW
 ayW
-ayW
+atU
 aqG
 atf
 atq
@@ -62068,8 +62082,8 @@ awN
 akl
 ash
 alp
-ahX
-azR
+alq
+atV
 azR
 azR
 azR
@@ -62325,7 +62339,7 @@ asr
 aqH
 aiL
 alQ
-alq
+ahX
 azR
 azR
 azR
@@ -82904,7 +82918,7 @@ aJA
 aKB
 gsX
 eCB
-oUd
+nTr
 nTr
 aRD
 aaa

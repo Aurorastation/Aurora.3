@@ -106,7 +106,7 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 		protected += 0.2
 
 	//latex gloves and science goggles also give a bit of bonus protection
-	if(istype(H.gloves,/obj/item/clothing/gloves/latex))
+	if(istype(H.gloves,/obj/item/clothing/gloves/latex/nitrile))
 		protected += 0.1
 	/*
 	If you have Anomaly Suit, Anomaly Hood, Latex Gloves AND Science Goggles, you will have
