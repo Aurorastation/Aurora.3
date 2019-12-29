@@ -1167,7 +1167,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/laptop/preset/command,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)

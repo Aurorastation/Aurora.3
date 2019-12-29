@@ -218,7 +218,7 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & STUTTER)
+	if (disabilities & STUTTERING)
 		speech_problem_flag = 1
 		if (prob(10))
 			stuttering = max(10, stuttering)
@@ -448,10 +448,15 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-		if( !(COLD_RESISTANCE in mutations))
-			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
-			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
-				adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
+		if(!(COLD_RESISTANCE in mutations))
+			var/list/obj/item/organ/external/organs = get_damageable_organs()
+			for(var/obj/item/organ/external/O in organs)
+				if(QDELETED(O))
+					continue
+				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+			if(getOxyLoss() < 55)
+				adjustOxyLoss(4)
 			pressure_alert = -2
 		else
 			pressure_alert = -1
@@ -822,8 +827,6 @@
 					sleeping += 1
 					Paralyse(5)
 
-		confused = max(0, confused - 1)
-
 		// If you're dirty, your gloves will become dirty, too.
 		if(gloves && germ_level > gloves.germ_level && prob(10))
 			gloves.germ_level += 1
@@ -880,8 +883,8 @@
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
+		var/ovr
 		if(hurtdamage)
-			var/ovr
 			switch(hurtdamage)
 				if(10 to 25)
 					ovr = "brutedamageoverlay1"
@@ -896,10 +899,10 @@
 				if(85 to INFINITY)
 					ovr = "brutedamageoverlay6"
 
-			if (last_brute_overlay != ovr)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				damageoverlay.add_overlay(ovr)
-				last_brute_overlay = ovr
+		if(last_brute_overlay != ovr)
+			damageoverlay.cut_overlay(last_brute_overlay)
+			damageoverlay.add_overlay(ovr)
+			last_brute_overlay = ovr
 
 		if(healths)
 			healths.overlays.Cut()

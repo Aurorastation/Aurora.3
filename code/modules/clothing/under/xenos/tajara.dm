@@ -63,7 +63,7 @@
 	icon_state = "summerwear"
 	item_state = "summerwear"
 
-/obj/item/clothing/under/mechanic
+/obj/item/clothing/under/tajaran/mechanic
 	name = "machinist uniform"
 	desc = "A simple and robust overall used by Adhomian urban workers."
 	icon_state = "mechanic"
@@ -116,7 +116,7 @@
 	item_state = "taj_dress_fancy_dark"
 
 /obj/item/clothing/under/dress/tajaran/summer
-	name = "adhomian summmer dress"
+	name = "adhomian summer dress"
 	desc = "An Adhomian dress usually worn during the summer."
 	icon_state = "summer-dress"
 	item_state = "summer-dress"

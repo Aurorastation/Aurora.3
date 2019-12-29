@@ -31,6 +31,7 @@
 	action_delay = 15
 	max_damage = 90
 	power_use = 7500
+	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/heavy
 	name = "heavy legs"
