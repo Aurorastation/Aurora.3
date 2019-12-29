@@ -222,7 +222,7 @@
 			if(R.module)
 				if(!R.module.on_manifest)
 					continue
-				selected_module = R.module.name
+				selected_module = capitalize_first_letters(R.module.name)
 			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
 		if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
