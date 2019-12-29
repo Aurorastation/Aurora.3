@@ -1,7 +1,7 @@
 /mob/living/heavy_vehicle/premade/hoverpod
 	name = "hoverpod"
 	desc = "An aging exosuit, produced to be a cheap variant to traditional space transport."
-	icon_state = "ripley"
+	icon_state = "engineering_pod"
 
 /mob/living/heavy_vehicle/premade/hoverpod/Initialize()
 	if(!arms)
@@ -28,7 +28,7 @@
 	name = "hover thrusters"
 	exosuit_desc_string = "hover thrusters"
 	desc = "An ancient set of hover thrusters capable of keeping a exosuit aloft."
-	icon_state = "spiderlegs"
+	icon_state = "hoverlegs"
 	max_damage = 40
 	move_delay = 4
 	turn_delay = 2
@@ -49,4 +49,4 @@
 
 /obj/item/mech_component/chassis/pod/prebuild()
 	. = ..()
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/radproof(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/radproof(src)
