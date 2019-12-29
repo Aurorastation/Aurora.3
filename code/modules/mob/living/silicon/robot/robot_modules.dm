@@ -799,7 +799,7 @@ var/global/list/robot_modules = list(
 	name = "drone module"
 	no_slip = 1
 	networks = list(NETWORK_ENGINEERING)
-	on_manifest = TRUE
+	on_manifest = FALSE
 
 /obj/item/robot_module/drone/New(var/mob/living/silicon/robot/robot)
 	..()
