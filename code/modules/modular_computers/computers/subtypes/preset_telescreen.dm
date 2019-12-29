@@ -6,9 +6,9 @@
 	network_card = new/obj/item/computer_hardware/network_card(src)
 
 /obj/item/modular_computer/telescreen/preset/generic/
-	_app_preset_name = "wallgeneric"
+	_app_preset_type = /datum/modular_computer_app_presets/wall_generic
 	enrolled = 1
 
 /obj/item/modular_computer/telescreen/preset/trashcompactor/
-	_app_preset_name = "trashcompactor"
+	_app_preset_type = /datum/modular_computer_app_presets/trashcompactor
 	enrolled = 1

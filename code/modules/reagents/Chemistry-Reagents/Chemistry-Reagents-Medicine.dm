@@ -99,7 +99,6 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-	M.drowsyness = max(M.drowsyness, 5)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -122,7 +121,6 @@
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	M.drowsyness = max(M.drowsyness, strength/6)
 
 /datum/reagent/kelotane/dermaline
 	name = "Dermaline"

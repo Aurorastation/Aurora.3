@@ -34,9 +34,13 @@
 
 /datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
 	set waitfor = 0
+	playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
+
+	if(!ishuman(victim))
+		to_chat(victim, "<span class='notice'>An annoying buzz passes through your head.</span>")
+		return
 
 	if(victim.psi)
-		playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 		to_chat(victim, span("danger", "A hauntingly familiar sound hisses from \icon[source] \the [source], and your vision flickers!"))
 		victim.psi.backblast(rand(5,15))
 		victim.Paralyse(5)
