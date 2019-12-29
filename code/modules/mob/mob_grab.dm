@@ -146,7 +146,7 @@
 			if(affecting.loc != assailant.loc)
 				force_down = 0
 			else
-				affecting.Weaken(2)
+				affecting.Weaken(4)
 
 	if(state >= GRAB_NECK)
 		affecting.Stun(3)
@@ -155,13 +155,13 @@
 			L.adjustOxyLoss(1)
 
 	if(state >= GRAB_KILL)
-		//affecting.apply_effect(STUTTER, 5) //would do this, but affecting isn't declared as mob/living for some stupid reason.
 		affecting.stuttering = max(affecting.stuttering, 5) //It will hamper your voice, being choked and all.
-		affecting.Weaken(5)	//Should keep you down unless you get help.
+		affecting.Weaken(7)	//Should keep you down unless you get help.
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/A = affecting
-			if (!(A.species.flags & NO_BREATHE))
-				A.losebreath = max(A.losebreath + 2, 3)
+			if(!(A.species.flags & NO_BREATHE))
+				A.losebreath = max(A.losebreath + 3, 5)
+				A.adjustOxyLoss(3)
 
 	adjust_position()
 
@@ -172,12 +172,12 @@
 	switch(target_zone)
 		if(BP_MOUTH)
 			if(announce)
-				user.visible_message("<span class='warning'>\The [user] covers [target]'s face!</span>")
+				user.visible_message(span("warning", "\The [user] covers [target]'s face!"))
 			if(target.silent < 3)
 				target.silent = 3
 		if(BP_EYES)
 			if(announce)
-				assailant.visible_message("<span class='warning'>[assailant] covers [affecting]'s eyes!</span>")
+				assailant.visible_message(span("warning", "[assailant] covers [affecting]'s eyes!"))
 			if(affecting.eye_blind < 3)
 				affecting.eye_blind = 3
 
@@ -188,7 +188,7 @@
 //Updating pixelshift, position and direction
 //Gets called on process, when the grab gets upgraded or the assailant moves
 /obj/item/grab/proc/adjust_position()
-	if (!affecting)
+	if(!affecting)
 		return
 	if(affecting.buckled)
 		animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
@@ -257,9 +257,9 @@
 		if(!allow_upgrade)
 			return
 		if(!affecting.lying)
-			assailant.visible_message("<span class='warning'>[assailant] has grabbed [affecting] aggressively (now hands)!</span>")
+			assailant.visible_message(span("warning", "[assailant] grabs [affecting] aggressively by the hands!"))
 		else
-			assailant.visible_message("<span class='warning'>[assailant] pins [affecting] down to the ground (now hands)!</span>")
+			assailant.visible_message(span("warning", "[assailant] pins [affecting] down to the ground by the hands!"))
 			apply_pinning(affecting, assailant)
 
 		state = GRAB_AGGRESSIVE
@@ -267,13 +267,11 @@
 		hud.icon_state = "reinforce1"
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
-			to_chat(assailant, "<span class='notice'>You squeeze [affecting], but nothing interesting happens.</span>")
+			to_chat(assailant, span("notice", "You try to squeeze [affecting], but your hands sink right through!"))
 			return
-
-		assailant.visible_message("<span class='warning'>[assailant] has reinforced \his grip on [affecting] (now neck)!</span>")
+		assailant.visible_message(span("warning", "[assailant] reinforces \his grip on [affecting]'s neck'!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
-		assailant.set_dir(get_dir(assailant, affecting))
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>Grabbed the neck of [affecting.name] ([affecting.ckey])</font>"
 		msg_admin_attack("[key_name_admin(assailant)] grabbed the neck of [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
@@ -281,21 +279,31 @@
 		hud.name = "kill"
 		affecting.Stun(10) //10 ticks of ensured grab
 	else if(state < GRAB_UPGRADING)
-		assailant.visible_message("<span class='danger'>[assailant] starts to tighten \his grip on [affecting]'s neck!</span>")
+		if(ishuman(affecting))
+			var/mob/living/carbon/human/H = affecting
+			if(H.head && (H.head.item_flags & AIRTIGHT))
+				to_chat(assailant, span("warning", "[H]'s headgear prevents you from choking them out!"))
+				return
 		hud.icon_state = "kill1"
-
+		hud.name = "loosen"
 		state = GRAB_KILL
-		assailant.visible_message("<span class='danger'>[assailant] has tightened \his grip on [affecting]'s neck!</span>")
-		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been strangled (kill intent) by [assailant.name] ([assailant.ckey])</font>"
-		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>Strangled (kill intent) [affecting.name] ([affecting.ckey])</font>"
-		msg_admin_attack("[key_name_admin(assailant)] strangled (kill intent) [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
+		assailant.visible_message(span("danger", "[assailant] starts strangling [affecting]!"))
+
+		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
+		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>is strangling [affecting.name] ([affecting.ckey])</font>"
+		msg_admin_attack("[key_name_admin(assailant)] is strangling [key_name_admin(affecting)]",ckey=key_name(assailant),ckey_target=key_name(affecting))
 
 		affecting.setClickCooldown(10)
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/A = affecting
 			if (!(A.species.flags & NO_BREATHE))
-				A.losebreath += 1
+				A.losebreath += 4
 		affecting.set_dir(WEST)
+	else if(state == GRAB_KILL)
+		hud.icon_state = "kill"
+		hud.name = "kill"
+		state = GRAB_NECK
+		assailant.visible_message(span("warning", "[assailant] stops strangling [affecting]!"))
 	adjust_position()
 
 //This is used to make sure the victim hasn't managed to yackety sax away before using the grab.
@@ -334,7 +342,7 @@
 			switch(assailant.a_intent)
 				if(I_HELP)
 					if(force_down)
-						to_chat(assailant, "<span class='warning'>You are no longer pinning [affecting] to the ground.</span>")
+						to_chat(assailant, span("warning", "You are no longer pinning [affecting] to the ground."))
 						force_down = 0
 						return
 					inspect_organ(affecting, assailant, hit_zone)
@@ -367,7 +375,7 @@
 
 /obj/item/grab/proc/reset_kill_state()
 	if(state == GRAB_KILL)
-		assailant.visible_message("<span class='warning'>[assailant] lost \his tight grip on [affecting]'s neck!</span>")
+		assailant.visible_message(span("danger", "[assailant] stops strangling [affecting] to move."))
 		hud.icon_state = "kill"
 		state = GRAB_NECK
 

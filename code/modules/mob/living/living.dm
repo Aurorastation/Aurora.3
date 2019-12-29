@@ -697,7 +697,7 @@ default behaviour is:
 /mob/living/var/last_resist
 
 /mob/living/proc/resist_grab()
-	if (last_resist + 4 > world.time)
+	if(last_resist + 8 > world.time)
 		return
 	last_resist = world.time
 	if(stunned > 10)
@@ -708,23 +708,39 @@ default behaviour is:
 		requests.Remove(O)
 		qdel(O)
 		resisting++
+	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
+		var/resist_chance
+		var/resist_msg
 		switch(G.state)
 			if(GRAB_PASSIVE)
-				qdel(G)
+				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
+					resist_chance = 30 * resist_power
+				else
+					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
+				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
-				if(incapacitated(INCAPACITATION_KNOCKDOWN)? prob(15) : prob(60))
-					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s grip!</span>")
-					qdel(G)
+				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
+					resist_chance = 15 * resist_power
+				else
+					resist_chance = 50 * resist_power
+				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
-				if (((world.time - G.assailant.l_move_time < 30 || !stunned) && prob(15)) || prob(3))
-					visible_message("<span class='warning'>[src] has broken free of [G.assailant]'s headlock!</span>")
-					qdel(G)
+				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
+					resist_chance = 15 * resist_power
+				else
+					resist_chance = 3 * resist_power
+				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+			
+		if(prob(resist_chance))
+			visible_message(resist_msg)
+			qdel(G)
+
 	if(resisting)
-		visible_message("<span class='danger'>[src] resists!</span>")
-		setClickCooldown(20)
+		visible_message(span("warning", "[src] resists!"))
+		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -876,6 +892,8 @@ default behaviour is:
 		src.composition_reagent_quantity = size_reagent
 #undef PPM
 
+/mob/living/proc/get_resist_power()
+	return 1
 
 /mob/living/proc/seizure()
 	if(!paralysis && stat == CONSCIOUS)
