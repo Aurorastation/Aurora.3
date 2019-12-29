@@ -708,26 +708,36 @@ default behaviour is:
 		requests.Remove(O)
 		qdel(O)
 		resisting++
-	var/resist_power = 1 // How easily the mob can break out of a grab
-	if(istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = src
-		resist_power = H.species.resist_mod
+	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
 		resisting++
+		var/resist_chance
+		var/resist_msg
 		switch(G.state)
 			if(GRAB_PASSIVE)
-				if((incapacitated(INCAPACITATION_DISABLED) || src.lying)? prob(30 * resist_power) : prob(70 * resist_power)) //only a bit difficult to break out of a passive grab
-					visible_message(span("warning", "[src] pulls away from [G.assailant]'s grip!"))
-					qdel(G)
+				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
+					resist_chance = 30 * resist_power
+				else
+					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
+				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
-				if((incapacitated(INCAPACITATION_DISABLED) || (src.lying))? prob(15 * resist_power) : prob(50 * resist_power))
-					visible_message(span("warning", "[src] has broken free of [G.assailant]'s grip!"))
-					qdel(G)
+				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
+					resist_chance = 15 * resist_power
+				else
+					resist_chance = 50 * resist_power
+				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
-				if((world.time - G.assailant.l_move_time < 30 || !stunned || !(src.lying) || (incapacitated(INCAPACITATION_DISABLED)))? prob(15 * resist_power) : prob(3 * resist_power))
-					visible_message(span("danger", "[src] has broken free of [G.assailant]'s headlock!"))
-					qdel(G)
+				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
+					resist_chance = 15 * resist_power
+				else
+					resist_chance = 3 * resist_power
+				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+			
+		if(prob(resist_chance))
+			visible_message(resist_msg)
+			qdel(G)
+
 	if(resisting)
 		visible_message(span("warning", "[src] resists!"))
 		setClickCooldown(25)
@@ -882,6 +892,8 @@ default behaviour is:
 		src.composition_reagent_quantity = size_reagent
 #undef PPM
 
+/mob/living/proc/get_resist_power()
+	return 1
 
 /mob/living/proc/seizure()
 	if(!paralysis && stat == CONSCIOUS)
