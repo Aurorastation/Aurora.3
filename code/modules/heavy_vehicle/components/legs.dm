@@ -8,6 +8,7 @@
 	var/obj/item/robot_parts/robot_component/actuator/motivator
 	var/mech_turn_sound = 'sound/mecha/mechturn.ogg'
 	var/mech_step_sound = 'sound/mecha/mechstep.ogg'
+	var/trample_damage = 5
 
 /obj/item/mech_component/propulsion/Destroy()
 	QDEL_NULL(motivator)
