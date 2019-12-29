@@ -313,7 +313,7 @@
 	updatename()
 	recalculate_synth_capacities()
 	notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
-	SSrecords.get_manifest_json(TRUE)
+	SSrecords.reset_manifest()
 	selecting_module = 0
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
@@ -375,7 +375,7 @@
 
 		updatename()
 		updateicon()
-		SSrecords.get_manifest_json(TRUE)
+		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
