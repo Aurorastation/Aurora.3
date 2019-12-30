@@ -308,21 +308,21 @@
 	try
 		templates = json_decode(return_file_text("config/templates_list.json"))
 	catch(var/exception/ej)
-		log_debug("Warning: Could not load templates confing, as templates_list.json is missing - [ej]")
+		log_debug("Warning: Could not load the templates config as templates_list.json is missing - [ej]")
 		return
 
 	if(!templates)
 		return
 
 	var/turf/T = get_turf(usr)
-	var/name = input(usr, "Which template would you like to load?", "Load template", null) as null|anything in templates
+	var/name = input(usr, "Which template would you like to load?", "Load Template", null) as null|anything in templates
 	
 	if (!name || !T)
 		return
 
 	var/dmm_suite/maploader = new
 	if (!maploader)
-		log_debug("Error, was unable to load maploader in proc load_template!")
+		log_debug("Error, unable to load maploader in proc load_template!")
 		return
 
 	var/base_dir = "maps/templates/"
