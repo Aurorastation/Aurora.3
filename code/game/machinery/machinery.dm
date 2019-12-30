@@ -132,6 +132,7 @@ Class Procs:
 	var/clickvol = 40 //volume
 	var/listener/button_sig_listener
 	var/id = 1.0
+	var/button_control = FALSE
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -155,7 +156,7 @@ Class Procs:
 	create_listener()
 
 /obj/machinery/proc/create_listener()
-	if(id)
+	if(id && button_control)
 		button_sig_listener = new("machinebtn_[id]", src)
 
 /obj/machinery/Destroy()

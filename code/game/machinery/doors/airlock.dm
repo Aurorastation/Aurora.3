@@ -58,6 +58,7 @@
 
 	var/insecure = 1 //if the door is insecure it will open when power runs out
 	var/securitylock = 0
+	button_control = TRUE
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -1398,7 +1399,7 @@ About the new airlock wires panel:
 				break
 
 /obj/machinery/door/airlock/create_listener()
-	if(id_tag)
+	if(id_tag && button_control)
 		button_sig_listener = new("machinebtn_[id_tag]", src)
 
 /obj/machinery/door/airlock/Destroy()

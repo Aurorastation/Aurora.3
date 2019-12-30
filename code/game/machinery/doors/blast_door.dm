@@ -36,6 +36,7 @@
 
 	var/securitylock = FALSE
 	var/is_critical = FALSE
+	button_control = TRUE
 
 /obj/machinery/door/blast/Initialize()
 	. = ..()

@@ -28,6 +28,7 @@
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
 
 	var/datum/effect_system/sparks/spark_system
+	button_control = TRUE
 
 /obj/machinery/power/emitter/Destroy()
 	QDEL_NULL(spark_system)

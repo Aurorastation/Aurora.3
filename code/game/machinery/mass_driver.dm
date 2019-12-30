@@ -15,6 +15,7 @@
 	var/drive_range = 50 //this is mostly irrelevant since current mass drivers throw into space, but you could make a lower-range mass driver for interstation transport or something I guess.
 	var/_wifi_id
 	var/datum/wifi/receiver/button/mass_driver/wifi_receiver
+	button_control = TRUE
 
 /obj/machinery/mass_driver/Initialize()
 	. = ..()
