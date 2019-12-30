@@ -67,7 +67,7 @@ jobs:
   include:
     - stage: code check
       install:
-        - pip install --upgrade pip
+        - pip install --upgrade --user pip
         - pip3 install -r --user ./tools/requirements.txt
         - pip3 install --user PyYaml -q
         - pip3 install --user beautifulsoup4 -q
