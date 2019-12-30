@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fix Radio Jammers not jamming Vaurcaesian hivenet."
