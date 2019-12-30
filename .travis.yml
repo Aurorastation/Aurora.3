@@ -47,6 +47,7 @@ install:
   - shopt -s globstar
   - chmod +x ./scripts/rust_g.sh
   - ./scripts/rust_g.sh
+  - pip3 install -r ./tools/requirements.txt
 
 stages:
   - code check
@@ -67,9 +68,8 @@ jobs:
   include:
     - stage: code check
       install:
-        - pip install --user PyYaml -q
-        - pip install --user beautifulsoup4 -q
-        - pip3 install --user bidict -q
+        - pip3 install --user PyYaml -q
+        - pip3 install --user beautifulsoup4 -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
