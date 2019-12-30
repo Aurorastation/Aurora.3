@@ -33,6 +33,7 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
+	grab_mod = 1.25 //humans are wily fuckers - geeves
 	climb_coeff = 1
 
 	inherent_verbs = list(

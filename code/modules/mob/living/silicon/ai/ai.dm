@@ -219,29 +219,15 @@ var/list/ai_verbs_default = list(
 	eyeobj.possess(src)
 
 /mob/living/silicon/ai/Destroy()
-	qdel(aiPDA)
-	qdel(aiMulti)
-	qdel(aiRadio)
-	aiPDA = null
-	aiMulti = null
-	aiRadio = null
-
+	QDEL_NULL(aiPDA)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
 	ai_list -= src
-
-	qdel(eyeobj)
-	eyeobj = null
-
-	qdel(psupply)
-	psupply = null
-
-	qdel(aiMulti)
-	aiMulti = null
-
-	qdel(aiRadio)
-	aiRadio = null
-
-	qdel(aiCamera)
-	aiCamera = null
+	destroy_eyeobj()
+	QDEL_NULL(psupply)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	QDEL_NULL(aiCamera)
 
 	return ..()
 

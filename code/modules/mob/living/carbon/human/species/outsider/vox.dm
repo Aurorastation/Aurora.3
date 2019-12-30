@@ -139,3 +139,5 @@
 		/mob/living/carbon/human/proc/sonar_ping
 		)
 
+/datum/species/vox/armalis/can_commune()
+	return TRUE

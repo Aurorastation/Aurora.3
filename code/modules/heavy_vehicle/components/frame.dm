@@ -62,7 +62,7 @@
 
 
 /obj/structure/heavy_vehicle_frame/update_icon()
-	var/list/new_overlays = get_mech_icon(list(legs, head, body, arms), layer)
+	var/list/new_overlays = get_mech_icon(list(body, head), MECH_BASE_LAYER)
 	if(body)
 		density = TRUE
 		overlays += get_mech_image("[body.icon_state]_cockpit", body.icon, body.color)
@@ -70,6 +70,10 @@
 			new_overlays += get_mech_image("[body.icon_state]_open_overlay", body.icon, body.color)
 	else
 		density = FALSE
+	if(arms)
+		new_overlays += get_mech_image(arms.icon_state, arms.on_mech_icon, arms.color, MECH_ARM_LAYER)
+	if(legs)
+		new_overlays += get_mech_image(legs.icon_state, legs.on_mech_icon, legs.color, MECH_LEG_LAYER)
 	overlays = new_overlays
 	if(density != opacity)
 		set_opacity(density)
@@ -202,7 +206,7 @@
 			to_chat(user, "<span class='warning'>There is no metal to secure inside \the [src].</span>")
 			return
 		if(is_reinforced == FRAME_REINFORCED_WELDED)
-			to_chat(user, "<span class='warning'>\The [src]'s internal reinforcment has been welded in.</span>")
+			to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has been welded in.</span>")
 			return
 		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement in \the [src].")
 		playsound(user.loc, 'sound/items/Ratchet.ogg', 100, 1)
@@ -236,7 +240,6 @@
 				thing.dropInto(loc)
 				return
 			arms = thing
-		if(install_component(thing, user)) arms = thing
 	else if(istype(thing,/obj/item/mech_component/propulsion))
 		if(legs)
 			to_chat(user, "<span class='warning'>\The [src] already has a propulsion system installed.</span>")
@@ -246,7 +249,6 @@
 				thing.dropInto(loc)
 				return
 			legs = thing
-		if(install_component(thing, user)) legs = thing
 	else if(istype(thing,/obj/item/mech_component/sensors))
 		if(head)
 			to_chat(user, "<span class='warning'>\The [src] already has a sensor array installed.</span>")

@@ -6467,9 +6467,6 @@
 /area/security/checkpoint2)
 "lq" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop"
-	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -6537,9 +6534,6 @@
 /area/security/checkpoint2)
 "lu" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/records/employment{
-	icon_state = "medlaptop"
-	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -6866,7 +6860,6 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lW" = (
-/obj/machinery/computer/records/security,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -6875,6 +6868,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lX" = (
@@ -6891,10 +6885,10 @@
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lY" = (
-/obj/machinery/computer/records/security,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lZ" = (
@@ -12584,8 +12578,8 @@
 /obj/item/clothing/shoes/footwraps,
 /obj/item/clothing/shoes/workboots/toeless,
 /obj/item/clothing/shoes/workboots/toeless,
-/obj/item/clothing/shoes/jackboots/unathi,
-/obj/item/clothing/shoes/jackboots/unathi,
+/obj/item/clothing/shoes/jackboots/toeless,
+/obj/item/clothing/shoes/jackboots/toeless,
 /obj/structure/sign/christmas/lights{
 	icon_state = "xmaslights";
 	dir = 4

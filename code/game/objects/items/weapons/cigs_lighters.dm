@@ -716,10 +716,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
 	. = ..()
+	icon_on = filter ? "cigon" : "cigrollon"
+	icon_off = filter ? "cigoff" : "cigrolloff"
 	if(!lit)
 		icon_state = filter ? "cigoff" : "cigrolloff"
 	else
 		icon_state = filter ? "cigon" : "cigrollon"
+	update_clothing_icon()
 
 /obj/item/paper/cig
 	name = "rolling paper"
@@ -769,6 +772,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return
 		if(user.unEquip(I))
 			to_chat(user, span("notice", "You stick [I] into \the [src]"))
+			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
 			filter = 1
 			name = "filtered [name]"
 			update_icon()
@@ -786,6 +790,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
 			to_chat(user, span("notice", "You roll \the [src] into \the [I]"))
+			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(I)
 			qdel(src)

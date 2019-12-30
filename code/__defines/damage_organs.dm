@@ -28,7 +28,7 @@
 #define FIRE_DAMAGE_MODIFIER 0.0215 // Higher values result in more external fire damage to the skin. (default 0.0215)
 #define  AIR_DAMAGE_MODIFIER 2.025  // More means less damage from hot air scalding lungs, less = more damage. (default 2.025)
 
-// Organ defines.
+// Organ status defines.
 #define ORGAN_CUT_AWAY   (1<<0)
 #define ORGAN_BLEEDING   (1<<1)
 #define ORGAN_BROKEN     (1<<2)
@@ -42,6 +42,14 @@
 #define ORGAN_PLANT      (1<<10)
 #define ORGAN_ARTERY_CUT (1<<11)
 #define ORGAN_TENDON_CUT (1<<12)
+
+// Limb behaviour defines.
+#define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
+#define ORGAN_CAN_BREAK    (1<<1) //Can this organ break?
+#define ORGAN_CAN_GRASP    (1<<2) //Can this organ grasp things?
+#define ORGAN_CAN_STAND    (1<<3) //Can this organ allow you to stand?
+#define ORGAN_CAN_MAIM     (1<<4) //Can this organ be maimed?
+#define ORGAN_HAS_TENDON   (1<<5) //Does this organ have tendons?
 
 #define DROPLIMB_EDGE 0
 #define DROPLIMB_BLUNT 1

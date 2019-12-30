@@ -168,7 +168,7 @@
 		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/jackboots/unathi/fluff = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/shoes/jackboots/toeless/fluff = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
 	)
 
@@ -222,7 +222,6 @@ Sells devices, odds and ends, and medical stuff
 	possible_origins = list("Buy 'n Save", "Drug Carnival", "C&B", "Fentles", "Dr. Goods", "Beevees")
 	possible_trading_items = list(
 		/obj/item/device/flashlight                = TRADER_ALL,
-		/obj/item/device/kit/paint                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/aicard                    = TRADER_THIS_TYPE,
 		/obj/item/device/binoculars                = TRADER_THIS_TYPE,
 		/obj/item/device/flash                     = TRADER_THIS_TYPE,
