@@ -172,11 +172,12 @@
 							sanity_counter++
 						if(sanity_counter >= 3)
 							break
+					G.last_action = world.time
 				else
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
 					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
-				qdel(W)
+					qdel(W)
 				return
 			else
 				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
