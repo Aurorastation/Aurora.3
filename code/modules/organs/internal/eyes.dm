@@ -33,7 +33,7 @@
 		var/g_eyes = hex2num(copytext(new_eyes, 4, 6))
 		var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
 		if(do_after(owner, 5) && owner.change_eye_color(r_eyes, g_eyes, b_eyes))
-			update_eyes()
+			owner.update_eyes()
 			owner.visible_message("<span class='notice'>[owner] shifts, their eye color changing.</span>", "<span class='notice'>You shift, your eye color changing.</span>")
 
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
