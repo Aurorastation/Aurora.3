@@ -673,7 +673,7 @@
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
-			M.LAssailant = usr
+			M.LAssailant = WEAKREF(usr)
 
 	else if(isobj(AM))
 		var/obj/I = AM
