@@ -327,3 +327,4 @@
 
 	var/base_dir = "maps/templates/"
 	maploader.load_map(file(base_dir + name), T.x, T.y, T.z, no_changeturf = TRUE)
+	log_and_message_admins("[usr.ckey] has loaded template [base_dir + name] at the coordiantes [T.x], [T.y], [T.z].")
