@@ -1153,3 +1153,47 @@ mob/living/carbon/human/proc/change_monitor()
 		for(var/line in airInfo)
 			to_chat(src, span("notice", "[line]"))
 		return
+
+/mob/living/carbon/human/proc/crush()
+	set category = "Abilities"
+	set name = "Crush"
+	set desc = "While grabbing someone aggressively, crush them with your arms."
+
+	if(last_special > world.time)
+		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
+		return
+
+	if(stat || paralysis || stunned || weakened || lying)
+		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		return
+
+	var/obj/item/grab/G = locate() in src
+	if(!G || !istype(G))
+		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		return
+
+	if(G.state < GRAB_AGGRESSIVE)
+		to_chat(src, "<span class='warning'>You must have an aggressive grab to crush your prey!</span>")
+		return
+
+	if(istype(G.affecting,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = G.affecting
+		var/hit_zone = zone_sel.selecting
+		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
+
+		if(!affected || affected.is_stump())
+			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
+			return
+
+		H.apply_damage(40, BRUTE, hit_zone)
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes \the [G.affecting]'s [affected] with its metallic arms!</span>")
+		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+	else
+		var/mob/living/M = G.affecting
+		if(!istype(M))
+			return
+		M.apply_damage(40,BRUTE)
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes \the [G.affecting]'s flesh with its metallic arms!</span>")
+		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
+	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
+	last_special = world.time + 200

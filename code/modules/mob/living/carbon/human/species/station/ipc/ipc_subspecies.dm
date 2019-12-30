@@ -110,6 +110,8 @@
 	bald = 1
 	bodytype = "Heavy Machine"
 
+	unarmed_types = list(/datum/unarmed_attack/industrial)
+
 	brute_mod = 0.8
 	burn_mod = 1.1
 
@@ -288,6 +290,9 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_hephaestus_preview.dmi'
 
 	eyes = "heph_eyes"
+
+	unarmed_types = list(/datum/unarmed_attack/industrial/heavy)
+
 	slowdown = 6
 	brute_mod = 0.7
 	grab_mod = 0.7 // Bulkier and bigger than the G1
@@ -298,6 +303,11 @@
 	heat_level_3 = 4000
 
 	heat_discomfort_level = 900
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/crush
+	)
 
 	examine_color = "#688359"
 
@@ -330,6 +340,11 @@
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
+	unarmed_types = list(
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick)
+
 	brute_mod = 0.9
 	grab_mod = 0.9 
 	resist_mod = 8 
@@ -347,7 +362,7 @@
 
 	examine_color = "#bc4b00"
 
-	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit cannot perform EVA without a suit."
+	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit can perform EVA without assistance."
 
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/xion),
