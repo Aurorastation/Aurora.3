@@ -34,9 +34,9 @@
 
 	max_nutrition_factor = 0.8
 
-	heat_level_1 = 400
-	heat_level_2 = 800
-	heat_level_3 = 1600
+	heat_level_1 = 500
+	heat_level_2 = 1000
+	heat_level_3 = 2000
 
 	heat_discomfort_level = 400
 	heat_discomfort_strings = list(
@@ -144,11 +144,11 @@
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR
 
-	heat_level_1 = 600
-	heat_level_2 = 1200
-	heat_level_3 = 2400
+	heat_level_1 = 800
+	heat_level_2 = 1600
+	heat_level_3 = 3200
 
-	heat_discomfort_level = 800
+	heat_discomfort_level = 700
 
 	max_nutrition_factor = 1.25
 	nutrition_loss_factor = 2
@@ -290,6 +290,14 @@
 	eyes = "heph_eyes"
 	slowdown = 6
 	brute_mod = 0.7
+	grab_mod = 0.7 // Bulkier and bigger than the G1
+	resist_mod = 12 // Overall stronger than G1
+
+	heat_level_1 = 1000
+	heat_level_2 = 2000
+	heat_level_3 = 4000
+
+	heat_discomfort_level = 900
 
 	examine_color = "#688359"
 
@@ -322,9 +330,20 @@
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
+	brute_mod = 0.9
+	grab_mod = 0.9 
+	resist_mod = 8 
+
+	heat_level_1 = 700
+	heat_level_2 = 1400
+	heat_level_3 = 2800
+
+	heat_discomfort_level = 600
+	slowdown = 4
+
 	eyes = "xion_eyes"
 	flags = IS_IPC
-	passive_temp_gain = 5
+	passive_temp_gain = 0
 
 	examine_color = "#bc4b00"
 
@@ -351,7 +370,6 @@
 /datum/species/machine/zenghu
 	name = "Zeng-Hu Mobility Frame"
 	short_name = "zhf"
-	bodytype = null
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
@@ -363,6 +381,8 @@
 
 	grab_mod = 1.1 // Smooth, fast
 	resist_mod = 4 // Not super strong, but still rather strong
+
+	slowdown = -1.2
 
 	appearance_flags = HAS_EYE_COLOR
 
@@ -395,7 +415,7 @@
 /datum/species/machine/bishop
 	name = "Bishop Accessory Frame"
 	short_name = "bcf"
-	bodytype = null
+	bodytype = "Human"
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
