@@ -86,7 +86,7 @@
 	item_state = "commissar_warden"
 
 /obj/item/clothing/suit/armor/vest/fib
-	name = "fib armored vest"
+	name = "\improper FIB armored vest"
 	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
 	icon_state = "fib_armor"
 	item_state = "fib_armor"
