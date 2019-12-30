@@ -213,16 +213,17 @@
 		return TRUE
 
 /datum/psionic_power/coercion/commune
-	name =           "Commune"
-	cost =           10
-	cooldown =       80
-	use_melee =      TRUE
-	use_ranged =     TRUE
-	min_rank =       PSI_RANK_OPERANT
-	use_description = "Target the mouth and click on a creature on disarm intent to psionically send them a message."
+	name =              "Commune"
+	cost =              10
+	cooldown =          15
+	use_melee =         TRUE
+	use_ranged =        TRUE
+	min_rank =          PSI_RANK_OPERANT
+	use_sound =         null
+	use_description =   "Target the mouth and click on a creature on disarm intent to psionically send them a message."
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
-	if(user.zone_sel.selecting != "mouth")
+	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
 		return FALSE
 	. = ..()
 	if(.)
@@ -276,15 +277,17 @@
 					to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
 
 /datum/psionic_power/coercion/psiping
-	name =           "Psi-ping"
-	cost =           30
-	cooldown =       250
-	use_melee =      TRUE
-	min_rank =       PSI_RANK_OPERANT
-	use_description = "Click on yourself with an empty hand on disarm intent to detect nearby psionic signatures."
+	name =              "Psi Ping"
+	cost =              5
+	cooldown =          30
+	use_melee =         TRUE
+	use_manifest =      TRUE
+	min_rank =          PSI_RANK_OPERANT
+	use_sound =         null
+	use_description =   "Activate an empty hand on disarm intent to detect nearby psionic signatures."
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
-	if((target && user != target))
+	if((target && user != target) && user.a_intent != I_HELP)
 		return FALSE
 	. = ..()
 	if(.)

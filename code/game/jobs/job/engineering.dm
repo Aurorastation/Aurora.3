@@ -152,7 +152,8 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1
+		/obj/item/device/t_scanner = 1,
+		/obj/item/powerdrill = 1
 	)
 
 /datum/job/intern_eng
