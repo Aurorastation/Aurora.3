@@ -17,10 +17,6 @@
 	build_path = /obj/machinery/computer/borgupload
 	origin_tech = list(TECH_DATA = 4)
 
-/obj/item/circuitboard/med_data
-	name = T_BOARD("medical records console")
-	build_path = /obj/machinery/computer/records/medical
-
 /obj/item/circuitboard/pandemic
 	name = T_BOARD("PanD.E.M.I.C. 2200")
 	build_path = /obj/machinery/computer/pandemic
@@ -35,14 +31,6 @@
 	name = T_BOARD("teleporter control console")
 	build_path = /obj/machinery/computer/teleporter
 	origin_tech = list(TECH_DATA = 2, TECH_BLUESPACE = 2)
-
-/obj/item/circuitboard/secure_data
-	name = T_BOARD("security records console")
-	build_path = /obj/machinery/computer/records/security
-
-/obj/item/circuitboard/skills
-	name = T_BOARD("employment records console")
-	build_path = /obj/machinery/computer/records/employment
 
 /obj/item/circuitboard/sentencing
 	name = T_BOARD("criminal sentencing console")
@@ -114,11 +102,6 @@
 /obj/item/circuitboard/rdservercontrol
 	name = T_BOARD("R&D server control console")
 	build_path = /obj/machinery/computer/rdservercontrol
-
-/obj/item/circuitboard/crew
-	name = T_BOARD("crew monitoring console")
-	build_path = /obj/machinery/computer/crew
-	origin_tech = list(TECH_DATA = 3, TECH_BIO = 2, TECH_MAGNET = 2)
 
 /obj/item/circuitboard/operating
 	name = T_BOARD("patient monitoring console")

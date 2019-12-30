@@ -350,7 +350,7 @@
 			to_chat(user, "<span class='warning'>The blades aren't spinning, you can't cut anything!</span>")
 			return 0
 
-	return !affected.cannot_amputate
+	return (affected.limb_flags & ORGAN_CAN_AMPUTATE)
 
 /datum/surgery_step/generic/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

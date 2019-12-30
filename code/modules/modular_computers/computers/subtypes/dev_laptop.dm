@@ -7,6 +7,8 @@
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-open"
 	icon_state_broken = "laptop-broken"
+	randpixel = 6
+	center_of_mass = list("x"=14, "y"=10)
 	base_idle_power_usage = 25
 	base_active_power_usage = 200
 	max_hardware_size = 2

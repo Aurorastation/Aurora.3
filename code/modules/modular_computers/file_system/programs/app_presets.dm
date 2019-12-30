@@ -37,6 +37,27 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/engineering/ce
+	name = "engineering_head"
+	display_name = "Engineering - CE"
+	description = "Contains the most common engineering programs and command software."
+	available = 0
+
+/datum/modular_computer_app_presets/engineering/ce/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/power_monitor(),
+		new/datum/computer_file/program/alarm_monitor(),
+		new/datum/computer_file/program/atmos_control(),
+		new/datum/computer_file/program/rcon_console(),
+		new/datum/computer_file/program/camera_monitor(),
+		new/datum/computer_file/program/lighting_control(),
+		new/datum/computer_file/program/records/employment()
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/medical
 	name = "medical"
 	display_name = "Medical"
@@ -47,7 +68,24 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargoorder(),
-		new/datum/computer_file/program/suit_sensors()
+		new/datum/computer_file/program/suit_sensors(),
+		new/datum/computer_file/program/records/medical()
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/medical/cmo
+	name = "medical_head"
+	display_name = "Medical - CMO"
+	description = "Contains the most common medical programs and command software."
+	available = 0
+/datum/modular_computer_app_presets/medical/cmo/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/suit_sensors(),
+		new/datum/computer_file/program/records/employment(),
+		new/datum/computer_file/program/records/medical()
 	)
 	return _prg_list
 
@@ -66,6 +104,22 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/research/rd
+	name = "research_head"
+	display_name = "Research - RD"
+	description = "Contains the most common research programs and command software."
+	available = 0
+/datum/modular_computer_app_presets/research/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/ntnetmonitor(),
+		new/datum/computer_file/program/aidiag(),
+		new/datum/computer_file/program/records/employment()
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/command
 	name = "command"
 	display_name = "Command"
@@ -77,7 +131,25 @@
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/card_mod(),
-		new/datum/computer_file/program/comm(1)
+		new/datum/computer_file/program/comm(1),
+		new/datum/computer_file/program/records/employment()
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/command/hop
+	name = "command_hop"
+	display_name = "Command - HoP"
+	description = "Contains the most common command programs."
+	available = 0
+/datum/modular_computer_app_presets/command/hop/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/civilian/cargocontrol(),
+		new/datum/computer_file/program/card_mod(),
+		new/datum/computer_file/program/records/employment(),
+		new/datum/computer_file/program/records/security()
 	)
 	return _prg_list
 
@@ -91,12 +163,15 @@
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/chatclient(),
 		new/datum/computer_file/program/card_mod(),
-		new/datum/computer_file/program/comm(1,1),
+		new/datum/computer_file/program/comm(1),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/digitalwarrant(),
 		new/datum/computer_file/program/civilian/cargocontrol(),
 		new/datum/computer_file/program/civilian/cargoorder(),
-		new/datum/computer_file/program/alarm_monitor()
+		new/datum/computer_file/program/alarm_monitor(),
+		new/datum/computer_file/program/records/employment(),
+		new/datum/computer_file/program/records/medical(),
+		new/datum/computer_file/program/records/security()
 	)
 	return _prg_list
 
@@ -112,7 +187,43 @@
 		new/datum/computer_file/program/civilian/cargoorder(),
 		new/datum/computer_file/program/camera_monitor(),
 		new/datum/computer_file/program/comm(),
-		new/datum/computer_file/program/digitalwarrant()
+		new/datum/computer_file/program/digitalwarrant(),
+		new/datum/computer_file/program/records/security()
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/security/investigations
+	name = "security_inv"
+	display_name = "Security - Investigations"
+	description = "Contains the most common security and forensics programs."
+	available = 0
+/datum/modular_computer_app_presets/security/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/camera_monitor(),
+		new/datum/computer_file/program/digitalwarrant(),
+		new/datum/computer_file/program/records/security(),
+		new/datum/computer_file/program/records/employment(),
+		new/datum/computer_file/program/records/medical()
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/security/hos
+	name = "security_head"
+	display_name = "Security - HoS"
+	description = "Contains the most common security programs and command software."
+	available = 0
+
+/datum/modular_computer_app_presets/security/hos/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/camera_monitor(),
+		new/datum/computer_file/program/digitalwarrant(),
+		new/datum/computer_file/program/records/security(),
+		new/datum/computer_file/program/records/employment()
 	)
 	return _prg_list
 
@@ -159,6 +270,21 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/representative
+	name = "representative"
+	display_name = "Representative"
+	description = "Contains software intended for representatives."
+	available = 0
+/datum/modular_computer_app_presets/representative/return_install_programs()
+	var/list/_prg_list = list(
+		new/datum/computer_file/program/filemanager(),
+		new/datum/computer_file/program/chatclient(),
+		new/datum/computer_file/program/game/sudoku(),
+		new/datum/computer_file/program/civilian/cargoorder(),
+		new/datum/computer_file/program/records/employment()
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/wall_generic
 	name = "wallgeneric"
 	display_name = "Wall - Generic"
@@ -201,7 +327,8 @@
 		new/datum/computer_file/program/suit_sensors(),
 		new/datum/computer_file/program/alarm_monitor(),
 		new/datum/computer_file/program/lighting_control(),
-		new/datum/computer_file/program/aidiag()
+		new/datum/computer_file/program/aidiag(),
+		new/datum/computer_file/program/records()
 	)
 	return _prg_list
 

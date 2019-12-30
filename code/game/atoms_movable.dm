@@ -293,3 +293,6 @@
 			bound_overlay.forceMove(get_step(src, UP))
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
+
+/atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
+	return FALSE
