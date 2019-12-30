@@ -131,7 +131,7 @@ Class Procs:
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/listener/button_sig_listener
-	var/id = 1.0
+	var/id = null
 	var/button_control = FALSE
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
