@@ -86,6 +86,6 @@ jobs:
         - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
         - md5sum -c - <<< "60a49502d9f6dfdcc255deb98c901b72 *html/changelogs/example.yml"
-        - python tools/TagMatcher/tag-matcher.py ../..
-        - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
+        - python3 tools/TagMatcher/tag-matcher.py ../..
+        - python3 tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
         - python3 tools/mapmerge2/travis_mapcheck.py
