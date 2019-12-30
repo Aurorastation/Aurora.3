@@ -19,6 +19,7 @@ THE SOFTWARE.
 '''
 import argparse, re, sys
 from os import path, walk
+import sys
 import io
 
 version = (3, 4)
