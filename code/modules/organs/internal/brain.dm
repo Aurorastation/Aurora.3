@@ -39,8 +39,7 @@
 
 /obj/item/organ/internal/brain/Destroy()
 	if(brainmob)
-		qdel(brainmob)
-		brainmob = null
+		QDEL_NULL(brainmob)
 	return ..()
 
 /obj/item/organ/internal/brain/removed(var/mob/living/user)
