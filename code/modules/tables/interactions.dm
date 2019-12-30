@@ -161,7 +161,6 @@
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
 						playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
-					var/list/L = take_damage(rand(1,5))
 					// Shards. Extra damage, plus potentially the fact YOU LITERALLY HAVE A PIECE OF GLASS/METAL/WHATEVER IN YOUR FACE
 					var/sanity_counter = 0
 					for(var/obj/item/material/shard/S in get_turf(src))
@@ -244,4 +243,3 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 
 /obj/structure/table/do_simple_ranged_interaction(var/mob/user)
 	return
-
