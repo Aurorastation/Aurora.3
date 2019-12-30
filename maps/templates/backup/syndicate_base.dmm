@@ -1256,7 +1256,7 @@
 	},
 /area/derelict)
 "dq" = (
-/obj/item/clothing/suit/caution,
+/obj/item/caution,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
