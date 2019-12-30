@@ -86,9 +86,13 @@ def merge_map(new_map, old_map, delete_unused=False):
 
 def main(settings):
     version = (3, 4)
-    with open("../python_version.txt", 'r')as f:
-        version = f.readline().split('.')
-        version = (int(version[0]), int(version[1]))
+    try:
+        with open("../python_version.txt", 'r') as f:
+            version = f.readline().split('.')
+            version = (int(version[0]), int(version[1]))
+    except:
+        pass
+
     if sys.version_info < version:
         print("Sorry, this requires python >= {}. Your version is {}!".format(version, tuple(sys.version_info)))
         exit()

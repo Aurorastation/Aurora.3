@@ -22,12 +22,16 @@ from os import path, walk
 import io
 
 version = (3, 4)
-with open("../python_version.txt", 'r')as f:
-    version = f.readline().split('.')
-    version = (int(version[0]), int(version[1]))
+try:
+    with open("../python_version.txt", 'r') as f:
+        version = f.readline().split('.')
+        version = (int(version[0]), int(version[1]))
+except:
+    pass
+
 if sys.version_info < version:
     print("Sorry, this requires python >= {}. Your version is {}!".format(version, tuple(sys.version_info)))
-    exit()
+    exit(1)
 
 opt = argparse.ArgumentParser()
 opt.add_argument('dir', help='The directory to scan for *.dm files with non-matching spans')

@@ -5,12 +5,17 @@ import time
 
 def main(relative_root):
     version = (3, 4)
-    with open("../../python_version.txt", 'r')as f:
-        version = f.readline().split('.')
-        version = (int(version[0]), int(version[1]))
+    try:
+        with open("../../python_version.txt", 'r') as f:
+            version = f.readline().split('.')
+            version = (int(version[0]), int(version[1]))
+    except:
+        pass
+
     if sys.version_info < version:
         print("Sorry, this requires python >= {}. Your version is {}!".format(version, tuple(sys.version_info)))
-        exit()
+        exit(1)
+
     git_version = map_helpers.run_shell_command("git version")
     if not git_version:
         print("ERROR: Failed to run git. Make sure it is installed and in your PATH.")
