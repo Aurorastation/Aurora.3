@@ -8682,8 +8682,9 @@
 	},
 /area/centcom/living)
 "awh" = (
-/turf/unsimulated/wall/riveted,
-/area/centcom/test)
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/template_noop,
+/area/centcom/control)
 "awi" = (
 /obj/machinery/porta_turret/crescent,
 /obj/effect/decal/warning_stripes,
@@ -9043,34 +9044,26 @@
 	},
 /area/centcom/control)
 "awY" = (
-/turf/unsimulated/floor{
-	icon_state = "white"
+/obj/structure/sink{
+	pixel_y = 26
 	},
-/area/centcom/test)
+/turf/unsimulated/floor{
+	icon_state = "dark"
+	},
+/area/centcom/control)
 "awZ" = (
-/obj/machinery/dna_scannernew,
+/obj/item/stool/padded,
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "dark"
 	},
-/area/centcom/test)
-"axa" = (
-/obj/machinery/computer/scan_consolenew,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/test)
+/area/centcom/control)
 "axb" = (
-/obj/machinery/computer/cloning,
+/obj/structure/table/reinforced,
+/obj/item/deck/cards,
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "dark"
 	},
-/area/centcom/test)
-"axc" = (
-/obj/machinery/clonepod,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/test)
+/area/centcom/control)
 "axd" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -9262,22 +9255,14 @@
 /area/centcom/control)
 "axy" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Research Facility";
+	name = "Janitorial Closet";
 	opacity = 1;
-	req_access = list(104)
+	req_access = list(107)
 	},
 /turf/unsimulated/floor{
-	icon_state = "delivery"
+	icon_state = "dark"
 	},
-/area/centcom/test)
-"axz" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/test)
+/area/centcom/control)
 "axA" = (
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "25"
@@ -9678,18 +9663,18 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "dark"
 	},
-/area/centcom/test)
+/area/centcom/control)
 "ayi" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "dark"
 	},
-/area/centcom/test)
+/area/centcom/control)
 "ayj" = (
 /turf/unsimulated/floor{
 	icon_state = "vault";
@@ -9837,39 +9822,32 @@
 	dir = 4
 	},
 /area/centcom/control)
-"ayz" = (
-/obj/structure/closet/secure_closet/medical3{
-	pixel_x = -5
-	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/test)
 "ayA" = (
-/obj/structure/closet/secure_closet/medical1{
-	pixel_x = 5
-	},
+/obj/structure/janitorialcart,
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "vault";
+	dir = 1
 	},
-/area/centcom/test)
+/area/centcom/control)
 "ayB" = (
-/obj/structure/closet/secure_closet/medical2{
-	pixel_x = 5
-	},
+/obj/structure/closet/jcloset,
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "vault";
+	dir = 1
 	},
-/area/centcom/test)
+/area/centcom/control)
 "ayC" = (
 /obj/machinery/sleeper{
 	icon_state = "sleeper_0";
 	dir = 8
 	},
+/obj/structure/mopbucket,
+/obj/item/mop/advanced,
 /turf/unsimulated/floor{
-	icon_state = "white"
+	icon_state = "vault";
+	dir = 1
 	},
-/area/centcom/test)
+/area/centcom/control)
 "ayD" = (
 /turf/space/transit/north/shuttlespace_ns7,
 /area/shuttle/escape/transit)
@@ -10042,11 +10020,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/control)
-"ayV" = (
-/turf/unsimulated/floor{
-	icon_state = "redfull"
-	},
-/area/centcom/test)
 "ayW" = (
 /obj/structure/artilleryplaceholder{
 	icon_state = "11"
@@ -10261,15 +10234,6 @@
 	dir = 1
 	},
 /area/centcom/control)
-"azu" = (
-/obj/structure/sign/securearea,
-/turf/unsimulated/wall/riveted,
-/area/centcom/test)
-"azv" = (
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/test)
 "azw" = (
 /obj/machinery/light{
 	dir = 1;
@@ -10279,7 +10243,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/centcom/test)
+/area/centcom/control)
 "azx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bluespace Artillery Deck";
@@ -10448,7 +10412,7 @@
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
-/area/centcom/test)
+/area/centcom/control)
 "azL" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -26032,10 +25996,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"lkF" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/wall/riveted,
-/area/centcom/evac)
 "lkY" = (
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/light{
@@ -29350,6 +29310,11 @@
 	dir = 4
 	},
 /area/centcom/legion)
+"rOK" = (
+/obj/structure/lattice,
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/template_noop,
+/area/centcom/control)
 "rPy" = (
 /turf/simulated/wall/shuttle,
 /area/shuttle/merchant/start)
@@ -30165,6 +30130,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station/warehouse)
+"tym" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket{
+	amount_per_transfer_from_this = 50
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 1
+	},
+/area/centcom/control)
 "tAQ" = (
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -71912,13 +71887,13 @@ ktR
 avF
 avP
 apW
-awh
+auT
 axy
-awh
-awh
-ayV
-ayV
-ayV
+auT
+auT
+aAe
+aAe
+aAe
 aAe
 aAe
 auT
@@ -72170,11 +72145,11 @@ apW
 apW
 apW
 awY
-awY
+awj
 ayh
-awh
-awh
-azu
+auT
+auT
+aAf
 azK
 aAf
 auT
@@ -72426,13 +72401,13 @@ aaM
 aaM
 aaM
 awh
-awZ
-awY
-awY
-ayz
-awh
-azv
-azv
+awj
+awj
+awj
+awj
+auT
+awj
+awj
 awj
 aAr
 aaM
@@ -72447,7 +72422,7 @@ ifh
 ifh
 ifh
 ifh
-lkF
+ifh
 etF
 etF
 nhD
@@ -72682,14 +72657,14 @@ apW
 aaM
 aaM
 aaM
-awh
-axa
-axz
-awY
+rOK
+awj
+awj
+awj
 ayA
-awh
-azv
-azv
+auT
+awj
+awj
 awj
 aAr
 aaM
@@ -72941,10 +72916,10 @@ aaM
 aaM
 awh
 awZ
-awY
-awY
+awj
+awj
 ayB
-awh
+auT
 azw
 awi
 awj
@@ -73198,12 +73173,12 @@ aaM
 aaM
 awh
 axb
-axz
-awY
-awY
-awh
-azv
-azv
+awj
+awj
+tym
+auT
+awj
+awj
 awj
 aAr
 ait
@@ -73454,13 +73429,13 @@ aaM
 aaM
 aaM
 awh
-axc
-awY
+awZ
+awj
 ayi
 ayC
-awh
-azv
-azv
+auT
+awj
+awj
 awj
 aAr
 aaM

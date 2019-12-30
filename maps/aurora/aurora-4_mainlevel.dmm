@@ -32245,8 +32245,6 @@
 	pixel_y = 3
 	},
 /obj/item/circuitboard/rdconsole,
-/obj/item/circuitboard/destructive_analyzer,
-/obj/item/circuitboard/protolathe,
 /obj/item/circuitboard/rdserver{
 	pixel_x = 3;
 	pixel_y = -3
@@ -33878,18 +33876,6 @@
 	},
 /obj/item/circuitboard/arcade/battle,
 /obj/item/circuitboard/arcade/orion_trail,
-/turf/simulated/floor/plating,
-/area/storage/tech)
-"bhj" = (
-/obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
-	},
-/obj/item/circuitboard/cloning{
-	pixel_x = 0
-	},
-/obj/item/circuitboard/clonescanner,
-/obj/item/circuitboard/clonepod,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "bhk" = (
@@ -67121,6 +67107,17 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
+"ohL" = (
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/item/circuitboard/protolathe,
+/obj/item/circuitboard/destructive_analyzer{
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
+/area/storage/tech)
 "ois" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -90600,9 +90597,9 @@ aZd
 aQq
 bbq
 bcU
+ohL
 beA
 bfO
-bhj
 bit
 bbq
 bkG
