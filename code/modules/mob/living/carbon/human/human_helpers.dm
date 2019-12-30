@@ -153,3 +153,6 @@
 		return null
 
 	return O
+
+/mob/living/carbon/human/get_resist_power()
+	return species.resist_mod

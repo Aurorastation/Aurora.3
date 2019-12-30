@@ -31,15 +31,17 @@
 	action_delay = 15
 	max_damage = 90
 	power_use = 7500
+	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/heavy
 	name = "heavy legs"
 	exosuit_desc_string = "heavy hydraulic legs"
-	desc = "Oversized actuators struggle to move these armoured legs. "
+	desc = "Oversized actuators struggle to move these armoured legs."
 	icon_state = "heavy_legs"
 	move_delay = 5
 	max_damage = 90
 	power_use = 5000
+	trample_damage = 45
 
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"

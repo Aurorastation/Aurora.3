@@ -127,7 +127,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	if(pulledby) // Don't wiggle if someone pulls you
-		patrol_path.Cut()
+		patrol_path?.Cut()
 		return
 
 	var/found_spot
@@ -190,6 +190,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				return
 			if(patrol_path[1] == loc)
 				patrol_path -= patrol_path[1]
+				return
+
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]

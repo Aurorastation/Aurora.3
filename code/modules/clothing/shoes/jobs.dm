@@ -2,6 +2,7 @@
 	desc = "A waterproof overshoe, made of rubber."
 	name = "galoshes"
 	icon_state = "galoshes"
+	item_state = "galoshes"
 	permeability_coefficient = 0.05
 	item_flags = NOSLIP
 	slowdown = SHOES_SLOWDOWN+1
@@ -22,7 +23,6 @@
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less jackboots"
 	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."
-	item_state = "jackboots_toeless"
 	icon_state = "jackboots_toeless"
 	species_restricted = null
 
@@ -41,7 +41,6 @@
 	name = "toe-less workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_toeless"
-	item_state = "workboots_toeless"
 	species_restricted = null
 
 /obj/item/clothing/shoes/workboots/grey
@@ -54,7 +53,7 @@
 	name = "toe-less grey workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_grey_toeless"
-	item_state = "workboots_grey_toeless"
+	item_state = "workboots_grey"
 
 /obj/item/clothing/shoes/workboots/dark
 	name = "dark workboots"
@@ -66,5 +65,5 @@
 	name = "toe-less dark workboots"
 	desc = "A pair of toeless dark work boots designed for use in industrial settings. Modified for species whose toes have claws."
 	icon_state = "workboots_dark_toeless"
-	item_state = "workboots_dark_toeless"
+	item_state = "workboots_dark"
 

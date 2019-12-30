@@ -4720,7 +4720,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "ou" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/laptop/preset/command,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)
@@ -5691,7 +5691,7 @@
 /area/derelict/hallway/southeast)
 "rm" = (
 /obj/structure/table/wood,
-/obj/machinery/computer/records/medical/laptop,
+/obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/derelict/hallway/southeast)
@@ -6379,7 +6379,7 @@
 /area/derelict/hallway/southeast)
 "ta" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
+/obj/structure/computerframe,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 4
@@ -6460,7 +6460,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "tm" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/laptop/preset/command,
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
 "tn" = (
@@ -6565,7 +6565,7 @@
 /area/template_noop)
 "tA" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/employment,
+/obj/structure/computerframe,
 /turf/simulated/floor/carpet/blue,
 /area/derelict/hallway/southeast)
 "tB" = (
@@ -7538,7 +7538,7 @@
 /area/derelict/hallway/southwest)
 "vO" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/employment,
+/obj/structure/computerframe,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/southeast)

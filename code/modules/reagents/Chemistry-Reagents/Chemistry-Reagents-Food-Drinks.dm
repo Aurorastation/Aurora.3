@@ -94,23 +94,22 @@
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
 		return
-	for(var/i in 1 to newdata.len)
-		if(!(newdata[i] in data))
-			data.Add(newdata[i])
-			data[newdata[i]] = 0
-		data[newdata[i]] += newdata[newdata[i]]
-	var/totalFlavor = 0
+	for(var/i in newdata)
+		if(!(i in data))
+			data[i] = 0
+			continue
+		data[i] += newdata[i]
+	var/totalFlavor = 1
 	for(var/i in 1 to data.len)
 		totalFlavor += data[data[i]]
 
 	if (!totalFlavor)
 		return
 
-	for(var/i in 1 to data.len) //cull the tasteless
-		if(data[data[i]]/totalFlavor * 100 < 10)
-			data[data[i]] = null
+	for(var/i in data) //cull the tasteless
+		if(data[i] && data[i]/totalFlavor * 100 < 10)
+			data[i] = null
 			data -= data[i]
-			data -= null
 
 /datum/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(injectable)
