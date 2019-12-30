@@ -52,7 +52,7 @@ var/global/list/robot_modules = list(
 	var/list/added_networks = list()
 
 	// Station Manifest Stuff
-	var/on_manifest = FALSE
+	var/on_manifest = TRUE
 
 /obj/item/robot_module/New(var/mob/living/silicon/robot/R)
 	..()
@@ -206,7 +206,6 @@ var/global/list/robot_modules = list(
 				"Sleek - Medical" = "sleekmedic",
 				"Sleek - Chemistry" = "sleekchemistry"
 				)
-	on_manifest = TRUE
 
 /obj/item/robot_module/medical/general
 	name = "medical robot module"
@@ -356,7 +355,6 @@ var/global/list/robot_modules = list(
 					"Heavy" = "heavyeng"
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-	on_manifest = TRUE
 
 /obj/item/robot_module/engineering/construction
 	name = "construction robot module"
@@ -525,7 +523,6 @@ var/global/list/robot_modules = list(
 					"Buffer" = "mechaduster",
 					"Sleek" = "sleekjanitor"
 					)
-	on_manifest = TRUE
 
 /obj/item/robot_module/janitor/New()
 	..()
@@ -585,7 +582,6 @@ var/global/list/robot_modules = list(
 					"Mobile Bar" = "heavyserv",
 					"Sleek" = "sleekservice"
 				  	)
-	on_manifest = TRUE
 
 /obj/item/robot_module/clerical/butler
 
@@ -667,7 +663,6 @@ var/global/list/robot_modules = list(
 					"Spider" = "spidermining"
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
-	on_manifest = TRUE
 
 /obj/item/robot_module/miner/New()
 	..()
@@ -698,7 +693,6 @@ var/global/list/robot_modules = list(
 					"Sleek" = "sleekscience",
 					"Heavy" = "heavysci"
 					)
-	on_manifest = TRUE
 
 /obj/item/robot_module/research/New()
 	..()
@@ -757,6 +751,7 @@ var/global/list/robot_modules = list(
 					"Heavy" = "syndi-heavy",
 					"Artillery" = "spidersyndi"
 					)
+	on_manifest = FALSE
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	..()
@@ -894,7 +889,6 @@ var/global/list/robot_modules = list(
 	name = "mining drone module"
 	no_slip = 1
 	networks = list(NETWORK_MINE)
-	on_manifest = TRUE
 
 /obj/item/robot_module/mining_drone/basic/New(var/mob/living/silicon/robot/robot)
 	src.modules += new /obj/item/device/flash(src)
@@ -993,6 +987,7 @@ var/global/list/robot_modules = list(
 		)
 	sprites = list("Roller" = "droid-combat") //TMP
 	can_be_pushed = 0
+	on_manifest = FALSE
 
 
 /obj/item/robot_module/bluespace/New(var/mob/living/silicon/robot/R)
