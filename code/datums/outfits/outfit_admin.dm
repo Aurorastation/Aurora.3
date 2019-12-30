@@ -294,7 +294,7 @@
 	)
 
 /datum/outfit/admin/nt/fib/guard
-	name = "FIB Escord"
+	name = "FIB Escort"
 
 	suit = /obj/item/clothing/suit/armor/vest/fib
 
