@@ -72,6 +72,8 @@
 				G.dancing = 1
 				G.adjust_position()
 				dancing = 1
+				if((G.assailant.zone_sel.selecting == BP_L_HAND || G.assailant.zone_sel.selecting == BP_R_HAND) && (assailant.zone_sel.selecting == BP_L_HAND || assailant.zone_sel.selecting == BP_R_HAND))
+					assailant.visible_message(span("good", "[assailant.name] and [G.assailant.name] holds hands."), range = 3)
 	adjust_position()
 
 //Used by throw code to hand over the mob, instead of throwing the grab. The grab is then deleted by the throw code.
