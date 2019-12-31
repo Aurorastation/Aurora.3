@@ -67,7 +67,7 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(access_heads)
+	required_access_run = list(access_heads, access_lawyer)
 	required_access_download = access_heads
 	available_on_ntnet = 1
 
