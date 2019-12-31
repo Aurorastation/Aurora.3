@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Adds handholding. Two people should grab eachother with both targetting hands to activate."
