@@ -1163,16 +1163,15 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
 		return
 
-	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/grab/G = locate() in src
+	var/obj/item/grab/G = src.get_active_hand()
 	if(!G || !istype(G))
 		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
 		return
 
-	if(G.state < GRAB_AGGRESSIVE)
+	if(G.state < GRAB_NECK)
 		to_chat(src, "<span class='warning'>You must have an aggressive grab to crush your prey!</span>")
 		return
 
@@ -1186,14 +1185,14 @@ mob/living/carbon/human/proc/change_monitor()
 			return
 
 		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes \the [G.affecting]'s [affected] with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s in \the [affected] with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(40,BRUTE)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes \the [G.affecting]'s flesh with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
-	last_special = world.time + 200
+	last_special = world.time + 100
