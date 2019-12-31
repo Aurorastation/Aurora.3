@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed corporate liaisons and consular officers not having access to employment records."
-  - bugfix: "Fixed corporate liaisons and consular officers having a security cartridge on their pda."
