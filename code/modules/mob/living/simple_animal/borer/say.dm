@@ -20,7 +20,7 @@
 		return emote(copytext(message, 2))
 
 	var/datum/language/L = parse_language(message)
-	if(L && L.flags & HIVEMIND)
+	if(L?.flags & HIVEMIND)
 		L.broadcast(src, trim(copytext(message,3)), src.truename)
 		return
 
@@ -34,7 +34,8 @@
 			to_chat(src, span("notice", "There are no viable hosts to speak with."))
 		else
 			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
-			chosen_sayer.say("<font color='#372152'>[message]</font>")
+			log_say("[key_name(src)] : ([name]) [message]", ckey=key_name(src))
+			chosen_sayer.say(message)
 		return
 
 	to_chat(src, "You drop words into [host]'s mind: \"[message]\"")
