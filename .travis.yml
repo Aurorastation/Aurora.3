@@ -1,5 +1,5 @@
 language: generic
-dist: "trusty" # otherwise 'python3-pip' won't be available
+dist: xenial
 sudo: false
 
 env:
@@ -10,6 +10,7 @@ env:
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
     RUST_G_VERSION="0.4.1"
+    PATH=/opt/python/3.7.1/bin:$PATH
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
@@ -32,8 +33,6 @@ addons:
       - libssl-dev:i386
       - pkg-config:i386
       - gcc-multilib
-      - "python3"
-      - "python3-pip"
 
 node_js:
   - "10"
@@ -68,9 +67,9 @@ jobs:
   include:
     - stage: code check
       install:
-        - pip3 install --user -r ./tools/requirements.txt
-        - pip3 install --user PyYaml -q
-        - pip3 install --user beautifulsoup4 -q
+        - pip install --user -r ./tools/requirements.txt
+        - pip install --user PyYaml -q
+        - pip install --user beautifulsoup4 -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
