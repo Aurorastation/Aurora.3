@@ -1,4 +1,5 @@
 language: generic
+dist: "trusty" # otherwise 'python3-pip' won't be available
 sudo: false
 
 env:
@@ -67,8 +68,9 @@ jobs:
   include:
     - stage: code check
       install:
-        - python3 -m pip3 install --user PyYaml -q
-        - python3 -m pip3 install --user beautifulsoup4 -q
+        - pip3 install --user -r ./tools/requirements.txt
+        - pip3 install --user PyYaml -q
+        - pip3 install --user beautifulsoup4 -q
         - chmod +x ./vueui/install
         - ./vueui/install
         - chmod +x ./scripts/rust_g.sh
