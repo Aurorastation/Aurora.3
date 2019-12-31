@@ -1,0 +1,5 @@
+author: Ferner
+delete-after: True
+changes: 
+  - rscadd: "Added a combat engineer role for the freelancer mercenary team."
+  - tweak: "Removed most of the station access freelancer mercenaries got."
