@@ -203,6 +203,7 @@
 		/obj/item/tank/oxygen = 1,
 		/obj/item/device/multitool = 1,
 		/obj/item/weldingtool/hugetank = 1,
+		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/storage/box/shotgunshells = 1,
 		/obj/item/landmine/frag = 1,
