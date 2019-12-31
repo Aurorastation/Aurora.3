@@ -12,7 +12,6 @@ var/datum/antagonist/mercenary/mercs
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_HAS_NUKE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	id_type = /obj/item/card/id/syndicate
 	antaghud_indicator = "hudoperative"
-	required_age = 10
 
 	hard_cap = 4
 	hard_cap_round = 8

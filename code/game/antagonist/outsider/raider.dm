@@ -10,7 +10,6 @@ var/datum/antagonist/raider/raiders
 	welcome_text = "Use :H to talk on your encrypted channel."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	antaghud_indicator = "hudmutineer"
-	required_age = 10
 
 	hard_cap = 6
 	hard_cap_round = 10
