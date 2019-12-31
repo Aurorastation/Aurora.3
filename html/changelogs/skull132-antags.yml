@@ -2,4 +2,4 @@ author: Skull132
 delete-after: True
 
 changes:
-  - tweak: "Reimplemented the drafting of antagonists from round voters if t here are not enough candidates otherwise."
+  - tweak: "Reimplemented the drafting of antagonists from round voters if there are not enough candidates otherwise."
