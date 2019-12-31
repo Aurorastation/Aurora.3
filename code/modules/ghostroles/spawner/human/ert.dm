@@ -115,6 +115,13 @@
 	desc = "The only medic of the freelancer mercenary team."
 	outfit = /datum/outfit/admin/ert/mercenary/specialist
 
+/datum/ghostspawner/human/ert/mercenary/engineer
+	name = "Mercenary Combat Engineer"
+	short_name = "merce"
+	max_count = 1
+	desc = "The only dedicated engineer of the freelancer mercenary team."
+	outfit = /datum/outfit/admin/ert/mercenary/engineer
+
 /datum/ghostspawner/human/ert/mercenary/leader
 	name = "Mercenary Leader"
 	short_name = "mercl"
