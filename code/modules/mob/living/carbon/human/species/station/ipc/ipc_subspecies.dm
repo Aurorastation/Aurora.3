@@ -354,7 +354,7 @@
 	heat_level_3 = 2800
 
 	heat_discomfort_level = 600
-	slowdown = 4
+	slowdown = 3
 
 	eyes = "xion_eyes"
 	flags = IS_IPC
