@@ -12033,6 +12033,13 @@
 /obj/item/pickaxe/drill,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
+"aua" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/hoverpod,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/rnd/eva)
 "aub" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -12643,12 +12650,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
-"avH" = (
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/rnd/eva)
 "avI" = (
 /obj/machinery/cell_charger,
 /obj/structure/table/steel,
@@ -58315,7 +58316,7 @@ aba
 aba
 aba
 aqA
-avH
+aua
 awl
 jlY
 avJ
