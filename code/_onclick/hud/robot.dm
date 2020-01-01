@@ -10,6 +10,11 @@ var/obj/screen/robot_inventory
 
 	var/obj/screen/using
 
+	if(!isrobot(mymob))
+		return
+
+	var/mob/living/silicon/robot/r = mymob
+
 //Radio
 	using = new /obj/screen()
 	using.name = "radio"
@@ -24,15 +29,15 @@ var/obj/screen/robot_inventory
 
 	using = new /obj/screen/module/one()
 	src.adding += using
-	mymob:inv1 = using
+	r.inv1 = using
 
 	using = new /obj/screen/module/two()
 	src.adding += using
-	mymob:inv2 = using
+	r.inv2 = using
 
 	using = new /obj/screen/module/three()
 	src.adding += using
-	mymob:inv3 = using
+	r.inv3 = using
 
 //End of module select
 
@@ -48,11 +53,11 @@ var/obj/screen/robot_inventory
 	action_intent = using
 
 //Cell
-	mymob:cells = new /obj/screen()
-	mymob:cells.icon = 'icons/mob/screen/robot.dmi'
-	mymob:cells.icon_state = "charge-empty"
-	mymob:cells.name = "cell"
-	mymob:cells.screen_loc = ui_toxin
+	r.cells = new /obj/screen()
+	r.cells.icon = 'icons/mob/screen/robot.dmi'
+	r.cells.icon_state = "charge-empty"
+	r.cells.name = "cell"
+	r.cells.screen_loc = ui_toxin
 
 //Health
 	mymob.healths = new /obj/screen()
@@ -121,8 +126,8 @@ var/obj/screen/robot_inventory
 
 	// Computer device hud
 
-	mymob.computer.screen_loc = ui_oxygen
-	mymob.computer.layer = SCREEN_LAYER
+	r.computer.screen_loc = ui_oxygen
+	r.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons
@@ -138,13 +143,13 @@ var/obj/screen/robot_inventory
 		mymob.zone_sel,
 		mymob.hands,
 		mymob.healths,
-		mymob.cells,
+		r.cells,
 		mymob.pullin,
 		mymob.blind,
 		mymob.flash,
 		robot_inventory,
 		mymob.gun_setting_icon,
-		mymob.computer)
+		r.computer)
 	mymob.client.screen += src.adding + src.other
 
 	return
