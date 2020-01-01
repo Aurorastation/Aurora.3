@@ -92,24 +92,27 @@
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/punch/ipc
-	damage = 4
+	damage = 3
 
 /datum/unarmed_attack/kick/ipc
-	damage = 4
+	damage = 3
 
 /datum/unarmed_attack/stomp/ipc
-	damage = 4
+	damage = 3
 
 /datum/unarmed_attack/industrial
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("heavy fist")
-	damage = 8
+	damage = 7
 	attack_sound = 'sound/weapons/smash.ogg'
 	attack_name = "heavy fist"
+	shredding = 1
 
 /datum/unarmed_attack/industrial/heavy
 	damage = 10
-	shredding = 1
+
+/datum/unarmed_attack/industrial/xion
+	damage = 5
 
 /datum/unarmed_attack/terminator
 	attack_verb = list("pulverized", "crushed", "pounded")
