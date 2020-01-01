@@ -591,25 +591,25 @@ the implant may become unstable and either pre-maturely inject the subject or si
 /obj/item/implant/aggression/implanted(mob/M)
 	if(!istype(M, /mob/living/carbon/human))
 		return FALSE
-	var/mob/living/carbon/human/H = M
-	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 
-	var/loyalty_implanted = FALSE
+	var/mob/living/carbon/human/H = M
+
 	for(var/obj/item/implant/loyalty/I in H)
 		if(I.implanted)
 			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your loyalty implant stops it soon after it starts!"))
 			return TRUE
+
+	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
+	if(antag_data?.flags & ANTAG_IMPLANT_IMMUNE)
+		H.visible_message("[H] seems to resist the implant!", "You feel rage overtake your body, but you manage to fend it off by sheer will!")
+		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, but was not effected.", H)
+	else if(antag_data?.id == MODE_LOYALIST)
+		clear_antag_roles(H.mind, 1)
+		to_chat(H, span("danger", "You feel a surge of rage override your loyalty!"))
+		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, clearing their loyalist status!", H)
 	else
-		if(antag_data?.flags & ANTAG_IMPLANT_IMMUNE)
-			H.visible_message("[H] seems to resist the implant!", "You feel rage overtake your body, but you manage to fend it off by sheer will!")
-			log_and_message_admins("[key_name(H)] was implanted by an aggression implant, but was not effected.", H)
-		else if(antag_data?.id == MODE_LOYALIST)
-			clear_antag_roles(H.mind, 1)
-			to_chat(H, span("danger", "You feel a surge of rage override your loyalty!"))
-			log_and_message_admins("[key_name(H)] was implanted by an aggression implant, clearing their loyalist status!", H)
-		else
-			to_chat(H, span("danger", "You feel a surge of rage course through your body and very soul!"))
-			log_and_message_admins("[key_name(H)] was implanted by an aggression implant!", H)
+		to_chat(H, span("danger", "You feel a surge of rage course through your body and very soul!"))
+		log_and_message_admins("[key_name(H)] was implanted by an aggression implant!", H)
 	return TRUE
 
 /obj/item/implant/aggression/emp_act(severity)
