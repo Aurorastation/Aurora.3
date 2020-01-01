@@ -203,7 +203,7 @@
 		else
 			isactive[M.real_name] = 0
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Non-Crew Station Equipment")
+	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
