@@ -5,7 +5,7 @@ var/global/list/robot_modules = list(
 	"Mining" 		= /obj/item/robot_module/miner,
 	"Medical" 		= /obj/item/robot_module/medical/general,
 	"Combat" 		= /obj/item/robot_module/combat,
-	"Construction"	= /obj/item/robot_module/engineering/construction,
+	"Engineering"	= /obj/item/robot_module/engineering/general,
 	"Custodial" 	= /obj/item/robot_module/janitor
 	)
 
