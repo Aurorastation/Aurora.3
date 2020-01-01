@@ -1193,6 +1193,6 @@ mob/living/carbon/human/proc/change_monitor()
 			return
 		M.apply_damage(40,BRUTE)
 		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
-		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
+		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
 	last_special = world.time + 100
