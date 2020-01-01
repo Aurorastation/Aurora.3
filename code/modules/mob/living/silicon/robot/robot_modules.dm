@@ -51,9 +51,6 @@ var/global/list/robot_modules = list(
 	var/list/original_languages = list()
 	var/list/added_networks = list()
 
-	// Station Manifest Stuff
-	var/on_manifest = TRUE
-
 /obj/item/robot_module/New(var/mob/living/silicon/robot/R)
 	..()
 	R.module = src
@@ -751,7 +748,6 @@ var/global/list/robot_modules = list(
 					"Heavy" = "syndi-heavy",
 					"Artillery" = "spidersyndi"
 					)
-	on_manifest = FALSE
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	..()
@@ -794,7 +790,6 @@ var/global/list/robot_modules = list(
 	name = "drone module"
 	no_slip = 1
 	networks = list(NETWORK_ENGINEERING)
-	on_manifest = FALSE
 
 /obj/item/robot_module/drone/New(var/mob/living/silicon/robot/robot)
 	..()
@@ -873,7 +868,6 @@ var/global/list/robot_modules = list(
 	name = "construction drone module"
 	channels = list("Engineering" = 1)
 	languages = list()
-	on_manifest = FALSE
 
 /obj/item/robot_module/drone/construction/New()
 	..()
@@ -987,7 +981,6 @@ var/global/list/robot_modules = list(
 		)
 	sprites = list("Roller" = "droid-combat") //TMP
 	can_be_pushed = 0
-	on_manifest = FALSE
 
 
 /obj/item/robot_module/bluespace/New(var/mob/living/silicon/robot/R)

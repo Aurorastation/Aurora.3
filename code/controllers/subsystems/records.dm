@@ -265,10 +265,10 @@
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
+			if(R.scrambledcodes)
+				continue
 			var/selected_module = "Default Module"
 			if(R.module)
-				if(!R.module.on_manifest)
-					continue
 				selected_module = capitalize_first_letters(R.module.name)
 			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
 		if(istype(S, /mob/living/silicon/ai))
