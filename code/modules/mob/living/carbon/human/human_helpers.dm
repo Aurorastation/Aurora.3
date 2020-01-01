@@ -175,5 +175,6 @@
 		psi.update()
 	sleep(45)
 	psi.check_latency_trigger(100, source, TRUE)
+
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
