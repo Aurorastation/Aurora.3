@@ -64,6 +64,16 @@
 #define BLOOD_VOLUME_BAD     60
 #define BLOOD_VOLUME_SURVIVE 30
 
+
+// Oxyginetion states
+#define OXYGENATION_STATE_HIGH 5
+#define OXYGENATION_STATE_NORMAL 4
+#define OXYGENATION_STATE_LOW 3
+#define OXYGENATION_STATE_VERY_LOW 2
+#define OXYGENATION_STATE_NONE 1
+#define OXYGENATION_STATE_UNDEFINED 0
+
+
 // These control the amount of blood lost from burns. The loss is calculated so
 // that dealing just enough burn damage to kill the player will cause the given
 // proportion of their max blood volume to be lost
