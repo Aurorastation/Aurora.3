@@ -3,10 +3,8 @@ var/global/list/robot_modules = list(
 	"Clerical" 		= /obj/item/robot_module/clerical/general,
 	"Research" 		= /obj/item/robot_module/research,
 	"Mining" 		= /obj/item/robot_module/miner,
-	"Rescue" 		= /obj/item/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/robot_module/medical/general,
 	"Combat" 		= /obj/item/robot_module/combat,
-	"Engineering"	= /obj/item/robot_module/engineering/general,
 	"Construction"	= /obj/item/robot_module/engineering/construction,
 	"Custodial" 	= /obj/item/robot_module/janitor
 	)
