@@ -28,7 +28,10 @@
 	data = . || data || list()
 
 	// Gather data for computer header
-	VUEUI_MCOMP_HEADER(data)
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
 	
 	var/datum/signal/signal
 	signal = telecomms_process_active()
