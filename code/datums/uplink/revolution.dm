@@ -4,13 +4,13 @@
 /datum/uplink_item/item/revolution/armory
 	name = "Armory Dropper"
 	desc = "A device that can be used to drop in an armory-worth of guns. Can only be used outside station areas, unless emagged, which is hazardous."
-	item_cost = 20
+	item_cost = 45
 	path = /obj/item/device/orbital_dropper/armory/syndicate
 
 /datum/uplink_item/item/revolution/mecha
 	name = "Mecha Dropper"
 	desc = "A device that can be used to drop in a combat exosuit. Can only be used outside station areas, unless emagged, which is hazardous."
-	item_cost = 25
+	item_cost = 40
 	path = /obj/item/device/orbital_dropper/mecha
 
 /datum/uplink_item/item/revolution/implants
@@ -21,11 +21,11 @@
 
 /datum/uplink_item/item/revolution/encryption_keys
 	name = "Box of Encryption Keys"
-	desc = "A box of encryption keys that gives the user a safe channel to chatter in, while also allowing the user to intercept all departmental comms. Access safe channel with :t."
+	desc = "A box of encryption keys that gives the user a safe channel to chatter in. Access safe channel with :x."
 	item_cost = 15
 	path = /obj/item/storage/box/encryption_key
 
-/datum/uplink_item/item/revolution/encryption_keys
+/datum/uplink_item/item/revolution/softsuits
 	name = "Crate of Softsuits"
 	desc = "A crate containing six softsuits, their helmets, and oxygen tanks. Useful for getting out of a pinch."
 	item_cost = 10

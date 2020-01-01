@@ -389,7 +389,8 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 /obj/item/device/special_uplink
 	name = "special uplink"
-	desc = "A small device used to access a restricted cache of specialized items."
+	desc = "A small device with knobs and switches."
+	description_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	flags = CONDUCT
@@ -414,6 +415,6 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 
 /obj/item/device/special_uplink/rev
 	name = "station bounced radio"
+	desc = null // SBRs have no desc
 	icon_state = "walkietalkie" // more incognito
-	description_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	starting_telecrystals = DEFAULT_TELECRYSTAL_AMOUNT * 2

@@ -7,7 +7,7 @@ var/datum/antagonist/revolutionary/revs
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "rev_head"
-	welcome_text = "You are a Head Revolutionary! It's your job to whip the crew into a frenzy against Command and Central! <b>Use the uplink disguised as a station-bounced radio in your backpack to help start the revolution!</b>"
+	welcome_text = "You are a Head Revolutionary! Your goal is to create and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
 	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
 	loss_text = "The heads of staff managed to stop the revolution!"
 	victory_feedback_tag = "win - heads killed"
