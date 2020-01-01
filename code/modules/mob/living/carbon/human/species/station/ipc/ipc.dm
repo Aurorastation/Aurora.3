@@ -19,9 +19,9 @@
 	light_power = 0.5
 	meat_type = /obj/item/stack/material/steel
 	unarmed_types = list(
-		/datum/unarmed_attack/punch,
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick)
+		/datum/unarmed_attack/punch/ipc,
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc)
 	rarity_value = 2
 
 	inherent_eye_protection = FLASH_PROTECTION_MAJOR

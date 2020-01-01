@@ -23,9 +23,9 @@
 	light_range = 0
 	light_power = 0
 	unarmed_types = list(
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/punch/ipc,
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc,
 		/datum/unarmed_attack/bite
 	)
 
@@ -93,7 +93,11 @@
 		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
 
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/terminator, /datum/unarmed_attack/bite/strong)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp/ipc, 
+		/datum/unarmed_attack/kick/ipc,  
+		/datum/unarmed_attack/terminator, 
+		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/leap,
@@ -341,9 +345,9 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
 	unarmed_types = list(
-		/datum/unarmed_attack/punch,
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick)
+		/datum/unarmed_attack/punch/ipc,
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc)
 
 	brute_mod = 0.9
 	grab_mod = 0.9 
