@@ -1,16 +1,14 @@
 /mob/living/simple_animal/borer/verb/release_host()
 	set category = "Abilities"
-	set name = "Release Host"
+	set name = "Exit Host"
 	set desc = "Slither out of your host."
 
 	if(!host)
 		to_chat(src, span("notice", "You are not inside a host body."))
 		return
-
 	if(stat)
 		to_chat(src, span("notice", "You cannot leave your host in your current state."))
 		return
-
 	if(docile)
 		to_chat(src, span("notice", "You are feeling far too docile to do that."))
 		return
@@ -48,7 +46,6 @@
 	if(host)
 		to_chat(src, span("notice", "You are already within a host."))
 		return
-
 	if(stat)
 		to_chat(src, span("notice", "You cannot infest a target in your current state."))
 		return
@@ -64,10 +61,10 @@
 
 	var/mob/living/carbon/M = input(src,"Who do you wish to infest?") in null|choices
 
-	if(!M || !src) return
-
-	if(!(src.Adjacent(M))) return
-
+	if(!M || !src)
+		return
+	if(!(src.Adjacent(M)))
+		return
 	if(M.has_brain_worms())
 		to_chat(src, span("warning", "You cannot infest someone who is already infested!"))
 		return
@@ -79,15 +76,12 @@
 		if(!E || E.is_stump())
 			to_chat(src, span("warning", "\The [H] does not have a head!"))
 			return
-
 		if(!H.species.has_organ[BP_BRAIN])
 			to_chat(src, span("warning", "\The [H] does not seem to have an ear canal to breach."))
 			return
-
 		if(H.isSynthetic())
 			to_chat(src, span("notice", "You can't affect synthetics."))
 			return
-
 		if(H.check_head_airtight_coverage())
 			to_chat(src, span("warning", "You cannot get through that host's protective gear."))
 			return
@@ -98,10 +92,8 @@
 	if(!do_after(src,30))
 		to_chat(src, span("warning", "As [M] moves away, you are dislodged and fall to the ground."))
 		return
-
 	if(!M || !src)
 		return
-
 	if(src.stat)
 		to_chat(src, span("notice", "You cannot infest a target in your current state."))
 		return
@@ -142,15 +134,12 @@
 	if(!host)
 		to_chat(src, span("notice", "You are not inside a host body."))
 		return
-
 	if(stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
-
 	if(host.stat != DEAD)
 		to_chat(src, span("warning", "Your host is still alive."))
 		return
-
 	if(docile)
 		to_chat(src, span("warning", "You are feeling far too docile to do that."))
 		return
@@ -208,33 +197,31 @@
 
 /mob/living/simple_animal/borer/verb/secrete_chemicals()
 	set category = "Abilities"
-	set name = "Secrete Chemicals"
-	set desc = "Push some chemicals into your host's bloodstream."
+	set name = "Secrete Chemicals (20)"
+	set desc = "Push 5u of chemicals into your host's bloodstream."
 
 	if(!host)
 		to_chat(src, span("notice", "You are not inside a host body."))
 		return
-
 	if(stat)
 		to_chat(src, span("notice", "You cannot secrete chemicals in your current state."))
 		return
-
 	if(docile)
 		to_chat(src, span("notice", "You are feeling far too docile to do that."))
 		return
-
-	if(chemicals < 50)
+	if(chemicals < 20)
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
 
-	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("bicaridine", "hyperzine", "tramadol")
+	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("Inaprovaline", "Bicaridine", "Hyperzine", "Synaptizine", "Peridaxon", "Tramadol", "Oxycodone", "Fluvoxamine")
 
-	if(!chem || docile || chemicals < 50 || !host || controlling || !src || stat) //Sanity check.
+	if(!chem || docile || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
 		return
 
 	to_chat(src, span("notice", "You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream."))
-	host.reagents.add_reagent(chem, 10)
-	chemicals -= 50
+	to_chat(host, span("warning", "You feel cold fluid enter your bloodstream."))
+	host.reagents.add_reagent(lowertext(chem), 5)
+	chemicals -= 20
 
 /mob/living/simple_animal/borer/verb/dominate_victim()
 	set category = "Abilities"
@@ -244,11 +231,9 @@
 	if(world.time - used_dominate < 150)
 		to_chat(src, span("notice", "You cannot use that ability again so soon."))
 		return
-
 	if(host)
 		to_chat(src, span("notice", "You cannot do that from within a host body."))
 		return
-
 	if(src.stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
@@ -266,11 +251,9 @@
 
 	if(!M || !src)
 		return
-
 	if(M.isSynthetic())
 		to_chat(src, span("warning", "You can't affect synthetics."))
 		return
-
 	if(M.has_brain_worms())
 		to_chat(src, span("warning", "You cannot infest someone who is already infested!"))
 		return
@@ -289,11 +272,9 @@
 	if(!host)
 		to_chat(src, span("notice", "You are not inside a host body."))
 		return
-
 	if(src.stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
-
 	if(docile)
 		to_chat(src, span("notice", "You are feeling far too docile to do that."))
 		return
@@ -408,7 +389,7 @@
 
 /mob/living/carbon/proc/spawn_larvae()
 	set category = "Abilities"
-	set name = "Reproduce"
+	set name = "Reproduce (100)"
 	set desc = "Spawn several young."
 
 	var/mob/living/simple_animal/borer/B = has_brain_worms()
@@ -429,3 +410,75 @@
 	else
 		to_chat(src, span("notice", "You do not have enough chemicals stored to reproduce."))
 		return
+
+/mob/living/simple_animal/borer/verb/awaken_psionics()
+	set category = "Abilities"
+	set name = "Awaken Host Psionics (100)"
+	set desc = "Probe into your host an unlock their psionic potential."
+
+	if(!host)
+		to_chat(src, span("notice", "You are not inside a host body."))
+		return
+	if(host.psi)
+		to_chat(src, span("warning", "Your host is already psionically active!"))
+		return
+	if(stat)
+		to_chat(src, span("notice", "You cannot do that in your current state."))
+		return
+	if(docile)
+		to_chat(src, span("notice", "You are feeling far too docile to do that."))
+		return
+	if(chemicals < 100)
+		to_chat(src, span("warning", "You don't have enough chemicals!"))
+		return
+
+	chemicals -= 100
+	to_chat(src, span("notice", "You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
+	to_chat(host, span("warning", "You feel a burning tingling sensation at the back of your head."))
+	addtimer(CALLBACK(src, .proc/jumpstart_psi), 100)
+
+/mob/living/simple_animal/borer/proc/jumpstart_psi()
+	to_chat(src, span("notice", "You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
+	host.awaken_psi_basic("something in your head")
+
+/mob/living/simple_animal/borer/verb/advance_faculty()
+	set category = "Abilities"
+	set name = "Advance Psionic Faculty (75)"
+	set desc = "Advance one of your host's psionic faculties' by one step."
+
+	if(!host)
+		to_chat(src, span("notice", "You are not inside a host body."))
+		return
+	if(!host.psi)
+		to_chat(src, span("warning", "Your host has not been psionically awakened!"))
+		return
+	if(stat)
+		to_chat(src, span("notice", "You cannot do that in your current state."))
+		return
+	if(docile)
+		to_chat(src, span("notice", "You are feeling far too docile to do that."))
+		return
+	if(chemicals < 75)
+		to_chat(src, span("warning", "You don't have enough chemicals!"))
+		return
+
+	var/list/faculties = list(capitalize(PSI_COERCION), capitalize(PSI_REDACTION), capitalize(PSI_ENERGISTICS), capitalize(PSI_PSYCHOKINESIS))
+	var/selected_faculty = input(src, "Choose a faculty to upgrade.") as null|anything in faculties
+	if(!selected_faculty)
+		return
+	selected_faculty = lowertext(selected_faculty)
+	if(host.psi.get_rank(selected_faculty) >= PSI_RANK_MASTER)
+		to_chat(src, span("notice", "This faculty has already been pushed to the max potential you can achieve!"))
+		return
+
+	chemicals -= 75
+	to_chat(src, span("notice", "You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
+	to_chat(host, span("warning", "You feel a burning tingling sensation at the back of your head."))
+	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), 100)
+
+/mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
+	host.psi.set_rank(selected_faculty, host.psi.get_rank(selected_faculty) + 1)
+	host.psi.update()
+	to_chat(src, span("notice", "You successfully manage to upgrade your host's [selected_faculty] faculty."))
+	to_chat(host, span("good", "A breeze of fresh air washes over your mind, you feel powerful!"))
+	to_chat(host, span("notice", "You have been psionically enlightened. You are now a [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] in the [selected_faculty] faculty."))

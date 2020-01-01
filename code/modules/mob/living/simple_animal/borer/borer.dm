@@ -46,7 +46,8 @@
 /mob/living/simple_animal/borer/Initialize()
 	. = ..()
 
-	add_language("Cortical Link")
+	add_language(LANGUAGE_BORER)
+	add_language(LANGUAGE_BORER_HIVEMIND)
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 
