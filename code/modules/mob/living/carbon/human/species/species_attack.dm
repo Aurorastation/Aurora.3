@@ -103,16 +103,16 @@
 /datum/unarmed_attack/industrial
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("heavy fist")
-	damage = 6
+	damage = 7
 	attack_sound = 'sound/weapons/smash.ogg'
 	attack_name = "heavy fist"
 	shredding = 1
 
 /datum/unarmed_attack/industrial/heavy
-	damage = 8
+	damage = 9
 
 /datum/unarmed_attack/industrial/xion
-	damage = 4
+	damage = 5
 	shredding = 0
 
 /datum/unarmed_attack/terminator
