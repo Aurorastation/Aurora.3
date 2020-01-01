@@ -113,6 +113,7 @@
 
 /datum/unarmed_attack/industrial/xion
 	damage = 5
+	shredding = 0
 
 /datum/unarmed_attack/terminator
 	attack_verb = list("pulverized", "crushed", "pounded")

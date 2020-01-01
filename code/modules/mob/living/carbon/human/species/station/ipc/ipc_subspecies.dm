@@ -349,7 +349,7 @@
 
 	brute_mod = 0.9
 	grab_mod = 0.9 
-	resist_mod = 8 
+	resist_mod = 8
 
 	heat_level_1 = 700
 	heat_level_2 = 1400
