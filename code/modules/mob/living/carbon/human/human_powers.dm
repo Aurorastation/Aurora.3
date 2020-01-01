@@ -1172,7 +1172,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(G.state < GRAB_NECK)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to crush your prey!</span>")
+		to_chat(src, "<span class='warning'>You must have a neck grab to crush your prey!</span>")
 		return
 
 	if(istype(G.affecting,/mob/living/carbon/human))
