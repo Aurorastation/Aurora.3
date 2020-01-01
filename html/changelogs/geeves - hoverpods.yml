@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a hoverpod mech."
-  - bugfix: "Jetpacking downwards while in a mech no longer teleports you through the floor."
-  - rscadd: "Mechs with hover thrusters can now float over open turfs, as well as move up and down z-levels."
