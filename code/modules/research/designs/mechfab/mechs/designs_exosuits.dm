@@ -213,6 +213,20 @@
 	build_path = /obj/item/mech_component/propulsion/spider
 	req_tech = list(TECH_ENGINEERING = 2)
 
+/datum/design/item/mechfab/exosuit/hover_torso
+	name = "hoverpod torso"
+	id = "hoverpod_body"
+	time = 40
+	materials = list(DEFAULT_WALL_MATERIAL = 30000)
+	build_path = /obj/item/mech_component/chassis/pod
+
+/datum/design/item/mechfab/exosuit/hover_legs
+	name = "hover thrusters"
+	id = "hover_thrusters"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 14000)
+	build_path = /obj/item/mech_component/propulsion/hover
+
 /datum/design/item/mechfab/exosuit/track
 	name = "armored treads"
 	id = "treads"

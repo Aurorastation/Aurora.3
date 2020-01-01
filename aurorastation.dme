@@ -1524,6 +1524,7 @@
 #include "code\modules\heavy_vehicle\premade\_premade.dm"
 #include "code\modules\heavy_vehicle\premade\combat.dm"
 #include "code\modules\heavy_vehicle\premade\heavy.dm"
+#include "code\modules\heavy_vehicle\premade\hoverpod.dm"
 #include "code\modules\heavy_vehicle\premade\light.dm"
 #include "code\modules\heavy_vehicle\premade\misc.dm"
 #include "code\modules\heavy_vehicle\premade\powerloader.dm"
