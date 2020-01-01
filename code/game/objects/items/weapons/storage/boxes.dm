@@ -779,3 +779,16 @@
 /obj/item/storage/box/fountainpens
 	name = "box of fountain pens"
 	starts_with = list(/obj/item/pen/fountain = 7)
+
+/obj/item/storage/box/aggression
+	name = "box"
+	desc = "It's just an ordinary box."
+	description_antag = "This box contains various implants that will make their owners increasingly aggressive."
+	max_storage_space = 12
+	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
+
+/obj/item/storage/box/encryption_key
+	name = "box"
+	desc = "It's just an ordinary box."
+	description_antag = "This box contains encryption keys that gives the user a safe channel to chatter in, while also allowing the user to intercept all departmental comms. Access the safe comms with :t."
+	starts_with = list(/obj/item/device/encryptionkey/syndicate = 8)

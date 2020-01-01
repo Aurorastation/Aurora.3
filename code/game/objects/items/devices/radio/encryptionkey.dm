@@ -19,6 +19,7 @@
 	icon_state = "cypherkey"
 	channels = list("Mercenary" = 1)
 	origin_tech = list(TECH_ILLEGAL = 3)
+	description_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = 1//Signifies that it de-crypts Syndicate transmissions
 
 /obj/item/device/encryptionkey/raider
