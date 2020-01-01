@@ -1157,7 +1157,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/crush()
 	set category = "Abilities"
 	set name = "Crush"
-	set desc = "While grabbing someone aggressively, crush them with your arms."
+	set desc = "While grabbing someone in a neck grab, crush them with your arms."
 
 	if(last_special > world.time)
 		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
@@ -1172,7 +1172,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(G.state < GRAB_NECK)
-		to_chat(src, "<span class='warning'>You must have a neck grab to crush your prey!</span>")
+		to_chat(src, "<span class='warning'>You must have a stronger grab to crush your prey!</span>")
 		return
 
 	if(istype(G.affecting,/mob/living/carbon/human))
@@ -1185,7 +1185,7 @@ mob/living/carbon/human/proc/change_monitor()
 			return
 
 		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s in \the [affected] with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
