@@ -50,21 +50,21 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
 					crewmemberData["pressure"] = "N/A"
 					crewmemberData["toxyg"] = -1
-					crewmemberData["oxyg"] = 0
+					crewmemberData["oxyg"] = OXYGENATION_STATE_UNDEFINED
 					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
 						crewmemberData["pressure"] = H.get_blood_pressure()
 						crewmemberData["toxyg"] = H.get_blood_oxygenation()
 						switch (crewmemberData["toxyg"])
 							if(105 to INFINITY)
-								crewmemberData["oxyg"] = 5
+								crewmemberData["oxyg"] = OXYGENATION_STATE_HIGH
 							if(BLOOD_VOLUME_SAFE to 105)
-								crewmemberData["oxyg"] = 4
+								crewmemberData["oxyg"] = OXYGENATION_STATE_NORMAL
 							if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-								crewmemberData["oxyg"] = 3
+								crewmemberData["oxyg"] = OXYGENATION_STATE_LOW
 							if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-								crewmemberData["oxyg"] = 2
+								crewmemberData["oxyg"] = OXYGENATION_STATE_VERY_LOW
 							if(-(INFINITY) to BLOOD_VOLUME_BAD)
-								crewmemberData["oxyg"] = 1
+								crewmemberData["oxyg"] = OXYGENATION_STATE_NONE
 
 					crewmemberData["bodytemp"] = H.bodytemperature - T0C
 
