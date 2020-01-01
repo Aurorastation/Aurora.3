@@ -225,6 +225,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/surgicaldrill(src)
 	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
