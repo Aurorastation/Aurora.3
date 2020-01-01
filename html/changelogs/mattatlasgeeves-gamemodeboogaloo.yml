@@ -43,5 +43,5 @@ changes:
   - tweak: "Borers have received some miscellaneous fixes and tweaks across the board. They should overall work better now."
   - rscadd: "Borers can now awaken psionics in their hosts. Maybe it's not a bad idea to get a brain slug after all..."
   - rscadd: "Spy vs. Spy, traitor and renegade, needs four required players."
-  - tweak: "Changed how renegades work a bit. You're not traitors! You're paranoid people who smuggled a gun to work and are working to keep themselves safe."
+  - tweak: "Changed how renegades work a bit. You're not traitors! You're paranoid people who smuggled a gun to work and are working to keep themselves safe. You can still murder given enough reasoning to."
   - rscadd: "Tower Defense, mercenary, heist and ninjas, needs thirty required players and ten required enemies. Good luck!"
