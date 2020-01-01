@@ -11,7 +11,6 @@
 #define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
 #define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
 #define NO_ARTERIES         2048   // This species does not have arteries.
-#define NO_TENDONS          4096   // This species does not have tendons.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
