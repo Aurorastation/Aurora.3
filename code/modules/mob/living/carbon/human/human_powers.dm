@@ -29,7 +29,7 @@
 mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
-	set category = "IC"
+	set category = "Abilities"
 
 	if(f_style)
 		var/datum/sprite_accessory/facial_hair/screen_style = facial_hair_styles_list[f_style]
@@ -1015,7 +1015,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/self_diagnostics()
 	set name = "Self-Diagnostics"
 	set desc = "Run an internal self-diagnostic to check for damage."
-	set category = "IC"
+	set category = "Abilities"
 
 	if(stat == DEAD) return
 
