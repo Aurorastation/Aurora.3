@@ -15,7 +15,7 @@
 		if (I.implanted)
 			I.trigger(act, src)
 
-	if(src.stat == 2.0 && (act != "deathgasp"))
+	if(stat == DEAD && (act != "deathgasp"))
 		return
 	switch(act)
 		if ("airguitar")
@@ -589,6 +589,8 @@
 					message = "sadly can't find anybody to give daps to, and daps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]. Shameful."
 
 		if ("scream")
+			if(stat >= UNCONSCIOUS)
+				return
 			if (miming)
 				message = "acts out a scream!"
 				m_type = 1
