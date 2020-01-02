@@ -2069,6 +2069,7 @@
 #include "code\modules\organs\internal\liver.dm"
 #include "code\modules\organs\internal\lungs.dm"
 #include "code\modules\organs\internal\stomach.dm"
+#include "code\modules\organs\internal\species\diona.dm"
 #include "code\modules\organs\subtypes\autakh.dm"
 #include "code\modules\organs\subtypes\diona.dm"
 #include "code\modules\organs\subtypes\industrial.dm"

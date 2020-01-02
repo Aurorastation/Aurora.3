@@ -982,8 +982,7 @@
 		if(incapacitated())
 			to_chat(src, span("warning", "You cannot do that right now."))
 			return
-		var/datum/gender/G = gender_datums[gender]
-		visible_message(span("danger", "\The [src] starts sticking a finger down [G.his] own throat. It looks like [G.he] [G.is] trying to throw up!"))
+		visible_message(span("warning", "\The [src] retches a bit..."))
 		if(!do_after(src, 30))
 			return
 		timevomit = max(timevomit, 5)
