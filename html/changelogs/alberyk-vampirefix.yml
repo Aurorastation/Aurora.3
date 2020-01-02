@@ -3,5 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - tweak: "Vampire blood draining should remove less blood, reducing the chances of brain damage due to low oxygen.
-
+  - tweak: "Vampire blood draining should remove less blood, reducing the chances of brain damage due to low oxygen."
