@@ -6,7 +6,7 @@
 
 /mob/living/exosuit/Move()
 	. = ..()
-	if(. && !istype(loc, /turf/space))
+	if(. && !istype(loc, /turf/space) && legs.mech_step_sound)
 		playsound(src.loc, mech_step_sound, 40, 1)
 
 //Override this and space move once a way to travel vertically is in

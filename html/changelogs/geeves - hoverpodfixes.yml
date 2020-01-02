@@ -1,0 +1,7 @@
+author: Code by Geeves, Sprites by Kyres
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed hoverthrusters having stepping sounds by giving them no sounds."
+  - tweak: "Adjusted hoverpod sidesprites, not sure what it really does but I trust Kyres."
