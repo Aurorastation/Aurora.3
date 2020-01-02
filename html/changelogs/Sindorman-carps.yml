@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - tweak: "Carps and spiders no longer targe shields intentionally. They will attack shields only if adjacent or have to get to their target through shields."
   - tweak: "All ranged hostile mobs will now shoot at shields, if their target is behind a shield."
+  - bugfix: "Hostile mobs now try and attack you 10 tiles away. But ranged mobs will still have to get within 6 tiles to shoot."
