@@ -668,6 +668,8 @@
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
 	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
+	to_chat(T, span("notice", "You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
+	to_chat(T, span("warning", "[command]"))
 	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
 	emote("me", 1, "whispers.")
 
