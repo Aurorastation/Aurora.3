@@ -476,7 +476,7 @@ var/list/diona_banned_languages = list(
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
 			DS.LMS = 1
-			to_chat(src, "You bask in the light.")
+			to_chat(src, span("notice", "You bask in the light."))
 		else if (DS.EP <= 0.4 && DS.last_lightlevel <= 0)
 			DS.LMS = 3
 			to_chat(src, "<span class='warning'>You feel lethargic as your energy drains away. Find some light!</span>")
