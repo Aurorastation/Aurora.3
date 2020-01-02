@@ -105,15 +105,28 @@
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
 
 	var/mob/source = src.mob
+	var/mob/eyesource
+	if(istype(src.mob, /mob/living/silicon/ai))
+		var/mob/living/silicon/ai/AI = src.mob
+		eyesource = AI.eyeobj
+
 	var/list/messageturfs = list()//List of turfs we broadcast to.
 	var/list/messagemobs = list()//List of living mobs nearby who can hear it
 
-	for (var/turf in range(world.view, get_turf(source)))
+	for(var/turf in range(world.view, get_turf(source)))
 		messageturfs += turf
+	if(eyesource)
+		for(var/turf in range(world.view, get_turf(eyesource)))
+			messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client || istype(M, /mob/abstract/new_player))
+		if(!M.client || istype(M, /mob/abstract/new_player))
 			continue
+		if(istype(M, /mob/living/silicon/ai))
+			var/mob/living/silicon/ai/AI = M
+			if(get_turf(AI.eyeobj) in messageturfs)
+				messagemobs += M
+				continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
 
