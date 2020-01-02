@@ -627,7 +627,7 @@
 
 /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	name = "service department jacket"
-	desc = "A cozy jacket in service's colors, reminding many employees that service even has colors."
+	desc = "A cozy jacket in service's colors, reminding many employees that even service has colors."
 	icon_state = "serv_dep_jacket"
 	item_state = "serv_dep_jacket"
 	icon_open = "serv_dep_jacket_open"
