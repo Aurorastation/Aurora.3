@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Tabling isn't instant anymore, it now needs to timer on the grab to be full. (The action itself is still instant)"
+  - rscadd: "Clicking on a table with harm intent with a grab will now smash the person's face into the table."
