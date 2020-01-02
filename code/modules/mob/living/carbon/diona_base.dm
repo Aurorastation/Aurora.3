@@ -352,7 +352,7 @@ var/list/diona_banned_languages = list(
 		for (var/i in species.has_organ)
 			path = species.has_organ[i]
 			var/organ_exists = 0
-			for (var/obj/item/organ/internal/diona/B in internal_organs)
+			for (var/obj/item/organ/internal/B in internal_organs)
 				if (B.type == path)
 					organ_exists = 1
 					break
@@ -376,7 +376,7 @@ var/list/diona_banned_languages = list(
 			var/obj/item/organ/O = new path(src)
 			internal_organs_by_name[O.organ_tag] = O
 			internal_organs.Add(O)
-			to_chat(src, "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name]</span>")
+			to_chat(src, "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name].</span>")
 			regenerate_icons()
 			DS.LMS = max(2, DS.LMS) //Prevents a message about darkness in light areas
 			update_dionastats() //Re-find the organs in case they were lost or regained
