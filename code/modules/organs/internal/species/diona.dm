@@ -60,4 +60,4 @@
 	name = "digestion chamber"
 	should_process_alcohol = FALSE
 	icon = 'icons/mob/npc/alien.dmi'
-	icon_state = "claw"
+	icon_state = "chitin"
