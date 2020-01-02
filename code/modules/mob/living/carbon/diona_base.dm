@@ -471,20 +471,20 @@ var/list/diona_banned_languages = list(
 	if (DS.LMS == 1) //If we're full
 		if (DS.EP <= 0.8 && DS.last_lightlevel <= 0) //But at <=80% energy
 			DS.LMS = 2
-			to_chat(src, "<span class='warning'>The darkness makes you uncomfortable.</span>")
+			to_chat(src, "<span class='warning'>The darkness makes you uncomfortable...</span>")
 
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
 			DS.LMS = 1
-			to_chat(src, "You bask in the light")
+			to_chat(src, "You bask in the light.")
 		else if (DS.EP <= 0.4 && DS.last_lightlevel <= 0)
 			DS.LMS = 3
-			to_chat(src, "<span class='warning'>You feel lethargic as your energy drains away. Find some light soon!</span>")
+			to_chat(src, "<span class='warning'>You feel lethargic as your energy drains away. Find some light!</span>")
 
 	else if (DS.LMS == 3)
 		if (DS.EP >= 0.5)
 			DS.LMS = 2
-			to_chat(src, "You feel a little more energised as you return to the light. Stay awhile.")
+			to_chat(src, "You feel a little more energised as you return to the light. Stay here for a while.")
 		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
 			to_chat(src, "<span class='danger'>You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>")
