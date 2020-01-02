@@ -37,6 +37,10 @@
  */
 /proc/send_udp_data(addr, data)
 #ifdef RUST_G
+#	ifndef rustg_udp_shipper_send
+#		error rustg_udp_shipper_send macro is not defined for rustg.
+#	endif // rustg_udp_shipper_send
+
 	if (!addr || !data)
 		return "Not enough args."
 
