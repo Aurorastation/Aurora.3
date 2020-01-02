@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Stationbounds have been added to the Crew Manifest in a Station Equipment catagory. They are not crew. It will also not appear on PDA's (yet)."
