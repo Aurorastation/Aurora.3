@@ -467,7 +467,7 @@
 	if(!selected_faculty)
 		return
 	selected_faculty = lowertext(selected_faculty)
-	if(host.psi.get_rank(selected_faculty) >= PSI_RANK_MASTER)
+	if(host.psi.get_rank(selected_faculty) >= PSI_RANK_GRANDMASTER)
 		to_chat(src, span("notice", "This faculty has already been pushed to the max potential you can achieve!"))
 		return
 
