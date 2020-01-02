@@ -38,7 +38,8 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 1.1
+	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
+	resist_mod = 3 // Pretty stronk tho, can break out
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -77,7 +78,7 @@
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES | NO_TENDONS
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")

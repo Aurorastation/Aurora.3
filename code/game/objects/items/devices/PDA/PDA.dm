@@ -259,7 +259,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/lawyer
 	icon_state = "pda-lawyer"
-	default_cartridge = /obj/item/cartridge/lawyer
 	inserted_item = /obj/item/pen/fountain
 	ttone = "..."
 

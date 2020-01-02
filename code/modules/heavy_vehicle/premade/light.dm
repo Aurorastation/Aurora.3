@@ -33,7 +33,7 @@
 	action_delay = 15
 	max_damage = 40
 	power_use = 3000
-	desc = "As flexible as they are fragile, these Vey-Med manipulators can follow a pilot's movements in close to real time."
+	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time."
 	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
 
 /obj/item/mech_component/propulsion/light
