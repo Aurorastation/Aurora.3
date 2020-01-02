@@ -574,14 +574,14 @@
 		.(href, list("f_secret"=1))
 
 	else if(href_list["remove_psionics"])
-		var/datum/psi_complexus/psi = locate(href_list["remove_psionics"])
+		var/datum/complexus/psi/psi = locate(href_list["remove_psionics"])
 		if(psi && psi.owner && !QDELETED(psi))
 			to_chat(psi.owner, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 			log_and_message_admins("removed all psionics from [key_name(psi.owner)].")
 			QDEL_NULL(psi)
 
 	else if(href_list["trigger_psi_latencies"])
-		var/datum/psi_complexus/psi = locate(href_list["trigger_psi_latencies"])
+		var/datum/complexus/psi/psi = locate(href_list["trigger_psi_latencies"])
 		log_and_message_admins("triggered psi latencies for [key_name(psi.owner)].")
 		psi.check_latency_trigger(100, "outside intervention", redactive = TRUE)
 

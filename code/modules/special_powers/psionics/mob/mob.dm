@@ -1,5 +1,5 @@
 /mob/living
-	var/datum/psi_complexus/psi
+	var/datum/complexus/psi/psi
 
 /mob/living/Login()
 	. = ..()

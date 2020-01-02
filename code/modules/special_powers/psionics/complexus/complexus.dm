@@ -1,16 +1,10 @@
-/datum/psi_complexus
+/datum/complexus/psi
 
 	var/announced = FALSE             // Whether or not we have been announced to our holder yet.
 	var/suppressed = TRUE             // Whether or not we are suppressing our psi powers.
 	var/use_psi_armour = TRUE         // Whether or not we should automatically deflect/block incoming damage.
-	var/rebuild_power_cache = TRUE    // Whether or not we need to rebuild our cache of psi powers.
 
 	var/rating = 0                    // Overall psi rating.
-	var/cost_modifier = 1             // Multiplier for power use stamina costs.
-	var/stun = 0                      // Number of process ticks we are stunned for.
-	var/next_power_use = 0            // world.time minimum before next power use.
-	var/stamina = 50                  // Current psi pool.
-	var/max_stamina = 50              // Max psi pool.
 
 	var/list/latencies                // List of all currently latent faculties.
 	var/list/ranks                    // Assoc list of psi faculties to current rank.
@@ -23,18 +17,40 @@
 	var/last_aura_color
 	var/aura_color = "#ff0022"
 
-	// Cached powers.
-	var/list/melee_powers             // Powers used in melee range.
-	var/list/grab_powers              // Powers use by using a grab.
-	var/list/ranged_powers            // Powers used at range.
-	var/list/manifestation_powers     // Powers that create an item.
-	var/list/powers_by_faculty        // All powers within a given faculty.
-
 	var/obj/screen/interface/hub/psi/ui	      // Reference to the master psi UI object.
-	var/mob/living/owner              // Reference to our owner.
 	var/image/_aura_image             // Client image
 
-/datum/psi_complexus/proc/get_aura_image()
+/datum/complexus/psi/rebuild_power_cache()
+	if(rebuild_power_cache)
+
+		melee_powers =         list()
+		grab_powers =          list()
+		ranged_powers =        list()
+		manifestation_powers = list()
+		powers_by_faculty =    list()
+
+		for(var/faculty in ranks)
+			var/relevant_rank = get_rank(faculty)
+			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
+			for(var/thing in faculty_decl.powers)
+				var/datum/special_power/psionic/power = thing
+				if(relevant_rank >= power.min_rank)
+					if(!powers_by_faculty[power.faculty]) powers_by_faculty[power.faculty] = list()
+					powers_by_faculty[power.faculty] += power
+					if(power.use_ranged)
+						if(!ranged_powers[faculty]) ranged_powers[faculty] = list()
+						ranged_powers[faculty] += power
+					if(power.use_melee)
+						if(!melee_powers[faculty]) melee_powers[faculty] = list()
+						melee_powers[faculty] += power
+					if(power.use_manifest)
+						manifestation_powers += power
+					if(power.use_grab)
+						if(!grab_powers[faculty]) grab_powers[faculty] = list()
+						grab_powers[faculty] += power
+		rebuild_power_cache = FALSE
+
+/datum/complexus/psi/proc/get_aura_image()
 	if(_aura_image && !istype(_aura_image))
 		var/atom/A = _aura_image
 		log_debug("Non-image found in psi complexus: \ref[A] - \the [A] - [istype(A) ? A.type : "non-atom"]")
@@ -55,7 +71,7 @@
 	aura_image.mouse_opacity = 0
 	aura_image.appearance_flags = 0
 	for(var/thing in SSpsi.processing)
-		var/datum/psi_complexus/psychic = thing
+		var/datum/complexus/psi/psychic = thing
 		if(psychic.owner.client && !psychic.suppressed)
 			psychic.owner.client.images += aura_image
 	SSpsi.all_aura_images[aura_image] = TRUE
@@ -63,16 +79,16 @@
 
 /proc/destroy_aura_image(var/image/aura_image)
 	for(var/thing in SSpsi.processing)
-		var/datum/psi_complexus/psychic = thing
+		var/datum/complexus/psi/psychic = thing
 		if(psychic.owner.client)
 			psychic.owner.client.images -= aura_image
 	SSpsi.all_aura_images -= aura_image
 
-/datum/psi_complexus/New(var/mob/_owner)
+/datum/complexus/psi/New(var/mob/_owner)
 	owner = _owner
 	START_PROCESSING(SSpsi, src)
 
-/datum/psi_complexus/Destroy()
+/datum/complexus/psi/Destroy()
 	destroy_aura_image(_aura_image)
 	STOP_PROCESSING(SSpsi, src)
 	if(owner)

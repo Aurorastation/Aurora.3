@@ -5,7 +5,7 @@
 		"A sense of peace and comfort falls over you like a warm blanket."
 		)
 
-/datum/event/psi/balm/apply_psi_effect(var/datum/psi_complexus/psi)
+/datum/event/psi/balm/apply_psi_effect(var/datum/complexus/psi/psi)
 	..()
 	var/soothed
 	if(psi.stun > 1)

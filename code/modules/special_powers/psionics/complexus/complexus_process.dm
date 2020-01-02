@@ -1,4 +1,4 @@
-/datum/psi_complexus/proc/update(var/force)
+/datum/complexus/psi/proc/update(var/force)
 
 	set waitfor = FALSE
 
@@ -66,7 +66,7 @@
 		to_chat(owner, span("notice", "<b>Shift-left-click your Psi icon</b> on the bottom right to <b>view a summary of how to use them</b>, or <b>left click</b> it to <b>suppress or unsuppress</b> your psionics. Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
 
-/datum/psi_complexus/process()
+/datum/complexus/psi/process()
 
 	var/update_hud
 	if(stun)
@@ -104,7 +104,7 @@
 	if(update_hud)
 		ui.update_icon()
 
-/datum/psi_complexus/proc/attempt_regeneration()
+/datum/complexus/psi/proc/attempt_regeneration()
 
 	var/heal_general =  FALSE
 	var/heal_poison =   FALSE

@@ -5,7 +5,7 @@
 		"Your head aches as a psychic wail intrudes on your psyche."
 		)
 
-/datum/event/psi/wail/apply_psi_effect(var/datum/psi_complexus/psi)
+/datum/event/psi/wail/apply_psi_effect(var/datum/complexus/psi/psi)
 	..()
 	var/annoyed
 	if(prob(1))
