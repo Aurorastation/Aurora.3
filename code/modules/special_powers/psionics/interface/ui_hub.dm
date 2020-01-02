@@ -1,5 +1,6 @@
 /obj/screen/hub/psi
 	name = "Psi"
+	icon = 'icons/mob/screen/psi.dmi'
 	icon_state = "psi_suppressed"
 	screen_loc = "EAST-1:28,CENTER-3:11"
 	maptext_x = 6

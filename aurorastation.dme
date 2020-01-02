@@ -2421,7 +2421,6 @@
 #include "code\modules\special_powers\psionics\faculties\energistics.dm"
 #include "code\modules\special_powers\psionics\faculties\psychokinesis.dm"
 #include "code\modules\special_powers\psionics\faculties\redaction.dm"
-#include "code\modules\special_powers\psionics\interface\ui.dm"
 #include "code\modules\special_powers\psionics\interface\ui_hub.dm"
 #include "code\modules\special_powers\psionics\mob\mob.dm"
 #include "code\modules\special_powers\psionics\mob\mob_assay.dm"
