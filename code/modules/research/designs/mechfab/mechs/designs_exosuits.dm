@@ -217,7 +217,7 @@
 	name = "hoverpod torso"
 	id = "hoverpod_body"
 	time = 40
-	materials = list(DEFAULT_WALL_MATERIAL = 30000)
+	materials = list(DEFAULT_WALL_MATERIAL = 22000)
 	build_path = /obj/item/mech_component/chassis/pod
 
 /datum/design/item/mechfab/exosuit/hover_legs
@@ -234,13 +234,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 25000)
 	build_path = /obj/item/mech_component/propulsion/tracks
 	req_tech = list(TECH_MATERIAL = 4)
-
-/datum/design/item/mechfab/exosuit/sphere_body
-	name = "spherical chassis"
-	id = "sphere_body"
-	build_path = /obj/item/mech_component/chassis/pod
-	time = 50
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
 
 /datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"

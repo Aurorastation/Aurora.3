@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Made the hoverpod torso a bit cheaper to produce. Since it's shit. You know."
+  - bugfix: "Fixed the duplicate hoverpod torso entry in the mechfab."
