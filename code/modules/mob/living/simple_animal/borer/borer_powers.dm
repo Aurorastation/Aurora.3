@@ -473,7 +473,7 @@
 
 	chemicals -= 75
 	to_chat(src, span("notice", "You probe your tendrils deep within your host's zona bovinae, seeking to upgrade their abilities."))
-	to_chat(host, span("warning", "You feel a burning tingling sensation at the back of your head."))
+	to_chat(host, span("warning", "You feel a burning, tingling sensation at the back of your head..."))
 	addtimer(CALLBACK(src, .proc/faculty_upgrade, selected_faculty), 100)
 
 /mob/living/simple_animal/borer/proc/faculty_upgrade(var/selected_faculty)
