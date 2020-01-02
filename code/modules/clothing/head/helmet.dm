@@ -200,24 +200,30 @@
 
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
-	desc = "A helmet designated to be worn by an unathi, used commonly by the hegemony levies."
+	desc = "An outdated helmet designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
+/obj/item/clothing/head/helmet/unathi/hegemony
+	name = "hegemony helmet"
+	desc = "A highly armored helmet designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
+	icon_state = "hegemony_helmet"
+	item_state = "hegemony_helmet"
+	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
+
 /obj/item/clothing/head/helmet/unathi/klax
 	name = "klaxan hopeful helmet"
-	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors.."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"
-	contained_sprite = 1
 	species_restricted = list("Vaurca")
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/tank

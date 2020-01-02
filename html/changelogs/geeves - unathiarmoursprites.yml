@@ -1,0 +1,14 @@
+author: Code by Geeves, Sprites by Kyres
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed the powered hammer's sprites being duplicated instead of mirrored across hands, increased its chance to trigger by 5% (30%)."
+  - rscadd: "Added a Hegemony version of the powered hammer with orange lights and a 50% chance to trigger."
+  - tweak: "Made the powered hammer reset in 30 seconds instead of 45."
+  - rscadd: "Kataphracts now have new voidsuits, no longer will they wear knight armour with ponchos."
+  - rscadd: "Added new Unathi non-spaceproof body armour, which is ICly a new update to the old leather looking bodyarmour."
+  - rscadd: "K'lax kataphracts share the abovementioned body armour, but now have special modified helmets for all four their eyes."
+  - tweak: "Buffed the K'lax helmet ever so slightly, to be on par with the new Unathi body armour."
+  - bugfix: "Fixed the Jixizi dress to be back to its former beautiful glory."
+  - bugfix: "Fixed Sinta Jumpsuits allowing you to roll down people's jumpsuits and sleeves from range."

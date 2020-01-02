@@ -29,10 +29,6 @@
 /datum/outfit/admin/ert/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
-	if(H?.wear_suit)
-		var/obj/item/clothing/accessory/poncho/big/poncho = new(H)
-		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
-		S.attach_accessory(null, poncho)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
@@ -86,8 +82,10 @@
 /datum/outfit/admin/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Spec."
 
+	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
+	suit = /obj/item/clothing/suit/space/void/kataphract/spec
 	belt = /obj/item/storage/belt/medical
-	l_hand = /obj/item/melee/hammer/powered
+	l_hand = /obj/item/melee/hammer/powered/hegemony
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray = 1,
@@ -107,42 +105,6 @@
 /datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
-	if(H?.wear_suit)
-		var/obj/item/clothing/accessory/poncho/green/big/poncho = new(H)
-		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
-		S.attach_accessory(null, poncho)
-	if(H?.shoes)
-		var/obj/item/clothing/shoes/magboots/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
-
-/datum/outfit/admin/ert/kataphract/specialist
-	name = "Kataphract-Hopeful Spec."
-
-	belt = /obj/item/storage/belt/medical
-	l_hand = /obj/item/melee/hammer/powered
-
-	belt_contents = list(
-		/obj/item/reagent_containers/hypospray = 1,
-		/obj/item/stack/medical/advanced/bruise_pack = 1,
-		/obj/item/stack/medical/advanced/ointment = 1,
-		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
-	)
-
-	backpack_contents = list(
-		/obj/item/handcuffs/ziptie = 2,
-		/obj/item/shield/energy/hegemony = 1,
-		/obj/item/storage/box/donkpockets = 1,
-		/obj/item/crowbar = 1,
-		/obj/item/storage/firstaid/adv = 1
-	)
-
-/datum/outfit/admin/ert/kataphract/specialist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.w_uniform)
-		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
-	if(H?.wear_suit)
-		var/obj/item/clothing/accessory/poncho/green/big/poncho = new(H)
-		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
-		S.attach_accessory(null, poncho)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
@@ -150,15 +112,13 @@
 /datum/outfit/admin/ert/kataphract/leader
 	name = "Kataphract Knight"
 
+	head = /obj/item/clothing/head/helmet/space/void/kataphract/lead
+	suit = /obj/item/clothing/suit/space/void/kataphract/lead
 	glasses = /obj/item/clothing/glasses/thermal
 
 /datum/outfit/admin/ert/kataphract/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#1f8c3c", "#ab7318", "#1846ba")
-	if(H?.wear_suit)
-		var/obj/item/clothing/accessory/poncho/red/big/poncho = new(H)
-		var/obj/item/clothing/suit/space/void/kataphract/S = H.wear_suit
-		S.attach_accessory(null, poncho)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
