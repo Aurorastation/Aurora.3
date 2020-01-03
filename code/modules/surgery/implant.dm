@@ -155,38 +155,40 @@
 	max_duration = 100
 
 /datum/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-	return ..() && (!sponge || !sponge.damage)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return ..() && affected
 
 /datum/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
-		"You start poking around inside [target]'s [affected.name] with \the [tool]" )
-	target.custom_pain("The pain in your [affected.name] is living hell!",1)
+		"You start poking around inside [target]'s [affected.name] with \the [tool]." )
+	target.custom_pain("The pain in your [affected.name] is living hell!", 50)
 	..()
 
 /datum/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 
 	var/find_prob = 0
+	var/list/implants = list()
 
 	if(affected.implants.len)
+		implants = affected.implants
 
-		var/obj/item/obj = pick(affected.implants)
+		var/obj/item/obj = pick(implants)
 
 		if(istype(obj,/obj/item/implant))
 			var/obj/item/implant/imp = obj
 			if(imp.islegal())
-				find_prob +=60
+				find_prob += 60
 			else
-				find_prob +=40
+				find_prob += 40
 		else
-			find_prob +=50
+			find_prob += 50
 
 		if(prob(find_prob))
 			user.visible_message("<span class='notice'>[user] takes something out of incision on [target]'s [affected.name] with \the [tool].</span>", \
 				"<span class='notice'>You take [obj] out of incision on [target]'s [affected.name]s with \the [tool].</span>" )
-			affected.implants -= obj
+			target.remove_implant(obj, TRUE, affected)
 
 			BITSET(target.hud_updateflag, IMPLOYAL_HUD)
 
@@ -197,14 +199,7 @@
 					target.release_control()
 				worm.detatch()
 				worm.leave_host()
-			else
-				obj.forceMove(get_turf(target))
-				obj.add_blood(target)
-				obj.update_icon()
-				if(istype(obj,/obj/item/implant))
-					var/obj/item/implant/imp = obj
-					imp.imp_in = null
-					imp.implanted = 0
+
 			playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 		else
 			user.visible_message("<span class='notice'>[user] removes \the [tool] from [target]'s [affected.name].</span>", \
@@ -216,12 +211,7 @@
 /datum/surgery_step/cavity/implant_removal/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	..()
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-	if(affected.implants.len)
-		var/fail_prob = 10
-		fail_prob += 100 - tool_quality(tool)
-		if(prob(fail_prob))
-			var/obj/item/implant/imp = affected.implants[1]
-			user.visible_message("<span class='warning'>Something beeps inside [target]'s [affected.name]!</span>")
-			playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
-			spawn(25)
-				imp.activate()
+	user.visible_message("<span class='warning'>[user] loses their grip and stabs [target] with \the [tool]!</span>", "<span class='warning'>You lose your grip on \the [tool] and stab [target]!</span>")
+	affected.sever_artery()
+	target.apply_damage(25, BRUTE, target_zone)
+

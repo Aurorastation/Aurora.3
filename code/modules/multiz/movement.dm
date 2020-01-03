@@ -77,6 +77,10 @@
 	return TRUE
 
 /mob/living/carbon/human/zMove(direction)
+	if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		mech.zMove(direction)
+		return
 	. = ..()
 	if(.)
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
@@ -315,6 +319,19 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
+/mob/living/heavy_vehicle/can_ztravel(var/direction)
+	if(legs)
+		if(legs.hover && legs.motivator.is_functional())
+			if(get_cell().charge < ((legs.power_use * CELLRATE) / 2))
+				return FALSE
+			return TRUE
+	return FALSE
+
+/mob/living/heavy_vehicle/CanAvoidGravity()
+	if(can_ztravel())
+		return TRUE
+	return FALSE
+
 /mob/living/heavy_vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
@@ -326,6 +343,12 @@
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
+			return FALSE
+
+	// Hover thrusters
+	if(legs)
+		if(legs.hover && legs.motivator.is_functional())
+			get_cell().use((legs.power_use * CELLRATE) / 2)
 			return FALSE
 
 	// True otherwise.
