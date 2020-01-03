@@ -406,6 +406,18 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return selected
 
+/proc/select_active_ai_in_area(var/mob/user, var/turf/T)
+	var/list/ais = active_ais()
+	for(var/mob/AI in ais)
+		if(get_area(AI) != get_area(T))
+			ais -= AI
+	if(ais.len)
+		if(user)
+			. = input(user, "AI signals detected in the area:", "AI selection") in ais
+		else
+			. = pick(ais)
+	return .
+
 /proc/select_active_ai(var/mob/user)
 	var/list/ais = active_ais()
 	if(ais.len)

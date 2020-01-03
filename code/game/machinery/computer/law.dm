@@ -45,10 +45,10 @@
 		to_chat(user, "The upload computer is broken!")
 		return
 
-	src.current = select_active_ai(user)
+	src.current = select_active_ai_in_area(user, get_turf(src))
 
 	if (!src.current)
-		to_chat(user, "No active AIs detected.")
+		to_chat(user, "There are no active AIs in this area.")
 	else
 		to_chat(user, "[src.current.name] selected for law changes.")
 	return

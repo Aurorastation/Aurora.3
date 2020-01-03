@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "The AI can now only be lawed by an upload console in the same area as the core."
