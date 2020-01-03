@@ -10,6 +10,9 @@
 	max_count = 2
 	uses_species_whitelist = FALSE
 
+	mob_name_prefix = "Zosaa "
+	mob_name_pick_message = "Pick an Unathi last name."
+
 	outfit = /datum/outfit/admin/kataphract
 	possible_species = list("Unathi")
 	possible_genders = list(MALE, FEMALE)
@@ -42,6 +45,8 @@
 	uses_species_whitelist = TRUE
 	req_species_whitelist = "Unathi"
 
+	mob_name_prefix = "Saa "
+
 	spawnpoints = list("kataphract_knight")
 
 	outfit = /datum/outfit/admin/kataphract/knight
@@ -55,6 +60,8 @@
 	desc = "Display honour in everything you do. Be an excellent person. Ensure the Kataphracts are well-stocked and ready for anything."
 	max_count = 1
 
+	mob_name_prefix = "Saa "
+
 	spawnpoints = list("kataphract_quartermaster")
 
 	outfit = /datum/outfit/admin/kataphract/quartermaster
@@ -67,6 +74,8 @@
 	name = "Kataphract Trader"
 	desc = "Display honour in everything you do. Be an excellent person. Buy and sell items on the market, ensure the Quartermaster has stock. Conduct trade with any visitors."
 	max_count = 1
+
+	mob_name_prefix = "Saa "
 
 	spawnpoints = list("kataphract_trader")
 
