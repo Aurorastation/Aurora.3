@@ -596,7 +596,11 @@
 /area/kataphract_chapter/bridge)
 "bo" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/photocopier/faxmachine,
+/obj/machinery/photocopier/faxmachine{
+	department = "HMV Supreme";
+	req_access = list(114);
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "bp" = (
@@ -1861,6 +1865,10 @@
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
+/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "dW" = (
@@ -2753,13 +2761,13 @@
 /area/kataphract_chapter/main_ring)
 "fw" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/armor/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/head/helmet/unathi,
 /obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/suit/armor/unathi,
 /obj/item/clothing/shoes/caligae/armor,
 /obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "fx" = (
@@ -2873,12 +2881,12 @@
 /area/kataphract_chapter/dorms)
 "fL" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/armor/unathi,
-/obj/item/clothing/head/helmet/unathi,
-/obj/item/clothing/head/helmet/unathi,
 /obj/item/clothing/shoes/caligae/armor,
 /obj/item/clothing/shoes/caligae/armor,
-/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "fM" = (
@@ -4227,6 +4235,25 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/hangar)
+"iD" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Suit Storage";
+	req_one_access = "112"
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/shoes/magboots,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/glasses/meson,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/engineering)
 "iE" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -5381,24 +5408,6 @@
 "kF" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	name = "Suit Storage";
-	req_one_access = "112"
-	},
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/magboots,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/engineering)
-"kG" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced,
 /obj/machinery/door/window{
 	dir = 1;
 	name = "Suit Storage";
@@ -5410,6 +5419,27 @@
 /obj/machinery/light,
 /obj/item/clothing/suit/space/emergency,
 /obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/glasses/meson,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/engineering)
+"kG" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Suit Storage";
+	req_one_access = "112"
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/shoes/magboots,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/head/helmet/space/emergency,
+/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "kH" = (
@@ -5686,25 +5716,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
-"lo" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/machinery/door/window{
-	dir = 1;
-	name = "Suit Storage";
-	req_one_access = "112"
-	},
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/magboots,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/item/clothing/suit/space/emergency,
-/obj/item/clothing/head/helmet/space/emergency,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/engineering)
 "lp" = (
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/trading_area)
@@ -35564,7 +35575,7 @@ iG
 iY
 jy
 kh
-kF
+iD
 kq
 ks
 kt
@@ -35821,7 +35832,7 @@ iE
 iZ
 jz
 ki
-kG
+kF
 lk
 ks
 kt
@@ -36078,7 +36089,7 @@ iF
 ja
 jA
 kj
-lo
+kG
 nh
 ks
 ks
