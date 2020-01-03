@@ -1,5 +1,13 @@
 #define ZERO_WIDTH_SPACE "&#8203;" //prevents the UI elements from popping out of place when viewport gets too small
 
+// Oxyginetion states
+#define OXYGENATION_STATE_HIGH 5
+#define OXYGENATION_STATE_NORMAL 4
+#define OXYGENATION_STATE_LOW 3
+#define OXYGENATION_STATE_VERY_LOW 2
+#define OXYGENATION_STATE_NONE 1
+#define OXYGENATION_STATE_UNDEFINED 0
+
 var/global/datum/repository/crew/crew_repository = new()
 
 /datum/repository/crew
@@ -93,3 +101,9 @@ var/global/datum/repository/crew/crew_repository = new()
 	return tracked
 
 #undef ZERO_WIDTH_SPACE
+#undef OXYGENATION_STATE_HIGH
+#undef OXYGENATION_STATE_NORMAL
+#undef OXYGENATION_STATE_LOW
+#undef OXYGENATION_STATE_VERY_LOW
+#undef OXYGENATION_STATE_NONE
+#undef OXYGENATION_STATE_UNDEFINED
