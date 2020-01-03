@@ -1167,7 +1167,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	var/obj/item/grab/G = src.get_active_hand()
-	if(!G || !istype(G))
+	if(!istype(G))
 		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
 		return
 
@@ -1175,7 +1175,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, "<span class='warning'>You must have a stronger grab to crush your prey!</span>")
 		return
 
-	if(istype(G.affecting,/mob/living/carbon/human))
+	if(ishuman(G.affecting))
 		var/mob/living/carbon/human/H = G.affecting
 		var/hit_zone = zone_sel.selecting
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
