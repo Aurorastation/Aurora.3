@@ -29,6 +29,8 @@
 	exosuit_desc_string = "hover thrusters"
 	desc = "An ancient set of hover thrusters capable of keeping a exosuit aloft."
 	icon_state = "hoverlegs"
+	mech_turn_sound = null
+	mech_step_sound = null
 	max_damage = 40
 	move_delay = 4
 	turn_delay = 2
