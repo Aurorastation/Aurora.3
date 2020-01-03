@@ -301,6 +301,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/inflatable_dispenser(src)
+	src.malfAImodule += new /obj/item/rfd/transformer(src)
 	src.emag = new /obj/item/melee/baton/robot/arm(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(60000)
