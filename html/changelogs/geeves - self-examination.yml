@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Examining yourself for injuries will now show you whether your limb is bleeding or not."
