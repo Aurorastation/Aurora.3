@@ -40,7 +40,7 @@
 	..()
 
 /mob/living/captive_brain/proc/eject_borer(var/mob/living/simple_animal/borer/borer, var/mob/living/captive_brain/host)
-	if(!borer || !borer.controlling)
+	if(!borer?.controlling)
 		return
 
 	to_chat(host, span("danger", "With an immense exertion of will, you regain control of your body!"))
