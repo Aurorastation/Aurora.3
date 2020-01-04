@@ -133,11 +133,6 @@ var/list/world_api_rate_limit = list()
 	var/query = queryparams["query"]
 	var/auth = queryparams["auth"]
 
-	/*if (!SSticker) //If the game is not started most API Requests would not work because of the throtteling
-		response["statuscode"] = 500
-		response["response"] = "Game not started yet!"
-		return json_encode(response)*/
-
 	if (isnull(query))
 		log_debug("API - Bad Request - No query specified")
 		response["statuscode"] = 400
