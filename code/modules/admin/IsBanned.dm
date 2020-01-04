@@ -4,11 +4,18 @@
 
 //Blocks an attempt to connect before even creating our client datum thing.
 world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
+	if (type == "world")
+		return ..()
+
 	if(ckey(key) in admin_datums)
 		return ..()
 
 	var/ckey = ckey(key)
 	var/admin = (ckey in admin_datums)
+	var/client/C = directory[ckey]
+
+	if (C && ckey == C.ckey && computer_id == C.computer_id && address == C.address)
+		return // Player is already connected, do not recheck.
 
 	//IsBanned can get re-called on a user in certain situations, this prevents that leading to repeated messages to admins.
 	var/static/list/checkedckeys = list()
@@ -94,7 +101,6 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 
 	if (ban) // stickyban management stuff.
 		. = ban
-		var/client/C = directory[ckey]
 
 		if (real_bans_only)
 			return
