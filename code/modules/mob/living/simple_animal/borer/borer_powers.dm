@@ -355,7 +355,7 @@
 
 	var/mob/living/simple_animal/borer/B = has_brain_worms()
 
-	if(B && B.host_brain)
+	if(B?.host_brain)
 		to_chat(src, span("warning", "You withdraw your probosci, releasing control of [B.host_brain]"))
 
 		B.detach()
