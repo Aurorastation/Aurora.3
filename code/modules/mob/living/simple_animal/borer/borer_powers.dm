@@ -9,9 +9,6 @@
 	if(stat)
 		to_chat(src, span("notice", "You cannot leave your host in your current state."))
 		return
-	if(docile)
-		to_chat(src, span("notice", "You are feeling far too docile to do that."))
-		return
 
 	to_chat(src, span("notice", "You begin disconnecting from [host]'s synapses and prodding at their internal ear canal."))
 
@@ -140,9 +137,6 @@
 	if(host.stat != DEAD)
 		to_chat(src, span("warning", "Your host is still alive."))
 		return
-	if(docile)
-		to_chat(src, span("warning", "You are feeling far too docile to do that."))
-		return
 
 	to_chat(src, span("danger", "It only takes a few moments to render the dead brain down into a nutrient-rich slurry..."))
 	replace_brain()
@@ -157,7 +151,8 @@
 
 	to_chat(src, span("warning", "You settle into the empty brainpan and begin to expand, fusing inextricably with the dead flesh of [H]."))
 
-	H.add_language("Cortical Link")
+	H.add_language(LANGUAGE_BORER)
+	H.add_language(LANGUAGE_BORER_HIVEMIND)
 
 	if(host.stat == DEAD)
 		H.verbs |= /mob/living/carbon/human/proc/jumpstart
@@ -206,16 +201,13 @@
 	if(stat)
 		to_chat(src, span("notice", "You cannot secrete chemicals in your current state."))
 		return
-	if(docile)
-		to_chat(src, span("notice", "You are feeling far too docile to do that."))
-		return
 	if(chemicals < 20)
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
 
 	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("Inaprovaline", "Bicaridine", "Hyperzine", "Synaptizine", "Peridaxon", "Tramadol", "Oxycodone", "Fluvoxamine")
 
-	if(!chem || docile || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
+	if(!chem || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
 		return
 
 	to_chat(src, span("notice", "You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream."))
@@ -247,7 +239,7 @@
 		to_chat(src, span("notice", "You cannot use that ability again so soon."))
 		return
 
-	var/mob/living/carbon/M = input(src,"Who do you wish to dominate?") in null|choices
+	var/mob/living/carbon/M = input(src, "Who do you wish to dominate?") in null|choices
 
 	if(!M || !src)
 		return
@@ -275,9 +267,6 @@
 	if(src.stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
-	if(docile)
-		to_chat(src, span("notice", "You are feeling far too docile to do that."))
-		return
 
 	to_chat(src, span("warning", "You begin delicately adjusting your connection to the host brain..."))
 	to_chat(host, span("warning", "You feel a tingling sensation at the back of your head."))
@@ -290,7 +279,8 @@
 
 	to_chat(src, span("danger", "You plunge your probosci deep into the cortex of the host brain, interfacing directly with their nervous system."))
 	to_chat(host, span("danger", "You feel a strange shifting sensation behind your eyes as an alien consciousness displaces yours."))
-	host.add_language("Cortical Link")
+	host.add_language(LANGUAGE_BORER)
+	host.add_language(LANGUAGE_BORER_HIVEMIND)
 
 	// host -> brain
 	var/h2b_id = host.computer_id
@@ -425,9 +415,6 @@
 	if(stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
-	if(docile)
-		to_chat(src, span("notice", "You are feeling far too docile to do that."))
-		return
 	if(chemicals < 100)
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
@@ -454,9 +441,6 @@
 		return
 	if(stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
-		return
-	if(docile)
-		to_chat(src, span("notice", "You are feeling far too docile to do that."))
 		return
 	if(chemicals < 75)
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
