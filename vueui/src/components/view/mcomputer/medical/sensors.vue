@@ -16,6 +16,7 @@
         <template v-if="sensor.stype > 1">
           <div class="item center">{{ sensor.pressure }}</div>
         </template>
+        <div class="item center" v-else>N/A</div>
         <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
         <div class="item center"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
         <div class="item right" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
