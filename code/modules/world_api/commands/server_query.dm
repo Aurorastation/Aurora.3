@@ -208,6 +208,19 @@
 			if(!positions["misc"])
 				positions["misc"] = list()
 			positions["misc"][name] = rank
+	
+	for(var/mob/living/silicon/S in player_list)
+		if(istype(S, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = S
+			if(R.scrambledcodes)
+				continue
+			var/selected_module = "Default Module"
+			if(R.module)
+				selected_module = capitalize_first_letters(R.module.name)
+			positions["bot"][R.name] = selected_module
+		if(istype(S, /mob/living/silicon/ai))
+			var/mob/living/silicon/ai/A = S
+			positions["bot"][R.name] = "Station Intelligence"
 
 	statuscode = 200
 	response = "Manifest fetched"
