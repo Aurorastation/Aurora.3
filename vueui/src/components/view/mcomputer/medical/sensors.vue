@@ -47,7 +47,7 @@ export default {
         case 1:
           return "extremely low"
         default:
-          return "N/A";
+          return "N/A"
       }
     },
     getOxyClass(value) {
@@ -63,7 +63,7 @@ export default {
         case 1:
           return "bad"
         default:
-          return "neutral";
+          return "neutral"
       }
     },
     getPulseClass(tpulse) {
@@ -81,7 +81,7 @@ export default {
         case 5:
           return "bad"
         default:
-          return "neutral";
+          return "neutral"
       }
     }
   }
