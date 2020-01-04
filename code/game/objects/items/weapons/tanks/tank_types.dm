@@ -36,6 +36,10 @@
 	desc = "A tank of oxygen, this one is red."
 	icon_state = "oxygen_fr"
 
+/obj/item/tank/oxygen/brown
+	desc = "A tank of oxygen, this one is brown."
+	icon_state = "oxygen_br"
+
 
 /*
  * Anesthetic
