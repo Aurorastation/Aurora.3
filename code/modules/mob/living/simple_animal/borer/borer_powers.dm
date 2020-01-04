@@ -168,11 +168,11 @@
 		src.mind.special_role = "Borer Husk"
 		src.mind.transfer_to(host)
 
-	var/obj/item/organ/borer/B = new(H)
-	H.internal_organs_by_name[BP_BRAIN] = B
-	H.internal_organs |= B
-
+	var/obj/item/organ/internal/borer/B = new(H)
 	var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
+	H.internal_organs_by_name[BP_BRAIN] = B
+	affecting.internal_organs |= B
+
 	affecting.implants -= src
 
 	var/s2h_id = src.computer_id

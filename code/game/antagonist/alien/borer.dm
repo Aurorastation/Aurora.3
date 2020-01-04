@@ -10,14 +10,16 @@ var/datum/antagonist/xenos/borer/borers
 	antag_indicator = "brainworm"
 	antaghud_indicator = "hudborer"
 
+	flags = ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB
+
 	landmark_id = "borerstart"
 
 	faction_role_text = "Borer Thrall"
 	faction_descriptor = "Unity"
 	faction_welcome = "You are now a thrall to a cortical borer. Please listen to what they have to say; they're in your head."
 
-	initial_spawn_req = 3
-	initial_spawn_target = 5
+	initial_spawn_req = 2
+	initial_spawn_target = 3
 
 /datum/antagonist/xenos/borer/New()
 	..(TRUE)
