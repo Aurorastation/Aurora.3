@@ -40,7 +40,6 @@
 	desc = "A tank of oxygen, this one is brown."
 	icon_state = "oxygen_br"
 
-
 /*
  * Anesthetic
  */
