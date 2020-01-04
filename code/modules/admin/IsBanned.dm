@@ -14,7 +14,7 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 	var/admin = (ckey in admin_datums)
 	var/client/C = directory[ckey]
 
-	if (C && !real_bans_only && ckey == C.ckey && computer_id == C.computer_id && address == C.address)
+	if (C && ckey == C.ckey && computer_id == C.computer_id && address == C.address)
 		return // Player is already connected, do not recheck.
 
 	//IsBanned can get re-called on a user in certain situations, this prevents that leading to repeated messages to admins.
