@@ -8,5 +8,5 @@
 	end_on_antag_death = FALSE
 	antag_tags = list(MODE_BORER, MODE_MERCENARY)
 	require_all_templates = TRUE
-	votable = TRUE
+	votable = FALSE
 	ert_disabled = TRUE
