@@ -42,7 +42,5 @@
 	return ..()
 
 /obj/item/modular_computer/silicon/Click(location, control, params)
-	if (!istype(usr, /mob/living/silicon) && host == usr)
-		return attack_self(usr)
-	return ..()
+	return attack_self(usr)
 	
