@@ -3,7 +3,7 @@ var/datum/antagonist/renegade/renegades
 /datum/antagonist/renegade
 	role_text = "Renegade"
 	role_text_plural = "Renegades"
-	welcome_text = "You're extremely paranoid today. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can kill, but you shouldn't actively seek conflict."
+	welcome_text = "You're extremely paranoid today. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
 	id = MODE_RENEGADE
 	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE
 	hard_cap = 5
@@ -20,6 +20,7 @@ var/datum/antagonist/renegade/renegades
 		/obj/item/gun/energy/xray,
 		/obj/item/gun/projectile/revolver,
 		/obj/item/gun/projectile/revolver/deckard,
+		/obj/item/gun/projectile/revolver/adhomian,
 		/obj/item/gun/projectile/automatic/c20r,
 		/obj/item/gun/projectile/deagle,
 		/obj/item/gun/projectile/pistol,
