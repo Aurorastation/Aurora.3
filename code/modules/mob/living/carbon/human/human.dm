@@ -1714,6 +1714,8 @@
 /mob/living/carbon/human/proc/get_traumas()
 	. = list()
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
+	if(istype(B, /obj/item/organ/borer))
+		return
 	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.traumas
 

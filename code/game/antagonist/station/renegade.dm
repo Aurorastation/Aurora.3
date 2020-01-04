@@ -3,7 +3,7 @@ var/datum/antagonist/renegade/renegades
 /datum/antagonist/renegade
 	role_text = "Renegade"
 	role_text_plural = "Renegades"
-	welcome_text = "Your own safety matters above all else, trust no one and kill anyone who gets in your way. However, armed as you are, now would be the perfect time to settle that score or grab that pair of yellow gloves you've been eyeing..."
+	welcome_text = "You're extremely paranoid today. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
 	id = MODE_RENEGADE
 	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE
 	hard_cap = 5
@@ -20,8 +20,7 @@ var/datum/antagonist/renegade/renegades
 		/obj/item/gun/energy/xray,
 		/obj/item/gun/projectile/revolver,
 		/obj/item/gun/projectile/revolver/deckard,
-		/obj/item/gun/projectile/revolver/detective,
-		/obj/item/gun/projectile/revolver/derringer,
+		/obj/item/gun/projectile/revolver/adhomian,
 		/obj/item/gun/projectile/automatic/c20r,
 		/obj/item/gun/projectile/deagle,
 		/obj/item/gun/projectile/pistol,
@@ -31,7 +30,6 @@ var/datum/antagonist/renegade/renegades
 		/obj/item/gun/projectile/automatic/c20r,
 		/obj/item/gun/projectile/automatic/tommygun,
 		/obj/item/gun/projectile/automatic/mini_uzi,
-		/obj/item/gun/energy/crossbow,
 		/obj/item/gun/projectile/tanto
 		)
 
