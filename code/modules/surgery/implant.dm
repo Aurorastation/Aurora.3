@@ -197,7 +197,7 @@
 				var/mob/living/simple_animal/borer/worm = obj
 				if(worm.controlling)
 					target.release_control()
-				worm.detatch()
+				worm.detach()
 				worm.leave_host()
 
 			playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)

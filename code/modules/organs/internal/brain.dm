@@ -39,8 +39,7 @@
 
 /obj/item/organ/internal/brain/Destroy()
 	if(brainmob)
-		qdel(brainmob)
-		brainmob = null
+		QDEL_NULL(brainmob)
 	return ..()
 
 /obj/item/organ/internal/brain/removed(var/mob/living/user)
@@ -53,7 +52,7 @@
 	var/mob/living/simple_animal/borer/borer = owner.has_brain_worms()
 
 	if(borer)
-		borer.detatch() //Should remove borer if the brain is removed - RR
+		borer.detach() //Should remove borer if the brain is removed - RR
 
 	var/obj/item/organ/internal/brain/B = src
 	if(istype(B) && istype(owner))
