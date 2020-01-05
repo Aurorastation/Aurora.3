@@ -111,7 +111,6 @@ var/list/world_api_rate_limit = list()
 	var/list/queryparams[]
 
 	if (!SSfail2topic)
-		testing("SSfail2topic not set up?")
 		response["statuscode"] = 500
 		response["response"] = "Server not initialize."
 		return json_encode(response)
@@ -119,8 +118,6 @@ var/list/world_api_rate_limit = list()
 		response["statuscode"] = 429
 		response["response"] = "Rate limited."
 		return json_encode(response)
-	else
-		testing("Not rate limited.")
 
 	if (length(T) > 500)
 		response["statuscode"] = 413

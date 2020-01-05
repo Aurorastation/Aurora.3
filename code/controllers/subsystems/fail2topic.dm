@@ -25,8 +25,6 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	rule_name = config.fail2topic_rule_name
 	enabled = config.fail2topic_enabled
 
-	testing("Init happened here btw.")
-
 	DropFirewallRule() // Clear the old bans if any still remain
 
 	if (!enabled)
@@ -61,24 +59,18 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/IsRateLimited(ip)
 	var/last_attempt = rate_limiting[ip]
 
-	testing("In rate limit code.")
-
 	if (config?.api_rate_limit_whitelist[ip])
-		testing("Whitelisted IP?")
 		return FALSE
 
 	rate_limiting[ip] = world.time
 
 	if (isnull(last_attempt))
-		testing("No last attempt")
 		return FALSE
 
 	if (world.time - last_attempt > rate_limit)
-		testing("Is slow.")
 		fail_counts -= ip
 		return FALSE
 	else
-		testing("Failure.")
 		var/failures = fail_counts[ip]
 
 		if (isnull(failures))
@@ -123,7 +115,6 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
 	active_bans = list()
 
-	to_world("DROPPING RULE")
 	. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
 
 	if (.)
