@@ -25,6 +25,11 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	DropFirewallRule() // Clear the old bans if any still remain
 
+
+	if (world.system_type == UNIX && enabled)
+		enabled = FALSE
+		log_ss("fail2topic", "Subsystem disabled due to it not supporting UNIX.", log_world = FALSE, severity = SEVERITY_NOTICE)
+
 	if (!enabled)
 		suspended = TRUE
 
@@ -76,6 +81,9 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 			return TRUE
 
 /datum/controller/subsystem/fail2topic/proc/BanFromFirewall(ip)
+	if (!enabled)
+		return
+
 	active_bans[ip] = world.time
 	fail_counts -= ip
 	rate_limiting -= ip
@@ -90,6 +98,9 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 		log_ss("fail2topic", "Banned [ip].", log_world = FALSE, severity = SEVERITY_NOTICE)
 
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
+	if (!enabled)
+		return
+
 	active_bans = list()
 
 	. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
