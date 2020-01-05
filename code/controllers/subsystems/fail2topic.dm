@@ -91,11 +91,11 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 		. = shell("netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[ip]")
 
 	if (.)
-		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
+		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
+		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
 	else
-		log_ss("fail2topic", "Banned [ip] for [ban_time SECONDS] seconds.", log_world = TRUE, severity = SEVERITY_NOTICE)
+		log_ss("fail2topic", "Banned [ip] for [ban_time SECONDS] seconds.", log_world = FALSE, severity = SEVERITY_NOTICE)
 
 /datum/controller/subsystem/fail2topic/proc/UnbanFromFirewall(ip)
 	active_bans -= ip
@@ -106,11 +106,11 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
 
 	if (.)
-		log_ss("fail2topic", "Failed to unban [ip]. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
+		log_ss("fail2topic", "Failed to unban [ip]. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
+		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
 	else
-		log_ss("fail2topic", "Unbanned [ip].", log_world = TRUE, severity = SEVERITY_INFO)
+		log_ss("fail2topic", "Unbanned [ip].", log_world = FALSE, severity = SEVERITY_INFO)
 
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
 	active_bans = list()
@@ -118,8 +118,8 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
 
 	if (.)
-		log_ss("fail2topic", "Failed to drop firewall rule. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
+		log_ss("fail2topic", "Failed to drop firewall rule. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
+		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
 	else
-		log_ss("fail2topic", "Firewall rule dropped.", log_world = TRUE, severity = SEVERITY_INFO)
+		log_ss("fail2topic", "Firewall rule dropped.", log_world = FALSE, severity = SEVERITY_INFO)
