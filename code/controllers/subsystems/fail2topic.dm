@@ -34,7 +34,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 /datum/controller/subsystem/fail2topic/fire()
 	while (rate_limiting.len)
-		var/ip = rate_limiting[0]
+		var/ip = rate_limiting[1]
 		var/last_attempt = rate_limiting[ip]
 
 		if (world.time - last_attempt > rate_limit)
@@ -44,7 +44,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 			return
 
 	while (active_bans.len)
-		var/ip = active_bans[0]
+		var/ip = active_bans[1]
 		var/time_banned = active_bans[ip]
 
 		if (world.time - time_banned > ban_time)
@@ -90,6 +90,8 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	if (.)
 		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
+	else if (isnull(.))
+		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
 	else
 		log_ss("fail2topic", "Banned [ip] for [ban_time SECONDS] seconds.", log_world = TRUE, severity = SEVERITY_NOTICE)
 
@@ -101,6 +103,8 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	if (.)
 		log_ss("fail2topic", "Failed to unban [ip]. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
+	else if (isnull(.))
+		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
 	else
 		log_ss("fail2topic", "Unbanned [ip].", log_world = TRUE, severity = SEVERITY_INFO)
 
@@ -113,5 +117,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	if (.)
 		crash_with("fail2topic/droprule failed.")
 		log_ss("fail2topic", "Failed to drop firewall rule. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
+	else if (isnull(.))
+		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
 	else
 		log_ss("fail2topic", "Firewall rule dropped.", log_world = TRUE, severity = SEVERITY_INFO)
