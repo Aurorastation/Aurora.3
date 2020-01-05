@@ -111,7 +111,7 @@ var/list/world_api_rate_limit = list()
 
 	if (!SSfail2topic)
 		response["statuscode"] = 500
-		response["response"] = "Server not initialize."
+		response["response"] = "Server not initialized."
 		return json_encode(response)
 	else if (SSfail2topic.IsRateLimited(addr))
 		response["statuscode"] = 429
