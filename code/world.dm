@@ -20,7 +20,6 @@ var/global/datum/global_init/init = new ()
 	generate_gameid()
 
 	makeDatumRefLists()
-	testing("CONFIG LOAD")
 	load_configuration()
 
 	qdel(src) //we're done
