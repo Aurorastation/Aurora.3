@@ -39,16 +39,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 		if (world.time - last_attempt > rate_limit)
 			rate_limiting -= ip
-
-		if (MC_TICK_CHECK)
-			return
-
-	while (active_bans.len)
-		var/ip = active_bans[1]
-		var/time_banned = active_bans[ip]
-
-		if (world.time - time_banned > ban_time)
-			UnbanFromFirewall(ip)
+			fail_counts -= ip
 
 		if (MC_TICK_CHECK)
 			return
@@ -85,10 +76,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	fail_counts -= ip
 	rate_limiting -= ip
 
-	if (length(active_bans) > 1)
-		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\" & netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[jointext(active_bans, ",")]")
-	else
-		. = shell("netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[ip]")
+	. = shell("netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[ip]")
 
 	if (.)
 		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
@@ -96,21 +84,6 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
 	else
 		log_ss("fail2topic", "Banned [ip] for [ban_time SECONDS] seconds.", log_world = FALSE, severity = SEVERITY_NOTICE)
-
-/datum/controller/subsystem/fail2topic/proc/UnbanFromFirewall(ip)
-	active_bans -= ip
-
-	if (length(active_bans))
-		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\" & netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[jointext(active_bans, ",")]")
-	else
-		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
-
-	if (.)
-		log_ss("fail2topic", "Failed to unban [ip]. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
-	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
-	else
-		log_ss("fail2topic", "Unbanned [ip].", log_world = FALSE, severity = SEVERITY_INFO)
 
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
 	active_bans = list()
