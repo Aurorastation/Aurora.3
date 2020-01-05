@@ -299,7 +299,6 @@ var/list/gamemode_cache = list()
 
 	// fail2topic settings
 	var/fail2topic_rate_limit = 5 SECONDS
-	var/fail2topic_ban_time = 5 MINUTES
 	var/fail2topic_max_fails = 5
 	var/fail2topic_rule_name = "_DD_Fail2topic"
 	var/fail2topic_enabled = FALSE
@@ -912,8 +911,6 @@ var/list/gamemode_cache = list()
 
 				if ("fail2topic_rate_limit")
 					fail2topic_rate_limit = text2num(value) SECONDS
-				if ("fail2topic_ban_time")
-					fail2topic_ban_time = text2num(value) SECONDS
 				if ("fail2topic_max_fails")
 					fail2topic_max_fails = text2num(value)
 				if ("fail2topic_rule_name")

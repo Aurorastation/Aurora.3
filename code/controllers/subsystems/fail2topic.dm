@@ -10,7 +10,6 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	var/list/active_bans = list()
 
 	var/rate_limit
-	var/ban_time
 	var/max_fails
 	var/rule_name
 	var/enabled = FALSE
@@ -20,7 +19,6 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 /datum/controller/subsystem/fail2topic/Initialize(timeofday)
 	rate_limit = config.fail2topic_rate_limit
-	ban_time = config.fail2topic_ban_time
 	max_fails = config.fail2topic_max_fails
 	rule_name = config.fail2topic_rule_name
 	enabled = config.fail2topic_enabled
