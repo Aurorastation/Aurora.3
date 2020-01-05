@@ -1,5 +1,5 @@
 // This borer is the worm that replaced the host's brain, not the brainworm latched onto a brain
-/obj/item/organ/borer
+/obj/item/organ/internal/borer
 	name = "cortical borer"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "borer"
@@ -8,7 +8,7 @@
 	parent_organ = BP_HEAD
 	vital = TRUE
 
-/obj/item/organ/borer/removed(var/mob/living/user)
+/obj/item/organ/internal/borer/removed(var/mob/living/user)
 	..()
 
 	var/mob/living/simple_animal/borer/B = owner.has_brain_worms()

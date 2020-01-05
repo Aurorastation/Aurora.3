@@ -3,7 +3,7 @@ var/datum/antagonist/renegade/renegades
 /datum/antagonist/renegade
 	role_text = "Renegade"
 	role_text_plural = "Renegades"
-	welcome_text = "You're extremely paranoid today. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
+	welcome_text = "You're extremely paranoid today. For your entire life, you've theorized about a shadow corporation out for your blood and yours only. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
 	id = MODE_RENEGADE
 	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE
 	hard_cap = 5
