@@ -24,6 +24,7 @@
 	universal_understand = 1
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
+	nutrition_step = 0
 
 	var/used_dominate
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
@@ -137,6 +138,7 @@
 		borers.remove_antagonist(host.mind)
 
 	forceMove(get_turf(host))
+	host -= src
 
 	reset_view(null)
 	machine = null
@@ -144,7 +146,6 @@
 	host.reset_view(null)
 	host.machine = null
 
-	var/mob/living/H = host
 	H.status_flags &= ~PASSEMOTES
 	host = null
 	return

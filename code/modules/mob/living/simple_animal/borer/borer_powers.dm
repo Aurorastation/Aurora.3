@@ -205,7 +205,7 @@
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
 
-	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("Inaprovaline", "Bicaridine", "Hyperzine", "Synaptizine", "Peridaxon", "Tramadol", "Oxycodone", "Fluvoxamine")
+	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("Inaprovaline", "Norepinephrine", "Bicaridine", "Kelotane", "Dylovene", "Hyperzine", "Peridaxon", "Tramadol", "Fluvoxamine")
 
 	if(!chem || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
 		return
