@@ -2331,6 +2331,7 @@
 #include "code\modules\research\designs\weapon_designs.dm"
 #include "code\modules\research\designs\mechfab\hardsuit\modules.dm"
 #include "code\modules\research\designs\mechfab\hardsuit\rigs.dm"
+#include "code\modules\research\designs\mechfab\mechs\designs_exosuits.dm"
 #include "code\modules\research\designs\mechfab\prosthetics\external.dm"
 #include "code\modules\research\designs\mechfab\prosthetics\internal.dm"
 #include "code\modules\research\designs\mechfab\robot\robot.dm"
