@@ -21,14 +21,16 @@
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
 		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
 		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
-		"Machine" = 'icons/mob/species/machine/helmet.dmi'
+		"Machine" = 'icons/mob/species/machine/helmet.dmi',
+		"Zeng-Hu Mobility Frame" = 'icons/mob/species/machine/helmet.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
 		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi',
-		"Machine" = 'icons/obj/clothing/species/machine/hats.dmi'
+		"Machine" = 'icons/obj/clothing/species/machine/hats.dmi',
+		"Zeng-Hu Mobility Frame" = 'icons/obj/clothing/species/machine/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
@@ -56,14 +58,16 @@
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
 		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
 		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
-		"Machine" = 'icons/mob/species/machine/suit.dmi'
+		"Machine" = 'icons/mob/species/machine/suit.dmi',
+		"Zeng-Hu Mobility Frame" = 'icons/mob/species/machine/suit.dmi'
 		)
 	sprite_sheets_obj = list(
 		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
 		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
 		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
 		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi',
-		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi'
+		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi',
+		"Zeng-Hu Mobility Frame" = 'icons/obj/clothing/species/machine/suits.dmi'
 		)
 
 	action_button_name = "Toggle Helmet"

@@ -609,7 +609,7 @@
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering","Mining","Medical","Security","Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list("Human","Skrell","Unathi","Tajara", "Vaurca", "Machine")
+	var/list/species = list("Human","Skrell","Unathi","Tajara", "Vaurca", "Machine", "Zeng-Hu Mobility Frame")
 
 	var/target_department
 	var/target_species
