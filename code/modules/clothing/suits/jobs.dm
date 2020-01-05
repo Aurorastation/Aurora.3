@@ -18,7 +18,7 @@ obj/item/clothing/suit/apron/colored
 	desc = "A multipurpose apron that comes in many colors."
 	icon_state = "apron"
 	item_state = "apron"
-	allowed = list (/obj/item/reagent_containers/food/drinks/shaker, /obj/item/material/kitchen/utensil, /obj/item/reagent_containers/food/condiment/, /obj/item/reagent_containers/food/drinks/bottle/)
+	allowed = list (/obj/item/reagent_containers/food/drinks/shaker,/obj/item/material/kitchen/utensil, /obj/item/reagent_containers/food/condiment/, /obj/item/reagent_containers/food/drinks/bottle/)
 
 /obj/item/clothing/suit/apron/overalls
 	name = "coveralls"
