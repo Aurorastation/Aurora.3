@@ -544,3 +544,17 @@ DOCS_LOAD_DOCS_FROM sql
 LOAD_CUSTOMSYNTHS_FROM sql
 # Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
 DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/
+
+### FAIL2TOPIC:
+### fail2topic is a system for automating IP bans for abusers of the world/Topic API.
+### Note that this subsystem respects the IPs listed in api_rate_limit_whitelist. They will not be considered for a ban.
+## Uncomment and set to 1 to enable the API.
+FAIL2TOPIC_ENABLED 0
+## The minimum wait time, in seconds, between valid requests.
+#FAIL2TOPIC_RATE_LIMIT 1
+## The ban time for an IP, in seconds.
+#FAIL2TOPIC_BAN_TIME 600
+## The number of requests above rate limit in sequence for which we ban.
+#FAIL2TOPIC_MAX_FAILS 5
+## The name of the firewall rule used.
+#FAIL2TOPIC_RULE_NAME _dd_fail2topic
