@@ -81,7 +81,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	else if (isnull(.))
 		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
 	else
-		log_ss("fail2topic", "Banned [ip] for [ban_time SECONDS] seconds.", log_world = FALSE, severity = SEVERITY_NOTICE)
+		log_ss("fail2topic", "Banned [ip].", log_world = FALSE, severity = SEVERITY_NOTICE)
 
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
 	active_bans = list()
