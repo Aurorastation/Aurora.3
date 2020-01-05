@@ -332,9 +332,6 @@
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
 	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi'
-		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
@@ -441,10 +438,6 @@
 	var/brightness_on
 	var/on = 0
 
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
-		)
-
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
 		if(!isturf(user.loc))
@@ -541,7 +534,6 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/masks.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
 		"Unathi" = 'icons/mob/species/unathi/mask.dmi')
 
@@ -628,12 +620,8 @@
 	slowdown = SHOES_SLOWDOWN
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
+	species_restricted = list("exclude","Unathi","Tajara","Vaurca","Vaurca Breeder","Vaurca Warform")
 	var/silent = 0
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi'
-		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
@@ -723,10 +711,6 @@
 	w_class = 3
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi'
-		)
-
 	valid_accessory_slots = list("armband","decor", "over")
 
 /obj/item/clothing/suit/update_clothing_icon()
@@ -758,9 +742,7 @@
 	var/displays_id = 1
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Golem" = 'icons/mob/uniform_fat.dmi')
+	sprite_sheets = list("Golem" = 'icons/mob/uniform_fat.dmi')
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.

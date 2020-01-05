@@ -139,10 +139,6 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
 
-	// Only Vox get to shriek. Seriously.
-	if (isvox(src))
-		playsound(loc, 'sound/voice/shriek1.ogg', 50, 1)
-
 	sleep(5)
 
 	if(status_flags & LEAPING)
@@ -546,30 +542,6 @@ mob/living/carbon/human/proc/change_monitor()
 				return
 			to_chat(H, "<span class='danger'>Your nose begins to bleed...</span>")
 			H.drip(1)
-
-/mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())
-	set name = "Launch Quill"
-	set desc = "Launches a quill in self-defense. Painful, but effective."
-	set category = "Abilities"
-
-	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
-		return
-
-	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "You cannot launch a quill in your current state.")
-		return
-
-	last_special = world.time + 30
-
-	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
-
-	src.apply_damage(10,BRUTE)
-	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
-	var/obj/item/arrow/quill/A = new /obj/item/arrow/quill(usr.loc)
-	A.throw_at(target, 10, 30, usr)
-	msg_admin_attack("[key_name_admin(src)] launched a quill at [key_name_admin(target)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
-
 
 /mob/living/carbon/human/proc/shatter_light()
 	set category = "Abilities"

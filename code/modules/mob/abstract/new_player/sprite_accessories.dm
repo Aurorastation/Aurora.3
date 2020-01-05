@@ -1763,7 +1763,7 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Shaved"
 		icon_state = "bald"
 		gender = NEUTER
-		species_allowed = list("Human","Unathi","Tajara","Skrell","Vox")
+		species_allowed = list("Human","Unathi","Tajara","Skrell")
 
 	threeOclock
 		name = "3 O'clock Shadow"
@@ -2268,40 +2268,6 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Tajara Victory Curls"
 			icon_state = "hair_victory"
 			chatname = "curls"
-
-//vox hair
-
-	vox_quills_kingly
-		icon = 'icons/mob/human_face/vox_hair.dmi'
-		name = "Kingly Vox Quills"
-		icon_state = "vox_kingly"
-		species_allowed = list("Vox")
-		chatname = "quills"
-
-		vox_braid_long
-			name = "Vox Braid Long"
-			icon_state = "vox_braid_long"
-			chatname = "quills"
-
-		vox_braid_short
-			name = "Vox Braid Short"
-			icon_state = "vox_braid_short"
-			chatname = "quills"
-
-		vox_quills_short
-			name = "Short Vox Quills"
-			icon_state = "vox_shortquills"
-			chatname = "quills"
-
-		vox_quills_mohawk
-			name = "Quill Mohawk"
-			icon_state = "vox_mohawk"
-			chatname = "quills"
-
-		vox_stubble
-			name = "Vox Stubble"
-			icon_state = "vox_stubble"
-			chatname = "quills"
 
 //vaurca antennae
 

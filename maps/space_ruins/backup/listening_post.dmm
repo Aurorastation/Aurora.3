@@ -154,6 +154,12 @@
 	icon_state = "floor6"
 	},
 /area/derelict/ship)
+"aI" = (
+/obj/item/clothing/shoes/magboots/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict/ship)
 "aJ" = (
 /obj/item/material/shard,
 /turf/simulated/floor/shuttle{
@@ -171,6 +177,12 @@
 /obj/structure/alien/weeds,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
+	},
+/area/derelict/ship)
+"aN" = (
+/obj/item/organ/internal/stack/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
 	},
 /area/derelict/ship)
 "aO" = (
@@ -194,6 +206,18 @@
 /mob/living/simple_animal/hostile/carp/shark,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
+	},
+/area/derelict/ship)
+"aV" = (
+/obj/item/clothing/mask/gas/swat/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict/ship)
+"aW" = (
+/obj/item/gun/launcher/spikethrower,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
 	},
 /area/derelict/ship)
 "aX" = (
@@ -266,6 +290,9 @@
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
+/area/derelict/ship)
+"bt" = (
+/turf/unsimulated/floor/asteroid/ash,
 /area/derelict/ship)
 "bu" = (
 /turf/simulated/wall,
@@ -35955,7 +35982,7 @@ Ed
 Ed
 Ed
 Ed
-ak
+bt
 ak
 ax
 ak
@@ -39789,7 +39816,7 @@ Ed
 Ed
 aA
 aH
-aH
+aN
 aH
 aA
 Ed
@@ -40047,7 +40074,7 @@ Ed
 aA
 aH
 aO
-aH
+aV
 aA
 Ed
 Ed
@@ -40559,9 +40586,9 @@ ab
 ab
 ab
 ac
+aI
 aH
-aH
-aH
+aW
 aA
 ab
 ab

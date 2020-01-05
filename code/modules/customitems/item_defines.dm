@@ -1353,17 +1353,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "The Biesel Silver Star of Merit, rewarded for bravery and professionalism in the line of duty."
 	icon_state = "silver_sword"
 
-
-/obj/item/clothing/mask/gas/fluff/karihaakaki_mask //Wooden Mask - Keziah Green/Karihaakaki - dronzthewolf
-	name = "wooden mask"
-	desc = "A wooden mask for non-human proportions, it has craftsmanship of uncanny precision."
-	icon = 'icons/obj/custom_items/karihaakaki_mask.dmi'
-	icon_state = "karihaakaki_mask"
-	item_state = "karihaakaki_mask"
-	species_restricted = list("Vox")
-	contained_sprite = TRUE
-
-
 /obj/item/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
 	name = "pineapple wallet"
 	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."

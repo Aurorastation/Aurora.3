@@ -133,7 +133,7 @@ var/datum/antagonist/raider/raiders
 	else
 		win_type = "Minor"
 		win_group = "Crew"
-	//Now we modify that result by the state of the vox crew.
+	//Now we modify that result by the state of the crew.
 	if(antags_are_dead())
 		win_type = "Major"
 		win_group = "Crew"
@@ -177,15 +177,12 @@ var/datum/antagonist/raider/raiders
 		if(I.loc != player)
 			qdel(I)
 
-	if(player.species && player.species.get_bodytype() == "Vox")
-		equip_vox(player)
-	else
-		player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
-		player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
-		player.force_update_limbs()
-		player.update_eyes()
-		player.regenerate_icons()
-		equip_weapons(player)
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+	player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+	player.force_update_limbs()
+	player.update_eyes()
+	player.regenerate_icons()
+	equip_weapons(player)
 
 	//Try to equip it, del if we fail.
 	var/obj/item/device/contract_uplink/new_uplink = new()
@@ -260,21 +257,3 @@ var/datum/antagonist/raider/raiders
 			new grenade_type(ammobox)
 		player.put_in_any_hand_if_possible(ammobox)
 
-/datum/antagonist/raider/proc/equip_vox(var/mob/living/carbon/human/player)
-
-	var/uniform_type = pick(list(/obj/item/clothing/under/vox/vox_robes,/obj/item/clothing/under/vox/vox_casual))
-
-	player.equip_to_slot_or_del(new uniform_type(player), slot_w_uniform)
-	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/vox(player), slot_shoes) // REPLACE THESE WITH CODED VOX ALTERNATIVES.
-	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/vox(player), slot_gloves) // AS ABOVE.
-	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat/vox(player), slot_wear_mask)
-	player.equip_to_slot_or_del(new /obj/item/tank/nitrogen(player), slot_back)
-	player.equip_to_slot_or_del(new /obj/item/device/flashlight(player), slot_r_store)
-	player.equip_to_slot_or_del(new /obj/item/device/radio/headset/raider(player), slot_l_ear)
-	player.equip_to_slot_or_del(new /obj/item/card/id/syndicate/raider(player), slot_wear_id)
-
-	player.internal = locate(/obj/item/tank) in player.contents
-	if(istype(player.internal,/obj/item/tank) && player.internals)
-		player.internals.icon_state = "internal1"
-
-	return 1

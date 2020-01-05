@@ -27,7 +27,6 @@ BLIND     // can't see anything
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/eyes.dmi',
 		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
 		)
 	species_restricted = list("exclude","Vaurca Breeder")

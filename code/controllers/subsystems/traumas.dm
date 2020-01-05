@@ -117,7 +117,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						  "cats" = typecacheof(list(/datum/species/tajaran)),
 						  "skrell"   = typecacheof(list(/datum/species/skrell)),
 						  "robots"   = typecacheof(list(/datum/species/machine)),
-						  "pests"   = typecacheof(list(/datum/species/diona, /datum/species/bug, /datum/species/vox)),
+						  "pests"   = typecacheof(list(/datum/species/diona, /datum/species/bug)),
 						  "paranormals"   = typecacheof(list(/datum/species/shadow, /datum/species/skeleton, /datum/species/golem)),
 						  "humans"   = typecacheof(list(/datum/species/human))
 						 )

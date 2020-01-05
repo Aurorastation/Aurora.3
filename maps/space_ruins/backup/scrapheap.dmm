@@ -2713,6 +2713,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
+"ib" = (
+/obj/item/clothing/suit/space/vox/carapace,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
 "ic" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/head/beret/centcom/officer,
@@ -2736,6 +2741,16 @@
 "if" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ig" = (
+/obj/item/clothing/gloves/yellow/vox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ih" = (
+/obj/item/gun/launcher/spikethrower,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -2782,6 +2797,14 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
+"ir" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/organ/internal/stack/vox,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict/ship)
 "is" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/rig/elyran,
@@ -2792,6 +2815,11 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/cruiser,
 /obj/item/clothing/head/helmet/space/void/cruiser,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"iu" = (
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "iv" = (
@@ -3467,6 +3495,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/derelict/ship)
+"kC" = (
+/obj/item/clothing/shoes/magboots/vox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/derelict/ship)
 "kD" = (
 /obj/machinery/shield,
 /obj/effect/decal/cleanable/dirt,
@@ -3685,6 +3718,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
+"lk" = (
+/obj/item/clothing/mask/gas/swat/vox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
 "ll" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/decal/cleanable/blood,
@@ -3722,6 +3760,13 @@
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
+/area/derelict/ship)
+"lr" = (
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "lt" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3881,6 +3926,18 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/deployable/barrier,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"lT" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"lU" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/clothing/suit/space/vox/carapace,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -4417,6 +4474,14 @@
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/tiled,
 /area/derelict/ship)
+"nz" = (
+/obj/structure/table/standard,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/gun/launcher/spikethrower,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict/ship)
 "nA" = (
 /turf/simulated/floor,
 /turf/simulated/wall/shuttle/dark/cardinal{
@@ -4459,6 +4524,7 @@
 /area/derelict/ship)
 "nJ" = (
 /obj/structure/table/rack,
+/obj/item/gun/launcher/spikethrower,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -4853,6 +4919,7 @@
 /area/derelict/ship)
 "oX" = (
 /obj/structure/table/rack,
+/obj/item/gun/launcher/spikethrower,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
@@ -4899,10 +4966,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
+"pf" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/item/clothing/suit/space/vox/carapace,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
 "pg" = (
 /obj/machinery/door/blast/regular/open,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
+/area/derelict/ship)
+"ph" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
 "pi" = (
 /obj/effect/decal/cleanable/dirt,
@@ -11304,9 +11383,9 @@
 /area/derelict/arrival)
 "GD" = (
 /obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/heavy_vehicle/premade/ripley,
 /turf/simulated/floor/tiled/dark,
 /area/derelict/arrival)
 "GE" = (
@@ -48802,7 +48881,7 @@ on
 hD
 pe
 hD
-hD
+ph
 gz
 ad
 rn
@@ -49057,7 +49136,7 @@ kJ
 gz
 lJ
 hD
-hD
+pf
 hD
 hD
 gz
@@ -68372,7 +68451,7 @@ eS
 hT
 ik
 ax
-ax
+lk
 lQ
 as
 an
@@ -68884,7 +68963,7 @@ ap
 au
 eP
 ia
-ax
+ih
 ax
 ax
 lQ
@@ -69144,7 +69223,7 @@ ax
 aw
 gm
 ax
-lQ
+lT
 ad
 ad
 ad
@@ -69397,11 +69476,11 @@ af
 an
 as
 eS
+ib
 ax
-ax
-ax
-ia
-lQ
+ih
+lr
+lU
 as
 an
 af
@@ -69912,7 +69991,7 @@ ap
 au
 eS
 ax
-ax
+iu
 ax
 ax
 lQ
@@ -70425,10 +70504,10 @@ af
 an
 as
 eS
-ax
+ig
 hK
 ax
-ax
+ih
 lQ
 as
 an
@@ -70682,7 +70761,7 @@ ai
 ao
 at
 eP
-ax
+ih
 ky
 gm
 lt
@@ -70940,7 +71019,7 @@ ap
 au
 eS
 gm
-gm
+kC
 gm
 gm
 gh
@@ -74291,7 +74370,7 @@ kO
 kO
 jk
 mN
-la
+nz
 kO
 jk
 kO
@@ -74539,7 +74618,7 @@ bj
 yL
 bj
 kA
-la
+ir
 lP
 bW
 kO

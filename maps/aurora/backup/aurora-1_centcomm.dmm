@@ -14198,6 +14198,17 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
+"aIh" = (
+/obj/machinery/optable,
+/obj/item/organ/internal/stack,
+/obj/effect/decal/cleanable/blood/xeno,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aIi" = (
 /obj/effect/decal/cleanable/generic,
 /turf/unsimulated/floor{
@@ -14370,6 +14381,27 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
+"aIE" = (
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aIG" = (
+/obj/structure/mirror/raider{
+	pixel_x = 0;
+	pixel_y = 28
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aIH" = (
+/obj/item/clothing/head/philosopher_wig,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aII" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -14486,6 +14518,17 @@
 	dir = 4
 	},
 /area/centcom/spawning)
+"aIV" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_casual,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/stealth,
+/obj/item/clothing/head/helmet/space/vox/stealth,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aIX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
@@ -14575,6 +14618,26 @@
 	icon_state = "white"
 	},
 /area/centcom/holding)
+"aJj" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_casual,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/carapace,
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aJk" = (
+/obj/effect/decal/remains/robot,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aJl" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/structure/window/reinforced{
@@ -14827,6 +14890,32 @@
 	name = "plating"
 	},
 /area/centcom/spawning)
+"aJJ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_casual,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/medic,
+/obj/item/clothing/head/helmet/space/vox/medic,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aJK" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aJL" = (
+/obj/structure/table/rack,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/obj/item/clothing/glasses/thermal/plain/monocle,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aJM" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -15121,6 +15210,31 @@
 	name = "shuttle bay blast door"
 	},
 /area/centcom/spawning)
+"aKq" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_robes,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/pressure,
+/obj/item/clothing/head/helmet/space/vox/pressure,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aKr" = (
+/obj/structure/table/rack,
+/obj/item/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
+/obj/machinery/light/small{
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_y = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aKs" = (
 /obj/machinery/light{
 	dir = 8
@@ -15273,6 +15387,15 @@
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/centcom)
+"aKM" = (
+/obj/structure/table/rack,
+/obj/item/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
+/obj/item/gun/launcher/spikethrower,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aKN" = (
 /obj/machinery/light{
 	dir = 8
@@ -15492,6 +15615,30 @@
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/arrival/centcom)
+"aLl" = (
+/obj/structure/table/rack,
+/obj/item/clothing/under/vox/vox_robes,
+/obj/item/clothing/shoes/magboots/vox,
+/obj/item/clothing/gloves/yellow/vox,
+/obj/item/clothing/suit/space/vox/carapace,
+/obj/item/clothing/head/helmet/space/vox/carapace,
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
+"aLm" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/item/tank/nitrogen,
+/obj/machinery/light/small{
+	brightness_color = "#DA0205";
+	brightness_power = 1;
+	brightness_range = 5;
+	name = "adjusted light fixture"
+	},
+/turf/unsimulated/floor{
+	icon_state = "asteroid"
+	},
+/area/syndicate_mothership/raider_base)
 "aLn" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -33487,11 +33634,11 @@ ahV
 ahV
 ahV
 ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aGz
+aGz
+aGz
+aGz
+aGz
 ahV
 ahV
 ahV
@@ -33743,13 +33890,13 @@ aEt
 aEt
 ahV
 ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aGz
+aGz
+aIV
+aJj
+aJJ
+aGz
+aGz
 ahV
 ahV
 ahV
@@ -33999,15 +34146,15 @@ aaM
 aaM
 aEt
 ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aGz
+aGz
+aIE
+aIE
+aIE
+aIE
+aKq
+aGz
+aGz
 ahV
 ahV
 ahV
@@ -34256,16 +34403,16 @@ aaM
 aaM
 aaM
 ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aGz
+aIh
+aIE
+aIE
+aIE
+aJK
+aIE
+aKq
+aGz
+aGz
 ahV
 ahV
 ahV
@@ -34513,16 +34660,16 @@ aaM
 aaM
 aaM
 ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aGz
+aGz
+aIG
+aIE
+aIE
+aIE
+aIE
+aIE
+aLl
+aGz
 ahV
 ahV
 ahV
@@ -34771,15 +34918,15 @@ aaM
 aaM
 aaM
 ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aGz
+aIH
+aIE
+aJk
+aIE
+aIE
+aIE
+aLm
+aGz
 ahV
 ahV
 ahV
@@ -35030,13 +35177,13 @@ aHi
 aFT
 aFT
 aFT
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
-ahV
+aIE
+aIE
+aJL
+aKr
+aKM
+aGz
+aGz
 ahV
 ahV
 ahV
@@ -35289,10 +35436,10 @@ aGg
 aFT
 aFT
 aFT
-ahV
-ahV
-ahV
-ahV
+aGz
+aGz
+aGz
+aGz
 ahV
 ahV
 ahV
@@ -35546,7 +35693,7 @@ aGh
 aGg
 aGh
 aFT
-ahV
+aGz
 ahV
 ahV
 ahV
@@ -35803,7 +35950,7 @@ aGh
 aGh
 aGg
 aFT
-ahV
+aGz
 ahV
 aaM
 ald

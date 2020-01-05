@@ -28,15 +28,6 @@
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
 
-/obj/item/arrow/quill
-	name = "vox quill"
-	desc = "A wickedly barbed quill from some bizarre animal."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "quill"
-	item_state = "quill"
-	throwforce = 8
-	drop_sound = 'sound/items/drop/knife.ogg'
-
 /obj/item/arrow/rod
 	name = "metal rod"
 	desc = "Don't cry for me, Orithena."

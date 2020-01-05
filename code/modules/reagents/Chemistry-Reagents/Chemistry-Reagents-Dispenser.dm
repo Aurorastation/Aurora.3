@@ -52,10 +52,7 @@
 	fallback_specific_heat = 1.048
 
 /datum/reagent/ammonia/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_VOX)
-		M.adjustOxyLoss(-removed * 10)
-	else
-		M.adjustToxLoss(removed * 1.5)
+	M.adjustToxLoss(removed * 1.5)
 
 /datum/reagent/carbon
 	name = "Carbon"
@@ -160,7 +157,7 @@
 
 		if (halluci)
 			M.hallucination = max(M.hallucination, halluci)
-		
+
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
 			if(!caffeine_mod)

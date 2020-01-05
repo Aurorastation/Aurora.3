@@ -27,14 +27,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	h_style = "Unathi Horns"
 	. = ..(mapload, "Unathi")
 
-/mob/living/carbon/human/vox/Initialize(mapload)
-	h_style = "Short Vox Quills"
-	. = ..(mapload, "Vox")
-
-/mob/living/carbon/human/voxarmalis/Initialize(mapload)
-	h_style = "Bald"
-	. = ..(mapload, "Vox Armalis")
-
 /mob/living/carbon/human/diona/Initialize(mapload)
 	. = ..(mapload, "Diona")
 	src.gender = NEUTER
