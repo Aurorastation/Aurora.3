@@ -138,7 +138,9 @@
 		borers.remove_antagonist(host.mind)
 
 	forceMove(get_turf(host))
-	host -= src
+	var/obj/item/organ/external/head = host.get_organ(BP_HEAD)
+	if(head)
+		head.implants -= src
 
 	reset_view(null)
 	machine = null
@@ -146,7 +148,7 @@
 	host.reset_view(null)
 	host.machine = null
 
-	H.status_flags &= ~PASSEMOTES
+	host.status_flags &= ~PASSEMOTES
 	host = null
 	return
 
