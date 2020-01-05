@@ -127,7 +127,7 @@
 
 			to_chat(src, update_msg)
 		check_vampire_upgrade()
-		T.vessel.remove_reagent("blood", 25)
+		T.vessel.remove_reagent("blood", 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
