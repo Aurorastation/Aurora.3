@@ -51,6 +51,9 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	if (config?.api_rate_limit_whitelist[ip])
 		return FALSE
 
+	if (active_bans[ip])
+		return TRUE
+
 	rate_limiting[ip] = world.time
 
 	if (isnull(last_attempt))
@@ -64,10 +67,13 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 		if (isnull(failures))
 			fail_counts[ip] = 1
+			return FALSE
 		else if (failures > max_fails)
 			BanFromFirewall(ip)
+			return TRUE
 		else
 			fail_counts[ip] = failures + 1
+			return TRUE
 
 /datum/controller/subsystem/fail2topic/proc/BanFromFirewall(ip)
 	active_bans[ip] = world.time
