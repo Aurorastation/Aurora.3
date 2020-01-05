@@ -552,8 +552,6 @@ DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/
 FAIL2TOPIC_ENABLED 0
 ## The minimum wait time, in seconds, between valid requests.
 #FAIL2TOPIC_RATE_LIMIT 1
-## The ban time for an IP, in seconds.
-#FAIL2TOPIC_BAN_TIME 600
 ## The number of requests above rate limit in sequence for which we ban.
 #FAIL2TOPIC_MAX_FAILS 5
 ## The name of the firewall rule used.
