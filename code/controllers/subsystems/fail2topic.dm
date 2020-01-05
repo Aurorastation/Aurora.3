@@ -25,6 +25,8 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	rule_name = config.fail2topic_rule_name
 	enabled = config.fail2topic_enabled
 
+	testing("Init happened here btw.")
+
 	DropFirewallRule() // Clear the old bans if any still remain
 
 	if (!enabled)
@@ -59,18 +61,24 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/IsRateLimited(ip)
 	var/last_attempt = rate_limiting[ip]
 
+	testing("In rate limit code.")
+
 	if (config?.api_rate_limit_whitelist[ip])
+		testing("Whitelisted IP?")
 		return FALSE
 
 	rate_limiting[ip] = world.time
 
 	if (isnull(last_attempt))
+		testing("No last attempt")
 		return FALSE
 
 	if (world.time - last_attempt > rate_limit)
+		testing("Is slow.")
 		fail_counts -= ip
 		return FALSE
 	else
+		testing("Failure.")
 		var/failures = fail_counts[ip]
 
 		if (isnull(failures))
@@ -85,8 +93,10 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	fail_counts -= ip
 	rate_limiting -= ip
 
-	to_world("BANNING IP: [ip]")
-	. = shell("./scripts/fail2topic/ban_ip.ps1 -RuleName \"[rule_name]\" -Address \"[ip]\"")
+	if (length(active_bans) > 1)
+		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\" & netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[jointext(active_bans, ",")]")
+	else
+		. = shell("netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[ip]")
 
 	if (.)
 		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
@@ -98,8 +108,10 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/UnbanFromFirewall(ip)
 	active_bans -= ip
 
-	to_world("UNBANNING IP: [ip]")
-	. = shell("./scripts/fail2topic/unban_ip.ps1 -RuleName \"[rule_name]\" -Address \"[ip]\"")
+	if (length(active_bans))
+		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\" & netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[jointext(active_bans, ",")]")
+	else
+		. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
 
 	if (.)
 		log_ss("fail2topic", "Failed to unban [ip]. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
@@ -112,10 +124,9 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 	active_bans = list()
 
 	to_world("DROPPING RULE")
-	. = shell("./scripts/fail2topic/drop_rule.ps1 -RuleName \"[rule_name]\"")
+	. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
 
 	if (.)
-		crash_with("fail2topic/droprule failed.")
 		log_ss("fail2topic", "Failed to drop firewall rule. Exit code: [.].", log_world = TRUE, severity = SEVERITY_ERROR)
 	else if (isnull(.))
 		log_ss("fail2topic", "Failed to invoke ban script.", log_world = TRUE, severity = SEVERITY_ERROR)
