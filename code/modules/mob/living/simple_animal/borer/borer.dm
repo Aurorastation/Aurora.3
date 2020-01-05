@@ -11,7 +11,7 @@
 	item_state = "brainslug"
 	icon_living = "brainslug"
 	icon_dead = "brainslug_dead"
-	speed = 5
+	speed = 6
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
@@ -24,7 +24,7 @@
 	universal_understand = 1
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
-	nutrition_step = 0
+	hunger_enabled = FALSE
 
 	var/used_dominate
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
