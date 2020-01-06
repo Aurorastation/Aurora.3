@@ -21,19 +21,24 @@
 		mechs[network] = list()
 	for(var/network in robotnetworks)
 		robots[network] = list()
+	..()
 
 
 /datum/controller/subsystem/virtualreality/proc/add_mech(var/mob/living/heavy_vehicle/mech, var/network)
-	mechs[network] += mech
+	if(mech && network)
+		mechs[network] += mech
 
 /datum/controller/subsystem/virtualreality/proc/remove_mech(var/mob/living/heavy_vehicle/mech, var/network)
-	mechs[network].Remove(mech)
+	if(mech && network)
+		mechs[network].Remove(mech)
 
 /datum/controller/subsystem/virtualreality/proc/add_robot(var/mob/living/robot, var/network)
-	robots[network] += robot
+	if(robot && network)
+		robots[network] += robot
 
 /datum/controller/subsystem/virtualreality/proc/remove_robot(var/mob/living/robot, var/network)
-	robots[network].Remove(robot)
+	if(robot && network)
+		robots[network].Remove(robot)
 
 
 /mob/living/
@@ -68,11 +73,11 @@
 
 // Handles saving of the original mob and assigning the new mob
 /datum/controller/subsystem/virtualreality/proc/mind_transfer(var/mob/living/M, var/mob/living/target)
-	var/ckey = M.ckey
+	var/new_ckey = M.ckey
 	target.old_mob = M
 	M.vr_mob = target
-	target.ckey = ckey
-	M.ckey = "@[ckey]"
+	target.ckey = new_ckey
+	M.ckey = "@[new_ckey]"
 	target.verbs += /mob/living/proc/body_return
 
 	target.languages = M.languages

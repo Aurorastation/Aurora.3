@@ -30142,7 +30142,7 @@
 /area/outpost/engineering/power)
 "fwO" = (
 /obj/structure/bed/padded,
-/mob/living/carbon/human/unbranded_frame/remote_bunker,
+/mob/living/carbon/human/unbranded_frame_remote_bunker,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "fxa" = (

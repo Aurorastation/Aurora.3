@@ -30,7 +30,7 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
-	var/mob/living/carbon/human/unbranded_frame/dummy // The remote controlled dummy
+	var/mob/living/carbon/human/industrial_xion_remote_mech/dummy // The remote controlled dummy
 	var/dummy_colour
 
 	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
@@ -246,13 +246,7 @@
 	if(hatch_closed)
 		hatch_closed = FALSE
 
-	dummy = new /mob/living/carbon/human/unbranded_frame(get_turf(src))
-	dummy.species.passive_temp_gain = 0
-	dummy.real_name = "Remote Pilot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
-	dummy.name = dummy.real_name
-	dummy.dna.real_name = dummy.real_name
-	if(dummy.mind)
-		dummy.mind.name = dummy.real_name
+	dummy = new /mob/living/carbon/human/industrial_xion_remote_mech(get_turf(src))
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)
