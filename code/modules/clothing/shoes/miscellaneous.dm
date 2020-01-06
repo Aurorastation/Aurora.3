@@ -66,6 +66,14 @@
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
 
+/obj/item/clothing/shoes/crocs
+	name = "crocs"
+	desc = "Are you really wearing crocs?"
+	icon_state = "crocs"
+	item_state = "crocs"
+	species_restricted = null
+	body_parts_covered = 0
+
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"

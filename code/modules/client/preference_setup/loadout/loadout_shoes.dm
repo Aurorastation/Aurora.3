@@ -100,6 +100,14 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/shoes/crocs
+	display_name = "crocs"
+	path = /obj/item/clothing/shoes/crocs
+
+/datum/gear/shoes/crocs/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
+
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"
 	description = "High-top sneakers, in a selection of colors."
