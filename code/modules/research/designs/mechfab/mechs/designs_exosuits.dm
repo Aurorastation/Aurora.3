@@ -346,3 +346,9 @@
 	id   = "mech_flare"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/mounted_system/flarelauncher
+
+/datum/design/item/mechfab/exosuit/passenger_compartment
+	name = "mounted passenger compartment"
+	id = "mech_pass_comp"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mecha_equipment/sleeper/passenger_compartment
