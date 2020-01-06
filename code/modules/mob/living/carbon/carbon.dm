@@ -234,6 +234,8 @@
 					status += "is bruised and necrotic"
 				if(!org.is_usable())
 					status += "dangling uselessly"
+				if(org.status & ORGAN_BLEEDING)
+					status += span("danger", "bleeding")
 				if(status.len)
 					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
 				else
