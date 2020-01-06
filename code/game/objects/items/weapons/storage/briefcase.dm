@@ -17,7 +17,7 @@
 	name = "black briefcase"
 	icon_state = "briefcase_black"
 	item_state = "briefcase_black"
-	desc ="Named for lawyers carrying briefs in a case. It's about time they had something named for them, isn't it?"
+	desc = "Named for lawyers carrying briefs in a case. It's about time they had something named for them, isn't it?"
 
 /obj/item/storage/briefcase/aluminium
 	name = "metal briefcase"
