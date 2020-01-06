@@ -11,7 +11,7 @@
 	item_state = "brainslug"
 	icon_living = "brainslug"
 	icon_dead = "brainslug_dead"
-	speed = 5
+	speed = 6
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
@@ -24,6 +24,7 @@
 	universal_understand = 1
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
+	hunger_enabled = FALSE
 
 	var/used_dominate
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
@@ -137,6 +138,9 @@
 		borers.remove_antagonist(host.mind)
 
 	forceMove(get_turf(host))
+	var/obj/item/organ/external/head = host.get_organ(BP_HEAD)
+	if(head)
+		head.implants -= src
 
 	reset_view(null)
 	machine = null
@@ -144,8 +148,7 @@
 	host.reset_view(null)
 	host.machine = null
 
-	var/mob/living/H = host
-	H.status_flags &= ~PASSEMOTES
+	host.status_flags &= ~PASSEMOTES
 	host = null
 	return
 

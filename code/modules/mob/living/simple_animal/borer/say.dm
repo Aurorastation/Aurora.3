@@ -38,8 +38,8 @@
 			chosen_sayer.say(message)
 		return
 
-	to_chat(src, "You drop words into [host]'s mind: \"[message]\"")
-	to_chat(host, "Your own thoughts speak: \"[message]\"")
+	to_chat(src, "<b>You drop words into [host]'s mind:</b> \"[message]\"")
+	to_chat(host, "<b>Your own thoughts speak:</b> \"[message]\"")
 
 	for(var/mob/M in player_list)
 		if(istype(M, /mob/abstract/new_player))
