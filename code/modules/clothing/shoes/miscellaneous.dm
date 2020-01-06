@@ -72,7 +72,7 @@
 	icon_state = "crocs"
 	item_state = "crocs"
 	species_restricted = null
-	body_parts_covered = 0
+	body_parts_covered = FEET
 
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
