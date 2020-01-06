@@ -1,0 +1,7 @@
+
+author: Aticius
+delete-after: True
+
+changes: 
+
+  - rscdel: "Removed DNAChange Effect from Artifacts."
