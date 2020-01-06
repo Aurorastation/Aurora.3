@@ -44,7 +44,7 @@ var/datum/antagonist/xenos/borer/borers
 				continue
 			if(H.stat == DEAD)
 				continue
-			if(H.isSynthetic())
+			if(H.isSynthetic() || H.is_diona())
 				continue
 			if(H.has_brain_worms())
 				continue

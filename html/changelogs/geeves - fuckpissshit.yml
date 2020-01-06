@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - bugfix: "Borers can no longer infest non-organics at roundstart."
+  - bugfix: "Borers can no longer infest non-organics or dionae at roundstart."
