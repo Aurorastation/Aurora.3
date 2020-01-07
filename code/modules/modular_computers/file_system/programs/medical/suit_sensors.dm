@@ -19,7 +19,11 @@
 	ui.open()
 
 /datum/computer_file/program/suit_sensors/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-medical-sensors", 800, 600, "Suit Sensors Monitoring")
+	for(var/o in SSvueui.transfer_uis(oldobj, src, "mcomputer-medical-sensors", 800, 600, "Suit Sensors Monitoring"))
+		var/datum/vueui/ui = o
+		// Let's ensure our ui's autoupdate after transfer.
+		// TODO: revert this value on transfer out.
+		ui.auto_update_content = 1
 	return TRUE
 
 
