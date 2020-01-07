@@ -1,0 +1,9 @@
+author: Geeves and Kyres
+
+delete-after: True
+
+changes: 
+  - rscadd: "Gave the Kataphracts a new backpack, the Hegemony Satchel, which has slightly more than normal storage space."
+  - tweak: "Tweaked the Kataphract oxygen tank and magboots to fit the aesthetic some more."
+  - tweak: "Tweaked the colours of the underclothes the Kataphracts spawn with to be more easy on the eye."
+  - rscadd: "Gave the Kataphract Klax a set of magboots."
