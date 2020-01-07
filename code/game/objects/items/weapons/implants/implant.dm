@@ -596,7 +596,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 	for(var/obj/item/implant/loyalty/I in H)
 		if(I.implanted)
-			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your loyalty implant stops it soon after it starts!"))
+			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your loyalty implant stop it soon after it starts!"))
 			return TRUE
 
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)

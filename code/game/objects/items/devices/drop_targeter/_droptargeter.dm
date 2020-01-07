@@ -21,21 +21,7 @@
 	var/announcer_name = "Mining Requests Console"
 	var/announcer_channel = "Supply" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
 
-	// A list of things to spawn, will begin from first entry and work way around
-	//7  8  9
-	//6  1  2
-	//5  4  3
-	var/list/centre_items = list()
-	var/list/east_items = list()
-	var/list/south_east_items = list()
-	var/list/south_items = list()
-	var/list/south_west_items = list()
-	var/list/west_items = list()
-	var/list/north_west_items = list()
-	var/list/north_items = list()
-	var/list/north_east_items = list()
-
-	var/turf/drop_turf // If you want to turn the area the drop drops in, to a certain turf. I recommend using airless tiles, otherwise items will be strewn about
+	var/template_name
 
 /obj/item/device/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
@@ -55,12 +41,12 @@
 
 	var/turf/targloc = get_turf(target)
 	if(!emagged)
-		for(var/turf/t in block(locate(targloc.x+2,targloc.y+2,targloc.z), locate(targloc.x-2,targloc.y-2,targloc.z)))
+		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
 			if (!istype(t.loc, /area/mine))
 				to_chat(user, span("warning", "You can't do this so close to the station, point the laser further into the mine!"))
 				return
 			if (!isfloor(targloc))
-				to_chat(user, span("warning", "You cannot request a drill on unstable flooring!"))
+				to_chat(user, span("warning", "You cannot request this on unstable flooring!"))
 				return
 	if(!(user in (viewers(paint_distance, target))) )
 		to_chat(user, span("warning", "You can't paint the target that far away!"))
@@ -92,61 +78,17 @@
 
 	has_dropped++
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/explosion, targloc, 1, 2, 4, 6), 100) //YEEHAW
-	addtimer(CALLBACK(src, .proc/drill_drop, targloc), 105)
+	addtimer(CALLBACK(src, .proc/orbital_drop, targloc), 105)
 
 	flick_overlay(I, showto, 20) //2 seconds of the red dot appearing
 	icon_state = "drillpointer"
 
-/obj/item/device/orbital_dropper/proc/drill_drop(var/turf/target)
-	var/turf/east_turf
-	var/turf/south_east_turf
-	var/turf/south_turf
-	var/turf/south_west_turf
-	var/turf/west_turf
-	var/turf/north_west_turf
-	var/turf/north_turf
-	var/turf/north_east_turf
-
-	if(length(centre_items))
-		spawn_items(centre_items, target)
-
-	if(length(east_items))
-		east_turf = locate(target.x+1, target.y, target.z)
-		spawn_items(east_items, east_turf)
-
-	if(length(south_east_items))
-		south_east_turf = locate(target.x+1, target.y-1, target.z)
-		spawn_items(south_east_items, south_east_turf)
-
-	if(length(south_items))
-		south_turf = locate(target.x, target.y-1, target.z)
-		spawn_items(south_items, south_turf)
-
-	if(length(south_west_items))
-		south_west_turf = locate(target.x-1, target.y-1, target.z)
-		spawn_items(south_west_items, south_west_turf)
-
-	if(length(west_items))
-		west_turf = locate(target.x-1, target.y, target.z)
-		spawn_items(west_items, west_turf)
-
-	if(length(north_west_items))
-		north_west_turf = locate(target.x-1, target.y+1, target.z)
-		spawn_items(north_west_items, north_west_turf)
-
-	if(length(north_items))
-		north_turf = locate(target.x, target.y+1, target.z)
-		spawn_items(north_items, north_turf)
-
-	if(length(north_east_items))
-		north_east_turf = locate(target.x+1, target.y+1, target.z)
-		spawn_items(north_east_items, north_east_turf)
-
-/obj/item/device/orbital_dropper/proc/spawn_items(var/list/items, var/turf/T)
-	for(var/spawn_item in items)
-		new spawn_item(T)
-	if(drop_turf)
-		T.ChangeTurf(drop_turf)
+/obj/item/device/orbital_dropper/proc/orbital_drop(var/turf/target)
+	var/dmm_suite/maploader = new
+	if(!maploader)
+		log_debug("Error, unable to load maploader in proc orbital_drop!")
+		return
+	maploader.load_map(file("maps/templates/" + template_name), target.x, target.y, target.z, no_changeturf = TRUE)
 
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

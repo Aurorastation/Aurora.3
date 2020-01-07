@@ -5,9 +5,7 @@
 	drop_message = "Stand by for drillfall, ETA ten seconds, clear the targetted area."
 	drop_message_emagged = "St%n^ b* for dr$llfa#l, ETA t@n s*c%&ds, RUN."
 
-	centre_items = list(/obj/machinery/mining/drill)
-	east_items = list(/obj/machinery/mining/brace)
-	west_items = list(/obj/machinery/mining/brace)
+	template_name = "drill.dmm"
 
 /obj/item/device/orbital_dropper/mecha
 	name = "mecha dropper"
@@ -20,7 +18,7 @@
 	announcer_name = "Respawn Mech Industries"
 	announcer_channel = "Common"
 
-	centre_items = list(/mob/living/heavy_vehicle/premade/combat)
+	template_name = "combat-mecha.dmm"
 
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
@@ -33,17 +31,7 @@
 	announcer_name = "GunCourier Industries Autodrone"
 	announcer_channel = "Common"
 
-	centre_items = list(/obj/structure/lattice/catwalk/indoor)
-	east_items = list(/obj/structure/table/rack, /obj/item/gun/projectile/tanto, /obj/item/gun/projectile/automatic/mini_uzi)
-	south_east_items = list(/obj/structure/table/rack, /obj/item/gun/projectile/automatic/rifle/sts35, /obj/item/gun/projectile/silenced)
-	south_items = list(/obj/structure/lattice/catwalk/indoor)
-	south_west_items = list(/obj/structure/table/rack, /obj/item/gun/projectile/shotgun/pump/combat, /obj/item/gun/projectile/tanto)
-	west_items = list(/obj/structure/table/rack, /obj/item/gun/projectile/dragunov, /obj/item/gun/energy/rifle/icelance)
-	north_west_items = list(/obj/structure/table/rack, /obj/item/gun/projectile/automatic/mini_uzi, /obj/item/gun/projectile/silenced)
-	north_items = list(/obj/structure/lattice/catwalk/indoor)
-	north_east_items = list(/obj/structure/table/rack, /obj/item/gun/energy/rifle/icelance, /obj/item/gun/projectile/shotgun/pump/combat)
-
-	drop_turf = /turf/simulated/floor/reinforced/airless
+	template_name = "mini-armory.dmm"
 
 /obj/item/device/orbital_dropper/armory/syndicate
 	description_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
