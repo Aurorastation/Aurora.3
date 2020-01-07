@@ -210,7 +210,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
 	src.modules += new /obj/item/scalpel(src)
 	src.modules += new /obj/item/hemostat(src)
 	src.modules += new /obj/item/retractor(src)
@@ -869,7 +869,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/inflatable_dispenser(src)
 	// Medical
 	src.modules += new /obj/item/device/healthanalyzer(src)
-	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/rescue(src)
 	src.modules += new /obj/item/scalpel(src)
 	src.modules += new /obj/item/hemostat(src)
 	src.modules += new /obj/item/retractor(src)
