@@ -78,16 +78,17 @@
 
 	has_dropped++
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/explosion, targloc, 1, 2, 4, 6), 100) //YEEHAW
-	addtimer(CALLBACK(src, .proc/orbital_drop, targloc), 105)
+	addtimer(CALLBACK(src, .proc/orbital_drop, targloc, user), 105)
 
 	flick_overlay(I, showto, 20) //2 seconds of the red dot appearing
 	icon_state = "drillpointer"
 
-/obj/item/device/orbital_dropper/proc/orbital_drop(var/turf/target)
+/obj/item/device/orbital_dropper/proc/orbital_drop(var/turf/target, var/user)
 	var/dmm_suite/maploader = new
 	if(!maploader)
 		log_debug("Error, unable to load maploader in proc orbital_drop!")
 		return
+	log_and_message_admins("[key_name_admin(src)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
 	maploader.load_map(file("maps/templates/" + template_name), target.x, target.y, target.z, no_changeturf = TRUE)
 
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
