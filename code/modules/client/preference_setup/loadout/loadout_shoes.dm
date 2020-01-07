@@ -100,11 +100,11 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/datum/gear/shoes/crocs
-	display_name = "crocs"
-	path = /obj/item/clothing/shoes/crocs
+/datum/gear/shoes/clogs
+	display_name = "rubber clogs"
+	path = /obj/item/clothing/shoes/clogs
 
-/datum/gear/shoes/crocs/New()
+/datum/gear/shoes/clogs/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
