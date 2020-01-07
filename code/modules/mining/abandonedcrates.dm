@@ -27,7 +27,7 @@
 			new/obj/item/reagent_containers/food/drinks/bottle/rum(src)
 			new/obj/item/reagent_containers/food/drinks/bottle/whiskey(src)
 			new/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus(src)
-			new/obj/item/flame/lighter/zippo(src)
+			new/obj/item/flame/lighter/fliplighter(src)
 		if(6 to 10)
 			new/obj/random/custom_ka(src)
 			new/obj/random/custom_ka(src)

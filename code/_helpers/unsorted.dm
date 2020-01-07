@@ -880,7 +880,7 @@ proc/is_hot(obj/item/W as obj)
 		W.isscrewdriver()                   || \
 		W.ispen()                           || \
 		W.iswelder()					  || \
-		istype(W, /obj/item/flame/lighter/zippo)			  || \
+		istype(W, /obj/item/flame/lighter/fliplighter)			  || \
 		istype(W, /obj/item/flame/match)            		  || \
 		istype(W, /obj/item/clothing/mask/smokable/cigarette) 		      || \
 		istype(W, /obj/item/shovel) \

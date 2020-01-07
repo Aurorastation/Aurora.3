@@ -103,7 +103,7 @@
 		/obj/item/reagent_containers/inhaler,
 		/obj/item/reagent_containers/personal_inhaler_cartridge,
 		/obj/item/personal_inhaler,
-		/obj/item/flame/lighter/zippo,
+		/obj/item/flame/lighter/fliplighter,
 		/obj/item/storage/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,

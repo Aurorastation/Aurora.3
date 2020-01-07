@@ -221,11 +221,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	species_restricted = list("Unathi")
 	contained_sprite = TRUE
 
-/obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
+/obj/item/flame/lighter/fliplighter/fluff/locke_fliplighter //Fire Extinguisher Flip lighter - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
-	icon = 'icons/obj/custom_items/locke_zippo.dmi'
-	icon_state = "locke_zippo"
+	icon = 'icons/obj/custom_items/locke_fliplighter.dmi'
+	icon_state = "locke_fliplighter"
 
 
 /obj/item/clipboard/fluff/zakiya_sketchpad //Sketchpad - Zakiya Ahmad - sierrakomodo
@@ -1801,11 +1801,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/flame/lighter/zippo/fluff/moretti_zippo //Moretti's Zippo - Billy Moretti - lordbalkara
-	desc = "A dark zippo with a cool blue flame. Nice."
-	icon = 'icons/obj/custom_items/moretti_zippo.dmi'
-	icon_state = "moretti_zippo"
-	item_state = "moretti_zippo"
+/obj/item/flame/lighter/fliplighter/fluff/moretti_fliplighter //Moretti's Flip lighter - Billy Moretti - lordbalkara
+	desc = "A dark flip lighter with a cool blue flame. Nice."
+	icon = 'icons/obj/custom_items/moretti_fliplighter.dmi'
+	icon_state = "moretti_fliplighter"
+	item_state = "moretti_fliplighter"
 	contained_sprite = TRUE
 	light_color = LIGHT_COLOR_BLUE
 
@@ -1986,10 +1986,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	favored_number = 2
 
 
-/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
-	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
-	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
-	icon_state = "nikit_zippo"
+/obj/item/flame/lighter/fliplighter/fluff/nikit_fliplighter //Vasili Mine Flip lighter - Nikit Vasili - simontheminer
+	desc = "An old looking flip lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
+	icon = 'icons/obj/custom_items/nikit_fliplighter.dmi'
+	icon_state = "nikit_fliplighter"
 
 
 /obj/item/clothing/suit/fluff/marwani_dress //Unathi Purple Dress - Ilaeza Marwani - burgerbb
@@ -2068,7 +2068,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!lit)
 		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
 		lit = TRUE
-		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/fliplighter_on.ogg', 75, 1)
 		update_icon()
 		usr.update_inv_gloves()
 		return
@@ -2076,7 +2076,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
-		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
+		playsound(src.loc, 'sound/items/cigs_lighters/fliplighter_off.ogg', 75, 1)
 		update_icon()
 		usr.update_inv_gloves()
 		return

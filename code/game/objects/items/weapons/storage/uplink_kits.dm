@@ -197,7 +197,7 @@
 	pack.reagents.add_reagent("tricordrazine", 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
-	new /obj/item/flame/lighter/zippo(src)
+	new /obj/item/flame/lighter/fliplighter(src)
 
 /proc/fill_cigarre_package(var/obj/item/storage/fancy/cigarettes/C, var/list/reagents)
 	for(var/reagent in reagents)

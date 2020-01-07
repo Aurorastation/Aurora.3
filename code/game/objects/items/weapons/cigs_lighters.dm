@@ -7,7 +7,7 @@ CIGARETTES
 CIGARS
 SMOKING PIPES
 CHEAP LIGHTERS
-ZIPPO
+FLIP LIGHTER
 
 CIGARETTE PACKETS ARE IN FANCY.DM
 */
@@ -104,7 +104,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/chem_volume = 15 //Size of a syringe
 	var/matchmes = "USER lights NAME with FLAME"
 	var/lightermes = "USER lights NAME with FLAME"
-	var/zippomes = "USER lights NAME with FLAME"
+	var/flipmes = "USER lights NAME with FLAME"
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
@@ -208,8 +208,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/text = matchmes
 		if(istype(W, /obj/item/flame/match))
 			text = matchmes
-		else if(istype(W, /obj/item/flame/lighter/zippo))
-			text = zippomes
+		else if(istype(W, /obj/item/flame/lighter/fliplighter))
+			text = flipmes
 		else if(istype(W, /obj/item/flame/lighter))
 			text = lightermes
 		else if(W.iswelder())
@@ -237,7 +237,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	burn_rate = 0.006 //Lasts ~166 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
-	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
+	flipmes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
 
@@ -369,7 +369,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	chem_volume = 60
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to offend their NAME by lighting it with FLAME.</span>"
-	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
+	flipmes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -476,7 +476,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
-	zippomes = "<span class='notice'>With much care, USER lights their NAME with their FLAME.</span>"
+	flipmes = "<span class='notice'>With much care, USER lights their NAME with their FLAME.</span>"
 	weldermes = "<span class='notice'>USER recklessly lights NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -565,7 +565,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	chem_volume = 30
 
 /////////
-//ZIPPO//
+//FLIP LIGHTER//
 /////////
 /obj/item/flame/lighter
 	name = "cheap lighter"
@@ -591,13 +591,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
 
-/obj/item/flame/lighter/zippo
-	name = "\improper Zippo lighter"
-	desc = "The zippo. If you've spent that amount of money on a lighter, you're either a badass or a chain smoker."
-	icon_state = "zippo"
-	item_state = "zippo"
-	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
-	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+/obj/item/flame/lighter/fliplighter
+	name = "\improper Flip lighter"
+	desc = "A flip lighter. If you've spent that amount of money on a lighter, you're either a badass or a chain smoker."
+	icon_state = "fliplighter"
+	item_state = "fliplighter"
+	activation_sound = 'sound/items/cigs_lighters/fliplighter_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/fliplighter_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/flame/lighter/random
@@ -615,7 +615,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			icon_state = "[base_state]on"
 			item_state = "[base_state]on"
 			playsound(src.loc, pick(activation_sound), 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
+			if(istype(src, /obj/item/flame/lighter/fliplighter) )
 				user.visible_message(span("notice", "Without even breaking stride, [user] flips open and lights [src] in one smooth movement."))
 			else
 				if(prob(95))
@@ -638,7 +638,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			icon_state = "[base_state]"
 			item_state = "[base_state]"
 			playsound(src.loc, deactivation_sound, 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
+			if(istype(src, /obj/item/flame/lighter/fliplighter) )
 				user.visible_message(span("notice", "You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing."))
 			else
 				user.visible_message(span("notice", "[user] quietly shuts off the [src]."))
@@ -662,7 +662,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(M == user)
 			cig.attackby(src, user)
 		else
-			if(istype(src, /obj/item/flame/lighter/zippo))
+			if(istype(src, /obj/item/flame/lighter/fliplighter))
 				cig.light(span("notice", "[user] whips the [name] out and holds it for [M]."))
 			else
 				cig.light(span("notice", "[user] holds the [name] out for [M], and lights the [cig.name]."))

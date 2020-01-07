@@ -605,7 +605,7 @@ var/global/list/robot_modules = list(
 
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
 
-	var/obj/item/flame/lighter/zippo/L = new /obj/item/flame/lighter/zippo(src)
+	var/obj/item/flame/lighter/fliplighter/L = new /obj/item/flame/lighter/fliplighter(src)
 	L.lit = 1
 	src.modules += L
 

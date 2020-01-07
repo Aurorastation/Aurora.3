@@ -808,7 +808,7 @@
 		/obj/item/flag/america = 0.1,
 		/obj/item/flag/america/l = 0.1,
 		/obj/item/flame/lighter = 0.9,
-		/obj/item/flame/lighter/zippo = 0.7,
+		/obj/item/flame/lighter/fliplighter = 0.7,
 		/obj/item/grenade/chem_grenade/cleaner = 0.1,
 		/obj/item/grenade/smokebomb = 0.05, //We /tg/ now.
 		/obj/item/haircomb = 0.5,

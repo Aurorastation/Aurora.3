@@ -3,9 +3,9 @@
 	path = /obj/item/storage/box/matches
 	sort_category = "Smoking"
 
-/datum/gear/smoking/zippo
-	display_name = "zippo"
-	path = /obj/item/flame/lighter/zippo
+/datum/gear/smoking/fliplighter
+	display_name = "flip lighter"
+	path = /obj/item/flame/lighter/fliplighter
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter"

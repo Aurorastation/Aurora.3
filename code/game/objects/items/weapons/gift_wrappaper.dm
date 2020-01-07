@@ -188,7 +188,7 @@
 		/obj/item/clothing/accessory/horrible,
 		/obj/item/device/camera,
 		/obj/item/bluespace_crystal,
-		/obj/item/flame/lighter/zippo,
+		/obj/item/flame/lighter/fliplighter,
 		/obj/item/device/taperecorder,
 		/obj/item/storage/fancy/cigarettes/dromedaryco,
 		/obj/item/toy/bosunwhistle,

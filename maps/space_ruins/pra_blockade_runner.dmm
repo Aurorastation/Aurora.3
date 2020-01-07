@@ -1611,7 +1611,7 @@
 /obj/effect/decal/cleanable/generic,
 /obj/structure/table/wood,
 /obj/item/storage/fancy/cigar,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "me" = (

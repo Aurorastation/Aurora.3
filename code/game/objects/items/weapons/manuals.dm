@@ -593,7 +593,7 @@
 				  <li>Industrial Dropper</li>
 				  <li>Platter</li>
 				  <li>Beer Synthesizer</li>
-				  <li>Zippo Lighter</li>
+				  <li>Flip lighter</li>
 				  <li>Rapid-Service-Fabricator (Produces various entertainment and refreshment objects)</li>
 				  <li>Pen</li>
 				</ul>
