@@ -295,20 +295,20 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/clothing/glasses/hud/health))
-		user.drop_item()
+		user.drop_item(W)
 		qdel(W)
 		to_chat(user, span("notice", "You attach a set of medical HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		new /obj/item/clothing/glasses/hud/health/prescription
-		user.put_in_hands(/obj/item/clothing/glasses/hud/health/prescription)
+		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
+		user.put_in_hands(P)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
-		user.drop_item()
+		user.drop_item(W)
 		qdel(W)
 		to_chat(user, span("notice", "You attach a set of security HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		new /obj/item/clothing/glasses/hud/security/prescription
-		user.put_in_hands(/obj/item/clothing/glasses/hud/security/prescription)
+		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)
+		user.put_in_hands(P)
 		qdel(src)
 
 /obj/item/clothing/glasses/regular/scanners
