@@ -342,7 +342,7 @@
 		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
 	)
 	premium = list(
-		/obj/item/flame/lighter/zippo = 4,
+		/obj/item/flame/lighter/fliplighter = 4,
 		/obj/item/storage/fancy/cigar = 5
 	)
 	prices = list(

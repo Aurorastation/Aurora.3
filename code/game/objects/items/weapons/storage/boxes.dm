@@ -462,7 +462,7 @@
 	desc = "A small box of 'Space-Proof' premium matches."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "matchbox"
-	item_state = "zippo"
+	item_state = "fliplighter"
 	w_class = 1
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/flame/match)

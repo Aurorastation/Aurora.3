@@ -224,7 +224,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/fancy/cigar = 1,
-		/obj/item/flame/lighter/zippo = 1,
+		/obj/item/flame/lighter/fliplighter = 1,
 		/obj/item/clothing/accessory/medal/gold/heroism = 1
 	)
 
@@ -327,7 +327,7 @@
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	head = /obj/item/clothing/head/helmet/space/deathsquad/beret
 	belt = /obj/item/gun/energy/pulse/pistol
-	r_pocket = /obj/item/flame/lighter/zippo
+	r_pocket = /obj/item/flame/lighter/fliplighter
 
 	implants = list(
 		/obj/item/implant/loyalty

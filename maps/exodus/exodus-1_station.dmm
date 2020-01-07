@@ -11270,7 +11270,7 @@
 /obj/structure/closet{
 	name = "Prisoner's Locker"
 	},
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -21393,7 +21393,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "aNN" = (
@@ -57492,7 +57492,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/device/megaphone,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4

@@ -85,7 +85,7 @@
 		/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 1,
 		/obj/item/ammo_magazine/a50 = 2,
 		/obj/item/clothing/shoes/magboots = 1,
-		/obj/item/flame/lighter/zippo = 1
+		/obj/item/flame/lighter/fliplighter = 1
 	)
 	implants = list(
 		/obj/item/implant/explosive

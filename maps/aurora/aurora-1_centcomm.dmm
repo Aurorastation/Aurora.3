@@ -4766,7 +4766,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/fliplighter = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	name = "plating";
@@ -5552,7 +5552,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/fliplighter = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
@@ -7406,7 +7406,7 @@
 /area/shuttle/administration/centcom)
 "att" = (
 /obj/structure/table/standard,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/administration/centcom)
 "atu" = (
@@ -8449,7 +8449,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/secure/briefcase,
 /obj/item/storage/fancy/cigarettes,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/storage/belt/utility,
 /obj/item/storage/backpack/satchel,
 /turf/unsimulated/floor{
@@ -12935,7 +12935,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/storage/fancy/cigarettes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
@@ -12953,7 +12953,7 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/storage/fancy/cigarettes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
@@ -13310,7 +13310,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/fliplighter = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -17053,7 +17053,7 @@
 "aOw" = (
 /obj/structure/table/standard,
 /obj/item/storage/fancy/cigarettes,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/clothing/gloves/yellow,
 /obj/item/stack/material/steel{
 	amount = 50
@@ -18807,7 +18807,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/smokable/pipe/cobpipe,
 /obj/item/clothing/mask/smokable/pipe,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/storage/fancy/cigar,
 /turf/unsimulated/floor{
 	name = "plating";
@@ -19196,7 +19196,7 @@
 /area/tdome/tdomeobserve)
 "aTi" = (
 /obj/structure/table/standard,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/storage/fancy/cigarettes,
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
@@ -22538,7 +22538,7 @@
 	pixel_x = -5;
 	pixel_y = 6
 	},
-/obj/item/flame/lighter/zippo{
+/obj/item/flame/lighter/fliplighter{
 	pixel_x = -2;
 	pixel_y = 10
 	},
@@ -25049,7 +25049,7 @@
 /obj/item/melee/telebaton,
 /obj/item/device/megaphone,
 /obj/item/storage/fancy/cigar,
-/obj/item/flame/lighter/zippo,
+/obj/item/flame/lighter/fliplighter,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
 /obj/item/storage/box/drinkingglasses,

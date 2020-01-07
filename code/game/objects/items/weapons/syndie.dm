@@ -53,8 +53,8 @@
 /obj/item/syndie/c4detonator
 	icon_state = "c-4detonator_0"
 	item_state = "c-4detonator"
-	name = "\improper Zippo lighter"  /*Sneaky, thanks Dreyfus.*/
-	desc = "The zippo."
+	name = "\improper Flip lighter"  /*Sneaky, thanks Dreyfus.*/
+	desc = "A flip lighter."
 	w_class = 1
 
 	var/obj/item/syndie/c4explosive/bomb

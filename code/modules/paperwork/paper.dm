@@ -324,7 +324,7 @@
 			//If we got here somehow, the item is incompatible and can't burn things
 			return
 
-		if(istype(P, /obj/item/flame/lighter/zippo))
+		if(istype(P, /obj/item/flame/lighter/fliplighter))
 			class = "rose"
 
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
