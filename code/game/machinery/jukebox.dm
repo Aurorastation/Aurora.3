@@ -165,7 +165,8 @@ datum/track/New(var/title_name, var/audio)
 	qdel(src)
 
 /obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
 
 	if(W.iswrench())
 		if(playing)

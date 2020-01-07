@@ -203,7 +203,7 @@
 		else
 			isactive[M.real_name] = 0
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "bot" = "Silicon", "misc" = "Miscellaneous")
+	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
@@ -261,6 +261,21 @@
 
 		if(!department && !(name in manifest["heads"]))
 			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
+
+	for(var/mob/living/silicon/S in player_list)
+		if(istype(S, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = S
+			if(R.scrambledcodes)
+				continue
+			var/selected_module = "Default Module"
+			if(R.module)
+				selected_module = capitalize_first_letters(R.module.name)
+			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
+		if(istype(S, /mob/living/silicon/ai))
+			var/mob/living/silicon/ai/A = S
+			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online")
+			if(manifest["bot"].len != 1)
+				manifest["bot"].Swap(1, manifest["bot"].len)
 
 	manifest_json = json_encode(manifest)
 	return manifest_json

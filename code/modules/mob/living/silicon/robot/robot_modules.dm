@@ -184,7 +184,6 @@ var/global/list/robot_modules = list(
 	name = "medical robot module"
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
 	sprites = list(
 				"Basic" = "robotmedi",
@@ -223,6 +222,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/surgicaldrill(src)
 	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
@@ -263,7 +263,6 @@ var/global/list/robot_modules = list(
 	name = "engineering robot module"
 	channels = list("Engineering" = 1)
 	networks = list(NETWORK_ENGINEERING)
-	subsystems = list(/mob/living/silicon/proc/subsystem_power_monitor)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
 					"Basic" = "robotengi",
@@ -638,7 +637,6 @@ var/global/list/robot_modules = list(
 	name = "combat robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	sprites = list("Roller" = "droid-combat")
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -843,10 +841,6 @@ var/global/list/robot_modules = list(
 		"Command" = 1,
 		"Response Team" = 1,
 		"AI Private" = 1
-		)
-	subsystems = list(
-		/mob/living/silicon/proc/subsystem_crew_monitor,
-		/mob/living/silicon/proc/subsystem_power_monitor
 		)
 	sprites = list("Roller" = "droid-combat") //TMP
 	can_be_pushed = 0
