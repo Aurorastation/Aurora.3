@@ -568,9 +568,10 @@ BLIND     // can't see anything
 	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/plain/monocle
-	name = "thermoncle"
+	name = "thermonocle"
 	desc = "A monocle thermal."
-	icon_state = "thermoncle"
+	icon_state = "thermonocle"
+	item_state = "thermonocle"
 	flags = null //doesn't protect eyes because it's a monocle, duh
 	item_flags = null
 	body_parts_covered = 0
