@@ -89,7 +89,7 @@
 		log_debug("Error, unable to load maploader in proc orbital_drop!")
 		return
 	log_and_message_admins("[key_name_admin(src)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
-	maploader.load_map(file("maps/templates/" + template_name), target.x, target.y, target.z, no_changeturf = TRUE)
+	maploader.load_map(file("maps/templates/orbital/" + template_name), target.x, target.y, target.z, no_changeturf = TRUE)
 
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
