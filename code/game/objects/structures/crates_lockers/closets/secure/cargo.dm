@@ -14,6 +14,7 @@
 	new /obj/item/clothing/under/rank/cargotech/alt(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
+	new /obj/item/device/radio/headset/headset_cargo/alt(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/soft(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)

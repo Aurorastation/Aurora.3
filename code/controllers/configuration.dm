@@ -297,6 +297,12 @@ var/list/gamemode_cache = list()
 	// Is external Auth enabled
 	var/external_auth = FALSE
 
+	// fail2topic settings
+	var/fail2topic_rate_limit = 5 SECONDS
+	var/fail2topic_max_fails = 5
+	var/fail2topic_rule_name = "_DD_Fail2topic"
+	var/fail2topic_enabled = FALSE
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -470,9 +476,6 @@ var/list/gamemode_cache = list()
 
 				if ("allow_ai")
 					config.allow_ai = 1
-
-//				if ("authentication")
-//					config.enable_authentication = 1
 
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
@@ -905,6 +908,15 @@ var/list/gamemode_cache = list()
 
 				if ("external_auth")
 					external_auth = TRUE
+
+				if ("fail2topic_rate_limit")
+					fail2topic_rate_limit = text2num(value) SECONDS
+				if ("fail2topic_max_fails")
+					fail2topic_max_fails = text2num(value)
+				if ("fail2topic_rule_name")
+					fail2topic_rule_name = value
+				if ("fail2topic_enabled")
+					fail2topic_enabled = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
