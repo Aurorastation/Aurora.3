@@ -6,7 +6,7 @@
 	set desc = "Style your hair."
 	set category = "IC"
 	
-	if(use_check_and_message())
+	if(!use_check_and_message())
 		to_chat(src, "<span class ='warning'>You cant tie your hair while you are incapacitated</span>")
 		return
 
