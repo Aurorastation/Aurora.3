@@ -72,11 +72,8 @@ BLIND     // can't see anything
 			if(activated_color)
 				set_light(2, 0.4, activated_color)
 	user.update_action_buttons()
-	if(ismob(loc))
-		var/mob/living/M = loc
-		M.update_inv_head(0)
-		M.update_inv_l_hand(0)
-		M.update_inv_r_hand(1)
+	M.update_inv_l_hand(0)
+	M.update_inv_r_hand(1)
 
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
