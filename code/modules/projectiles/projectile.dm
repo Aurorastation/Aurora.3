@@ -523,7 +523,7 @@
 	if(!required_moves)
 		return
 
-	for(var/i = 1; 1 <= required_moves && !QDELETED(src); i++)
+	for(var/i = 1; i <= required_moves && !QDELETED(src); i++)
 		pixel_move(required_moves)
 
 /obj/item/projectile/proc/setAngle(new_angle)	//wrapper for overrides.
