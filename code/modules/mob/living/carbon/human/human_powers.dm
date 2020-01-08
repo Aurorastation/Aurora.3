@@ -6,8 +6,8 @@
 	set desc = "Style your hair."
 	set category = "IC"
 	
-	if(stat || paralysis || stunned || weakened || restrained())
-		to_chat(src, "You cant tie your hair in that state")
+	if(use_check_and_message())
+		to_chat(src, "<span class ='warning'>You cant tie your hair while you are incapacitated</span>")
 		return
 
 	if(h_style)
