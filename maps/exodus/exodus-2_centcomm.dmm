@@ -8751,10 +8751,6 @@
 	name = "\improper Raider Base"
 	})
 "azI" = (
-/obj/structure/mirror/raider{
-	pixel_x = 0;
-	pixel_y = 28
-	},
 /obj/structure/sink{
 	pixel_y = 11
 	},
@@ -9173,15 +9169,8 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
 "aBk" = (
-/obj/machinery/optable,
-/obj/item/organ/internal/stack,
-/obj/effect/decal/cleanable/blood/xeno,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
+/turf/simulated/mineral,
+/area/space)
 "aBl" = (
 /obj/effect/decal/cleanable/generic,
 /turf/unsimulated/floor{
@@ -9291,26 +9280,6 @@
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
-"aBD" = (
-/obj/structure/mirror/raider{
-	pixel_x = 0;
-	pixel_y = 28
-	},
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aBE" = (
-/obj/item/clothing/head/philosopher_wig,
-/obj/effect/decal/cleanable/cobweb2,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aBF" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -9416,29 +9385,6 @@
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
-"aBS" = (
-/obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_casual,
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/stealth,
-/obj/item/clothing/head/helmet/space/vox/stealth,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aBT" = (
-/obj/item/tape/engineering{
-	icon_state = "engineering_v"
-	},
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aBU" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -9576,27 +9522,6 @@
 	},
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape/centcom)
-"aCq" = (
-/obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_casual,
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/carapace,
-/obj/item/clothing/head/helmet/space/vox/carapace,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aCr" = (
-/obj/effect/decal/remains/robot,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aCv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Creed's Office";
@@ -9614,38 +9539,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/creed)
-"aCz" = (
-/obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_casual,
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/medic,
-/obj/item/clothing/head/helmet/space/vox/medic,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aCA" = (
-/obj/effect/decal/cleanable/blood/oil/streak,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aCB" = (
-/obj/structure/table/rack,
-/obj/item/clothing/glasses/thermal/plain/monocle,
-/obj/item/clothing/glasses/thermal/plain/monocle,
-/obj/item/clothing/glasses/thermal/plain/monocle,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aCC" = (
 /turf/unsimulated/floor{
 	name = "plating";
@@ -9659,30 +9552,6 @@
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aCH" = (
-/obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_robes,
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/pressure,
-/obj/item/clothing/head/helmet/space/vox/pressure,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aCI" = (
-/obj/structure/table/rack,
-/obj/item/gun/launcher/spikethrower,
-/obj/item/gun/launcher/spikethrower,
-/obj/item/gun/launcher/spikethrower,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
 	},
 /area/syndicate_mothership{
 	name = "\improper Raider Base"
@@ -9747,28 +9616,6 @@
 	icon_state = "redfull"
 	},
 /area/centcom/specops)
-"aCV" = (
-/obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_robes,
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/carapace,
-/obj/item/clothing/head/helmet/space/vox/carapace,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
-"aCW" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/obj/item/tank/nitrogen,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aCX" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -18568,12 +18415,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/merchant_ship/start)
-"aZk" = (
-/obj/structure/mirror/merchant{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/merchant_station)
 "aZl" = (
 /obj/machinery/light{
 	dir = 2
@@ -24576,11 +24417,11 @@ alC
 alC
 alC
 alC
-aya
-aya
-aya
-aya
-aya
+alC
+alC
+alC
+alC
+alC
 alC
 alC
 alC
@@ -24832,13 +24673,13 @@ azz
 azz
 alC
 alC
-aya
-aya
-aBS
-aCq
-aCz
-aya
-aya
+alC
+alC
+aBk
+aBk
+aBk
+alC
+alC
 alC
 alC
 alC
@@ -25088,15 +24929,15 @@ aaM
 aaM
 azz
 alC
-aya
-aya
-axz
-axz
-axz
-axz
-aCH
-aya
-aya
+alC
+alC
+aBk
+aBk
+aBk
+aBk
+aBk
+alC
+alC
 alC
 alC
 alC
@@ -25345,16 +25186,16 @@ aaM
 aaM
 aaM
 alC
-aya
+alC
 aBk
-axz
-axz
-axz
-aCA
-axz
-aCH
-aya
-aya
+aBk
+aBk
+aBk
+aBk
+aBk
+aBk
+alC
+alC
 alC
 alC
 alC
@@ -25602,16 +25443,16 @@ aaM
 aaM
 aaM
 aaM
-aya
-aya
-aBD
-axz
-axz
-axz
-axz
-axz
-aCV
-aya
+alC
+alC
+aBk
+aBk
+aBk
+aBk
+aBk
+aBk
+aBk
+alC
 alC
 alC
 alC
@@ -25860,15 +25701,15 @@ aaM
 aaM
 aaM
 aaM
-aya
-aBE
-axz
-aCr
-axz
-axz
-axz
-aCW
-aya
+alC
+aBk
+aBk
+aBk
+aBk
+aBk
+aBk
+aBk
+alC
 alC
 alC
 alC
@@ -26119,13 +25960,13 @@ azZ
 azZ
 azp
 azp
-axz
-axz
-aCB
-aCI
-aCI
-aya
-aya
+aBk
+aBk
+aBk
+aBk
+aBk
+alC
+alC
 alC
 alC
 alC
@@ -26376,12 +26217,12 @@ aAH
 aAt
 azD
 azp
-aBT
-aBT
-aya
-aya
-aya
-aya
+azp
+azp
+azp
+alC
+alC
+alC
 alC
 alC
 alC
@@ -27603,7 +27444,7 @@ alC
 alC
 alC
 aVg
-aZk
+aWk
 aVA
 aVg
 aMi
