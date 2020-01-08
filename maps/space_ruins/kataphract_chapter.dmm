@@ -1396,8 +1396,11 @@
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
 "cW" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/table/rack,
+/obj/item/tank/oxygen/brown,
+/obj/item/tank/oxygen/brown,
+/obj/item/tank/oxygen/brown,
+/obj/item/tank/oxygen/brown,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "cX" = (
@@ -1857,10 +1860,6 @@
 /obj/item/clothing/suit/space/void/kataphract,
 /obj/item/clothing/suit/space/void/kataphract,
 /obj/item/clothing/suit/space/void/kataphract,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
@@ -1869,6 +1868,10 @@
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/glasses/meson,
+/obj/item/clothing/shoes/magboots/hegemony,
+/obj/item/clothing/shoes/magboots/hegemony,
+/obj/item/clothing/shoes/magboots/hegemony,
+/obj/item/clothing/shoes/magboots/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "dW" = (
