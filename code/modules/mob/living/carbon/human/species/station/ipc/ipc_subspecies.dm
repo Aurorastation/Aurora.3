@@ -7,6 +7,7 @@
 	neuter_ipc = FALSE
 
 	burn_mod = 1.2
+	grab_mod = 1
 
 	blurb = "IPCs with humanlike properties. Their focus is on service, civilian, and medical, but there are no \
 	job restrictions. Created in the late days of 2457, the Shell is a controversial IPC model equipped with a synthskin weave applied over its metal chassis \
@@ -22,9 +23,9 @@
 	light_range = 0
 	light_power = 0
 	unarmed_types = list(
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick,
-		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/punch/ipc,
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc,
 		/datum/unarmed_attack/bite
 	)
 
@@ -33,9 +34,9 @@
 
 	max_nutrition_factor = 0.8
 
-	heat_level_1 = 400
-	heat_level_2 = 800
-	heat_level_3 = 1600
+	heat_level_1 = 500
+	heat_level_2 = 1000
+	heat_level_3 = 2000
 
 	heat_discomfort_level = 400
 	heat_discomfort_strings = list(
@@ -92,7 +93,11 @@
 		"surge"   = /obj/item/organ/internal/surge/advanced
 	)
 
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/terminator, /datum/unarmed_attack/bite/strong)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp/ipc, 
+		/datum/unarmed_attack/kick/ipc,  
+		/datum/unarmed_attack/terminator, 
+		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/leap,
@@ -109,8 +114,14 @@
 	bald = 1
 	bodytype = "Heavy Machine"
 
+	unarmed_types = list(/datum/unarmed_attack/industrial)
+
 	brute_mod = 0.8
 	burn_mod = 1.1
+
+	grab_mod = 0.8 // Big, easy to grab onto
+	resist_mod = 10 // Good luck wrestling against this powerhouse.
+
 	slowdown = 4
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
@@ -139,11 +150,11 @@
 	flags = IS_IPC | ACCEPTS_COOLER
 	appearance_flags = HAS_EYE_COLOR
 
-	heat_level_1 = 600
-	heat_level_2 = 1200
-	heat_level_3 = 2400
+	heat_level_1 = 800
+	heat_level_2 = 1600
+	heat_level_3 = 3200
 
-	heat_discomfort_level = 800
+	heat_discomfort_level = 700
 
 	max_nutrition_factor = 1.25
 	nutrition_loss_factor = 2
@@ -188,6 +199,10 @@
 
 	brute_mod = 0.3
 	burn_mod = 0.5
+
+	grab_mod = 0.9
+	resist_mod = 10
+
 	flash_mod = 0
 	siemens_coefficient = 0
 	breakcuffs = list(MALE,FEMALE,NEUTER)
@@ -279,8 +294,24 @@
 	preview_icon = 'icons/mob/human_races/ipc/ind_hephaestus_preview.dmi'
 
 	eyes = "heph_eyes"
+
+	unarmed_types = list(/datum/unarmed_attack/industrial/heavy)
+
 	slowdown = 6
 	brute_mod = 0.7
+	grab_mod = 0.7 // Bulkier and bigger than the G1
+	resist_mod = 12 // Overall stronger than G1
+
+	heat_level_1 = 1000
+	heat_level_2 = 2000
+	heat_level_3 = 4000
+
+	heat_discomfort_level = 900
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/crush
+	)
 
 	examine_color = "#688359"
 
@@ -313,13 +344,27 @@
 	deform = 'icons/mob/human_races/ipc/r_ind_xion.dmi'
 	preview_icon = 'icons/mob/human_races/ipc/ind_xion_preview.dmi'
 
+	unarmed_types = list(
+		/datum/unarmed_attack/industrial/xion)
+
+	brute_mod = 0.9
+	grab_mod = 0.9 
+	resist_mod = 8
+
+	heat_level_1 = 700
+	heat_level_2 = 1400
+	heat_level_3 = 2800
+
+	heat_discomfort_level = 600
+	slowdown = 3
+
 	eyes = "xion_eyes"
 	flags = IS_IPC
-	passive_temp_gain = 5
+	passive_temp_gain = 0
 
 	examine_color = "#bc4b00"
 
-	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit cannot perform EVA without a suit."
+	blurb = "The Xion Manufacturing Group, being a subsidiary of Hephaestus Industries, saw the original Industrial models and wanted to develop their own chassis based off of the original design. The result is the Xion Industrial model. Sturdy and strong, this chassis is quite powerful and equally durable, with an ample power cell and improved actuators for carrying the increased weight of the body. The Xion model also retains sturdiness without covering the chassis in plating, allowing for the cooling systems to vent heat much easier than the Hephaestus-brand model. This unit can perform EVA without assistance."
 
 	has_limbs = list(
 		BP_CHEST  = list("path" = /obj/item/organ/external/chest/industrial/xion),
@@ -342,7 +387,6 @@
 /datum/species/machine/zenghu
 	name = "Zeng-Hu Mobility Frame"
 	short_name = "zhf"
-	bodytype = null
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
@@ -351,6 +395,11 @@
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
 	sprint_speed_factor = 1.5
+
+	grab_mod = 1.1 // Smooth, fast
+	resist_mod = 4 // Not super strong, but still rather strong
+
+	slowdown = -1.2
 
 	appearance_flags = HAS_EYE_COLOR
 
@@ -383,7 +432,7 @@
 /datum/species/machine/bishop
 	name = "Bishop Accessory Frame"
 	short_name = "bcf"
-	bodytype = null
+	bodytype = "Human"
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
@@ -395,6 +444,8 @@
 	max_nutrition_factor = 1.75
 
 	brute_mod = 1.2
+	grab_mod = 1.1
+	resist_mod = 4
 
 	appearance_flags = HAS_EYE_COLOR
 
@@ -436,6 +487,7 @@
 	eyes = "eyes_s"
 
 	bald = 1
+	grab_mod = 1.1 //pity points - geeves
 
 	appearance_flags = HAS_EYE_COLOR
 	spawn_flags = IS_RESTRICTED

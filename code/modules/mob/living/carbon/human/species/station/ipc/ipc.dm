@@ -19,9 +19,9 @@
 	light_power = 0.5
 	meat_type = /obj/item/stack/material/steel
 	unarmed_types = list(
-		/datum/unarmed_attack/punch,
-		/datum/unarmed_attack/stomp,
-		/datum/unarmed_attack/kick)
+		/datum/unarmed_attack/punch/ipc,
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc)
 	rarity_value = 2
 
 	inherent_eye_protection = FLASH_PROTECTION_MAJOR
@@ -38,6 +38,10 @@
 
 	brute_mod = 1.0
 	burn_mod = 1.2
+
+	grab_mod = 1.1 // Smooth, no real edges to grab onto
+	resist_mod = 2 // Robotic strength
+
 	show_ssd = "flashing a 'system offline' glyph on their monitor"
 
 	death_message = "gives one shrill beep before falling lifeless."
@@ -53,9 +57,9 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 500		// Gives them about 25 seconds in space before taking damage
-	heat_level_2 = 1000
-	heat_level_3 = 2000
+	heat_level_1 = 600		
+	heat_level_2 = 1200
+	heat_level_3 = 2400
 
 	body_temperature = null
 	passive_temp_gain = 10  // This should cause IPCs to stabilize at ~80 C in a 20 C environment.
@@ -98,7 +102,7 @@
 	)
 
 
-	heat_discomfort_level = 373.15
+	heat_discomfort_level = 500 //This will be 100 below the first heat level
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)

@@ -424,10 +424,10 @@ Class Procs:
 	if(!ishuman(H))
 		return
 
-	if(isskrell(H)) //for whatever reason, skrell's tentacles have a really long length
-		return
-
-	if(isunathi(H)) //horns would not get caught in the machine
+	//for whatever reason, skrell's tentacles have a really long length
+	//horns would not get caught in the machine
+	//vaurca have fine control of their antennae
+	if(isskrell(H) || isunathi(H) || isvaurca(H))
 		return
 
 	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]

@@ -186,6 +186,9 @@ proc/get_radio_key_from_channel(var/channel)
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
+		if(speaking.name == LANGUAGE_VAURCA && within_jamming_range(src))
+			to_chat(src, span("warning", "Your head buzzes as your message is blocked with jamming signals."))
+			return
 		speaking.broadcast(src,trim(message))
 		return 1
 

@@ -363,7 +363,8 @@
 	W.on_enter_storage(src)
 	if(user)
 		W.dropped(user)
-		add_fingerprint(user)
+		if(!istype(W, /obj/item/forensics))
+			add_fingerprint(user)
 
 		if(!prevent_warning)
 			for(var/mob/M in viewers(user, null))

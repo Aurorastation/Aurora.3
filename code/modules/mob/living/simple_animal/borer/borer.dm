@@ -11,7 +11,7 @@
 	item_state = "brainslug"
 	icon_living = "brainslug"
 	icon_dead = "brainslug_dead"
-	speed = 5
+	speed = 6
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
@@ -24,6 +24,7 @@
 	universal_understand = 1
 	holder_type = /obj/item/holder/borer
 	mob_size = 1
+	hunger_enabled = FALSE
 
 	var/used_dominate
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
@@ -31,12 +32,11 @@
 	var/truename                            // Name used for brainworm-speak.
 	var/mob/living/captive_brain/host_brain // Used for swapping control of the body back and forth.
 	var/controlling                         // Used in human death check.
-	var/docile = 0                          // Sugar can stop borers from acting.
 	var/has_reproduced
 	var/roundstart
 
 /mob/living/simple_animal/borer/roundstart
-	roundstart = 1
+	roundstart = TRUE
 
 /mob/living/simple_animal/borer/Login()
 	..()
@@ -46,50 +46,23 @@
 /mob/living/simple_animal/borer/Initialize()
 	. = ..()
 
-	add_language("Cortical Link")
+	add_language(LANGUAGE_BORER)
+	add_language(LANGUAGE_BORER_HIVEMIND)
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 
-	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")] [rand(1000,9999)]"
-	if(!roundstart) request_player()
+	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")]-[rand(1000,9999)]"
+	if(!roundstart)
+		request_player()
 
 /mob/living/simple_animal/borer/Life()
-
 	..()
-
 	if(host)
-
 		if(!stat && !host.stat)
-
-			if(host.reagents.has_reagent("sugar"))
-				if(!docile)
-					if(controlling)
-						to_chat(host, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
-					else
-						to_chat(src, "<span class='notice'>You feel the soporific flow of sugar in your host's blood, lulling you into docility.</span>")
-					docile = 1
-			else
-				if(docile)
-					if(controlling)
-						to_chat(host, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
-					else
-						to_chat(src, "<span class='notice'>You shake off your lethargy as the sugar leaves your host's blood.</span>")
-					docile = 0
-
 			if(chemicals < 250)
 				chemicals++
-			if(controlling)
-
-				if(docile)
-					to_chat(host, "<span class='notice'>You are feeling far too docile to continue controlling your host...</span>")
-					host.release_control()
-					return
-
-				if(prob(5))
-					host.adjustBrainLoss(rand(1,2), 55)
-
-				if(prob(host.getBrainLoss()/20))
-					host.say("*[pick(list("blink","blink_r","choke","aflap","drool","twitch","twitch_s","gasp"))]")
+			if(controlling && prob(host.getBrainLoss()/20))
+				host.say("*[pick(list("blink","blink_r","choke","drool","twitch","twitch_s","gasp"))]")
 
 /mob/living/simple_animal/borer/Stat()
 	..()
@@ -100,27 +73,29 @@
 		if(eta_status)
 			stat(null, eta_status)
 
-	if (client.statpanel == "Status")
+	if(client.statpanel == "Status")
 		stat("Chemicals", chemicals)
 
-/mob/living/simple_animal/borer/proc/detatch()
-
-	if(!host || !controlling) return
+/mob/living/simple_animal/borer/proc/detach()
+	if(!host || !controlling)
+		return
 
 	if(istype(host,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = host
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		head.implants -= src
 
-	controlling = 0
+	controlling = FALSE
 
-	host.remove_language("Cortical Link")
+	host.remove_language(LANGUAGE_BORER)
+	host.remove_language(LANGUAGE_BORER_HIVEMIND)
+
+	to_chat(host, "<span class='notice'>You feel your nerves again as your control over your own body is restored.</span>")
 	host.verbs -= /mob/living/carbon/proc/release_control
 	host.verbs -= /mob/living/carbon/proc/punish_host
 	host.verbs -= /mob/living/carbon/proc/spawn_larvae
 
 	if(host_brain)
-
 		// these are here so bans and multikey warnings are not triggered on the wrong people when ckey is changed.
 		// computer_id and IP are not updated magically on their own in offline mobs -walter0o
 
@@ -155,13 +130,17 @@
 	qdel(host_brain)
 
 /mob/living/simple_animal/borer/proc/leave_host()
-
-	if(!host) return
+	if(!host)
+		return
 
 	if(host.mind)
+		borers.clear_indicators(host.mind)
 		borers.remove_antagonist(host.mind)
 
-	src.forceMove(get_turf(host))
+	forceMove(get_turf(host))
+	var/obj/item/organ/external/head = host.get_organ(BP_HEAD)
+	if(head)
+		head.implants -= src
 
 	reset_view(null)
 	machine = null
@@ -169,8 +148,7 @@
 	host.reset_view(null)
 	host.machine = null
 
-	var/mob/living/H = host
-	H.status_flags &= ~PASSEMOTES
+	host.status_flags &= ~PASSEMOTES
 	host = null
 	return
 
