@@ -387,6 +387,7 @@
 /datum/species/machine/zenghu
 	name = "Zeng-Hu Mobility Frame"
 	short_name = "zhf"
+	bodytype = "Zeng-Hu Mobility Frame"
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_zenghu.dmi'
@@ -432,7 +433,7 @@
 /datum/species/machine/bishop
 	name = "Bishop Accessory Frame"
 	short_name = "bcf"
-	bodytype = "Human"
+	bodytype = "Bishop Accessory Frame"
 
 	icobase = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
