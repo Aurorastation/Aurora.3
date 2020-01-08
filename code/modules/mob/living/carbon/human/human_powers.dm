@@ -7,7 +7,7 @@
 	set category = "IC"
 	
 	if(!use_check_and_message())
-		to_chat(src, "<span class ='warning'>You cant tie your hair while you are incapacitated</span>")
+		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
 		return
 
 	if(h_style)
