@@ -362,6 +362,10 @@
 				on_impact(loc)
 			qdel(src)
 		return
+
+	if (QDELETED(src))
+		return
+
 	last_projectile_move = world.time
 	if(!nondirectional_sprite && !hitscanning)
 		var/matrix/M = new
@@ -518,7 +522,8 @@
 		required_moves = SSprojectiles.global_max_tick_moves
 	if(!required_moves)
 		return
-	for(var/i in 1 to required_moves)
+
+	for(var/i = 1; 1 <= required_moves && !QDELETED(src); i++)
 		pixel_move(required_moves)
 
 /obj/item/projectile/proc/setAngle(new_angle)	//wrapper for overrides.
