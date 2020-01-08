@@ -95,6 +95,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/donkpockets = 1
 	)
 
@@ -116,6 +117,7 @@
 
 
 	backpack_contents = list(
+		/obj/item/storage/box/vaurca = 1,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 3
 	)
 
@@ -134,6 +136,7 @@
 	name = "Kataphract Knight"
 
 	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/modular_computer/laptop/preset = 1
 	)
@@ -146,6 +149,7 @@
 	name = "Kataphract Quartermaster"
 
 	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/modular_computer/laptop/preset = 1
 	)
@@ -157,6 +161,7 @@
 	name = "Kataphract Trader"
 
 	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/box/donkpockets = 1,
 		/obj/item/modular_computer/laptop/preset = 1
 	)
