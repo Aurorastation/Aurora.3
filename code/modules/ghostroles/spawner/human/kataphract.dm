@@ -90,9 +90,9 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	belt = /obj/item/melee/energy/sword/hegemony
-	shoes = /obj/item/clothing/shoes/caligae/grey
+	shoes = /obj/item/clothing/shoes/caligae/armor
 	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/hegemony
 
 	backpack_contents = list(
 		/obj/item/storage/box/donkpockets = 1
@@ -111,8 +111,6 @@
 	mask = /obj/item/clothing/mask/breath/vaurca/filter
 	belt = /obj/item/melee/energy/sword/hegemony
 	shoes = /obj/item/clothing/shoes/vaurca
-	id = /obj/item/card/id/distress/kataphract
-	back = /obj/item/storage/backpack/satchel
 
 	l_hand = /obj/item/martial_manual/vaurca
 
@@ -135,7 +133,11 @@
 /datum/outfit/admin/kataphract/knight
 	name = "Kataphract Knight"
 
-	suit = /obj/item/clothing/accessory/poncho/red
+	backpack_contents = list(
+		/obj/item/storage/box/donkpockets = 1,
+		/obj/item/modular_computer/laptop/preset = 1
+	)
+	
 
 /datum/outfit/admin/kataphract/knight/get_id_access()
 	return list(access_kataphract, access_kataphract_knight)
@@ -143,11 +145,21 @@
 /datum/outfit/admin/kataphract/quartermaster
 	name = "Kataphract Quartermaster"
 
+	backpack_contents = list(
+		/obj/item/storage/box/donkpockets = 1,
+		/obj/item/modular_computer/laptop/preset = 1
+	)
+
 /datum/outfit/admin/kataphract/quartermaster/get_id_access()
 	return list(access_kataphract, access_kataphract_quartermaster)
 
 /datum/outfit/admin/kataphract/trader
 	name = "Kataphract Trader"
+
+	backpack_contents = list(
+		/obj/item/storage/box/donkpockets = 1,
+		/obj/item/modular_computer/laptop/preset = 1
+	)
 
 /datum/outfit/admin/kataphract/trader/get_id_access()
 	return list(access_kataphract, access_kataphract_trader)
