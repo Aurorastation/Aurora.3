@@ -56,7 +56,6 @@
 	if((user in contents) && istype(user))
 		if(user.last_special <= world.time)
 			user.last_special = world.time + 50
-			src.visible_message(span("danger", "You hear something rumbling inside [src]'s stomach..."))
 			var/obj/item/I = user.get_active_hand()
 			if(I && I.force)
 				var/d = rand(round(I.force / 4), I.force)
@@ -235,6 +234,8 @@
 					status += "is bruised and necrotic"
 				if(!org.is_usable())
 					status += "dangling uselessly"
+				if(org.status & ORGAN_BLEEDING)
+					status += span("danger", "bleeding")
 				if(status.len)
 					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
 				else

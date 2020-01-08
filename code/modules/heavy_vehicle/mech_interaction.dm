@@ -463,3 +463,30 @@
 		return
 	name = new_name
 	to_chat(user, "<span class='notice'>You have redesignated this exosuit as \the [name].</span>")
+
+/mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
+	if(!LAZYLEN(pilots))
+		return
+	if(!isliving(H))
+		return
+
+	if(legs?.trample_damage)
+		if(ishuman(H))
+			var/mob/living/carbon/human/D = H
+			if(D.lying)
+				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
+				attack_log += text("\[[time_stamp()]\] <font color='red'>trampled [D.name] ([D.ckey]) with \the [src].</font>")
+				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
+				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
+				D.apply_damage(legs.trample_damage, BRUTE)
+				return TRUE
+
+		else
+			var/mob/living/L = H
+			src.visible_message("<span class='danger'>\The [src] runs over \the [L]!</span>")
+			if(isanimal(L))
+				if(issmall(L) && (L.stat == DEAD))
+					L.gib()
+					return TRUE
+			L.apply_damage(legs.trample_damage, BRUTE)
+			return TRUE

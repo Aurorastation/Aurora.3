@@ -59,5 +59,13 @@
 			"Bluespace Signals": 20,
 			"Unrecognizable Signals": 20
 		}
+	},
+	"kataphractchapter": {
+		"file_name": "kataphract_chapter.dmm",
+		"valid maps": ["aurora"],
+		"characteristics": {
+			"Life Form Signals": 20,
+			"Bluespace Signals": 20
+		}
 	}
 }

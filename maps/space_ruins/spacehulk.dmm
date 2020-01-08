@@ -3657,7 +3657,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jO" = (
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/laptop/preset/command,
 /turf/simulated/floor/shuttle/white,
 /area/derelict)
 "jP" = (
@@ -4246,7 +4246,7 @@
 	icon_state = "rwindow";
 	dir = 8
 	},
-/obj/machinery/computer/crew,
+/obj/item/modular_computer/laptop/preset/command,
 /turf/simulated/floor/shuttle/black,
 /area/derelict)
 "lX" = (

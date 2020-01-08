@@ -16,6 +16,7 @@
 	name = "welding helmet"
 	desc = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	icon_state = "welding"
+	item_state = "welding"
 	item_state_slots = list(
 		slot_l_hand_str = "welding",
 		slot_r_hand_str = "welding"
@@ -58,6 +59,7 @@
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
 			icon_state = base_state
+			item_state = base_state
 			to_chat(usr, "You flip the [src] down to protect your eyes.")
 		else
 			src.up = !src.up
@@ -66,6 +68,7 @@
 			tint = TINT_NONE
 			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 			icon_state = "[base_state]up"
+			item_state = "[base_state]up"
 			to_chat(usr, "You push the [src] up out of your face.")
 		update_clothing_icon()	//so our mob-overlays
 		usr.update_action_buttons()

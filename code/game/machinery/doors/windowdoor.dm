@@ -220,8 +220,8 @@
 			take_damage(aforce)
 		return
 
-
-	src.add_fingerprint(user)
+	if(!istype(I, /obj/item/forensics))
+		src.add_fingerprint(user)
 
 	if (src.allowed(user))
 		if (src.density)
