@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Projectiles will no longer lag the server to death if they reach the end of map."
