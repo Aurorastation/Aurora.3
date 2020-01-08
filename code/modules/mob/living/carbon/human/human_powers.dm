@@ -5,6 +5,10 @@
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
+	
+	if(stat || paralysis || stunned || weakened || restrained())
+		to_chat(src, "You cant tie your hair in that state")
+		return
 
 	if(h_style)
 		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
