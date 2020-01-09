@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/spider_queen
 	name = "colossal spider"
-	desc = "Furry and brown, it makes you shudder to look at it. This one has deep red eyes."
+	desc = "A monstrous eight-legged creature."
 	icon = 'icons/mob/npc/spider_queen.dmi'
 	icon_state = "spider_queen"
 	icon_living = "spider_queen"
