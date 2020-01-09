@@ -78,6 +78,9 @@
 
 	..()
 
+/obj/item/organ/internal/brain/getToxLoss()
+	return 0
+
 /obj/item/organ/internal/brain/can_recover()
 	return ~status & ORGAN_DEAD
 
@@ -195,7 +198,7 @@
 	if(damage >= 0.6*max_damage)
 		owner.stuttering = max(owner.slurring, 2)
 	if(is_broken())
-		if(!owner.lying)
+		if(!owner.lying && prob(5))
 			to_chat(owner, "<span class='danger'>You black out!</span>")
 		owner.Paralyse(10)
 

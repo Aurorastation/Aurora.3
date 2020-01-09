@@ -39,6 +39,8 @@
 	// Robotic organs filter better but don't get benefits from dylovene for filtering.
 	if(BP_IS_ROBOTIC(src))
 		filter_effect += 1
+	if(getToxLoss() >= 60) //Too many toxins to process. Abort, abort.
+		filter_effect -= 1
 	else if(owner.chem_effects[CE_ANTITOXIN])
 		filter_effect += 1
 
