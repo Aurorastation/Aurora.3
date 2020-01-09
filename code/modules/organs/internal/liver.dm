@@ -40,7 +40,7 @@
 	if(BP_IS_ROBOTIC(src))
 		filter_effect += 1
 	if(getToxLoss() >= 60) //Too many toxins to process. Abort, abort.
-		filter_effect -= 1
+		filter_effect -= 2
 	else if(owner.chem_effects[CE_ANTITOXIN])
 		filter_effect += 1
 
