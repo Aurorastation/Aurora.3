@@ -304,6 +304,10 @@
 	set category = "Special Verbs"
 	if(!usr)
 		return
+
+	if(!check_rights(R_SPAWN))
+		return
+
 	var/list/templates
 	try
 		templates = json_decode(return_file_text("config/templates_list.json"))
@@ -327,4 +331,4 @@
 
 	var/base_dir = "maps/templates/"
 	maploader.load_map(file(base_dir + name), T.x, T.y, T.z, no_changeturf = TRUE)
-	log_and_message_admins("[usr.ckey] has loaded template [base_dir + name] at the coordiantes [T.x], [T.y], [T.z].")
+	log_and_message_admins("[usr.ckey] has loaded template [base_dir + name] at the coordinates [T.x], [T.y], [T.z].")
