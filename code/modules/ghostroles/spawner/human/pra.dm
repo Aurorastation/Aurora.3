@@ -4,11 +4,12 @@
 	desc = "Protect the People's Republic of Adhomai's possessions on space."
 	tags = list("External")
 
-	enabled = TRUE
+	enabled = FALSE
 	spawnpoints = list("pra_cosmonaut")
 	req_perms = null
 	max_count = 3
 	uses_species_whitelist = FALSE
+	away_site = TRUE
 
 	outfit = /datum/outfit/admin/pra_cosmonaut
 	possible_species = list("Tajara", "M'sai Tajara", "Zhan-Khazan Tajara")

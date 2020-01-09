@@ -168,16 +168,15 @@
 	START_PROCESSING(shuttle_controller, legion)
 
 	//Away Site shuttle.
-
-	shuttle = new()
-	shuttle.location = 0
-	shuttle.warmup_time = 10
-	shuttle.area_station = locate(/area/shuttle/research/station)
-	shuttle.area_offsite = locate(/area/shuttle/research/away)
-	shuttle.docking_controller_tag = "science_shuttle"
-	shuttle.dock_target_station = "science_bridge"
-	shuttles["Research"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	var/datum/shuttle/ferry/research/research = new()
+	research.location = 0
+	research.warmup_time = 10
+	research.area_station = locate(/area/shuttle/research/station)
+	research.area_offsite = locate(/area/shuttle/research/away)
+	research.docking_controller_tag = "science_shuttle"
+	research.dock_target_station = "science_bridge"
+	shuttles["Research"] = research
+	START_PROCESSING(shuttle_controller, research)
 
 	// Distress Team Shuttle
 
