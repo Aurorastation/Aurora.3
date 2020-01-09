@@ -28,7 +28,7 @@
 
 	//Detox can heal small amounts of damage
 	if (damage < max_damage && !owner.chem_effects[CE_TOXIN])
-		heal_damage(0.2 * owner.chem_effects[CE_ANTITOX])
+		heal_damage(0.2 * owner.chem_effects[CE_ANTITOXIN])
 
 	// Get the effectiveness of the liver.
 	var/filter_effect = 3
@@ -46,7 +46,7 @@
 		owner.adjustToxLoss(0.8 * max(2 - filter_effect, 0))
 
 	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxloss.
-	if(!owner.radiation && damage > 0)
+	if(!owner.total_radiation && damage > 0)
 		if(damage < min_broken_damage)
 			heal_damage(0.2)
 		if(damage < min_bruised_damage)
