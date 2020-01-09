@@ -20,7 +20,7 @@
 	center_of_mass = null
 
 /obj/item/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "kelotane", "dylovene", "dexalin", "norepinephrine", "tramadol", "deltamivir", "thetamycin")
+	reagent_ids = list("bicaridine", "kelotane", "dylovene", "dexalin", "norepinephrine", "tramadol", "deltamivir", "thetamycin", "adrenaline")
 
 /obj/item/reagent_containers/borghypo/rescue
 	reagent_ids = list("tricordrazine", "norepinephrine", "tramadol", "adrenaline")
