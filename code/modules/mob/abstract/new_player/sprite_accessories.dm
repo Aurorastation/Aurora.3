@@ -2840,6 +2840,12 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list("Unathi")
 
+	una_maswaist
+		name = "Masculine Waist (For Females)"
+		icon_state = "una_maswaist"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
 	spelunker
 		name = "Spelunker"
 		icon_state = "spelunker"
