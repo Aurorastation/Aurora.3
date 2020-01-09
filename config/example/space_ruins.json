@@ -9,15 +9,6 @@
 			"Unrecognizable Signals": 20
 		}
 	},
-	"listening post": {
-		"file_name": "listening_post.dmm",
-		"valid maps": ["aurora"],
-		"characteristics": {
-			"Bluespace Signals": 20,
-			"Artificial Intelligence Signals": 20,
-			"Unrecognizable Signals": 20
-		}
-	},
 	"pra blockade runner": {
 		"file_name": "pra_blockade_runner.dmm",
 		"valid maps": ["aurora"],
@@ -26,12 +17,11 @@
 			"Unrecognizable Signals": 20
 		}
 	},
-	"sol corvette": {
-		"file_name": "sol_corvette.dmm",
+	"zenghu comet": {
+		"file_name": "zenghu_comet.dmm",
 		"valid maps": ["aurora"],
 		"characteristics": {
 			"Life Form Signals": 20,
-			"Bluespace Signals": 20,
 			"Unrecognizable Signals": 20
 		}
 	},
