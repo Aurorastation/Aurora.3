@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/zenghu_survivor
 	short_name = "zenghu"
 	name = "Zeng-Hu Survivor"
-	desc = "Survive whatever might lurk in the Zeng-Hu instalation."
+	desc = "Survive whatever might lurk in the Zeng-Hu installation."
 	tags = list("External")
 
 	enabled = FALSE
@@ -45,5 +45,4 @@
 	respawn_flag = null
 
 	spawn_mob = /mob/living/simple_animal/hostile/spider_queen
-
 
