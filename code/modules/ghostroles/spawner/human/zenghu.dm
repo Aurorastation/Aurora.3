@@ -28,7 +28,7 @@
 	shoes = /obj/item/clothing/shoes/white
 	belt = /obj/item/storage/belt/utility/full
 	id = /obj/item/card/id/zeng_hu
-	r_hand = /obj/item/device/flashlight/lantern
+	r_hand = /obj/item/device/flashlight
 
 /datum/ghostspawner/simplemob/spider_queen
 	short_name = "spiderqueen"
@@ -45,3 +45,5 @@
 	respawn_flag = null
 
 	spawn_mob = /mob/living/simple_animal/hostile/spider_queen
+
+
