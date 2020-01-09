@@ -359,10 +359,8 @@
 	name = "FIB Escort"
 
 	suit = /obj/item/clothing/suit/armor/vest/fib
-
 	belt =/obj/item/storage/belt/security
 	l_hand = null
-
 	belt_contents = list(
 		/obj/item/device/flash = 1,
 		/obj/item/melee/baton/loaded = 1,
