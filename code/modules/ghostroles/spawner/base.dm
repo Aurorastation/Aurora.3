@@ -153,3 +153,18 @@
 	for(var/i in SSghostroles.spawnpoints)
 		SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE
+
+/datum/ghostspawner/simplemob/spawn_mob(mob/user)
+	//Select a spawnpoint (if available)
+	var/turf/T = select_spawnpoint()
+	var/mob/living/simple_animal/S
+	if (T)
+		S = new spawn_mob(T)
+	else
+		to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
+
+	if(S)
+		announce_ghost_joinleave(user, 0, "They are now a [name].")
+		S.ckey = user.ckey
+
+	return S
