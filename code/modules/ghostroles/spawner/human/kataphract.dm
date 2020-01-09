@@ -4,7 +4,7 @@
 	desc = "Display honour in everything you do. Be an excellent person."
 	tags = list("External")
 
-	enabled = TRUE
+	enabled = FALSE
 	spawnpoints = list("kataphract")
 	req_perms = null
 	max_count = 2
@@ -12,6 +12,8 @@
 
 	mob_name_prefix = "Zosaa "
 	mob_name_pick_message = "Pick an Unathi last name."
+
+	away_site = TRUE
 
 	outfit = /datum/outfit/admin/kataphract
 	possible_species = list("Unathi")

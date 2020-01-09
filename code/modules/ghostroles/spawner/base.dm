@@ -27,6 +27,7 @@
 	var/mob_name_pick_message = "Pick a name."
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
+	var/away_site = FALSE
 
 /datum/ghostspawner/New()
 	. = ..()
