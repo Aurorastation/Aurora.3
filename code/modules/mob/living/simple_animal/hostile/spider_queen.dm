@@ -77,10 +77,12 @@
 
 	hud_state = "spider_climb"
 
-/spell/targeted/ceiling_climb/cast(mob/target,var/mob/living/carbon/human/user as mob)
+/spell/targeted/ceiling_climb/cast(mob/target,var/mob/living/user as mob)
 	..()
 	if(istype(user, /mob/living/simple_animal/hostile/spider_queen))
 		var/mob/living/simple_animal/hostile/spider_queen/M = user
+		if(M.hovering)
+			return FALSE
 		M.hovering = TRUE
 		M.mouse_opacity = FALSE
 		M.speed = -1
