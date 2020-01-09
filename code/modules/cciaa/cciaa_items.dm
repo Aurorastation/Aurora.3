@@ -279,4 +279,4 @@
 
 /obj/item/storage/lockbox/cciaa/fib
 	name = "FIB agent briefcase"
-	desc = "A smart looking id locked briefcase"
+	desc = "A smart looking ID locked briefcase."
