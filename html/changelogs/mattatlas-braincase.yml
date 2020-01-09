@@ -38,13 +38,13 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "IVs now ping when the attached person is at less than 90% blood volume."
+  - rscadd: "IVs now ping when the attached person is at less than 90 blood volume."
   - rscadd: "Ported over Bay's liver code. This means that you should no longer get demolished livers insanely fast."
   - tweak: "IVs now receive 1.8x the blood. Nanoreplicators or whatever."
   - tweak: "Reduced zombie brain HP to 70."
   - tweak: "The head is now easier to hit."
   - tweak: "Nerfed the effects from getting hit in the brain while you have brain damage. They only occur at 66 brain damage now. The paralysis and stun inflicted are also gone."
-  - experimental: "You now get brain damage a lot faster when you're below the safe blood volume limit."
+  - experiment: "You now get brain damage a lot faster when you're below the safe blood volume limit."
   - tweak: "Increased the toxin damage slimes give a tiny bit."
   - tweak: "Succumbing is possible at 66 brain damage instead of 100 now."
   - tweak: "Brain damage now gives you stuttering instead of slurring."
