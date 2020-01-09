@@ -282,7 +282,7 @@
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
-	l_hand = /obj/item/storage/lockbox/cciaa
+	l_hand = /obj/item/storage/lockbox/cciaa/fib
 
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
