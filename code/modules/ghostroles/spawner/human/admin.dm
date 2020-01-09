@@ -173,7 +173,7 @@
 /datum/ghostspawner/human/admin/fib/escort
 	short_name = "fibescort"
 	name = "FIB Escort"
-	desc = "Protect the agents of the Federal Investigations Bureau while on field."
+	desc = "Protect the agents of the Federal Investigations Bureau while on the field."
 
 	landmark_name = "CCIAEscort"
 
