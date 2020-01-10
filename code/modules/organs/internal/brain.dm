@@ -134,7 +134,7 @@
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
 					if(!past_damage_threshold(4) && prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 					if(!owner.paralysis && prob(10))
 						owner.Paralyse(rand(1,3))
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
@@ -142,7 +142,7 @@
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
 					if(!past_damage_threshold(6) && prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 					if(!owner.paralysis)
 						owner.Paralyse(3,5)
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
@@ -150,9 +150,9 @@
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
 					if(prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 					if(prob(damprob))
-						take_internal_damage(2)
+						take_internal_damage(1)
 	..()
 
 /obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)

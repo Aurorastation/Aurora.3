@@ -43,7 +43,7 @@ changes:
   - tweak: "Reduced zombie brain HP to 70."
   - tweak: "The head is now easier to hit."
   - tweak: "Nerfed the effects from getting hit in the brain while you have brain damage. They only occur at 66 brain damage now. The paralysis and stun inflicted are also gone."
-  - experiment: "You now get brain damage a lot faster when you're below the safe blood volume limit."
+  - experiment: "Increased the blood loss that lasers deal and decreased the blood loss from fire."
   - tweak: "Increased the toxin damage slimes give a tiny bit."
   - tweak: "Succumbing is possible at 66 brain damage instead of 100 now."
   - tweak: "Brain damage now gives you stuttering instead of slurring."
