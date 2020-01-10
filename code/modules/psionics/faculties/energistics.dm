@@ -10,13 +10,13 @@
 /datum/psionic_power/energistics/sequencer
 	name =            "Sequencer"
 	cost =            40
-	cooldown =        300
+	cooldown =        100
 	use_melee =       TRUE
 	min_rank =        PSI_RANK_MASTER
-	use_description = "Target the head, eyes or mouth while on harm intent to use a melee attack that causes a localized electrocution. This functions like an emag, but is very expensive."
+	use_description = "Target the right hand while on harm intent and click an object to use a melee attack that causes a localized electrocution. This functions like an emag, but is very expensive. Keep in mind that you will try to emag anything you click on."
 
 /datum/psionic_power/energistics/sequencer/invoke(var/mob/living/user, var/mob/living/target)
-	if(user.zone_sel.selecting != BP_HEAD && user.zone_sel.selecting != BP_EYES && user.zone_sel.selecting != BP_MOUTH)
+	if(user.zone_sel.selecting != BP_R_HAND)
 		return FALSE
 	if(istype(target, /turf) || ismob(target))
 		return FALSE
@@ -24,9 +24,9 @@
 	if(.)
 		user.visible_message("<span class='warning'>[user] holds their hands over \the [target]...</span>")
 		if(do_after(user, 100, TRUE, target))
-			target.emag_act(0, user, "electricity arc")
 			user.visible_message("<span class='danger'>\The [user] releases a gout of arcing lightning over \the [target]!</span>")
 			playsound(target, 'sound/magic/LightningShock.ogg', 75)
+			target.emag_act(0, user, "electricity arc")
 			return TRUE
 
 /datum/psionic_power/energistics/electrocute
@@ -75,6 +75,7 @@
 			if(PSI_RANK_PARAMOUNT)
 				pew = new /obj/item/projectile/energy/tesla/paramount(get_turf(user))
 				pew.name = "thunderstrike"
+				pew_sound = 'sound/effects/psi/thunderstrike.ogg'
 			if(PSI_RANK_GRANDMASTER)
 				pew = new /obj/item/projectile/energy/tesla/grandmaster(get_turf(user))
 				pew.name = "lightning shock"
