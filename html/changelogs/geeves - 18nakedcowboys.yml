@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a Frontier Cowboy gear crate, it's cheaper because it isn't EVA capable, nor has any armour."
+  - tweak: "Gave the whip a two tile hit radius."
