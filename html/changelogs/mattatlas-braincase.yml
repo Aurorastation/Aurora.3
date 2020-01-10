@@ -40,7 +40,6 @@ delete-after: True
 changes: 
   - rscadd: "IVs now ping when the attached person is at less than 90% blood volume."
   - rscadd: "Ported over Bay's liver code. This means that you should no longer get demolished livers insanely fast."
-  - tweak: "IVs now receive 1.8x the blood. Nanoreplicators or whatever."
   - tweak: "Reduced zombie brain HP to 70."
   - tweak: "The head is now easier to hit."
   - tweak: "Nerfed the effects from getting hit in the brain while you have brain damage. They only occur at 66 brain damage now. The paralysis and stun inflicted are also gone."
