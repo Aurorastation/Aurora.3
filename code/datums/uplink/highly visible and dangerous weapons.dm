@@ -45,7 +45,7 @@
 	path = /obj/item/gun/projectile/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Tommy Gun"
+	name = "Vintage Sub-Machine Gun"
 	item_cost = 14
 	path = /obj/item/gun/projectile/automatic/tommygun
 
@@ -109,10 +109,25 @@
 	item_cost = 2
 	path = /obj/item/material/star
 
+/datum/uplink_item/item/visible_weapons/plasma_shotty
+	name = "Plasma Shotgun"
+	item_cost = 10
+	path = /obj/item/gun/projectile/plasma
+
 /datum/uplink_item/item/visible_weapons/icelance
 	name = "Icelance Rifle"
 	item_cost = 6
 	path = /obj/item/gun/energy/rifle/icelance
+
+/datum/uplink_item/item/visible_weapons/boltaction
+	name = "Bolt-Action Rifle"
+	item_cost = 8
+	path = /obj/item/gun/projectile/shotgun/pump/rifle
+
+/datum/uplink_item/item/visible_weapons/colt
+	name = "Vintage .45 Pistol"
+	item_cost = 6
+	path = /obj/item/gun/projectile/colt
 
 /datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"

@@ -1,7 +1,4 @@
 /obj/item/ammo_magazine/a357
-	//name = "ammo box (.357)"
-	//desc = "A box of .357 ammo"
-	//icon_state = "357"
 	name = "speed loader (.357)"
 	icon_state = "T38"
 	caliber = "357"
