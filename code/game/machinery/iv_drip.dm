@@ -122,7 +122,6 @@
 				blood_message_sent = TRUE
 
 			var/datum/reagent/B = T.take_blood(beaker,amount)
-			B.volume += amount * 0.8
 
 			if(B)
 				beaker.reagents.reagent_list |= B
