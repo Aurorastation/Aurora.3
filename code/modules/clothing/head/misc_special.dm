@@ -51,15 +51,11 @@
 	if(!base_state)
 		base_state = icon_state
 
-	if(usr.stat)
-		to_chat(usr, span("warning", "You can't do that in this state!"))
-		return
-	if(usr.restrained())
-		to_chat(usr, span("warning", "You can't reach your [src]!"))
+	if(use_check_and_message(usr))
 		return
 
-	if(src.up)
-		src.up = !src.up
+	src.up = !src.up
+	if(!src.up)
 		body_parts_covered |= (EYES|FACE)
 		flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 		flash_protection = initial(flash_protection)
@@ -68,7 +64,6 @@
 		item_state = base_state
 		to_chat(usr, "You flip the [src] down to protect your eyes.")
 	else
-		src.up = !src.up
 		body_parts_covered &= ~(EYES|FACE)
 		flash_protection = FLASH_PROTECTION_NONE
 		tint = TINT_NONE
