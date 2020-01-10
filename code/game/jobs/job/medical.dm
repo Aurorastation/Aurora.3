@@ -93,7 +93,9 @@
 	name = "Emergency Physician"
 	jobtype = /datum/job/doctor
 
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	uniform = /obj/item/clothing/under/rank/medical/black
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/em_phys
+	shoes = /obj/item/clothing/shoes/em_phys
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
 
