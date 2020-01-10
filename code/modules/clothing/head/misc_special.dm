@@ -51,27 +51,28 @@
 	if(!base_state)
 		base_state = icon_state
 
-	if(usr.canmove && !usr.stat && !usr.restrained())
-		if(src.up)
-			src.up = !src.up
-			body_parts_covered |= (EYES|FACE)
-			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			flash_protection = initial(flash_protection)
-			tint = initial(tint)
-			icon_state = base_state
-			item_state = base_state
-			to_chat(usr, "You flip the [src] down to protect your eyes.")
-		else
-			src.up = !src.up
-			body_parts_covered &= ~(EYES|FACE)
-			flash_protection = FLASH_PROTECTION_NONE
-			tint = TINT_NONE
-			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			icon_state = "[base_state]up"
-			item_state = "[base_state]up"
-			to_chat(usr, "You push the [src] up out of your face.")
-		update_clothing_icon()	//so our mob-overlays
-		usr.update_action_buttons()
+	if(use_check_and_message(usr))
+		return
+
+	src.up = !src.up
+	if(!src.up)
+		body_parts_covered |= (EYES|FACE)
+		flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
+		flash_protection = initial(flash_protection)
+		tint = initial(tint)
+		icon_state = base_state
+		item_state = base_state
+		to_chat(usr, "You flip the [src] down to protect your eyes.")
+	else
+		body_parts_covered &= ~(EYES|FACE)
+		flash_protection = FLASH_PROTECTION_NONE
+		tint = TINT_NONE
+		flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
+		icon_state = "[base_state]up"
+		item_state = "[base_state]up"
+		to_chat(usr, "You push the [src] up out of your face.")
+	update_clothing_icon()	//so our mob-overlays
+	usr.update_action_buttons()
 
 
 /*

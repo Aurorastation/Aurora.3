@@ -1,10 +1,21 @@
 // Suit slot
 /datum/gear/suit
-	display_name = "apron, blue"
+	display_name = "apron, botanist"
 	path = /obj/item/clothing/suit/apron
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
 	cost = 2
+
+/datum/gear/suit/colorapron
+	display_name = "apron, multipurpose"
+	path = /obj/item/clothing/suit/apron/colored
+	slot = slot_wear_suit
+	sort_category = "Suits and Overwear"
+	cost = 2
+
+/datum/gear/suit/colorapron/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"

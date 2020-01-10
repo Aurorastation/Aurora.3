@@ -194,13 +194,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "messy locks"
 
-	bedhead5
-		name = "Bedhead 5"
-		icon_state = "hair_bedhead5"
-		gender = FEMALE
-		length = 4
-		chatname = "messy locks"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -2844,6 +2837,12 @@ Follow by example and make good judgement based on length which list to include 
 	una_scutes
 		name = "Scutes"
 		icon_state = "una_scutes"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
+	una_maswaist
+		name = "Masculine Waist (For Females)"
+		icon_state = "una_maswaist"
 		body_parts = list(BP_CHEST)
 		species_allowed = list("Unathi")
 
