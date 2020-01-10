@@ -164,7 +164,7 @@
 
 /datum/uplink_item/item/tools/personal_ai
 	name = "Personal AI"
-	item_cost = 4
+	item_cost = 2
 	path = /obj/item/device/paicard
 	desc = "An unmodified personal AI that can assist you in your ventures."
 
