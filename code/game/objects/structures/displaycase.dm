@@ -23,7 +23,7 @@
 
 /obj/structure/displaycase/spareid
 	name = "spare id containment case"
-	desc = "A display case for holding the spare id, it seems to have a device installed into the side of it."
+	desc = "A display case for holding the captain's spare ID, it seems to have a device installed on the side."
 	held_item = /obj/item/card/id/captains_spare
 	alarm_delay = 30
 	security_level = 2
