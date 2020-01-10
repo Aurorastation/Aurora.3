@@ -111,7 +111,7 @@
 
 /datum/uplink_item/item/visible_weapons/plasma_shotty
 	name = "Plasma Shotgun"
-	item_cost = 10
+	item_cost = 15
 	path = /obj/item/gun/projectile/plasma
 
 /datum/uplink_item/item/visible_weapons/icelance

@@ -51,7 +51,7 @@
 	name = "Box of Shells"
 	item_cost = 5
 	path = /obj/item/storage/box/shotgunshells
-	desc = "Contains eight shotgun shells."
+	desc = "Contains eight shotgun buckshot shells."
 
 /datum/uplink_item/item/ammo/plasma_mag
 	name = "Plasma Shotgun Magazine"
