@@ -160,6 +160,15 @@
 	if(isliving(target))
 		tesla_zap(target, 3, 5000)
 
+/obj/item/projectile/energy/tesla/master
+	damage = 15
+
+/obj/item/projectile/energy/tesla/grandmaster
+	damage = 20
+
+/obj/item/projectile/energy/tesla/paramount
+	damage = 25
+
 /obj/item/projectile/energy/gravitydisabler
 	name = "gravity disabler"
 	icon = 'icons/obj/projectiles.dmi'

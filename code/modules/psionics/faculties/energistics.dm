@@ -7,24 +7,27 @@
 /datum/psionic_power/energistics
 	faculty = PSI_ENERGISTICS
 
-/datum/psionic_power/energistics/disrupt
-	name =            "Disrupt"
-	cost =            10
-	cooldown =        100
+/datum/psionic_power/energistics/sequencer
+	name =            "Sequencer"
+	cost =            40
+	cooldown =        300
 	use_melee =       TRUE
 	min_rank =        PSI_RANK_MASTER
-	use_description = "Target the head, eyes or mouth while on harm intent to use a melee attack that causes a localized electromagnetic pulse."
+	use_description = "Target the head, eyes or mouth while on harm intent to use a melee attack that causes a localized electrocution. This functions like an emag, but is very expensive."
 
-/datum/psionic_power/energistics/disrupt/invoke(var/mob/living/user, var/mob/living/target)
-	if(user.zone_sel.selecting != BP_HEAD && user.zone_sel.selecting != BP_EYES && user.zone_sel.selecting != "mouth")
+/datum/psionic_power/energistics/sequencer/invoke(var/mob/living/user, var/mob/living/target)
+	if(user.zone_sel.selecting != BP_HEAD && user.zone_sel.selecting != BP_EYES && user.zone_sel.selecting != BP_MOUTH)
 		return FALSE
-	if(istype(target, /turf))
+	if(istype(target, /turf) || ismob(target))
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message("<span class='danger'>\The [user] releases a gout of crackling static and arcing lightning over \the [target]!</span>")
-		empulse(target, 0, 1)
-		return TRUE
+		user.visible_message("<span class='warning'>[user] holds their hands over \the [target]...</span>")
+		if(do_after(user, 100, TRUE, target))
+			target.emag_act(0, user, "electricity arc")
+			user.visible_message("<span class='danger'>\The [user] releases a gout of arcing lightning over \the [target]!</span>")
+			playsound(target, 'sound/magic/LightningShock.ogg', 75)
+			return TRUE
 
 /datum/psionic_power/energistics/electrocute
 	name =            "Electrocute"
@@ -51,36 +54,33 @@
 				charging_cell.give(rand(15,45))
 			return TRUE
 
-/datum/psionic_power/energistics/zorch
-	name =             "Zorch"
+/datum/psionic_power/energistics/lightning
+	name =             "Lightning"
 	cost =             20
 	cooldown =         20
 	use_ranged =       TRUE
 	min_rank =         PSI_RANK_MASTER
-	use_description = "Use this ranged laser attack while on harm intent. Your mastery of Energistics will determine how powerful the laser is. Be wary of overuse, and try not to fry your own brain."
+	use_description = "Use this ranged lightning attack while on harm intent. Your mastery of Energistics will determine how powerful the lightning is. Be wary of overuse, and try not to fry your own brain."
 
-/datum/psionic_power/energistics/zorch/invoke(var/mob/living/user, var/mob/living/target)
+/datum/psionic_power/energistics/lightning/invoke(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	if(.)
-		user.visible_message("<span class='danger'>\The [user]'s eyes flare with light!</span>")
+		user.visible_message("<span class='danger'>\The [user] suddenly holds their hand out!</span>")
 
 		var/user_rank = user.psi.get_rank(faculty)
 		var/obj/item/projectile/pew
-		var/pew_sound
+		var/pew_sound = 'sound/magic/LightningShock.ogg'
 
 		switch(user_rank)
 			if(PSI_RANK_PARAMOUNT)
-				pew = new /obj/item/projectile/beam/heavylaser(get_turf(user))
-				pew.name = "gigawatt mental laser"
-				pew_sound = 'sound/weapons/lasercannonfire.ogg'
+				pew = new /obj/item/projectile/energy/tesla/paramount(get_turf(user))
+				pew.name = "thunderstrike"
 			if(PSI_RANK_GRANDMASTER)
-				pew = new /obj/item/projectile/beam/midlaser(get_turf(user))
-				pew.name = "megawatt mental laser"
-				pew_sound = 'sound/weapons/Laser.ogg'
+				pew = new /obj/item/projectile/energy/tesla/grandmaster(get_turf(user))
+				pew.name = "lightning shock"
 			if(PSI_RANK_MASTER)
-				pew = new /obj/item/projectile/beam/stun(get_turf(user))
-				pew.name = "mental laser"
-				pew_sound = 'sound/weapons/Taser.ogg'
+				pew = new /obj/item/projectile/energy/tesla/master(get_turf(user))
+				pew.name = "lightning beam"
 
 		if(istype(pew))
 			playsound(pew.loc, pew_sound, 25, 1)

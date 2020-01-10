@@ -403,7 +403,7 @@
 
 /mob/living/simple_animal/borer/verb/awaken_psionics()
 	set category = "Abilities"
-	set name = "Awaken Host Psionics (100)"
+	set name = "Awaken Host Psionics (200)"
 	set desc = "Probe into your host an unlock their psionic potential."
 
 	if(!host)
@@ -415,11 +415,11 @@
 	if(stat)
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
-	if(chemicals < 100)
+	if(chemicals < 200)
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
 
-	chemicals -= 100
+	chemicals -= 200
 	to_chat(src, span("notice", "You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
 	to_chat(host, span("warning", "You feel a burning tingling sensation at the back of your head."))
 	addtimer(CALLBACK(src, .proc/jumpstart_psi), 100)
