@@ -219,7 +219,7 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a556/mk43/rubber
-	name = "magazine (5.56mm Rubber) Ten Round "
+	name = "magazine (5.56mmR rubber)"
 	origin_tech = list(TECH_COMBAT = 2)
 	ammo_type = /obj/item/ammo_casing/a556/mk43/rubber
 
