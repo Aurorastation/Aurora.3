@@ -72,7 +72,7 @@
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
 	path = /obj/item/clothing/head/beret/medical
-	allowed_roles = list("Medical Doctor", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+	allowed_roles = list("Physician", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
@@ -180,7 +180,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Geneticist", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -219,7 +219,7 @@
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"

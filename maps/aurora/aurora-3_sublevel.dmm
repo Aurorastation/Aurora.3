@@ -24723,7 +24723,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -24736,7 +24736,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -24746,7 +24746,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6

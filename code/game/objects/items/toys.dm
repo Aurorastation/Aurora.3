@@ -628,8 +628,8 @@
 	icon_state = "librarian"
 
 /obj/item/toy/figure/md
-	name = "medical doctor action figure"
-	desc = "A \"Space Life\" brand medical doctor action figure."
+	name = "physician action figure"
+	desc = "A \"Space Life\" brand physician action figure."
 	icon_state = "md"
 
 /obj/item/toy/figure/mime
