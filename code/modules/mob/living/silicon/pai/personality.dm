@@ -12,7 +12,7 @@
 
 /datum/paiCandidate/proc/savefile_save(mob/user)
 	if(IsGuestKey(user.key))
-		return 0
+		return FALSE
 
 	var/savefile/F = new /savefile(src.savefile_path(user))
 
@@ -24,7 +24,7 @@
 
 	F["version"] << 1
 
-	return 1
+	return TRUE
 
 // loads the savefile corresponding to the mob's ckey
 // if silent=false, report incompatible savefiles
@@ -32,29 +32,30 @@
 // returns 0 if savefile did not exist
 
 /datum/paiCandidate/proc/savefile_load(mob/user, var/silent = 1)
-	if (IsGuestKey(user.key))
-		return 0
+	if(IsGuestKey(user.key))
+		return FALSE
 
 	var/path = savefile_path(user)
 
-	if (!fexists(path))
-		return 0
+	if(!fexists(path))
+		return FALSE
 
 	var/savefile/F = new /savefile(path)
 
-	if(!F) return //Not everyone has a pai savefile.
+	if(!F)
+		return //Not everyone has a pai savefile.
 
 	var/version = null
 	F["version"] >> version
 
-	if (isnull(version) || version != 1)
+	if(isnull(version) || version != 1)
 		fdel(path)
-		if (!silent)
+		if(!silent)
 			alert(user, "Your savefile was incompatible with this version and was deleted.")
-		return 0
+		return FALSE
 
 	F["name"] >> src.name
 	F["description"] >> src.description
 	F["role"] >> src.role
 	F["comments"] >> src.comments
-	return 1
+	return TRUE

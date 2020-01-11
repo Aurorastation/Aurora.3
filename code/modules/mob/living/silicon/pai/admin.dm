@@ -5,23 +5,23 @@
 
 	if(!check_rights(R_ADMIN))
 		return
-
-	if (!mob)
+	if(!mob)
 		return
 
-	var/turf/t = get_turf(mob)
+	var/turf/T = get_turf(mob)
 	var/pai_key
 	var/name = input(mob, "", "What will the pAI's name be?") as text|null
-	if (!name)
+	if(!name)
 		return
 
 	if(!pai_key)
 		var/client/C = input("Select client") as null|anything in clients
-		if(!C) return
+		if(!C)
+			return
 		pai_key = C.key
 
-	log_and_message_admins("made a pAI with key=[pai_key] at ([t.x],[t.y],[t.z])")
-	var/obj/item/device/paicard/card = new(t)
+	log_and_message_admins("made a pAI with key=[pai_key] at ([T.x],[T.y],[T.z])")
+	var/obj/item/device/paicard/card = new(T)
 	var/mob/living/silicon/pai/pai = new(card)
 	pai.key = pai_key
 	card.setPersonality(pai)

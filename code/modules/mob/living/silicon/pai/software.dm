@@ -28,7 +28,8 @@ var/list/pai_emotions = list(
 
 /mob/living/silicon/pai/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(user != src)
-		if(ui) ui.set_status(STATUS_CLOSE, 0)
+		if(ui)
+			ui.set_status(STATUS_CLOSE, 0)
 		return
 
 	if(ui_key != "main")
@@ -76,7 +77,7 @@ var/list/pai_emotions = list(
 	data["current_emotion"] = card.current_emotion
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
+	if(!ui)
 		ui = new(user, src, ui_key, "pai_interface.tmpl", "pAI Software Interface", 450, 600)
 		ui.set_initial_data(data)
 		ui.open()
@@ -84,7 +85,8 @@ var/list/pai_emotions = list(
 
 /mob/living/silicon/pai/Topic(href, href_list)
 	. = ..()
-	if(.) return
+	if(.)
+		return
 
 	if(href_list["software"])
 		var/soft = href_list["software"]
@@ -93,7 +95,7 @@ var/list/pai_emotions = list(
 			S.toggle(src)
 		else
 			ui_interact(src, ui_key = soft)
-		return 1
+		return TRUE
 
 	else if(href_list["stopic"])
 		var/soft = href_list["stopic"]
@@ -107,10 +109,10 @@ var/list/pai_emotions = list(
 		if(S && (ram >= S.ram_cost))
 			ram -= S.ram_cost
 			software[S.id] = S
-		return 1
+		return TRUE
 
 	else if(href_list["image"])
 		var/img = text2num(href_list["image"])
 		if(1 <= img && img <= 15)
 			card.setEmotion(img)
-		return 1
+		return TRUE
