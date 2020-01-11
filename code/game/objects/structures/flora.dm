@@ -102,7 +102,7 @@
 /obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
 	if(!ishuman(user))
 		return
-	if(ismob(W))
+	if(istype(W, /obj/item/holder))
 		return //no hiding mobs in there
 	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [W].")
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
