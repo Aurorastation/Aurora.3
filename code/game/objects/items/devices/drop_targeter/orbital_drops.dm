@@ -20,6 +20,15 @@
 
 	template_name = "combat-mecha.dmm"
 
+/obj/item/device/orbital_dropper/mecha/heavy
+	template_name = "heavy-mecha.dmm"
+
+/obj/item/device/orbital_dropper/mecha/light
+	template_name = "light-mecha.dmm"
+
+/obj/item/device/orbital_dropper/mecha/powerloader
+	template_name = "powerloader-mecha.dmm"
+
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. Who's ready to raise hell?"

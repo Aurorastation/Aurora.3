@@ -122,12 +122,6 @@
 	item_cost = 35
 	path = /obj/item/antag_spawner/borg_tele
 
-/datum/uplink_item/item/revolution/mecha
-	name = "Mecha Dropper"
-	desc = "A device that can be used to drop in a combat exosuit. Can only be used outside station areas, unless emagged, which is hazardous."
-	item_cost = 40
-	path = /obj/item/device/orbital_dropper/mecha
-
 /datum/uplink_item/item/tools/heatpatch
 	name = "HUDPatch, Thermal"
 	item_cost = 6
