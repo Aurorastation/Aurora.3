@@ -141,7 +141,7 @@
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 
-/obj/item/clothing/shoes/em_phys
+/obj/item/clothing/shoes/emergencyphys
 	name = "emergency physician shoes"
 	desc = "A pair of black and white shoes resistant to biological and chemical hazards."
 	icon_state = "em_phys"
