@@ -24,10 +24,6 @@
 	verbs -= /obj/item/modular_computer/verb/eject_id
 	verbs -= /obj/item/modular_computer/verb/eject_usb
 
-/obj/item/modular_computer/silicon/install_default_hardware()
-	..()
-	network_card = new /obj/item/computer_hardware/network_card/advanced(src)
-
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power
 	if(computer_host)
