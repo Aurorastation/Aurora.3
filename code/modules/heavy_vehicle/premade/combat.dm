@@ -39,6 +39,7 @@
 	move_delay = 3
 	turn_delay = 3
 	power_use = 5000
+	trample_damage = 35
 
 /obj/item/mech_component/sensors/combat
 	name = "combat sensors"

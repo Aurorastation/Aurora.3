@@ -12,6 +12,7 @@
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
 	var/pump
+	var/display_loading_message = TRUE
 
 	use_power = 1
 	idle_power_usage = 15
@@ -158,7 +159,8 @@
 	return attack_hand(user)
 
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
-	add_fingerprint(user)
+	if(!istype(I, /obj/item/forensics))
+		add_fingerprint(user)
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
@@ -176,7 +178,8 @@
 			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+		if(display_loading_message)
+			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
@@ -249,10 +252,11 @@
 		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 		return
 
-	if(M == user)
-		visible_message("\The [user] starts climbing into \the [src].")
-	else
-		visible_message("\The [user] starts putting [M] into \the [src].")
+	if(display_loading_message)
+		if(M == user)
+			visible_message("\The [user] starts climbing into \the [src].")
+		else
+			visible_message("\The [user] starts putting [M] into \the [src].")
 
 	if(do_after(user, 20))
 		if(occupant)

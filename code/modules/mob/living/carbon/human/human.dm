@@ -784,6 +784,12 @@
 			return
 		src.examinate(I)
 
+	if (href_list["lookitem_desc_only"])
+		var/obj/item/I = locate(href_list["lookitem_desc_only"])
+		if(!I)
+			return
+		usr.examinate(I, 1)
+
 	if (href_list["lookmob"])
 		var/mob/M = locate(href_list["lookmob"])
 		if(!M)
@@ -976,8 +982,7 @@
 		if(incapacitated())
 			to_chat(src, span("warning", "You cannot do that right now."))
 			return
-		var/datum/gender/G = gender_datums[gender]
-		visible_message(span("danger", "\The [src] starts sticking a finger down [G.his] own throat. It looks like [G.he] [G.is] trying to throw up!"))
+		visible_message(span("warning", "\The [src] retches a bit..."))
 		if(!do_after(src, 30))
 			return
 		timevomit = max(timevomit, 5)
@@ -1709,6 +1714,8 @@
 /mob/living/carbon/human/proc/get_traumas()
 	. = list()
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
+	if(istype(B, /obj/item/organ/internal/borer))
+		return
 	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.traumas
 
@@ -1821,7 +1828,7 @@
 			return TRUE
 	return species.handle_death_check(src)
 
-/mob/living/carbon/human/proc/should_have_organ(var/organ_check)
+/mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
 /mob/living/carbon/human/proc/resuscitate()
@@ -1844,13 +1851,6 @@
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
 		reagents.add_reagent("adrenaline", amount)
-
-/mob/living/carbon/human/proc/seizure()
-	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(8,16))
-		make_jittery(rand(150,200))
-		adjustHalLoss(rand(50,60))
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)

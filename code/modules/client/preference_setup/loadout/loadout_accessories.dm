@@ -35,7 +35,6 @@
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
 	armbands["science armband"] = /obj/item/clothing/accessory/armband/science
-	armbands["ATLAS armband"] = /obj/item/clothing/accessory/armband/atlas
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
@@ -51,10 +50,10 @@
 	holsters["black holster, hip"] = /obj/item/clothing/accessory/holster/hip
 	holsters["black holster, waist"] = /obj/item/clothing/accessory/holster/waist
 	holsters["black holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
-	holsters["brown holster, armpit"] = /obj/item/clothing/accessory/holster/armpit
-	holsters["brown holster, hip"] = /obj/item/clothing/accessory/holster/hip
-	holsters["brown holster, waist"] = /obj/item/clothing/accessory/holster/waist
-	holsters["brown holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
+	holsters["brown holster, armpit"] = /obj/item/clothing/accessory/holster/armpit/brown
+	holsters["brown holster, hip"] = /obj/item/clothing/accessory/holster/hip/brown
+	holsters["brown holster, waist"] = /obj/item/clothing/accessory/holster/waist/brown
+	holsters["brown holster, thigh"] = /obj/item/clothing/accessory/holster/thigh/brown
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie

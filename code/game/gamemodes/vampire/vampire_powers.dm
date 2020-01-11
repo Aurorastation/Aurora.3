@@ -127,7 +127,7 @@
 
 			to_chat(src, update_msg)
 		check_vampire_upgrade()
-		T.vessel.remove_reagent("blood", 25)
+		T.vessel.remove_reagent("blood", 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -668,6 +668,8 @@
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
 	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
+	to_chat(T, span("notice", "You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
+	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i></span>")
 	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
 	emote("me", 1, "whispers.")
 
@@ -717,7 +719,7 @@
 		return
 
 	to_chat(T, "<span class='danger'>Your mind blanks as you finish feeding from [src]'s wrist.</span>")
-	vampire_thrall.add_antagonist(T.mind, 1, 1, 0, 1, 1)
+	thralls.add_antagonist(T.mind, 1, 1, 0, 1, 1)
 
 	T.mind.vampire.master = src
 	vampire.thralls += T
@@ -913,7 +915,7 @@
 				to_chat(src, "<span class='notice'>[denial_response]</span>")
 				return
 
-			vampire_thrall.remove_antagonist(T.mind, 0, 0)
+			thralls.remove_antagonist(T.mind, 0, 0)
 			qdel(draining_vamp)
 			draining_vamp = null
 		else

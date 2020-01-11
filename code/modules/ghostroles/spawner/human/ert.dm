@@ -69,6 +69,7 @@
 	outfit = /datum/outfit/admin/ert/legion
 	spawnpoints = list("TCFLERTSpawn")
 	possible_species = list("Human", "Off-Worlder Human", "Tajara", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Aut'akh Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Diona")
+	mob_name_prefix = "Vol. "
 
 /datum/ghostspawner/human/ert/tcfl/specialist
 	name = "TCFL Legionnaire"
@@ -113,6 +114,13 @@
 	max_count = 1
 	desc = "The only medic of the freelancer mercenary team."
 	outfit = /datum/outfit/admin/ert/mercenary/specialist
+
+/datum/ghostspawner/human/ert/mercenary/engineer
+	name = "Mercenary Combat Engineer"
+	short_name = "merce"
+	max_count = 1
+	desc = "The only dedicated engineer of the freelancer mercenary team."
+	outfit = /datum/outfit/admin/ert/mercenary/engineer
 
 /datum/ghostspawner/human/ert/mercenary/leader
 	name = "Mercenary Leader"

@@ -2159,11 +2159,7 @@
 /turf/simulated/floor/plating,
 /area/security/detectives_office)
 "eD" = (
-/obj/machinery/computer/records/medical,
-/turf/simulated/floor/lino,
-/area/security/detectives_office)
-"eE" = (
-/obj/machinery/computer/records/security,
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
 "eF" = (
@@ -3209,6 +3205,7 @@
 	req_access = list(50);
 	req_one_access = null
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
 "gD" = (
@@ -3904,13 +3901,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
-"hA" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white_full"
-	},
-/obj/structure/sign/christmas/lights,
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "hC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4174,7 +4164,6 @@
 /area/maintenance/interstitial_cargo)
 "im" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -4928,8 +4917,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jH" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/green/full{
 	icon_state = "corner_white_full";
 	dir = 1
@@ -4937,6 +4924,7 @@
 /obj/machinery/alarm{
 	pixel_y = 24
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jI" = (
@@ -5087,12 +5075,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jT" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "jU" = (
@@ -5725,7 +5712,6 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/firedoor/multi_tile,
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "kX" = (
@@ -5889,7 +5875,6 @@
 	req_access = list(64)
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lk" = (
@@ -5928,10 +5913,6 @@
 	dir = 9
 	},
 /obj/structure/bed/chair,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lp" = (
@@ -5939,18 +5920,10 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lq" = (
 /obj/structure/table/wood,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lr" = (
@@ -5989,10 +5962,6 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "lu" = (
@@ -6028,7 +5997,11 @@
 	pixel_y = 32
 	},
 /obj/structure/table/wood,
-/obj/machinery/computer/records/medical/laptop,
+/obj/item/book/manual/psych,
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 7
+	},
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lx" = (
@@ -6038,10 +6011,6 @@
 	},
 /obj/structure/bed/chair{
 	dir = 1
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
@@ -6068,10 +6037,6 @@
 "lz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/disposalpipe/segment,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "lA" = (
@@ -6090,16 +6055,11 @@
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lC" = (
-/obj/structure/table/wood,
-/obj/item/book/manual/psych,
-/obj/item/paper_bin{
-	pixel_x = 4;
-	pixel_y = 7
-	},
 /obj/machinery/light_switch{
 	pixel_x = 26;
 	pixel_y = -2
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/carpet,
 /area/medical/psych)
 "lD" = (
@@ -6168,7 +6128,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled,
 /area/medical/psych)
 "lH" = (
@@ -6247,10 +6206,6 @@
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
 	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
 "lP" = (
@@ -6275,7 +6230,6 @@
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/door/firedoor/multi_tile,
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/psych)
 "lU" = (
@@ -6935,10 +6889,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
-"oP" = (
-/obj/structure/sign/christmas/lights,
-/turf/simulated/open,
-/area/medical/psych)
 "pa" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7142,6 +7092,7 @@
 	c_tag = "Security - Forensics Autopsy Chamber";
 	dir = 1
 	},
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -7185,12 +7136,11 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "qu" = (
-/obj/structure/table/standard,
-/obj/machinery/computer/records/medical/laptop,
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "qz" = (
@@ -7687,13 +7637,6 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site/zone_2)
-"sZ" = (
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "ta" = (
 /turf/simulated/wall,
 /area/maintenance/interstitial_construction_site)
@@ -8020,19 +7963,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
-"vg" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/structure/sign/christmas/wreath,
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "vh" = (
 /obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
@@ -8978,6 +8908,7 @@
 	name = "Elevator Maintenance";
 	req_one_access = list(12,50)
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
 "BW" = (
@@ -9892,14 +9823,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"Hg" = (
-/obj/structure/lattice,
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
-/turf/simulated/open,
-/area/medical/psych)
 "Hh" = (
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -10129,13 +10052,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"Iu" = (
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "Ix" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10957,7 +10873,6 @@
 	name = "Psychiatry Wing";
 	req_access = list(5)
 	},
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
 "Lr" = (
@@ -11317,7 +11232,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/sign/christmas/wreath,
 /turf/simulated/floor/plating,
 /area/janitor/stairs)
 "Mz" = (
@@ -11430,13 +11344,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
-"MY" = (
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
-/turf/simulated/open,
-/area/medical/psych)
 "MZ" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11509,18 +11416,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"Nz" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/sign/christmas/wreath,
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "NB" = (
 /turf/simulated/wall,
 /area/maintenance/interstitial_construction_site/zone_2)
@@ -11725,18 +11620,37 @@
 "Ph" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering_ladder)
+"Pj" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "Pk" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/security,
 /obj/machinery/requests_console{
 	department = "Forensic Technician";
 	departmentType = 5;
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Pm" = (
@@ -12214,17 +12128,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"RI" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white_full";
-	dir = 4
-	},
-/obj/structure/sign/christmas/lights{
-	icon_state = "xmaslights";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/psych)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -12748,7 +12651,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/computer/records/medical,
+/obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
 "Uq" = (
@@ -39805,7 +39708,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 ab
@@ -40062,7 +39965,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 mo
@@ -40319,7 +40222,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -40576,7 +40479,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -40833,7 +40736,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41090,7 +40993,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41347,7 +41250,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 mo
 mo
@@ -41604,7 +41507,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 mo
@@ -41861,7 +41764,7 @@ aa
 aa
 aa
 ab
-qc
+Pj
 ab
 ab
 ab
@@ -42118,7 +42021,7 @@ ab
 ab
 ab
 ab
-qc
+Pj
 UC
 ab
 mo
@@ -48725,7 +48628,7 @@ dW
 eg
 ep
 ev
-eE
+fo
 eQ
 fb
 fl
@@ -52887,7 +52790,7 @@ hZ
 aa
 hZ
 GT
-oP
+GT
 Nf
 QM
 sl
@@ -53134,17 +53037,17 @@ kE
 hZ
 hZ
 hZ
-MY
-MY
-MY
-MY
-Hg
+GT
+GT
+GT
+GT
+Hm
 GT
 hZ
 aa
 hZ
 GT
-oP
+GT
 qQ
 yO
 sU
@@ -53401,7 +53304,7 @@ hZ
 hZ
 hZ
 kh
-hA
+kR
 ZY
 QM
 sl
@@ -53648,11 +53551,11 @@ kG
 kR
 hZ
 kZ
-Iu
+kL
 ln
 lq
 lx
-Iu
+kL
 lL
 hZ
 lN
@@ -54160,7 +54063,7 @@ kj
 kt
 kI
 kS
-vg
+kX
 kX
 li
 kX
@@ -54168,7 +54071,7 @@ lr
 kX
 lE
 lM
-Nz
+lM
 lV
 mp
 mt
@@ -54421,10 +54324,10 @@ hZ
 II
 kL
 Gm
-sZ
+kL
 lp
 lF
-RI
+ko
 hZ
 lW
 kt

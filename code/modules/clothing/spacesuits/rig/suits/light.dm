@@ -190,7 +190,7 @@
 
 /obj/item/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
-	desc = "A sleek hardsuit used by the frontier forces of the Techno-Conglomerate."
+	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
 	icon_state = "techno_rig"
 	suit_type = "techno-conglomerate mobility hardsuit"
 	armor = list(melee = 40, bullet = 20, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 100)

@@ -31,16 +31,16 @@
 		else
 			idle_threads.Remove(P)
 
-	working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
+	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
 		playsound(loc, "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
-/obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
+/obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
-		if(prs.name == app_preset_name)
+		if(prs.type == preset_type)
 			return prs.return_install_programs()
 
 // Used to perform preset-specific hardware changes.
@@ -50,7 +50,7 @@
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
 	if(enrolled)
-		var/programs = get_preset_programs(_app_preset_name)
+		var/programs = get_preset_programs(_app_preset_type)
 		for (var/datum/computer_file/program/prog in programs)
 			hard_drive.store_file(prog)
 
@@ -125,7 +125,7 @@
 		else
 			to_chat(user, "You press the power button, but the computer fails to boot up, displaying variety of errors before shutting down again.")
 		return
-	if(processor_unit && (apc_power(0) || battery_power(0))) // Battery-run and charged or non-battery but powered by APC.
+	if(processor_unit && computer_use_power()) // Battery-run and charged or non-battery but powered by APC.
 		if(issynth)
 			to_chat(user, "You send an activation signal to \the [src], turning it on")
 		else
@@ -169,7 +169,7 @@
 		idle_threads.Remove(P)
 	if(loud)
 		visible_message("\The [src] shuts down.")
-	SSvueui.close_uis(active_program)
+	SSvueui.close_uis(src)
 	enabled = 0
 	update_icon()
 

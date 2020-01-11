@@ -39,8 +39,7 @@
 
 /obj/item/organ/internal/brain/Destroy()
 	if(brainmob)
-		qdel(brainmob)
-		brainmob = null
+		QDEL_NULL(brainmob)
 	return ..()
 
 /obj/item/organ/internal/brain/removed(var/mob/living/user)
@@ -53,7 +52,7 @@
 	var/mob/living/simple_animal/borer/borer = owner.has_brain_worms()
 
 	if(borer)
-		borer.detatch() //Should remove borer if the brain is removed - RR
+		borer.detach() //Should remove borer if the brain is removed - RR
 
 	var/obj/item/organ/internal/brain/B = src
 	if(istype(B) && istype(owner))
@@ -167,7 +166,7 @@
 
 /obj/item/organ/internal/brain/proc/brain_damage_callback(var/damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
 	to_chat(owner, "<span class = 'notice' font size='10'><B>I can't remember which way is forward...</B></span>")
-	owner.confused += damage
+	owner?.confused += damage
 
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
 	set waitfor = FALSE
