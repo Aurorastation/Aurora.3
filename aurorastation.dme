@@ -173,6 +173,7 @@
 #include "code\controllers\subsystems\garbage.dm"
 #include "code\controllers\subsystems\ghostroles.dm"
 #include "code\controllers\subsystems\global_listener.dm"
+#include "code\controllers\subsystems\http.dm"
 #include "code\controllers\subsystems\icon_cache.dm"
 #include "code\controllers\subsystems\icon_smooth.dm"
 #include "code\controllers\subsystems\icon_updates.dm"
