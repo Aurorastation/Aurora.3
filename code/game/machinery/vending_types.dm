@@ -602,7 +602,7 @@
 		/obj/item/seeds/amanitamycelium = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
-		/obj/item/seeds/nettleseed = 3,
+		/obj/item/seeds/nettleseed = 3
 
 	)
 	premium = list(
