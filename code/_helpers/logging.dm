@@ -280,4 +280,5 @@
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
 
+#undef RUST_G
 #undef WRITE_LOG

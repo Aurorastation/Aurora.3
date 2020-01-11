@@ -479,8 +479,8 @@ MC_TICKLIMIT_INIT 500
 
 ## GELF Logging Configuration
 LOG_GELF_ENABLED 0
-# Make sure the IP string is written in a manner of "IP:port", without the quotes.
-#LOG_GELF_ADDR 127.0.0.1:5667
+LOG_GELF_IP 192.168.100.80
+LOG_GELF_PORT 12201
 
 ### IPINTEL:
 ### This allows you to detect likely proxies by checking ips against getipintel.net
