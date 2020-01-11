@@ -8,7 +8,7 @@
 	icon_state_broken = "laptop-broken"
 	base_idle_power_usage = 5
 	base_active_power_usage = 25
-	max_hardware_size = 2
+	max_hardware_size = 3
 	max_damage = 50
 	w_class = 3
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
@@ -23,6 +23,10 @@
 	verbs -= /obj/item/modular_computer/verb/eject_ai
 	verbs -= /obj/item/modular_computer/verb/eject_id
 	verbs -= /obj/item/modular_computer/verb/eject_usb
+
+/obj/item/modular_computer/silicon/install_default_hardware()
+	..()
+	network_card = new /obj/item/computer_hardware/network_card/advanced(src)
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
 	// If we have host like AI, borg or pAI we handle there power

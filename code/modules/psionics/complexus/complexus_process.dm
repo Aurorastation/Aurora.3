@@ -177,7 +177,7 @@
 					if(BP_IS_ROBOTIC(E))
 						continue
 
-					if(heal_internal && (E.status & ORGAN_BROKEN) && E.damage < (E.min_broken_damage * config.organ_health_multiplier)) // So we don't mend and autobreak.
+					if(heal_internal && (E.status & ORGAN_BROKEN) && E.damage < E.min_broken_damage) // So we don't mend and autobreak.
 						if(spend_power(heal_rate))
 							if(E.mend_fracture())
 								to_chat(H, span("notice", "Your autoredactive faculty coaxes together the shattered bones in your [E.name]."))
