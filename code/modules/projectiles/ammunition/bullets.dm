@@ -219,7 +219,7 @@
 
 
 /obj/item/ammo_casing/a556/mk43
-	desc = "A 5.56mm round."
+	desc = "A 5.56mmR round."
 	projectile_type = /obj/item/projectile/bullet/rifle/mk43
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
