@@ -1,6 +1,0 @@
-author: Alberyk, Kyres
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed TCFL rig shoes not displaying the correct sprites."
