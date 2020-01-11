@@ -11,7 +11,7 @@
 	var/destroyed = FALSE
 	var/item_x_offset = 0
 	var/item_y_offset = 1
-	var/security_level = 1
+	var/case_security = 1
 	var/delayed_alarm = FALSE
 	var/alarm_delay = 20
 	var/obj/item/displayed_item = null
@@ -25,8 +25,8 @@
 	name = "spare id containment case"
 	desc = "A display case for holding the captain's spare ID, it seems to have a device installed on the side."
 	held_item = /obj/item/card/id/captains_spare
-	alarm_delay = 30
-	security_level = 2
+	alarm_delay = 3 SECONDS
+	case_security = 2
 
 
 /obj/structure/displaycase/Initialize()
@@ -65,16 +65,16 @@
 	src.healthcheck()
 	return
 
-/obj/structure/displaycase/proc/tripalarm(security_level)
+/obj/structure/displaycase/proc/tripalarm(case_security)
 	var/area/case_area = get_area(src)
-	switch(security_level)
+	switch(case_security)
 		if(1)
 			visible_message("<span class='notice'>[src] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
 		if(2)
-			priority_announcement.Announce("Warning, a company asset has been removed from it's storage case. Company assets require command approval to remove from protected cases.", new_sound = 'sound/ai/caseseclevel1.ogg')
+			priority_announcement.Announce("Warning, a company asset has been removed from it's storage case. Crew are advised to keep assets in there assigned storage cases.")
 		if(3)
 			set_security_level(SEC_LEVEL_BLUE)
-			priority_announcement.Announce("Warning, a company asset has been removed from the storage case in the [case_area.name]. A blue alert level has been enacted to allow security to recover the asset. All crew are advised to not impede security's inquiry into the assets whereabouts.", new_sound = 'sound/ai/caseseclevel2.ogg')
+			priority_announcement.Announce("Warning, a company asset has been removed from the storage case in the [case_area.name]. A blue alert level has been enacted to allow security to recover the asset.")
 /obj/structure/displaycase/proc/healthcheck()
 	if (src.health <= 0)
 		if (!( src.destroyed ))
@@ -125,11 +125,11 @@
 		if(health <= maxhealth && !destroyed)
 			if(G.use(2))
 				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-				to_chat(user, "<span class='notice'>You places the glass on the [src].</span>")
-				health = max(health+(maxhealth/5), maxhealth)
+				to_chat(user, "<span class='notice'>You carefully apply some panes and fix the glass on [src].</span>")
+				health = Clamp(health + maxhealth/5, 0, maxhealth)
 			else
 				to_chat(user, "<span class='warning'>You need 2 sheets of glass to repair this!.</span>")
-	else if(user.a_intent == I_HURT)
+	else if(user.a_intent == I_HURT && !destroyed)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		src.health -= W.force
 		src.healthcheck()
@@ -145,9 +145,9 @@
 		update_icon()
 		if(alarm)
 			if(delayed_alarm)
-				addtimer(CALLBACK(src, .proc/tripalarm, security_level), alarm_delay SECONDS)
+				addtimer(CALLBACK(src, .proc/tripalarm, case_security), alarm_delay)
 			else
-				tripalarm(security_level)
+				tripalarm(case_security)
 		return
 	else
 		to_chat(usr, text("<span class='warning'>You kick the display case.</span>"))
