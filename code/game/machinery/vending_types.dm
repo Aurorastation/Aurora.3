@@ -583,6 +583,7 @@
 		/obj/item/seeds/potatoseed = 3,
 		/obj/item/seeds/pumpkinseed = 3,
 		/obj/item/seeds/riceseed = 3,
+		/obj/item/seeds/reishimycelium = 3,
 		/obj/item/seeds/shandseed = 3,
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
@@ -602,7 +603,7 @@
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
 		/obj/item/seeds/nettleseed = 3,
-		/obj/item/seeds/reishimycelium = 3
+
 	)
 	premium = list(
 		/obj/item/seeds/ambrosiadeusseed = 3
