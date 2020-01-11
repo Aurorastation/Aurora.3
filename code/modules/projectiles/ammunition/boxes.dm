@@ -208,7 +208,7 @@
 	ammo_type = /obj/item/ammo_casing/a556/ap
 
 /obj/item/ammo_magazine/a556/mk43
-	name = "magazine (5.56mm) Ten Round "
+	name = "magazine (5.56mmR)"
 	icon_state = "mk43"
 	origin_tech = list(TECH_COMBAT = 4)
 	mag_type = MAGAZINE
