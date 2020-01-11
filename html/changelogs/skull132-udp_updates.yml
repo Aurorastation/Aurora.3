@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - backend: "Updated remote logging capabilities."
