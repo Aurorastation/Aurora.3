@@ -52,10 +52,9 @@ var/datum/antagonist/renegade/renegades
 		return
 
 	var/gun_type = pick(spawn_guns)
-	var/gun = new gun_type(player)
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
-	player.equip_to_slot_or_del(gun, slot_in_backpack)
+	player.equip_to_slot_or_del(new gun_type(player), slot_in_backpack)
 
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")
