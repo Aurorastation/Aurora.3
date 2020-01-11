@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Mobs in bags can now hear sounds again."
+  - bugfix: "Various pAI bugfixes, such as the crew manifest and booping them not folding them up right."
+  - tweak: "Disarming an unfolded pAI now boops them to get folded up."
+  - tweak: "pAI have had their HP reduced a lot."
