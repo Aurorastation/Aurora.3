@@ -51,7 +51,7 @@
 			to_chat(user, "<span class='notice'>You load \the [I] in \the [src].</span>")
 			update_icon()
 		else
-			to_chat(usr, "<span class='warning'>\The [src] is already loaded.</span>")
+			to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")
 
 
 /obj/item/gun/launcher/harpoon/attack_hand(mob/user)
