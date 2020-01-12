@@ -1,4 +1,10 @@
 /mob/living/carbon/human/gib()
+	if(vr_mob || old_mob)
+		body_return()
+
+	if(remote_network)
+		SSvirtualreality.remove_robot(src, remote_network)
+		remote_network = null
 
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
@@ -18,6 +24,13 @@
 	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
 
 /mob/living/carbon/human/dust()
+	if(vr_mob || old_mob)
+		body_return()
+
+	if(remote_network)
+		SSvirtualreality.remove_robot(src, remote_network)
+		remote_network = null
+
 	if(species)
 		..(species.dusted_anim, species.remains_type)
 	else
@@ -32,6 +45,10 @@
 	// Also come out of VR if your VR body dies
 	if(vr_mob || old_mob)
 		body_return()
+
+	if(remote_network)
+		SSvirtualreality.remove_robot(src, remote_network)
+		remote_network = null
 
 	BITSET(hud_updateflag, HEALTH_HUD)
 	BITSET(hud_updateflag, STATUS_HUD)
@@ -77,12 +94,6 @@
 
 	. = ..(gibbed,species.death_message, species.death_message_range)
 	handle_hud_list()
-
-/mob/living/carbon/human/unbranded_frame/death()
-	if(remote_network)
-		SSvirtualreality.remove_robot(src, remote_network)
-	remote_network = null
-	..()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
 	if(HUSK in mutations)	return
