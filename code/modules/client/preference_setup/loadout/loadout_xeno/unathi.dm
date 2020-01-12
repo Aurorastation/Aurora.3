@@ -126,7 +126,7 @@
 	description = "Head wrappings with a breath mask. Only very traditional Th'akh Shamans would wear these."
 	path = /obj/item/clothing/mask/gas/wrapping
 	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_body
@@ -134,5 +134,5 @@
 	description = "Closed body wrappings. Only very traditional Th'akh Shamans would wear these."
 	path = /obj/item/clothing/suit/unathi/mantle/wrapping
 	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
