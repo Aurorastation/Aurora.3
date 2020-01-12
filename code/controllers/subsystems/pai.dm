@@ -82,7 +82,7 @@
 			candidate.role = href_list["submit_candidate"]["role"]
 		if(href_list["submit_candidate"]["comments"])
 			candidate.comments = href_list["submit_candidate"]["comments"]
-		if(candidate.name.length < 1)
+		if(length(candidate.name) < 1)
 			to_chat(ui.user, "Please set your pAI name.")
 			return
 		candidate.ready = 1
