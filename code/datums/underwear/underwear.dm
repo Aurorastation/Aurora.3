@@ -17,13 +17,13 @@ datum/category_group/underwear/dd_SortValue()
 
 /datum/category_group/underwear/top
 	name = "Underwear, top"
-	sort_order = 3
+	sort_order = 4
 	display_name = "top piece"
 	category_item_type = /datum/category_item/underwear/top
 
 /datum/category_group/underwear/bottom
 	name = "Underwear, bottom"
-	sort_order = 4
+	sort_order = 3
 	display_name = "bottom piece"
 	category_item_type = /datum/category_item/underwear/bottom
 
