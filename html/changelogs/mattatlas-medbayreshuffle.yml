@@ -38,7 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - experiment: "The Medical Doctor role has been split up into three different roles."
-  - tweak: "Medical Doctor is now renamed to Physician and has two slots."
+  - experiment: "The Medical Doctor role has been split up into two different roles."
+  - tweak: "Medical Doctor is now renamed to Physician and has four slots."
   - rscadd: "Surgeon is now its own standalone role. Two slots."
-  - rscadd: "Nurse is now its own standalone role. Two slots."
