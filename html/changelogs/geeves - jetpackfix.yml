@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Jetpacks now properly toggle flight capability when you press the action button."
