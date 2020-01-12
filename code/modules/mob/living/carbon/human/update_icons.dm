@@ -649,6 +649,9 @@ There are several things that need to be remembered:
 		else
 			overlays_raw[GLASSES_LAYER] = image('icons/mob/eyes.dmi', glasses.icon_state)
 
+		if(glasses.color)
+			overlays_raw[GLASSES_LAYER].color = glasses.color
+
 	if(update_icons)
 		update_icons()
 

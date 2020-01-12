@@ -50,7 +50,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/contract_uplink            = TRADER_BLACKLIST, // Traitor stuff
 		/obj/item/device/uplink                     = TRADER_BLACKLIST_ALL, // Traitor stuff
 		/obj/item/device/announcer                  = TRADER_BLACKLIST, // Rev item
-		/obj/item/device/ninja_uplink               = TRADER_BLACKLIST, // Ninja item
+		/obj/item/device/special_uplink             = TRADER_BLACKLIST,
 		/obj/item/device/onetankbomb                = TRADER_BLACKLIST, // Not weapons trader
 		/obj/item/device/kinetic_analyzer           = TRADER_BLACKLIST, // Not KA trader
 		/obj/item/device/camera                     = TRADER_BLACKLIST_SUB, // a lot of ai/drone/cyborg/fluff items
