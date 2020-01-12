@@ -158,6 +158,8 @@
 	return 0
 
 /datum/shuttle/ferry/proc/can_cancel()
+	if(moving_status == SHUTTLE_HALT)
+		return 0
 	if (moving_status == SHUTTLE_WARMUP || process_state == WAIT_LAUNCH || process_state == FORCE_LAUNCH)
 		return 1
 	return 0
