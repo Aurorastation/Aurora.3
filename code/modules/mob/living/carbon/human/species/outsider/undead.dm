@@ -9,7 +9,7 @@
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
-	total_health = 85 //gotta get headshots to kill them, so they're frail
+	total_health = 70 //gotta get headshots to kill them, so they're frail
 
 	default_language = "Ceti Basic"
 	language = "Cult"
