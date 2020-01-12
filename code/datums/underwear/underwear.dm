@@ -17,26 +17,26 @@ datum/category_group/underwear/dd_SortValue()
 
 /datum/category_group/underwear/top
 	name = "Underwear, top"
-	sort_order = 1
+	sort_order = 3
 	display_name = "top piece"
 	category_item_type = /datum/category_item/underwear/top
 
 /datum/category_group/underwear/bottom
 	name = "Underwear, bottom"
-	sort_order = 2
+	sort_order = 4
 	display_name = "bottom piece"
 	category_item_type = /datum/category_item/underwear/bottom
 
 /datum/category_group/underwear/socks
 	name = "Socks"
-	sort_order = 3
+	sort_order = 2
 	display_name = "socks"
 	gender = PLURAL
 	category_item_type = /datum/category_item/underwear/socks
 
 /datum/category_group/underwear/undershirt
 	name = "Undershirt"
-	sort_order = 4		// Undershirts currently have the highest sort order because they may cover both underwear and socks.
+	sort_order = 1		// Undershirts currently have the lowest sort order because they may cover both underwear and socks.
 	display_name = "undershirt"
 	category_item_type = /datum/category_item/underwear/undershirt
 
