@@ -29,11 +29,6 @@
 	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/g9mm
 
-/datum/uplink_item/item/visible_weapons/exolaser
-	name = "Exosuit Mounted Laser"
-	item_cost = 8
-	path = /obj/item/mecha_equipment/mounted_system/taser/laser
-
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	item_cost = 5
@@ -45,7 +40,7 @@
 	path = /obj/item/gun/projectile/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Vintage Sub-Machine Gun"
+	name = "Vintage Submachine Gun"
 	item_cost = 14
 	path = /obj/item/gun/projectile/automatic/tommygun
 

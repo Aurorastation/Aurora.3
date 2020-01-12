@@ -6,6 +6,6 @@ changes:
   - rscadd: "Added a bunch of descriptions to the traitor uplink so you can be more sure of what you're buying."
   - rscadd: "Added various new weapons, tools, and kits to the traitor uplink."
   - tweak: "Various traitor items have had their cost tweaked to bring them into a tighter balance."
-  - tweak: "The Mecha dropper has been removed from the revolution uplink and added to the general uplink under devices and tools."
   - tweak: "The Tommygun is now know as the Vintage Sub-Machine gun everywhere."
   - tweak: "Manhacks are now called Viscerators everywhere."
+  - rscadd: "Exosuit droppers and their equipment have both been given their own uplink catagories."

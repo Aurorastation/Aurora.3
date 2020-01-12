@@ -24,16 +24,16 @@
 	desc = "Contains seven rounds of .45 bullets."
 
 /datum/uplink_item/item/ammo/tommygundrum
-	name = "Sub-Machine Gun Drum Magazine (.45)"
+	name = "Submachine Gun Drum Magazine (.45)"
 	item_cost = 6
 	path = /obj/item/ammo_magazine/tommydrum
-	desc = "Contains fifty rounds of .45 bullets, for use with the vintage sub-machine gun."
+	desc = "Contains fifty rounds of .45 bullets, for use with the vintage submachine gun."
 
 /datum/uplink_item/item/ammo/tommygunmag
-	name = "Sub-Machine Gun Magazine (.45)"
+	name = "Submachine Gun Magazine (.45)"
 	item_cost = 4
 	path = /obj/item/ammo_magazine/tommymag
-	desc = "Contains twenty rounds of .45 bullets, for use with the vintage sub-machine gun."
+	desc = "Contains twenty rounds of .45 bullets, for use with the vintage submachine gun."
 
 /datum/uplink_item/item/ammo/a357
 	name = ".357 Speedloader"
