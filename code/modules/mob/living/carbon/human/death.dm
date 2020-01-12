@@ -1,10 +1,5 @@
 /mob/living/carbon/human/gib()
-	if(vr_mob || old_mob)
-		body_return()
-
-	if(remote_network)
-		SSvirtualreality.remove_robot(src, remote_network)
-		remote_network = null
+	vr_disconnect()
 
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
@@ -24,12 +19,7 @@
 	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
 
 /mob/living/carbon/human/dust()
-	if(vr_mob || old_mob)
-		body_return()
-
-	if(remote_network)
-		SSvirtualreality.remove_robot(src, remote_network)
-		remote_network = null
+	vr_disconnect()
 
 	if(species)
 		..(species.dusted_anim, species.remains_type)
@@ -41,14 +31,7 @@
 	if(stat == DEAD)
 		return
 
-	// Come out of VR right before you die, how depressing - geeves
-	// Also come out of VR if your VR body dies
-	if(vr_mob || old_mob)
-		body_return()
-
-	if(remote_network)
-		SSvirtualreality.remove_robot(src, remote_network)
-		remote_network = null
+	vr_disconnect()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
 	BITSET(hud_updateflag, STATUS_HUD)
@@ -127,3 +110,13 @@
 	status_flags |= DISFIGURED
 	update_body(0)
 	return
+
+/mob/living/carbon/human/proc/vr_disconnect()
+	// Come out of VR right before you die, how depressing - geeves
+	// Also come out of VR if your VR body dies
+	if(vr_mob || old_mob)
+		body_return()
+
+	if(remote_network)
+		SSvirtualreality.remove_robot(src, remote_network)
+		remote_network = null
