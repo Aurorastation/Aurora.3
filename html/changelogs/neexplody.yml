@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - bugfix: "Bluespace drives have been improved to prevent critical drive failure."
