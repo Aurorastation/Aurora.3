@@ -93,7 +93,7 @@
 /mob/living/heavy_vehicle/examine(var/mob/user)
 	if(!user || !user.client)
 		return
-	to_chat(user, "\icon[src] That's \a <b>[src]</b>.")
+	to_chat(user, "That's \a <b>[src]</b>.")
 	to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
 		if(length(pilots) == 0)
@@ -109,7 +109,7 @@
 		to_chat(user, "<span class='notice'>It has the following hardpoints:</span>")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			to_chat(user, "- <b>[hardpoint]</b>: [istype(I) ? "[I]" : "nothing"].")
+			to_chat(user, "- <b>[hardpoint]</b>: [istype(I) ? "<span class='notice'><i>[I]</i></span>" : "nothing"].")
 	else
 		to_chat(user, "It has <b>no visible hardpoints</b>.")
 
@@ -126,7 +126,7 @@
 				damage_string = "<span class='warning'>badly damaged</span>"
 			if(4)
 				damage_string = "<span class='danger'>almost destroyed</span>"
-		to_chat(user, "Its [thing.name] [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
+		to_chat(user, "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
 	if (href_list["examine"])
