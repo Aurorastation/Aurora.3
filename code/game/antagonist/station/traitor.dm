@@ -6,6 +6,7 @@ var/datum/antagonist/traitor/traitors
 	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	required_age = 10
 
 	faction = "syndicate"
 
@@ -87,7 +88,10 @@ var/datum/antagonist/traitor/traitors
 		add_law_zero(traitor_mob)
 		if(isrobot(traitor_mob))
 			var/mob/living/silicon/robot/R = traitor_mob
-			R.emagged = 1
+			R.overclockavailable = 1
+			R.emagged = 1		
+			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
+			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
 		return 1
 
 	if(!..())

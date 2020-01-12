@@ -21,8 +21,6 @@
 	var/datum/reagents/metabolism/touching = null
 	var/datum/reagents/metabolism/breathing = null
 
-	var/pulse = PULSE_NORM	//current pulse level
-
 	//these two help govern taste. The first is the last time a taste message was shown to the plaer.
 	//the second is the message in question.
 	var/last_taste_time = 0
@@ -35,3 +33,9 @@
 
 	var/willfully_sleeping = 0
 	var/consume_nutrition_from_air = FALSE // used by Diona
+
+	var/help_up_offer = 0 //if they have their hand out to offer someone up from the ground.
+
+	var/list/organs_by_name = list() // map organ names to organs
+	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
+

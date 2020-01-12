@@ -66,3 +66,7 @@
 /datum/uplink_category/gear_loadout
 	name = "Gear Loadout"
 	antag_roles = list(MODE_MERCENARY)
+
+/datum/uplink_category/revolution
+	name = "Revolution Items"
+	antag_roles = list(MODE_REVOLUTIONARY)

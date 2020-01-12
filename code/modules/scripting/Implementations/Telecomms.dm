@@ -66,7 +66,6 @@
 		interpreter.SetVar("L_SOL",	    LANGUAGE_SOL_COMMON)
 		interpreter.SetVar("L_TRADE",	LANGUAGE_TRADEBAND)
 		interpreter.SetVar("L_GUTTER",	LANGUAGE_GUTTER)
-		interpreter.SetVar("L_SIIKTAU", LANGUAGE_SIIK_TAU)
 		interpreter.SetVar("L_MAAS",	LANGUAGE_SIIK_MAAS)
 		interpreter.SetVar("L_YASSA",	LANGUAGE_YA_SSA)
 		interpreter.SetVar("L_DELVAHII",LANGUAGE_DELVAHII)

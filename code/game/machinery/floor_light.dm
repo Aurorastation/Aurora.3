@@ -29,12 +29,12 @@ var/list/floor_light_cache = list()
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-		if(!do_after(user, 20))
+		if(!do_after(user, 20/W.toolspeed))
 			return
 		if(!src || !WT.isOn())
 			return
@@ -45,7 +45,7 @@ var/list/floor_light_cache = list()
 		update_brightness()
 	else if(W.force && user.a_intent == "hurt")
 		attack_hand(user)
-	else if(istype(W, /obj/item/weapon/crowbar))
+	else if(W.iscrowbar())
 		if(anchored)
 			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
 			return

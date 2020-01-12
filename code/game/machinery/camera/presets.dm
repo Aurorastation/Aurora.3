@@ -44,6 +44,9 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/ert
 	network = list(NETWORK_ERT)
 
+/obj/machinery/camera/network/mercenary
+	network = list(NETWORK_MERCENARY)
+
 /obj/machinery/camera/network/exodus
 	network = list(NETWORK_STATION)
 
@@ -146,7 +149,7 @@ var/global/list/engineering_networks = list(
 	return O
 
 /obj/machinery/camera/proc/isXRay()
-	var/obj/item/weapon/stock_parts/scanning_module/O = locate(/obj/item/weapon/stock_parts/scanning_module) in assembly.upgrades
+	var/obj/item/stock_parts/scanning_module/O = locate(/obj/item/stock_parts/scanning_module) in assembly.upgrades
 	if (O && O.rating >= 2)
 		return O
 	return null
@@ -163,7 +166,7 @@ var/global/list/engineering_networks = list(
 	update_coverage()
 
 /obj/machinery/camera/proc/upgradeXRay()
-	assembly.upgrades.Add(new /obj/item/weapon/stock_parts/scanning_module/adv(assembly))
+	assembly.upgrades.Add(new /obj/item/stock_parts/scanning_module/adv(assembly))
 	setPowerUsage()
 	update_coverage()
 

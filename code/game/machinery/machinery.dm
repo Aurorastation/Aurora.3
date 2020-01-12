@@ -324,38 +324,38 @@ Class Procs:
 			return 1
 	return 0
 
-/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/weapon/crowbar/C)
-	if(!istype(C))
+/obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
+	if(!istype(C) || !C.iscrowbar())
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
-/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/weapon/screwdriver/S)
-	if(!istype(S))
+/obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
+	if(!istype(S) || !S.isscrewdriver())
 		return 0
-	playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+	playsound(src.loc,  S.usesound, 50, 1)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()
 	return 1
 
-/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/weapon/storage/part_replacer/R)
+/obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!istype(R))
 		return 0
 	if(!LAZYLEN(component_parts))
 		return 0
 
 	if(panel_open)
-		var/obj/item/weapon/circuitboard/CB = locate(/obj/item/weapon/circuitboard) in component_parts
+		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 		var/P
-		for(var/obj/item/weapon/reagent_containers/glass/G in component_parts)
+		for(var/obj/item/reagent_containers/glass/G in component_parts)
 			for(var/D in CB.req_components)
 				var/T = text2path(D)
 				if(ispath(G.type, T))
 					P = T
 					break
-			for(var/obj/item/weapon/reagent_containers/glass/B in R.contents)
+			for(var/obj/item/reagent_containers/glass/B in R.contents)
 				if(B.reagents && B.reagents.total_volume > 0) continue
 				if(istype(B, P) && istype(G, P))
 					if(B.volume > G.volume)
@@ -366,13 +366,13 @@ Class Procs:
 						B.forceMove(src)
 						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
 						break
-		for(var/obj/item/weapon/stock_parts/A in component_parts)
+		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
 				var/T = text2path(D)
 				if(ispath(A.type, T))
 					P = T
 					break
-			for(var/obj/item/weapon/stock_parts/B in R.contents)
+			for(var/obj/item/stock_parts/B in R.contents)
 				if(istype(B, P) && istype(A, P))
 					if(B.rating > A.rating)
 						R.remove_from_storage(B, src)
@@ -394,8 +394,8 @@ Class Procs:
 	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
-	M.state = 2
-	M.icon_state = "box_1"
+	M.state = 3
+	M.icon_state = "blueprint_1"
 	for(var/obj/I in component_parts)
 		I.forceMove(loc)
 	qdel(src)
@@ -419,3 +419,26 @@ Class Procs:
 /obj/machinery/proc/print_move_paper(obj/paper)
 	paper.forceMove(loc)
 	printing = FALSE
+
+/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
+	if(!ishuman(H))
+		return
+
+	//for whatever reason, skrell's tentacles have a really long length
+	//horns would not get caught in the machine
+	//vaurca have fine control of their antennae
+	if(isskrell(H) || isunathi(H) || isvaurca(H))
+		return
+
+	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
+	for(var/obj/item/protection in list(H.head))
+		if(protection && (protection.flags_inv & BLOCKHAIR))
+			return
+
+	if(hair_style.length >= 4)
+		if(prob(25))
+			H.apply_damage(30, BRUTE, BP_HEAD)
+			H.visible_message("<span class='danger'>[H]'s hair catches in \the [src]!</span>", "<span class='danger'>Your hair gets caught in \the [src]!</span>")
+			if(H.can_feel_pain())
+				H.emote("scream")
+				H.apply_damage(45, PAIN)

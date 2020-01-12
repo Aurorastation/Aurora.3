@@ -45,7 +45,7 @@ emp_act
 	if(!(species.flags & NO_EMBED) && P.can_embed())
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
-			var/obj/item/weapon/SP = new P.shrapnel_type()
+			var/obj/item/SP = new P.shrapnel_type()
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
 			SP.forceMove(organ)
@@ -60,12 +60,12 @@ emp_act
 	agony_amount *= siemens_coeff
 
 	switch (def_zone)
-		if("head")
+		if(BP_HEAD)
 			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)
 			confused = min(max(confused, 2 * (agony_amount/40)), 8)
-		if("l_hand", "r_hand")
+		if(BP_L_HAND, BP_R_HAND)
 			var/c_hand
-			if (def_zone == "l_hand")
+			if (def_zone == BP_L_HAND)
 				c_hand = l_hand
 			else
 				c_hand = r_hand
@@ -150,6 +150,13 @@ emp_act
 				return 1
 	return 0
 
+/mob/living/carbon/human/proc/check_head_airtight_coverage()
+	var/list/clothing = list(head, wear_mask, wear_suit)
+	for(var/obj/item/clothing/C in clothing)
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT|STOPPRESSUREDAMAGE)))
+			return TRUE
+	return FALSE
+
 //Used to check if they can be fed food/drinks/pills
 /mob/living/carbon/human/proc/check_mouth_coverage()
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform)
@@ -167,7 +174,7 @@ emp_act
 
 /mob/living/carbon/human/emp_act(severity)
 	if(isipc(src))
-		var/obj/item/organ/surge/s = src.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = src.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 1)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -272,11 +279,11 @@ emp_act
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(hit_appends)	//forcesay checks stat already
 
-	if((I.damtype == BRUTE || I.damtype == HALLOSS) && prob(25 + (effective_force * 2)))
+	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
-				if(prob(effective_force))
+				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
 					visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
 					apply_effect(20, PARALYZE, blocked)
 			else
@@ -300,7 +307,7 @@ emp_act
 					H.bloody_hands(src)
 
 			switch(hit_zone)
-				if("head")
+				if(BP_HEAD)
 					if(wear_mask)
 						wear_mask.add_blood(src)
 						update_inv_wear_mask(0)
@@ -310,7 +317,7 @@ emp_act
 					if(glasses && prob(33))
 						glasses.add_blood(src)
 						update_inv_glasses(0)
-				if("chest")
+				if(BP_CHEST)
 					bloody_body(src)
 
 	return 1
@@ -357,7 +364,7 @@ emp_act
 			var/mob/living/L = O.thrower
 			zone = check_zone(L.zone_sel.selecting)
 		else
-			zone = ran_zone("chest",75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
@@ -382,8 +389,8 @@ emp_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>")
-		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened hit to your [hit_area].") //I guess "melee" is the best fit here
+		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size='2'>You're hit in the [hit_area] by [O]!</font></span>")
+		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened the hit to your [hit_area].") //I guess "melee" is the best fit here
 
 		if(armor < 100)
 			apply_damage(throw_damage, dtype, zone, armor, is_sharp(O), has_edge(O), O)
@@ -472,8 +479,8 @@ emp_act
 	if(damtype != BURN && damtype != BRUTE) return
 
 	// The rig might soak this hit, if we're wearing one.
-	if(back && istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = back
+	if(back && istype(back,/obj/item/rig))
+		var/obj/item/rig/rig = back
 		rig.take_hit(damage)
 
 	// We may also be taking a suit breach.
@@ -487,7 +494,7 @@ emp_act
 	var/perm = 0
 
 	var/list/perm_by_part = list(
-		"head" = THERMAL_PROTECTION_HEAD,
+		BP_HEAD = THERMAL_PROTECTION_HEAD,
 		"upper_torso" = THERMAL_PROTECTION_UPPER_TORSO,
 		"lower_torso" = THERMAL_PROTECTION_LOWER_TORSO,
 		"legs" = THERMAL_PROTECTION_LEG_LEFT + THERMAL_PROTECTION_LEG_RIGHT,
@@ -500,7 +507,7 @@ emp_act
 		if(C.permeability_coefficient == 1 || !C.body_parts_covered)
 			continue
 		if(C.body_parts_covered & HEAD)
-			perm_by_part["head"] *= C.permeability_coefficient
+			perm_by_part[BP_HEAD] *= C.permeability_coefficient
 		if(C.body_parts_covered & UPPER_TORSO)
 			perm_by_part["upper_torso"] *= C.permeability_coefficient
 		if(C.body_parts_covered & LOWER_TORSO)
@@ -526,7 +533,7 @@ emp_act
 		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
 		return 0
 
-	for(var/obj/item/weapon/grab/G in user.grabbed_by)
+	for(var/obj/item/grab/G in user.grabbed_by)
 		if(G.assailant == user)
 			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
 			return
@@ -537,14 +544,14 @@ emp_act
 	if(src.w_uniform)
 		src.w_uniform.add_fingerprint(src)
 
-	var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(user, src)
+	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
 		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)
 	G.synch()
-	LAssailant = user
+	LAssailant = WEAKREF(user)
 
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

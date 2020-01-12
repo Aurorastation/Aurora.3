@@ -3,6 +3,7 @@
 /mob/abstract/unauthed
 	authed = FALSE
 	var/token = ""
+	var/timeout_timer
 
 /mob/abstract/unauthed/New()
 	verbs -= typesof(/mob/verb)
@@ -21,14 +22,23 @@
 	if(!config.guests_allowed && config.webint_url && config.external_auth)
 		src.OpenForumAuthWindow()
 	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
+	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 900, TIMER_STOPPABLE)
+
+/mob/abstract/unauthed/proc/timeout()
+	if (client)
+		to_chat(client, "Your login time has expired. Please relog and try again.")
+	qdel(client)
+	qdel(src)
 
 /mob/abstract/unauthed/proc/ClientLogin(var/newkey)
 	if(!client)
 		qdel(src)
+	deltimer(timeout_timer)
 	var/client/c = client
 	show_browser(src, null, "window=auth;")
 	client.verbs += typesof(/client/verb) // Let's return regular client verbs
 	client.authed = TRUE // We declare client as authed now
+	client.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans
 	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
 	if(ban_data)
@@ -41,11 +51,14 @@
 	if(newkey)
 		client.key = newkey // Try seeting ckey
 	directory[c.ckey] = c
-	// If mob exists for that ckey, then BYOND will transfer client to it.
+	// Init the client and give it a new_player mob.
+	// Note that modifying the key variable does not invoke client/New() or client/Login() again.
+	c.InitClient()
+	c.InitPrefs()
+
 	if(istype(c.mob, /mob/abstract/unauthed))
-		c.mob = new /mob/abstract/new_player() // Else we just treat them as new player
-	c.InitClient() // And now we shall continue client initilization (permissions and stuff)
-	c.InitPrefs() // We init prefs just in case mob transfer didn't
+		c.mob = new /mob/abstract/new_player()
+
 	unauthed -= token
 
 /mob/abstract/unauthed/Topic(href, href_list)

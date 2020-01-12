@@ -13,12 +13,12 @@
 	w_class = 3
 	max_amount = 60
 	icon = 'icons/obj/stacks/tiles.dmi'
+	randpixel = 7
 	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/tile/New()
 	..()
-	pixel_x = rand(-7, 7)
-	pixel_y = rand(-7, 7)
+	randpixel_xy()
 
 /*
  * Grass

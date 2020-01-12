@@ -144,6 +144,9 @@
 	blend_mode = BLEND_ADD
 	var/datum/beam/owner
 
+/obj/effect/ebeam/tesla_act()
+	return
+
 /obj/effect/ebeam/Destroy()
 	owner = null
 	return ..()

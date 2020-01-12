@@ -23,6 +23,7 @@ var/global/list/map_count = list()
 	var/wall_type =  /turf/simulated/wall
 	var/floor_type = /turf/simulated/floor
 	var/target_turf_type
+	var/spawn_roof = FALSE //Set to TRUE if a roof should be spawned based.
 
 	// Storage for the final iteration of the map.
 	var/list/map = list()           // Actual map.
@@ -179,6 +180,8 @@ var/global/list/map_count = list()
 	var/newpath = get_appropriate_path(map[tmp_cell])
 	if(newpath)
 		T.ChangeTurf(newpath)
+	if(spawn_roof)
+		T.spawn_roof()
 	get_additional_spawns(map[tmp_cell],T,get_spawn_dir(x, y))
 	return T
 

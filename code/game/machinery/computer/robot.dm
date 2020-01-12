@@ -6,7 +6,7 @@
 	icon_screen = "robot"
 	light_color = "#a97faa"
 	req_access = list(access_robotics)
-	circuit = /obj/item/weapon/circuitboard/robotics
+	circuit = /obj/item/circuitboard/robotics
 
 	var/safety = 1
 
@@ -62,7 +62,8 @@
 		if(target.mind && target.mind.special_role && target.emagged)
 			to_chat(target, "Extreme danger.  Termination codes detected.  Scrambling security codes and automatic AI unlink triggered.")
 			target.ResetSecurityCodes()
-
+			return
+			
 		if(target.emagged)
 			to_chat(user, "Access Denied. Safety protocols are disabled.")
 			return

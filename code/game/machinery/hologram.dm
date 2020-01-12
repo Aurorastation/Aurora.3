@@ -13,7 +13,6 @@ AI clicks again on the holopad to display a hologram. Hologram stays as long as 
 AI can use the directional keys to move the hologram around, provided the above conditions are met and the AI in question is the holopad's master.
 Only one AI may project from a holopad at any given time.
 AI may cancel the hologram at any time by clicking on the holopad once more.
-
 Possible to do for anyone motivated enough:
 	Give an AI variable for different hologram icons.
 	Itegrate EMP effect to disable the unit.
@@ -51,6 +50,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	var/mob/living/caller_id
 	var/obj/machinery/hologram/holopad/sourcepad
 	var/obj/machinery/hologram/holopad/targetpad
+	var/forced
 	var/last_message
 
 /obj/machinery/hologram/holopad/check_eye(mob/user)
@@ -58,6 +58,10 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		return 0
 
 	return -1
+
+/obj/machinery/hologram/holopad/Initialize()
+	. = ..()
+	desc = "It's a floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
 
 /obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
 	if(!istype(user))
@@ -68,6 +72,9 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			visible_message("The pad flashes an error message. The caller has left their holopad.")
 			return
 		take_call(user)
+		return
+	else if(caller_id && !incoming_connection && forced)
+		audible_message("Access denied. Terminating a command-level transmission locally is not permitted.")
 		return
 	else if(caller_id && !incoming_connection)
 		visible_message("Severing connection to distant holopad.")
@@ -90,6 +97,15 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				return
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
 				last_request = world.time
+				var/obj/item/card/id/I = user.GetIdCard()
+				if(!I)
+					to_chat(user, span("notice", "You need authorization to use the holocall system. Please equip a valid ID card."))
+					return
+				var/forcedcall = 0
+				if(access_heads in I.access) //Special functions for command level people
+					switch(alert(user,"Command level authorization detected. Additional functions available", "Command level menu", "Forced call","Regular call"))
+						if("Forced call")
+							forcedcall = 1
 				var/list/holopadlist = list()
 				for(var/obj/machinery/hologram/holopad/H in SSmachinery.processing_machines)
 					if((H.z in current_map.map_levels) && H.operable())
@@ -101,17 +117,24 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 					to_chat(user, "<span class='info'>Using such sophisticated technology, just to talk to yourself seems a bit silly.</span>")
 					return
 				if(targetpad)
-					make_call(targetpad, user)
+					make_call(targetpad, user, forcedcall)
 
-/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/targetpad, var/mob/living/carbon/user)
+/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/targetpad, var/mob/living/carbon/user, forcedcall)
 	targetpad.last_request = world.time
 	targetpad.sourcepad = src //This marks the holopad you are making the call from
 	targetpad.caller_id = user //This marks you as the caller
 	targetpad.incoming_connection = 1
 	playsound(targetpad.loc, 'sound/machines/chime.ogg', 25, 5)
 	targetpad.icon_state = "holopad1"
-	targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
-	to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
+	if(forcedcall)
+		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming call with command authorization from [targetpad.sourcepad.loc.loc].\"")
+		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [targetpad.loc.loc]</span>")
+		targetpad.forced = 1
+		sleep(80)
+		targetpad.take_call(user)
+	else
+		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
+		to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)
 	incoming_connection = 0
@@ -297,6 +320,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			sourcepad = 0
 	if (caller_id && sourcepad)
 		if(caller_id.loc != sourcepad.loc)
+			forced = 0
 			sourcepad.visible_message("Severing connection to distant holopad.")
 			visible_message("The connection has been terminated by [caller_id].")
 			end_call()
@@ -353,11 +377,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /*
 Holographic project of everything else.
-
 /mob/verb/hologram_test()
 	set name = "Hologram Debug New"
 	set category = "CURRENT DEBUG"
-
 	var/obj/effect/overlay/hologram = new(loc)//Spawn a blank effect at the location.
 	var/icon/flat_icon = icon(getFlatIcon(src,0))//Need to make sure it's a new icon so the old one is not reused.
 	flat_icon.ColorTone(rgb(125,180,225))//Let's make it bluish.
@@ -367,7 +389,6 @@ Holographic project of everything else.
 		var/icon/alpha_mask = new('icons/effects/effects.dmi', "[input]")
 		flat_icon.AddAlphaMask(alpha_mask)//Finally, let's mix in a distortion effect.
 		hologram.icon = flat_icon
-
 		to_world("Your icon should appear now.")
 	return
 */

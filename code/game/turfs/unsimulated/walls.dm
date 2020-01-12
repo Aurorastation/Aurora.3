@@ -32,3 +32,28 @@
 	icon_state = "pdoor1"
 	name = "blast door"
 	desc = "That looks like it doesn't open easily."
+
+/turf/unsimulated/wall/steel
+	icon = 'icons/turf/smooth/composite_solid.dmi'
+	icon_state = "map_steel"
+	desc = "It's a wall. It appears to be composed of a highly durable alloy and plated with steel."
+	color = "#666666"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/unsimulated/wall/steel
+	)
+
+/turf/unsimulated/wall/darkshuttlewall
+	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
+	icon_state = "map-shuttle"
+	desc = "It's a wall. It appears to be composed of a highly durable alloy."
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(
+		/turf/unsimulated/wall/darkshuttlewall
+	)
+
+/turf/unsimulated/wall/fakeairlock
+	icon = 'icons/obj/doors/Doorele.dmi'
+	icon_state = "door_closed"
+	name = "Airlock"
+	desc = "It opens and closes."

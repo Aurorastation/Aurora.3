@@ -69,6 +69,11 @@
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
+/datum/gear/head/beret/medical
+	display_name = "beret, medical"
+	path = /obj/item/clothing/head/beret/medical
+	allowed_roles = list("Medical Doctor", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
@@ -99,7 +104,7 @@
 
 /datum/gear/head/hairflower/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/pin
 	display_name = "pin selection"
@@ -192,7 +197,7 @@
 
 /datum/gear/head/headbando/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/beanie
 	display_name = "beanie"
@@ -200,7 +205,7 @@
 
 /datum/gear/head/beanie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/loose_beanie
 	display_name = "loose beanie"
@@ -208,7 +213,7 @@
 
 /datum/gear/head/loose_beanie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 
 /datum/gear/head/iacberet
@@ -219,3 +224,7 @@
 /datum/gear/head/tcflberet
 	display_name = "Tau Ceti Foreign Legion dress beret"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/circuitry
+	display_name = "headwear, circuitry (empty)"
+	path = /obj/item/clothing/head/circuitry

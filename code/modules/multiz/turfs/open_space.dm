@@ -71,7 +71,6 @@
  */
 /turf/simulated/open/proc/add_climber(atom/climber, flags = CLIMBER_DEFAULT)
 	if (!flags)
-		PROCLOG_WEIRD("Attempted to add climber [climber] without flags.")
 		return FALSE
 
 	if (LAZYACCESS(climbers, climber))
@@ -134,10 +133,7 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-	shadower = new(src)
-	if (!(flags & MIMIC_OVERWRITE) && plane == PLANE_SPACE_BACKGROUND)
-		// If the plane is default and we're a no_mutate turf, force it to 0 so the icon works properly.
-		plane = 0
+
 	update(mapload)
 
 /**

@@ -367,7 +367,7 @@ CREATE TABLE `ss13_characters_flavour` (
   `robot_research` text,
   PRIMARY KEY (`char_id`),
   CONSTRAINT `ss13_flavour_fk_char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Table for housing IC criminal records

@@ -3,6 +3,7 @@
 	desc = "A bullet casing."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "s-casing"
+	randpixel = 10
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 1
@@ -20,8 +21,7 @@
 	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
-	pixel_x = rand(-10, 10)
-	pixel_y = rand(-10, 10)
+	randpixel_xy()
 
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
@@ -30,7 +30,7 @@
 	set_dir(pick(alldirs)) //spin spent casings
 	update_icon()
 
-/obj/item/ammo_casing/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/ammo_casing/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		if(!BB)
 			to_chat(user, "<span class='notice'>There is no bullet in the casing to inscribe anything into.</span>")
@@ -104,7 +104,7 @@
 			stored_ammo += new ammo_type(src)
 	update_icon()
 
-/obj/item/ammo_magazine/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/ammo_magazine/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = W
 		if(C.caliber != caliber)

@@ -1,7 +1,6 @@
 /mob/living/simple_animal/lizard
 	name = "Lizard"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
-	icon = 'icons/mob/npc/critter.dmi'
 	icon_state = "lizard"
 	icon_living = "lizard"
 	icon_dead = "lizard-dead"
@@ -16,9 +15,11 @@
 	response_harm   = "stomps on"
 	mob_size = MOB_MINISCULE
 	possession_candidate = 1
-	holder_type = /obj/item/weapon/holder/lizard
+	holder_type = /obj/item/holder/lizard
 	density = 0
 	seek_speed = 0.75
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 2)
 

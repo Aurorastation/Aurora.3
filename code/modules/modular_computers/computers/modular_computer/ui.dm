@@ -1,18 +1,17 @@
-// Operates NanoUI
-/obj/item/modular_computer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+// Opens VueUI
+/obj/item/modular_computer/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!screen_on || !enabled)
 		if(ui)
 			ui.close()
-		return 0
-	if(!apc_power(0) && !battery_power(0))
+		return
+	if(!computer_use_power())
 		if(ui)
 			ui.close()
-		return 0
+		return
 
 	// If we have an active program switch to it now.
 	if(active_program)
-		if(ui) // This is the main laptop screen. Since we are switching to program's UI close it for now.
-			ui.close()
 		active_program.ui_interact(user)
 		return
 
@@ -22,28 +21,36 @@
 		visible_message("\The [src] beeps three times, it's screen displaying \"DISK ERROR\" warning.")
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
-	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
-
-	var/list/data = get_header_data()
-
-	var/list/programs = list()
-	for(var/datum/computer_file/program/P in hard_drive.stored_files)
-		var/list/program = list()
-		program["name"] = P.filename
-		program["desc"] = P.filedesc
-		program["autorun"] = (istype(autorun) && (autorun.stored_data == P.filename)) ? 1 : 0
-		if(P in idle_threads)
-			program["running"] = 1
-		programs.Add(list(program))
-
-	data["programs"] = programs
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "laptop_mainscreen.tmpl", "NTOS Main Menu", 400, 500)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
+		ui.header = "modular-computer"
+	ui.open()
+
+/obj/item/modular_computer/vueui_transfer(oldobj)
+	. = FALSE
+	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
+	for(var/tui in uis)
+		var/datum/vueui/ui = tui
+		ui.auto_update_content = FALSE
+		. = TRUE
+
+// Gaters data for ui
+/obj/item/modular_computer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data || list()
+	// Gather data for computer header
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
+
+	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
+	VUEUI_SET_CHECK_IFNOTSET(data["programs"], list(), ., data)
+	for(var/datum/computer_file/program/P in hard_drive.stored_files)
+		VUEUI_SET_CHECK_IFNOTSET(data["programs"][P.filename], list(), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["desc"], P.filedesc, ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["autorun"], (istype(autorun) && (autorun.stored_data == P.filename)), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["running"], (P in idle_threads), ., data)
 
 // Handles user's GUI input
 /obj/item/modular_computer/Topic(href, href_list)
@@ -53,12 +60,12 @@
 		kill_program()
 		return 1
 	if( href_list["PC_enable_component"] )
-		var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
+		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
 		if(H && istype(H) && !H.enabled)
 			H.enabled = 1
 		. = 1
 	if( href_list["PC_disable_component"] )
-		var/obj/item/weapon/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
+		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
 		if(H && istype(H) && H.enabled)
 			H.enabled = 0
 		. = 1
@@ -84,7 +91,8 @@
 		to_chat(user, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
 
 	if( href_list["PC_runprogram"] )
-		return run_program(href_list["PC_runprogram"])
+		. = run_program(href_list["PC_runprogram"])
+		ui_interact(usr)
 
 	if( href_list["PC_setautorun"] )
 		if(!hard_drive)
@@ -102,56 +110,57 @@
 	if(.)
 		update_uis()
 
-// Function used by NanoUI's to obtain data for header. All relevant entries begin with "PC_"
-/obj/item/modular_computer/proc/get_header_data()
-	var/list/data = list()
+// Function used to obtain data for header. All relevant entries begin with "PC_"
+/obj/item/modular_computer/proc/get_header_data(data)
+	if(!data)
+		data = list()
 
 	if(battery_module)
 		switch(battery_module.battery.percent())
 			if(80 to 200) // 100 should be maximal but just in case..
-				data["PC_batteryicon"] = "batt_100.gif"
+				VUEUI_SET_CHECK(data["batteryicon"], "batt_100.gif", ., data)
 			if(60 to 80)
-				data["PC_batteryicon"] = "batt_80.gif"
+				VUEUI_SET_CHECK(data["batteryicon"], "batt_80.gif", ., data)
 			if(40 to 60)
-				data["PC_batteryicon"] = "batt_60.gif"
+				VUEUI_SET_CHECK(data["batteryicon"], "batt_60.gif", ., data)
 			if(20 to 40)
-				data["PC_batteryicon"] = "batt_40.gif"
+				VUEUI_SET_CHECK(data["batteryicon"], "batt_40.gif", ., data)
 			if(5 to 20)
-				data["PC_batteryicon"] = "batt_20.gif"
+				VUEUI_SET_CHECK(data["batteryicon"], "batt_20.gif", ., data)
 			else
-				data["PC_batteryicon"] = "batt_5.gif"
-		data["PC_batterypercent"] = "[round(battery_module.battery.percent())] %"
-		data["PC_showbatteryicon"] = 1
+				VUEUI_SET_CHECK(data["batteryicon"], "batt_5.gif", ., data)
+		VUEUI_SET_CHECK(data["batterypercent"], "[round(battery_module.battery.percent())] %", ., data)
+		data["showbatteryicon"] = 1
 	else
-		data["PC_batteryicon"] = "batt_5.gif"
-		data["PC_batterypercent"] = "N/C"
-		data["PC_showbatteryicon"] = battery_module ? 1 : 0
+		data["batteryicon"] = "batt_5.gif"
+		VUEUI_SET_CHECK(data["batterypercent"], "N/C", ., data)
+		data["showbatteryicon"] = battery_module ? 1 : 0
 
 	if(tesla_link && tesla_link.enabled && apc_powered)
-		data["PC_apclinkicon"] = "charging.gif"
+		VUEUI_SET_CHECK(data["apclinkicon"], "charging.gif", ., data)
+	else
+		VUEUI_SET_CHECK(data["apclinkicon"], "", ., data)
 
 	switch(get_ntnet_status())
 		if(0)
-			data["PC_ntneticon"] = "sig_none.gif"
+			VUEUI_SET_CHECK(data["ntneticon"], "sig_none.gif", ., data)
 		if(1)
-			data["PC_ntneticon"] = "sig_low.gif"
+			VUEUI_SET_CHECK(data["ntneticon"], "sig_low.gif", ., data)
 		if(2)
-			data["PC_ntneticon"] = "sig_high.gif"
+			VUEUI_SET_CHECK(data["ntneticon"], "sig_high.gif", ., data)
 		if(3)
-			data["PC_ntneticon"] = "sig_lan.gif"
+			VUEUI_SET_CHECK(data["ntneticon"], "sig_lan.gif", ., data)
+		else
+			VUEUI_SET_CHECK(data["ntneticon"], "", ., data)
 
+	LAZYINITLIST(data["programheaders"])
 	if(idle_threads.len)
-		var/list/program_headers = list()
 		for(var/datum/computer_file/program/P in idle_threads)
 			if(!P.ui_header)
+				if(data["programheaders"][P.filename])
+					data["programheaders"][P.filename] = null
+					. = data
 				continue
-			program_headers.Add(list(list(
-				"icon" = P.ui_header
-			)))
+			VUEUI_SET_CHECK(data["programheaders"][P.filename], P.ui_header, ., data)
 
-		data["PC_programheaders"] = program_headers
-
-	data["PC_stationtime"] = worldtime2text()
-	data["PC_hasheader"] = 1
-	data["PC_showexitprogram"] = active_program ? 1 : 0 // Hides "Exit Program" button on mainscreen
-	return data
+	VUEUI_SET_CHECK(data["showexitprogram"], !!active_program, ., data) // Hides "Exit Program" button on mainscreen

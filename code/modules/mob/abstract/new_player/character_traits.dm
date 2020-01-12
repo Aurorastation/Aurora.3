@@ -19,7 +19,7 @@
 	desc = "You have a chronic case of stuttering, repeating sounds involuntarily."
 
 /datum/character_disabilities/stutter/apply_self(var/mob/living/carbon/human/H)
-	H.disabilities |= STUTTER
+	H.disabilities |= STUTTERING
 
 /datum/character_disabilities/deuteranomaly
 	name = "Deuteranopia"
@@ -41,6 +41,13 @@
 
 /datum/character_disabilities/tritanopia/apply_self(var/mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/tritanopia)
+
+/datum/character_disabilities/total_colorblind
+	name = "Total Colorblindness"
+	desc = "You cannot see color, only black, white, and shades of gray."
+
+/datum/character_disabilities/total_colorblind/apply_self(var/mob/living/carbon/human/H)
+	H.add_client_color(/datum/client_color/monochrome)
 
 /datum/character_disabilities/mute
 	name = "Muteness"

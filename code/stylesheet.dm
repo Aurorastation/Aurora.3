@@ -35,8 +35,8 @@ em						{font-style: normal;font-weight: bold;}
 .mod_channel			{color: #735638;	font-weight: bold;}
 .mod_channel .admin		{color: #b82e00;	font-weight: bold;}
 .admin_channel			{color: #9611D4;	font-weight: bold;}
-.cciaasay				{color: #22a9b4;}
-.devsay					{color: #5C7463;}
+.cciaasay				{color: #22a9b4;	font-weight: bold;}
+.devsay					{color: #1b521f;	font-weight: bold;}
 
 /* Radio: Misc */
 .deadsay				{color: #530FAD;}
@@ -49,11 +49,11 @@ em						{font-style: normal;font-weight: bold;}
 .syndradio				{color: #6D3F40;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
-.entradio				{color: #339966;}
+.entradio				{color: #bd893c;}
 
 .secradio				{color: #A30000;}
 .engradio				{color: #A66300;}
-.medradio				{color: #008160;}
+.medradio				{color: #0a5c47;}
 .sciradio				{color: #993399;}
 .supradio				{color: #5F4519;}
 .srvradio				{color: #6eaa2c;}

@@ -1,27 +1,21 @@
-/obj/item/organ/heart/left
-	name = "heart"
-	icon_state = "vaurca_heart_l-on"
-	organ_tag = "left heart"
-	parent_organ = "chest"
-	dead_icon = "vaurca_heart_l-off"
+/obj/item/organ/internal/heart/vaurca
+	name = "double heart system"
+	icon_state = "vaurca_heart_d-on"
+	organ_tag = BP_HEART
+	parent_organ = BP_CHEST
+	dead_icon = "vaurca_heart_d-off"
+	max_damage = 90 //two hearts = stronger hearts
 
-/obj/item/organ/heart/right
-	name = "heart"
-	icon_state = "vaurca_heart_r-on"
-	organ_tag = "right heart"
-	parent_organ = "chest"
-	dead_icon = "vaurca_heart_r-off"
-
-/obj/item/organ/lungs/vaurca
+/obj/item/organ/internal/lungs/vaurca
 	icon_state = "lungs_vaurca"
 
-/obj/item/organ/kidneys/vaurca
+/obj/item/organ/internal/kidneys/vaurca
 	icon_state = "kidney_vaurca"
 
-/obj/item/organ/eyes/vaurca
+/obj/item/organ/internal/eyes/vaurca
 	icon_state = "eyes_vaurca"
 
-/obj/item/organ/eyes/vaurca/flash_act()
+/obj/item/organ/internal/eyes/vaurca/flash_act()
 	if(!owner)
 		return
 
@@ -41,37 +35,37 @@
 		owner.disabilities |= NEARSIGHTED
 		addtimer(CALLBACK(owner, /mob/.proc/reset_nearsighted), 100)
 
-/obj/item/organ/kidneys/vaurca/robo
+/obj/item/organ/internal/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
 	organ_tag = "mechanical kidneys"
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
 
-/obj/item/organ/liver/vaurca/robo
+/obj/item/organ/internal/liver/vaurca/robo
 	icon_state = "liver_vaurca"
 	organ_tag = "mechanical liver"
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
 
-/obj/item/organ/liver/vaurca
+/obj/item/organ/internal/liver/vaurca
 	icon_state = "liver_vaurca"
 
-/obj/item/organ/brain/vaurca
+/obj/item/organ/internal/brain/vaurca
 	icon_state = "brain_vaurca"
 
 /obj/item/organ/vaurca/reservoir
 	name = "phoron reservoir"
 	organ_tag = "phoron reservoir"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	icon_state = "phoron_reservoir"
 	robotic = 1
 
 /obj/item/organ/vaurca/filtrationbit
 	name = "filtration bit"
 	organ_tag = "filtration bit"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	icon_state = "filter"
 	robotic = 2
 
@@ -79,7 +73,7 @@
 	name = "neural socket"
 	organ_tag = "neural socket"
 	icon_state = "neural_socket"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	robotic = 2
 
 obj/item/organ/vaurca/neuralsocket/process()
@@ -108,7 +102,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 /obj/item/organ/vaurca/preserve
 	name = "phoron reserve tank"
 	organ_tag = "phoron reserve tank"
-	parent_organ = "chest"
+	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
 	robotic = 1
 	var/datum/gas_mixture/air_contents = null
@@ -159,7 +153,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "cold"
 		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
-/obj/item/organ/vaurca/preserve/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/organ/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	var/obj/icon = src
 
@@ -216,7 +210,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		else if(src in location)		// or if tank is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
-		else if(istype(src.loc, /obj/item/weapon/rig) && src.loc in location)	// or the rig is in the mobs possession
+		else if(istype(src.loc, /obj/item/rig) && src.loc in location)	// or the rig is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
 
@@ -350,7 +344,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	else if(pressure > (8.0*ONE_ATMOSPHERE))
 
-		if(damage >= 60)
+		if(is_broken())
 			var/turf/simulated/T = get_turf(src)
 			if(!T)
 				return
@@ -360,7 +354,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	else if(pressure > (5.0*ONE_ATMOSPHERE))
 
-		if(damage >= 45)
+		if(is_bruised())
 			var/turf/simulated/T = get_turf(src)
 			if(!T)
 				return
@@ -368,34 +362,34 @@ obj/item/organ/vaurca/neuralsocket/process()
 			T.assume_air(leaked_gas)
 
 /obj/item/organ/external/chest/vaurca
-	cannot_break = TRUE
+	limb_flags = 0
 
 /obj/item/organ/external/groin/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/arm/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/arm/right/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/leg/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/leg/right/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/foot/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 
 /obj/item/organ/external/foot/right/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 
 /obj/item/organ/external/hand/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/hand/right/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
 
 /obj/item/organ/external/head/vaurca
-	cannot_break = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM

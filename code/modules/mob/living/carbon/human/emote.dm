@@ -11,11 +11,11 @@
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	//var/m_type = 1
 
-	for (var/obj/item/weapon/implant/I in src)
+	for (var/obj/item/implant/I in src)
 		if (I.implanted)
 			I.trigger(act, src)
 
-	if(src.stat == 2.0 && (act != "deathgasp"))
+	if(stat == DEAD && (act != "deathgasp"))
 		return
 	switch(act)
 		if ("airguitar")
@@ -340,8 +340,8 @@
 		if("snap", "snaps")
 			m_type = 2
 			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/L = H.get_organ("l_hand")
-			var/obj/item/organ/external/R = H.get_organ("r_hand")
+			var/obj/item/organ/external/L = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/R = H.get_organ(BP_R_HAND)
 			var/left_hand_good = 0
 			var/right_hand_good = 0
 			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_BROKEN)))
@@ -589,6 +589,8 @@
 					message = "sadly can't find anybody to give daps to, and daps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]. Shameful."
 
 		if ("scream")
+			if(stat >= UNCONSCIOUS)
+				return
 			if (miming)
 				message = "acts out a scream!"
 				m_type = 1
@@ -678,7 +680,7 @@
 			if(!is_diona(src))
 				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
 				return
-			message = "<B>The [src.name]</B> chirps!"
+			message = "chirps!"
 			playsound(src.loc, 'sound/misc/nymphchirp.ogg', 50, 0)
 			m_type = 2
 
@@ -686,10 +688,18 @@
 			if(!is_diona(src))
 				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
 				return
-			message = "<B>The [src.name]</B> chirps a song!"
+			message = "chirps a song!"
 			for(var/mob/living/carbon/alien/diona/D in src)
 				playsound(src.loc, 'sound/misc/nymphchirp.ogg', pick(list(5, 10, 20, 40)), 0)
 				sleep(pick(list(5, 10, 15, 20)))
+			m_type = 2
+
+		if("chitter")
+			if(!isvaurca(src))
+				to_chat(src, "<span class='warning'>You don't have the means to do this!</span>")
+				return
+			message = "chitters."
+			playsound(src.loc, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg'), 50, 0)
 			m_type = 2
 
 		if("vomit")
@@ -701,7 +711,7 @@
 
 
 		if ("help")
-			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, vomit")
+			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, chitter, vomit")
 
 		else
 			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))
@@ -720,7 +730,7 @@
 	set desc = "Sets a description which will be shown when someone examines you."
 	set category = "IC"
 
-	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", null)  as text)
+	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", html_decode(pose))  as message)
 
 /mob/living/carbon/human/verb/set_flavor()
 	set name = "Set Flavour Text"
@@ -735,13 +745,13 @@
 	HTML += TextPreview(flavor_texts["general"])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=head'>Head:</a> "
-	HTML += TextPreview(flavor_texts["head"])
+	HTML += TextPreview(flavor_texts[BP_HEAD])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=face'>Face:</a> "
 	HTML += TextPreview(flavor_texts["face"])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=eyes'>Eyes:</a> "
-	HTML += TextPreview(flavor_texts["eyes"])
+	HTML += TextPreview(flavor_texts[BP_EYES])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=torso'>Body:</a> "
 	HTML += TextPreview(flavor_texts["torso"])

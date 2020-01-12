@@ -32,7 +32,6 @@ main ui datum.
 	// list for storing ui sensitive data. this meant for object data tracking
 	var/list/metadata 
 
-
 /**
   * Creates a new ui
   *
@@ -106,6 +105,19 @@ main ui datum.
 	status = null
 
 /**
+  * Resizes UI
+  *
+  * @param nwidth - width of this ui
+  * @param nheight - height of this ui
+  *
+  * @return nothing
+  */
+/datum/vueui/proc/resize(var/nwidth, var/nheight)
+	width = nwidth || width
+	height = nheight || height
+	winset(user, windowid, "size=[width]x[height];")
+
+/**
   * Generates base html for this ui to be rendered.
   *
   * @return html code - text
@@ -174,13 +186,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/send_resources_and_assets(var/client/cl)
-#ifdef UIDEBUG
-	cl << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
-	cl << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
-#else
-	var/datum/asset/assets = get_asset_datum(/datum/asset/simple/vueui)
-	assets.send(cl)
-#endif
+	send_theme_resources(cl)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
 		if (!QDELETED(asset["img"]))
@@ -260,6 +266,7 @@ main ui datum.
 		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
 		topicReturn = object.Topic(href, href_list)
 	if(. || topicReturn)
+		if(topicReturn) check_for_change(FALSE, TRUE)
 		. = null
 		push_change()
 
@@ -279,47 +286,72 @@ main ui datum.
   * Check for change and push that change of data
   *
   * @param force - determines should data be pushed even if no change is present
+  * @param nopush - determines new data be imediatly pushed.
   *
-  * @return nothing
+  * @return 2 if push should happen, but didn't, 1 if push happened, 0 if it didn't happen
   */
-/datum/vueui/proc/check_for_change(var/force = 0)
+/datum/vueui/proc/check_for_change(var/force = FALSE, var/nopush = FALSE)
+	. = 0
 	if(!user.client)
 		return
 	if(status > STATUS_DISABLED)
 		var/ret = object.vueui_data_change(data, user, src)
 		if(ret)
-			push_change(ret)
+			if(!nopush)
+				push_change(ret)
+				return 1
+			else
+				src.data = ret
+				return 2
 		else if (force)
-			push_change(null)
+			if(!nopush) 
+				push_change(null)
+				return 1
+			else
+				return 2
 	else if (force && status == STATUS_DISABLED)
-		push_change(null)
+		if(!nopush)
+			push_change(null)
+			return 1
+		else
+			return 2
 
 /**
   * Set the current status (also known as visibility) of this ui.
   *
-  * @param state int The status to set, see the defines at the top of this file
+  * @param state - int The status to set, see the defines at the top of this file
+  * @param autopush - determines if data with new status should be automaticly pushed
+  * @param checkforchange - determines if check for change should be done, even if status didn't chnage.
   *
-  * @return nothing
+  * @return 1 if push should happen, 0 if shouldn't happen.
   */
-/datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE)
+/datum/vueui/proc/set_status(var/nstatus, var/autopush = TRUE, var/checkforchange = FALSE)
+	. = 0
 	if (nstatus != status) // Only update if it is different
 		status = nstatus
 		if(nstatus > STATUS_DISABLED)
-			if(autopush) check_for_change(1) // Gather data and update it
-			return 1
+			return check_for_change(TRUE, !autopush) == 2 // Gather data and update it
 		else if (nstatus == STATUS_DISABLED && autopush)
-			if(autopush) push_change(null) // Only update ui data
-			return 1
+			if(autopush) 
+				push_change(null) // Only update ui data
+			else
+				return 1
 		else
 			close()
+	else if (status > STATUS_DISABLED && checkforchange)
+		return check_for_change(TRUE, !autopush) == 2
+
 
 /**
   * Update the status (visibility) of this ui based on the user's status
   *
-  * @return nothing
+  * @param autopush - determines if data with new status should be automaticly pushed
+  * @param checkforchange - determines if check for change should be done, even if status didn't chnage.
+  *
+  * @return 1 if push should happen, 0 if shouldn't happen.
   */
-/datum/vueui/proc/update_status(var/autopush = TRUE)
-	. = set_status(object.CanUseTopic(user, state), autopush)
+/datum/vueui/proc/update_status(var/autopush = TRUE, var/checkforchange = FALSE)
+	. = set_status(object.CanUseTopic(user, state), autopush, checkforchange)
 
 /**
   * Process this ui
@@ -330,9 +362,10 @@ main ui datum.
 	if (!object || !user || status < 0 || !user.client)
 		close()
 		return
-	update_status()
 	if(auto_update_content)
-		check_for_change()
+		update_status(checkforchange = TRUE)
+	else
+		update_status()
 
 /**
   * Returns actuve theme on varous conditions
@@ -340,6 +373,10 @@ main ui datum.
   * @return themes class - text
   */
 /datum/vueui/proc/get_theme_class()
-	return SSvueui.get_html_theme_class(user)
+	return SStheming.get_html_theme_class(user)
 
-#undef UIDEBUG
+/datum/vueui/modularcomputer
+	header = "modular-computer"
+
+/datum/vueui/modularcomputer/get_theme_class()
+	return "theme-nano dark-theme"

@@ -87,7 +87,7 @@ var/list/ai_verbs_default = list(
 	var/list/cameraRecords = list()				//For storing what is shown to the cameras
 
 	var/datum/ai_icon/selected_sprite			// The selected icon set
-	var/custom_sprite 	= 0 					// Whether the selected icon is custom
+	var/custom_sprite 	= FALSE 					// Whether the selected icon is custom
 	var/carded
 
 	var/multitool_mode = 0
@@ -176,15 +176,15 @@ var/list/ai_verbs_default = list(
 
 	addtimer(CALLBACK(src, .proc/create_powersupply), 5)
 
-	hud_list[HEALTH_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[LIFE_HUD] 		  = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[ID_HUD]          = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = image('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = image('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
 	ai_list += src
 	return ..()
@@ -212,57 +212,33 @@ var/list/ai_verbs_default = list(
 
 	if (malf && !(mind in malf.current_antagonists))
 		show_laws()
-		to_chat(src, "<b>These laws may be changed by other players, or by you being the traitor.</b>")
+		to_chat(src, "<b>These laws may be changed by other players, or by you if you are malfunctioning.</b>")
 
 	job = "AI"
 	setup_icon()
+	eyeobj.possess(src)
 
 /mob/living/silicon/ai/Destroy()
-	qdel(aiPDA)
-	qdel(aiMulti)
-	qdel(aiRadio)
-	aiPDA = null
-	aiMulti = null
-	aiRadio = null
-
+	QDEL_NULL(aiPDA)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
 	ai_list -= src
-
-	qdel(eyeobj)
-	eyeobj = null
-
-	qdel(psupply)
-	psupply = null
-
-	qdel(aiMulti)
-	aiMulti = null
-
-	qdel(aiRadio)
-	aiRadio = null
-
-	qdel(aiCamera)
-	aiCamera = null
+	destroy_eyeobj()
+	QDEL_NULL(psupply)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	QDEL_NULL(aiCamera)
 
 	return ..()
 
 /mob/living/silicon/ai/proc/setup_icon()
-	var/file = file2text("config/custom_sprites.txt")
-	var/lines = text2list(file, "\n")
-
-	for(var/line in lines)
-	// split & clean up
-		var/list/Entry = text2list(line, ":")
-		for(var/i = 1 to Entry.len)
-			Entry[i] = trim(Entry[i])
-
-		if(Entry.len < 2)
-			continue;
-
-		if(Entry[1] == src.ckey && Entry[2] == src.real_name)
-			icon = CUSTOM_ITEM_SYNTH
-			custom_sprite = 1
-			selected_sprite = new/datum/ai_icon("Custom", "[src.ckey]-ai", "4", "[ckey]-ai-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
-		else
-			selected_sprite = default_ai_icon
+	var/datum/custom_synth/sprite = robot_custom_icons[name]
+	if(istype(sprite) && sprite.synthckey == ckey)
+		custom_sprite = TRUE
+		icon = CUSTOM_ITEM_SYNTH
+		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]", "4", "[sprite.aichassisicon]-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
+	else
+		selected_sprite = default_ai_icon
 	updateicon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
@@ -289,6 +265,7 @@ var/list/ai_verbs_default = list(
 		idcard.update_name()
 
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
+	SSrecords.reset_manifest()
 
 /*
 	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.
@@ -634,7 +611,8 @@ var/list/ai_verbs_default = list(
 		var/icon_list[] = list(
 		"default",
 		"floating face",
-		"carp"
+		"carp",
+		"custom"
 		)
 		input = input("Please select a hologram:") as null|anything in icon_list
 		if(input)
@@ -646,6 +624,14 @@ var/list/ai_verbs_default = list(
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo2"))
 				if("carp")
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo4"))
+				if("custom")
+					if(custom_sprite)
+						var/datum/custom_synth/sprite = robot_custom_icons[name]
+						if(istype(sprite) && sprite.synthckey == ckey && sprite.aiholoicon)
+							holo_icon = getHologramIcon(icon("icons/mob/custom_synths/customhologram.dmi","[sprite.aiholoicon]"))
+					else
+						to_chat(src, "You do not have a custom sprite!")
+						return
 	return
 
 //Toggles the luminosity and applies it by re-entereing the camera.
@@ -693,16 +679,16 @@ var/list/ai_verbs_default = list(
 		camera_light_on = world.timeofday + 1 * 20 // Update the light every 2 seconds.
 
 
-/mob/living/silicon/ai/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/aicard))
+/mob/living/silicon/ai/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/aicard))
 
-		var/obj/item/weapon/aicard/card = W
+		var/obj/item/aicard/card = W
 		card.grab_ai(src, user)
 
 	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!do_after(user,40))
+			if(!do_after(user,40/W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
@@ -710,7 +696,7 @@ var/list/ai_verbs_default = list(
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
-			if(!do_after(user,40))
+			if(!do_after(user,40/W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
@@ -798,7 +784,7 @@ var/list/ai_verbs_default = list(
 	set category = "IC"
 
 	resting = 0
-	var/obj/item/weapon/rig/rig = src.get_rig()
+	var/obj/item/rig/rig = src.get_rig()
 	if(rig)
 		rig.force_rest(src)
 

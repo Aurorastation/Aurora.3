@@ -187,7 +187,7 @@ macro "borghotkeymode"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -357,7 +357,7 @@ macro "macro"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -590,7 +590,7 @@ macro "hotkeymode"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"
@@ -760,7 +760,7 @@ macro "borgmacro"
 		command = "asay"
 	elem 
 		name = "F6"
-		command = "Player-Panel-New"
+		command = "Player-Panel"
 	elem 
 		name = "F7"
 		command = "Admin-PM"

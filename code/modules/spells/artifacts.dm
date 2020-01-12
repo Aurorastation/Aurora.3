@@ -1,6 +1,6 @@
 //////////////////////Scrying orb//////////////////////
 
-/obj/item/weapon/scrying
+/obj/item/scrying
 	name = "scrying orb"
 	desc = "An incandescent orb of otherworldly energy, staring into it gives you vision beyond mortal means."
 	icon = 'icons/obj/projectiles.dmi'
@@ -12,7 +12,7 @@
 	force = 10
 	hitsound = 'sound/items/welder2.ogg'
 
-/obj/item/weapon/scrying/attack_self(mob/living/user as mob)
+/obj/item/scrying/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -43,7 +43,7 @@
 		announce_ghost_joinleave(user.teleop, 1, "You feel that they used a powerful artifact to [pick("invade","disturb","disrupt","infest","taint","spoil","blight")] this place with their presence.")
 		return
 
-/obj/item/weapon/melee/energy/wizard
+/obj/item/melee/energy/wizard
 	name = "rune sword"
 	desc = "A large sword engraved with arcane markings, it seems to reverberate with unearthly powers."
 	icon = 'icons/obj/sword.dmi'
@@ -69,23 +69,23 @@
 	can_block_bullets = 1
 	shield_power = 150
 
-/obj/item/weapon/melee/energy/wizard/activate(mob/living/user)
+/obj/item/melee/energy/wizard/activate(mob/living/user)
 	..()
 	icon_state = "runesword1"
 	item_state = "runesword1"
 	to_chat(user, "<span class='notice'>\The [src] surges to life!.</span>")
 
-/obj/item/weapon/melee/energy/wizard/deactivate(mob/living/user)
+/obj/item/melee/energy/wizard/deactivate(mob/living/user)
 	..()
 	icon_state = "runesword0"
 	item_state = "runesword0"
 	to_chat(user, "<span class='notice'>\The [src] slowly dies out.</span>")
 
-/obj/item/weapon/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
+/obj/item/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(user.is_wizard())
 		return ..()
 
-	var/zone = (user.hand ? "l_arm":"r_arm")
+	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
@@ -120,7 +120,7 @@
 	species_restricted = list("Skeleton")
 	armor = list(melee = 50, bullet = 40, laser = 50, energy = 25, bomb = 30, bio = 0, rad = 0)
 
-/obj/item/weapon/material/twohanded/spear/bone
+/obj/item/material/twohanded/spear/bone
 	desc = "A spear crafted with bones of some long forgotten creature."
 	default_material = "cursed bone"
 
@@ -160,13 +160,14 @@
 
 /obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
 	..()
-	if(istype(I, /obj/item/weapon/nullrod))
+	if(istype(I, /obj/item/nullrod))
 		src.visible_message("\The [src] twists violently and explodes!")
 		gibs(src.loc)
 		qdel(src)
 		return
 
 /obj/item/phylactery/pickup(mob/living/user as mob)
+	..()
 	if(!user.is_wizard() && src.lich)
 		to_chat(user, "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>")
 		for(var/obj/machinery/light/P in view(7, user))
@@ -215,31 +216,31 @@
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
-		if(target_zone == "mouth")
+		if(target_zone == BP_MOUTH)
 			var/voice =  sanitize(input(user, "What would you like the victim to say", "Poppet", null)  as text)
 			H.say(voice)
 			log_and_message_admins("forced [H] to say [voice] with a poppet", user)
 
-		if(target_zone == "eyes")
+		if(target_zone == BP_EYES)
 			to_chat(user, "<span class='notice'>You cover \the [src]'s eyes.</span>")
 			to_chat(H, "<span class='warning'>Your vision is covered by a shadow!</span>")
 			H.eye_blind = 3
 			H.eye_blurry = 5
 
-		if(target_zone == "r_leg" || target_zone == "l_leg")
+		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 			to_chat(user, "<span class='notice'>You move \the [src]'s legs around.</span>")
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
 				step(H, pick(cardinal))
 
-		if(target_zone == "l_hand" || target_zone == "l_arm")
+		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, "<span class='notice'>You twist \the [src]'s left arm.</span>")
 			H.drop_l_hand()
 
-		if(target_zone == "r_hand" || target_zone == "r_arm")
+		if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 			to_chat(user, "<span class='notice'>You twist \the [src]'s right arm..</span>")
 			H.drop_r_hand()
 
-		if(target_zone == "head")
+		if(target_zone == BP_HEAD)
 			to_chat(user, "<span class='notice'>You smack \the [src]'s head with your hand.</span>")
 			H.confused += 10
 			H.stuttering += 5
@@ -256,7 +257,7 @@
 		if(isflamesource(W))
 			fire_act()
 
-		if(istype(W, /obj/item/weapon/melee/baton))
+		if(istype(W, /obj/item/melee/baton))
 			H.electrocute_act(W.force * 2, W, def_zone = target_zone)
 			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
@@ -274,7 +275,7 @@
 				H.emote("me", 1, "gasps for air!")
 				H.losebreath += 5
 
-		if(istype(W, /obj/item/weapon/bikehorn))
+		if(istype(W, /obj/item/bikehorn))
 			playsound(get_turf(H), 'sound/items/bikehorn.ogg', 50, 1, -1)
 
 		if(W.edge)
@@ -313,7 +314,7 @@
 /obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.apply_damage(Proj.damage, HALLOSS)
+		H.apply_damage(Proj.damage, PAIN)
 
 /obj/item/poppet/fire_act()
 	var/mob/living/carbon/human/H = target.resolve()

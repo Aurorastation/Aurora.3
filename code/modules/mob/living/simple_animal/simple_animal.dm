@@ -80,23 +80,21 @@
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
 	var/stomach_size_mult = 5
 
-	//Food behaviour vars
-	var/autoseek_food = 1//If 0. this animal will not automatically eat
-	var/beg_for_food = 1//If 0, this animal will not show interest in food held by a person
-	var/min_scan_interval = 1//Minimum and maximum number of procs between a foodscan. Animals will slow down if there's no food around for a while
+	//Seeking/Moving behaviour vars
+	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
 	var/max_scan_interval = 15
 	var/scan_interval = 5//current scan interval, clamped between min and max
 	//It gradually increases up to max when its left alone, to save performance
-	//It will drop back to 1 if it spies any food.
-		//This short time makes animals more responsive to interactions and more fun to play with
 
-	var/seek_speed = 2//How many tiles per second the animal will move towards food
+	var/seek_speed = 2//How many tiles per second the animal will move towards something
 	var/seek_move_delay
-	var/scan_range = 6//How far around the animal will look for food
-	var/foodtarget = 0
-	//Used to control how often ian scans for nearby food
+	var/scan_range = 6//How far around the animal will look for something
 
 	var/kitchen_tag = "animal" //Used for cooking with animals
+
+	//brushing
+	var/canbrush = FALSE //can we brush this beautiful creature?
+	var/brush = /obj/item/haircomb //What can we brush it with? Use a rag for things with scales/carapaces/etc
 
 	//Napping
 	var/can_nap = 0
@@ -112,20 +110,6 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
-/mob/living/simple_animal/proc/beg(var/atom/thing, var/atom/holder)
-	visible_emote("gazes longingly at [holder]'s [thing]",0)
-
-/mob/living/simple_animal/proc/steal_food(var/obj/item/weapon/reagent_containers/food/snacks/F, var/mob/living/carbon/human/H)
-	if(!F || !H)
-		return
-	H.visible_message(
-						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from \the [H] hands. Taking a bite and dropping it on the floor."),
-						span("warning", "\the [src] grabs \the [F] with its teeth and steals it from your hands. Taking a bite and dropping it on the floor.")
-	)
-	H.drop_from_inventory(F)
-	UnarmedAttack(F)
-	if (get_turf(F) == loc)
-		set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -173,13 +157,6 @@
 /mob/living/simple_animal/examine(mob/user)
 	..()
 
-	if (hunger_enabled)
-		if (!nutrition)
-			to_chat(user, "<span class='danger'>It looks starving!</span>")
-		else if (nutrition < max_nutrition *0.5)
-			to_chat(user, "<span class='notice'>It looks hungry.</span>")
-		else if ((reagents.total_volume > 0 && nutrition > max_nutrition *0.75) || nutrition > max_nutrition *0.9)
-			to_chat(user, "It looks full and contented.")
 	if (stat == DEAD)
 		to_chat(user, "<span class='danger'>It looks dead.</span>")
 	if (health < maxHealth * 0.5)
@@ -204,7 +181,6 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
-	autoseek_food = nutrition / max_nutrition <= 0.05 ? TRUE : initial(autoseek_food)
 	process_food()
 
 	//Movement
@@ -261,7 +237,6 @@
 
 /mob/living/simple_animal/think()
 	..()
-	handle_foodscanning()
 	if(!stop_automated_movement && wander && !anchored)
 		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled
@@ -313,6 +288,13 @@
 			if (!stat || prob(0.5))
 				wake_up()
 
+	//Eating in tile
+	for(var/obj/item/reagent_containers/food/snacks/S in src.loc)
+		if(can_eat() && (nutrition < max_nutrition * 0.3)) //Only when sufficiently hungry
+			UnarmedAttack(S)
+		else
+			break
+
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
@@ -338,12 +320,12 @@
 				var/datum/reagent/nutriment/N = current
 				adjustNutritionLoss(-removed*N.nutriment_factor)
 				var/heal_amount = removed*N.regen_factor
-				if (bruteloss > 0)
-					var/n = min(heal_amount, bruteloss)
+				if (getBruteLoss() > 0)
+					var/n = min(heal_amount, getBruteLoss())
 					adjustBruteLoss(-n)
 					heal_amount -= n
-				if (fireloss && heal_amount)
-					var/n = min(heal_amount, fireloss)
+				if (getFireLoss() && heal_amount)
+					var/n = min(heal_amount, getFireLoss())
 					adjustFireLoss(-n)
 					heal_amount -= n
 				updatehealth()
@@ -408,7 +390,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			if (!attempt_grab(M))
 				return
 
-			var/obj/item/weapon/grab/G = new /obj/item/weapon/grab(M, src)
+			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
 			M.put_in_active_hand(G)
 
@@ -428,9 +410,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	return
 
-/mob/living/simple_animal/attackby(var/obj/item/O, var/mob/user)
+/mob/living/simple_animal/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag. 
+		attacked_with_item(O, user)
+		return
 	if(has_udder)
-		var/obj/item/weapon/reagent_containers/glass/G = O
+		var/obj/item/reagent_containers/glass/G = O
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 			if(udder.total_volume <= 0)
 				to_chat(user, "<span class='warning'>The udder is dry.</span>")
@@ -442,22 +427,27 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			udder.trans_id_to(G, milk_type , rand(5,10))
 			return
 
-	if(istype(O, /obj/item/weapon/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/weapon/gripper/))
+	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
 		..()
 		poke()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/material/knife) || istype(O, /obj/item/weapon/material/kitchen/utensil/knife)|| istype(O, /obj/item/weapon/material/hatchet))
+		if(istype(O, /obj/item/material/knife) || istype(O, /obj/item/material/kitchen/utensil/knife)|| istype(O, /obj/item/material/hatchet))
 			harvest(user)
 	else
 		attacked_with_item(O, user)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
-/mob/living/simple_animal/proc/attacked_with_item(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/weapon/trap/animal))
+/mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user)
+	if(istype(O, /obj/item/trap/animal))
 		O.attack(src, user)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(istype(O, brush) && canbrush) //Brushing animals
+		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
+		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off. 
+			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring	
+		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
 		poke()
@@ -465,9 +455,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	if(O.force > resistance)
 		var/damage = O.force
-		if (O.damtype == HALLOSS)
+		if (O.damtype == PAIN)
 			damage = 0
-		if(supernatural && istype(O,/obj/item/weapon/nullrod))
+		if(supernatural && istype(O,/obj/item/nullrod))
 			damage *= 2
 			purge = 3
 
@@ -539,10 +529,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if (isliving(target_mob))
 		var/mob/living/L = target_mob
 		if(!L.stat)
-			return (0)
-	if (istype(target_mob, /obj/mecha))
-		var/obj/mecha/M = target_mob
-		if (M.occupant)
 			return (0)
 	if (istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -617,7 +603,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
 			gib()
 
-
+/*
 //Code to handle finding and nomming nearby food items
 /mob/living/simple_animal/proc/handle_foodscanning()
 	if (client || !hunger_enabled || !autoseek_food)
@@ -639,7 +625,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				foodtarget = 0
 				stop_automated_movement = 0
 				if (can_eat())
-					for(var/obj/item/weapon/reagent_containers/food/snacks/S in oview(src,7))
+					for(var/obj/item/reagent_containers/food/snacks/S in oview(src,7))
 						if(isturf(S.loc) || ishuman(S.loc))
 							movement_target = S
 							foodtarget = 1
@@ -647,12 +633,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 					//Look for food in people's hand
 					if (!movement_target && beg_for_food)
-						var/obj/item/weapon/reagent_containers/food/snacks/F = null
+						var/obj/item/reagent_containers/food/snacks/F = null
 						for(var/mob/living/carbon/human/H in oview(src,scan_range))
-							if(istype(H.l_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							if(istype(H.l_hand, /obj/item/reagent_containers/food/snacks))
 								F = H.l_hand
 
-							if(istype(H.r_hand, /obj/item/weapon/reagent_containers/food/snacks))
+							if(istype(H.r_hand, /obj/item/reagent_containers/food/snacks))
 								F = H.r_hand
 
 							if (F)
@@ -683,7 +669,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 							beg(movement_target, movement_target.loc)
 			else
 				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
-
+*/
 
 //For picking up small animals
 /mob/living/simple_animal/MouseDrop(atom/over_object)
@@ -714,7 +700,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		wander = 0
 		walk_to(src,0)
 		movement_target = null
-		foodtarget = 0
 		update_icons()
 
 //Wakes the mob up from sleeping
@@ -772,3 +757,20 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return TRUE
 	else
 		return FALSE
+
+/mob/living/simple_animal/emp_act(severity)
+	if(!isSynthetic())
+		return
+
+	switch(severity)
+		if(1)
+			adjustFireLoss(rand(20, 25))
+		if(2)
+			adjustFireLoss(rand(10, 15))
+		if(3)
+			adjustFireLoss(rand(5, 10))
+		if(4)
+			adjustFireLoss(rand(3, 5))
+
+/mob/living/simple_animal/get_digestion_product()
+	return "nutriment"

@@ -1,37 +1,14 @@
-//CORTICAL BORER ORGANS.
-/obj/item/organ/borer/process()
-
-	// Borer husks regenerate health, feel no pain, and are resistant to stuns and brainloss.
-	for(var/chem in list("tricordrazine","tramadol","hyperzine","alkysine"))
-		if(owner.reagents.get_reagent_amount(chem) < 3)
-			owner.reagents.add_reagent(chem, 5)
-
-	// They're also super gross and ooze ichor.
-	if(prob(5))
-		var/mob/living/carbon/human/H = owner
-		if(!istype(H))
-			return
-
-		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in H.vessel.reagent_list
-		blood_splatter(H,B,1)
-		var/obj/effect/decal/cleanable/blood/splatter/goo = locate() in get_turf(owner)
-		if(goo)
-			goo.name = "husk ichor"
-			goo.desc = "It's thick and stinks of decay."
-			goo.basecolor = "#412464"
-			goo.update_icon()
-
-/obj/item/organ/borer
+// This borer is the worm that replaced the host's brain, not the brainworm latched onto a brain
+/obj/item/organ/internal/borer
 	name = "cortical borer"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "borer"
-	organ_tag = "brain"
+	organ_tag = BP_BRAIN
 	desc = "A disgusting space slug."
-	parent_organ = "head"
-	vital = 1
+	parent_organ = BP_HEAD
+	vital = TRUE
 
-/obj/item/organ/borer/removed(var/mob/living/user)
-
+/obj/item/organ/internal/borer/removed(var/mob/living/user)
 	..()
 
 	var/mob/living/simple_animal/borer/B = owner.has_brain_worms()
@@ -39,37 +16,25 @@
 		B.leave_host()
 		B.ckey = owner.ckey
 
-	spawn(0)
-		qdel(src)
+	qdel(src)
 
 //VOX ORGANS.
-/obj/item/organ/stack
+/obj/item/organ/internal/stack
 	name = "cortical stack"
 	icon_state = "brain-prosthetic"
 	organ_tag = "stack"
-	parent_organ = "head"
+	parent_organ = BP_HEAD
 	robotic = 2
 	vital = 1
 	var/backup_time = 0
 	var/datum/mind/backup
 	origin_tech = list(TECH_ENGINEERING = 5, TECH_DATA=3, TECH_BIO=3)
 
-/obj/item/organ/stack/process()
+/obj/item/organ/internal/stack/process()
 	if(owner && owner.stat != DEAD && !is_broken())
 		backup_time = world.time
 		if(owner.mind) backup = owner.mind
 
-/obj/item/organ/stack/vox
+/obj/item/organ/internal/stack/vox
 	name = "vox cortical stack"
 	vital = 0
-
-/obj/item/organ/stack/vox/removed(var/mob/living/user)
-	if(owner && ishuman(owner))
-		if(!isvox(owner))
-			return
-		if(prob(80))
-			owner.death()
-		else
-			to_chat(owner, "<span class='warning'>Your mind breaks apart when your cortical stack is removed! Your memories and personality are nothing but echoes lost in the numbness of your thoughts...</span>")
-			owner.set_species("Vox Pariah")
-	..()

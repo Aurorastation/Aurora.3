@@ -24,6 +24,8 @@
 	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 	var/equip_slot = 0
+	var/usesound = null
+	var/toolspeed = 1
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -106,15 +108,6 @@
 				if (usr.client && usr.machine==src) // && M.machine == src is omitted because if we triggered this by using the dialog, it doesn't matter if our machine changed in between triggering it and this - the dialog is probably still supposed to refresh.
 					is_in_use = 1
 					src.attack_ai(usr)
-
-		// check for TK users
-
-		if (istype(usr, /mob/living/carbon/human))
-			if(istype(usr.l_hand, /obj/item/tk_grab) || istype(usr.r_hand, /obj/item/tk_grab/))
-				if(!(usr in nearby))
-					if(usr.client && usr.machine==src)
-						is_in_use = 1
-						src.attack_hand(usr)
 		in_use = is_in_use
 
 /obj/proc/updateDialog()

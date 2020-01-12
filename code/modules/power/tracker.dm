@@ -57,12 +57,12 @@
 	if(powernet && (powernet == control.powernet)) //update if we're still in the same powernet
 		control.cdir = angle
 
-/obj/machinery/power/tracker/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/machinery/power/tracker/attackby(var/obj/item/W, var/mob/user)
 
 	if(W.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar tracker.</span>")
-		if(do_after(user, 50))
+		if(do_after(user, 50/W.toolspeed))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
@@ -75,7 +75,7 @@
 
 // Tracker Electronic
 
-/obj/item/weapon/tracker_electronics
+/obj/item/tracker_electronics
 
 	name = "tracker electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'

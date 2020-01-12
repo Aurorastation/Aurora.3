@@ -11,7 +11,7 @@
 	emote_see = list("hisses ferociously", "stomps")
 	turns_per_move = 5
 	speak_chance = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/xenomeat
+	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"

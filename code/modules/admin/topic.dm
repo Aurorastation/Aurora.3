@@ -403,7 +403,7 @@
 		if (!check_rights(R_MOD|R_ADMIN))
 			return
 
-		var/ckey = ckey(input("Please specify the ckey you want to search for:", "ckey")) as text
+		var/ckey = ckey(input("Please specify the ckey you want to search for:", "ckey") as text)
 		if (!ckey)
 			to_chat(usr, "<span class='notice'>Cancelled.</span>")
 			return
@@ -572,6 +572,18 @@
 		message_admins("<span class='notice'>[key_name_admin(usr)] set the forced secret mode as [secret_force_mode].</span>", 1)
 		Game() // updates the main game menu
 		.(href, list("f_secret"=1))
+
+	else if(href_list["remove_psionics"])
+		var/datum/psi_complexus/psi = locate(href_list["remove_psionics"])
+		if(psi && psi.owner && !QDELETED(psi))
+			to_chat(psi.owner, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+			log_and_message_admins("removed all psionics from [key_name(psi.owner)].")
+			QDEL_NULL(psi)
+
+	else if(href_list["trigger_psi_latencies"])
+		var/datum/psi_complexus/psi = locate(href_list["trigger_psi_latencies"])
+		log_and_message_admins("triggered psi latencies for [key_name(psi.owner)].")
+		psi.check_latency_trigger(100, "outside intervention", redactive = TRUE)
 
 	else if(href_list["monkeyone"])
 		if(!check_rights(R_SPAWN))	return
@@ -928,10 +940,10 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		H.equip_to_slot_or_del( new /obj/item/weapon/reagent_containers/food/snacks/cookie(H), slot_l_hand )
-		if(!(istype(H.l_hand,/obj/item/weapon/reagent_containers/food/snacks/cookie)))
-			H.equip_to_slot_or_del( new /obj/item/weapon/reagent_containers/food/snacks/cookie(H), slot_r_hand )
-			if(!(istype(H.r_hand,/obj/item/weapon/reagent_containers/food/snacks/cookie)))
+		H.equip_to_slot_or_del( new /obj/item/reagent_containers/food/snacks/cookie(H), slot_l_hand )
+		if(!(istype(H.l_hand,/obj/item/reagent_containers/food/snacks/cookie)))
+			H.equip_to_slot_or_del( new /obj/item/reagent_containers/food/snacks/cookie(H), slot_r_hand )
+			if(!(istype(H.r_hand,/obj/item/reagent_containers/food/snacks/cookie)))
 				log_admin("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].",admin_key=key_name(src.owner),ckey=key_name(H))
 				message_admins("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
 				return
@@ -1028,17 +1040,17 @@
 
 	else if(href_list["AdminFaxView"])
 		var/obj/item/fax = locate(href_list["AdminFaxView"])
-		if (istype(fax, /obj/item/weapon/paper))
-			var/obj/item/weapon/paper/P = fax
+		if (istype(fax, /obj/item/paper))
+			var/obj/item/paper/P = fax
 			P.show_content(usr,1)
-		else if (istype(fax, /obj/item/weapon/photo))
-			var/obj/item/weapon/photo/H = fax
+		else if (istype(fax, /obj/item/photo))
+			var/obj/item/photo/H = fax
 			H.show(usr)
-		else if (istype(fax, /obj/item/weapon/paper_bundle))
+		else if (istype(fax, /obj/item/paper_bundle))
 			//having multiple people turning pages on a paper_bundle can cause issues
 			//open a browse window listing the contents instead
 			var/data = ""
-			var/obj/item/weapon/paper_bundle/B = fax
+			var/obj/item/paper_bundle/B = fax
 
 			for (var/page = 1, page <= B.pages.len, page++)
 				var/obj/pageobj = B.pages[page]
@@ -1050,15 +1062,15 @@
 
 	else if (href_list["AdminFaxViewPage"])
 		var/page = text2num(href_list["AdminFaxViewPage"])
-		var/obj/item/weapon/paper_bundle/bundle = locate(href_list["paper_bundle"])
+		var/obj/item/paper_bundle/bundle = locate(href_list["paper_bundle"])
 
 		if (!bundle) return
 
-		if (istype(bundle.pages[page], /obj/item/weapon/paper))
-			var/obj/item/weapon/paper/P = bundle.pages[page]
+		if (istype(bundle.pages[page], /obj/item/paper))
+			var/obj/item/paper/P = bundle.pages[page]
 			P.show_content(src.owner.mob, 1)
-		else if (istype(bundle.pages[page], /obj/item/weapon/photo))
-			var/obj/item/weapon/photo/H = bundle.pages[page]
+		else if (istype(bundle.pages[page], /obj/item/photo))
+			var/obj/item/photo/H = bundle.pages[page]
 			H.show(src.owner.mob)
 		return
 
@@ -1074,51 +1086,6 @@
 		create_admin_fax(department)
 
 		return
-
-	else if(href_list["SolGovFaxReply"])
-		//TODO
-		/*
-		var/mob/living/carbon/human/H = locate(href_list["SolGovFaxReply"])
-		var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["originfax"])
-
-		var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
-		if(!input)	return
-
-		var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null
-
-		for(var/obj/machinery/photocopier/faxmachine/F in machines)
-			if(F == fax)
-				if(! (F.stat & (BROKEN|NOPOWER) ) )
-
-					// animate! it's alive!
-					flick("faxreceive", F)
-
-					// give the sprite some time to flick
-					spawn(20)
-						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper( F.loc )
-						P.name = "Sol Government- [customname]"
-						P.info = input
-						P.update_icon()
-
-						playsound(F.loc, "sound/items/polaroid1.ogg", 50, 1)
-
-						// Stamps
-						var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-						stampoverlay.icon_state = "paper_stamp-cap"
-						if(!P.stamped)
-							P.stamped = new
-						P.stamped += /obj/item/weapon/stamp
-						P.overlays += stampoverlay
-						P.stamps += "<HR><i>This paper has been stamped and encrypted by the Sol Government Quantum Relay.</i>"
-
-				to_chat(src.owner, "Message reply to transmitted successfully.")
-				log_admin("[key_name(src.owner)] replied to a fax message from [key_name(H)]: [input]")
-				message_admins("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(H)]", 1)
-				return
-		to_chat(src.owner, "/red Unable to locate fax!")
-		*/
-
-
 
 	else if(href_list["jumpto"])
 		if(!check_rights(R_ADMIN))	return
@@ -1202,11 +1169,11 @@
 			else if(!ispath(path, /obj) && !ispath(path, /turf) && !ispath(path, /mob))
 				removed_paths += dirty_path
 				continue
-			else if(ispath(path, /obj/item/weapon/gun/energy/pulse))
+			else if(ispath(path, /obj/item/gun/energy/pulse))
 				if(!check_rights(R_FUN,0))
 					removed_paths += dirty_path
 					continue
-			else if(ispath(path, /obj/item/weapon/melee/energy/blade))//Not an item one should be able to spawn./N
+			else if(ispath(path, /obj/item/melee/energy/blade))//Not an item one should be able to spawn./N
 				if(!check_rights(R_FUN,0))
 					removed_paths += dirty_path
 					continue
