@@ -118,7 +118,7 @@ var/list/world_api_rate_limit = list()
 		response["response"] = "Rate limited."
 		return json_encode(response)
 
-	if (length(T) > 500)
+	if (length(T) > 2000)
 		response["statuscode"] = 413
 		response["response"] = "Payload too large."
 		return json_encode(response)
