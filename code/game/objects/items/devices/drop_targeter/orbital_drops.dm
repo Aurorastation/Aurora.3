@@ -21,13 +21,13 @@
 	map = new /datum/map_template/mecha
 
 /obj/item/device/orbital_dropper/mecha/heavy
-	template_name = "heavy-mecha.dmm"
+	map = new /datum/map_template/mecha/heavy
 
 /obj/item/device/orbital_dropper/mecha/light
-	template_name = "light-mecha.dmm"
+	map = new /datum/map_template/mecha/light
 
 /obj/item/device/orbital_dropper/mecha/powerloader
-	template_name = "powerloader-mecha.dmm"
+	map = new /datum/map_template/mecha/powerloader
 
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
