@@ -3268,7 +3268,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ioraks_armband2"
 
 
-/obj/item/clothing/accessory/poncho/fluff/vizili_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
+/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
 	name = "maraziite throw over"
 	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
 	icon = 'icons/obj/custom_items/solozel_items.dmi'
