@@ -21,7 +21,7 @@
 	var/announcer_name = "Mining Requests Console"
 	var/announcer_channel = "Supply" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
 
-	var/datum/map_template/map
+	var/datum/map_template/map = new
 
 /obj/item/device/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
