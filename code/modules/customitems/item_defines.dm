@@ -3277,7 +3277,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	icon_override = FALSE
 
-/obj/item/clothing/mask/fluff/vizili_mask //Iron Mask - Kasluul Solozel - paradoxspace
+/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - paradoxspace
 	name = "iron mask"
 	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
 	icon = 'icons/obj/custom_items/solozel_items.dmi'
