@@ -120,3 +120,19 @@
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
+
+/datum/gear/suit/unathi/wrapping_head
+	display_name = "thakh shaman head wrappings"
+	description = "Head wrappings with a breath mask. Only very traditional Th'akh Shamans would wear these."
+	path = /obj/item/clothing/mask/gas/wrapping
+	cost = 1
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/suit/unathi/wrapping_body
+	display_name = "thakh shaman body wrappings"
+	description = "Closed body wrappings. Only very traditional Th'akh Shamans would wear these."
+	path = /obj/item/clothing/suit/unathi/mantle/wrapping
+	cost = 1
+	whitelisted = list("Unathi", "Aut'akh Unathi")
+	sort_category = "Xenowear - Unathi"
