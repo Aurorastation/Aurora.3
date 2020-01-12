@@ -184,6 +184,8 @@
 	special_role = "FIB Escort"
 	respawn_flag = null
 
+	enabled = FALSE
+
 	mob_name = null
 	mob_name_prefix = "Agt. "
 	mob_name_pick_message = "Pick a name."
