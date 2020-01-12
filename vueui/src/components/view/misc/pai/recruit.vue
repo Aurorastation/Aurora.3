@@ -27,16 +27,31 @@
         Anything you'd like to address specifically to the player reading this in an OOC manner. "I prefer more serious RP.", "I'm still learning the interface!", etc. Feel free to leave this blank if you want.
       </vui-group-item>
     </vui-group>
-    <vui-button :params="{submit_candidate: {name: name, description: description, role: role, comments: comments}}">Submit Personality</vui-button>
+    <vui-button :disabled="!canSubmit" :params="{submit_candidate: {name: name, description: description, role: role, comments: comments}}">Submit Personality</vui-button>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return this.$root.$data
+    return this.$root.$data.state
+  },
+  computed: {
+    canSubmit() {
+      return String(this.name).length > 0
+    }
   }
 }
 </script>
 
 
+<style lang="scss" scoped>
+input, textarea {
+  width: 100%;
+  vertical-align: top;
+}
+
+textarea {
+  height: 3em;
+}
+</style>

@@ -68,7 +68,7 @@
 
 	if(href_list["submit_candidate"])
 		var/datum/paiCandidate/candidate = ui.metadata["candidite"]
-		if(!candidate)
+		if(!istype(candidate))
 			return
 		href_list["submit_candidate"]["name"] = sanitizeSafe(href_list["submit_candidate"]["name"], MAX_NAME_LEN)
 		href_list["submit_candidate"]["description"] = sanitize(href_list["submit_candidate"]["description"])
@@ -82,6 +82,9 @@
 			candidate.role = href_list["submit_candidate"]["role"]
 		if(href_list["submit_candidate"]["comments"])
 			candidate.comments = href_list["submit_candidate"]["comments"]
+		if(candidate.name.length < 1)
+			to_chat(ui.user, "Please set your pAI name.")
+			return
 		candidate.ready = 1
 		for(var/obj/item/device/paicard/p in all_pai_devices)
 			if(p.looking_for_personality == 1)
@@ -133,11 +136,11 @@
 
 	var/datum/vueui/ui = SSvueui.get_open_ui(M, src)
 	if(!ui)
-		ui = new(M, src, "misc-pai-recruit", 580, 580, "pAI Personality Configuration", list(
-			"name" = candidate.name,
-			"description" = candidate.description,
-			"role" = candidate.role,
-			"comments" = candidate.comments
+		ui = new(M, src, "misc-pai-recruit", 580, 590, "pAI Personality Configuration", list(
+			"name" = candidate.name || "",
+			"description" = candidate.description || "",
+			"role" = candidate.role || "",
+			"comments" = candidate.comments || ""
 		), nstate = interactive_state)
 		ui.metadata = list("candidite" = candidate)
 		ui.header = "minimal"
