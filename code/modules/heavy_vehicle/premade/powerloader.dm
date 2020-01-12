@@ -179,15 +179,7 @@
 	dummy_colour = "#ffc44f"
 	remote_network = "remotemechs"
 
-/mob/living/heavy_vehicle/premade/ripley/remote/Initialize()
-	. = ..()
-	become_remote()
-
 /mob/living/heavy_vehicle/premade/ripley/remote_prison
 	name = "penal power loader"
 	dummy_colour = "#302e2b"
 	remote_network = "prisonmechs"
-
-/mob/living/heavy_vehicle/premade/ripley/remote_prison/Initialize()
-	. = ..()
-	become_remote()
