@@ -3295,6 +3295,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/suul_staff.dmi'
 	icon_state = "suul_staff"
 	item_state = "suul_staff"
+	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
 	w_class = 4
 
@@ -3314,6 +3315,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_sweater"
 	item_state = "cress_sweater"
+	contained_sprite = TRUE
 
 /obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
 	name = "lyric book"
