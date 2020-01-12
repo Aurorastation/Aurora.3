@@ -176,6 +176,10 @@
 
 	outfit = /datum/outfit/admin/nt/fib/guard
 
+	req_perms = null
+	req_perms_edit = R_CCIAA
+	max_count = 1
+
 	assigned_role = "FIB Escort"
 	special_role = "FIB Escort"
 	respawn_flag = null
