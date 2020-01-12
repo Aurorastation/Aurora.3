@@ -2634,4 +2634,5 @@
 #include "maps\exodus\code\exodus_unittest.dm"
 #include "maps\runtime\code\runtime.dm"
 #include "maps\runtime\code\runtime_unittest.dm"
+#include "maps\templates\orbital\orbital_templates.dm"
 // END_INCLUDE
