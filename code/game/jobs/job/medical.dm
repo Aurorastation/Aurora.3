@@ -67,14 +67,24 @@
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
 		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
+		"Nurse"=/datum/outfit/job/doctor/nurse
 		)
 
-/datum/job/doctor/surgeon
+/datum/job/surgeon
 	title = "Surgeon"
-	outfit = /datum/outfit/job/doctor/surgeon
+	flag = SURGEON
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	supervisors = "the chief medical officer"
+	selection_color = "#FF97D1"
+	economic_modifier = 7
 
-	total_positions = 2
-	spawn_positions = 2
+	minimum_character_age = 30
+
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
+	outfit = /datum/outfit/job/doctor/surgeon
 
 /datum/outfit/job/doctor
 	name = "Physician"
