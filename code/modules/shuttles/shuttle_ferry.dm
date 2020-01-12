@@ -71,7 +71,7 @@
 		if(!area_station || !area_offsite)
 			moving_status = SHUTTLE_HALT
 			return
-		if(area_station.contents.len == 0 || area_offsite.contents.len == 0)
+		if(!area_station.contents.len || !area_offsite.contents.len)
 			moving_status = SHUTTLE_HALT
 			return
 	switch(process_state)
