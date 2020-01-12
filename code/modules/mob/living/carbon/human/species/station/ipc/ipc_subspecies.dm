@@ -380,6 +380,17 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/industrial/xion)
 	)
 
+/datum/species/machine/industrial/xion/remote
+	name = "Remote Xion Industrial Frame"
+	short_name = "rem_xmf"
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
+		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+	)
+
 /datum/species/machine/industrial/xion/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -510,6 +521,18 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics
 		)
+
+/datum/species/machine/unbranded/remote
+	name = "Remote Unbranded Frame"
+	short_name = "rem_unbran"
+	name_plural = "Remote Unbranded Frames"
+
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
+		BP_CELL    = /obj/item/organ/internal/cell,
+		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
+	)
 
 /datum/species/machine/unbranded/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))

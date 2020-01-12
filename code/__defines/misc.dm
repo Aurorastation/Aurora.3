@@ -98,6 +98,7 @@
 #define SHUTTLE_IDLE      0
 #define SHUTTLE_WARMUP    1
 #define SHUTTLE_INTRANSIT 2
+#define SHUTTLE_HALT      3 // State of no recovery
 
 // Ferry shuttle processing status.
 #define IDLE_STATE   0
