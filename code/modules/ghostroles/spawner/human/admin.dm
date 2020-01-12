@@ -153,7 +153,6 @@
 
 	landmark_name = "CCIAAgent"
 	req_perms = R_CCIAA
-	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/fib
 	possible_species = list("Human")
