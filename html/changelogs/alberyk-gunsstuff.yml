@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added two new guns; harpoon gun and foldable shotgun."
+  - rscadd: "Added a new sprite and firing sound to the silenced pistol."
