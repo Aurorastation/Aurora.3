@@ -133,7 +133,7 @@
 		return ..()
 	if(M.is_adult) //Can't tame adults
 		to_chat(user, span("warning", "Only baby slimes can be tamed!"))
-		return..()
+		return ..()
 	if(M.stat)
 		to_chat(user, span("warning", "The slime is dead!"))
 		return..()
@@ -167,7 +167,7 @@
 			return ..()
 		if(M.stat)
 			to_chat(user, span("warning", "The slime is dead!"))
-			return..()
+			return ..()
 		if(M.mind)
 			to_chat(user, span("warning", "The slime resists!"))
 			return ..()
