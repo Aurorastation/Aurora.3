@@ -6,8 +6,6 @@
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
 
-/obj/item/gun/projectile/shotgun
-
 /obj/item/gun/projectile/shotgun/attackby(obj/item/A, mob/user)
 	if (!can_sawoff || sawing_in_progress)
 		return ..()
@@ -172,3 +170,48 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = 3
 	force = 5
+
+/obj/item/gun/projectile/shotgun/foldable
+	name = "foldable shotgun"
+	desc = "A single-shot shotgun that can be folded for easy concealment."
+	icon_state = "overunder"
+	slot_flags = SLOT_BELT
+	w_class = 3
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+	load_method = SINGLE_CASING|SPEEDLOADER
+	max_shells = 1
+	caliber = "shotgun"
+	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+	var/folded = TRUE
+
+/obj/item/gun/projectile/shotgun/foldable/update_icon()
+	if(folded)
+		icon_state = initial(icon_state)
+		item_state = icon_state
+	else
+		icon_state = "[initial(icon_state)]-d"
+		item_state = "shotgun"
+	update_held_icon()
+
+/obj/item/gun/projectile/shotgun/foldable/proc/toggle_folded(mob/living/user)
+	folded = !folded
+	if(folded)
+		w_class = initial(w_class)
+		slot_flags = initial(slot_flags)
+		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
+	else
+		w_class = 4
+		slot_flags &= ~SLOT_BELT
+		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
+	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")
+	update_icon()
+
+/obj/item/gun/projectile/shotgun/foldable/attack_self(mob/living/user)
+	toggle_folded(user)
+
+/obj/item/gun/projectile/shotgun/foldable/special_check(mob/user)
+	if(folded)
+		toggle_folded(user)
+		return FALSE
+	return ..()
