@@ -52,8 +52,8 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
 	economic_modifier = 7
@@ -62,7 +62,8 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Emergency Physician")
+	alt_titles = list("Emergency Physician", "Nurse")
+	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
 		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
@@ -71,14 +72,6 @@
 /datum/job/doctor/surgeon
 	title = "Surgeon"
 	outfit = /datum/outfit/job/doctor/surgeon
-
-	total_positions = 2
-	spawn_positions = 2
-
-/datum/job/doctor/nurse
-	title = "Nurse"
-	outfit = /datum/outfit/job/doctor/nurse
-	minimum_character_age = 25
 
 	total_positions = 2
 	spawn_positions = 2
