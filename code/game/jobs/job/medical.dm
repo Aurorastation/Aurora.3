@@ -80,8 +80,8 @@
 	outfit = /datum/outfit/job/doctor/nurse
 	minimum_character_age = 25
 
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 
 /datum/outfit/job/doctor
 	name = "Physician"
