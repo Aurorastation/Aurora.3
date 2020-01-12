@@ -216,6 +216,8 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
+var/list/global/golem_runes = list()
+
 /obj/effect/golemrune
 	anchored = TRUE
 	desc = "A strange rune used to create golems. It glows when spirits are nearby."
@@ -230,6 +232,11 @@
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	announce_to_ghosts()
+	golem_runes += src
+
+/obj/effect/golemrune/Destroy()
+	. = ..()
+	golem_runes -= src
 
 /obj/effect/golemrune/process()
 	var/mob/abstract/observer/ghost
@@ -245,40 +252,20 @@
 	else
 		icon_state = "golem"
 
-/obj/effect/golemrune/attack_hand(var/mob/living/user)
-	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in src.loc)
-		if(!O.client)
-			continue
-		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)
-			continue
-		ghost = O
-		break
-
-	if(wizardy)
-		if(!user.is_wizard())
-			to_chat(user, span("notice", "The rune lies silent."))
-			return
-
-	if(!ghost)
-		to_chat(user, span("warning", "The rune fizzles uselessly. There is no spirit nearby."))
-		return
-	if(ghost.has_enabled_antagHUD && config.antag_hud_restricted)
-		to_chat(ghost, span("warning", "You can not join as a golem with antagHUD on!"))
-		to_chat(user, span("warning", "The rune fizzles uselessly. There is no spirit nearby."))
-		return
-
+/obj/effect/golemrune/proc/spawn_golem(var/mob/user)
 	var/golem_type = "Adamantine Golem"
 
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)
 			golem_type = O.material.golem
-			qdel(O)
+			O.amount -= 10
+			if(O.amount <= 0)
+				qdel(O)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 
-	G.key = ghost.key
+	G.key = user.key
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
@@ -288,7 +275,7 @@
 /obj/effect/golemrune/proc/announce_to_ghosts()
 	var/area/A = get_area(src)
 	if(A)
-		say_dead_direct("Golem rune created in [A.name]")
+		say_dead_direct("A golem rune has been created in [A.name]! Access using the ghost spawner menu in the ghost tab.")
 
 /obj/effect/golemrune/wizard
 	wizardy = TRUE

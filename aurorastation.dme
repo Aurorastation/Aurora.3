@@ -1494,6 +1494,7 @@
 #include "code\modules\ghostroles\spawner\human\admin.dm"
 #include "code\modules\ghostroles\spawner\human\emergencypod.dm"
 #include "code\modules\ghostroles\spawner\human\ert.dm"
+#include "code\modules\ghostroles\spawner\human\golem.dm"
 #include "code\modules\ghostroles\spawner\human\human.dm"
 #include "code\modules\ghostroles\spawner\human\kataphract.dm"
 #include "code\modules\ghostroles\spawner\human\merchant.dm"
