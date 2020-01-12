@@ -93,25 +93,25 @@
 /mob/living/heavy_vehicle/examine(var/mob/user)
 	if(!user || !user.client)
 		return
-	to_chat(user, "That's \a [src].")
+	to_chat(user, "\icon[src] That's \a <b>[src]</b>.")
 	to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
 		if(length(pilots) == 0)
-			to_chat(user, "It has no pilot.")
+			to_chat(user, "It has <b>no pilot</b>.")
 		else
 			for(var/pilot in pilots)
 				if(istype(pilot, /mob))
 					var/mob/M = pilot
-					to_chat(user, "It is being piloted by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>.")
+					to_chat(user, "It is being <b>piloted</b> by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>.")
 				else
-					to_chat(user, "It is being piloted by [pilot].")
+					to_chat(user, "It is being <b>piloted</b> by <b>[pilot]</b>.")
 	if(hardpoints.len)
-		to_chat(user, "It has the following hardpoints:")
+		to_chat(user, "<span class='notice'>It has the following hardpoints:</span>")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			to_chat(user, "- [hardpoint]: [istype(I) ? "[I]" : "nothing"].")
+			to_chat(user, "- <b>[hardpoint]</b>: [istype(I) ? "[I]" : "nothing"].")
 	else
-		to_chat(user, "It has no visible hardpoints.")
+		to_chat(user, "It has <b>no visible hardpoints</b>.")
 
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
@@ -121,11 +121,11 @@
 			if(1)
 				damage_string = "undamaged"
 			if(2)
-				damage_string = "damaged"
+				damage_string = "<span class='warning'>damaged</span>"
 			if(3)
-				damage_string = "badly damaged"
+				damage_string = "<span class='warning'>badly damaged</span>"
 			if(4)
-				damage_string = "almost destroyed"
+				damage_string = "<span class='danger'>almost destroyed</span>"
 		to_chat(user, "Its [thing.name] [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
