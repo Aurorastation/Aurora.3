@@ -151,11 +151,8 @@
 	name = "FIB Agent"
 	desc = "Investigate issues related to crimes under the jurisdiction of the Federal Investigations Bureau."
 
-	enabled = FALSE
 	landmark_name = "CCIAAgent"
-	req_perms = null
-	req_perms_edit = R_CCIAA
-	max_count = 1
+	req_perms = R_CCIAA
 
 	outfit = /datum/outfit/admin/nt/fib
 	possible_species = list("Human")
