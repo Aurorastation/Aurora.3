@@ -52,6 +52,9 @@
 	var/hurt_temperature = T0C-50 // slime keeps taking damage when its bodytemperature is below this
 	var/die_temperature = 50 // slime dies instantly when its bodytemperature is below this
 
+	var/co2overloadtime = null
+	var/temperature_resistance = T0C+75
+
 	///////////TIME FOR SUBSPECIES
 
 	var/colour = "grey"
@@ -73,9 +76,9 @@
 	src.colour = colour
 	number = rand(1, 1000)
 	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
-	if (is_adult)
-		mob_size = 6
 	real_name = name
+	if(is_adult)
+		mob_size = 6
 	slime_mutation = mutation_table(colour)
 	mutation_chance = rand(25, 35)
 	var/sanitizedcolour = replacetext(colour, " ", "")
@@ -137,21 +140,21 @@
 	adjustToxLoss(amount-getToxLoss())
 
 /mob/living/carbon/slime/movement_delay()
-	if (bodytemperature >= 330.23) // 135 F
+	if(bodytemperature >= 330.23) // 135 F
 		return -1	// slimes become supercharged at high temperatures
 
 	var/tally = 0
 
 	var/health_deficiency = (maxHealth - health)
-	if(health_deficiency >= 30) tally += (health_deficiency / 25)
+	if(health_deficiency >= 30)
+		tally += (health_deficiency / 25)
 
-	if (bodytemperature < 183.222)
+	if(bodytemperature < 183.222)
 		tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	if(reagents)
 		if(reagents.has_reagent("hyperzine")) // Hyperzine slows slimes down
 			tally *= 2
-
 		if(reagents.has_reagent("frostoil")) // Frostoil also makes them move VEEERRYYYYY slow
 			tally *= 5
 
@@ -164,7 +167,7 @@
 	Atkcool = FALSE
 
 /mob/living/carbon/slime/Collide(atom/movable/AM as mob|obj, yes)
-	if (now_pushing)
+	if(now_pushing)
 		return
 
 	now_pushing = TRUE
@@ -172,16 +175,22 @@
 	if(isobj(AM) && !client && powerlevel > 0)
 		var/probab = 10
 		switch(powerlevel)
-			if(1 to 2)	probab = 20
-			if(3 to 4)	probab = 30
-			if(5 to 6)	probab = 40
-			if(7 to 8)	probab = 60
-			if(9)		probab = 70
-			if(10)		probab = 95
+			if(1 to 2)
+				probab = 20
+			if(3 to 4)
+				probab = 30
+			if(5 to 6)
+				probab = 40
+			if(7 to 8)
+				probab = 60
+			if(9)
+				probab = 70
+			if(10)
+				probab = 95
 		if(prob(probab))
 			if(istype(AM, /obj/structure/window) || istype(AM, /obj/structure/grille))
 				if(nutrition <= get_hunger_nutrition() && !Atkcool)
-					if (is_adult || prob(5))
+					if(is_adult || prob(5))
 						UnarmedAttack(AM)
 						Atkcool = TRUE
 						addtimer(CALLBACK(src, .proc/reset_atkcooldown), 45)
@@ -204,7 +213,7 @@
 	. = ..()
 
 /mob/living/carbon/slime/Allow_Spacemove()
-	return 1
+	return TRUE
 
 /mob/living/carbon/slime/Stat()
 	..()
@@ -230,7 +239,7 @@
 /mob/living/carbon/slime/bullet_act(var/obj/item/projectile/Proj)
 	attacked += 10
 	..(Proj)
-	return 0
+	return FALSE
 
 /mob/living/carbon/slime/emp_act(severity)
 	powerlevel = 0 // oh no, the power!
@@ -242,15 +251,13 @@
 	var/b_loss = null
 	var/f_loss = null
 	switch (severity)
-		if (1.0)
+		if(1.0)
 			qdel(src)
 			return
 
-		if (2.0)
-
+		if(2.0)
 			b_loss += 60
 			f_loss += 60
-
 
 		if(3.0)
 			b_loss += 30
@@ -260,7 +267,6 @@
 
 	updatehealth()
 
-
 /mob/living/carbon/slime/u_equip(obj/item/W as obj)
 	return
 
@@ -268,54 +274,51 @@
 	return
 
 /mob/living/carbon/slime/attack_hand(mob/living/carbon/human/M as mob)
-
 	..()
 
 	if(Victim)
 		if(Victim == M)
 			if(prob(60))
-				visible_message("<span class='warning'>[M] attempts to wrestle \the [name] off!</span>")
+				visible_message(span("warning", "[M] attempts to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-
 			else
-				visible_message("<span class='warning'>[M] manages to wrestle \the [name] off!</span>")
+				visible_message(span("warning", "[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
 					Discipline++
 
-				SStun = 1
+				SStun = TRUE
 				spawn(rand(45,60))
-					SStun = 0
+					SStun = FALSE
 
 				Victim = null
-				anchored = 0
+				anchored = FALSE
 				step_away(src,M)
 
 			return
 
 		else
 			if(prob(30))
-				visible_message("<span class='warning'>[M] attempts to wrestle \the [name] off of [Victim]!</span>")
+				visible_message(span("warning", "[M] attempts to wrestle \the [name] off of [Victim]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-
 			else
-				visible_message("<span class='warning'>[M] manages to wrestle \the [name] off of [Victim]!</span>")
+				visible_message(span("warning", "[M] manages to wrestle \the [name] off of [Victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)
 					Discipline++
 
 					if(!is_adult)
-						if(Discipline == 1)
-							attacked = 0
+						if(Discipline)
+							attacked = FALSE
 
-				SStun = 1
+				SStun = TRUE
 				spawn(rand(55,65))
-					SStun = 0
+					SStun = FALSE
 
 				Victim = null
-				anchored = 0
+				anchored = FALSE
 				step_away(src,M)
 
 			return
@@ -337,7 +340,7 @@
 			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			visible_message(span("warning", "[M] has grabbed [src] passively!"))
 
 		else
 
@@ -359,24 +362,24 @@
 						step_away(src,M,15)
 
 				playsound(loc, "punch", 25, 1, -1)
-				visible_message("<span class='danger'>[M] has punched [src]!</span>", \
-						"<span class='danger'>[M] has punched [src]!</span>")
+				visible_message(span("danger", "[M] has punched [src]!"), \
+						span("danger", "[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-				visible_message("<span class='danger'>[M] has attempted to punch [src]!</span>")
+				visible_message(span("danger", "[M] has attempted to punch [src]!"))
 	return
 
 /mob/living/carbon/slime/attackby(obj/item/W, mob/user)
 	if(W.force > 0)
 		attacked += 10
 		if(prob(25))
-			to_chat(user, "<span class='danger'>[W] passes right through [src]!</span>")
+			to_chat(user, span("danger", "[W] passes right through [src]!"))
 			return
 		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
-			Discipline = 0
+			Discipline = FALSE
 	if(W.force >= 3)
 		if(is_adult)
 			if(prob(5 + round(W.force/2)))
@@ -386,53 +389,50 @@
 
 					Victim = null
 					Target = null
-					anchored = 0
+					anchored = FALSE
 
-					SStun = 1
+					SStun = TRUE
 					spawn(rand(5,20))
-						SStun = 0
+						SStun = FALSE
 
 					spawn(0)
 						if(user)
-							canmove = 0
+							canmove = FALSE
 							step_away(src, user)
 							if(prob(25 + W.force))
 								sleep(2)
 								if(user)
 									step_away(src, user)
-								canmove = 1
+								canmove = TRUE
 
 		else
 			if(prob(10 + W.force*2))
 				if(Victim || Target)
 					if(prob(80) && !client)
 						Discipline++
-					if(Discipline == 1)
-						attacked = 0
-					SStun = 1
+					if(Discipline)
+						attacked = FALSE
+					SStun = TRUE
 					spawn(rand(5,20))
-						SStun = 0
+						SStun = FALSE
 
 					Victim = null
 					Target = null
-					anchored = 0
+					anchored = FALSE
 
 					spawn(0)
 						if(user)
-							canmove = 0
+							canmove = FALSE
 							step_away(src, user)
 							if(prob(25 + W.force*4))
 								sleep(2)
 								if(user)
 									step_away(src, user)
-							canmove = 1
+							canmove = TRUE
 	..()
 
 /mob/living/carbon/slime/restrained()
-	return 0
-
-/mob/living/carbon/slime/var/co2overloadtime = null
-/mob/living/carbon/slime/var/temperature_resistance = T0C+75
+	return FALSE
 
 /mob/living/carbon/slime/toggle_throw_mode()
 	return
