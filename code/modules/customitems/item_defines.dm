@@ -3303,7 +3303,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user.visible_message(span("notice", "[user] loudly taps their [src.name] against the floor."))
+		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		return
 
