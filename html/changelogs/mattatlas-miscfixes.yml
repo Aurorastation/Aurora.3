@@ -42,4 +42,4 @@ changes:
   - bugfix: "Redaction bone mend no longer mends the bones above the bone break threshold."
   - bugfix: "You can no longer put mobs in potted plants."
   - bugfix: "Monkeys no longer throw things while being held."
-  - tweak: "The silicon computer now starts with a wired network card, which means much faster downloads."
+  - tweak: "The silicon computer now starts with an advanced network card, which means much faster downloads."
