@@ -8,7 +8,7 @@
 	desc = "beep boop borp"
 	name = "cyborg gloves"
 	icon_state = "black"
-	item_state = "r_hands"
+	item_state = ""
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/gloves/swat
@@ -139,7 +139,7 @@
 	if(wired && !clipped)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(usr, "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>")
+			to_chat(usr, span("warning", "The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
 	else if(wired && clipped)
 		to_chat(usr, "You check your watch realising it's still open")
 	else
@@ -151,11 +151,11 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes.</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes.</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes."))
 	else if(wired && clipped)
-		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
@@ -181,11 +181,11 @@
 /obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
-			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
+			user.visible_message(span("notice", "[user] screws the cover of the [src] closed."), span("notice", "You screw the cover of the [src] closed."))
 			clipped = 0
 			return
 //		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
+		user.visible_message(span("notice", "[user] unscrews the cover of the [src]."), span("notice", "You unscrew the cover of the [src]."))
 		clipped = 1
 		return
 	if(wired)
@@ -193,20 +193,20 @@
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			to_chat(user, "<span class='notice'>The [src] is not open.</span>")
+			to_chat(user, span("notice", "The [src] is not open."))
 			return
 
 		if(wired)
-			to_chat(user, "<span class='notice'>The [src] are already wired.</span>")
+			to_chat(user, span("notice", "The [src] are already wired."))
 			return
 
 		if(C.amount < 2)
-			to_chat(user, "<span class='notice'>There is not enough wire to cover the [src].</span>")
+			to_chat(user, span("notice", "There is not enough wire to cover the [src]."))
 			return
 
 		C.use(2)
 		wired = 1
-		to_chat(user, "<span class='notice'>You repair some wires in the [src].</span>")
+		to_chat(user, span("notice", "You repair some wires in the [src]."))
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
